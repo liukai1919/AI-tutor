@@ -1,6 +1,6 @@
 # 圆圆数学 🧮
 
-给孩子的 AI 数学小老师：出一道题（打字或拍照），一步一步、配着图、用语音讲给孩子听，最后给答案核对 + 一道同类练习。
+给孩子的 AI 数学小老师：出一道题（打字或拍照），一步一步、配着图、用语音讲给孩子听，最后给答案核对 + 一道同类练习。**支持中文和英文**（右上角一键切换，讲解、界面、语音全套跟着换）。
 
 跑在你自己的电脑或树莓派上，**不需要往网页里填任何 API key** —— 它会自动借用你机器上已登录的 AI 工具。
 
@@ -40,11 +40,55 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
     "think": true            // 关掉可提速，但数学准确率下降，不建议
   },
   "anthropic": { "apiKey": "", "model": "claude-opus-5" },
-  "openai": { "baseUrl": "", "apiKey": "", "model": "" }   // OpenRouter/xAI 等 OpenAI 兼容服务
+  "openai": { "baseUrl": "", "apiKey": "", "model": "" },  // OpenRouter/xAI 等 OpenAI 兼容服务
+  "tts": { ... }               // 自然语音（可选），见下面「自然语音」一节
 }
 ```
 
 环境变量 `PORT`、`ACCESS_CODE` 可覆盖对应配置。
+
+## 自然语音（可选，CosyVoice 2）
+
+默认用孩子设备浏览器自带的语音朗读（免费、零配置，但比较生硬）。如果服务器这台机器装了
+[CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)（本地模型，Apache-2.0，2-4GB 显存，CPU 也能跑），
+配置后讲解会换成自然的真人感声音，中英文同一个音色。
+
+**推荐跑法：常驻守护进程**（模型只加载一次，之后每步 2-9 秒出声）。
+用 CosyVoice 自己的 Python 环境启动 `tools/tts_server.py`：
+
+```bash
+# 在装了 CosyVoice 的环境里（Windows 上通常是 WSL）：
+python tools/tts_server.py --port 9880
+# 模型不在 ~/tts/CosyVoice 时：--repo /path/CosyVoice [--model-dir ...]
+```
+
+然后 config.json 里指过去：
+
+```jsonc
+"tts": {
+  "enabled": true,
+  "url": "http://localhost:9880",   // 守护进程地址（WSL 里跑也是 localhost，自动转发）
+  "mode": "zero_shot",              // 跟参考音最像（默认）。instruct 可用指令控语气，但部分
+                                    // CosyVoice 版本会把指令念出来，确认没问题再换
+
+  "speed": 1.0,
+  "refAudio": "",                   // 换音色：一段 3 秒以上干净人声的路径（引擎侧视角）
+  "refText": "",                    // zero_shot 模式需要参考音的逐字转写
+  "refLang": "zh"
+}
+```
+
+Windows + WSL 建议把守护进程装成 systemd 服务（`systemctl enable --now yuanyuan-tts`，
+unit 参考 README 同目录的 videogen 写法），跟着 WSL 一起自愈；
+**不要**让 Node 每次去 spawn `wsl.exe`——这台机器实测 wslservice 会周期性 wedge（E_UNEXPECTED），
+而已在跑的守护进程和 localhost 转发不受影响。
+
+不想常驻的话还有**命令模式**：`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`，
+每节课起一次进程批量合成（每次多付 ~12 秒模型加载）。url 和 command 都不配就是纯浏览器语音。
+
+工作方式：出完题服务器就开始按步合成，按内容哈希缓存在 `tts-cache/`（上限 500MB 自动清理，
+同一道题再讲直接秒播）。某一步没就绪时前端最多等 15 秒，等不到自动退回浏览器语音，
+**任何一环失败都不影响讲课**。英文讲解用同一音色跨语言合成（cross-lingual），不用单独配。
 
 ## 部署到树莓派（孩子不在家也能用）
 
@@ -117,6 +161,8 @@ sudo tailscale up
 
 ## 说明
 
-- 语音朗读用的是孩子设备上浏览器自带的中文语音，免费、不走服务器。
+- 中英文：右上角「EN / 中」一键切换，界面、例题、讲解语言、语音全套跟着换；设置里也能改。
+- 语音朗读：配置了 CosyVoice 就用自然音色（见上），否则用孩子设备浏览器自带的语音（免费、不走服务器；
+  Edge 浏览器的"Natural"在线音色效果最好，会自动优先选用）。
 - 图形（分数条、数轴、面积格子、线段图）是程序画的，永远不会画错；AI 只负责选图和填数字。
 - AI 讲题偶尔会算错。最终答案会单独醒目显示，建议家长顺手核对。

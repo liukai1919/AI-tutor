@@ -30,9 +30,11 @@
     background:linear-gradient(135deg,var(--brand),#ffb27a);box-shadow:var(--shadow);transform:rotate(-4deg)
   }
   .logo small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0}
+  .hbtns{display:flex;gap:8px}
   .iconbtn{border:none;background:var(--card);width:42px;height:42px;border-radius:14px;cursor:pointer;
     box-shadow:var(--shadow);font-size:20px;display:grid;place-items:center;color:var(--ink)}
   .iconbtn:active{transform:scale(.94)}
+  .iconbtn.txt{font-size:14px;font-weight:800}
   .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;border:2px solid #fff}
   .hidden{display:none!important}
 
@@ -74,6 +76,8 @@
   .sayBox.speaking{border-color:var(--brand);box-shadow:0 0 0 4px rgba(255,138,91,.12)}
   .teacher{position:absolute;top:-16px;left:16px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;
     padding:4px 10px;border-radius:999px}
+  .voicehint{color:var(--muted);font-size:13px;text-align:center;animation:pulse 1.4s infinite ease-in-out}
+  @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
   .controls{display:flex;gap:10px;align-items:center;margin-top:16px}
   .controls .btn{flex:0 0 auto;padding:12px 16px;font-size:16px}
   .play{width:58px;height:58px;border-radius:999px;font-size:24px;padding:0;display:grid;place-items:center}
@@ -124,30 +128,33 @@
   <header>
     <div class="logo">
       <div class="pi">π</div>
-      <div>圆圆数学<small>你的 AI 数学小老师</small></div>
+      <div><span data-i18n="appName">圆圆数学</span><small data-i18n="logoSub">你的 AI 数学小老师</small></div>
     </div>
-    <button class="iconbtn" id="gear" title="设置">⚙️</button>
+    <div class="hbtns">
+      <button class="iconbtn txt" id="langBtn" title="Language">EN</button>
+      <button class="iconbtn" id="gear" data-i18n-title="settingsTitle" title="设置">⚙️</button>
+    </div>
   </header>
 
   <!-- 输入区 -->
   <section class="card" id="inputCard">
     <h2 class="hi" id="greet">来，出道题给<span class="name" id="kidNameLabel">你</span>讲讲 👋</h2>
-    <p class="sub">打字、或拍一张作业题的照片都行。我会一步一步、画着图讲给你听。</p>
-    <textarea id="q" placeholder="比如：3/4 + 1/6 等于多少？　或者：一个长方形长 8 厘米、宽 5 厘米，面积是多少？"></textarea>
+    <p class="sub" data-i18n="sub">打字、或拍一张作业题的照片都行。我会一步一步、画着图讲给你听。</p>
+    <textarea id="q" data-i18n-ph="qPh" placeholder="比如：3/4 + 1/6 等于多少？　或者：一个长方形长 8 厘米、宽 5 厘米，面积是多少？"></textarea>
 
     <div class="row">
-      <label class="filepill" for="photo">📷 拍照 / 传图</label>
+      <label class="filepill" for="photo" data-i18n="photoLabel">📷 拍照 / 传图</label>
       <input id="photo" type="file" accept="image/*" capture="environment" class="hidden" />
       <span id="fileName" class="help" style="margin:0"></span>
       <div class="spacer"></div>
-      <span class="enginebadge" id="engineBadge">引擎：<b id="engineName">检测中…</b></span>
+      <span class="enginebadge" id="engineBadge"><span data-i18n="engineLabel">引擎：</span><b id="engineName">…</b></span>
     </div>
-    <div><img id="preview" class="previewimg hidden" alt="题目图片" /></div>
+    <div><img id="preview" class="previewimg hidden" alt="" /></div>
 
     <div class="chips" id="examples"></div>
 
     <div class="row" style="margin-top:16px">
-      <button class="btn big" id="go">开始讲解 ✨</button>
+      <button class="btn big" id="go" data-i18n="go">开始讲解 ✨</button>
     </div>
   </section>
 
@@ -155,92 +162,94 @@
   <section class="card hidden" id="playerCard">
     <div class="row" style="justify-content:space-between;margin:0">
       <h2 class="lessonTitle" id="lessonTitle">这道题</h2>
-      <button class="btn ghost" id="newQ" style="padding:8px 14px;font-size:14px">← 再问一题</button>
+      <button class="btn ghost" id="newQ" data-i18n="newQ" style="padding:8px 14px;font-size:14px">← 再问一题</button>
     </div>
     <div class="dots" id="dots"></div>
 
     <div class="stage">
       <div class="visualBox hidden" id="visualBox"></div>
       <div class="mathBox hidden" id="mathBox"></div>
-      <div class="sayBox" id="sayBox"><span class="teacher">圆圆老师</span><span id="sayText"></span></div>
+      <div class="sayBox" id="sayBox"><span class="teacher" data-i18n="teacher">圆圆老师</span><span id="sayText"></span></div>
+      <div class="voicehint hidden" id="voiceHint">🎙 …</div>
     </div>
 
     <div class="controls">
-      <button class="btn ghost" id="prev">‹ 上一步</button>
-      <button class="btn play" id="playToggle" title="播放 / 暂停">▶</button>
-      <button class="btn ghost" id="replay" title="重听这一步">↻</button>
+      <button class="btn ghost" id="prev" data-i18n="prevBtn">‹ 上一步</button>
+      <button class="btn play" id="playToggle" data-i18n-title="playTitle" title="播放 / 暂停">▶</button>
+      <button class="btn ghost" id="replay" data-i18n-title="replayTitle" title="重听这一步">↻</button>
       <div class="spacer"></div>
-      <button class="btn ghost" id="next">下一步 ›</button>
+      <button class="btn ghost" id="next" data-i18n="nextBtn">下一步 ›</button>
     </div>
 
     <div class="answerCard hidden" id="answerCard">
-      <div class="lab">最终答案</div>
+      <div class="lab" data-i18n="answerLab">最终答案</div>
       <div class="val" id="answerVal"></div>
-      <div class="note">💡 给家长：答案已醒目显示，方便你顺手核对一下。数学讲解偶尔也会算错哦。</div>
+      <div class="note" data-i18n="answerNote">💡 给家长：答案已醒目显示，方便你顺手核对一下。数学讲解偶尔也会算错哦。</div>
     </div>
 
     <div class="practice hidden" id="practiceCard">
-      <div class="lab">🎯 换你试试</div>
+      <div class="lab" data-i18n="practiceLab">🎯 换你试试</div>
       <div class="q" id="practiceQ"></div>
       <div class="reveal">
-        <button class="btn blue" id="showAns" style="padding:10px 16px;font-size:15px">看答案</button>
+        <button class="btn blue" id="showAns" data-i18n="showAns" style="padding:10px 16px;font-size:15px">看答案</button>
         <div class="ans" id="practiceAns"></div>
       </div>
     </div>
   </section>
 
-  <div class="footer">
-    在你家的电脑 / 树莓派上运行 · 不依赖任何第三方服务器<br/>
-    讲解由 AI 生成，可能出错，重要作业请家长把把关。
-  </div>
+  <div class="footer" id="footerText"></div>
 </div>
 
 <!-- 加载中 -->
 <div class="overlay hidden" id="loading">
   <div>
     <div class="loadpi">🧮</div>
-    <div class="loadmsg" id="loadMsg">圆圆老师正在准备你的课…</div>
-    <div class="loadsub" id="loadSub">正在想最好懂的讲法，稍等一下下</div>
+    <div class="loadmsg" id="loadMsg"></div>
+    <div class="loadsub" id="loadSub"></div>
   </div>
 </div>
 
 <!-- 设置 -->
 <div class="modal hidden" id="settings">
   <div class="modalCard">
-    <h3>设置</h3>
-    <p class="help" style="margin-top:2px">保存在这台设备的浏览器里。</p>
+    <h3 data-i18n="settingsTitle">设置</h3>
+    <p class="help" style="margin-top:2px" data-i18n="settingsHelp">保存在这台设备的浏览器里。</p>
 
     <div class="field hidden" id="codeField">
-      <label>访问码</label>
-      <input id="accessCode" type="password" placeholder="问爸爸妈妈要访问码" autocomplete="off" />
-      <div class="help">家里服务器设置了访问码，输入一次就好。</div>
+      <label data-i18n="codeLabel">访问码</label>
+      <input id="accessCode" type="password" data-i18n-ph="codePh" placeholder="问爸爸妈妈要访问码" autocomplete="off" />
+      <div class="help" data-i18n="codeHelp">家里服务器设置了访问码，输入一次就好。</div>
     </div>
 
     <div class="field">
-      <label>AI 引擎</label>
-      <div class="engineList" id="engineList"><div class="help">正在检测…</div></div>
-      <div class="help">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
-    </div>
-
-    <div class="field">
-      <label>孩子的名字（可选，讲解会更亲切）</label>
-      <input id="kidName" type="text" placeholder="比如：朵朵" maxlength="12" />
-    </div>
-
-    <div class="field">
-      <label>年级 / 难度</label>
-      <select id="grade">
-        <option value="小学四年级">小学四年级</option>
-        <option value="小学五年级" selected>小学五年级</option>
-        <option value="小学六年级">小学六年级</option>
+      <label data-i18n="langLabel">语言 / Language</label>
+      <select id="langSel">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
       </select>
+    </div>
+
+    <div class="field">
+      <label data-i18n="engineFieldLabel">AI 引擎</label>
+      <div class="engineList" id="engineList"></div>
+      <div class="help" data-i18n="engineHelp">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
+    </div>
+
+    <div class="field">
+      <label data-i18n="kidLabel">孩子的名字（可选，讲解会更亲切）</label>
+      <input id="kidName" type="text" data-i18n-ph="kidPh" placeholder="比如：朵朵" maxlength="12" />
+    </div>
+
+    <div class="field">
+      <label data-i18n="gradeLabel">年级 / 难度</label>
+      <select id="grade"></select>
     </div>
 
     <div class="err hidden" id="settingsErr"></div>
 
     <div class="modalRow">
-      <button class="btn ghost" id="closeSettings" style="flex:1">取消</button>
-      <button class="btn" id="saveSettings" style="flex:1">保存</button>
+      <button class="btn ghost" id="closeSettings" data-i18n="cancel" style="flex:1">取消</button>
+      <button class="btn" id="saveSettings" data-i18n="save" style="flex:1">保存</button>
     </div>
   </div>
 </div>
@@ -248,17 +257,138 @@
 <script>
 "use strict";
 
+/* ---------- 多语言 ---------- */
+const I18N = {
+  zh: {
+    docTitle:"圆圆数学 · 你的 AI 数学小老师",
+    appName:"圆圆数学", logoSub:"你的 AI 数学小老师",
+    greetHtml:'来，出道题给<span class="name" id="kidNameLabel">你</span>讲讲 👋',
+    defaultName:"你",
+    sub:"打字、或拍一张作业题的照片都行。我会一步一步、画着图讲给你听。",
+    qPh:"比如：3/4 + 1/6 等于多少？　或者：一个长方形长 8 厘米、宽 5 厘米，面积是多少？",
+    photoLabel:"📷 拍照 / 传图", photoReady:"已选图片，点「开始讲解」",
+    engineLabel:"引擎：", detecting:"检测中…", serverOffline:"服务器未连接", locked:"待解锁", noneFound:"未检测到",
+    go:"开始讲解 ✨", newQ:"← 再问一题", thisProblem:"这道题",
+    teacher:"圆圆老师",
+    prevBtn:"‹ 上一步", nextBtn:"下一步 ›", playTitle:"播放 / 暂停", replayTitle:"重听这一步",
+    answerLab:"最终答案",
+    answerNote:"💡 给家长：答案已醒目显示，方便你顺手核对一下。数学讲解偶尔也会算错哦。",
+    practiceLab:"🎯 换你试试", showAns:"看答案", ansPrefix:"答案：",
+    footerHtml:"在你家的电脑 / 树莓派上运行 · 不依赖任何第三方服务器<br/>讲解由 AI 生成，可能出错，重要作业请家长把把关。",
+    loadMsgs:["圆圆老师正在准备你的课…","在想最好懂的讲法…","正在画小图…","正在一步步验算…","马上就好啦…"],
+    loadSubOllama:"本地模型在认真思考，第一次会久一点（一两分钟很正常）",
+    loadSubDefault:"正在想最好懂的讲法，可能要等半分钟",
+    settingsTitle:"设置", settingsHelp:"保存在这台设备的浏览器里。",
+    codeLabel:"访问码", codePh:"问爸爸妈妈要访问码", codeHelp:"家里服务器设置了访问码，输入一次就好。",
+    langLabel:"语言 / Language",
+    engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
+    kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
+    gradeLabel:"年级 / 难度", g4:"小学四年级", g5:"小学五年级", g6:"小学六年级",
+    cancel:"取消", save:"保存",
+    autoPick:"自动选择", autoPickNote:"让服务器挑一个能用的",
+    tagCurrent:"当前", tagOption:"可选", tagAvail:"可用", tagNA:"未安装", noImage:"不支持看图",
+    needCode1:"需要输入访问码才能使用。", needCode2:"访问码不对或还没填，输入后再试。",
+    imgTooBig:"图片有点大（超过 8MB），换一张小一点的吧。",
+    imgBadFormat:"图片格式没读懂，换一张 JPG 或 PNG。",
+    genericErr:"出了点小问题，再试一次吧。",
+    voiceHint:"🎙 正在准备圆圆老师的声音…",
+    colsRowsFmt:(c,r)=>`${c} 列 × ${r} 行`, barItemFmt:(i)=>`第${i}项`,
+    examples:[
+      "3/4 + 1/6 等于多少？",
+      "把 0.25 变成分数，怎么做？",
+      "长方形长 8 厘米、宽 5 厘米，面积是多少？",
+      "24 和 36 的最大公因数是几？",
+      "小明有 15 颗糖，分给 3 个小朋友，每人几颗？",
+      "为什么 1/2 比 1/3 大？"
+    ]
+  },
+  en: {
+    docTitle:"Yuanyuan Math · Your AI math tutor",
+    appName:"Yuanyuan Math", logoSub:"Your AI math tutor",
+    greetHtml:'Let’s solve a problem together, <span class="name" id="kidNameLabel">friend</span>! 👋',
+    defaultName:"friend",
+    sub:"Type it, or snap a photo of the homework problem. I’ll explain it step by step, with pictures.",
+    qPh:"e.g. What is 3/4 + 1/6?   Or: A rectangle is 8 cm long and 5 cm wide — what is its area?",
+    photoLabel:"📷 Photo / upload", photoReady:"Photo added — press “Explain it”",
+    engineLabel:"Engine: ", detecting:"detecting…", serverOffline:"server offline", locked:"locked", noneFound:"none found",
+    go:"Explain it ✨", newQ:"← New question", thisProblem:"This problem",
+    teacher:"Ms. Yuanyuan",
+    prevBtn:"‹ Back", nextBtn:"Next ›", playTitle:"Play / pause", replayTitle:"Replay this step",
+    answerLab:"FINAL ANSWER",
+    answerNote:"💡 For parents: the answer is shown here so you can double-check it. AI lessons can occasionally get things wrong.",
+    practiceLab:"🎯 Your turn", showAns:"Show answer", ansPrefix:"Answer: ",
+    footerHtml:"Runs on your own computer or Raspberry Pi · no third-party servers<br/>Lessons are AI-generated and can make mistakes — parents, please double-check important homework.",
+    loadMsgs:["Ms. Yuanyuan is preparing your lesson…","Thinking of the clearest way to explain…","Drawing little pictures…","Double-checking the math…","Almost ready…"],
+    loadSubOllama:"The local model is thinking hard — the first run takes longer (a minute or two is normal)",
+    loadSubDefault:"Working out the clearest explanation — about half a minute",
+    settingsTitle:"Settings", settingsHelp:"Saved in this device’s browser.",
+    codeLabel:"Access code", codePh:"Ask mom or dad for the code", codeHelp:"Your home server needs an access code — enter it once.",
+    langLabel:"Language / 语言",
+    engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
+    kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
+    gradeLabel:"Grade level", g4:"Grade 4", g5:"Grade 5", g6:"Grade 6",
+    cancel:"Cancel", save:"Save",
+    autoPick:"Auto", autoPickNote:"Let the server pick a working one",
+    tagCurrent:"Current", tagOption:"Option", tagAvail:"Available", tagNA:"Not installed", noImage:"can’t read images",
+    needCode1:"Enter the access code to use the app.", needCode2:"Wrong or missing access code — enter it and try again.",
+    imgTooBig:"That photo is a bit big (over 8MB) — try a smaller one.",
+    imgBadFormat:"Couldn’t read that image — try a JPG or PNG.",
+    genericErr:"Something went wrong — try again.",
+    voiceHint:"🎙 Warming up Ms. Yuanyuan’s voice…",
+    colsRowsFmt:(c,r)=>`${c} × ${r}`, barItemFmt:(i)=>`Item ${i}`,
+    examples:[
+      "What is 3/4 + 1/6?",
+      "How do you write 0.25 as a fraction?",
+      "A rectangle is 8 cm long and 5 cm wide. What is its area?",
+      "What is the greatest common factor of 24 and 36?",
+      "Tom has 15 candies to share equally among 3 friends. How many does each get?",
+      "Why is 1/2 bigger than 1/3?"
+    ]
+  }
+};
+
 /* ---------- 配置存取 ---------- */
 const LS = "yuanyuan_math_v2";
-const cfg = Object.assign({accessCode:"",kidName:"",grade:"小学五年级",provider:"auto"},
+const cfg = Object.assign({accessCode:"",kidName:"",gradeCode:"5",provider:"auto",lang:"zh"},
   JSON.parse(localStorage.getItem(LS) || "{}"));
+// 老版本存的是中文年级串，迁移成代码
+if(cfg.grade && !cfg.gradeCode) cfg.gradeCode=({"小学四年级":"4","小学五年级":"5","小学六年级":"6"})[cfg.grade]||"5";
+if(cfg.lang!=="en" && cfg.lang!=="zh") cfg.lang="zh";
 function saveCfg(){ localStorage.setItem(LS, JSON.stringify(cfg)); }
 
 const $ = id => document.getElementById(id);
+const t = key => { const d=I18N[cfg.lang]||I18N.zh; return (key in d)?d[key]:I18N.zh[key]; };
 const inputCard=$("inputCard"), playerCard=$("playerCard"), loading=$("loading"), settings=$("settings");
 
+function applyLang(){
+  document.documentElement.lang = cfg.lang==="en" ? "en" : "zh-CN";
+  document.title = t("docTitle");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ el.textContent=t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder=t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{ el.title=t(el.dataset.i18nTitle); });
+  $("greet").innerHTML=t("greetHtml");
+  $("footerText").innerHTML=t("footerHtml");
+  $("langBtn").textContent = cfg.lang==="en" ? "中" : "EN";
+  $("voiceHint").textContent = t("voiceHint");
+  applyKidName();
+  renderExamples();
+  buildGradeOptions();
+  updateEngineBadge();
+}
+function applyKidName(){
+  const el=$("kidNameLabel"); if(el) el.textContent = cfg.kidName || t("defaultName");
+}
+function buildGradeOptions(){
+  const sel=$("grade"); sel.innerHTML="";
+  [["4",t("g4")],["5",t("g5")],["6",t("g6")]].forEach(([v,lab])=>{
+    const o=document.createElement("option"); o.value=v; o.textContent=lab; sel.appendChild(o);
+  });
+  sel.value=cfg.gradeCode||"5";
+}
+function gradeText(){ return t("g"+(cfg.gradeCode||"5")); }
+
 /* ---------- 服务器状态 ---------- */
-let serverInfo = { authRequired:false, active:null, providers:[] };
+let serverInfo = { authRequired:false, active:null, providers:[], tts:false };
 function apiHeaders(){
   const h={ "content-type":"application/json" };
   if(cfg.accessCode) h["x-access-code"]=cfg.accessCode;
@@ -267,17 +397,19 @@ function apiHeaders(){
 async function fetchProviders(){
   try{
     const r=await fetch("/api/providers",{headers:apiHeaders()});
-    if(r.status===401){ serverInfo.authRequired=true; updateEngineBadge(); openSettings("需要输入访问码才能使用。"); return; }
+    if(r.status===401){ serverInfo.authRequired=true; updateEngineBadge(); openSettings(t("needCode1")); return; }
     serverInfo=await r.json();
+    serverInfo.loaded=true;
     updateEngineBadge();
   }catch(e){
-    $("engineName").textContent="服务器未连接";
+    $("engineName").textContent=t("serverOffline");
   }
 }
-function providerLabel(id){
-  const p=(serverInfo.providers||[]).find(p=>p.id===id);
-  return p ? p.label : id;
+function providerLabel(p){
+  if(typeof p==="string") p=(serverInfo.providers||[]).find(x=>x.id===p)||{id:p,label:p};
+  return (cfg.lang==="en" ? (p.labelEn||p.label) : p.label) || p.id;
 }
+function providerNote(p){ return (cfg.lang==="en" ? (p.noteEn||p.note) : p.note) || ""; }
 function activeProvider(){
   if(cfg.provider && cfg.provider!=="auto"){
     const p=(serverInfo.providers||[]).find(p=>p.id===cfg.provider && p.available);
@@ -287,50 +419,147 @@ function activeProvider(){
 }
 function updateEngineBadge(){
   const a=activeProvider();
-  $("engineName").textContent = a ? providerLabel(a) : (serverInfo.authRequired ? "待解锁" : "未检测到");
+  $("engineName").textContent = a ? providerLabel(a)
+    : serverInfo.authRequired ? t("locked")
+    : serverInfo.loaded ? t("noneFound") : t("detecting");
 }
 
 /* ---------- 例题 ---------- */
-const EXAMPLES = [
-  "3/4 + 1/6 等于多少？",
-  "把 0.25 变成分数，怎么做？",
-  "长方形长 8 厘米、宽 5 厘米，面积是多少？",
-  "24 和 36 的最大公因数是几？",
-  "小明有 15 颗糖，分给 3 个小朋友，每人几颗？",
-  "为什么 1/2 比 1/3 大？"
-];
 function renderExamples(){
   $("examples").innerHTML = "";
-  EXAMPLES.forEach(t=>{
-    const c=document.createElement("div"); c.className="chip"; c.textContent=t;
-    c.onclick=()=>{ $("q").value=t; };
+  t("examples").forEach(x=>{
+    const c=document.createElement("div"); c.className="chip"; c.textContent=x;
+    c.onclick=()=>{ $("q").value=x; };
     $("examples").appendChild(c);
   });
 }
 
-/* ---------- 语音（TTS，跑在孩子的设备上，免费） ---------- */
-let zhVoice=null;
-function pickVoice(){
-  const vs = speechSynthesis.getVoices();
-  const zh = vs.filter(v=>/^zh|Chinese|Mandarin/i.test(v.lang+v.name));
-  const pref = zh.find(v=>/Xiaoxiao|Yunxi|Yunyang|Huihui|Mandarin|普通话/i.test(v.name));
-  zhVoice = pref || zh[0] || null;
+/* ---------- 浏览器语音（兜底；有 CosyVoice 时优先播服务器音频） ---------- */
+const pickedVoice={zh:null,en:null};
+function pickVoices(){
+  const vs=speechSynthesis.getVoices();
+  const best=(langRe,prefRe)=>{
+    const cand=vs.filter(v=>langRe.test(v.lang));
+    return cand.find(v=>prefRe.test(v.name)&&/natural/i.test(v.name))   // Edge 的 Natural 音色最自然
+        || cand.find(v=>prefRe.test(v.name))
+        || cand.find(v=>/natural|online/i.test(v.name))
+        || cand[0] || null;
+  };
+  pickedVoice.zh=best(/^zh/i,/Xiaoxiao|Xiaoyi|Yunxi|Yunyang|Huihui|普通话|Mandarin/i);
+  pickedVoice.en=best(/^en/i,/Aria|Jenny|Michelle|Guy|Samantha|Google US English/i);
 }
 if("speechSynthesis" in window){
-  pickVoice();
-  speechSynthesis.onvoiceschanged = pickVoice;
+  pickVoices();
+  speechSynthesis.onvoiceschanged=pickVoices;
 }
-function speak(text, onend){
-  if(!("speechSynthesis" in window)){ if(onend) setTimeout(onend, 1200); return; }
+function speak(text,lang,onend,isRetry){
+  if(!("speechSynthesis" in window)){ if(onend) setTimeout(onend,2500); return; }
   speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  if(zhVoice) u.voice=zhVoice;
-  u.lang="zh-CN"; u.rate=0.92; u.pitch=1.05;
-  u.onend=()=>{ if(onend) onend(); };
-  u.onerror=()=>{ if(onend) onend(); };
+  const u=new SpeechSynthesisUtterance(text);
+  const v=pickedVoice[lang]||pickedVoice.zh;
+  if(v && !isRetry) u.voice=v;          // 重试时不指定音色，让浏览器自己挑
+  u.lang = lang==="en" ? "en-US" : "zh-CN";
+  u.rate = lang==="en" ? 0.95 : 0.92;
+  u.pitch = 1.05;
+  const t0=Date.now();
+  let settled=false;
+  const done=()=>{
+    if(settled) return; settled=true;
+    // 一开口就结束 = 引擎/音色抽风。至少让这一步停足 2.5 秒再翻页，
+    // 保证孩子来得及看文字，也不会连环快进把讲解跳过去。
+    const dwell=Date.now()-t0;
+    if(dwell<2500) setTimeout(()=>{ if(onend) onend(); }, 2500-dwell);
+    else if(onend) onend();
+  };
+  u.onend=done;
+  u.onerror=()=>{
+    if(!isRetry && Date.now()-t0<600){ settled=true; speak(text,lang,onend,true); return; }
+    done();
+  };
   speechSynthesis.speak(u);
 }
-function stopSpeak(){ if("speechSynthesis" in window) speechSynthesis.cancel(); }
+// Chrome 桌面版长句会莫名停住的老毛病：说话期间隔几秒 resume 一下
+setInterval(()=>{ try{ if(("speechSynthesis" in window) && speechSynthesis.speaking) speechSynthesis.resume(); }catch(_){} }, 10000);
+
+/* ---------- 服务器语音（CosyVoice） ---------- */
+/* /api/tts 是幂等的「提交即查询」：轮询就是重复 POST 同一批文本 */
+let lessonTts={ enabled:false, texts:[], items:[] };
+let ttsPollTimer=null;
+function ttsStart(){
+  stopTtsPoll();
+  lessonTts={ enabled: !!serverInfo.tts, texts:[], items:[] };
+  if(!lessonTts.enabled || !lesson || lesson.isMath===false) return;
+  lessonTts.texts=(lesson.steps||[]).map(s=>({text:s.say||"",lang:lessonLang}));
+  ttsSync();
+  ttsPollTimer=setInterval(ttsSync,1500);
+}
+async function ttsSync(){
+  if(!lessonTts.enabled || !lessonTts.texts.length){ stopTtsPoll(); return; }
+  try{
+    const r=await fetch("/api/tts",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({lang:lessonLang,items:lessonTts.texts})});
+    if(!r.ok) return;
+    const d=await r.json();
+    if(!d.enabled){ lessonTts.enabled=false; stopTtsPoll(); return; }
+    lessonTts.items=d.items||[];
+    if(lessonTts.items.length){
+      const anyPending=lessonTts.items.some(it=>it.state==="pending");
+      // 补合成会让已停的轮询重新转起来（比如播放失败触发的重查）
+      if(anyPending && !ttsPollTimer && lesson) ttsPollTimer=setInterval(ttsSync,1500);
+      if(!anyPending) stopTtsPoll();
+    }
+  }catch(_){}
+}
+function stopTtsPoll(){ if(ttsPollTimer){ clearInterval(ttsPollTimer); ttsPollTimer=null; } }
+function ttsItem(i){ return (lessonTts.enabled && lessonTts.items[i]) || null; }
+
+/* ---------- 播放：优先 CosyVoice 音频，没就绪等一小会儿，兜底浏览器语音 ---------- */
+let curAudio=null, playToken=0;
+function stopAllSound(){
+  playToken++;
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  if(curAudio){ curAudio.onended=null; curAudio.onerror=null; try{curAudio.pause();}catch(_){} curAudio=null; }
+  $("voiceHint").classList.add("hidden");
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function playStep(i,text,onend){
+  const token=++playToken;
+  const finish=()=>{ if(token===playToken) onend(); };
+  let it=ttsItem(i);
+  // 已在合成队列里：稍等（音频顺序合成，前面的步骤先好）；等不到就退回浏览器语音
+  if(it && it.state==="pending"){
+    $("voiceHint").classList.remove("hidden");
+    const deadline=Date.now()+15000;
+    while(Date.now()<deadline){
+      await sleep(500);
+      if(token!==playToken) return;      // 用户按了暂停/切了步骤
+      it=ttsItem(i);
+      if(!it || it.state!=="pending") break;
+    }
+    $("voiceHint").classList.add("hidden");
+    if(token!==playToken) return;
+  }
+  it=ttsItem(i);
+  if(it && it.state==="ready"){
+    const a=new Audio(it.url);
+    curAudio=a;
+    let settled=false;   // onended / onerror / play() 拒绝只认第一个，重复回调会把步骤跳过去
+    const failover=()=>{
+      if(settled) return; settled=true;
+      if(token!==playToken) return;
+      it.state="failed";               // 别再撞这个坏 URL（比如服务器缓存被清了）
+      ttsSync();                       // 让服务器重新检查，缺的会自动补合成
+      speak(text,lessonLang,finish);
+    };
+    a.onended=()=>{ if(settled) return; settled=true; finish(); };
+    a.onerror=failover;
+    const next=ttsItem(i+1);             // 顺手预热下一步的音频（immutable，进 HTTP 缓存）
+    if(next && next.state==="ready") fetch(next.url).catch(()=>{});
+    try{ await a.play(); }catch(e){ failover(); }
+    return;
+  }
+  speak(text,lessonLang,finish);
+}
 
 /* ---------- 可视化积木（永远画对） ---------- */
 const COL={fill:"#ff8a5b",fill2:"#6c8cff",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
@@ -380,7 +609,7 @@ function vAreaGrid(nums){
     const on=(i<sr&&j<sc);
     r+=`<rect x="${ox+j*cell}" y="${oy+i*cell}" width="${cell}" height="${cell}" fill="${on?COL.fill:'#fff'}" stroke="${COL.line}" stroke-width="1.5"/>`;
   }
-  r+=`<text x="${ox+cols*cell/2}" y="${oy+rows*cell+16}" text-anchor="middle" font-size="13" fill="${COL.ink}">${cols} 列 × ${rows} 行</text>`;
+  r+=`<text x="${ox+cols*cell/2}" y="${oy+rows*cell+16}" text-anchor="middle" font-size="13" fill="${COL.ink}">${t("colsRowsFmt")(cols,rows)}</text>`;
   return svg(W,H,r);
 }
 function vBarModel(nums,labels){
@@ -391,7 +620,7 @@ function vBarModel(nums,labels){
   let r="";
   vals.forEach((v,i)=>{
     const y=14+i*(barH+gap), w=(W-pad-30)*(v/max);
-    const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):("第"+(i+1)+"项");
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):t("barItemFmt")(i+1);
     r+=`<text x="8" y="${y+barH/2+5}" font-size="13" fill="${COL.ink}">${lab}</text>`;
     r+=`<rect x="${pad}" y="${y}" width="${Math.max(2,w)}" height="${barH}" rx="6" fill="${i%2?COL.fill2:COL.fill}"/>`;
     r+=`<text x="${pad+Math.max(2,w)+8}" y="${y+barH/2+5}" font-size="13" font-weight="700" fill="${COL.ink}">${v}</text>`;
@@ -412,7 +641,7 @@ function renderVisual(v){
   if(v.caption) s+=`<div class="cap">${escapeHtml(v.caption)}</div>`;
   return s;
 }
-function escapeHtml(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function escapeHtml(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 
 /* ---------- 调用家里的桥梁服务器 ---------- */
 async function generateLesson(question, imageB64, mediaType){
@@ -421,32 +650,36 @@ async function generateLesson(question, imageB64, mediaType){
     headers: apiHeaders(),
     body: JSON.stringify({
       question, imageB64, mediaType,
-      grade: cfg.grade, kidName: cfg.kidName,
-      provider: cfg.provider
+      grade: gradeText(), kidName: cfg.kidName,
+      provider: cfg.provider, lang: cfg.lang
     })
   });
   const data = await resp.json().catch(()=>({}));
-  if(resp.status===401){ serverInfo.authRequired=true; openSettings("访问码不对或还没填，输入后再试。"); throw new Error("需要访问码"); }
-  if(!resp.ok) throw new Error(data.error || ("请求失败（"+resp.status+"）"));
-  return data.lesson;
+  if(resp.status===401){
+    serverInfo.authRequired=true; openSettings(t("needCode2"));
+    throw Object.assign(new Error("auth"),{silent:true});
+  }
+  if(!resp.ok) throw new Error(data.error || (cfg.lang==="en"?"Request failed (":"请求失败（")+resp.status+(cfg.lang==="en"?")":"）"));
+  return data;
 }
 
 /* ---------- 播放器 ---------- */
-let lesson=null, idx=0, playing=false;
-function startLesson(l){
-  lesson=l; idx=0; playing=false;
+let lesson=null, lessonLang="zh", idx=0, playing=false;
+function startLesson(l, lang){
+  lesson=l; lessonLang=lang||cfg.lang; idx=0; playing=false;
   inputCard.classList.add("hidden");
   playerCard.classList.remove("hidden");
-  $("lessonTitle").textContent = l.title || "这道题";
+  $("lessonTitle").textContent = l.title || t("thisProblem");
   $("answerCard").classList.toggle("hidden", !l.isMath);
   $("practiceCard").classList.add("hidden");
   $("answerVal").textContent = l.answer || "";
   if(l.isMath && l.practice){
     $("practiceQ").textContent = l.practice.question || "";
-    $("practiceAns").textContent = "答案：" + (l.practice.answer || "");
+    $("practiceAns").textContent = t("ansPrefix") + (l.practice.answer || "");
     $("practiceAns").style.display="none";
     $("showAns").style.display="";
   }
+  ttsStart();
   buildDots();
   showStep(0);
   window.scrollTo({top:0,behavior:"smooth"});
@@ -486,7 +719,7 @@ function showStep(i){
 function playCurrent(){
   const s=(lesson.steps||[])[idx]; if(!s) return;
   $("sayBox").classList.add("speaking");
-  speak(s.say||"", ()=>{
+  playStep(idx, s.say||"", ()=>{
     $("sayBox").classList.remove("speaking");
     if(!playing) return;
     const last = idx>=(lesson.steps.length-1);
@@ -501,7 +734,7 @@ function finishLesson(){
     $("answerCard").scrollIntoView({behavior:"smooth",block:"center"});
   }
 }
-function pause(){ playing=false; stopSpeak(); $("sayBox").classList.remove("speaking"); updatePlayBtn(); }
+function pause(){ playing=false; stopAllSound(); $("sayBox").classList.remove("speaking"); updatePlayBtn(); }
 function updatePlayBtn(){ $("playToggle").textContent = playing ? "⏸" : "▶"; }
 
 $("playToggle").onclick=()=>{
@@ -512,7 +745,7 @@ $("next").onclick=()=>{ pause(); if(idx<lesson.steps.length-1) showStep(idx+1); 
 $("prev").onclick=()=>{ pause(); if(idx>0) showStep(idx-1); };
 $("replay").onclick=()=>{ pause(); playing=true; updatePlayBtn(); playCurrent(); };
 $("newQ").onclick=()=>{
-  pause(); lesson=null;
+  pause(); lesson=null; stopTtsPoll();
   playerCard.classList.add("hidden");
   inputCard.classList.remove("hidden");
   window.scrollTo({top:0,behavior:"smooth"});
@@ -523,53 +756,53 @@ $("showAns").onclick=()=>{ $("practiceAns").style.display="block"; $("showAns").
 let pendingImage=null;
 $("photo").onchange=(e)=>{
   const f=e.target.files&&e.target.files[0]; if(!f) return;
-  if(f.size > 8*1024*1024){ alert("图片有点大（超过 8MB），换一张小一点的吧。"); return; }
+  if(f.size > 8*1024*1024){ alert(t("imgTooBig")); return; }
   const reader=new FileReader();
   reader.onload=()=>{
     const dataUrl=reader.result;
     const m=/^data:(image\/[a-zA-Z0-9.+-]+);base64,(.*)$/.exec(dataUrl);
-    if(!m){ alert("图片格式没读懂，换一张 JPG 或 PNG。"); return; }
+    if(!m){ alert(t("imgBadFormat")); return; }
     pendingImage={ b64:m[2], mediaType:m[1] };
     $("preview").src=dataUrl; $("preview").classList.remove("hidden");
-    $("fileName").textContent = "已选图片，点「开始讲解」";
+    $("fileName").textContent = t("photoReady");
   };
   reader.readAsDataURL(f);
 };
 
-const LOAD_MSGS=[
-  "圆圆老师正在准备你的课…",
-  "在想最好懂的讲法…",
-  "正在画小图…",
-  "正在一步步验算…",
-  "马上就好啦…"
-];
 let loadTimer=null;
 function showLoading(){
   loading.classList.remove("hidden");
   const a=activeProvider();
-  $("loadSub").textContent = (a==="ollama")
-    ? "本地模型在认真思考，第一次会久一点（一两分钟很正常）"
-    : "正在想最好懂的讲法，可能要等半分钟";
-  let i=0; $("loadMsg").textContent=LOAD_MSGS[0];
-  loadTimer=setInterval(()=>{ i=(i+1)%LOAD_MSGS.length; $("loadMsg").textContent=LOAD_MSGS[i]; }, 3000);
+  $("loadSub").textContent = (a==="ollama") ? t("loadSubOllama") : t("loadSubDefault");
+  const msgs=t("loadMsgs");
+  let i=0; $("loadMsg").textContent=msgs[0];
+  loadTimer=setInterval(()=>{ i=(i+1)%msgs.length; $("loadMsg").textContent=msgs[i]; }, 3000);
 }
 function hideLoading(){ loading.classList.add("hidden"); if(loadTimer) clearInterval(loadTimer); }
 
 async function onGo(){
   const text=$("q").value.trim();
   if(!text && !pendingImage){ $("q").focus(); return; }
+  const lang=cfg.lang;
   showLoading();
   try{
-    const l=await generateLesson(text, pendingImage&&pendingImage.b64, pendingImage&&pendingImage.mediaType);
+    const data=await generateLesson(text, pendingImage&&pendingImage.b64, pendingImage&&pendingImage.mediaType);
+    if(typeof data.tts==="boolean") serverInfo.tts=data.tts;
     hideLoading();
-    startLesson(l);
+    startLesson(data.lesson, lang);
   }catch(err){
     hideLoading();
-    if(err.message!=="需要访问码") alert(err.message || "出了点小问题，再试一次吧。");
+    if(!err.silent) alert(err.message || t("genericErr"));
   }
 }
 $("go").onclick=onGo;
 $("q").addEventListener("keydown",(e)=>{ if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)) onGo(); });
+
+/* ---------- 语言切换 ---------- */
+$("langBtn").onclick=()=>{
+  cfg.lang = cfg.lang==="en" ? "zh" : "en";
+  saveCfg(); applyLang();
+};
 
 /* ---------- 设置弹窗 ---------- */
 function renderEngineList(){
@@ -582,15 +815,17 @@ function renderEngineList(){
     if(available) el.onclick=()=>{ cfg.provider=id; renderEngineList(); };
     box.appendChild(el);
   };
-  mk("auto","自动选择","让服务器挑一个能用的",true, cfg.provider==="auto"?"当前":"可选");
+  mk("auto",t("autoPick"),t("autoPickNote"),true, cfg.provider==="auto"?t("tagCurrent"):t("tagOption"));
   (serverInfo.providers||[]).forEach(p=>{
-    mk(p.id, p.label, p.note + (p.model?(" · "+p.model):"") + (p.supportsImage?"":" · 不支持看图"),
-       p.available, p.available ? (cfg.provider===p.id?"当前":"可用") : "未安装");
+    mk(p.id, providerLabel(p),
+       providerNote(p) + (p.model?(" · "+p.model):"") + (p.supportsImage?"":" · "+t("noImage")),
+       p.available, p.available ? (cfg.provider===p.id?t("tagCurrent"):t("tagAvail")) : t("tagNA"));
   });
 }
 function openSettings(errMsg){
   $("kidName").value=cfg.kidName||"";
-  $("grade").value=cfg.grade||"小学五年级";
+  $("grade").value=cfg.gradeCode||"5";
+  $("langSel").value=cfg.lang;
   $("accessCode").value=cfg.accessCode||"";
   $("codeField").classList.toggle("hidden", !serverInfo.authRequired);
   renderEngineList();
@@ -602,21 +837,18 @@ $("gear").onclick=()=>openSettings();
 $("closeSettings").onclick=()=>settings.classList.add("hidden");
 $("saveSettings").onclick=async ()=>{
   cfg.kidName=$("kidName").value.trim();
-  cfg.grade=$("grade").value;
+  cfg.gradeCode=$("grade").value;
+  cfg.lang=$("langSel").value==="en"?"en":"zh";
   cfg.accessCode=$("accessCode").value.trim();
   saveCfg();
-  applyCfg();
+  applyLang();
   settings.classList.add("hidden");
   await fetchProviders();   // 用新访问码重新拉一次
   updateEngineBadge();
 };
-function applyCfg(){
-  $("kidNameLabel").textContent = cfg.kidName ? cfg.kidName : "你";
-}
 
 /* ---------- 初始化 ---------- */
-renderExamples();
-applyCfg();
+applyLang();
 fetchProviders();
 </script>
 </body>

@@ -16,6 +16,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
+const crypto = require("crypto");
 const { spawn } = require("child_process");
 
 /* ---------------- 配置 ---------------- */
@@ -26,7 +27,30 @@ const DEFAULT_CONFIG = {
   provider: "auto",               // auto | ollama | grok | claude | gemini | codex | anthropic | openai
   ollama: { url: "http://localhost:11434", model: "", think: true },
   anthropic: { apiKey: "", model: "claude-opus-5" },
-  openai: { baseUrl: "", apiKey: "", model: "" }   // OpenAI 兼容（OpenRouter / xAI API 等）
+  openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
+  tts: {
+    // 自然语音（CosyVoice 2 等本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
+    // 推荐 url：tools/tts_server.py 常驻守护进程（模型不用反复加载，单步 2-9 秒），
+    //   例 "http://localhost:9880"（守护进程跑在 WSL/本机都行，见 README）。
+    // command 备选：每节课起一次 tools/tts_batch.py，{manifest} 会被替换成任务清单路径，
+    //   例（Linux 同机）：["/home/you/miniconda3/envs/cosyvoice/bin/python","/path/ai-tutor/tools/tts_batch.py","{manifest}"]
+    enabled: true,
+    url: "",
+    command: [],
+    // zero_shot：跟参考音最像（默认）。instruct 理论上可控语气，但部分 CosyVoice
+    // 版本会把指令当正文念出来（2026-08-12 实测中招），确认你那版没问题再换。
+    mode: "zero_shot",
+    speed: 1.0,
+    repo: "", modelDir: "",       // 留空用 tts_batch.py 的默认（~/tts/CosyVoice）
+    refAudio: "", refText: "", refLang: "zh",
+    instruct: {
+      zh: "用温柔亲切的语气，像小学老师给孩子讲课一样，语速稍慢。",
+      en: "Speak warmly and gently, like a friendly elementary school teacher, at a slightly slow pace."
+    },
+    cacheDir: "tts-cache",
+    maxCacheMB: 500,
+    timeoutMs: 420000
+  }
 };
 let cfg = DEFAULT_CONFIG;
 try {
@@ -81,7 +105,8 @@ const LESSON_SCHEMA = {
 };
 
 /* ---------------- 提示词 ---------------- */
-function systemPrompt(grade, kidName) {
+function systemPrompt(grade, kidName, lang) {
+  if (lang === "en") return systemPromptEn(grade, kidName);
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
   return `你是「圆圆老师」，一位给${grade || "小学五年级"}孩子（约10-12岁）讲数学的小学老师，说地道、亲切的中文。${name}
 
@@ -111,12 +136,50 @@ function systemPrompt(grade, kidName) {
 只讲这一道题，用最好懂的方式。`;
 }
 
-const JSON_ONLY_HINT = `
+function systemPromptEn(grade, kidName) {
+  const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
+  return `You are "Ms. Yuanyuan", a kind elementary school teacher explaining math to a ${grade || "Grade 5"} child (about 10-12 years old), in natural, warm, everyday English. ${name}
+
+Your task: turn one math problem into a step-by-step lesson the child can SEE and HEAR, like a little video class.
+
+Iron rules:
+1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
+2. One small idea per step. Encouraging, conversational tone; use everyday examples (sharing pizza, candies, running, shopping).
+3. Explain the idea first (why), then the method (how), then give the answer.
+
+Output fields:
+- title: a short, friendly title for this lesson.
+- isMath: whether this is a math/number question. If not, set isMath=false, put one gentle sentence in steps guiding the child back to math, and fill answer and practice with placeholders.
+- steps: 5-8 steps is best. Each step:
+  - say: the words to be READ ALOUD to the child. Plain spoken English — no LaTeX, no odd symbols; say numbers and operations in words (like "three quarters", "times").
+  - math: the formula shown on screen for this step, in LaTeX (e.g. \\frac{3}{4}+\\frac{1}{6}). Use "" if not needed.
+  - visual: the picture for this step. type is one of:
+    · "none": no picture.
+    · "fractionBar": nums=[total parts, shaded parts]. Great for fractions and common denominators.
+    · "numberLine": nums=[min, max, (optional) point to mark]. Great for comparing, adding/subtracting, decimals.
+    · "areaGrid": nums=[rows, cols, (optional) shaded rows, (optional) shaded cols]. Great for multiplication and area.
+    · "barModel": labels=["A","B"...], nums=[amounts...]. Great for comparisons, sharing, multiples.
+    The picture must match the step; use "none" if nothing fits. Keep numbers small and visual (parts/rows/cols at most 12).
+- answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
+- practice: one similar practice problem with different numbers (question + answer).
+
+Teach just this one problem, in the easiest possible way.`;
+}
+
+const JSON_HINT = {
+  zh: `
 
 【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。JSON 必须符合这个结构：
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|numberLine|areaGrid|barModel","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`;
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|numberLine|areaGrid|barModel","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences. It must match this structure:
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|numberLine|areaGrid|barModel","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
+};
 
 /* ---------------- 工具函数 ---------------- */
+const L = (lang, zh, en) => lang === "en" ? en : zh;
+
 function extractJson(text) {
   if (!text) throw new Error("引擎没有返回内容");
   let t = String(text);
@@ -227,13 +290,13 @@ async function detectProviders() {
 }
 
 const PROVIDER_META = {
-  ollama:    { label: "本地模型 (Ollama)", supportsImage: true,  note: "免费·离线·第一次要预热" },
-  grok:      { label: "Grok Build",        supportsImage: false, note: "用你的 Grok 登录" },
-  claude:    { label: "Claude Code",       supportsImage: true,  note: "用你的 Claude 订阅" },
-  gemini:    { label: "Gemini CLI",        supportsImage: true,  note: "用你的 Google 登录" },
-  codex:     { label: "Codex (OpenAI)",    supportsImage: false, note: "用你的 OpenAI 登录" },
-  anthropic: { label: "Anthropic API",     supportsImage: true,  note: "key 存在服务器 config.json" },
-  openai:    { label: "OpenAI 兼容 API",   supportsImage: true,  note: "OpenRouter / xAI 等" }
+  ollama:    { label: "本地模型 (Ollama)", labelEn: "Local model (Ollama)",  supportsImage: true,  note: "免费·离线·第一次要预热", noteEn: "Free · offline · first run warms up" },
+  grok:      { label: "Grok Build",        labelEn: "Grok Build",            supportsImage: false, note: "用你的 Grok 登录",        noteEn: "Uses your Grok login" },
+  claude:    { label: "Claude Code",       labelEn: "Claude Code",           supportsImage: true,  note: "用你的 Claude 订阅",      noteEn: "Uses your Claude subscription" },
+  gemini:    { label: "Gemini CLI",        labelEn: "Gemini CLI",            supportsImage: true,  note: "用你的 Google 登录",      noteEn: "Uses your Google login" },
+  codex:     { label: "Codex (OpenAI)",    labelEn: "Codex (OpenAI)",        supportsImage: false, note: "用你的 OpenAI 登录",      noteEn: "Uses your OpenAI login" },
+  anthropic: { label: "Anthropic API",     labelEn: "Anthropic API",         supportsImage: true,  note: "key 存在服务器 config.json", noteEn: "API key stored in server config.json" },
+  openai:    { label: "OpenAI 兼容 API",   labelEn: "OpenAI-compatible API", supportsImage: true,  note: "OpenRouter / xAI 等",     noteEn: "OpenRouter / xAI etc." }
 };
 const AUTO_ORDER = ["claude", "grok", "gemini", "ollama", "codex", "anthropic", "openai"];
 
@@ -265,11 +328,11 @@ async function genOllama(sys, question, imageB64) {
   return extractJson(d.message && d.message.content);
 }
 
-async function genGrok(sys, question) {
+async function genGrok(sys, question, imageB64, mediaType, lang) {
   const dir = tmpWorkdir();
   try {
     const pf = path.join(dir, "prompt.txt");
-    fs.writeFileSync(pf, sys + "\n\n题目：" + question, "utf8");
+    fs.writeFileSync(pf, sys + "\n\n" + L(lang, "题目：", "Problem: ") + question, "utf8");
     const out = await runCmd(detected.grok.bin, [
       "--prompt-file", pf,
       "--json-schema", JSON.stringify(LESSON_SCHEMA),
@@ -281,14 +344,18 @@ async function genGrok(sys, question) {
   } finally { cleanup(dir); }
 }
 
-async function genClaude(sys, question, imageB64, mediaType) {
+async function genClaude(sys, question, imageB64, mediaType, lang) {
   const dir = tmpWorkdir();
   try {
-    let prompt = sys + JSON_ONLY_HINT + "\n\n题目：" + question;
+    const hint = JSON_HINT[lang] || JSON_HINT.zh;
+    let prompt = sys + hint + "\n\n" + L(lang, "题目：", "Problem: ") + question;
     if (imageB64) {
       const ext = /png/.test(mediaType || "") ? "png" : "jpg";
       fs.writeFileSync(path.join(dir, "question." + ext), Buffer.from(imageB64, "base64"));
-      prompt = sys + JSON_ONLY_HINT + "\n\n题目在当前目录的图片 question." + ext + " 里，请先查看图片。" + (question ? "\n补充说明：" + question : "");
+      prompt = sys + hint + "\n\n" +
+        L(lang, "题目在当前目录的图片 question." + ext + " 里，请先查看图片。",
+                "The problem is in the image question." + ext + " in the current directory. Look at the image first.") +
+        (question ? "\n" + L(lang, "补充说明：", "Additional note: ") + question : "");
     }
     const out = await runCmd(detected.claude.bin, ["-p", prompt, "--output-format", "json"], { cwd: dir, timeout: 300000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
@@ -296,34 +363,37 @@ async function genClaude(sys, question, imageB64, mediaType) {
   } finally { cleanup(dir); }
 }
 
-async function genGemini(sys, question, imageB64, mediaType) {
+async function genGemini(sys, question, imageB64, mediaType, lang) {
   const dir = tmpWorkdir();
   try {
-    let prompt = sys + JSON_ONLY_HINT + "\n\n题目：" + question;
+    const hint = JSON_HINT[lang] || JSON_HINT.zh;
+    let prompt = sys + hint + "\n\n" + L(lang, "题目：", "Problem: ") + question;
     if (imageB64) {
       const ext = /png/.test(mediaType || "") ? "png" : "jpg";
       fs.writeFileSync(path.join(dir, "question." + ext), Buffer.from(imageB64, "base64"));
-      prompt = sys + JSON_ONLY_HINT + "\n\n题目在图片 @question." + ext + " 里。" + (question ? "\n补充说明：" + question : "");
+      prompt = sys + hint + "\n\n" +
+        L(lang, "题目在图片 @question." + ext + " 里。", "The problem is in the image @question." + ext + ".") +
+        (question ? "\n" + L(lang, "补充说明：", "Additional note: ") + question : "");
     }
     const out = await runCmd(detected.gemini.bin, ["-p", prompt], { cwd: dir, timeout: 300000 });
     return extractJson(out);
   } finally { cleanup(dir); }
 }
 
-async function genCodex(sys, question) {
+async function genCodex(sys, question, imageB64, mediaType, lang) {
   const dir = tmpWorkdir();
   try {
     const out = await runCmd(detected.codex.bin,
-      ["exec", "--skip-git-repo-check", sys + JSON_ONLY_HINT + "\n\n题目：" + question],
+      ["exec", "--skip-git-repo-check", sys + (JSON_HINT[lang] || JSON_HINT.zh) + "\n\n" + L(lang, "题目：", "Problem: ") + question],
       { cwd: dir, timeout: 300000 });
     return extractJson(out);
   } finally { cleanup(dir); }
 }
 
-async function genAnthropic(sys, question, imageB64, mediaType) {
+async function genAnthropic(sys, question, imageB64, mediaType, lang) {
   const content = [];
   if (imageB64) content.push({ type: "image", source: { type: "base64", media_type: mediaType || "image/jpeg", data: imageB64 } });
-  content.push({ type: "text", text: question || "请讲解图片里的这道数学题。" });
+  content.push({ type: "text", text: question || L(lang, "请讲解图片里的这道数学题。", "Please explain the math problem in the image.") });
   const r = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "content-type": "application/json", "x-api-key": cfg.anthropic.apiKey, "anthropic-version": "2023-06-01" },
@@ -338,22 +408,22 @@ async function genAnthropic(sys, question, imageB64, mediaType) {
   });
   if (!r.ok) throw new Error("Anthropic API 出错：" + (await r.text()).slice(0, 200));
   const d = await r.json();
-  if (d.stop_reason === "refusal") throw new Error("这道题不方便讲，换一道数学题吧");
+  if (d.stop_reason === "refusal") throw new Error(L(lang, "这道题不方便讲，换一道数学题吧", "I'd rather not cover that one — try another math question!"));
   const tb = (d.content || []).find(b => b.type === "text");
   return extractJson(tb && tb.text);
 }
 
-async function genOpenAI(sys, question, imageB64, mediaType) {
+async function genOpenAI(sys, question, imageB64, mediaType, lang) {
   const userContent = imageB64
     ? [{ type: "image_url", image_url: { url: "data:" + (mediaType || "image/jpeg") + ";base64," + imageB64 } },
-       { type: "text", text: question || "请讲解图片里的这道数学题。" }]
+       { type: "text", text: question || L(lang, "请讲解图片里的这道数学题。", "Please explain the math problem in the image.") }]
     : question;
   const r = await fetch(cfg.openai.baseUrl.replace(/\/$/, "") + "/chat/completions", {
     method: "POST",
     headers: { "content-type": "application/json", "authorization": "Bearer " + cfg.openai.apiKey },
     body: JSON.stringify({
       model: cfg.openai.model,
-      messages: [{ role: "system", content: sys + JSON_ONLY_HINT }, { role: "user", content: userContent }],
+      messages: [{ role: "system", content: sys + (JSON_HINT[lang] || JSON_HINT.zh) }, { role: "user", content: userContent }],
       response_format: { type: "json_object" }
     }),
     signal: AbortSignal.timeout(300000)
@@ -364,6 +434,161 @@ async function genOpenAI(sys, question, imageB64, mediaType) {
 }
 
 const ADAPTERS = { ollama: genOllama, grok: genGrok, claude: genClaude, gemini: genGemini, codex: genCodex, anthropic: genAnthropic, openai: genOpenAI };
+
+/* ---------------- 语音合成（CosyVoice 等本地 TTS，可选） ----------------
+ * 思路来自 vediotube-videogen：config 声明一条本地命令，服务器只管「文本进、wav 出」。
+ * 这里按整节课批量提交（tools/tts_batch.py 一次加载模型合成全部步骤），
+ * 结果按内容哈希落盘缓存；文件出现 = 就绪。没配置或失败时前端自动退回浏览器语音。 */
+const TTS_CACHE = path.join(ROOT, (cfg.tts && cfg.tts.cacheDir) || "tts-cache");
+const TTS_FAIL_TTL = 5 * 60 * 1000;
+const ttsInFlight = new Set();     // 已排队/正在合成的 id
+const ttsFailed = new Map();       // id -> 失败时间（TTL 内不重试，前端走兜底）
+let ttsChain = Promise.resolve();  // 单队列：同一时刻只跑一个合成进程，防止模型重复加载挤显存
+
+function ttsAvailable() {
+  const t = cfg.tts;
+  if (!t || t.enabled === false) return false;
+  if (t.url) return true;   // 守护进程模式；真实可达性在合成时体现，失败会走兜底
+  if (!Array.isArray(t.command) || t.command.length < 2) return false;
+  const bin = t.command[0];
+  return path.isAbsolute(bin) ? fs.existsSync(bin) : !!which(bin);
+}
+function ttsUsesWsl() { return /(^|[\\/])wsl(\.exe)?$/i.test(String(cfg.tts.command[0] || "")); }
+function toWslPath(p) {
+  const m = /^([A-Za-z]):[\\/](.*)$/.exec(p);
+  return m ? "/mnt/" + m[1].toLowerCase() + "/" + m[2].replace(/\\/g, "/") : p.replace(/\\/g, "/");
+}
+function ttsId(text, lang) {
+  const t = cfg.tts;
+  return crypto.createHash("sha1").update(JSON.stringify(
+    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text]
+  )).digest("hex");
+}
+function ttsWavPath(id) { return path.join(TTS_CACHE, id + ".wav"); }
+
+function ttsSubmit(items) {
+  for (const it of items) ttsInFlight.add(it.id);
+  ttsChain = ttsChain.then(() => ttsRunJob(items));
+}
+
+async function ttsRunJob(items) {
+  const pend = items.filter(it => !fs.existsSync(ttsWavPath(it.id)));
+  if (!pend.length) { for (const it of items) ttsInFlight.delete(it.id); return; }
+  fs.mkdirSync(TTS_CACHE, { recursive: true });
+  if (cfg.tts.url) return ttsRunJobDaemon(items, pend);
+  const wsl = ttsUsesWsl();
+  const manifest = {
+    repo: cfg.tts.repo || null, modelDir: cfg.tts.modelDir || null,
+    outDir: wsl ? toWslPath(TTS_CACHE) : TTS_CACHE,
+    mode: cfg.tts.mode || "instruct",
+    speed: cfg.tts.speed || 1.0,
+    refAudio: cfg.tts.refAudio || null, refText: cfg.tts.refText || null,
+    refLang: cfg.tts.refLang || "zh",
+    instruct: cfg.tts.instruct || {},
+    items: pend.map(it => ({ id: it.id, text: it.text, lang: it.lang }))
+  };
+  const mf = path.join(TTS_CACHE, "job-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8) + ".json");
+  fs.writeFileSync(mf, JSON.stringify(manifest), "utf8");
+  const argv = cfg.tts.command.map(a => a === "{manifest}" ? (wsl ? toWslPath(mf) : mf) : a);
+  const t0 = Date.now();
+  console.log(`[tts] 合成 ${pend.length} 条…`);
+  try {
+    await runCmd(argv[0], argv.slice(1), { timeout: cfg.tts.timeoutMs || 420000, cwd: ROOT });
+  } catch (e) {
+    console.log("[tts] " + e.message);
+  } finally {
+    try { fs.unlinkSync(mf); } catch (_) {}
+    let ok = 0;
+    for (const it of items) {
+      ttsInFlight.delete(it.id);
+      if (fs.existsSync(ttsWavPath(it.id))) ok++;
+      else ttsFailed.set(it.id, Date.now());
+    }
+    console.log(`[tts] 完成 ${ok}/${items.length}，用时 ${Math.round((Date.now() - t0) / 1000)}s`);
+    ttsPruneCache();
+  }
+}
+
+/* 守护进程模式：逐条 POST /synth，模型常驻所以每条只要几秒；
+ * 连挂两条视为守护进程不在，剩下的直接判失败让前端走兜底 */
+async function ttsRunJobDaemon(items, pend) {
+  const base = cfg.tts.url.replace(/\/$/, "");
+  const t0 = Date.now();
+  console.log(`[tts] 守护进程合成 ${pend.length} 条…`);
+  let consecFail = 0;
+  for (const it of pend) {
+    if (consecFail >= 2) break;
+    try {
+      const r = await fetch(base + "/synth", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          text: it.text, lang: it.lang,
+          mode: cfg.tts.mode || "instruct",
+          speed: cfg.tts.speed || 1.0,
+          instruct: cfg.tts.instruct || {},
+          refAudio: cfg.tts.refAudio || null, refText: cfg.tts.refText || null,
+          refLang: cfg.tts.refLang || "zh"
+        }),
+        signal: AbortSignal.timeout(180000)   // 首条可能撞上模型加载（daemon 侧会等）
+      });
+      if (!r.ok) throw new Error("HTTP " + r.status + " " + (await r.text()).slice(0, 120));
+      const buf = Buffer.from(await r.arrayBuffer());
+      const tmp = ttsWavPath(it.id) + ".tmp";
+      fs.writeFileSync(tmp, buf);
+      fs.renameSync(tmp, ttsWavPath(it.id));
+      consecFail = 0;
+    } catch (e) {
+      consecFail++;
+      console.log(`[tts] ${it.id.slice(0, 8)} 失败: ${e.message}`);
+    }
+  }
+  let ok = 0;
+  for (const it of items) {
+    ttsInFlight.delete(it.id);
+    if (fs.existsSync(ttsWavPath(it.id))) ok++;
+    else ttsFailed.set(it.id, Date.now());
+  }
+  console.log(`[tts] 完成 ${ok}/${items.length}，用时 ${Math.round((Date.now() - t0) / 1000)}s`);
+  ttsPruneCache();
+}
+
+function ttsPruneCache() {
+  try {
+    const max = ((cfg.tts && cfg.tts.maxCacheMB) || 500) * 1024 * 1024;
+    const files = fs.readdirSync(TTS_CACHE).filter(f => f.endsWith(".wav")).map(f => {
+      const p = path.join(TTS_CACHE, f); const st = fs.statSync(p);
+      return { p, size: st.size, t: st.mtimeMs };
+    });
+    let total = files.reduce((s, f) => s + f.size, 0);
+    if (total <= max) return;
+    files.sort((a, b) => a.t - b.t);
+    for (const f of files) {
+      if (total <= max) break;
+      try { fs.unlinkSync(f.p); total -= f.size; } catch (_) {}
+    }
+  } catch (_) {}
+}
+
+/* 请求里的条目 -> {id,state,url}；没见过的顺手入队（幂等，前端轮询就是重复 POST） */
+function ttsStates(reqItems, defLang) {
+  const now = Date.now();
+  const out = [], submit = [];
+  for (const raw of (reqItems || []).slice(0, 24)) {
+    const text = String((raw && raw.text) || "").trim().slice(0, 600);
+    if (!text) continue;
+    const lang = raw.lang === "en" || raw.lang === "zh" ? raw.lang : defLang;
+    const id = ttsId(text, lang);
+    let state;
+    if (fs.existsSync(ttsWavPath(id))) state = "ready";
+    else if (ttsInFlight.has(id)) state = "pending";
+    else if (ttsFailed.has(id) && now - ttsFailed.get(id) < TTS_FAIL_TTL) state = "failed";
+    else { state = "pending"; ttsFailed.delete(id); submit.push({ id, text, lang }); }
+    out.push({ id, state, url: "/api/tts/audio/" + id + ".wav" });
+  }
+  if (submit.length) ttsSubmit(submit);
+  return out;
+}
 
 /* ---------------- HTTP 服务器 ---------------- */
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".woff2": "font/woff2" };
@@ -404,35 +629,71 @@ const server = http.createServer(async (req, res) => {
         available: !!(detected[id] && detected[id].available),
         model: detected[id] && detected[id].model || undefined
       }));
-      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list });
+      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable() });
+    }
+
+    if (url.pathname === "/api/tts" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      if (!ttsAvailable()) return send(res, 200, { enabled: false, items: [] });
+      const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
+      const defLang = body.lang === "en" ? "en" : "zh";
+      return send(res, 200, { enabled: true, items: ttsStates(body.items, defLang) });
+    }
+
+    if (url.pathname.startsWith("/api/tts/audio/") && req.method === "GET") {
+      const m = /^\/api\/tts\/audio\/([a-f0-9]{40})\.wav$/.exec(url.pathname);
+      const p = m && ttsWavPath(m[1]);
+      let st = null;
+      try { st = p && fs.statSync(p); } catch (_) {}
+      if (!st) { res.writeHead(404); return res.end(); }
+      const head = { "content-type": "audio/wav", "accept-ranges": "bytes", "cache-control": "public, max-age=604800, immutable" };
+      const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+      if (range && (range[1] || range[2])) {   // iPad/Safari 播放媒体要求支持 Range
+        const start = range[1] ? parseInt(range[1], 10) : 0;
+        const end = range[2] ? Math.min(parseInt(range[2], 10), st.size - 1) : st.size - 1;
+        if (start > end || start >= st.size) { res.writeHead(416, { "content-range": "bytes */" + st.size }); return res.end(); }
+        res.writeHead(206, Object.assign(head, { "content-range": `bytes ${start}-${end}/${st.size}`, "content-length": end - start + 1 }));
+        return fs.createReadStream(p, { start, end }).pipe(res);
+      }
+      res.writeHead(200, Object.assign(head, { "content-length": st.size }));
+      return fs.createReadStream(p).pipe(res);
     }
 
     if (url.pathname === "/api/lesson" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码", authRequired: true });
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const body = JSON.parse((await readBody(req)).toString("utf8"));
       const question = String(body.question || "").slice(0, 4000);
       const imageB64 = body.imageB64 || null;
       const mediaType = body.mediaType || "image/jpeg";
-      if (!question && !imageB64) return send(res, 400, { error: "题目是空的" });
+      const lang = body.lang === "en" ? "en" : "zh";
+      if (!question && !imageB64) return send(res, 400, { error: L(lang, "题目是空的", "The question is empty.") });
 
       const id = pickProvider(body.provider);
-      if (!id) return send(res, 503, { error: "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。" });
+      if (!id) return send(res, 503, { error: L(lang,
+        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
+        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
       if (imageB64 && !PROVIDER_META[id].supportsImage) {
-        return send(res, 400, { error: PROVIDER_META[id].label + " 暂不支持看图，请把题目打字输入，或在设置里换一个支持看图的引擎。" });
+        return send(res, 400, { error: L(lang,
+          PROVIDER_META[id].label + " 暂不支持看图，请把题目打字输入，或在设置里换一个支持看图的引擎。",
+          (PROVIDER_META[id].labelEn || id) + " can't read images yet. Type the question, or pick an engine that supports images in Settings.") });
       }
 
-      const sys = systemPrompt(body.grade, body.kidName);
+      const sys = systemPrompt(body.grade, body.kidName, lang);
       const t0 = Date.now();
-      console.log(`[lesson] engine=${id} q="${question.slice(0, 40)}" image=${!!imageB64}`);
+      console.log(`[lesson] engine=${id} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
       let lesson;
       try {
-        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType));
+        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
       } catch (e1) {
         console.log(`[lesson] first try failed (${e1.message}), retrying once...`);
-        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType));
+        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
       }
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
-      return send(res, 200, { lesson, provider: id, ms: Date.now() - t0 });
+      // 讲解生成好就立刻预合成语音（不等前端），孩子点开第一步时大概率已就绪
+      if (ttsAvailable() && lesson.isMath !== false) {
+        try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
+      }
+      return send(res, 200, { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() });
     }
 
     /* 静态文件 */
@@ -462,6 +723,9 @@ detectProviders().then(() => {
     }
     console.log("  可用引擎:   " + (avail.length ? avail.map(id => PROVIDER_META[id].label + (detected[id].model ? "(" + detected[id].model + ")" : "")).join("、") : "（没检测到！请看 README）"));
     console.log("  默认引擎:   " + (pickProvider() ? PROVIDER_META[pickProvider()].label : "无"));
+    console.log("  自然语音:   " + (ttsAvailable()
+      ? "已开启（" + (cfg.tts.url ? "守护进程 " + cfg.tts.url : "命令模式") + " · " + (cfg.tts.mode || "instruct") + " · 缓存 " + path.basename(TTS_CACHE) + "/）"
+      : "未配置（用浏览器语音兜底，见 README 的「自然语音」一节）"));
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
     console.log("");
   });
