@@ -120,6 +120,16 @@
   .engineOpt .nt{font-size:12px;color:var(--muted)}
   .engineOpt .tag{margin-left:auto;font-size:11px;border-radius:999px;padding:3px 8px;background:#eef2ff;color:var(--brand2);font-weight:700;white-space:nowrap}
   .engineOpt .tag.na{background:#f5f0ea;color:var(--muted)}
+  .histList{display:flex;flex-direction:column;gap:8px;margin-top:12px;min-height:60px}
+  .histItem{border:2px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;background:#fff;transition:.15s}
+  .histItem:hover{border-color:var(--brand);background:var(--soft)}
+  .histItem .hrow{display:flex;align-items:center;gap:8px}
+  .histItem .ht{font-weight:800;font-size:15px;flex:1;min-width:0}
+  .histItem .hdel{border:none;background:none;cursor:pointer;font-size:15px;opacity:.45;padding:2px 4px;flex:0 0 auto}
+  .histItem .hdel:hover{opacity:1}
+  .histItem .hm{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .histItem .ha{font-size:12.5px;color:var(--brand2);font-weight:700;margin-top:2px}
+  .histEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
   .footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
 </style>
 </head>
@@ -131,6 +141,7 @@
       <div><span data-i18n="appName">圆圆数学</span><small data-i18n="logoSub">你的 AI 数学小老师</small></div>
     </div>
     <div class="hbtns">
+      <button class="iconbtn" id="histBtn" data-i18n-title="historyTitle" title="历史记录">📖</button>
       <button class="iconbtn txt" id="langBtn" title="Language">EN</button>
       <button class="iconbtn" id="gear" data-i18n-title="settingsTitle" title="设置">⚙️</button>
     </div>
@@ -254,6 +265,21 @@
   </div>
 </div>
 
+<!-- 历史记录 -->
+<div class="modal hidden" id="historyModal">
+  <div class="modalCard">
+    <h3 data-i18n="historyTitle">历史记录</h3>
+    <p class="help" style="margin-top:2px" data-i18n="historyHelp">讲过的题都自动记在这里，点一条重新听。</p>
+    <div class="field">
+      <input id="histSearch" type="search" data-i18n-ph="historySearchPh" placeholder="搜题目、答案…" autocomplete="off" />
+    </div>
+    <div class="histList" id="histList"></div>
+    <div class="modalRow">
+      <button class="btn ghost" id="closeHistory" data-i18n="closeBtn" style="flex:1">关闭</button>
+    </div>
+  </div>
+</div>
+
 <script>
 "use strict";
 
@@ -278,6 +304,13 @@ const I18N = {
     loadMsgs:["圆圆老师正在准备你的课…","在想最好懂的讲法…","正在画小图…","正在一步步验算…","马上就好啦…"],
     loadSubOllama:"本地模型在认真思考，第一次会久一点（一两分钟很正常）",
     loadSubDefault:"正在想最好懂的讲法，可能要等半分钟",
+    historyTitle:"历史记录", historyHelp:"讲过的题都自动记在这里，点一条重新听。",
+    historySearchPh:"搜题目、答案…", historyLoading:"正在翻记录本…",
+    historyEmpty:"还没有记录。以后每讲一道题，都会自动记在这里。",
+    historyNoMatch:"没找到相关的记录。",
+    historyOffline:"连不上家里的服务器，稍后再试。",
+    historyDelTitle:"删除这条记录", historyDelConfirm:"确定删除这条记录吗？",
+    histToday:"今天", histYesterday:"昨天", histPhoto:"拍照题", closeBtn:"关闭",
     settingsTitle:"设置", settingsHelp:"保存在这台设备的浏览器里。",
     codeLabel:"访问码", codePh:"问爸爸妈妈要访问码", codeHelp:"家里服务器设置了访问码，输入一次就好。",
     langLabel:"语言 / Language",
@@ -299,6 +332,8 @@ const I18N = {
     placeDec:["十分位","百分位","千分位"],
     netCircum:"底面周长",
     avgFmt:(v)=>`平均 ${v}`,
+    stemHead:"茎（十位）", leafHead:"叶（个位）",
+    probScale:["不可能","不太可能","一半一半","很可能","一定"],
     examples:[
       "3/4 + 1/6 等于多少？",
       "把 0.25 变成分数，怎么做？",
@@ -327,6 +362,13 @@ const I18N = {
     loadMsgs:["Ms. Yuanyuan is preparing your lesson…","Thinking of the clearest way to explain…","Drawing little pictures…","Double-checking the math…","Almost ready…"],
     loadSubOllama:"The local model is thinking hard — the first run takes longer (a minute or two is normal)",
     loadSubDefault:"Working out the clearest explanation — about half a minute",
+    historyTitle:"History", historyHelp:"Every problem we’ve solved is saved here — tap one to hear it again.",
+    historySearchPh:"Search questions or answers…", historyLoading:"Flipping through the notebook…",
+    historyEmpty:"Nothing here yet. Every problem we solve will be saved here automatically.",
+    historyNoMatch:"No matching records.",
+    historyOffline:"Can’t reach your home server — try again later.",
+    historyDelTitle:"Delete this record", historyDelConfirm:"Delete this record?",
+    histToday:"Today", histYesterday:"Yesterday", histPhoto:"photo", closeBtn:"Close",
     settingsTitle:"Settings", settingsHelp:"Saved in this device’s browser.",
     codeLabel:"Access code", codePh:"Ask mom or dad for the code", codeHelp:"Your home server needs an access code — enter it once.",
     langLabel:"Language / 语言",
@@ -348,6 +390,8 @@ const I18N = {
     placeDec:["Tenths","Hundredths","Thousandths"],
     netCircum:"base circumference",
     avgFmt:(v)=>`average ${v}`,
+    stemHead:"Stem (tens)", leafHead:"Leaf (ones)",
+    probScale:["impossible","unlikely","even chance","likely","certain"],
     examples:[
       "What is 3/4 + 1/6?",
       "How do you write 0.25 as a fraction?",
@@ -1235,6 +1279,317 @@ function vBalls(nums,labels){
   return svg(460,H,r);
 }
 
+/* ---- 加拿大课纲（安省/BC）要求的图形表格 ---- */
+/* 茎叶图：nums=[0~99 的数据...]，按十位分茎、个位作叶 */
+function vStemLeaf(nums){
+  const vals=(nums||[]).map(n=>Math.round(Number(n))).filter(n=>isFinite(n)&&n>=0&&n<=99).slice(0,16).sort((a,b)=>a-b);
+  if(vals.length<2) return "";
+  const sMin=Math.floor(vals[0]/10), sMax=Math.floor(vals[vals.length-1]/10);
+  if(sMax-sMin>9) return "";
+  const stemW=110, leafW=290, rowH=27, headH=27, x0=26, y0=4;
+  let r="", y=y0;
+  const cell=(x,w,h,fill,txt,bold,anchor,tx)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="${COL.line}" stroke-width="1.5"/>`
+    +`<text x="${tx}" y="${y+h/2+4.5}" text-anchor="${anchor}" font-size="13" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
+  r+=cell(x0,stemW,headH,"#ffe9db",t("stemHead"),1,"middle",x0+stemW/2);
+  r+=cell(x0+stemW,leafW,headH,"#e4ebff",t("leafHead"),1,"middle",x0+stemW+leafW/2);
+  y+=headH;
+  for(let st=sMin;st<=sMax;st++){
+    const leaves=vals.filter(v=>Math.floor(v/10)===st).map(v=>v%10).join("  ");
+    r+=cell(x0,stemW,rowH,"#fff",String(st),1,"end",x0+stemW-12);
+    r+=cell(x0+stemW,leafW,rowH,"#fff",leaves,1,"start",x0+stemW+12);
+    y+=rowH;
+  }
+  r+=`<line x1="${x0+stemW}" y1="${y0}" x2="${x0+stemW}" y2="${y}" stroke="${COL.ink}" stroke-width="2.5"/>`;
+  return svg(460,y+8,r);
+}
+
+/* 堆叠条形图：输入同复式 statBar，两段叠在一根条上 */
+function vStackedBar(nums,labels){
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  if(!s1.length) return "";
+  if(!s2) return vStatBar(nums,labels);
+  const padL=46,padR=12,padT=names?26:16,padB=32,plotH=150;
+  const totals=s1.map((v,i)=>v+s2[i]);
+  const {y,g}=statFrame(Math.max(...totals,1),padT,padL,padR,plotH);
+  const slot=(460-padL-padR)/s1.length, baseY=padT+plotH;
+  let r=g+statLegend(names,padL);
+  s1.forEach((v,i)=>{
+    const cx=padL+slot*(i+0.5), bw=Math.min(44,slot*0.55), v2=s2[i];
+    const y1=y(v), yT=y(totals[i]);
+    if(baseY-y1>0.5) r+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${y1.toFixed(1)}" width="${bw.toFixed(1)}" height="${(baseY-y1).toFixed(1)}" fill="${COL.fill}"/>`;
+    if(v2>0) r+=barTop(cx-bw/2,yT,bw,y1-2,COL.fill2);
+    if(baseY-y1>=18) r+=`<text x="${cx.toFixed(1)}" y="${((y1+baseY)/2+4).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${fmtNum(v)}</text>`;
+    if(y1-2-yT>=18) r+=`<text x="${cx.toFixed(1)}" y="${((yT+y1)/2+3).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${fmtNum(v2)}</text>`;
+    r+=`<text x="${cx.toFixed(1)}" y="${(yT-5).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(totals[i])}</text>`;
+    r+=statCatLabel(cx,baseY,cats[i]||t("barItemFmt")(i+1));
+  });
+  return svg(460,padT+plotH+padB,r);
+}
+
+/* 直方图：labels=[区间...]，nums=[频数...]，条与条相连 */
+function vHistogram(nums,labels){
+  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0).slice(0,8);
+  if(!vals.length) return "";
+  const padL=46,padR=14,padT=16,padB=32,plotH=150;
+  const {y,g}=statFrame(Math.max(...vals,1),padT,padL,padR,plotH);
+  const slot=(460-padL-padR)/vals.length, baseY=padT+plotH;
+  let r=g;
+  vals.forEach((v,i)=>{
+    const x=padL+slot*i;
+    if(baseY-y(v)>0.5) r+=`<rect x="${x.toFixed(1)}" y="${y(v).toFixed(1)}" width="${slot.toFixed(1)}" height="${(baseY-y(v)).toFixed(1)}" fill="${COL.fill}" stroke="#fff" stroke-width="1.5"/>`;
+    r+=`<text x="${(x+slot/2).toFixed(1)}" y="${(y(v)-5).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+    r+=`<text x="${(x+slot/2).toFixed(1)}" y="${baseY+17}" text-anchor="middle" font-size="10.5" fill="${COL.ink}">${escapeHtml(String((labels&&labels[i])||"").slice(0,7))}</text>`;
+  });
+  return svg(460,padT+plotH+padB,r);
+}
+
+/* 坐标格：nums=[x1,y1,...] 整数点；有负数画四象限 */
+function vCoordGrid(nums,labels){
+  const raw=(nums||[]).map(n=>Math.round(Number(n))).filter(n=>isFinite(n)&&Math.abs(n)<=12);
+  const pts=[];
+  for(let i=0;i+1<raw.length&&pts.length<6;i+=2) pts.push([raw[i],raw[i+1]]);
+  if(!pts.length) return "";
+  const neg=pts.some(p=>p[0]<0||p[1]<0);
+  const size=216, y0=24;
+  let r="", cell, ox, oy, x0;
+  const f=n=>Number(n).toFixed(1);
+  if(neg){
+    const R=Math.max(3,...pts.map(p=>Math.max(Math.abs(p[0]),Math.abs(p[1]))));
+    const cells=2*R; cell=size/cells; x0=(460-size)/2;
+    ox=x0+size/2; oy=y0+size/2;
+    for(let i=0;i<=cells;i++){
+      r+=`<line x1="${f(x0+i*cell)}" y1="${y0}" x2="${f(x0+i*cell)}" y2="${y0+size}" stroke="#efe4d7" stroke-width="1"/>`;
+      r+=`<line x1="${x0}" y1="${f(y0+i*cell)}" x2="${x0+size}" y2="${f(y0+i*cell)}" stroke="#efe4d7" stroke-width="1"/>`;
+    }
+    r+=`<line x1="${x0-6}" y1="${oy}" x2="${x0+size+10}" y2="${oy}" stroke="${COL.ink}" stroke-width="2"/>`;
+    r+=`<line x1="${ox}" y1="${y0+size+6}" x2="${ox}" y2="${y0-10}" stroke="${COL.ink}" stroke-width="2"/>`;
+    r+=`<polygon points="${x0+size+10},${oy-4} ${x0+size+10},${oy+4} ${x0+size+18},${oy}" fill="${COL.ink}"/>`;
+    r+=`<polygon points="${ox-4},${y0-10} ${ox+4},${y0-10} ${ox},${y0-18}" fill="${COL.ink}"/>`;
+    r+=`<text x="${x0+size+22}" y="${oy+4}" font-size="12" font-style="italic" fill="${COL.ink}">x</text>`;
+    r+=`<text x="${ox+8}" y="${y0-10}" font-size="12" font-style="italic" fill="${COL.ink}">y</text>`;
+    const k=cells>12?2:1;
+    for(let v=-R;v<=R;v+=k){
+      if(v===0) continue;
+      r+=`<text x="${f(ox+v*cell)}" y="${oy+13}" text-anchor="middle" font-size="9" fill="#8a7d74">${v}</text>`;
+      r+=`<text x="${ox-5}" y="${f(oy-v*cell+3)}" text-anchor="end" font-size="9" fill="#8a7d74">${v}</text>`;
+    }
+    r+=`<text x="${ox-5}" y="${oy+13}" text-anchor="end" font-size="9" fill="#8a7d74">0</text>`;
+  }else{
+    const M=Math.max(5,...pts.map(p=>Math.max(p[0],p[1])));
+    cell=size/M; x0=(460-size)/2+10;
+    ox=x0; oy=y0+size;
+    for(let i=0;i<=M;i++){
+      r+=`<line x1="${f(x0+i*cell)}" y1="${y0}" x2="${f(x0+i*cell)}" y2="${y0+size}" stroke="#efe4d7" stroke-width="1"/>`;
+      r+=`<line x1="${x0}" y1="${f(y0+i*cell)}" x2="${x0+size}" y2="${f(y0+i*cell)}" stroke="#efe4d7" stroke-width="1"/>`;
+    }
+    r+=`<line x1="${x0}" y1="${oy}" x2="${x0+size+12}" y2="${oy}" stroke="${COL.ink}" stroke-width="2"/>`;
+    r+=`<line x1="${x0}" y1="${oy}" x2="${x0}" y2="${y0-12}" stroke="${COL.ink}" stroke-width="2"/>`;
+    r+=`<polygon points="${x0+size+12},${oy-4} ${x0+size+12},${oy+4} ${x0+size+20},${oy}" fill="${COL.ink}"/>`;
+    r+=`<polygon points="${x0-4},${y0-12} ${x0+4},${y0-12} ${x0},${y0-20}" fill="${COL.ink}"/>`;
+    r+=`<text x="${x0+size+24}" y="${oy+4}" font-size="12" font-style="italic" fill="${COL.ink}">x</text>`;
+    r+=`<text x="${x0+8}" y="${y0-12}" font-size="12" font-style="italic" fill="${COL.ink}">y</text>`;
+    const k=M>12?2:1;
+    for(let v=0;v<=M;v+=k){
+      r+=`<text x="${f(x0+v*cell)}" y="${oy+14}" text-anchor="middle" font-size="9.5" fill="#8a7d74">${v}</text>`;
+      if(v>0) r+=`<text x="${x0-5}" y="${f(oy-v*cell+3)}" text-anchor="end" font-size="9.5" fill="#8a7d74">${v}</text>`;
+    }
+  }
+  pts.forEach((p,i)=>{
+    const px=neg?ox+p[0]*cell:ox+p[0]*cell, py=neg?oy-p[1]*cell:oy-p[1]*cell;
+    r+=`<circle cx="${f(px)}" cy="${f(py)}" r="5" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
+    const nm=(labels&&labels[i])?String(labels[i]).slice(0,4):"ABCDEF"[i];
+    const flip=px>x0+size-70;
+    r+=`<text x="${f(px+(flip?-9:9))}" y="${f(py-8)}" ${flip?'text-anchor="end"':''} font-size="11.5" font-weight="700" fill="${COL.ink}">${escapeHtml(nm)}(${p[0]}, ${p[1]})</text>`;
+  });
+  return svg(460,y0+size+30,r);
+}
+
+/* 角：nums=[度数]，弧线 + 度数标注，90° 画直角记号 */
+function vAngle(nums){
+  const deg=clampInt(nums&&nums[0],1,360,45);
+  const vx=170, vy=deg>180?96:158, len=135, H=deg>180?250:196;
+  const a=-deg*Math.PI/180;
+  const ex=vx+len*Math.cos(a), ey=vy+len*Math.sin(a);
+  const f=n=>Number(n).toFixed(1);
+  const arrow=(x,y,b)=>`<polygon points="${f(x)},${f(y)} ${f(x+10*Math.cos(b+0.42))},${f(y+10*Math.sin(b+0.42))} ${f(x+10*Math.cos(b-0.42))},${f(y+10*Math.sin(b-0.42))}" fill="${COL.ink}"/>`;
+  let r=`<line x1="${vx}" y1="${vy}" x2="${vx+len}" y2="${vy}" stroke="${COL.ink}" stroke-width="3" stroke-linecap="round"/>`+arrow(vx+len,vy,Math.PI);
+  r+=`<line x1="${vx}" y1="${vy}" x2="${f(ex)}" y2="${f(ey)}" stroke="${COL.ink}" stroke-width="3" stroke-linecap="round"/>`+arrow(ex,ey,a+Math.PI);
+  if(deg===90){
+    r+=`<path d="M ${vx+18} ${vy} L ${vx+18} ${vy-18} L ${vx} ${vy-18}" fill="none" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  }else{
+    const r0=36, x1=vx+r0, y1=vy, x2=vx+r0*Math.cos(a), y2=vy+r0*Math.sin(a);
+    r+=`<path d="M ${f(x1)} ${f(y1)} A ${r0} ${r0} 0 ${deg>180?1:0} 0 ${f(x2)} ${f(y2)}" fill="none" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  }
+  const bis=-(deg/2)*Math.PI/180, lr=deg<40?78:58;
+  r+=`<text x="${f(vx+lr*Math.cos(bis))}" y="${f(vy+lr*Math.sin(bis)+5)}" text-anchor="middle" font-size="15" font-weight="800" fill="${COL.fill2}">${deg}°</text>`;
+  r+=`<circle cx="${vx}" cy="${vy}" r="3.5" fill="${COL.ink}"/>`;
+  return svg(460,H,r);
+}
+
+/* 乘法面积模型：nums=[a,b]（≤99），按数位拆分标部分积 */
+function vAreaModel(nums){
+  const a=clampInt(nums&&nums[0],2,99,23), b=clampInt(nums&&nums[1],2,99,15);
+  const split=n=>{ if(n<10||n%10===0) return [n]; return [Math.floor(n/10)*10, n%10]; };
+  const pa=split(a), pb=split(b);
+  const ws=pa.map(v=>Math.max(70,300*v/a)), hs=pb.map(v=>Math.max(54,150*v/b));
+  const x0=64, y0=30, f=n=>Number(n).toFixed(1);
+  const TINT=["#ffe9db","#e4ebff","#dcf3e7","#fdf3d8"];
+  let r="", yy=y0;
+  pb.forEach((rv,ri)=>{
+    let xx=x0;
+    pa.forEach((cv,ci)=>{
+      r+=`<rect x="${f(xx)}" y="${f(yy)}" width="${f(ws[ci])}" height="${f(hs[ri])}" fill="${TINT[(ri*pa.length+ci)%4]}" stroke="${COL.line}" stroke-width="1.5"/>`;
+      r+=`<text x="${f(xx+ws[ci]/2)}" y="${f(yy+hs[ri]/2+6)}" text-anchor="middle" font-size="16" font-weight="800" fill="${COL.ink}">${cv*rv}</text>`;
+      xx+=ws[ci];
+    });
+    r+=`<text x="${x0-8}" y="${f(yy+hs[ri]/2+5)}" text-anchor="end" font-size="14" font-weight="700" fill="${COL.fill2}">${rv}</text>`;
+    yy+=hs[ri];
+  });
+  let xx=x0;
+  pa.forEach((cv,ci)=>{
+    r+=`<text x="${f(xx+ws[ci]/2)}" y="${y0-9}" text-anchor="middle" font-size="14" font-weight="700" fill="${COL.fill2}">${cv}</text>`;
+    xx+=ws[ci];
+  });
+  r+=`<text x="${x0-8}" y="${y0-9}" text-anchor="end" font-size="14" font-weight="800" fill="${COL.ink}">×</text>`;
+  return svg(460,yy+14,r);
+}
+
+/* 十进制积木：nums=[1~999]，百格板 + 十条 + 个块 */
+function vBaseTen(nums){
+  const n=clampInt(nums&&nums[0],1,999,235);
+  const h=Math.floor(n/100), t10=Math.floor((n%100)/10), o=n%10;
+  const FL=56, RD=14, GAP=18;
+  const fw=h?Math.min(h,5)*(FL+6)-6:0, fRows=Math.ceil(h/5);
+  const rw=t10?t10*(RD+5)-5:0, ow=o?Math.min(o,5)*(RD+5)-5:0;
+  const groups=[fw,rw,ow].filter(w=>w>0);
+  const needed=groups.reduce((x,y)=>x+y,0)+GAP*(groups.length-1);
+  const s=Math.min(1,436/needed);
+  const f=n2=>Number(n2).toFixed(1);
+  let x=(460-needed*s)/2, y0=10, maxH=0, r="";
+  const label=(cx,val)=>`<text x="${f(cx)}" y="__LY__" text-anchor="middle" font-size="13" font-weight="700" fill="${COL.ink}">${val}</text>`;
+  const parts=[];
+  if(h){
+    let g="";
+    for(let i=0;i<h;i++){
+      const gx=x+(i%5)*(FL+6)*s, gy=y0+Math.floor(i/5)*(FL+6)*s;
+      g+=`<rect x="${f(gx)}" y="${f(gy)}" width="${f(FL*s)}" height="${f(FL*s)}" fill="#ffd9bf" stroke="${COL.fill}" stroke-width="2"/>`;
+      for(let k=1;k<10;k++){
+        g+=`<line x1="${f(gx+FL*s*k/10)}" y1="${f(gy)}" x2="${f(gx+FL*s*k/10)}" y2="${f(gy+FL*s)}" stroke="${COL.fill}" stroke-width="0.6" opacity="0.4"/>`;
+        g+=`<line x1="${f(gx)}" y1="${f(gy+FL*s*k/10)}" x2="${f(gx+FL*s)}" y2="${f(gy+FL*s*k/10)}" stroke="${COL.fill}" stroke-width="0.6" opacity="0.4"/>`;
+      }
+    }
+    parts.push([g,x+fw*s/2,h*100]); maxH=Math.max(maxH,fRows*(FL+6)*s-6*s); x+=fw*s+GAP*s;
+  }
+  if(t10){
+    let g="";
+    for(let i=0;i<t10;i++){
+      const gx=x+i*(RD+5)*s;
+      g+=`<rect x="${f(gx)}" y="${y0}" width="${f(RD*s)}" height="${f(FL*s)}" fill="#dbe4ff" stroke="${COL.fill2}" stroke-width="1.8"/>`;
+      for(let k=1;k<10;k++) g+=`<line x1="${f(gx)}" y1="${f(y0+FL*s*k/10)}" x2="${f(gx+RD*s)}" y2="${f(y0+FL*s*k/10)}" stroke="${COL.fill2}" stroke-width="0.6" opacity="0.4"/>`;
+    }
+    parts.push([g,x+rw*s/2,t10*10]); maxH=Math.max(maxH,FL*s); x+=rw*s+GAP*s;
+  }
+  if(o){
+    let g="";
+    for(let i=0;i<o;i++){
+      const gx=x+(i%5)*(RD+5)*s, gy=y0+Math.floor(i/5)*(RD+5)*s;
+      g+=`<rect x="${f(gx)}" y="${f(gy)}" width="${f(RD*s)}" height="${f(RD*s)}" fill="#d3f0e0" stroke="${COL.good}" stroke-width="1.8"/>`;
+    }
+    parts.push([g,x+ow*s/2,o]); maxH=Math.max(maxH,Math.ceil(o/5)*(RD+5)*s-5*s);
+  }
+  const ly=y0+maxH+20;
+  parts.forEach(([g,cx,val])=>{ r+=g+label(cx,val).replace("__LY__",f(ly)); });
+  return svg(460,ly+12,r);
+}
+
+/* 百格图：10×10 一百格，讲百分数 / 0.01 */
+function vHundredthsGrid(nums){
+  const n1=clampInt(nums&&nums[0],0,100,25);
+  const n2=clampInt(nums&&nums[1],0,100-n1,0);
+  const cellS=19, x0=70, y0=8;
+  let r="";
+  for(let i=0;i<100;i++){
+    const cx=x0+(i%10)*cellS, cy=y0+Math.floor(i/10)*cellS;
+    const fill=i<n1?COL.fill:(i<n1+n2?COL.fill2:"#fff");
+    r+=`<rect x="${cx}" y="${cy}" width="${cellS}" height="${cellS}" fill="${fill}" stroke="${COL.line}" stroke-width="1"/>`;
+  }
+  r+=`<rect x="${x0}" y="${y0}" width="${cellS*10}" height="${cellS*10}" fill="none" stroke="${COL.ink}" stroke-width="2"/>`;
+  let ty=y0+70;
+  r+=`<text x="${x0+cellS*10+22}" y="${ty}" font-size="24" font-weight="800" fill="${COL.fill}">${n1}%</text>`;
+  r+=`<text x="${x0+cellS*10+22}" y="${ty+22}" font-size="13" fill="#8a7d74">${n1}/100</text>`;
+  if(n2){
+    r+=`<text x="${x0+cellS*10+22}" y="${ty+52}" font-size="24" font-weight="800" fill="${COL.fill2}">${n2}%</text>`;
+    r+=`<text x="${x0+cellS*10+22}" y="${ty+74}" font-size="13" fill="#8a7d74">${n2}/100</text>`;
+  }
+  return svg(460,y0+cellS*10+10,r);
+}
+
+/* 百数表：1~100，圈出给定的数（倍数、质数、跳着数） */
+function vHundredChart(nums){
+  const hl=new Set((nums||[]).map(n=>Math.round(Number(n))).filter(n=>isFinite(n)&&n>=1&&n<=100).slice(0,16));
+  if(!hl.size) return "";
+  const cellS=31, x0=(460-310)/2, y0=6;
+  let r="";
+  for(let v=1;v<=100;v++){
+    const cx=x0+((v-1)%10)*cellS, cy=y0+Math.floor((v-1)/10)*cellS;
+    const on=hl.has(v);
+    r+=`<rect x="${cx+1}" y="${cy+1}" width="${cellS-2}" height="${cellS-2}" rx="6" fill="${on?COL.fill:'#fff'}" stroke="${on?COL.fill:COL.line}" stroke-width="${on?2:1}"/>`;
+    r+=`<text x="${cx+cellS/2}" y="${cy+cellS/2+4}" text-anchor="middle" font-size="11.5" ${on?'font-weight="800"':''} fill="${on?'#fff':COL.ink}">${v}</text>`;
+  }
+  return svg(460,y0+310+6,r);
+}
+
+/* 数据表：一行 = 频数表，两行 = 比率表 / 找规律表（输入同复式 statBar） */
+function vDataTable(nums,labels){
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  if(!s1.length) return "";
+  const N=s1.length, rowHW=names?86:0;
+  const colW=Math.max(46,Math.min(90,(444-rowHW)/N));
+  const tw=rowHW+colW*N, x0=(460-tw)/2, y0=6, rowH=31;
+  const f=n=>Number(n).toFixed(1);
+  const cell=(x,y,w,fill,txt,bold)=>`<rect x="${f(x)}" y="${y}" width="${f(w)}" height="${rowH}" fill="${fill}" stroke="${COL.line}" stroke-width="1.5"/>`
+    +`<text x="${f(x+w/2)}" y="${y+rowH/2+4.5}" text-anchor="middle" font-size="13" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
+  let r="", y=y0;
+  if(names) r+=cell(x0,y,rowHW,"#f7efe6","",0);
+  cats.forEach((c,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#ffe9db",escapeHtml(String(c).slice(0,5)),1); });
+  y+=rowH;
+  const valRow=(s,name)=>{
+    if(names) r+=cell(x0,y,rowHW,"#e4ebff",escapeHtml(String(name||"").slice(0,5)),1);
+    s.forEach((v,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#fff",fmtNum(v),1); });
+    y+=rowH;
+  };
+  valRow(s1,names&&names[0]);
+  if(s2) valRow(s2,names&&names[1]);
+  return svg(460,y+8,r);
+}
+
+/* 可能性线：把事件标在"不可能→一定"的线上 */
+function vProbLine(nums,labels){
+  const ps=(nums||[]).map(Number).filter(p=>isFinite(p)&&p>=0&&p<=1).slice(0,4);
+  if(!ps.length) return "";
+  const x0=44,x1=416,y=78;
+  const px=p=>x0+p*(x1-x0);
+  const f=n=>Number(n).toFixed(1);
+  let r=`<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="${COL.line}" stroke-width="3" stroke-linecap="round"/>`;
+  const scale=t("probScale");
+  [0,0.25,0.5,0.75,1].forEach((p,i)=>{
+    r+=`<line x1="${f(px(p))}" y1="${y-6}" x2="${f(px(p))}" y2="${y+6}" stroke="${COL.line}" stroke-width="2"/>`;
+    r+=`<text x="${f(px(p))}" y="${y+22}" text-anchor="middle" font-size="10.5" fill="#8a7d74">${scale[i]}</text>`;
+  });
+  r+=`<text x="${x0}" y="${y+38}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.ink}">0</text>`;
+  r+=`<text x="${f(px(0.5))}" y="${y+38}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.ink}">1/2</text>`;
+  r+=`<text x="${x1}" y="${y+38}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.ink}">1</text>`;
+  const order=ps.map((p,i)=>({p,i})).sort((a,b)=>a.p-b.p);
+  order.forEach(({p,i},k)=>{
+    const lx=Math.max(30,Math.min(430,px(p))), ly=k%2?30:52;
+    r+=`<line x1="${f(px(p))}" y1="${y-7}" x2="${f(lx)}" y2="${ly+4}" stroke="${PAL[i%6]}" stroke-width="1.5"/>`;
+    r+=`<circle cx="${f(px(p))}" cy="${y}" r="6" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):t("barItemFmt")(i+1);
+    r+=`<text x="${f(lx)}" y="${ly}" text-anchor="middle" font-size="12" font-weight="700" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
+  });
+  return svg(460,124,r);
+}
+
 function renderVisual(v){
   if(!v||!v.type||v.type==="none") return "";
   const nums=v.nums||[], labels=v.labels||[];
@@ -1266,6 +1621,17 @@ function renderVisual(v){
       case "average":       s=vAverage(nums,labels); break;
       case "spinner":       s=vSpinner(nums,labels); break;
       case "balls":         s=vBalls(nums,labels); break;
+      case "stemLeaf":      s=vStemLeaf(nums); break;
+      case "stackedBar":    s=vStackedBar(nums,labels); break;
+      case "histogram":     s=vHistogram(nums,labels); break;
+      case "coordGrid":     s=vCoordGrid(nums,labels); break;
+      case "angle":         s=vAngle(nums); break;
+      case "areaModel":     s=vAreaModel(nums); break;
+      case "baseTen":       s=vBaseTen(nums); break;
+      case "hundredthsGrid":s=vHundredthsGrid(nums); break;
+      case "hundredChart":  s=vHundredChart(nums); break;
+      case "dataTable":     s=vDataTable(nums,labels); break;
+      case "probLine":      s=vProbLine(nums,labels); break;
     }
   }catch(e){ s=""; }
   if(!s) return "";
@@ -1476,6 +1842,75 @@ $("saveSettings").onclick=async ()=>{
   await fetchProviders();   // 用新访问码重新拉一次
   updateEngineBadge();
 };
+
+/* ---------- 历史记录 ---------- */
+let histItems=[];   // 服务器返回的摘要；null = 拉取失败
+function fmtHistTime(ts){
+  const d=new Date(ts), now=new Date();
+  const pad=n=>String(n).padStart(2,"0");
+  const hm=pad(d.getHours())+":"+pad(d.getMinutes());
+  const key=x=>x.getFullYear()+"-"+x.getMonth()+"-"+x.getDate();
+  if(key(d)===key(now)) return t("histToday")+" "+hm;
+  if(key(d)===key(new Date(now.getTime()-86400000))) return t("histYesterday")+" "+hm;
+  const md=cfg.lang==="en" ? (d.getMonth()+1)+"/"+d.getDate() : (d.getMonth()+1)+"月"+d.getDate()+"日";
+  const yr=d.getFullYear()===now.getFullYear() ? "" : (cfg.lang==="en" ? d.getFullYear()+" " : d.getFullYear()+"年");
+  return yr+md+" "+hm;
+}
+async function openHistory(){
+  $("historyModal").classList.remove("hidden");
+  $("histSearch").value="";
+  $("histList").innerHTML=`<div class="histEmpty">${t("historyLoading")}</div>`;
+  try{
+    const r=await fetch("/api/history",{headers:apiHeaders()});
+    if(r.status===401){ closeHistory(); serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
+    if(!r.ok) throw new Error();
+    histItems=(await r.json()).items||[];
+  }catch(_){ histItems=null; }
+  renderHistory();
+}
+function closeHistory(){ $("historyModal").classList.add("hidden"); }
+function renderHistory(){
+  const box=$("histList");
+  if(histItems===null){ box.innerHTML=`<div class="histEmpty">${t("historyOffline")}</div>`; return; }
+  const q=$("histSearch").value.trim().toLowerCase();
+  const list=q ? histItems.filter(it=>((it.title||"")+" "+(it.question||"")+" "+(it.answer||"")).toLowerCase().includes(q)) : histItems;
+  box.innerHTML="";
+  if(!list.length){
+    box.innerHTML=`<div class="histEmpty">${histItems.length?t("historyNoMatch"):t("historyEmpty")}</div>`;
+    return;
+  }
+  list.forEach(it=>{
+    const el=document.createElement("div"); el.className="histItem";
+    const meta=[fmtHistTime(it.time), it.hasImage?("📷 "+t("histPhoto")):"", it.question||""].filter(Boolean).join(" · ");
+    el.innerHTML=`<div class="hrow"><div class="ht">${escapeHtml(it.title||t("thisProblem"))}</div><button class="hdel" title="${t("historyDelTitle")}">🗑</button></div>`
+      +`<div class="hm">${escapeHtml(meta)}</div>`
+      +(it.answer?`<div class="ha">${t("ansPrefix")}${escapeHtml(it.answer)}</div>`:"");
+    el.onclick=()=>replayHistory(it.id);
+    el.querySelector(".hdel").onclick=(e)=>{ e.stopPropagation(); deleteHistory(it.id); };
+    box.appendChild(el);
+  });
+}
+async function replayHistory(id){
+  try{
+    const r=await fetch("/api/history/"+id,{headers:apiHeaders()});
+    if(!r.ok) throw new Error();
+    const rec=(await r.json()).record;
+    if(!rec||!rec.lesson) throw new Error();
+    pause();            // 万一正在播别的课，先停声音
+    closeHistory();
+    startLesson(rec.lesson, rec.lang);
+  }catch(_){ alert(t("genericErr")); }
+}
+async function deleteHistory(id){
+  if(!confirm(t("historyDelConfirm"))) return;
+  try{
+    const r=await fetch("/api/history/"+id,{method:"DELETE",headers:apiHeaders()});
+    if(r.ok && histItems){ histItems=histItems.filter(x=>x.id!==id); renderHistory(); }
+  }catch(_){}
+}
+$("histBtn").onclick=openHistory;
+$("closeHistory").onclick=closeHistory;
+$("histSearch").addEventListener("input",renderHistory);
 
 /* ---------- 初始化 ---------- */
 applyLang();

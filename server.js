@@ -75,7 +75,9 @@ const VISUAL_TYPES = [
   "none", "fractionBar", "pie", "numberLine", "areaGrid", "barModel", "groups",
   "shapeRect", "shapeTriangle", "shapeCircle", "clock", "placeValue", "balance", "pieChart",
   "solidCuboid", "solidCube", "solidCylinder", "solidCone", "solidSphere", "netCuboid", "netCylinder",
-  "statBar", "statLine", "average", "spinner", "balls"
+  "statBar", "statLine", "average", "spinner", "balls",
+  "stemLeaf", "stackedBar", "histogram", "coordGrid", "angle", "areaModel",
+  "baseTen", "hundredthsGrid", "hundredChart", "dataTable", "probLine"
 ];
 const LESSON_SCHEMA = {
   type: "object", additionalProperties: false,
@@ -156,6 +158,17 @@ function systemPrompt(grade, kidName, lang) {
     · "average"（平均数图）：labels=[名称...]，nums=[各数值...]。会画出红色平均线，高出平均的部分变绿、不足的画虚线框。讲"移多补少"求平均数必配。
     · "spinner"（可能性转盘）：nums=[各颜色占的份数...]（总份数不超过 12），labels=[各部分名称...]。讲可能性大小、游戏公平不公平必配。
     · "balls"（摸球）：nums=[各种颜色球的个数...]（总数不超过 20），labels=["红球","白球"...]。讲摸球的可能性好用。
+    · "stemLeaf"（茎叶图）：nums=[一组 0～99 的数据...]（最多 16 个）。自动按十位分茎、个位作叶并排好序。
+    · "stackedBar"（堆叠条形图）：给法和复式 statBar 一样（2×类别数 个数值，labels 末尾追加两个系列名），两段叠在同一根条上。
+    · "histogram"（直方图）：labels=[区间...]（如 ["0-9","10-19"]），nums=[各区间的频数...]。条与条相连，讲连续数据的分布。
+    · "coordGrid"（坐标格）：nums=[x1, y1, x2, y2, ...]（最多 6 个点，整数，-12～12）。有负数自动画四个象限，否则画第一象限；labels=[各点名称...]（可选）。讲坐标、平移必配。
+    · "angle"（角）：nums=[度数]（1～360）。画出两条边、弧线和度数，90° 画直角记号。讲锐角/直角/钝角、量角器必配。
+    · "areaModel"（乘法面积模型）：nums=[因数1, 因数2]（两位数以内）。自动按数位拆开（如 23×15 拆成 20+3 和 10+5），每格标出部分积。讲两位数乘法必配。
+    · "baseTen"（十进制积木）：nums=[一个整数]（1～999）。画出百格板、十条、个块。讲数的组成、进位退位好用。
+    · "hundredthsGrid"（百格图）：nums=[涂色格数, (可选)第二种颜色格数]（合计 ≤100）。10×10 的一百个格子，讲百分数、0.01 的意义必配。
+    · "hundredChart"（百数表）：nums=[要圈出的数...]（1～100，最多 16 个）。讲倍数、质数、跳着数好用。
+    · "dataTable"（数据表）：labels=[列标题...]，nums=[各数值...]。一行数值就是频数表；两行数值（给法同复式 statBar）可以做比率表、找规律的表。
+    · "probLine"（可能性线）：nums=[各事件的可能性 0~1...]（最多 4 个），labels=[事件名...]。把事件标在"不可能→一定"的线上。
     图要和该步内容一致。份数、行列、组数不超过 12；图形类（shape…/solid…/net…/clock/placeValue/pieChart/统计图）用题目里的真实数值。
 - answer：最终答案，简短明确（如"11/12"或"40 平方厘米"），会醒目显示给家长核对。
 - practice：一道同类型、换了数字的练习题（question + answer）。
@@ -207,6 +220,17 @@ Output fields:
     · "average": labels=[names...], nums=[values...]. Draws a red dashed mean line; parts above the mean turn green, deficits get dashed outlines. A must for teaching averages (leveling off).
     · "spinner" (probability spinner): nums=[parts per color...] (total at most 12), labels=[names...]. A must for likelihood and fairness.
     · "balls" (drawing balls): nums=[balls per color...] (at most 20 total), labels=["red","white"...]. Great for probability with drawing from a box.
+    · "stemLeaf" (stem-and-leaf plot): nums=[data values 0-99...] (at most 16). Automatically split into tens (stem) and ones (leaf), sorted.
+    · "stackedBar": same input as a double statBar (2×categories values, two series names appended to labels) — the two parts stack on one bar.
+    · "histogram": labels=[intervals...] (e.g. ["0-9","10-19"]), nums=[frequencies...]. Bars touch — for distributions of continuous data.
+    · "coordGrid" (coordinate grid): nums=[x1, y1, x2, y2, ...] (up to 6 points, integers -12..12). Negatives draw all four quadrants, otherwise the first quadrant; labels=[point names...] (optional). A must for coordinates and translations.
+    · "angle": nums=[degrees] (1-360). Draws the two arms, arc, and degree label; 90° gets a right-angle mark. A must for acute/right/obtuse angles and protractor work.
+    · "areaModel" (multiplication area model): nums=[factor1, factor2] (up to 2 digits). Automatically splits by place value (23×15 → 20+3 and 10+5) with each partial product labeled. A must for multi-digit multiplication.
+    · "baseTen" (base ten blocks): nums=[a whole number] (1-999). Draws hundreds flats, tens rods, ones cubes. Great for place value and regrouping.
+    · "hundredthsGrid": nums=[shaded cells, (optional) second-color cells] (≤100 total). A 10×10 grid of 100 cells — a must for percent and hundredths.
+    · "hundredChart" (hundred chart): nums=[numbers to circle...] (1-100, at most 16). Great for multiples, primes, skip counting.
+    · "dataTable": labels=[column headers...], nums=[values...]. One row of values = a frequency table; two rows (same input as double statBar) = ratio tables or pattern tables.
+    · "probLine" (likelihood line): nums=[probabilities 0-1...] (up to 4 events), labels=[event names...]. Marks events on the impossible→certain line.
     The picture must match the step. Keep parts/rows/cols/groups at most 12 (shape…/solid…/net…/clock/placeValue/pieChart/stat charts use real values from the problem).
 - answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
 - practice: one similar practice problem with different numbers (question + answer).
@@ -218,11 +242,11 @@ const JSON_HINT = {
   zh: `
 
 【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。JSON 必须符合这个结构：
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls|stemLeaf|stackedBar|histogram|coordGrid|angle|areaModel|baseTen|hundredthsGrid|hundredChart|dataTable|probLine","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
   en: `
 
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. It must match this structure:
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls|stemLeaf|stackedBar|histogram|coordGrid|angle|areaModel|baseTen|hundredthsGrid|hundredChart|dataTable|probLine","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
 };
 
 /* ---------------- 工具函数 ---------------- */
@@ -638,6 +662,46 @@ function ttsStates(reqItems, defLang) {
   return out;
 }
 
+/* ---------------- 历史记录 ----------------
+ * 每讲完一道题自动存一条（含完整讲解 JSON），落盘 history.json。
+ * 前端可以翻看、搜索、点开重播、删除。重播不再请求 AI；
+ * 语音按文本哈希命中 tts-cache，大概率秒开。图片题不存图片本身（太大），只记个标志。 */
+const HISTORY_FILE = path.join(ROOT, "history.json");
+const HISTORY_MAX = 500;
+let history = [];
+try {
+  const h = JSON.parse(fs.readFileSync(HISTORY_FILE, "utf8"));
+  if (Array.isArray(h)) history = h;
+} catch (_) { /* 还没有记录 */ }
+
+function historySave() {
+  try {
+    const tmp = HISTORY_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(history), "utf8");
+    fs.renameSync(tmp, HISTORY_FILE);
+  } catch (e) { console.log("[history] 保存失败：" + e.message); }
+}
+
+function historyAdd(rec) {
+  rec.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  history.unshift(rec);
+  if (history.length > HISTORY_MAX) history.length = HISTORY_MAX;
+  historySave();
+}
+
+function historySummary(r) {
+  return {
+    id: r.id, time: r.time,
+    title: (r.lesson && r.lesson.title) || "",
+    question: String(r.question || "").slice(0, 140),
+    answer: (r.lesson && r.lesson.answer) || "",
+    isMath: !(r.lesson && r.lesson.isMath === false),
+    hasImage: !!r.hasImage,
+    lang: r.lang || "zh",
+    provider: r.provider || ""
+  };
+}
+
 /* ---------------- HTTP 服务器 ---------------- */
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".woff2": "font/woff2" };
 
@@ -707,6 +771,24 @@ const server = http.createServer(async (req, res) => {
       return fs.createReadStream(p).pipe(res);
     }
 
+    if (url.pathname === "/api/history" && req.method === "GET") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      return send(res, 200, { items: history.map(historySummary) });
+    }
+
+    const hm = /^\/api\/history\/([a-z0-9]{6,24})$/.exec(url.pathname);
+    if (hm && (req.method === "GET" || req.method === "DELETE")) {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const i = history.findIndex(r => r.id === hm[1]);
+      if (i < 0) return send(res, 404, { error: "记录不存在 / Not found" });
+      if (req.method === "DELETE") {
+        history.splice(i, 1);
+        historySave();
+        return send(res, 200, { ok: true });
+      }
+      return send(res, 200, { record: history[i] });
+    }
+
     if (url.pathname === "/api/lesson" && req.method === "POST") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const body = JSON.parse((await readBody(req)).toString("utf8"));
@@ -737,6 +819,7 @@ const server = http.createServer(async (req, res) => {
         lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
       }
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
+      historyAdd({ time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson });
       // 讲解生成好就立刻预合成语音（不等前端），孩子点开第一步时大概率已就绪
       if (ttsAvailable() && lesson.isMath !== false) {
         try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
@@ -774,6 +857,7 @@ detectProviders().then(() => {
     console.log("  自然语音:   " + (ttsAvailable()
       ? "已开启（" + (cfg.tts.url ? "守护进程 " + cfg.tts.url : "命令模式") + " · " + (cfg.tts.mode || "instruct") + " · 缓存 " + path.basename(TTS_CACHE) + "/）"
       : "未配置（用浏览器语音兜底，见 README 的「自然语音」一节）"));
+    console.log("  历史记录:   " + history.length + " 条（history.json，上限 " + HISTORY_MAX + " 条）");
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
     console.log("");
   });
