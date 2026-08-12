@@ -293,6 +293,12 @@ const I18N = {
     genericErr:"出了点小问题，再试一次吧。",
     voiceHint:"🎙 正在准备圆圆老师的声音…",
     colsRowsFmt:(c,r)=>`${c} 列 × ${r} 行`, barItemFmt:(i)=>`第${i}项`,
+    groupsFmt:(g,per,rem)=>`${g} 组 × 每组 ${per} 个${rem?`，另剩 ${rem} 个`:""}，一共 ${g*per+rem} 个`,
+    elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`经过 ${h} 小时 ${m} 分钟`:`经过 ${h} 小时`):`经过 ${m} 分钟`;},
+    placeInt:["个位","十位","百位","千位","万位"],
+    placeDec:["十分位","百分位","千分位"],
+    netCircum:"底面周长",
+    avgFmt:(v)=>`平均 ${v}`,
     examples:[
       "3/4 + 1/6 等于多少？",
       "把 0.25 变成分数，怎么做？",
@@ -336,6 +342,12 @@ const I18N = {
     genericErr:"Something went wrong — try again.",
     voiceHint:"🎙 Warming up Ms. Yuanyuan’s voice…",
     colsRowsFmt:(c,r)=>`${c} × ${r}`, barItemFmt:(i)=>`Item ${i}`,
+    groupsFmt:(g,per,rem)=>`${g} groups × ${per} each${rem?`, ${rem} left over`:""} — ${g*per+rem} in total`,
+    elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`${h} h ${m} min later`:`${h} h later`):`${m} min later`;},
+    placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands"],
+    placeDec:["Tenths","Hundredths","Thousandths"],
+    netCircum:"base circumference",
+    avgFmt:(v)=>`average ${v}`,
     examples:[
       "What is 3/4 + 1/6?",
       "How do you write 0.25 as a fraction?",
@@ -561,57 +573,130 @@ async function playStep(i,text,onend){
   speak(text,lessonLang,finish);
 }
 
-/* ---------- 可视化积木（永远画对） ---------- */
-const COL={fill:"#ff8a5b",fill2:"#6c8cff",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
+/* ---------- 可视化积木（永远画对：AI 只给小数字，图形由这里确定性画出） ---------- */
+const COL={fill:"#ff8a5b",fill2:"#6c8cff",good:"#3fbf7f",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
+const PAL=["#ff8a5b","#6c8cff","#3fbf7f","#d99b18","#b07cf7","#ff6b9d"]; // 经色觉安全校验（deutan/protan/tritan ΔE≥7.7，配 2px 白缝+直接标注）
 function svg(w,h,inner){return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${inner}</svg>`;}
 function clampInt(n,lo,hi,def){ n=Math.round(Number(n)); if(!isFinite(n)) return def; return Math.max(lo,Math.min(hi,n)); }
+function fmtNum(n){ return Math.abs(n-Math.round(n))<1e-9 ? String(Math.round(n)) : String(+Number(n).toFixed(2)); }
+function escapeHtml(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+/* 扇形路径（从正上方顺时针） */
+function sectorPath(cx,cy,r,a0,a1){
+  const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+  return `M ${cx} ${cy} L ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)} Z`;
+}
+/* 双箭头尺寸标注线 */
+function dimArrow(x1,y1,x2,y2,label){
+  const ang=Math.atan2(y2-y1,x2-x1);
+  const ah=(x,y,b)=>`<polygon points="${x},${y} ${(x+10*Math.cos(b+0.42)).toFixed(1)},${(y+10*Math.sin(b+0.42)).toFixed(1)} ${(x+10*Math.cos(b-0.42)).toFixed(1)},${(y+10*Math.sin(b-0.42)).toFixed(1)}" fill="${COL.ink}"/>`;
+  const mx=(x1+x2)/2,my=(y1+y2)/2,vert=Math.abs(x2-x1)<1;
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${COL.ink}" stroke-width="1.5"/>`
+    +ah(x1,y1,ang)+ah(x2,y2,ang+Math.PI)
+    +(vert?`<text x="${mx+9}" y="${my+5}" font-size="14" font-weight="700" fill="${COL.ink}">${label}</text>`
+          :`<text x="${mx}" y="${my+19}" text-anchor="middle" font-size="14" font-weight="700" fill="${COL.ink}">${label}</text>`);
+}
 
+/* 分数条：nums=[份数,涂色] 或 [份数1,涂色1,份数2,涂色2]（两条对齐，比较/通分） */
 function vFractionBar(nums){
-  const parts=clampInt(nums&&nums[0],1,20,4), filled=clampInt(nums&&nums[1],0,parts,1);
-  const W=460,H=90,pad=10,bw=(W-2*pad)/parts;
+  nums=(nums||[]).map(Number).filter(isFinite);
+  const bars=[];
+  const d1=clampInt(nums[0],1,20,4); bars.push([d1,clampInt(nums[1],0,d1,1)]);
+  if(nums.length>=4){ const d2=clampInt(nums[2],1,20,4); bars.push([d2,clampInt(nums[3],0,d2,1)]); }
+  const W=460,pad=14,bw=350,bh=44,gap=18;
+  const H=bars.length*(bh+gap)-gap+16;
   let r="";
-  for(let i=0;i<parts;i++){
-    r+=`<rect x="${pad+i*bw}" y="20" width="${bw}" height="50" rx="6" fill="${i<filled?COL.fill:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
-  }
-  r+=`<text x="${W/2}" y="14" text-anchor="middle" font-size="14" fill="${COL.ink}" font-weight="700">${filled} / ${parts}</text>`;
+  bars.forEach(([d,n],bi)=>{
+    const y=8+bi*(bh+gap), cw=bw/d, c=bi?COL.fill2:COL.fill;
+    for(let i=0;i<d;i++)
+      r+=`<rect x="${(pad+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${i<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    r+=`<text x="${pad+bw+12}" y="${y+bh/2+6}" font-size="17" font-weight="800" fill="${c}">${n}/${d}</text>`;
+  });
   return svg(W,H,r);
 }
+
+/* 分数圆（披萨图）：nums=[份数,涂色] 或两个圆 [份数1,涂色1,份数2,涂色2] */
+function onePie(cx,cy,R,d,n,color){
+  let s="";
+  if(d===1){
+    s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${n>=1?color:'#fff'}" stroke="${COL.line}" stroke-width="2.5"/>`;
+  }else{
+    for(let i=0;i<d;i++){
+      const a0=-Math.PI/2+i*2*Math.PI/d, a1=-Math.PI/2+(i+1)*2*Math.PI/d;
+      s+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${i<n?color:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    }
+  }
+  s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${n}/${d}</text>`;
+  return s;
+}
+function vPie(nums){
+  nums=(nums||[]).map(Number).filter(isFinite);
+  const d1=clampInt(nums[0],1,16,4), n1=clampInt(nums[1],0,d1,1), R=62, H=2*R+44;
+  if(nums.length<4) return svg(220,H,onePie(110,R+7,R,d1,n1,COL.fill));
+  const d2=clampInt(nums[2],1,16,4), n2=clampInt(nums[3],0,d2,1);
+  return svg(400,H,onePie(105,R+7,R,d1,n1,COL.fill)+onePie(295,R+7,R,d2,n2,COL.fill2));
+}
+
+/* 数轴：nums=[min,max,点,(可选)第二个点]；两个点时画跳跃箭头 */
 function vNumberLine(nums){
-  let min=Number(nums&&nums[0]), max=Number(nums&&nums[1]);
+  nums=(nums||[]).map(Number);
+  let min=nums[0], max=nums[1];
   if(!isFinite(min)) min=0; if(!isFinite(max)) max=10; if(max<=min) max=min+10;
-  const hi = (nums&&nums.length>2 && isFinite(Number(nums[2])))?Number(nums[2]):null;
-  const W=460,H=80,pad=26,y=44;
+  const inRange=v=>isFinite(v)&&v>=min&&v<=max;
+  const p1=(nums.length>2&&isFinite(nums[2]))?nums[2]:null;
+  const p2=(nums.length>3&&isFinite(nums[3]))?nums[3]:null;
+  const arrow=p1!==null&&p2!==null&&inRange(p1)&&inRange(p2)&&p1!==p2;
+  const W=460,H=arrow?116:84,pad=26,y=H-36;
   const span=max-min;
-  let ticks = Math.min(20, Math.max(2, Math.round(span)));
-  const stepv = span/ticks;
-  const x = v => pad + (v-min)/span*(W-2*pad);
+  let ticks=Math.min(20,Math.max(2,Math.round(span)));
+  const stepv=span/ticks;
+  const x=v=>pad+(v-min)/span*(W-2*pad);
   let r=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="${COL.line}" stroke-width="3"/>`;
   for(let i=0;i<=ticks;i++){
     const v=min+i*stepv, px=x(v);
     r+=`<line x1="${px}" y1="${y-6}" x2="${px}" y2="${y+6}" stroke="${COL.line}" stroke-width="2"/>`;
-    const lab = Math.abs(v-Math.round(v))<1e-6 ? Math.round(v) : v.toFixed(1);
+    const lab=Math.abs(v-Math.round(v))<1e-6?Math.round(v):v.toFixed(1);
     r+=`<text x="${px}" y="${y+22}" text-anchor="middle" font-size="12" fill="${COL.ink}">${lab}</text>`;
   }
-  if(hi!==null){
-    const px=x(hi);
+  if(arrow){
+    const x1=x(p1),x2=x(p2),diff=p2-p1;
+    r+=`<path d="M ${x1} ${y-12} Q ${(x1+x2)/2} ${y-46} ${x2} ${y-14}" fill="none" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+    r+=`<polygon points="${x2-5},${y-23} ${x2+5},${y-23} ${x2},${y-10}" fill="${COL.fill2}"/>`;
+    r+=`<text x="${(x1+x2)/2}" y="${y-50}" text-anchor="middle" font-size="14" font-weight="800" fill="${COL.fill2}">${diff>0?"+":"−"}${fmtNum(Math.abs(diff))}</text>`;
+    r+=`<circle cx="${x1}" cy="${y}" r="7" fill="${COL.fill}" stroke="#fff" stroke-width="2"/>`;
+    r+=`<circle cx="${x2}" cy="${y}" r="7" fill="${COL.fill2}" stroke="#fff" stroke-width="2"/>`;
+  }else if(p1!==null&&inRange(p1)){
+    const px=x(p1);
     r+=`<circle cx="${px}" cy="${y}" r="8" fill="${COL.fill}" stroke="#fff" stroke-width="2"/>`;
-    r+=`<text x="${px}" y="${y-14}" text-anchor="middle" font-size="13" font-weight="700" fill="${COL.fill}">${hi}</text>`;
+    r+=`<text x="${px}" y="${y-14}" text-anchor="middle" font-size="13" font-weight="700" fill="${COL.fill}">${fmtNum(p1)}</text>`;
   }
   return svg(W,H,r);
 }
+
+/* 面积格子：nums=[行,列,涂行,涂列]；行列都只涂一部分时用色带突出重叠（分数乘分数） */
 function vAreaGrid(nums){
   const rows=clampInt(nums&&nums[0],1,12,3), cols=clampInt(nums&&nums[1],1,12,4);
   const sr=clampInt(nums&&nums[2],0,rows,rows), sc=clampInt(nums&&nums[3],0,cols,cols);
   const cell=Math.min(34, Math.floor(300/Math.max(rows,cols)));
   const W=cols*cell+40,H=rows*cell+40,ox=20,oy=20;
   let r="";
-  for(let i=0;i<rows;i++)for(let j=0;j<cols;j++){
-    const on=(i<sr&&j<sc);
-    r+=`<rect x="${ox+j*cell}" y="${oy+i*cell}" width="${cell}" height="${cell}" fill="${on?COL.fill:'#fff'}" stroke="${COL.line}" stroke-width="1.5"/>`;
+  const partial=sr>0&&sr<rows&&sc>0&&sc<cols;
+  if(partial){
+    r+=`<rect x="${ox}" y="${oy}" width="${cols*cell}" height="${sr*cell}" fill="${COL.fill}" opacity="0.22"/>`;
+    r+=`<rect x="${ox}" y="${oy}" width="${sc*cell}" height="${rows*cell}" fill="${COL.fill2}" opacity="0.22"/>`;
+    r+=`<rect x="${ox}" y="${oy}" width="${sc*cell}" height="${sr*cell}" fill="${COL.fill}" opacity="0.85"/>`;
+    for(let i=0;i<rows;i++)for(let j=0;j<cols;j++)
+      r+=`<rect x="${ox+j*cell}" y="${oy+i*cell}" width="${cell}" height="${cell}" fill="none" stroke="${COL.line}" stroke-width="1.5"/>`;
+  }else{
+    for(let i=0;i<rows;i++)for(let j=0;j<cols;j++){
+      const on=(i<sr&&j<sc);
+      r+=`<rect x="${ox+j*cell}" y="${oy+i*cell}" width="${cell}" height="${cell}" fill="${on?COL.fill:'#fff'}" stroke="${COL.line}" stroke-width="1.5"/>`;
+    }
   }
   r+=`<text x="${ox+cols*cell/2}" y="${oy+rows*cell+16}" text-anchor="middle" font-size="13" fill="${COL.ink}">${t("colsRowsFmt")(cols,rows)}</text>`;
   return svg(W,H,r);
 }
+
+/* 线段图 */
 function vBarModel(nums,labels){
   const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0).slice(0,6);
   if(vals.length===0) return "";
@@ -621,27 +706,572 @@ function vBarModel(nums,labels){
   vals.forEach((v,i)=>{
     const y=14+i*(barH+gap), w=(W-pad-30)*(v/max);
     const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):t("barItemFmt")(i+1);
-    r+=`<text x="8" y="${y+barH/2+5}" font-size="13" fill="${COL.ink}">${lab}</text>`;
-    r+=`<rect x="${pad}" y="${y}" width="${Math.max(2,w)}" height="${barH}" rx="6" fill="${i%2?COL.fill2:COL.fill}"/>`;
-    r+=`<text x="${pad+Math.max(2,w)+8}" y="${y+barH/2+5}" font-size="13" font-weight="700" fill="${COL.ink}">${v}</text>`;
+    r+=`<text x="8" y="${y+barH/2+5}" font-size="13" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
+    r+=`<rect x="${pad}" y="${y}" width="${Math.max(2,w).toFixed(1)}" height="${barH}" rx="6" fill="${i%2?COL.fill2:COL.fill}"/>`;
+    r+=`<text x="${(pad+Math.max(2,w)+8).toFixed(1)}" y="${y+barH/2+5}" font-size="13" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
   });
   return svg(W,H,r);
 }
+
+/* 分组圆点图：nums=[组数,每组个数,(可选)剩余]。乘法意义 / 平均分 / 有余数除法 */
+function vGroups(nums){
+  const g=clampInt(nums&&nums[0],1,8,3), per=clampInt(nums&&nums[1],1,12,4), rem=clampInt(nums&&nums[2],0,11,0);
+  const dg=19, cols=Math.min(per,4), rowsD=Math.ceil(per/cols);
+  const boxW=cols*dg+14, boxH=rowsD*dg+14;
+  const perRow=Math.max(1,Math.min(g,Math.floor(436/(boxW+12))));
+  const gRows=Math.ceil(g/perRow);
+  const W=460, startX=(W-Math.min(g,perRow)*(boxW+12)+12)/2;
+  let r="", yAfter=8+gRows*(boxH+12);
+  for(let k=0;k<g;k++){
+    const gx=startX+(k%perRow)*(boxW+12), gy=8+Math.floor(k/perRow)*(boxH+12);
+    r+=`<rect x="${gx.toFixed(1)}" y="${gy}" width="${boxW}" height="${boxH}" rx="10" fill="#fff" stroke="${COL.line}" stroke-width="2"/>`;
+    for(let i=0;i<per;i++)
+      r+=`<circle cx="${(gx+7+(i%cols)*dg+dg/2).toFixed(1)}" cy="${(gy+7+Math.floor(i/cols)*dg+dg/2).toFixed(1)}" r="6.5" fill="${COL.fill}"/>`;
+  }
+  if(rem>0){
+    for(let i=0;i<rem;i++)
+      r+=`<circle cx="${(startX+dg/2+i*dg).toFixed(1)}" cy="${yAfter+dg/2}" r="6.5" fill="${COL.fill2}"/>`;
+    yAfter+=dg+8;
+  }
+  r+=`<text x="${W/2}" y="${yAfter+15}" text-anchor="middle" font-size="14" font-weight="700" fill="${COL.ink}">${t("groupsFmt")(g,per,rem)}</text>`;
+  return svg(W,yAfter+26,r);
+}
+
+/* 长方形：nums=[长,宽]，labels=["单位"]。边长标在图上，数值任意 */
+function vShapeRect(nums,labels){
+  let Lv=Number(nums&&nums[0]), Wv=Number(nums&&nums[1]);
+  if(!isFinite(Lv)||Lv<=0) Lv=8; if(!isFinite(Wv)||Wv<=0) Wv=5;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const ratio=Math.max(1/3,Math.min(3,Lv/Wv));
+  let w,h;
+  if(ratio>=1){ w=270; h=Math.max(66,270/ratio); } else { h=160; w=Math.max(66,160*ratio); }
+  const ox=(460-w-70)/2+10, oy=12;
+  let r=`<rect x="${ox.toFixed(1)}" y="${oy}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3"/>`;
+  r+=dimArrow(ox,oy+h+16,ox+w,oy+h+16,escapeHtml(fmtNum(Lv)+unit));
+  r+=dimArrow(ox+w+16,oy,ox+w+16,oy+h,escapeHtml(fmtNum(Wv)+unit));
+  return svg(460,oy+h+42,r);
+}
+
+/* 三角形：nums=[底,高]，labels=["单位"]。虚线画高 + 直角记号 */
+function vShapeTriangle(nums,labels){
+  let Bv=Number(nums&&nums[0]), Hv=Number(nums&&nums[1]);
+  if(!isFinite(Bv)||Bv<=0) Bv=6; if(!isFinite(Hv)||Hv<=0) Hv=4;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const ratio=Math.max(0.6,Math.min(3,Bv/Hv));
+  let w,hh;
+  if(ratio>=1){ w=280; hh=Math.max(80,280/ratio); } else { hh=150; w=Math.max(90,150*ratio); }
+  const ox=(460-w-70)/2+10, oy=12, baseY=oy+hh, ax=ox+w*0.42;
+  let r=`<polygon points="${ox.toFixed(1)},${baseY.toFixed(1)} ${(ox+w).toFixed(1)},${baseY.toFixed(1)} ${ax.toFixed(1)},${oy}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3" stroke-linejoin="round"/>`;
+  r+=`<line x1="${ax.toFixed(1)}" y1="${oy}" x2="${ax.toFixed(1)}" y2="${baseY.toFixed(1)}" stroke="${COL.fill2}" stroke-width="2.5" stroke-dasharray="6 5"/>`;
+  r+=`<path d="M ${(ax-9).toFixed(1)} ${baseY.toFixed(1)} v -9 h 9" fill="none" stroke="${COL.ink}" stroke-width="1.5"/>`;
+  r+=`<text x="${(ax+8).toFixed(1)}" y="${(oy+hh/2+5).toFixed(1)}" font-size="14" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Hv)+unit)}</text>`;
+  r+=dimArrow(ox,baseY+16,ox+w,baseY+16,escapeHtml(fmtNum(Bv)+unit));
+  return svg(460,baseY+42,r);
+}
+
+/* 圆：nums=[半径]，labels=["单位"] */
+function vShapeCircle(nums,labels){
+  let Rv=Number(nums&&nums[0]);
+  if(!isFinite(Rv)||Rv<=0) Rv=3;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const cx=210, cy=92, R=76;
+  let r=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3"/>`;
+  r+=`<line x1="${cx}" y1="${cy}" x2="${cx+R}" y2="${cy}" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  r+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="${COL.ink}"/>`;
+  r+=`<text x="${cx+R/2}" y="${cy-10}" text-anchor="middle" font-size="14" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Rv)+unit)}</text>`;
+  return svg(460,184,r);
+}
+
+/* 钟面：nums=[时,分] 或 [时1,分1,时2,分2]（两个钟 + 经过时间） */
+function clockFace(cx,cy,R,h,m){
+  let s=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="#fff" stroke="${COL.line}" stroke-width="3"/>`;
+  for(let i=1;i<=12;i++){
+    const a=-Math.PI/2+i*Math.PI/6, c=Math.cos(a), si=Math.sin(a);
+    s+=`<line x1="${(cx+(R-5)*c).toFixed(1)}" y1="${(cy+(R-5)*si).toFixed(1)}" x2="${(cx+(R-11)*c).toFixed(1)}" y2="${(cy+(R-11)*si).toFixed(1)}" stroke="${COL.line}" stroke-width="2"/>`;
+    s+=`<text x="${(cx+(R-21)*c).toFixed(1)}" y="${(cy+(R-21)*si+4).toFixed(1)}" text-anchor="middle" font-size="11" fill="${COL.ink}">${i}</text>`;
+  }
+  const ah=-Math.PI/2+((h%12)+m/60)*Math.PI/6, am=-Math.PI/2+m*Math.PI/30;
+  s+=`<line x1="${cx}" y1="${cy}" x2="${(cx+R*0.5*Math.cos(ah)).toFixed(1)}" y2="${(cy+R*0.5*Math.sin(ah)).toFixed(1)}" stroke="${COL.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  s+=`<line x1="${cx}" y1="${cy}" x2="${(cx+R*0.74*Math.cos(am)).toFixed(1)}" y2="${(cy+R*0.74*Math.sin(am)).toFixed(1)}" stroke="${COL.fill}" stroke-width="3.5" stroke-linecap="round"/>`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="4" fill="${COL.fill}"/>`;
+  s+=`<text x="${cx}" y="${cy+R+21}" text-anchor="middle" font-size="15" font-weight="800" fill="${COL.ink}">${h}:${String(m).padStart(2,"0")}</text>`;
+  return s;
+}
+function vClock(nums){
+  nums=(nums||[]).map(Number);
+  const h1=clampInt(nums[0],0,23,3), m1=clampInt(nums[1],0,59,0), R=58, cy=R+7, H=2*R+42;
+  if(nums.length<4) return svg(230,H,clockFace(115,cy,R,h1,m1));
+  const h2=clampInt(nums[2],0,23,4), m2=clampInt(nums[3],0,59,0);
+  let diff=(h2*60+m2)-(h1*60+m1); if(diff<0) diff+=1440;
+  let s=clockFace(92,cy,R,h1,m1)+clockFace(368,cy,R,h2,m2);
+  s+=`<line x1="${92+R+14}" y1="${cy}" x2="${368-R-16}" y2="${cy}" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  s+=`<polygon points="${368-R-16},${cy-6} ${368-R-16},${cy+6} ${368-R-5},${cy}" fill="${COL.fill2}"/>`;
+  s+=`<text x="230" y="${cy-12}" text-anchor="middle" font-size="13" font-weight="800" fill="${COL.fill2}">${t("elapsedFmt")(diff)}</text>`;
+  return svg(460,H,s);
+}
+
+/* 数位表：nums=[一个数]，自动排出 个位/十分位… 各数位 */
+function vPlaceValue(nums){
+  let n=Number(nums&&nums[0]);
+  if(!isFinite(n)) return "";
+  n=Math.abs(n);
+  if(n>=100000) return "";
+  let s=String(n);
+  if(!/^\d+(\.\d+)?$/.test(s)) s=n.toFixed(3);
+  let parts=s.split("."), ip=parts[0], dp=(parts[1]||"");
+  if(dp.length>3){ s=n.toFixed(3); parts=s.split("."); ip=parts[0]; dp=parts[1]||""; }
+  dp=dp.replace(/0+$/,"");
+  const ints=ip.split(""), decs=dp.split("");
+  const PI_=t("placeInt"), PD=t("placeDec");
+  if(ints.length>PI_.length) return "";
+  const cw=66, hh=28, vh=44, dotW=22, pad=4;
+  const W=pad*2+ints.length*cw+(decs.length?dotW+decs.length*cw:0);
+  let r="", x=pad;
+  const col=(lab,digit,headFill,digitColor)=>{
+    let c=`<rect x="${x}" y="0" width="${cw-2}" height="${hh}" rx="7" fill="${headFill}"/>`;
+    c+=`<text x="${x+(cw-2)/2}" y="${hh/2+4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${lab}</text>`;
+    c+=`<rect x="${x}" y="${hh+2}" width="${cw-2}" height="${vh}" rx="7" fill="#fff" stroke="${COL.line}" stroke-width="1.5"/>`;
+    c+=`<text x="${x+(cw-2)/2}" y="${hh+2+vh/2+9}" text-anchor="middle" font-size="25" font-weight="800" fill="${digitColor}">${digit}</text>`;
+    x+=cw;
+    return c;
+  };
+  ints.forEach((d,i)=>{ r+=col(PI_[ints.length-1-i],d,"#ffe9db",COL.ink); });
+  if(decs.length){
+    r+=`<text x="${x+dotW/2}" y="${hh+2+vh-8}" text-anchor="middle" font-size="30" font-weight="800" fill="${COL.ink}">.</text>`;
+    x+=dotW;
+    decs.forEach((d,i)=>{ r+=col(PD[i],d,"#e4ebff",COL.fill2); });
+  }
+  return svg(W,hh+vh+8,r);
+}
+
+/* 天平：labels=[左,右]，nums=[0]平衡 / [1]左重 / [-1]右重。讲方程好用 */
+function vBalance(nums,labels){
+  const tRaw=Number(nums&&nums[0]);
+  const tilt=!isFinite(tRaw)||tRaw===0?0:(tRaw>0?1:-1);
+  const lt=String((labels&&labels[0])||"?").slice(0,14);
+  const rt=String((labels&&labels[1])||"?").slice(0,14);
+  const W=460,H=178,cx=230,py=40,half=142,a=tilt*0.11;
+  const ex1=cx-half*Math.cos(a), ey1=py+half*Math.sin(a);
+  const ex2=cx+half*Math.cos(a), ey2=py-half*Math.sin(a);
+  let r=`<rect x="${cx-72}" y="${H-16}" width="144" height="9" rx="4.5" fill="${COL.line}"/>`;
+  r+=`<polygon points="${cx-15},${H-16} ${cx+15},${H-16} ${cx},${py}" fill="#e8dccd"/>`;
+  r+=`<line x1="${ex1.toFixed(1)}" y1="${ey1.toFixed(1)}" x2="${ex2.toFixed(1)}" y2="${ey2.toFixed(1)}" stroke="${COL.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  r+=`<circle cx="${cx}" cy="${py}" r="5.5" fill="${COL.fill}"/>`;
+  const pan=(ex,ey,txt,c)=>{
+    const ty=ey+26;
+    return `<line x1="${ex.toFixed(1)}" y1="${ey.toFixed(1)}" x2="${(ex-40).toFixed(1)}" y2="${ty.toFixed(1)}" stroke="${COL.line}" stroke-width="2"/>`
+      +`<line x1="${ex.toFixed(1)}" y1="${ey.toFixed(1)}" x2="${(ex+40).toFixed(1)}" y2="${ty.toFixed(1)}" stroke="${COL.line}" stroke-width="2"/>`
+      +`<rect x="${(ex-56).toFixed(1)}" y="${ty.toFixed(1)}" width="112" height="38" rx="12" fill="#fff" stroke="${c}" stroke-width="2.5"/>`
+      +`<text x="${ex.toFixed(1)}" y="${(ty+24).toFixed(1)}" text-anchor="middle" font-size="${txt.length>8?13:16}" font-weight="800" fill="${COL.ink}">${escapeHtml(txt)}</text>`;
+  };
+  r+=pan(ex1,ey1,lt,COL.fill)+pan(ex2,ey2,rt,COL.fill2);
+  return svg(W,H,r);
+}
+
+/* 扇形统计图：nums=[各部分数值...]，labels=[名称...]，最多 6 份 */
+function vPieChart(nums,labels){
+  const vals=(nums||[]).map(Number).filter(v=>isFinite(v)&&v>0).slice(0,6);
+  if(!vals.length) return "";
+  const sum=vals.reduce((x,y)=>x+y,0);
+  const cx=100,cy=95,R=78;
+  let a0=-Math.PI/2, r="";
+  if(vals.length===1){
+    r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${PAL[0]}"/>`;
+    r+=`<text x="${cx}" y="${cy+5}" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">100%</text>`;
+  }else vals.forEach((v,i)=>{
+    const a1=a0+v/sum*2*Math.PI;
+    r+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
+    if(v/sum>=0.09){
+      const am=(a0+a1)/2;
+      r+=`<text x="${(cx+R*0.62*Math.cos(am)).toFixed(1)}" y="${(cy+R*0.62*Math.sin(am)+4).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">${Math.round(v/sum*100)}%</text>`;
+    }
+    a0=a1;
+  });
+  vals.forEach((v,i)=>{
+    const y=cy-((vals.length-1)*24)/2+i*24;
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,10):t("barItemFmt")(i+1);
+    r+=`<rect x="205" y="${y-12}" width="14" height="14" rx="4" fill="${PAL[i%6]}"/>`;
+    r+=`<text x="227" y="${y}" font-size="14" fill="${COL.ink}">${escapeHtml(lab)} · ${fmtNum(v)} (${Math.round(v/sum*100)}%)</text>`;
+  });
+  return svg(460,190,r);
+}
+
+/* ---- 立体几何：斜二测画法，看不见的棱画虚线 ---- */
+/* 长方体/正方体：nums=[长,宽,高]（正方体只用第一个数） */
+function vSolidCuboid(nums,labels,cube){
+  let L=Number(nums&&nums[0]), W=Number(nums&&nums[1]), H=Number(nums&&nums[2]);
+  if(cube){ const a=(isFinite(L)&&L>0)?L:4; L=W=H=a; }
+  if(!isFinite(L)||L<=0) L=8; if(!isFinite(W)||W<=0) W=4; if(!isFinite(H)||H<=0) H=5;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const m=Math.max(L,W,H);
+  const dL=Math.max(L,m/3.5), dW=Math.max(W,m/3.5), dH=Math.max(H,m/3.5);
+  const s=Math.min(280/(dL+0.52*dW), 158/(dH+0.30*dW));
+  const w=s*dL, h=s*dH, dx=s*dW*0.52, dy=s*dW*0.30;
+  const x0=(460-(w+dx)-66)/2+6, yTop=14+dy;
+  const Ax=x0, Ay=yTop+h, Bx=x0+w, Cy=yTop;              // A 前下左 B 前下右 C 前上右 D 前上左
+  const f=n=>Number(n).toFixed(1);
+  const A2=[Ax+dx,Ay-dy], B2=[Bx+dx,Ay-dy], C2=[Bx+dx,Cy-dy], D2=[Ax+dx,Cy-dy];
+  let r="";
+  r+=`<polygon points="${f(Ax)},${f(Cy)} ${f(Bx)},${f(Cy)} ${f(C2[0])},${f(C2[1])} ${f(D2[0])},${f(D2[1])}" fill="#ffeadb" stroke="${COL.fill}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  r+=`<polygon points="${f(Bx)},${f(Ay)} ${f(Bx)},${f(Cy)} ${f(C2[0])},${f(C2[1])} ${f(B2[0])},${f(B2[1])}" fill="#ffdcc6" stroke="${COL.fill}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  r+=`<rect x="${f(Ax)}" y="${f(Cy)}" width="${f(w)}" height="${f(h)}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  const dash=`stroke="${COL.fill}" stroke-width="2" stroke-dasharray="5 5" fill="none"`;
+  r+=`<line x1="${f(Ax)}" y1="${f(Ay)}" x2="${f(A2[0])}" y2="${f(A2[1])}" ${dash}/>`;
+  r+=`<line x1="${f(A2[0])}" y1="${f(A2[1])}" x2="${f(B2[0])}" y2="${f(B2[1])}" ${dash}/>`;
+  r+=`<line x1="${f(A2[0])}" y1="${f(A2[1])}" x2="${f(D2[0])}" y2="${f(D2[1])}" ${dash}/>`;
+  r+=`<text x="${f(Ax+w/2)}" y="${f(Ay+19)}" text-anchor="middle" font-size="14" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(L)+unit)}</text>`;
+  if(!cube){
+    r+=`<text x="${f(Bx+dx/2+9)}" y="${f(Ay-dy/2+15)}" font-size="14" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(W)+unit)}</text>`;
+    r+=`<text x="${f(B2[0]+7)}" y="${f((B2[1]+C2[1])/2+5)}" font-size="14" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(H)+unit)}</text>`;
+  }
+  return svg(460,Ay+30,r);
+}
+
+/* 圆柱：nums=[底面半径,高] */
+function vSolidCylinder(nums,labels){
+  let Rv=Number(nums&&nums[0]), Hv=Number(nums&&nums[1]);
+  if(!isFinite(Rv)||Rv<=0) Rv=3; if(!isFinite(Hv)||Hv<=0) Hv=5;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const s=Math.min(105/Rv,145/Hv);
+  const rx=Math.max(30,Math.min(105,s*Rv)), hp=Math.max(46,Math.min(145,s*Hv));
+  const ry=Math.max(9,rx*0.30), cx=210, yT=ry+10, yB=yT+hp;
+  const f=n=>Number(n).toFixed(1);
+  let r=`<path d="M ${f(cx-rx)} ${yT} L ${f(cx-rx)} ${f(yB)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx+rx)} ${f(yB)} L ${f(cx+rx)} ${yT} Z" fill="#fff8f2"/>`;
+  r+=`<path d="M ${f(cx-rx)} ${f(yB)} A ${f(rx)} ${f(ry)} 0 0 1 ${f(cx+rx)} ${f(yB)}" fill="none" stroke="${COL.fill}" stroke-width="2" stroke-dasharray="5 5"/>`;
+  r+=`<path d="M ${f(cx-rx)} ${f(yB)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx+rx)} ${f(yB)}" fill="none" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${f(cx-rx)}" y1="${yT}" x2="${f(cx-rx)}" y2="${f(yB)}" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${f(cx+rx)}" y1="${yT}" x2="${f(cx+rx)}" y2="${f(yB)}" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<ellipse cx="${cx}" cy="${yT}" rx="${f(rx)}" ry="${f(ry)}" fill="#ffeadb" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${cx}" y1="${yT}" x2="${f(cx+rx)}" y2="${yT}" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  r+=`<circle cx="${cx}" cy="${yT}" r="3" fill="${COL.ink}"/>`;
+  r+=`<text x="${f(cx+rx/2)}" y="${yT-7}" text-anchor="middle" font-size="13.5" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Rv)+unit)}</text>`;
+  r+=dimArrow(cx+rx+18,yT,cx+rx+18,yB,escapeHtml(fmtNum(Hv)+unit));
+  return svg(460,yB+ry+12,r);
+}
+
+/* 圆锥：nums=[底面半径,高]，虚线画高 */
+function vSolidCone(nums,labels){
+  let Rv=Number(nums&&nums[0]), Hv=Number(nums&&nums[1]);
+  if(!isFinite(Rv)||Rv<=0) Rv=3; if(!isFinite(Hv)||Hv<=0) Hv=4;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const s=Math.min(105/Rv,150/Hv);
+  const rx=Math.max(34,Math.min(105,s*Rv)), hp=Math.max(60,Math.min(150,s*Hv));
+  const ry=Math.max(9,rx*0.30), cx=210, apexY=12, baseY=apexY+hp;
+  const f=n=>Number(n).toFixed(1);
+  let r=`<path d="M ${cx} ${apexY} L ${f(cx-rx)} ${f(baseY)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx+rx)} ${f(baseY)} Z" fill="#fff8f2"/>`;
+  r+=`<path d="M ${f(cx-rx)} ${f(baseY)} A ${f(rx)} ${f(ry)} 0 0 1 ${f(cx+rx)} ${f(baseY)}" fill="none" stroke="${COL.fill}" stroke-width="2" stroke-dasharray="5 5"/>`;
+  r+=`<path d="M ${f(cx-rx)} ${f(baseY)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx+rx)} ${f(baseY)}" fill="none" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${cx}" y1="${apexY}" x2="${f(cx-rx)}" y2="${f(baseY)}" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${cx}" y1="${apexY}" x2="${f(cx+rx)}" y2="${f(baseY)}" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${cx}" y1="${apexY}" x2="${cx}" y2="${f(baseY)}" stroke="${COL.fill2}" stroke-width="2.5" stroke-dasharray="6 5"/>`;
+  r+=`<path d="M ${cx} ${f(baseY-9)} h 9 v 9" fill="none" stroke="${COL.ink}" stroke-width="1.5"/>`;
+  r+=`<line x1="${cx}" y1="${f(baseY)}" x2="${f(cx+rx)}" y2="${f(baseY)}" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  r+=`<circle cx="${cx}" cy="${f(baseY)}" r="3" fill="${COL.ink}"/>`;
+  r+=`<text x="${f(cx+rx/2+6)}" y="${f(baseY-6)}" text-anchor="middle" font-size="13.5" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Rv)+unit)}</text>`;
+  r+=`<text x="${cx+7}" y="${f((apexY+baseY)/2+5)}" font-size="13.5" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Hv)+unit)}</text>`;
+  return svg(460,baseY+ry+12,r);
+}
+
+/* 球：nums=[半径]，赤道虚线显出立体感 */
+function vSolidSphere(nums,labels){
+  let Rv=Number(nums&&nums[0]);
+  if(!isFinite(Rv)||Rv<=0) Rv=3;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const cx=210, cy=88, R=74, ry=R*0.30;
+  const f=n=>Number(n).toFixed(1);
+  let r=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3"/>`;
+  r+=`<path d="M ${cx-R} ${cy} A ${R} ${f(ry)} 0 0 1 ${cx+R} ${cy}" fill="none" stroke="${COL.fill}" stroke-width="1.8" stroke-dasharray="5 5"/>`;
+  r+=`<path d="M ${cx-R} ${cy} A ${R} ${f(ry)} 0 0 0 ${cx+R} ${cy}" fill="none" stroke="${COL.fill}" stroke-width="2"/>`;
+  r+=`<line x1="${cx}" y1="${cy}" x2="${cx+R}" y2="${cy}" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  r+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="${COL.ink}"/>`;
+  r+=`<text x="${cx+R/2}" y="${cy-9}" text-anchor="middle" font-size="13.5" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Rv)+unit)}</text>`;
+  return svg(460,cy+R+14,r);
+}
+
+/* 长方体/正方体展开图：相对的面同色，讲表面积 */
+function vNetCuboid(nums,labels){
+  let L=Number(nums&&nums[0]), W=Number(nums&&nums[1]), H=Number(nums&&nums[2]);
+  if(!isFinite(L)||L<=0) L=8; if(!isFinite(W)||W<=0) W=4; if(!isFinite(H)||H<=0) H=5;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const m=Math.max(L,W,H);
+  const dL=Math.max(L,m/4), dW=Math.max(W,m/4), dH=Math.max(H,m/4);
+  const s=Math.min(390/(2*(dL+dW)), 190/(dH+2*dW));
+  const sL=s*dL, sW=s*dW, sH=s*dH;
+  const x0=Math.max(64,(460-2*(sL+sW))/2), y0=8;
+  const f=n=>Number(n).toFixed(1);
+  const TB="#ffd9bf", FB="#dbe4ff", LR="#d3f0e0";
+  const face=(x,y,w,h,c)=>`<rect x="${f(x)}" y="${f(y)}" width="${f(w)}" height="${f(h)}" fill="${c}" stroke="${COL.line}" stroke-width="1.5"/>`;
+  let r="";
+  r+=face(x0+sW,y0,sL,sW,TB);                    // 上
+  r+=face(x0,y0+sW,sW,sH,LR);                    // 左
+  r+=face(x0+sW,y0+sW,sL,sH,FB);                 // 前
+  r+=face(x0+sW+sL,y0+sW,sW,sH,LR);              // 右
+  r+=face(x0+2*sW+sL,y0+sW,sL,sH,FB);            // 后
+  r+=face(x0+sW,y0+sW+sH,sL,sW,TB);              // 下
+  r+=`<text x="${f(x0+sW+sL/2)}" y="${f(y0+2*sW+sH+18)}" text-anchor="middle" font-size="13" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(L)+unit)}</text>`;
+  r+=`<text x="${f(x0+sW-6)}" y="${f(y0+sW/2+4)}" text-anchor="end" font-size="13" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(W)+unit)}</text>`;
+  r+=`<text x="${f(x0-6)}" y="${f(y0+sW+sH/2+4)}" text-anchor="end" font-size="13" font-weight="700" fill="${COL.ink}">${escapeHtml(fmtNum(H)+unit)}</text>`;
+  return svg(460,y0+2*sW+sH+26,r);
+}
+
+/* 圆柱展开图：两个底面圆 + 侧面长方形（长 = 底面周长） */
+function vNetCylinder(nums,labels){
+  let Rv=Number(nums&&nums[0]), Hv=Number(nums&&nums[1]);
+  if(!isFinite(Rv)||Rv<=0) Rv=3; if(!isFinite(Hv)||Hv<=0) Hv=5;
+  const unit=(labels&&labels[0])?String(labels[0]).slice(0,6):"";
+  const s=Math.min(360/(2*Math.PI*Rv), 172/(Hv+4*Rv));
+  const rw=Math.max(120,s*2*Math.PI*Rv), rh=Math.max(34,s*Hv), cr=Math.max(14,s*Rv);
+  const cx=195, topCy=8+cr, rectY=topCy+cr+6, bottomCy=rectY+rh+6+cr;
+  const f=n=>Number(n).toFixed(1);
+  let r=`<circle cx="${cx}" cy="${f(topCy)}" r="${f(cr)}" fill="#ffd9bf" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  r+=`<line x1="${cx}" y1="${f(topCy)}" x2="${f(cx+cr)}" y2="${f(topCy)}" stroke="${COL.fill2}" stroke-width="2"/>`;
+  r+=`<text x="${f(cx+cr+8)}" y="${f(topCy+4)}" font-size="12.5" font-weight="700" fill="${COL.fill2}">${escapeHtml(fmtNum(Rv)+unit)}</text>`;
+  r+=`<rect x="${f(cx-rw/2)}" y="${f(rectY)}" width="${f(rw)}" height="${f(rh)}" fill="#dbe4ff" stroke="${COL.fill2}" stroke-width="2.5"/>`;
+  r+=`<text x="${cx}" y="${f(rectY+rh/2-4)}" text-anchor="middle" font-size="13" font-weight="700" fill="${COL.fill2}">${t("netCircum")}</text>`;
+  const ax1=cx-rw*0.3, ax2=cx+rw*0.3, ay=rectY+rh/2+10;
+  r+=`<line x1="${f(ax1)}" y1="${f(ay)}" x2="${f(ax2)}" y2="${f(ay)}" stroke="${COL.fill2}" stroke-width="1.5"/>`;
+  r+=`<polygon points="${f(ax1)},${f(ay)} ${f(ax1+7)},${f(ay-4)} ${f(ax1+7)},${f(ay+4)}" fill="${COL.fill2}"/>`;
+  r+=`<polygon points="${f(ax2)},${f(ay)} ${f(ax2-7)},${f(ay-4)} ${f(ax2-7)},${f(ay+4)}" fill="${COL.fill2}"/>`;
+  r+=dimArrow(cx+rw/2+16,rectY,cx+rw/2+16,rectY+rh,escapeHtml(fmtNum(Hv)+unit));
+  r+=`<circle cx="${cx}" cy="${f(bottomCy)}" r="${f(cr)}" fill="#ffd9bf" stroke="${COL.fill}" stroke-width="2.5"/>`;
+  return svg(460,bottomCy+cr+8,r);
+}
+
+/* ---- 统计与概率 ---- */
+/* 好看的刻度：步长取 1/2/5×10^k */
+function niceScale(maxV){
+  if(!(maxV>0)) return {max:1,step:1};
+  const pow=Math.pow(10,Math.floor(Math.log10(maxV/4)));
+  const q=(maxV/4)/pow;
+  const step=(q<=1?1:q<=2?2:q<=5?5:10)*pow;
+  return {max:Math.ceil(maxV/step-1e-9)*step, step};
+}
+/* 网格 + 纵轴刻度；返回取纵坐标的函数 */
+function statFrame(maxV,padT,padL,padR,plotH){
+  const sc=niceScale(maxV);
+  const y=v=>padT+plotH-(v/sc.max)*plotH;
+  let g="";
+  const n=Math.round(sc.max/sc.step);
+  for(let i=0;i<=n;i++){
+    const v=i*sc.step, py=y(v);
+    g+=`<line x1="${padL}" y1="${py.toFixed(1)}" x2="${460-padR}" y2="${py.toFixed(1)}" stroke="${i===0?COL.line:'#efe4d7'}" stroke-width="${i===0?2:1}"/>`;
+    g+=`<text x="${padL-7}" y="${(py+4).toFixed(1)}" text-anchor="end" font-size="11" fill="#8a7d74">${fmtNum(v)}</text>`;
+  }
+  return {y,g};
+}
+/* 圆角只在顶端的条形（底端贴住横轴） */
+function barTop(x,yT,w,y0,fill){
+  if(y0-yT<1) return "";
+  const r=Math.min(4,w/2,y0-yT), f=n=>Number(n).toFixed(1);
+  return `<path d="M ${f(x)} ${f(y0)} L ${f(x)} ${f(yT+r)} Q ${f(x)} ${f(yT)} ${f(x+r)} ${f(yT)} L ${f(x+w-r)} ${f(yT)} Q ${f(x+w)} ${f(yT)} ${f(x+w)} ${f(yT+r)} L ${f(x+w)} ${f(y0)} Z" fill="${fill}"/>`;
+}
+/* 解析单/复式系列。判定优先级：
+ * 1) 数值数 = 标签数 → 单系列（一格一标签）
+ * 2) 数值数 = 2×(标签数-2) → 复式，labels 末尾两项是系列名
+ * 3) 数值数 = 2×标签数 → 复式，无系列名
+ * 4) 其余 → 单系列兜底 */
+function parseStatSeries(nums,labels){
+  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0);
+  const rawLabs=(labels||[]).map(String);
+  const L=rawLabs.length;
+  if(vals.length&&vals.length===L&&L<=8)
+    return {s1:vals, s2:null, cats:rawLabs, names:null};
+  if(L>=4&&L<=10&&vals.length===2*(L-2))
+    return {s1:vals.slice(0,L-2), s2:vals.slice(L-2), cats:rawLabs.slice(0,L-2), names:[rawLabs[L-2],rawLabs[L-1]]};
+  if(L>=2&&L<=8&&vals.length===2*L)
+    return {s1:vals.slice(0,L), s2:vals.slice(L,2*L), cats:rawLabs.slice(0,L), names:null};
+  const s1=vals.slice(0,8);
+  return {s1, s2:null, cats:rawLabs.slice(0,s1.length), names:null};
+}
+function statLegend(names,padL){
+  if(!names) return "";
+  let g="";
+  [COL.fill,COL.fill2].forEach((c,i)=>{
+    const x=padL+4+i*118;
+    g+=`<rect x="${x}" y="6" width="12" height="12" rx="3" fill="${c}"/>`;
+    g+=`<text x="${x+18}" y="16" font-size="12" fill="${COL.ink}">${escapeHtml(String(names[i]||"").slice(0,6))}</text>`;
+  });
+  return g;
+}
+function statCatLabel(cx,baseY,txt){
+  return `<text x="${cx.toFixed(1)}" y="${baseY+17}" text-anchor="middle" font-size="11.5" fill="${COL.ink}">${escapeHtml(txt.slice(0,5))}</text>`;
+}
+
+/* 条形统计图：labels=[类别...]，nums=[数值...]；数值给 2 倍长度 = 复式 */
+function vStatBar(nums,labels){
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  if(!s1.length) return "";
+  const padL=46,padR=12,padT=names?26:16,padB=32,plotH=150;
+  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH);
+  const slot=(460-padL-padR)/s1.length, baseY=padT+plotH;
+  let r=g+statLegend(names,padL);
+  s1.forEach((v,i)=>{
+    const cx=padL+slot*(i+0.5);
+    if(s2){
+      const bw=Math.min(24,slot*0.34), v2=s2[i];
+      r+=barTop(cx-bw-1,y(v),bw,baseY,COL.fill);
+      r+=barTop(cx+1,y(v2),bw,baseY,COL.fill2);
+      r+=`<text x="${(cx-bw/2-1).toFixed(1)}" y="${(y(v)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+      r+=`<text x="${(cx+bw/2+1).toFixed(1)}" y="${(y(v2)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v2)}</text>`;
+    }else{
+      const bw=Math.min(44,slot*0.55);
+      r+=barTop(cx-bw/2,y(v),bw,baseY,COL.fill);
+      r+=`<text x="${cx.toFixed(1)}" y="${(y(v)-5).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+    }
+    r+=statCatLabel(cx,baseY,cats[i]||t("barItemFmt")(i+1));
+  });
+  return svg(460,padT+plotH+padB,r);
+}
+
+/* 折线统计图：讲变化趋势；同样支持复式 */
+function vStatLine(nums,labels){
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  if(s1.length<2) return "";
+  const padL=46,padR=16,padT=names?26:18,padB=32,plotH=150;
+  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH);
+  const slot=(460-padL-padR)/s1.length, baseY=padT+plotH;
+  const px=i=>padL+slot*(i+0.5);
+  let r=g+statLegend(names,padL);
+  // 复式时，每个点的数值标签放在远离另一条线的一侧，避免两线之间打架
+  const s1Above=s1.map((v,i)=>!s2||v>=s2[i]);
+  const drawSeries=(s,color,aboveArr)=>{
+    r+=`<polyline points="${s.map((v,i)=>px(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    s.forEach((v,i)=>{
+      r+=`<circle cx="${px(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="4" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+      const ly=aboveArr[i]?y(v)-9:Math.min(y(v)+17,baseY-4);
+      r+=`<text x="${px(i).toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+    });
+  };
+  drawSeries(s1,COL.fill,s1Above);
+  if(s2) drawSeries(s2,COL.fill2,s1Above.map(a=>!a));
+  s1.forEach((_,i)=>{ r+=statCatLabel(px(i),baseY,cats[i]||t("barItemFmt")(i+1)); });
+  return svg(460,padT+plotH+padB,r);
+}
+
+/* 平均数（移多补少）：条形 + 红色平均虚线，高出部分变绿、不足画虚线框 */
+function vAverage(nums,labels){
+  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0).slice(0,8);
+  if(vals.length<2) return "";
+  const mean=vals.reduce((a,b)=>a+b,0)/vals.length;
+  const padL=16,padR=84,padT=22,padB=30,plotH=140;
+  const maxV=Math.max(...vals,mean,1);
+  const slot=(460-padL-padR)/vals.length, baseY=padT+plotH;
+  const y=v=>padT+plotH-(v/maxV)*plotH;
+  const my=y(mean);
+  let r=`<line x1="${padL}" y1="${baseY}" x2="${460-padR}" y2="${baseY}" stroke="${COL.line}" stroke-width="2"/>`;
+  vals.forEach((v,i)=>{
+    const cx=padL+slot*(i+0.5), bw=Math.min(46,slot*0.55), yT=y(v);
+    r+=barTop(cx-bw/2,yT,bw,baseY,COL.fill);
+    if(v>mean+1e-9) r+=barTop(cx-bw/2,yT,bw,my,COL.good);
+    else if(v<mean-1e-9) r+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${my.toFixed(1)}" width="${bw.toFixed(1)}" height="${(yT-my).toFixed(1)}" fill="none" stroke="${COL.line}" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+    const barH=baseY-yT;
+    if(barH>=20) r+=`<text x="${cx.toFixed(1)}" y="${(yT+15).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">${fmtNum(v)}</text>`;
+    else r+=`<text x="${cx.toFixed(1)}" y="${(Math.min(yT,my)-4).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+    r+=statCatLabel(cx,baseY,(labels&&labels[i])?String(labels[i]):t("barItemFmt")(i+1));
+  });
+  r+=`<line x1="${padL}" y1="${my.toFixed(1)}" x2="${460-padR+6}" y2="${my.toFixed(1)}" stroke="#e05252" stroke-width="2.5" stroke-dasharray="7 4"/>`;
+  r+=`<text x="${460-padR+10}" y="${(my+4).toFixed(1)}" font-size="12.5" font-weight="800" fill="#e05252">${t("avgFmt")(fmtNum(mean))}</text>`;
+  return svg(460,padT+plotH+padB,r);
+}
+
+/* 可能性转盘：nums=[各颜色份数...]，转盘分成等份 */
+function vSpinner(nums,labels){
+  const counts=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>0).map(n=>clampInt(n,1,12,1)).slice(0,6);
+  if(!counts.length) return "";
+  const total=counts.reduce((a,b)=>a+b,0);
+  if(total>24) return "";
+  const cx=100,cy=104,R=76;
+  let r="",idx=0;
+  if(total===1){
+    r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${PAL[0]}"/>`;
+  }else counts.forEach((c,g)=>{
+    for(let k=0;k<c;k++){
+      const a0=-Math.PI/2+idx*2*Math.PI/total, a1=a0+2*Math.PI/total;
+      r+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${PAL[g%6]}" stroke="#fff" stroke-width="2"/>`;
+      idx++;
+    }
+  });
+  r+=`<polygon points="${cx-9},${cy-R-16} ${cx+9},${cy-R-16} ${cx},${cy-R+6}" fill="${COL.ink}"/>`;
+  r+=`<circle cx="${cx}" cy="${cy}" r="6" fill="#fff" stroke="${COL.ink}" stroke-width="2.5"/>`;
+  counts.forEach((c,g)=>{
+    const yl=cy-((counts.length-1)*24)/2+g*24;
+    const lab=(labels&&labels[g])?escapeHtml(String(labels[g]).slice(0,8)):t("barItemFmt")(g+1);
+    r+=`<rect x="205" y="${yl-12}" width="14" height="14" rx="4" fill="${PAL[g%6]}"/>`;
+    r+=`<text x="227" y="${yl}" font-size="14" fill="${COL.ink}">${lab} · ${c}/${total}</text>`;
+  });
+  return svg(460,cy+R+14,r);
+}
+
+/* 摸球：盒子里的彩球 + 图例 */
+function vBalls(nums,labels){
+  let counts=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>0).map(n=>clampInt(n,1,12,1)).slice(0,6);
+  if(!counts.length) return "";
+  let total=counts.reduce((a,b)=>a+b,0);
+  if(total>20){
+    const cut=[]; let acc=0;
+    for(const c of counts){ const take=Math.min(c,20-acc); if(take<=0) break; cut.push(take); acc+=take; }
+    counts=cut; total=acc;
+  }
+  const perRow=Math.min(6,total), rows=Math.ceil(total/perRow);
+  const cell=30, bw=perRow*cell+22, bh=rows*cell+22, bx=24, by=10;
+  let r=`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="16" fill="#fff" stroke="${COL.line}" stroke-width="2.5"/>`;
+  let i=0;
+  counts.forEach((c,g)=>{
+    for(let k=0;k<c;k++){
+      const ccx=bx+11+cell/2+(i%perRow)*cell, ccy=by+11+cell/2+Math.floor(i/perRow)*cell;
+      r+=`<circle cx="${ccx}" cy="${ccy}" r="12" fill="${PAL[g%6]}"/>`;
+      r+=`<circle cx="${ccx-4}" cy="${ccy-4}" r="3.5" fill="#fff" opacity="0.55"/>`;
+      i++;
+    }
+  });
+  const lx=bx+bw+22;
+  counts.forEach((c,g)=>{
+    const yl=by+bh/2-((counts.length-1)*24)/2+g*24;
+    const lab=(labels&&labels[g])?escapeHtml(String(labels[g]).slice(0,6)):t("barItemFmt")(g+1);
+    r+=`<circle cx="${lx+7}" cy="${yl-4}" r="8" fill="${PAL[g%6]}"/>`;
+    r+=`<text x="${lx+22}" y="${yl}" font-size="14" fill="${COL.ink}">${lab} × ${c}</text>`;
+  });
+  const H=Math.max(by+bh, by+bh/2+counts.length*12+8)+12;
+  return svg(460,H,r);
+}
+
 function renderVisual(v){
   if(!v||!v.type||v.type==="none") return "";
   const nums=v.nums||[], labels=v.labels||[];
   let s="";
   try{
-    if(v.type==="fractionBar") s=vFractionBar(nums);
-    else if(v.type==="numberLine") s=vNumberLine(nums);
-    else if(v.type==="areaGrid") s=vAreaGrid(nums);
-    else if(v.type==="barModel") s=vBarModel(nums,labels);
+    switch(v.type){
+      case "fractionBar":   s=vFractionBar(nums); break;
+      case "pie":           s=vPie(nums); break;
+      case "numberLine":    s=vNumberLine(nums); break;
+      case "areaGrid":      s=vAreaGrid(nums); break;
+      case "barModel":      s=vBarModel(nums,labels); break;
+      case "groups":        s=vGroups(nums); break;
+      case "shapeRect":     s=vShapeRect(nums,labels); break;
+      case "shapeTriangle": s=vShapeTriangle(nums,labels); break;
+      case "shapeCircle":   s=vShapeCircle(nums,labels); break;
+      case "clock":         s=vClock(nums); break;
+      case "placeValue":    s=vPlaceValue(nums); break;
+      case "balance":       s=vBalance(nums,labels); break;
+      case "pieChart":      s=vPieChart(nums,labels); break;
+      case "solidCuboid":   s=vSolidCuboid(nums,labels,false); break;
+      case "solidCube":     s=vSolidCuboid(nums,labels,true); break;
+      case "solidCylinder": s=vSolidCylinder(nums,labels); break;
+      case "solidCone":     s=vSolidCone(nums,labels); break;
+      case "solidSphere":   s=vSolidSphere(nums,labels); break;
+      case "netCuboid":     s=vNetCuboid(nums,labels); break;
+      case "netCylinder":   s=vNetCylinder(nums,labels); break;
+      case "statBar":       s=vStatBar(nums,labels); break;
+      case "statLine":      s=vStatLine(nums,labels); break;
+      case "average":       s=vAverage(nums,labels); break;
+      case "spinner":       s=vSpinner(nums,labels); break;
+      case "balls":         s=vBalls(nums,labels); break;
+    }
   }catch(e){ s=""; }
   if(!s) return "";
   if(v.caption) s+=`<div class="cap">${escapeHtml(v.caption)}</div>`;
   return s;
 }
-function escapeHtml(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 
 /* ---------- 调用家里的桥梁服务器 ---------- */
 async function generateLesson(question, imageB64, mediaType){

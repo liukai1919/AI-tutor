@@ -71,6 +71,12 @@ function deepMerge(base, over) {
 }
 
 /* ---------------- 课程 JSON Schema ---------------- */
+const VISUAL_TYPES = [
+  "none", "fractionBar", "pie", "numberLine", "areaGrid", "barModel", "groups",
+  "shapeRect", "shapeTriangle", "shapeCircle", "clock", "placeValue", "balance", "pieChart",
+  "solidCuboid", "solidCube", "solidCylinder", "solidCone", "solidSphere", "netCuboid", "netCylinder",
+  "statBar", "statLine", "average", "spinner", "balls"
+];
 const LESSON_SCHEMA = {
   type: "object", additionalProperties: false,
   properties: {
@@ -85,7 +91,7 @@ const LESSON_SCHEMA = {
           visual: {
             type: "object", additionalProperties: false,
             properties: {
-              type: { type: "string", enum: ["none", "fractionBar", "numberLine", "areaGrid", "barModel"] },
+              type: { type: "string", enum: VISUAL_TYPES },
               nums: { type: "array", items: { type: "number" } },
               labels: { type: "array", items: { type: "string" } },
               caption: { type: "string" }
@@ -123,13 +129,34 @@ function systemPrompt(grade, kidName, lang) {
 - steps：讲解步骤，5～8 步最好。每步：
   - say：要【读出来】给孩子听的话。纯口语中文，不要 LaTeX、不要奇怪符号；数字和加减乘除直接用中文说（如"四分之三"、"乘以"）。
   - math：这一步屏幕上显示的算式，用 LaTeX（如 \\frac{3}{4}+\\frac{1}{6}）。不需要就填 ""。
-  - visual：这一步配的图。type 取以下之一：
-    · "none"：不配图。
-    · "fractionBar"（分数条）：nums=[总份数, 涂色份数]。讲分数、通分好用。
-    · "numberLine"（数轴）：nums=[最小值, 最大值, (可选)要标出的点]。讲比大小、加减、小数好用。
-    · "areaGrid"（面积格子）：nums=[行数, 列数, (可选)涂色行数, (可选)涂色列数]。讲乘法、面积好用。
+  - visual：这一步配的图。图是孩子理解的关键：只要能画，就配一张，至少一半的步骤应该有图。type 取以下之一：
+    · "none"：实在没有合适的图才用。
+    · "fractionBar"（分数条）：nums=[总份数, 涂色份数]。比较或通分时给两条：nums=[份数1, 涂色1, 份数2, 涂色2]，会画成两条对齐的分数条。
+    · "pie"（分数圆，像切披萨）：nums=[总份数, 涂色份数]；也可以给两个圆比较：[份数1, 涂色1, 份数2, 涂色2]。讲"几分之几"的意义最直观。
+    · "numberLine"（数轴）：nums=[最小值, 最大值, 标记点, (可选)第二个点]。给两个点会画出从第一个点跳到第二个点的箭头，讲加减、比大小、小数好用。
+    · "areaGrid"（面积格子）：nums=[行数, 列数, 涂色行数, 涂色列数]。行和列都只涂一部分时会突出重叠区域，讲分数乘分数、乘法意义好用。
     · "barModel"（线段图）：labels=["甲","乙"...]，nums=[各数量...]。讲比多少、分配、倍数好用。
-    图要和该步内容一致；用不上就 "none"。数字要小而直观（份数、行列不超过 12）。
+    · "groups"（分组圆点图）：nums=[组数, 每组个数, (可选)剩余个数]。讲乘法意义、平均分、有余数的除法好用。
+    · "shapeRect"（长方形/正方形）：nums=[长, 宽]，labels=["单位"]（如 ["厘米"]）。边长会标在图上，讲周长、面积必配；数值多大都行。
+    · "shapeTriangle"（三角形）：nums=[底, 高]，labels=["单位"]。会用虚线画出高。
+    · "shapeCircle"（圆）：nums=[半径]，labels=["单位"]。会画出半径并标注。
+    · "clock"（钟面）：nums=[时, 分]；算经过时间给两个钟：[时1, 分1, 时2, 分2]，中间会标出经过的时间。
+    · "placeValue"（数位表）：nums=[一个数]（如 [0.25] 或 [3407]）。讲数位、小数的意义好用。
+    · "balance"（天平）：labels=["左边", "右边"]（如 ["x + 3", "10"]），nums=[0] 平衡 / [1] 左边重 / [-1] 右边重。讲方程、等式两边好用。
+    · "pieChart"（扇形统计图）：nums=[各部分数值...]，labels=[各部分名称...]，最多 6 份。讲百分数、统计好用。
+    · "solidCuboid"（长方体）：nums=[长, 宽, 高]，labels=["单位"]。立体图，看不见的棱画虚线，三条棱标尺寸。讲长方体的认识、表面积、体积必配。
+    · "solidCube"（正方体）：nums=[棱长]，labels=["单位"]。
+    · "solidCylinder"（圆柱）：nums=[底面半径, 高]，labels=["单位"]。会标出底面半径和高。
+    · "solidCone"（圆锥）：nums=[底面半径, 高]，labels=["单位"]。虚线画出高，讲圆锥体积好用。
+    · "solidSphere"（球）：nums=[半径]，labels=["单位"]。
+    · "netCuboid"（长方体/正方体的展开图）：nums=[长, 宽, 高]（正方体三个数相等）。相对的面涂同色，讲表面积特别好。
+    · "netCylinder"（圆柱的展开图）：nums=[底面半径, 高]。侧面展开成长方形，标出"底面周长"，讲侧面积、表面积好用。
+    · "statBar"（条形统计图）：labels=[类别...]，nums=[各数值...]（最多 8 类），带纵轴刻度。画复式条形图就给 2×类别数 个数值（前一半是甲、后一半是乙），并在 labels 末尾追加两项作为甲、乙的名称。
+    · "statLine"（折线统计图）：labels=[时间/类别...]，nums=[各数值...]。讲变化趋势必配；复式折线图的给法和 statBar 一样。
+    · "average"（平均数图）：labels=[名称...]，nums=[各数值...]。会画出红色平均线，高出平均的部分变绿、不足的画虚线框。讲"移多补少"求平均数必配。
+    · "spinner"（可能性转盘）：nums=[各颜色占的份数...]（总份数不超过 12），labels=[各部分名称...]。讲可能性大小、游戏公平不公平必配。
+    · "balls"（摸球）：nums=[各种颜色球的个数...]（总数不超过 20），labels=["红球","白球"...]。讲摸球的可能性好用。
+    图要和该步内容一致。份数、行列、组数不超过 12；图形类（shape…/solid…/net…/clock/placeValue/pieChart/统计图）用题目里的真实数值。
 - answer：最终答案，简短明确（如"11/12"或"40 平方厘米"），会醒目显示给家长核对。
 - practice：一道同类型、换了数字的练习题（question + answer）。
 
@@ -153,13 +180,34 @@ Output fields:
 - steps: 5-8 steps is best. Each step:
   - say: the words to be READ ALOUD to the child. Plain spoken English — no LaTeX, no odd symbols; say numbers and operations in words (like "three quarters", "times").
   - math: the formula shown on screen for this step, in LaTeX (e.g. \\frac{3}{4}+\\frac{1}{6}). Use "" if not needed.
-  - visual: the picture for this step. type is one of:
-    · "none": no picture.
-    · "fractionBar": nums=[total parts, shaded parts]. Great for fractions and common denominators.
-    · "numberLine": nums=[min, max, (optional) point to mark]. Great for comparing, adding/subtracting, decimals.
-    · "areaGrid": nums=[rows, cols, (optional) shaded rows, (optional) shaded cols]. Great for multiplication and area.
+  - visual: the picture for this step. Pictures are how the child understands: add one whenever possible — at least half the steps should have one. type is one of:
+    · "none": only when nothing fits.
+    · "fractionBar": nums=[total parts, shaded parts]. For comparing or common denominators give two bars: nums=[parts1, shaded1, parts2, shaded2] — they are drawn aligned.
+    · "pie" (fraction circle, like slicing a pizza): nums=[total parts, shaded parts]; or two circles to compare: [parts1, shaded1, parts2, shaded2]. The clearest way to show what a fraction means.
+    · "numberLine": nums=[min, max, point, (optional) second point]. With two points an arrow shows the jump from the first to the second — great for adding/subtracting, comparing, decimals.
+    · "areaGrid": nums=[rows, cols, shaded rows, shaded cols]. When both rows and cols are partial, the overlap is highlighted — great for fraction × fraction and the meaning of multiplication.
     · "barModel": labels=["A","B"...], nums=[amounts...]. Great for comparisons, sharing, multiples.
-    The picture must match the step; use "none" if nothing fits. Keep numbers small and visual (parts/rows/cols at most 12).
+    · "groups" (groups of dots): nums=[groups, per group, (optional) left over]. Great for the meaning of multiplication, equal sharing, division with remainders.
+    · "shapeRect" (rectangle/square): nums=[length, width], labels=["unit"] (e.g. ["cm"]). Side lengths are labeled on the picture — a must for perimeter/area; any size numbers are fine.
+    · "shapeTriangle": nums=[base, height], labels=["unit"]. The height is drawn as a dashed line.
+    · "shapeCircle": nums=[radius], labels=["unit"]. The radius is drawn and labeled.
+    · "clock": nums=[hour, minute]; for elapsed time give two clocks: [h1, m1, h2, m2] — the elapsed time is labeled between them.
+    · "placeValue": nums=[one number] (e.g. [0.25] or [3407]). Great for place value and decimal meaning.
+    · "balance" (scale): labels=["left side", "right side"] (e.g. ["x + 3", "10"]), nums=[0] balanced / [1] left heavier / [-1] right heavier. Great for equations.
+    · "pieChart": nums=[values...], labels=[names...], at most 6 slices. Great for percentages and statistics.
+    · "solidCuboid" (rectangular prism / cuboid): nums=[length, width, height], labels=["unit"]. A 3D drawing — hidden edges dashed, three edges labeled. A must for cuboid recognition, surface area, volume.
+    · "solidCube": nums=[edge length], labels=["unit"].
+    · "solidCylinder": nums=[base radius, height], labels=["unit"]. Radius and height are labeled.
+    · "solidCone": nums=[base radius, height], labels=["unit"]. The height is drawn dashed — great for cone volume.
+    · "solidSphere": nums=[radius], labels=["unit"].
+    · "netCuboid" (net of a cuboid/cube): nums=[length, width, height] (equal numbers for a cube). Opposite faces share a color — wonderful for surface area.
+    · "netCylinder" (net of a cylinder): nums=[base radius, height]. The side unrolls into a rectangle labeled "base circumference" — great for lateral/surface area.
+    · "statBar" (bar chart): labels=[categories...], nums=[values...] (at most 8), with a y-axis. For a double bar chart give 2×categories values (first half series A, second half series B) and append the two series names to labels.
+    · "statLine" (line chart): labels=[times/categories...], nums=[values...]. A must for trends; double line charts work like statBar.
+    · "average": labels=[names...], nums=[values...]. Draws a red dashed mean line; parts above the mean turn green, deficits get dashed outlines. A must for teaching averages (leveling off).
+    · "spinner" (probability spinner): nums=[parts per color...] (total at most 12), labels=[names...]. A must for likelihood and fairness.
+    · "balls" (drawing balls): nums=[balls per color...] (at most 20 total), labels=["red","white"...]. Great for probability with drawing from a box.
+    The picture must match the step. Keep parts/rows/cols/groups at most 12 (shape…/solid…/net…/clock/placeValue/pieChart/stat charts use real values from the problem).
 - answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
 - practice: one similar practice problem with different numbers (question + answer).
 
@@ -170,11 +218,11 @@ const JSON_HINT = {
   zh: `
 
 【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。JSON 必须符合这个结构：
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|numberLine|areaGrid|barModel","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
   en: `
 
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. It must match this structure:
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|numberLine|areaGrid|barModel","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
 };
 
 /* ---------------- 工具函数 ---------------- */
@@ -200,9 +248,9 @@ function validateLesson(l) {
     say: String((s && s.say) || ""),
     math: String((s && s.math) || ""),
     visual: (s && s.visual && typeof s.visual === "object") ? {
-      type: ["none", "fractionBar", "numberLine", "areaGrid", "barModel"].includes(s.visual.type) ? s.visual.type : "none",
-      nums: Array.isArray(s.visual.nums) ? s.visual.nums.map(Number).filter(isFinite) : [],
-      labels: Array.isArray(s.visual.labels) ? s.visual.labels.map(String) : [],
+      type: VISUAL_TYPES.includes(s.visual.type) ? s.visual.type : "none",
+      nums: Array.isArray(s.visual.nums) ? s.visual.nums.map(Number).filter(isFinite).slice(0, 16) : [],
+      labels: Array.isArray(s.visual.labels) ? s.visual.labels.map(String).slice(0, 10) : [],
       caption: String(s.visual.caption || "")
     } : { type: "none", nums: [], labels: [], caption: "" }
   })).filter(s => s.say);
