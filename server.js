@@ -125,7 +125,16 @@ function systemPrompt(grade, kidName, lang) {
 2. 一步只讲一个小意思，语气鼓励、口语化，多用生活里的例子（分披萨、分糖果、跑步、买东西）。
 3. 先讲思路（为什么这么做），再讲步骤（怎么做），最后给答案。
 
-输出字段说明：
+${lessonFieldsZh()}
+- answer：最终答案，简短明确（如"11/12"或"40 平方厘米"），会醒目显示给家长核对。
+- practice：一道同类型、换了数字的练习题（question + answer）。
+
+只讲这一道题，用最好懂的方式。`;
+}
+
+/* solve/teach 两种课共用的输出字段说明（含 visual 目录那一大段） */
+function lessonFieldsZh() {
+  return `输出字段说明：
 - title：这节课的小标题（简短、友好）。
 - isMath：是不是一道数学/数字题。如果不是，isMath=false，steps 里放一句温柔的话把孩子引导回数学，answer 和 practice 填占位即可。
 - steps：讲解步骤，5～8 步最好。每步：
@@ -169,11 +178,7 @@ function systemPrompt(grade, kidName, lang) {
     · "hundredChart"（百数表）：nums=[要圈出的数...]（1～100，最多 16 个）。讲倍数、质数、跳着数好用。
     · "dataTable"（数据表）：labels=[列标题...]，nums=[各数值...]。一行数值就是频数表；两行数值（给法同复式 statBar）可以做比率表、找规律的表。
     · "probLine"（可能性线）：nums=[各事件的可能性 0~1...]（最多 4 个），labels=[事件名...]。把事件标在"不可能→一定"的线上。
-    图要和该步内容一致。份数、行列、组数不超过 12；图形类（shape…/solid…/net…/clock/placeValue/pieChart/统计图）用题目里的真实数值。
-- answer：最终答案，简短明确（如"11/12"或"40 平方厘米"），会醒目显示给家长核对。
-- practice：一道同类型、换了数字的练习题（question + answer）。
-
-只讲这一道题，用最好懂的方式。`;
+    图要和该步内容一致。份数、行列、组数不超过 12；图形类（shape…/solid…/net…/clock/placeValue/pieChart/统计图）用题目里的真实数值。`;
 }
 
 function systemPromptEn(grade, kidName) {
@@ -187,7 +192,15 @@ Iron rules:
 2. One small idea per step. Encouraging, conversational tone; use everyday examples (sharing pizza, candies, running, shopping).
 3. Explain the idea first (why), then the method (how), then give the answer.
 
-Output fields:
+${lessonFieldsEn()}
+- answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
+- practice: one similar practice problem with different numbers (question + answer).
+
+Teach just this one problem, in the easiest possible way.`;
+}
+
+function lessonFieldsEn() {
+  return `Output fields:
 - title: a short, friendly title for this lesson.
 - isMath: whether this is a math/number question. If not, set isMath=false, put one gentle sentence in steps guiding the child back to math, and fill answer and practice with placeholders.
 - steps: 5-8 steps is best. Each step:
@@ -231,11 +244,82 @@ Output fields:
     · "hundredChart" (hundred chart): nums=[numbers to circle...] (1-100, at most 16). Great for multiples, primes, skip counting.
     · "dataTable": labels=[column headers...], nums=[values...]. One row of values = a frequency table; two rows (same input as double statBar) = ratio tables or pattern tables.
     · "probLine" (likelihood line): nums=[probabilities 0-1...] (up to 4 events), labels=[event names...]. Marks events on the impossible→certain line.
-    The picture must match the step. Keep parts/rows/cols/groups at most 12 (shape…/solid…/net…/clock/placeValue/pieChart/stat charts use real values from the problem).
-- answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
-- practice: one similar practice problem with different numbers (question + answer).
+    The picture must match the step. Keep parts/rows/cols/groups at most 12 (shape…/solid…/net…/clock/placeValue/pieChart/stat charts use real values from the problem).`;
+}
 
-Teach just this one problem, in the easiest possible way.`;
+/* teach 模式：不讲一道题，讲一个 BC 大纲知识点（复用同一套 LESSON_SCHEMA 和 visual 目录） */
+const GRADE_ZH = { 1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九" };
+function systemPromptTeach(item, gradeData, kidName, lang) {
+  if (lang === "en") return systemPromptTeachEn(item, gradeData, kidName);
+  const g = gradeData.grade;
+  const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
+  const strand = STRANDS.find(s => s[0] === item.strand);
+  const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
+  const elabs = (item.elaborations || []).map(e => "  · " + (e.zh || e.en)).join("\n");
+  const terms = (item.terms || []).map(t => `${t.zh} = ${t.en}`).join("、");
+  const hints = item.teachHints ? `（这个知识点优先用这些图：${item.teachHints}）` : "";
+  return `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的小学老师，说地道、亲切的中文。${name}
+
+这节课不是讲一道题，而是给孩子讲一个新知识点，像一节小视频课。
+知识点来自加拿大 BC 省 Grade ${g} 数学大纲（${strand ? strand[1] : item.strand}主线）：
+- 官方原文：${item.en}
+- 中文说法：${item.zh}
+- 这学期为什么学它（Big Idea）：${bigIdea.zh || bigIdea.en || ""}
+- 包含子技能：
+${elabs}${terms ? "\n- 术语对照：" + terms : ""}
+
+铁律：
+1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
+2. 一步只讲一个小意思，语气鼓励、口语化，多用生活里的例子（分披萨、用加元买东西、量身高）。
+3. 例题驱动，不空泛：每个概念都要落到具体的数字和例子上。
+
+课的结构（仍然输出 5-8 步 steps）：
+1. 用生活例子引出这个概念（为什么有它、它解决什么问题）
+2. 讲清楚核心方法，配图${hints}
+3. 带着孩子做 1-2 个由浅入深的小例题
+4. 最后一步给一句小结或口诀
+say 里自然提到英文关键术语一两次（比如「小数，英文课上叫 decimal」），孩子在学校听英文课能对上号，但不要堆砌英文。
+
+${lessonFieldsZh()}
+- answer：这节课的一句话要点或小口诀，简短好记，会醒目显示。
+- practice：一道贴合这个知识点的练习题（question + answer），用孩子在 BC 的生活场景（加元、公制单位、本地的事物）。
+
+只讲这一个知识点，用最好懂的方式。`;
+}
+
+function systemPromptTeachEn(item, gradeData, kidName) {
+  const g = gradeData.grade;
+  const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
+  const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
+  const elabs = (item.elaborations || []).map(e => "  · " + e.en).join("\n");
+  const hintTypes = (String(item.teachHints || "").match(/[A-Za-z]+/g) || []).join(", ");
+  const hints = hintTypes ? ` (for this concept, prefer these visuals: ${hintTypes})` : "";
+  return `You are "Ms. Yuanyuan", a kind elementary school teacher explaining math to a BC Grade ${g} child, in natural, warm, everyday English. ${name}
+
+This lesson is not about solving one problem — you are teaching the child a new concept, like a little video class.
+The concept comes from the British Columbia Grade ${g} Mathematics curriculum (${item.strand} strand):
+- Official wording: ${item.en}
+- Why it matters this term (Big Idea): ${bigIdea.en || ""}
+- Sub-skills included:
+${elabs}
+
+Iron rules:
+1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
+2. One small idea per step. Encouraging, conversational tone; use everyday examples (sharing pizza, shopping with dollars, measuring heights).
+3. Drive the lesson with worked examples — never stay abstract; always land on concrete numbers.
+
+Lesson structure (still output 5-8 steps):
+1. Open with a real-life example that shows why this concept exists and what problem it solves
+2. Teach the core method clearly, with pictures${hints}
+3. Walk the child through 1-2 worked examples, from easy to slightly harder
+4. End with a one-line takeaway
+Use BC-flavoured everyday contexts where natural (Canadian dollars, metric units, local life).
+
+${lessonFieldsEn()}
+- answer: the one-line takeaway of this lesson, short and memorable — shown prominently.
+- practice: one practice problem matching this concept (question + answer), set in a BC everyday context (dollars, metric units).
+
+Teach just this one concept, in the easiest possible way.`;
 }
 
 const JSON_HINT = {
@@ -698,8 +782,86 @@ function historySummary(r) {
     isMath: !(r.lesson && r.lesson.isMath === false),
     hasImage: !!r.hasImage,
     lang: r.lang || "zh",
-    provider: r.provider || ""
+    provider: r.provider || "",
+    mode: r.mode || "solve",                 // 旧记录没有这两个字段，默认为普通讲题
+    curriculumId: r.curriculumId || ""
   };
+}
+
+/* ---------------- BC 大纲与学习进度 ----------------
+ * 大纲数据 = 构建期生成的静态 JSON（tools/curriculum/parse_bc.mjs），启动时读进内存，
+ * 运行期只读、离线可用。进度挂在自铸的稳定 ID（BC.MATH.G4.NUM.02）上，
+ * progress.json 与 history.json 同一套原子写模式。 */
+const STRANDS = [
+  ["number", "数与运算", "Number"],
+  ["computational-fluency", "运算熟练", "Computational Fluency"],
+  ["patterning", "规律与代数", "Patterning"],
+  ["geometry-measurement", "图形与测量", "Geometry & Measurement"],
+  ["data-probability", "数据与可能性", "Data & Probability"]
+];
+const CURRICULUM_DIR = path.join(ROOT, "data", "curriculum", "bc");
+const curriculum = new Map();   // grade -> grade-N.json 内容
+try {
+  for (const f of fs.readdirSync(CURRICULUM_DIR)) {
+    const m = /^grade-(\d+)\.json$/.exec(f);
+    if (!m) continue;
+    try {
+      curriculum.set(Number(m[1]), JSON.parse(fs.readFileSync(path.join(CURRICULUM_DIR, f), "utf8")));
+    } catch (e) { console.log(`[curriculum] ${f} 解析失败：${e.message}`); }
+  }
+} catch (_) { /* 没有大纲数据也能跑，「跟大纲学」入口自动隐藏 */ }
+function curriculumGrades() { return [...curriculum.keys()].sort((a, b) => a - b); }
+function findCurriculumItem(id) {
+  for (const d of curriculum.values()) {
+    const item = (d.items || []).find(it => it.id === id);
+    if (item) return { item, data: d };
+  }
+  return null;
+}
+
+const PROGRESS_FILE = path.join(ROOT, "progress.json");
+let progress = {};   // curriculumId -> { taught, right, wrong, lastAt, solid, rightDays[], lessonIds[] }
+try {
+  const p = JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
+  if (p && typeof p === "object" && !Array.isArray(p)) progress = p;
+} catch (_) { /* 还没有进度 */ }
+
+function progressSave() {
+  try {
+    const tmp = PROGRESS_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(progress), "utf8");
+    fs.renameSync(tmp, PROGRESS_FILE);
+  } catch (e) { console.log("[progress] 保存失败：" + e.message); }
+}
+function dayKey(ts) {
+  const d = new Date(ts);
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+}
+/* 三态：new（没学过）/ seen（讲过）/ solid（扎实）。
+ * solid = 不同日期答对 ≥2 次，或家长手动标记（最简规则，不搞算法，见计划 §2.2） */
+function progressStatus(id) {
+  const e = progress[id];
+  if (!e) return "new";
+  if (e.solid || (e.rightDays || []).length >= 2) return "solid";
+  return (e.taught || e.right || e.wrong) ? "seen" : "new";
+}
+function progressRecord(id, event, lessonId) {
+  const e = progress[id] || (progress[id] = { taught: 0, right: 0, wrong: 0, lastAt: 0, solid: false, rightDays: [], lessonIds: [] });
+  const now = Date.now();
+  if (event === "taught") {
+    e.taught++;
+    if (lessonId) e.lessonIds = [lessonId, ...(e.lessonIds || [])].slice(0, 20);
+  } else if (event === "practiced-right") {
+    e.right++;
+    const k = dayKey(now);
+    if (!(e.rightDays || (e.rightDays = [])).includes(k)) e.rightDays.push(k);
+  } else if (event === "practiced-wrong") e.wrong++;
+  else if (event === "mark-solid") e.solid = true;
+  else if (event === "unmark-solid") e.solid = false;
+  else return null;
+  e.lastAt = now;
+  progressSave();
+  return e;
 }
 
 /* ---------------- HTTP 服务器 ---------------- */
@@ -741,7 +903,7 @@ const server = http.createServer(async (req, res) => {
         available: !!(detected[id] && detected[id].available),
         model: detected[id] && detected[id].model || undefined
       }));
-      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable() });
+      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(), curriculumGrades: curriculumGrades() });
     }
 
     if (url.pathname === "/api/tts" && req.method === "POST") {
@@ -789,14 +951,61 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { record: history[i] });
     }
 
+    if (url.pathname === "/api/curriculum" && req.method === "GET") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const grades = curriculumGrades();
+      const g = Number(url.searchParams.get("grade") || 0);
+      if (!g) return send(res, 200, { grades });
+      const d = curriculum.get(g);
+      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
+      const strands = STRANDS
+        .filter(([s]) => (d.items || []).some(it => it.strand === s))
+        .map(([s, zhName, enName]) => ({
+          strand: s, zhName, enName,
+          bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
+          items: (d.items || []).filter(it => it.strand === s)
+            .map(it => ({ id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id) }))
+        }));
+      return send(res, 200, { grade: g, grades, source: d.source, strands });
+    }
+
+    if (url.pathname === "/api/progress" && req.method === "GET") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const g = Number(url.searchParams.get("grade") || 0);
+      const prefix = g ? `BC.MATH.G${g}.` : "";
+      const items = {};
+      for (const [id, e] of Object.entries(progress)) {
+        if (prefix && !id.startsWith(prefix)) continue;
+        items[id] = Object.assign({}, e, { status: progressStatus(id) });
+      }
+      return send(res, 200, { items });
+    }
+
+    if (url.pathname === "/api/progress" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const id = String(body.curriculumId || "");
+      if (!findCurriculumItem(id)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
+      const e = progressRecord(id, String(body.event || ""));
+      if (!e) return send(res, 400, { error: "未知的事件 / Unknown event" });
+      return send(res, 200, { ok: true, status: progressStatus(id), entry: e });
+    }
+
     if (url.pathname === "/api/lesson" && req.method === "POST") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const body = JSON.parse((await readBody(req)).toString("utf8"));
-      const question = String(body.question || "").slice(0, 4000);
+      let question = String(body.question || "").slice(0, 4000);
       const imageB64 = body.imageB64 || null;
       const mediaType = body.mediaType || "image/jpeg";
       const lang = body.lang === "en" ? "en" : "zh";
-      if (!question && !imageB64) return send(res, 400, { error: L(lang, "题目是空的", "The question is empty.") });
+      const mode = body.mode === "teach" ? "teach" : "solve";
+      let teachCtx = null;
+      if (mode === "teach") {
+        teachCtx = findCurriculumItem(String(body.curriculumId || ""));
+        if (!teachCtx) return send(res, 400, { error: L(lang, "找不到这个知识点，刷新一下再试。", "Can't find that curriculum topic — refresh and try again.") });
+        // teach 模式 question 可为空；补一个课题名，历史记录和日志里好认
+        if (!question) question = lang === "en" ? teachCtx.item.en : `${teachCtx.item.zh}（${teachCtx.item.en}）`;
+      } else if (!question && !imageB64) return send(res, 400, { error: L(lang, "题目是空的", "The question is empty.") });
 
       const id = pickProvider(body.provider);
       if (!id) return send(res, 503, { error: L(lang,
@@ -808,9 +1017,11 @@ const server = http.createServer(async (req, res) => {
           (PROVIDER_META[id].labelEn || id) + " can't read images yet. Type the question, or pick an engine that supports images in Settings.") });
       }
 
-      const sys = systemPrompt(body.grade, body.kidName, lang);
+      const sys = teachCtx
+        ? systemPromptTeach(teachCtx.item, teachCtx.data, body.kidName, lang)
+        : systemPrompt(body.grade, body.kidName, lang);
       const t0 = Date.now();
-      console.log(`[lesson] engine=${id} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
+      console.log(`[lesson] engine=${id} mode=${mode} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
       let lesson;
       try {
         lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
@@ -819,12 +1030,18 @@ const server = http.createServer(async (req, res) => {
         lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
       }
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
-      historyAdd({ time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson });
+      const rec = { time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson };
+      if (teachCtx) { rec.mode = "teach"; rec.curriculumId = teachCtx.item.id; }
+      historyAdd(rec);
+      // 生成即视为「讲过」：进度立刻从 new 变 seen，并把这节课挂到知识点上
+      if (teachCtx) progressRecord(teachCtx.item.id, "taught", rec.id);
       // 讲解生成好就立刻预合成语音（不等前端），孩子点开第一步时大概率已就绪
       if (ttsAvailable() && lesson.isMath !== false) {
         try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
       }
-      return send(res, 200, { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() });
+      const resp = { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() };
+      if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(teachCtx.item.id); }
+      return send(res, 200, resp);
     }
 
     /* 静态文件 */
@@ -858,6 +1075,9 @@ detectProviders().then(() => {
       ? "已开启（" + (cfg.tts.url ? "守护进程 " + cfg.tts.url : "命令模式") + " · " + (cfg.tts.mode || "instruct") + " · 缓存 " + path.basename(TTS_CACHE) + "/）"
       : "未配置（用浏览器语音兜底，见 README 的「自然语音」一节）"));
     console.log("  历史记录:   " + history.length + " 条（history.json，上限 " + HISTORY_MAX + " 条）");
+    console.log("  BC 大纲:    " + (curriculum.size
+      ? curriculumGrades().map(g => "G" + g).join("、") + " 已加载（进度 " + Object.keys(progress).length + " 条，progress.json）"
+      : "未加载（data/curriculum/bc/ 里还没有 grade-N.json）"));
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
     console.log("");
   });
