@@ -159,6 +159,22 @@ sudo tailscale up
 
 （如果一定要公网直连，用 Cloudflare Tunnel 也可以；无论哪种方式，`accessCode` 都要设置。）
 
+## 跟大纲学（BC 省数学大纲）
+
+不止「来一题讲一题」——首页的「**跟大纲学**」tab 按加拿大 BC 省官方数学大纲（June 2016）系统教学：
+
+- 选年级（先做了 **Grade 4**，G5-G7 数据后续补）→ 看到这学期五大主线的全部知识点，
+  中英双语对照（英文是官方原文，中文标题给孩子和家长看）。
+- 点任一条，圆圆老师按该知识点开讲：生活例子引入 → 核心方法配图 → 1-2 个例题 → 口诀小结，
+  中文课里自然带出英文术语（"小数，英文课上叫 decimal"），孩子在学校听英文课能对上号。
+- 课末练习按「答对了 ✓ / 还不会 ✗」自报对错，进度记在 `progress.json`：
+  灰点=还没学，蓝点=讲过，绿点=**扎实**（不同日期答对 ≥2 次）。重启服务进度不丢。
+- 大纲数据是构建期生成的静态 JSON（`data/curriculum/bc/`），运行期只读、离线可用；
+  重新抓取/校对用 `node tools/curriculum/parse_bc.mjs --grade 4`（已有中文层会自动保留）。
+
+数据来源：BC 官网 [curriculum.gov.bc.ca](https://curriculum.gov.bc.ca/curriculum/mathematics/4/core)，
+条目原文逐字保留并在页面标注来源（BC Curriculum · June 2016）。
+
 ## 历史记录
 
 每讲完一道题，服务器会自动把整节课记到 `history.json`（最多 500 条，滚动淘汰）。
