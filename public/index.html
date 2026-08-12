@@ -130,6 +130,29 @@
   .histItem .hm{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .histItem .ha{font-size:12.5px;color:var(--brand2);font-weight:700;margin-top:2px}
   .histEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
+  .tabs{display:flex;gap:8px;margin:0 0 12px}
+  .tabbtn{flex:1;border:2px solid var(--line);background:#fff;border-radius:16px;padding:12px 10px;font-size:15px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
+  .tabbtn.on{border-color:var(--brand);color:var(--ink);background:var(--soft)}
+  .learnGradeSel{border:2px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;font-weight:700;background:var(--soft);color:var(--ink);outline:none}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:2px 0 6px}
+  .sdot{display:inline-block;width:10px;height:10px;border-radius:999px;background:#ddd2c6;vertical-align:middle;margin-right:5px;flex:0 0 auto}
+  .sdot.seen{background:var(--brand2)}
+  .sdot.solid{background:var(--good)}
+  .strandHead{margin:18px 2px 2px}
+  .strandHead .sn{font-weight:800;font-size:16px}
+  .strandHead .se{color:var(--muted);font-size:12px;margin-left:8px}
+  .strandHead .bi{color:var(--muted);font-size:12.5px;line-height:1.6;margin-top:3px}
+  .learnItem{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;background:#fff;transition:.15s;margin-top:8px}
+  .learnItem:hover{border-color:var(--brand);background:var(--soft)}
+  .learnItem .lz{font-weight:700;font-size:15px}
+  .learnItem .le{color:var(--muted);font-size:12px;margin-top:2px}
+  .learnItem .st{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;flex:0 0 auto}
+  .learnEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
+  .judgeRow{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-top:1.5px dashed #c9d4ff;padding-top:12px}
+  .judgeRow .lab2{font-size:13px;color:var(--muted);flex-basis:100%}
+  .judgeRow .btn{padding:10px 16px;font-size:15px}
+  .judgeRow .btn.good{background:linear-gradient(135deg,var(--good),#6fd39c);box-shadow:0 8px 20px rgba(63,191,127,.3)}
+  .judgeMsg{font-weight:700;color:var(--good)}
   .footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
 </style>
 </head>
@@ -146,6 +169,12 @@
       <button class="iconbtn" id="gear" data-i18n-title="settingsTitle" title="设置">⚙️</button>
     </div>
   </header>
+
+  <!-- 模式切换：出题讲课 / 跟大纲学（服务器有大纲数据才显示） -->
+  <div class="tabs hidden" id="modeTabs">
+    <button class="tabbtn on" id="tabAsk" data-i18n="tabAsk">出题讲课</button>
+    <button class="tabbtn" id="tabLearn" data-i18n="tabLearn">跟大纲学</button>
+  </div>
 
   <!-- 输入区 -->
   <section class="card" id="inputCard">
@@ -167,6 +196,18 @@
     <div class="row" style="margin-top:16px">
       <button class="btn big" id="go" data-i18n="go">开始讲解 ✨</button>
     </div>
+  </section>
+
+  <!-- 跟大纲学：BC 大纲清单 -->
+  <section class="card hidden" id="learnCard">
+    <div class="row" style="justify-content:space-between;margin:0 0 4px">
+      <h2 class="hi" style="margin:0" data-i18n="learnTitle">跟着 BC 大纲学</h2>
+      <select id="learnGrade" class="learnGradeSel"></select>
+    </div>
+    <p class="sub" style="margin-bottom:8px" data-i18n="learnSub">这学期该学的都在这里。点一条，圆圆老师开讲。</p>
+    <div class="legend" id="learnLegend"></div>
+    <div id="learnList"></div>
+    <div class="help" id="learnSource" style="text-align:center;margin-top:14px"></div>
   </section>
 
   <!-- 讲解播放器 -->
@@ -204,6 +245,13 @@
       <div class="reveal">
         <button class="btn blue" id="showAns" data-i18n="showAns" style="padding:10px 16px;font-size:15px">看答案</button>
         <div class="ans" id="practiceAns"></div>
+      </div>
+      <!-- 大纲课专属：家长/孩子自报对错，记进学习进度 -->
+      <div class="judgeRow hidden" id="judgeRow">
+        <span class="lab2" data-i18n="practiceJudge">孩子做对了吗？会记进学习进度：</span>
+        <button class="btn good" id="judgeRight" data-i18n="practiceRight">答对了 ✓</button>
+        <button class="btn ghost" id="judgeWrong" data-i18n="practiceWrong">还不会 ✗</button>
+        <span class="judgeMsg" id="judgeMsg"></span>
       </div>
     </div>
   </section>
@@ -316,8 +364,19 @@ const I18N = {
     langLabel:"语言 / Language",
     engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
-    gradeLabel:"年级 / 难度", g4:"小学四年级", g5:"小学五年级", g6:"小学六年级",
+    gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
     cancel:"取消", save:"保存",
+    tabAsk:"出题讲课", tabLearn:"跟大纲学",
+    learnTitle:"跟着 BC 大纲学",
+    learnSub:"这学期该学的都在这里。点一条，圆圆老师开讲。",
+    learnLoading:"正在打开大纲…",
+    learnNoData:"这个年级的大纲数据还没准备好，先选「BC 四年级」试试。",
+    statusNew:"还没学", statusSeen:"讲过", statusSolid:"扎实",
+    backToLearn:"← 回到大纲",
+    practiceJudge:"孩子做对了吗？会记进学习进度：",
+    practiceRight:"答对了 ✓", practiceWrong:"还不会 ✗",
+    practiceThanks:"记下啦！继续加油 💪", practiceSolid:"这个知识点扎实啦 🌟",
+    histLearn:"大纲课",
     autoPick:"自动选择", autoPickNote:"让服务器挑一个能用的",
     tagCurrent:"当前", tagOption:"可选", tagAvail:"可用", tagNA:"未安装", noImage:"不支持看图",
     needCode1:"需要输入访问码才能使用。", needCode2:"访问码不对或还没填，输入后再试。",
@@ -374,8 +433,19 @@ const I18N = {
     langLabel:"Language / 语言",
     engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
-    gradeLabel:"Grade level", g4:"Grade 4", g5:"Grade 5", g6:"Grade 6",
+    gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
     cancel:"Cancel", save:"Save",
+    tabAsk:"Ask a question", tabLearn:"Learn (BC)",
+    learnTitle:"Learn along the BC curriculum",
+    learnSub:"Everything this term covers, in one list. Tap a topic and Ms. Yuanyuan starts the lesson.",
+    learnLoading:"Opening the curriculum…",
+    learnNoData:"This grade isn’t ready yet — try BC Grade 4 first.",
+    statusNew:"New", statusSeen:"Seen", statusSolid:"Solid",
+    backToLearn:"← Back to topics",
+    practiceJudge:"Did they get it right? It goes into the progress record:",
+    practiceRight:"Got it ✓", practiceWrong:"Not yet ✗",
+    practiceThanks:"Noted — keep going! 💪", practiceSolid:"This topic is solid now 🌟",
+    histLearn:"curriculum",
     autoPick:"Auto", autoPickNote:"Let the server pick a working one",
     tagCurrent:"Current", tagOption:"Option", tagAvail:"Available", tagNA:"Not installed", noImage:"can’t read images",
     needCode1:"Enter the access code to use the app.", needCode2:"Wrong or missing access code — enter it and try again.",
@@ -430,21 +500,26 @@ function applyLang(){
   renderExamples();
   buildGradeOptions();
   updateEngineBadge();
+  renderLegend();
+  if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
 }
 function applyKidName(){
   const el=$("kidNameLabel"); if(el) el.textContent = cfg.kidName || t("defaultName");
 }
 function buildGradeOptions(){
-  const sel=$("grade"); sel.innerHTML="";
-  [["4",t("g4")],["5",t("g5")],["6",t("g6")]].forEach(([v,lab])=>{
-    const o=document.createElement("option"); o.value=v; o.textContent=lab; sel.appendChild(o);
+  [$("grade"),$("learnGrade")].forEach(sel=>{
+    if(!sel) return;
+    sel.innerHTML="";
+    ["4","5","6","7"].forEach(v=>{
+      const o=document.createElement("option"); o.value=v; o.textContent=t("g"+v); sel.appendChild(o);
+    });
+    sel.value=cfg.gradeCode||"5";
   });
-  sel.value=cfg.gradeCode||"5";
 }
-function gradeText(){ return t("g"+(cfg.gradeCode||"5")); }
+function gradeText(){ return t("g"+(cfg.gradeCode||"5")); }   // 语义 = "BC Grade N"
 
 /* ---------- 服务器状态 ---------- */
-let serverInfo = { authRequired:false, active:null, providers:[], tts:false };
+let serverInfo = { authRequired:false, active:null, providers:[], tts:false, curriculumGrades:[] };
 function apiHeaders(){
   const h={ "content-type":"application/json" };
   if(cfg.accessCode) h["x-access-code"]=cfg.accessCode;
@@ -457,9 +532,17 @@ async function fetchProviders(){
     serverInfo=await r.json();
     serverInfo.loaded=true;
     updateEngineBadge();
+    updateTabs();
   }catch(e){
     $("engineName").textContent=t("serverOffline");
   }
+}
+/* 服务器有大纲数据才显示「跟大纲学」入口（数据没铺的年级在列表里单独提示） */
+function updateTabs(){
+  const has=(serverInfo.curriculumGrades||[]).length>0;
+  const inLesson=!playerCard.classList.contains("hidden");
+  $("modeTabs").classList.toggle("hidden", !has || inLesson);
+  if(!has && view==="learn") switchView("ask");
 }
 function providerLabel(p){
   if(typeof p==="string") p=(serverInfo.providers||[]).find(x=>x.id===p)||{id:p,label:p};
@@ -1660,11 +1743,18 @@ async function generateLesson(question, imageB64, mediaType){
 }
 
 /* ---------- 播放器 ---------- */
-let lesson=null, lessonLang="zh", idx=0, playing=false;
-function startLesson(l, lang){
+let lesson=null, lessonLang="zh", idx=0, playing=false, lessonCurriculumId=null;
+function startLesson(l, lang, curriculumId){
   lesson=l; lessonLang=lang||cfg.lang; idx=0; playing=false;
+  lessonCurriculumId=curriculumId||null;
   inputCard.classList.add("hidden");
+  $("learnCard").classList.add("hidden");
+  $("modeTabs").classList.add("hidden");
   playerCard.classList.remove("hidden");
+  $("newQ").textContent = lessonCurriculumId ? t("backToLearn") : t("newQ");
+  $("judgeRow").classList.add("hidden");
+  $("judgeMsg").textContent="";
+  $("judgeRight").disabled=false; $("judgeWrong").disabled=false;
   $("lessonTitle").textContent = l.title || t("thisProblem");
   $("answerCard").classList.toggle("hidden", !l.isMath);
   $("practiceCard").classList.add("hidden");
@@ -1743,10 +1833,119 @@ $("replay").onclick=()=>{ pause(); playing=true; updatePlayBtn(); playCurrent();
 $("newQ").onclick=()=>{
   pause(); lesson=null; stopTtsPoll();
   playerCard.classList.add("hidden");
-  inputCard.classList.remove("hidden");
+  const backToLearn=!!lessonCurriculumId;
+  lessonCurriculumId=null;
+  updateTabs();
+  switchView(backToLearn ? "learn" : "ask");   // 大纲课回清单（顺带刷新状态点）
   window.scrollTo({top:0,behavior:"smooth"});
 };
-$("showAns").onclick=()=>{ $("practiceAns").style.display="block"; $("showAns").style.display="none"; };
+$("showAns").onclick=()=>{
+  $("practiceAns").style.display="block"; $("showAns").style.display="none";
+  if(lessonCurriculumId) $("judgeRow").classList.remove("hidden");
+};
+
+/* ---------- 跟大纲学（BC 大纲清单 + teach 模式） ---------- */
+let view="ask";          // ask | learn（播放器盖在两者之上）
+let learnDirty=false;    // 进度有变化，回清单时重新拉
+function switchView(v){
+  view=v;
+  $("tabAsk").classList.toggle("on", v==="ask");
+  $("tabLearn").classList.toggle("on", v==="learn");
+  inputCard.classList.toggle("hidden", v!=="ask");
+  $("learnCard").classList.toggle("hidden", v!=="learn");
+  if(v==="learn") loadLearn();
+}
+$("tabAsk").onclick=()=>switchView("ask");
+$("tabLearn").onclick=()=>switchView("learn");
+$("learnGrade").onchange=()=>{
+  cfg.gradeCode=$("learnGrade").value; saveCfg();
+  buildGradeOptions();   // 同步设置弹窗里的年级下拉
+  loadLearn();
+};
+
+function renderLegend(){
+  const el=$("learnLegend"); if(!el) return;
+  el.innerHTML=`<span><span class="sdot"></span>${t("statusNew")}</span>`
+    +`<span><span class="sdot seen"></span>${t("statusSeen")}</span>`
+    +`<span><span class="sdot solid"></span>${t("statusSolid")}</span>`;
+}
+function statusLabel(s){ return s==="solid"?t("statusSolid"):s==="seen"?t("statusSeen"):t("statusNew"); }
+
+async function loadLearn(){
+  const box=$("learnList");
+  box.innerHTML=`<div class="learnEmpty">${t("learnLoading")}</div>`;
+  $("learnSource").textContent="";
+  try{
+    const r=await fetch("/api/curriculum?grade="+(cfg.gradeCode||"4"),{headers:apiHeaders()});
+    if(r.status===401){ serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
+    if(r.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; return; }
+    if(!r.ok) throw new Error();
+    renderLearn(await r.json());
+    learnDirty=false;
+  }catch(_){ box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; }
+}
+function renderLearn(d){
+  const box=$("learnList"); box.innerHTML="";
+  const en=cfg.lang==="en";
+  (d.strands||[]).forEach(sg=>{
+    const head=document.createElement("div"); head.className="strandHead";
+    const bi=sg.bigIdea ? (en ? sg.bigIdea.en : (sg.bigIdea.zh||sg.bigIdea.en)) : "";
+    head.innerHTML=`<div><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
+      +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)+`</div>`
+      +(bi?`<div class="bi">💡 ${escapeHtml(bi)}</div>`:"");
+    box.appendChild(head);
+    (sg.items||[]).forEach(it=>{
+      const el=document.createElement("div"); el.className="learnItem";
+      const title=en ? it.en : (it.zh||it.en);
+      el.innerHTML=`<span class="sdot ${it.status}"></span>`
+        +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
+        +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
+        +`<span class="st">${statusLabel(it.status)}</span>`;
+      el.onclick=()=>startTeach(it);
+      box.appendChild(el);
+    });
+  });
+  if(d.source) $("learnSource").textContent="BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
+  renderLegend();
+}
+
+async function startTeach(it){
+  const lang=cfg.lang;
+  showLoading();
+  try{
+    const resp=await fetch("/api/lesson",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ mode:"teach", curriculumId:it.id, grade:gradeText(), kidName:cfg.kidName, provider:cfg.provider, lang })});
+    const data=await resp.json().catch(()=>({}));
+    if(resp.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
+    if(!resp.ok) throw new Error(data.error||t("genericErr"));
+    if(typeof data.tts==="boolean") serverInfo.tts=data.tts;
+    learnDirty=true;    // 服务器已把它记成「讲过」
+    hideLoading();
+    startLesson(data.lesson, lang, it.id);
+  }catch(err){
+    hideLoading();
+    if(!err.silent) alert(err.message||t("genericErr"));
+  }
+}
+
+/* 练习对错自报（只在大纲课出现）：POST /api/progress，solid 时给颗小星星 */
+async function judgePractice(event){
+  if(!lessonCurriculumId) return;
+  $("judgeRight").disabled=true; $("judgeWrong").disabled=true;
+  try{
+    const r=await fetch("/api/progress",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ curriculumId:lessonCurriculumId, event })});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error();
+    learnDirty=true;
+    $("judgeMsg").textContent = d.status==="solid" ? t("practiceSolid") : t("practiceThanks");
+  }catch(_){
+    $("judgeRight").disabled=false; $("judgeWrong").disabled=false;
+    alert(t("genericErr"));
+  }
+}
+$("judgeRight").onclick=()=>judgePractice("practiced-right");
+$("judgeWrong").onclick=()=>judgePractice("practiced-wrong");
 
 /* ---------- 输入处理 ---------- */
 let pendingImage=null;
@@ -1841,6 +2040,7 @@ $("saveSettings").onclick=async ()=>{
   settings.classList.add("hidden");
   await fetchProviders();   // 用新访问码重新拉一次
   updateEngineBadge();
+  if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 年级可能改了
 };
 
 /* ---------- 历史记录 ---------- */
@@ -1881,7 +2081,7 @@ function renderHistory(){
   }
   list.forEach(it=>{
     const el=document.createElement("div"); el.className="histItem";
-    const meta=[fmtHistTime(it.time), it.hasImage?("📷 "+t("histPhoto")):"", it.question||""].filter(Boolean).join(" · ");
+    const meta=[fmtHistTime(it.time), it.mode==="teach"?("🎓 "+t("histLearn")):"", it.hasImage?("📷 "+t("histPhoto")):"", it.question||""].filter(Boolean).join(" · ");
     el.innerHTML=`<div class="hrow"><div class="ht">${escapeHtml(it.title||t("thisProblem"))}</div><button class="hdel" title="${t("historyDelTitle")}">🗑</button></div>`
       +`<div class="hm">${escapeHtml(meta)}</div>`
       +(it.answer?`<div class="ha">${t("ansPrefix")}${escapeHtml(it.answer)}</div>`:"");
@@ -1898,7 +2098,7 @@ async function replayHistory(id){
     if(!rec||!rec.lesson) throw new Error();
     pause();            // 万一正在播别的课，先停声音
     closeHistory();
-    startLesson(rec.lesson, rec.lang);
+    startLesson(rec.lesson, rec.lang, rec.curriculumId||null);   // 大纲课重播也能标记练习对错
   }catch(_){ alert(t("genericErr")); }
 }
 async function deleteHistory(id){
