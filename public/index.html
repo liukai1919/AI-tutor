@@ -477,6 +477,7 @@ const I18N = {
     engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
+    booksGroup:"跟教材学",
     dataLabel:"学习数据",
     dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
@@ -532,6 +533,7 @@ const I18N = {
     teachAgainTitle:"重新生成一节新课（点行内其他地方是直接重播上次的课）",
     reportTitle:"家长报告",
     reportHeadFmt:(grade,total,seen,solid)=>`本学期 ${grade} 数学共 ${total} 条内容：已讲 ${seen} 条，扎实 ${solid} 条。`,
+    reportHeadBookFmt:(book,total,seen,solid)=>`《${book}》全书 ${total} 节：已讲 ${seen} 节，扎实 ${solid} 节。`,
     reportStrandFmt:(total,solid)=>`${total} 条内容 · 已扎实 ${solid} 条`,
     levelEmerging:"起步 Emerging", levelDeveloping:"发展中 Developing",
     levelProficient:"扎实 Proficient", levelExtending:"拓展 Extending",
@@ -598,6 +600,7 @@ const I18N = {
     engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
+    booksGroup:"Books",
     dataLabel:"Learning data",
     dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
@@ -653,6 +656,7 @@ const I18N = {
     teachAgainTitle:"Generate a fresh lesson (tapping the row replays the saved one)",
     reportTitle:"Parent report",
     reportHeadFmt:(grade,total,seen,solid)=>`${grade} math this term: ${total} topics — ${seen} covered, ${solid} solid.`,
+    reportHeadBookFmt:(book,total,seen,solid)=>`${book}: ${total} sections in the book — ${seen} covered, ${solid} solid.`,
     reportStrandFmt:(total,solid)=>`${total} topics · ${solid} solid`,
     levelEmerging:"Emerging", levelDeveloping:"Developing",
     levelProficient:"Proficient", levelExtending:"Extending",
@@ -724,17 +728,41 @@ function applyLang(){
 function applyKidName(){
   const el=$("kidNameLabel"); if(el) el.textContent = cfg.kidName || t("defaultName");
 }
+/* 书籍课程源：cfg.gradeCode 既可以是 "4"-"7"（BC 年级），也可以是书籍 id（如 "aops-prealgebra"） */
+function bookInfo(code){ return (serverInfo.curriculumBooks||[]).find(b=>b.id===code)||null; }
+function bookLabel(b){ return cfg.lang==="en" ? (b.en||b.id) : (b.zh||b.en||b.id); }
+function effectiveGradeCode(){                     // 书籍映射到对标年级（AI 语气和问答模式用）
+  const code=cfg.gradeCode||"5";
+  const b=bookInfo(code);
+  if(b) return String(b.grade||7);
+  return /^\d+$/.test(code) ? code : "7";          // 书籍列表还没到达时的兜底（书籍都按 G7 语气）
+}
 function buildGradeOptions(){
+  const books=serverInfo.curriculumBooks||[];
   [$("grade"),$("learnGrade"),$("reportGrade")].forEach(sel=>{
     if(!sel) return;
+    const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级，不放书
     sel.innerHTML="";
     ["4","5","6","7"].forEach(v=>{
       const o=document.createElement("option"); o.value=v; o.textContent=t("g"+v); sel.appendChild(o);
     });
-    sel.value=cfg.gradeCode||"5";
+    if(withBooks && books.length){
+      const og=document.createElement("optgroup"); og.label=t("booksGroup");
+      books.forEach(b=>{
+        const o=document.createElement("option"); o.value=b.id; o.textContent="📚 "+bookLabel(b); og.appendChild(o);
+      });
+      sel.appendChild(og);
+    }
+    sel.value = withBooks ? (cfg.gradeCode||"5") : effectiveGradeCode();
+    if(!sel.value) sel.value = withBooks ? "5" : effectiveGradeCode();   // 书籍列表还没到达时兜底
   });
 }
-function gradeText(){ return t("g"+(cfg.gradeCode||"5")); }   // 语义 = "BC Grade N"
+function gradeText(){ return t("g"+effectiveGradeCode()); }   // 语义 = "BC Grade N"（书籍按对标年级）
+/* 「跟大纲学」当前来源的显示名：书籍显示书名，否则显示年级 */
+function sourceTitle(){
+  const b=bookInfo(cfg.gradeCode);
+  return b ? bookLabel(b) : gradeText();
+}
 
 /* ---------- 服务器状态 ---------- */
 let serverInfo = { authRequired:false, active:null, providers:[], tts:false, curriculumGrades:[] };
@@ -751,6 +779,7 @@ async function fetchProviders(){
     serverInfo.loaded=true;
     updateEngineBadge();
     updateTabs();
+    buildGradeOptions();   // 书籍列表随 /api/providers 到达，重建下拉让「📚 教材」出现
   }catch(e){
     $("engineName").textContent=t("serverOffline");
   }
@@ -2138,7 +2167,9 @@ function renderLearn(d){
       box.appendChild(el);
     });
   });
-  if(d.source) $("learnSource").textContent="BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
+  if(d.source) $("learnSource").textContent = d.source.kind==="book"
+    ? (d.source.label || sourceTitle())
+    : "BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
   renderLegend();
   fsaShowEntry(d);
 }
@@ -2542,7 +2573,7 @@ function closeReport(){
 }
 function renderReport(d){
   const en=cfg.lang==="en";
-  $("reportHead").textContent=t("reportHeadFmt")(gradeText(),d.totals.total,d.totals.seen,d.totals.solid);
+  $("reportHead").textContent=t(d.source&&d.source.kind==="book"?"reportHeadBookFmt":"reportHeadFmt")(sourceTitle(),d.totals.total,d.totals.seen,d.totals.solid);
   $("reportLegend").innerHTML=LEVELS.map(l=>`<span class="levelBadge ${l}">${escapeHtml(levelText(l))}</span>`).join("");
   const box=$("reportBody"); box.innerHTML="";
   (d.strands||[]).forEach(sg=>{
@@ -2578,7 +2609,9 @@ function renderReport(d){
       +`<div class="termGrid">${d.terms.map(x=>`<span class="termChip">${escapeHtml(x.en)} = ${escapeHtml(x.zh)}</span>`).join("")}</div>`;
     box.appendChild(tdiv);
   }
-  if(d.source) $("reportSource").textContent="BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
+  if(d.source) $("reportSource").textContent = d.source.kind==="book"
+    ? (d.source.label || sourceTitle())+" · "+t("reportNote")
+    : "BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
 }
 $("reportBtn").onclick=openReport;
 $("closeReport").onclick=closeReport;

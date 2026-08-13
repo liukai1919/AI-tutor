@@ -261,23 +261,55 @@ function lessonFieldsEn() {
 
 /* teach 模式：不讲一道题，讲一个 BC 大纲知识点（复用同一套 LESSON_SCHEMA 和 visual 目录） */
 const GRADE_ZH = { 1: "一", 2: "二", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九" };
+
+/* 书籍条目的原书本节文本（构建期由 tools/books/extract_text.mjs 生成，OCR 有噪声）。
+ * 讲课时作为参考喂给 AI：讲法、铺垫、例题类型跟着书走，但必须原创表述、例题换数字。
+ * 文件不存在（如还没提取的书）时静默降级为无参考——行为回到只按条目描述讲。 */
+const BOOK_TEXT_DIR = path.join(ROOT, "data", "curriculum", "books", "text");
+const BOOK_TEXT_LIMIT = 10000;   // 字符截断：够放整节，本地小模型也吃得下
+function bookSectionText(gradeData, item) {
+  if (gradeData.type !== "book" || !gradeData.bookId) return "";
+  try {
+    const t = fs.readFileSync(path.join(BOOK_TEXT_DIR, gradeData.bookId, item.id + ".txt"), "utf8").trim();
+    return t.length > BOOK_TEXT_LIMIT ? t.slice(0, BOOK_TEXT_LIMIT) + "\n…(truncated)" : t;
+  } catch (_) { return ""; }
+}
 function systemPromptTeach(item, gradeData, kidName, lang) {
   if (lang === "en") return systemPromptTeachEn(item, gradeData, kidName);
   const g = gradeData.grade;
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
   const st = seniorTone(g);
-  const strand = STRANDS.find(s => s[0] === item.strand);
+  const strand = (gradeData.strandDefs || STRANDS).find(s => s[0] === item.strand);
   const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
   const elabs = (item.elaborations || []).map(e => "  · " + (e.zh || e.en)).join("\n");
   const terms = itemTerms(item).map(t => `${t.zh} = ${t.en}`).join("、");
   const hints = item.teachHints ? `（这个知识点优先用这些图：${item.teachHints}）` : "";
+  const isBook = gradeData.type === "book";
+  const origin = isBook
+    ? `知识点来自数学教材《${(gradeData.title || {}).zh || (gradeData.title || {}).en || gradeData.bookId}》（${(gradeData.source || {}).publisher || ""}）的「${strand ? strand[1] : item.strand}」：
+- 小节标题（原书为英文）：${item.en}
+- 中文说法：${item.zh}
+- 这一章在学什么（Big Idea）：${bigIdea.zh || bigIdea.en || ""}`
+    : `知识点来自加拿大 BC 省 Grade ${g} 数学大纲（${strand ? strand[1] : item.strand}主线）：
+- 官方原文：${item.en}
+- 中文说法：${item.zh}
+- 这学期为什么学它（Big Idea）：${bigIdea.zh || bigIdea.en || ""}`;
+  const style = isBook && gradeData.teachStyle ? `
+
+这本书的讲课风格（务必保持）：${gradeData.teachStyle.zh || gradeData.teachStyle.en || ""}
+注意：用自己的话原创讲解和例题，不要照搬原书文字。` : "";
+  const refText = isBook ? bookSectionText(gradeData, item) : "";
+  const ref = refText ? `
+
+【原书本节内容】（英文；可能是 OCR 原文（有识别噪声、公式可能走样），也可能是按扫描页整理的内容提要）：
+"""
+${refText}
+"""
+参考用法：从中看清这一节教什么、按什么顺序铺垫、例题是什么类型，讲课跟着这个思路走；但讲解必须用你自己的中文表述和自己设计的例子，例题一律换新数字，不逐句翻译原文；文本里走样或存疑的算式，以你自己验算的正确结果为准。` : "";
   return `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的${st.personaZh}，说地道、亲切的中文。${name}
 
 这节课不是讲一道题，而是给孩子讲一个新知识点，像一节小视频课。
-知识点来自加拿大 BC 省 Grade ${g} 数学大纲（${strand ? strand[1] : item.strand}主线）：
-- 官方原文：${item.en}
-- 中文说法：${item.zh}
-- 这学期为什么学它（Big Idea）：${bigIdea.zh || bigIdea.en || ""}${elabs ? "\n- 包含子技能：\n" + elabs : ""}${terms ? "\n- 术语对照：" + terms : ""}
+${origin}${elabs ? "\n- 包含子技能：\n" + elabs : ""}${terms ? "\n- 术语对照：" + terms : ""}${style}${ref}
 
 铁律：
 1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
@@ -306,12 +338,31 @@ function systemPromptTeachEn(item, gradeData, kidName) {
   const elabs = (item.elaborations || []).map(e => "  · " + e.en).join("\n");
   const hintTypes = (String(item.teachHints || "").match(/[A-Za-z]+/g) || []).join(", ");
   const hints = hintTypes ? ` (for this concept, prefer these visuals: ${hintTypes})` : "";
+  const isBook = gradeData.type === "book";
+  const strandDef = isBook ? (gradeData.strandDefs || []).find(s => s[0] === item.strand) : null;
+  const origin = isBook
+    ? `The concept comes from the math book "${(gradeData.title || {}).en || gradeData.bookId}" (${(gradeData.source || {}).publisher || ""}), ${strandDef ? strandDef[2] : item.strand}:
+- Section: ${item.en}
+- What this chapter is about (Big Idea): ${bigIdea.en || ""}`
+    : `The concept comes from the British Columbia Grade ${g} Mathematics curriculum (${item.strand} strand):
+- Official wording: ${item.en}
+- Why it matters this term (Big Idea): ${bigIdea.en || ""}`;
+  const style = isBook && gradeData.teachStyle ? `
+
+This book's teaching style (keep it): ${gradeData.teachStyle.en || ""}
+Note: create your own original explanation and examples — do not reproduce the book's text.` : "";
+  const refText = isBook ? bookSectionText(gradeData, item) : "";
+  const ref = refText ? `
+
+[This section in the original book] (either raw OCR text — which may be noisy and garble formulas — or a digest written from the scanned pages):
+"""
+${refText}
+"""
+How to use it: see what this section teaches, how it builds up, and what kinds of worked examples it uses — follow that flow. But write your own original wording and design your own examples with fresh numbers; never copy sentences from the book. Where the text garbles the math, trust your own verified calculations.` : "";
   return `You are "Ms. Yuanyuan", a kind ${st.personaEn} explaining math to a BC Grade ${g} child, in natural, warm, everyday English. ${name}
 
 This lesson is not about solving one problem — you are teaching the child a new concept, like a little video class.
-The concept comes from the British Columbia Grade ${g} Mathematics curriculum (${item.strand} strand):
-- Official wording: ${item.en}
-- Why it matters this term (Big Idea): ${bigIdea.en || ""}${elabs ? "\n- Sub-skills included:\n" + elabs : ""}
+${origin}${elabs ? "\n- Sub-skills included:\n" + elabs : ""}${style}${ref}
 
 Iron rules:
 1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
@@ -475,16 +526,20 @@ const QBANK_HINT = {
 
 function qbankPrompt(item, gradeData, lang, needs, existingStems) {
   const g = gradeData.grade;
-  const strand = STRANDS.find(s => s[0] === item.strand) || ["", item.strand, item.strand];
+  const strand = (gradeData.strandDefs || STRANDS).find(s => s[0] === item.strand) || ["", item.strand, item.strand];
   const wants = [1, 2, 3].filter(lv => needs[lv]);
   const total = wants.reduce((s, lv) => s + needs[lv], 0);
   const avoid = (existingStems || []).slice(0, 30);
+  const isBook = gradeData.type === "book";
   if (lang === "en") {
     const elab = (item.elaborations || []).map(e => "- " + e.en).join("\n");
     const terms = itemTerms(item).map(tm => tm.en).join(", ");
-    return `You are a BC math teacher building a question bank for ONE Grade ${g} topic ("${strand[2]}" strand). The child just watched a lesson on it and now answers questions one at a time — right answers raise the difficulty, like the SAT. Write ${total} original multiple-choice questions: ${wants.map(lv => `${needs[lv]} at Level ${lv}`).join(", ")}.
+    const who = isBook
+      ? `You are a math teacher building a question bank for ONE section of the book "${(gradeData.title || {}).en || gradeData.bookId}" (${strand[2]}), studied by a Grade ${g} child in BC, Canada.`
+      : `You are a BC math teacher building a question bank for ONE Grade ${g} topic ("${strand[2]}" strand).`;
+    return `${who} The child just watched a lesson on it and now answers questions one at a time — right answers raise the difficulty, like the SAT. Write ${total} original multiple-choice questions: ${wants.map(lv => `${needs[lv]} at Level ${lv}`).join(", ")}.
 
-The topic (official wording): ${item.en}${elab ? `
+${isBook ? "The section" : "The topic (official wording)"}: ${item.en}${elab ? `
 What it covers:
 ${elab}` : ""}${terms ? `
 Key terms: ${terms}` : ""}
@@ -506,9 +561,12 @@ ${avoid.map(s => "- " + s).join("\n")}` : ""}.`;
   }
   const elab = (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");
   const terms = itemTerms(item).map(tm => `${tm.en}=${tm.zh}`).join("、");
-  return `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主线里的一个知识点建题库。孩子刚看完这个知识点的讲解课，现在一道一道做题——做对了会升难度（类似 SAT 机制）。请出 ${total} 道原创选择题：${wants.map(lv => `L${lv} ${needs[lv]} 道`).join("、")}。
+  const whoZh = isBook
+    ? `你是数学出题老师，为教材《${(gradeData.title || {}).zh || (gradeData.title || {}).en || gradeData.bookId}》（${strand[1]}）里的一个小节建题库；孩子在加拿大 BC 上 Grade ${g}。`
+    : `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主线里的一个知识点建题库。`;
+  return `${whoZh}孩子刚看完这个知识点的讲解课，现在一道一道做题——做对了会升难度（类似 SAT 机制）。请出 ${total} 道原创选择题：${wants.map(lv => `L${lv} ${needs[lv]} 道`).join("、")}。
 
-知识点（官方原文）：${item.en}
+${isBook ? "小节（原书标题）" : "知识点（官方原文）"}：${item.en}
 中文：${item.zh}${elab ? `
 包含内容：
 ${elab}` : ""}${terms ? `
@@ -1035,7 +1093,33 @@ try {
     } catch (e) { console.log(`[curriculum] ${f} 解析失败：${e.message}`); }
   }
 } catch (_) { /* 没有大纲数据也能跑，「跟大纲学」入口自动隐藏 */ }
-function curriculumGrades() { return [...curriculum.keys()].sort((a, b) => a - b); }
+
+/* 书籍课程源（data/curriculum/books/*.json）：和 BC 大纲同一张 Map，key 用字符串 bookId。
+ * 结构兼容 grade-N.json，另带 type:"book"、strandDefs（章节代替五大主线）、teachStyle（原书讲法）。
+ * 讲课/闯关/进度/报告全部走现有条目 id 机制；FSA 只认数字年级，书籍天然不出卷。 */
+const BOOKS_DIR = path.join(ROOT, "data", "curriculum", "books");
+try {
+  for (const f of fs.readdirSync(BOOKS_DIR)) {
+    if (!f.endsWith(".json")) continue;
+    try {
+      const d = JSON.parse(fs.readFileSync(path.join(BOOKS_DIR, f), "utf8"));
+      if (d && d.type === "book" && Array.isArray(d.items)) curriculum.set(String(d.bookId || f.replace(/\.json$/, "")), d);
+    } catch (e) { console.log(`[curriculum] books/${f} 解析失败：${e.message}`); }
+  }
+} catch (_) { /* 没有书籍数据也能跑 */ }
+function curriculumGrades() { return [...curriculum.keys()].filter(k => typeof k === "number").sort((a, b) => a - b); }
+function curriculumBooks() {
+  return [...curriculum.entries()].filter(([k]) => typeof k === "string").map(([k, d]) => ({
+    id: k, grade: d.grade || 0,
+    zh: ((d.short || d.title || {}).zh) || k,
+    en: ((d.short || d.title || {}).en) || k
+  }));
+}
+/* /api/curriculum、/api/report 的 grade 参数：纯数字 = BC 年级，其他 = 书籍 id */
+function curriculumKey(raw) {
+  const s = String(raw == null ? "" : raw);
+  return /^\d+$/.test(s) ? Number(s) : s;
+}
 function findCurriculumItem(id) {
   for (const d of curriculum.values()) {
     const item = (d.items || []).find(it => it.id === id);
@@ -1130,9 +1214,10 @@ function progressRecord(id, event, lessonId) {
   return e;
 }
 
-/* 大纲条目按五大主线分组（/api/curriculum 与 /api/report 共用），mapItem 决定每条带哪些字段 */
+/* 大纲条目按主线分组（/api/curriculum 与 /api/report 共用），mapItem 决定每条带哪些字段。
+ * BC 用固定五大主线（STRANDS）；书籍数据自带 strandDefs（章节列表），格式相同 [slug, 中文名, 英文名] */
 function strandGroups(d, mapItem) {
-  return STRANDS
+  return (d.strandDefs || STRANDS)
     .filter(([s]) => (d.items || []).some(it => it.strand === s))
     .map(([s, zhName, enName]) => ({
       strand: s, zhName, enName,
@@ -1297,7 +1382,7 @@ const server = http.createServer(async (req, res) => {
         available: !!(detected[id] && detected[id].available),
         model: detected[id] && detected[id].model || undefined
       }));
-      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(), curriculumGrades: curriculumGrades() });
+      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(), curriculumGrades: curriculumGrades(), curriculumBooks: curriculumBooks() });
     }
 
     if (url.pathname === "/api/tts" && req.method === "POST") {
@@ -1348,8 +1433,8 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/curriculum" && req.method === "GET") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const grades = curriculumGrades();
-      const g = Number(url.searchParams.get("grade") || 0);
-      if (!g) return send(res, 200, { grades });
+      const g = curriculumKey(url.searchParams.get("grade") || 0);
+      if (!g) return send(res, 200, { grades, books: curriculumBooks() });
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
       const strands = strandGroups(d, it => ({
@@ -1364,7 +1449,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/report" && req.method === "GET") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const grades = curriculumGrades();
-      const g = Number(url.searchParams.get("grade") || 0);
+      const g = curriculumKey(url.searchParams.get("grade") || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
       const strands = strandGroups(d, it => {
@@ -1644,9 +1729,12 @@ detectProviders().then(() => {
       ? "已开启（" + (cfg.tts.url ? "守护进程 " + cfg.tts.url : "命令模式") + " · " + (cfg.tts.mode || "instruct") + " · 缓存 " + path.basename(TTS_CACHE) + "/）"
       : "未配置（用浏览器语音兜底，见 README 的「自然语音」一节）"));
     console.log("  历史记录:   " + history.length + " 条（history.json，上限 " + HISTORY_MAX + " 条）");
-    console.log("  BC 大纲:    " + (curriculum.size
+    console.log("  BC 大纲:    " + (curriculumGrades().length
       ? curriculumGrades().map(g => "G" + g).join("、") + " 已加载（进度 " + Object.keys(progress).length + " 条，progress.json）"
       : "未加载（data/curriculum/bc/ 里还没有 grade-N.json）"));
+    console.log("  书籍课程:   " + (curriculumBooks().length
+      ? curriculumBooks().map(b => b.en + "（" + b.id + "，" + (curriculum.get(b.id).items || []).length + " 节）").join("、")
+      : "未加载（data/curriculum/books/ 里还没有书籍 JSON）"));
     console.log("  FSA 卷:     " + fsaSets.length + " 份（fsa-sets.json，上限 " + FSA_SETS_MAX + " 份，做过的卷直接重开不再生成）");
     console.log("  闯关题库:   " + Object.keys(qbank).length + " 个（qbank.json，做对升难度、通关标 solid；标准 docs/qbank-standard.md）");
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
