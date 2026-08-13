@@ -264,9 +264,7 @@ function systemPromptTeach(item, gradeData, kidName, lang) {
 知识点来自加拿大 BC 省 Grade ${g} 数学大纲（${strand ? strand[1] : item.strand}主线）：
 - 官方原文：${item.en}
 - 中文说法：${item.zh}
-- 这学期为什么学它（Big Idea）：${bigIdea.zh || bigIdea.en || ""}
-- 包含子技能：
-${elabs}${terms ? "\n- 术语对照：" + terms : ""}
+- 这学期为什么学它（Big Idea）：${bigIdea.zh || bigIdea.en || ""}${elabs ? "\n- 包含子技能：\n" + elabs : ""}${terms ? "\n- 术语对照：" + terms : ""}
 
 铁律：
 1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
@@ -299,9 +297,7 @@ function systemPromptTeachEn(item, gradeData, kidName) {
 This lesson is not about solving one problem — you are teaching the child a new concept, like a little video class.
 The concept comes from the British Columbia Grade ${g} Mathematics curriculum (${item.strand} strand):
 - Official wording: ${item.en}
-- Why it matters this term (Big Idea): ${bigIdea.en || ""}
-- Sub-skills included:
-${elabs}
+- Why it matters this term (Big Idea): ${bigIdea.en || ""}${elabs ? "\n- Sub-skills included:\n" + elabs : ""}
 
 Iron rules:
 1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.

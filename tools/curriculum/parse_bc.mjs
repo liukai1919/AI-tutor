@@ -11,6 +11,7 @@
  * 用法：
  *   node tools/curriculum/parse_bc.mjs --grade 4              # 抓官网
  *   node tools/curriculum/parse_bc.mjs --grade 4 --html x.html # 用已存的页面（离线/调试）
+ *   node tools/curriculum/parse_bc.mjs --grade 5 --list        # 只列条目原文（补新年级主线规则前先看这个）
  *
  * 重新生成安全：已发布的 ID 不变（strand 内按官方页面顺序编号）；
  * 已有输出文件里的中文层（zh / terms / teachHints）按 ID + 英文原文匹配自动保留，
@@ -70,7 +71,46 @@ const STRAND_PREFIX_RULES = [
   ["perimeter of regular and irregular", "geometry-measurement"],
   ["line symmetry", "geometry-measurement"],
   ["one-to-one correspondence", "data-probability"],
-  ["probability experiments", "data-probability"]
+  ["probability experiments", "data-probability"],
+  // —— Grade 5 ——
+  ["decimals to thousandths", "number"],
+  ["equivalent fractions", "number"],
+  ["whole-number, fraction, and decimal benchmarks", "number"],
+  ["addition and subtraction of whole numbers", "computational-fluency"],
+  ["multiplication and division to three digits", "computational-fluency"],
+  ["rules for increasing and decreasing patterns", "patterning"],
+  ["area measurement", "geometry-measurement"],
+  ["relationships between area and perimeter", "geometry-measurement"],
+  ["duration", "geometry-measurement"],
+  ["classification of prisms", "geometry-measurement"],
+  ["single transformations", "geometry-measurement"],
+  // —— Grade 6 ——
+  ["small to large numbers", "number"],
+  ["factors and multiples", "number"],
+  ["improper fractions", "number"],
+  ["introduction to ratios", "number"],
+  ["whole-number percents", "number"],
+  ["order of operations", "computational-fluency"],
+  ["multiplication and division of decimals", "computational-fluency"],
+  ["perimeter of complex shapes", "geometry-measurement"],
+  ["area of triangles", "geometry-measurement"],
+  ["angle measurement", "geometry-measurement"],
+  ["volume and capacity", "geometry-measurement"],
+  ["triangles", "geometry-measurement"],
+  ["combinations of transformations", "geometry-measurement"],
+  ["line graphs", "data-probability"],
+  ["single-outcome probability", "data-probability"],
+  // —— Grade 7 ——（operations with integers/decimals 归运算主线，对应其 Big Idea）
+  ["operations with integers", "computational-fluency"],
+  ["operations with decimals", "computational-fluency"],
+  ["relationships between decimals", "number"],
+  ["discrete linear relations", "patterning"],
+  ["two-step equations", "patterning"],
+  ["circumference and area", "geometry-measurement"],
+  ["volume of rectangular prisms", "geometry-measurement"],
+  ["cartesian coordinates", "geometry-measurement"],
+  ["circle graphs", "data-probability"],
+  ["experimental probability", "data-probability"]
 ];
 /* Big Idea 的主线：官网每条大意的 elaboration 第一条就是主线名（"Number: …"），直接认它 */
 const BIG_IDEA_STRAND = [
@@ -93,7 +133,9 @@ function decodeEntities(s) {
     .replace(/&rdquo;/g, "”").replace(/&ldquo;/g, "“");
 }
 function clean(html) {
-  return decodeEntities(String(html).replace(/<[^>]+>/g, " "))
+  return decodeEntities(String(html)
+    .replace(/<sup[^>]*>\s*([\s\S]*?)\s*<\/sup>/gi, "^$1")   // 上标转 ^（2² → 2^2、cm³ → cm^3）
+    .replace(/<[^>]+>/g, " "))
     .replace(/[\s ]+/g, " ")
     // 弹窗 <a>/<div> 拆开原文留下的空格残留（如 "fluency )"、"patterns ,"），并非改写原文
     .replace(/\s+([,;.!?)\]])/g, "$1").replace(/([([])\s+/g, "$1")
@@ -217,6 +259,14 @@ const bigRows = sectionRows(sliceSection(html, "Big Ideas")).map(parseRow);
 const contentRows = sectionRows(sliceSection(html, "Content")).map(parseRow);
 if (!bigRows.length || !contentRows.length) throw new Error("解析出 0 条——官网结构变了？");
 
+if (args.includes("--list")) {
+  console.log(`Grade ${grade} Big Ideas（${bigRows.length} 条）：`);
+  for (const r of bigRows) console.log("  · " + r.text);
+  console.log(`Grade ${grade} Content（${contentRows.length} 条，含 elaborations 数）：`);
+  for (const r of contentRows) console.log(`  · [${r.elabs.length}] ` + r.text);
+  process.exit(0);
+}
+
 /* 旧文件：保留人工中文层 */
 const outFile = path.join(outDir, `grade-${grade}.json`);
 let prev = null;
@@ -277,7 +327,7 @@ fs.writeFileSync(outFile, JSON.stringify(out, null, 2) + "\n", "utf8");
 /* ---------------- 验收报告（对应计划 §1.4） ---------------- */
 console.log(`\n✔ 写入 ${path.relative(ROOT, outFile)}`);
 console.log(`  Big Ideas: ${bigIdeas.length} 条（主线：${bigIdeas.map(b => b.strand).join(", ")}）`);
-console.log(`  Content:   ${items.length} 条（预期 13-18）`);
+console.log(`  Content:   ${items.length} 条（预期 12-20）`);
 for (const [strand, code] of Object.entries(STRAND_CODE)) {
   const n = items.filter(it => it.strand === strand).length;
   console.log(`    ${code}  ${strand}: ${n} 条${n ? "" : "  ⚠ 空主线！"}`);
@@ -287,7 +337,7 @@ for (const it of items.slice(0, 3)) console.log(`    ${it.id}  ${it.en}`);
 const missingZh = items.filter(it => !it.zh).length;
 if (missingZh) console.log(`  ⚠ ${missingZh} 条缺中文层（zh 为空），等 AI 辅助翻译 + 人工校对后补进文件。`);
 for (const w of warnings) console.log("  ⚠ " + w);
-if (items.length < 13 || items.length > 18) {
-  console.log("  ⚠ 条目数超出 13-18 预期范围，检查解析是否正确！");
+if (items.length < 12 || items.length > 20) {
+  console.log("  ⚠ 条目数超出 12-20 预期范围（K-9 每年级 13-19 条），检查解析是否正确！");
   process.exitCode = 2;
 }
