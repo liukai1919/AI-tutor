@@ -1,0 +1,2431 @@
+{
+  "type": "book",
+  "bookId": "aops-prealgebra",
+  "grade": 7,
+  "title": {
+    "en": "Prealgebra — Art of Problem Solving",
+    "zh": "AoPS 预备代数"
+  },
+  "short": {
+    "en": "AoPS Prealgebra",
+    "zh": "AoPS 预备代数"
+  },
+  "source": {
+    "kind": "book",
+    "publisher": "AoPS Incorporated",
+    "authors": "Richard Rusczyk, David Patrick, Ravi Boppana",
+    "isbn": "978-1-934124-21-5",
+    "version": "AoPS · 2011",
+    "url": "https://artofproblemsolving.com/store/book/prealgebra",
+    "label": "Prealgebra · Art of Problem Solving · 2011"
+  },
+  "teachStyle": {
+    "zh": "这本书的教学风格是「先做后讲」（发现式学习）：先抛出一个具体的小问题让孩子自己试一试，再带着孩子一步步发现方法和规律。讲课时保持这种风格：第一步先给一个孩子能上手试的小问题，后面的讲解围绕「我们一起发现了规律」展开，最后才总结规则，而不是一上来就宣布规则。",
+    "en": "This book teaches by discovery: pose a concrete little problem first, let the child try it, then guide them to discover the method. Keep that style — open with a small problem the child can attempt, unfold the lesson as 'we discovered the rule together', and only state the rule at the end rather than announcing it up front."
+  },
+  "strandDefs": [
+    [
+      "ch01",
+      "第1章 · 算术的性质",
+      "Ch 1 · Properties of Arithmetic"
+    ],
+    [
+      "ch02",
+      "第2章 · 指数",
+      "Ch 2 · Exponents"
+    ],
+    [
+      "ch03",
+      "第3章 · 数论",
+      "Ch 3 · Number Theory"
+    ],
+    [
+      "ch04",
+      "第4章 · 分数",
+      "Ch 4 · Fractions"
+    ],
+    [
+      "ch05",
+      "第5章 · 方程与不等式",
+      "Ch 5 · Equations & Inequalities"
+    ],
+    [
+      "ch06",
+      "第6章 · 小数",
+      "Ch 6 · Decimals"
+    ],
+    [
+      "ch07",
+      "第7章 · 比、换算与速率",
+      "Ch 7 · Ratios, Conversions & Rates"
+    ],
+    [
+      "ch08",
+      "第8章 · 百分数",
+      "Ch 8 · Percents"
+    ],
+    [
+      "ch09",
+      "第9章 · 平方根",
+      "Ch 9 · Square Roots"
+    ],
+    [
+      "ch10",
+      "第10章 · 角",
+      "Ch 10 · Angles"
+    ],
+    [
+      "ch11",
+      "第11章 · 周长与面积",
+      "Ch 11 · Perimeter & Area"
+    ],
+    [
+      "ch12",
+      "第12章 · 直角三角形与四边形",
+      "Ch 12 · Right Triangles & Quadrilaterals"
+    ],
+    [
+      "ch13",
+      "第13章 · 数据与统计",
+      "Ch 13 · Data & Statistics"
+    ],
+    [
+      "ch14",
+      "第14章 · 计数",
+      "Ch 14 · Counting"
+    ],
+    [
+      "ch15",
+      "第15章 · 解题策略",
+      "Ch 15 · Problem-Solving Strategies"
+    ]
+  ],
+  "bigIdeas": [
+    {
+      "strand": "ch01",
+      "en": "The commutative, associative, and distributive properties are the foundation of all arithmetic — negation, subtraction, and division can all be built from them.",
+      "zh": "加法和乘法的交换律、结合律、分配律是全部算术的地基——负数、减法、除法都能从它们推出来。"
+    },
+    {
+      "strand": "ch02",
+      "en": "An exponent is shorthand for repeated multiplication; from that one definition you can discover every law of exponents yourself.",
+      "zh": "指数是重复乘法的速记；从这一个定义出发，所有指数运算律都能自己推出来。"
+    },
+    {
+      "strand": "ch03",
+      "en": "A number's prime factorization is its parts list — multiples, divisors, GCDs and LCMs all become easy to see.",
+      "zh": "把一个数拆成质因数，就像拿到它的「零件清单」——倍数、因数、最大公因数、最小公倍数都看得清清楚楚。"
+    },
+    {
+      "strand": "ch04",
+      "en": "A fraction is division; once you see fractions as numbers in their own right, multiplying and dividing them is more natural than adding.",
+      "zh": "分数就是除法；把分数当成一个真正的数来看，乘除反而比加减更自然。"
+    },
+    {
+      "strand": "ch05",
+      "en": "An equation is a balance scale — do the same thing to both sides and it stays level; solving means isolating the variable step by step.",
+      "zh": "方程是一架天平——两边同时做同一件事，天平保持平衡；解方程就是一步步把未知数「孤立」出来。"
+    },
+    {
+      "strand": "ch06",
+      "en": "Decimals are just fractions with powers of ten underneath; place value makes decimal arithmetic run on the same rails as whole numbers.",
+      "zh": "小数就是分母为 10 的幂的分数；位值制让小数运算和整数运算走同一条轨道。"
+    },
+    {
+      "strand": "ch07",
+      "en": "Ratios and rates tie two quantities together; converting units and computing speeds are both 'multiplying by a fraction equal to 1'.",
+      "zh": "比和速率把两个量绑在一起看；单位换算和算速度，本质都是「乘上一个等于 1 的分数」。"
+    },
+    {
+      "strand": "ch08",
+      "en": "A percent is a fraction with denominator 100 — and 'of' means multiply.",
+      "zh": "百分数就是分母为 100 的分数——「的百分之几」里的「的」就是乘。"
+    },
+    {
+      "strand": "ch09",
+      "en": "Square roots undo squaring; most integers have irrational square roots, but we can estimate, compare, and simplify them.",
+      "zh": "平方根是平方的逆运算；大多数整数的平方根不是分数，但我们能估算它、比较它、化简它。"
+    },
+    {
+      "strand": "ch10",
+      "en": "Angles measure turning; from 'a straight line is 180°' you can derive vertical angles, parallel lines, and every polygon's angles.",
+      "zh": "角度量的是转动；从「一条直线是 180°」出发，能推出对顶角、平行线和所有多边形内角的规律。"
+    },
+    {
+      "strand": "ch11",
+      "en": "Perimeter measures the boundary, area measures the covering; complicated shapes can be cut and rearranged into simple ones.",
+      "zh": "周长量边界，面积量覆盖；复杂图形可以切开、拼补成会算的简单图形。"
+    },
+    {
+      "strand": "ch12",
+      "en": "Right triangles hide the Pythagorean theorem — the key to side lengths; special triangles and quadrilaterals each carry ID-card properties.",
+      "zh": "直角三角形里藏着勾股定理——求边长的钥匙；特殊三角形和各种四边形都有自己「身份证」般的性质。"
+    },
+    {
+      "strand": "ch13",
+      "en": "Mean, median, and mode each tell one side of a data story — and each has blind spots; graphs let data speak.",
+      "zh": "平均数、中位数、众数各自讲述数据的一面，也各有盲区；图表让数据开口说话。"
+    },
+    {
+      "strand": "ch14",
+      "en": "Counting has principles: add cases, multiply choices, split into cases, count pairs — and the road ends at probability.",
+      "zh": "数数也有学问：能加、能乘、能分类、能成对数——这条路的终点就是概率。"
+    },
+    {
+      "strand": "ch15",
+      "en": "Find a pattern, make a list, draw a picture, work backwards — four master keys for problems you've never seen before.",
+      "zh": "找规律、列清单、画图、倒推——面对没见过的题时的四把万能钥匙。"
+    }
+  ],
+  "items": [
+    {
+      "id": "AOPS.PA.C01.S01",
+      "strand": "ch01",
+      "pages": [
+        1,
+        3
+      ],
+      "en": "1.1 Why Start with Arithmetic?",
+      "zh": "1.1 为什么从算术学起？",
+      "elaborations": [
+        {
+          "en": "Prealgebra is the bridge from arithmetic to algebra: this chapter revisits the rules you know to see why they work, not just how.",
+          "zh": "预备代数是从算术走向代数的桥：这一章把你会的运算重新过一遍，弄明白规则「为什么」成立，而不只是「怎么算」。"
+        },
+        {
+          "en": "Letters make rules general: a×(b+c) = a×b + a×c says it for every number at once.",
+          "zh": "用字母把规则说「全」：a×(b+c) = a×b + a×c 一句话对所有数都成立——这就是代数的味道。"
+        },
+        {
+          "en": "Get the vocabulary straight first: the number line, integers, positive and negative — and 0 is neither.",
+          "zh": "先统一行话：数轴、整数、正数负数——0 既不是正数也不是负数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "arithmetic",
+          "zh": "算术"
+        },
+        {
+          "en": "property",
+          "zh": "性质（运算律）"
+        }
+      ],
+      "teachHints": "groups、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C01.S02",
+      "strand": "ch01",
+      "pages": [
+        4,
+        8
+      ],
+      "en": "1.2 Addition",
+      "zh": "1.2 加法",
+      "elaborations": [
+        {
+          "en": "Square-stacking pictures reveal the commutative and associative properties: order and grouping never change a sum.",
+          "zh": "用方块图自己发现加法交换律、结合律：调换顺序、改变分组都不改变和。"
+        },
+        {
+          "en": "The any-order principle: rearrange and pair numbers into round sums, like 472+28 = 500, or 1+2+…+20 as ten pairs of 21.",
+          "zh": "「任意顺序」原则：重新排列、凑整配对，比如 472+28 先凑成 500，1+2+…+20 配成 10 对、每对 21。"
+        },
+        {
+          "en": "Adding zero changes nothing: a + 0 = a.",
+          "zh": "加 0 什么也不改变：a + 0 = a。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "commutative property",
+          "zh": "交换律"
+        },
+        {
+          "en": "associative property",
+          "zh": "结合律"
+        },
+        {
+          "en": "sum",
+          "zh": "和"
+        }
+      ],
+      "teachHints": "numberLine、groups"
+    },
+    {
+      "id": "AOPS.PA.C01.S03",
+      "strand": "ch01",
+      "pages": [
+        9,
+        16
+      ],
+      "en": "1.3 Multiplication",
+      "zh": "1.3 乘法",
+      "elaborations": [
+        {
+          "en": "Grid pictures show multiplication is commutative and associative too, so long products can be paired smartly: 25×125×4×6×8 becomes (4×25)×(8×125)×6.",
+          "zh": "方块阵图看出乘法也有交换律、结合律；连乘可以巧配对：25×125×4×6×8 先凑 4×25=100、8×125=1000。"
+        },
+        {
+          "en": "The distributive property a(b+c) = ab + ac links × and +; expanding and factoring are its two directions, like 51×9 + 51×31 = 51×40.",
+          "zh": "分配律 a(b+c) = ab + ac 把乘法和加法连起来；正着用叫展开，反着用叫提公因数，比如 51×9+51×31 = 51×40。"
+        },
+        {
+          "en": "Multiplying by 1 keeps a number, multiplying by 0 destroys it to 0; the order-of-operations rules settle what to compute first.",
+          "zh": "乘 1 不变、乘 0 归零；还立下运算顺序的规矩：先算括号，再乘除，后加减。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "distributive property",
+          "zh": "分配律"
+        },
+        {
+          "en": "product",
+          "zh": "积"
+        }
+      ],
+      "teachHints": "areaModel、groups"
+    },
+    {
+      "id": "AOPS.PA.C01.S04",
+      "strand": "ch01",
+      "pages": [
+        17,
+        23
+      ],
+      "en": "1.4 Negation",
+      "zh": "1.4 相反数",
+      "elaborations": [
+        {
+          "en": "A number's negation (opposite) is what adds with it to make 0; negating twice returns you home: −(−x) = x.",
+          "zh": "相反数就是和它相加等于 0 的那个数；取两次相反数回到自己：−(−x) = x。"
+        },
+        {
+          "en": "Negation is the same as multiplying by −1 — proved from the distributive property, not just announced.",
+          "zh": "取相反数其实就是乘 −1——这是用分配律推出来的，不是硬规定。"
+        },
+        {
+          "en": "From there, discover for yourself why negative × positive is negative and negative × negative is positive.",
+          "zh": "顺着这条线索，自己推出「负正得负」「负负得正」的道理。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "negation",
+          "zh": "取相反数"
+        },
+        {
+          "en": "opposite",
+          "zh": "相反数"
+        },
+        {
+          "en": "negative number",
+          "zh": "负数"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.PA.C01.S05",
+      "strand": "ch01",
+      "pages": [
+        24,
+        31
+      ],
+      "en": "1.5 Subtraction",
+      "zh": "1.5 减法",
+      "elaborations": [
+        {
+          "en": "Subtraction is adding the opposite: a − b = a + (−b), so all the addition rules carry over.",
+          "zh": "减法就是加上相反数：a − b = a + (−b)，加法的规则全都能借用。"
+        },
+        {
+          "en": "Subtraction is neither commutative nor associative — to rearrange a long mixed sum safely, first turn every subtraction into adding a negative.",
+          "zh": "减法既没有交换律也没有结合律；要挪动加减混合的长算式，先把每个减法改写成「加负数」再挪才安全。"
+        },
+        {
+          "en": "Multiplication distributes over subtraction too: 999×345 = (1000−1)×345 turns a hard product into an easy one.",
+          "zh": "乘法对减法也能分配：999×345 = (1000−1)×345，难算的乘法一下变轻松。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "difference",
+          "zh": "差"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.PA.C01.S06",
+      "strand": "ch01",
+      "pages": [
+        32,
+        37
+      ],
+      "en": "1.6 Reciprocals",
+      "zh": "1.6 倒数",
+      "elaborations": [
+        {
+          "en": "The reciprocal of x is the number that multiplies with x to make 1; every number except 0 has one — 0 can't, since 0 times anything is 0.",
+          "zh": "倒数：和原数相乘等于 1 的那个数；除了 0 每个数都有——0 乘什么都是 0，所以没有倒数。"
+        },
+        {
+          "en": "The reciprocal check: to show two numbers are reciprocals, multiply them and look for 1.",
+          "zh": "验证倒数的招数：把两个数乘起来，看结果是不是 1。"
+        },
+        {
+          "en": "The reciprocal of a reciprocal is the original number; a product's reciprocal is the product of the reciprocals, a negation's is the negation of the reciprocal.",
+          "zh": "倒数的倒数回到自己；乘积的倒数 = 倒数的乘积，相反数的倒数 = 倒数的相反数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "reciprocal",
+          "zh": "倒数"
+        }
+      ],
+      "teachHints": "fractionBar、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C01.S07",
+      "strand": "ch01",
+      "pages": [
+        38,
+        46
+      ],
+      "en": "1.7 Division",
+      "zh": "1.7 除法",
+      "elaborations": [
+        {
+          "en": "Division is multiplying by the reciprocal: a ÷ b = a × (1/b) — and dividing by 0 is undefined because 0 has no reciprocal.",
+          "zh": "除法就是乘以倒数：a ÷ b = a × 1/b；0 没有倒数，所以不能除以 0。"
+        },
+        {
+          "en": "Division isn't commutative or associative; convert divisions to multiplications to rearrange, and cancel common factors: (116×93) ÷ (116×31) = 93 ÷ 31.",
+          "zh": "除法没有交换律、结合律；想重排就先改写成乘倒数，还能约掉公因数：(116×93) ÷ (116×31) = 93 ÷ 31。"
+        },
+        {
+          "en": "Sign rules match multiplication's, and (a+b) ÷ c splits into a÷c + b÷c — but a ÷ (b+c) never splits.",
+          "zh": "正负号规则和乘法一样；(a+b) ÷ c 可以拆开分别除，但 a ÷ (b+c) 千万不能拆。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "quotient",
+          "zh": "商"
+        },
+        {
+          "en": "undefined",
+          "zh": "无定义"
+        }
+      ],
+      "teachHints": "groups、fractionBar"
+    },
+    {
+      "id": "AOPS.PA.C02.S01",
+      "strand": "ch02",
+      "pages": [
+        54,
+        62
+      ],
+      "en": "2.1 Squares",
+      "zh": "2.1 平方",
+      "elaborations": [
+        {
+          "en": "Squaring means multiplying a number by itself; a perfect square is an integer squared, pictured as a square grid.",
+          "zh": "平方就是自己乘自己；完全平方数是整数的平方，画出来正好是一个正方形方阵。"
+        },
+        {
+          "en": "Squares of negatives are positive, but parentheses matter: (−2)² = 4 while −2² = −4; products and quotients square piece by piece: (ab)² = a²b².",
+          "zh": "负数的平方是正数，但括号要看清：(−2)² = 4，−2² 却是 −4；积与商的平方可以拆开算：(ab)² = a²b²。"
+        },
+        {
+          "en": "A sum's square does not split: (a+b)² ≠ a² + b²; instead a grid picture gives (a+1)² = a² + 2a + 1, so 901² follows from 900² in your head.",
+          "zh": "和的平方不能拆：(a+b)² ≠ a² + b²；方格图给出 (a+1)² = a² + 2a + 1，901² 用 900² 就能心算出来。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "square",
+          "zh": "平方"
+        },
+        {
+          "en": "perfect square",
+          "zh": "完全平方数"
+        }
+      ],
+      "teachHints": "areaGrid"
+    },
+    {
+      "id": "AOPS.PA.C02.S02",
+      "strand": "ch02",
+      "pages": [
+        63,
+        72
+      ],
+      "en": "2.2 Higher Exponents",
+      "zh": "2.2 更高次幂",
+      "elaborations": [
+        {
+          "en": "An exponent counts how many copies of the base are multiplied; a negative base comes out positive to an even power, negative to an odd power.",
+          "zh": "指数数的是「底数连乘了几个」；负数做底数：偶次幂是正，奇次幂是负。"
+        },
+        {
+          "en": "Count copies to discover the laws: same-base products add exponents, quotients subtract them, and a power of a power multiplies them.",
+          "zh": "数一数「共有几个连乘」就推出指数律：同底数幂相乘指数相加、相除指数相减，幂的乘方指数相乘。"
+        },
+        {
+          "en": "Signature trick: rewrite giants with a common base or exponent — compare 11^20000, 5^30000, 2^70000 by making each a 10,000th power.",
+          "zh": "招牌技巧：把巨无霸数字改写成同底数或同指数再比较，比如把 11^20000、5^30000、2^70000 都写成一万次幂比大小。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "exponent",
+          "zh": "指数"
+        },
+        {
+          "en": "base",
+          "zh": "底数"
+        },
+        {
+          "en": "power",
+          "zh": "幂"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C02.S03",
+      "strand": "ch02",
+      "pages": [
+        73,
+        75
+      ],
+      "en": "2.3 Zero as an Exponent",
+      "zh": "2.3 零次幂",
+      "elaborations": [
+        {
+          "en": "Follow the keep-dividing pattern 16, 8, 4, 2 one step further to discover 2⁰ = 1 — and the quotient rule 2¹÷2¹ agrees.",
+          "zh": "顺着 16、8、4、2「每次除以 2」的规律再走一步，自己发现 2⁰ = 1；用同底数幂相除 2¹÷2¹ 一验也一样。"
+        },
+        {
+          "en": "a⁰ is defined to be 1 for every base — this book even sets 0⁰ = 1 so the rules need no exceptions.",
+          "zh": "任何数的 0 次幂都定义成 1——这本书连 0⁰ 也定为 1，就为了让规则没有例外。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "zeroth power",
+          "zh": "零次幂"
+        }
+      ],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.PA.C02.S04",
+      "strand": "ch02",
+      "pages": [
+        76,
+        87
+      ],
+      "en": "2.4 Negative Exponents",
+      "zh": "2.4 负指数",
+      "elaborations": [
+        {
+          "en": "Keep the dividing pattern going below 3⁰ to discover that a negative exponent means a reciprocal: a^(−n) = 1/a^n.",
+          "zh": "把「每次除以 3」的规律继续推过 3⁰，发现负指数就是倒数：a 的 −n 次幂是 a 的 n 次幂的倒数。"
+        },
+        {
+          "en": "All the exponent laws keep working with negative exponents — though 0 can't be raised to one.",
+          "zh": "指数变成负数后，所有指数运算律照样成立；只是 0 不能取负次幂。"
+        },
+        {
+          "en": "Handy flips like 1/a^(−n) = a^n; to compare monsters like (−2)³⁴ and 16⁸, write everything as powers of 2 and compare exponents.",
+          "zh": "常用的翻转：1 除以 a 的 −n 次幂等于 a 的 n 次幂；比较 (−2)³⁴、16⁸ 这些大家伙时，统统写成 2 的幂、只看指数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "negative exponent",
+          "zh": "负指数"
+        }
+      ],
+      "teachHints": "dataTable、fractionBar"
+    },
+    {
+      "id": "AOPS.PA.C03.S01",
+      "strand": "ch03",
+      "pages": [
+        92,
+        96
+      ],
+      "en": "3.1 Multiples",
+      "zh": "3.1 倍数",
+      "elaborations": [
+        {
+          "en": "A multiple of b is b times an integer — so 0 and negatives count too; in division terms, remainder 0.",
+          "zh": "b 的倍数就是「b 乘某个整数」——所以 0 和负数也算；用除法说，就是余数为 0。"
+        },
+        {
+          "en": "Sums and differences of multiples of n are still multiples of n; add a non-multiple and the result never is one.",
+          "zh": "n 的倍数加减 n 的倍数还是 n 的倍数；一旦加上个不是倍数的数，结果就一定不是。"
+        },
+        {
+          "en": "Count multiples in a range by writing them as 1×n up to k×n, and find the biggest multiple under a limit by knocking off the remainder.",
+          "zh": "数一段范围里有几个倍数：写成 1×n、2×n……数个数；找不超过某数的最大倍数，用余数一减就到。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "multiple",
+          "zh": "倍数"
+        }
+      ],
+      "teachHints": "numberLine、hundredChart"
+    },
+    {
+      "id": "AOPS.PA.C03.S02",
+      "strand": "ch03",
+      "pages": [
+        97,
+        104
+      ],
+      "en": "3.2 Divisibility Tests",
+      "zh": "3.2 整除判定",
+      "elaborations": [
+        {
+          "en": "Quick divisibility tests: last digit for 2, 5, 10; last two digits for 4; digit sums for 3 and 9.",
+          "zh": "整除判定妙法：2、5、10 看个位，4 看末两位，3 和 9 把数字加起来看。"
+        },
+        {
+          "en": "Why they work: split the number into an obvious multiple plus a leftover, like 765 = 7×99 + 6×9 + (7+6+5).",
+          "zh": "为什么灵：把数拆成「明显的倍数 + 零头」，比如 765 = 7×99 + 6×9 + (7+6+5)，数字和的秘密一目了然。"
+        },
+        {
+          "en": "Combine tests to pin down unknown digits, like the A that makes 4,63A divisible by both 3 and 4.",
+          "zh": "几个判定法联手能锁定神秘数字：比如找出 A，让 4,63A 同时被 3 和 4 整除。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divisible",
+          "zh": "能被整除"
+        },
+        {
+          "en": "divisibility test",
+          "zh": "整除判定法"
+        }
+      ],
+      "teachHints": "placeValue、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C03.S03",
+      "strand": "ch03",
+      "pages": [
+        105,
+        111
+      ],
+      "en": "3.3 Prime Numbers",
+      "zh": "3.3 质数",
+      "elaborations": [
+        {
+          "en": "A prime has exactly two divisors — 1 and itself; composites have more; 1 is neither, and 2 is the only even prime.",
+          "zh": "质数恰好有两个因数：1 和它自己；合数因数更多；1 两边都不算，2 是唯一的偶质数。"
+        },
+        {
+          "en": "To test for primeness, only divide by primes, and stop once a prime's square exceeds the number — 113 needs just 2, 3, 5, 7.",
+          "zh": "判断质数只需拿质数去试除，而且试到「平方超过它」就能收工：验 113 只用试 2、3、5、7。"
+        },
+        {
+          "en": "Circle a number, cross out its multiples, repeat — the sieve on a 100 grid leaves exactly the primes.",
+          "zh": "「圈一个数、划掉它的倍数」在百数表上一轮轮做下去，最后圈出来的正是 100 以内的全部质数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "prime number",
+          "zh": "质数"
+        },
+        {
+          "en": "composite number",
+          "zh": "合数"
+        }
+      ],
+      "teachHints": "hundredChart、groups"
+    },
+    {
+      "id": "AOPS.PA.C03.S04",
+      "strand": "ch03",
+      "pages": [
+        112,
+        119
+      ],
+      "en": "3.4 Prime Factorization",
+      "zh": "3.4 质因数分解",
+      "elaborations": [
+        {
+          "en": "Every integer above 1 breaks into primes in exactly one way — the Fundamental Theorem of Arithmetic; factor trees organize the splitting.",
+          "zh": "每个大于 1 的整数拆成质因数相乘的方式只有一种——算术基本定理；因数树帮你把拆的过程记清楚。"
+        },
+        {
+          "en": "Primes are the building blocks: a perfect square is exactly a factorization with all-even exponents — that's how you see 96×486 is a square.",
+          "zh": "质数是整数的积木：质因数分解里指数全是偶数，就是完全平方数——96×486 是不是平方数一看便知。"
+        },
+        {
+          "en": "Multiply the first primes and add 1 — its prime factors must all be new, so there are infinitely many primes.",
+          "zh": "把前几个质数全乘起来再加 1，它的质因数一定全是新面孔——所以质数有无穷多个。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "prime factorization",
+          "zh": "质因数分解"
+        },
+        {
+          "en": "factor tree",
+          "zh": "因数树"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C03.S05",
+      "strand": "ch03",
+      "pages": [
+        120,
+        128
+      ],
+      "en": "3.5 Least Common Multiple",
+      "zh": "3.5 最小公倍数",
+      "elaborations": [
+        {
+          "en": "Find the LCM by listing multiples, or faster by taking the highest power of each prime: 24 and 90 give 2³·3²·5 = 360.",
+          "zh": "求最小公倍数：可以列举倍数，更快是「每个质数取最高次幂」：24 和 90 得 2³·3²·5 = 360。"
+        },
+        {
+          "en": "Every common multiple is a multiple of the LCM — so bells ringing every 15, 20, 25 minutes next chime together after lcm = 300 minutes.",
+          "zh": "所有公倍数都是最小公倍数的倍数——所以每 15、20、25 分钟各响一次的钟，下次齐响正好在 300 分钟后。"
+        },
+        {
+          "en": "Remainder puzzles: numbers leaving remainder 1 on 6, 7, and 8 (or falling 1 short) sit right beside a common multiple — 169 and 167 flank 168.",
+          "zh": "余数谜题：被 6、7、8 除都余 1 或都差 1 的数，就贴着公倍数站——169 = 168+1，167 = 168−1。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "least common multiple (LCM)",
+          "zh": "最小公倍数"
+        }
+      ],
+      "teachHints": "numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C03.S06",
+      "strand": "ch03",
+      "pages": [
+        129,
+        133
+      ],
+      "en": "3.6 Divisors",
+      "zh": "3.6 因数",
+      "elaborations": [
+        {
+          "en": "Divisors come in pairs that multiply to the number, so hunt in pairs (84 = 1×84 = 2×42 …) and stop once your candidate's square passes it.",
+          "zh": "因数成对出现、一对相乘等于原数：找 84 的因数就配着对找（1×84、2×42……），试到平方超过 84 就能收工。"
+        },
+        {
+          "en": "Only perfect squares have an odd number of divisors — the square root partners with itself.",
+          "zh": "只有完全平方数的因数个数是奇数——因为平方根和自己配成了一对。"
+        },
+        {
+          "en": "If c divides both a and b, it divides a+b and a−b too; and every divisor of a divisor is again a divisor.",
+          "zh": "c 能同时整除 a 和 b，就能整除 a+b 和 a−b；因数的因数还是因数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divisor",
+          "zh": "因数（约数）"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C03.S07",
+      "strand": "ch03",
+      "pages": [
+        134,
+        143
+      ],
+      "en": "3.7 Greatest Common Divisor",
+      "zh": "3.7 最大公因数",
+      "elaborations": [
+        {
+          "en": "Find the GCD by listing divisors, or by taking the lowest power of each shared prime: 360 and 48 give 2³·3 = 24.",
+          "zh": "求最大公因数：列举法，或「公共质数取最低次幂」：360 和 48 得 2³·3 = 24。"
+        },
+        {
+          "en": "Relatively prime means gcd 1 — and then the LCM is simply the two numbers' product.",
+          "zh": "互质就是最大公因数为 1——这时最小公倍数干脆就等于两数相乘。"
+        },
+        {
+          "en": "Signature uses: the biggest fair share (candy bags hold gcd(70,42) = 14), and testing 36 by the relatively prime pair 4 and 9.",
+          "zh": "招牌用法：分东西求「最大的一份」（糖果题每袋 gcd(70,42) = 14 颗）；验 36 的整除，拆成互质的 4 和 9 分头验。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "greatest common divisor (GCD)",
+          "zh": "最大公因数"
+        },
+        {
+          "en": "relatively prime",
+          "zh": "互质"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C04.S01",
+      "strand": "ch04",
+      "pages": [
+        149,
+        154
+      ],
+      "en": "4.1 What is a Fraction?",
+      "zh": "4.1 分数是什么？",
+      "elaborations": [
+        {
+          "en": "A fraction is division: m/n means m ÷ n, and it lives on the number line — cut the space between integers into equal pieces to find it.",
+          "zh": "分数就是除法：m/n 就是 m ÷ n；把 0 到 1 切成 n 等份，就能在数轴上找到它的家。"
+        },
+        {
+          "en": "Division rules carry over: 0/a = 0, a/a = 1, a/1 = a, and negative signs can move around — but the denominator can never be 0.",
+          "zh": "除法的规矩全搬过来：0/a = 0、a/a = 1、a/1 = a，负号还能挪位置——唯独分母不能是 0。"
+        },
+        {
+          "en": "Compare top and bottom to see whether a fraction beats 1, trap it between consecutive integers, and discover that different fractions can name the same point (1/2 = 4/8).",
+          "zh": "分子分母一比就知道分数比 1 大还是小；还能把它夹在两个相邻整数之间，并发现不同的分数可以是同一个数（1/2 = 4/8）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "fraction",
+          "zh": "分数"
+        },
+        {
+          "en": "numerator",
+          "zh": "分子"
+        },
+        {
+          "en": "denominator",
+          "zh": "分母"
+        }
+      ],
+      "teachHints": "fractionBar、pie、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C04.S02",
+      "strand": "ch04",
+      "pages": [
+        155,
+        161
+      ],
+      "en": "4.2 Multiplying Fractions",
+      "zh": "4.2 分数乘法",
+      "elaborations": [
+        {
+          "en": "Multiply fractions by multiplying numerators and denominators — a rule built up from 'a fraction is division' and pictured on the number line.",
+          "zh": "分数乘分数：分子乘分子、分母乘分母——从「分数就是除法」一步步推出来，并在数轴上看明白。"
+        },
+        {
+          "en": "'Of' means multiply: 2/3 of 90 is (2/3) × 90, and a fraction of a fraction is two multiplications in a row.",
+          "zh": "「的」就是乘：90 的 2/3 就是 2/3 × 90；「几分之几的几分之几」就是接连乘两次。"
+        },
+        {
+          "en": "Simplify before multiplying: turning 66666 × (7/6) into (66666 ÷ 6) × 7 saves the heavy lifting.",
+          "zh": "先化简再相乘：66666 × 7/6 先除以 6 再乘 7，比硬乘轻松得多。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel、fractionBar"
+    },
+    {
+      "id": "AOPS.PA.C04.S03",
+      "strand": "ch04",
+      "pages": [
+        162,
+        166
+      ],
+      "en": "4.3 Dividing by a Fraction",
+      "zh": "4.3 除以分数",
+      "elaborations": [
+        {
+          "en": "The reciprocal of a fraction is its flip, so dividing by a fraction means multiplying by the flipped fraction — and you discover why the flip works.",
+          "zh": "分数的倒数就是把它翻个面，所以除以分数 = 乘以翻过来的分数——「翻过来乘」的道理自己推出来。"
+        },
+        {
+          "en": "A fraction stacked on a fraction is nothing scary — it's just division written vertically.",
+          "zh": "「分数摞分数」的繁分数不吓人——那只是把除法竖着写。"
+        },
+        {
+          "en": "Reverse 'of' questions (32 is 2/5 of what?) and how-many-fit questions (fence panels) both come down to dividing — when stuck, first try the same problem with whole numbers.",
+          "zh": "「32 是谁的 2/5」和「60 英尺栅栏要几块板」都是除法；卡住时先把分数换成整数，做道类似的简单题找感觉。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "fractionBar、groups"
+    },
+    {
+      "id": "AOPS.PA.C04.S04",
+      "strand": "ch04",
+      "pages": [
+        167,
+        170
+      ],
+      "en": "4.4 Raising Fractions to Powers",
+      "zh": "4.4 分数的乘方",
+      "elaborations": [
+        {
+          "en": "A power of a fraction raises top and bottom separately: (a/b)^n = aⁿ/bⁿ — clear once you write out the repeated multiplication.",
+          "zh": "分数的乘方就是分子分母各自乘方：(a/b) 的 n 次幂等于 aⁿ/bⁿ——把连乘写开一眼就明白。"
+        },
+        {
+          "en": "A negative exponent flips the fraction first: (a/b)^(−n) = (b/a)^n.",
+          "zh": "负指数先把分数翻个面再乘方：(a/b) 的 −n 次幂 = (b/a) 的 n 次幂。"
+        },
+        {
+          "en": "All the exponent laws still work, so simplify products of fraction powers before grinding out the arithmetic.",
+          "zh": "指数运算律照样全能用，分数幂相乘先化简再动手算，省力不少。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "fractionBar、areaModel"
+    },
+    {
+      "id": "AOPS.PA.C04.S05",
+      "strand": "ch04",
+      "pages": [
+        171,
+        176
+      ],
+      "en": "4.5 Simplest Form of a Fraction",
+      "zh": "4.5 最简分数",
+      "elaborations": [
+        {
+          "en": "Simplify by canceling common factors — (ac)/(bc) = a/b — and prime factorization reveals every common factor at once.",
+          "zh": "约分就是消公因数：ac/bc = a/b；用质因数分解能一次看清所有公因数。"
+        },
+        {
+          "en": "A fraction is in simplest form when top and bottom share no divisor bigger than 1.",
+          "zh": "分子分母除了 1 再没有公因数时，分数就是最简形式。"
+        },
+        {
+          "en": "Cancel before you multiply — even across two fractions, top of one against bottom of the other — and the same canceling works with variables like x⁴ over x³.",
+          "zh": "相乘前先约分，还能「跨着约」——这个的分子跟那个的分母也能消；带字母的 x⁴ 和 x³ 照样约。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "simplest form",
+          "zh": "最简形式"
+        }
+      ],
+      "teachHints": "fractionBar、pie"
+    },
+    {
+      "id": "AOPS.PA.C04.S06",
+      "strand": "ch04",
+      "pages": [
+        177,
+        180
+      ],
+      "en": "4.6 Comparing Fractions",
+      "zh": "4.6 比较分数",
+      "elaborations": [
+        {
+          "en": "Same denominator: the bigger numerator wins; different denominators: un-simplify both fractions onto a common denominator, ideally the least common multiple.",
+          "zh": "同分母比分子；分母不同就把约分反着用——分子分母同乘，通到公分母（最好用最小公倍数）再比。"
+        },
+        {
+          "en": "Same numerator: the smaller denominator means bigger pieces and a bigger fraction; with negative fractions everything reverses — closer to 0 is greater.",
+          "zh": "分子相同看分母：分母小、每份大，分数反而大；负分数全反过来——离 0 近的才大。"
+        },
+        {
+          "en": "Benchmark against 1: 541/539 is above 1 and 399/401 below it, so they compare instantly with no common denominator.",
+          "zh": "拿 1 当标尺：541/539 比 1 大、399/401 比 1 小，一比就分胜负，根本不用通分。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "cross-multiplication",
+          "zh": "交叉相乘"
+        }
+      ],
+      "teachHints": "fractionBar、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C04.S07",
+      "strand": "ch04",
+      "pages": [
+        181,
+        187
+      ],
+      "en": "4.7 Adding and Subtracting Fractions",
+      "zh": "4.7 分数加减法",
+      "elaborations": [
+        {
+          "en": "Same-denominator fractions add by adding numerators — that's division distributing over addition; unlike denominators get rewritten with the least common denominator first.",
+          "zh": "同分母相加只加分子——背后是除法的分配律；分母不同就先用最小公分母通分。"
+        },
+        {
+          "en": "The classic trap: never add the denominators — 1/2 + 1/2 is 1, not 2/4.",
+          "zh": "经典陷阱：分母千万不能相加——1/2 + 1/2 等于 1，可不是 2/4。"
+        },
+        {
+          "en": "Use fraction sums in stories (what part of the bonus is left?) and in estimates — 87/88 + 24/23 is obviously about 2, because fractions are numbers with sizes.",
+          "zh": "分数加减能算应用题（奖金花掉几分之几还剩多少），也能估算——87/88 + 24/23 明摆着接近 2，因为分数本来就是有大小的数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "common denominator",
+          "zh": "公分母"
+        }
+      ],
+      "teachHints": "fractionBar、pie"
+    },
+    {
+      "id": "AOPS.PA.C04.S08",
+      "strand": "ch04",
+      "pages": [
+        188,
+        195
+      ],
+      "en": "4.8 Mixed Numbers",
+      "zh": "4.8 带分数",
+      "elaborations": [
+        {
+          "en": "A mixed number is an integer plus a fraction — 9 1/4 means 9 + 1/4, never 9 × 1/4 — and it exists because 'nine and a quarter inches' shows the size at a glance.",
+          "zh": "带分数 = 整数加分数：9 又 1/4 是 9 + 1/4，绝不是 9 × 1/4；用它是因为「九又四分之一英寸」比 37/4 英寸直观得多。"
+        },
+        {
+          "en": "Convert both ways with division — the quotient becomes the integer part, the remainder the new numerator; in a negative mixed number the sign covers both parts.",
+          "zh": "互化靠除法：商当整数部分、余数当新分子；负带分数的负号同时管整数和分数两部分。"
+        },
+        {
+          "en": "Add and subtract integer parts and fraction parts separately (mind the signs); multiply and divide by converting to fractions or by distributing — there's no single 'right way'.",
+          "zh": "加减时整数和分数分开处理（当心符号）；乘除可先化成假分数，也可用分配律拆开——没有唯一「正确解法」。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "mixed number",
+          "zh": "带分数"
+        },
+        {
+          "en": "improper fraction",
+          "zh": "假分数"
+        }
+      ],
+      "teachHints": "fractionBar、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C05.S01",
+      "strand": "ch05",
+      "pages": [
+        200,
+        208
+      ],
+      "en": "5.1 Expressions",
+      "zh": "5.1 代数式",
+      "elaborations": [
+        {
+          "en": "Letters stand for numbers: 5 packs plus 6 packs of gum is 11 packs, so 5x + 6x must be 11x — intuition first, the distributive property to seal it.",
+          "zh": "用字母表示数：5 包加 6 包口香糖当然是 11 包，所以 5x + 6x = 11x——先靠直觉看懂，再用分配律讲透。"
+        },
+        {
+          "en": "Combine like terms and expand with the distributive property; when subtracting a whole expression, the minus sign hits every term inside.",
+          "zh": "合并同类项、用分配律展开；减去整个式子时，负号要打到括号里的每一项。"
+        },
+        {
+          "en": "Fractions with variables merge the same way: put x/3 and 2x/7 over a common denominator to make one fraction.",
+          "zh": "带字母的分数照样通分：把 x/3 和 2x/7 通到公分母，并成一个分数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "variable",
+          "zh": "未知数（变量）"
+        },
+        {
+          "en": "expression",
+          "zh": "代数式"
+        },
+        {
+          "en": "like terms",
+          "zh": "同类项"
+        }
+      ],
+      "teachHints": "balance、groups"
+    },
+    {
+      "id": "AOPS.PA.C05.S02",
+      "strand": "ch05",
+      "pages": [
+        209,
+        214
+      ],
+      "en": "5.2 Solving Linear Equations I",
+      "zh": "5.2 解一元一次方程（一）",
+      "elaborations": [
+        {
+          "en": "An equation with a variable is true only for certain values; to solve it, do the same thing to both sides until the variable stands alone — isolate, isolate, isolate.",
+          "zh": "含未知数的方程只对某些数成立；解法是两边同时做同一件事，把未知数孤立出来——口诀就是「孤立、孤立、孤立」。"
+        },
+        {
+          "en": "One equation, three lenses — common sense, the number line, algebra — and algebra pulls ahead as soon as the numbers get messy.",
+          "zh": "同一个方程三种解法：直觉、数轴、代数；数字一变成分数，代数的优势立刻显出来。"
+        },
+        {
+          "en": "Undo adding by subtracting, undo a coefficient by dividing or multiplying by its reciprocal — then substitute the answer back to check.",
+          "zh": "加减互相抵消，系数用除法或乘倒数去掉；解完把答案代回原方程验算。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "equation",
+          "zh": "方程"
+        },
+        {
+          "en": "solution",
+          "zh": "解"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.PA.C05.S03",
+      "strand": "ch05",
+      "pages": [
+        215,
+        222
+      ],
+      "en": "5.3 Solving Linear Equations II",
+      "zh": "5.3 解一元一次方程（二）",
+      "elaborations": [
+        {
+          "en": "Harder equations: simplify each side, then gather all the variable terms on one side and all the constants on the other.",
+          "zh": "更难的方程先把两边各自化简，再把含未知数的项收到一边、常数收到另一边。"
+        },
+        {
+          "en": "Expand with the distributive property, and clear fractions by multiplying both sides by a common denominator — that shortcut is called cross-multiplying.",
+          "zh": "用分配律拆括号；两边同乘公分母把分数一扫而空——「交叉相乘」这个名字就是从这来的。"
+        },
+        {
+          "en": "Surprise endings exist: some equations have no solution (they collapse to 3 = −11), others are true for every number (both sides identical).",
+          "zh": "方程也有意外结局：有的无解（化到最后成了 3 = −11），有的对所有数都成立（两边一模一样）。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.PA.C05.S04",
+      "strand": "ch05",
+      "pages": [
+        223,
+        229
+      ],
+      "en": "5.4 Word Problems",
+      "zh": "5.4 应用题",
+      "elaborations": [
+        {
+          "en": "The five-step method: read carefully (really!), turn words into an equation, solve, translate back, and check you answered the question asked.",
+          "zh": "五步法：仔细读题（真的要仔细！）、把文字翻成方程、解方程、把答案放回题目、检查回答的是不是所问的问题。"
+        },
+        {
+          "en": "Pick the variable wisely — usually the quantity you want, sometimes the one you know most about (count the coins, not the cost) — and express the other unknowns with it.",
+          "zh": "设未知数有讲究：通常设要求的量，有时改设信息最多的量（比如设硬币个数而不是价钱），其余未知量都用它表示。"
+        },
+        {
+          "en": "Two expressions for the same quantity give you an equation; an absurd answer (a negative age) is the signal that the equation was set up wrong.",
+          "zh": "同一个量写出两个式子，画上等号就是方程；解出荒唐答案（年龄是负数）就说明式子列错了，回头检查。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "word problem",
+          "zh": "应用题"
+        }
+      ],
+      "teachHints": "barModel、balance"
+    },
+    {
+      "id": "AOPS.PA.C05.S05",
+      "strand": "ch05",
+      "pages": [
+        230,
+        239
+      ],
+      "en": "5.5 Inequalities",
+      "zh": "5.5 不等式",
+      "elaborations": [
+        {
+          "en": "An inequality describes a range; graph it on the number line with an open or closed circle and a bold ray.",
+          "zh": "不等式描述一段范围；画在数轴上：空心圈或实心圈，加一条加粗的射线。"
+        },
+        {
+          "en": "Solve them like equations — except multiplying or dividing by a negative flips the inequality sign, and you discover why.",
+          "zh": "解法和方程几乎一样——唯独乘除负数要翻转不等号，为什么要翻由你自己发现。"
+        },
+        {
+          "en": "Inequality word problems answer 'when does this deal win?', and real-world answers often round up to the next whole number.",
+          "zh": "不等式应用题回答「什么时候更划算」；现实里的答案常常要往上取整数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "inequality",
+          "zh": "不等式"
+        }
+      ],
+      "teachHints": "numberLine、balance"
+    },
+    {
+      "id": "AOPS.PA.C06.S01",
+      "strand": "ch06",
+      "pages": [
+        247,
+        257
+      ],
+      "en": "6.1 Arithmetic with Decimals",
+      "zh": "6.1 小数运算",
+      "elaborations": [
+        {
+          "en": "Decimals extend place value below 1: 29.17 is 2 tens, 9 ones, 1 tenth, and 7 hundredths — powers of 10 with negative exponents.",
+          "zh": "小数把位值制延伸到 1 以下：29.17 就是 2 个十、9 个一、1 个十分之一、7 个百分之一——负指数的 10 的幂。"
+        },
+        {
+          "en": "Add and subtract with the decimal points lined up (remember the hidden zeros); multiplying or dividing by a power of 10 just slides the point.",
+          "zh": "加减法把小数点对齐（藏起来的 0 别忘了）；乘除 10 的幂就是挪动小数点。"
+        },
+        {
+          "en": "For any decimal product or quotient, rewrite each number as an integer times a power of 10, work the parts, then estimate to confirm the point landed right.",
+          "zh": "小数乘除的通用招：把每个数写成整数 × 10 的幂分开算；最后估算大小，确认小数点没点错位。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "placeValue、baseTen、hundredthsGrid"
+    },
+    {
+      "id": "AOPS.PA.C06.S02",
+      "strand": "ch06",
+      "pages": [
+        258,
+        262
+      ],
+      "en": "6.2 Rounding",
+      "zh": "6.2 四舍五入",
+      "elaborations": [
+        {
+          "en": "Round by picking the nearest multiple of the target place — only the very next digit decides, and an exact tie rounds to the larger number (−2.35 becomes −2.3).",
+          "zh": "四舍五入取最近的数：只看紧挨着的下一位数字就够；正好一半时取较大的那个——所以 −2.35 舍成 −2.3。"
+        },
+        {
+          "en": "Think in reverse: knowing x rounds to 2.7 pins x inside 2.65 ≤ x < 2.75.",
+          "zh": "倒过来想：知道 x 四舍五入后是 2.7，就能把 x 锁定在 2.65 ≤ x < 2.75 之间。"
+        },
+        {
+          "en": "Round to estimate and to sanity-check: bounding 5,192 × 7,832 between 35 and 48 million exposes a fake answer instantly.",
+          "zh": "四舍五入用来估算和验算：把 5192 × 7832 卡在 3500 万到 4800 万之间，谁报五千多万一眼识破。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "rounding",
+          "zh": "四舍五入"
+        },
+        {
+          "en": "estimate",
+          "zh": "估算"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.PA.C06.S03",
+      "strand": "ch06",
+      "pages": [
+        263,
+        266
+      ],
+      "en": "6.3 Decimals and Fractions",
+      "zh": "6.3 小数与分数",
+      "elaborations": [
+        {
+          "en": "Decimal to fraction: read the place value — 0.125 is 125/1000 — then simplify.",
+          "zh": "小数化分数看数位：0.125 就是 125/1000，再约分。"
+        },
+        {
+          "en": "Fraction to decimal: multiply top and bottom until the denominator becomes a power of 10, like 7/8 = 875/1000 = 0.875.",
+          "zh": "分数化小数：分子分母同乘，把分母凑成 10 的幂——7/8 = 875/1000 = 0.875。"
+        },
+        {
+          "en": "The trick only works when the denominator is built from 2s and 5s; fractions like 1/3 can't be rescaled to a power of 10 — that mystery opens the next section.",
+          "zh": "这招只对分母全由 2 和 5 组成的分数管用；1/3 这种怎么也凑不成 10 的幂，谜底留到下一节。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "terminating decimal",
+          "zh": "有限小数"
+        }
+      ],
+      "teachHints": "hundredthsGrid、fractionBar"
+    },
+    {
+      "id": "AOPS.PA.C06.S04",
+      "strand": "ch06",
+      "pages": [
+        267,
+        277
+      ],
+      "en": "6.4 Repeating Decimals",
+      "zh": "6.4 循环小数",
+      "elaborations": [
+        {
+          "en": "Dividing 1 by 3 never ends: 1/3 is the infinite repeating decimal 0.333…, and a bar over the repeating block records it.",
+          "zh": "1 除以 3 永远除不完：1/3 是无限循环小数 0.333…，在循环节上画条横线来表示。"
+        },
+        {
+          "en": "Turn a repeating decimal back into a fraction with a clever subtraction — multiply by a power of 10 and subtract so the repeating tails cancel.",
+          "zh": "循环小数变回分数用「错位相减」：乘上 10 的幂再一减，循环的尾巴整个消掉。"
+        },
+        {
+          "en": "A simplest-form fraction terminates exactly when its denominator has only 2s and 5s — everything else repeats — and the same trick proves the famous 0.999… = 1.",
+          "zh": "最简分数的分母只含 2 和 5 才是有限小数，其余全循环；用同一招相减还能证明神奇的 0.999… = 1。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "repeating decimal",
+          "zh": "循环小数"
+        }
+      ],
+      "teachHints": "dataTable、fractionBar"
+    },
+    {
+      "id": "AOPS.PA.C07.S01",
+      "strand": "ch07",
+      "pages": [
+        281,
+        286
+      ],
+      "en": "7.1 What is a Ratio?",
+      "zh": "7.1 比是什么？",
+      "elaborations": [
+        {
+          "en": "A ratio compares two quantities relatively — 2 : 3 tells you the mix, not the actual amounts (they could be 2n and 3n for any n).",
+          "zh": "比只告诉你两个量的相对关系——2 : 3 说的是「配比」，不是实际数量（可能是 2n 个和 3n 个）。"
+        },
+        {
+          "en": "Simplify ratios like fractions: divide out the GCD, and turn fractions or decimals into whole numbers first.",
+          "zh": "化简比就像约分：同除以最大公因数；遇到分数、小数先把各项变成整数。"
+        },
+        {
+          "en": "Part-of-the-whole thinking: in ratio a : b the first part is a/(a+b) of the total — the key to splitting a rope, a class, or a candy jar by ratio.",
+          "zh": "「部分占整体」思路：a : b 中第一份占总量的 a/(a+b)——按比例分绳子、分全班、分糖果全靠它。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "ratio",
+          "zh": "比"
+        }
+      ],
+      "teachHints": "barModel、groups"
+    },
+    {
+      "id": "AOPS.PA.C07.S02",
+      "strand": "ch07",
+      "pages": [
+        287,
+        292
+      ],
+      "en": "7.2 Multi-way Ratios",
+      "zh": "7.2 连比",
+      "elaborations": [
+        {
+          "en": "Ratios can compare three or more quantities at once, like 4 : 5 : 11, and simplify the same way as two-way ratios.",
+          "zh": "比也能同时比三个及以上的量，比如 4 : 5 : 11；化简方法和两个量的比一模一样。"
+        },
+        {
+          "en": "Add all the terms to get the whole: in a 5 : 2 : 1 prize split, the winner gets 5/8 of the money.",
+          "zh": "把各项加起来当整体：奖金按 5 : 2 : 1 分，第一名就拿总数的 5/8。"
+        },
+        {
+          "en": "Merge two ratios that share a quantity by scaling the shared amount to match, making one 3-way ratio.",
+          "zh": "两个比共享一个量时，把公共量放缩成同一个数，就能拼成一个连比。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel"
+    },
+    {
+      "id": "AOPS.PA.C07.S03",
+      "strand": "ch07",
+      "pages": [
+        293,
+        295
+      ],
+      "en": "7.3 Proportions",
+      "zh": "7.3 比例",
+      "elaborations": [
+        {
+          "en": "A proportion sets two ratios equal — it appears whenever two quantities change together but their ratio stays fixed, like scaling a recipe.",
+          "zh": "比例就是让两个比相等——两个量一起变大变小、比值却不变时它就登场，比如按人数放大食谱。"
+        },
+        {
+          "en": "Find the unknown by writing the proportion and either scaling one ratio to match or solving the equation for x.",
+          "zh": "设未知数 x 列出比例式，要么把一个比放缩到对齐，要么解方程求出 x。"
+        },
+        {
+          "en": "Signature applications: currency exchange, shadow lengths, map scales, and blueprints.",
+          "zh": "招牌应用题：汇率换钱、影子量身高、地图比例尺、建筑图纸。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "proportion",
+          "zh": "比例"
+        }
+      ],
+      "teachHints": "barModel、balance"
+    },
+    {
+      "id": "AOPS.PA.C07.S04",
+      "strand": "ch07",
+      "pages": [
+        296,
+        301
+      ],
+      "en": "7.4 Conversions",
+      "zh": "7.4 单位换算",
+      "elaborations": [
+        {
+          "en": "A conversion factor is a fraction equal to 1 (like 12 inches / 1 foot), so multiplying by it changes units without changing the amount.",
+          "zh": "换算因子是一个等于 1 的分数（比如 12 英寸 / 1 英尺）——乘它只换单位、不变大小。"
+        },
+        {
+          "en": "Write the units into the fractions and let them cancel — if the units don't cancel, the setup is wrong.",
+          "zh": "把单位写进分数里跟着一起约分——单位约不掉，就说明式子摆错了，自动帮你防错。"
+        },
+        {
+          "en": "Chain several conversion factors for multi-step conversions (gallons → cups → ounces → tablespoons) — it works for currency too.",
+          "zh": "多步换算就把几个换算因子排成一排乘过去（加仑→杯→盎司→汤匙），换外币也是同一招。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "conversion factor",
+          "zh": "换算因子"
+        },
+        {
+          "en": "unit",
+          "zh": "单位"
+        }
+      ],
+      "teachHints": "dataTable、barModel"
+    },
+    {
+      "id": "AOPS.PA.C07.S05",
+      "strand": "ch07",
+      "pages": [
+        302,
+        309
+      ],
+      "en": "7.5 Speed",
+      "zh": "7.5 速度",
+      "elaborations": [
+        {
+          "en": "Speed is the ratio of distance to time — speed = distance/time and its rearrangements — and the units tell you whether to multiply or divide.",
+          "zh": "速度是路程和时间的比：速度 = 路程 ÷ 时间，还有它的变形；看单位就知道该乘还是该除。"
+        },
+        {
+          "en": "Average speed is total distance over total time — never the average of the two speeds.",
+          "zh": "全程平均速度 = 总路程 ÷ 总时间——千万别把两个速度直接平均！"
+        },
+        {
+          "en": "With two movers, track the distance between them: heading toward each other it shrinks at the sum of the speeds, chasing or lapping at the difference.",
+          "zh": "两人同时移动就盯住「他们之间的距离」：相向而行按两速之和缩短，同向追赶（套圈）按两速之差缩短。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "speed",
+          "zh": "速度"
+        }
+      ],
+      "teachHints": "numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C07.S06",
+      "strand": "ch07",
+      "pages": [
+        310,
+        313
+      ],
+      "en": "7.6 Other Rates",
+      "zh": "7.6 其他比率",
+      "elaborations": [
+        {
+          "en": "Speed is just one rate — any 'per' signals a rate: words per minute, gallons per second, words per page.",
+          "zh": "速度只是比率的一种——凡带「每」的都是比率：每分钟打几个字、水管每秒流多少水。"
+        },
+        {
+          "en": "Treat rates like conversion factors: line them up so the units cancel and multi-step problems fall out in one go.",
+          "zh": "把比率当换算因子用：排成一排让单位约掉，几步的问题一口气算完。"
+        },
+        {
+          "en": "Work problems: find how much each worker does per unit of time, and add the rates when they work together.",
+          "zh": "干活问题：先算每人每小时干多少，一起干时把效率相加（汤姆和哈克一起刷栅栏）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "rate",
+          "zh": "比率（速率）"
+        },
+        {
+          "en": "unit price",
+          "zh": "单价"
+        }
+      ],
+      "teachHints": "barModel、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C08.S01",
+      "strand": "ch08",
+      "pages": [
+        320,
+        330
+      ],
+      "en": "8.1 What is a Percent?",
+      "zh": "8.1 百分数是什么？",
+      "elaborations": [
+        {
+          "en": "A percent is a fraction with a hidden denominator of 100 (x% = x/100) — it can even be negative or more than 100%.",
+          "zh": "百分数就是把分母 100 藏起来的分数：x% = x/100——它还可以是负数，也可以超过 100%。"
+        },
+        {
+          "en": "Convert fluently among percents, fractions, and decimals — shift the decimal point two places, and know 25%, 50%, 75% and the multiples of 10% by heart.",
+          "zh": "百分数、分数、小数三兄弟互化——小数点移两位；25%、50%、75% 和 10% 的倍数要一眼认出。"
+        },
+        {
+          "en": "'Of' means multiply — find x% of a number, and run it backwards too: what percent is it, and x% of what number?",
+          "zh": "「的」就是乘：求一个数的百分之几；还要会倒着问——它占百分之几？它是谁的 x%？"
+        }
+      ],
+      "terms": [
+        {
+          "en": "percent",
+          "zh": "百分数"
+        }
+      ],
+      "teachHints": "hundredthsGrid、pie"
+    },
+    {
+      "id": "AOPS.PA.C08.S02",
+      "strand": "ch08",
+      "pages": [
+        331,
+        336
+      ],
+      "en": "8.2 Word Problems",
+      "zh": "8.2 百分数应用题",
+      "elaborations": [
+        {
+          "en": "Percent word problems: read carefully, translate the words into an equation, solve, then check the answer against the story.",
+          "zh": "百分数应用题四步走：仔细读题、把文字翻译成算式、求解、再回到题目里检验。"
+        },
+        {
+          "en": "All three flavours appear: find the part (sales tax), the percent (what share of the shirts are white), or the whole (the 3 who failed are 15% — how big is the class?).",
+          "zh": "三种问法都练到：求部分（算消费税）、求百分率（白衬衫占几成）、求整体（挂科 3 人占 15%，全班多少人？）。"
+        },
+        {
+          "en": "Take the percent of the right whole — girls out of all students, not girls to boys — and in multi-stage problems track what remains, multiplying stage by stage.",
+          "zh": "百分数要除对「整体」——女生占全体学生而不是比男生；多轮变化就盯住每轮「剩下的」，一轮一轮乘下去。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel、hundredthsGrid"
+    },
+    {
+      "id": "AOPS.PA.C08.S03",
+      "strand": "ch08",
+      "pages": [
+        337,
+        345
+      ],
+      "en": "8.3 Percent Increase and Decrease",
+      "zh": "8.3 百分增减",
+      "elaborations": [
+        {
+          "en": "Two ways to change by n%: add or subtract n% of the original, or take (100±n)% in one step — a 30% increase is 130% of the original.",
+          "zh": "增减 n% 有两招：先算变化量再加减，或一步到位取 (100±n)%——增加 30% 就是原来的 130%。"
+        },
+        {
+          "en": "To find the percent change, divide the change by the original amount: a 100% increase doubles, a 100% decrease drops to zero.",
+          "zh": "反过来求变化率：用变化量除以原来的量——增加 100% 就是翻倍，减少 100% 就归零。"
+        },
+        {
+          "en": "Successive changes multiply, not add: 20% off then 30% off leaves 70% of 80% — 56%, a 44% discount, not 50% — and three 10% raises compound to (110%)³.",
+          "zh": "连续增减要相乘不能相加：先打八折再打七折剩 80%×70% = 56%，总共降 44% 而不是 50%；连涨三次 10% 是乘 (110%)³——这就是复利。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "percent increase",
+          "zh": "百分增加"
+        },
+        {
+          "en": "discount",
+          "zh": "折扣"
+        }
+      ],
+      "teachHints": "barModel、statBar"
+    },
+    {
+      "id": "AOPS.PA.C09.S01",
+      "strand": "ch09",
+      "pages": [
+        351,
+        357
+      ],
+      "en": "9.1 From Squares to Square Roots",
+      "zh": "9.1 从平方到平方根",
+      "elaborations": [
+        {
+          "en": "The square root undoes squaring, and the radical means the nonnegative root: x² = 36 has two solutions, but √36 is only 6.",
+          "zh": "平方根是平方的逆运算；根号规定只取非负的那个——x² = 36 有两个解，√36 却只等于 6。"
+        },
+        {
+          "en": "√(n²) = n only when n ≥ 0; a negative squared then rooted gives its absolute value, like √((−23)²) = 23.",
+          "zh": "√(n²) = n 只在 n ≥ 0 时成立；负数先平方再开根，得到的是它的绝对值（√((−23)²) = 23）。"
+        },
+        {
+          "en": "Take roots of big numbers without grinding: split into perfect-square factors or prime factorize into even exponents (√490000 = 700).",
+          "zh": "大数开平方不硬算：拆成完全平方因数，或用质因数分解凑出偶数次幂（√490000 = 700）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "square root",
+          "zh": "平方根"
+        },
+        {
+          "en": "radical",
+          "zh": "根号"
+        }
+      ],
+      "teachHints": "areaGrid、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C09.S02",
+      "strand": "ch09",
+      "pages": [
+        358,
+        362
+      ],
+      "en": "9.2 Square Roots of Non-square Integers",
+      "zh": "9.2 非完全平方数的平方根",
+      "elaborations": [
+        {
+          "en": "√2 is neither an integer nor a fraction — square roots of non-squares are irrational, and their decimals never end or repeat.",
+          "zh": "√2 既不是整数也写不成分数——非完全平方数的平方根是无理数，小数写不完也不循环。"
+        },
+        {
+          "en": "Bigger number, bigger root: trap a square root between consecutive integers, then squeeze it decimal by decimal (√2 sits between 1.41 and 1.42).",
+          "zh": "数越大平方根越大：先把根夹在两个相邻整数之间，再一位一位试小数（√2 夹在 1.41 和 1.42 之间）。"
+        },
+        {
+          "en": "Compare expressions like 7√11 and 6√15 by comparing their squares.",
+          "zh": "带根号的比大小就比它们的平方：7√11 和 6√15 谁大，各自平方一下就见分晓。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "irrational number",
+          "zh": "无理数"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.PA.C09.S03",
+      "strand": "ch09",
+      "pages": [
+        363,
+        372
+      ],
+      "en": "9.3 Arithmetic with Square Roots",
+      "zh": "9.3 平方根运算",
+      "elaborations": [
+        {
+          "en": "Multiply and divide under one radical: √a · √b = √(ab) and √(a/b) = √a/√b — verified by squaring.",
+          "zh": "乘除可以合进同一个根号：√a·√b = √(ab)，√(a/b) = √a/√b——自己平方一下就能验证。"
+        },
+        {
+          "en": "Simplify square roots by pulling out perfect square factors (√12 = 2√3); prime factorization digs out the hidden squares.",
+          "zh": "化简根式就是把完全平方因数拉出来：√12 = 2√3；一眼看不出就用质因数分解把「藏着的平方」挖出来。"
+        },
+        {
+          "en": "Never add under the radical — √4 + √9 ≠ √13 — but after simplifying, like radicals combine: √50 − √18 − √8 = 5√2 − 3√2 − 2√2 = 0.",
+          "zh": "根号里千万不能直接相加：√4 + √9 ≠ √13；但化简之后同类根式能合并——√50 − √18 − √8 正好等于 0。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaGrid"
+    },
+    {
+      "id": "AOPS.PA.C10.S01",
+      "strand": "ch10",
+      "pages": [
+        378,
+        391
+      ],
+      "en": "10.1 Measuring Angles",
+      "zh": "10.1 量角",
+      "elaborations": [
+        {
+          "en": "From points, segments, lines, and rays we build angles and measure them in degrees with a protractor — a full circle is 360°, a straight angle 180°, a right angle 90°, plus acute and obtuse.",
+          "zh": "从点、线段、直线、射线搭出「角」，用量角器按度来量——整圆 360°、平角 180°、直角 90°，再加上锐角和钝角。"
+        },
+        {
+          "en": "Supplementary angles sum to 180°, complementary to 90°, angles around a point to 360°; vertical angles are always equal because they're supplements of the same angle.",
+          "zh": "互补凑 180°、互余凑 90°、绕一点转一圈 360°；对顶角永远相等——因为它们补的是同一个角。"
+        },
+        {
+          "en": "Signature problems: clock-hand angles (the hour hand creeps too — at 5:24 the hands are 18° apart) and little angle equations like x + 3x = 180°.",
+          "zh": "招牌题：钟面夹角（时针也在悄悄走——5:24 时两针夹 18°）和列小方程求角（x + 3x = 180°）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "degree",
+          "zh": "度"
+        },
+        {
+          "en": "right angle",
+          "zh": "直角"
+        },
+        {
+          "en": "vertical angles",
+          "zh": "对顶角"
+        },
+        {
+          "en": "supplementary angles",
+          "zh": "互补角"
+        }
+      ],
+      "teachHints": "angle、clock"
+    },
+    {
+      "id": "AOPS.PA.C10.S02",
+      "strand": "ch10",
+      "pages": [
+        392,
+        396
+      ],
+      "en": "10.2 Parallel Lines",
+      "zh": "10.2 平行线",
+      "elaborations": [
+        {
+          "en": "Parallel lines never meet; when a transversal cuts them, the eight angles fall into two groups of four equal angles — discover it by measuring.",
+          "zh": "平行线永不相交；一条截线穿过两条平行线，8 个角正好分成两组、每组 4 个全相等——拿量角器量一量就能发现。"
+        },
+        {
+          "en": "Any angle from one group plus any from the other makes 180°, and it works in reverse: matching angles prove the lines are parallel.",
+          "zh": "一组里任挑一个加另一组里任挑一个都是 180°；反过来也成立——角对上了就能断定两线平行。"
+        },
+        {
+          "en": "The chicken-crossing-the-road problem teaches the signature trick: add an extra parallel line through the turning point to carry angles across.",
+          "zh": "招牌题「小鸡过马路」教你绝招：在拐弯点补画一条平行线，把角一路「搬」过去。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "parallel lines",
+          "zh": "平行线"
+        },
+        {
+          "en": "transversal",
+          "zh": "截线"
+        },
+        {
+          "en": "alternate angles",
+          "zh": "内错角"
+        },
+        {
+          "en": "corresponding angles",
+          "zh": "同位角"
+        }
+      ],
+      "teachHints": "angle"
+    },
+    {
+      "id": "AOPS.PA.C10.S03",
+      "strand": "ch10",
+      "pages": [
+        397,
+        408
+      ],
+      "en": "10.3 Angles in Polygons",
+      "zh": "10.3 多边形中的角",
+      "elaborations": [
+        {
+          "en": "Measure a few triangles to conjecture the 180° angle sum, then prove it by drawing a line through one vertex parallel to the opposite side.",
+          "zh": "先量几个三角形猜出内角和 180°，再过一个顶点画对边的平行线，自己把它证出来。"
+        },
+        {
+          "en": "Split polygons into triangles with diagonals: a quadrilateral gives 360°, an n-gon gives 180(n−2)°, and each angle of a regular pentagon is 108°.",
+          "zh": "用对角线把多边形切成三角形：四边形内角和 360°，n 边形是 180(n−2)°；正五边形每个内角 108°。"
+        },
+        {
+          "en": "Exterior angles of a triangle sum to 360° — walk once around it and you've turned a full circle — and unknown angles fall to 'angle chasing' through the diagram.",
+          "zh": "三角形外角和永远是 360°——绕图形走一圈正好转满一整圈；求未知角就用「追角法」，把算出的度数一步步填进图里。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "interior angle",
+          "zh": "内角"
+        },
+        {
+          "en": "polygon",
+          "zh": "多边形"
+        }
+      ],
+      "teachHints": "angle、shapeTriangle"
+    },
+    {
+      "id": "AOPS.PA.C11.S01",
+      "strand": "ch11",
+      "pages": [
+        415,
+        421
+      ],
+      "en": "11.1 Measuring Segments",
+      "zh": "11.1 线段与周长",
+      "elaborations": [
+        {
+          "en": "Measure segments, meet midpoints and tick marks; perimeter is the total length of a figure's boundary.",
+          "zh": "认识线段、中点和全等记号；周长就是图形边界一圈的总长度。"
+        },
+        {
+          "en": "Clever perimeter moves: slide a jagged fence out into a rectangle, and use midpoints, ratios, or a variable to pin down unknown sides.",
+          "zh": "巧算周长：把弯弯曲曲的篱笆「推」成长方形，再用中点、比或设未知数求出未知边。"
+        },
+        {
+          "en": "Discover the Triangle Inequality from a walking story: any two sides of a triangle must add up to more than the third.",
+          "zh": "从两人散步的故事发现「三角形不等式」：三角形任意两边之和一定大于第三边。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "perimeter",
+          "zh": "周长"
+        },
+        {
+          "en": "segment",
+          "zh": "线段"
+        }
+      ],
+      "teachHints": "shapeRect、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C11.S02",
+      "strand": "ch11",
+      "pages": [
+        422,
+        431
+      ],
+      "en": "11.2 Area",
+      "zh": "11.2 面积",
+      "elaborations": [
+        {
+          "en": "Start from rectangle area, halve it for a right triangle, then discover that any triangle's area is base × altitude ÷ 2.",
+          "zh": "从长方形面积出发：对半切出直角三角形，再发现任何三角形的面积都是底 × 高 ÷ 2。"
+        },
+        {
+          "en": "An altitude can fall outside the triangle — extend the base to draw it; any side can be the base, each with its own altitude.",
+          "zh": "三角形的高可能落在外面，要延长底边去画；每条边都能当底，各配一条自己的高。"
+        },
+        {
+          "en": "Find odd-shaped areas by cutting them into easy pieces, or by cutting easy pieces away from a bigger rectangle.",
+          "zh": "怪形状的面积有两招：切成几块会算的分别加，或用大长方形减去多出来的角。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "area",
+          "zh": "面积"
+        }
+      ],
+      "teachHints": "shapeRect、shapeTriangle、areaGrid"
+    },
+    {
+      "id": "AOPS.PA.C11.S03",
+      "strand": "ch11",
+      "pages": [
+        432,
+        436
+      ],
+      "en": "11.3 Circles",
+      "zh": "11.3 圆",
+      "elaborations": [
+        {
+          "en": "Wrap a string around circles to discover π: circumference ÷ diameter is always the same number, so C = πd = 2πr.",
+          "zh": "拿绳子绕圆量一量发现 π：周长 ÷ 直径永远是同一个数，所以周长 = πd = 2πr。"
+        },
+        {
+          "en": "See why area = πr² by slicing a circle into sectors and rearranging them into a near-rectangle.",
+          "zh": "把圆切成扇形再拼成「准长方形」，亲眼看明白面积为什么是 πr²。"
+        },
+        {
+          "en": "Leash and overlap puzzles run on quarter- and three-quarter-circles; multiplying the radius by k multiplies the area by k².",
+          "zh": "拴羊活动区、两个四分之一圆的重叠这类题全靠圆的几分之几；半径乘 k，面积就乘 k²。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "circle",
+          "zh": "圆"
+        },
+        {
+          "en": "circumference",
+          "zh": "圆周长"
+        },
+        {
+          "en": "radius",
+          "zh": "半径"
+        },
+        {
+          "en": "diameter",
+          "zh": "直径"
+        },
+        {
+          "en": "pi",
+          "zh": "圆周率 π"
+        }
+      ],
+      "teachHints": "shapeCircle"
+    },
+    {
+      "id": "AOPS.PA.C12.S01",
+      "strand": "ch12",
+      "pages": [
+        442,
+        450
+      ],
+      "en": "12.1 The Pythagorean Theorem",
+      "zh": "12.1 勾股定理",
+      "elaborations": [
+        {
+          "en": "Prove the Pythagorean Theorem yourself by arranging four identical right triangles into a square within a square: a² + b² = c².",
+          "zh": "用四个一样的直角三角形拼出「大正方形套小正方形」，自己证出勾股定理 a² + b² = c²。"
+        },
+        {
+          "en": "Know two sides of a right triangle, find the third — just be sure which side is the hypotenuse before you square.",
+          "zh": "知道直角三角形的两边就能求第三边——动笔前先认清哪条才是斜边。"
+        },
+        {
+          "en": "Pythagorean triples like 3-4-5 and 5-12-13 scale: legs in ratio 3 : 4 mean sides in ratio 3 : 4 : 5, no squaring needed.",
+          "zh": "勾股数 3-4-5、5-12-13 能整体放大：两边之比是 3 : 4，三边就是 3 : 4 : 5，不用平方硬算。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Pythagorean theorem",
+          "zh": "勾股定理"
+        },
+        {
+          "en": "hypotenuse",
+          "zh": "斜边"
+        },
+        {
+          "en": "leg",
+          "zh": "直角边"
+        }
+      ],
+      "teachHints": "shapeTriangle、areaGrid"
+    },
+    {
+      "id": "AOPS.PA.C12.S02",
+      "strand": "ch12",
+      "pages": [
+        451,
+        456
+      ],
+      "en": "12.2 Some Special Triangles",
+      "zh": "12.2 特殊三角形",
+      "elaborations": [
+        {
+          "en": "Drop an altitude to split an isosceles or equilateral triangle into two identical right triangles, then let the Pythagorean Theorem find heights and areas.",
+          "zh": "画一条高，把等腰、等边三角形劈成两个一样的直角三角形，再用勾股定理算高和面积。"
+        },
+        {
+          "en": "Equal sides face equal angles and equal angles face equal sides — the isosceles triangle's ID card.",
+          "zh": "等边对等角、等角对等边——等腰三角形的「身份证」。"
+        },
+        {
+          "en": "Discover the fixed ratios of two special triangles: 45-45-90 is 1 : 1 : √2, and 30-60-90 — half an equilateral — is 1 : √3 : 2.",
+          "zh": "推出两种特殊三角形的固定边比：45-45-90 是 1 : 1 : √2；30-60-90（等边三角形的一半）是 1 : √3 : 2。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "isosceles triangle",
+          "zh": "等腰三角形"
+        },
+        {
+          "en": "equilateral triangle",
+          "zh": "等边三角形"
+        }
+      ],
+      "teachHints": "shapeTriangle、angle"
+    },
+    {
+      "id": "AOPS.PA.C12.S03",
+      "strand": "ch12",
+      "pages": [
+        457,
+        468
+      ],
+      "en": "12.3 Types of Quadrilaterals",
+      "zh": "12.3 四边形分类",
+      "elaborations": [
+        {
+          "en": "Meet the quadrilateral family and how it nests: every square is a rhombus, every rhombus and rectangle a parallelogram.",
+          "zh": "认识四边形家族的套娃关系：正方形都是菱形，菱形和矩形又都是平行四边形。"
+        },
+        {
+          "en": "Discover area formulas by cutting and rearranging: slice a parallelogram into a rectangle; two trapezoid copies form a parallelogram.",
+          "zh": "面积公式靠切拼发现：平行四边形切一刀拼成长方形；两个一样的梯形拼成平行四边形。"
+        },
+        {
+          "en": "A rhombus's diagonals are perpendicular and bisect each other, so its area is half the product of the diagonals — kites work the same way.",
+          "zh": "菱形对角线互相垂直、互相平分，面积 = 对角线乘积 ÷ 2——风筝形也吃这一招。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "quadrilateral",
+          "zh": "四边形"
+        },
+        {
+          "en": "parallelogram",
+          "zh": "平行四边形"
+        },
+        {
+          "en": "rhombus",
+          "zh": "菱形"
+        },
+        {
+          "en": "trapezoid",
+          "zh": "梯形"
+        }
+      ],
+      "teachHints": "shapeRect、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C13.S01",
+      "strand": "ch13",
+      "pages": [
+        476,
+        485
+      ],
+      "en": "13.1 Basic Statistics",
+      "zh": "13.1 基本统计量",
+      "elaborations": [
+        {
+          "en": "Mean, median, mode — and range — each squeeze a whole list into one number.",
+          "zh": "平均数、中位数、众数，再加上极差：各用一个数概括一整组数据。"
+        },
+        {
+          "en": "Average problems are secretly sum problems: average × count = total, which reveals the missing score.",
+          "zh": "平均数的题其实是总和的题：平均数 × 个数 = 总和，缺的那个分数一减就出来。"
+        },
+        {
+          "en": "See the average as a balance point: the total amount above it exactly cancels the total amount below it.",
+          "zh": "把平均数看成天平的支点：高出平均的总量和低于平均的总量正好相等。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "mean",
+          "zh": "平均数"
+        },
+        {
+          "en": "median",
+          "zh": "中位数"
+        },
+        {
+          "en": "mode",
+          "zh": "众数"
+        },
+        {
+          "en": "range",
+          "zh": "极差"
+        }
+      ],
+      "teachHints": "average、statBar"
+    },
+    {
+      "id": "AOPS.PA.C13.S02",
+      "strand": "ch13",
+      "pages": [
+        486,
+        493
+      ],
+      "en": "13.2 Limits of Basic Statistics",
+      "zh": "13.2 统计量的局限",
+      "elaborations": [
+        {
+          "en": "One score list, three different 'best' students: average, median, and mode can each crown a different winner — and none tells the whole story.",
+          "zh": "同一批分数，平均数、中位数、众数能各自选出不同的「第一名」——哪个都讲不完整个故事。"
+        },
+        {
+          "en": "Outliers drag the average: one billionaire moving in lifts the town's average wealth a lot but barely moves the median.",
+          "zh": "极端值会拽平均数：搬来一个亿万富翁，全镇平均财富猛涨，中位数却几乎不动。"
+        },
+        {
+          "en": "Know each statistic's blind spots: the average says nothing about the median or the count, and the median says nothing about the total.",
+          "zh": "认清盲区：知道平均数猜不出中位数和人数，知道中位数也算不出总和。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "outlier",
+          "zh": "极端值（离群值）"
+        }
+      ],
+      "teachHints": "average、statBar"
+    },
+    {
+      "id": "AOPS.PA.C13.S03",
+      "strand": "ch13",
+      "pages": [
+        494,
+        504
+      ],
+      "en": "13.3 Tables, Graphs, and Charts",
+      "zh": "13.3 表格与统计图",
+      "elaborations": [
+        {
+          "en": "Read and build tables, bar charts, line graphs, stem-and-leaf plots, and pie charts — each has a job it does best.",
+          "zh": "会读会画表格、条形图、折线图、茎叶图和饼图，知道每种图最擅长讲什么。"
+        },
+        {
+          "en": "Watch the scale: the same data can look flat or explosive depending on the axis — graphs can be drawn to mislead.",
+          "zh": "小心刻度：同一组数据换个坐标刻度，能画得平平无奇也能画得一飞冲天——图是会「骗人」的。"
+        },
+        {
+          "en": "A stem-and-leaf plot keeps every original value where a histogram keeps only groups; pie charts shine at parts of a whole.",
+          "zh": "茎叶图保留每个原始数据，直方图只剩分组；想看「各占整体几成」就用饼图。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "bar graph",
+          "zh": "条形图"
+        },
+        {
+          "en": "line graph",
+          "zh": "折线图"
+        },
+        {
+          "en": "pie chart",
+          "zh": "饼图"
+        },
+        {
+          "en": "stem-and-leaf plot",
+          "zh": "茎叶图"
+        }
+      ],
+      "teachHints": "statBar、statLine、pieChart、stemLeaf"
+    },
+    {
+      "id": "AOPS.PA.C14.S01",
+      "strand": "ch14",
+      "pages": [
+        510,
+        518
+      ],
+      "en": "14.1 Counting with Addition and Subtraction",
+      "zh": "14.1 加减计数",
+      "elaborations": [
+        {
+          "en": "Count a run of integers by shifting it to start at 1: from a to b there are b − a + 1 numbers — watch the off-by-one.",
+          "zh": "数一串整数：整体平移成从 1 开始，a 到 b 共 b − a + 1 个——当心「差一」陷阱。"
+        },
+        {
+          "en": "Count multiples in a range by turning the list into 1, 2, 3, …, and distrust shortcuts you can't explain.",
+          "zh": "数范围里的倍数：把清单变成 1、2、3…再数；说不清道理的「捷径」不能信。"
+        },
+        {
+          "en": "When two groups overlap, draw a Venn diagram and fill it in starting from the middle region.",
+          "zh": "两群人有重叠就画韦恩图，从中间的重叠区开始填。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "counting",
+          "zh": "计数"
+        }
+      ],
+      "teachHints": "numberLine、groups"
+    },
+    {
+      "id": "AOPS.PA.C14.S02",
+      "strand": "ch14",
+      "pages": [
+        519,
+        524
+      ],
+      "en": "14.2 The Multiplication Principle",
+      "zh": "14.2 乘法原理",
+      "elaborations": [
+        {
+          "en": "Independent choices multiply — 3 shirts × 4 pants = 12 outfits — and trees or grids keep the count organized.",
+          "zh": "一串独立的选择用乘法：3 件上衣 × 4 条裤子 = 12 套穿搭；树状图、表格帮你数得不乱。"
+        },
+        {
+          "en": "License plates and country committees: multiply the number of options position by position.",
+          "zh": "车牌、代表团这类题：每个位置有几种选法，一位一位乘过去。"
+        },
+        {
+          "en": "Line up books or elect officers and the choices shrink — 4 × 3 × 2 × 1 — your first taste of permutations.",
+          "zh": "排书、选班干部：每选定一个就少一个可选，4 × 3 × 2 × 1 地乘下去——这就是排列。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "multiplication principle",
+          "zh": "乘法原理"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C14.S03",
+      "strand": "ch14",
+      "pages": [
+        525,
+        529
+      ],
+      "en": "14.3 Casework",
+      "zh": "14.3 分类讨论",
+      "elaborations": [
+        {
+          "en": "Split a hard count into cases that don't overlap and don't miss anything, count each case, then add.",
+          "zh": "把难数的问题分成不重、不漏的几类，一类一类数完再相加。"
+        },
+        {
+          "en": "AND multiplies, OR adds: multiply the steps along one route, add across different routes.",
+          "zh": "「而且」用乘、「或者」用加：同一条路线里的连环选择相乘，不同路线之间相加。"
+        },
+        {
+          "en": "Choosing the cases is the art — by word length, by a value's size, by the hour — and it sharpens with practice.",
+          "zh": "分类的功夫在「怎么分」：按字数分、按取值分、按钟点分，多练才有手感。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "casework",
+          "zh": "分类讨论"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.PA.C14.S04",
+      "strand": "ch14",
+      "pages": [
+        530,
+        535
+      ],
+      "en": "14.4 Counting Pairs",
+      "zh": "14.4 成对计数",
+      "elaborations": [
+        {
+          "en": "Round-robins and handshakes: n people give n(n − 1) ordered pairs, and dividing by 2 fixes the double count.",
+          "zh": "循环赛、握手题：先按 n(n − 1) 数出有顺序的配对，再除以 2 抵消数重的部分。"
+        },
+        {
+          "en": "Only divide by 2 when every item truly got counted twice — man-woman handshakes were counted once.",
+          "zh": "除以 2 前先确认每个真的被数了两次——男女握手只数了一次，就不能除。"
+        },
+        {
+          "en": "Counting the same pairs two ways uncovers Gauss's sum 1 + 2 + … + k = k(k + 1)/2 and the diagonal formula n(n − 3)/2.",
+          "zh": "同一批配对用两种数法一对照，顺手推出高斯求和 1 + 2 + … + k = k(k + 1)/2 和多边形对角线公式 n(n − 3)/2。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.PA.C14.S05",
+      "strand": "ch14",
+      "pages": [
+        536,
+        540
+      ],
+      "en": "14.5 Probability",
+      "zh": "14.5 概率",
+      "elaborations": [
+        {
+          "en": "Probability = successful outcomes ÷ total outcomes — valid only when every outcome is equally likely.",
+          "zh": "概率 = 想要的结果数 ÷ 所有结果数——前提是每种结果一样容易发生。"
+        },
+        {
+          "en": "Every probability sits between 0 (impossible) and 1 (certain); land outside and you've made a mistake.",
+          "zh": "概率永远在 0（不可能）和 1（必然）之间；算出界了肯定是哪里错了。"
+        },
+        {
+          "en": "Put your counting to work on chance: two dice give 36 equally likely outcomes, and exactly 6 of them sum to 7.",
+          "zh": "把刚学的计数用到运气上：两个骰子共 36 种等可能结果，和为 7 的恰好 6 种。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "probability",
+          "zh": "概率"
+        },
+        {
+          "en": "outcome",
+          "zh": "结果"
+        }
+      ],
+      "teachHints": "spinner、balls、probLine"
+    },
+    {
+      "id": "AOPS.PA.C15.S01",
+      "strand": "ch15",
+      "pages": [
+        547,
+        551
+      ],
+      "en": "15.1 Find a Pattern",
+      "zh": "15.1 找规律",
+      "elaborations": [
+        {
+          "en": "Compute small cases, spot the pattern, then let it crack giant cases like the 2010th letter or the units digit of 2^2011.",
+          "zh": "先算几个小例子找规律，再拿规律去啃大家伙：第 2010 个字母、2 的 2011 次方的个位。"
+        },
+        {
+          "en": "Repeating cycles yield to remainders: divide by the cycle length and the remainder tells you where you land — beware off-by-one.",
+          "zh": "循环的规律用余数收拾：除以循环节长度，余数指出落点——小心「差一」出错。"
+        },
+        {
+          "en": "Spotting a pattern isn't enough — figure out why it keeps going before you trust it.",
+          "zh": "光看出规律还不够——想明白它为什么会一直成立，才能放心用。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "pattern",
+          "zh": "规律"
+        }
+      ],
+      "teachHints": "dataTable、numberLine"
+    },
+    {
+      "id": "AOPS.PA.C15.S02",
+      "strand": "ch15",
+      "pages": [
+        552,
+        555
+      ],
+      "en": "15.2 Make a List",
+      "zh": "15.2 列清单",
+      "elaborations": [
+        {
+          "en": "List possibilities in a fixed order — like partitions grouped by their largest part — so nothing repeats and nothing is missed.",
+          "zh": "按固定顺序列清单——比如把拆分按最大的数分组——不重复、不遗漏。"
+        },
+        {
+          "en": "With several conditions, filter by the most restrictive one first and the list stays short.",
+          "zh": "条件一大堆时，先用最苛刻的那条去筛，清单一下子就短了。"
+        },
+        {
+          "en": "A little thinking shrinks the list: buy the 31-cent stamps five at a time and the answer appears fast.",
+          "zh": "列之前动动脑子能省大力气：31 分邮票五张五张地试，答案很快现身。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.PA.C15.S03",
+      "strand": "ch15",
+      "pages": [
+        556,
+        559
+      ],
+      "en": "15.3 Draw a Picture",
+      "zh": "15.3 画图",
+      "elaborations": [
+        {
+          "en": "Turn words into pictures: a wandering walk becomes a right triangle, a frog's climbs and slides become up-and-down arrows.",
+          "zh": "把文字画出来：绕来绕去的路线变成直角三角形，青蛙爬井变成一上一下的箭头。"
+        },
+        {
+          "en": "A quick sketch catches sneaky errors — the frog escapes the well earlier than the '2 meters a day' shortcut claims.",
+          "zh": "随手画图能防坑：青蛙出井其实比「每天净爬 2 米」算出来的要早。"
+        },
+        {
+          "en": "Tables and connection graphs are pictures too: an elimination grid settles the race order, and a route map makes 'no way through' obvious.",
+          "zh": "表格和连线图也算「画图」：排除表排出比赛名次，航线图让「飞不过去」一目了然。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "diagram",
+          "zh": "示意图"
+        }
+      ],
+      "teachHints": "barModel、shapeRect"
+    },
+    {
+      "id": "AOPS.PA.C15.S04",
+      "strand": "ch15",
+      "pages": [
+        560,
+        563
+      ],
+      "en": "15.4 Work Backwards",
+      "zh": "15.4 倒推",
+      "elaborations": [
+        {
+          "en": "When you know how the story ends, start at the end and undo each step in reverse order.",
+          "zh": "知道故事的结局，就从结局出发，把每一步反过来倒着做回去。"
+        },
+        {
+          "en": "Working backwards is solving an equation without writing it: undo 'subtract 6' by adding 6, undo 'divide by 3' by multiplying by 3.",
+          "zh": "倒推其实是不列方程的解方程：「减 6」倒回去就是「加 6」，「除以 3」倒回去就是「乘 3」。"
+        },
+        {
+          "en": "Doubling puzzles open up backwards — halve day by day — and always check by replaying the story forwards.",
+          "zh": "「每天翻倍」的题倒着做就是每天减半；倒推出的答案要正着重演一遍才放心。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine、groups"
+    }
+  ]
+}

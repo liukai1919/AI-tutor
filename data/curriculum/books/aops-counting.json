@@ -1,0 +1,1937 @@
+{
+  "type": "book",
+  "bookId": "aops-counting",
+  "grade": 7,
+  "title": {
+    "en": "Introduction to Counting & Probability — Art of Problem Solving",
+    "zh": "AoPS 计数与概率入门"
+  },
+  "short": {
+    "en": "AoPS Counting & Probability",
+    "zh": "AoPS 计数与概率"
+  },
+  "source": {
+    "kind": "book",
+    "publisher": "AoPS Incorporated",
+    "authors": "David Patrick",
+    "isbn": "978-1-934124-10-9",
+    "version": "AoPS · 2007",
+    "url": "https://artofproblemsolving.com/store/book/intro-counting",
+    "label": "Intro to Counting & Probability · Art of Problem Solving · 2007"
+  },
+  "teachStyle": {
+    "zh": "这本书的教学风格是「先做后讲」（发现式学习）：先抛出一个具体的计数问题让孩子自己数一数、试一试，再带着孩子发现方法。计数题最忌讳背公式——书里反复强调「理解了就不用背」。讲课时保持这种风格：第一步先给一个能上手数的小问题，讲解围绕「我们一起发现了这个数法」展开，最后才总结规则。",
+    "en": "This book teaches by discovery: pose a concrete counting problem first, let the child try counting it, then guide them to the method. Counting is the last place to memorize formulas — the book keeps repeating 'if you understand it, you don't need to memorize it'. Keep that style: open with a small problem the child can actually count out, unfold the lesson as 'we discovered this way of counting together', and state the rule only at the end."
+  },
+  "strandDefs": [
+    [
+      "ch01",
+      "第1章 · 计数就是算术",
+      "Ch 1 · Counting Is Arithmetic"
+    ],
+    [
+      "ch02",
+      "第2章 · 基本计数技巧",
+      "Ch 2 · Basic Counting Techniques"
+    ],
+    [
+      "ch03",
+      "第3章 · 修正重复计数",
+      "Ch 3 · Correcting for Overcounting"
+    ],
+    [
+      "ch04",
+      "第4章 · 委员会与组合",
+      "Ch 4 · Committees & Combinations"
+    ],
+    [
+      "ch05",
+      "第5章 · 组合进阶",
+      "Ch 5 · More With Combinations"
+    ],
+    [
+      "ch06",
+      "第6章 · 更难的计数题",
+      "Ch 6 · Some Harder Counting Problems"
+    ],
+    [
+      "ch07",
+      "第7章 · 概率入门",
+      "Ch 7 · Introduction to Probability"
+    ],
+    [
+      "ch08",
+      "第8章 · 概率基本技巧",
+      "Ch 8 · Basic Probability Techniques"
+    ],
+    [
+      "ch09",
+      "第9章 · 动动脑筋",
+      "Ch 9 · Think About It!"
+    ],
+    [
+      "ch10",
+      "第10章 · 几何概率",
+      "Ch 10 · Geometric Probability"
+    ],
+    [
+      "ch11",
+      "第11章 · 期望值",
+      "Ch 11 · Expected Value"
+    ],
+    [
+      "ch12",
+      "第12章 · 帕斯卡三角",
+      "Ch 12 · Pascal's Triangle"
+    ],
+    [
+      "ch13",
+      "第13章 · 曲棍球棒恒等式",
+      "Ch 13 · The Hockey Stick Identity"
+    ],
+    [
+      "ch14",
+      "第14章 · 二项式定理",
+      "Ch 14 · The Binomial Theorem"
+    ],
+    [
+      "ch15",
+      "第15章 · 更多挑战题",
+      "Ch 15 · More Challenging Problems"
+    ]
+  ],
+  "bigIdeas": [
+    {
+      "strand": "ch01",
+      "en": "Counting is not just 1, 2, 3 — it's arithmetic: lists, sums, differences, and products let you count without listing.",
+      "zh": "数数不只是一个一个点：数清单、加、减、乘——学会不用一个个列就能数出来。"
+    },
+    {
+      "strand": "ch02",
+      "en": "Four workhorse techniques — casework, complementary counting, constructive counting, and handling restrictions.",
+      "zh": "四大主力技巧：分类讨论、正难则反、一步步构造、带限制条件的计数。"
+    },
+    {
+      "strand": "ch03",
+      "en": "Count first, then correct: when a method counts everything the same number of times, divide the overcount away.",
+      "zh": "先数、再修正：如果每样东西都被数了同样多次，除掉重复的倍数就对了。"
+    },
+    {
+      "strand": "ch04",
+      "en": "When order doesn't matter you're choosing a committee — that's a combination, and it's a permutation with the overcount divided out.",
+      "zh": "顺序不重要就是「选委员会」——这就是组合，本质是排列除掉重复计数。"
+    },
+    {
+      "strand": "ch05",
+      "en": "Combinations show up in disguise: grid paths, mixed committees, and identical-vs-distinct objects.",
+      "zh": "组合会换装出现：网格路径、混合委员会、物品是否可区分。"
+    },
+    {
+      "strand": "ch06",
+      "en": "A workout chapter: hard counting problems solved by combining every technique so far.",
+      "zh": "综合训练章：把学过的所有技巧组合起来，啃硬骨头。"
+    },
+    {
+      "strand": "ch07",
+      "en": "Probability is counting with a denominator: how many outcomes we want, out of how many equally likely outcomes there are.",
+      "zh": "概率就是带分母的计数：想要的结果数，除以所有等可能结果数。"
+    },
+    {
+      "strand": "ch08",
+      "en": "Add for 'or', multiply for 'and', subtract from 1 for 'not' — and watch out when events depend on each other.",
+      "zh": "「或」用加、「且」用乘、「不」用 1 减——事件互相影响时格外要当心。"
+    },
+    {
+      "strand": "ch09",
+      "en": "Another workout chapter: probability problems that reward thinking over formulas.",
+      "zh": "又一个训练章：这些概率题奖励动脑筋，不奖励背公式。"
+    },
+    {
+      "strand": "ch10",
+      "en": "When outcomes are continuous, probability becomes a ratio of lengths or areas.",
+      "zh": "结果连续变化时，概率变成长度之比或面积之比。"
+    },
+    {
+      "strand": "ch11",
+      "en": "Expected value is the long-run average: weight every outcome by its probability and add.",
+      "zh": "期望值是「长期平均」：每个结果乘上它的概率再全部加起来。"
+    },
+    {
+      "strand": "ch12",
+      "en": "Pascal's Triangle quietly stores every combination — and its patterns are combinatorial identities in disguise.",
+      "zh": "帕斯卡三角悄悄存着所有的组合数——它的规律其实都是组合恒等式。"
+    },
+    {
+      "strand": "ch13",
+      "en": "One diagonal sum in Pascal's Triangle draws a hockey stick — and proves a beautiful identity.",
+      "zh": "帕斯卡三角里斜着一路加下来，形状像根曲棍球棒——还证出一条漂亮的恒等式。"
+    },
+    {
+      "strand": "ch14",
+      "en": "Expanding (a+b)ⁿ is a counting problem, and its answer is the row of Pascal's Triangle.",
+      "zh": "展开 (a+b) 的 n 次方本身就是个计数问题，答案正是帕斯卡三角的一行。"
+    },
+    {
+      "strand": "ch15",
+      "en": "The final challenge set: contest-level problems drawing on the whole book.",
+      "zh": "压轴挑战题：竞赛级难度，用得上全书的所有本领。"
+    }
+  ],
+  "items": [
+    {
+      "id": "AOPS.CP.C01.S02",
+      "strand": "ch01",
+      "pages": [
+        2,
+        5
+      ],
+      "en": "1.2 Counting Lists of Numbers",
+      "zh": "1.2 数一串数",
+      "elaborations": [
+        {
+          "en": "The core trick is shifting a list onto 1, 2, 3, ...: subtracting 6 from 7, 8, ..., 29 turns it into 1 through 23, so there are 23 numbers — and in general a to b inclusive holds b - a + 1 numbers.",
+          "zh": "这一节的核心招式是把一串数「平移」成 1、2、3……：7 到 29 每个数减 6 就变成 1 到 23，所以是 23 个；一般规律就是 b − a + 1。"
+        },
+        {
+          "en": "For multiples it first pins down the two ends — the multiples of 3 between 62 and 215 run from 63 to 213 — then divides the whole list by 3 to get 21, 22, ..., 71, giving 51 numbers.",
+          "zh": "数倍数时先找头和尾：62 和 215 之间 3 的倍数是 63 到 213，把整串除以 3 变成 21 到 71，一共 51 个。"
+        },
+        {
+          "en": "A \"Bogus Solution\" box warns against dividing blindly: (101 - 9)/10 = 9.2 can't tell you whether the answer is 9 or 10, so shortcuts must be checked.",
+          "zh": "书里特意放了一个「错解」提醒孩子别乱除：(101 − 9) ÷ 10 = 9.2，你根本说不清答案是 9 还是 10，捷径一定要先验证。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "inclusive",
+          "zh": "含两端（包含首尾两个数）"
+        },
+        {
+          "en": "multiple",
+          "zh": "倍数"
+        },
+        {
+          "en": "perfect cube",
+          "zh": "完全立方数"
+        }
+      ],
+      "teachHints": "numberLine、hundredChart、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C01.S03",
+      "strand": "ch01",
+      "pages": [
+        6,
+        12
+      ],
+      "en": "1.3 Counting with Addition and Subtraction",
+      "zh": "1.3 用加减法计数",
+      "elaborations": [
+        {
+          "en": "It teaches overlapping-group counting with the basketball team: 12 players, 8 in Spanish, 5 in both, everyone in at least one language, so French has 5 + 4 = 9.",
+          "zh": "用篮球队讲重叠分组的数法：12 个队员，8 个学西班牙语，5 个两门都学，人人至少学一门，所以学法语的是 5 + 4 = 9 人。"
+        },
+        {
+          "en": "The Venn diagram rule it drills is to start from the number that belongs to exactly one region — usually the middle overlap — and work outward.",
+          "zh": "韦恩图的关键规矩是：先填那个只属于某一块区域的数字，通常就是中间重叠的部分，再往外推。"
+        },
+        {
+          "en": "For the 27 cats (14 short-haired, 11 kittens, 5 long-haired adults) it names the answer x and solves (14 - x) + (11 - x) + x + 5 = 27, giving 3 short-haired kittens.",
+          "zh": "27 只猫那题（14 只短毛、11 只小猫、5 只长毛大猫），书里干脆把答案设成 x，列出 (14 − x) + (11 − x) + x + 5 = 27，解得短毛小猫是 3 只。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Venn diagram",
+          "zh": "韦恩图"
+        },
+        {
+          "en": "overlap (intersection region)",
+          "zh": "重叠区（交集部分）"
+        }
+      ],
+      "teachHints": "groups、dataTable、barModel"
+    },
+    {
+      "id": "AOPS.CP.C01.S04",
+      "strand": "ch01",
+      "pages": [
+        13,
+        18
+      ],
+      "en": "1.4 Counting Multiple Events",
+      "zh": "1.4 多步事件的计数",
+      "elaborations": [
+        {
+          "en": "It builds the multiplication rule from a picture: 3 shirts and 4 pants drawn as a tree and as a grid give 4 x 3 = 12 outfits, and the same idea scales to 6 x 4 x 3 x 7 = 504 country commissions.",
+          "zh": "先用图把乘法数出来：3 件上衣配 4 条裤子，画成树状图或格子表就是 4 × 3 = 12 套；同一个想法放大就是 6 × 4 × 3 × 7 = 504 种选国家的方案。"
+        },
+        {
+          "en": "When choices use things up it counts step by step instead: four books on a shelf is 4 x 3 x 2 x 1 = 24, and 20 club members filling three offices is 20 x 19 x 18 = 6840.",
+          "zh": "当选过的东西不能再用时就一步步数：4 本书排书架是 4 × 3 × 2 × 1 = 24 种，20 人社团选三个职位是 20 × 19 × 18 = 6840 种。"
+        },
+        {
+          "en": "It then names n! = n x (n-1) x ... x 2 x 1 (5! = 120, 6! = 720, 0! = 1) but insists you understand why you multiply rather than memorize the word \"permutation\".",
+          "zh": "最后才给出 n! = n × (n−1) × … × 2 × 1（5! = 120，6! = 720，0! = 1），但反复强调要懂为什么相乘，别把「排列」当口诀背。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "independent events",
+          "zh": "独立事件"
+        },
+        {
+          "en": "tree diagram",
+          "zh": "树状图"
+        },
+        {
+          "en": "permutation",
+          "zh": "排列"
+        },
+        {
+          "en": "factorial (n!)",
+          "zh": "阶乘（n!）"
+        }
+      ],
+      "teachHints": "dataTable、areaGrid、groups"
+    },
+    {
+      "id": "AOPS.CP.C01.S05",
+      "strand": "ch01",
+      "pages": [
+        19,
+        20
+      ],
+      "en": "1.5 Permutations",
+      "zh": "1.5 排列",
+      "elaborations": [
+        {
+          "en": "It generalizes the officer election: filling r offices from n members gives n x (n-1) x ... x (n-r+1), because by the r-th office r-1 people are already used up.",
+          "zh": "把选干部那题一般化：从 n 个人里选 r 个职位，就是 n × (n−1) × … × (n−r+1)，因为轮到第 r 个职位时已经用掉了 r−1 个人。"
+        },
+        {
+          "en": "That product is named P(n, r), the number of permutations of size r from n objects, and rewritten compactly as P(n, r) = n! / (n - r)!.",
+          "zh": "这个乘积叫 P(n, r)，就是「从 n 个里取 r 个的排列数」，还可以写成更短的 P(n, r) = n! ÷ (n − r)!。"
+        },
+        {
+          "en": "The book warns against plugging into the formula: for 3 officers out of 30 you should think \"30, then 29, then 28,\" not P(30,3) = 30!/27!, which is horrible to compute.",
+          "zh": "书里提醒别死套公式：30 个人选 3 个职位，脑子里该想「30、29、28」，而不是写成 P(30,3) = 30!/27!，那个根本算不动。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "permutations of size r from n objects",
+          "zh": "从 n 个对象中取 r 个的排列"
+        },
+        {
+          "en": "P(n, r)",
+          "zh": "排列数 P(n, r)"
+        }
+      ],
+      "teachHints": "groups、balls、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C02.S02",
+      "strand": "ch02",
+      "pages": [
+        27,
+        34
+      ],
+      "en": "2.2 Casework",
+      "zh": "2.2 分类讨论",
+      "elaborations": [
+        {
+          "en": "Teaches splitting a count into exclusive cases and adding them up: 4 villages A-B-C-D, going through B gives 4x3=12 paths and through C gives 2x5=10, so 22 in all.",
+          "zh": "教孩子把一道题拆成互不重叠的几种情况，分别数完再相加：4 个村子从 A 走到 D，经过 B 有 4x3=12 条路，经过 C 有 2x5=10 条，一共 22 条。"
+        },
+        {
+          "en": "Nails down when to multiply and when to add — multiply for a chain of choices (AND), add for exclusive options (OR) — with the book's own warning, \"Don't memorize! Understand, and know.\"",
+          "zh": "把「什么时候乘、什么时候加」讲透：一连串的选择（AND）要相乘，互斥的选项（OR）要相加；书里还专门提醒一句「别死背，要真懂」。"
+        },
+        {
+          "en": "The 5x5 dot grid shows why cases must be complete: 30 upright squares plus 20 tilted ones makes 50, and forgetting the tilted ones is the classic mistake.",
+          "zh": "5x5 点阵数正方形是个好例子：正着放的有 30 个，斜着放的还有 20 个，一共 50 个——漏掉斜的那些正是最常犯的错。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "casework",
+          "zh": "分类讨论"
+        },
+        {
+          "en": "exclusive (cases)",
+          "zh": "互斥（情况）"
+        },
+        {
+          "en": "subcase",
+          "zh": "子情况"
+        }
+      ],
+      "teachHints": "groups、dataTable、coordGrid"
+    },
+    {
+      "id": "AOPS.CP.C02.S03",
+      "strand": "ch02",
+      "pages": [
+        35,
+        37
+      ],
+      "en": "2.3 Complementary Counting",
+      "zh": "2.3 正难则反",
+      "elaborations": [
+        {
+          "en": "Teaches counting what you don't want and subtracting: 3-letter words with at least one A come out as 26^3 - 25^3 = 17576 - 15625 = 1951, replacing nine subcases of casework.",
+          "zh": "教「正难则反」：至少含一个 A 的三字母单词，用 26^3 - 25^3 = 17576 - 15625 = 1951 一步就算出来，比老老实实分九种小情况省太多力气。"
+        },
+        {
+          "en": "Points out the signal words — \"not\" and \"at least\" mean try the complement, as in 900 - 128 = 772 three-digit numbers that are not multiples of 7.",
+          "zh": "教孩子看信号词：题目里出现「不是」或「至少」，就该想着反过来数，比如三位数里不是 7 的倍数的有 900 - 128 = 772 个。"
+        },
+        {
+          "en": "Seating 4 boys and 3 girls with at least two boys adjacent: only BGBGBGB avoids it, so the answer is 7! - 4!x3! = 5040 - 144 = 4896.",
+          "zh": "4 男 3 女坐成一排、要求至少两个男孩挨着：不挨着的排法只有 BGBGBGB 这一种，所以答案是 7! - 4!x3! = 5040 - 144 = 4896。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "complementary counting",
+          "zh": "补集计数（正难则反）"
+        }
+      ],
+      "teachHints": "barModel、groups"
+    },
+    {
+      "id": "AOPS.CP.C02.S04",
+      "strand": "ch02",
+      "pages": [
+        38,
+        40
+      ],
+      "en": "2.4 Constructive Counting",
+      "zh": "2.4 构造计数",
+      "elaborations": [
+        {
+          "en": "Counts things by asking how you would build them: a 3-digit number with exactly one zero has 2 spots for the 0 and 9 choices for each other digit, so 2x9x9 = 162.",
+          "zh": "教「东西是怎么造出来的，就照着那个步骤数」：恰好含一个 0 的三位数，0 只能放十位或个位（2 种），另外两位各 9 种，2x9x9 = 162 个。"
+        },
+        {
+          "en": "Deal with the restriction first, then fill in the rest: a 7-term sequence from 1-5 with no two neighbours equal gives 5 x 4^6 = 20,480.",
+          "zh": "先处理限制、再填其余：从 1 到 5 里排 7 个数、相邻两个不能相同，第一个 5 种、后面每个 4 种，5 x 4^6 = 20,480 种。"
+        },
+        {
+          "en": "Also builds the habit of trying a few small cases to spot a pattern — picking 3 numbers from 1 to 500 where one is the average gives 249+249+248+... = 62,250.",
+          "zh": "还教一个好习惯：先试几个小情况找规律——从 1 到 500 里挑 3 个数、其中一个是另两个的平均数，数出来是 249+249+248+…= 62,250 种。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "constructive counting",
+          "zh": "构造计数"
+        },
+        {
+          "en": "sequence",
+          "zh": "数列（序列）"
+        }
+      ],
+      "teachHints": "placeValue、groups、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C02.S05",
+      "strand": "ch02",
+      "pages": [
+        41,
+        44
+      ],
+      "en": "2.5 Counting with Restrictions",
+      "zh": "2.5 带限制的计数",
+      "elaborations": [
+        {
+          "en": "Handle the restriction before anything else: math books required on both ends of a shelf gives 3 x 2 x 6! = 4,320 arrangements.",
+          "zh": "遇到限制先安排限制：书架两头都必须放数学书，先定两头再排中间，3 x 2 x 6! = 4,320 种排法。"
+        },
+        {
+          "en": "Introduces the \"block\" trick — 3 girls who must sit together become one supergirl, so 5! x 3! = 720; three delegations sitting together give 3! x 6! x 5! x 3! = 3,110,400.",
+          "zh": "教「捆绑法」：3 个女孩必须坐一起，就把她们当成一个人，5! x 3! = 720 种；三国代表团各自坐一起则是 3! x 6! x 5! x 3! = 3,110,400 种。"
+        },
+        {
+          "en": "For \"A won't serve if B does\" style restrictions, subtract the forbidden cases from the total: (20x19x18) - (3x2x18) = 6732.",
+          "zh": "碰上「他不肯跟她一起当干部」这类限制，就用总数减掉不允许的情况：(20x19x18) - (3x2x18) = 6732 种。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "block (grouping items together)",
+          "zh": "捆绑法（整体块）"
+        },
+        {
+          "en": "permutation",
+          "zh": "排列"
+        }
+      ],
+      "teachHints": "groups、dataTable、barModel"
+    },
+    {
+      "id": "AOPS.CP.C03.S02",
+      "strand": "ch03",
+      "pages": [
+        49,
+        52
+      ],
+      "en": "3.2 Permutations with Repeated Elements",
+      "zh": "3.2 有重复元素的排列",
+      "elaborations": [
+        {
+          "en": "Why BALL has 12 arrangements, not 4! = 24: label the two L's as L1 and L2, notice every real word gets counted exactly twice, then divide 4! by 2.",
+          "zh": "为什么 BALL 只有 12 种排法，而不是 4! = 24 种？把两个 L 先当成 L1、L2，你会发现每个真正的单词都被数了两遍，所以要用 4! 除以 2。"
+        },
+        {
+          "en": "The same trick scales up: TATTER has 6!/3! = 120 arrangements because the three T's can be shuffled 3! ways, and PAPA has 4!/(2!x2!) = 6 because the P's and A's each double-count.",
+          "zh": "这招还能往上叠：TATTER 里三个 T 可以互换 3! 种，所以是 6!/3! = 120；PAPA 里 P 和 A 各重复一次，就是 4!/(2!×2!) = 6。"
+        },
+        {
+          "en": "The book calls this \"strategic overcounting\" and insists you understand why it works instead of memorizing the formula.",
+          "zh": "书里把这叫「策略性多数」，还特意叮嘱：别死记公式，要真的想明白为什么能除。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "permutation",
+          "zh": "排列"
+        },
+        {
+          "en": "repeated elements",
+          "zh": "重复元素"
+        },
+        {
+          "en": "strategic overcounting",
+          "zh": "策略性多数（先多数再除）"
+        },
+        {
+          "en": "factorial",
+          "zh": "阶乘"
+        },
+        {
+          "en": "distinct arrangements",
+          "zh": "不同的排法"
+        }
+      ],
+      "teachHints": "groups、dataTable、shapeRect"
+    },
+    {
+      "id": "AOPS.CP.C03.S03",
+      "strand": "ch03",
+      "pages": [
+        53,
+        56
+      ],
+      "en": "3.3 Counting Pairs of Items",
+      "zh": "3.3 成对计数",
+      "elaborations": [
+        {
+          "en": "An 8-player round-robin has 28 matches, not 8 x 7 = 56 — Alice-vs-Bob gets counted once for Alice and once for Bob, so you divide by 2.",
+          "zh": "8 个人循环赛一共 28 场，不是 8×7 = 56 场——Alice 对 Bob 那一场，在 Alice 名下算一次、在 Bob 名下又算一次，所以要除以 2。"
+        },
+        {
+          "en": "Along the way it proves Gauss's formula 1 + 2 + ... + n = n(n+1)/2 by writing the sum forwards and backwards and adding, then generalizes the tournament to n(n-1)/2 matches.",
+          "zh": "顺带用「正着写一遍、倒着写一遍再相加」的办法证出高斯公式 1+2+…+n = n(n+1)/2，再把比赛推广成 n(n−1)/2 场。"
+        },
+        {
+          "en": "Diagonals of a convex n-gon combine both fixes: divide n(n-1) by 2 for double counting, then subtract the n sides, giving n(n-1)/2 - n = n(n-3)/2.",
+          "zh": "凸 n 边形的对角线要两种修正一起上：n(n−1) 先除以 2 去掉重复，再减掉 n 条边，得到 n(n−1)/2 − n = n(n−3)/2。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "round-robin tournament",
+          "zh": "循环赛"
+        },
+        {
+          "en": "sum of the first n positive integers",
+          "zh": "前 n 个正整数之和"
+        },
+        {
+          "en": "convex polygon",
+          "zh": "凸多边形"
+        },
+        {
+          "en": "diagonal",
+          "zh": "对角线"
+        },
+        {
+          "en": "vertex",
+          "zh": "顶点"
+        }
+      ],
+      "teachHints": "dataTable、shapeRect、groups"
+    },
+    {
+      "id": "AOPS.CP.C03.S04",
+      "strand": "ch03",
+      "pages": [
+        57,
+        61
+      ],
+      "en": "3.4 Counting with Symmetries",
+      "zh": "3.4 对称情形的计数",
+      "elaborations": [
+        {
+          "en": "Seating 6 people at a round table gives 6!/6 = 5! = 120 ways, because rotating a circle 6 different ways produces the very same seating.",
+          "zh": "6 个人围圆桌坐，是 6!/6 = 5! = 120 种——因为把圆桌转一圈的 6 个位置，其实是同一种坐法。"
+        },
+        {
+          "en": "The same answer comes out constructively: sit person A down first (rotation is now fixed), then 5 x 4 x 3 x 2 x 1 choices for the rest.",
+          "zh": "换个思路也一样：先把 A 坐下（转动就被固定住了），剩下的人有 5×4×3×2×1 种选法。"
+        },
+        {
+          "en": "A 4-key keychain has only 3 arrangements: divide 4! by 4 rotations and again by 2 for flipping the chain over — or divide by 8 all at once.",
+          "zh": "4 把钥匙串在钥匙圈上只有 3 种：4! 先除以 4 种转动，再除以 2（因为钥匙圈可以翻面），或者干脆一次除以 8。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "symmetry",
+          "zh": "对称"
+        },
+        {
+          "en": "rotational symmetry",
+          "zh": "旋转对称"
+        },
+        {
+          "en": "reflective symmetry",
+          "zh": "反射对称（翻面对称）"
+        },
+        {
+          "en": "circular arrangement",
+          "zh": "圆排列"
+        },
+        {
+          "en": "constructive counting",
+          "zh": "构造式计数"
+        }
+      ],
+      "teachHints": "shapeCircle、groups、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C04.S02",
+      "strand": "ch04",
+      "pages": [
+        65,
+        68
+      ],
+      "en": "4.2 Committee Forming",
+      "zh": "4.2 组建委员会",
+      "elaborations": [
+        {
+          "en": "Starts with 4 people: picking a President and Vice-President gives 4 x 3 = 12 ways, but a 2-person committee gives only (4 x 3)/2 = 6, because AB and BA are the same committee.",
+          "zh": "从 4 个人开始：选正副主席有 4 x 3 = 12 种，但选一个 2 人小组只有 (4 x 3)/2 = 6 种——因为「先选 A 再选 B」和「先选 B 再选 A」是同一个小组。"
+        },
+        {
+          "en": "The book lists all twelve President/VP pairs next to the six committees, so the child sees the double-counting with their own eyes before dividing.",
+          "zh": "书里把 12 组「正副主席」和 6 个小组并排列成表格，让孩子先亲眼看见「每个小组被数了两次」，再动手去除以。"
+        },
+        {
+          "en": "The same divide-out-the-order trick scales up: 3 from 8 people is (8 x 7 x 6)/3! = 56, and 6 lottery balls from 48 is (48 x 47 x 46 x 45 x 44 x 43)/6! = 12,271,512 — written (48 choose 6).",
+          "zh": "同一招「把顺序除掉」可以放大：8 人里选 3 人是 (8 x 7 x 6)/3! = 56；48 个彩球里选 6 个是 (48 x 47 x 46 x 45 x 44 x 43)/6! = 12,271,512，也就是 (48 选 6)，中奖概率比一千二百万分之一还低。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "combination",
+          "zh": "组合"
+        },
+        {
+          "en": "n choose r",
+          "zh": "n 选 r"
+        },
+        {
+          "en": "committee",
+          "zh": "委员会（小组）"
+        },
+        {
+          "en": "overcounting",
+          "zh": "重复计数（多算）"
+        },
+        {
+          "en": "permutation",
+          "zh": "排列"
+        }
+      ],
+      "teachHints": "groups、dataTable、balls"
+    },
+    {
+      "id": "AOPS.CP.C04.S03",
+      "strand": "ch04",
+      "pages": [
+        69,
+        71
+      ],
+      "en": "4.3 How to Compute Combinations",
+      "zh": "4.3 组合数怎么算",
+      "elaborations": [
+        {
+          "en": "Derives the general formula by counting ordered picks n x (n-1) x ... x (n-r+1) and then dividing by r!, arriving at the boxed result (n choose r) = n!/(r!(n-r)!).",
+          "zh": "先按顺序数出 n x (n-1) x ... x (n-r+1) 种，再除以 r! 把顺序去掉，推出书上加框的公式 (n 选 r) = n!/(r!(n-r)!)。"
+        },
+        {
+          "en": "Right after boxing the factorial formula the book warns it is not how you actually compute: for (11 choose 4) it cancels the 7! and just does (11 x 10 x 9 x 8)/(4 x 3 x 2 x 1) = 330.",
+          "zh": "公式刚加完框，书就提醒「实际算的时候别这么算」：算 (11 选 4) 时把 7! 直接约掉，只写 (11 x 10 x 9 x 8)/(4 x 3 x 2 x 1) = 330——分子取 n! 的前 r 项，分母放 r!。"
+        },
+        {
+          "en": "Re-solves the round-robin tournament: instead of summing (n-1) + (n-2) + ... + 1, see each match as a 2-person committee, so the answer is simply (n choose 2) = n(n-1)/2.",
+          "zh": "用组合重解循环赛：不用去加 (n-1) + (n-2) + ... + 1，把每场比赛看成一个「2 人小组」，答案直接就是 (n 选 2) = n(n-1)/2。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "combination formula n!/(r!(n-r)!)",
+          "zh": "组合数公式 n!/(r!(n-r)!)"
+        },
+        {
+          "en": "factorial",
+          "zh": "阶乘"
+        },
+        {
+          "en": "round-robin tournament",
+          "zh": "循环赛"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C04.S04",
+      "strand": "ch04",
+      "pages": [
+        72,
+        75
+      ],
+      "en": "4.4 Our First Combinatorial Identity",
+      "zh": "4.4 第一条组合恒等式",
+      "elaborations": [
+        {
+          "en": "Discovery-style: compute (6 choose 2) = 15 and (6 choose 4) = 15, then (8 choose 3) = 56 and (8 choose 5) = 56, and ask whether that is a coincidence.",
+          "zh": "用「发现式」教：先算出 (6 选 2) = 15、(6 选 4) = 15，再算 (8 选 3) = 56、(8 选 5) = 56，然后问一句「这是巧合吗？」"
+        },
+        {
+          "en": "The pattern becomes the first combinatorial identity (n choose r) = (n choose n-r), proved both by the factorial formula and by the idea that choosing r people to be on the committee is the same as choosing the n-r people left off — shown with a 15-row A-F chart.",
+          "zh": "这个规律就是第一条组合恒等式 (n 选 r) = (n 选 n-r)。书给了两种证明：一种代公式，一种更妙——「选 r 个人进小组」跟「选 n-r 个人不进小组」其实是同一件事，还用 A 到 F 六个人排了 15 行对照表。"
+        },
+        {
+          "en": "Then it cashes the identity in: (10 choose 8) = (10 choose 2) = 45 instead of grinding eight factors, and (9 choose 0) = 1 by three routes — there is one way to choose nobody, 9!/(9!0!) with 0! = 1, and (9 choose 0) = (9 choose 9).",
+          "zh": "接着马上用它省力气：(10 选 8) 换成 (10 选 2) = 45，不用硬乘八项；(9 选 0) 用三种办法都得 1——「一个人都不选也是一种选法」、9!/(9!0!) 里 0! = 1、以及 (9 选 0) = (9 选 9)。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "combinatorial identity",
+          "zh": "组合恒等式"
+        },
+        {
+          "en": "identity",
+          "zh": "恒等式"
+        },
+        {
+          "en": "symmetry of combinations",
+          "zh": "组合数的对称性"
+        },
+        {
+          "en": "0! = 1",
+          "zh": "零的阶乘等于 1"
+        }
+      ],
+      "teachHints": "dataTable、groups、balance"
+    },
+    {
+      "id": "AOPS.CP.C05.S02",
+      "strand": "ch05",
+      "pages": [
+        81,
+        83
+      ],
+      "en": "5.2 Paths on a Grid",
+      "zh": "5.2 网格上的路径",
+      "elaborations": [
+        {
+          "en": "Walking from A to B on a 4-by-3 grid always takes 4 steps right and 3 steps up, so a path is just a choice of which 3 of the 7 steps are \"up\" — giving C(7,3) = 35 paths.",
+          "zh": "在 4 格宽、3 格高的网格上从 A 走到 B，无论怎么走都一定是 4 步向右加 3 步向上；所以「选路线」其实就是「在 7 步里挑哪 3 步往上走」，答案是 C(7,3) = 35 条。"
+        },
+        {
+          "en": "The book double-checks by writing each path as a word of r's and u's (like ruruurr) and counting arrangements of \"rrrruuu\": 7!/(4!3!) = 35.",
+          "zh": "书里还换个说法验算：把每条路写成 r（右）和 u（上）组成的字母串，比如 ruruurr，于是数路线就变成数「rrrruuu」有多少种排法，7!/(4!3!) 同样得 35。"
+        },
+        {
+          "en": "It insists you understand why we divide by 4! and 3! — because the r's are all alike and the u's are all alike — rather than memorizing the formula.",
+          "zh": "作者强调要弄懂为什么要除以 4! 和 3!（因为 r 和 r 之间、u 和 u 之间根本分不出谁是谁），而不是死背公式。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "path on a grid",
+          "zh": "网格路径"
+        },
+        {
+          "en": "combination C(n, r)",
+          "zh": "组合数 C(n, r)"
+        },
+        {
+          "en": "arrangements with repeated letters",
+          "zh": "含重复字母的排列"
+        }
+      ],
+      "teachHints": "coordGrid、areaGrid、groups"
+    },
+    {
+      "id": "AOPS.CP.C05.S03",
+      "strand": "ch05",
+      "pages": [
+        84,
+        87
+      ],
+      "en": "5.3 More Committee-type Problems",
+      "zh": "5.3 更多委员会问题",
+      "elaborations": [
+        {
+          "en": "When two players (Ace and Zeppo) must start, you only pick the remaining 3 from 10, so the lineup count is C(10,3) = 120; when men and women are chosen independently, you multiply: C(30,3) x C(40,4) = 371,043,400.",
+          "zh": "两名全明星 Ace 和 Zeppo 铁定首发，那就只剩「从 10 人里挑 3 人」，也就是 C(10,3) = 120 种；而 30 男 40 女各选各的，就把两边乘起来：C(30,3) x C(40,4) = 371,043,400。"
+        },
+        {
+          "en": "For the \"Bob and Yogi can't both play\" lineup, the book solves it twice — casework C(10,4)+C(10,4)+C(10,5) = 672 and complementary counting C(12,5) - C(10,3) = 792 - 120 = 672 — and says solving a problem two ways is a good way to check your answer.",
+          "zh": "「Bob 和 Yogi 不能同时上场」这题，书里故意做两遍：分情况讨论得 210+210+252 = 672，用「总数减掉不合格」也得 792-120 = 672。作者说，能轻松做两遍就做两遍，这是最好的验算方式。"
+        },
+        {
+          "en": "A WARNING on the 10-puppy problem: don't count \"Biter and Nipper both in the small group\" as C(8,2) x C(8,6) — once the small group is filled, the remaining 6 dogs have no choice at all.",
+          "zh": "分 10 只小狗那题有个大大的警告：别把「Biter 和 Nipper 都在小组里」算成 C(8,2) x C(8,6)——小组一挑完，剩下 6 只狗只能全去大组，根本没得选，乘就重复了。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "casework",
+          "zh": "分情况讨论"
+        },
+        {
+          "en": "complementary counting",
+          "zh": "补集计数（正难则反）"
+        },
+        {
+          "en": "independent choices",
+          "zh": "相互独立的选择"
+        }
+      ],
+      "teachHints": "groups、dataTable、balls"
+    },
+    {
+      "id": "AOPS.CP.C05.S04",
+      "strand": "ch05",
+      "pages": [
+        88,
+        91
+      ],
+      "en": "5.4 Distinguishability",
+      "zh": "5.4 可区分与不可区分",
+      "elaborations": [
+        {
+          "en": "Same 4 balls and 2 boxes, four different answers depending on what you can tell apart: 16, 8, 5, and 3.",
+          "zh": "同样是「4 个球放进 2 个盒子」，只因为「球分不分得清、盒子分不分得清」不同，答案就变成 16、8、5、3 四个不同的数。"
+        },
+        {
+          "en": "Distinguishable balls into distinguishable boxes is 2^4 = 16 (each ball picks a box); make the boxes identical and it drops to 8, because each arrangement got counted twice.",
+          "zh": "球和盒子都能分清时，每个球有 2 个盒子可选，2^4 = 16；把两个盒子换成一模一样的，答案只剩 8——因为原来每一种摆法都被数了两遍。"
+        },
+        {
+          "en": "When the balls are identical you only track how many are in each box: 5 ways with numbered boxes (0,1,2,3,4 in the first) and just 3 splits {4,0}, {3,1}, {2,2} when the boxes are identical too.",
+          "zh": "球一模一样时，只需要记「每个盒子里有几个」：盒子有编号就是 5 种（第一个盒子放 0、1、2、3、4 个）；盒子也一模一样，就只剩 {4,0}、{3,1}、{2,2} 三种分法。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "distinguishable",
+          "zh": "可区分的"
+        },
+        {
+          "en": "indistinguishable",
+          "zh": "不可区分的"
+        },
+        {
+          "en": "overcounting",
+          "zh": "重复计数"
+        }
+      ],
+      "teachHints": "balls、groups、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C06.S02",
+      "strand": "ch06",
+      "pages": [
+        97,
+        107
+      ],
+      "en": "6.2 Problems",
+      "zh": "6.2 难题实战",
+      "elaborations": [
+        {
+          "en": "This section has no new formulas — it mixes every tool from the book, opening with an 8-bowler ladder tournament solved by constructive counting: 2 choices for the loser of each of 7 matches, so 2^7 = 128 possible outcomes.",
+          "zh": "这一节不教新公式，而是把前面所有工具混着用；开场是 8 个人的保龄球淘汰赛，每场比赛「谁输」都有 2 种可能，7 场就是 2^7 = 128 种结果。"
+        },
+        {
+          "en": "When a grid has missing edges the C(8,3) = 56 path formula breaks, so the book labels every intersection with how many paths run from it to B, working backwards column by column until point A reads 18.",
+          "zh": "格子上缺了几条边，C(8,3) = 56 这个公式就不管用了；书里改成从终点 B 往回走，在每个路口写上「从这里到 B 有几种走法」，一列一列倒推，最后 A 点上写的是 18。"
+        },
+        {
+          "en": "Two problem-solving habits get drilled: shrink a huge problem first (Spiffy the Spider's 8 legs becomes Sally's 2 legs, which has 6 orderings), and if an approach stalls, restart with a new one instead of being stubborn.",
+          "zh": "这节反复练两个习惯：题目太大就先做个小的（8 条腿的蜘蛛穿袜穿鞋太难，就先算 Sally 两只脚，答案是 6 种），还有一条路走不通就换方法，别死磕。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "constructive counting",
+          "zh": "构造计数"
+        },
+        {
+          "en": "casework",
+          "zh": "分情况讨论"
+        },
+        {
+          "en": "complementary counting",
+          "zh": "补集计数"
+        }
+      ],
+      "teachHints": "coordGrid、dataTable、shapeTriangle"
+    },
+    {
+      "id": "AOPS.CP.C07.S02",
+      "strand": "ch07",
+      "pages": [
+        112,
+        114
+      ],
+      "en": "7.2 Basic Probability",
+      "zh": "7.2 概率是什么",
+      "elaborations": [
+        {
+          "en": "Builds probability from one rule: P(A) = successful outcomes ÷ possible outcomes, starting with rolling a 2 on a fair die (1/6) and a prime face (3/6 = 1/2).",
+          "zh": "从一条规则出发：概率 = 成功的结果数 ÷ 所有可能的结果数。先用骰子掷出 2（1/6），再算掷出质数（3/6 = 1/2）。"
+        },
+        {
+          "en": "Shows why every probability sits between 0 and 1 — if you ever get a number below 0 or above 1, you made a mistake.",
+          "zh": "讲清楚为什么概率一定在 0 和 1 之间：算出小于 0 或大于 1 的数，一定是哪里算错了。"
+        },
+        {
+          "en": "Ends with a 52-card deck: the chance the top two cards are both red is (26×25)/(52×51) = 25/102.",
+          "zh": "最后用 52 张扑克牌收尾：前两张都是红色的概率是（26×25）/（52×51）= 25/102。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "probability",
+          "zh": "概率"
+        },
+        {
+          "en": "outcome",
+          "zh": "结果"
+        },
+        {
+          "en": "event",
+          "zh": "事件"
+        },
+        {
+          "en": "equally likely",
+          "zh": "等可能"
+        },
+        {
+          "en": "P(A) notation",
+          "zh": "P(A) 记号"
+        }
+      ],
+      "teachHints": "fractionBar、probLine、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C07.S03",
+      "strand": "ch07",
+      "pages": [
+        115,
+        117
+      ],
+      "en": "7.3 Equally Likely Outcomes",
+      "zh": "7.3 等可能结果",
+      "elaborations": [
+        {
+          "en": "Teaches through wrong answers: a cube with 4 blue and 2 red faces is not 1/2 blue — the 6 faces are the equally likely outcomes, so it's 4/6 = 2/3.",
+          "zh": "专门用「错解」来教：4 个蓝面、2 个红面的方块，掷出蓝面不是 1/2，真正等可能的是 6 个面，所以是 4/6 = 2/3。"
+        },
+        {
+          "en": "Two dice summing to 7 is not 1/11 — the book lays out all 6×6 = 36 equally likely pairs in a table and finds 6 that work, giving 6/36 = 1/6.",
+          "zh": "两颗骰子和为 7 也不是 1/11。书里把 6×6 = 36 种等可能组合列成表格，数出 6 种成功，答案是 6/36 = 1/6。"
+        },
+        {
+          "en": "Solves \"pick 2 numbers from 1-9, both odd\" twice — unordered C(9,2)=36 with C(5,2)=10, and ordered 9×8=72 with 5×4=20 — both give 5/18, with the warning never to mix the two counts.",
+          "zh": "「从 1 到 9 里选 2 个数，都是奇数」用两种方法各算一遍：不看顺序是 10/36，看顺序是 20/72，都等于 5/18；书里特别提醒「别拿苹果比橘子」，两边的数法必须一致。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "equally likely outcomes",
+          "zh": "等可能结果"
+        },
+        {
+          "en": "sample space table",
+          "zh": "结果表格"
+        },
+        {
+          "en": "order matters / order doesn't matter",
+          "zh": "是否考虑顺序"
+        },
+        {
+          "en": "combination C(n,k)",
+          "zh": "组合数 C(n,k)"
+        }
+      ],
+      "teachHints": "dataTable、fractionBar、groups"
+    },
+    {
+      "id": "AOPS.CP.C07.S04",
+      "strand": "ch07",
+      "pages": [
+        118,
+        119
+      ],
+      "en": "7.4 Counting Techniques in Probability Problems",
+      "zh": "7.4 用计数技巧算概率",
+      "elaborations": [
+        {
+          "en": "Uses combinations inside probability: 3 of 10 people at a round table sitting in consecutive seats is 10/C(10,3) = 10/120 = 1/12, because each block of 3 is fixed by its middle person.",
+          "zh": "把组合数用进概率里：圆桌 10 人抽 3 人，正好是连着坐的概率是 10/120 = 1/12——因为每一段 3 连座只要定「中间那个人」就够了。"
+        },
+        {
+          "en": "Shows complementary counting: for two different 2-digit numbers to have an even product, count the odd-product cases instead — 4005 − 990 = 3015, so the probability is 67/89.",
+          "zh": "教「反过来数」：两个不同的两位数相乘要是偶数，反过来先数乘积为奇数的情况，4005 − 990 = 3015，概率是 67/89。"
+        },
+        {
+          "en": "Builds a poker full house step by step (13 × 4 × 12 × 6 = 3,744) over C(52,5) = 2,598,960, giving 6/4165.",
+          "zh": "一步步「造」出一副葫芦牌：13 × 4 × 12 × 6 = 3744 种，除以 C(52,5) = 2,598,960，概率是 6/4165。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "complementary counting",
+          "zh": "补集计数（反过来数）"
+        },
+        {
+          "en": "constructive counting",
+          "zh": "构造计数"
+        },
+        {
+          "en": "full house",
+          "zh": "葫芦（三带二）"
+        }
+      ],
+      "teachHints": "groups、dataTable、fractionBar"
+    },
+    {
+      "id": "AOPS.CP.C08.S02",
+      "strand": "ch08",
+      "pages": [
+        123,
+        127
+      ],
+      "en": "8.2 Probability and Addition",
+      "zh": "8.2 概率与加法",
+      "elaborations": [
+        {
+          "en": "Starts from a single die roll — P(a 2 or a 5) = 2/6 = 1/3 — to show that when two outcomes can never happen together, you simply add their probabilities.",
+          "zh": "从掷一颗骰子开始：掷出 2 或 5 的概率是 2/6 = 1/3，孩子由此看出——两件事不可能同时发生时，概率直接相加就行。"
+        },
+        {
+          "en": "Practices the rule on 7 coin flips: \"at least 5 heads\" splits into 21 + 7 + 1 = 29 successful outcomes out of 128, so the answer is 29/128.",
+          "zh": "用抛 7 次硬币练手：「至少 5 次正面」拆成 5 次、6 次、7 次三类，21+7+1=29，128 种里得 29/128。"
+        },
+        {
+          "en": "Then springs the classic trap: \"a Queen or a ♦\" is not 4 + 13 = 17, because the Queen of ♦ gets counted twice — the correct answer is 16/52 = 4/13, i.e. P(A or B) = P(A) + P(B) − P(A and B).",
+          "zh": "接着是经典陷阱：抽到「Q 或方块」不是 4+13=17，方块 Q 被数了两次，正确答案是 16/52 = 4/13，也就是要减掉重复的那部分。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "mutually exclusive events",
+          "zh": "互斥事件"
+        },
+        {
+          "en": "addition rule for probability",
+          "zh": "概率加法法则"
+        },
+        {
+          "en": "overcounting",
+          "zh": "重复计数"
+        }
+      ],
+      "teachHints": "dataTable、probLine、groups"
+    },
+    {
+      "id": "AOPS.CP.C08.S03",
+      "strand": "ch08",
+      "pages": [
+        128,
+        129
+      ],
+      "en": "8.3 Complementary Probabilities",
+      "zh": "8.3 对立事件的概率",
+      "elaborations": [
+        {
+          "en": "Teaches the one-line idea that P(A occurs) + P(A does not occur) = 1, so P(not A) = 1 − P(A).",
+          "zh": "讲透一句话：「会发生」和「不会发生」的概率加起来一定是 1，所以「不发生」＝ 1 减去「发生」。"
+        },
+        {
+          "en": "Four dice \"not all the same\" is nasty to count head-on, but \"all the same\" has only 6 ways, so the answer is 1 − 6/6⁴ = 1 − 1/216 = 215/216.",
+          "zh": "四颗骰子「不全一样」硬数会崩溃，但「全一样」只有 6 种，于是 1 − 1/216 = 215/216，一步到位。"
+        },
+        {
+          "en": "Same move for Mary and James in 7 chairs: only 6 of the C(7,2) = 21 seat pairs are adjacent, so P(not next to each other) = 1 − 2/7 = 5/7.",
+          "zh": "同一招用在 7 张椅子上：21 种坐法里相邻只有 6 种，所以「不挨着」= 1 − 2/7 = 5/7。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "complementary probability",
+          "zh": "对立事件的概率（补概率）"
+        },
+        {
+          "en": "complement of an event",
+          "zh": "对立事件"
+        }
+      ],
+      "teachHints": "probLine、fractionBar、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C08.S04",
+      "strand": "ch08",
+      "pages": [
+        130,
+        135
+      ],
+      "en": "8.4 Probability and Multiplication",
+      "zh": "8.4 概率与乘法",
+      "elaborations": [
+        {
+          "en": "Two dice, one red and one green, show that P(red 2 and green 5) = 1/36 = 1/6 × 1/6, leading to the rule P(A and B) = P(A) × P(B) for independent events.",
+          "zh": "用一红一绿两颗骰子看出 1/36 正好是 1/6 × 1/6，于是得到独立事件的乘法法则：P(A 且 B) = P(A) × P(B)。"
+        },
+        {
+          "en": "Warns that counting outcomes only works when they're equally likely: a team with a 75% win rate sweeping 4 games is (3/4)⁴ = 81/256, not 1/16.",
+          "zh": "特别提醒：结果不是等可能时不能靠「数种类」——胜率 75% 的球队连赢 4 场是 (3/4)⁴ = 81/256，不是 1/16。"
+        },
+        {
+          "en": "Combines addition and multiplication on a best-of-7 series: winning in exactly 7 games is 20 × 81/16,384 = 405/4096, and winning overall is 3807/4096 ≈ 92.9%.",
+          "zh": "最后把加法和乘法一起用在七局四胜上：打满 7 场夺冠是 20 × 81/16384 = 405/4096，总夺冠概率 3807/4096，约 92.9%。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "independent events",
+          "zh": "独立事件"
+        },
+        {
+          "en": "multiplication rule for probability",
+          "zh": "概率乘法法则"
+        },
+        {
+          "en": "equally likely outcomes",
+          "zh": "等可能结果"
+        }
+      ],
+      "teachHints": "areaGrid、dataTable、probLine"
+    },
+    {
+      "id": "AOPS.CP.C08.S05",
+      "strand": "ch08",
+      "pages": [
+        136,
+        137
+      ],
+      "en": "8.5 Probability with Dependent Events",
+      "zh": "8.5 有影响的连续事件",
+      "elaborations": [
+        {
+          "en": "Fixes the classic slip: after a ♦ is dealt only 51 cards remain, so P(first ♦, then ♠) = 1/4 × 13/51 = 13/204, not 1/4 × 1/4 = 1/16.",
+          "zh": "先纠一个常见错：发走一张方块后牌只剩 51 张，所以「先方块后黑桃」是 1/4 × 13/51 = 13/204，不是 1/4 × 1/4。"
+        },
+        {
+          "en": "Bag with 4 red and 6 blue marbles, drawn without replacement: P(both red) = 4/10 × 3/9 = 2/15 and P(both blue) = 6/10 × 5/9 = 1/3.",
+          "zh": "袋里 4 红 6 蓝、抽了不放回：两颗都红是 4/10 × 3/9 = 2/15，两颗都蓝是 6/10 × 5/9 = 1/3。"
+        },
+        {
+          "en": "Those two cases are exclusive, so adding gives P(same color) = 7/15 — one problem that uses multiplication first, then addition.",
+          "zh": "这两种情况互斥，再相加得到「同色」= 7/15——一道题里先乘后加，把两条法则串起来。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "dependent events",
+          "zh": "有影响的（相依）事件"
+        },
+        {
+          "en": "without replacement",
+          "zh": "不放回抽取"
+        }
+      ],
+      "teachHints": "balls、probLine、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C08.S06",
+      "strand": "ch08",
+      "pages": [
+        138,
+        140
+      ],
+      "en": "8.6 Shooting Stars — a hard problem ★",
+      "zh": "8.6 流星难题 ★",
+      "elaborations": [
+        {
+          "en": "Warm-up first: with a 60% chance per hour, two hours of watching gives 21/25 = 84%, computed once by three cases and once as 1 − (2/5)² — the easier way.",
+          "zh": "先热身：每小时 60% 的机会，看两小时是 21/25 = 84%；书里先分三类算一遍，再用「反着算」1 − (2/5)² 轻松得同一答案。"
+        },
+        {
+          "en": "Then kills the tempting shortcut: 15 minutes is NOT (1/4)(80%) = 20%, because that same logic would turn 60% per hour into a 120% chance over two hours.",
+          "zh": "接着打掉最诱人的错法：15 分钟不是 (1/4)×80% = 20%，因为同样的算法会推出「每小时 60%、两小时 120%」，一看就荒唐。"
+        },
+        {
+          "en": "The rescue is to name the unknown p, note that missing all four quarter-hours gives (1 − p)⁴ = 1/5, and solve to get p = 1 − 1/⁴√5 ≈ 33.1%.",
+          "zh": "正确做法是设未知数 p，用「四个一刻钟都没看到」列出 (1 − p)⁴ = 1/5，解得 p = 1 − 1/⁴√5 ≈ 33.1%。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "uniform probability",
+          "zh": "概率均匀分布"
+        }
+      ],
+      "teachHints": "probLine、clock、numberLine"
+    },
+    {
+      "id": "AOPS.CP.C09.S02",
+      "strand": "ch09",
+      "pages": [
+        145,
+        149
+      ],
+      "en": "9.2 Problems",
+      "zh": "9.2 思考题实战",
+      "elaborations": [
+        {
+          "en": "Teaches the \"think about it first\" habit: before counting, look for symmetry — if two teams each win a game with probability 1/2, the one who wins a 6-game series is 1/2 by symmetry, no counting needed.",
+          "zh": "教孩子「先想一想再动手算」：先找对称性——两队每场胜率都是 1/2，那么「正好打满 6 场时某队夺冠」的概率直接就是 1/2，一个数都不用数。"
+        },
+        {
+          "en": "Shows how to spot the numbers that don't matter: a marker moving on 3 circle points lands on each point with probability 1/3 every turn, so \"after 8 moves\" is irrelevant, just as \"11 students\" is irrelevant when asking which of 3 triplets is called first (1/3).",
+          "zh": "教孩子识别题目里「没用的数字」：棋子在圆上 3 个点之间走，每一轮落到每个点都是 1/3，所以「走 8 步之后」根本不影响答案；同样，问三胞胎里谁先被叫到，答案就是 1/3，班上有 11 个人也是干扰信息。"
+        },
+        {
+          "en": "Then breaks the symmetry on purpose: when Billy can't be called first, the answer becomes 8/10 x 1/3 = 4/15, and his two sisters split the remaining 11/15 evenly at 11/30 each.",
+          "zh": "接着故意把对称性打破：Billy 第一次点名时不在场，答案就变成 8/10 × 1/3 = 4/15；剩下的 11/15 由两个姐妹平分，各 11/30。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "symmetry",
+          "zh": "对称性"
+        },
+        {
+          "en": "casework",
+          "zh": "分类讨论"
+        },
+        {
+          "en": "equally likely outcomes",
+          "zh": "等可能结果"
+        },
+        {
+          "en": "complementary probability",
+          "zh": "互补概率"
+        }
+      ],
+      "teachHints": "spinner、balls、probLine"
+    },
+    {
+      "id": "AOPS.CP.C10.S02",
+      "strand": "ch10",
+      "pages": [
+        154,
+        155
+      ],
+      "en": "10.2 Probability Using Lengths",
+      "zh": "10.2 用长度算概率",
+      "elaborations": [
+        {
+          "en": "Teaches probability when outcomes are continuous: on a segment where AC = 5 and AB = 4, the points closer to B than to A form segment DC of length 3, so the probability is 3/5 — successful length over total length.",
+          "zh": "教「点是连续的、数不过来」时怎么算概率：一条线段 AC 长 5、AB 长 4，离 B 更近的那段是长度 3 的 DC，概率就是 3/5——成功长度 ÷ 总长度。"
+        },
+        {
+          "en": "Shows the same length trick on a non-geometric question: for a random x with 0 ≤ x ≤ 3, |x − 1| ≤ 1/2 means 1/2 ≤ x ≤ 3/2, a length-1 piece inside a length-3 piece, so the probability is 1/3.",
+          "zh": "同一招还能用在看起来不像几何的题上：0 到 3 之间随机取 x，|x−1| ≤ 1/2 就是 1/2 到 3/2 这一段，长度 1 装在长度 3 里，概率 1/3。"
+        },
+        {
+          "en": "Ends with a harder example: for 0 < x < 100, listing the ten intervals where ⌊√x⌋ takes each value and adding the even ones (1+5+9+13+17 = 45) gives 45/100 = 9/20.",
+          "zh": "最后一道稍难：0 到 100 之间，把 ⌊√x⌋ 各取一个值的十个区间列成表，把偶数那几段加起来（1+5+9+13+17=45），概率就是 45/100 = 9/20。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "geometric probability",
+          "zh": "几何概率"
+        },
+        {
+          "en": "continuous",
+          "zh": "连续的"
+        },
+        {
+          "en": "discrete",
+          "zh": "离散的"
+        },
+        {
+          "en": "successful region / possible region",
+          "zh": "成功区域 / 全部可能区域"
+        },
+        {
+          "en": "floor function ⌊y⌋",
+          "zh": "取整函数（下取整）⌊y⌋"
+        }
+      ],
+      "teachHints": "numberLine、probLine、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C10.S03",
+      "strand": "ch10",
+      "pages": [
+        156,
+        161
+      ],
+      "en": "10.3 Probability Using Areas",
+      "zh": "10.3 用面积算概率",
+      "elaborations": [
+        {
+          "en": "Extends the length method to two dimensions: P(success) = area of successful region ÷ area of total region, first used on a 5 ft by 5 ft table where a radius-1 disk stays fully on only if its center lands in the central 3 by 3 square, giving 9/25.",
+          "zh": "把「用长度算」升级成「用面积算」：概率 = 成功区域面积 ÷ 全部区域面积。先用 5 尺见方的桌子演示：半径 1 尺的圆盘不掉边，圆心必须落在中间 3×3 的方块里，所以是 9/25。"
+        },
+        {
+          "en": "Turns an algebra question into a picture: for random x and y in the unit square, x + y > 3/2 is the triangle above the line x + y = 3/2, with area 1/8 inside a square of area 1, so the probability is 1/8.",
+          "zh": "把代数题画成图：x、y 都在 0 到 1 之间，x + y > 3/2 就是直线 x + y = 3/2 上方那个小三角形，面积 1/8，方块面积 1，概率就是 1/8。"
+        },
+        {
+          "en": "Finishes with the classic lunch-meeting problem — two friends arrive randomly between noon and 1 and each waits 15 minutes — solved by plotting both arrival times, shading the band y − 15 ≤ x ≤ y + 15, and subtracting the two 45-45 corner triangles: (3600 − 2025)/3600 = 7/16.",
+          "zh": "压轴是经典的「约饭」题：两人在 12 点到 1 点之间随机到，各等 15 分钟。把两人的到达时间画成坐标图，成功就是 y−15 ≤ x ≤ y+15 那条斜带；用总面积减掉两个直角边 45 的三角形，(3600−2025)/3600 = 7/16。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "total outcomes region",
+          "zh": "全部结果区域"
+        },
+        {
+          "en": "successful outcomes region",
+          "zh": "成功结果区域"
+        },
+        {
+          "en": "complementary counting (by area)",
+          "zh": "补集法（用面积算反面）"
+        },
+        {
+          "en": "right isosceles triangle",
+          "zh": "等腰直角三角形"
+        }
+      ],
+      "teachHints": "coordGrid、shapeRect、areaGrid"
+    },
+    {
+      "id": "AOPS.CP.C11.S02",
+      "strand": "ch11",
+      "pages": [
+        166,
+        166
+      ],
+      "en": "11.2 Definition of Expected Value",
+      "zh": "11.2 期望值的定义",
+      "elaborations": [
+        {
+          "en": "Defines expected value as E = p1x1 + p2x2 + ... + pnxn — each outcome's value times its probability, all added up — after noting the probabilities must total 1.",
+          "zh": "把「期望值」正式定义成 E = p1x1 + p2x2 + … + pnxn，也就是每个结果的值乘上它的概率再全部加起来；前提是这些概率加起来必须等于 1。"
+        },
+        {
+          "en": "Re-derives the coin example — win $2 on heads, lose $1 on tails — as (1/2)($2) + (1/2)(-$1) = $0.50, showing the formula just reproduces the average you already trusted.",
+          "zh": "再用抛硬币的老例子验算一遍：正面赢 $2、反面输 $1，套公式就是 (1/2)($2) + (1/2)(−$1) = $0.50，跟前面凭直觉算出来的完全一样。"
+        },
+        {
+          "en": "Gives the standard notation — expected value is written E or with the Greek letter mu — and shows that a loss enters the sum as a negative value, -$1.",
+          "zh": "顺带教了写法：期望值记作 E，也可以用希腊字母 μ（书上说读作「谬」）；还要注意「输钱」在式子里得写成负数 −$1。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "expected value",
+          "zh": "期望值"
+        },
+        {
+          "en": "weighted average",
+          "zh": "加权平均"
+        },
+        {
+          "en": "mu (μ)",
+          "zh": "希腊字母 μ（期望值的另一种记号）"
+        }
+      ],
+      "teachHints": "average、probLine、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C11.S03",
+      "strand": "ch11",
+      "pages": [
+        166,
+        168
+      ],
+      "en": "11.3 Expected Value Problems",
+      "zh": "11.3 期望值实战",
+      "elaborations": [
+        {
+          "en": "Works four computations in a row: a fair 6-sided die (21/6 = 3.5), a coin weighted 3/4 heads ($1.25), a 20-marble urn ($2.40), and a reverse problem that finds 9 of the 12 slips show a 2.",
+          "zh": "一口气做四道题：普通六面骰子（21/6 = 3.5）、正面概率 3/4 的偏心硬币（$1.25）、20 颗弹珠的罐子（$2.40），最后倒过来解一道，求出 12 张纸条里有 9 张写着 2。"
+        },
+        {
+          "en": "Warns that you can never actually roll a 3.5 — the expected value is the probability-weighted average of all values, not the most likely outcome.",
+          "zh": "特别提醒一句：骰子根本掷不出 3.5——期望值是「按概率加权的平均数」，并不是最可能出现的那个结果。"
+        },
+        {
+          "en": "Introduces fair price: the $2.40 expected winnings is the break-even price to play, so a carnival charging $2.50 makes about 10 cents per player on average.",
+          "zh": "引入「公平价格」：期望能赢 $2.40，就该收 $2.40 才不赚不亏；游乐场要是收 $2.50，平均每来一个人就赚一毛钱。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "fair price",
+          "zh": "公平价格（玩一次游戏该收多少钱）"
+        },
+        {
+          "en": "break even",
+          "zh": "不赚不亏"
+        }
+      ],
+      "teachHints": "balls、dataTable、average"
+    },
+    {
+      "id": "AOPS.CP.C11.S04",
+      "strand": "ch11",
+      "pages": [
+        169,
+        170
+      ],
+      "en": "11.4 A Funky Game ★",
+      "zh": "11.4 一个古怪的游戏 ★",
+      "elaborations": [
+        {
+          "en": "The prize pool starts at $1 and doubles on every heads, ending the moment you flip tails, so the outcomes are T, HT, HHT, HHHT, ... — infinitely many of them.",
+          "zh": "奖池从 $1 开始，每掷出一次正面就翻一倍，一掷出反面游戏就结束、奖池归你——所以结果是 T、HT、HHT、HHHT……有无穷多种。"
+        },
+        {
+          "en": "n heads followed by a tail has probability 1/2^(n+1) and pays $2^n, so every single term of the expected-value sum works out to exactly $0.50.",
+          "zh": "n 个正面接一个反面的概率是 1/2^(n+1)，奖金是 $2^n，两个一乘，每一项都刚好等于 $0.50。"
+        },
+        {
+          "en": "Adding infinitely many $0.50 terms gives the book's own answer, written \"∞???\" — the paradox of a game whose expected value appears to be infinite.",
+          "zh": "无穷多个 $0.50 加在一起，书上索性写成「∞???」——这就是那个著名的悖论：一个游戏的期望值看起来居然是无穷大。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "paradox",
+          "zh": "悖论"
+        },
+        {
+          "en": "independent flips",
+          "zh": "独立的（各次抛掷互不影响）"
+        },
+        {
+          "en": "infinitely many outcomes",
+          "zh": "无穷多种可能结果"
+        }
+      ],
+      "teachHints": "dataTable、probLine、barModel"
+    },
+    {
+      "id": "AOPS.CP.C12.S02",
+      "strand": "ch12",
+      "pages": [
+        176,
+        176
+      ],
+      "en": "12.2 Constructing Pascal's Triangle",
+      "zh": "12.2 搭出帕斯卡三角",
+      "elaborations": [
+        {
+          "en": "Starts from an infinite row of zeros with a single lonesome 1, then repeatedly adds each pair of neighbours and writes the sum below — that one rule grows rows 1, 1 1, 1 2 1, 1 3 3 1 all the way to 1 6 15 20 15 6 1.",
+          "zh": "从一整排 0 开始，中间只放一个孤零零的 1，然后不停地把相邻两个数相加、把和写在下面一行——就靠这一条规则，一行行长出 1、1 1、1 2 1、1 3 3 1，一直到 1 6 15 20 15 6 1。"
+        },
+        {
+          "en": "The book first runs the rule on all zeros, gets all zeros, and says \"that is not very exciting\" — a nice lesson that the machine needs an interesting seed.",
+          "zh": "书里先拿全是 0 的那排试一遍，结果还是全是 0，作者自己吐槽「一点也不刺激」——这其实是在告诉孩子：机器是好的，得给它一颗有意思的种子。"
+        },
+        {
+          "en": "After erasing the leftover zeros the picture is named Pascal's Triangle, after Blaise Pascal (1623-1662), though Yanghui (c. 1238-1298) described it centuries earlier — in China it is called the Yanghui Triangle.",
+          "zh": "把多余的 0 擦掉，这张图就叫帕斯卡三角，名字来自法国数学家帕斯卡（1623-1662）；但中国的杨辉（约 1238-1298）早几百年就写过它，所以在中国它叫「杨辉三角」。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Pascal's Triangle",
+          "zh": "帕斯卡三角（杨辉三角）"
+        },
+        {
+          "en": "row (of the triangle)",
+          "zh": "三角形的行"
+        }
+      ],
+      "teachHints": "shapeTriangle、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C12.S03",
+      "strand": "ch12",
+      "pages": [
+        177,
+        179
+      ],
+      "en": "12.3 Those Numbers Look Familiar!",
+      "zh": "12.3 这些数好眼熟！",
+      "elaborations": [
+        {
+          "en": "Turns Pascal's Triangle into a grid of dots and counts paths downward: the dot 4 rows down and 3 in from the left needs 4 steps of which 3 go right, so the count is (4 choose 3).",
+          "zh": "把帕斯卡三角变成一堆点，从顶点往下走：要走到「往下 4 行、从左数第 3 个」那个点，得走 4 步、其中 3 步往右，所以路数就是 C(4,3)。"
+        },
+        {
+          "en": "Generalizes to any dot: n rows below the top and r in from the left takes n steps with r of them to the right, giving (n choose r) paths.",
+          "zh": "再推广到任何一个点：往下 n 行、从左数第 r 个，就是 n 步里挑 r 步往右，路数正好是 C(n,r)。"
+        },
+        {
+          "en": "Labels the two dots A and B just above a target dot — every path passes through exactly one of them, so paths(target) = paths(A) + paths(B), which is exactly the adding rule that built the triangle; hence each entry is a combination.",
+          "zh": "把目标点上方的两个点标成 A 和 B：任何一条路都必须且只能经过其中一个，所以「到目标点的路数 = 到 A 的 + 到 B 的」——这不正是当初搭三角形时「上面两数相加」的规则吗！于是三角里每个数其实就是组合数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "combination (n choose r)",
+          "zh": "组合数 C(n, r)"
+        },
+        {
+          "en": "path counting",
+          "zh": "数路径（路径计数）"
+        }
+      ],
+      "teachHints": "coordGrid、shapeTriangle、dataTable"
+    },
+    {
+      "id": "AOPS.CP.C12.S04",
+      "strand": "ch12",
+      "pages": [
+        180,
+        183
+      ],
+      "en": "12.4 An Interesting Combinatorial Identity",
+      "zh": "12.4 一条有趣的组合恒等式",
+      "elaborations": [
+        {
+          "en": "Opens with three arithmetic checks — (4 choose 2) + (4 choose 3) = 6 + 4 = 10 = (5 choose 3) and (7 choose 4) + (7 choose 5) = 35 + 21 = 56 = (8 choose 5) — and asks the reader to guess the rule before it is named.",
+          "zh": "先让孩子老老实实算三道题：C(4,2)+C(4,3)=6+4=10=C(5,3)，C(7,4)+C(7,5)=35+21=56=C(8,5)，然后自己猜规律——书是先让你发现，再给名字。"
+        },
+        {
+          "en": "The pattern becomes Pascal's Identity, (n-1 choose r-1) + (n-1 choose r) = (n choose r), which is literally the picture of two entries sitting above a third in Pascal's Triangle.",
+          "zh": "这个规律就是帕斯卡恒等式：C(n-1,r-1)+C(n-1,r)=C(n,r)，说白了就是帕斯卡三角里「上面两个数加起来等于下面那个数」的那张图。"
+        },
+        {
+          "en": "Proves the same identity three ways — counting paths, algebra with factorials, and a committee argument about a club of n members where Bob either is or isn't on the r-person committee.",
+          "zh": "同一条恒等式书里证了三遍：数路径、用阶乘硬算、还有「n 个人的社团选 r 人小组，Bob 在不在里面」的分组论证——就是要孩子看到不同办法之间是通的。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Pascal's Identity",
+          "zh": "帕斯卡恒等式"
+        },
+        {
+          "en": "combinatorial identity",
+          "zh": "组合恒等式"
+        },
+        {
+          "en": "committee-forming argument",
+          "zh": "组队（选委员会）论证法"
+        }
+      ],
+      "teachHints": "shapeTriangle、groups、coordGrid"
+    },
+    {
+      "id": "AOPS.CP.C12.S05",
+      "strand": "ch12",
+      "pages": [
+        184,
+        186
+      ],
+      "en": "12.5 Another Interesting Combinatorial Identity",
+      "zh": "12.5 又一条组合恒等式",
+      "elaborations": [
+        {
+          "en": "Adds up each row of Pascal's Triangle — 1, 2, 4, 8, 16, 32, 1+6+15+20+15+6+1 = 64 — and spots that Row n sums to 2^n.",
+          "zh": "把帕斯卡三角每一行加起来：1、2、4、8、16、32，第 6 行 1+6+15+20+15+6+1=64——一眼看出第 n 行的和就是 2 的 n 次方。"
+        },
+        {
+          "en": "Insists that an observed pattern is not a proof: first write it as the statement (n choose 0) + (n choose 1) + ... + (n choose n) = 2^n, then prove it.",
+          "zh": "书特别强调：看出规律不等于证明了。得先把它写成一句数学话——C(n,0)+C(n,1)+…+C(n,n)=2^n——然后再去证。"
+        },
+        {
+          "en": "Skips the messy factorial algebra and proves it by block-walking: the left side counts paths to every point of Row n, while each of the n steps is simply left-or-right, giving 2^n paths — the same quantity counted two ways.",
+          "zh": "作者干脆放弃阶乘硬算（太乱），改用「走格子」：左边是走到第 n 行每个点的路数之和，右边是每步只能左或右、走 n 步共 2^n 条路——同一个东西数了两遍，这就是组合证明的常用招。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Row 0 (row numbering)",
+          "zh": "第 0 行（行的编号方式）"
+        },
+        {
+          "en": "block-walking",
+          "zh": "走格子法（块行走法）"
+        },
+        {
+          "en": "counting the same quantity in two ways",
+          "zh": "同一个量数两遍（双重计数）"
+        }
+      ],
+      "teachHints": "dataTable、shapeTriangle、coordGrid"
+    },
+    {
+      "id": "AOPS.CP.C13.S02",
+      "strand": "ch13",
+      "pages": [
+        192,
+        192
+      ],
+      "en": "13.2 The Problem",
+      "zh": "13.2 提出问题",
+      "elaborations": [
+        {
+          "en": "Poses the one problem the whole chapter chews on: 12 identical candies given out to 4 different kids, with every candy handed out.",
+          "zh": "这一节只抛出一道题，整章都在啃它：12 颗一模一样的糖，全部发给 4 个不同的小朋友，一共有多少种发法？"
+        },
+        {
+          "en": "Introduces the tuple notation for a distribution, so (12,0,0,0), (3,3,3,3) and (5,2,4,1) each name one specific way of handing out the candy.",
+          "zh": "教孩子用一串数字记录发糖方案：(12,0,0,0) 是全给老大，(3,3,3,3) 是每人 3 颗，(5,2,4,1) 是分别拿 5、2、4、1 颗。"
+        },
+        {
+          "en": "Makes the point that listing every distribution is hopeless, and promises both a step-by-step route and a clever shortcut later in the chapter.",
+          "zh": "书里直说「一个个列出来肯定不行」，并预告后面既会走一遍笨办法，也会揭开一个漂亮的巧解。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "distribution",
+          "zh": "分配方案"
+        },
+        {
+          "en": "identical objects",
+          "zh": "完全相同的物品"
+        }
+      ],
+      "teachHints": "groups、balls"
+    },
+    {
+      "id": "AOPS.CP.C13.S03",
+      "strand": "ch13",
+      "pages": [
+        193,
+        197
+      ],
+      "en": "13.3 A Step-by-Step Solution",
+      "zh": "13.3 一步步解出来",
+      "elaborations": [
+        {
+          "en": "Teaches the habit of shrinking a hard problem: with 4 kids, 0 candies gives 1 way and 1 candy gives 4 ways, but the casework for 3 candies already turns ugly.",
+          "zh": "先教「题太难就先做小的」：4 个孩子分 0 颗糖只有 1 种、分 1 颗有 4 种，可是到 3 颗糖时分类已经乱成一团。"
+        },
+        {
+          "en": "Shows it is fine to start over: cutting the number of kids instead works, since 2 kids give n+1 ways and 3 kids give (n+1)(n+2)/2 = C(n+2,2).",
+          "zh": "然后大方地推倒重来，改成减少孩子数：2 个孩子有 n+1 种，3 个孩子就是 (n+1)(n+2)/2，也就是 C(n+2,2)。"
+        },
+        {
+          "en": "Builds the 12-candy 4-kid answer as 91+78+66+...+3+1 = 455, then spots the whole chart is Pascal's Triangle tilted 45 degrees, so the answer is C(15,3) and in general C(n+k-1, k-1).",
+          "zh": "把 12 颗糖给 4 个孩子算成 91+78+66+…+3+1=455，再发现整张表就是歪了 45 度的帕斯卡三角，于是答案正好是 C(15,3)，一般式是 C(n+k-1, k-1)。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Pascal's Triangle",
+          "zh": "帕斯卡三角形（杨辉三角）"
+        },
+        {
+          "en": "combination",
+          "zh": "组合数"
+        },
+        {
+          "en": "generalize",
+          "zh": "推广到一般情形"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.CP.C13.S04",
+      "strand": "ch13",
+      "pages": [
+        198,
+        198
+      ],
+      "en": "13.4 A Clever Solution",
+      "zh": "13.4 一个巧妙的解法",
+      "elaborations": [
+        {
+          "en": "Turns the candy problem into a picture: 12 stars in a row plus 3 dividers, so (5,2,3,2) becomes five stars, a bar, two stars, a bar, three stars, a bar, two stars.",
+          "zh": "把发糖问题画成一排图：12 颗糖再插 3 块隔板，(5,2,3,2) 就是「5 颗｜2 颗｜3 颗｜2 颗」。"
+        },
+        {
+          "en": "Shows two dividers side by side means a kid gets nothing, so (7,0,1,4) and (0,0,12,0) are drawn just as easily as the even splits.",
+          "zh": "两块隔板挨在一起就代表某个孩子一颗也没有，所以 (7,0,1,4)、(0,0,12,0) 一样能画出来，不用另外分类。"
+        },
+        {
+          "en": "The insight: choosing a distribution is just arranging 15 symbols of which 3 are dividers, giving 15!/(12!3!) = C(15,3) = 455, and in general C(n+k-1, k-1).",
+          "zh": "关键一句：发糖等于排 15 个符号、其中 3 个是隔板，所以答案就是 15!/(12!3!) = C(15,3) = 455，一般式是 C(n+k-1, k-1)。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divider",
+          "zh": "隔板"
+        },
+        {
+          "en": "committee-forming argument",
+          "zh": "组队（选人）论证法"
+        }
+      ],
+      "teachHints": "balls、barModel、groups"
+    },
+    {
+      "id": "AOPS.CP.C13.S05",
+      "strand": "ch13",
+      "pages": [
+        199,
+        204
+      ],
+      "en": "13.5 The Identity",
+      "zh": "13.5 曲棍球棒恒等式",
+      "elaborations": [
+        {
+          "en": "Names the shape behind the candy chart: the terms of C(5,2) = C(4,1)+C(3,1)+C(2,1)+C(1,1), i.e. 10 = 4+3+2+1, sit on Pascal's Triangle in a hockey-stick shape.",
+          "zh": "给前面那张表的形状取名字：C(5,2)=C(4,1)+C(3,1)+C(2,1)+C(1,1)，也就是 10=4+3+2+1，这些数在帕斯卡三角里排成一根「曲棍球棒」。"
+        },
+        {
+          "en": "States and proves the Hockey Stick Identity, C(r,r)+C(r+1,r)+...+C(n,r) = C(n+1,r+1), by rewriting C(r,r) as C(r+1,r+1) and applying Pascal's Identity again and again.",
+          "zh": "给出并证明曲棍球棒恒等式 C(r,r)+C(r+1,r)+…+C(n,r)=C(n+1,r+1)：先把 C(r,r) 改写成 C(r+1,r+1)，再一次次用帕斯卡恒等式往下滚。"
+        },
+        {
+          "en": "Works two examples: C(3,3)+...+C(11,3) = C(12,4) = 495 straight off, and the awkward C(8,4)+...+C(15,4) = C(16,5) - C(8,5) = 4368 - 56 = 4312.",
+          "zh": "两个例题：C(3,3)+…+C(11,3) 直接等于 C(12,4)=495；起点不对的 C(8,4)+…+C(15,4) 则用 C(16,5)-C(8,5)=4368-56=4312 补齐再减掉。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Hockey Stick Identity",
+          "zh": "曲棍球棒恒等式"
+        },
+        {
+          "en": "Pascal's Identity",
+          "zh": "帕斯卡恒等式"
+        },
+        {
+          "en": "algebraic proof",
+          "zh": "代数证明"
+        }
+      ],
+      "teachHints": "dataTable、coordGrid"
+    },
+    {
+      "id": "AOPS.CP.C14.S02",
+      "strand": "ch14",
+      "pages": [
+        209,
+        210
+      ],
+      "en": "14.2 A Little Algebra",
+      "zh": "14.2 先用代数试试",
+      "elaborations": [
+        {
+          "en": "Defines a binomial (like x + 2y or z² − 3) and has you grind out (x + y)², (x + y)³, (x + y)⁴ and (x + y)⁵ by hand, one power built from the last.",
+          "zh": "先说清什么叫「二项式」（比如 x + 2y、z² − 3），然后老老实实手算 (x + y)²、(x + y)³、(x + y)⁴、(x + y)⁵，每一次都是拿上一次的结果再乘一遍。"
+        },
+        {
+          "en": "The payoff: strip away the x's and y's, look only at the coefficients — 1 / 1,1 / 1,2,1 / 1,3,3,1 / 1,4,6,4,1 / 1,5,10,10,5,1 — and Pascal's Triangle appears.",
+          "zh": "精彩的地方在最后：把 x、y 全擦掉，只看系数——1／1,1／1,2,1／1,3,3,1／1,4,6,4,1／1,5,10,10,5,1——摆成三角形，「老朋友」帕斯卡三角就冒出来了。"
+        },
+        {
+          "en": "The section teaches the habit of computing examples first and noticing a pattern, before asking why it's true.",
+          "zh": "这一节教的其实是一种做题习惯：先算几个例子、看出规律，再去问「凭什么」，别一上来就想证明。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "binomial",
+          "zh": "二项式"
+        },
+        {
+          "en": "expand",
+          "zh": "展开"
+        },
+        {
+          "en": "coefficient",
+          "zh": "系数"
+        },
+        {
+          "en": "Pascal's Triangle",
+          "zh": "帕斯卡三角（杨辉三角）"
+        }
+      ],
+      "teachHints": "dataTable、areaModel、groups"
+    },
+    {
+      "id": "AOPS.CP.C14.S03",
+      "strand": "ch14",
+      "pages": [
+        211,
+        212
+      ],
+      "en": "14.3 The Theorem",
+      "zh": "14.3 二项式定理",
+      "elaborations": [
+        {
+          "en": "Explains why the coefficients of (x + y)ⁿ are Row n of Pascal's Triangle: expanding means choosing x or y from each factor, so the coefficient of xⁿ⁻ᵏyᵏ counts those choices.",
+          "zh": "讲清楚为什么 (x + y)ⁿ 的系数正好是帕斯卡三角第 n 行：展开就是从每个括号里挑一个 x 或 y，所以 xⁿ⁻ᵏyᵏ 前面的数其实是在数「有几种挑法」。"
+        },
+        {
+          "en": "Shows it concretely with (x + y)³ = xxx + xxy + xyx + xyy + yxx + yxy + yyx + yyy: the coefficient 3 on x²y is just the 3 words xxy, xyx, yxx, i.e. 3!/(2!1!) = C(3,1).",
+          "zh": "用 (x + y)³ 硬摊开成 xxx + xxy + xyx + xyy + yxx + yxy + yyx + yyy 来看：x²y 前面的 3，就是 xxy、xyx、yxx 这三个「单词」，也就是 3!/(2!1!) = C(3,1)。"
+        },
+        {
+          "en": "States the Binomial Theorem — (x + y)ⁿ = C(n,0)xⁿ + C(n,1)xⁿ⁻¹y + ⋯ + C(n,n)yⁿ — and immediately says: don't memorize it, understand it.",
+          "zh": "最后给出二项式定理：(x + y)ⁿ = C(n,0)xⁿ + C(n,1)xⁿ⁻¹y + ⋯ + C(n,n)yⁿ，并且专门叮嘱一句「别背，要懂」，懂了才能用得又快又准。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Binomial Theorem",
+          "zh": "二项式定理"
+        },
+        {
+          "en": "binomial coefficient",
+          "zh": "二项式系数"
+        },
+        {
+          "en": "combination C(n,k)",
+          "zh": "组合数 C(n,k)"
+        }
+      ],
+      "teachHints": "groups、dataTable、areaModel"
+    },
+    {
+      "id": "AOPS.CP.C14.S04",
+      "strand": "ch14",
+      "pages": [
+        213,
+        213
+      ],
+      "en": "14.4 Applications of the Binomial Theorem",
+      "zh": "14.4 二项式定理的应用",
+      "elaborations": [
+        {
+          "en": "Pure practice: expand (x + y)⁷ into x⁷ + 7x⁶y + 21x⁵y² + 35x⁴y³ + 35x³y⁴ + 21x²y⁵ + 7xy⁶ + y⁷, writing the C(7,k) row first and computing after.",
+          "zh": "这一节全是练手：把 (x + y)⁷ 展开成 x⁷ + 7x⁶y + 21x⁵y² + 35x⁴y³ + 35x³y⁴ + 21x²y⁵ + 7xy⁶ + y⁷，先把 C(7,k) 一排写出来，再算数字。"
+        },
+        {
+          "en": "Teaches spotting what plays the role of x and y: (x + 3)⁴ uses y = 3 to give x⁴ + 12x³ + 54x² + 108x + 81, and (2z − 1)⁵ uses x = 2z, y = −1 to give 32z⁵ − 80z⁴ + 80z³ − 40z² + 10z − 1.",
+          "zh": "重点是看出谁当 x、谁当 y：(x + 3)⁴ 就是把 y 当成 3，得 x⁴ + 12x³ + 54x² + 108x + 81；(2z − 1)⁵ 是 x = 2z、y = −1，得 32z⁵ − 80z⁴ + 80z³ − 40z² + 10z − 1。书里专门加了警告——负号必须包进 y 里面。"
+        },
+        {
+          "en": "The hardest one targets a single term: the y⁸ term of (x + 2y²)⁶ needs 4 factors to give 2y², so it's C(6,4)x²(2y²)⁴ = 240x²y⁸ — the answer is 240.",
+          "zh": "最难的一题不用全展开，只盯一项：(x + 2y²)⁶ 里要凑出 y⁸，就得从 6 个括号里挑 4 个出 2y²，所以那一项是 C(6,4)x²(2y²)⁴ = 240x²y⁸，答案 240。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "expansion",
+          "zh": "展开式"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.CP.C14.S05",
+      "strand": "ch14",
+      "pages": [
+        214,
+        215
+      ],
+      "en": "14.5 Using the Binomial Theorem in Identities",
+      "zh": "14.5 用二项式定理证恒等式",
+      "elaborations": [
+        {
+          "en": "Uses the Binomial Theorem backwards as a proof tool: to show C(n,0) + C(n,1) + ⋯ + C(n,n) = 2ⁿ, just plug x = 1 and y = 1 into (x + y)ⁿ and all the x's and y's vanish.",
+          "zh": "这一节反过来用二项式定理来证明恒等式：要证 C(n,0) + C(n,1) + ⋯ + C(n,n) = 2ⁿ，只要在 (x + y)ⁿ 里把 x 和 y 都取 1，那些烦人的 x、y 就全没了，左边变成 2ⁿ。"
+        },
+        {
+          "en": "The real lesson is stated as a Concept: take a general expression with variables and plug in nice values to make the variables go away.",
+          "zh": "书里把真正的招式单独框出来：拿一个带字母的通用式子，代入几个「好看」的数，让字母自己消失——这才是要学的东西，恒等式只是演示。"
+        },
+        {
+          "en": "The exercises reuse the same trick — x = 1, y = −1 proves C(n,0) − C(n,1) + C(n,2) − ⋯ + (−1)ⁿC(n,n) = 0.",
+          "zh": "后面的练习还是这一招：取 x = 1、y = −1，就能证出 C(n,0) − C(n,1) + C(n,2) − ⋯ + (−1)ⁿC(n,n) = 0，每题就问一句「x、y 该取几」。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "identity",
+          "zh": "恒等式"
+        },
+        {
+          "en": "substitution",
+          "zh": "代入（赋值）"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.CP.C15.S02",
+      "strand": "ch15",
+      "pages": [
+        219,
+        230
+      ],
+      "en": "15.2 Problems",
+      "zh": "15.2 挑战题实战",
+      "elaborations": [
+        {
+          "en": "The book's finale works six hard problems that mix every earlier tool - the 64-player tournament is first solved the slow way (32+16+8+4+2+1=63) and then in one line: 64 players, 1 champion, 63 losers, so 63 games.",
+          "zh": "全书最后一节把前面所有工具混在一起，拿六道难题练手——64 人淘汰赛先老老实实一轮轮加 32+16+8+4+2+1=63，再一句话点破：64 人只剩 1 个冠军，就有 63 个输家，每场淘汰一人，所以正好 63 场。"
+        },
+        {
+          "en": "The recurring lesson is to switch viewpoints: instead of counting all ways to split 15 students into 5 groups of 3, look from Linda's seat - C(14,2)=91 pairs can join her and only 1 is Martin-and-Nancy, so the answer is 1/91.",
+          "zh": "这一节反复强调「换个角度看」：15 个人分成 5 组每组 3 人，不必去数所有分法，站在 Linda 的位置上看，能陪她的两人组共 C(14,2)=91 种，只有 1 种是 Martin 和 Nancy，答案就是 1/91。"
+        },
+        {
+          "en": "It also warns about overcounting and rewards double-checking: the six-points-on-a-circle problem gives 36/120 = 3/10 two different ways, and the polyhedron problem lands on 840 interior segments both by direct count and by complementary counting.",
+          "zh": "它还特别提醒「别重复数」，并且鼓励一题两解互相验证：圆上六点那题两种算法都得 36/120 = 3/10，多面体那题正着数和用补集数都得到 840 条内部线段。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "single-elimination tournament",
+          "zh": "单败淘汰赛"
+        },
+        {
+          "en": "great rhombicuboctahedron",
+          "zh": "大斜方截半立方体"
+        },
+        {
+          "en": "face diagonal",
+          "zh": "面对角线"
+        }
+      ],
+      "teachHints": "groups、shapeCircle、dataTable"
+    }
+  ]
+}

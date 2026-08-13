@@ -20,6 +20,11 @@ node_modules/
 # 书籍原文件（版权材料，只留本地）。必须锚定根目录：不带斜杠会连
 # data/curriculum/books/（书籍课程数据，要进 git）一起忽略掉。
 /books/
+
+# 每小节的讲课参考：来自版权教材（文字层的书是原文，扫描件是提要），
+# 本仓库公开，所以只留本地、不入库。缺了也能正常讲课，只是讲法不再贴着
+# 原书走。有书的人用 tools/books/ 几分钟就能重新生成，见那里的 README。
+data/curriculum/books/text/
 # 构建期工具的依赖
 tools/books/node_modules/
 tools/books/package-lock.json

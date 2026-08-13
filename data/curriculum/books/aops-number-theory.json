@@ -1,0 +1,2492 @@
+{
+  "type": "book",
+  "bookId": "aops-number-theory",
+  "grade": 7,
+  "title": {
+    "en": "Introduction to Number Theory — Art of Problem Solving",
+    "zh": "AoPS 数论入门"
+  },
+  "short": {
+    "en": "AoPS Number Theory",
+    "zh": "AoPS 数论入门"
+  },
+  "source": {
+    "kind": "book",
+    "publisher": "AoPS Incorporated",
+    "authors": "Mathew Crawford",
+    "isbn": "978-1-934124-12-3",
+    "version": "AoPS · 2nd ed.",
+    "url": "https://artofproblemsolving.com/store/book/intro-number-theory",
+    "label": "Intro to Number Theory · Art of Problem Solving · 2nd ed."
+  },
+  "teachStyle": {
+    "zh": "这本书的教学风格是「先做后讲」（发现式学习）：先抛出具体的小问题让孩子自己动手试，再带着孩子发现规律。数论的题目就是和数字玩游戏——讲课时保持这种探索感：第一步先给一个能上手玩的数字问题，讲解围绕「我们一起发现了规律」展开，最后才总结规则。",
+    "en": "This book teaches by discovery: pose a concrete little problem first, let the child try it, then guide them to the pattern. Number theory is playing games with numbers — keep that spirit: open with a numeric puzzle the child can poke at, unfold the lesson as 'we discovered the rule together', and state the rule only at the end."
+  },
+  "strandDefs": [
+    [
+      "ch01",
+      "第1章 · 整数基础",
+      "Ch 1 · Integers: The Basics"
+    ],
+    [
+      "ch02",
+      "第2章 · 质数与合数",
+      "Ch 2 · Primes & Composites"
+    ],
+    [
+      "ch03",
+      "第3章 · 倍数与因数",
+      "Ch 3 · Multiples & Divisors"
+    ],
+    [
+      "ch04",
+      "第4章 · 质因数分解",
+      "Ch 4 · Prime Factorization"
+    ],
+    [
+      "ch05",
+      "第5章 · 因数问题",
+      "Ch 5 · Divisor Problems"
+    ],
+    [
+      "ch06",
+      "第6章 · 特殊的数",
+      "Ch 6 · Special Numbers"
+    ],
+    [
+      "ch07",
+      "第7章 · 整数代数",
+      "Ch 7 · Algebra with Integers"
+    ],
+    [
+      "ch08",
+      "第8章 · 进位制",
+      "Ch 8 · Base Numbers"
+    ],
+    [
+      "ch09",
+      "第9章 · 进位制运算",
+      "Ch 9 · Base Number Arithmetic"
+    ],
+    [
+      "ch10",
+      "第10章 · 个位数字",
+      "Ch 10 · Units Digits"
+    ],
+    [
+      "ch11",
+      "第11章 · 小数与分数",
+      "Ch 11 · Decimals & Fractions"
+    ],
+    [
+      "ch12",
+      "第12章 · 同余入门",
+      "Ch 12 · Intro to Modular Arithmetic"
+    ],
+    [
+      "ch13",
+      "第13章 · 整除判定法",
+      "Ch 13 · Divisibility Rules"
+    ],
+    [
+      "ch14",
+      "第14章 · 线性同余",
+      "Ch 14 · Linear Congruences"
+    ],
+    [
+      "ch15",
+      "第15章 · 数感",
+      "Ch 15 · Number Sense"
+    ]
+  ],
+  "bigIdeas": [
+    {
+      "strand": "ch01",
+      "en": "Your first tools in the world of integers: multiples, divisibility, divisors — and the language mathematicians use for them.",
+      "zh": "整数世界的第一批工具：倍数、整除、因数——以及数学家描述它们的语言。"
+    },
+    {
+      "strand": "ch02",
+      "en": "Primes are the atoms of the integers: meet them, find them, and learn to test for them.",
+      "zh": "质数是整数世界的「原子」：认识它们、筛出它们、学会判断一个数是不是质数。"
+    },
+    {
+      "strand": "ch03",
+      "en": "Look at two numbers together: common divisors, common multiples, remainders — and Euclid's 2000-year-old algorithm.",
+      "zh": "把两个数放在一起看：公因数、公倍数、余数，还有欧几里得两千年前的算法。"
+    },
+    {
+      "strand": "ch04",
+      "en": "A prime factorization is an integer's ID card — divisors, multiples, and lowest terms can all be read straight off it.",
+      "zh": "质因数分解是每个整数的「身份证」——因数、倍数、约分都能直接从这张证上读出来。"
+    },
+    {
+      "strand": "ch05",
+      "en": "Count and multiply all the divisors of a number without listing them — power moves with prime factorizations.",
+      "zh": "不用一个个列，就能数出、乘出一个数的所有因数——质因数分解的高级玩法。"
+    },
+    {
+      "strand": "ch06",
+      "en": "A zoo of numbers: special primes, factorials, perfect numbers, palindromes — every fun number hides structure.",
+      "zh": "数的动物园：特殊质数、阶乘、完全数、回文数——每个好玩的数背后都藏着结构。"
+    },
+    {
+      "strand": "ch07",
+      "en": "Look at integers through algebra: set up expressions and equations to crack number puzzles.",
+      "zh": "用代数的眼睛看整数：设未知数、列式子，把数字谜题变成能解的方程。"
+    },
+    {
+      "strand": "ch08",
+      "en": "Base ten isn't the only way to write numbers: bundle differently and the same number wears different outfits in different bases.",
+      "zh": "十进制不是唯一的写法：换一种「打捆」方式，同一个数在不同进位制里换上不同的衣服。"
+    },
+    {
+      "strand": "ch09",
+      "en": "You can add, subtract, multiply, and divide in any base — same rules as base ten, just a different point where you carry.",
+      "zh": "任何进位制里都能加减乘除——规则和十进制一模一样，只是「满几进一」变了。"
+    },
+    {
+      "strand": "ch10",
+      "en": "Watch only the units digit: you can often know the last digit of a huge calculation without doing it.",
+      "zh": "只盯住个位：很多大计算的最后一位，不用算完整道题就能知道。"
+    },
+    {
+      "strand": "ch11",
+      "en": "Which fractions terminate and which repeat — the answer hides in the denominator's prime factors.",
+      "zh": "什么样的分数是有限小数、什么样的会循环——答案藏在分母的质因数里。"
+    },
+    {
+      "strand": "ch12",
+      "en": "Modular arithmetic is number theory's microscope: keep only remainders, and weekdays, cycles, and divisibility all get simpler.",
+      "zh": "同余是数论的显微镜：只留下余数，星期几、循环规律、整除问题一下子都变简单。"
+    },
+    {
+      "strand": "ch13",
+      "en": "Divisibility rules aren't magic — with congruences you can derive every one of them yourself.",
+      "zh": "整除口诀不是魔法——用同余可以把每一条自己推出来。"
+    },
+    {
+      "strand": "ch14",
+      "en": "Solve equations in the world of remainders: modular inverses, linear congruences, and the Chinese Remainder Theorem.",
+      "zh": "在余数的世界里解方程：模逆元、线性同余，还有「韩信点兵」的中国剩余定理。"
+    },
+    {
+      "strand": "ch15",
+      "en": "Number sense means seeing the friendly shape of a number: familiar factors, algebraic tricks, and clever regrouping make mental math light.",
+      "zh": "数感 = 看见数字的「好形状」：熟悉的因数、代数变形、聪明的拆法，让心算变轻盈。"
+    }
+  ],
+  "items": [
+    {
+      "id": "AOPS.NT.C01.S02",
+      "strand": "ch01",
+      "pages": [
+        3,
+        6
+      ],
+      "en": "1.2 Making Integers Out of Integers",
+      "zh": "1.2 用整数造整数",
+      "elaborations": [
+        {
+          "en": "Uses jumps on a number line to show 2+4=6, 2-(-4)=6, 2·(-4)=-8 and 2^3=8 all land on integers, so addition, subtraction, multiplication and whole-number powers are all just 'fast counting'.",
+          "zh": "用数轴上跳格子解释 2+4=6、2-(-4)=6、2×(-4)=-8、2³=8 为什么结果都还是整数——加、减、乘、乘方说白了就是「快速数数」。"
+        },
+        {
+          "en": "Problem 1.2 lists 1·1=1 all the way to 10·10=100 to find every perfect square under 100, and concludes the largest one is 81.",
+          "zh": "例题 1.2 从 1×1=1 一路列到 10×10=100，把 100 以内的完全平方数全找出来，得出最大的那个是 81。"
+        },
+        {
+          "en": "Defines perfect square (0, 1, 4, 9, ... 100), perfect cube (0, 1, 8, 27, ... 512) and perfect power, with 2^5=32 and 3^4=81 as examples of the last one.",
+          "zh": "给出完全平方数（0、1、4、9…100）、完全立方数（0、1、8、27…512）和「完全幂」的定义，2⁵=32、3⁴=81 就是完全幂的例子。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "perfect square",
+          "zh": "完全平方数"
+        },
+        {
+          "en": "perfect cube",
+          "zh": "完全立方数"
+        },
+        {
+          "en": "perfect power",
+          "zh": "完全幂"
+        }
+      ],
+      "teachHints": "numberLine、groups、areaGrid"
+    },
+    {
+      "id": "AOPS.NT.C01.S03",
+      "strand": "ch01",
+      "pages": [
+        7,
+        10
+      ],
+      "en": "1.3 Integer Multiples",
+      "zh": "1.3 整数的倍数",
+      "elaborations": [
+        {
+          "en": "Starts by counting 0, 4, 8, 12, 16, ... and writes 12=3·4, 28=7·4, 44=11·4, then uses division to answer 'how many 4's were added?'",
+          "zh": "先从 0、4、8、12、16… 这样每隔四个数一次，写出 12=3×4、28=7×4、44=11×4，再用除法反过来算「一共加了几个 4」。"
+        },
+        {
+          "en": "Counting by 2's both forwards and backwards gives ... -4, -2, 0, 2, 4 ..., leading to the definition: a multiple of an integer is that integer times any integer.",
+          "zh": "按 2 正着数、也倒着数，得到 …-4、-2、0、2、4…，从而给出定义：一个整数的倍数，就是它乘以任意整数的积。"
+        },
+        {
+          "en": "The test is always division: 52/2=26 and 60/2=30 are in the list but 75/2=37.5 is not, and among the candidates 70, 100, 110, 170, 490, 950 are the multiples of 10.",
+          "zh": "判断方法就是做除法：52÷2=26、60÷2=30 在表里，75÷2=37.5 就不在；同样挑出 70、100、110、170、490、950 才是 10 的倍数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "multiple",
+          "zh": "倍数"
+        }
+      ],
+      "teachHints": "numberLine、hundredChart、groups"
+    },
+    {
+      "id": "AOPS.NT.C01.S04",
+      "strand": "ch01",
+      "pages": [
+        11,
+        13
+      ],
+      "en": "1.4 Divisibility of Integers",
+      "zh": "1.4 整除",
+      "elaborations": [
+        {
+          "en": "Problem 1.6 works out ten quotients — 4/2=2, 5/2=2½, -35/7=-5, -40/7=-5 5/7, -30/-10=3 — to show that dividing integers only sometimes gives an integer.",
+          "zh": "例题 1.6 一口气算了十个式子：4/2=2、5/2=2½、-35/7=-5、-40/7=-5⅐×5（即 -5 又 5/7）、-30/-10=3，让孩子看到整数相除有时是整数、有时不是。"
+        },
+        {
+          "en": "Defines 'm is divisible by n' as 'm/n is an integer', then multiplies m/n = k by n to get m = nk, proving that 'divisible by' and 'is a multiple of' say exactly the same thing.",
+          "zh": "定义「m 能被 n 整除」就是 m/n 是整数；再把 m/n=k 两边乘 n 得到 m=nk，说明「m 能被 n 整除」和「m 是 n 的倍数」根本是同一件事。"
+        },
+        {
+          "en": "Warns about zero from both sides: 0·n=0 so 0 is a multiple of every integer, but n/0 is undefined so no integer is divisible by 0.",
+          "zh": "特别提醒 0 的两面：0×n=0，所以 0 是任何整数的倍数；但 n/0 没有意义，所以没有任何整数能被 0 整除。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divisible",
+          "zh": "能被整除"
+        },
+        {
+          "en": "quotient",
+          "zh": "商"
+        }
+      ],
+      "teachHints": "groups、numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C01.S05",
+      "strand": "ch01",
+      "pages": [
+        14,
+        17
+      ],
+      "en": "1.5 Divisors",
+      "zh": "1.5 因数",
+      "elaborations": [
+        {
+          "en": "Problem 1.7 divides 12 by 1, 2, 3, 4, 6, 12 and rewrites the same facts as 12=12·1=6·2=4·3, showing 'divisor', 'factor', 'multiple' and 'divides' are four names for one situation.",
+          "zh": "例题 1.7 把 12 依次除以 1、2、3、4、6、12，又写成 12=12×1=6×2=4×3，说明「因数」「约数」「倍数」「整除」其实是同一件事的四种说法。"
+        },
+        {
+          "en": "Problem 1.8 lists the divisors of 6 (1, 2, 3, 6) and of 18 (1, 2, 3, 6, 9, 18), then proves the chain rule with (b/a)·(c/b)=c/a: if a divides b and b divides c, then a divides c.",
+          "zh": "例题 1.8 找出 6 的因数 1、2、3、6 和 18 的因数 1、2、3、6、9、18，再用 (b/a)×(c/b)=c/a 证明：a 整除 b、b 整除 c，那 a 一定整除 c。"
+        },
+        {
+          "en": "Gives a search shortcut — only test 1 through m, since 0 < 14/36 < 1 means 36 cannot divide 14 — and notes negative divisors count too, because 6/(-2)=-3.",
+          "zh": "还教了找因数的窍门：只用试 1 到 m（因为 0<14/36<1，36 不可能整除 14）；也提醒负数照样能当因数，比如 6/(-2)=-3。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divisor",
+          "zh": "因数（约数）"
+        },
+        {
+          "en": "factor",
+          "zh": "因数"
+        },
+        {
+          "en": "proper divisor",
+          "zh": "真因数"
+        }
+      ],
+      "teachHints": "areaGrid、groups、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C01.S06",
+      "strand": "ch01",
+      "pages": [
+        18,
+        19
+      ],
+      "en": "1.6 Using Divisors",
+      "zh": "1.6 用因数解题",
+      "elaborations": [
+        {
+          "en": "Turns '21 people at a party, 63 cupcakes, can everyone get the same number?' into the divisor question 'Is 21 a divisor of 63?' — yes, since 63/21=3, so each person gets 3 cupcakes.",
+          "zh": "把「21 个人分 63 个纸杯蛋糕，能不能每人分得一样多」翻译成「21 是不是 63 的因数」——63÷21=3，所以可以，每人 3 个。"
+        },
+        {
+          "en": "Problem 1.10 uses 30 toothpicks: the possible numbers of equal-sized piles are exactly the positive divisors of 30 — 1, 2, 3, 5, 6, 10, 15 and 30.",
+          "zh": "例题 1.10 用 30 根牙签摆堆：能摆成几堆（每堆根数一样），答案正好是 30 的全部正因数——1、2、3、5、6、10、15、30。"
+        },
+        {
+          "en": "The stated lesson is method rather than arithmetic: begin every word problem by translating it into the language of math, and keep your work organized so mistakes are easy to find.",
+          "zh": "这节强调的是方法而不是算术：做应用题先把话翻译成数学语言；而且过程写整齐，错了才好回头检查。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "groups、areaGrid、barModel"
+    },
+    {
+      "id": "AOPS.NT.C01.S07",
+      "strand": "ch01",
+      "pages": [
+        20,
+        20
+      ],
+      "en": "1.7 Mathematical Symbols",
+      "zh": "1.7 数学符号",
+      "elaborations": [
+        {
+          "en": "Introduces the bar notation m | n meaning 'm is a divisor of n', with 6 | 18 as the example, and m ∤ n for 'is not a divisor', with 7 ∤ 25.",
+          "zh": "引入竖线记号 m | n，表示「m 是 n 的因数」，例子是 6 | 18；不整除就写成 m ∤ n，例子是 7 ∤ 25。"
+        },
+        {
+          "en": "Shows why symbols pay off: 18^3/3^6 = 8 takes a whole spoken sentence in words, and Section 1.5's result shrinks to 'If a | b and b | c, then a | c.'",
+          "zh": "说明符号为什么省事：18³/3⁶=8 用文字念要念一整句；1.5 节那条结论也缩成一行「若 a | b 且 b | c，则 a | c」。"
+        },
+        {
+          "en": "Direction matters — the divisor goes on the left — so 3 | 84 and 12 | 72 are true while 9 | 3 and 18 | 2 are false.",
+          "zh": "方向千万别反：因数写在左边，所以 3 | 84、12 | 72 是对的，而 9 | 3、18 | 2 就是错的。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "m | n (m divides n)",
+          "zh": "整除记号 m | n（m 整除 n）"
+        },
+        {
+          "en": "m ∤ n (m does not divide n)",
+          "zh": "不整除记号 m ∤ n"
+        }
+      ],
+      "teachHints": "none、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C02.S02",
+      "strand": "ch02",
+      "pages": [
+        25,
+        27
+      ],
+      "en": "2.2 Primes and Composites",
+      "zh": "2.2 质数与合数",
+      "elaborations": [
+        {
+          "en": "Defines a prime as a natural number p > 1 whose only positive divisors are 1 and p, then tests every integer from 2 to 13 one at a time to pull out 2, 3, 5, 7, 11, 13.",
+          "zh": "「质数」就是大于 1、除了 1 和它自己再没有别的因数的数；书里把 2 到 13 一个一个试过去，挑出 2、3、5、7、11、13。"
+        },
+        {
+          "en": "A composite c is any natural number with an extra divisor, and can always be written as c = ab with both factors between 1 and c — shown with 4 = 2·2, 6 = 2·3, 9 = 3·3, 12 = 2·6, 14 = 2·7, 15 = 3·5.",
+          "zh": "合数就是还有别的因数的数，一定能拆成 c = ab、两个因数都夹在 1 和它自己中间，书里用 4 = 2×2、6 = 2×3、9 = 3×3、14 = 2×7、15 = 3×5 演示。"
+        },
+        {
+          "en": "Warns that 1 is the only natural number that is neither prime nor composite, because its one and only positive divisor is itself.",
+          "zh": "特别提醒：1 既不是质数也不是合数，因为它只有「自己」这一个因数，是个很特别的数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "prime number",
+          "zh": "质数（素数）"
+        },
+        {
+          "en": "composite number",
+          "zh": "合数"
+        },
+        {
+          "en": "positive divisor",
+          "zh": "正因数"
+        }
+      ],
+      "teachHints": "groups、areaGrid、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C02.S03",
+      "strand": "ch02",
+      "pages": [
+        28,
+        30
+      ],
+      "en": "2.3 Identifying Primes I",
+      "zh": "2.3 判断质数（一）",
+      "elaborations": [
+        {
+          "en": "Walks the full Sieve of Eratosthenes on a grid of 2 to 100: circle 2 and cross out its larger multiples, then circle 3, then 5, then 7 — by the time 7 comes up, only 49, 77 and 91 are still left to cross out.",
+          "zh": "在 2 到 100 的方格表上完整走一遍「埃氏筛」：先圈 2、划掉 2 的倍数，再圈 3、圈 5、圈 7；轮到 7 的时候只剩 49、77、91 还没被划掉。"
+        },
+        {
+          "en": "The insight it wants: the circled survivors are prime and the crossed-out ones composite, because the crossing-out has already tested each number against every integer between 1 and itself.",
+          "zh": "要孩子悟到的点是：圈出来的都是质数、划掉的都是合数——因为划的过程已经替每个数试过 1 和它自己之间的所有数了。"
+        },
+        {
+          "en": "Says outright that understanding how the sieve works matters far more than remembering, or even spelling, Eratosthenes.",
+          "zh": "书里直接讲：搞懂筛法怎么跑，比记住「埃拉托色尼」怎么念、怎么拼重要得多。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Sieve of Eratosthenes",
+          "zh": "埃拉托色尼筛法（埃氏筛）"
+        },
+        {
+          "en": "multiple",
+          "zh": "倍数"
+        }
+      ],
+      "teachHints": "hundredChart、numberLine、groups"
+    },
+    {
+      "id": "AOPS.NT.C02.S04",
+      "strand": "ch02",
+      "pages": [
+        31,
+        35
+      ],
+      "en": "2.4 Identifying Primes II",
+      "zh": "2.4 判断质数（二）",
+      "elaborations": [
+        {
+          "en": "Notices from the sieve that the smallest composite with no prime divisor below 2, 3, 5, 7 is 4, 9, 25, 49, guesses the pattern p², then proves it: both factors of such a composite must be at least p, so the smallest is p·p.",
+          "zh": "从筛法里看出：没有比 2、3、5、7 更小质因数的最小合数分别是 4、9、25、49，于是猜出规律 p²，再证明——这种合数的两个因数都不小于 p，所以最小就是 p×p。"
+        },
+        {
+          "en": "Turns that into the shortcut rule stated in the book: if a natural number n > 1 has no prime divisor less than or equal to √n, then n is prime.",
+          "zh": "由此得到书上的偷懒法则：一个大于 1 的数 n，如果没有小于等于 √n 的质因数，它就是质数。"
+        },
+        {
+          "en": "Applies the rule to 209 (14² < 209 < 15², so test primes up to 13; 11 divides 209, composite) and to 311 (17² < 311 < 18², test up to 17; none of 2, 3, 5, 7, 11, 13, 17 divide it, so prime).",
+          "zh": "拿 209 试刀（14² < 209 < 15²，只需查到 13，11 能整除，所以是合数），再拿 311 试（查到 17 为止，2、3、5、7、11、13、17 都不行，所以是质数）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "smallest prime divisor",
+          "zh": "最小质因数"
+        },
+        {
+          "en": "square root",
+          "zh": "平方根"
+        },
+        {
+          "en": "perfect square p²",
+          "zh": "完全平方数 p²"
+        }
+      ],
+      "teachHints": "areaGrid、hundredChart、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C03.S02",
+      "strand": "ch03",
+      "pages": [
+        39,
+        40
+      ],
+      "en": "3.2 Common Divisors",
+      "zh": "3.2 公因数",
+      "elaborations": [
+        {
+          "en": "Teaches common divisors by listing each number's divisors and picking out what both lists share — divisors of 20 (1, 2, 4, 5, 10, 20) and of 30 (1, 2, 3, 5, 6, 10, 15, 30) overlap at 1, 2, 5, 10.",
+          "zh": "这一节教「公因数」：把两个数的因数各列一张表，再挑出两张表都有的。比如 20 的因数是 1、2、4、5、10、20，30 的因数是 1、2、3、5、6、10、15、30，共有的就是 1、2、5、10。"
+        },
+        {
+          "en": "Turns a word problem into a divisor problem: Mike's 24 red and 36 green balls go into same-size single-color boxes, so the box size must divide both 24 and 36 — giving 2, 3, 4, 6, 12 once \"at least 2 balls\" rules out 1.",
+          "zh": "还教怎么把应用题翻译成数学题：Mike 有 24 个红球、36 个绿球，每盒装一样多且同色，那每盒的个数必须同时整除 24 和 36；再加上「每盒至少 2 个」这个条件，答案就是 2、3、4、6、12。"
+        },
+        {
+          "en": "The book's style here is deliberate: it poses the problems first, defines \"common divisor\" only afterwards, and says it is often best to learn a new concept by thinking about problems.",
+          "zh": "书的路子很特别——先甩题目，做完了才给「公因数」的定义，还专门写了一句：学新概念最好的办法就是先从题目里琢磨。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "common divisor",
+          "zh": "公因数（公约数）"
+        },
+        {
+          "en": "positive divisor",
+          "zh": "正因数"
+        }
+      ],
+      "teachHints": "groups、balls、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C03.S03",
+      "strand": "ch03",
+      "pages": [
+        41,
+        42
+      ],
+      "en": "3.3 Greatest Common Divisors (GCDs)",
+      "zh": "3.3 最大公因数",
+      "elaborations": [
+        {
+          "en": "Defines the greatest common divisor as the largest of the common divisors — gcd(12, 18) = 6 read off the divisor lists — and introduces the notation gcd(m, n), warning that GCF means the same thing as GCD.",
+          "zh": "这一节定义「最大公因数」：公因数里最大的那个。列出 12 和 18 的因数表就能直接读出 gcd(12, 18) = 6；同时教了 gcd(m, n) 这个写法，并提醒 GCF 和 GCD 说的是同一回事。"
+        },
+        {
+          "en": "Introduces relatively prime (coprime) numbers — pairs whose only common positive divisor is 1, such as gcd(13, 8) = 1 and gcd(23, 36) = 1.",
+          "zh": "还引入了「互质」：两个数只有 1 这一个公因数，比如 gcd(13, 8) = 1、gcd(23, 36) = 1，书上说 relatively prime 和 coprime 是一个意思。"
+        },
+        {
+          "en": "Problem 3.4 is solved by reasoning, not brute force: among 6, 8, 10, 15, 21, 25 all three even numbers must pair with odd ones, 6 shares 3 with 15 and 21 so 6 goes with 25, gcd(10, 15) = 5 forces 10 with 21, leaving 8 with 15.",
+          "zh": "第 3.4 题不是硬试出来的，是推出来的：6、8、10、15、21、25 里三个偶数必须各配一个奇数；6 和 15、21 都有公因数 3，所以 6 只能配 25；gcd(10, 15) = 5 所以 10 配 21；剩下 8 配 15。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "greatest common divisor (GCD)",
+          "zh": "最大公因数"
+        },
+        {
+          "en": "greatest common factor (GCF)",
+          "zh": "最大公因子（同 GCD）"
+        },
+        {
+          "en": "relatively prime",
+          "zh": "互质"
+        },
+        {
+          "en": "coprime",
+          "zh": "互素（与互质同义）"
+        },
+        {
+          "en": "gcd(m, n) notation",
+          "zh": "gcd(m, n) 记号"
+        }
+      ],
+      "teachHints": "dataTable、groups、balls"
+    },
+    {
+      "id": "AOPS.NT.C03.S04",
+      "strand": "ch03",
+      "pages": [
+        43,
+        45
+      ],
+      "en": "3.4 Common Multiples",
+      "zh": "3.4 公倍数",
+      "elaborations": [
+        {
+          "en": "Builds common multiples from two real lists — multiples of 4 (4, 8, 12, …, 40) and of 6 (6, 12, 18, …, 60) share 12, 24, 36 — then defines the LCM as the smallest positive common multiple, here 12.",
+          "zh": "这一节用两串真实的数搭出「公倍数」：4 的倍数 4、8、12…40 和 6 的倍数 6、12、18…60，共有的是 12、24、36；最小的那个 12 就是「最小公倍数 LCM」。"
+        },
+        {
+          "en": "Teaches a faster way than listing both lists: to get lcm[9, 24], test only multiples of 24 — 24 and 48 are not multiples of 9, but 72 is, so the LCM is 72.",
+          "zh": "还教了比「两串都列」更快的招：求 9 和 24 的最小公倍数，只查 24 的倍数就行——24 不是 9 的倍数、48 也不是、72 是，所以答案 72。"
+        },
+        {
+          "en": "For three numbers the key insight is that any common multiple of 8, 12, 14 must already appear among the common multiples of 8 and 12 (24, 48, 72, 96, 120, 144, 168, …), and 168 is the first that 14 divides.",
+          "zh": "三个数一起求时的关键想法是：8、12、14 的公倍数一定先出现在 8 和 12 的公倍数表里（24、48、72、96、120、144、168…），从中找第一个 14 的倍数，就是 168。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "common multiple",
+          "zh": "公倍数"
+        },
+        {
+          "en": "least common multiple (LCM)",
+          "zh": "最小公倍数"
+        },
+        {
+          "en": "lcm[m, n] notation",
+          "zh": "lcm[m, n] 记号"
+        }
+      ],
+      "teachHints": "numberLine、dataTable、groups"
+    },
+    {
+      "id": "AOPS.NT.C03.S05",
+      "strand": "ch03",
+      "pages": [
+        46,
+        49
+      ],
+      "en": "3.5 Remainders",
+      "zh": "3.5 余数",
+      "elaborations": [
+        {
+          "en": "Starts by writing 10 through 16 as 3·q + r with r equal to 0, 1, or 2 (10 = 3·3+1, 12 = 3·4+0, 16 = 3·5+1), then uses a number line to show the multiples of 3 plus 0, 1, or 2 cover every integer exactly once.",
+          "zh": "开头让孩子把 10 到 16 都写成 3·商 + 余数，余数只能是 0、1、2（10 = 3·3+1，12 = 3·4+0，16 = 3·5+1）；再用数轴说明：3 的倍数加上 0、1 或 2，正好不重不漏地盖住每一个整数。"
+        },
+        {
+          "en": "That discovery becomes the Division Theorem: for any integer a and positive integer b there is exactly one pair q and r with a = bq + r and 0 ≤ r < b, naming a the dividend, b the divisor, q the quotient, r the remainder.",
+          "zh": "这个发现就是「带余除法定理」：给定整数 a 和正整数 b，一定有且只有一对 q 和 r 使 a = bq + r 且 0 ≤ r < b。书上把 a 叫被除数、b 叫除数、q 叫商、r 叫余数（并提醒这里的 divisor 和书里别处的「因数」含义不同）。"
+        },
+        {
+          "en": "Applies it to counting problems by solving inequalities: the greatest three-digit number of the form 11q + 4 comes from 11q + 4 < 1000, so q = 90 and n = 994; and 200 ≤ 8q + 5 ≤ 300 gives 12 such integers.",
+          "zh": "然后用它来数数：求最大的三位数且被 11 除余 4，就解 11q + 4 < 1000，得 q = 90、n = 994；又比如 200 ≤ 8q + 5 ≤ 300，算出这样的整数共有 12 个。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Division Theorem (Division Algorithm)",
+          "zh": "带余除法定理（除法算法）"
+        },
+        {
+          "en": "dividend",
+          "zh": "被除数"
+        },
+        {
+          "en": "quotient",
+          "zh": "商"
+        },
+        {
+          "en": "remainder",
+          "zh": "余数"
+        }
+      ],
+      "teachHints": "numberLine、groups、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C03.S06",
+      "strand": "ch03",
+      "pages": [
+        50,
+        52
+      ],
+      "en": "3.6 Multiples, Divisors, and Arithmetic",
+      "zh": "3.6 倍数因数的运算性质",
+      "elaborations": [
+        {
+          "en": "Shows that adding two multiples of 5 keeps them multiples of 5 by rewriting each sum as 5 times something — 15 + 55 = 3·5 + 11·5 = (3 + 11)·5 = 14·5 = 70 — and then generalizes to 5a + 5b = 5(a + b).",
+          "zh": "这一节证明「5 的倍数相加还是 5 的倍数」，办法是把每个数都写成 5 乘一个数：15 + 55 = 3·5 + 11·5 = (3+11)·5 = 14·5 = 70；再一般化成 5a + 5b = 5(a + b)。"
+        },
+        {
+          "en": "Repeats the same factoring move for differences of multiples of 6 — 132 − 108 = 22·6 − 18·6 = (22 − 18)·6 = 24 — and for any n, giving an + bn = (a + b)n and an − bn = (a − b)n.",
+          "zh": "减法用同一招：132 − 108 = 22·6 − 18·6 = (22−18)·6 = 24；换成任意的 n 就是 an + bn = (a+b)n 和 an − bn = (a−b)n，都还是 n 的倍数。"
+        },
+        {
+          "en": "Ends with the rule stated three ways: sums and differences of two multiples of n are multiples of n; if n | a and n | b then n | (a + b) and n | (a − b); a common divisor of two integers also divides their sum and their difference.",
+          "zh": "最后把同一条结论换三种说法：两个 n 的倍数相加相减还是 n 的倍数；若 n | a 且 n | b，则 n | (a+b)、n | (a−b)；两个数的公因数，也一定整除它们的和与差。这条正是下一节欧几里得算法的地基。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel、groups、barModel"
+    },
+    {
+      "id": "AOPS.NT.C03.S07",
+      "strand": "ch03",
+      "pages": [
+        53,
+        59
+      ],
+      "en": "3.7 The Euclidean Algorithm",
+      "zh": "3.7 欧几里得算法",
+      "elaborations": [
+        {
+          "en": "Uses the previous section's fact to prove gcd(m, n) = gcd(m − n, n), first concretely with 270 + 720 = 990 showing gcd(990, 720) = gcd(270, 720) without listing any divisors.",
+          "zh": "这一节把上一节的结论用起来，证明 gcd(m, n) = gcd(m − n, n)。先拿具体数字演示：因为 270 + 720 = 990，所以不用列任何因数就能断定 gcd(990, 720) = gcd(270, 720)。"
+        },
+        {
+          "en": "Repeating that subtraction is the Euclidean algorithm: gcd(990, 720) = gcd(270, 720) = gcd(270, 450) = gcd(270, 180) = gcd(90, 180) = gcd(90, 90) = 90; the same run gives gcd(819, 504) = 63.",
+          "zh": "一直这样减下去就是「欧几里得算法」：gcd(990, 720) = gcd(270, 720) = gcd(270, 450) = gcd(270, 180) = gcd(90, 180) = gcd(90, 90) = 90；同样的走法能算出 gcd(819, 504) = 63。"
+        },
+        {
+          "en": "Then speeds it up by subtracting the smaller number several times at once — since 828 ÷ 258 = 3 R 54, gcd(258, 828) = gcd(258, 54) in one step — stating that if m = qn + r with 0 ≤ r < n then gcd(m, n) = gcd(r, n).",
+          "zh": "接着再提速：一次把小数减掉好几遍。因为 828 ÷ 258 = 3 余 54，所以 gcd(258, 828) 一步就变成 gcd(258, 54)。书上把它写成：若 m = qn + r 且 0 ≤ r < n，则 gcd(m, n) = gcd(r, n)，这就是「扩展欧几里得算法」。用它算面积 1086 和 828 两个长方形的最大公共宽，答案是 6。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Euclidean algorithm",
+          "zh": "欧几里得算法（辗转相减）"
+        },
+        {
+          "en": "extended Euclidean algorithm",
+          "zh": "扩展欧几里得算法（辗转相除）"
+        },
+        {
+          "en": "proof",
+          "zh": "证明"
+        }
+      ],
+      "teachHints": "barModel、shapeRect、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C04.S02",
+      "strand": "ch04",
+      "pages": [
+        64,
+        67
+      ],
+      "en": "4.2 Factor Trees",
+      "zh": "4.2 因数树",
+      "elaborations": [
+        {
+          "en": "Teaches the six-step \"factor tree game\" — box a composite, branch it into factors greater than 1, circle every prime — played step by step on 12 to get 12 = 3·2·2.",
+          "zh": "这一节用「因数树游戏」教分解：把合数框起来，往下拆成两个大于 1 的因数，是质数就圈起来。书里一步一步玩了 12，最后得到 12 = 3·2·2。"
+        },
+        {
+          "en": "Defines prime factorization and writes it in exponent form: 20 = 2²·5¹, 30 = 2¹·3¹·5¹, 63 = 3²·7¹, 160 = 2⁵·5¹, 375 = 3¹·5³.",
+          "zh": "给出「质因数分解」的定义，并用指数写法整理：20 = 2²·5¹、30 = 2¹·3¹·5¹、63 = 3²·7¹、160 = 2⁵·5¹、375 = 3¹·5³。"
+        },
+        {
+          "en": "Stresses that different trees are allowed but the answer is not: 375 can be split as 3 and 125 or as 15 and 25, and both end at 3·5·5·5.",
+          "zh": "特别强调「树可以长得不一样，答案必须一样」：375 可以先拆成 3 和 125，也可以先拆成 15 和 25，最后都是 3·5·5·5。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "factor tree",
+          "zh": "因数树"
+        },
+        {
+          "en": "prime factorization",
+          "zh": "质因数分解"
+        },
+        {
+          "en": "exponential form",
+          "zh": "指数形式"
+        },
+        {
+          "en": "composite number",
+          "zh": "合数"
+        }
+      ],
+      "teachHints": "groups、dataTable、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C04.S03",
+      "strand": "ch04",
+      "pages": [
+        68,
+        71
+      ],
+      "en": "4.3 Factorization and Multiples",
+      "zh": "4.3 分解与倍数",
+      "elaborations": [
+        {
+          "en": "Shows that every multiple of 45 hides 45's factorization inside it — 90 = 2¹·3²·5¹, 135 = 3³·5¹, 180 = 2²·3²·5¹, 225 = 3²·5² all carry at least two 3's and one 5.",
+          "zh": "先摆事实：45 的倍数里都藏着 45 自己——90 = 2¹·3²·5¹、135 = 3³·5¹、180 = 2²·3²·5¹、225 = 3²·5²，每个都至少有两个 3、一个 5。"
+        },
+        {
+          "en": "Turns that into the LCM rule: take every prime that appears anywhere and give it the LARGEST exponent, so 12 = 2²·3¹ and 45 = 3²·5¹ give lcm[12, 45] = 2²·3²·5¹ = 180.",
+          "zh": "由此得出求最小公倍数的办法：出现过的质数都要，指数取「最大的那个」。12 = 2²·3¹、45 = 3²·5¹，所以 lcm[12, 45] = 2²·3²·5¹ = 180。"
+        },
+        {
+          "en": "Uses lcm[30, 50] = 150 to list all common multiples as 150·1 through 150·10, and extends to three numbers with lcm[9, 15, 24] = 2³·3²·5¹ = 360.",
+          "zh": "再用 lcm[30, 50] = 150，直接把公倍数列成 150 的 1 到 10 倍；三个数也一样，lcm[9, 15, 24] = 2³·3²·5¹ = 360。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "least common multiple (LCM)",
+          "zh": "最小公倍数"
+        },
+        {
+          "en": "common multiple",
+          "zh": "公倍数"
+        },
+        {
+          "en": "maximum exponent",
+          "zh": "最大指数"
+        }
+      ],
+      "teachHints": "dataTable、groups、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C04.S04",
+      "strand": "ch04",
+      "pages": [
+        72,
+        74
+      ],
+      "en": "4.4 Factorization and Divisors",
+      "zh": "4.4 分解与因数",
+      "elaborations": [
+        {
+          "en": "Writes all twelve divisors of 60 over the same primes with zeroth powers — 1 = 2⁰·3⁰·5⁰ up to 60 = 2²·3¹·5¹ — so the child sees every divisor's exponents stay below 60's.",
+          "zh": "把 60 的 12 个因数全部按同样的质数写出来，连 0 次方都写上：1 = 2⁰·3⁰·5⁰ 一直到 60 = 2²·3¹·5¹，孩子一眼就看出每个因数的指数都不超过 60 的指数。"
+        },
+        {
+          "en": "Gives the GCD rule as the mirror of the LCM rule — keep only shared primes and take the SMALLEST exponent: 42 = 2¹·3¹·7¹ and 60 = 2²·3¹·5¹ give gcd(42, 60) = 2¹·3¹ = 6.",
+          "zh": "求最大公因数正好跟最小公倍数反着来：只留两边都有的质数，指数取「最小的那个」。42 = 2¹·3¹·7¹、60 = 2²·3¹·5¹，所以 gcd(42, 60) = 2¹·3¹ = 6。"
+        },
+        {
+          "en": "Finds all common divisors of 36 and 84 by first getting gcd(36, 84) = 2²·3¹ = 12, then listing every allowed exponent combination: 1, 2, 3, 4, 6, 12.",
+          "zh": "要找 36 和 84 的全部公因数，先算 gcd(36, 84) = 2²·3¹ = 12，再把 2 最多两个、3 最多一个的所有搭配列出来：1、2、3、4、6、12。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "greatest common divisor (GCD)",
+          "zh": "最大公因数"
+        },
+        {
+          "en": "common divisor",
+          "zh": "公因数"
+        },
+        {
+          "en": "minimum exponent",
+          "zh": "最小指数"
+        },
+        {
+          "en": "zeroth power",
+          "zh": "零次方"
+        }
+      ],
+      "teachHints": "dataTable、areaGrid、groups"
+    },
+    {
+      "id": "AOPS.NT.C04.S05",
+      "strand": "ch04",
+      "pages": [
+        75,
+        77
+      ],
+      "en": "4.5 Rational Numbers and Lowest Terms",
+      "zh": "4.5 有理数与最简分数",
+      "elaborations": [
+        {
+          "en": "Defines a rational number as the quotient of two integers a/b with b ≠ 0, noting every integer qualifies since 7 = 7/1 and 0 = 0/1.",
+          "zh": "先讲清楚「有理数」就是两个整数相除 a/b（b 不能是 0）；整数也算，因为 7 = 7/1、0 = 0/1。"
+        },
+        {
+          "en": "Defines lowest terms as numerator and denominator being relatively prime, then reduces 42/700 by dividing out gcd(42, 700) = 14 to get 3/50.",
+          "zh": "「最简分数」的定义是分子分母互质。书里用 gcd(42, 700) = 14 去约 42/700，得到 3/50。"
+        },
+        {
+          "en": "Shows you don't even need the GCD — just cancel shared primes: -1920/225 = -(2⁷·3¹·5¹)/(3²·5²) = -128/15.",
+          "zh": "还告诉孩子其实不用先算最大公因数，直接把两边共同的质因数消掉就行：-1920/225 = -(2⁷·3¹·5¹)/(3²·5²) = -128/15。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "rational number",
+          "zh": "有理数"
+        },
+        {
+          "en": "lowest terms / reduced form",
+          "zh": "最简分数"
+        },
+        {
+          "en": "unreduced form",
+          "zh": "未约分形式"
+        },
+        {
+          "en": "relatively prime",
+          "zh": "互质"
+        },
+        {
+          "en": "unit fraction",
+          "zh": "单位分数"
+        }
+      ],
+      "teachHints": "fractionBar、pie、areaGrid"
+    },
+    {
+      "id": "AOPS.NT.C04.S06",
+      "strand": "ch04",
+      "pages": [
+        78,
+        79
+      ],
+      "en": "4.6 Prime Factorization and Problem Solving",
+      "zh": "4.6 分解法解题",
+      "elaborations": [
+        {
+          "en": "Discovers from 14² = 2²·7², 16² = 2⁸, 18² = 2²·3⁴ that a perfect square has EVEN exponents on every prime, and from 18³ = 2³·3⁶ that a perfect cube's exponents are multiples of 3.",
+          "zh": "从 14² = 2²·7²、16² = 2⁸、18² = 2²·3⁴ 看出：完全平方数每个质数的指数都是偶数；从 18³ = 2³·3⁶ 看出：完全立方数的指数都是 3 的倍数。"
+        },
+        {
+          "en": "Applies it to find the five smallest square multiples of 8: since 8 = 2³ but a square needs an even exponent, the power of 2 jumps to 2⁴ = 16, giving 16, 64, 144, 256, 400.",
+          "zh": "拿来解题：8 = 2³，但平方数的指数必须是偶数，所以 2 的次方要提到 2⁴ = 16，于是最小的五个是 16、64、144、256、400。"
+        },
+        {
+          "en": "Teaches translating a word problem first — Janet's three cubes that are multiples of 18 become \"smallest GCD of cubes divisible by 18\" — then rounds exponents up to 2³·3³ = 216.",
+          "zh": "还教「先把题目翻译成数学」：Janet 写的三个是 18 倍数的立方数，其实就是问「是 18 倍数的立方数的最小公因数」，把指数往上凑成 2³·3³ = 216。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "perfect square",
+          "zh": "完全平方数"
+        },
+        {
+          "en": "perfect cube",
+          "zh": "完全立方数"
+        },
+        {
+          "en": "even exponent",
+          "zh": "偶数指数"
+        }
+      ],
+      "teachHints": "areaGrid、shapeRect、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C04.S07",
+      "strand": "ch04",
+      "pages": [
+        80,
+        83
+      ],
+      "en": "4.7 Relationships Between LCMs and GCDs",
+      "zh": "4.7 LCM 与 GCD 的关系",
+      "elaborations": [
+        {
+          "en": "Discovers by scaling 80 and 144 by n = 2, 3, 4, 5, 6 that both GCD and LCM scale too: gcd(ac, bc) = c·gcd(a, b) and lcm[ac, bc] = c·lcm[a, b].",
+          "zh": "把 80 和 144 同时乘 2、3、4、5、6，发现最大公因数和最小公倍数也跟着乘同一个数：gcd(ac, bc) = c·gcd(a, b)，lcm[ac, bc] = c·lcm[a, b]。"
+        },
+        {
+          "en": "Uses that shortcut to compute gcd(800, 1800) = 100·gcd(8, 18) = 200 and lcm[800, 1800] = 100·lcm[8, 18] = 7200 without touching big numbers.",
+          "zh": "用这个捷径算大数：gcd(800, 1800) = 100·gcd(8, 18) = 200，lcm[800, 1800] = 100·lcm[8, 18] = 7200，根本不用碰四位数。"
+        },
+        {
+          "en": "Shows with 18 = 2¹·3²·5⁰ and 30 = 2¹·3¹·5¹ that each prime power is used exactly once between GCD and LCM, proving mn = gcd(m, n)·lcm[m, n], i.e. 18·30 = 6·90.",
+          "zh": "再用 18 = 2¹·3²·5⁰ 和 30 = 2¹·3¹·5¹ 说明：每个质数的次方在最大公因数和最小公倍数里正好各用一次，所以 mn = gcd(m, n)·lcm[m, n]，也就是 18·30 = 6·90。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "scaling property of GCD/LCM",
+          "zh": "最大公因数与最小公倍数的倍数性质"
+        },
+        {
+          "en": "product identity mn = gcd·lcm",
+          "zh": "两数之积等于最大公因数乘最小公倍数"
+        }
+      ],
+      "teachHints": "dataTable、areaGrid、balance"
+    },
+    {
+      "id": "AOPS.NT.C05.S02",
+      "strand": "ch05",
+      "pages": [
+        91,
+        93
+      ],
+      "en": "5.2 Counting Divisors",
+      "zh": "5.2 数因数个数",
+      "elaborations": [
+        {
+          "en": "Starting from 200 = 2^3 · 5^2, the book builds every divisor as 2^a · 5^b and tabulates all 4 × 3 = 12 of them, so the divisor count appears as a choice count, not a list you have to write out.",
+          "zh": "课本从 200 = 2^3 × 5^2 出发，把每个因数都写成 2^a × 5^b，再把 4 × 3 = 12 个组合列成一张表——数因数其实是在数「有多少种选法」，不用一个个列。"
+        },
+        {
+          "en": "It repeats the same reasoning on 192 = 2^6 · 3^1 to get t(192) = 7 · 2 = 14, then generalizes to t(n) = (e1+1)(e2+1)⋯(em+1) and introduces the notation t(n).",
+          "zh": "同样的想法用在 192 = 2^6 × 3 上，得到 t(192) = 7 × 2 = 14；再推广成 t(n) = (e1+1)(e2+1)⋯(em+1)，并给「因数个数」起了名字 t(n)。"
+        },
+        {
+          "en": "A Concept box explicitly says the formula is convenient but the method matters more, because later problems in the chapter are ones the formula alone cannot solve.",
+          "zh": "课本特意提醒：公式好用，但「怎么想出来的」更重要——后面的题光背公式是做不出来的。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "positive divisor",
+          "zh": "正因数"
+        },
+        {
+          "en": "prime factorization",
+          "zh": "质因数分解"
+        },
+        {
+          "en": "number of divisors t(n)",
+          "zh": "因数个数 t(n)"
+        },
+        {
+          "en": "exponent",
+          "zh": "指数"
+        }
+      ],
+      "teachHints": "dataTable、areaGrid、groups"
+    },
+    {
+      "id": "AOPS.NT.C05.S03",
+      "strand": "ch05",
+      "pages": [
+        94,
+        100
+      ],
+      "en": "5.3 Divisor Counting Problems ★",
+      "zh": "5.3 因数计数问题 ★",
+      "elaborations": [
+        {
+          "en": "It opens with a Bogus Solution — \"half of 168's 16 divisors are even, so 8\" — then shows the truth: even divisors of 168 = 2^3 · 3 · 7 need a ≥ 1, giving 3 · 2 · 2 = 12.",
+          "zh": "课本先摆出一个「错解」：168 有 16 个因数，一半是偶数所以 8 个。其实 168 = 2^3 × 3 × 7，偶因数要求 2 的指数至少是 1，答案是 3 × 2 × 2 = 12 个。"
+        },
+        {
+          "en": "It names complementary counting (total minus what you don't want: 16 − 4 = 12) and proves that a number is a perfect square exactly when it has an odd number of divisors, using the pairings 1·20, 2·10, 4·5 for 20 versus 1·36, 2·18, 3·12, 4·9, 6·6 for 36.",
+          "zh": "这里正式教「补集计数」——先算总数再减掉不要的（16 − 4 = 12）；还证明了「完全平方数 ⟺ 因数个数是奇数」：20 能配成 1×20、2×10、4×5 三对，36 却多出一个落单的 6×6，所以是 9 个。"
+        },
+        {
+          "en": "The harder half runs the formula backwards: t(n) = 7 forces n = p^6 so n^2 has 13 divisors; 28 divisors on a two-prime cube forces exponents 3 and 6 (e.g. 2^6 · 3^3 = 1728); the divisors of 960 with exactly 6 divisors are 12, 20, 32; and t(mn) = t(m)t(n) when gcd(m, n) = 1.",
+          "zh": "后半段是「反着用公式」：因数个数是 7，就只能是 p^6，于是 n^2 有 13 个因数；两个质数的立方数有 28 个因数，指数只能是 3 和 6（比如 2^6 × 3^3 = 1728）；960 的因数里恰好有 6 个因数的是 12、20、32；两数互质时 t(mn) = t(m) × t(n)。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "complementary counting",
+          "zh": "补集计数"
+        },
+        {
+          "en": "perfect square",
+          "zh": "完全平方数"
+        },
+        {
+          "en": "square-free divisor",
+          "zh": "无平方因子的因数"
+        },
+        {
+          "en": "relatively prime",
+          "zh": "互质"
+        }
+      ],
+      "teachHints": "groups、dataTable、areaGrid"
+    },
+    {
+      "id": "AOPS.NT.C05.S04",
+      "strand": "ch05",
+      "pages": [
+        101,
+        103
+      ],
+      "en": "5.4 Divisor Products ★",
+      "zh": "5.4 因数之积 ★",
+      "elaborations": [
+        {
+          "en": "It writes the 12 divisors of 60 forward (1, 2, 3, …, 30, 60) and backward underneath, multiplies column by column so every column is 60, and gets P^2 = 60^12, hence the divisor product is 60^6.",
+          "zh": "课本把 60 的 12 个因数正着写一行（1、2、3……30、60），再倒着写一行，一列一列相乘每列都是 60，于是 P^2 = 60^12，所有因数之积就是 60^6。"
+        },
+        {
+          "en": "The same forward-and-backward pairing on d1, d2, …, d_t(n) proves the general formula P_n^2 = n^t(n), so P_n = n^(t(n)/2).",
+          "zh": "同样的「正反配对」推广到一般：P_n^2 = n^t(n)，所以所有正因数之积等于 n 的 t(n)/2 次方。"
+        },
+        {
+          "en": "Problem 5.12 bends the method: for 450 = 2 · 3^2 · 5^2, dividing each multiple-of-3 divisor by 3 turns it into a divisor of 150, so the answer is 3^12 · 150^6 = 1350^6.",
+          "zh": "最后一题很妙：450 = 2 × 3^2 × 5^2，把每个 3 的倍数因数都除以 3，正好变成 150 的因数，于是答案是 3^12 × 150^6 = 1350^6。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "product of divisors",
+          "zh": "因数之积"
+        },
+        {
+          "en": "divisor pairing",
+          "zh": "因数配对"
+        }
+      ],
+      "teachHints": "dataTable、groups、areaGrid"
+    },
+    {
+      "id": "AOPS.NT.C06.S02",
+      "strand": "ch06",
+      "pages": [
+        109,
+        110
+      ],
+      "en": "6.2 Some Special Primes",
+      "zh": "6.2 特殊质数",
+      "elaborations": [
+        {
+          "en": "Builds the pattern 2^p - 1 = 3, 7, 31, 127 for p = 2, 3, 5, 7, names these Mersenne primes, then breaks the pattern with 2^11 - 1 = 2047 = 23 x 89.",
+          "zh": "先让孩子看规律：p 取 2、3、5、7 时 2^p−1 分别是 3、7、31、127，全是质数，这类叫「梅森质数」；接着一盆冷水——2^11−1 = 2047 = 23 × 89，规律断了。"
+        },
+        {
+          "en": "Repeats the trap with Fermat's claim that 2^(2^n) + 1 is always prime — true for 3, 5, 17, 257, 65537, but Euler found 2^(2^5) + 1 = 4294967297 = 641 x 6700417; this is where 「conjecture」 vs 「theorem」 is defined.",
+          "zh": "同样的坑再走一遍：费马说 2^(2^n)+1 都是质数，前五个 3、5、17、257、65537 确实是，欧拉却算出 n=5 时 4294967297 = 641 × 6700417；书里顺势讲清「猜想」和「定理」的区别。"
+        },
+        {
+          "en": "Introduces twin primes — primes differing by 2, like 3 and 5, 11 and 13, 29 and 31 — and answers the smallest pair above 100: 101 and 103.",
+          "zh": "再讲「孪生质数」：相差 2 的一对质数，比如 3 和 5、11 和 13、29 和 31；书里问 100 以上最小的一对，答案就是 101 和 103。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Mersenne prime",
+          "zh": "梅森质数"
+        },
+        {
+          "en": "Fermat prime",
+          "zh": "费马质数"
+        },
+        {
+          "en": "conjecture",
+          "zh": "猜想"
+        },
+        {
+          "en": "theorem",
+          "zh": "定理"
+        },
+        {
+          "en": "twin primes",
+          "zh": "孪生质数"
+        }
+      ],
+      "teachHints": "dataTable、numberLine、hundredChart"
+    },
+    {
+      "id": "AOPS.NT.C06.S03",
+      "strand": "ch06",
+      "pages": [
+        111,
+        114
+      ],
+      "en": "6.3 Factorials, Exponents and Divisibility",
+      "zh": "6.3 阶乘与整除",
+      "elaborations": [
+        {
+          "en": "Defines n! = n(n-1)(n-2)...2.1 and the labour-saving relation (n+1)! = (n+1).n!, so 6! = 6 x 5! = 6 x 120 = 720 instead of multiplying from scratch.",
+          "zh": "先讲阶乘 n! = n×(n−1)×…×2×1，再给一个省力公式 (n+1)! = (n+1)×n!：算 6! 不用从头乘，直接 6 × 120 = 720。"
+        },
+        {
+          "en": "Teaches factoring instead of adding: 5! + 6! = 5! + 6.5! = (1+6).5! = 7.5!, so the largest prime divisor is 7 — no need to add the two factorials at all.",
+          "zh": "教「先提公因式再看」：5! + 6! = (1+6)×5! = 7×5!，最大质因数一眼就是 7，两个阶乘根本不用加出来。"
+        },
+        {
+          "en": "Finds the highest power of 2 dividing 30! by counting multiples: 15 multiples of 2, 7 of 4, 3 of 8, 1 of 16, giving 15 + 7 + 3 + 1 = 26, so the answer is 2^26; the shortcut is 30/2, 30/4, 30/8, 30/16 with the decimals dropped.",
+          "zh": "求 30! 里最多藏了几个 2：2 的倍数 15 个、4 的倍数 7 个、8 的倍数 3 个、16 的倍数 1 个，15+7+3+1 = 26，所以是 2^26；书里还给了「连除、把小数点后面扔掉」的快捷算法。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "factorial (n!)",
+          "zh": "阶乘"
+        }
+      ],
+      "teachHints": "dataTable、groups、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C06.S04",
+      "strand": "ch06",
+      "pages": [
+        115,
+        116
+      ],
+      "en": "6.4 Perfect, Abundant, and Deficient Numbers",
+      "zh": "6.4 完全数、盈数与亏数",
+      "elaborations": [
+        {
+          "en": "Introduces s(n), the sum of a number's proper divisors (s(8) = 1 + 2 + 4 = 7), then sorts integers by comparing s(n) with n: perfect when s(n) = n, abundant when s(n) > n, deficient when s(n) < n.",
+          "zh": "先教 s(n)——一个数「除了它自己」的所有因数之和，比如 s(8) = 1+2+4 = 7；再拿 s(n) 跟 n 比大小分三类：相等叫完全数，大于叫盈数，小于叫亏数。"
+        },
+        {
+          "en": "Works three cases by hand: s(28) = 1 + 2 + 4 + 7 + 14 = 28 so 28 is perfect; s(24) = 36 > 24 so 24 is abundant; s(44) = 40 < 44 so 44 is deficient. The smallest perfect number is 6 and the smallest abundant one is 12.",
+          "zh": "三个例子全部手算：s(28) = 1+2+4+7+14 = 28，28 是完全数；s(24) = 36 > 24，是盈数；s(44) = 40 < 44，是亏数。最小的完全数是 6，最小的盈数是 12。"
+        },
+        {
+          "en": "A sidenote links back to Mersenne primes: Euclid showed 2^(p-1)(2^p - 1) is perfect whenever 2^p - 1 is a Mersenne prime, and nobody yet knows whether an odd perfect number exists — only 6, 28, 496 are the three smallest.",
+          "zh": "边栏把话题接回梅森质数：欧几里得发现只要 2^p−1 是梅森质数，2^(p−1)(2^p−1) 就是完全数；而「有没有奇数的完全数」至今没人知道——最小的三个完全数就是 6、28、496。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "perfect number",
+          "zh": "完全数"
+        },
+        {
+          "en": "abundant number",
+          "zh": "盈数"
+        },
+        {
+          "en": "deficient number",
+          "zh": "亏数"
+        },
+        {
+          "en": "proper divisor",
+          "zh": "真因数"
+        }
+      ],
+      "teachHints": "balance、groups、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C06.S05",
+      "strand": "ch06",
+      "pages": [
+        117,
+        119
+      ],
+      "en": "6.5 Palindromes",
+      "zh": "6.5 回文数",
+      "elaborations": [
+        {
+          "en": "Defines a palindrome as an integer reading the same forward and backward (7, 22, 434, 9229, 13731), then shows there are exactly 9 two-digit palindromes: 11, 22, ..., 99.",
+          "zh": "先定义「回文数」——正着念反着念一样的整数，比如 7、22、434、9229、13731；再数出两位回文数只有 9 个：11、22、…、99。"
+        },
+        {
+          "en": "Instead of testing each for primality, it spots that every two-digit palindrome is a multiple of 11 (22 = 2.11, 33 = 3.11, ...), so 11 is the only two-digit palindromic prime.",
+          "zh": "判断哪个是质数时不去一个个试除，而是看穿结构：两位回文数个个是 11 的倍数（22 = 2×11、33 = 3×11…），所以只有 11 本身是质数。"
+        },
+        {
+          "en": "Counts three-digit palindromes by digit choices — hundreds digit has 9 options (not 0), tens digit has 10, units digit is forced to copy the hundreds — giving 9 x 10 = 90, all of them listed from 101 to 999.",
+          "zh": "数三位回文数时按「位」来算：百位有 9 种选择（不能是 0），十位随便挑 10 种，个位必须抄百位，所以 9 × 10 = 90 个，书里把 101 到 999 全列了出来。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "palindrome",
+          "zh": "回文数"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、groups"
+    },
+    {
+      "id": "AOPS.NT.C07.S02",
+      "strand": "ch07",
+      "pages": [
+        125,
+        136
+      ],
+      "en": "7.2 Problems",
+      "zh": "7.2 整数代数实战",
+      "elaborations": [
+        {
+          "en": "Teaches how to turn a digit puzzle into algebra: writing a two-digit number as 10A + B turns \"three times the sum of its digits\" into 10A + B = 3(A + B), which simplifies to 7A = 2B and pins the answer at 27.",
+          "zh": "教孩子把「数位谜题」翻译成方程：两位数写成 10A + B，「等于各位数字之和的三倍」就变成 10A + B = 3(A + B)，化简成 7A = 2B，只能是 27。"
+        },
+        {
+          "en": "Shows factoring as a number-theory weapon: a² − b² = 49 becomes (a + b)(a − b) = 7², and 1/x + 1/y = 1/7 becomes (x − 7)(y − 7) = 49 — Simon's Favorite Factoring Trick — so integer factor pairs give all the answers.",
+          "zh": "把「因式分解」当成解整数题的武器：a² − b² = 49 变成 (a + b)(a − b) = 7²，1/x + 1/y = 1/7 变成 (x − 7)(y − 7) = 49（书里叫「Simon 最爱的分解法」），再枚举整数因数对就能找全答案。"
+        },
+        {
+          "en": "Introduces generalized forms and parameters: perfect squares that are multiples of 7 are all 49n², so 1000 ≤ 49n² < 10000 gives 5 ≤ n ≤ 14 and exactly 10 such four-digit squares.",
+          "zh": "引入「通式」和「参数」：7 的倍数里的完全平方数一律写成 49n²，再用 1000 ≤ 49n² < 10000 卡出 5 ≤ n ≤ 14，四位数里正好 10 个。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "generalized form",
+          "zh": "通式（一组数共有的代数表达式）"
+        },
+        {
+          "en": "parameter",
+          "zh": "参数"
+        },
+        {
+          "en": "difference of squares",
+          "zh": "平方差公式"
+        },
+        {
+          "en": "Simon's Favorite Factoring Trick",
+          "zh": "Simon 最爱的因式分解技巧"
+        },
+        {
+          "en": "palindrome",
+          "zh": "回文数"
+        }
+      ],
+      "teachHints": "placeValue、areaModel、average"
+    },
+    {
+      "id": "AOPS.NT.C08.S02",
+      "strand": "ch08",
+      "pages": [
+        141,
+        144
+      ],
+      "en": "8.2 Counting in Bundles",
+      "zh": "8.2 按捆计数",
+      "elaborations": [
+        {
+          "en": "Starts with three pictures holding the same 88 dots — scattered, in columns of 5, then in 5x5 squares — to show that grouping is what makes counting possible: 3·5² + 2·5 + 3 = 88.",
+          "zh": "开篇三幅点阵图其实点数一样多：乱撒的、按5个一列的、按5×5一块的。孩子会发现「分堆」才是数得清的关键，3×5²+2×5+3=88 一眼就能数出来。"
+        },
+        {
+          "en": "Retells the decimal system as a bundling story: 3572 twigs become 3 bundles of 1000, 5 of 100, 7 of 10, and 2 loose, so 3·10³ + 5·10² + 7·10¹ + 2·10⁰ = 3572.",
+          "zh": "把十进制讲成「捆树枝」的故事：3572 根树枝捆成 3 个千、5 个百、7 个十，还剩 2 根，写出来就是 3·10³+5·10²+7·10¹+2·10⁰=3572。"
+        },
+        {
+          "en": "Defines numeral and base number system, and warns that the base caps the coefficient: 2·3² is a legal base 3 digit bundle but 5·3² is not, since 5·3² = 1·3³ + 2·3².",
+          "zh": "给出「数码」和「进位制」的定义，并提醒系数不能超过底数：2·3² 是合法的三进制数位捆，5·3² 就不是，因为 5·3²=1·3³+2·3² 还能再捆一次。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "numeral",
+          "zh": "数码（表示数的符号）"
+        },
+        {
+          "en": "digit bundle",
+          "zh": "数位捆"
+        },
+        {
+          "en": "base number system",
+          "zh": "进位制"
+        },
+        {
+          "en": "decimal system / base 10",
+          "zh": "十进制"
+        }
+      ],
+      "teachHints": "groups、baseTen、placeValue"
+    },
+    {
+      "id": "AOPS.NT.C08.S03",
+      "strand": "ch08",
+      "pages": [
+        145,
+        147
+      ],
+      "en": "8.3 Base Numbers",
+      "zh": "8.3 进位制",
+      "elaborations": [
+        {
+          "en": "Has the child fill in 63 through 74 as __·6² + __·6¹ + __·6⁰ using only digits 0-5, watching 65 = 145₆ roll over into 66 = 150₆ and 71 = 155₆ into 72 = 200₆.",
+          "zh": "让孩子亲手把 63 到 74 填成 __·6²+__·6¹+__·6⁰，只能用 0-5。填着填着就看见 65=145₆ 满六进一变成 66=150₆，71=155₆ 又跳成 72=200₆。"
+        },
+        {
+          "en": "Defines base b as writing numerals with the first b whole numbers 0, 1, …, b−1 (b is also called the radix or scale), and introduces the subscript notation 143₆ versus plain 1354 for decimal.",
+          "zh": "正式定义：用 0,1,…,b−1 这 b 个数字写数就叫 b 进制，b 也叫基数或尺度；并约定用下标区分，写 143₆，而十进制的 1354 下标省略不写。"
+        },
+        {
+          "en": "Lists the first 49 counting numbers in base 7 as a 7x7 grid and checks the count with 100₇ = 1·7² = 49; Problem 8.3 answers 64 = 8² = 100₈ in one line.",
+          "zh": "把前 49 个自然数排成 7×7 的七进制方阵，正好数到 100₇=1·7²=49；问题 8.3 只用一行就答完：64=8²，所以 64=100₈。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "base b",
+          "zh": "b 进制"
+        },
+        {
+          "en": "radix / scale",
+          "zh": "基数 / 尺度"
+        },
+        {
+          "en": "binary",
+          "zh": "二进制"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C08.S04",
+      "strand": "ch08",
+      "pages": [
+        148,
+        149
+      ],
+      "en": "8.4 Base Number Digits",
+      "zh": "8.4 进位制的数位",
+      "elaborations": [
+        {
+          "en": "Asks what symbols to use once a base passes 10, and answers honestly that there is no one right answer — it first invents α and β for the values 10 and 11 and prints all 144 base 12 numbers with them.",
+          "zh": "底数超过 10 就不够符号用了，怎么办？书里坦白说「没有唯一正确答案」，先自己造了 α 和 β 代表 10 和 11，把 144 个十二进制数全排了出来。"
+        },
+        {
+          "en": "Then gives the real convention: capital letters for the 26 digits past 9, so in base 12 A = 10 and B = 11, and 142 = 11·12¹ + 10·12⁰ = BA₁₂.",
+          "zh": "接着才给通用写法：9 之后用大写字母，十二进制里 A 就是 10、B 就是 11，于是 142=11·12¹+10·12⁰=BA₁₂。"
+        },
+        {
+          "en": "Spells out the hexadecimal digit list 0-9, A, B, C, D, E, F and counts to thirty with it (…, 19, 1A, 1B, 1C, 1D, 1E), noting base 16 is used for computer color graphics.",
+          "zh": "把十六进制的数字表 0-9、A、B、C、D、E、F 列全，用它一路数到三十（…19、1A、1B、1C、1D、1E），还提到电脑调颜色就用十六进制。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "hexadecimal (base 16)",
+          "zh": "十六进制"
+        },
+        {
+          "en": "duodecimal (base 12)",
+          "zh": "十二进制"
+        },
+        {
+          "en": "octal (base 8)",
+          "zh": "八进制"
+        }
+      ],
+      "teachHints": "dataTable、placeValue"
+    },
+    {
+      "id": "AOPS.NT.C08.S05",
+      "strand": "ch08",
+      "pages": [
+        150,
+        154
+      ],
+      "en": "8.5 Converting Integers Between Bases",
+      "zh": "8.5 进位制转换",
+      "elaborations": [
+        {
+          "en": "Base b to decimal is just adding up digit bundles: 514₉ = 5·81 + 1·9 + 4 = 418, and 22405₆ = 2·1296 + 2·216 + 4·36 + 0 + 5 = 3173.",
+          "zh": "从 b 进制换成十进制，就是把各个数位捆加起来：514₉=5·81+1·9+4=418；22405₆=2·1296+2·216+4·36+0+5=3173。"
+        },
+        {
+          "en": "Converting 65 to base 3 by repeated grouping (65÷3 = 21 R 2, 21÷3 = 7 R 0, 7÷3 = 2 R 1) and a Bogus Solution that drops the 0·3¹ bundle and wrongly writes 212₃; the right answer is 2102₃.",
+          "zh": "把 65 换成三进制是不停分堆：65÷3=21余2，21÷3=7余0，7÷3=2余1。书里故意放了个「假解答」漏掉 0·3¹ 写成 212₃，正确答案其实是 2102₃——零也得占位。"
+        },
+        {
+          "en": "Shows a second method — divide by descending powers 343, 49, 7 to get 857 = 2333₇ — and says to use whichever method you are comfortable with, then routes 204₆ → 76 → 301₅ between two non-decimal bases.",
+          "zh": "再教第二种办法：用 343、49、7 依次去除，857=2333₇；并明说两种方法哪种顺手用哪种。两个都不是十进制时就绕道十进制：204₆→76→301₅。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "convert between bases",
+          "zh": "进位制转换"
+        },
+        {
+          "en": "quotient and remainder",
+          "zh": "商与余数"
+        }
+      ],
+      "teachHints": "placeValue、groups、baseTen"
+    },
+    {
+      "id": "AOPS.NT.C08.S06",
+      "strand": "ch08",
+      "pages": [
+        155,
+        160
+      ],
+      "en": "8.6 Unusual Base Number Problems ★",
+      "zh": "8.6 进位制怪题 ★",
+      "elaborations": [
+        {
+          "en": "Doubling in binary just tacks a 0 on the end (10 = 1010₂, 20 = 10100₂), and the book proves why: multiplying by 10_b raises every exponent by 1, so 10₈·273₈ = 2730₈ in any base.",
+          "zh": "二进制里翻倍就是末尾添个 0（10=1010₂，20=10100₂）。书里还证明了为什么：乘 10_b 等于每个指数加 1，所以任何进制都一样，10₈·273₈=2730₈。"
+        },
+        {
+          "en": "Counts the trailing zeros of 58! in base 12 by prime factors: 54 twos and 27 threes, and since 12 = 2²·3¹ you can form exactly 27 powers of 12, so it ends in 27 zeros.",
+          "zh": "问 58! 在十二进制末尾有几个 0，就去数质因数：2 有 54 个、3 有 27 个，而 12=2²·3¹，最多凑出 27 个 12，所以末尾正好 27 个零。"
+        },
+        {
+          "en": "Converts 2671₉ to base 3 without passing through decimal — each base 9 digit becomes exactly two base 3 digits (2₉ = 02₃, 6₉ = 20₃, 7₉ = 21₃, 1₉ = 01₃), giving 2202101₃; the same trick groups binary three at a time into base 8.",
+          "zh": "把 2671₉ 直接换成三进制、不绕十进制：因为 9=3²，每个九进制数字正好对应两个三进制数字（2₉=02₃、6₉=20₃、7₉=21₃、1₉=01₃），拼成 2202101₃；二进制三位一组换八进制也是同一招。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "trailing zeros",
+          "zh": "末尾零"
+        },
+        {
+          "en": "complementary counting",
+          "zh": "补集计数（正难则反）"
+        },
+        {
+          "en": "perfect power of a base",
+          "zh": "底数的整数次幂"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、groups"
+    },
+    {
+      "id": "AOPS.NT.C09.S02",
+      "strand": "ch09",
+      "pages": [
+        165,
+        167
+      ],
+      "en": "9.2 Base Number Addition",
+      "zh": "9.2 进位制加法",
+      "elaborations": [
+        {
+          "en": "Addition is just fast counting, so it works in any base: 21₆ + 14₆ is the same count as 13 + 10 = 23, which is 35₆.",
+          "zh": "加法说白了就是「快速数数」，所以在任何进位制里都成立：21₆ + 14₆ 其实就是 13 + 10 = 23，写回六进制就是 35₆。"
+        },
+        {
+          "en": "The main method is splitting each number into digit bundles: 213₇ = 2·7²+1·7¹+3·7⁰ and 331₇ = 3·7²+3·7¹+1·7⁰ add termwise to 5·7²+4·7¹+4·7⁰ = 544₇.",
+          "zh": "主要方法是把数拆成「位值包」：213₇ = 2·7²+1·7¹+3·7⁰，331₇ = 3·7²+3·7¹+1·7⁰，同类项相加得 5·7²+4·7¹+4·7⁰ = 544₇。"
+        },
+        {
+          "en": "Carrying happens when a coefficient is too big for the base: 623₈ + 164₈ gives 8·8¹, which must be carried twice to reach 1007₈.",
+          "zh": "当某一位的系数超过进位制上限就要进位：623₈ + 164₈ 算出 8·8¹ 这一项不合法，连进两次位才得到 1007₈。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "digit bundle",
+          "zh": "位值包（数位捆）"
+        },
+        {
+          "en": "carrying",
+          "zh": "进位"
+        },
+        {
+          "en": "base number addition",
+          "zh": "进位制加法"
+        }
+      ],
+      "teachHints": "placeValue、baseTen、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C09.S03",
+      "strand": "ch09",
+      "pages": [
+        168,
+        169
+      ],
+      "en": "9.3 Base Number Subtraction",
+      "zh": "9.3 进位制减法",
+      "elaborations": [
+        {
+          "en": "Subtraction is counting downwards, so 25₇ − 12₇ is the same backwards count as 19 − 9 = 10, which is 13₇.",
+          "zh": "减法就是「往回数」，所以 25₇ − 12₇ 和 19 − 9 = 10 数的是同一段，写回七进制就是 13₇。"
+        },
+        {
+          "en": "With digit bundles the easy case is clean: 537₉ − 216₉ subtracts termwise to (5−2)·9²+(3−1)·9¹+(7−6)·9⁰ = 321₉.",
+          "zh": "用位值包拆开，顺利的情况很干净：537₉ − 216₉ 逐项相减得 (5−2)·9²+(3−1)·9¹+(7−6)·9⁰ = 321₉。"
+        },
+        {
+          "en": "Borrowing is the real lesson: 514₆ − 433₆ produces an illegal (−2)·6¹, so you borrow 6 (not 10) from the next bundle to get 4·6¹+1·6⁰ = 41₆.",
+          "zh": "这节真正要学的是「借位」：514₆ − 433₆ 中间会出现不合法的 (−2)·6¹，得向高一位借 6（不是借 10），最后得 4·6¹+1·6⁰ = 41₆。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "borrowing",
+          "zh": "借位"
+        },
+        {
+          "en": "base number subtraction",
+          "zh": "进位制减法"
+        }
+      ],
+      "teachHints": "placeValue、baseTen、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C09.S04",
+      "strand": "ch09",
+      "pages": [
+        170,
+        171
+      ],
+      "en": "9.4 Base Number Multiplication",
+      "zh": "9.4 进位制乘法",
+      "elaborations": [
+        {
+          "en": "Multiplication is repeated addition, shown first on tiny numbers: 3₄ · 2₄ = 2₄ + 2₄ + 2₄ = 12₄.",
+          "zh": "乘法就是反复相加，书里先用小数字演示：3₄ · 2₄ = 2₄ + 2₄ + 2₄ = 12₄。"
+        },
+        {
+          "en": "The signature example 34₆ · 241₆ distributes into six digit-bundle products, one per pair of digits, which sum to 1·6⁴+3·6³+5·6²+1·6¹+4·6⁰ = 13514₆.",
+          "zh": "招牌例题 34₆ · 241₆ 展开成六个「位值包乘积」，每对数位各出一个，加起来是 1·6⁴+3·6³+5·6²+1·6¹+4·6⁰ = 13514₆。"
+        },
+        {
+          "en": "The column method works too, as long as you carry according to the base: 241₆ × 34₆ gives partial products 1444₆ and 12030₆.",
+          "zh": "竖式一样能用，只要按照当前进位制来进位：241₆ × 34₆ 的两个部分积是 1444₆ 和 12030₆。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "repeated addition",
+          "zh": "重复相加"
+        },
+        {
+          "en": "partial product",
+          "zh": "部分积"
+        },
+        {
+          "en": "distributing digit bundles",
+          "zh": "位值包展开（分配律）"
+        }
+      ],
+      "teachHints": "areaModel、placeValue、groups"
+    },
+    {
+      "id": "AOPS.NT.C09.S05",
+      "strand": "ch09",
+      "pages": [
+        172,
+        174
+      ],
+      "en": "9.5 Base Number Division and Divisibility",
+      "zh": "9.5 进位制除法与整除",
+      "elaborations": [
+        {
+          "en": "Long division works in any base as long as the addition, subtraction and multiplication inside it are done in that base: 536₇ ÷ 4₇ = 125₇.",
+          "zh": "只要竖式里的加减乘都按当前进位制来算，长除法在任何进位制都能用：536₇ ÷ 4₇ = 125₇。"
+        },
+        {
+          "en": "Problem 9.10 checks whether 11110₂, 313₄, 1AC₂₀ and 5241₇ are multiples of 6 by four different routes — base-2 long division, an odd/even argument, converting 1AC₂₀ = 612, and peeling 6s out of base 7 bundles.",
+          "zh": "例题 9.10 用四种不同办法判断 11110₂、313₄、1AC₂₀、5241₇ 是不是 6 的倍数：二进制长除、看奇偶、把 1AC₂₀ 换成 612、以及从七进制位值包里一层层「剥掉 6 的倍数」。"
+        },
+        {
+          "en": "Because 7 − 1 = 6, the peeling in part (d) collapses to the digit sum 5+2+4+1 = 12, giving the rule that a base 7 integer is a multiple of 6 exactly when its digit sum is.",
+          "zh": "因为 7 − 1 = 6，第 (d) 问剥到最后就只剩数字和 5+2+4+1 = 12，于是得到规律：七进制数是 6 的倍数，当且仅当它的各位数字之和是 6 的倍数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "long division",
+          "zh": "长除法（竖式除法）"
+        },
+        {
+          "en": "quotient and remainder",
+          "zh": "商与余数"
+        },
+        {
+          "en": "divisibility rule",
+          "zh": "整除判别法"
+        },
+        {
+          "en": "multiple",
+          "zh": "倍数"
+        }
+      ],
+      "teachHints": "groups、placeValue、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C10.S02",
+      "strand": "ch10",
+      "pages": [
+        177,
+        183
+      ],
+      "en": "10.2 Units Digits in Arithmetic",
+      "zh": "10.2 运算中的个位",
+      "elaborations": [
+        {
+          "en": "Starting from the ladder 8+9, 8+19, 8+29, 8+39 (all ending in 7), the book proves why by expanding numbers into decimal digit bundles like 1049 = 1·10^3 + 0·10^2 + 4·10^1 + 9·10^0 — everything from 10^1 up never touches the units digit.",
+          "zh": "从 8+9、8+19、8+29、8+39 这串「答案都以 7 结尾」出发，书里把数拆成十进制数位捆，比如 1049 = 1·10³ + 0·10² + 4·10¹ + 9·10⁰，一眼看出十位以上的部分根本碰不到个位。"
+        },
+        {
+          "en": "It states three rules and drills each: the units digit of a sum is the units digit of the sum of the units digits (14+67+78+142+71777 → 4+7+8+2+7=28, so 8); for subtraction you add 10 back when negative (5418−4379 → 8−9=−1, +10 = 9); for products just multiply the units digits (53·79 → 3·9=27, so 7).",
+          "zh": "书里给出三条规则并各自练一遍：加法只看个位相加（14+67+78+142+71777 → 4+7+8+2+7=28，所以是 8）；减法不够减就补 10（5418−4379 → 8−9=−1，加 10 得 9）；乘法只把个位相乘（53·79 → 3·9=27，所以是 7）。"
+        },
+        {
+          "en": "For 24^100 it reduces to 4^100, sees 4, 16, 64, 256, 1024, 4096 alternating 4 and 6, then insists on checking why (4·4=16, 4·6=24) before answering 6 — the book's rule is find the pattern, then prove it, don't just trust it.",
+          "zh": "求 24¹⁰⁰ 的个位时先化成 4¹⁰⁰，看到 4、16、64、256、1024、4096 的个位在 4 和 6 之间来回跳，但书里不许直接信，非要用 4·4=16、4·6=24 验证一遍才答 6——先找规律，再讲清楚为什么，这是这一节的态度。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "units digit",
+          "zh": "个位数字"
+        },
+        {
+          "en": "decimal digit bundle",
+          "zh": "十进制数位捆（按 10 的幂拆分）"
+        },
+        {
+          "en": "conjecture",
+          "zh": "猜想"
+        },
+        {
+          "en": "borrowing (in subtraction)",
+          "zh": "退位（减法借位）"
+        }
+      ],
+      "teachHints": "placeValue、baseTen、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C10.S03",
+      "strand": "ch10",
+      "pages": [
+        184,
+        186
+      ],
+      "en": "10.3 Base Number Units Digits",
+      "zh": "10.3 进位制的个位",
+      "elaborations": [
+        {
+          "en": "The same digit-bundle trick is redone with powers of the base instead of powers of 10: 34_8 + 71_8 = (3·8^1 + 4·8^0) + (7·8^1 + 1·8^0) = 125_8, so the units digit is just 4+1 = 5.",
+          "zh": "还是拆数位捆，只是把 10 的幂换成基数的幂：34₈ + 71₈ = (3·8¹ + 4·8⁰) + (7·8¹ + 1·8⁰) = 125₈，个位就是 4+1=5，跟十进制一模一样。"
+        },
+        {
+          "en": "Once the rule transfers, the rest are one-liners: 131_4 + 2323_4 ends in 0 (1+3 = 10_4), 5234_6 − 2155_6 ends in 5 (borrow to get 14_6 − 5_6), and 121_3 · 202_3 ends in 2 (1·2).",
+          "zh": "规则一搬过去，后面全是一行搞定：131₄ + 2323₄ 个位是 0（1+3=10₄），5234₆ − 2155₆ 个位是 5（借位算 14₆ − 5₆），121₃ · 202₃ 个位是 2（1·2）。"
+        },
+        {
+          "en": "It also links units digits to remainders — a number ending in 5 in base 8 (5_8=5, 15_8=13, 25_8=21, 35_8=29) always leaves remainder 5 when divided by 8, because every other digit stands for a multiple of 8.",
+          "zh": "这一节还把个位和余数挂上钩：八进制里个位是 5 的数（5₈=5、15₈=13、25₈=21、35₈=29）除以 8 余数都是 5，因为其他数位代表的全是 8 的倍数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "number base",
+          "zh": "进位制（基数）"
+        },
+        {
+          "en": "base 8 (octal)",
+          "zh": "八进制"
+        },
+        {
+          "en": "remainder",
+          "zh": "余数"
+        },
+        {
+          "en": "base-b digit bundle",
+          "zh": "b 进制数位捆"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、groups"
+    },
+    {
+      "id": "AOPS.NT.C10.S04",
+      "strand": "ch10",
+      "pages": [
+        187,
+        189
+      ],
+      "en": "10.4 Unit Digits Everywhere!",
+      "zh": "10.4 个位无处不在",
+      "elaborations": [
+        {
+          "en": "By squaring only the ten digits (0²=0 up to 9²=81) the book shows perfect squares can only end in 0, 1, 4, 5, 6, 9 — a number ending in 2, 3, 7 or 8 is never a perfect square.",
+          "zh": "只把 0 到 9 十个数字各平方一遍（0²=0 一直到 9²=81），就得出完全平方数的个位只可能是 0、1、4、5、6、9——凡是以 2、3、7、8 结尾的数，一定不是完全平方数。"
+        },
+        {
+          "en": "Redone in base 4 there are only four cases (0²=0_4, 1²=1_4, 2²=10_4, 3²=21_4), so squares end in 0 or 1 there — meaning every even square is a multiple of 4 and every odd square is 1 more, which rules out 1026 and 4579 with no square roots computed.",
+          "zh": "换到四进制只剩四种情况（0²=0₄、1²=1₄、2²=10₄、3²=21₄），平方数只能以 0 或 1 结尾，也就是偶数的平方是 4 的倍数、奇数的平方比 4 的倍数多 1；靠这条不用开方就能断定 1026 和 4579 不是完全平方数。"
+        },
+        {
+          "en": "Two puzzles close it out: factorials can only end in 0, 1, 2, 4, 6 (from 5! on every one is a multiple of 10), and four consecutive odd integers must have product ending in 5 or 9 (since 1·3·7·9 = 189), so Tweety is right that a product ending in 1 is impossible.",
+          "zh": "最后两道趣题：阶乘的个位只能是 0、1、2、4、6（从 5! 起每个都是 10 的倍数）；四个连续奇数的乘积个位只能是 5 或 9（1·3·7·9 = 189），所以 Tweety 说「乘积个位是 1」不可能是对的。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "perfect square",
+          "zh": "完全平方数"
+        },
+        {
+          "en": "factorial (n!)",
+          "zh": "阶乘"
+        },
+        {
+          "en": "positive divisor",
+          "zh": "正因数"
+        },
+        {
+          "en": "repeating cycle of units digits",
+          "zh": "个位循环规律"
+        }
+      ],
+      "teachHints": "dataTable、areaGrid、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C11.S02",
+      "strand": "ch11",
+      "pages": [
+        195,
+        200
+      ],
+      "en": "11.2 Terminating Decimals",
+      "zh": "11.2 有限小数",
+      "elaborations": [
+        {
+          "en": "Shows why dividing by 10^n just slides the decimal point n places left, by expanding 29.3 ÷ 10 = (2·10^1 + 9·10^0 + 3·10^-1)·10^-1 = 2.93.",
+          "zh": "用 29.3 ÷ 10 拆成数位再乘 10^-1，让孩子真正看懂「除以 10 的 n 次方就是小数点往左挪 n 位」，而不是背口诀。"
+        },
+        {
+          "en": "Discovers that 1/2^n and 1/5^n each need exactly n decimal places, by rewriting 1/8 = 5^3/10^3 = 125·(0.1)^3 = 0.125 and 1/125 = 2^3/10^3 = 0.008.",
+          "zh": "带孩子自己发现 1/2ⁿ 和 1/5ⁿ 都正好是 n 位小数：1/8 = 5³/10³ = 125×(0.1)³ = 0.125，1/125 = 2³/10³ = 0.008。"
+        },
+        {
+          "en": "Concludes that a reduced fraction n/d with d = 2^a·5^b needs exactly max(a, b) digits after the point — 17/400 = 17/(2^4·5^2) = 0.0425 takes four.",
+          "zh": "最后归纳出结论：最简分数分母是 2^a·5^b 时，小数位数就是 a 和 b 里较大的那个，比如 17/400 = 0.0425 正好 4 位。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "terminating decimal",
+          "zh": "有限小数"
+        },
+        {
+          "en": "decimal expansion",
+          "zh": "小数展开"
+        },
+        {
+          "en": "digit bundle",
+          "zh": "数位分解式"
+        }
+      ],
+      "teachHints": "placeValue、baseTen、hundredthsGrid"
+    },
+    {
+      "id": "AOPS.NT.C11.S03",
+      "strand": "ch11",
+      "pages": [
+        201,
+        204
+      ],
+      "en": "11.3 Repeating Decimals",
+      "zh": "11.3 循环小数",
+      "elaborations": [
+        {
+          "en": "Uses the long division of 1/3 and 2/7 to show that repetition happens because an old remainder comes back — 2/7 produces 285714 before the remainder 2 returns and restarts the pattern.",
+          "zh": "用 1÷3 和 2÷7 的竖式，让孩子看到「余数又转回来了」才是循环的真正原因：2/7 走完 285714 六位后余数变回 2，于是从头再来。"
+        },
+        {
+          "en": "States and proves the test: for a/b in lowest terms, the decimal terminates if and only if b has no prime factors other than 2 or 5, so 1/13 = 0.076923… is forced to repeat.",
+          "zh": "给出并证明判断法则：最简分数 a/b 只有当分母只含 2 和 5 时才是有限小数，所以 1/13 = 0.076923… 注定要循环。"
+        },
+        {
+          "en": "Introduces overbar notation (1/3 = 0.3̄, 1/6 = 0.16̄) and the big result that every rational number is either terminating or repeating, unlike π = 3.14159… or √2.",
+          "zh": "教循环节上划线的写法（1/3 = 0.3̄，1/6 = 0.16̄），并点明有理数不是有限就是循环，只有 π、√2 这类无理数两样都不是。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "repeating decimal",
+          "zh": "循环小数"
+        },
+        {
+          "en": "repeating block / overbar notation",
+          "zh": "循环节（上划线记法）"
+        },
+        {
+          "en": "rational number",
+          "zh": "有理数"
+        },
+        {
+          "en": "irrational number",
+          "zh": "无理数"
+        }
+      ],
+      "teachHints": "dataTable、numberLine、fractionBar"
+    },
+    {
+      "id": "AOPS.NT.C11.S04",
+      "strand": "ch11",
+      "pages": [
+        205,
+        208
+      ],
+      "en": "11.4 Converting Decimals to Fractions",
+      "zh": "11.4 小数化分数",
+      "elaborations": [
+        {
+          "en": "Teaches the subtract-away-the-tail trick: let x = 0.4̄, then 10x = 4.4̄, so 10x − x = 9x = 4 and 0.4̄ = 4/9.",
+          "zh": "教「把尾巴减掉」这一招：设 x = 0.4̄，那么 10x = 4.4̄，两式相减得 9x = 4，所以 0.4̄ = 4/9。"
+        },
+        {
+          "en": "Matches the multiplier to the block length — 2.09̄ has a 2-digit block so compare with 100x, giving 99x = 207 and x = 23/11; 0.0027̄ uses 1000x and reduces to 1/370.",
+          "zh": "循环节几位就乘 10 的几次方：2.09̄ 循环节 2 位就用 100x，得 99x = 207，即 23/11；0.0027̄ 用 1000x，最后化简成 1/370。"
+        },
+        {
+          "en": "Ends by proving 0.9̄ = 1 in four independent ways: 3 × 0.3̄, the algebra trick, the shrinking gaps 0.1, 0.01, 0.001…, and an infinite geometric series.",
+          "zh": "最后用四种办法说服孩子 0.9̄ 就是 1：3×0.3̄、代数消尾巴、差距 0.1→0.01→0.001 一直缩到没有、以及无穷等比级数求和。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "lowest terms (reduced form)",
+          "zh": "最简分数"
+        },
+        {
+          "en": "infinite geometric series",
+          "zh": "无穷等比级数"
+        }
+      ],
+      "teachHints": "numberLine、dataTable、fractionBar"
+    },
+    {
+      "id": "AOPS.NT.C11.S05",
+      "strand": "ch11",
+      "pages": [
+        209,
+        211
+      ],
+      "en": "11.5 Base Numbers and Decimal Equivalents ★",
+      "zh": "11.5 进位制小数 ★",
+      "elaborations": [
+        {
+          "en": "Extends place value to the right of the point in other bases: 0.101₂ = 1·2⁻¹ + 1·2⁻³ = 5/8 = 0.625, and names that dot the radix point.",
+          "zh": "把数位表往小数点右边延伸到别的进位制：0.101₂ = 1·2⁻¹ + 1·2⁻³ = 5/8 = 0.625，还给那个点正名叫「基数点」(radix point)。"
+        },
+        {
+          "en": "Converts in both directions by going through a fraction first: 0.194̄ = 7/36 = 1·6⁻¹ + 1·6⁻² = 0.11₆, and back the other way 0.24₇ = 18/49 = 0.3673…",
+          "zh": "两个方向都先绕道分数：0.194̄ = 175/900 = 7/36 = 0.11₆；反过来 0.24₇ = 2/7 + 4/49 = 18/49 = 0.3673…，也顺手把 717/343 写成 2.043₇。"
+        },
+        {
+          "en": "Shows repeating digits are not a base-10 quirk: 1/8 = 1/9 + 1/9² + 1/9³ + … , so 1/8 = 0.1̄ in base 9.",
+          "zh": "说明循环小数不是十进制的专利：1/8 = 1/9 + 1/9² + 1/9³ + …，所以 1/8 在九进制里就写成 0.1̄₉。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "radix point",
+          "zh": "基数点（进位制里的小数点）"
+        },
+        {
+          "en": "radix (base)",
+          "zh": "基数（进位制的底）"
+        },
+        {
+          "en": "base numeral",
+          "zh": "进位制数字"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、fractionBar"
+    },
+    {
+      "id": "AOPS.NT.C12.S02",
+      "strand": "ch12",
+      "pages": [
+        218,
+        223
+      ],
+      "en": "12.2 Congruence",
+      "zh": "12.2 同余",
+      "elaborations": [
+        {
+          "en": "Opens with a five-number clock (0, 1, 2, 3, 4) and asks where the hand lands after 593 ticks — the answer is 3, because 593 divided by 5 leaves remainder 3.",
+          "zh": "开场是一个只有 0、1、2、3、4 的五格钟：走 593 下指针停在哪？答案是 3，因为 593 除以 5 余 3——先让孩子自己看出规律，书才给它起名字。"
+        },
+        {
+          "en": "Defines congruence — two integers are congruent mod m when their difference is a multiple of m — and introduces the notation, e.g. 8 ≡ 28 (mod 4) but 25 ≢ 38 (mod 4).",
+          "zh": "正式给出「同余」的定义：两个整数的差是 m 的倍数就叫同余，并教符号写法，比如 8 ≡ 28（mod 4），而 25 ≢ 38（mod 4）。"
+        },
+        {
+          "en": "Uses counting grids and the column formulas 7n, 7n+1, ..., 7n+6 to count how many of the 100 smallest natural numbers fall into each class — 14 or 15 each.",
+          "zh": "用数字方格表和 7n、7n+1……7n+6 这样的列公式，数出 100 以内每一类各有几个（14 个或 15 个），从画格子升级到用代数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "modulus",
+          "zh": "模数"
+        },
+        {
+          "en": "modulo m",
+          "zh": "模 m"
+        },
+        {
+          "en": "congruent",
+          "zh": "同余"
+        },
+        {
+          "en": "incongruent",
+          "zh": "不同余"
+        },
+        {
+          "en": "modular arithmetic",
+          "zh": "模算术（同余运算）"
+        }
+      ],
+      "teachHints": "clock、dataTable、numberLine"
+    },
+    {
+      "id": "AOPS.NT.C12.S03",
+      "strand": "ch12",
+      "pages": [
+        224,
+        226
+      ],
+      "en": "12.3 Residues",
+      "zh": "12.3 剩余",
+      "elaborations": [
+        {
+          "en": "Teaches residues by rewriting 137 = 11·12 + 5, so 137 ≡ 5 (mod 12), and handles negatives the same way: -97 = -9·12 + 11.",
+          "zh": "用改写的办法教「余数」：137 = 11×12+5，所以 137 ≡ 5（mod 12）；负数也照做，-97 = -9×12+11，余数照样落在 0 到 11 之间。"
+        },
+        {
+          "en": "Finds all 22 integers between -100 and 100 that are ≡ 5 (mod 9) by solving -100 < 9n + 5 < 100 instead of listing them by hand.",
+          "zh": "要找 -100 到 100 之间所有除以 9 余 5 的数，不靠一个个列，而是解不等式 -100 < 9n+5 < 100，干脆利落地得出正好 22 个。"
+        },
+        {
+          "en": "Proves congruence is transitive twice over — algebraically from a - b = 7j and b - c = 7k, then visually as \"same column of the 7-column grid\".",
+          "zh": "同一个结论讲两遍：先用代数（a-b=7j、b-c=7k 相加），再用「三个数在同一列」的图像直觉，说明同余可以一路传下去。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "residue",
+          "zh": "余数（剩余）"
+        },
+        {
+          "en": "residue class",
+          "zh": "剩余类"
+        },
+        {
+          "en": "congruence class",
+          "zh": "同余类"
+        },
+        {
+          "en": "equivalence class",
+          "zh": "等价类"
+        }
+      ],
+      "teachHints": "dataTable、numberLine、groups"
+    },
+    {
+      "id": "AOPS.NT.C12.S04",
+      "strand": "ch12",
+      "pages": [
+        227,
+        231
+      ],
+      "en": "12.4 Addition and Subtraction",
+      "zh": "12.4 同余加减",
+      "elaborations": [
+        {
+          "en": "Shows congruences can be added: from a1 ≡ a2 and b1 ≡ b2 (mod m) it follows that a1 + b1 ≡ a2 + b2 (mod m), proved first by stepping along an 8-column grid and then by algebra.",
+          "zh": "证明同余式可以相加：a1 ≡ a2、b1 ≡ b2（mod m）就能推出 a1+b1 ≡ a2+b2，先让孩子在 8 列方格表上走一步看明白，再补一遍代数。"
+        },
+        {
+          "en": "Replaces numbers by their residues to shortcut arithmetic: 6004 + 603 - 65 - 6 ≡ 4 + 3 - 5 - 0 ≡ 2 (mod 6).",
+          "zh": "教「先换成余数再算」：6004 + 603 - 65 - 6 ≡ 4 + 3 - 5 - 0 ≡ 2（mod 6），大数根本不用真算。"
+        },
+        {
+          "en": "Eric's trick: every term of the 201-term series 2 + 7 + 12 + ... + 1002 is ≡ 2 (mod 5), so the whole sum ≡ 201·2 = 402 ≡ 2 (mod 5) without adding anything.",
+          "zh": "Eric 的妙招：2 + 7 + 12 + … + 1002 一共 201 项，每项除以 5 都余 2，所以整个和 ≡ 201×2 = 402 ≡ 2（mod 5），一次加法都不用做。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable、placeValue、groups"
+    },
+    {
+      "id": "AOPS.NT.C12.S05",
+      "strand": "ch12",
+      "pages": [
+        232,
+        237
+      ],
+      "en": "12.5 Multiplication and Exponentiation",
+      "zh": "12.5 同余乘方",
+      "elaborations": [
+        {
+          "en": "Establishes that congruences multiply — a1b1 ≡ a2b2 (mod m) — so Jenny's 15 boxes of 625 toothpicks, used 6 at a time, leave 3·1 ≡ 3 toothpicks over.",
+          "zh": "证明同余式也能相乘：15 盒每盒 625 根牙签、每 6 根搭一个四面体，只要算 3×1 ≡ 3，就知道最后剩 3 根，完全不用乘出大数。"
+        },
+        {
+          "en": "Extends multiplication to powers by induction: if a1 ≡ a2 (mod m), then a1^n ≡ a2^n (mod m) for every natural number n.",
+          "zh": "再用「归纳」把乘法一路推到乘方：只要 a1 ≡ a2（mod m），就有 a1ⁿ ≡ a2ⁿ（mod m），每一步都跟上一步一模一样。"
+        },
+        {
+          "en": "Shows why choosing the smart residue matters: 21 ≡ -1 (mod 11) turns 21^100 - 12^100 into (-1)^100 - 1^100 = 0, proving it is a multiple of 11.",
+          "zh": "最后示范挑余数的功夫：把 21 看成 -1（mod 11），21¹⁰⁰ - 12¹⁰⁰ 立刻变成 (-1)¹⁰⁰ - 1 = 0，一眼看出它是 11 的倍数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "induction",
+          "zh": "归纳法"
+        },
+        {
+          "en": "exponentiation",
+          "zh": "乘方"
+        }
+      ],
+      "teachHints": "dataTable、groups、areaModel"
+    },
+    {
+      "id": "AOPS.NT.C12.S06",
+      "strand": "ch12",
+      "pages": [
+        238,
+        241
+      ],
+      "en": "12.6 Patterns and Exploration",
+      "zh": "12.6 规律探索",
+      "elaborations": [
+        {
+          "en": "Powers of 5 mod 7 cycle every 6 steps (1, 5, 4, 6, 2, 3), and since 2005 ≡ 1 (mod 6), 5^2005 ≡ 5 (mod 7).",
+          "zh": "5 的各次方除以 7 的余数每 6 个一循环（1、5、4、6、2、3），而 2005 除以 6 余 1，所以 5²⁰⁰⁵ ≡ 5（mod 7），余数就是 5。"
+        },
+        {
+          "en": "To find which integers have squares ≡ 1 (mod 5), it simply squares all five residues — 0, 1, 4, 4, 1 — so the integer must be ≡ 1 or ≡ 4 (mod 5).",
+          "zh": "想知道哪些数的平方除以 5 余 1，就把 0 到 4 这五个余数全平方一遍：0、1、4、4、1，答案是这个数本身除以 5 余 1 或余 4。"
+        },
+        {
+          "en": "Finds the units digit of 7^(7^7) by reducing the exponent mod 4 with 7 ≡ -1 (mod 4): 7^7 ≡ 3, so 7^(7^7) ≡ 7^3 ≡ 3 (mod 10).",
+          "zh": "求 7 的 7⁷ 次方的个位数：先用 7 ≡ -1（mod 4）算出指数 7⁷ ≡ 3，于是 7^(7⁷) ≡ 7³ ≡ 3（mod 10），个位是 3。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Sophie Germain prime",
+          "zh": "索菲·热尔曼素数"
+        }
+      ],
+      "teachHints": "dataTable、clock、placeValue"
+    },
+    {
+      "id": "AOPS.NT.C13.S02",
+      "strand": "ch13",
+      "pages": [
+        247,
+        254
+      ],
+      "en": "13.2 Divisibility Rules",
+      "zh": "13.2 整除判定法",
+      "elaborations": [
+        {
+          "en": "Derives the divisibility rules for 2, 5 and 10 from the fact that n minus its units digit is always a multiple of 10 — shown first with 632, where (632-2)/10 = 63.",
+          "zh": "从「一个数减掉个位数，一定是 10 的倍数」推出 2、5、10 的整除法则——书里先拿 632 试，(632-2)/10 = 63 正好是整数。"
+        },
+        {
+          "en": "Shows why the digit-sum rules work: 10 ≡ 1 (mod 3) and (mod 9), so 2740 ≡ 2+7+4+0 ≡ 1 (mod 3) and ≡ 4 (mod 9).",
+          "zh": "讲清「各位数字相加」这招背后的道理：因为 10 除以 3、除以 9 都余 1，所以 2740 ≡ 2+7+4+0，对 3 余 1、对 9 余 4。"
+        },
+        {
+          "en": "Because 10 ≡ -1 (mod 11), the rule for 11 uses the alternating digit sum — 814 gives 4-1+8 = 11, so 814 is a multiple of 11, while 540 gives 0-4+5 = 1 and is not.",
+          "zh": "10 除以 11 相当于 -1，所以 11 的判定要「加减交替」：814 算出 4-1+8 = 11，是 11 的倍数；540 算出 0-4+5 = 1，就不是。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "divisibility rule",
+          "zh": "整除判定法（整除规则）"
+        },
+        {
+          "en": "digit sum",
+          "zh": "各位数字之和"
+        },
+        {
+          "en": "alternating sum of digits",
+          "zh": "数字交替和（加减交替求和）"
+        },
+        {
+          "en": "place value / digit bundle",
+          "zh": "数位（位值分解）"
+        },
+        {
+          "en": "residue modulo m",
+          "zh": "模 m 的余数"
+        }
+      ],
+      "teachHints": "placeValue、dataTable、baseTen"
+    },
+    {
+      "id": "AOPS.NT.C13.S03",
+      "strand": "ch13",
+      "pages": [
+        255,
+        257
+      ],
+      "en": "13.3 Divisibility Rules With Algebra ★",
+      "zh": "13.3 判定法与代数 ★",
+      "elaborations": [
+        {
+          "en": "Turns a divisibility rule into an equation for a missing digit: for 3A6 to be a multiple of 9, 3+A+6 ≡ 0 (mod 9), so A = 0 or A = 9.",
+          "zh": "把整除法则直接写成方程去解未知数字：要让 3A6 是 9 的倍数，就得 3+A+6 能被 9 整除，于是 A 只能是 0 或 9。"
+        },
+        {
+          "en": "Teaches factoring the modulus and combining rules: 25A9B is a multiple of 36 = 2^2·3^2, so the rules for 4 and 9 give B ≡ 2 (mod 4) and A+B ≡ 2 (mod 9), yielding 25092, 25992 and 25596.",
+          "zh": "教孩子先把除数拆开再合用两条法则：36 = 4×9，用 4 的法则得 B 是 2 或 6，用 9 的法则得 A+B 除以 9 余 2，最后答案是 25092、25992、25596。"
+        },
+        {
+          "en": "Repeats the method on 67A7B as a multiple of 225 = 3^2·5^2: the rule for 25 forces B = 5, then the rule for 9 forces A = 2, giving 67275.",
+          "zh": "再用同一套路做 67A7B 是 225 的倍数：225 = 9×25，先用 25 的法则逼出 B = 5，再用 9 的法则逼出 A = 2，答案是 67275。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "unknown digit (digit variable)",
+          "zh": "未知数字（用字母表示的数位）"
+        },
+        {
+          "en": "casework",
+          "zh": "分情况讨论"
+        },
+        {
+          "en": "ordered pair of digits",
+          "zh": "有序数字对"
+        },
+        {
+          "en": "gcd and lcm of moduli",
+          "zh": "模数的最大公因数与最小公倍数"
+        }
+      ],
+      "teachHints": "placeValue、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C14.S02",
+      "strand": "ch14",
+      "pages": [
+        262,
+        266
+      ],
+      "en": "14.2 Modular Inverses and Simple Linear Congruences",
+      "zh": "14.2 模逆元",
+      "elaborations": [
+        {
+          "en": "Shows why you cannot divide in modular arithmetic — dividing 3x ≡ 3 (mod 6) by 3 gives only x ≡ 1 but loses x ≡ 3 and x ≡ 5 — and replaces division with multiplying by a modular inverse.",
+          "zh": "这一节专门讲「模运算里不能做除法」：把 3x ≡ 3 (mod 6) 两边除以 3 只剩 x ≡ 1，把 x ≡ 3、x ≡ 5 这两个答案弄丢了。正确做法是改成乘「模逆元」。"
+        },
+        {
+          "en": "Defines the modular inverse b·b⁻¹ ≡ 1 (mod m) and reads inverses off multiplication tables: 4⁻¹ ≡ 4 (mod 5), and mod 10 only 1, 3, 7, 9 have inverses (1⁻¹≡1, 3⁻¹≡7, 7⁻¹≡3, 9⁻¹≡9).",
+          "zh": "给出模逆元的定义 b·b⁻¹ ≡ 1 (mod m)，然后用乘法表把逆元一个个找出来：模 5 时 4⁻¹ ≡ 4；模 10 时只有 1、3、7、9 有逆元（3 和 7 互为逆元，9 是自己的逆元）。"
+        },
+        {
+          "en": "Proves the rule that decides everything: r has an inverse mod m if and only if gcd(m, r) = 1 — so when m is prime every nonzero residue has one.",
+          "zh": "证明了一条一锤定音的规则：r 在模 m 下有逆元，当且仅当 gcd(m, r) = 1。所以模数是质数时，除了 0 之外每个数都有逆元。收尾用 11n ≡ 1 (mod 23) 的饼干题，答出 n = 21。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "modular inverse",
+          "zh": "模逆元"
+        },
+        {
+          "en": "linear congruence",
+          "zh": "线性同余式"
+        },
+        {
+          "en": "residue",
+          "zh": "剩余（余数类代表）"
+        },
+        {
+          "en": "relatively prime",
+          "zh": "互质"
+        },
+        {
+          "en": "modulo m multiplication table",
+          "zh": "模 m 乘法表"
+        }
+      ],
+      "teachHints": "dataTable、clock、groups"
+    },
+    {
+      "id": "AOPS.NT.C14.S03",
+      "strand": "ch14",
+      "pages": [
+        267,
+        271
+      ],
+      "en": "14.3 Solving Linear Congruences",
+      "zh": "14.3 解线性同余",
+      "elaborations": [
+        {
+          "en": "Teaches the full routine for ax ≡ b (mod m): tidy both sides, then multiply by the inverse — e.g. 48x − 115 ≡ 291 (mod 13) becomes 9x ≡ 3 (mod 13) and then x ≡ 9 (mod 13).",
+          "zh": "教解 ax ≡ b (mod m) 的整套流程：先把两边化简，再乘逆元。比如 48x − 115 ≡ 291 (mod 13) 先变成 9x ≡ 3 (mod 13)，再乘 9⁻¹ ≡ 3，得到 x ≡ 9 (mod 13)。"
+        },
+        {
+          "en": "Establishes the solvability test: ax ≡ b (mod m) has solutions if and only if gcd(a, m) divides b — 2x ≡ 3 (mod 4) has none because 2(x − 2n) = 3 is impossible.",
+          "zh": "给出「有没有解」的判据：ax ≡ b (mod m) 有解，当且仅当 gcd(a, m) 整除 b。所以 2x ≡ 3 (mod 4) 无解——化出来是 2(x − 2n) = 3，左边偶数右边奇数，不可能。"
+        },
+        {
+          "en": "Distinguishes two kinds of cancelling: 2x ≡ 2 (mod 3) → x ≡ 1 (mod 3) keeps the modulus, but 2x ≡ 2 (mod 4) → x ≡ 1 (mod 2) shrinks it; general rule ac ≡ bc (mod m) ⟹ a ≡ b (mod m/gcd(m,c)).",
+          "zh": "特别区分两种「约分」：2x ≡ 2 (mod 3) 约完模数不变，还是 mod 3；但 2x ≡ 2 (mod 4) 约完模数也要减半，变成 x ≡ 1 (mod 2)。通用公式是 ac ≡ bc (mod m) ⟹ a ≡ b (mod m/gcd(m,c))。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "solvability criterion gcd(a, m) | b",
+          "zh": "可解判据 gcd(a, m) | b"
+        },
+        {
+          "en": "cancellation in a congruence",
+          "zh": "同余式的约分（消去律）"
+        },
+        {
+          "en": "parametric equation form",
+          "zh": "参数方程形式"
+        }
+      ],
+      "teachHints": "dataTable、numberLine、groups"
+    },
+    {
+      "id": "AOPS.NT.C14.S04",
+      "strand": "ch14",
+      "pages": [
+        272,
+        277
+      ],
+      "en": "14.4 Systems of Linear Congruences",
+      "zh": "14.4 同余方程组",
+      "elaborations": [
+        {
+          "en": "Teaches solving a system like N ≡ 1 (mod 2), N ≡ 3 (mod 5) by turning each into an equation (N = 2a+1 = 5b+3), taking one side mod 2 to pin down b, and substituting back to get N ≡ 3 (mod 10).",
+          "zh": "教怎么解方程组，比如 N ≡ 1 (mod 2) 和 N ≡ 3 (mod 5)：先都写成等式 N = 2a+1 = 5b+3，再对两边取模 2 把 b 卡住，代回去就得到 N ≡ 3 (mod 10)。"
+        },
+        {
+          "en": "Shows systems can be contradictory: a ≡ 2 (mod 6) and a ≡ 3 (mod 9) have no solution, because reducing both mod gcd(6,9) = 3 demands a ≡ 2 and a ≡ 0 at the same time.",
+          "zh": "也讲了方程组可能「打架」：a ≡ 2 (mod 6) 和 a ≡ 3 (mod 9) 无解——两边都取模 gcd(6,9) = 3，一个要求 a ≡ 2，另一个要求 a ≡ 0，同时成立不可能。"
+        },
+        {
+          "en": "Handles three congruences by combining two at a time (x ≡ 1 mod 3, x ≡ 2 mod 4 → x ≡ 10 mod 12, then with x ≡ 4 mod 5 → x ≡ 34 mod 60), and clears coefficients first when needed: 4N ≡ 3 (mod 7), 5N ≡ 7 (mod 8) → N ≡ 27 (mod 56).",
+          "zh": "三个同余式就两两合并：x ≡ 1 (mod 3) 加 x ≡ 2 (mod 4) 得 x ≡ 10 (mod 12)，再和 x ≡ 4 (mod 5) 合并得 x ≡ 34 (mod 60)。系数不是 1 的先用逆元清掉：4N ≡ 3 (mod 7)、5N ≡ 7 (mod 8) 最后得 N ≡ 27 (mod 56)。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "system of linear congruences",
+          "zh": "线性同余方程组"
+        },
+        {
+          "en": "combining congruences (simplifying a system)",
+          "zh": "合并同余式（化简方程组）"
+        }
+      ],
+      "teachHints": "dataTable、numberLine、hundredChart"
+    },
+    {
+      "id": "AOPS.NT.C15.S02",
+      "strand": "ch15",
+      "pages": [
+        283,
+        286
+      ],
+      "en": "15.2 Familiar Factors and Divisibility",
+      "zh": "15.2 熟悉的因数",
+      "elaborations": [
+        {
+          "en": "Teaches that recognizing familiar factors beats brute-force computing: 4^20 · 5^36 is rewritten as 16 · 10^36, so the answer (38 digits) falls out without ever multiplying.",
+          "zh": "教孩子先看「熟悉的因数」再动笔：4^20 · 5^36 改写成 16 · 10^36，一眼就知道是 16 后面跟 36 个零，共 38 位，根本不用真去乘。"
+        },
+        {
+          "en": "Uses divisibility rules as a search tool, not just a test: for the largest 4-digit multiple of 8 containing 3, 5, 7, the units digit must be even, so the number is 753A, and mod 8 gives A = 6 and the answer 7536.",
+          "zh": "把整除规则当「筛子」用：要找含 3、5、7 的最大四位 8 的倍数，个位必须是偶数，所以形如 753A，用 mod 8 算出 A = 6，答案 7536。"
+        },
+        {
+          "en": "Ends with the checking habit: since 10101 is a multiple of 3, 10101^5 is a multiple of 9, so its digit sum must be a multiple of 9 — and 25 is not, so John's claim is wrong.",
+          "zh": "最后教「用数感检查答案」：10101 是 3 的倍数，所以 10101^5 是 9 的倍数，各位数字之和必须是 9 的倍数——25 不是，所以 John 说错了。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "number sense",
+          "zh": "数感"
+        },
+        {
+          "en": "divisibility rule",
+          "zh": "整除规则"
+        },
+        {
+          "en": "digit sum",
+          "zh": "数字和（各位数字之和）"
+        },
+        {
+          "en": "modulo / congruence",
+          "zh": "同余（取模）"
+        }
+      ],
+      "teachHints": "placeValue、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C15.S03",
+      "strand": "ch15",
+      "pages": [
+        287,
+        291
+      ],
+      "en": "15.3 Algebraic Methods of Arithmetic",
+      "zh": "15.3 代数化心算",
+      "elaborations": [
+        {
+          "en": "Teaches replacing a scary number with a variable: 200003² − 199997² becomes (x+3)² − (x−3)² = 12x with x = 200000, giving 2400000 mentally.",
+          "zh": "教「把吓人的大数换成字母」：200003² − 199997² 设 x = 200000 就变成 (x+3)² − (x−3)² = 12x，心算得 2400000。"
+        },
+        {
+          "en": "Difference of squares as a factoring shortcut: 3^8 − 4 = (81+2)(81−2) = 83 · 79, and 91 = 10² − 3² = 13 · 7 — the book insists 91 is not prime.",
+          "zh": "平方差是分解质因数的捷径：3^8 − 4 = (81+2)(81−2) = 83 · 79；还有 91 = 10² − 3² = 13 · 7——书里特别强调「91 不是质数」。"
+        },
+        {
+          "en": "Turns remainder problems into multiple problems: N ≡ 3 mod 4,5,6,7,8 becomes N − 3 = 840m, so the third smallest is 840 · 2 + 3 = 1683.",
+          "zh": "把「余数问题」改写成「倍数问题」：N 除以 4、5、6、7、8 都余 3，就令 N − 3 = 840m，第三小的是 840 · 2 + 3 = 1683。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "difference of squares",
+          "zh": "平方差公式"
+        },
+        {
+          "en": "sum of cubes",
+          "zh": "立方和公式"
+        },
+        {
+          "en": "least common multiple (LCM)",
+          "zh": "最小公倍数"
+        },
+        {
+          "en": "prime factorization",
+          "zh": "质因数分解"
+        }
+      ],
+      "teachHints": "areaModel、dataTable、placeValue"
+    },
+    {
+      "id": "AOPS.NT.C15.S04",
+      "strand": "ch15",
+      "pages": [
+        292,
+        293
+      ],
+      "en": "15.4 Useful Forms of Numbers",
+      "zh": "15.4 数的好形状",
+      "elaborations": [
+        {
+          "en": "Teaches switching a number's form when the current one is stuck: 11/15 > a/b > 7/10 goes nowhere as fractions, but as decimals 0.73... > a/b > 0.7 it is quickly checked, and 5/7 = 0.714285... gives b = 7.",
+          "zh": "教「换个写法再看」：11/15 > a/b > 7/10 用分数很难下手，换成小数 0.73… > a/b > 0.7 就好试了，5/7 = 0.714285… 落在区间里，所以最小的 b = 7。"
+        },
+        {
+          "en": "Includes a Bogus Solution that wrongly gets b = 60 by only testing denominators 30 and 60 — a warning that a tidy-looking method can miss whole families of cases.",
+          "zh": "书里专门放了一个「错解」：只试分母 30、60 就断言 b = 60。提醒孩子——看起来很整齐的做法，可能漏掉一大类情况。"
+        },
+        {
+          "en": "Shows the Euclidean Algorithm beating prime factorization: seeing 818874 = 1000 · 819 − 126 reduces gcd(818874, 819) down to gcd(63, 0) = 63.",
+          "zh": "展示辗转相除法比硬分解更快：看出 818874 = 1000 · 819 − 126，gcd(818874, 819) 一路化到 gcd(63, 0) = 63。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Euclidean Algorithm",
+          "zh": "辗转相除法（欧几里得算法）"
+        },
+        {
+          "en": "greatest common divisor (GCD)",
+          "zh": "最大公因数"
+        },
+        {
+          "en": "repeating decimal",
+          "zh": "循环小数"
+        }
+      ],
+      "teachHints": "numberLine、fractionBar、dataTable"
+    },
+    {
+      "id": "AOPS.NT.C15.S05",
+      "strand": "ch15",
+      "pages": [
+        294,
+        296
+      ],
+      "en": "15.5 Simplicity",
+      "zh": "15.5 大道至简",
+      "elaborations": [
+        {
+          "en": "Introduces parity: 14 dimes can never split into three odd piles, because (2a+1)+(2b+1)+(2c+1) = 14 forces a + b + c = 11/2 — and three odds always sum to an odd number.",
+          "zh": "引入「奇偶性」：14 枚硬币不可能分成三堆、每堆都是奇数，因为 (2a+1)+(2b+1)+(2c+1) = 14 会推出 a + b + c = 11/2；三个奇数相加一定是奇数。"
+        },
+        {
+          "en": "Uses pairing instead of adding: the 12 numbers under 36 coprime to 36 pair up as 1+35 = 5+31 = ... = 36, so the sum is 6 · 36 = 216.",
+          "zh": "用「配对」代替硬加：小于 36 且与 36 互质的 12 个数正好两两配成 1+35 = 5+31 = … = 36，所以总和是 6 · 36 = 216。"
+        },
+        {
+          "en": "Also defends short lists: only five three-digit cubes exist (125, 216, 343, 512, 729), and checking digit sums shows 512 = 8³ with 5+1+2 = 8 is the only answer.",
+          "zh": "也承认「小范围就直接列」：三位数的立方只有 125、216、343、512、729 五个，逐个算数字和，只有 512（5+1+2 = 8，8³ = 512）符合。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "parity",
+          "zh": "奇偶性"
+        },
+        {
+          "en": "modulo 2",
+          "zh": "模 2（对 2 取余）"
+        },
+        {
+          "en": "relatively prime / coprime",
+          "zh": "互质"
+        },
+        {
+          "en": "perfect cube",
+          "zh": "完全立方数"
+        }
+      ],
+      "teachHints": "groups、dataTable、numberLine"
+    }
+  ]
+}

@@ -1,0 +1,3098 @@
+{
+  "type": "book",
+  "bookId": "aops-intro-algebra",
+  "grade": 7,
+  "title": {
+    "en": "Introduction to Algebra — Art of Problem Solving",
+    "zh": "AoPS 代数入门"
+  },
+  "short": {
+    "en": "AoPS Intro Algebra",
+    "zh": "AoPS 代数入门"
+  },
+  "source": {
+    "kind": "book",
+    "publisher": "AoPS Incorporated",
+    "authors": "Richard Rusczyk",
+    "isbn": "978-1-934124-14-7",
+    "version": "AoPS · 2nd ed.",
+    "url": "https://artofproblemsolving.com/store/book/intro-algebra",
+    "label": "Intro to Algebra · Art of Problem Solving · 2nd ed."
+  },
+  "teachStyle": {
+    "zh": "这本书的教学风格是「先做后讲」（发现式学习）：先抛出具体的小问题让孩子自己动手试，再带着孩子发现方法。讲课时保持这种风格：第一步先给一个能上手试的小问题，讲解围绕「我们一起发现了规律」展开，最后才总结规则；代数的每一步变形都要讲清「为什么可以这么做」。",
+    "en": "This book teaches by discovery: pose a concrete little problem first, let the child try it, then guide them to the method. Keep that style — open with a small problem the child can attempt, unfold the lesson as 'we discovered the rule together', state the rule only at the end, and always justify why each algebraic move is legal."
+  },
+  "strandDefs": [
+    [
+      "ch01",
+      "第1章 · 运算规则",
+      "Ch 1 · Follow the Rules"
+    ],
+    [
+      "ch02",
+      "第2章 · 未知数 x 登场",
+      "Ch 2 · x Marks the Spot"
+    ],
+    [
+      "ch03",
+      "第3章 · 一元一次方程",
+      "Ch 3 · One-Variable Linear Equations"
+    ],
+    [
+      "ch04",
+      "第4章 · 更多未知数",
+      "Ch 4 · More Variables"
+    ],
+    [
+      "ch05",
+      "第5章 · 多元一次方程",
+      "Ch 5 · Multi-Variable Linear Equations"
+    ],
+    [
+      "ch06",
+      "第6章 · 比与百分数",
+      "Ch 6 · Ratios & Percents"
+    ],
+    [
+      "ch07",
+      "第7章 · 正反比例",
+      "Ch 7 · Proportion"
+    ],
+    [
+      "ch08",
+      "第8章 · 直线的图像",
+      "Ch 8 · Graphing Lines"
+    ],
+    [
+      "ch09",
+      "第9章 · 不等式入门",
+      "Ch 9 · Intro to Inequalities"
+    ],
+    [
+      "ch10",
+      "第10章 · 二次方程（上）",
+      "Ch 10 · Quadratics – Part 1"
+    ],
+    [
+      "ch11",
+      "第11章 · 特殊因式分解",
+      "Ch 11 · Special Factorizations"
+    ],
+    [
+      "ch12",
+      "第12章 · 复数",
+      "Ch 12 · Complex Numbers"
+    ],
+    [
+      "ch13",
+      "第13章 · 二次方程（下）",
+      "Ch 13 · Quadratics – Part 2"
+    ],
+    [
+      "ch14",
+      "第14章 · 抛物线与圆",
+      "Ch 14 · Graphing Quadratics"
+    ],
+    [
+      "ch15",
+      "第15章 · 更多不等式",
+      "Ch 15 · More Inequalities"
+    ],
+    [
+      "ch16",
+      "第16章 · 函数",
+      "Ch 16 · Functions"
+    ],
+    [
+      "ch17",
+      "第17章 · 函数的图像",
+      "Ch 17 · Graphing Functions"
+    ],
+    [
+      "ch18",
+      "第18章 · 多项式",
+      "Ch 18 · Polynomials"
+    ],
+    [
+      "ch19",
+      "第19章 · 指数与对数",
+      "Ch 19 · Exponents & Logarithms"
+    ],
+    [
+      "ch20",
+      "第20章 · 特殊函数",
+      "Ch 20 · Special Functions"
+    ],
+    [
+      "ch21",
+      "第21章 · 数列与级数",
+      "Ch 21 · Sequences & Series"
+    ],
+    [
+      "ch22",
+      "第22章 · 特殊技巧",
+      "Ch 22 · Special Manipulations"
+    ]
+  ],
+  "bigIdeas": [
+    {
+      "strand": "ch01",
+      "en": "Algebra starts from the rules of arithmetic: order of operations, distribution, exponents, radicals — lay out the toolbox first.",
+      "zh": "代数从算术的规则出发：运算顺序、分配律、指数、根号——先把工具箱摆整齐。"
+    },
+    {
+      "strand": "ch02",
+      "en": "Let a letter stand for a number and arithmetic levels up into algebra: x can be added, multiplied, distributed, and canceled.",
+      "zh": "让字母代表数，算术就升级成了代数：x 能加减乘除，也能被分配、被约分。"
+    },
+    {
+      "strand": "ch03",
+      "en": "Solving an equation is unwrapping with balance: do the same to both sides until x stands alone.",
+      "zh": "解方程就是「保持平衡地拆包装」：两边同时做同一件事，一步步把 x 孤立出来。"
+    },
+    {
+      "strand": "ch04",
+      "en": "Several letters at once is nothing to fear — treat each like a number and the rules don't change.",
+      "zh": "好几个字母同时出现也不可怕——把每个都当作数，规则一条不变。"
+    },
+    {
+      "strand": "ch05",
+      "en": "Two unknowns need two clues: substitution and elimination are the twin keys to systems of equations.",
+      "zh": "两个未知数需要两条线索：代入和消元是解方程组的两把钥匙。"
+    },
+    {
+      "strand": "ch06",
+      "en": "Ratios, conversions, and percents are one move in disguise: multiplying by a clever fraction equal to 1.",
+      "zh": "比、换算、百分数其实是同一个动作：乘上一个「等于 1」的聪明分数。"
+    },
+    {
+      "strand": "ch07",
+      "en": "Direct, inverse, and joint proportion: find what stays constant and the changing quantities fall in line.",
+      "zh": "正比、反比、连比：抓住「什么不变」，变化的量就都听话了。"
+    },
+    {
+      "strand": "ch08",
+      "en": "Equations become pictures: slope and intercepts wire algebra to geometry.",
+      "zh": "方程能画成图：直线的斜率和截距，把代数和几何接在一起。"
+    },
+    {
+      "strand": "ch09",
+      "en": "Solve inequalities like equations — except the sign U-turns when you multiply by a negative; graphs make 'greater than' visible.",
+      "zh": "不等式像方程一样解——只是乘除负数时方向要掉头；图像让「大于」看得见。"
+    },
+    {
+      "strand": "ch10",
+      "en": "Your first weapon on quadratics is factoring: if a product is zero, one of its factors must be zero.",
+      "zh": "二次方程的第一件武器是因式分解：乘积为零，必有一个因子为零。"
+    },
+    {
+      "strand": "ch11",
+      "en": "Difference of squares, perfect squares, sums and differences of cubes — know these celebrity forms and scary expressions collapse on sight.",
+      "zh": "平方差、完全平方、立方和差——认识这些「明星式子」，吓人的式子一眼化简。"
+    },
+    {
+      "strand": "ch12",
+      "en": "Give −1 a square root and the number system completes itself: with complex numbers every quadratic has solutions.",
+      "zh": "给 −1 一个平方根，数系就完整了：有了复数，每个二次方程都有解。"
+    },
+    {
+      "strand": "ch13",
+      "en": "Completing the square turns any quadratic into 'perfect square = constant'; the quadratic formula is that step packaged forever.",
+      "zh": "配方把任何二次方程变成「完全平方 = 常数」；二次求根公式就是把这一步永久打包。"
+    },
+    {
+      "strand": "ch14",
+      "en": "Quadratics graph as parabolas and circles have equations of their own — shapes and equations translate both ways.",
+      "zh": "二次方程的图像是抛物线，圆也有自己的方程——图形和方程可以互相翻译。"
+    },
+    {
+      "strand": "ch15",
+      "en": "A square is never negative — the humble Trivial Inequality seeds a surprising number of beautiful results.",
+      "zh": "平方永远不小于零——这条「最平凡的不等式」是无数漂亮结论的种子。"
+    },
+    {
+      "strand": "ch16",
+      "en": "A function is a machine: numbers in, one rule, numbers out — and machines can be chained and run backwards.",
+      "zh": "函数是一台机器：放进一个数，按同一条规则吐出一个数；机器还能串联、还能倒转。"
+    },
+    {
+      "strand": "ch17",
+      "en": "Graphs shift, flip, and stretch: master transformations and one picture reads as a whole family of functions.",
+      "zh": "函数的图像会平移、翻转、伸缩：认识变换，一张图能读出一族函数。"
+    },
+    {
+      "strand": "ch18",
+      "en": "Polynomials are expressions built from power blocks: adding, subtracting, and multiplying follow tidy rules.",
+      "zh": "多项式是「以幂为积木」搭出来的式子：加减乘都有整齐的规矩。"
+    },
+    {
+      "strand": "ch19",
+      "en": "Exponential functions govern growth — interest and doubling; logarithms ask the exponent question in reverse.",
+      "zh": "指数函数管增长：利息、翻倍都是它；对数则是把「指数是几」反过来问。"
+    },
+    {
+      "strand": "ch20",
+      "en": "Radicals, absolute value, floor and ceiling, rational and piecewise functions — five characterful functions, each with its own temper and graph.",
+      "zh": "根号、绝对值、取整、分式、分段——五种「性格特别」的函数，各有各的脾气和图像。"
+    },
+    {
+      "strand": "ch21",
+      "en": "Arithmetic sequences run on differences, geometric on ratios; sums fall to pairing tricks — and telescoping sums cancel themselves.",
+      "zh": "等差看差、等比看比；求和靠配对的巧劲——望远镜求和更是让中间项自己消掉。"
+    },
+    {
+      "strand": "ch22",
+      "en": "Powers, self-similarity, symmetry — three power moves for equations that look scarier than they are.",
+      "zh": "乘方、自相似、对称——三个高级动作，专治长得吓人的方程。"
+    }
+  ],
+  "items": [
+    {
+      "id": "AOPS.IA.C01.S01",
+      "strand": "ch01",
+      "pages": [
+        2,
+        2
+      ],
+      "en": "1.1 Numbers",
+      "zh": "1.1 数的家族",
+      "elaborations": [
+        {
+          "en": "The number families: integers for counting, rationals made by dividing one integer by another, and irrationals like √2 that no fraction can express.",
+          "zh": "数的家族：数数用的整数；一个整数除以另一个整数得到的有理数；还有 √2 这种用分数写不出来的无理数。"
+        },
+        {
+          "en": "A warning the book flags: 0 is neither positive nor negative — it's both nonnegative and nonpositive.",
+          "zh": "书里特意提醒：0 既不是正数也不是负数——它既算非负数，也算非正数。"
+        },
+        {
+          "en": "Real numbers are everything you can write as a decimal; the square root of a negative is teased as Chapter 12's mystery.",
+          "zh": "实数就是所有能写成小数的数；负数开平方的谜团，先卖个关子留到第 12 章。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "real number",
+          "zh": "实数"
+        },
+        {
+          "en": "irrational number",
+          "zh": "无理数"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.IA.C01.S02",
+      "strand": "ch01",
+      "pages": [
+        3,
+        4
+      ],
+      "en": "1.2 Order of Operations",
+      "zh": "1.2 运算顺序",
+      "elaborations": [
+        {
+          "en": "Arithmetic's five tools — add, subtract, multiply, divide, raise to powers — plus one iron rule: never divide by 0.",
+          "zh": "算术的五件工具：加、减、乘、除、乘方；外加一条铁律——0 不能当除数。"
+        },
+        {
+          "en": "The rules start from an ambiguity: 2 + 3 × 4 could be 20 or 14 unless everyone agrees on one order.",
+          "zh": "规则从一道歧义题讲起：2 + 3 × 4 到底是 20 还是 14？大家不约好顺序，答案就乱了。"
+        },
+        {
+          "en": "The agreed order: parentheses from the inside out, then exponents, then multiply/divide left to right, then add/subtract left to right.",
+          "zh": "约好的顺序：先算括号（由内到外），再乘方，然后从左到右乘除，最后从左到右加减。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "order of operations",
+          "zh": "运算顺序"
+        }
+      ],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C01.S03",
+      "strand": "ch01",
+      "pages": [
+        5,
+        11
+      ],
+      "en": "1.3 When Does Order Matter?",
+      "zh": "1.3 顺序什么时候重要？",
+      "elaborations": [
+        {
+          "en": "Counting marbles and deck tiles two ways uncovers the commutative laws — and the book uses letters for the first time to state a rule: a + b = b + a.",
+          "zh": "数弹珠、数地砖，两种数法答案一样——发现加法和乘法的交换律，书里还第一次用字母把规则写下来：a + b = b + a。"
+        },
+        {
+          "en": "Subtraction and division are not commutative — but rewrite subtraction as adding a negative and you may reorder freely, as long as the signs come along.",
+          "zh": "减法和除法不能随便换位置——但把减法看成「加上一个负数」，就又能自由换序了，只是负号必须跟着走。"
+        },
+        {
+          "en": "The associative laws let you group sums and products however you like — the signature move is rearranging 47 + 99 − 45 or 13 × 64 × 1/13 to make arithmetic easy.",
+          "zh": "结合律让你随意分组：像 47 + 99 − 45、13 × 64 × 1/13 这种题，重新搭配一下就变得特别好算。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "commutative property",
+          "zh": "交换律"
+        },
+        {
+          "en": "associative property",
+          "zh": "结合律"
+        }
+      ],
+      "teachHints": "groups、numberLine"
+    },
+    {
+      "id": "AOPS.IA.C01.S04",
+      "strand": "ch01",
+      "pages": [
+        12,
+        17
+      ],
+      "en": "1.4 Distribution and Factoring",
+      "zh": "1.4 分配与提取",
+      "elaborations": [
+        {
+          "en": "Counting pet legs and dot grids two ways discovers the distributive law: a × (b + c) = a × b + a × c.",
+          "zh": "数猫狗的腿、数点阵图，两种数法引出分配律：a × (b + c) = a × b + a × c。"
+        },
+        {
+          "en": "Run it backwards and you're factoring — pull the common factor out, like 99 + 72 = 9 × (11 + 8), and dividing suddenly gets easy.",
+          "zh": "倒着用就是提取公因式：99 + 72 = 9 × (11 + 8)，一提出来，除法立刻变简单。"
+        },
+        {
+          "en": "Canceling in fractions only works on products — never cancel a term of a sum, and mind the signs when distributing a negative.",
+          "zh": "分数约分只能约「乘出来的因子」，加起来的项不能约；负号往括号里分配时要格外小心。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "distributive property",
+          "zh": "分配律"
+        },
+        {
+          "en": "factoring",
+          "zh": "因式分解"
+        }
+      ],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C01.S05",
+      "strand": "ch01",
+      "pages": [
+        18,
+        27
+      ],
+      "en": "1.5 Equations",
+      "zh": "1.5 等式与方程",
+      "elaborations": [
+        {
+          "en": "An equation is a balanced scale: add, subtract, multiply, or divide both sides by the same thing (never divide by 0) and it stays true.",
+          "zh": "方程就像一架天平：两边同加、同减、同乘、同除同一个数（除数不能是 0），天平照样平。"
+        },
+        {
+          "en": "Whole equations can be combined too — add, subtract, or multiply two equations side by side, and equal fractions cross-multiply: a/b = c/d gives ad = bc.",
+          "zh": "整条方程也能搭着用：两条方程可以相加、相减、相乘；两个分数相等还能交叉相乘——a/b = c/d 得出 ad = bc。"
+        },
+        {
+          "en": "Equality has its own habits: symmetric (swap the two sides) and transitive (if a = b and b = c, then a = c).",
+          "zh": "等号自己也有规矩：两边可以互换位置（对称性）；a = b 且 b = c 就有 a = c（传递性）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "equation",
+          "zh": "方程"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C01.S06",
+      "strand": "ch01",
+      "pages": [
+        28,
+        36
+      ],
+      "en": "1.6 Exponents",
+      "zh": "1.6 指数",
+      "elaborations": [
+        {
+          "en": "An exponent counts repeated multiplication — write the copies out and the first law appears by itself: same base, exponents add.",
+          "zh": "指数就是「同一个数连乘几次」；把连乘一个个写开，第一条规律自己冒出来——同底数相乘，指数相加。"
+        },
+        {
+          "en": "Dividing powers subtracts exponents, which forces two surprises: any nonzero number to the 0 power is 1, and a negative exponent means a reciprocal.",
+          "zh": "幂相除等于指数相减，顺势逼出两个惊喜：非零数的 0 次方是 1，负指数就是取倒数。"
+        },
+        {
+          "en": "Favorite warnings: (−2)⁴ is not −2⁴, and powers of different bases never merge by adding exponents.",
+          "zh": "书里敲黑板的两个坑：(−2)⁴ 和 −2⁴ 不是一回事；底数不同的幂，指数不能加在一起。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "exponent",
+          "zh": "指数"
+        },
+        {
+          "en": "base",
+          "zh": "底数"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.IA.C01.S07",
+      "strand": "ch01",
+      "pages": [
+        37,
+        41
+      ],
+      "en": "1.7 Fractional Exponents",
+      "zh": "1.7 分数指数",
+      "elaborations": [
+        {
+          "en": "What should 25 to the 1/2 be? Demand that the exponent laws keep working, and it must be the nonnegative number whose square is 25 — that's 5.",
+          "zh": "25 的 1/2 次方是什么？让指数运算律继续成立，它就只能是「平方等于 25 的非负数」——也就是 5。"
+        },
+        {
+          "en": "a to the 1/n is the nth root, and m/n powers are just powers and roots combined — big numbers crack open with prime factorization.",
+          "zh": "a 的 1/n 次幂就是 n 次方根，m/n 次幂就是幂和根连着做；碰到大数字，用质因数分解拆开算。"
+        },
+        {
+          "en": "Odd roots of negatives are fine — (−125) to the 1/3 is −5 — but even roots of negatives stay undefined until Chapter 12.",
+          "zh": "负数开奇次方没问题：(−125) 的 1/3 次幂就是 −5；负数开偶次方暂时无解，谜底留到第 12 章。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "fractional exponent",
+          "zh": "分数指数"
+        }
+      ],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C01.S08",
+      "strand": "ch01",
+      "pages": [
+        42,
+        48
+      ],
+      "en": "1.8 Radicals",
+      "zh": "1.8 根式",
+      "elaborations": [
+        {
+          "en": "The radical sign is just the 1/2 power in new clothes: simplify by pulling perfect squares out, like √12 = 2√3.",
+          "zh": "根号就是 1/2 次幂换了身衣服：把完全平方因数提出来化简，比如 √12 = 2√3。"
+        },
+        {
+          "en": "Why simplify? A monster like √50 + √32 + 2√8 − √338 collapses to 0 once every term becomes a multiple of √2.",
+          "zh": "为什么要化简？√50 + √32 + 2√8 − √338 这样的大怪物，全化成 √2 的倍数再一合并，居然等于 0。"
+        },
+        {
+          "en": "√n won't simplify exactly when n has no perfect-square factor bigger than 1, and cube roots and higher roots play by the same rules.",
+          "zh": "n 里挑不出比 1 大的完全平方因数时，√n 就化不动了；立方根和更高次根，玩法完全一样。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "radical",
+          "zh": "根式"
+        }
+      ],
+      "teachHints": "areaGrid、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C02.S01",
+      "strand": "ch02",
+      "pages": [
+        53,
+        54
+      ],
+      "en": "2.1 Expressions",
+      "zh": "2.1 代数式",
+      "elaborations": [
+        {
+          "en": "A variable is a placeholder — the chapter opens with a pirate map where x literally marks the spot, turning treasure-hunt words into an expression.",
+          "zh": "未知数就是一个占位符——本章用海盗藏宝图开场，x 真的标在藏宝点上，把寻宝的话翻译成代数式。"
+        },
+        {
+          "en": "New shorthand: the times sign disappears (6x means 6 times x), and the words coefficient and term get their names.",
+          "zh": "新写法登场：乘号可以省略（6x 就是 6 乘 x），还认识了「系数」和「项」这两个名字。"
+        },
+        {
+          "en": "Evaluating is fill-in-the-blank: substitute the number for x and follow the order of operations — careful, 3x² squares only the x, not the 3.",
+          "zh": "代入求值就像填空：把数字填进 x 的位置，按运算顺序算；小心 3x² 只平方 x，不平方 3。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "expression",
+          "zh": "代数式"
+        },
+        {
+          "en": "variable",
+          "zh": "未知数（变量）"
+        }
+      ],
+      "teachHints": "balance、groups"
+    },
+    {
+      "id": "AOPS.IA.C02.S02",
+      "strand": "ch02",
+      "pages": [
+        55,
+        61
+      ],
+      "en": "2.2 Arithmetic with Expressions",
+      "zh": "2.2 代数式运算",
+      "elaborations": [
+        {
+          "en": "Five Lego sets plus three Lego sets makes eight — that's 5x + 3x = 8x, and combining like terms is really just factoring out the x.",
+          "zh": "5 盒乐高加 3 盒乐高是 8 盒——这就是 5x + 3x = 8x；合并同类项，其实就是把 x 提出来。"
+        },
+        {
+          "en": "To add messier expressions like (4x + 5) + (7x + 3), group the x terms and group the constants — and keep every minus sign on a leash.",
+          "zh": "加 (4x + 5) + (7x + 3) 这类式子：x 项归 x 项，常数归常数；重新排队时负号要看牢。"
+        },
+        {
+          "en": "The exponent laws work on letters too — y³ · y⁴ = y⁷ and (2x)(3x³) = 6x⁴ — but 3x and 5 are not like terms and never merge.",
+          "zh": "指数运算律对字母照样灵：y³ · y⁴ = y⁷，(2x)(3x³) = 6x⁴；但 3x 和 5 不是同类项，永远合不到一起。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "like terms",
+          "zh": "同类项"
+        }
+      ],
+      "teachHints": "groups"
+    },
+    {
+      "id": "AOPS.IA.C02.S03",
+      "strand": "ch02",
+      "pages": [
+        62,
+        67
+      ],
+      "en": "2.3 Distribution, Subtraction, and Factoring",
+      "zh": "2.3 展开与提取",
+      "elaborations": [
+        {
+          "en": "Distributing works on letters just like numbers, and subtracting an expression means multiplying it by −1 first — every sign inside flips.",
+          "zh": "带字母的展开和数字一样做；减去一整个式子等于先乘 −1 再加——括号里每一项都要变号。"
+        },
+        {
+          "en": "You can factor out numbers, letters, or whole expressions: n(2n+1) + 5(2n+1) = (n+5)(2n+1), which the book makes obvious by swapping 2n+1 for a smiley face.",
+          "zh": "公因式可以是数、字母，甚至一整个式子：n(2n+1) + 5(2n+1) = (n+5)(2n+1)——书里把 2n+1 换成一个笑脸符号，一下就看懂了。"
+        },
+        {
+          "en": "Signature example: a think-of-a-number magic trick unravels because the x's cancel — the result is 10 no matter what number you picked.",
+          "zh": "招牌例题：「心里想个数」的魔术，式子一化简 x 全消掉——不管你想的是几，结果都是 10。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C02.S04",
+      "strand": "ch02",
+      "pages": [
+        68,
+        72
+      ],
+      "en": "2.4 Fractions",
+      "zh": "2.4 含字母的分数",
+      "elaborations": [
+        {
+          "en": "To simplify a fraction with letters, factor top and bottom first, then cancel whole factors — like 3(x−2) over x(x−2) becoming 3/x.",
+          "zh": "含字母的分数要先分解再约分：分子分母都写成乘积，整块整块地约——比如 3(x−2)/x(x−2) 约成 3/x。"
+        },
+        {
+          "en": "Add and subtract them exactly like numeric fractions: build a common denominator, and the smallest one keeps the mess down.",
+          "zh": "加减和数字分数一个套路：先通分；公分母能选小的就别选大的，省得越算越乱。"
+        },
+        {
+          "en": "Trap the book flags: in 3/s + 5/(s+2), the 2 is added, not multiplied — the common denominator is s(s+2), not 2s.",
+          "zh": "书里点名的坑：3/s + 5/(s+2) 里的 2 是加上去的、不是乘的——公分母得是 s(s+2)，不能想成 2s。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "fractionBar"
+    },
+    {
+      "id": "AOPS.IA.C03.S01",
+      "strand": "ch03",
+      "pages": [
+        77,
+        81
+      ],
+      "en": "3.1 Solving Linear Equations I",
+      "zh": "3.1 解一次方程（一）",
+      "elaborations": [
+        {
+          "en": "Solving means finding every value of x that makes the equation true, and the master strategy is one word: isolate.",
+          "zh": "「解方程」就是找出让等式成立的所有 x；核心战术就一个词——把 x 孤立出来。"
+        },
+        {
+          "en": "One story, three solutions — logic, the number line, and algebra all crack x − 3 = 6 the same way, so never lose track of what an equation means.",
+          "zh": "一道题三种解法：讲道理、画数轴、用代数，殊途同归解开 x − 3 = 6——所以别只会算，要懂方程在说什么。"
+        },
+        {
+          "en": "Each equation here falls in one move: add or subtract the same number on both sides, or multiply both sides by the reciprocal of x's coefficient.",
+          "zh": "这一节的方程一步就解完：两边同加减一个数，或者两边同乘系数的倒数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "linear equation",
+          "zh": "一次方程"
+        },
+        {
+          "en": "solution",
+          "zh": "解"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C03.S02",
+      "strand": "ch03",
+      "pages": [
+        82,
+        87
+      ],
+      "en": "3.2 Solving Linear Equations II",
+      "zh": "3.2 解一次方程（二）",
+      "elaborations": [
+        {
+          "en": "The full routine: tidy each side by combining like terms, herd the x's to one side and the numbers to the other, then divide — understand it, don't memorize it.",
+          "zh": "完整流程：先把两边各自合并同类项，再把 x 都赶到一边、数字赶到另一边，最后除以系数——书里强调要理解，不许死背。"
+        },
+        {
+          "en": "Clear fractions in one stroke by multiplying both sides by the least common denominator, and always check your answer back in the original equation.",
+          "zh": "两边同乘最小公分母，分数一口气全消；解完记得把答案代回原方程验算。"
+        },
+        {
+          "en": "Surprise endings exist: if the x's all cancel, you're left with an impossible statement (no solutions) or an always-true one (every number works).",
+          "zh": "结局也会有意外：x 全消掉后，要么剩下永远不成立的式子（无解），要么永远成立（每个数都是解）。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C03.S03",
+      "strand": "ch03",
+      "pages": [
+        88,
+        92
+      ],
+      "en": "3.3 Word Problems",
+      "zh": "3.3 应用题",
+      "elaborations": [
+        {
+          "en": "The hard part isn't solving — it's translating the story into math: let x be the quantity you're asked for, then turn each phrase into an expression.",
+          "zh": "难的不是解方程，而是把故事翻译成数学：把要求的量设成 x，再把每句话变成式子。"
+        },
+        {
+          "en": "Define your variable precisely and use it for exactly one thing — the book's bogus age solution shows how using x for two meanings goes wrong.",
+          "zh": "变量要定义清楚、从一而终——书里故意演了一个「x 一会儿是现在的年龄、一会儿是六年前的年龄」的错误解法给你看。"
+        },
+        {
+          "en": "Two closing habits: check that your answer fits the story, and make sure you answered the question that was actually asked.",
+          "zh": "收尾两个好习惯：把答案放回故事里检验；再看一眼题目问的到底是什么，别答非所问。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel、balance"
+    },
+    {
+      "id": "AOPS.IA.C03.S04",
+      "strand": "ch03",
+      "pages": [
+        93,
+        97
+      ],
+      "en": "3.4 Linear Equations in Disguise ★",
+      "zh": "3.4 伪装的一次方程 ★",
+      "elaborations": [
+        {
+          "en": "Starred section: treat √x or 1/x as the unknown — substitute y for it and a scary equation turns back into a plain linear one.",
+          "zh": "星标节：把 √x 或 1/x 整体当成未知数——用 y 替换它，吓人的方程立刻变回普通一次方程。"
+        },
+        {
+          "en": "Isolate the radical and square (or cube) both sides, or clear denominators by multiplying through — then it's familiar linear solving.",
+          "zh": "把根号孤立后两边平方（立方根就立方），分母碍事就整体乘掉——剩下的就是熟悉的一次方程。"
+        },
+        {
+          "en": "New danger — extraneous solutions: squaring can invent roots (√r = −2 has none), so always check answers in the original equation.",
+          "zh": "新危险叫「增根」：平方可能造出假解（√r = −2 其实无解），所以答案必须代回原方程检验。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C04.S01",
+      "strand": "ch04",
+      "pages": [
+        105,
+        105
+      ],
+      "en": "4.1 Evaluating Multi-Variable Expressions",
+      "zh": "4.1 多元代数式求值",
+      "elaborations": [
+        {
+          "en": "Evaluating with several variables is still fill-in-the-blank: put each number wherever its letter appears.",
+          "zh": "几个字母一起求值还是「填空游戏」：哪儿有 r 就填 r 的值，哪儿有 s 就填 s 的值。"
+        },
+        {
+          "en": "Careful with negatives — substituting s = −2 into squares and products needs parentheses so the signs come out right.",
+          "zh": "代入负数要当心：把 −2 填进平方、乘积时加上括号，符号才不会错。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C04.S02",
+      "strand": "ch04",
+      "pages": [
+        106,
+        109
+      ],
+      "en": "4.2 Still More Arithmetic",
+      "zh": "4.2 多元式运算",
+      "elaborations": [
+        {
+          "en": "Sacks of apples and oranges open the section: adding 5x + 4y and 2x + y is just grouping the x's with the x's and the y's with the y's.",
+          "zh": "开场是「苹果袋和橙子袋」的故事：5x + 4y 加 2x + y，就是 x 归 x、y 归 y 地分组相加。"
+        },
+        {
+          "en": "Like terms must match exactly — −4cd and 2cd combine, but −4c²d and 2cd don't, because the variable parts differ.",
+          "zh": "同类项要「一模一样」才能合并：−4cd 和 2cd 行，−4c²d 和 2cd 就不行。"
+        },
+        {
+          "en": "Multiply and divide by handling the numbers and each letter separately: (3rs²)(2rs³) = 6r²s⁵, and fractions cancel the x's and y's one letter at a time.",
+          "zh": "乘除时把数字和每个字母分开处理：(3rs²)(2rs³) = 6r²s⁵，分数约分也是一个字母一个字母地约。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "groups"
+    },
+    {
+      "id": "AOPS.IA.C04.S03",
+      "strand": "ch04",
+      "pages": [
+        110,
+        114
+      ],
+      "en": "4.3 Distribution and Factoring",
+      "zh": "4.3 多元展开与提取",
+      "elaborations": [
+        {
+          "en": "A story about towns and ball teams shows distribution in action: 7(2x + 4y) = 14x + 28y.",
+          "zh": "用「7 个小镇的球队」的故事演分配律：7(2x + 4y) = 14x + 28y。"
+        },
+        {
+          "en": "A minus in front of parentheses distributes to every term — −(2x + 4y) becomes −2x − 4y — so track each sign.",
+          "zh": "括号前的负号要分给每一项：−(2x + 4y) 变成 −2x − 4y，每个符号都得盯住。"
+        },
+        {
+          "en": "Factor by peeling off the common part piece by piece — numbers first, then each letter, like 7rs² from 7r²s² − 21rs³ + 14rs⁴ — and factoring is also the key to canceling in fractions.",
+          "zh": "提公因式一层层来：先看数字再看每个字母，比如从 7r²s² − 21rs³ + 14rs⁴ 里提出 7rs²；分数化简也靠先分解再约。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C04.S04",
+      "strand": "ch04",
+      "pages": [
+        115,
+        117
+      ],
+      "en": "4.4 Fractions",
+      "zh": "4.4 多元分数",
+      "elaborations": [
+        {
+          "en": "Adding letter-filled fractions works like number fractions: find a common denominator, e.g. rs for 1/r + 1/s.",
+          "zh": "带字母的分数相加和数字分数一个样：先通分，比如 1/r + 1/s 用 rs 当公分母。"
+        },
+        {
+          "en": "Build the simplest common denominator piece by piece — the numbers' least common multiple, then each letter's highest power, so 6x² and 3xy combine into 6x²y.",
+          "zh": "最简公分母一块块拼出来：数字取最小公倍数、每个字母取最高次幂，比如 6x² 和 3xy 拼成 6x²y。"
+        },
+        {
+          "en": "Simplify each fraction before combining, and leave denominators factored — both habits save a mountain of work.",
+          "zh": "合并前先把每个分数约到最简，分母保持因式形式——这两个习惯能省一大堆活。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "fractionBar"
+    },
+    {
+      "id": "AOPS.IA.C04.S05",
+      "strand": "ch04",
+      "pages": [
+        118,
+        119
+      ],
+      "en": "4.5 Equations",
+      "zh": "4.5 解出其中一个字母",
+      "elaborations": [
+        {
+          "en": "Treat the other letters as if they were numbers: x + b = c unwraps to x = c − b exactly like x + 3 = 7 did.",
+          "zh": "把其他字母当成普通的数：解 x + b = c 就像解 x + 3 = 7，一步减过去得 x = c − b。"
+        },
+        {
+          "en": "This is 'solving for x in terms of y': x + 2y = 3 becomes x = 3 − 2y, a formula that returns x for any y.",
+          "zh": "这叫「用 y 表示 x」：x + 2y = 3 变形成 x = 3 − 2y，给个 y 就能算出 x 的小公式。"
+        },
+        {
+          "en": "When x sits in several terms, gather them on one side and factor it out: ax + bc = 3c − 2d²x turns into x(a + 2d²) = 3c − bc.",
+          "zh": "x 散在好几项里时，先把它们收到同一边再提出来：ax + bc = 3c − 2d²x 整理成 x(a + 2d²) = 3c − bc。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S01",
+      "strand": "ch05",
+      "pages": [
+        123,
+        126
+      ],
+      "en": "5.1 Introduction to Two-Variable Linear Equations",
+      "zh": "5.1 二元一次方程",
+      "elaborations": [
+        {
+          "en": "Fill a table of (x, y) pairs for 2x − 3y = 7 and a pattern pops out: bump x by 3 and y by 2, and the equation stays true.",
+          "zh": "给 2x − 3y = 7 列个解的表格，规律自己冒出来：x 加 3、y 加 2，等式照样成立。"
+        },
+        {
+          "en": "One linear equation with two unknowns has infinitely many solution pairs — pick any x and solve for the matching y.",
+          "zh": "一条方程两个未知数，解有无穷多对：随便挑个 x，都能解出配套的 y。"
+        },
+        {
+          "en": "Demand that two equations hold at once and the story changes — comparing the two solution lists turns up the shared pair, our first system of equations.",
+          "zh": "要求两条方程同时成立，故事就变了：把两张解的清单对一对，找到共同的那一对——这就是第一个「方程组」。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "system of equations",
+          "zh": "方程组"
+        }
+      ],
+      "teachHints": "coordGrid、balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S02",
+      "strand": "ch05",
+      "pages": [
+        127,
+        130
+      ],
+      "en": "5.2 Substitution",
+      "zh": "5.2 代入消元",
+      "elaborations": [
+        {
+          "en": "Solve one equation for a letter and plug it into the other — the system collapses into a one-variable equation you already know how to solve.",
+          "zh": "从一条方程里解出一个字母，代进另一条——方程组一下子变成早就会解的一元方程。"
+        },
+        {
+          "en": "Pick the letter that's easiest to free (coefficient 1 is best) so fractions never show up — don't make problems harder than they have to be.",
+          "zh": "挑最好解出来的字母下手（系数是 1 最妙），能躲开分数——书里的口头禅：别把题做得比它本来更难。"
+        },
+        {
+          "en": "Tidy first, then solve: multiply away fractions and decimals, line the variables up in the same order, and check the pair in both equations.",
+          "zh": "先整理再动手：乘掉分数小数、把未知数按同样顺序排好，最后记得把解代回两条方程检验。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "substitution",
+          "zh": "代入法"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S03",
+      "strand": "ch05",
+      "pages": [
+        131,
+        135
+      ],
+      "en": "5.3 Elimination",
+      "zh": "5.3 加减消元",
+      "elaborations": [
+        {
+          "en": "When a letter's coefficients are opposites — like +3y and −3y — add the whole equations and it vanishes on the spot.",
+          "zh": "一个字母的系数正好相反，比如 +3y 和 −3y，两条方程整体一加，它当场消失。"
+        },
+        {
+          "en": "No opposites in sight? Multiply one or both equations by the right constants to manufacture them, then add or subtract.",
+          "zh": "系数不凑巧？先给一条或两条方程乘上合适的数，把「相反数」造出来，再加减。"
+        },
+        {
+          "en": "Elimination can end three ways: one solution, no solution (you hit an impossibility like 0 = 9), or infinitely many (the equations were secretly the same, leaving 0 = 0).",
+          "zh": "消元有三种结局：唯一解；无解（消出 0 = 9 这种不可能）；无穷多解（两条方程其实是同一条，消出 0 = 0）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "elimination",
+          "zh": "消元法"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S04",
+      "strand": "ch05",
+      "pages": [
+        136,
+        141
+      ],
+      "en": "5.4 Word Problems",
+      "zh": "5.4 方程组应用题",
+      "elaborations": [
+        {
+          "en": "Football scores, piggy-bank coins, ages: name a meaningful letter for each unknown (c for Cougars, p for Panthers) and translate each sentence into an equation.",
+          "zh": "球赛比分、存钱罐硬币、年龄问题：给每个未知数起个见名知义的字母，再把每句话翻译成一条方程。"
+        },
+        {
+          "en": "Keep your eye on the ball: the Tweedledum riddle only asks for the total weight, and adding the two equations hands you e + m without finding either twin.",
+          "zh": "盯住问题要什么：双胞胎体重那题只问总和，两条方程直接相加就得到 e + m，根本不用分别算出俩人。"
+        },
+        {
+          "en": "The bogus-solution warning: say exactly what each variable means (Gene's age now, not two years ago) and stick to that definition all the way through.",
+          "zh": "书里用「错误示范」提醒：设未知数要讲清指的是什么（现在的年龄还是两年前的），而且从头到尾不许变。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel、balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S05",
+      "strand": "ch05",
+      "pages": [
+        142,
+        144
+      ],
+      "en": "5.5 More Linear Equations in Disguise",
+      "zh": "5.5 伪装的方程组",
+      "elaborations": [
+        {
+          "en": "Systems with square roots or 1/x aren't linear, but substitution and elimination still crack them.",
+          "zh": "带根号或 1/x 的方程组虽然不是一次的，但代入、消元这两把钥匙照样开锁。"
+        },
+        {
+          "en": "Give the strange chunk a new name — let r = √a or s = 1/y — and the disguise falls off: it was a linear system all along.",
+          "zh": "给奇怪的那块起个新名字：设 r = √a、s = 1/y，伪装立刻掉落——原来一直是个一次方程组。"
+        },
+        {
+          "en": "The book urges experimenting: take a promising step, like adding the equations, even before you know what comes next.",
+          "zh": "书里还鼓励动手试：看到「相加能消掉点什么」就先加了再说，不必想好全部步骤才动笔。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C05.S06",
+      "strand": "ch05",
+      "pages": [
+        145,
+        149
+      ],
+      "en": "5.6 More Variables",
+      "zh": "5.6 三元及更多",
+      "elaborations": [
+        {
+          "en": "Three unknowns reduce to two: substitute one equation into the rest, or eliminate the same letter from two pairs — turning it into a problem you already know.",
+          "zh": "三个未知数就想办法变成两个：代入一条方程，或从两组配对里消掉同一个字母——化成早就会做的题。"
+        },
+        {
+          "en": "Don't crank blindly — in the five-vowel Word Store puzzle, substituting the whole chunk e + u = 7 unlocks a = 2 in one line.",
+          "zh": "别闷头硬算：给五个元音定价的「单词商店」题里，把 e + u = 7 当整体一代，一步就得到 a = 2。"
+        },
+        {
+          "en": "Closing principle: if Ax + B = Cx + D for every x, the coefficients must match — A = C and B = D.",
+          "zh": "压轴结论：若 Ax + B = Cx + D 对所有 x 都成立，系数必须对齐——A = C 且 B = D。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable、balance"
+    },
+    {
+      "id": "AOPS.IA.C06.S01",
+      "strand": "ch06",
+      "pages": [
+        157,
+        160
+      ],
+      "en": "6.1 Basic Ratio Problems",
+      "zh": "6.1 基础比例题",
+      "elaborations": [
+        {
+          "en": "A ratio only tells relative size — dogs to cats 2 : 3 means every 2 dogs come with 3 cats, not how many animals there are.",
+          "zh": "比只说「相对多少」：狗猫 2:3 是说每 2 只狗配 3 只猫，可没说店里到底有几只。"
+        },
+        {
+          "en": "One class problem, three routes: set up b/g = 3/4 with b + g = 84, count in groups of 7 (3 boys + 4 girls), or take girls as 4/7 of the whole.",
+          "zh": "同一道班级题给了三条路：列方程 b/g = 3/4 加 b + g = 84；按 7 人一组数（3 男 4 女）；或直接算女生占全班的 4/7。"
+        },
+        {
+          "en": "Pick the most useful ratio — one linking what you know to what you want — often by flipping part-to-part (boys : girls = 3 : 4) into part-to-whole (girls : class = 4 : 7).",
+          "zh": "挑最好用的那个比——把「知道的量」和「要求的量」连起来，常见操作是把部分比部分（男:女 = 3:4）换成部分比整体（女:全班 = 4:7）。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "ratio",
+          "zh": "比"
+        }
+      ],
+      "teachHints": "barModel"
+    },
+    {
+      "id": "AOPS.IA.C06.S02",
+      "strand": "ch06",
+      "pages": [
+        161,
+        165
+      ],
+      "en": "6.2 More Challenging Ratio Problems",
+      "zh": "6.2 进阶比例题",
+      "elaborations": [
+        {
+          "en": "Before-and-after ratio stories (add 4 green marbles, remove 10 red) call for equations — and the classic trap is mixing up part-to-whole with part-to-part.",
+          "zh": "会变的比（加 4 颗绿珠、拿走 10 颗红珠）就得列方程，最经典的坑是把「占总数的比」当成「绿比红」。"
+        },
+        {
+          "en": "Ratios come out of equations too: cross-multiply down to 11x = 9y and read off x/y = 9/11, or multiply x/y and y/z so the middle letter cancels.",
+          "zh": "比也能从方程里挖出来：交叉相乘整理成 11x = 9y 就读出 x/y = 9/11；把 x/y 和 y/z 相乘还能约掉中间的 y。"
+        },
+        {
+          "en": "The showpiece is the clock problem: the hour hand crawls at 1/12 the minute hand's speed, and that ratio pins down when the hands line up after 10 o'clock.",
+          "zh": "招牌例题是钟表针：时针速度是分针的 1/12，靠这个比就能算出 10 点后两针什么时候重合。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel、balance"
+    },
+    {
+      "id": "AOPS.IA.C06.S03",
+      "strand": "ch06",
+      "pages": [
+        166,
+        172
+      ],
+      "en": "6.3 Conversion Factors",
+      "zh": "6.3 换算因子",
+      "elaborations": [
+        {
+          "en": "A conversion factor is a fraction equal to 1 — like 1 ft / 12 in — so multiplying by it changes the units but never the amount.",
+          "zh": "换算因子就是个「等于 1」的分数，比如 1 英尺/12 英寸：乘它只换单位，量一点不变。"
+        },
+        {
+          "en": "Point the fraction so the old units cancel like common factors — the safety net against 'multiply or divide?' mistakes — and squared units just need the factor twice.",
+          "zh": "把分数摆对方向，旧单位像公因数一样约掉——再也不用纠结「该乘还是该除」；平方单位就把因子乘两次。"
+        },
+        {
+          "en": "Chain factors through a whole plan — square meters to square feet to gallons to liters to cans of paint — and any pair of equivalent quantities can serve, even alien money.",
+          "zh": "因子还能连环套：平方米→平方英尺→加仑→升→几罐油漆；只要两样东西等价就能当因子，连外星货币都行。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "conversion factor",
+          "zh": "换算因子"
+        }
+      ],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C06.S04",
+      "strand": "ch06",
+      "pages": [
+        173,
+        175
+      ],
+      "en": "6.4 Percent",
+      "zh": "6.4 百分数",
+      "elaborations": [
+        {
+          "en": "Percent means per hundred: 'a is x% of b' is the ratio equation a/b = x/100, which is why 60% of 250 is just 0.6 × 250.",
+          "zh": "百分数就是「每一百里占几个」：a 是 b 的 x%，写成方程就是 a/b = x/100——所以 250 的 60% 直接算 0.6 × 250。"
+        },
+        {
+          "en": "All three routine questions — find the part, find the percent, find the whole (percents can even top 100%) — come from that one equation.",
+          "zh": "三类常规题——求部分、求百分比、反求整体（百分数还能超过 100%）——全都从这一条方程里来。"
+        },
+        {
+          "en": "Increasing x by k% means multiplying by (1 + k/100), decreasing by k% means (1 − k/100) — a percent change is really a multiplier.",
+          "zh": "增加 k% 就是乘 (1 + k/100)，减少 k% 就是乘 (1 − k/100)：百分比变化其实是个乘法系数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "percent",
+          "zh": "百分数"
+        }
+      ],
+      "teachHints": "hundredthsGrid"
+    },
+    {
+      "id": "AOPS.IA.C06.S05",
+      "strand": "ch06",
+      "pages": [
+        176,
+        181
+      ],
+      "en": "6.5 Percentage Problems",
+      "zh": "6.5 百分数应用题",
+      "elaborations": [
+        {
+          "en": "Real problems start by asking 'percent of what?' — after a 25% tax, the $450 you keep is 75% of the pre-tax pay, so pre-tax = 450 ÷ 0.75.",
+          "zh": "实战第一问是「百分比对谁说的」：扣掉 25% 税后剩下的 450 元是税前的 75%，所以税前工资 = 450 ÷ 0.75。"
+        },
+        {
+          "en": "Successive changes multiply, never add: up 20% then up 25% is ×1.2 × 1.25 — a 50% rise — and coming back down from 1.5× takes a 33⅓% cut, not 50%.",
+          "zh": "连续变化要相乘不能相加：先涨 20% 再涨 25% 是 ×1.2×1.25，总共涨 50%；想从 1.5 倍跌回原价，要降的是 33⅓% 而不是 50%。"
+        },
+        {
+          "en": "When every clue is relative, just pick a friendly number like 100 students and count; mixture swaps like Dr. Jekyll's acid still deserve a careful equation.",
+          "zh": "题目只给相对信息时，大胆设个好算的数（比如 100 个学生）直接数；像换酸液那种混合题，还是得认认真真列方程。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "barModel、hundredthsGrid"
+    },
+    {
+      "id": "AOPS.IA.C07.S01",
+      "strand": "ch07",
+      "pages": [
+        187,
+        189
+      ],
+      "en": "7.1 Direct Proportion",
+      "zh": "7.1 正比例",
+      "elaborations": [
+        {
+          "en": "Two quantities are in direct proportion when their ratio stays constant: y = kx — double one and the other doubles.",
+          "zh": "两个量的比值始终不变就是正比例：y = kx——一个翻倍，另一个跟着翻倍。"
+        },
+        {
+          "en": "Two ways to solve: find the constant of proportionality first, or compare like quantities — scale one by a factor and the other scales by the same factor.",
+          "zh": "两种解法：先求出「比例常数」，或者直接按倍数放缩——一个量乘几倍，另一个也乘几倍。"
+        },
+        {
+          "en": "Signature problems: measuring a flagpole from shadows and dosing medicine by body weight — even a and b² can be proportional.",
+          "zh": "招牌例题：用影子量旗杆高度、按体重算药量；甚至 a 和 b² 也能成正比。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "direct proportion",
+          "zh": "正比例"
+        }
+      ],
+      "teachHints": "coordGrid、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C07.S02",
+      "strand": "ch07",
+      "pages": [
+        190,
+        191
+      ],
+      "en": "7.2 Inverse Proportion",
+      "zh": "7.2 反比例",
+      "elaborations": [
+        {
+          "en": "Inverse proportion means the product stays constant: xy = k — multiply one by a factor and the other divides by the same factor.",
+          "zh": "反比例就是乘积保持不变：xy = k——一个量乘上几倍，另一个就得除以几倍。"
+        },
+        {
+          "en": "Signature example: 12 workers clear a field in 18 hours, so 9 workers need 24 — because workers × time is constant.",
+          "zh": "招牌例题：12 个人 18 小时清完一块田，9 个人就要 24 小时——因为「人数 × 时间」不变。"
+        },
+        {
+          "en": "A bonus proof: if x and y are inversely proportional and y and z are too, then x and z turn out directly proportional.",
+          "zh": "还有个小证明：x 和 y 成反比、y 和 z 也成反比，那么 x 和 z 反而成正比。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "inverse proportion",
+          "zh": "反比例"
+        }
+      ],
+      "teachHints": "dataTable、coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C07.S03",
+      "strand": "ch07",
+      "pages": [
+        192,
+        196
+      ],
+      "en": "7.3 Joint Proportion",
+      "zh": "7.3 连比例",
+      "elaborations": [
+        {
+          "en": "Joint proportion: one quantity directly proportional to several others at once (x = kyz) — anchored by the Ideal Gas Law PV = nRT.",
+          "zh": "连比例：一个量同时和好几个量成正比（x = kyz）——主角例子是理想气体定律 PV = nRT。"
+        },
+        {
+          "en": "The key move: gather the varying quantities on one side and the constants on the other, then equate before and after.",
+          "zh": "关键一招：把会变的量归到等式一边、常数归到另一边，再让变化前后两边相等。"
+        },
+        {
+          "en": "Signature problems: woodchucks chucking wood (wood ∝ woodchucks × time), ending with the discovery that distance = rate × time.",
+          "zh": "招牌例题：土拨鼠啃木头——木头量同时正比于「鼠数 × 时间」；最后还顺势发现了行程公式 d = rt。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C07.S04",
+      "strand": "ch07",
+      "pages": [
+        197,
+        203
+      ],
+      "en": "7.4 Rate Problems",
+      "zh": "7.4 速率问题",
+      "elaborations": [
+        {
+          "en": "Everything runs on rate × time = distance — and rates cover work too: painting rates simply add when people work together.",
+          "zh": "整节都围着「速度 × 时间 = 路程」转——干活也是一种速率：两人一起刷栅栏，效率直接相加。"
+        },
+        {
+          "en": "Star warning: average speed is total distance over total time, never the average of the speeds — 30 mph out and 45 mph back averages 36, not 37.5.",
+          "zh": "明星陷阱：平均速度 = 总路程 ÷ 总时间，绝不是两个速度取平均——去 30 迈回 45 迈，平均是 36 不是 37.5。"
+        },
+        {
+          "en": "Classic moves: catch-up problems via relative speed, river currents added into your rate, and the bee-between-trains puzzle cracked by finding the time first.",
+          "zh": "经典招数：追及问题看「相对速度」、河水流速要算进船速、火车夹蜜蜂的名题先算总时间就一下子解开。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "rate",
+          "zh": "速率"
+        }
+      ],
+      "teachHints": "barModel、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C08.S01",
+      "strand": "ch08",
+      "pages": [
+        208,
+        214
+      ],
+      "en": "8.1 The Number Line and the Cartesian Plane",
+      "zh": "8.1 数轴与坐标平面",
+      "elaborations": [
+        {
+          "en": "Descartes's big idea: add a second number line and every point becomes an ordered pair (x, y) — plot points, read coordinates, meet the axes and origin.",
+          "zh": "笛卡尔的妙想：给数轴再加一维，每个点变成一对有序数 (x, y)——学会画点、读坐标，认识原点和坐标轴。"
+        },
+        {
+          "en": "On the number line, absolute value is distance from 0, and the point midway between two numbers is their average.",
+          "zh": "数轴上，绝对值就是到 0 的距离；两个数的正中点就是它们的平均数。"
+        },
+        {
+          "en": "Build a right triangle between two points and the Pythagorean Theorem hands you the distance formula — nothing to memorize.",
+          "zh": "两点之间搭一个直角三角形，勾股定理立刻给出「两点距离公式」——不用背，自己推得出来。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "Cartesian plane",
+          "zh": "直角坐标系"
+        },
+        {
+          "en": "coordinates",
+          "zh": "坐标"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C08.S02",
+      "strand": "ch08",
+      "pages": [
+        215,
+        224
+      ],
+      "en": "8.2 Introduction to Graphing Linear Equations",
+      "zh": "8.2 画一次方程的图像",
+      "elaborations": [
+        {
+          "en": "Plot all the solutions of Ax + By = C and they form a straight line — the hopping-rabbit picture explains why: identical hops in one direction trace a line.",
+          "zh": "把 Ax + By = C 的所有解都画出来，正好连成一条直线——书里的小兔子每次跳同样的一步，路线自然是直线，道理一样。"
+        },
+        {
+          "en": "Slope is born here: for any two points on the line, the change in y over the change in x is always the same number, m = (y₂−y₁)/(x₂−x₁).",
+          "zh": "斜率在这节诞生：随便取线上两点，「y 的变化 ÷ x 的变化」永远是同一个数，这就是斜率 m。"
+        },
+        {
+          "en": "Read a line at a glance: positive slope climbs, negative falls, zero is horizontal, undefined is vertical — and plot three points, not two, to catch mistakes.",
+          "zh": "一眼读图：斜率正在爬坡、负在下坡、零是水平线、没定义是竖直线；画图点三个点不点两个，出错马上能发现。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C08.S03",
+      "strand": "ch08",
+      "pages": [
+        225,
+        227
+      ],
+      "en": "8.3 Using Slope in Problems",
+      "zh": "8.3 斜率",
+      "elaborations": [
+        {
+          "en": "One point plus a slope is enough to graph the whole line: step across and up by the slope to find more points.",
+          "zh": "有一个点加一个斜率就能画出整条线：按斜率「横走几、竖走几」，一步步找出新的点。"
+        },
+        {
+          "en": "Three points lie on one line exactly when the slopes between pairs match — keep the coordinates in the same order or the check goes wrong.",
+          "zh": "三个点共线，当且仅当两两之间的斜率相同——算斜率时坐标顺序千万别颠倒。"
+        },
+        {
+          "en": "The midpoint just averages the endpoints' coordinates — then slope and the distance formula verify it really sits in the middle.",
+          "zh": "中点公式就是把两端点的坐标各取平均——再用斜率和距离公式验证它真的在正中间。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "slope",
+          "zh": "斜率"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C08.S04",
+      "strand": "ch08",
+      "pages": [
+        228,
+        231
+      ],
+      "en": "8.4 Find the Equation",
+      "zh": "8.4 求直线方程",
+      "elaborations": [
+        {
+          "en": "Now reverse the game: from a point plus a slope, or from two points, recover the line's equation.",
+          "zh": "这回反着玩：已知一点加斜率，或者两个点，反求直线的方程。"
+        },
+        {
+          "en": "The whole trick is one sentence: a generic point (x, y) on the line must make slope m with the known point — that equation IS point-slope form, nothing to memorize.",
+          "zh": "诀窍就一句话：线上任意一点 (x, y) 和已知点的斜率必须等于 m——这条式子本身就是点斜式，完全不用背。"
+        },
+        {
+          "en": "Tidy answers into standard form Ax + By = C; the teacher's grade-curving formula shows the skill at work.",
+          "zh": "答案整理成标准式 Ax + By = C；老师「调分公式」那道题让这招派上了用场。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C08.S05",
+      "strand": "ch08",
+      "pages": [
+        232,
+        237
+      ],
+      "en": "8.5 Slope and Intercepts",
+      "zh": "8.5 斜截式",
+      "elaborations": [
+        {
+          "en": "Intercepts are the points where the line crosses the axes — find both and you have the two easiest points to graph from.",
+          "zh": "截距就是直线与坐标轴的交点——把 x、y 两个截距一找，画图用的两个点就到手了。"
+        },
+        {
+          "en": "y = mx + b hands you the slope m and y-intercept b on sight — and the general form Ax + By = C hides slope −A/B.",
+          "zh": "y = mx + b 一眼读出斜率 m 和 y 截距 b——一般式 Ax + By = C 里也藏着斜率：−A/B。"
+        },
+        {
+          "en": "Fancy finishes: x-intercepts found from slopes alone, and three runners lined up by writing every position with the same parameter t.",
+          "zh": "漂亮的收尾：只靠斜率就找出 x 截距；三名跑者何时连成一线——把各自位置写成同一个参数 t 的式子就解开了。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "intercept",
+          "zh": "截距"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C08.S06",
+      "strand": "ch08",
+      "pages": [
+        238,
+        244
+      ],
+      "en": "8.6 Comparing Lines",
+      "zh": "8.6 平行与垂直",
+      "elaborations": [
+        {
+          "en": "Graph both equations of a system and the crossing point is the solution — pictures and algebra say the same thing.",
+          "zh": "把方程组的两条直线画在同一张图上，交点正是方程组的解——图像和代数说的是同一件事。"
+        },
+        {
+          "en": "Same slope means parallel (no solutions) or the very same line (infinitely many) — one picture explains why a system has 0, 1, or infinitely many solutions.",
+          "zh": "斜率相同要么平行（无解）要么根本是同一条线（无穷多解）——一张图讲清方程组为什么只有 0、1、无穷多这三种解数。"
+        },
+        {
+          "en": "Perpendicular lines have slopes multiplying to −1 — a congruent-triangles picture shows why, and then you can build parallels and perpendiculars through any point.",
+          "zh": "垂直线的斜率乘积是 −1——用一对全等直角三角形看出来的；之后就能过任意一点作平行线和垂线了。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "parallel",
+          "zh": "平行"
+        },
+        {
+          "en": "perpendicular",
+          "zh": "垂直"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C09.S01",
+      "strand": "ch09",
+      "pages": [
+        253,
+        259
+      ],
+      "en": "9.1 The Basics",
+      "zh": "9.1 不等式基础",
+      "elaborations": [
+        {
+          "en": "Safe moves first: inequalities chain (a > b > c), survive adding the same thing to both sides, and two same-direction inequalities can even be added together.",
+          "zh": "先学安全操作：不等式能传递（a > b > c）、两边同加同减一个数照样成立、两条同向不等式还能相加。"
+        },
+        {
+          "en": "Multiplying by a positive keeps the direction; multiplying or dividing by a negative flips it — proved from products of positives, not just decreed.",
+          "zh": "乘正数方向不变，乘除负数方向掉头——这不是硬性规定，书里用「正数乘正数是正数」认认真真证了出来。"
+        },
+        {
+          "en": "For positives, powers, roots, and reciprocals behave predictably (reciprocals flip the sign); negatives set traps like 2 > −3 but 2² < (−3)² — plus a first hello to the Trivial Inequality x² ≥ 0.",
+          "zh": "正数世界里乘方、开方、取倒数都有规律（取倒数要翻转方向），负数却爱使绊子——2 > −3 平方后就反了；平凡不等式 x² ≥ 0 也首次亮相。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "inequality",
+          "zh": "不等式"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.IA.C09.S02",
+      "strand": "ch09",
+      "pages": [
+        260,
+        263
+      ],
+      "en": "9.2 Which Is Greater?",
+      "zh": "9.2 谁更大？",
+      "elaborations": [
+        {
+          "en": "Compare ugly numbers without a calculator: hit both sides with the same order-keeping move — square away nested radicals, take a common root to shrink giant powers.",
+          "zh": "不用计算器比大小：两边同时做「不改方向」的操作——平方去掉层层根号，同取方根把巨大的幂压小。"
+        },
+        {
+          "en": "Two slick shortcuts: see which number sits closer to a benchmark like 1, or flip both and compare the reciprocals instead.",
+          "zh": "两个巧招：看谁离 1 这样的参照数更近；或者干脆取倒数来比。"
+        },
+        {
+          "en": "Method matters: work backwards to discover the answer, then rewrite the chain forwards to check every step was legal.",
+          "zh": "方法论：先倒着推出结论，再正着把每一步重走一遍，确认步步合法。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine、balance"
+    },
+    {
+      "id": "AOPS.IA.C09.S03",
+      "strand": "ch09",
+      "pages": [
+        264,
+        268
+      ],
+      "en": "9.3 Linear Inequalities",
+      "zh": "9.3 一次不等式",
+      "elaborations": [
+        {
+          "en": "Isolate x just like solving an equation — remembering the sign flips when you multiply or divide by a negative.",
+          "zh": "像解方程一样把 x 孤立出来——只是乘除负数时不等号要掉头。"
+        },
+        {
+          "en": "Answers get pictured on the number line — open circle excludes the endpoint, closed includes it — and written in interval notation like x ∈ (7, +∞).",
+          "zh": "答案画在数轴上：空心圈不含端点、实心圈包含；还学会区间记号，比如 x ∈ (7, +∞)。"
+        },
+        {
+          "en": "Inequality chains are solved piece by piece and intersected — sometimes the pieces don't overlap and there is no solution at all.",
+          "zh": "连环不等式拆成两段分别解、再取公共部分——有时两段没交集，答案就是无解。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.IA.C09.S04",
+      "strand": "ch09",
+      "pages": [
+        269,
+        271
+      ],
+      "en": "9.4 Graphing Inequalities",
+      "zh": "9.4 不等式的图像",
+      "elaborations": [
+        {
+          "en": "A two-variable inequality shades a half-plane: draw the boundary line, then color one whole side.",
+          "zh": "二元不等式的图像是半个平面：先画边界直线，再把其中一侧整片涂色。"
+        },
+        {
+          "en": "Pick the side by testing an easy point — (0,0) is the go-to — and dash the boundary when the inequality is strict.",
+          "zh": "涂哪边？代个好算的点试试——首选 (0,0)；严格不等式要把边界画成虚线，表示线上的点不算数。"
+        },
+        {
+          "en": "Two inequalities at once: shade each region, and the overlap is the answer.",
+          "zh": "两条不等式同时满足：各自涂色，重叠的那一块就是答案。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C09.S05",
+      "strand": "ch09",
+      "pages": [
+        272,
+        279
+      ],
+      "en": "9.5 Optimization",
+      "zh": "9.5 最优化",
+      "elaborations": [
+        {
+          "en": "An optimization answer has two jobs: prove the bound can't be beaten AND show it's actually achieved — one without the other is only half done.",
+          "zh": "最值题要干两件事：证明「超不过这个数」，还得证明「这个数真取得到」——缺一件都只算做了一半。"
+        },
+        {
+          "en": "With a linear goal and linear constraints, graph the allowed region and slide the parallel family 3x + 2y = k — the extreme value lands on a corner of the region.",
+          "zh": "目标和限制都是一次式时，画出可行区域，再平移一族平行线 3x + 2y = k——最值一定落在区域的「角」上。"
+        },
+        {
+          "en": "Farmer Fred's planting problem is a first taste of linear programming — with a subtlety: make the constraints strict and the maximum can stop existing.",
+          "zh": "农夫种地那道题是「线性规划」的初体验——还有个细节：把不等式改成严格的，最大值可能就不存在了。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C10.S01",
+      "strand": "ch10",
+      "pages": [
+        286,
+        292
+      ],
+      "en": "10.1 Getting Started With Quadratics",
+      "zh": "10.1 认识二次方程",
+      "elaborations": [
+        {
+          "en": "Quadratics are equations ax² + bx + c = 0; the warm-up is those with no x term, like x² = 16 — take square roots and keep both answers, x = ±4.",
+          "zh": "二次方程长这样：ax² + bx + c = 0；热身先解没有 x 项的，比如 x² = 16——开平方要保留正负两个答案 x = ±4。"
+        },
+        {
+          "en": "Weapon one is the zero product property — if a product is 0, some factor is 0 — so write x² − 6x = 0 as x(x − 6) = 0 instead of dividing by x and losing the root x = 0.",
+          "zh": "第一件武器是乘积为零性质——乘积为 0 必有因子为 0——所以把 x² − 6x = 0 写成 x(x − 6) = 0，千万别除以 x，那会弄丢 x = 0 这个根。"
+        },
+        {
+          "en": "Multiplying binomials term by term (the grid and FOIL are just memory aids) gets drilled here — it's the groundwork for all the factoring to come.",
+          "zh": "这一节还苦练二项式相乘：每一项都要乘到每一项，格子图和 FOIL 只是帮记的小抄——这是后面学因式分解的基本功。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "quadratic equation",
+          "zh": "二次方程"
+        }
+      ],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C10.S02",
+      "strand": "ch10",
+      "pages": [
+        293,
+        297
+      ],
+      "en": "10.2 Factoring Quadratics I",
+      "zh": "10.2 因式分解（一）",
+      "elaborations": [
+        {
+          "en": "Factor x² + bx + c by hunting two numbers whose sum is b and product is c — a number game where the signs of b and c are the best clues.",
+          "zh": "分解 x² + bx + c：找两个数，和是 b、积是 c——这是个数字游戏，b 和 c 的正负号就是最好的线索。"
+        },
+        {
+          "en": "Each factor set to zero hands you a root; a twin factor like (x + 5)² means a double root, and counting repeats every quadratic has exactly two.",
+          "zh": "每个因子等于零就给出一个根；(x + 5)² 这种重复因子叫重根——把重复的也数上，二次方程总是恰好两个根。"
+        },
+        {
+          "en": "Factoring earns more than roots: it shows e² − 5e + 6 is negative just from the signs of (e − 2)(e − 3), no computing needed.",
+          "zh": "分解不只用来解方程：把 e² − 5e + 6 拆成 (e − 2)(e − 3)，看两个因子的正负就知道结果是负的，根本不用硬算。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C10.S03",
+      "strand": "ch10",
+      "pages": [
+        298,
+        306
+      ],
+      "en": "10.3 Factoring Quadratics II",
+      "zh": "10.3 因式分解（二）",
+      "elaborations": [
+        {
+          "en": "When the x² coefficient isn't 1, factor as (Ax + B)(Cx + D): A·C gives a, B·D gives c, and the cross products must add up to b.",
+          "zh": "二次项系数不是 1 时按 (Ax + B)(Cx + D) 分解：A·C 凑出 a，B·D 凑出 c，交叉相乘加起来还得等于 b。"
+        },
+        {
+          "en": "It's a bigger number game won by number sense — parity and the size of the middle coefficient quickly rule out bad pairings.",
+          "zh": "这是升级版的数字游戏，靠数感取胜：看奇偶、看中间系数的大小，能很快排除不合适的搭配。"
+        },
+        {
+          "en": "Mind the finish: 3r − 2 = 0 gives r = 2/3, not 3/2 — a classic slip the book flags, so substitute answers back to check.",
+          "zh": "收尾要小心：3r − 2 = 0 解出的是 r = 2/3 不是 3/2——书里点名的经典马虎，代回检验最保险。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C10.S04",
+      "strand": "ch10",
+      "pages": [
+        307,
+        311
+      ],
+      "en": "10.4 Sums and Products of Roots of a Quadratic",
+      "zh": "10.4 韦达定理",
+      "elaborations": [
+        {
+          "en": "Play with examples to discover Vieta's formulas: the roots of ax² + bx + c sum to −b/a and multiply to c/a — read straight off the coefficients.",
+          "zh": "从例子里发现韦达定理：ax² + bx + c 的两根之和是 −b/a、两根之积是 c/a——不用解方程，直接从系数读出来。"
+        },
+        {
+          "en": "No memorizing: write the quadratic as a(x − r)(x − s), expand, and both formulas fall right out.",
+          "zh": "书里强调不用死背：把二次式写成 a(x − r)(x − s) 再展开，两条公式自己就掉出来了。"
+        },
+        {
+          "en": "The power move: evaluate things like (a − 1)(b − 1) for the roots of a nasty quadratic without ever finding the roots.",
+          "zh": "厉害在这里：遇到难分解的二次方程，也能不求根就算出 (a − 1)(b − 1) 这类式子的值。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "root",
+          "zh": "根"
+        },
+        {
+          "en": "Vieta's formulas",
+          "zh": "韦达定理"
+        }
+      ],
+      "teachHints": "dataTable、balance"
+    },
+    {
+      "id": "AOPS.IA.C10.S05",
+      "strand": "ch10",
+      "pages": [
+        312,
+        317
+      ],
+      "en": "10.5 Extensions and Applications ★",
+      "zh": "10.5 拓展与应用 ★",
+      "elaborations": [
+        {
+          "en": "Starred section: factoring untangles fraction equations — factor the numerators, cancel with the denominators, and discard any root that makes a denominator zero.",
+          "zh": "星标节：因式分解拆解分式方程——分子分解后与分母约掉，但让分母为零的解是增根，必须扔掉。"
+        },
+        {
+          "en": "An expression like a² − 6ad + 8d² is just a quadratic if you treat one letter as the variable (or substitute v = d/a), so it factors as usual.",
+          "zh": "像 a² − 6ad + 8d² 这种式子，把一个字母当变量看（或整体代换 v = d/a），它就是普通二次式，照常分解。"
+        },
+        {
+          "en": "Experimenting is the theme — even the nested radical √(43 − 30√2) unravels to 5 − 3√2 by guessing the form a + b√c and squaring.",
+          "zh": "这一节的主题是「动手试」：连 √(43 − 30√2) 这种套根号，设成 a + b√c 再平方对照，也能拆成 5 − 3√2。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C11.S01",
+      "strand": "ch11",
+      "pages": [
+        324,
+        331
+      ],
+      "en": "11.1 Squares of Binomials",
+      "zh": "11.1 完全平方",
+      "elaborations": [
+        {
+          "en": "(a + b)² = a² + 2ab + b²: the two squares plus twice the product — and it works just as well when terms are negative.",
+          "zh": "(a + b)² = a² + 2ab + b²：两项各自平方，再加两项乘积的两倍——带负号照样成立。"
+        },
+        {
+          "en": "Learn to recognize squares in the wild: both end terms perfect squares and the middle exactly twice the product, so 4y² − 28yz + 49z² is (2y − 7z)².",
+          "zh": "练出认完全平方的眼力：两头是平方、中间恰好是乘积的两倍——4y² − 28yz + 49z² 一眼认出是 (2y − 7z)²。"
+        },
+        {
+          "en": "Signature applications: square 71 or 99 in your head as (70 + 1)² and (100 − 1)², and stacking powers of (x + y) reveals Pascal's Triangle.",
+          "zh": "招牌应用：心算 71² = (70 + 1)²、99² = (100 − 1)²；再把 (x + y) 的各次幂排成一摞，帕斯卡三角就现身了。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C11.S02",
+      "strand": "ch11",
+      "pages": [
+        332,
+        338
+      ],
+      "en": "11.2 Difference of Squares",
+      "zh": "11.2 平方差",
+      "elaborations": [
+        {
+          "en": "Spot the pattern in x² − 1, x² − 4, x² − 9 and out pops a² − b² = (a − b)(a + b) — the book calls it extremely useful.",
+          "zh": "从 x² − 1、x² − 4、x² − 9 的规律里自己发现 a² − b² = (a − b)(a + b)——书里说它「极其有用」。"
+        },
+        {
+          "en": "It cracks integer puzzles: m² − n² = 105 becomes (m − n)(m + n) = 105, and the factor pairs of 105 list every solution.",
+          "zh": "它能破整数谜题：m² − n² = 105 变成 (m − n)(m + n) = 105，把 105 拆成因数对，所有解一网打尽。"
+        },
+        {
+          "en": "It also kills radicals and giant products — multiplying (a − b)(a + b) clears square roots, and a middle-value substitution turns 1998·1996·1994·1992 + 16 into a perfect square.",
+          "zh": "它还能消根号、算大数：(a − b)(a + b) 一乘根号就消失；取中间数代换，1998·1996·1994·1992 + 16 竟是个完全平方。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C11.S03",
+      "strand": "ch11",
+      "pages": [
+        339,
+        343
+      ],
+      "en": "11.3 Sum and Difference of Cubes",
+      "zh": "11.3 立方和差",
+      "elaborations": [
+        {
+          "en": "A binomial times a trinomial: x³ − y³ = (x − y)(x² + xy + y²) and x³ + y³ = (x + y)(x² − xy + y²), found by expanding examples and testing a brave guess.",
+          "zh": "立方差 x³ − y³ = (x − y)(x² + xy + y²)、立方和 x³ + y³ = (x + y)(x² − xy + y²)：二项式乘三项式，靠展开例子找规律、大胆猜想再验证。"
+        },
+        {
+          "en": "Don't memorize which sign is which — reason it out: x³ − y³ is 0 when x = y, so its factor must be (x − y).",
+          "zh": "两条公式的符号别死背：想想 x = y 时 x³ − y³ 等于 0，所以含 (x − y) 的那条一定是立方差。"
+        },
+        {
+          "en": "Showpiece: 7,999,999,999 = 2000³ − 1³ factors at sight into 1999 × 4002001 — stay alert for numbers sitting next to a perfect cube.",
+          "zh": "招牌例题：7,999,999,999 = 2000³ − 1³，当场分解成 1999 × 4002001——看到「离立方数就差一点」的数要起疑心。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C11.S04",
+      "strand": "ch11",
+      "pages": [
+        344,
+        347
+      ],
+      "en": "11.4 Rationalizing Denominators",
+      "zh": "11.4 分母有理化",
+      "elaborations": [
+        {
+          "en": "Rationalizing means moving roots out of the denominator: multiply top and bottom by what completes the root — √2 for 1/√2, and ∛9 for a cube root like ∛3.",
+          "zh": "分母有理化就是把根号请出分母：上下同乘能把根号补整的数——1/√2 乘 √2，遇到 ∛3 这样的立方根就乘 ∛9。"
+        },
+        {
+          "en": "For a denominator like √7 − √6, multiply by its conjugate √7 + √6 — difference of squares wipes the radicals away.",
+          "zh": "分母是 √7 − √6 这类，就乘共轭式 √7 + √6——平方差公式把根号一扫而空。"
+        },
+        {
+          "en": "Harder cases reuse the same factorizations: three-root denominators fall in two conjugate steps, and 2 − ∛2 surrenders to the difference-of-cubes pattern.",
+          "zh": "更难的也用同一批公式：三个根号相加就分两步共轭；分母是 2 − ∛2 时，请立方差公式出场。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "conjugate",
+          "zh": "共轭式"
+        }
+      ],
+      "teachHints": "fractionBar、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C11.S05",
+      "strand": "ch11",
+      "pages": [
+        348,
+        351
+      ],
+      "en": "11.5 Simon's Favorite Factoring Trick",
+      "zh": "11.5 西蒙分解妙招",
+      "elaborations": [
+        {
+          "en": "When two variables multiply and also appear alone — like mn + m + n = 76 — add the clever constant that makes it factor: (m + 1)(n + 1) = 77.",
+          "zh": "两个字母既相乘又单独出现时——比如 mn + m + n = 76——补上一个聪明的常数就能分解：(m + 1)(n + 1) = 77。"
+        },
+        {
+          "en": "Then read integer solutions off the factor pairs of the right side, remembering negative pairs and checking which solutions the problem allows.",
+          "zh": "然后把右边的数拆成因数对，整数解照单全收——负的因数对别漏，还要看清题目要的是哪种解。"
+        },
+        {
+          "en": "The trick is named for AoPS community member Simon Rubinstein-Salzedo, and fraction equations often reveal this shape once you clear denominators.",
+          "zh": "这招得名于 AoPS 社区成员 Simon Rubinstein-Salzedo；不少分数方程去掉分母后，也会现出这副模样。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C12.S01",
+      "strand": "ch12",
+      "pages": [
+        357,
+        357
+      ],
+      "en": "12.1 Numbers, Numbers, and More Numbers!",
+      "zh": "12.1 数系大家族",
+      "elaborations": [
+        {
+          "en": "A history opener: the Pythagoreans believed every number is a ratio of whole numbers — no zero, no negatives, just fractions.",
+          "zh": "用历史开场：毕达哥拉斯学派相信一切数都是整数之比——没有零、没有负数，只有分数。"
+        },
+        {
+          "en": "Then Hippasus proved √2 can be no such ratio — a proof by contradiction that uncovered the irrational numbers (and, legend says, got him thrown overboard).",
+          "zh": "结果希帕索斯用反证法证明 √2 写不成整数之比，无理数就此现身——传说他因此被扔进了海里。"
+        },
+        {
+          "en": "The setup for the chapter: the number family has grown again and again — zero, negatives, irrationals — and one more expansion is coming.",
+          "zh": "这是全章的铺垫：数的家族一次次扩容——零、负数、无理数——马上还要再扩一次。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "groups"
+    },
+    {
+      "id": "AOPS.IA.C12.S02",
+      "strand": "ch12",
+      "pages": [
+        358,
+        361
+      ],
+      "en": "12.2 Imaginary Numbers",
+      "zh": "12.2 虚数",
+      "elaborations": [
+        {
+          "en": "Dare to ask what if some number squared to −1: Descartes scoffed that it's merely imaginary, Euler wrote it as i, and both names stuck.",
+          "zh": "大胆假设「有个数平方等于 −1」：笛卡尔嘲讽那是「虚构的数」，欧拉给它定下符号 i，「虚数」这名字就此留下。"
+        },
+        {
+          "en": "Any real number times i is imaginary, and x² = −1 has two solutions, i and −i — so x² = −16 gives x = ±4i.",
+          "zh": "实数乘上 i 都是虚数；x² = −1 有两个解 i 和 −i——所以 x² = −16 解出 x = ±4i。"
+        },
+        {
+          "en": "Powers of i march in a cycle of four — i, −1, −i, 1 — so even a monster like i¹⁰⁰⁷ takes one step.",
+          "zh": "i 的幂四个一循环：i、−1、−i、1——连 i¹⁰⁰⁷ 这种大家伙也能一步算出。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "imaginary number",
+          "zh": "虚数"
+        }
+      ],
+      "teachHints": "dataTable、numberLine"
+    },
+    {
+      "id": "AOPS.IA.C12.S03",
+      "strand": "ch12",
+      "pages": [
+        362,
+        368
+      ],
+      "en": "12.3 Complex Numbers",
+      "zh": "12.3 复数",
+      "elaborations": [
+        {
+          "en": "A complex number a + bi has a real part and an imaginary part: add and subtract by combining the parts, multiply like binomials and finish with i² = −1.",
+          "zh": "复数 a + bi 有实部和虚部：加减就是两部分各自合并，乘法当二项式展开，最后用 i² = −1 化简。"
+        },
+        {
+          "en": "The conjugate a − bi is the key to dividing: a number times its conjugate is the real number a² + b², so multiply top and bottom by the denominator's conjugate — rationalizing all over again.",
+          "zh": "共轭 a − bi 是除法的钥匙：复数乘自己的共轭必得实数 a² + b²，上下同乘分母的共轭就能除——和分母有理化如出一辙。"
+        },
+        {
+          "en": "Finale: solve (a + bi)² = 7 − 24i by matching real and imaginary parts — such a complex number has two square roots, 4 − 3i and −4 + 3i.",
+          "zh": "压轴：设 (a + bi)² = 7 − 24i，实部虚部分别对上就解出来——这样的复数有两个平方根：4 − 3i 和 −4 + 3i。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "complex number",
+          "zh": "复数"
+        }
+      ],
+      "teachHints": "coordGrid、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C13.S01",
+      "strand": "ch13",
+      "pages": [
+        372,
+        378
+      ],
+      "en": "13.1 Squares of Binomials Revisited",
+      "zh": "13.1 再看完全平方",
+      "elaborations": [
+        {
+          "en": "For quadratics factoring can't crack, like x² + 2x − 7 = 0, the book opens a new route: isolate a squared binomial, then square-root both sides — keeping both ± roots, imaginary ones included.",
+          "zh": "像 x² + 2x − 7 = 0 这种因式分解啃不动的方程，书里开了新路：先把「某个式子的平方」孤立出来，再两边开方——± 两个根都要，开出虚数也照收。"
+        },
+        {
+          "en": "The key discovery: adding the square of half the x-coefficient — that magic constant (b/2)² — turns x² + bx into a perfect square.",
+          "zh": "关键发现：给 x² + bx 补上「x 系数一半的平方」，也就是 (b/2)²，它就凑成完全平方。"
+        },
+        {
+          "en": "By section's end the move gets its official name — completing the square — the tool this whole chapter runs on.",
+          "zh": "节末这招正式得名「配方」——整章都靠它吃饭。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C13.S02",
+      "strand": "ch13",
+      "pages": [
+        379,
+        384
+      ],
+      "en": "13.2 Completing the Square",
+      "zh": "13.2 配方",
+      "elaborations": [
+        {
+          "en": "Now the skill solves whole equations: add (half the coefficient)² to both sides so one side collapses to (x + a)², then square-root — x² + 8x = 14 becomes (x + 4)² = 30.",
+          "zh": "这回用配方解整条方程：两边同时补上「系数一半的平方」，一边收成 (x + a)²，开方收工——x² + 8x = 14 就变成 (x + 4)² = 30。"
+        },
+        {
+          "en": "If x² carries a coefficient, like 3x² + 12x + 1 = 0, first divide it away or factor it out — and if you factor it out, the constant you add must be multiplied by it too.",
+          "zh": "x² 前面带系数（比如 3x² + 12x + 1 = 0）就先除掉或提出来；提出来的话，补的常数也得跟着乘这个系数——这一步最容易漏。"
+        },
+        {
+          "en": "The point: completing the square solves any quadratic — rational, radical, or imaginary roots all surface, no factoring luck required.",
+          "zh": "重点是：配方通吃任何二次方程——根是分数、带根号还是虚数都照解，不用赌能不能分解。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "completing the square",
+          "zh": "配方"
+        }
+      ],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C13.S03",
+      "strand": "ch13",
+      "pages": [
+        385,
+        391
+      ],
+      "en": "13.3 The Quadratic Formula",
+      "zh": "13.3 二次求根公式",
+      "elaborations": [
+        {
+          "en": "Complete the square on the general ax² + bx + c = 0 once and the quadratic formula pops out — a shortcut the book says you'll memorize simply by using it.",
+          "zh": "对一般式 ax² + bx + c = 0 完整配一次方，求根公式自己蹦出来——书里说不用刻意背，用着用着就熟了。"
+        },
+        {
+          "en": "The discriminant b² − 4ac tells the story before you solve: positive means real roots, negative means non-real, zero means a double root.",
+          "zh": "判别式 b² − 4ac 让你未解先知：大于 0 两根是实数，小于 0 不是实数，等于 0 是重根。"
+        },
+        {
+          "en": "The formula then proves big facts: every quadratic has exactly two roots, and non-real roots of a real-coefficient quadratic always come as a conjugate pair.",
+          "zh": "公式还顺手证出大结论：二次方程恰好两个根；实系数方程的根若不是实数，必定共轭成对。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "quadratic formula",
+          "zh": "求根公式"
+        },
+        {
+          "en": "discriminant",
+          "zh": "判别式"
+        }
+      ],
+      "teachHints": "balance、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C13.S04",
+      "strand": "ch13",
+      "pages": [
+        392,
+        396
+      ],
+      "en": "13.4 Applications and Extensions ★",
+      "zh": "13.4 应用与拓展 ★",
+      "elaborations": [
+        {
+          "en": "Starred section: root knowledge does the heavy lifting — one root 1 − 3i plus real coefficients pins down the whole quadratic via the conjugate root and Vieta's sum and product.",
+          "zh": "星标节：拿「根的知识」打硬仗——知道一根是 1 − 3i 且系数是实数，靠共轭根加韦达的和与积就能反推出整条方程。"
+        },
+        {
+          "en": "Equations with x in denominators reduce to quadratics: multiply the fractions away, solve with the formula, then check no denominator hits zero.",
+          "zh": "分母带 x 的方程也归它管：乘掉分母现出二次方程，套公式解完，再检查分母没变零。"
+        },
+        {
+          "en": "One root theorem gets three proofs — by formula, by substituting the roots, by Vieta — because the point is collecting strategies for root problems, not memorizing the result.",
+          "zh": "同一条关于根的结论证了三遍——用公式、代根验证、用韦达——书里明说重点是攒思路，不是背结论。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C14.S01",
+      "strand": "ch14",
+      "pages": [
+        404,
+        414
+      ],
+      "en": "14.1 Parabolas",
+      "zh": "14.1 抛物线",
+      "elaborations": [
+        {
+          "en": "Plot y = x² point by point and the parabola emerges, with a mirror axis of symmetry and a vertex — the coefficient's sign sets the opening direction, its size the width.",
+          "zh": "一个点一个点描出 y = x²，抛物线现身：有一条当「镜子」的对称轴和一个顶点；系数正负定开口朝上朝下，大小定胖瘦。"
+        },
+        {
+          "en": "Completing the square rewrites any quadratic as the standard form y = a(x − h)² + k, so vertex (h, k) and axis x = h read right off.",
+          "zh": "配方把任何二次函数改写成标准式 y = a(x − h)² + k，顶点 (h, k) 和对称轴 x = h 直接读出来。"
+        },
+        {
+          "en": "When y is the squared one the parabola opens sideways; and to find an equation, pick the form that fits the clues — vertex form if you know the vertex, general form if you only have three points.",
+          "zh": "轮到 y 被平方，抛物线就横着开口；反求方程要会挑形式——知道顶点用标准式，只给三个点就用一般式列方程组。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "parabola",
+          "zh": "抛物线"
+        },
+        {
+          "en": "vertex",
+          "zh": "顶点"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C14.S02",
+      "strand": "ch14",
+      "pages": [
+        415,
+        420
+      ],
+      "en": "14.2 Circles",
+      "zh": "14.2 圆的方程",
+      "elaborations": [
+        {
+          "en": "The distance formula turns 'all points at distance r from the center' into the circle's equation (x − h)² + (y − k)² = r², with center and radius readable at sight (watch those minus signs).",
+          "zh": "距离公式把「到圆心距离都是 r 的点」翻译成圆的方程 (x − h)² + (y − k)² = r²，圆心半径一眼读出——就是小心别把负号看反。"
+        },
+        {
+          "en": "Handed the messy expanded form, complete the square in x and y separately to recover center and radius — though the 'circle' can degenerate to a single point or vanish entirely.",
+          "zh": "拿到展开的乱形式，就对 x 和 y 各配一次方还原圆心半径——不过它也可能退化成一个点，甚至压根无图可画。"
+        },
+        {
+          "en": "Intersections aren't read off pictures: where a line meets a circle is found by solving the two equations as a system, since meeting points are exactly the common solutions.",
+          "zh": "交点不能靠看图猜：直线和圆交在哪，得把两条方程当方程组来解——交点就是同时满足两条方程的解。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "circle",
+          "zh": "圆"
+        },
+        {
+          "en": "radius",
+          "zh": "半径"
+        }
+      ],
+      "teachHints": "coordGrid、shapeCircle"
+    },
+    {
+      "id": "AOPS.IA.C15.S01",
+      "strand": "ch15",
+      "pages": [
+        425,
+        430
+      ],
+      "en": "15.1 Quadratic Inequalities",
+      "zh": "15.1 二次不等式",
+      "elaborations": [
+        {
+          "en": "Step one is always the same: move everything to one side so a factored quadratic faces 0, then number-line each factor and read off where the product is positive or negative.",
+          "zh": "第一步永远一样：把所有项挪到一边，让分解好的二次式和 0 比，再给每个因子画数轴，一段段读乘积的正负。"
+        },
+        {
+          "en": "Mind the boundary roots: nonstrict inequalities keep them, strict ones drop them — and answers come out in interval notation joined by the union symbol ∪.",
+          "zh": "根算不算解要看严不严格：带等号就收，不带就不收；答案用区间记号写，两段之间用并集符号 ∪ 连起来。"
+        },
+        {
+          "en": "No real roots is itself an answer: the parabola never touches the x-axis, so the quadratic keeps one sign — the inequality holds for every x or for none.",
+          "zh": "没有实根本身就是答案：抛物线碰不到 x 轴，二次式符号永远不变——这不等式要么对所有 x 成立，要么一个解都没有。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine、coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C15.S02",
+      "strand": "ch15",
+      "pages": [
+        431,
+        434
+      ],
+      "en": "15.2 Beyond Quadratics",
+      "zh": "15.2 高次不等式",
+      "elaborations": [
+        {
+          "en": "Same game with more factors: a sign table, one column per factor, settles products like (2x − 1)(x + 1)(x + 7) > 0 range by range.",
+          "zh": "因子变多套路不变：画张符号表，一个因子一列，(2x − 1)(x + 1)(x + 7) > 0 这种乘积一段段判正负。"
+        },
+        {
+          "en": "Fractions join in: top or bottom makes no difference to the sign analysis, but any value zeroing a denominator is banned from the solution.",
+          "zh": "分式也一样玩：因子在分子还是分母不影响符号分析，但让分母为零的值必须请出解集。"
+        },
+        {
+          "en": "Never multiply both sides by an expression of unknown sign — move everything to one side and combine into a single fraction compared to 0 instead.",
+          "zh": "千万别拿正负不明的式子去乘两边——正确姿势是全挪到一边，通分成一个分式再跟 0 比。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C15.S03",
+      "strand": "ch15",
+      "pages": [
+        435,
+        438
+      ],
+      "en": "15.3 The Trivial Inequality",
+      "zh": "15.3 平凡不等式",
+      "elaborations": [
+        {
+          "en": "A new species of inequality — one that's always true: the Trivial Inequality says every real number's square is at least 0, with equality only at zero.",
+          "zh": "见识新品种——恒成立的不等式：平凡不等式说任何实数的平方都不小于 0，只有 0 自己才取到等号。"
+        },
+        {
+          "en": "From that seed sprout classics: (a² + b²)/2 ≥ ab, and any positive number plus its reciprocal is at least 2 — each just a disguised (something)² ≥ 0.",
+          "zh": "这颗种子长出经典结论：(a² + b²)/2 ≥ ab、正数加自己的倒数至少是 2——拆开全是「某式子的平方 ≥ 0」在化妆。"
+        },
+        {
+          "en": "Proof craft comes with it: hunt for the route by working backwards from the goal, then write the final proof forwards from a known truth, so no irreversible step slips in.",
+          "zh": "顺带教证明手艺：找思路可以从结论倒着推，落笔必须从已知真理正着写，防止混进倒不回来的假步骤。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.IA.C15.S04",
+      "strand": "ch15",
+      "pages": [
+        439,
+        445
+      ],
+      "en": "15.4 Quadratic Optimization ★",
+      "zh": "15.4 二次最值 ★",
+      "elaborations": [
+        {
+          "en": "Starred section: to maximize or minimize a quadratic, complete the square into a(x − h)² + k — 'a square is never negative' then pins the extreme value at k.",
+          "zh": "星标节：求二次式最值就配方成 a(x − h)² + k——再用「平方永不为负」，最值就锁定在 k。"
+        },
+        {
+          "en": "The general law: ax² + bx + c hits its min (a > 0) or max (a < 0) at x = −b/(2a), which is exactly the average of the two roots — the axis of symmetry.",
+          "zh": "一般规律：ax² + bx + c 在 x = −b/(2a) 取最值（a > 0 取最小、a < 0 取最大），这个位置恰是两根的平均数，也就是对称轴。"
+        },
+        {
+          "en": "The finale prices a video game for maximum revenue — and the trick even scales to two variables by completing the square in x and y at once.",
+          "zh": "压轴应用题是给游戏定价让收入最大；这招还能升级到两个变量，对 x 和 y 各配一次方一起求最值。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C16.S01",
+      "strand": "ch16",
+      "pages": [
+        451,
+        459
+      ],
+      "en": "16.1 The Machine",
+      "zh": "16.1 函数机器",
+      "elaborations": [
+        {
+          "en": "A function is a machine bound by one law — exactly one output per input; that's the whole test for 'is it a function' (each month has one day-count, but 'a month with 30 days' has three answers, so it fails).",
+          "zh": "函数是一台守规矩的机器——一个输入只准有一个输出；判断「是不是函数」全看这条（每个月的天数唯一，可「哪个月有 30 天」有三个答案，就不合格）。"
+        },
+        {
+          "en": "Domain is what the machine accepts, range is what it can put out — and the slick range-finding trick is to set y = f(x) and solve for x in terms of y.",
+          "zh": "定义域是机器肯收的输入，值域是它吐得出的输出——求值域的妙招是设 y = f(x)，反过来用 y 解出 x。"
+        },
+        {
+          "en": "Machines may take several inputs, f(x, y), and swallow expressions like f(2k) — but the quadratic formula's ± means two outputs, so it isn't a function.",
+          "zh": "机器可以多口进料（f(x, y)），喂式子也行（f(2k)）；但求根公式带 ±、一口吐两个数，反而不算函数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "function",
+          "zh": "函数"
+        },
+        {
+          "en": "domain",
+          "zh": "定义域"
+        },
+        {
+          "en": "range",
+          "zh": "值域"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C16.S02",
+      "strand": "ch16",
+      "pages": [
+        460,
+        463
+      ],
+      "en": "16.2 Combining Functions",
+      "zh": "16.2 函数加减乘除",
+      "elaborations": [
+        {
+          "en": "Wire two machines side by side: f + g, f − g, f · g, and f/g are all guaranteed functions — one output each still combines to one output.",
+          "zh": "两台机器并排接：函数相加、相减、相乘、相除得到的还是函数——各自唯一的输出合起来仍然唯一。"
+        },
+        {
+          "en": "The fine print is the domain: inputs must work in both f and g, and for f/g every x with g(x) = 0 gets thrown out too.",
+          "zh": "要紧的是定义域：输入得让 f 和 g 都算得动；做除法 f/g 时，让 g(x) = 0 的 x 还得再踢出去。"
+        },
+        {
+          "en": "The radical demo shows the rules biting: √x plus √(x² − x − 6) survives only for x ≥ 3, and dividing them loses x = 3 as well.",
+          "zh": "根号例子最能说明问题：√x 加 √(x² − x − 6) 后定义域只剩 x ≥ 3，再一相除连 x = 3 都保不住。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C16.S03",
+      "strand": "ch16",
+      "pages": [
+        464,
+        466
+      ],
+      "en": "16.3 Composition",
+      "zh": "16.3 复合函数",
+      "elaborations": [
+        {
+          "en": "Chain the machines: f(g(x)) pipes g's output into f — order matters, f(g(2)) and g(f(2)) usually differ — and the hookup needs g's outputs to fit f's inputs.",
+          "zh": "机器串联：f(g(x)) 是把 g 的输出接进 f；顺序很要紧，f(g(2)) 和 g(f(2)) 通常不相等；而且 g 吐出的东西必须是 f 肯收的。"
+        },
+        {
+          "en": "A function can even feed itself — and the notation f²(x) means f(f(x)), not f(x) times f(x).",
+          "zh": "函数还能喂给自己——记号 f²(x) 指的是 f(f(x))，可不是 f(x) 乘 f(x)。"
+        },
+        {
+          "en": "Classic trap: knowing g(f(x)) is not knowing g(x) — to get g(7), first solve f(x) = 7 for the right input, then use it.",
+          "zh": "经典陷阱：知道 g(f(x)) 的式子不代表知道 g(x)——想求 g(7)，得先解出让 f(x) = 7 的那个 x 再代进去。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "composition",
+          "zh": "复合"
+        }
+      ],
+      "teachHints": "groups、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C16.S04",
+      "strand": "ch16",
+      "pages": [
+        467,
+        471
+      ],
+      "en": "16.4 Inverse Functions",
+      "zh": "16.4 反函数",
+      "elaborations": [
+        {
+          "en": "The inverse is the machine's undo key: f⁻¹ reverses f, so f⁻¹(f(x)) = x — and careful, f⁻¹ does not mean 1/f.",
+          "zh": "反函数是机器的「撤销键」：f⁻¹ 把 f 做的事倒回去，f⁻¹(f(x)) = x——小心记号，f⁻¹ 不是 1/f。"
+        },
+        {
+          "en": "To find it, solve f(g(x)) = x for g(x) — solving an equation for a whole function, exactly like isolating a variable.",
+          "zh": "求法是解方程 f(g(x)) = x，把 g(x) 整个当未知数孤立出来——跟解未知数一模一样。"
+        },
+        {
+          "en": "When two inputs share one output there's no inverse — x² sends 2 and −2 both to 4 — but shrinking the domain to x ≥ 0 fixes it, and the inverse becomes √x.",
+          "zh": "两个输入撞出同一个输出就没反函数——x² 把 2 和 −2 都送到 4；但把定义域砍到 x ≥ 0 就修好了，反函数正是 √x。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "inverse function",
+          "zh": "反函数"
+        }
+      ],
+      "teachHints": "dataTable、balance"
+    },
+    {
+      "id": "AOPS.IA.C16.S05",
+      "strand": "ch16",
+      "pages": [
+        472,
+        476
+      ],
+      "en": "16.5 Problem Solving with Functions",
+      "zh": "16.5 函数解题",
+      "elaborations": [
+        {
+          "en": "First functional equations: given f(x − 3) = 9x² + 2, finding f(5) takes care — pick the x that makes the input equal 5 (or recover f(x) first), never just plug in 5.",
+          "zh": "初见函数方程：已知 f(x − 3) = 9x² + 2 求 f(5)，要找让括号等于 5 的那个 x（或先还原出 f(x)），直接把 5 塞进式子就中了圈套。"
+        },
+        {
+          "en": "Abstract rules like f(m) + f(n) = f(mn) yield to experiment: try small values, spot the pattern, then work backwards link by link — that's how the famous a + b = 2ⁿ problem pins down f(2002).",
+          "zh": "f(m) + f(n) = f(mn) 这类抽象规则靠试验攻破：代小数字、找规律、再一环环倒推——著名的 a + b = 2ⁿ 题就是这样算出 f(2002)。"
+        },
+        {
+          "en": "Defining your own functions also tidies word problems: two kids counting at their own paces each get a function, and the question turns into one inequality.",
+          "zh": "自己定义函数还能整理应用题：两个孩子各按各的节奏报数，一人设一个函数，问题就化成一条不等式。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C16.S06",
+      "strand": "ch16",
+      "pages": [
+        477,
+        478
+      ],
+      "en": "16.6 Operations",
+      "zh": "16.6 自定义运算",
+      "elaborations": [
+        {
+          "en": "Even + and × are secretly two-input functions, so you may invent operations of your own, like x★y = xy + x + y — the symbol is just a costume.",
+          "zh": "连加号乘号骨子里都是双输入的函数，所以完全可以自造运算，比如 x★y = xy + x + y——符号不过是件戏服。"
+        },
+        {
+          "en": "Solving them is pure substitution — evaluate inner parentheses first, as in 3◆(4◆5), or expand x#3 = 37 by the definition into an ordinary equation — never let the notation scare you.",
+          "zh": "解这类题纯靠代入——先算里层括号（如 3◆(4◆5)），或把 x#3 = 37 按定义展开成普通方程来解——千万别被怪符号唬住。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C17.S01",
+      "strand": "ch17",
+      "pages": [
+        484,
+        490
+      ],
+      "en": "17.1 Basics",
+      "zh": "17.1 函数图像基础",
+      "elaborations": [
+        {
+          "en": "Graphing a function means graphing y = f(x); values like f(2) can be read straight off the graph as y-coordinates.",
+          "zh": "画函数就是画 y = f(x)：f(2) 等于几，从图上 x = 2 那一点的高度直接读出来。"
+        },
+        {
+          "en": "The vertical line test: a graph is a function's graph only if every vertical line hits it at most once.",
+          "zh": "竖线判别法：任何一条竖线最多碰到图像一点，才是函数的图像。"
+        },
+        {
+          "en": "Where two graphs cross, the functions are equal — handy for guessing an equation's solutions, but a picture is intuition, not proof.",
+          "zh": "两条图像的交点就是方程的解——用图猜解个数很好用，但书里提醒：图只能帮直觉，不能当证明。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C17.S02",
+      "strand": "ch17",
+      "pages": [
+        491,
+        501
+      ],
+      "en": "17.2 Transformations",
+      "zh": "17.2 图像变换",
+      "elaborations": [
+        {
+          "en": "Change the output and the graph moves vertically; change the input and it moves horizontally — f(x)+k shifts up, and f(x+k) shifts left, not right.",
+          "zh": "改输出，图上下动；改输入，图左右动——f(x)+k 往上移，f(x+k) 是往左移，书里特别提醒别记成往右。"
+        },
+        {
+          "en": "Multiplying by constants stretches: kf(x) scales vertically, f(kx) compresses horizontally by 1/k, and a minus sign flips the graph over an axis.",
+          "zh": "乘常数管伸缩：kf(x) 竖向拉伸 k 倍，f(kx) 横向压成 1/k，带负号就沿坐标轴翻转。"
+        },
+        {
+          "en": "Build combos like 2f(x−1)+3 one transformation at a time — understand the moves instead of memorizing them.",
+          "zh": "像 2f(x−1)+3 这种组合，一步一步变：先右移、再拉伸、最后上移——书里强调要理解，不要死背。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "transformation",
+          "zh": "图像变换"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C17.S03",
+      "strand": "ch17",
+      "pages": [
+        502,
+        505
+      ],
+      "en": "17.3 Inverse Functions Revisited",
+      "zh": "17.3 反函数的图像",
+      "elaborations": [
+        {
+          "en": "If (a,b) is on the graph of f, then (b,a) is on the graph of f⁻¹ — so a function and its inverse mirror each other across the line y = x.",
+          "zh": "(a,b) 在 f 的图上，(b,a) 就在反函数图上——所以两条图像沿直线 y = x 互为镜像。"
+        },
+        {
+          "en": "The horizontal line test: a function has an inverse exactly when no horizontal line hits its graph more than once.",
+          "zh": "横线判别法：任何一条横线最多碰图像一点，这个函数才有反函数。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C18.S01",
+      "strand": "ch18",
+      "pages": [
+        513,
+        515
+      ],
+      "en": "18.1 Addition and Subtraction",
+      "zh": "18.1 多项式加减",
+      "elaborations": [
+        {
+          "en": "A degree-n polynomial is written aₙxⁿ + … + a₀, with subscripts matching powers so each coefficient is easy to name.",
+          "zh": "n 次多项式写成 aₙxⁿ + … + a₀：下标跟次数一一对应，哪个系数是谁一眼认出来。"
+        },
+        {
+          "en": "Add and subtract by combining like terms — you can even line terms up by power like column arithmetic — and the result is always another polynomial.",
+          "zh": "加减就是合并同类项，还可以按次数对齐像竖式一样算；算完的结果一定还是多项式。"
+        },
+        {
+          "en": "The degree of a sum never exceeds the larger degree, but leading terms can cancel and make it drop lower.",
+          "zh": "和的次数不会超过原来较高的那个，但最高次项可能互相抵消，次数反而掉下来。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "polynomial",
+          "zh": "多项式"
+        },
+        {
+          "en": "degree",
+          "zh": "次数"
+        }
+      ],
+      "teachHints": "groups"
+    },
+    {
+      "id": "AOPS.IA.C18.S02",
+      "strand": "ch18",
+      "pages": [
+        516,
+        521
+      ],
+      "en": "18.2 Multiplication",
+      "zh": "18.2 多项式乘法",
+      "elaborations": [
+        {
+          "en": "Multiply every term by every term with the distributive property, or organize it vertically like long multiplication of integers.",
+          "zh": "乘法就是每一项乘每一项：用分配律展开，也可以学整数竖式那样一行行排着算。"
+        },
+        {
+          "en": "Degrees add — deg(f·g) = deg f + deg g — and the product's leading term and constant term come from multiplying the two leading terms and the two constants.",
+          "zh": "次数相加：积的次数等于两个次数之和；积的最高项、常数项分别就是两者最高项、常数项的乘积。"
+        },
+        {
+          "en": "Signature trick: find an unknown coefficient by tracking only the term-pairs that produce that power — no need to expand everything.",
+          "zh": "招牌技巧：想求某个未知系数，只盯着能凑出那一次项的几对乘积就行，不用整个展开。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "areaModel"
+    },
+    {
+      "id": "AOPS.IA.C19.S01",
+      "strand": "ch19",
+      "pages": [
+        525,
+        531
+      ],
+      "en": "19.1 Exponential Functions",
+      "zh": "19.1 指数函数",
+      "elaborations": [
+        {
+          "en": "The rice-on-a-chessboard legend: adding 10 grains a day grows linearly, doubling every day grows exponentially — and doubling leaves adding in the dust.",
+          "zh": "棋盘放米的传说开场：每天多加 10 粒是线性增长，每天翻倍是指数增长——翻倍很快把加法远远甩开。"
+        },
+        {
+          "en": "f(x) = 2ˣ hugs 0 on the left and explodes on the right: domain all reals, outputs exactly the positive numbers.",
+          "zh": "f(x) = 2ˣ 的图像左边贴着 0、右边爆炸式上升：什么数都能代入，输出恰好是所有正数。"
+        },
+        {
+          "en": "Solve exponent equations by rewriting both sides with one base and equating exponents; a substitution like y = 2ˣ can even turn one into a quadratic.",
+          "zh": "解指数方程：先把两边化成同一个底，指数就得相等；设 y = 2ˣ 换元，还能把方程变成会解的二次方程。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "exponential function",
+          "zh": "指数函数"
+        }
+      ],
+      "teachHints": "statLine、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C19.S02",
+      "strand": "ch19",
+      "pages": [
+        532,
+        539
+      ],
+      "en": "19.2 Show Me the Money",
+      "zh": "19.2 复利的故事",
+      "elaborations": [
+        {
+          "en": "Simple interest adds the same amount every year (linear); compound interest charges interest on interest, multiplying by the same factor every year (exponential).",
+          "zh": "单利每年加同一笔钱，是线性；复利连利息也生利息，每年乘同一个倍数，是指数。"
+        },
+        {
+          "en": "The book's key picture: compounding is multiplication — each year multiplies by 1 + r/100, so n years gives (1 + r/100)ⁿ times the start.",
+          "zh": "书里反复强调：复利要当乘法想——每年乘一次 1 + r/100，n 年后就是它的 n 次方倍。"
+        },
+        {
+          "en": "Compounding m times a year multiplies in smaller, more frequent steps; compounding ever more often pushes the total toward a ceiling, where the constant e hides.",
+          "zh": "一年分 m 次复利就是小步多乘几次；分得再频繁，总额也只逼近一个上限——神奇常数 e 就藏在这儿。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "compound interest",
+          "zh": "复利"
+        }
+      ],
+      "teachHints": "dataTable、statLine"
+    },
+    {
+      "id": "AOPS.IA.C19.S03",
+      "strand": "ch19",
+      "pages": [
+        540,
+        544
+      ],
+      "en": "19.3 Interest-ing Problems",
+      "zh": "19.3 利息问题",
+      "elaborations": [
+        {
+          "en": "Interest problems are word problems: assign a variable, build the equation, then undo powers with roots to recover a mystery rate.",
+          "zh": "利息题就当应用题做：设未知数、列方程，再用开方把幂「拆」回去，连未知利率都能倒推出来。"
+        },
+        {
+          "en": "Present value: future money is worth less today — divide by (1 + r/100)ⁿ to find what it's worth right now.",
+          "zh": "现值：未来的钱不值今天的价——除以 (1 + r/100)ⁿ，就换算出它现在值多少。"
+        },
+        {
+          "en": "Signature problem: equal yearly loan payments, solved by making the present values of all payments add up to today's loan.",
+          "zh": "招牌题型：每年还款一样多的贷款，把每笔还款折成现值加起来等于借款额，就解出还款数。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C19.S04",
+      "strand": "ch19",
+      "pages": [
+        545,
+        552
+      ],
+      "en": "19.4 What is a Logarithm?",
+      "zh": "19.4 对数是什么",
+      "elaborations": [
+        {
+          "en": "logₐb asks 'to what power must a be raised to get b?' — log₂64 = 6 because 2⁶ = 64.",
+          "zh": "logₐb 问的是「a 的几次方等于 b」：因为 2⁶ = 64，所以 log₂64 = 6。"
+        },
+        {
+          "en": "The master move is converting between log form logₐb = c and exponential form aᶜ = b — it unlocks evaluating and solving almost everything here.",
+          "zh": "关键一招：对数式 logₐb = c 和指数式 aᶜ = b 随时互相转换——这一节的求值、解方程几乎全靠它。"
+        },
+        {
+          "en": "y = log₃x and y = 3ˣ are inverses, mirror images across y = x; the log curve lives only over positive x and climbs ever more slowly.",
+          "zh": "log₃x 和 3ˣ 互为反函数，图像沿 y = x 对称；对数曲线只在 x 为正时存在，越往右爬得越慢。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "logarithm",
+          "zh": "对数"
+        }
+      ],
+      "teachHints": "dataTable、balance"
+    },
+    {
+      "id": "AOPS.IA.C20.S01",
+      "strand": "ch20",
+      "pages": [
+        558,
+        561
+      ],
+      "en": "20.1 Radicals",
+      "zh": "20.1 根号函数",
+      "elaborations": [
+        {
+          "en": "√x means the nonnegative root, which is what makes it a function: domain x ≥ 0, a slowly rising curve; cube roots accept any input.",
+          "zh": "√x 规定只取非负的那个根，所以才是函数：定义域 x ≥ 0；立方根则什么数都能开。"
+        },
+        {
+          "en": "Familiar transformations still work: 2√(x−3) + 1 is the √x curve stretched and shifted, with domain and range read off the same way.",
+          "zh": "图像变换照样好使：2√(x−3) + 1 就是把 √x 拉伸再平移，定义域、值域跟着一起挪。"
+        },
+        {
+          "en": "Solve radical equations by isolating the root and squaring — but squaring can invent fake answers, so always check for extraneous roots.",
+          "zh": "解根号方程：先孤立根号再两边平方——但平方可能「捏造」假解，解完必须代回原方程把增根扔掉。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C20.S02",
+      "strand": "ch20",
+      "pages": [
+        562,
+        568
+      ],
+      "en": "20.2 Absolute Value",
+      "zh": "20.2 绝对值",
+      "elaborations": [
+        {
+          "en": "|x| is distance from 0, and |x−y| is the distance between x and y on the number line.",
+          "zh": "|x| 是到 0 的距离，|x−y| 就是数轴上 x 与 y 之间的距离。"
+        },
+        {
+          "en": "Case-splitting removes the bars — |x| = x when x ≥ 0 and −x when x < 0 — which is why these graphs come out V-shaped.",
+          "zh": "分情况就能去掉绝对值：x ≥ 0 时 |x| = x，x < 0 时 |x| = −x——所以图像画出来是 V 字形。"
+        },
+        {
+          "en": "With two absolute values, split the number line at each zero into three cases, and make sure every solution actually lands inside its case.",
+          "zh": "两个绝对值就按各自变零的点把数轴切成三段分别解，书里提醒：解出的 x 必须落在那一段里才算数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "absolute value",
+          "zh": "绝对值"
+        }
+      ],
+      "teachHints": "numberLine"
+    },
+    {
+      "id": "AOPS.IA.C20.S03",
+      "strand": "ch20",
+      "pages": [
+        569,
+        572
+      ],
+      "en": "20.3 Floor and Ceiling",
+      "zh": "20.3 取整函数",
+      "elaborations": [
+        {
+          "en": "Floor rounds down, ceiling rounds up — and negatives are the classic trap: ⌊−2.3⌋ is −3, not −2.",
+          "zh": "向下取整、向上取整各管一头；负数最容易踩坑：−2.3 向下取整是 −3，不是 −2。"
+        },
+        {
+          "en": "Their graphs are staircases: flat steps that jump at every integer, and floor equals ceiling only at the integers themselves.",
+          "zh": "它们的图像像楼梯：一段段平台，到整数处跳一格；只有 x 本身是整数时，上下取整才相等。"
+        },
+        {
+          "en": "For inputs like √39, trap the number between consecutive integers first; and every x splits as x = ⌊x⌋ + {x}, integer part plus fractional part.",
+          "zh": "碰到 √39 这类数，先把它夹在两个相邻整数之间再取整；还有拆分式 x = ⌊x⌋ + {x}：整数部分加小数部分。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "floor function",
+          "zh": "向下取整函数"
+        }
+      ],
+      "teachHints": "numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C20.S04",
+      "strand": "ch20",
+      "pages": [
+        573,
+        577
+      ],
+      "en": "20.4 Rational Functions",
+      "zh": "20.4 分式函数",
+      "elaborations": [
+        {
+          "en": "A rational function is one polynomial divided by another; its domain skips every x that zeroes the denominator, and solutions must be checked against that.",
+          "zh": "分式函数就是多项式除以多项式：分母为零的 x 要从定义域挖掉，解方程后也得检查解没踩上去。"
+        },
+        {
+          "en": "Near a zero of the denominator the graph shoots off along a vertical asymptote; far out it flattens toward a horizontal asymptote it never quite touches.",
+          "zh": "靠近分母为零处，图像沿竖直渐近线冲上冲下；走远了又贴向一条永远碰不到的水平渐近线。"
+        },
+        {
+          "en": "Partial fractions: split 2x/((x−3)(x−2)) into A/(x−3) + B/(x−2), finding A and B by matching coefficients or plugging clever x-values.",
+          "zh": "部分分式：把 2x/((x−3)(x−2)) 拆成 A/(x−3) + B/(x−2)，比一比系数或代几个巧妙的 x 值就求出 A、B。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "rational function",
+          "zh": "分式函数"
+        }
+      ],
+      "teachHints": "coordGrid"
+    },
+    {
+      "id": "AOPS.IA.C20.S05",
+      "strand": "ch20",
+      "pages": [
+        578,
+        583
+      ],
+      "en": "20.5 Piecewise Defined Functions",
+      "zh": "20.5 分段函数",
+      "elaborations": [
+        {
+          "en": "One function, several rules: check which interval the input falls in, then apply that piece's formula.",
+          "zh": "一个函数配好几条规则：先看输入落在哪一段，再用那一段的公式算。"
+        },
+        {
+          "en": "Graph it piece by piece, marking seams with open and closed circles — gaps mean the function isn't continuous.",
+          "zh": "图像一段一段画，接缝处用空心圈、实心圈标清楚；有断口就说明函数不连续。"
+        },
+        {
+          "en": "Absolute value is secretly piecewise, and equations are solved piece by piece — each answer counts only if it lands in its own interval.",
+          "zh": "绝对值其实就是分段函数；解方程也要一段一段解，解出的 x 落在自己那段里才作数。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "piecewise function",
+          "zh": "分段函数"
+        }
+      ],
+      "teachHints": "coordGrid、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C21.S01",
+      "strand": "ch21",
+      "pages": [
+        590,
+        593
+      ],
+      "en": "21.1 Arithmetic Sequences",
+      "zh": "21.1 等差数列",
+      "elaborations": [
+        {
+          "en": "Each term steps up by the same common difference, so the nth term is just the first term plus n-1 steps: a+(n-1)d.",
+          "zh": "每一项都比前一项多同一个「公差」，所以第 n 项就是首项再走 n-1 步：a+(n-1)d。"
+        },
+        {
+          "en": "A term exactly midway between two terms is their average — that's why averages are also called arithmetic means.",
+          "zh": "正好夹在两项正中间的那一项，就是它俩的平均数——「算术平均」这名字就是打这儿来的。"
+        },
+        {
+          "en": "The book's warning: don't memorize — understand the step-counting, or set up equations in first term a and difference d, and problems fall fast.",
+          "zh": "书里特意提醒别死背公式：想通「走几步、每步多大」，或设首项 a、公差 d 列方程，题目解得又快又稳。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "arithmetic sequence",
+          "zh": "等差数列"
+        }
+      ],
+      "teachHints": "numberLine、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C21.S02",
+      "strand": "ch21",
+      "pages": [
+        594,
+        601
+      ],
+      "en": "21.2 Arithmetic Series",
+      "zh": "21.2 等差求和",
+      "elaborations": [
+        {
+          "en": "Re-create young Gauss's trick — write the sum forwards and backwards so every pair matches — proving sum = (number of terms) × (average of first and last).",
+          "zh": "重演小高斯的妙招：正着写一遍、倒着再写一遍，对齐相加每对都一样，得出和 = 项数 ×（首末项的平均）。"
+        },
+        {
+          "en": "Two results worth knowing cold: 1+2+…+n = n(n+1)/2, and the first n odd numbers add up to exactly n².",
+          "zh": "两个值得记熟的结论：1+2+…+n = n(n+1)/2；前 n 个奇数相加恰好是 n²。"
+        },
+        {
+          "en": "With an odd number of terms, the sum is just the middle term times the count — the book's favorite shortcut on series problems.",
+          "zh": "项数为奇数时，和就是中间项乘以项数——书里做级数题最爱亮的捷径。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "series",
+          "zh": "级数（求和）"
+        }
+      ],
+      "teachHints": "dataTable、groups"
+    },
+    {
+      "id": "AOPS.IA.C21.S03",
+      "strand": "ch21",
+      "pages": [
+        602,
+        604
+      ],
+      "en": "21.3 Geometric Sequences",
+      "zh": "21.3 等比数列",
+      "elaborations": [
+        {
+          "en": "Opens with the rice-on-the-chessboard legend: each term is the previous one times a fixed common ratio, so the nth term is arⁿ⁻¹.",
+          "zh": "用棋盘放米的传说开场：每一项都是前一项乘同一个「公比」，第 n 项就是 arⁿ⁻¹。"
+        },
+        {
+          "en": "Twin of the arithmetic-mean fact: in a positive geometric sequence, a middle term is the geometric mean — the square root of the product — of the terms around it.",
+          "zh": "跟等差的「中项是平均」成对出现：正数等比数列里，中间项是两边乘积的平方根，叫「几何平均」。"
+        },
+        {
+          "en": "Signature example: fill in 3, x, y, z, 27 — solving r⁴ = 9 gives r = ±√3, so two different sequences both work.",
+          "zh": "招牌例题：补全 3, x, y, z, 27——解 r⁴ = 9 得公比 ±√3，两套数列都成立、一个不能漏。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "geometric sequence",
+          "zh": "等比数列"
+        }
+      ],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C21.S04",
+      "strand": "ch21",
+      "pages": [
+        605,
+        616
+      ],
+      "en": "21.4 Geometric Series",
+      "zh": "21.4 等比求和",
+      "elaborations": [
+        {
+          "en": "Pairing fails for geometric series; the new move is multiply the sum by r and subtract, collapsing everything to S = a(rⁿ-1)/(r-1).",
+          "zh": "配对法在等比这儿失灵；新招是把整串和乘上 r 再相减，中间项全消，得 S = a(rⁿ-1)/(r-1)。"
+        },
+        {
+          "en": "The surprise: when |r| < 1, infinitely many terms close in on the finite sum a/(1-r); otherwise the series has no sum at all.",
+          "zh": "惊喜在后头：公比绝对值小于 1 时，无限多项也只逼近一个有限的和 a/(1-r)；否则这串和就求不出来了。"
+        },
+        {
+          "en": "Signature application: read repeating decimals as infinite geometric series to convert them into fractions.",
+          "zh": "招牌应用：把循环小数当成无限等比级数来求和，一下子就化成分数。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "fractionBar、dataTable"
+    },
+    {
+      "id": "AOPS.IA.C21.S05",
+      "strand": "ch21",
+      "pages": [
+        617,
+        620
+      ],
+      "en": "21.5 Telescoping ★",
+      "zh": "21.5 望远镜求和 ★",
+      "elaborations": [
+        {
+          "en": "Starred section, named for collapsible telescopes: regroup a sum so the middle terms cancel in pairs, leaving only the ends.",
+          "zh": "星标节，名字来自能一节节收起的老式望远镜：把和重新分组，中间项两两抵消，只剩头和尾。"
+        },
+        {
+          "en": "The signature move is partial fractions: 1/(k(k+1)) = 1/k - 1/(k+1) collapses 1/(1·2)+…+1/(99·100) down to 99/100.",
+          "zh": "王牌招数是拆分式：1/(k(k+1)) = 1/k - 1/(k+1)，一长串 1/(1·2)+…+1/(99·100) 一收就是 99/100。"
+        },
+        {
+          "en": "Products telescope too — long fraction chains cancel almost completely — and the book's route is small cases first, spot the pattern, then prove it.",
+          "zh": "连乘也能「望远镜」，一长串分数约到只剩几个；书里的路数是先算小情形、找到规律、再动手证明。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C22.S01",
+      "strand": "ch22",
+      "pages": [
+        628,
+        630
+      ],
+      "en": "22.1 Raising Equations to Powers",
+      "zh": "22.1 方程乘方",
+      "elaborations": [
+        {
+          "en": "Square the whole equation to manufacture the powers you need: squaring x + 1/x = 7 hands you x² + 1/x² = 47 without ever solving for x.",
+          "zh": "把整个方程平方，「造」出想要的次方：x + 1/x = 7 一平方就得到 x² + 1/x² = 47，根本不用解出 x。"
+        },
+        {
+          "en": "For nested radicals like √(6+√11) + √(6-√11), set the whole expression equal to x and square — the conjugate radicals multiply away.",
+          "zh": "碰到 √(6+√11) + √(6-√11)，把整体设成 x 再平方——一对共轭根式相乘，根号就消了。"
+        },
+        {
+          "en": "Powers team up with special factorizations: from a+b = 20 and a³+b³ = 800, the sum-of-cubes identity unlocks a²+b².",
+          "zh": "乘方还常搭配特殊因式分解：由 a+b = 20 和 a³+b³ = 800，用立方和公式撬出 a²+b²。"
+        }
+      ],
+      "terms": [
+        {
+          "en": "extraneous root",
+          "zh": "增根"
+        }
+      ],
+      "teachHints": "balance"
+    },
+    {
+      "id": "AOPS.IA.C22.S02",
+      "strand": "ch22",
+      "pages": [
+        631,
+        634
+      ],
+      "en": "22.2 Self-similarity",
+      "zh": "22.2 自相似",
+      "elaborations": [
+        {
+          "en": "Infinite nested radicals and continued fractions hide a copy of themselves: name the whole thing x, swap the copy for x, and an ordinary equation appears.",
+          "zh": "无限嵌套的根号、连分数里都藏着一份它自己：把整体设为 x，用 x 替换那份拷贝，普通的方程就现身了。"
+        },
+        {
+          "en": "First make sense of the infinite expression: truncations of √(20-√(20-…)) creep toward 4, a sneak preview of limits — and the book admits it assumes the value exists.",
+          "zh": "先截几层试算：√(20-√(20-…)) 一步步逼近 4，提前尝了口「极限」的味道；书里也坦白，这是先假设它有值。"
+        },
+        {
+          "en": "Pick the positive root, then check by substituting the answer back into the expression.",
+          "zh": "解出来的根要挑正的那个，再把答案代回原式验一验才放心。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "dataTable"
+    },
+    {
+      "id": "AOPS.IA.C22.S03",
+      "strand": "ch22",
+      "pages": [
+        635,
+        637
+      ],
+      "en": "22.3 Symmetry",
+      "zh": "22.3 对称",
+      "elaborations": [
+        {
+          "en": "Symmetric means swapping any two variables changes nothing; such systems are cracked by combining all the equations at once.",
+          "zh": "任意交换两个字母、式子都不变，这就叫「对称」；对称方程组的诀窍是把所有方程放在一起处理。"
+        },
+        {
+          "en": "Add all four equations to grab the total w+x+y+z in one stroke, then subtract it from each equation to pop out the variables one by one.",
+          "zh": "四个方程全加起来，一口气得到 w+x+y+z，再用每个方程减去这个总和，字母一个个蹦出来。"
+        },
+        {
+          "en": "Addition isn't the only combiner: multiplying the three pairwise products gives (rmt)², and a square root plus divisions reveal each number.",
+          "zh": "组合方程不止加法一招：三个两两乘积相乘得 (rmt)²，开方求出总乘积，再逐个相除就水落石出。"
+        }
+      ],
+      "terms": [],
+      "teachHints": "balance、dataTable"
+    }
+  ]
+}
