@@ -435,6 +435,118 @@ function validateFsaSet(set, gradeData, count) {
   return { title: String(set.title || "FSA"), questions: qs.slice(0, count) };
 }
 
+/* ---------------- 闯关练习题库（P5）----------------
+ * 一个知识点一个题库，孩子看完课一道一道做题，SAT 式做对升难度，通关标 solid。
+ * 难度定义、数量、判定规则都定在 docs/qbank-standard.md——改规则先改那里。 */
+const QUIZ_PER_LEVEL_NEW = 4;     // 每级一次生成 4 道
+const QUIZ_LEVEL_CAP = 12;        // 每级封顶（单知识点单语言最多 36 道），到顶按最久没做过复用
+const QUIZ_SESSION_PER_LEVEL = 4; // 一次闯关每级最多带出 4 道
+const QUIZ_MAX_QUESTIONS = 8;     // 8 题内没通关 = 本次不通关
+const QUIZ_PASS_NEED = 2;         // 最高难度累计答对 2 题 = 通关
+const QUIZ_TOP_LEVEL = 3;
+
+const QBANK_SCHEMA = {
+  type: "object", additionalProperties: false,
+  properties: {
+    questions: {
+      type: "array", items: {
+        type: "object", additionalProperties: false,
+        properties: {
+          level: { type: "number" },
+          question: { type: "string" },
+          options: { type: "array", items: { type: "string" } },
+          answerIndex: { type: "number" },
+          explain: { type: "string" }
+        }, required: ["level", "question", "options", "answerIndex", "explain"]
+      }
+    }
+  }, required: ["questions"]
+};
+const QBANK_HINT = {
+  zh: `
+
+【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。结构：
+{"questions":[{"level":1,"question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences:
+{"questions":[{"level":1,"question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`
+};
+
+function qbankPrompt(item, gradeData, lang, needs, existingStems) {
+  const g = gradeData.grade;
+  const strand = STRANDS.find(s => s[0] === item.strand) || ["", item.strand, item.strand];
+  const wants = [1, 2, 3].filter(lv => needs[lv]);
+  const total = wants.reduce((s, lv) => s + needs[lv], 0);
+  const avoid = (existingStems || []).slice(0, 30);
+  if (lang === "en") {
+    const elab = (item.elaborations || []).map(e => "- " + e.en).join("\n");
+    const terms = itemTerms(item).map(tm => tm.en).join(", ");
+    return `You are a BC math teacher building a question bank for ONE Grade ${g} topic ("${strand[2]}" strand). The child just watched a lesson on it and now answers questions one at a time — right answers raise the difficulty, like the SAT. Write ${total} original multiple-choice questions: ${wants.map(lv => `${needs[lv]} at Level ${lv}`).join(", ")}.
+
+The topic (official wording): ${item.en}${elab ? `
+What it covers:
+${elab}` : ""}${terms ? `
+Key terms: ${terms}` : ""}
+
+Difficulty levels:
+- Level 1 (warm-up): one step, direct use of the concept just taught; short stem, no or minimal context. Checks "did you get it".
+- Level 2 (level-up): standard textbook difficulty, 1-2 steps, a small real-life context or choosing the right method. Checks "can you use it".
+- Level 3 (challenge): FSA-style — a real-life scenario needing at least two reasoning steps, or a question built around the most common misconception in this topic. Checks "is it solid".
+
+Iron rules:
+1. Test ONLY this topic. Earlier skills may appear naturally, but the point being tested must be this topic.
+2. Exactly 4 options, exactly 1 correct. Distractors come from real common mistakes (forgot to regroup, mixed up perimeter and area, skipped a unit conversion, added denominators straight across) — never obviously wrong.
+3. answerIndex is the index (0-3) of the correct option. Scatter correct positions across the batch.
+4. Numbers must be computable by hand and age-appropriate; use dollars and metric units; scenes from a BC child's life.
+5. Accuracy first: re-check every question so exactly one option is correct.
+6. explain: one or two sentences — the correct method plus the most common trap. It is shown to the child right after a wrong answer, so write it to teach.
+7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
+${avoid.map(s => "- " + s).join("\n")}` : ""}.`;
+  }
+  const elab = (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");
+  const terms = itemTerms(item).map(tm => `${tm.en}=${tm.zh}`).join("、");
+  return `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主线里的一个知识点建题库。孩子刚看完这个知识点的讲解课，现在一道一道做题——做对了会升难度（类似 SAT 机制）。请出 ${total} 道原创选择题：${wants.map(lv => `L${lv} ${needs[lv]} 道`).join("、")}。
+
+知识点（官方原文）：${item.en}
+中文：${item.zh}${elab ? `
+包含内容：
+${elab}` : ""}${terms ? `
+关键术语：${terms}` : ""}
+
+难度定义：
+- L1 热身：单步、直接套用刚学的概念；题干短，无情境或极简情境。检查「听懂了没」。
+- L2 应用：标准课本难度，1-2 步，带简单生活情境或需要自己选方法。检查「会用了没」。
+- L3 挑战：FSA 风格——需要至少两步推理的真实情境题，或针对这个知识点最常见误区的辨析题。检查「真扎实没」。
+
+出题铁律：
+1. 只考这个知识点。可以自然用到更早学过的技能，但考点必须落在本知识点上。
+2. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实常见错误（忘了进位、周长面积混淆、单位没换算、分母直接相加），不要一眼假。
+3. answerIndex 是正确选项的下标（0~3），整批正确答案的位置要打散，别集中在同一个下标。
+4. 数字口算/竖式能算动、适龄；货币用加元、单位用公制，情境用孩子在 BC 的真实生活。
+5. 准确第一：每题出完自己验算一遍，确认有且只有一个选项正确。
+6. explain 一两句话：正确解法 + 最容易踩的坑。孩子答错后马上会看到，要写得能教会人。
+7. 题干用中文，关键数学术语可自然带一次英文对照（如「周长（perimeter）」）。
+8. 这批题互相不能重复${avoid.length ? `，也不能和题库里已有的这些题重复：
+${avoid.map(s => "- " + s).join("\n")}` : ""}。`;
+}
+
+function validateQbankBatch(raw, requested) {
+  if (!raw || typeof raw !== "object") throw new Error("出题格式不对");
+  const qs = (Array.isArray(raw.questions) ? raw.questions : []).map(q => {
+    if (!q || typeof q !== "object") return null;
+    // answerIndex 指向 options 原数组，绝不能过滤/截断（教训同 FSA：下标一错位就把答对判成答错）
+    const options = Array.isArray(q.options) ? q.options.map(o => String(o == null ? "" : o).trim()) : [];
+    const ai = Math.round(Number(q.answerIndex));
+    const lv = Math.round(Number(q.level));
+    if (!String(q.question || "").trim() || options.length !== 4 || options.some(o => !o)
+      || !(ai >= 0 && ai <= 3) || !(lv >= 1 && lv <= QUIZ_TOP_LEVEL)) return null;
+    return { level: lv, question: String(q.question).trim(), options, answerIndex: ai, explain: String(q.explain || "").trim() };
+  }).filter(Boolean);
+  if (qs.length < Math.max(3, Math.ceil(requested * 0.5))) throw new Error("有效题目太少");
+  return qs;
+}
+
 /* ---------------- 工具函数 ---------------- */
 const L = (lang, zh, en) => lang === "en" ? en : zh;
 /* 请求里的 lang 归一：只认 "zh"，其余一律英文（面向英文学校的孩子） */
@@ -959,7 +1071,7 @@ function itemTerms(item) {
 }
 
 const PROGRESS_FILE = path.join(ROOT, "progress.json");
-let progress = {};   // curriculumId -> { taught, right, wrong, lastAt, solid, rightDays[], lessonIds[] }
+let progress = {};   // curriculumId -> { taught, right, wrong, lastAt, solid, quizPassedAt, rightDays[], lessonIds[] }
 try {
   const p = JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
   if (p && typeof p === "object" && !Array.isArray(p)) progress = p;
@@ -977,7 +1089,7 @@ function dayKey(ts) {
   return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 }
 /* 三态：new（没学过）/ seen（讲过）/ solid（扎实），由下面的四级直接降维。
- * solid = 不同日期答对 ≥2 次，或家长手动标记（最简规则，不搞算法，见计划 §2.2） */
+ * solid = 闯关通关（docs/qbank-standard.md §5），或不同日期答对 ≥2 次，或家长手动标记 */
 function progressStatus(id) {
   const lv = progressLevel(id);
   return lv === "emerging" ? "new" : lv === "developing" ? "seen" : "solid";
@@ -989,7 +1101,7 @@ function progressLevel(id) {
   if (!e) return "emerging";
   const days = (e.rightDays || []).length;
   if (days >= 3) return "extending";
-  if (e.solid || days >= 2) return "proficient";
+  if (e.solid || e.quizPassedAt || days >= 2) return "proficient";
   return (e.taught || e.right || e.wrong) ? "developing" : "emerging";
 }
 function progressRecord(id, event, lessonId) {
@@ -1003,6 +1115,13 @@ function progressRecord(id, event, lessonId) {
     const k = dayKey(now);
     if (!(e.rightDays || (e.rightDays = [])).includes(k)) e.rightDays.push(k);
   } else if (event === "practiced-wrong") e.wrong++;
+  else if (event === "quiz-right") e.right++;   // 闯关单题只计 ✓✗ 统计，不计 rightDays：没通关不能靠攒天数白捡 solid（标准 §5）
+  else if (event === "quiz-wrong") e.wrong++;
+  else if (event === "quiz-pass") {             // 通关：直接 solid，通关当天也算一个 rightDay（继续往 Extending 攒）
+    e.quizPassedAt = now;
+    const k = dayKey(now);
+    if (!(e.rightDays || (e.rightDays = [])).includes(k)) e.rightDays.push(k);
+  }
   else if (event === "mark-solid") e.solid = true;
   else if (event === "unmark-solid") e.solid = false;
   else return null;
@@ -1052,6 +1171,91 @@ function fsaSetSummary(r) {
     title: r.title || "FSA", count: (r.questions || []).length,
     last: (r.attempts || [])[0] || null
   };
+}
+
+/* ---------------- 闯关题库持久化（P5）----------------
+ * 出一批题要跑一次 AI，所以生成后永久保存（qbank.json，原子写同 progress.json）。
+ * 做过的题打 usedAt，优先给没做过的题；不够自动补，封顶后按最久没做过复用。 */
+const QBANK_FILE = path.join(ROOT, "qbank.json");
+let qbank = {};   // "curriculumId|lang" -> { questions: [{qid, level, question, options, answerIndex, explain, usedAt}] }
+try {
+  const b = JSON.parse(fs.readFileSync(QBANK_FILE, "utf8"));
+  if (b && typeof b === "object" && !Array.isArray(b)) qbank = b;
+} catch (_) { /* 还没有题库 */ }
+
+function qbankSave() {
+  try {
+    const tmp = QBANK_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(qbank), "utf8");
+    fs.renameSync(tmp, QBANK_FILE);
+  } catch (e) { console.log("[quiz] 保存失败：" + e.message); }
+}
+const qbankKey = (id, lang) => id + "|" + lang;
+
+/* 新题并入题库：题干去重（空白不敏感）、每级封顶 */
+function qbankMerge(bank, batch) {
+  const norm = s => s.toLowerCase().replace(/\s+/g, "");
+  const seen = new Set(bank.questions.map(q => norm(q.question)));
+  for (const q of batch) {
+    const k = norm(q.question);
+    if (seen.has(k)) continue;
+    if (bank.questions.filter(x => x.level === q.level).length >= QUIZ_LEVEL_CAP) continue;
+    seen.add(k);
+    bank.questions.push(Object.assign({ qid: "q" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), usedAt: 0 }, q));
+  }
+}
+
+/* 开练前保证每级有足够没做过的题；不足就让 AI 补（初次 = 三级各 4 道一次生成） */
+async function ensureQuizBank(item, gradeData, lang, providerId) {
+  const key = qbankKey(item.id, lang);
+  const bank = qbank[key] || (qbank[key] = { questions: [] });
+  const needs = {};
+  for (const lv of [1, 2, 3]) {
+    const qs = bank.questions.filter(q => q.level === lv);
+    if (qs.filter(q => !q.usedAt).length < QUIZ_SESSION_PER_LEVEL && qs.length < QUIZ_LEVEL_CAP) needs[lv] = QUIZ_PER_LEVEL_NEW;
+  }
+  if (!Object.keys(needs).length) return bank;
+  const total = Object.values(needs).reduce((a, b) => a + b, 0);
+  const sys = qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
+  const msg = L(lang, "请出这批题。", "Please write this batch of questions.");
+  const opts = { schema: QBANK_SCHEMA, hint: QBANK_HINT[lang] };
+  const t0 = Date.now();
+  console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}`);
+  const attempt = async () => {
+    qbankMerge(bank, validateQbankBatch(await ADAPTERS[providerId](sys, msg, null, null, lang, opts), total));
+    // 阶梯每一级都得有题可出，缺级就算失败
+    if ([1, 2, 3].some(lv => !bank.questions.some(q => q.level === lv))) throw new Error("有难度级还没有题");
+  };
+  try { await attempt(); }
+  catch (e1) {
+    console.log(`[quiz] first try failed (${e1.message}), retrying once...`);
+    try { await attempt(); }
+    catch (e2) {
+      qbankSave();   // 两次攒下的合格题先存住，下次接着补
+      throw new Error(L(lang, "出题没成功，再试一次吧。", "Couldn't write the questions — try again."));
+    }
+  }
+  qbankSave();
+  console.log(`[quiz] bank ${key} ready: ${bank.questions.length} questions in ${Math.round((Date.now() - t0) / 1000)}s`);
+  return bank;
+}
+
+function shuffleArr(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+
+/* 一次闯关的题包：每级最多 4 道，没做过的优先（打乱），其余按最久没做过补位 */
+function quizSession(bank) {
+  const out = [];
+  for (const lv of [1, 2, 3]) {
+    const qs = bank.questions.filter(q => q.level === lv);
+    const fresh = shuffleArr(qs.filter(q => !q.usedAt));
+    const used = qs.filter(q => q.usedAt).sort((a, b) => a.usedAt - b.usedAt);
+    out.push(...fresh.concat(used).slice(0, QUIZ_SESSION_PER_LEVEL));
+  }
+  return out.map(q => ({ qid: q.qid, level: q.level, question: q.question, options: q.options, answerIndex: q.answerIndex, explain: q.explain }));
 }
 
 /* ---------------- HTTP 服务器 ---------------- */
@@ -1259,6 +1463,50 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { ok: true });
     }
 
+    /* P5 闯关练习：看完课一道一道做题，SAT 式升降难度，通关标 solid（标准 docs/qbank-standard.md） */
+    if (url.pathname === "/api/quiz/session" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const lang = normLang(body.lang);
+      const found = findCurriculumItem(String(body.curriculumId || ""));
+      if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
+      const id = pickProvider(body.provider);
+      if (!id) return send(res, 503, { error: L(lang,
+        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
+        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
+      const bank = await ensureQuizBank(found.item, found.data, lang, id);
+      return send(res, 200, {
+        questions: quizSession(bank),
+        rules: { maxQuestions: QUIZ_MAX_QUESTIONS, passNeed: QUIZ_PASS_NEED, topLevel: QUIZ_TOP_LEVEL }
+      });
+    }
+
+    /* 闯关结算：单题对错记统计、做过的题打 usedAt；通关判定以服务器题库里的难度为准 */
+    if (url.pathname === "/api/quiz/finish" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const cid = String(body.curriculumId || "");
+      if (!findCurriculumItem(cid)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
+      const bank = qbank[qbankKey(cid, normLang(body.lang))];
+      const now = Date.now();
+      const counted = new Set();
+      let topRight = 0;
+      for (const r of (Array.isArray(body.results) ? body.results : []).slice(0, QUIZ_MAX_QUESTIONS + 4)) {
+        const qid = String((r && r.qid) || "");
+        const q = bank && bank.questions.find(x => x.qid === qid);
+        if (!q || counted.has(qid)) continue;   // 不认识 / 重复的 qid 不记
+        counted.add(qid);
+        q.usedAt = now;
+        const ok = !!(r && r.correct);
+        progressRecord(cid, ok ? "quiz-right" : "quiz-wrong");
+        if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
+      }
+      if (bank) qbankSave();
+      const passed = topRight >= QUIZ_PASS_NEED;
+      if (passed) progressRecord(cid, "quiz-pass");
+      return send(res, 200, { ok: true, passed, status: progressStatus(cid), level: progressLevel(cid) });
+    }
+
     /* 清空（设置里的「清空学习进度 / 清空全部记录」，前端有确认框） */
     if (url.pathname === "/api/progress" && req.method === "DELETE") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
@@ -1279,6 +1527,13 @@ const server = http.createServer(async (req, res) => {
       fsaSets = [];
       fsaSetsSave();
       console.log("[fsa] 卷子已清空");
+      return send(res, 200, { ok: true });
+    }
+    if (url.pathname === "/api/qbank" && req.method === "DELETE") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      qbank = {};
+      qbankSave();
+      console.log("[quiz] 题库已清空");
       return send(res, 200, { ok: true });
     }
 
@@ -1393,6 +1648,7 @@ detectProviders().then(() => {
       ? curriculumGrades().map(g => "G" + g).join("、") + " 已加载（进度 " + Object.keys(progress).length + " 条，progress.json）"
       : "未加载（data/curriculum/bc/ 里还没有 grade-N.json）"));
     console.log("  FSA 卷:     " + fsaSets.length + " 份（fsa-sets.json，上限 " + FSA_SETS_MAX + " 份，做过的卷直接重开不再生成）");
+    console.log("  闯关题库:   " + Object.keys(qbank).length + " 个（qbank.json，做对升难度、通关标 solid；标准 docs/qbank-standard.md）");
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
     console.log("");
   });

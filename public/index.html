@@ -126,8 +126,8 @@
   .histItem:hover{border-color:var(--brand);background:var(--soft)}
   .histItem .hrow{display:flex;align-items:center;gap:8px}
   .histItem .ht{font-weight:800;font-size:15px;flex:1;min-width:0}
-  .histItem .hdel,.learnItem .hregen{border:none;background:none;cursor:pointer;font-size:15px;opacity:.45;padding:2px 4px;flex:0 0 auto}
-  .histItem .hdel:hover,.learnItem .hregen:hover{opacity:1}
+  .histItem .hdel,.learnItem .hregen,.learnItem .hquiz{border:none;background:none;cursor:pointer;font-size:15px;opacity:.45;padding:2px 4px;flex:0 0 auto}
+  .histItem .hdel:hover,.learnItem .hregen:hover,.learnItem .hquiz:hover{opacity:1}
   .histItem .hm{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .histItem .ha{font-size:12.5px;color:var(--brand2);font-weight:700;margin-top:2px}
   .histEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
@@ -162,6 +162,14 @@
   .fsaOpt:disabled{cursor:default;opacity:.85}
   .fsaOpt .ol{font-weight:800;color:var(--brand2);flex:0 0 auto}
   .fsaScore{font-size:18px;font-weight:800;margin:10px 0 4px}
+  /* 闯关练习（P5）：复用 FSA 的题卡/选项样式，加上对错标色和即时反馈框 */
+  .fsaOpt.correct{border-color:var(--good);background:#effaf3}
+  .fsaOpt.wrong{border-color:#e08585;background:#fff0f0}
+  .quizFb{margin-top:12px;border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.6}
+  .quizFb.good{background:#effaf3;border:2px solid var(--good);font-weight:800}
+  .quizFb.bad{background:#fff7f0;border:2px solid #ffd9b8}
+  .quizFb .btn{margin-top:10px}
+  .quizEntry{margin-top:14px;border-top:1.5px dashed #c9d4ff;padding-top:14px}
   .fsaRItem{border:2px solid var(--line);border-radius:14px;padding:11px 13px;margin-top:8px;background:#fff}
   .fsaRItem.bad{border-color:#ffd0d0;background:#fff8f8}
   .fsaRItem .fq{font-size:14px;line-height:1.6}
@@ -270,6 +278,18 @@
     <div id="fsaBody"></div>
   </section>
 
+  <!-- 闯关练习（P5）：SAT 式做对升难度，通关标 solid（规则见 docs/qbank-standard.md） -->
+  <section class="card hidden" id="quizCard">
+    <div class="row" style="justify-content:space-between;margin:0">
+      <h2 class="lessonTitle" id="quizTitle" style="min-width:0">⚡</h2>
+      <div class="row" style="margin:0;gap:8px;flex:0 0 auto">
+        <span class="enginebadge" id="quizLevelBadge">★☆☆</span>
+        <button class="btn ghost" id="quizQuit" style="padding:8px 12px;font-size:14px">✕</button>
+      </div>
+    </div>
+    <div id="quizBody"></div>
+  </section>
+
   <!-- 讲解播放器 -->
   <section class="card hidden" id="playerCard">
     <div class="row" style="justify-content:space-between;margin:0">
@@ -312,6 +332,11 @@
         <button class="btn good" id="judgeRight" data-i18n="practiceRight">答对了 ✓</button>
         <button class="btn ghost" id="judgeWrong" data-i18n="practiceWrong">还不会 ✗</button>
         <span class="judgeMsg" id="judgeMsg"></span>
+      </div>
+      <!-- 大纲课专属：课末进闯关（P5），通关变扎实 -->
+      <div class="quizEntry hidden" id="quizEntry">
+        <button class="btn big" id="quizGoBtn" data-i18n="quizBtn">⚡ 闯关练习 · 通关变扎实</button>
+        <div class="help" data-i18n="quizEntryHint" style="margin-top:8px"></div>
       </div>
     </div>
   </section>
@@ -453,10 +478,10 @@ const I18N = {
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
     dataLabel:"学习数据",
-    dataHelp:"清空进度只把状态点归零，讲过的课和 FSA 卷保留；清空全部会连课和卷一起删掉。",
+    dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
-    clearProgressConfirm:"确定清空学习进度吗？\n\n所有知识点会变回「还没学」，家长报告归零。\n讲过的课和出过的 FSA 卷保留，仍可重播 / 重做。",
-    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷会全部删除，不可恢复！",
+    clearProgressConfirm:"确定清空学习进度吗？\n\n所有知识点会变回「还没学」，家长报告归零。\n讲过的课、FSA 卷和闯关题库保留，仍可重播 / 重做。",
+    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷、闯关题库会全部删除，不可恢复！",
     clearDone:"已清空 ✓",
     cancel:"取消", save:"保存",
     tabAsk:"出题讲课", tabLearn:"跟大纲学",
@@ -486,6 +511,24 @@ const I18N = {
     fsaLastScore:(r,n)=>`上次 ${r}/${n}`,
     fsaNoTake:"还没做过",
     fsaDelConfirm:"删除这卷？",
+    quizBtn:"⚡ 闯关练习 · 通关变扎实",
+    quizEntryHint:"做对升难度（像 SAT 一样）。在最高难度 ★★★ 答对 2 题就通关，这个知识点标成「扎实」。",
+    quizListTitle:"闯关练习：做对升难度，通关变扎实",
+    quizGenSub:"圆圆老师正在出题…第一次要一分钟左右",
+    quizTitle:"闯关练习",
+    quizOf:(i)=>`第 ${i} 题`,
+    quizToPass:(n)=>`再对 ${n} 题就通关 🔥`,
+    quizRightMsgs:["答对啦 ✓","太棒了 ✓","漂亮 ✓","就是这样 ✓"],
+    quizNext:"下一题 →",
+    quizSeeResult:"看结果 →",
+    quizPassHead:"🎉 通关！这个知识点扎实啦 🌟",
+    quizPassSub:(n)=>`一共 ${n} 题，最高难度也拿下了。`,
+    quizFailHead:"这次差一点点 💪",
+    quizFailSub:"回去再听听课，改天再来闯——下次会换新题目。",
+    quizStatFmt:(r,n)=>`答对 ${r} / ${n} 题`,
+    quizRelisten:"📖 再听一遍这节课",
+    quizQuitConfirm:"还没闯完，要退出吗？已答的题会记录，但不算通关。",
+    quizSaveFail:"成绩没能保存（网络问题），下次再闯一次吧。",
     teachAgainTitle:"重新生成一节新课（点行内其他地方是直接重播上次的课）",
     reportTitle:"家长报告",
     reportHeadFmt:(grade,total,seen,solid)=>`本学期 ${grade} 数学共 ${total} 条内容：已讲 ${seen} 条，扎实 ${solid} 条。`,
@@ -556,10 +599,10 @@ const I18N = {
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
     dataLabel:"Learning data",
-    dataHelp:"Reset progress only clears the status dots — saved lessons and FSA sets are kept. Erase all deletes those too.",
+    dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
-    clearProgressConfirm:"Reset all learning progress?\n\nEvery topic goes back to New and the parent report resets.\nSaved lessons and FSA sets are kept — still replayable.",
-    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, and FSA sets will be deleted. This cannot be undone!",
+    clearProgressConfirm:"Reset all learning progress?\n\nEvery topic goes back to New and the parent report resets.\nSaved lessons, FSA sets and quiz banks are kept — still replayable.",
+    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets and quiz banks will be deleted. This cannot be undone!",
     clearDone:"Cleared ✓",
     cancel:"Cancel", save:"Save",
     tabAsk:"Ask a question", tabLearn:"Learn (BC)",
@@ -589,6 +632,24 @@ const I18N = {
     fsaLastScore:(r,n)=>`last ${r}/${n}`,
     fsaNoTake:"not taken yet",
     fsaDelConfirm:"Delete this set?",
+    quizBtn:"⚡ Solid Quiz — pass it to go Solid",
+    quizEntryHint:"Right answers raise the difficulty, like the SAT. Get 2 right at ★★★ and this topic turns Solid.",
+    quizListTitle:"Solid Quiz: right answers raise the difficulty — pass it to go Solid",
+    quizGenSub:"Ms. Yuanyuan is writing your questions… about a minute the first time",
+    quizTitle:"Solid Quiz",
+    quizOf:(i)=>`Question ${i}`,
+    quizToPass:(n)=>`${n} more right to pass 🔥`,
+    quizRightMsgs:["Correct ✓","Nice one ✓","Beautiful ✓","Exactly ✓"],
+    quizNext:"Next →",
+    quizSeeResult:"See result →",
+    quizPassHead:"🎉 Passed — this topic is Solid now 🌟",
+    quizPassSub:(n)=>`${n} questions, and you beat the hardest level.`,
+    quizFailHead:"So close this time 💪",
+    quizFailSub:"Review the lesson and come back — you'll get fresh questions next time.",
+    quizStatFmt:(r,n)=>`${r} / ${n} correct`,
+    quizRelisten:"📖 Hear the lesson again",
+    quizQuitConfirm:"Quit the quiz? Answered questions are recorded, but it won't count as a pass.",
+    quizSaveFail:"Couldn't save the result (network hiccup) — take the quiz again next time.",
     teachAgainTitle:"Generate a fresh lesson (tapping the row replays the saved one)",
     reportTitle:"Parent report",
     reportHeadFmt:(grade,total,seen,solid)=>`${grade} math this term: ${total} topics — ${seen} covered, ${solid} solid.`,
@@ -1914,6 +1975,7 @@ function startLesson(l, lang, curriculumId){
   $("judgeRow").classList.add("hidden");
   $("judgeMsg").textContent="";
   $("judgeRight").disabled=false; $("judgeWrong").disabled=false;
+  $("quizEntry").classList.toggle("hidden", !lessonCurriculumId);   // 闯关入口只在大纲课出现
   $("lessonTitle").textContent = l.title || t("thisProblem");
   $("answerCard").classList.toggle("hidden", !l.isMath);
   $("practiceCard").classList.add("hidden");
@@ -2067,10 +2129,12 @@ function renderLearn(d){
         +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
         +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
         +(it.lessonId?`<button class="hregen" title="${t("teachAgainTitle")}">🔄</button>`:"")
+        +`<button class="hquiz" title="${t("quizListTitle")}">⚡</button>`
         +`<span class="st">${statusLabel(it.status)}</span>`;
       el.onclick=()=>startTeach(it);          // 讲过的直接重播存好的课（秒开），没讲过的才生成
       const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
+      el.querySelector(".hquiz").onclick=(e)=>{ e.stopPropagation(); startQuiz(it.id,"list"); };   // 不重听课直接闯关（隔天再战用）
       box.appendChild(el);
     });
   });
@@ -2307,6 +2371,155 @@ function quitFsa(silent){
 $("fsaGo").onclick=startFsa;
 $("fsaQuit").onclick=()=>quitFsa();
 
+/* ---------- 闯关练习（P5）：SAT 式升降难度，通关标 solid ----------
+ * 从 L1 起步：对升一级、错降一级；★★★ 答对 2 题通关，8 题内没通关下次再来。
+ * 题包由服务器给（没做过的优先，不够自动补题）；结算判定以服务器为准。
+ * 规则常量和出题标准见 docs/qbank-standard.md。 */
+let quiz=null;   // { cid, byLevel:{1:[],2:[],3:[]}, level, n, cur, answered, results[], topRight, rules, done }
+
+async function startQuiz(cid, from){
+  showLoading();
+  $("loadSub").textContent=t("quizGenSub");
+  try{
+    const r=await fetch("/api/quiz/session",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ curriculumId:cid, lang:cfg.lang, provider:cfg.provider })});
+    const data=await r.json().catch(()=>({}));
+    if(r.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
+    if(!r.ok||!(data.questions||[]).length) throw new Error(data.error||t("genericErr"));
+    hideLoading();
+    enterQuiz(cid, data, from);
+  }catch(err){ hideLoading(); alert(err.message||t("genericErr")); }
+}
+
+function enterQuiz(cid, data, from){
+  if(from==="lesson"){   // 从课末进闯关：收掉播放器（同「回大纲」的清理，但不切视图）
+    pause(); lesson=null; stopTtsPoll(); lessonCurriculumId=null;
+    playerCard.classList.add("hidden");
+  }
+  const byLevel={1:[],2:[],3:[]};
+  (data.questions||[]).forEach(q=>{ if(byLevel[q.level]) byLevel[q.level].push(q); });
+  quiz={ cid, byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
+         rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), done:false };
+  $("learnCard").classList.add("hidden");
+  $("modeTabs").classList.add("hidden");
+  $("fsaCard").classList.add("hidden");
+  $("quizCard").classList.remove("hidden");
+  const it=learnIndex[cid];
+  $("quizTitle").textContent="⚡ "+(it ? (cfg.lang==="en"?it.en:(it.zh||it.en)) : t("quizTitle"));
+  renderQuizQ();
+}
+
+/* 当前难度没题就借相邻难度的顶上（先低后高），实在无题提前结算 */
+function nextQuizQ(){
+  const prefer = quiz.level===1?[1,2,3] : quiz.level===2?[2,1,3] : [3,2,1];
+  for(const lv of prefer){ if(quiz.byLevel[lv].length){ quiz.level=lv; return quiz.byLevel[lv].shift(); } }
+  return null;
+}
+function quizStars(){ return "★".repeat(quiz.level)+"☆".repeat(quiz.rules.topLevel-quiz.level); }
+
+function renderQuizQ(){
+  if(quiz.n>=quiz.rules.maxQuestions) return finishQuiz();
+  const q=nextQuizQ();
+  if(!q) return finishQuiz();
+  quiz.cur=q; quiz.answered=false; quiz.n++;
+  $("quizLevelBadge").textContent=quizStars();
+  const meta=[t("quizOf")(quiz.n), quizStars()];
+  if(quiz.level===quiz.rules.topLevel) meta.push(t("quizToPass")(quiz.rules.passNeed-quiz.topRight));
+  const box=$("quizBody");
+  box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
+    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
+  const opts=box.querySelector(".fsaOpts");
+  q.options.forEach((op,i)=>{
+    const b=document.createElement("button"); b.className="fsaOpt";
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.onclick=()=>answerQuiz(i);
+    opts.appendChild(b);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function answerQuiz(i){
+  if(!quiz||quiz.answered) return;
+  quiz.answered=true;
+  const q=quiz.cur, ok=i===q.answerIndex;
+  quiz.results.push({ qid:q.qid, correct:ok });
+  if(ok&&q.level===quiz.rules.topLevel) quiz.topRight++;
+  [...$("quizBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===q.answerIndex) b.classList.add("correct");
+    else if(bi===i) b.classList.add("wrong");
+  });
+  const fb=$("quizFb");
+  const finished = quiz.topRight>=quiz.rules.passNeed || quiz.n>=quiz.rules.maxQuestions;
+  if(ok){
+    quiz.level=Math.min(quiz.rules.topLevel, quiz.level+1);   // 做对升一级
+    const msgs=t("quizRightMsgs");
+    fb.innerHTML=`<div class="quizFb good">${escapeHtml(msgs[quiz.n%msgs.length])}</div>`;
+    setTimeout(()=>{ if(quiz&&!quiz.done) finished?finishQuiz():renderQuizQ(); }, 900);
+  }else{
+    quiz.level=Math.max(1, quiz.level-1);                     // 做错降一级，答案和讲解当场看
+    fb.innerHTML=`<div class="quizFb bad"><div><b>${escapeHtml(t("fsaRight"))}: ${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b></div>`
+      +(q.explain?`<div style="margin-top:6px">💡 ${escapeHtml(q.explain)}</div>`:"")
+      +`<button class="btn blue" id="quizNextBtn">${escapeHtml(finished?t("quizSeeResult"):t("quizNext"))}</button></div>`;
+    fb.querySelector("#quizNextBtn").onclick=()=>{ if(quiz&&!quiz.done) finished?finishQuiz():renderQuizQ(); };
+  }
+}
+
+async function finishQuiz(){
+  if(!quiz||quiz.done) return;
+  quiz.done=true;
+  const right=quiz.results.filter(r=>r.correct).length, total=quiz.results.length;
+  let passed=quiz.topRight>=quiz.rules.passNeed, saveFail=false;
+  try{
+    const r=await fetch("/api/quiz/finish",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results })});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error();
+    passed=!!d.passed;   // 通关判定以服务器为准（按题库里的真实难度算）
+  }catch(_){ saveFail=true; }
+  if(!quiz) return;      // 结算等待期间被退出
+  renderQuizResult(passed, right, total, saveFail);
+}
+
+function renderQuizResult(passed, right, total, saveFail){
+  $("quizLevelBadge").textContent = passed ? "★★★" : "";
+  const box=$("quizBody");
+  box.innerHTML=`<div class="fsaScore">${escapeHtml(passed?t("quizPassHead"):t("quizFailHead"))}</div>`
+    +`<div class="help">${escapeHtml((passed?t("quizPassSub")(total):t("quizFailSub"))+" · "+t("quizStatFmt")(right,total))}</div>`
+    +(saveFail?`<div class="help" style="color:#c0392b">${escapeHtml(t("quizSaveFail"))}</div>`:"")
+    +`<div class="row" style="margin-top:14px" id="quizEndBtns"></div>`;
+  const row=box.querySelector("#quizEndBtns");
+  const back=document.createElement("button"); back.className="btn"; back.textContent=t("backToLearn");
+  back.onclick=()=>quizExit();
+  row.appendChild(back);
+  if(!passed){
+    const again=document.createElement("button"); again.className="btn ghost"; again.textContent=t("quizRelisten");
+    const cid=quiz.cid;
+    again.onclick=()=>{ quizExitSilent(); startTeach(learnIndex[cid]||{ id:cid }); };
+    row.appendChild(again);
+  }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function quizExitSilent(){ quiz=null; $("quizCard").classList.add("hidden"); }
+function quizExit(){
+  quizExitSilent();
+  if(lessonReturnTo==="fsa"&&fsa){ lessonReturnTo=""; $("fsaCard").classList.remove("hidden"); }  // FSA 错题→讲解→闯关的回路
+  else { updateTabs(); switchView("learn"); }   // 回清单顺带刷新状态点，通关的绿点马上能看到
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+$("quizQuit").onclick=()=>{
+  if(!quiz) return quizExit();
+  if(!quiz.done && quiz.results.length){
+    if(!confirm(t("quizQuitConfirm"))) return;
+    // 中途退出：已答的照记对错（服务器按题库难度判，不会误判通关）
+    fetch("/api/quiz/finish",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results })}).catch(()=>{});
+  }
+  quizExit();
+};
+$("quizGoBtn").onclick=()=>{ if(lessonCurriculumId) startQuiz(lessonCurriculumId,"lesson"); };
+
 /* ---------- 家长报告（P3）：BC 四级话术，可打印 ---------- */
 const LEVELS=["emerging","developing","proficient","extending"];
 function levelText(l){ return t("level"+l.charAt(0).toUpperCase()+l.slice(1)); }
@@ -2467,7 +2680,7 @@ async function clearData(all){
   try{
     const del=p=>fetch(p,{method:"DELETE",headers:apiHeaders()}).then(r=>{ if(!r.ok&&r.status!==404) throw new Error(); });
     await del("/api/progress");
-    if(all){ await del("/api/history"); await del("/api/fsa/sets"); }
+    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/qbank"); }
     const old=t(all?"clearAll":"clearProgress");
     btn.textContent=t("clearDone");
     setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);

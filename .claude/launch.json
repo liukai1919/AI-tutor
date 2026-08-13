@@ -7,6 +7,12 @@
       "runtimeArgs": ["server.js"],
       "port": 8434,
       "autoPort": true
+    },
+    {
+      "name": "yuanyuan-test",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "process.env.PORT='8435';require('./server.js')"],
+      "port": 8435
     }
   ]
 }
