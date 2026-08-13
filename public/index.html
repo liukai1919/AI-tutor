@@ -246,6 +246,8 @@
       <button class="btn blue" id="fsaGo" style="padding:11px 16px;font-size:15px">🎯 <span data-i18n="fsaBtn">FSA 模拟练习</span></button>
       <select id="fsaStrand" class="learnGradeSel"></select>
     </div>
+    <!-- 已生成的 FSA 卷（持久化，点开直接做） -->
+    <div id="fsaSaved" class="hidden" style="margin:0 0 12px"></div>
     <div id="learnList"></div>
     <div class="help" id="learnSource" style="text-align:center;margin-top:14px"></div>
   </section>
@@ -459,6 +461,12 @@ const I18N = {
     fsaTeach:"📖 让圆圆老师讲讲这个知识点",
     fsaAgain:"再来一卷 🎯",
     fsaAutoNote:"每题对错已自动记入学习进度（📊 家长报告里能看到）。",
+    fsaSavedTitle:"已出过的卷子 · 点开直接做，不用重新出题",
+    fsaCountFmt:(n)=>`${n} 题`,
+    fsaLastScore:(r,n)=>`上次 ${r}/${n}`,
+    fsaNoTake:"还没做过",
+    fsaDelConfirm:"删除这卷？",
+    teachAgainTitle:"重新生成一节新课（点行内其他地方是直接重播上次的课）",
     reportTitle:"家长报告",
     reportHeadFmt:(grade,total,seen,solid)=>`本学期 ${grade} 数学共 ${total} 条内容：已讲 ${seen} 条，扎实 ${solid} 条。`,
     reportStrandFmt:(total,solid)=>`${total} 条内容 · 已扎实 ${solid} 条`,
@@ -548,6 +556,12 @@ const I18N = {
     fsaTeach:"📖 Have Ms. Yuanyuan teach this topic",
     fsaAgain:"New set 🎯",
     fsaAutoNote:"Each answer was recorded into the progress tracker (see the 📊 parent report).",
+    fsaSavedTitle:"Saved sets · tap to take again, no regenerating",
+    fsaCountFmt:(n)=>`${n} questions`,
+    fsaLastScore:(r,n)=>`last ${r}/${n}`,
+    fsaNoTake:"not taken yet",
+    fsaDelConfirm:"Delete this set?",
+    teachAgainTitle:"Generate a fresh lesson (tapping the row replays the saved one)",
     reportTitle:"Parent report",
     reportHeadFmt:(grade,total,seen,solid)=>`${grade} math this term: ${total} topics — ${seen} covered, ${solid} solid.`,
     reportStrandFmt:(total,solid)=>`${total} topics · ${solid} solid`,
@@ -2021,8 +2035,11 @@ function renderLearn(d){
       el.innerHTML=`<span class="sdot ${it.status}"></span>`
         +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
         +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
+        +(it.lessonId?`<button class="hdel" title="${t("teachAgainTitle")}">🔄</button>`:"")
         +`<span class="st">${statusLabel(it.status)}</span>`;
-      el.onclick=()=>startTeach(it);
+      el.onclick=()=>startTeach(it);          // 讲过的直接重播存好的课（秒开），没讲过的才生成
+      const rebtn=el.querySelector(".hdel");
+      if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
       box.appendChild(el);
     });
   });
@@ -2031,8 +2048,19 @@ function renderLearn(d){
   fsaShowEntry(d);
 }
 
-async function startTeach(it){
+async function startTeach(it, forceNew){
   const lang=cfg.lang;
+  // 讲过的知识点默认重播上次那节课：免费、秒开、语音大概率已缓存
+  if(!forceNew && it.lessonId){
+    try{
+      const r=await fetch("/api/history/"+it.lessonId,{headers:apiHeaders()});
+      if(r.ok){
+        const rec=(await r.json()).record;
+        if(rec && rec.lesson){ startLesson(rec.lesson, rec.lang, it.id); return; }
+      }
+    }catch(_){}
+    // 旧课找不到（被删除/超出历史上限）就往下走正常生成
+  }
   showLoading();
   try{
     const resp=await fetch("/api/lesson",{method:"POST",headers:apiHeaders(),
@@ -2076,7 +2104,7 @@ let lessonReturnTo="";   // "fsa"：从错题跳去讲课，返回时回成绩�
 function fsaShowEntry(d){
   const is47=cfg.gradeCode==="4"||cfg.gradeCode==="7";   // FSA 只有 4/7 年级考
   $("fsaEntry").classList.toggle("hidden",!is47);
-  if(!is47) return;
+  if(!is47){ $("fsaSaved").classList.add("hidden"); $("fsaSaved").innerHTML=""; return; }
   const sel=$("fsaStrand"), keep=sel.value;
   sel.innerHTML="";
   const all=document.createElement("option"); all.value=""; all.textContent=t("fsaAll"); sel.appendChild(all);
@@ -2085,6 +2113,50 @@ function fsaShowEntry(d){
     o.textContent=cfg.lang==="en"?sg.enName:sg.zhName; sel.appendChild(o);
   });
   if([...sel.options].some(o=>o.value===keep)) sel.value=keep;
+  loadFsaSaved();
+}
+/* 已生成的卷子：持久化在服务器（fsa-sets.json），点开直接做，不再重新出题 */
+async function loadFsaSaved(){
+  const box=$("fsaSaved");
+  try{
+    const r=await fetch("/api/fsa/sets?grade="+cfg.gradeCode,{headers:apiHeaders()});
+    if(!r.ok) throw new Error();
+    const items=(await r.json()).items||[];
+    box.innerHTML="";
+    if(!items.length){ box.classList.add("hidden"); return; }
+    box.classList.remove("hidden");
+    const cap=document.createElement("div"); cap.className="help"; cap.style.margin="0 0 6px";
+    cap.textContent=t("fsaSavedTitle");
+    box.appendChild(cap);
+    items.forEach(it=>{
+      const el=document.createElement("div"); el.className="histItem";
+      const meta=[fmtHistTime(it.time), t("fsaCountFmt")(it.count),
+        it.last?t("fsaLastScore")(it.last.right,it.last.total):t("fsaNoTake"),
+        it.lang==="zh"?"中":"EN"].join(" · ");
+      el.innerHTML=`<div class="hrow"><div class="ht">📄 ${escapeHtml(it.title)}</div>`
+        +`<button class="hdel" title="${t("historyDelTitle")}">🗑</button></div>`
+        +`<div class="hm">${escapeHtml(meta)}</div>`;
+      el.onclick=()=>takeFsaSet(it.id);
+      el.querySelector(".hdel").onclick=(e)=>{ e.stopPropagation(); deleteFsaSet(it.id); };
+      box.appendChild(el);
+    });
+  }catch(_){ box.classList.add("hidden"); }
+}
+async function takeFsaSet(id){
+  try{
+    const r=await fetch("/api/fsa/sets/"+id,{headers:apiHeaders()});
+    if(!r.ok) throw new Error();
+    const rec=(await r.json()).record;
+    if(!rec||!rec.questions||!rec.questions.length) throw new Error();
+    enterFsa(rec);
+  }catch(_){ alert(t("genericErr")); }
+}
+async function deleteFsaSet(id){
+  if(!confirm(t("fsaDelConfirm"))) return;
+  try{
+    const r=await fetch("/api/fsa/sets/"+id,{method:"DELETE",headers:apiHeaders()});
+    if(r.ok) loadFsaSaved();
+  }catch(_){}
 }
 function fmtClock(ms){
   const s=Math.max(0,Math.floor(ms/1000));
@@ -2107,18 +2179,22 @@ async function startFsa(){
     if(r.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
     if(!r.ok) throw new Error(data.error||t("genericErr"));
     hideLoading();
-    lessonReturnTo="";
-    fsa={ set:data.set, answers:new Array(data.set.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
-    $("learnCard").classList.add("hidden");
-    $("modeTabs").classList.add("hidden");
-    $("fsaCard").classList.remove("hidden");
-    $("fsaTitle").textContent=(data.set.title||"FSA")+" · "+gradeText();
-    const dots=$("fsaDots"); dots.innerHTML="";
-    fsa.set.questions.forEach(()=>{ const el=document.createElement("div"); el.className="dot"; dots.appendChild(el); });
-    startFsaTimer();
-    renderFsaQ();
-    window.scrollTo({top:0,behavior:"smooth"});
+    enterFsa(data.set);
   }catch(err){ hideLoading(); alert(err.message||t("genericErr")); }
+}
+/* 进入一份卷（新生成的和存档里点开的都走这里） */
+function enterFsa(record){
+  lessonReturnTo="";
+  fsa={ setId:record.id||null, set:record, answers:new Array(record.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
+  $("learnCard").classList.add("hidden");
+  $("modeTabs").classList.add("hidden");
+  $("fsaCard").classList.remove("hidden");
+  $("fsaTitle").textContent=(record.title||"FSA")+" · "+gradeText();
+  const dots=$("fsaDots"); dots.innerHTML="";
+  fsa.set.questions.forEach(()=>{ const el=document.createElement("div"); el.className="dot"; dots.appendChild(el); });
+  startFsaTimer();
+  renderFsaQ();
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 function markFsaDots(){
   [...$("fsaDots").children].forEach((el,i)=>{
@@ -2163,6 +2239,11 @@ function showFsaResult(){
   const qs=fsa.set.questions;
   const right=qs.filter((q,i)=>fsa.answers[i]===q.answerIndex).length;
   const tm=fmtClock(Date.now()-fsa.t0);
+  // 这卷的成绩记到卷子上（存档列表里显示「上次 x/y」）
+  if(fsa.setId){
+    fetch("/api/fsa/attempt",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ id:fsa.setId, right, total:qs.length, ms:Date.now()-fsa.t0 })}).catch(()=>{});
+  }
   $("fsaTimer").textContent="⏱ "+tm;
   const box=$("fsaBody");
   box.innerHTML=`<div class="fsaScore">${t("fsaDone")} ${escapeHtml(t("fsaScoreFmt")(right,qs.length,tm))}</div>`

@@ -985,6 +985,38 @@ function progressRecord(id, event, lessonId) {
   return e;
 }
 
+/* ---------------- FSA 卷持久化 ----------------
+ * 出一卷要跑一次 AI（约 2 分钟），所以生成一次就永久保存（fsa-sets.json），
+ * 之后直接打开做，不再重新出题；每次作答记一条成绩（attempts）。 */
+const FSA_SETS_FILE = path.join(ROOT, "fsa-sets.json");
+const FSA_SETS_MAX = 100;
+let fsaSets = [];
+try {
+  const s = JSON.parse(fs.readFileSync(FSA_SETS_FILE, "utf8"));
+  if (Array.isArray(s)) fsaSets = s;
+} catch (_) { /* 还没有卷子 */ }
+
+function fsaSetsSave() {
+  try {
+    const tmp = FSA_SETS_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(fsaSets), "utf8");
+    fs.renameSync(tmp, FSA_SETS_FILE);
+  } catch (e) { console.log("[fsa] 保存失败：" + e.message); }
+}
+function fsaSetsAdd(rec) {
+  rec.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  fsaSets.unshift(rec);
+  if (fsaSets.length > FSA_SETS_MAX) fsaSets.length = FSA_SETS_MAX;
+  fsaSetsSave();
+}
+function fsaSetSummary(r) {
+  return {
+    id: r.id, time: r.time, grade: r.grade, strand: r.strand || "", lang: r.lang || "zh",
+    title: r.title || "FSA", count: (r.questions || []).length,
+    last: (r.attempts || [])[0] || null
+  };
+}
+
 /* ---------------- HTTP 服务器 ---------------- */
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".woff2": "font/woff2" };
 
@@ -1085,7 +1117,11 @@ const server = http.createServer(async (req, res) => {
           strand: s, zhName, enName,
           bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
           items: (d.items || []).filter(it => it.strand === s)
-            .map(it => ({ id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id) }))
+            .map(it => ({
+              id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id),
+              // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
+              lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || ""
+            }))
         }));
       return send(res, 200, { grade: g, grades, source: d.source, strands });
     }
@@ -1151,7 +1187,45 @@ const server = http.createServer(async (req, res) => {
         set = validateFsaSet(await ADAPTERS[id](sys, q, null, null, lang, opts), d, count);
       }
       console.log(`[fsa] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
-      return send(res, 200, { set, provider: id, ms: Date.now() - t0 });
+      // 出一次卷不便宜：立刻持久化，以后直接打开做，不再重新生成
+      const rec = { time: Date.now(), grade: g, strand, lang, provider: id, title: set.title, questions: set.questions, attempts: [] };
+      fsaSetsAdd(rec);
+      return send(res, 200, { set: rec, provider: id, ms: Date.now() - t0 });
+    }
+
+    if (url.pathname === "/api/fsa/sets" && req.method === "GET") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const g = Number(url.searchParams.get("grade") || 0);
+      return send(res, 200, { items: fsaSets.filter(r => !g || r.grade === g).map(fsaSetSummary) });
+    }
+
+    const fsm = /^\/api\/fsa\/sets\/([a-z0-9]{6,24})$/.exec(url.pathname);
+    if (fsm && (req.method === "GET" || req.method === "DELETE")) {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const i = fsaSets.findIndex(r => r.id === fsm[1]);
+      if (i < 0) return send(res, 404, { error: "卷子不存在 / Not found" });
+      if (req.method === "DELETE") {
+        fsaSets.splice(i, 1);
+        fsaSetsSave();
+        return send(res, 200, { ok: true });
+      }
+      return send(res, 200, { record: fsaSets[i] });
+    }
+
+    if (url.pathname === "/api/fsa/attempt" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const rec = fsaSets.find(r => r.id === String(body.id || ""));
+      if (!rec) return send(res, 404, { error: "卷子不存在 / Not found" });
+      const at = {
+        time: Date.now(),
+        right: Math.max(0, Math.round(Number(body.right) || 0)),
+        total: Math.max(1, Math.round(Number(body.total) || 0)),
+        ms: Math.max(0, Math.round(Number(body.ms) || 0))
+      };
+      rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
+      fsaSetsSave();
+      return send(res, 200, { ok: true });
     }
 
     if (url.pathname === "/api/progress" && req.method === "GET") {
@@ -1263,6 +1337,7 @@ detectProviders().then(() => {
     console.log("  BC 大纲:    " + (curriculum.size
       ? curriculumGrades().map(g => "G" + g).join("、") + " 已加载（进度 " + Object.keys(progress).length + " 条，progress.json）"
       : "未加载（data/curriculum/bc/ 里还没有 grade-N.json）"));
+    console.log("  FSA 卷:     " + fsaSets.length + " 份（fsa-sets.json，上限 " + FSA_SETS_MAX + " 份，做过的卷直接重开不再生成）");
     if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
     console.log("");
   });
