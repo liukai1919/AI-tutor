@@ -35,9 +35,11 @@
 
 `tools/curriculum/parse_bc.py`（一次性构建工具，跑在开发机；用 `python-docx`，可在现有 WSL/conda 环境装）：
 
+> **落地注（2026-08）**：实际实现为 `tools/curriculum/parse_bc.mjs`——改抓官网 HTML（原计划里网页只作核对用），零依赖 Node 就能跑，改道理由见该文件头部注释。
+
 - 输入：官方 DOCX（elaborations 版）
 - 输出：`data/curriculum/bc/grade-4.json` … 每年级一个文件
-- 解析目标：每年级 5 条 Big Ideas + 约 13-18 条 Content 及其 elaborations 子条目
+- 解析目标：每年级 5 条 Big Ideas + 约 13-18 条 Content 及其 elaborations 子条目（落地注：G5/G6 实际各 19 条，脚本自检放宽为 12-20）
 - **BC 官方没有条目编号，需要自铸稳定 ID**：`BC.MATH.G4.NUM.01` 格式，主线段按五大 strand 归类（number / computational-fluency / patterning / geometry-measurement / data-probability；financial literacy 条目归入 number）。ID 一旦发布不再变更（进度数据挂在上面）。
 
 ### 1.3 数据 Schema
@@ -79,7 +81,7 @@
 
 ### 1.4 校验（P1 验收标准）
 
-- 每年级条目数在 13-18 之间；五大主线齐全；与官网网页 spot check 三条无出入。
+- 每年级条目数在 12-20 之间（原计划 13-18，G5/G6 实际各 19 条）；五大主线齐全；与官网网页 spot check 三条无出入。
 - 中文层每条经人工过目；术语表无空缺。
 - `node -e "require('./data/curriculum/bc/grade-4.json')"` 通过（JSON 有效性入 CI 习惯，虽然本项目没有 CI，写进 start 自检也行）。
 

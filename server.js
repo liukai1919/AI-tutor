@@ -114,10 +114,9 @@ const LESSON_SCHEMA = {
 
 /* ---------------- 提示词 ---------------- */
 /* G7 语气微调（FSA 备考前置）：七年级起称「数学老师」、年龄 12-13、口吻别低幼；G4-6 输出保持原样 */
-function seniorTone(gradeNum, lang) {
-  if (!(Number(gradeNum) >= 7)) return { senior: false, ageZh: "约10-12岁", personaZh: "小学老师", toneZh: "", ageEn: "about 10-12 years old", personaEn: "elementary school teacher", toneEn: "" };
+function seniorTone(gradeNum) {
+  if (!(Number(gradeNum) >= 7)) return { ageZh: "约10-12岁", personaZh: "小学老师", toneZh: "", ageEn: "about 10-12 years old", personaEn: "elementary school teacher", toneEn: "" };
   return {
-    senior: true,
     ageZh: "约12-13岁", personaZh: "数学老师",
     toneZh: "\n4. 孩子已经上七年级了：语气依旧亲切，但别低幼（不要「小朋友」腔），例子贴近大孩子的生活（运动、游戏、手机、零花钱、和朋友出门）。",
     ageEn: "about 12-13 years old", personaEn: "math teacher",
@@ -126,7 +125,7 @@ function seniorTone(gradeNum, lang) {
 }
 function systemPrompt(grade, kidName, lang, gradeNum) {
   if (lang === "en") return systemPromptEn(grade, kidName, gradeNum);
-  const st = seniorTone(gradeNum, lang);
+  const st = seniorTone(gradeNum);
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
   return `你是「圆圆老师」，一位给${grade || "小学五年级"}孩子（${st.ageZh}）讲数学的${st.personaZh}，说地道、亲切的中文。${name}
 
@@ -194,7 +193,7 @@ function lessonFieldsZh() {
 }
 
 function systemPromptEn(grade, kidName, gradeNum) {
-  const st = seniorTone(gradeNum, "en");
+  const st = seniorTone(gradeNum);
   const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
   return `You are "Ms. Yuanyuan", a kind ${st.personaEn} explaining math to a ${grade || "Grade 5"} child (${st.ageEn}), in natural, warm, everyday English. ${name}
 
@@ -266,11 +265,11 @@ function systemPromptTeach(item, gradeData, kidName, lang) {
   if (lang === "en") return systemPromptTeachEn(item, gradeData, kidName);
   const g = gradeData.grade;
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
-  const st = seniorTone(g, "zh");
+  const st = seniorTone(g);
   const strand = STRANDS.find(s => s[0] === item.strand);
   const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
   const elabs = (item.elaborations || []).map(e => "  · " + (e.zh || e.en)).join("\n");
-  const terms = (item.terms || []).map(t => `${t.zh} = ${t.en}`).join("、");
+  const terms = itemTerms(item).map(t => `${t.zh} = ${t.en}`).join("、");
   const hints = item.teachHints ? `（这个知识点优先用这些图：${item.teachHints}）` : "";
   return `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的${st.personaZh}，说地道、亲切的中文。${name}
 
@@ -301,7 +300,7 @@ ${lessonFieldsZh()}
 
 function systemPromptTeachEn(item, gradeData, kidName) {
   const g = gradeData.grade;
-  const st = seniorTone(g, "en");
+  const st = seniorTone(g);
   const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
   const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
   const elabs = (item.elaborations || []).map(e => "  · " + e.en).join("\n");
@@ -420,9 +419,10 @@ function validateFsaSet(set, gradeData, count) {
   const ids = new Set((gradeData.items || []).map(it => it.id));
   const qs = (Array.isArray(set.questions) ? set.questions : []).map(q => {
     if (!q || typeof q !== "object") return null;
-    const options = Array.isArray(q.options) ? q.options.map(o => String(o == null ? "" : o).trim()).filter(Boolean).slice(0, 4) : [];
+    // answerIndex 指向 options 原数组，绝不能过滤/截断——下标一错位就把答对判成答错
+    const options = Array.isArray(q.options) ? q.options.map(o => String(o == null ? "" : o).trim()) : [];
     const ai = Math.round(Number(q.answerIndex));
-    if (!String(q.question || "").trim() || options.length !== 4 || !(ai >= 0 && ai <= 3)) return null;
+    if (!String(q.question || "").trim() || options.length !== 4 || options.some(o => !o) || !(ai >= 0 && ai <= 3)) return null;
     return {
       curriculumId: ids.has(q.curriculumId) ? q.curriculumId : "",   // 未知 ID 置空，前端就不给「转讲解」按钮
       question: String(q.question).trim(),
@@ -437,6 +437,8 @@ function validateFsaSet(set, gradeData, count) {
 
 /* ---------------- 工具函数 ---------------- */
 const L = (lang, zh, en) => lang === "en" ? en : zh;
+/* 请求里的 lang 归一：只认 "zh"，其余一律英文（面向英文学校的孩子） */
+const normLang = l => l === "zh" ? "zh" : "en";
 
 function extractJson(text) {
   if (!text) throw new Error("引擎没有返回内容");
@@ -930,6 +932,32 @@ function findCurriculumItem(id) {
   return null;
 }
 
+/* 全年级共享术语表（terms.json）：讲课提示词和家长报告都从这里取中英对照 */
+let sharedTerms = [];
+try {
+  const t = JSON.parse(fs.readFileSync(path.join(CURRICULUM_DIR, "terms.json"), "utf8"));
+  if (t && Array.isArray(t.terms)) sharedTerms = t.terms.filter(x => x && x.en && x.zh);
+} catch (_) { /* 没有术语表也能跑，讲课只用条目自带 terms */ }
+
+/* "likely / unlikely" 这类合并词条按 / 拆开各自匹配；只做整词匹配（否则 net 会命中 planet） */
+function termMatches(en, hay) {
+  return String(en).split("/").some(part => {
+    const p = part.trim().toLowerCase();
+    if (!p) return false;
+    const re = new RegExp("(^|[^a-z])" + p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(s|es)?([^a-z]|$)", "i");
+    return re.test(hay);
+  });
+}
+
+/* 条目的术语对照 = 自带 terms + 共享术语表里出现在这条原文/子条目里的词，去重、封顶 10 条 */
+function itemTerms(item) {
+  const own = (item.terms || []).filter(t => t && t.en && t.zh);
+  const hay = (String(item.en || "") + " " + (item.elaborations || []).map(e => (e && e.en) || "").join(" ")).toLowerCase();
+  const seen = new Set(own.map(t => t.en.toLowerCase()));
+  const extra = sharedTerms.filter(t => !seen.has(t.en.toLowerCase()) && termMatches(t.en, hay));
+  return own.concat(extra).slice(0, 10);
+}
+
 const PROGRESS_FILE = path.join(ROOT, "progress.json");
 let progress = {};   // curriculumId -> { taught, right, wrong, lastAt, solid, rightDays[], lessonIds[] }
 try {
@@ -948,13 +976,11 @@ function dayKey(ts) {
   const d = new Date(ts);
   return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 }
-/* 三态：new（没学过）/ seen（讲过）/ solid（扎实）。
+/* 三态：new（没学过）/ seen（讲过）/ solid（扎实），由下面的四级直接降维。
  * solid = 不同日期答对 ≥2 次，或家长手动标记（最简规则，不搞算法，见计划 §2.2） */
 function progressStatus(id) {
-  const e = progress[id];
-  if (!e) return "new";
-  if (e.solid || (e.rightDays || []).length >= 2) return "solid";
-  return (e.taught || e.right || e.wrong) ? "seen" : "new";
+  const lv = progressLevel(id);
+  return lv === "emerging" ? "new" : lv === "developing" ? "seen" : "solid";
 }
 /* BC 官方四级话术（2023 年起成绩单同款）：Emerging / Developing / Proficient / Extending。
  * 映射：new→emerging，seen→developing，solid→proficient；不同日期答对 ≥3 次→extending（solid+） */
@@ -983,6 +1009,17 @@ function progressRecord(id, event, lessonId) {
   e.lastAt = now;
   progressSave();
   return e;
+}
+
+/* 大纲条目按五大主线分组（/api/curriculum 与 /api/report 共用），mapItem 决定每条带哪些字段 */
+function strandGroups(d, mapItem) {
+  return STRANDS
+    .filter(([s]) => (d.items || []).some(it => it.strand === s))
+    .map(([s, zhName, enName]) => ({
+      strand: s, zhName, enName,
+      bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
+      items: (d.items || []).filter(it => it.strand === s).map(mapItem)
+    }));
 }
 
 /* ---------------- FSA 卷持久化 ----------------
@@ -1063,7 +1100,7 @@ const server = http.createServer(async (req, res) => {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       if (!ttsAvailable()) return send(res, 200, { enabled: false, items: [] });
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
-      const defLang = body.lang === "zh" ? "zh" : "en";
+      const defLang = normLang(body.lang);
       return send(res, 200, { enabled: true, items: ttsStates(body.items, defLang) });
     }
 
@@ -1111,18 +1148,11 @@ const server = http.createServer(async (req, res) => {
       if (!g) return send(res, 200, { grades });
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
-      const strands = STRANDS
-        .filter(([s]) => (d.items || []).some(it => it.strand === s))
-        .map(([s, zhName, enName]) => ({
-          strand: s, zhName, enName,
-          bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
-          items: (d.items || []).filter(it => it.strand === s)
-            .map(it => ({
-              id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id),
-              // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
-              lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || ""
-            }))
-        }));
+      const strands = strandGroups(d, it => ({
+        id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id),
+        // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
+        lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || ""
+      }));
       return send(res, 200, { grade: g, grades, source: d.source, strands });
     }
 
@@ -1133,38 +1163,37 @@ const server = http.createServer(async (req, res) => {
       const g = Number(url.searchParams.get("grade") || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
-      const strands = STRANDS
-        .filter(([s]) => (d.items || []).some(it => it.strand === s))
-        .map(([s, zhName, enName]) => {
-          const items = (d.items || []).filter(it => it.strand === s).map(it => {
-            const e = progress[it.id];
-            return {
-              id: it.id, en: it.en, zh: it.zh,
-              status: progressStatus(it.id),
-              level: progressLevel(it.id),
-              taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
-              lastAt: e ? e.lastAt : 0
-            };
-          });
-          return {
-            strand: s, zhName, enName,
-            bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
-            total: items.length,
-            seen: items.filter(i => i.status !== "new").length,
-            solid: items.filter(i => i.status === "solid").length,
-            items
-          };
-        });
+      const strands = strandGroups(d, it => {
+        const e = progress[it.id];
+        return {
+          id: it.id, en: it.en, zh: it.zh,
+          status: progressStatus(it.id),
+          level: progressLevel(it.id),
+          manualSolid: !!(e && e.solid),   // 家长手动标记的「扎实」，前端星标可切换
+          taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
+          lastAt: e ? e.lastAt : 0
+        };
+      }).map(sg => Object.assign(sg, {
+        total: sg.items.length,
+        seen: sg.items.filter(i => i.status !== "new").length,
+        solid: sg.items.filter(i => i.status === "solid").length
+      }));
       const totals = strands.reduce((a, sg) => ({ total: a.total + sg.total, seen: a.seen + sg.seen, solid: a.solid + sg.solid }),
         { total: 0, seen: 0, solid: 0 });
-      return send(res, 200, { grade: g, grades, source: d.source, strands, totals });
+      // 术语对照：这个年级大纲里出现过的中英术语，随报告打印（家长看成绩单/和老师面谈用）
+      const termSeen = new Set(); const terms = [];
+      for (const it of (d.items || [])) for (const tm of itemTerms(it)) {
+        const k = tm.en.toLowerCase();
+        if (!termSeen.has(k)) { termSeen.add(k); terms.push({ en: tm.en, zh: tm.zh }); }
+      }
+      return send(res, 200, { grade: g, grades, source: d.source, strands, totals, terms });
     }
 
     /* P4 FSA 模拟卷：按大纲出多步骤情境选择题（G4/G7 是 FSA 年级，其他年级也可当普通练习卷） */
     if (url.pathname === "/api/fsa" && req.method === "POST") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
-      const lang = body.lang === "zh" ? "zh" : "en";
+      const lang = normLang(body.lang);
       const g = Number(body.grade || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
@@ -1217,10 +1246,12 @@ const server = http.createServer(async (req, res) => {
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
       const rec = fsaSets.find(r => r.id === String(body.id || ""));
       if (!rec) return send(res, 404, { error: "卷子不存在 / Not found" });
+      // total 以卷内题数为准，right 夹在 [0, total]——不全信客户端
+      const total = (rec.questions || []).length;
       const at = {
         time: Date.now(),
-        right: Math.max(0, Math.round(Number(body.right) || 0)),
-        total: Math.max(1, Math.round(Number(body.total) || 0)),
+        right: Math.min(total, Math.max(0, Math.round(Number(body.right) || 0))),
+        total,
         ms: Math.max(0, Math.round(Number(body.ms) || 0))
       };
       rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
@@ -1279,7 +1310,7 @@ const server = http.createServer(async (req, res) => {
       let question = String(body.question || "").slice(0, 4000);
       const imageB64 = body.imageB64 || null;
       const mediaType = body.mediaType || "image/jpeg";
-      const lang = body.lang === "zh" ? "zh" : "en";   // 缺省英文（面向英文学校的孩子）
+      const lang = normLang(body.lang);
       const mode = body.mode === "teach" ? "teach" : "solve";
       let teachCtx = null;
       if (mode === "teach") {
@@ -1322,7 +1353,8 @@ const server = http.createServer(async (req, res) => {
         try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
       }
       const resp = { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() };
-      if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(teachCtx.item.id); }
+      // lessonId 带回给前端：清单/FSA 错题下次点开直接重播这节课，不再重新生成
+      if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(teachCtx.item.id); resp.lessonId = rec.id; }
       return send(res, 200, resp);
     }
 

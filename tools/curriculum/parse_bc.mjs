@@ -277,7 +277,12 @@ const warnings = [];
 
 const bigIdeas = bigRows.map((r, i) => {
   const flat = r.elabs.length ? parseElabUl(r.elabs[0]) : [];
-  const strand = bigIdeaStrand(flat) || Object.keys(STRAND_CODE)[i] || "number";
+  let strand = bigIdeaStrand(flat);
+  if (!strand) {
+    // 按官网行序回退——依赖 STRAND_CODE 的键序，不一定对，必须人工核对
+    strand = Object.keys(STRAND_CODE)[i] || "number";
+    warnings.push(`Big Idea 第 ${i + 1} 行没匹配到主线关键词，按行序回退为 ${strand}，请核对：\n  ${r.text}`);
+  }
   const old = prevBig.get(strand);
   let zh = "";
   if (old) {

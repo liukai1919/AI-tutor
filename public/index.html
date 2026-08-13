@@ -126,8 +126,8 @@
   .histItem:hover{border-color:var(--brand);background:var(--soft)}
   .histItem .hrow{display:flex;align-items:center;gap:8px}
   .histItem .ht{font-weight:800;font-size:15px;flex:1;min-width:0}
-  .histItem .hdel{border:none;background:none;cursor:pointer;font-size:15px;opacity:.45;padding:2px 4px;flex:0 0 auto}
-  .histItem .hdel:hover{opacity:1}
+  .histItem .hdel,.learnItem .hregen{border:none;background:none;cursor:pointer;font-size:15px;opacity:.45;padding:2px 4px;flex:0 0 auto}
+  .histItem .hdel:hover,.learnItem .hregen:hover{opacity:1}
   .histItem .hm{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .histItem .ha{font-size:12.5px;color:var(--brand2);font-weight:700;margin-top:2px}
   .histEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
@@ -182,6 +182,10 @@
   .repItem .riT{flex:1;min-width:0;font-size:14px;font-weight:600}
   .repItem .riE{color:var(--muted);font-size:11.5px;margin-top:1px;font-weight:400}
   .repItem .riN{color:var(--muted);font-size:11px;white-space:nowrap}
+  .repItem .riStar{border:none;background:none;cursor:pointer;font-size:16px;line-height:1;color:#d9a514;padding:2px 4px;flex:0 0 auto}
+  .repTerms{margin-top:18px}
+  .termGrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .termChip{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted);background:#fff}
   @media print{
     body.reportOpen .wrap,body.reportOpen .overlay{display:none!important}
     body.reportOpen #reportModal{position:static;background:#fff;padding:0;display:block}
@@ -492,6 +496,8 @@ const I18N = {
     reportRW:(r,w)=>`✓${r} ✗${w}`,
     printBtn:"打印",
     reportNote:"级别话术与 BC 学校成绩单同一套语言（2023 年起）。讲解由 AI 生成，家长请自行核对。",
+    reportTermsTitle:"术语对照（孩子在学校听到的英文说法）",
+    markSolidTitle:"家长标记：这条已经扎实（再点一次取消标记）",
     autoPick:"自动选择", autoPickNote:"让服务器挑一个能用的",
     tagCurrent:"当前", tagOption:"可选", tagAvail:"可用", tagNA:"未安装", noImage:"不支持看图",
     needCode1:"需要输入访问码才能使用。", needCode2:"访问码不对或还没填，输入后再试。",
@@ -593,6 +599,8 @@ const I18N = {
     reportRW:(r,w)=>`✓${r} ✗${w}`,
     printBtn:"Print",
     reportNote:"Same proficiency language as BC report cards (since 2023). Lessons are AI-generated — parents, please double-check.",
+    reportTermsTitle:"Key terms (English ↔ 中文)",
+    markSolidTitle:"Parent mark: this topic is solid (tap again to undo)",
     autoPick:"Auto", autoPickNote:"Let the server pick a working one",
     tagCurrent:"Current", tagOption:"Option", tagAvail:"Available", tagNA:"Not installed", noImage:"can’t read images",
     needCode1:"Enter the access code to use the app.", needCode2:"Wrong or missing access code — enter it and try again.",
@@ -2003,7 +2011,7 @@ $("showAns").onclick=()=>{
 
 /* ---------- 跟大纲学（BC 大纲清单 + teach 模式） ---------- */
 let view="ask";          // ask | learn（播放器盖在两者之上）
-let learnDirty=false;    // 进度有变化，回清单时重新拉
+let learnIndex={};       // id -> 当前年级清单条目（FSA 错题「转讲解」靠它拿 lessonId 复用存档课）
 function switchView(v){
   view=v;
   $("tabAsk").classList.toggle("on", v==="ask");
@@ -2038,11 +2046,11 @@ async function loadLearn(){
     if(r.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; $("fsaEntry").classList.add("hidden"); return; }
     if(!r.ok) throw new Error();
     renderLearn(await r.json());
-    learnDirty=false;
   }catch(_){ box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden"); }
 }
 function renderLearn(d){
   const box=$("learnList"); box.innerHTML="";
+  learnIndex={};
   const en=cfg.lang==="en";
   (d.strands||[]).forEach(sg=>{
     const head=document.createElement("div"); head.className="strandHead";
@@ -2052,15 +2060,16 @@ function renderLearn(d){
       +(bi?`<div class="bi">💡 ${escapeHtml(bi)}</div>`:"");
     box.appendChild(head);
     (sg.items||[]).forEach(it=>{
+      learnIndex[it.id]=it;
       const el=document.createElement("div"); el.className="learnItem";
       const title=en ? it.en : (it.zh||it.en);
       el.innerHTML=`<span class="sdot ${it.status}"></span>`
         +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
         +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
-        +(it.lessonId?`<button class="hdel" title="${t("teachAgainTitle")}">🔄</button>`:"")
+        +(it.lessonId?`<button class="hregen" title="${t("teachAgainTitle")}">🔄</button>`:"")
         +`<span class="st">${statusLabel(it.status)}</span>`;
       el.onclick=()=>startTeach(it);          // 讲过的直接重播存好的课（秒开），没讲过的才生成
-      const rebtn=el.querySelector(".hdel");
+      const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
       box.appendChild(el);
     });
@@ -2091,7 +2100,8 @@ async function startTeach(it, forceNew){
     if(resp.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
     if(!resp.ok) throw new Error(data.error||t("genericErr"));
     if(typeof data.tts==="boolean") serverInfo.tts=data.tts;
-    learnDirty=true;    // 服务器已把它记成「讲过」
+    // 记下这节课的存档 id：同一屏里再点这条就直接重播，不再花一次生成
+    if(data.lessonId){ it.lessonId=data.lessonId; if(learnIndex[it.id]) learnIndex[it.id].lessonId=data.lessonId; }
     hideLoading();
     startLesson(data.lesson, lang, it.id);
   }catch(err){
@@ -2109,7 +2119,6 @@ async function judgePractice(event){
       body:JSON.stringify({ curriculumId:lessonCurriculumId, event })});
     const d=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error();
-    learnDirty=true;
     $("judgeMsg").textContent = d.status==="solid" ? t("practiceSolid") : t("practiceThanks");
   }catch(_){
     $("judgeRight").disabled=false; $("judgeWrong").disabled=false;
@@ -2244,7 +2253,6 @@ function answerFsa(i){
   const q=fsa.set.questions[fsa.idx];
   // 选择题判定是确定性的（不是 AI 判题），直接自动记进度
   if(q.curriculumId){
-    learnDirty=true;
     fetch("/api/progress",{method:"POST",headers:apiHeaders(),
       body:JSON.stringify({ curriculumId:q.curriculumId, event:i===q.answerIndex?"practiced-right":"practiced-wrong" })}).catch(()=>{});
   }
@@ -2281,7 +2289,7 @@ function showFsaResult(){
       +(q.explain?`<div class="fx">💡 ${escapeHtml(q.explain)}</div>`:"");
     if(!ok&&q.curriculumId){
       const tb=document.createElement("button"); tb.className="btn blue"; tb.textContent=t("fsaTeach");
-      tb.onclick=()=>{ lessonReturnTo="fsa"; startTeach({ id:q.curriculumId }); };
+      tb.onclick=()=>{ lessonReturnTo="fsa"; startTeach(learnIndex[q.curriculumId]||{ id:q.curriculumId }); };
       div.appendChild(tb);
     }
     res.appendChild(div);
@@ -2335,11 +2343,28 @@ function renderReport(d){
       row.innerHTML=`<div class="riT">${escapeHtml(en?it.en:(it.zh||it.en))}`
         +(en?"":`<div class="riE">${escapeHtml(it.en)}</div>`)+`</div>`
         +((it.right||it.wrong)?`<span class="riN">${escapeHtml(t("reportRW")(it.right,it.wrong))}</span>`:"")
+        +`<button class="riStar noprint" title="${escapeHtml(t("markSolidTitle"))}">${it.manualSolid?"★":"☆"}</button>`
         +`<span class="levelBadge ${it.level}">${escapeHtml(levelText(it.level))}</span>`;
+      // 家长手动标扎实（三态里「或家长手动标记」的入口），点完重拉报告让级别跟着变
+      row.querySelector(".riStar").onclick=async(ev)=>{
+        ev.target.disabled=true;
+        try{
+          const r=await fetch("/api/progress",{method:"POST",headers:apiHeaders(),
+            body:JSON.stringify({ curriculumId:it.id, event:it.manualSolid?"unmark-solid":"mark-solid" })});
+          if(!r.ok) throw new Error();
+          openReport();
+        }catch(_){ ev.target.disabled=false; alert(t("genericErr")); }
+      };
       div.appendChild(row);
     });
     box.appendChild(div);
   });
+  if((d.terms||[]).length){
+    const tdiv=document.createElement("div"); tdiv.className="repStrand repTerms";
+    tdiv.innerHTML=`<div class="rsHead">${escapeHtml(t("reportTermsTitle"))}</div>`
+      +`<div class="termGrid">${d.terms.map(x=>`<span class="termChip">${escapeHtml(x.en)} = ${escapeHtml(x.zh)}</span>`).join("")}</div>`;
+    box.appendChild(tdiv);
+  }
   if(d.source) $("reportSource").textContent="BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
 }
 $("reportBtn").onclick=openReport;
@@ -2443,7 +2468,6 @@ async function clearData(all){
     const del=p=>fetch(p,{method:"DELETE",headers:apiHeaders()}).then(r=>{ if(!r.ok&&r.status!==404) throw new Error(); });
     await del("/api/progress");
     if(all){ await del("/api/history"); await del("/api/fsa/sets"); }
-    learnDirty=true;
     const old=t(all?"clearAll":"clearProgress");
     btn.textContent=t("clearDone");
     setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);
