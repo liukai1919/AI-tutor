@@ -55,6 +55,7 @@
   .btn.big{width:100%;padding:16px;font-size:19px}
   .btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:none}
   .btn.blue{background:linear-gradient(135deg,var(--brand2),#8aa4ff);box-shadow:0 8px 20px rgba(108,140,255,.35)}
+  .btn.warn{color:#c0392b;border-color:#ffd0d0}
   .filepill{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border:2px solid var(--line);
     border-radius:14px;padding:8px 12px;font-size:14px;color:var(--ink);cursor:pointer}
   .previewimg{max-width:120px;max-height:100px;border-radius:12px;border:2px solid var(--line);margin-top:10px}
@@ -359,6 +360,15 @@
       <select id="grade"></select>
     </div>
 
+    <div class="field">
+      <label data-i18n="dataLabel">学习数据</label>
+      <div class="row" style="margin-top:0">
+        <button class="btn ghost" id="clearProgressBtn" data-i18n="clearProgress" style="flex:1;padding:10px 12px;font-size:14px">清空学习进度</button>
+        <button class="btn ghost warn" id="clearAllBtn" data-i18n="clearAll" style="flex:1;padding:10px 12px;font-size:14px">清空全部记录</button>
+      </div>
+      <div class="help" data-i18n="dataHelp">清空进度只把状态点归零，讲过的课和 FSA 卷保留；清空全部会连课和卷一起删掉。</div>
+    </div>
+
     <div class="err hidden" id="settingsErr"></div>
 
     <div class="modalRow">
@@ -438,6 +448,12 @@ const I18N = {
     engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
+    dataLabel:"学习数据",
+    dataHelp:"清空进度只把状态点归零，讲过的课和 FSA 卷保留；清空全部会连课和卷一起删掉。",
+    clearProgress:"清空学习进度", clearAll:"清空全部记录",
+    clearProgressConfirm:"确定清空学习进度吗？\n\n所有知识点会变回「还没学」，家长报告归零。\n讲过的课和出过的 FSA 卷保留，仍可重播 / 重做。",
+    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷会全部删除，不可恢复！",
+    clearDone:"已清空 ✓",
     cancel:"取消", save:"保存",
     tabAsk:"出题讲课", tabLearn:"跟大纲学",
     learnTitle:"跟着 BC 大纲学",
@@ -533,6 +549,12 @@ const I18N = {
     engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
+    dataLabel:"Learning data",
+    dataHelp:"Reset progress only clears the status dots — saved lessons and FSA sets are kept. Erase all deletes those too.",
+    clearProgress:"Reset progress", clearAll:"Erase all records",
+    clearProgressConfirm:"Reset all learning progress?\n\nEvery topic goes back to New and the parent report resets.\nSaved lessons and FSA sets are kept — still replayable.",
+    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, and FSA sets will be deleted. This cannot be undone!",
+    clearDone:"Cleared ✓",
     cancel:"Cancel", save:"Save",
     tabAsk:"Ask a question", tabLearn:"Learn (BC)",
     learnTitle:"Learn along the BC curriculum",
@@ -2412,6 +2434,27 @@ function openSettings(errMsg){
 }
 $("gear").onclick=()=>openSettings();
 $("closeSettings").onclick=()=>settings.classList.add("hidden");
+/* 清空学习数据（危险操作，确认后执行；清完刷新清单/报告） */
+async function clearData(all){
+  if(!confirm(t(all?"clearAllConfirm":"clearProgressConfirm"))) return;
+  const btn=$(all?"clearAllBtn":"clearProgressBtn");
+  btn.disabled=true;
+  try{
+    const del=p=>fetch(p,{method:"DELETE",headers:apiHeaders()}).then(r=>{ if(!r.ok&&r.status!==404) throw new Error(); });
+    await del("/api/progress");
+    if(all){ await del("/api/history"); await del("/api/fsa/sets"); }
+    learnDirty=true;
+    const old=t(all?"clearAll":"clearProgress");
+    btn.textContent=t("clearDone");
+    setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);
+    if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();
+  }catch(_){
+    btn.disabled=false;
+    alert(t("genericErr"));
+  }
+}
+$("clearProgressBtn").onclick=()=>clearData(false);
+$("clearAllBtn").onclick=()=>clearData(true);
 $("saveSettings").onclick=async ()=>{
   cfg.kidName=$("kidName").value.trim();
   cfg.gradeCode=$("grade").value;

@@ -1228,6 +1228,29 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { ok: true });
     }
 
+    /* 清空（设置里的「清空学习进度 / 清空全部记录」，前端有确认框） */
+    if (url.pathname === "/api/progress" && req.method === "DELETE") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      progress = {};
+      progressSave();
+      console.log("[progress] 已清空");
+      return send(res, 200, { ok: true });
+    }
+    if (url.pathname === "/api/history" && req.method === "DELETE") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      history = [];
+      historySave();
+      console.log("[history] 已清空");
+      return send(res, 200, { ok: true });
+    }
+    if (url.pathname === "/api/fsa/sets" && req.method === "DELETE") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      fsaSets = [];
+      fsaSetsSave();
+      console.log("[fsa] 卷子已清空");
+      return send(res, 200, { ok: true });
+    }
+
     if (url.pathname === "/api/progress" && req.method === "GET") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const g = Number(url.searchParams.get("grade") || 0);
