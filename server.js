@@ -841,6 +841,16 @@ function progressStatus(id) {
   if (e.solid || (e.rightDays || []).length >= 2) return "solid";
   return (e.taught || e.right || e.wrong) ? "seen" : "new";
 }
+/* BC 官方四级话术（2023 年起成绩单同款）：Emerging / Developing / Proficient / Extending。
+ * 映射：new→emerging，seen→developing，solid→proficient；不同日期答对 ≥3 次→extending（solid+） */
+function progressLevel(id) {
+  const e = progress[id];
+  if (!e) return "emerging";
+  const days = (e.rightDays || []).length;
+  if (days >= 3) return "extending";
+  if (e.solid || days >= 2) return "proficient";
+  return (e.taught || e.right || e.wrong) ? "developing" : "emerging";
+}
 function progressRecord(id, event, lessonId) {
   const e = progress[id] || (progress[id] = { taught: 0, right: 0, wrong: 0, lastAt: 0, solid: false, rightDays: [], lessonIds: [] });
   const now = Date.now();
@@ -963,6 +973,40 @@ const server = http.createServer(async (req, res) => {
             .map(it => ({ id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id) }))
         }));
       return send(res, 200, { grade: g, grades, source: d.source, strands });
+    }
+
+    /* P3 家长报告：按主线汇总 + BC 四级话术级别 */
+    if (url.pathname === "/api/report" && req.method === "GET") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const grades = curriculumGrades();
+      const g = Number(url.searchParams.get("grade") || 0);
+      const d = curriculum.get(g);
+      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
+      const strands = STRANDS
+        .filter(([s]) => (d.items || []).some(it => it.strand === s))
+        .map(([s, zhName, enName]) => {
+          const items = (d.items || []).filter(it => it.strand === s).map(it => {
+            const e = progress[it.id];
+            return {
+              id: it.id, en: it.en, zh: it.zh,
+              status: progressStatus(it.id),
+              level: progressLevel(it.id),
+              taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
+              lastAt: e ? e.lastAt : 0
+            };
+          });
+          return {
+            strand: s, zhName, enName,
+            bigIdea: (d.bigIdeas || []).find(b => b.strand === s) || null,
+            total: items.length,
+            seen: items.filter(i => i.status !== "new").length,
+            solid: items.filter(i => i.status === "solid").length,
+            items
+          };
+        });
+      const totals = strands.reduce((a, sg) => ({ total: a.total + sg.total, seen: a.seen + sg.seen, solid: a.solid + sg.solid }),
+        { total: 0, seen: 0, solid: 0 });
+      return send(res, 200, { grade: g, grades, source: d.source, strands, totals });
     }
 
     if (url.pathname === "/api/progress" && req.method === "GET") {

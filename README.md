@@ -171,6 +171,9 @@ sudo tailscale up
   灰点=还没学，蓝点=讲过，绿点=**扎实**（不同日期答对 ≥2 次）。重启服务进度不丢。
 - 大纲数据是构建期生成的静态 JSON（`data/curriculum/bc/`），运行期只读、离线可用；
   重新抓取/校对用 `node tools/curriculum/parse_bc.mjs --grade 4`（已有中文层会自动保留）。
+- 右上角 📊 是**家长报告**：按主线汇总（"本学期 18 条内容，已讲 X 条，扎实 Y 条"），
+  每条用 BC 学校成绩单同款四级话术（Emerging 起步 / Developing 发展中 / Proficient 扎实 /
+  Extending 拓展），配每主线 Big Idea 的双语解释，可直接打印拿去和老师面谈。
 
 数据来源：BC 官网 [curriculum.gov.bc.ca](https://curriculum.gov.bc.ca/curriculum/mathematics/4/core)，
 条目原文逐字保留并在页面标注来源（BC Curriculum · June 2016）。
