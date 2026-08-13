@@ -113,17 +113,29 @@ const LESSON_SCHEMA = {
 };
 
 /* ---------------- 提示词 ---------------- */
-function systemPrompt(grade, kidName, lang) {
-  if (lang === "en") return systemPromptEn(grade, kidName);
+/* G7 语气微调（FSA 备考前置）：七年级起称「数学老师」、年龄 12-13、口吻别低幼；G4-6 输出保持原样 */
+function seniorTone(gradeNum, lang) {
+  if (!(Number(gradeNum) >= 7)) return { senior: false, ageZh: "约10-12岁", personaZh: "小学老师", toneZh: "", ageEn: "about 10-12 years old", personaEn: "elementary school teacher", toneEn: "" };
+  return {
+    senior: true,
+    ageZh: "约12-13岁", personaZh: "数学老师",
+    toneZh: "\n4. 孩子已经上七年级了：语气依旧亲切，但别低幼（不要「小朋友」腔），例子贴近大孩子的生活（运动、游戏、手机、零花钱、和朋友出门）。",
+    ageEn: "about 12-13 years old", personaEn: "math teacher",
+    toneEn: "\n4. The child is in Grade 7 — keep the warmth but don't sound babyish; use tween-appropriate examples (sports, games, phones, allowance, going out with friends)."
+  };
+}
+function systemPrompt(grade, kidName, lang, gradeNum) {
+  if (lang === "en") return systemPromptEn(grade, kidName, gradeNum);
+  const st = seniorTone(gradeNum, lang);
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
-  return `你是「圆圆老师」，一位给${grade || "小学五年级"}孩子（约10-12岁）讲数学的小学老师，说地道、亲切的中文。${name}
+  return `你是「圆圆老师」，一位给${grade || "小学五年级"}孩子（${st.ageZh}）讲数学的${st.personaZh}，说地道、亲切的中文。${name}
 
 你的任务：把一道数学题变成一段【一步一步、看得见、听得懂】的讲解，就像一节小视频课。
 
 铁律：
 1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
 2. 一步只讲一个小意思，语气鼓励、口语化，多用生活里的例子（分披萨、分糖果、跑步、买东西）。
-3. 先讲思路（为什么这么做），再讲步骤（怎么做），最后给答案。
+3. 先讲思路（为什么这么做），再讲步骤（怎么做），最后给答案。${st.toneZh}
 
 ${lessonFieldsZh()}
 - answer：最终答案，简短明确（如"11/12"或"40 平方厘米"），会醒目显示给家长核对。
@@ -181,16 +193,17 @@ function lessonFieldsZh() {
     图要和该步内容一致。份数、行列、组数不超过 12；图形类（shape…/solid…/net…/clock/placeValue/pieChart/统计图）用题目里的真实数值。`;
 }
 
-function systemPromptEn(grade, kidName) {
+function systemPromptEn(grade, kidName, gradeNum) {
+  const st = seniorTone(gradeNum, "en");
   const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
-  return `You are "Ms. Yuanyuan", a kind elementary school teacher explaining math to a ${grade || "Grade 5"} child (about 10-12 years old), in natural, warm, everyday English. ${name}
+  return `You are "Ms. Yuanyuan", a kind ${st.personaEn} explaining math to a ${grade || "Grade 5"} child (${st.ageEn}), in natural, warm, everyday English. ${name}
 
 Your task: turn one math problem into a step-by-step lesson the child can SEE and HEAR, like a little video class.
 
 Iron rules:
 1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
 2. One small idea per step. Encouraging, conversational tone; use everyday examples (sharing pizza, candies, running, shopping).
-3. Explain the idea first (why), then the method (how), then give the answer.
+3. Explain the idea first (why), then the method (how), then give the answer.${st.toneEn}
 
 ${lessonFieldsEn()}
 - answer: the final answer, short and clear (like "11/12" or "40 square centimeters") — shown prominently for parents to double-check.
@@ -253,12 +266,13 @@ function systemPromptTeach(item, gradeData, kidName, lang) {
   if (lang === "en") return systemPromptTeachEn(item, gradeData, kidName);
   const g = gradeData.grade;
   const name = kidName ? `孩子的名字叫「${kidName}」，讲解时可以偶尔亲切地叫他/她的名字。` : "";
+  const st = seniorTone(g, "zh");
   const strand = STRANDS.find(s => s[0] === item.strand);
   const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
   const elabs = (item.elaborations || []).map(e => "  · " + (e.zh || e.en)).join("\n");
   const terms = (item.terms || []).map(t => `${t.zh} = ${t.en}`).join("、");
   const hints = item.teachHints ? `（这个知识点优先用这些图：${item.teachHints}）` : "";
-  return `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的小学老师，说地道、亲切的中文。${name}
+  return `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的${st.personaZh}，说地道、亲切的中文。${name}
 
 这节课不是讲一道题，而是给孩子讲一个新知识点，像一节小视频课。
 知识点来自加拿大 BC 省 Grade ${g} 数学大纲（${strand ? strand[1] : item.strand}主线）：
@@ -269,7 +283,7 @@ function systemPromptTeach(item, gradeData, kidName, lang) {
 铁律：
 1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
 2. 一步只讲一个小意思，语气鼓励、口语化，多用生活里的例子（分披萨、用加元买东西、量身高）。
-3. 例题驱动，不空泛：每个概念都要落到具体的数字和例子上。
+3. 例题驱动，不空泛：每个概念都要落到具体的数字和例子上。${st.toneZh}
 
 课的结构（仍然输出 5-8 步 steps）：
 1. 用生活例子引出这个概念（为什么有它、它解决什么问题）
@@ -287,12 +301,13 @@ ${lessonFieldsZh()}
 
 function systemPromptTeachEn(item, gradeData, kidName) {
   const g = gradeData.grade;
+  const st = seniorTone(g, "en");
   const name = kidName ? `The child's name is "${kidName}" — feel free to address them by name warmly now and then.` : "";
   const bigIdea = (gradeData.bigIdeas || []).find(b => b.strand === item.strand) || {};
   const elabs = (item.elaborations || []).map(e => "  · " + e.en).join("\n");
   const hintTypes = (String(item.teachHints || "").match(/[A-Za-z]+/g) || []).join(", ");
   const hints = hintTypes ? ` (for this concept, prefer these visuals: ${hintTypes})` : "";
-  return `You are "Ms. Yuanyuan", a kind elementary school teacher explaining math to a BC Grade ${g} child, in natural, warm, everyday English. ${name}
+  return `You are "Ms. Yuanyuan", a kind ${st.personaEn} explaining math to a BC Grade ${g} child, in natural, warm, everyday English. ${name}
 
 This lesson is not about solving one problem — you are teaching the child a new concept, like a little video class.
 The concept comes from the British Columbia Grade ${g} Mathematics curriculum (${item.strand} strand):
@@ -302,7 +317,7 @@ The concept comes from the British Columbia Grade ${g} Mathematics curriculum ($
 Iron rules:
 1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
 2. One small idea per step. Encouraging, conversational tone; use everyday examples (sharing pizza, shopping with dollars, measuring heights).
-3. Drive the lesson with worked examples — never stay abstract; always land on concrete numbers.
+3. Drive the lesson with worked examples — never stay abstract; always land on concrete numbers.${st.toneEn}
 
 Lesson structure (still output 5-8 steps):
 1. Open with a real-life example that shows why this concept exists and what problem it solves
@@ -328,6 +343,97 @@ const JSON_HINT = {
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. It must match this structure:
 {"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls|stemLeaf|stackedBar|histogram|coordGrid|angle|areaModel|baseTen|hundredthsGrid|hundredChart|dataTable|probLine","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
 };
+
+/* ---------------- FSA 模拟卷（P4）----------------
+ * FSA = BC 4/7 年级秋季全省数学素养测评。这里生成「FSA 风格」的原创多步骤情境选择题
+ * （不复制官方题），每题挂一个大纲 curriculumId：答错可以直接转 teach 模式讲对应知识点。 */
+const FSA_SET_SCHEMA = {
+  type: "object", additionalProperties: false,
+  properties: {
+    title: { type: "string" },
+    questions: {
+      type: "array", items: {
+        type: "object", additionalProperties: false,
+        properties: {
+          curriculumId: { type: "string" },
+          question: { type: "string" },
+          options: { type: "array", items: { type: "string" } },
+          answerIndex: { type: "number" },
+          explain: { type: "string" }
+        }, required: ["curriculumId", "question", "options", "answerIndex", "explain"]
+      }
+    }
+  }, required: ["title", "questions"]
+};
+const FSA_HINT = {
+  zh: `
+
+【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。结构：
+{"title":"...","questions":[{"curriculumId":"BC.MATH...","question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences:
+{"title":"...","questions":[{"curriculumId":"BC.MATH...","question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`
+};
+
+function fsaPrompt(gradeData, strand, lang, count) {
+  const g = gradeData.grade;
+  const items = (gradeData.items || []).filter(it => !strand || it.strand === strand);
+  const strandLabel = STRANDS.find(s => s[0] === strand);
+  if (lang === "en") {
+    const list = items.map(it => `${it.id} | ${it.en}`).join("\n");
+    return `You are a BC math teacher writing a practice set for the Grade ${g} FSA (Foundation Skills Assessment). Create ${count} multiple-choice questions for a child practising at home on a tablet.
+
+FSA-style iron rules:
+1. Every question is a real-life scenario needing MULTIPLE steps (at least two steps of reasoning). Use the child's life in BC: shopping with dollars and making change, metric units, school events, parks and ferries, sports, rainy days…
+2. Stay inside the curriculum: only test the topics listed below, and tag each question with the single best-matching curriculumId${strandLabel ? ` (this set covers only the "${strandLabel[2]}" strand)` : "; spread the set across different strands"}.
+3. Exactly 4 options, exactly 1 correct. Distractors must come from real common mistakes (forgot to regroup, mixed up perimeter and area, skipped a unit conversion, mishandled the remainder) — never obviously wrong.
+4. answerIndex is the index (0-3) of the correct option. Scatter the correct positions across the set.
+5. Accuracy first: re-check every question so exactly one option is correct.
+6. explain: one or two sentences on the correct method and the most common trap.
+7. FSA difficulty: makes you think, but never tricky; numbers must be computable by hand.
+8. title: a fun theme for the set (e.g., "A Rainy Day at the Vancouver Aquarium"); questions may follow the theme.
+
+Topics (curriculumId | official wording):
+${list}`;
+  }
+  const list = items.map(it => `${it.id} | ${it.en} | ${it.zh}`).join("\n");
+  return `你是 BC 省的数学出题老师，为 Grade ${g} 的 FSA（Foundation Skills Assessment，全省基础技能测评）出一卷 ${count} 道选择题的模拟练习，孩子在家用平板作答。
+
+FSA 风格铁律：
+1. 每题都是生活情境题，需要【多步骤】推理（至少两步才能得出答案）。场景用孩子在 BC 的真实生活：加元购物找零、公制单位、学校活动、公园渡轮、体育比赛、雨天…
+2. 不超纲：只考下面清单里的知识点，每题标注一个最贴合的 curriculumId${strandLabel ? `（本卷只考「${strandLabel[1]}」主线）` : "；整卷尽量覆盖不同主线"}。
+3. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实的常见错误（忘了进位、周长面积混淆、单位没换算、余数处理错），不要一眼假。
+4. answerIndex 是正确选项的下标（0~3），整卷正确答案的位置要打散，别集中在同一个下标。
+5. 准确第一：每题出完自己验算一遍，确认有且只有一个选项正确。
+6. explain 用一两句话讲清正确算法，并点出最容易踩的坑。
+7. 难度对齐 FSA：要动脑但不刁钻，数字口算/竖式能算动。
+8. title 给这卷起个孩子喜欢的主题名（比如「雨天的温哥华水族馆」），题目可以围绕主题展开。
+9. 题面用中文，关键数学术语可自然带一次英文（如「周长（perimeter）」）——孩子考场上见到英文术语能对上号。
+
+知识点清单（curriculumId | 官方原文 | 中文）：
+${list}`;
+}
+
+function validateFsaSet(set, gradeData, count) {
+  if (!set || typeof set !== "object") throw new Error("出卷格式不对");
+  const ids = new Set((gradeData.items || []).map(it => it.id));
+  const qs = (Array.isArray(set.questions) ? set.questions : []).map(q => {
+    if (!q || typeof q !== "object") return null;
+    const options = Array.isArray(q.options) ? q.options.map(o => String(o == null ? "" : o).trim()).filter(Boolean).slice(0, 4) : [];
+    const ai = Math.round(Number(q.answerIndex));
+    if (!String(q.question || "").trim() || options.length !== 4 || !(ai >= 0 && ai <= 3)) return null;
+    return {
+      curriculumId: ids.has(q.curriculumId) ? q.curriculumId : "",   // 未知 ID 置空，前端就不给「转讲解」按钮
+      question: String(q.question).trim(),
+      options,
+      answerIndex: ai,
+      explain: String(q.explain || "").trim()
+    };
+  }).filter(Boolean);
+  if (qs.length < Math.max(3, Math.ceil(count * 0.6))) throw new Error("这卷有效题目太少");
+  return { title: String(set.title || "FSA"), questions: qs.slice(0, count) };
+}
 
 /* ---------------- 工具函数 ---------------- */
 const L = (lang, zh, en) => lang === "en" ? en : zh;
@@ -459,15 +565,18 @@ function pickProvider(requested) {
   return null;
 }
 
-/* ---------------- 各引擎适配器 ---------------- */
-async function genOllama(sys, question, imageB64) {
+/* ---------------- 各引擎适配器 ----------------
+ * opts.schema / opts.hint：默认讲课（LESSON_SCHEMA / JSON_HINT），
+ * FSA 出卷等其他 JSON 任务传自己的进来，适配器逻辑不变。 */
+async function genOllama(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const m = { role: "user", content: question };
   if (imageB64) m.images = [imageB64];
   const body = {
     model: detected.ollama.model,
     stream: false,
     messages: [{ role: "system", content: sys }, m],
-    format: LESSON_SCHEMA,
+    format: opts.schema || LESSON_SCHEMA,
     options: { num_predict: 8192 },
     keep_alive: "30m"
   };
@@ -480,14 +589,15 @@ async function genOllama(sys, question, imageB64) {
   return extractJson(d.message && d.message.content);
 }
 
-async function genGrok(sys, question, imageB64, mediaType, lang) {
+async function genGrok(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const dir = tmpWorkdir();
   try {
     const pf = path.join(dir, "prompt.txt");
     fs.writeFileSync(pf, sys + "\n\n" + L(lang, "题目：", "Problem: ") + question, "utf8");
     const out = await runCmd(detected.grok.bin, [
       "--prompt-file", pf,
-      "--json-schema", JSON.stringify(LESSON_SCHEMA),
+      "--json-schema", JSON.stringify(opts.schema || LESSON_SCHEMA),
       "--max-turns", "1", "--no-subagents", "--disable-web-search", "--no-memory", "--no-plan"
     ], { cwd: dir, timeout: 300000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
@@ -496,10 +606,11 @@ async function genGrok(sys, question, imageB64, mediaType, lang) {
   } finally { cleanup(dir); }
 }
 
-async function genClaude(sys, question, imageB64, mediaType, lang) {
+async function genClaude(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const dir = tmpWorkdir();
   try {
-    const hint = JSON_HINT[lang] || JSON_HINT.zh;
+    const hint = opts.hint || JSON_HINT[lang] || JSON_HINT.zh;
     let prompt = sys + hint + "\n\n" + L(lang, "题目：", "Problem: ") + question;
     if (imageB64) {
       const ext = /png/.test(mediaType || "") ? "png" : "jpg";
@@ -515,10 +626,11 @@ async function genClaude(sys, question, imageB64, mediaType, lang) {
   } finally { cleanup(dir); }
 }
 
-async function genGemini(sys, question, imageB64, mediaType, lang) {
+async function genGemini(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const dir = tmpWorkdir();
   try {
-    const hint = JSON_HINT[lang] || JSON_HINT.zh;
+    const hint = opts.hint || JSON_HINT[lang] || JSON_HINT.zh;
     let prompt = sys + hint + "\n\n" + L(lang, "题目：", "Problem: ") + question;
     if (imageB64) {
       const ext = /png/.test(mediaType || "") ? "png" : "jpg";
@@ -532,17 +644,19 @@ async function genGemini(sys, question, imageB64, mediaType, lang) {
   } finally { cleanup(dir); }
 }
 
-async function genCodex(sys, question, imageB64, mediaType, lang) {
+async function genCodex(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const dir = tmpWorkdir();
   try {
     const out = await runCmd(detected.codex.bin,
-      ["exec", "--skip-git-repo-check", sys + (JSON_HINT[lang] || JSON_HINT.zh) + "\n\n" + L(lang, "题目：", "Problem: ") + question],
+      ["exec", "--skip-git-repo-check", sys + (opts.hint || JSON_HINT[lang] || JSON_HINT.zh) + "\n\n" + L(lang, "题目：", "Problem: ") + question],
       { cwd: dir, timeout: 300000 });
     return extractJson(out);
   } finally { cleanup(dir); }
 }
 
-async function genAnthropic(sys, question, imageB64, mediaType, lang) {
+async function genAnthropic(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const content = [];
   if (imageB64) content.push({ type: "image", source: { type: "base64", media_type: mediaType || "image/jpeg", data: imageB64 } });
   content.push({ type: "text", text: question || L(lang, "请讲解图片里的这道数学题。", "Please explain the math problem in the image.") });
@@ -553,7 +667,7 @@ async function genAnthropic(sys, question, imageB64, mediaType, lang) {
       model: cfg.anthropic.model || "claude-opus-5",
       max_tokens: 16000,
       system: sys,
-      output_config: { effort: "medium", format: { type: "json_schema", schema: LESSON_SCHEMA } },
+      output_config: { effort: "medium", format: { type: "json_schema", schema: opts.schema || LESSON_SCHEMA } },
       messages: [{ role: "user", content }]
     }),
     signal: AbortSignal.timeout(300000)
@@ -565,7 +679,8 @@ async function genAnthropic(sys, question, imageB64, mediaType, lang) {
   return extractJson(tb && tb.text);
 }
 
-async function genOpenAI(sys, question, imageB64, mediaType, lang) {
+async function genOpenAI(sys, question, imageB64, mediaType, lang, opts) {
+  opts = opts || {};
   const userContent = imageB64
     ? [{ type: "image_url", image_url: { url: "data:" + (mediaType || "image/jpeg") + ";base64," + imageB64 } },
        { type: "text", text: question || L(lang, "请讲解图片里的这道数学题。", "Please explain the math problem in the image.") }]
@@ -575,7 +690,7 @@ async function genOpenAI(sys, question, imageB64, mediaType, lang) {
     headers: { "content-type": "application/json", "authorization": "Bearer " + cfg.openai.apiKey },
     body: JSON.stringify({
       model: cfg.openai.model,
-      messages: [{ role: "system", content: sys + (JSON_HINT[lang] || JSON_HINT.zh) }, { role: "user", content: userContent }],
+      messages: [{ role: "system", content: sys + (opts.hint || JSON_HINT[lang] || JSON_HINT.zh) }, { role: "user", content: userContent }],
       response_format: { type: "json_object" }
     }),
     signal: AbortSignal.timeout(300000)
@@ -1009,6 +1124,36 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { grade: g, grades, source: d.source, strands, totals });
     }
 
+    /* P4 FSA 模拟卷：按大纲出多步骤情境选择题（G4/G7 是 FSA 年级，其他年级也可当普通练习卷） */
+    if (url.pathname === "/api/fsa" && req.method === "POST") {
+      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
+      const lang = body.lang === "en" ? "en" : "zh";
+      const g = Number(body.grade || 0);
+      const d = curriculum.get(g);
+      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
+      const strand = STRANDS.some(s => s[0] === body.strand) ? body.strand : "";
+      const count = Math.max(4, Math.min(10, Number(body.count) || 6));
+      const id = pickProvider(body.provider);
+      if (!id) return send(res, 503, { error: L(lang,
+        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
+        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
+      const sys = fsaPrompt(d, strand, lang, count);
+      const q = L(lang, "请出这一卷 FSA 模拟练习。", "Please create this FSA-style practice set.");
+      const opts = { schema: FSA_SET_SCHEMA, hint: FSA_HINT[lang] };
+      const t0 = Date.now();
+      console.log(`[fsa] engine=${id} grade=${g} strand=${strand || "all"} lang=${lang} n=${count}`);
+      let set;
+      try {
+        set = validateFsaSet(await ADAPTERS[id](sys, q, null, null, lang, opts), d, count);
+      } catch (e1) {
+        console.log(`[fsa] first try failed (${e1.message}), retrying once...`);
+        set = validateFsaSet(await ADAPTERS[id](sys, q, null, null, lang, opts), d, count);
+      }
+      console.log(`[fsa] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
+      return send(res, 200, { set, provider: id, ms: Date.now() - t0 });
+    }
+
     if (url.pathname === "/api/progress" && req.method === "GET") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const g = Number(url.searchParams.get("grade") || 0);
@@ -1059,7 +1204,7 @@ const server = http.createServer(async (req, res) => {
 
       const sys = teachCtx
         ? systemPromptTeach(teachCtx.item, teachCtx.data, body.kidName, lang)
-        : systemPrompt(body.grade, body.kidName, lang);
+        : systemPrompt(body.grade, body.kidName, lang, Number(body.gradeCode) || 0);
       const t0 = Date.now();
       console.log(`[lesson] engine=${id} mode=${mode} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
       let lesson;

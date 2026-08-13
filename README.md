@@ -174,6 +174,10 @@ sudo tailscale up
 - 右上角 📊 是**家长报告**：按主线汇总（"本学期 18 条内容，已讲 X 条，扎实 Y 条"），
   每条用 BC 学校成绩单同款四级话术（Emerging 起步 / Developing 发展中 / Proficient 扎实 /
   Extending 拓展），配每主线 Big Idea 的双语解释，可直接打印拿去和老师面谈。
+- **FSA 模拟练习**（G4 / G7，🎯 按钮在「跟大纲学」里）：FSA 是 BC 4、7 年级秋季全省数学
+  素养测评。圆圆老师现场出一卷 6 道 FSA 风格的原创多步骤情境选择题（干扰项都来自真实
+  常见错误），计时作答；交卷看成绩和逐题解析，每题对错自动记入学习进度，错题一键转成
+  该知识点的完整讲解课。想练英文读题（考场是英文），把界面切到 EN 再出卷即可。
 
 数据来源：BC 官网 [curriculum.gov.bc.ca](https://curriculum.gov.bc.ca/curriculum/mathematics/4/core)，
 条目原文逐字保留并在页面标注来源（BC Curriculum · June 2016）。

@@ -153,6 +153,20 @@
   .judgeRow .btn{padding:10px 16px;font-size:15px}
   .judgeRow .btn.good{background:linear-gradient(135deg,var(--good),#6fd39c);box-shadow:0 8px 20px rgba(63,191,127,.3)}
   .judgeMsg{font-weight:700;color:var(--good)}
+  .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px}
+  .fsaOpts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .fsaOpt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);background:#fff;border-radius:14px;padding:11px 14px;font-size:15.5px;cursor:pointer;text-align:left;line-height:1.5;font-family:inherit;color:var(--ink)}
+  .fsaOpt:hover{border-color:var(--brand)}
+  .fsaOpt.sel{border-color:var(--brand2);background:#eef2ff}
+  .fsaOpt:disabled{cursor:default;opacity:.85}
+  .fsaOpt .ol{font-weight:800;color:var(--brand2);flex:0 0 auto}
+  .fsaScore{font-size:18px;font-weight:800;margin:10px 0 4px}
+  .fsaRItem{border:2px solid var(--line);border-radius:14px;padding:11px 13px;margin-top:8px;background:#fff}
+  .fsaRItem.bad{border-color:#ffd0d0;background:#fff8f8}
+  .fsaRItem .fq{font-size:14px;line-height:1.6}
+  .fsaRItem .fa{font-size:13px;margin-top:6px}
+  .fsaRItem .fx{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+  .fsaRItem .btn{margin-top:8px;padding:8px 12px;font-size:13.5px}
   .reportCard{max-width:580px}
   .levelBadge{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
   .levelBadge.emerging{background:#f5f0ea;color:#8a7d74}
@@ -227,8 +241,26 @@
     </div>
     <p class="sub" style="margin-bottom:8px" data-i18n="learnSub">这学期该学的都在这里。点一条，圆圆老师开讲。</p>
     <div class="legend" id="learnLegend"></div>
+    <!-- FSA 模拟练习入口（只在 FSA 年级 G4/G7 显示） -->
+    <div class="row hidden" id="fsaEntry" style="margin:2px 0 10px">
+      <button class="btn blue" id="fsaGo" style="padding:11px 16px;font-size:15px">🎯 <span data-i18n="fsaBtn">FSA 模拟练习</span></button>
+      <select id="fsaStrand" class="learnGradeSel"></select>
+    </div>
     <div id="learnList"></div>
     <div class="help" id="learnSource" style="text-align:center;margin-top:14px"></div>
+  </section>
+
+  <!-- FSA 模拟练习（P4）：计时作答 → 成绩单 → 错题转讲解 -->
+  <section class="card hidden" id="fsaCard">
+    <div class="row" style="justify-content:space-between;margin:0">
+      <h2 class="lessonTitle" id="fsaTitle" style="min-width:0">FSA</h2>
+      <div class="row" style="margin:0;gap:8px;flex:0 0 auto">
+        <span class="enginebadge" id="fsaTimer">⏱ 0:00</span>
+        <button class="btn ghost" id="fsaQuit" style="padding:8px 12px;font-size:14px">✕</button>
+      </div>
+    </div>
+    <div class="dots" id="fsaDots"></div>
+    <div id="fsaBody"></div>
   </section>
 
   <!-- 讲解播放器 -->
@@ -416,6 +448,17 @@ const I18N = {
     practiceRight:"答对了 ✓", practiceWrong:"还不会 ✗",
     practiceThanks:"记下啦！继续加油 💪", practiceSolid:"这个知识点扎实啦 🌟",
     histLearn:"大纲课",
+    fsaBtn:"FSA 模拟练习",
+    fsaAll:"全部主线",
+    fsaGenSub:"圆圆老师正在出卷…一分钟左右",
+    fsaQuitConfirm:"这卷还没做完，要退出吗？",
+    fsaOf:(i,n)=>`第 ${i} / ${n} 题`,
+    fsaDone:"🎉 做完啦！",
+    fsaScoreFmt:(r,n,tm)=>`答对 ${r} / ${n} 题 · 用时 ${tm}`,
+    fsaYours:"你的答案", fsaRight:"正确答案",
+    fsaTeach:"📖 让圆圆老师讲讲这个知识点",
+    fsaAgain:"再来一卷 🎯",
+    fsaAutoNote:"每题对错已自动记入学习进度（📊 家长报告里能看到）。",
     reportTitle:"家长报告",
     reportHeadFmt:(grade,total,seen,solid)=>`本学期 ${grade} 数学共 ${total} 条内容：已讲 ${seen} 条，扎实 ${solid} 条。`,
     reportStrandFmt:(total,solid)=>`${total} 条内容 · 已扎实 ${solid} 条`,
@@ -494,6 +537,17 @@ const I18N = {
     practiceRight:"Got it ✓", practiceWrong:"Not yet ✗",
     practiceThanks:"Noted — keep going! 💪", practiceSolid:"This topic is solid now 🌟",
     histLearn:"curriculum",
+    fsaBtn:"FSA practice set",
+    fsaAll:"All strands",
+    fsaGenSub:"Ms. Yuanyuan is writing your set… about a minute",
+    fsaQuitConfirm:"Quit this set before finishing?",
+    fsaOf:(i,n)=>`Question ${i} / ${n}`,
+    fsaDone:"🎉 All done!",
+    fsaScoreFmt:(r,n,tm)=>`${r} / ${n} correct · ${tm}`,
+    fsaYours:"Your answer", fsaRight:"Correct answer",
+    fsaTeach:"📖 Have Ms. Yuanyuan teach this topic",
+    fsaAgain:"New set 🎯",
+    fsaAutoNote:"Each answer was recorded into the progress tracker (see the 📊 parent report).",
     reportTitle:"Parent report",
     reportHeadFmt:(grade,total,seen,solid)=>`${grade} math this term: ${total} topics — ${seen} covered, ${solid} solid.`,
     reportStrandFmt:(total,solid)=>`${total} topics · ${solid} solid`,
@@ -1788,7 +1842,7 @@ async function generateLesson(question, imageB64, mediaType){
     headers: apiHeaders(),
     body: JSON.stringify({
       question, imageB64, mediaType,
-      grade: gradeText(), kidName: cfg.kidName,
+      grade: gradeText(), gradeCode: cfg.gradeCode, kidName: cfg.kidName,
       provider: cfg.provider, lang: cfg.lang
     })
   });
@@ -1808,6 +1862,7 @@ function startLesson(l, lang, curriculumId){
   lessonCurriculumId=curriculumId||null;
   inputCard.classList.add("hidden");
   $("learnCard").classList.add("hidden");
+  $("fsaCard").classList.add("hidden");
   $("modeTabs").classList.add("hidden");
   playerCard.classList.remove("hidden");
   $("newQ").textContent = lessonCurriculumId ? t("backToLearn") : t("newQ");
@@ -1894,8 +1949,14 @@ $("newQ").onclick=()=>{
   playerCard.classList.add("hidden");
   const backToLearn=!!lessonCurriculumId;
   lessonCurriculumId=null;
-  updateTabs();
-  switchView(backToLearn ? "learn" : "ask");   // 大纲课回清单（顺带刷新状态点）
+  if(lessonReturnTo==="fsa" && fsa){
+    lessonReturnTo="";
+    $("fsaCard").classList.remove("hidden");   // 从错题讲解回到 FSA 成绩单
+  }else{
+    lessonReturnTo="";
+    updateTabs();
+    switchView(backToLearn ? "learn" : "ask"); // 大纲课回清单（顺带刷新状态点）
+  }
   window.scrollTo({top:0,behavior:"smooth"});
 };
 $("showAns").onclick=()=>{
@@ -1937,11 +1998,11 @@ async function loadLearn(){
   try{
     const r=await fetch("/api/curriculum?grade="+(cfg.gradeCode||"4"),{headers:apiHeaders()});
     if(r.status===401){ serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
-    if(r.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; return; }
+    if(r.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; $("fsaEntry").classList.add("hidden"); return; }
     if(!r.ok) throw new Error();
     renderLearn(await r.json());
     learnDirty=false;
-  }catch(_){ box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; }
+  }catch(_){ box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden"); }
 }
 function renderLearn(d){
   const box=$("learnList"); box.innerHTML="";
@@ -1966,6 +2027,7 @@ function renderLearn(d){
   });
   if(d.source) $("learnSource").textContent="BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
   renderLegend();
+  fsaShowEntry(d);
 }
 
 async function startTeach(it){
@@ -2005,6 +2067,133 @@ async function judgePractice(event){
 }
 $("judgeRight").onclick=()=>judgePractice("practiced-right");
 $("judgeWrong").onclick=()=>judgePractice("practiced-wrong");
+
+/* ---------- FSA 模拟练习（P4）：出卷 → 计时作答 → 成绩单 → 错题转讲解 ---------- */
+let fsa=null;            // { set, answers[], idx, t0, done }
+let fsaTimerIv=null;
+let lessonReturnTo="";   // "fsa"：从错题跳去讲课，返回时回成绩单
+function fsaShowEntry(d){
+  const is47=cfg.gradeCode==="4"||cfg.gradeCode==="7";   // FSA 只有 4/7 年级考
+  $("fsaEntry").classList.toggle("hidden",!is47);
+  if(!is47) return;
+  const sel=$("fsaStrand"), keep=sel.value;
+  sel.innerHTML="";
+  const all=document.createElement("option"); all.value=""; all.textContent=t("fsaAll"); sel.appendChild(all);
+  ((d&&d.strands)||[]).forEach(sg=>{
+    const o=document.createElement("option"); o.value=sg.strand;
+    o.textContent=cfg.lang==="en"?sg.enName:sg.zhName; sel.appendChild(o);
+  });
+  if([...sel.options].some(o=>o.value===keep)) sel.value=keep;
+}
+function fmtClock(ms){
+  const s=Math.max(0,Math.floor(ms/1000));
+  return Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+}
+function startFsaTimer(){
+  stopFsaTimer();
+  $("fsaTimer").textContent="⏱ 0:00";
+  fsaTimerIv=setInterval(()=>{ if(fsa&&!fsa.done) $("fsaTimer").textContent="⏱ "+fmtClock(Date.now()-fsa.t0); },1000);
+}
+function stopFsaTimer(){ if(fsaTimerIv){ clearInterval(fsaTimerIv); fsaTimerIv=null; } }
+async function startFsa(){
+  const lang=cfg.lang;
+  showLoading();
+  $("loadSub").textContent=t("fsaGenSub");
+  try{
+    const r=await fetch("/api/fsa",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ grade:Number(cfg.gradeCode), strand:$("fsaStrand").value, count:6, lang, provider:cfg.provider })});
+    const data=await r.json().catch(()=>({}));
+    if(r.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
+    if(!r.ok) throw new Error(data.error||t("genericErr"));
+    hideLoading();
+    lessonReturnTo="";
+    fsa={ set:data.set, answers:new Array(data.set.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
+    $("learnCard").classList.add("hidden");
+    $("modeTabs").classList.add("hidden");
+    $("fsaCard").classList.remove("hidden");
+    $("fsaTitle").textContent=(data.set.title||"FSA")+" · "+gradeText();
+    const dots=$("fsaDots"); dots.innerHTML="";
+    fsa.set.questions.forEach(()=>{ const el=document.createElement("div"); el.className="dot"; dots.appendChild(el); });
+    startFsaTimer();
+    renderFsaQ();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }catch(err){ hideLoading(); alert(err.message||t("genericErr")); }
+}
+function markFsaDots(){
+  [...$("fsaDots").children].forEach((el,i)=>{
+    el.classList.toggle("on", i===fsa.idx&&!fsa.done);
+    el.classList.toggle("done", fsa.answers[i]>=0);
+  });
+}
+function renderFsaQ(){
+  const q=fsa.set.questions[fsa.idx];
+  markFsaDots();
+  const box=$("fsaBody");
+  box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(t("fsaOf")(fsa.idx+1,fsa.set.questions.length))}</div>`
+    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div>`;
+  const opts=box.querySelector(".fsaOpts");
+  q.options.forEach((op,i)=>{
+    const b=document.createElement("button"); b.className="fsaOpt";
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.onclick=()=>answerFsa(i);
+    opts.appendChild(b);
+  });
+}
+function answerFsa(i){
+  if(!fsa||fsa.answers[fsa.idx]>=0) return;
+  fsa.answers[fsa.idx]=i;
+  const q=fsa.set.questions[fsa.idx];
+  // 选择题判定是确定性的（不是 AI 判题），直接自动记进度
+  if(q.curriculumId){
+    learnDirty=true;
+    fetch("/api/progress",{method:"POST",headers:apiHeaders(),
+      body:JSON.stringify({ curriculumId:q.curriculumId, event:i===q.answerIndex?"practiced-right":"practiced-wrong" })}).catch(()=>{});
+  }
+  [...$("fsaBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{ b.disabled=true; b.classList.toggle("sel",bi===i); });
+  setTimeout(()=>{
+    if(!fsa) return;
+    const next=fsa.answers.findIndex(a=>a<0);
+    if(next<0) showFsaResult();
+    else { fsa.idx=next; renderFsaQ(); window.scrollTo({top:0,behavior:"smooth"}); }
+  },450);
+}
+function showFsaResult(){
+  fsa.done=true; stopFsaTimer(); markFsaDots();
+  const qs=fsa.set.questions;
+  const right=qs.filter((q,i)=>fsa.answers[i]===q.answerIndex).length;
+  const tm=fmtClock(Date.now()-fsa.t0);
+  $("fsaTimer").textContent="⏱ "+tm;
+  const box=$("fsaBody");
+  box.innerHTML=`<div class="fsaScore">${t("fsaDone")} ${escapeHtml(t("fsaScoreFmt")(right,qs.length,tm))}</div>`
+    +`<div class="help">${escapeHtml(t("fsaAutoNote"))}</div><div class="fsaRes"></div>`
+    +`<div class="row" style="margin-top:14px"><button class="btn blue" id="fsaAgainBtn">${escapeHtml(t("fsaAgain"))}</button></div>`;
+  const res=box.querySelector(".fsaRes");
+  qs.forEach((q,i)=>{
+    const ok=fsa.answers[i]===q.answerIndex;
+    const div=document.createElement("div"); div.className="fsaRItem"+(ok?"":" bad");
+    div.innerHTML=`<div class="fq">${ok?"✅":"❌"} ${escapeHtml(q.question)}</div>`
+      +`<div class="fa">${escapeHtml(t("fsaYours"))}: <b>${"ABCD"[fsa.answers[i]]||"?"}. ${escapeHtml(q.options[fsa.answers[i]]||"")}</b>`
+      +(ok?"":` · ${escapeHtml(t("fsaRight"))}: <b>${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b>`)+`</div>`
+      +(q.explain?`<div class="fx">💡 ${escapeHtml(q.explain)}</div>`:"");
+    if(!ok&&q.curriculumId){
+      const tb=document.createElement("button"); tb.className="btn blue"; tb.textContent=t("fsaTeach");
+      tb.onclick=()=>{ lessonReturnTo="fsa"; startTeach({ id:q.curriculumId }); };
+      div.appendChild(tb);
+    }
+    res.appendChild(div);
+  });
+  box.querySelector("#fsaAgainBtn").onclick=()=>{ quitFsa(true); startFsa(); };
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function quitFsa(silent){
+  if(fsa&&!fsa.done&&!silent){ if(!confirm(t("fsaQuitConfirm"))) return; }
+  stopFsaTimer(); fsa=null; lessonReturnTo="";
+  $("fsaCard").classList.add("hidden");
+  updateTabs();
+  switchView("learn");
+}
+$("fsaGo").onclick=startFsa;
+$("fsaQuit").onclick=()=>quitFsa();
 
 /* ---------- 家长报告（P3）：BC 四级话术，可打印 ---------- */
 const LEVELS=["emerging","developing","proficient","extending"];
