@@ -1,16 +1,11 @@
 {
-  "name": "books",
+  "name": "yuanyuan-book-tools",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "description": "构建期工具：把教材 PDF 切成「每小节一个文本/图片」，供 data/curriculum/books/ 的书籍课程数据使用。运行期（server.js）不依赖这里的任何东西。",
   "type": "commonjs",
   "dependencies": {
-    "pdfjs-dist": "^6.2.108"
+    "pdfjs-dist": "^6.2.108",
+    "sharp": "^0.34.4"
   }
 }
