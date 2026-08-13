@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>圆圆数学 · 你的 AI 数学小老师</title>
+<title>Yuanyuan Math · Your AI math tutor</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
 <style>
@@ -586,15 +586,16 @@ const I18N = {
 
 /* ---------- 配置存取 ---------- */
 const LS = "yuanyuan_math_v2";
-const cfg = Object.assign({accessCode:"",kidName:"",gradeCode:"5",provider:"auto",lang:"zh"},
+// 默认英文界面（主要面向在英文学校上学的孩子）；设备上保存过的语言选择优先
+const cfg = Object.assign({accessCode:"",kidName:"",gradeCode:"5",provider:"auto",lang:"en"},
   JSON.parse(localStorage.getItem(LS) || "{}"));
 // 老版本存的是中文年级串，迁移成代码
 if(cfg.grade && !cfg.gradeCode) cfg.gradeCode=({"小学四年级":"4","小学五年级":"5","小学六年级":"6"})[cfg.grade]||"5";
-if(cfg.lang!=="en" && cfg.lang!=="zh") cfg.lang="zh";
+if(cfg.lang!=="en" && cfg.lang!=="zh") cfg.lang="en";
 function saveCfg(){ localStorage.setItem(LS, JSON.stringify(cfg)); }
 
 const $ = id => document.getElementById(id);
-const t = key => { const d=I18N[cfg.lang]||I18N.zh; return (key in d)?d[key]:I18N.zh[key]; };
+const t = key => { const d=I18N[cfg.lang]||I18N.en; return (key in d)?d[key]:I18N.en[key]; };
 const inputCard=$("inputCard"), playerCard=$("playerCard"), loading=$("loading"), settings=$("settings");
 
 function applyLang(){

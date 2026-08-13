@@ -1031,7 +1031,7 @@ const server = http.createServer(async (req, res) => {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       if (!ttsAvailable()) return send(res, 200, { enabled: false, items: [] });
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
-      const defLang = body.lang === "en" ? "en" : "zh";
+      const defLang = body.lang === "zh" ? "zh" : "en";
       return send(res, 200, { enabled: true, items: ttsStates(body.items, defLang) });
     }
 
@@ -1128,7 +1128,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/fsa" && req.method === "POST") {
       if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
-      const lang = body.lang === "en" ? "en" : "zh";
+      const lang = body.lang === "zh" ? "zh" : "en";
       const g = Number(body.grade || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
@@ -1182,7 +1182,7 @@ const server = http.createServer(async (req, res) => {
       let question = String(body.question || "").slice(0, 4000);
       const imageB64 = body.imageB64 || null;
       const mediaType = body.mediaType || "image/jpeg";
-      const lang = body.lang === "en" ? "en" : "zh";
+      const lang = body.lang === "zh" ? "zh" : "en";   // 缺省英文（面向英文学校的孩子）
       const mode = body.mode === "teach" ? "teach" : "solve";
       let teachCtx = null;
       if (mode === "teach") {
