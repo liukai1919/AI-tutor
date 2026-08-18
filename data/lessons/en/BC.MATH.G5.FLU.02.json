@@ -1,0 +1,142 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.FLU.02",
+ "lang": "en",
+ "title": "multiplication and division to three digits, including division with remainders",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Big Numbers, Friendly Pieces: Multiplying and Dividing",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi there! Let's start at the store. You grab five packs of granola bars for the school hike, and each pack holds eight bars. You could add eight plus eight plus eight plus eight plus eight, but that takes a while. Multiplying is just the fast way to add equal groups: five times eight is forty bars.",
+    "math": "8+8+8+8+8 = 5 \\times 8 = 40",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      5,
+      8
+     ],
+     "labels": [],
+     "caption": "5 packs, 8 bars in each pack: 40 bars"
+    }
+   },
+   {
+    "say": "Now the numbers get bigger. Your class packs six boxes of muffins with twenty-four muffins in each box. Here is the trick that makes big numbers easy: break twenty-four into twenty and four. Twenty times six is one hundred twenty, and four times six is twenty-four. Add those two pieces together and you get one hundred forty-four muffins.",
+    "math": "24 \\times 6 = (20 \\times 6) + (4 \\times 6) = 120 + 24 = 144",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      24,
+      6
+     ],
+     "labels": [],
+     "caption": "Split 24 into 20 and 4, multiply each piece, then add"
+    }
+   },
+   {
+    "say": "That splitting trick works for three-digit numbers too. Imagine four classes each collect one hundred thirty-six bottles for the bottle drive. Break one hundred thirty-six into one hundred, thirty, and six. One hundred times four is four hundred. Thirty times four is one hundred twenty. Six times four is twenty-four. Add them up: four hundred plus one hundred twenty plus twenty-four is five hundred forty-four bottles.",
+    "math": "136 \\times 4 = 400 + 120 + 24 = 544",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      400,
+      120,
+      24
+     ],
+     "labels": [
+      "100 x 4",
+      "30 x 4",
+      "6 x 4"
+     ],
+     "caption": "Three friendly pieces that add up to 544"
+    }
+   },
+   {
+    "say": "Division is multiplication walking backwards. We had one hundred forty-four muffins in six boxes. If instead someone hands you one hundred forty-four muffins and says share them into six boxes, you're asking: six times what makes one hundred forty-four? You already know the answer is twenty-four. That's why we say multiplication and division are a family — they use the very same numbers.",
+    "math": "6 \\times 24 = 144 \\quad\\Longleftrightarrow\\quad 144 \\div 6 = 24",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      24
+     ],
+     "labels": [
+      "Box 1",
+      "Box 2",
+      "Box 3",
+      "Box 4",
+      "Box 5",
+      "Box 6"
+     ],
+     "caption": "144 muffins shared equally: 24 in every box"
+    }
+   },
+   {
+    "say": "But real life doesn't always share out perfectly. Say you have twenty-nine stickers for four friends. Four times seven is twenty-eight, so each friend gets seven stickers, and one lonely sticker is left over. That leftover has a name: we call it the remainder. We write it as seven remainder one.",
+    "math": "29 \\div 4 = 7 \\text{ R } 1",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      7,
+      1
+     ],
+     "labels": [],
+     "caption": "4 friends get 7 stickers each, with 1 sticker left over"
+    }
+   },
+   {
+    "say": "Now a bigger one. You have a ribbon one hundred seventy-three centimetres long, and you want to cut pieces that are five centimetres each. Instead of counting one piece at a time, take big chunks. Thirty pieces would use one hundred fifty centimetres, leaving twenty-three. Four more pieces use twenty centimetres, leaving three. So that's thirty plus four, which is thirty-four pieces, with three centimetres of ribbon left over.",
+    "math": "173 \\div 5 = 34 \\text{ R } 3",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      150,
+      20,
+      3
+     ],
+     "labels": [
+      "5 x 30",
+      "5 x 4",
+      "left over"
+     ],
+     "caption": "Subtract big chunks: 30 pieces, then 4 more, then 3 cm remains"
+    }
+   },
+   {
+    "say": "Here's how you check a division answer, and I want you to do this every single time. Multiply your answer by the number you divided by, then add the remainder. Thirty-four times five is one hundred seventy — that's one hundred fifty plus twenty. Add the remainder of three and you get one hundred seventy-three, exactly the ribbon you started with. It matches, so your answer is right.",
+    "math": "34 \\times 5 + 3 = 170 + 3 = 173",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      34,
+      5
+     ],
+     "labels": [],
+     "caption": "Check: 30 x 5 = 150 and 4 x 5 = 20, so 34 x 5 = 170, plus 3 = 173"
+    }
+   },
+   {
+    "say": "So remember: multiplying is fast adding of equal groups, and dividing is fast sharing, or fast subtracting of chunks. Break big numbers into friendly pieces like hundreds, tens, and ones, and whatever won't share evenly is simply the remainder. You've got this!",
+    "math": "\\text{divisor} \\times \\text{answer} + \\text{remainder} = \\text{starting number}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Break big numbers into friendly pieces — and always check your division: the number you divided by, times your answer, plus the remainder, brings you right back to where you started.",
+  "practice": {
+   "question": "At summer camp near Kelowna, the leader has 158 granola bars to share equally among 7 tents. How many bars does each tent get, and how many are left over?",
+   "answer": "22 bars each, with 4 left over (158 divided by 7 is 22 remainder 4). Check: 7 times 22 is 154, and 154 plus 4 is 158."
+  }
+ }
+}

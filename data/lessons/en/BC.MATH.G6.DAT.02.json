@@ -1,0 +1,167 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.DAT.02",
+ "lang": "en",
+ "title": "single-outcome probability, both theoretical and experimental",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Chance It! Theoretical and Experimental Probability",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it is Ms. Yuanyuan here. Picture your soccer game at the park in Burnaby. Two teams both want to kick off first, so the referee flips a Canadian quarter. Nobody argues, because a coin is fair. It can only land two ways, heads or tails, and each way has exactly the same chance. That fairness is what probability is all about, and today we are going to learn how to put a number on chance.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1
+     ],
+     "labels": [
+      "Heads",
+      "Tails"
+     ],
+     "caption": "A coin toss has just two equally likely outcomes"
+    }
+   },
+   {
+    "say": "Here is the first big idea. To find the theoretical probability, which means the chance we work out with our brain before we ever try it, we list every possible outcome. Think of rolling one number cube. The outcomes are one, two, three, four, five, and six. That is six outcomes, all equally likely. So the chance of rolling a four is one out of six. We write it as the fraction one sixth.",
+    "math": "P(4)=\\frac{1}{6}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "caption": "All six outcomes of one roll, each one way to happen"
+    }
+   },
+   {
+    "say": "Now let us try a spinner from the school fun fair. This spinner has six equal parts. Three parts are red, two parts are blue, and one part is yellow. To find the chance of landing on red, I count the red parts on top and all the parts on the bottom. Three out of six, and three sixths is the same as one half. Blue is two out of six, which is one third. Yellow is only one out of six.",
+    "math": "P(\\text{red})=\\frac{3}{6}=\\frac{1}{2}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+     ],
+     "caption": "Six equal parts: three red, two blue, one yellow"
+    }
+   },
+   {
+    "say": "Let us place those three chances on a likelihood line. The line runs from impossible on the left, which is zero, all the way to certain on the right, which is one. Red sits right in the middle at one half, so red is as likely as not. Blue sits a bit lower at one third. Yellow sits down near one sixth, so yellow is unlikely, but never impossible.",
+    "math": "\\frac{1}{6}<\\frac{1}{3}<\\frac{1}{2}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.17,
+      0.33,
+      0.5
+     ],
+     "labels": [
+      "Yellow",
+      "Blue",
+      "Red"
+     ],
+     "caption": "From impossible at zero to certain at one"
+    }
+   },
+   {
+    "say": "Now for the fun part. Theoretical probability is what we expect. Experimental probability is what actually happens when we really try it. My class spun that spinner sixty times. We got red twenty-seven times, blue twenty-one times, and yellow twelve times. Check it, twenty-seven plus twenty-one plus twelve is sixty. So the experimental probability of red is twenty-seven out of sixty, which is forty-five hundredths, or forty-five percent.",
+    "math": "P_{\\text{exp}}(\\text{red})=\\frac{27}{60}=0.45",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      30,
+      20,
+      10,
+      27,
+      21,
+      12
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow",
+      "Expected",
+      "Actual"
+     ],
+     "caption": "What we expected in sixty spins, and what we really got"
+    }
+   },
+   {
+    "say": "Let us compare with a bar chart. We expected red thirty times because one half of sixty is thirty, but we really got twenty-seven. We expected blue twenty times and got twenty-one. We expected yellow ten times and got twelve. Close, but not exactly the same, and that is completely normal. Here is the magic rule, the more times you spin, the closer your experimental results creep toward the theoretical prediction.",
+    "math": "\\frac{1}{2}\\times 60=30",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      30,
+      20,
+      10,
+      27,
+      21,
+      12
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow",
+      "Expected",
+      "Actual"
+     ],
+     "caption": "Expected beside actual, always close but rarely exact"
+    }
+   },
+   {
+    "say": "One more example that has been played here for a very long time. In the Lahal stick game, also called the bone game, a player hides two bones, one plain and one wrapped with a stripe, one in each hand. The other team guesses which hand holds the plain bone. There are only two outcomes, left hand or right hand, and both are equally likely, so the chance of guessing right is one out of two, one half. Drumming and singing might shake your nerves, but they cannot change the math.",
+    "math": "P(\\text{correct guess})=\\frac{1}{2}",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      1,
+      1
+     ],
+     "labels": [
+      "plain bone",
+      "striped bone"
+     ],
+     "caption": "Two bones, two hands, one half chance of a correct guess"
+    }
+   },
+   {
+    "say": "So remember this, my friend. Count the outcomes to predict, then try it lots of times to check. Both numbers are useful, and together they tell the whole story of chance.",
+    "math": "P=\\frac{\\text{favourable outcomes}}{\\text{total outcomes}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Theoretical probability is favourable outcomes over total outcomes, experimental probability is successes over tries, and the more tries you do, the closer the two get.",
+  "practice": {
+   "question": "At a corner store in Victoria, Maya buys a bag with 4 red gummies, 3 green gummies, and 5 orange gummies. Without looking, she pulls out one gummy. What is the theoretical probability that it is orange? Then Maya pulls a gummy, writes down the colour, and puts it back, 60 times in all. She gets orange 20 times. What is the experimental probability of orange, and how does it compare?",
+   "answer": "There are 4 plus 3 plus 5, which is 12 gummies in all, and 5 are orange, so the theoretical probability is 5 twelfths, about 0.42 or 42 percent. The experimental probability is 20 out of 60, which is 1 third, about 0.33 or 33 percent. The experimental result is a little lower than the theoretical prediction. If Maya kept pulling many more times, her experimental probability would most likely creep closer to 5 twelfths."
+  }
+ }
+}

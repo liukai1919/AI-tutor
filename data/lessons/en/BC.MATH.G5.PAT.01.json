@@ -1,0 +1,180 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.PAT.01",
+ "lang": "en",
+ "title": "rules for increasing and decreasing patterns with words, numbers, symbols, and variables",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Pattern Rules: Words, Numbers, and a Letter Called w",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Nima is saving up for a soccer ball at the shop in town. In week one her jar has seven dollars, week two ten dollars, week three thirteen dollars, and week four sixteen dollars. Her mom asks, how much will be in the jar in week ten? We could keep counting week by week... but that's slow. This is exactly why we learn pattern rules.",
+    "math": "7,\\ 10,\\ 13,\\ 16,\\ \\ldots",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      10,
+      13,
+      16
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week",
+      "Money in jar ($)"
+     ],
+     "caption": "Nima's savings jar, week by week"
+    }
+   },
+   {
+    "say": "First, let's hunt for what changes. From seven to ten is three more. From ten to thirteen is three more. From thirteen to sixteen is three more again. The same jump every single time. When the numbers grow by the same amount, we call it an increasing pattern.",
+    "math": "7\\ \\xrightarrow{+3}\\ 10\\ \\xrightarrow{+3}\\ 13\\ \\xrightarrow{+3}\\ 16",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      7,
+      10,
+      13,
+      16
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4"
+     ],
+     "caption": "Same size step up each week"
+    }
+   },
+   {
+    "say": "Now we say the rule in words, like a little recipe: start at seven dollars, then add three dollars each week. Watch it on the number line — one hop of three takes us from seven all the way to ten. Words are a real math rule, and this is the very first way we write one.",
+    "math": "\\text{Rule in words: start at }7,\\ \\text{add }3\\ \\text{each week}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      7,
+      10
+     ],
+     "labels": [],
+     "caption": "One weekly hop: seven plus three is ten"
+    }
+   },
+   {
+    "say": "Here comes the clever part. Instead of writing week one, week two, week three, we use a letter to stand for the week number. Let's use the letter w. By week w, Nima has made w jumps of three dollars, which is three times w, and she started with four dollars before the first jump — because seven minus three is four. So the rule is: money equals three times w plus four.",
+    "math": "\\text{money}=3\\times w+4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      10,
+      13,
+      16
+     ],
+     "labels": [
+      "w = 1",
+      "w = 2",
+      "w = 3",
+      "w = 4",
+      "Week (w)",
+      "3 × w + 4"
+     ],
+     "caption": "The letter w just means 'which week'"
+    }
+   },
+   {
+    "say": "Let's test the rule before we trust it. Put in w equals one: three times one is three, plus four is seven. Yes! Put in w equals four: three times four is twelve, plus four is sixteen. Yes again! Now the big question — week ten. Three times ten is thirty, plus four is thirty-four dollars. We jumped straight to week ten without counting all the weeks in between. That is the power of a rule.",
+    "math": "3\\times 10+4=30+4=34",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      16,
+      34
+     ],
+     "labels": [
+      "Week 4",
+      "Week 10"
+     ],
+     "caption": "Week 4 is $16, week 10 is $34"
+    }
+   },
+   {
+    "say": "Patterns can also shrink. Nima's grandma gives her a fifty dollar gift card for the bookstore, and Nima spends six dollars on a comic every visit. After visit one she has forty-four dollars, then thirty-eight, then thirty-two, then twenty-six. The numbers go down by six each time — that's a decreasing pattern.",
+    "math": "50\\ \\xrightarrow{-6}\\ 44\\ \\xrightarrow{-6}\\ 38\\ \\xrightarrow{-6}\\ 32\\ \\xrightarrow{-6}\\ 26",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      50,
+      44,
+      38,
+      32,
+      26
+     ],
+     "labels": [
+      "Start",
+      "Visit 1",
+      "Visit 2",
+      "Visit 3",
+      "Visit 4"
+     ],
+     "caption": "Going down by six dollars each visit"
+    }
+   },
+   {
+    "say": "Same idea, but now we take away instead of add. Using the letter v for the visit number: money left equals fifty minus six times v. Let's check visit three: six times three is eighteen, and fifty minus eighteen is thirty-two dollars. That matches the table! So how much is left after visit seven? Six times seven is forty-two, and fifty minus forty-two is eight dollars. Just enough for one more small treat.",
+    "math": "\\text{left}=50-6\\times v\\ \\Rightarrow\\ 50-6\\times 7=8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      44,
+      38,
+      32,
+      26
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Visit (v)",
+      "Money left ($)"
+     ],
+     "caption": "Every rule should be checked against the table"
+    }
+   },
+   {
+    "say": "So here's your whole lesson in one breath: look at the table, find the same jump, say the rule in words, then swap the step number for a letter. Words, numbers, and a letter are three ways of saying the exact same rule — and the letter lets you leap ahead to any step you like.",
+    "math": "\\text{start}+(\\text{jump}\\times n)\\quad\\text{or}\\quad\\text{start}-(\\text{jump}\\times n)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the same-size jump, then write: start number plus or minus the jump times the step number — that letter lets you skip ahead to any step.",
+  "practice": {
+   "question": "A young cedar tree at your school is 60 centimetres tall, and it grows 8 centimetres every month. Write the rule using the letter m for the number of months, then find how tall the tree will be after 6 months.",
+   "answer": "Rule: height = 60 + 8 × m. After 6 months: 8 × 6 = 48, and 60 + 48 = 108 centimetres tall."
+  }
+ }
+}

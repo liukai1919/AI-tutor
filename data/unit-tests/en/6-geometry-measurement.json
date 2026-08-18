@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "6",
+ "strand": "geometry-measurement",
+ "lang": "en",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Geometry & Measurement · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G6.GEO.05",
+    "level": 1,
+    "question": "Maya draws a triangle on grid paper. Its three sides measure 7 cm, 7 cm, and 4 cm. What kind of triangle is it, classified by its side lengths?",
+    "options": [
+     "Equilateral triangle",
+     "Isosceles triangle",
+     "Scalene triangle",
+     "Right triangle"
+    ],
+    "answerIndex": 1,
+    "explain": "Classify by sides: exactly two equal sides (7 cm and 7 cm) makes it isosceles. A common trap is answering \"scalene\" because the three numbers are not all the same, or answering \"right\" — but right/acute/obtuse describe angles, not side lengths."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.03",
+    "level": 1,
+    "question": "At the Vancouver Aquarium, a ramp handrail meets an upright post. Devon measures the angle between them with a protractor and reads 130°. How is this angle classified?",
+    "options": [
+     "Acute angle",
+     "Right angle",
+     "Straight angle",
+     "Obtuse angle"
+    ],
+    "answerIndex": 3,
+    "explain": "An angle between 90° and 180° is obtuse, so 130° is obtuse. The common mistake is calling any angle bigger than 90° \"reflex\" or \"straight\" — reflex angles are more than 180°, and a straight angle is exactly 180°."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.01",
+    "level": 1,
+    "question": "Ravi builds an L-shaped patio out of pattern blocks. Walking around the outside edge, the six sides measure, in order: 7 m, 5 m, 4 m, 2 m, 3 m, 3 m. What is the perimeter of the patio?",
+    "options": [
+     "21 m",
+     "22 m",
+     "24 m",
+     "29 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Perimeter is the total distance around, so add every side: 7 + 5 + 4 + 2 + 3 + 3 = 24 m. The usual traps are skipping one of the short sides on the notch, or finding the area (29 m²) instead of the distance around."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.02",
+    "level": 2,
+    "question": "Jasmine's class plants a triangular herb garden beside the school. The base of the triangle is 8 m long and its height is 5 m. What is the area of the garden?",
+    "options": [
+     "20 m²",
+     "13 m²",
+     "40 m²",
+     "26 m²"
+    ],
+    "answerIndex": 0,
+    "explain": "Area of a triangle = (base × height) ÷ 2 = (8 × 5) ÷ 2 = 20 m². The most common error is forgetting to divide by 2 and answering 40 m², which is the area of the whole rectangle the triangle fits inside."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.04",
+    "level": 2,
+    "question": "Liam's family cooler is a rectangular prism measuring 30 cm long, 25 cm wide, and 20 cm deep on the inside. Filled right to the top, how much water would it hold?",
+    "options": [
+     "1 500 L",
+     "150 L",
+     "1.5 L",
+     "15 L"
+    ],
+    "answerIndex": 3,
+    "explain": "Volume = 30 × 25 × 20 = 15 000 cm³, and since 1 000 cm³ = 1 L, that is 15 L. The classic trap is stopping at 15 000 cm³ or dividing by 100 instead of 1 000 when converting to litres."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.06",
+    "level": 2,
+    "question": "On a first-quadrant Cartesian grid, Nadia draws a shape from a Coast Salish design. One vertex sits at (3, 6). She translates the whole shape 4 units right and 2 units down. Where does that vertex land?",
+    "options": [
+     "(7, 8)",
+     "(7, 4)",
+     "(1, 4)",
+     "(4, 7)"
+    ],
+    "answerIndex": 1,
+    "explain": "Right adds to x and down subtracts from y: (3 + 4, 6 − 2) = (7, 4). Two frequent slips are moving up instead of down (7, 8), and writing the ordered pair backwards — the x-coordinate always comes first."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.02",
+    "level": 3,
+    "question": "A community garden bed in Kelowna is shaped like a parallelogram. Its base is 6 m, its slanted side is 5 m, and the perpendicular height between the two long sides is 4 m. New soil costs $3 per square metre. How much will it cost to cover the whole bed?",
+    "options": [
+     "$36",
+     "$66",
+     "$72",
+     "$90"
+    ],
+    "answerIndex": 2,
+    "explain": "Area of a parallelogram = base × perpendicular height = 6 × 4 = 24 m², so the soil costs 24 × $3 = $72. The biggest trap is multiplying by the slanted side (6 × 5 = 30 m² → $90); the height must be the perpendicular distance, not the tilted edge."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.GEO.03",
+    "level": 3,
+    "question": "Small Number is at the skateboard park. At one point on a straight metal rail, three angles sit side by side above the rail: one measures 35°, the next is a right angle, and the last one is angle x. What is the size of angle x, and what type of angle is it?",
+    "options": [
+     "55°, and it is acute",
+     "125°, and it is obtuse",
+     "55°, and it is obtuse",
+     "145°, and it is acute"
+    ],
+    "answerIndex": 0,
+    "explain": "Angles along a straight line total 180°, so x = 180 − 35 − 90 = 55°, which is less than 90° and therefore acute. Common errors are adding the two known angles instead of subtracting (125°) or forgetting the right angle entirely (145°)."
+   }
+  ]
+ }
+}

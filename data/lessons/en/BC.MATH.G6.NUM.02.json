@@ -1,0 +1,137 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.NUM.02",
+ "lang": "en",
+ "title": "factors and multiples — greatest common factor and least common multiple",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Sharing Fairly: Greatest Common Factor and Least Common Multiple",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi there! Your class is making treat bags for the school fair in the gym. You have twelve granola bars and eighteen juice boxes, and every bag has to look exactly the same, with nothing left over. How many bags can you make? That question is what today's whole lesson is about.",
+    "math": "12 \\text{ and } 18",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      18
+     ],
+     "labels": [
+      "Granola bars",
+      "Juice boxes"
+     ],
+     "caption": "Twelve granola bars and eighteen juice boxes to share into equal bags"
+    }
+   },
+   {
+    "say": "First, a word we need: a factor. A factor is a number that fits into another number in equal groups, with nothing left over. Look here: three groups of four dots makes twelve. So three and four are both factors of twelve. If I write out every way to make twelve in equal groups, I get one, two, three, four, six, and twelve.",
+    "math": "3 \\times 4 = 12",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "3 groups of 4 makes 12, so 3 and 4 are factors of 12"
+    }
+   },
+   {
+    "say": "Now let's do the same for eighteen. Its factors are one, two, three, six, nine, and eighteen. Circle the numbers that show up on both lists: one, two, three, and six. Those are the common factors. The biggest one is six, and we call that the greatest common factor, or G C F for short. So the greatest common factor of twelve and eighteen is six.",
+    "math": "\\text{GCF}(12, 18) = 6",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      1,
+      2,
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "Common factors of 12 and 18: 1, 2, 3, 6 — the greatest is 6"
+    }
+   },
+   {
+    "say": "Let's check that it really works. Six bags: twelve granola bars divided by six is two bars in each bag. Eighteen juice boxes divided by six is three juice boxes in each bag. Every bag gets two bars and three juices, and nothing is left over. Six bags is the most you can make. That's what the greatest common factor tells you — the biggest fair share.",
+    "math": "12 \\div 6 = 2 \\qquad 18 \\div 6 = 3",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      6,
+      2
+     ],
+     "labels": [],
+     "caption": "6 bags with 2 granola bars each (and 3 juice boxes each)"
+    }
+   },
+   {
+    "say": "Here's a shortcut that helps with bigger numbers. Some numbers are prime, which means their only factors are one and themselves — like two, three, five, seven, and eleven. Numbers with more factors, like twelve, are called composite. Two quick tricks: if a number is even, two is a factor. And if its digits add up to a multiple of three, then three is a factor — for eighteen, one plus eight is nine, and nine is a multiple of three, so three fits into eighteen.",
+    "math": "2,\\ 3,\\ 5,\\ 7,\\ 11,\\ 13,\\ 17,\\ 19",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29
+     ],
+     "labels": [],
+     "caption": "Prime numbers — their only factors are 1 and themselves"
+    }
+   },
+   {
+    "say": "Now break each number into primes, like branches on a little tree. Twelve is two times two times three. Eighteen is two times three times three. What do they share? One two and one three. Multiply the shared parts: two times three is six — the same greatest common factor we found by listing. Nice, two roads to the same answer.",
+    "math": "12 = 2 \\times 2 \\times 3,\\quad 18 = 2 \\times 3 \\times 3,\\quad 2 \\times 3 = 6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "New problem, new tool. For a barbecue you buy hot dogs in packs of eight and buns in packs of twelve, and you want no lonely hot dogs and no leftover buns. Now we count up instead of breaking down. Skip counting by eight gives eight, sixteen, twenty-four, thirty-two — those are multiples of eight. Multiples of twelve are twelve, twenty-four, thirty-six.",
+    "math": "8, 16, 24, 32, 40, 48",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      8,
+      16,
+      24,
+      32,
+      40,
+      48
+     ],
+     "labels": [],
+     "caption": "Skip counting by 8: the multiples of 8"
+    }
+   },
+   {
+    "say": "Where do the two lists first meet? At twenty-four. That's the least common multiple, or L C M. Three packs of hot dogs is twenty-four, and two packs of buns is twenty-four — a perfect match. So here's the whole lesson in one line: the greatest common factor breaks numbers down to the biggest fair share, and the least common multiple builds numbers up to the first meeting place.",
+    "math": "\\text{LCM}(8, 12) = 24",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      8
+     ],
+     "labels": [],
+     "caption": "3 packs of 8 hot dogs = 24, and 2 packs of 12 buns = 24"
+    }
+   }
+  ],
+  "answer": "GCF breaks numbers down to the biggest equal share; LCM builds them up to the first number they both reach.",
+  "practice": {
+   "question": "You have two ribbons for wrapping fair prizes: one is 24 centimetres long and the other is 36 centimetres long. You want to cut them into equal pieces with none left over, and you want the pieces as long as possible. How long is each piece, and how many pieces do you get altogether?",
+   "answer": "Each piece is 12 centimetres long, because the greatest common factor of 24 and 36 is 12. You get 2 pieces from the 24 centimetre ribbon and 3 pieces from the 36 centimetre ribbon — 5 pieces in all."
+  }
+ }
+}

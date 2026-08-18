@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "5",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Number · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G5.NUM.01",
+    "level": 1,
+    "question": "Last summer, 486 205 people visited a park on Vancouver Island. What is the value of the digit 8 in 486 205?",
+    "options": [
+     "8 000",
+     "80 000",
+     "800 000",
+     "8"
+    ],
+    "answerIndex": 1,
+    "explain": "Read the places from the right: 5 ones, 0 tens, 2 hundreds, 6 thousands, 8 ten thousands, 4 hundred thousands, so the 8 is worth 80 000. A common trap is naming the digit itself (8) or slipping one place over and saying 8 000."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.02",
+    "level": 1,
+    "question": "Which number is 'three and forty-six thousandths' written in decimal form?",
+    "options": [
+     "3.46",
+     "3.406",
+     "3.0046",
+     "3.046"
+    ],
+    "answerIndex": 3,
+    "explain": "Thousandths need three digits after the decimal point, so 46 thousandths fills the last two places and a 0 holds the tenths place: 3.046. The usual mistake is writing 3.46, which is forty-six hundredths — ten times too big."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.03",
+    "level": 1,
+    "question": "Which fraction is equivalent to 3/4?",
+    "options": [
+     "9/12",
+     "4/5",
+     "5/6",
+     "6/12"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply the numerator and the denominator by the same number: 3 × 3 = 9 and 4 × 3 = 12, so 3/4 = 9/12. The common trap is adding the same number to the top and bottom (3/4 → 4/5 or 5/6), which changes the amount."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.04",
+    "level": 2,
+    "question": "A jug in the fridge holds 2.5 L of milk. Ravi pours 1.375 L into a pancake batter. How much milk is left in the jug?",
+    "options": [
+     "1.275 L",
+     "1.225 L",
+     "1.125 L",
+     "1.135 L"
+    ],
+    "answerIndex": 2,
+    "explain": "Write 2.5 as 2.500 so the places line up, then subtract with regrouping: 2.500 − 1.375 = 1.125. The most common error is taking the smaller digit from the bigger one in each column (getting 1.275) instead of regrouping."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.05",
+    "level": 2,
+    "question": "At a store in Prince George, Leah buys a hoodie for $18.75 and a pair of wool socks for $4.70. She pays with a $50 bill. How much change should she get?",
+    "options": [
+     "$27.55",
+     "$26.65",
+     "$26.45",
+     "$26.55"
+    ],
+    "answerIndex": 3,
+    "explain": "First add the items: $18.75 + $4.70 = $23.45, then subtract from $50.00 to get $26.55 (or count up: $23.45 → $24 → $50). The usual trap is forgetting to regroup when adding the cents (75 + 70 = 145), which gives a total of $22.45 and the wrong change."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.01",
+    "level": 2,
+    "question": "Four BC ski hills counted these visitors this season: 108 450, 180 045, 108 405, and 180 450. Which list puts them in order from greatest to least?",
+    "options": [
+     "180 450; 180 045; 108 450; 108 405",
+     "180 450; 108 450; 180 045; 108 405",
+     "108 450; 108 405; 180 450; 180 045",
+     "180 045; 180 450; 108 405; 108 450"
+    ],
+    "answerIndex": 0,
+    "explain": "Compare place by place from the left: the two numbers starting 180 are bigger, and between them 180 450 has 4 hundreds versus 0 hundreds, so it leads. Students often stop comparing too early or judge by the last digits instead of working left to right."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.03",
+    "level": 3,
+    "question": "At family movie night in Surrey, one large pizza is cut into 8 equal slices. Owen eats 1/4 of the pizza and his sister eats 3/8 of the same pizza. What fraction of the whole pizza did they eat altogether?",
+    "options": [
+     "4/12",
+     "4/8",
+     "5/8",
+     "5/16"
+    ],
+    "answerIndex": 2,
+    "explain": "Rename 1/4 with eighths first: 1/4 = 2/8, so 2/8 + 3/8 = 5/8 (the eighths are the equal pieces being counted). The biggest trap is adding straight across to get 4/12 — the denominator names the size of the piece, so it does not get added."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.NUM.05",
+    "level": 3,
+    "question": "Nadia is packing for a school trip to the Okanagan. She buys 3 reusable water bottles at $7.95 each and one backpack for $12.50. She pays with two $20 bills. How much change should she receive?",
+    "options": [
+     "$5.65",
+     "$3.65",
+     "$3.75",
+     "$16.15"
+    ],
+    "answerIndex": 1,
+    "explain": "Three steps: 3 × $7.95 = $23.85, then $23.85 + $12.50 = $36.35, then $40.00 − $36.35 = $3.65. Common traps are forgetting to carry when multiplying the cents, or subtracting only the bottles' cost from $40 and leaving out the backpack."
+   }
+  ]
+ }
+}

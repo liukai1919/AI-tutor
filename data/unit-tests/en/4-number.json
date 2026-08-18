@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "4",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Number · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G4.NUM.01",
+    "level": 1,
+    "question": "A sign at the Vancouver aquarium says 6 348 people visited on Saturday. What is the value of the digit 3 in 6 348?",
+    "options": [
+     "3",
+     "30",
+     "300",
+     "3 000"
+    ],
+    "answerIndex": 2,
+    "explain": "Read the places from the right: 8 ones, 4 tens, 3 hundreds, 6 thousands, so the 3 is worth 3 × 100 = 300. The common trap is naming the digit by itself (3) or slipping one place over and saying 30."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.02",
+    "level": 1,
+    "question": "Aria colours 7 of the 100 equal squares on a hundred grid. Which decimal shows the coloured part of the grid?",
+    "options": [
+     "0.7",
+     "0.07",
+     "7.0",
+     "0.007"
+    ],
+    "answerIndex": 1,
+    "explain": "The whole grid is 1, so each small square is one hundredth, and 7 squares is seven hundredths = 0.07. The common trap is writing 0.7, which is 7 tenths — that would be 70 squares."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.03",
+    "level": 1,
+    "question": "Rowan's class marks fractions in sixths on a number line. Which fraction is closest to 1 whole?",
+    "options": [
+     "1/6",
+     "3/6",
+     "2/6",
+     "5/6"
+    ],
+    "answerIndex": 3,
+    "explain": "When the denominators are the same, the fraction with the bigger numerator is bigger, and 5/6 needs only one more sixth to reach 8/8... to reach 6/6, one whole. The common trap is choosing 3/6, which sits exactly at the one-half benchmark, not near 1."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.04",
+    "level": 2,
+    "question": "Milo buys a day pass for the SeaBus for $6.75 and pays with a $20 bill. How much change should he get?",
+    "options": [
+     "$13.25",
+     "$14.25",
+     "$13.75",
+     "$26.75"
+    ],
+    "answerIndex": 0,
+    "explain": "Count up from $6.75: 25¢ brings you to $7.00, then $13 more brings you to $20.00, so the change is $13.25. The common trap is subtracting the dollars first and forgetting to regroup one dollar into 100 cents, which gives $14.25."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.01",
+    "level": 2,
+    "question": "Four schools collected bottles for a fundraiser: Maple 4 807, Cedar 4 078, Birch 4 780, Alder 4 087. Which number of bottles is the SECOND greatest?",
+    "options": [
+     "4 807",
+     "4 078",
+     "4 780",
+     "4 087"
+    ],
+    "answerIndex": 2,
+    "explain": "Compare place by place from the left: all have 4 thousands, so look at hundreds — 8, 7, 0, 0 — making 4 807 the greatest and 4 780 the second greatest. The common trap is answering with the greatest number, or judging by the last digit instead of the biggest place."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.02",
+    "level": 2,
+    "question": "Owen measures the rain gauge at school: 1.6 cm on Monday and 0.85 cm on Tuesday. How much rain fell in the two days altogether?",
+    "options": [
+     "2.45 cm",
+     "1.45 cm",
+     "1.91 cm",
+     "2.4 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "Line up the decimal points and think of 1.6 as 1.60: 0 + 5 = 5 hundredths, 6 + 8 = 14 tenths, which regroups to 1 one and 4 tenths, giving 2.45 cm. The common traps are lining up the right-hand ends instead of the decimal points (1.91) or forgetting to regroup the 14 tenths (1.45)."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.03",
+    "level": 3,
+    "question": "Leo's family cuts a pan of blueberry bars into 8 equal pieces. Leo eats 2/8 of the pan and his sister eats 3/8 of the pan. What fraction of the pan is LEFT?",
+    "options": [
+     "5/16",
+     "5/8",
+     "3/16",
+     "3/8"
+    ],
+    "answerIndex": 3,
+    "explain": "The pieces are all eighths, so add only the numerators: 2/8 + 3/8 = 5/8 eaten, then 8/8 − 5/8 = 3/8 left. The common traps are adding the denominators straight across to get 5/16, or stopping at 5/8, which is the part eaten, not the part left."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.NUM.04",
+    "level": 3,
+    "question": "Hana has $20.00 at the Saturday farmers market. She buys 2 baskets of blueberries at $4.50 each and a loaf of bread for $5.25. She then sees a bouquet of flowers for $6.00. Can she buy it?",
+    "options": [
+     "Yes — she has $10.25 left, so she can buy the bouquet.",
+     "No — she has $5.75 left, so she is 25¢ short.",
+     "Yes — she has $6.75 left, so she can buy the bouquet.",
+     "Yes — she has $5.75 left, so she can buy the bouquet."
+    ],
+    "answerIndex": 1,
+    "explain": "Two baskets cost 2 × $4.50 = $9.00, and $9.00 + $5.25 = $14.25 spent, so $20.00 − $14.25 = $5.75 left — 25¢ less than the $6.00 bouquet. The common traps are paying for only one basket, or forgetting to regroup a dollar into 100 cents while subtracting, which gives $6.75."
+   }
+  ]
+ }
+}

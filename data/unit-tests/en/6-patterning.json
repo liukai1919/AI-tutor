@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "6",
+ "strand": "patterning",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Patterning · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G6.PAT.01",
+    "level": 1,
+    "question": "A pattern starts 4, 7, 10, 13, ... and keeps growing the same way. What is the next number in the pattern?",
+    "options": [
+     "15",
+     "16",
+     "17",
+     "19"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the constant change first: 7 - 4 = 3, so the rule is 'add 3 each time' and 13 + 3 = 16. A common trap is to glance at the numbers and add 2 or 4 instead of checking the difference between two terms."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.02",
+    "level": 1,
+    "question": "Solve the equation 3x = 12.",
+    "options": [
+     "x = 36",
+     "x = 15",
+     "x = 9",
+     "x = 4"
+    ],
+    "answerIndex": 3,
+    "explain": "3x means 3 times x, so undo the multiplication by dividing both sides by 3: 12 ÷ 3 = 4. The most common mistake is subtracting 3 (getting 9) or multiplying (getting 36) instead of doing the opposite operation."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.01",
+    "level": 1,
+    "question": "Sofia builds a growing pattern with colour tiles. Figure 1 uses 5 tiles, Figure 2 uses 8 tiles, and Figure 3 uses 11 tiles. Which expression tells how many tiles Figure n uses?",
+    "options": [
+     "3n + 2",
+     "3n + 5",
+     "2n + 3",
+     "5n + 3"
+    ],
+    "answerIndex": 0,
+    "explain": "The pattern grows by 3 each figure, so the expression starts with 3n; since 3 × 1 = 3 but Figure 1 has 5 tiles, you add 2, giving 3n + 2. A common trap is to use the first term (5) as the number you add, but you must always test your expression with n = 1."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.02",
+    "level": 2,
+    "question": "Ravi is saving for a pair of rain boots that costs $52. His auntie gives him $18, and now he has exactly $52. If m is the money Ravi had before, then m + 18 = 52. How much money did Ravi have before?",
+    "options": [
+     "$44",
+     "$46",
+     "$34",
+     "$70"
+    ],
+    "answerIndex": 2,
+    "explain": "To undo 'add 18', subtract 18 from both sides: 52 - 18 = 34. Two common traps are adding instead of subtracting (getting 70) and forgetting to regroup in 52 - 18 (getting 46)."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.01",
+    "level": 2,
+    "question": "A kayak rental at Cultus Lake charges a $12 launch fee plus $9 for each hour. The total cost in dollars for h hours is 9h + 12. What does it cost to rent a kayak for 5 hours?",
+    "options": [
+     "$45",
+     "$57",
+     "$48",
+     "$105"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiply first, then add the one-time fee: 9 × 5 = 45, and 45 + 12 = $57. The most common traps are forgetting the $12 launch fee (giving $45) or adding 9 + 12 first and then multiplying by 5 (giving $105)."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.02",
+    "level": 2,
+    "question": "Ms. Chan has 32 cedar bark strips for a weaving lesson. She shares them equally among the groups, and each group receives 8 strips. Which equation could you solve to find g, the number of groups?",
+    "options": [
+     "8g = 32",
+     "g + 8 = 32",
+     "32g = 8",
+     "g - 8 = 32"
+    ],
+    "answerIndex": 0,
+    "explain": "Each of the g groups gets 8 strips, so 8 × g must equal the 32 strips in total: 8g = 32, which gives g = 4. The common trap is seeing the words 'shares equally' and writing a division or subtraction sentence instead of the multiplication that matches the groups."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.01",
+    "level": 3,
+    "question": "Amrit has $8 right now and saves $5 every week. Jasleen has $20 right now and saves $2 every week. If they both keep saving at the same rate, when will they have the same amount of money?",
+    "options": [
+     "They are equal after 2 weeks, at $18 each",
+     "They are equal after 6 weeks, at $38 each",
+     "They are never equal, because Jasleen started with more",
+     "They are equal after 4 weeks, at $28 each"
+    ],
+    "answerIndex": 3,
+    "explain": "Build a table for both patterns: Amrit has 8, 13, 18, 23, 28 and Jasleen has 20, 22, 24, 26, 28, so they meet at $28 after 4 weeks. The common trap is comparing only the starting amounts and deciding the person who starts ahead always stays ahead, when the faster rate ($5 vs $2) closes the $12 gap by $3 each week."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.PAT.02",
+    "level": 3,
+    "question": "A balance scale is level. The left pan holds 5 identical bags of marbles, and the right pan holds 45 loose marbles. Every bag holds the same number of marbles. Priya takes 2 whole bags off the left pan. What must she do to the right pan to keep the scale level?",
+    "options": [
+     "Take 2 marbles off the right pan",
+     "Take 9 marbles off the right pan",
+     "Take 18 marbles off the right pan",
+     "Take 27 marbles off the right pan"
+    ],
+    "answerIndex": 2,
+    "explain": "First solve 5b = 45 to find that one bag is 45 ÷ 5 = 9 marbles, so 2 bags weigh 2 × 9 = 18 marbles and 18 must come off the other side. The classic misconception is removing the same number of objects (2 marbles for 2 bags) instead of the same amount, which breaks the equality."
+   }
+  ]
+ }
+}

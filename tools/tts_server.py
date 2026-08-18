@@ -143,7 +143,10 @@ def main() -> int:
     global ARGS
     parser = argparse.ArgumentParser(description="CosyVoice 2 常驻 TTS 服务")
     parser.add_argument("--port", type=int, default=9880)
-    parser.add_argument("--host", default="0.0.0.0")
+    # 默认只听 loopback：/synth 没有鉴权，任何能连上的人都能排队占 GPU。
+    # WSL 里绑 127.0.0.1 不影响 Windows 侧的 node 访问（WSL 的端口转发直接打到 VM 的
+    # loopback，2026-08-14 实测；转发在 Windows 侧也只监听 127.0.0.1，局域网进不来）。
+    parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--repo", default="~/tts/CosyVoice")
     parser.add_argument("--model-dir", default=None)
     ARGS = parser.parse_args()

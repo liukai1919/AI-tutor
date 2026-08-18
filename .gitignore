@@ -5,6 +5,7 @@ config.json
 tts-cache/
 
 # 历史记录 / 学习进度 / FSA 卷 / 闯关题库（用户数据）
+# （根目录三个单例是旧版遗留：创建第一个孩子时自动迁入 data/kids/）
 history.json
 history.json.tmp
 progress.json
@@ -13,6 +14,13 @@ fsa-sets.json
 fsa-sets.json.tmp
 qbank.json
 qbank.json.tmp
+
+# 账号 / 会话 / 按孩子分桶的学习数据
+data/users.json
+data/users.json.tmp
+data/sessions.json
+data/sessions.json.tmp
+data/kids/
 
 node_modules/
 *.log
@@ -28,3 +36,10 @@ data/curriculum/books/text/
 # 构建期工具的依赖
 tools/books/node_modules/
 tools/books/package-lock.json
+
+# 打包产物（里面有下载来的 Node 运行时，几十上百 MB）
+build/
+
+# 预烘语音包：几百个 m4a、几十 MB 二进制，不进 git。
+# 要的时候用 tools/prevoice.mjs 重烘（需要 CosyVoice 守护进程 + ffmpeg）。
+data/voice/

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "7",
+ "strand": "data-probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "数据与可能性",
+  "en": "Data & Probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Data & Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G7.DAT.01",
+    "level": 1,
+    "question": "A circle graph shows how 200 students at a Kamloops school travel to school. The \"Walk\" sector is labelled 25%. How many students walk to school?",
+    "options": [
+     "25 students",
+     "50 students",
+     "75 students",
+     "150 students"
+    ],
+    "answerIndex": 1,
+    "explain": "Turn the percent into a quantity: 25% of 200 = 0.25 × 200 = 50 students. The common trap is writing 25 (reading the percent label as if it were the number of students) or 150 (that is the other 75% of the circle)."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.02",
+    "level": 1,
+    "question": "Maya tosses two coins together 50 times and records the results. She gets two heads 13 times. What is the experimental probability of getting two heads?",
+    "options": [
+     "1/4",
+     "13/100",
+     "37/50",
+     "13/50"
+    ],
+    "answerIndex": 3,
+    "explain": "Experimental probability = (times the event happened) ÷ (number of trials) = 13/50. The usual trap is answering 1/4, which is the theoretical probability, not what the experiment actually gave; the denominator is 50 trials, not 100 coins."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.01",
+    "level": 1,
+    "question": "A circle graph of favourite berries picked on Vancouver Island shows: blueberry 35%, blackberry 20%, raspberry 15%, and salmonberry (label missing). What percent is the salmonberry sector?",
+    "options": [
+     "30%",
+     "70%",
+     "25%",
+     "20%"
+    ],
+    "answerIndex": 0,
+    "explain": "All sectors of a circle graph must total 100%: 35 + 20 + 15 = 70, so the missing sector is 100 − 70 = 30%. The common mistake is stopping at 70% — that is the total of the labelled sectors, not the missing one."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.02",
+    "level": 2,
+    "question": "In a dice game, Sam rolls two dice and adds the numbers. In 60 rolls, the sum was 7 exactly 8 times. What is the experimental probability of rolling a sum of 7, written in lowest terms?",
+    "options": [
+     "1/6",
+     "7/60",
+     "2/15",
+     "8/52"
+    ],
+    "answerIndex": 2,
+    "explain": "Experimental probability is 8 successes out of 60 trials: 8/60 = 2/15 (divide top and bottom by 4). Traps: 1/6 is the theoretical probability of a sum of 7, and 7/60 uses the sum 7 instead of the 8 times it occurred."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.01",
+    "level": 2,
+    "question": "In a class of 24 students, 6 chose salmon as their favourite food to share at the class feast. If this data is shown in a circle graph, what is the angle of the \"salmon\" sector?",
+    "options": [
+     "90°",
+     "60°",
+     "25°",
+     "36°"
+    ],
+    "answerIndex": 0,
+    "explain": "Find the fraction, then take that fraction of the whole circle: 6/24 = 1/4, and 1/4 of 360° = 90°. The common trap is dividing 360° by 6 to get 60°, or using the percent (25) as if it were degrees."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.02",
+    "level": 2,
+    "question": "A Grade 7 class tossed two coins 200 times altogether and recorded: two heads 46, head-then-tail 52, tail-then-head 49, two tails 53. What is the experimental probability of getting at least one head?",
+    "options": [
+     "23%",
+     "26.5%",
+     "75%",
+     "73.5%"
+    ],
+    "answerIndex": 3,
+    "explain": "\"At least one head\" covers three outcomes: 46 + 52 + 49 = 147 out of 200 = 73.5%. Traps: 23% counts only the two-heads outcome, and 75% is the theoretical value rather than what this experiment produced."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.01",
+    "level": 3,
+    "question": "A circle graph shows the money raised at a Nanaimo school fundraiser. The bottle-drive sector is 30% and raised $144. The bake-sale sector is 25% of the same circle graph. How much did the bake sale raise?",
+    "options": [
+     "$480",
+     "$36",
+     "$120",
+     "$144"
+    ],
+    "answerIndex": 2,
+    "explain": "First find the whole: if 30% is $144, then 10% is $48 and 100% is $480; then take 25% of $480 = $120. The biggest trap is taking 25% of $144 (= $36), which applies the percent to one sector instead of to the total."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.DAT.02",
+    "level": 3,
+    "question": "Priya rolls two dice and adds them. In 30 rolls she got a sum of 8 seven times, but a sum of 7 only three times. She says, \"This proves 8 is more likely than 7.\" What is the best response?",
+    "options": [
+     "She is correct — her experiment proves a sum of 8 is more likely than a sum of 7.",
+     "She has found experimental probability from only 30 rolls; with many more rolls the results should move closer to the theoretical probabilities, where 7 is the most likely sum.",
+     "Her results must be wrong, because experimental probability always equals theoretical probability.",
+     "Every sum from 2 to 12 is equally likely, so 7 and 8 each have a probability of 1/11."
+    ],
+    "answerIndex": 1,
+    "explain": "Experimental probability from a small number of trials often differs from theoretical probability, and it settles closer to it as trials increase; a sum of 7 has 6 ways to happen while 8 has only 5, so 7 is truly more likely. The two big misconceptions here are treating a short experiment as proof, and assuming all sums from 2 to 12 are equally likely."
+   }
+  ]
+ }
+}

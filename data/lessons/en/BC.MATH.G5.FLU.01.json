@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.FLU.01",
+ "lang": "en",
+ "title": "addition and subtraction of whole numbers to 1 000 000",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Big Numbers, Same Old Tricks: Adding and Subtracting to 1 000 000",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Imagine you're reading a big sign at a B.C. fair. It says Kelowna has one hundred forty-four thousand, five hundred seventy-six people, and Kamloops has ninety-seven thousand, nine hundred two people. Someone asks, how many people is that altogether? Wow — those are huge numbers! But here's my happy secret: adding big numbers works exactly the same way as adding little ones. That's what we're learning today.",
+    "math": "144,576 + 97,902 = ?",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      144576,
+      97902
+     ],
+     "labels": [
+      "Kelowna",
+      "Kamloops"
+     ],
+     "caption": "Two big groups of people — we want the total"
+    }
+   },
+   {
+    "say": "First, let's not be scared of a big number. Every number is just a little train of place-value cars. Look at one hundred forty-four thousand, five hundred seventy-six. It has one hundred thousand, four ten thousands, four thousands, five hundreds, seven tens, and six ones. When we add or subtract, we only ever add ones to ones, tens to tens, thousands to thousands. Same places always sit together.",
+    "math": "144,576 = 100,000 + 40,000 + 4,000 + 500 + 70 + 6",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      144576
+     ],
+     "labels": [],
+     "caption": "A big number is just its place-value pieces"
+    }
+   },
+   {
+    "say": "Now let's remember regrouping with small blocks, because it's the same move in big numbers. Say we add two hundred sixty-eight and one hundred forty-five. Eight ones plus five ones makes thirteen ones. Thirteen ones is too many to keep, so we trade ten of them for one ten rod and carry it over. Then six tens plus four tens plus that carried ten makes eleven tens, and we trade ten tens for one hundred flat. In the end we get four hundred thirteen. Trading ten small blocks for one bigger block — that's regrouping.",
+    "math": "268 + 145 = 413",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      268
+     ],
+     "labels": [],
+     "caption": "268 in blocks — ten ones trade up for one ten"
+    }
+   },
+   {
+    "say": "Before we do any big adding, smart mathematicians estimate first. Estimating means rounding to friendly numbers so we know about what the answer should be. If a hockey team scored three thousand seven hundred eighty dollars at one bottle drive and four thousand two hundred forty dollars at another, round them to four thousand and four thousand. About eight thousand dollars! Then when we add carefully we get eight thousand and twenty dollars. Our estimate was close, so we know we didn't goof.",
+    "math": "3,780 + 4,240 \\approx 4,000 + 4,000 = 8,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      7000,
+      9000,
+      8000,
+      8020
+     ],
+     "labels": [],
+     "caption": "Estimate 8000, then the exact answer 8020 — very close!"
+    }
+   },
+   {
+    "say": "Okay, worked example time. An arena in Vancouver had two hundred forty-five thousand, six hundred fans in the winter and one hundred thirty-eight thousand, seven hundred fifty fans in the spring. Line up the places and add from the right. Zero plus zero is zero. Zero plus five tens is five tens. Six hundreds plus seven hundreds is thirteen hundreds — write three, carry one thousand. Five thousands plus eight thousands plus the carried one is fourteen thousands — write four, carry one ten thousand. Four plus three plus one is eight ten thousands. Two plus one is three hundred thousands. The total is three hundred eighty-four thousand, three hundred fifty fans. And check it — our estimate of two hundred fifty thousand plus one hundred forty thousand was three hundred ninety thousand. Nice and close!",
+    "math": "245,600 + 138,750 = 384,350",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      384350
+     ],
+     "labels": [],
+     "caption": "The total, broken into its places"
+    }
+   },
+   {
+    "say": "Here's my favourite shortcut: friendly numbers and compensating. If you have to add four thousand nine hundred ninety-eight plus two thousand three hundred fifty, that ninety-nine-eight looks yucky. So borrow two to make it a friendly five thousand. Five thousand plus two thousand three hundred fifty is seven thousand three hundred fifty — easy in your head! But we gave it two extra, so we pay the two back: seven thousand three hundred forty-eight. Take apart, make it friendly, then compensate.",
+    "math": "4,998 + 2,350 = 5,000 + 2,350 - 2 = 7,348",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      4000,
+      8000,
+      5000,
+      7350
+     ],
+     "labels": [],
+     "caption": "Jump from the friendly 5000 to 7350, then step back 2"
+    }
+   },
+   {
+    "say": "Now subtraction, and here's a big-number one that scares lots of kids: five hundred thousand minus two hundred thirty-six thousand, four hundred. All those zeros mean lots of borrowing — yuck. So instead, let's count up! From two hundred thirty-six thousand, four hundred, hop three thousand six hundred to get to two hundred forty thousand. Then hop sixty thousand to three hundred thousand. Then hop two hundred thousand to five hundred thousand. Add the hops: three thousand six hundred plus sixty thousand plus two hundred thousand is two hundred sixty-three thousand, six hundred. No borrowing at all! And we can check by adding it back: two hundred thirty-six thousand four hundred plus two hundred sixty-three thousand six hundred really does make five hundred thousand.",
+    "math": "500,000 - 236,400 = 263,600",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      200000,
+      500000,
+      236400,
+      500000
+     ],
+     "labels": [],
+     "caption": "Count up in friendly hops instead of borrowing"
+    }
+   },
+   {
+    "say": "So remember, my friend: a number with six digits isn't harder, it's just longer. Line up the places, estimate first so you can trust your answer, and make numbers friendly whenever you can. You've got this!",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Big numbers work just like small ones: line up the places, estimate first, and make friendly numbers to help.",
+  "practice": {
+   "question": "A B.C. Ferries route carried 128,450 passengers in July and 96,780 passengers in August. First estimate the total, then find the exact number.",
+   "answer": "Estimate: about 130,000 + 100,000 = 230,000 passengers. Exact: 128,450 + 96,780 = 225,230 passengers — close to the estimate, so it checks out!"
+  }
+ }
+}

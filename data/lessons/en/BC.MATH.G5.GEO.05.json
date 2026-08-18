@@ -1,0 +1,181 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.GEO.05",
+ "lang": "en",
+ "title": "single transformations",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Slide, Flip, Turn: Moving Shapes Like a Weaver",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Have you ever looked closely at a cedar basket or a woven mat, like the beautiful ones made by First Peoples here in British Columbia? The same little shape shows up over and over along the edge. The weaver doesn't draw a brand new shape each time. She takes one shape and moves it. In math we call each of those moves a single transformation, and today we'll learn all three of them.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      2,
+      4,
+      2,
+      7,
+      2,
+      10,
+      2
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "caption": "One woven shape, repeated along a basket border by moving it"
+    }
+   },
+   {
+    "say": "There are only three ways to move a shape without changing it. Number one, a slide. Number two, a flip. Number three, a turn. Grown-ups call them translation, reflection, and rotation, but slide, flip and turn say it perfectly. Here's the big secret to remember all lesson: the shape never gets bigger, smaller, or squishier. It just changes where it is or which way it faces.",
+    "math": "\\text{slide} \\;\\;|\\;\\; \\text{flip} \\;\\;|\\;\\; \\text{turn}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One tile, six centimetres by four centimetres — it stays this size through every move"
+    }
+   },
+   {
+    "say": "Let's start with the slide. A slide means the shape scoots over, like pushing your lunch tray straight across the table. Nothing spins, nothing mirrors. Look at my little triangle. Its three corners are at one comma one, three comma one, and one comma four. Now I'll slide it four steps to the right and two steps up. To find each new corner, I just add four to the across number and add two to the up number.",
+    "math": "(x,y) \\rightarrow (x+4,\\; y+2)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4,
+      5,
+      3,
+      7,
+      3,
+      5,
+      6
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A2",
+      "B2",
+      "C2"
+     ],
+     "caption": "Triangle A B C slides 4 right and 2 up to become A2 B2 C2"
+    }
+   },
+   {
+    "say": "Let's check every corner together, nice and slow. One plus four is five, and one plus two is three, so A lands at five comma three. Three plus four is seven, and one plus two is three, so B lands at seven comma three. One plus four is five, and four plus two is six, so C lands at five comma six. Every corner moved the exact same amount, which is why the triangle still looks exactly the same. That's a slide.",
+    "math": "(1,1)\\rightarrow(5,3),\\;\\;(3,1)\\rightarrow(7,3),\\;\\;(1,4)\\rightarrow(5,6)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      5,
+      3
+     ],
+     "labels": [
+      "A",
+      "A2"
+     ],
+     "caption": "One corner's journey: 4 across, then 2 up"
+    }
+   },
+   {
+    "say": "Now the flip. A flip is a mirror move, like holding your shape up to a mirror, or like a salmon jumping and landing the other way round. I'll put a mirror line straight down the middle, on the up and down axis. My triangle corner at one comma one flips over to negative one comma one. Three comma one flips to negative three comma one. One comma four flips to negative one comma four. Notice the up numbers stay the same, and the across numbers just switch sides. That's a flip.",
+    "math": "(x,y) \\rightarrow (-x,\\; y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4,
+      -1,
+      1,
+      -3,
+      1,
+      -1,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A2",
+      "B2",
+      "C2"
+     ],
+     "caption": "The triangle flips across the middle line, like a mirror"
+    }
+   },
+   {
+    "say": "Last one, the turn. A turn means the shape spins around a point, like a hand on a clock or a bike wheel. The most common turn is a quarter turn, and a quarter turn is ninety degrees, because a full circle is three hundred sixty degrees, and three hundred sixty divided by four is ninety. So half a turn is one hundred eighty degrees, and a full turn is three hundred sixty degrees, which brings you right back where you started.",
+    "math": "360 \\div 4 = 90",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [],
+     "caption": "A quarter turn is exactly 90 degrees"
+    }
+   },
+   {
+    "say": "Here's the part that connects to our big idea about area and perimeter. Because sliding, flipping and turning never stretch a shape, the perimeter and the area do not change at all. My tile is six centimetres long and four centimetres wide. Perimeter is six plus four, which is ten, doubled, so twenty centimetres. Area is six times four, which is twenty four square centimetres. Now the weaver slides that tile three times along the basket border. Each tile still has twenty four square centimetres, so three times twenty four is seventy two square centimetres of woven pattern.",
+    "math": "P = 2 \\times (6+4) = 20 \\text{ cm},\\quad A = 6 \\times 4 = 24 \\text{ cm}^2,\\quad 3 \\times 24 = 72 \\text{ cm}^2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      24,
+      24,
+      24
+     ],
+     "labels": [
+      "Tile 1",
+      "Tile 2",
+      "Tile 3"
+     ],
+     "caption": "Three slid tiles, each still 24 square centimetres — 72 in total"
+    }
+   },
+   {
+    "say": "So when you see a woven cedar basket, a hallway floor tile, or a stamped border, you're really looking at math moving. Slide it, flip it, turn it. The shape goes for a ride, but it stays exactly the same shape and exactly the same size. Beautiful work today, friend!",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Same tile, same 20 cm perimeter and 24 square cm area — no matter how it moves"
+    }
+   }
+  ],
+  "answer": "Slide, flip, turn — a shape can move, but its size, perimeter, and area never change.",
+  "practice": {
+   "question": "Nadia is weaving a cedar mat border in her Grade 5 class. Her paper tile is a rectangle 5 centimetres long and 3 centimetres wide, with one corner sitting at the point 2 comma 1 on her grid. She slides the tile 6 steps right and 3 steps up. Where does that corner land, and what are the perimeter and area of the tile after the slide?",
+   "answer": "The corner lands at 8 comma 4, because 2 plus 6 is 8 and 1 plus 3 is 4. The perimeter is still 2 times 5 plus 3, which is 16 centimetres, and the area is still 5 times 3, which is 15 square centimetres — a slide never changes size."
+  }
+ }
+}

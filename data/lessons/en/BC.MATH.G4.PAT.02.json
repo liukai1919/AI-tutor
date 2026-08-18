@@ -1,0 +1,150 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G4.PAT.02",
+ "lang": "en",
+ "title": "algebraic relationships among quantities",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Camping Trip Math: Finding the Missing Number",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine we are packing for a camping trip at Golden Ears Provincial Park. Our group needs fifteen water bottles for the weekend, but when I look in the box, I have only packed seven so far. I know the total I need, and I know what I have, but I do not yet know how many more to grab. That missing amount is what math calls an unknown, and today we are going to learn how to find it.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      15
+     ],
+     "labels": [
+      "Bottles I packed",
+      "Bottles I need"
+     ],
+     "caption": "Seven packed, fifteen needed — how big is the gap?"
+    }
+   },
+   {
+    "say": "Here is the clever trick. Instead of guessing, we give the missing number a name. Let's call it b, for bottles. Now we can write the whole story as one short sentence in number language: seven plus b equals fifteen. Think of a scale that balances perfectly. On the left side sit my seven bottles plus the mystery b, and on the right side sits fifteen. The two sides weigh exactly the same.",
+    "math": "7 + b = 15",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "7 + b",
+      "15"
+     ],
+     "caption": "Both sides are equal, so the scale balances"
+    }
+   },
+   {
+    "say": "So how do we find b? We undo what was done to it. The seven was added on, so we take seven away from the total. Fifteen take away seven is eight. Watch the number line: we start at seven and hop all the way up to fifteen, and that hop is eight steps long. So b equals eight — I need eight more bottles.",
+    "math": "b = 15 - 7 = 8",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      15,
+      7,
+      15
+     ],
+     "labels": [],
+     "caption": "The jump from seven up to fifteen is eight"
+    }
+   },
+   {
+    "say": "Now we always check, because a good camper double-checks the backpack. Put eight back where b was: seven plus eight equals fifteen. Yes! Fifteen equals fifteen, so the scale still balances perfectly. Our answer is right.",
+    "math": "7 + 8 = 15 \\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "7 + 8",
+      "15"
+     ],
+     "caption": "Checking: the scale still balances, so eight is correct"
+    }
+   },
+   {
+    "say": "Let's try one that uses times instead of plus. I have twenty granola bars, and I want to share them equally into four snack bags, one bag for each hiker. I do not know how many go in each bag, so let's call that number g. Four bags, each holding g bars, makes twenty bars: four times g equals twenty.",
+    "math": "4 \\times g = 20",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "Four bags sharing twenty granola bars equally"
+    }
+   },
+   {
+    "say": "To undo times, we share out — that is dividing. Twenty shared into four equal bags gives five bars in each bag, because five and five and five and five makes twenty. So g equals five. Look at the picture: four groups of five dots, twenty dots in all. It works.",
+    "math": "g = 20 \\div 4 = 5",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "Four groups of five equals twenty"
+    }
+   },
+   {
+    "say": "Here is the last piece. On our trip, the group drinks three packets of hot chocolate every single day. Let's build a table and look for the regular change. Day one, three packets. Day two, six. Day three, nine. Day four, twelve. Day five, fifteen. Do you see it? Every extra day adds three more packets. The pattern rule in words is: packets equals days times three.",
+    "math": "\\text{packets} = \\text{days} \\times 3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      3,
+      6,
+      9,
+      12,
+      15
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "Days",
+      "Packets"
+     ],
+     "caption": "Each new day adds three more packets"
+    }
+   },
+   {
+    "say": "Now flip the question around, the way real campers do. I bought twenty-one packets. How many days will they last? Using our rule, three times the number of days equals twenty-one. Call the days d, so three times d equals twenty-one. Undo the times by dividing: twenty-one divided by three is seven. Our hot chocolate lasts seven days. Same idea every time — name the mystery with a letter, then undo the operation to set it free.",
+    "math": "3 \\times d = 21 \\;\\Rightarrow\\; d = 21 \\div 3 = 7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3 × d",
+      "21"
+     ],
+     "caption": "Three times seven is twenty-one, so the scale balances"
+    }
+   }
+  ],
+  "answer": "Give the missing number a letter, then undo what was done to it — subtract to undo adding, divide to undo timesing.",
+  "practice": {
+   "question": "Maya is getting ready for a hike near Squamish. She needs 12 metres of rope in total for her group, and she has already coiled up 5 metres. Write an equation using a letter for the missing rope, then solve it.",
+   "answer": "5 + r = 12, so r = 12 - 5 = 7. Maya needs 7 more metres of rope. (Check: 5 + 7 = 12.)"
+  }
+ }
+}

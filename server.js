@@ -23,7 +23,8 @@ const { spawn } = require("child_process");
 const ROOT = __dirname;
 const DEFAULT_CONFIG = {
   port: 8434,
-  accessCode: "",                 // 设置后，前端需输入同样的访问码才能用（部署到外网时强烈建议设置）
+  accessCode: "",                 // 已弃用：账号系统（注册/登录）取代了访问码，此项不再参与鉴权
+  registrationCode: "",           // 第一位家长注册完注册就自动关了；设了这个邀请码才能再注册新家庭
   provider: "auto",               // auto | ollama | grok | claude | gemini | codex | anthropic | openai
   ollama: { url: "http://localhost:11434", model: "", think: true },
   anthropic: { apiKey: "", model: "claude-opus-5" },
@@ -54,11 +55,17 @@ const DEFAULT_CONFIG = {
 };
 let cfg = DEFAULT_CONFIG;
 try {
-  const userCfg = JSON.parse(fs.readFileSync(path.join(ROOT, "config.json"), "utf8"));
-  cfg = deepMerge(DEFAULT_CONFIG, userCfg);
-} catch (_) { /* 没有 config.json 就用默认 */ }
+  // 去掉 BOM：Windows 记事本「另存为 UTF-8」会加一个，JSON.parse 见了就抛，
+  // 结果整份配置被静默忽略——端口、邀请码、API key 全回默认，语音包也跟着失效。
+  const raw = fs.readFileSync(path.join(ROOT, "config.json"), "utf8").replace(/^\uFEFF/, "");
+  cfg = deepMerge(DEFAULT_CONFIG, JSON.parse(raw));
+} catch (e) {
+  // 文件不存在是正常情况（用默认）；存在却读不动必须吭声，否则就像上面那样悄悄坏掉
+  if (e.code !== "ENOENT") console.log("[config] could not read config.json (" + e.message + ") - falling back to defaults.");
+}
 if (process.env.PORT) cfg.port = Number(process.env.PORT);
 if (process.env.ACCESS_CODE) cfg.accessCode = process.env.ACCESS_CODE;
+if (process.env.REGISTRATION_CODE) cfg.registrationCode = process.env.REGISTRATION_CODE;
 
 function deepMerge(base, over) {
   const out = Array.isArray(base) ? base.slice() : Object.assign({}, base);
@@ -486,6 +493,134 @@ function validateFsaSet(set, gradeData, count) {
   return { title: String(set.title || "FSA"), questions: qs.slice(0, count) };
 }
 
+/* ---------------- 单元测试（P6）----------------
+ * 一个「单元」= 大纲里的一条主线（Number / Patterning…）或教材里的一章（ch01…），
+ * 也就是「跟大纲学」清单里的一个分组。学完一个单元出一张卷收尾。
+ * 和另外两种练习分工不同：
+ *   闯关（P5）= 单个知识点、自适应升降难度、通关标 solid；
+ *   FSA（P4）= 跨主线的全省测评风格，只有 G4/G7 有；
+ *   单元测试 = 覆盖整个单元的章节测验，任何年级、任何教材都能出，用来找「这一章还有哪里没学会」。
+ * 每题挂本单元的 curriculumId + 难度 level，答错能直接转讲解。 */
+const UNIT_TEST_SCHEMA = {
+  type: "object", additionalProperties: false,
+  properties: {
+    title: { type: "string" },
+    questions: {
+      type: "array", items: {
+        type: "object", additionalProperties: false,
+        properties: {
+          curriculumId: { type: "string" },
+          level: { type: "number" },
+          question: { type: "string" },
+          options: { type: "array", items: { type: "string" } },
+          answerIndex: { type: "number" },
+          explain: { type: "string" }
+        }, required: ["curriculumId", "level", "question", "options", "answerIndex", "explain"]
+      }
+    }
+  }, required: ["title", "questions"]
+};
+const UNIT_TEST_HINT = {
+  zh: `
+
+【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。结构：
+{"title":"...","questions":[{"curriculumId":"BC.MATH...","level":1,"question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences:
+{"title":"...","questions":[{"curriculumId":"BC.MATH...","level":1,"question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`
+};
+
+/* 一卷的难度配比：基础 ≈ 3/8、挑战 ≈ 1/4、其余应用。8 题 = 3/3/2 */
+function unitTestMix(count) {
+  const l1 = Math.ceil(count * 0.375);
+  const l3 = Math.max(1, Math.floor(count * 0.25));
+  return { 1: l1, 2: Math.max(1, count - l1 - l3), 3: l3 };
+}
+
+function unitTestPrompt(gradeData, strand, lang, count) {
+  const g = gradeData.grade;
+  const items = (gradeData.items || []).filter(it => it.strand === strand);
+  const def = (gradeData.strandDefs || STRANDS).find(s => s[0] === strand) || ["", strand, strand];
+  const isBook = gradeData.type === "book";
+  const mix = unitTestMix(count);
+  const bookName = (gradeData.title || {});
+  if (lang === "en") {
+    const list = items.map(it => `${it.id} | ${it.en}${(it.elaborations || []).length ? ` — ${it.elaborations.map(e => e.en).join("; ").slice(0, 260)}` : ""}`).join("\n");
+    const who = isBook
+      ? `You are a math teacher writing the end-of-chapter test for "${def[2]}" from the book "${bookName.en || gradeData.bookId}", taken by a Grade ${g} child in BC, Canada.`
+      : `You are a BC math teacher writing an end-of-unit test for the Grade ${g} "${def[2]}" strand.`;
+    return `${who} The child has just finished this ${isBook ? "chapter" : "unit"} and takes the test on a tablet, one question at a time. Write ${count} original multiple-choice questions.
+
+Difficulty mix (put the easy ones first, hardest last): ${mix[1]} at Level 1, ${mix[2]} at Level 2, ${mix[3]} at Level 3.
+- Level 1 (basic): one step, direct use of the idea; checks "did you get it".
+- Level 2 (application): standard textbook difficulty, 1-2 steps, a small real-life context or choosing the right method.
+- Level 3 (challenge): a real-life scenario needing at least two reasoning steps, or a question built around the most common misconception in this ${isBook ? "chapter" : "unit"}.
+
+Iron rules:
+1. Cover the whole ${isBook ? "chapter" : "unit"}: spread the questions across the topics below, ${items.length >= count ? "each topic at most once" : "each topic at least once"}. Tag every question with the single best-matching curriculumId from this list — no other ids.
+2. Exactly 4 options, exactly 1 correct. Distractors must come from real common mistakes (forgot to regroup, mixed up perimeter and area, skipped a unit conversion, added denominators straight across) — never obviously wrong.
+3. answerIndex is the index (0-3) of the correct option. Scatter the correct positions across the paper.
+4. Numbers must be computable by hand and age-appropriate; dollars and metric units; scenes from a BC child's life.
+5. Accuracy first: re-check every question so exactly one option is correct.
+6. explain: one or two sentences — the correct method plus the most common trap. It is shown on the score report, so write it to teach.
+7. title: name the paper after the ${isBook ? "chapter" : "unit"} (e.g., "${def[2]} · Unit Test").
+
+Topics in this ${isBook ? "chapter" : "unit"} (curriculumId | ${isBook ? "section" : "official wording"}):
+${list}`;
+  }
+  const list = items.map(it => `${it.id} | ${it.en} | ${it.zh}${(it.elaborations || []).length ? ` — ${it.elaborations.map(e => e.zh || e.en).join("；").slice(0, 260)}` : ""}`).join("\n");
+  const whoZh = isBook
+    ? `你是数学出题老师，为教材《${bookName.zh || bookName.en || gradeData.bookId}》的「${def[1]}」出一张章末测验；孩子在加拿大 BC 上 Grade ${g}。`
+    : `你是 BC 省的数学出题老师，为 Grade ${g}「${def[1]}」这条主线出一张单元测验。`;
+  return `${whoZh}孩子刚学完这个${isBook ? "章" : "单元"}，在平板上一道一道做。请出 ${count} 道原创选择题。
+
+难度配比（简单的排前面，最难的压轴）：L1 ${mix[1]} 道、L2 ${mix[2]} 道、L3 ${mix[3]} 道。
+- L1 基础：单步、直接套用本单元的概念，检查「听懂了没」。
+- L2 应用：标准课本难度，1-2 步，带简单生活情境或需要自己选方法。
+- L3 挑战：需要至少两步推理的真实情境题，或针对本${isBook ? "章" : "单元"}最常见误区的辨析题。
+
+出题铁律：
+1. 覆盖整个${isBook ? "章" : "单元"}：题目要分散到下面的知识点上，${items.length >= count ? "同一个知识点最多出 1 题" : "每个知识点至少 1 题"}。每题标注一个最贴合的 curriculumId，只能从下面这份清单里选。
+2. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实常见错误（忘了进位、周长面积混淆、单位没换算、分母直接相加），不要一眼假。
+3. answerIndex 是正确选项的下标（0~3），整卷正确答案的位置要打散，别集中在同一个下标。
+4. 数字口算/竖式能算动、适龄；货币用加元、单位用公制，情境用孩子在 BC 的真实生活。
+5. 准确第一：每题出完自己验算一遍，确认有且只有一个选项正确。
+6. explain 一两句话：正确解法 + 最容易踩的坑。成绩单上会逐题展示，要写得能教会人。
+7. title 用${isBook ? "章" : "单元"}名（如「${def[1]} · 单元测试」）。
+8. 题干用中文，关键数学术语可自然带一次英文对照（如「周长（perimeter）」）。
+
+本${isBook ? "章" : "单元"}的知识点清单（curriculumId | ${isBook ? "原书小节" : "官方原文"} | 中文）：
+${list}`;
+}
+
+/* 单元测试校验：题目只认本单元的 curriculumId（挂到别的单元就没法按单元统计了），
+ * level 越界夹回 1~3。答对/答错由服务端按 answerIndex 判，所以下标绝不能错位（教训同 FSA）。 */
+function validateUnitTest(set, gradeData, strand, count) {
+  if (!set || typeof set !== "object") throw new Error("出卷格式不对");
+  const ids = new Set((gradeData.items || []).filter(it => it.strand === strand).map(it => it.id));
+  const qs = (Array.isArray(set.questions) ? set.questions : []).map(q => {
+    if (!q || typeof q !== "object") return null;
+    const options = Array.isArray(q.options) ? q.options.map(o => String(o == null ? "" : o).trim()) : [];
+    const ai = Math.round(Number(q.answerIndex));
+    if (!String(q.question || "").trim() || options.length !== 4 || options.some(o => !o) || !(ai >= 0 && ai <= 3)) return null;
+    const lv = Math.round(Number(q.level));
+    return {
+      curriculumId: ids.has(q.curriculumId) ? q.curriculumId : "",   // 不属于本单元就置空，前端不给「转讲解」按钮
+      level: lv >= 1 && lv <= 3 ? lv : 2,
+      question: String(q.question).trim(),
+      options,
+      answerIndex: ai,
+      explain: String(q.explain || "").trim()
+    };
+  }).filter(Boolean);
+  if (qs.length < Math.max(4, Math.ceil(count * 0.7))) throw new Error("这卷有效题目太少");
+  // 挂不上知识点的题占一半以上 = 这卷没按单元出，重试比将就好
+  if (qs.filter(q => q.curriculumId).length < Math.ceil(qs.length / 2)) throw new Error("这卷没对上本单元的知识点");
+  qs.sort((a, b) => a.level - b.level);   // 简单的排前面，压轴题放最后
+  return { title: String(set.title || "").trim(), questions: qs.slice(0, count) };
+}
+
 /* ---------------- 闯关练习题库（P5）----------------
  * 一个知识点一个题库，孩子看完课一道一道做题，SAT 式做对升难度，通关标 solid。
  * 难度定义、数量、判定规则都定在 docs/qbank-standard.md——改规则先改那里。 */
@@ -655,17 +790,37 @@ function which(bin) {
     path.join(home, "AppData", "Roaming", "npm"),
     "/usr/local/bin", "/opt/homebrew/bin"
   );
-  for (const d of dirs) for (const n of names) {
+  // 名字在外层：先把所有目录扫一遍 .exe，再退而求其次找 .cmd 垫片。
+  // （claude 既有 ~/.local/bin/claude.exe 又有 npm 的 claude.cmd，要的是前者）
+  for (const n of names) for (const d of dirs) {
     const p = path.join(d, n);
-    try { if (fs.existsSync(p) && fs.statSync(p).isFile()) return p; } catch (_) {}
+    try { if (fs.existsSync(p) && fs.statSync(p).isFile()) return resolveShim(p); } catch (_) {}
   }
   return null;
+}
+
+/* Windows：npm 装的全局 CLI 是个 .cmd 垫片，Node 18 起不让直接 spawn（EINVAL），
+ * 而改走 cmd.exe 又会被几 KB 带换行的提示词噎死（命令行 8191 字符上限 + 换行截断）。
+ * 垫片正文里就写着真正的目标（.exe 或 .js），读出来直接用，绕开整个 cmd.exe。 */
+function resolveShim(p) {
+  if (!/\.(cmd|bat)$/i.test(p)) return p;
+  let txt = "";
+  try { txt = fs.readFileSync(p, "utf8"); } catch (_) { return p; }
+  const dir = path.dirname(p);
+  for (const m of txt.matchAll(/"([^"\r\n]*?\.(?:exe|js))"/gi)) {
+    const target = m[1].replace(/%~?dp0%?/gi, dir + path.sep);
+    const abs = path.normalize(path.isAbsolute(target) ? target : path.join(dir, target));
+    try { if (fs.existsSync(abs) && fs.statSync(abs).isFile()) return abs; } catch (_) {}
+  }
+  return p;   // 没读懂就原样交出去，让 runCmd 的报错去解释
 }
 
 function runCmd(bin, args, opts) {
   opts = opts || {};
   return new Promise((resolve, reject) => {
-    const child = spawn(bin, args, {
+    // 垫片解析出来的目标可能是个 .js（有的 CLI 没打包成 exe），那就用当前 node 跑它
+    const isJs = /\.(js|mjs|cjs)$/i.test(bin);
+    const child = spawn(isJs ? process.execPath : bin, isJs ? [bin].concat(args) : args, {
       cwd: opts.cwd || os.tmpdir(),
       env: process.env,
       windowsHide: true
@@ -677,7 +832,13 @@ function runCmd(bin, args, opts) {
     }, opts.timeout || 300000);
     child.stdout.on("data", d => { out += d; });
     child.stderr.on("data", d => { err += d; });
-    child.on("error", e => { clearTimeout(timer); reject(new Error("启动引擎失败：" + e.message)); });
+    child.on("error", e => {
+      clearTimeout(timer);
+      // EINVAL 基本就是在 Windows 上撞到了没解析开的 .cmd 垫片，直说比抛系统错有用
+      const hint = e.code === "EINVAL" && process.platform === "win32"
+        ? "（Windows 不能直接运行 " + path.basename(bin) + " 这种 .cmd 垫片，试试重装这个 CLI，或换一个引擎）" : "";
+      reject(new Error("启动引擎失败：" + e.message + hint));
+    });
     child.on("close", code => {
       clearTimeout(timer);
       if (code !== 0 && !out.trim()) reject(new Error("引擎出错（退出码 " + code + "）：" + err.slice(0, 300)));
@@ -884,13 +1045,19 @@ const ttsInFlight = new Set();     // 已排队/正在合成的 id
 const ttsFailed = new Map();       // id -> 失败时间（TTL 内不重试，前端走兜底）
 let ttsChain = Promise.resolve();  // 单队列：同一时刻只跑一个合成进程，防止模型重复加载挤显存
 
-function ttsAvailable() {
+/* 能不能「现场合成」：CosyVoice 守护进程或命令。随包发的语音包是成品，不算引擎。 */
+function ttsEngineAvailable() {
   const t = cfg.tts;
   if (!t || t.enabled === false) return false;
   if (t.url) return true;   // 守护进程模式；真实可达性在合成时体现，失败会走兜底
   if (!Array.isArray(t.command) || t.command.length < 2) return false;
   const bin = t.command[0];
   return path.isAbsolute(bin) ? fs.existsSync(bin) : !!which(bin);
+}
+/* 前端问的是「有没有自然语音可放」：随包发的语音包也算，哪怕这台机器一个引擎都没有。 */
+function ttsAvailable() {
+  if (cfg.tts && cfg.tts.enabled === false) return false;
+  return ttsEngineAvailable() || voicePack.size > 0;
 }
 function ttsUsesWsl() { return /(^|[\\/])wsl(\.exe)?$/i.test(String(cfg.tts.command[0] || "")); }
 function toWslPath(p) {
@@ -904,6 +1071,23 @@ function ttsId(text, lang) {
   )).digest("hex");
 }
 function ttsWavPath(id) { return path.join(TTS_CACHE, id + ".wav"); }
+
+/* ---------------- 预烘语音包（安装包随附，只读） ----------------
+ * data/voice/<和 ttsId 同一套 sha1>.m4a —— 构建期由 tools/prevoice.mjs 生成。
+ * 和 tts-cache 共用命名，所以两者天然共存：先查现场缓存的 .wav，再查包。
+ * 包是只读的，ttsPruneCache 只清 tts-cache，永远不会把它删掉。
+ * 启动时扫一遍建索引：包随安装包发，跑起来之后不会变。 */
+const VOICE_PACK_DIR = path.join(ROOT, "data", "voice");
+const VOICE_MIME = { ".m4a": "audio/mp4", ".mp3": "audio/mpeg", ".ogg": "audio/ogg", ".wav": "audio/wav" };
+const voicePack = new Map();   // sha1 -> 绝对路径
+try {
+  for (const f of fs.readdirSync(VOICE_PACK_DIR)) {
+    const ext = path.extname(f).toLowerCase();
+    const id = path.basename(f, ext);
+    if (VOICE_MIME[ext] && /^[a-f0-9]{40}$/.test(id) && !voicePack.has(id)) voicePack.set(id, path.join(VOICE_PACK_DIR, f));
+  }
+} catch (_) { /* 没有语音包，全走现场合成 / 浏览器语音 */ }
+function voicePackPath(id) { return voicePack.get(id) || null; }
 
 function ttsSubmit(items) {
   for (const it of items) ttsInFlight.add(it.id);
@@ -930,7 +1114,7 @@ async function ttsRunJob(items) {
   fs.writeFileSync(mf, JSON.stringify(manifest), "utf8");
   const argv = cfg.tts.command.map(a => a === "{manifest}" ? (wsl ? toWslPath(mf) : mf) : a);
   const t0 = Date.now();
-  console.log(`[tts] 合成 ${pend.length} 条…`);
+  console.log(`[tts] synthesizing ${pend.length} clip(s)...`);
   try {
     await runCmd(argv[0], argv.slice(1), { timeout: cfg.tts.timeoutMs || 420000, cwd: ROOT });
   } catch (e) {
@@ -943,7 +1127,7 @@ async function ttsRunJob(items) {
       if (fs.existsSync(ttsWavPath(it.id))) ok++;
       else ttsFailed.set(it.id, Date.now());
     }
-    console.log(`[tts] 完成 ${ok}/${items.length}，用时 ${Math.round((Date.now() - t0) / 1000)}s`);
+    console.log(`[tts] done ${ok}/${items.length} in ${Math.round((Date.now() - t0) / 1000)}s`);
     ttsPruneCache();
   }
 }
@@ -953,7 +1137,7 @@ async function ttsRunJob(items) {
 async function ttsRunJobDaemon(items, pend) {
   const base = cfg.tts.url.replace(/\/$/, "");
   const t0 = Date.now();
-  console.log(`[tts] 守护进程合成 ${pend.length} 条…`);
+  console.log(`[tts] daemon synthesizing ${pend.length} clip(s)...`);
   let consecFail = 0;
   for (const it of pend) {
     if (consecFail >= 2) break;
@@ -979,7 +1163,7 @@ async function ttsRunJobDaemon(items, pend) {
       consecFail = 0;
     } catch (e) {
       consecFail++;
-      console.log(`[tts] ${it.id.slice(0, 8)} 失败: ${e.message}`);
+      console.log(`[tts] ${it.id.slice(0, 8)} failed: ${e.message}`);
     }
   }
   let ok = 0;
@@ -988,7 +1172,7 @@ async function ttsRunJobDaemon(items, pend) {
     if (fs.existsSync(ttsWavPath(it.id))) ok++;
     else ttsFailed.set(it.id, Date.now());
   }
-  console.log(`[tts] 完成 ${ok}/${items.length}，用时 ${Math.round((Date.now() - t0) / 1000)}s`);
+  console.log(`[tts] done ${ok}/${items.length} in ${Math.round((Date.now() - t0) / 1000)}s`);
   ttsPruneCache();
 }
 
@@ -1019,7 +1203,8 @@ function ttsStates(reqItems, defLang) {
     const lang = raw.lang === "en" || raw.lang === "zh" ? raw.lang : defLang;
     const id = ttsId(text, lang);
     let state;
-    if (fs.existsSync(ttsWavPath(id))) state = "ready";
+    if (fs.existsSync(ttsWavPath(id)) || voicePack.has(id)) state = "ready";
+    else if (!ttsEngineAvailable()) state = "failed";   // 只有语音包、没有合成引擎：包外的文本直接兜底，别让前端空等
     else if (ttsInFlight.has(id)) state = "pending";
     else if (ttsFailed.has(id) && now - ttsFailed.get(id) < TTS_FAIL_TTL) state = "failed";
     else { state = "pending"; ttsFailed.delete(id); submit.push({ id, text, lang }); }
@@ -1029,31 +1214,66 @@ function ttsStates(reqItems, defLang) {
   return out;
 }
 
-/* ---------------- 历史记录 ----------------
- * 每讲完一道题自动存一条（含完整讲解 JSON），落盘 history.json。
- * 前端可以翻看、搜索、点开重播、删除。重播不再请求 AI；
- * 语音按文本哈希命中 tts-cache，大概率秒开。图片题不存图片本身（太大），只记个标志。 */
-const HISTORY_FILE = path.join(ROOT, "history.json");
+/* ---------------- 按孩子分桶的学习数据 ----------------
+ * 每个孩子一个目录 data/kids/<kidId>/，四个 JSON 各司其职：
+ *   history.json   讲过的课（完整讲解 JSON，可重播）      上限 500
+ *   progress.json  知识点进度（taught/right/wrong/solid…）
+ *   fsa-sets.json  FSA 模拟卷 + 每次成绩                   上限 100
+ *   reports.json   家长生成的完整学习报告                   上限 50
+ * qbank.json（闯关题库）仍是全局共享：题按知识点缓存，多孩子复用省 LLM 费用。
+ * 全部沿用原子写（.tmp + rename）。旧版根目录的三个单例文件在创建第一个孩子时自动迁入。 */
+const KIDS_DIR = path.join(ROOT, "data", "kids");
 const HISTORY_MAX = 500;
-let history = [];
-try {
-  const h = JSON.parse(fs.readFileSync(HISTORY_FILE, "utf8"));
-  if (Array.isArray(h)) history = h;
-} catch (_) { /* 还没有记录 */ }
+const FSA_SETS_MAX = 100;
+const UNIT_TESTS_MAX = 100;
+const REPORTS_MAX = 50;
+const KID_FILES = { history: [], progress: {}, fsaSets: [], unitTests: [], reports: [] };
+const KID_FILE_NAMES = { history: "history.json", progress: "progress.json", fsaSets: "fsa-sets.json", unitTests: "unit-tests.json", reports: "reports.json" };
+const kidData = new Map();   // kidId -> { history:[], progress:{}, fsaSets:[], unitTests:[], reports:[] }
 
-function historySave() {
+function kidDir(kidId) { return path.join(KIDS_DIR, String(kidId)); }
+
+function kidLoad(kidId) {
+  const bucket = {};
+  for (const [key, empty] of Object.entries(KID_FILES)) {
+    let v = Array.isArray(empty) ? [] : {};
+    try {
+      const raw = JSON.parse(fs.readFileSync(path.join(kidDir(kidId), KID_FILE_NAMES[key]), "utf8"));
+      if (Array.isArray(empty) ? Array.isArray(raw) : (raw && typeof raw === "object" && !Array.isArray(raw))) v = raw;
+    } catch (_) { /* 该文件还没有数据 */ }
+    bucket[key] = v;
+  }
+  kidData.set(String(kidId), bucket);
+  return bucket;
+}
+try {
+  for (const d of fs.readdirSync(KIDS_DIR)) {
+    if (d.startsWith("_") || !fs.statSync(path.join(KIDS_DIR, d)).isDirectory()) continue;
+    kidLoad(d);
+  }
+} catch (_) { /* 还没有孩子目录 */ }
+
+/* 孩子的数据桶；账号存在但目录还没建（或被手工删了）时给空桶，首次写入落盘 */
+function kd(kidId) { return kidData.get(String(kidId)) || kidLoad(kidId); }
+
+function kidSave(kidId, key) {
   try {
-    const tmp = HISTORY_FILE + ".tmp";
-    fs.writeFileSync(tmp, JSON.stringify(history), "utf8");
-    fs.renameSync(tmp, HISTORY_FILE);
-  } catch (e) { console.log("[history] 保存失败：" + e.message); }
+    fs.mkdirSync(kidDir(kidId), { recursive: true });
+    const f = path.join(kidDir(kidId), KID_FILE_NAMES[key]);
+    const tmp = f + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(kd(kidId)[key]), "utf8");
+    fs.renameSync(tmp, f);
+  } catch (e) { console.log(`[kid:${kidId}] could not save ${KID_FILE_NAMES[key]}: ` + e.message); }
 }
 
-function historyAdd(rec) {
-  rec.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-  history.unshift(rec);
-  if (history.length > HISTORY_MAX) history.length = HISTORY_MAX;
-  historySave();
+function newRecId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+
+function historyAdd(kidId, rec) {
+  rec.id = newRecId();
+  const h = kd(kidId).history;
+  h.unshift(rec);
+  if (h.length > HISTORY_MAX) h.length = HISTORY_MAX;
+  kidSave(kidId, "history");
 }
 
 function historySummary(r) {
@@ -1090,7 +1310,7 @@ try {
     if (!m) continue;
     try {
       curriculum.set(Number(m[1]), JSON.parse(fs.readFileSync(path.join(CURRICULUM_DIR, f), "utf8")));
-    } catch (e) { console.log(`[curriculum] ${f} 解析失败：${e.message}`); }
+    } catch (e) { console.log(`[curriculum] ${f} failed to parse: ${e.message}`); }
   }
 } catch (_) { /* 没有大纲数据也能跑，「跟大纲学」入口自动隐藏 */ }
 
@@ -1104,7 +1324,7 @@ try {
     try {
       const d = JSON.parse(fs.readFileSync(path.join(BOOKS_DIR, f), "utf8"));
       if (d && d.type === "book" && Array.isArray(d.items)) curriculum.set(String(d.bookId || f.replace(/\.json$/, "")), d);
-    } catch (e) { console.log(`[curriculum] books/${f} 解析失败：${e.message}`); }
+    } catch (e) { console.log(`[curriculum] books/${f} failed to parse: ${e.message}`); }
   }
 } catch (_) { /* 没有书籍数据也能跑 */ }
 function curriculumGrades() { return [...curriculum.keys()].filter(k => typeof k === "number").sort((a, b) => a - b); }
@@ -1126,6 +1346,62 @@ function findCurriculumItem(id) {
     if (item) return { item, data: d };
   }
   return null;
+}
+
+/* ---------------- 预生成课程包（安装包随附） ----------------
+ * data/lessons/<lang>/<条目id>.json = { lesson, provider, model, at }
+ * 构建期由 tools/pregen.mjs 生成。teach 模式命中就直接返回：装完机器上没有
+ * 任何 AI 引擎，「跟大纲学」照样能上课，而且秒开、不花钱、断网也行。
+ * 想听不一样的讲法就传 fresh=true 现场重讲——那条路才需要引擎。 */
+const LESSON_PACK_DIR = path.join(ROOT, "data", "lessons");
+const lessonPackMemo = new Map();          // "<lang>/<id>" -> lesson | null（没有的也记，免得反复读盘）
+function lessonPackGet(id, lang) {
+  if (!id || (lang !== "zh" && lang !== "en")) return null;
+  if (!/^[A-Za-z0-9._-]+$/.test(id)) return null;    // 条目 id 直接拼路径，先挡穿越
+  const key = lang + "/" + id;
+  if (lessonPackMemo.has(key)) return lessonPackMemo.get(key);
+  let lesson = null;
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(LESSON_PACK_DIR, lang, id + ".json"), "utf8"));
+    lesson = validateLesson(raw && raw.lesson ? raw.lesson : raw);
+  } catch (_) { lesson = null; }
+  lessonPackMemo.set(key, lesson);
+  return lesson;
+}
+function lessonPackCount() {
+  let n = 0;
+  for (const lang of ["zh", "en"]) {
+    try { n += fs.readdirSync(path.join(LESSON_PACK_DIR, lang)).filter(f => f.endsWith(".json")).length; } catch (_) {}
+  }
+  return n;
+}
+
+/* 单元测试也随包发：内容只由（年级/教材, 单元, 语言）决定，和课程包一个道理。
+ * 差别是卷子要按孩子存（各自的作答记录），所以命中之后仍然给每个孩子发一份副本。
+ * data/unit-tests/<lang>/<年级或书id>-<单元>.json */
+const UNIT_PACK_DIR = path.join(ROOT, "data", "unit-tests");
+const unitPackMemo = new Map();
+function unitPackGet(gradeKey, strand, lang) {
+  if (!strand || (lang !== "zh" && lang !== "en")) return null;
+  const stem = String(gradeKey) + "-" + strand;
+  if (!/^[A-Za-z0-9._-]+$/.test(stem)) return null;
+  const key = lang + "/" + stem;
+  if (unitPackMemo.has(key)) return unitPackMemo.get(key);
+  let set = null;
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(UNIT_PACK_DIR, lang, stem + ".json"), "utf8"));
+    const qs = (raw && raw.set && raw.set.questions) || (raw && raw.questions);
+    if (Array.isArray(qs) && qs.length) set = { title: String((raw.set || raw).title || ""), questions: qs };
+  } catch (_) { set = null; }
+  unitPackMemo.set(key, set);
+  return set;
+}
+function unitPackCount() {
+  let n = 0;
+  for (const lang of ["zh", "en"]) {
+    try { n += fs.readdirSync(path.join(UNIT_PACK_DIR, lang)).filter(f => f.endsWith(".json")).length; } catch (_) {}
+  }
+  return n;
 }
 
 /* 全年级共享术语表（terms.json）：讲课提示词和家长报告都从这里取中英对照 */
@@ -1154,41 +1430,28 @@ function itemTerms(item) {
   return own.concat(extra).slice(0, 10);
 }
 
-const PROGRESS_FILE = path.join(ROOT, "progress.json");
-let progress = {};   // curriculumId -> { taught, right, wrong, lastAt, solid, quizPassedAt, rightDays[], lessonIds[] }
-try {
-  const p = JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
-  if (p && typeof p === "object" && !Array.isArray(p)) progress = p;
-} catch (_) { /* 还没有进度 */ }
-
-function progressSave() {
-  try {
-    const tmp = PROGRESS_FILE + ".tmp";
-    fs.writeFileSync(tmp, JSON.stringify(progress), "utf8");
-    fs.renameSync(tmp, PROGRESS_FILE);
-  } catch (e) { console.log("[progress] 保存失败：" + e.message); }
-}
 function dayKey(ts) {
   const d = new Date(ts);
   return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 }
 /* 三态：new（没学过）/ seen（讲过）/ solid（扎实），由下面的四级直接降维。
  * solid = 闯关通关（docs/qbank-standard.md §5），或不同日期答对 ≥2 次，或家长手动标记 */
-function progressStatus(id) {
-  const lv = progressLevel(id);
+function progressStatus(kidId, id) {
+  const lv = progressLevel(kidId, id);
   return lv === "emerging" ? "new" : lv === "developing" ? "seen" : "solid";
 }
 /* BC 官方四级话术（2023 年起成绩单同款）：Emerging / Developing / Proficient / Extending。
  * 映射：new→emerging，seen→developing，solid→proficient；不同日期答对 ≥3 次→extending（solid+） */
-function progressLevel(id) {
-  const e = progress[id];
+function progressLevel(kidId, id) {
+  const e = kd(kidId).progress[id];
   if (!e) return "emerging";
   const days = (e.rightDays || []).length;
   if (days >= 3) return "extending";
   if (e.solid || e.quizPassedAt || days >= 2) return "proficient";
   return (e.taught || e.right || e.wrong) ? "developing" : "emerging";
 }
-function progressRecord(id, event, lessonId) {
+function progressRecord(kidId, id, event, lessonId) {
+  const progress = kd(kidId).progress;
   const e = progress[id] || (progress[id] = { taught: 0, right: 0, wrong: 0, lastAt: 0, solid: false, rightDays: [], lessonIds: [] });
   const now = Date.now();
   if (event === "taught") {
@@ -1210,9 +1473,15 @@ function progressRecord(id, event, lessonId) {
   else if (event === "unmark-solid") e.solid = false;
   else return null;
   e.lastAt = now;
-  progressSave();
+  kidSave(kidId, "progress");
   return e;
 }
+/* 只有家长能做的进度事件（孩子的自报对错等其余事件全员可用） */
+const PARENT_ONLY_EVENTS = new Set(["mark-solid", "unmark-solid"]);
+/* 只由服务端内部流程写的事件，不接受从 /api/progress 提交：
+ * taught 由 /api/lesson 生成讲解时记，quiz-* 由 /api/quiz/finish 按题库结算记。
+ * 放开的话孩子发一条 quiz-pass 就能把知识点直接标成 solid——题都不用看见。 */
+const INTERNAL_EVENTS = new Set(["taught", "quiz-right", "quiz-wrong", "quiz-pass"]);
 
 /* 大纲条目按主线分组（/api/curriculum 与 /api/report 共用），mapItem 决定每条带哪些字段。
  * BC 用固定五大主线（STRANDS）；书籍数据自带 strandDefs（章节列表），格式相同 [slug, 中文名, 英文名] */
@@ -1226,34 +1495,38 @@ function strandGroups(d, mapItem) {
     }));
 }
 
-/* ---------------- FSA 卷持久化 ----------------
- * 出一卷要跑一次 AI（约 2 分钟），所以生成一次就永久保存（fsa-sets.json），
+/* ---------------- FSA 卷持久化（按孩子，存 data/kids/<id>/fsa-sets.json） ----------------
+ * 出一卷要跑一次 AI（约 2 分钟），所以生成一次就永久保存，
  * 之后直接打开做，不再重新出题；每次作答记一条成绩（attempts）。 */
-const FSA_SETS_FILE = path.join(ROOT, "fsa-sets.json");
-const FSA_SETS_MAX = 100;
-let fsaSets = [];
-try {
-  const s = JSON.parse(fs.readFileSync(FSA_SETS_FILE, "utf8"));
-  if (Array.isArray(s)) fsaSets = s;
-} catch (_) { /* 还没有卷子 */ }
-
-function fsaSetsSave() {
-  try {
-    const tmp = FSA_SETS_FILE + ".tmp";
-    fs.writeFileSync(tmp, JSON.stringify(fsaSets), "utf8");
-    fs.renameSync(tmp, FSA_SETS_FILE);
-  } catch (e) { console.log("[fsa] 保存失败：" + e.message); }
-}
-function fsaSetsAdd(rec) {
-  rec.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-  fsaSets.unshift(rec);
-  if (fsaSets.length > FSA_SETS_MAX) fsaSets.length = FSA_SETS_MAX;
-  fsaSetsSave();
+function fsaSetsAdd(kidId, rec) {
+  rec.id = newRecId();
+  const sets = kd(kidId).fsaSets;
+  sets.unshift(rec);
+  if (sets.length > FSA_SETS_MAX) sets.length = FSA_SETS_MAX;
+  kidSave(kidId, "fsaSets");
 }
 function fsaSetSummary(r) {
   return {
     id: r.id, time: r.time, grade: r.grade, strand: r.strand || "", lang: r.lang || "zh",
     title: r.title || "FSA", count: (r.questions || []).length,
+    last: (r.attempts || [])[0] || null
+  };
+}
+
+/* ---------------- 单元测试卷持久化（P6，data/kids/<id>/unit-tests.json） ----------------
+ * 同 FSA：出一卷要跑一次 AI，生成后永久保存，之后点开直接做。
+ * grade 这里是课程源的 key（数字年级或 bookId），配 strand 一起才能定位到「哪本书的哪一章」。 */
+function unitTestsAdd(kidId, rec) {
+  rec.id = newRecId();
+  const list = kd(kidId).unitTests;
+  list.unshift(rec);
+  if (list.length > UNIT_TESTS_MAX) list.length = UNIT_TESTS_MAX;
+  kidSave(kidId, "unitTests");
+}
+function unitTestSummary(r) {
+  return {
+    id: r.id, time: r.time, grade: String(r.grade), strand: r.strand || "", lang: r.lang || "zh",
+    title: r.title || "", count: (r.questions || []).length,
     last: (r.attempts || [])[0] || null
   };
 }
@@ -1273,7 +1546,7 @@ function qbankSave() {
     const tmp = QBANK_FILE + ".tmp";
     fs.writeFileSync(tmp, JSON.stringify(qbank), "utf8");
     fs.renameSync(tmp, QBANK_FILE);
-  } catch (e) { console.log("[quiz] 保存失败：" + e.message); }
+  } catch (e) { console.log("[quiz] could not save qbank.json: " + e.message); }
 }
 const qbankKey = (id, lang) => id + "|" + lang;
 
@@ -1291,6 +1564,14 @@ function qbankMerge(bank, batch) {
 }
 
 /* 开练前保证每级有足够没做过的题；不足就让 AI 补（初次 = 三级各 4 道一次生成） */
+/* 题库够不够直接开一局：三级都有题就够（做过的按最久没做过复用，见 quizSession）。
+ * 随包发的题库靠这个让没装引擎的人也能闯关；装了引擎的照旧自动补新题。 */
+function qbankPlayable(itemId, lang) {
+  const bank = qbank[qbankKey(itemId, lang)];
+  if (!bank || !Array.isArray(bank.questions)) return null;
+  return [1, 2, 3].every(lv => bank.questions.some(q => q.level === lv)) ? bank : null;
+}
+
 async function ensureQuizBank(item, gradeData, lang, providerId) {
   const key = qbankKey(item.id, lang);
   const bank = qbank[key] || (qbank[key] = { questions: [] });
@@ -1343,6 +1624,331 @@ function quizSession(bank) {
   return out.map(q => ({ qid: q.qid, level: q.level, question: q.question, options: q.options, answerIndex: q.answerIndex, explain: q.explain }));
 }
 
+/* ---------------- 账号与会话 ----------------
+ * 家长自助注册（可选邀请码），孩子由家长创建（名字 + 4-6 位 PIN），不需要邮箱。
+ * 登录发随机 token（x-session 头），60 天滑动过期，落盘 data/sessions.json 重启不掉线。
+ * 密码/PIN 用 scrypt + 每用户随机盐存储；登录失败限速防孩子暴力试家长密码。 */
+const USERS_FILE = path.join(ROOT, "data", "users.json");
+const SESSIONS_FILE = path.join(ROOT, "data", "sessions.json");
+const SESSION_TTL = 60 * 24 * 3600 * 1000;
+const SESSIONS_MAX = 200;
+
+let users = [];      // {id, role:"parent"|"kid", name, username?, salt, hash, familyId, createdAt}
+let sessions = {};   // token -> {userId, createdAt, expiresAt}
+try {
+  const u = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
+  if (Array.isArray(u)) users = u;
+} catch (_) { /* 还没有账号：前端走注册向导 */ }
+try {
+  const s = JSON.parse(fs.readFileSync(SESSIONS_FILE, "utf8"));
+  if (s && typeof s === "object" && !Array.isArray(s)) {
+    const now = Date.now();
+    for (const [k, v] of Object.entries(s)) if (v && v.expiresAt > now) sessions[k] = v;
+  }
+} catch (_) { /* 还没有会话 */ }
+
+/* 账号是唯一不能「存不下也算成功」的数据：注册返回了 token 却没落盘的话，
+ * 家长当场能用，服务器一重启就登不进来了——而孩子还挂在那个再也没人认领的 familyId 上。
+ * 所以这里失败就抛，由 usersCommit 回滚内存、让请求 500。 */
+function usersSave() {
+  fs.mkdirSync(path.dirname(USERS_FILE), { recursive: true });
+  const tmp = USERS_FILE + ".tmp";
+  fs.writeFileSync(tmp, JSON.stringify(users), "utf8");
+  fs.renameSync(tmp, USERS_FILE);
+}
+/* 改内存 + 落盘的唯一入口。mutate() 里做改动，可以返回一个撤销函数
+ * （改对象字段用；增删账号靠整表快照就能兜住）。落盘失败 = 内存回到改之前 + 抛错。 */
+function usersCommit(mutate) {
+  const before = users.slice();
+  const undo = mutate();
+  try { usersSave(); }
+  catch (e) {
+    users = before;
+    if (typeof undo === "function") undo();
+    console.log("[users] save failed, in-memory change rolled back: " + e.message);
+    throw new Error("账号没能存进磁盘，检查服务器的磁盘空间和写权限 / Couldn't save the account — check server disk space and write permissions");
+  }
+}
+function sessionsSave() {
+  try {
+    fs.mkdirSync(path.dirname(SESSIONS_FILE), { recursive: true });
+    const tmp = SESSIONS_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(sessions), "utf8");
+    fs.renameSync(tmp, SESSIONS_FILE);
+  } catch (e) { console.log("[sessions] could not save: " + e.message); }
+}
+
+function hashSecret(secret, salt) { return crypto.scryptSync(String(secret), salt, 32).toString("hex"); }
+function makeCred(secret) {
+  const salt = crypto.randomBytes(16).toString("hex");
+  return { salt, hash: hashSecret(secret, salt) };
+}
+function checkCred(user, secret) {
+  try { return crypto.timingSafeEqual(Buffer.from(user.hash, "hex"), Buffer.from(hashSecret(secret, user.salt), "hex")); }
+  catch (_) { return false; }
+}
+function userById(id) { return users.find(u => u.id === id); }
+function familyKids(familyId) { return users.filter(u => u.role === "kid" && u.familyId === familyId); }
+function publicUser(u) { return { id: u.id, role: u.role, name: u.name }; }
+
+function sessionCreate(userId) {
+  const token = crypto.randomBytes(24).toString("hex");
+  sessions[token] = { userId, createdAt: Date.now(), expiresAt: Date.now() + SESSION_TTL };
+  const keys = Object.keys(sessions);
+  if (keys.length > SESSIONS_MAX) {
+    keys.sort((a, b) => sessions[a].expiresAt - sessions[b].expiresAt);
+    for (const k of keys.slice(0, keys.length - SESSIONS_MAX)) delete sessions[k];
+  }
+  sessionsSave();
+  return token;
+}
+function sessionDestroy(token) { if (sessions[token]) { delete sessions[token]; sessionsSave(); } }
+function sessionsDropUser(userId) {
+  let n = 0;
+  for (const [k, v] of Object.entries(sessions)) if (v.userId === userId) { delete sessions[k]; n++; }
+  if (n) sessionsSave();
+}
+
+/* 请求 -> {user, role:"parent"|"student"} 或 null。60 天滑动续期（攒满一天才落盘一次） */
+function auth(req) {
+  const tok = String(req.headers["x-session"] || "");
+  const s = tok && sessions[tok];
+  if (!s || s.expiresAt < Date.now()) return null;
+  const u = userById(s.userId);
+  if (!u) return null;
+  const exp = Date.now() + SESSION_TTL;
+  if (exp - s.expiresAt > 24 * 3600 * 1000) { s.expiresAt = exp; sessionsSave(); } else s.expiresAt = exp;
+  return { user: u, role: u.role === "parent" ? "parent" : "student" };
+}
+
+/* 路由门卫：没登录 401、学生碰家长端点 403；通过返回 {user, role}（UI 隐藏只是体验，这里才是边界） */
+function allow(req, res, minRole) {
+  const a = auth(req);
+  if (!a) { send(res, 401, { error: "请先登录 / Please sign in", authRequired: true }); return null; }
+  if (minRole === "parent" && a.role !== "parent") {
+    send(res, 403, { error: "需要家长权限 / Parent access required", parentRequired: true });
+    return null;
+  }
+  return a;
+}
+
+/* 登录/注册失败限速：同 IP+账号 60 秒内错 5 次 → 锁 30 秒（429） */
+const authFails = new Map();
+function rateKey(req, who) { return (req.socket.remoteAddress || "?") + "|" + String(who || "").toLowerCase(); }
+function rateLocked(key) { const e = authFails.get(key); return !!(e && e.until > Date.now()); }
+function rateFail(key) {
+  const now = Date.now();
+  const e = authFails.get(key) || { times: [], until: 0 };
+  e.times = e.times.filter(ts => now - ts < 60000);
+  e.times.push(now);
+  if (e.times.length >= 5) { e.until = now + 30000; e.times = []; }
+  authFails.set(key, e);
+}
+function rateClear(key) { authFails.delete(key); }
+const RATE_MSG = { error: "试太多次啦，休息 30 秒再试 / Too many attempts — wait 30 seconds", rateLimited: true };
+
+/* 旧版单用户数据无损接管：创建第一个孩子时把根目录三个单例文件搬进 TA 的目录 */
+function migrateLegacyData(kidId) {
+  let moved = 0;
+  fs.mkdirSync(kidDir(kidId), { recursive: true });
+  for (const f of ["history.json", "progress.json", "fsa-sets.json"]) {
+    const src = path.join(ROOT, f);
+    try {
+      if (fs.existsSync(src)) { fs.renameSync(src, path.join(kidDir(kidId), f)); moved++; }
+    } catch (e) { console.log(`[migrate] ${f} failed to move: ` + e.message); }
+  }
+  if (moved) {
+    kidLoad(kidId);
+    console.log(`[migrate] moved ${moved} legacy file(s) from the project root into data/kids/${kidId}/`);
+  }
+}
+
+/* 孩子上下文：学生 = 只能是自己；家长 = ?kid=/body.kid 指定（必须同家庭），只有一个孩子时可省略 */
+function resolveKid(a, kidRaw) {
+  if (a.role === "student") return String(a.user.id);
+  const kids = familyKids(a.user.familyId);
+  const want = String(kidRaw || "");
+  if (want) { const k = kids.find(u => u.id === want); return k ? k.id : null; }
+  return kids.length === 1 ? kids[0].id : null;
+}
+const NEED_KID_MSG = { error: "请指定要查看的孩子 / Please pick which child", kidRequired: true };
+
+/* ---------------- 完整学生报告（家长专属） ----------------
+ * 两层设计防 LLM 编数字：服务端先确定性算出事实摘要 digest（总量、四级分布、
+ * 各主线对错、薄弱点、近 14 天动态、FSA 成绩），LLM 只负责基于 digest 写叙事；
+ * 最终报告 = 叙事 + digest 数据附录（附录由前端直接渲染事实数字，不经 LLM）。 */
+const REPORT_SCHEMA = {
+  type: "object", additionalProperties: false,
+  properties: {
+    title: { type: "string" },
+    overall: { type: "string" },
+    strandComments: {
+      type: "array", items: {
+        type: "object", additionalProperties: false,
+        properties: { strand: { type: "string" }, comment: { type: "string" } },
+        required: ["strand", "comment"]
+      }
+    },
+    highlights: { type: "array", items: { type: "string" } },
+    weakSpots: {
+      type: "array", items: {
+        type: "object", additionalProperties: false,
+        properties: { topic: { type: "string" }, why: { type: "string" }, practice: { type: "string" } },
+        required: ["topic", "why", "practice"]
+      }
+    },
+    parentTips: { type: "array", items: { type: "string" } },
+    nextSteps: { type: "array", items: { type: "string" } }
+  },
+  required: ["title", "overall", "strandComments", "highlights", "weakSpots", "parentTips", "nextSteps"]
+};
+const REPORT_HINT = {
+  zh: `
+
+【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。结构：
+{"title":"...","overall":"...","strandComments":[{"strand":"...","comment":"..."}],"highlights":["..."],"weakSpots":[{"topic":"...","why":"...","practice":"..."}],"parentTips":["..."],"nextSteps":["..."]}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences:
+{"title":"...","overall":"...","strandComments":[{"strand":"...","comment":"..."}],"highlights":["..."],"weakSpots":[{"topic":"...","why":"...","practice":"..."}],"parentTips":["..."],"nextSteps":["..."]}`
+};
+
+function reportPrompt(kidName, lang) {
+  if (lang === "en") return `You are "Ms. Yuanyuan", an experienced BC elementary math teacher. Using ONLY the real learning data (JSON) provided, write a complete math progress report about ${kidName ? `the child "${kidName}"` : "the child"} for their parents.
+
+Iron rules:
+1. Ground every statement in the data. Never invent numbers or facts that are not in the data; any number you quote must match it.
+2. Professional, warm and specific — like a teacher speaking with parents at a conference. Affirm effort generously; make every concern actionable.
+3. Describe mastery using BC report-card language: Emerging / Developing / Proficient / Extending.
+4. weakSpots: pick only from the data's weakSpots list; "practice" is one concrete 5-10 minute at-home exercise. nextSteps: prefer topics from the data's notYet list.
+5. In the data, right/wrong are practice answer counts; recent14 is the last 14 days of activity; fsaRecent are FSA practice-set scores; unitRecent are end-of-unit test scores (quote them by unit when commenting on that strand).
+
+Fields: title (report title with the child's name and scope); overall (one paragraph, 4-6 sentences); strandComments (one per strand in the data: {strand: strand name, comment: 2-4 sentences}); highlights (2-4 bright spots); weakSpots (at most 4: {topic, why, practice}); parentTips (2-3 suggestions for parents); nextSteps (2-4 topics to learn next).`;
+  return `你是「圆圆老师」，一位经验丰富的 BC 省小学数学老师。请只根据下面提供的真实学习数据（JSON），给家长写一份关于${kidName ? `孩子「${kidName}」` : "孩子"}的完整数学学习报告。
+
+铁律：
+1. 只根据数据说话：禁止编造数据里没有的数字或事实，引用的每个数字都必须和数据一致。
+2. 语气专业、温暖、具体，像家长会上老师面对面交流；多肯定孩子的努力，问题要给出可操作的建议。
+3. 用 BC 成绩单四级话术描述掌握程度：Emerging（起步）/ Developing（发展中）/ Proficient（扎实）/ Extending（拓展）。
+4. weakSpots 只能从数据的 weakSpots 列表里选，practice 给一条在家 5-10 分钟能完成的具体练习；nextSteps 优先从数据的 notYet 列表里挑。
+5. 数据里 right/wrong 是练习答对/答错次数；recent14 是近 14 天动态；fsaRecent 是 FSA 模拟卷成绩；unitRecent 是单元测试成绩（评价对应主线时把这个分数说出来）。
+
+字段：title 报告标题（带孩子名字和课程范围）；overall 总评一段话（4-6 句）；strandComments 数据里每个主线一条 {strand: 主线名, comment: 2-4 句评语}；highlights 亮点 2-4 条；weakSpots 最多 4 条 {topic, why, practice}；parentTips 给家长的建议 2-3 条；nextSteps 接下来学什么 2-4 条。`;
+}
+
+/* 事实摘要：全部由内存数据确定性计算，一个数字都不让 LLM 猜 */
+function buildReportDigest(kidId, gradeKey) {
+  const d = curriculum.get(gradeKey);
+  if (!d) return null;
+  const bucket = kd(kidId);
+  const progress = bucket.progress;
+  const now = Date.now(), win = 14 * 24 * 3600 * 1000;
+  const levels = { emerging: 0, developing: 0, proficient: 0, extending: 0 };
+  const strands = strandGroups(d, it => {
+    const e = progress[it.id];
+    const lv = progressLevel(kidId, it.id);
+    levels[lv]++;
+    return {
+      id: it.id, en: it.en, zh: it.zh, level: lv,
+      taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0, lastAt: e ? e.lastAt : 0
+    };
+  }).map(sg => ({
+    strand: sg.strand, zhName: sg.zhName, enName: sg.enName,
+    total: sg.items.length,
+    seen: sg.items.filter(i => i.level !== "emerging").length,
+    solid: sg.items.filter(i => i.level === "proficient" || i.level === "extending").length,
+    right: sg.items.reduce((s, i) => s + i.right, 0),
+    wrong: sg.items.reduce((s, i) => s + i.wrong, 0),
+    items: sg.items
+  }));
+  const allItems = strands.flatMap(sg => sg.items);
+  const weakSpots = allItems
+    .filter(it => it.wrong > 0 && (it.wrong >= it.right || it.level === "developing"))
+    .sort((a, b) => (b.wrong - b.right) - (a.wrong - a.right) || b.wrong - a.wrong)
+    .slice(0, 5)
+    .map(it => ({ id: it.id, en: it.en, zh: it.zh, right: it.right, wrong: it.wrong, level: it.level }));
+  const notYet = allItems.filter(it => it.level === "emerging").slice(0, 8).map(it => ({ id: it.id, en: it.en, zh: it.zh }));
+  const idSet = new Set(allItems.map(it => it.id));
+  const recentLessons = bucket.history.filter(h => now - h.time < win);
+  const fsaRecent = [];
+  for (const s of bucket.fsaSets) for (const at of (s.attempts || []))
+    fsaRecent.push({ time: at.time, right: at.right, total: at.total, title: s.title || "FSA" });
+  fsaRecent.sort((a, b) => b.time - a.time);
+  // 单元测试成绩：只算当前课程源的（换年级/换书不串数据），按单元报给报告
+  const unitRecent = [];
+  for (const s of bucket.unitTests) {
+    if (String(s.grade) !== String(gradeKey)) continue;
+    const un = s.unitName || {};
+    for (const at of (s.attempts || []))
+      unitRecent.push({ time: at.time, right: at.right, total: at.total, unit: un.zh || un.en || s.strand || "" });
+  }
+  unitRecent.sort((a, b) => b.time - a.time);
+  const activeDays = new Set();
+  let itemsTouched = 0, quizPassed = 0;
+  for (const [id, e] of Object.entries(progress)) {
+    if (!idSet.has(id)) continue;   // 只统计当前课程源（换年级/换书不串数据）
+    if (e.lastAt && now - e.lastAt < win) itemsTouched++;
+    if (e.quizPassedAt && now - e.quizPassedAt < win) quizPassed++;
+    for (const day of (e.rightDays || [])) {
+      const ts = new Date(day + "T00:00:00").getTime();
+      if (isFinite(ts) && now - ts < win) activeDays.add(day);
+    }
+  }
+  return {
+    generatedAt: now,
+    source: d.type === "book"
+      ? { kind: "book", title: (d.title || {}).zh || (d.title || {}).en || String(gradeKey), grade: d.grade || 0 }
+      : { kind: "bc", grade: d.grade },
+    totals: {
+      total: allItems.length,
+      seen: allItems.filter(i => i.level !== "emerging").length,
+      solid: allItems.filter(i => i.level === "proficient" || i.level === "extending").length,
+      levels
+    },
+    strands: strands.map(({ items, ...rest }) => rest),
+    weakSpots, notYet,
+    recent14: {
+      lessonsTeach: recentLessons.filter(h => h.mode === "teach").length,
+      lessonsSolve: recentLessons.filter(h => h.mode !== "teach").length,
+      itemsTouched, quizPassed, activeDays: activeDays.size
+    },
+    fsaRecent: fsaRecent.slice(0, 8),
+    unitRecent: unitRecent.slice(0, 8)
+  };
+}
+
+function validateFullReport(r) {
+  if (!r || typeof r !== "object") throw new Error("报告格式不对");
+  const s = v => String(v == null ? "" : v).trim();
+  const arrS = (a, n) => (Array.isArray(a) ? a : []).map(s).filter(Boolean).slice(0, n);
+  const out = {
+    title: s(r.title),
+    overall: s(r.overall),
+    strandComments: (Array.isArray(r.strandComments) ? r.strandComments : [])
+      .map(x => (x && typeof x === "object") ? { strand: s(x.strand), comment: s(x.comment) } : null)
+      .filter(x => x && x.comment).slice(0, 8),
+    highlights: arrS(r.highlights, 4),
+    weakSpots: (Array.isArray(r.weakSpots) ? r.weakSpots : [])
+      .map(x => (x && typeof x === "object") ? { topic: s(x.topic), why: s(x.why), practice: s(x.practice) } : null)
+      .filter(x => x && x.topic).slice(0, 4),
+    parentTips: arrS(r.parentTips, 3),
+    nextSteps: arrS(r.nextSteps, 4)
+  };
+  if (!out.overall) throw new Error("报告缺少总评");
+  return out;
+}
+
+function reportsAdd(kidId, rec) {
+  rec.id = newRecId();
+  const list = kd(kidId).reports;
+  list.unshift(rec);
+  if (list.length > REPORTS_MAX) list.length = REPORTS_MAX;
+  kidSave(kidId, "reports");
+}
+function reportSummary(r) {
+  return { id: r.id, time: r.time, grade: r.grade, lang: r.lang || "zh", provider: r.provider || "", title: (r.content && r.content.title) || "" };
+}
+
 /* ---------------- HTTP 服务器 ---------------- */
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".woff2": "font/woff2" };
 
@@ -1350,11 +1956,6 @@ function send(res, code, obj) {
   const body = JSON.stringify(obj);
   res.writeHead(code, { "content-type": "application/json; charset=utf-8" });
   res.end(body);
-}
-
-function authorized(req) {
-  if (!cfg.accessCode) return true;
-  return (req.headers["x-access-code"] || "") === String(cfg.accessCode);
 }
 
 async function readBody(req, limit) {
@@ -1373,20 +1974,159 @@ async function readBody(req, limit) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://x");
   try {
+    /* ---- 账号：注册 / 登录 / 登出 / 我是谁 / 登录前的孩子名单 ---- */
+    if (url.pathname === "/api/auth/profiles" && req.method === "GET") {
+      // 登录前的引导信息（不鉴权）：有没有账号、要不要邀请码、孩子选择屏名单
+      const needsSetup = !users.some(u => u.role === "parent");
+      return send(res, 200, {
+        needsSetup,
+        registrationCodeRequired: !!cfg.registrationCode,
+        registrationOpen: needsSetup || !!cfg.registrationCode,   // 首位家长之后只剩邀请码这一条路
+        kids: users.filter(u => u.role === "kid").map(publicUser)
+      });
+    }
+
+    if (url.pathname === "/api/auth/register" && req.method === "POST") {
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const username = String(body.username || "").trim().toLowerCase();
+      const password = String(body.password || "");
+      const name = String(body.name || "").trim().slice(0, 12) || "家长";
+      const rk = rateKey(req, "register");
+      if (rateLocked(rk)) return send(res, 429, RATE_MSG);
+      // 第一位家长 = 首次安装，谁先打开页面谁建；之后注册自动关闭，
+      // 否则任何能连到本服务的人都能开个新家庭，白用这台机器的订阅/API/GPU。
+      // 真要再开一个家庭：在 config.json 里设 registrationCode，拿邀请码注册。
+      if (users.some(u => u.role === "parent") && !cfg.registrationCode) {
+        return send(res, 403, { error: "注册已关闭（本服务器只允许第一位家长自助注册）/ Registration is closed — only the first parent can self-register" });
+      }
+      if (cfg.registrationCode && String(body.registrationCode || "") !== String(cfg.registrationCode)) {
+        rateFail(rk);
+        return send(res, 403, { error: "邀请码不对 / Wrong registration code" });
+      }
+      if (!/^[a-z0-9_@.\-]{3,32}$/.test(username)) return send(res, 400, { error: "用户名要 3-32 位字母/数字 / Username: 3-32 letters or digits" });
+      if (password.length < 6) return send(res, 400, { error: "密码至少 6 位 / Password needs at least 6 characters" });
+      if (users.some(u => u.role === "parent" && u.username === username)) return send(res, 409, { error: "用户名已存在 / Username already taken" });
+      const user = Object.assign({
+        id: "p" + newRecId(), role: "parent", name, username,
+        familyId: "f" + newRecId(), createdAt: Date.now()
+      }, makeCred(password));
+      usersCommit(() => { users.push(user); });
+      rateClear(rk);
+      console.log(`[auth] new parent registered: ${name} (${username})`);
+      return send(res, 200, { token: sessionCreate(user.id), user: publicUser(user) });
+    }
+
+    if (url.pathname === "/api/auth/login" && req.method === "POST") {
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      let user = null, rk;
+      if (body.kidId) {          // 孩子：选择屏点头像 + PIN
+        rk = rateKey(req, body.kidId);
+        if (rateLocked(rk)) return send(res, 429, RATE_MSG);
+        const u = users.find(x => x.role === "kid" && x.id === String(body.kidId));
+        if (u && checkCred(u, String(body.pin || ""))) user = u;
+      } else {                   // 家长：用户名 + 密码
+        const username = String(body.username || "").trim().toLowerCase();
+        rk = rateKey(req, username);
+        if (rateLocked(rk)) return send(res, 429, RATE_MSG);
+        const u = users.find(x => x.role === "parent" && x.username === username);
+        if (u && checkCred(u, String(body.password || ""))) user = u;
+      }
+      if (!user) { rateFail(rk); return send(res, 401, { error: "账号或密码不对 / Wrong account or password" }); }
+      rateClear(rk);
+      return send(res, 200, { token: sessionCreate(user.id), user: publicUser(user) });
+    }
+
+    if (url.pathname === "/api/auth/logout" && req.method === "POST") {
+      sessionDestroy(String(req.headers["x-session"] || ""));
+      return send(res, 200, { ok: true });
+    }
+
+    if (url.pathname === "/api/auth/me" && req.method === "GET") {
+      const a = allow(req, res, "student"); if (!a) return;
+      const resp = { user: publicUser(a.user), role: a.role };
+      if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
+      return send(res, 200, resp);
+    }
+
+    /* ---- 孩子账号管理（家长专属）：创建 / 改名 / 重置 PIN / 软删除 ---- */
+    if (url.pathname === "/api/kids" && req.method === "POST") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const name = String(body.name || "").trim().slice(0, 12);
+      const pin = String(body.pin || "");
+      if (!name) return send(res, 400, { error: "孩子的名字不能为空 / Name is required" });
+      if (!/^\d{4,6}$/.test(pin)) return send(res, 400, { error: "PIN 要 4-6 位数字 / PIN must be 4-6 digits" });
+      const firstKidEver = !users.some(u => u.role === "kid");
+      const user = Object.assign({
+        id: "k" + newRecId(), role: "kid", name,
+        familyId: a.user.familyId, createdBy: a.user.id, createdAt: Date.now()
+      }, makeCred(pin));
+      usersCommit(() => { users.push(user); });
+      if (firstKidEver) migrateLegacyData(user.id);   // 旧版单用户数据无损归到第一个孩子名下
+      fs.mkdirSync(kidDir(user.id), { recursive: true });
+      console.log(`[auth] new kid account: ${name} (parent: ${a.user.name})`);
+      return send(res, 200, { kid: publicUser(user) });
+    }
+
+    const km = /^\/api\/kids\/([a-z0-9]{6,24})$/.exec(url.pathname);
+    if (km && (req.method === "PATCH" || req.method === "DELETE")) {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kid = users.find(u => u.role === "kid" && u.id === km[1] && u.familyId === a.user.familyId);
+      if (!kid) return send(res, 404, { error: "孩子不存在 / Not found" });
+      if (req.method === "PATCH") {
+        const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+        // 先全部校验，再一次性提交：落盘失败时不留下改了一半的账号
+        let name = null, cred = null;
+        if (body.name != null) {
+          name = String(body.name).trim().slice(0, 12);
+          if (!name) return send(res, 400, { error: "名字不能为空 / Name is required" });
+        }
+        if (body.pin != null) {
+          const pin = String(body.pin);
+          if (!/^\d{4,6}$/.test(pin)) return send(res, 400, { error: "PIN 要 4-6 位数字 / PIN must be 4-6 digits" });
+          cred = makeCred(pin);
+        }
+        const snap = Object.assign({}, kid);
+        usersCommit(() => {
+          if (name) kid.name = name;
+          if (cred) Object.assign(kid, cred);
+          return () => Object.assign(kid, snap);   // 改的是对象字段，整表快照兜不住，用字段快照回滚
+        });
+        if (cred) sessionsDropUser(kid.id);   // 落盘成功后再踢：重置 PIN 后旧设备的登录全部失效
+        return send(res, 200, { kid: publicUser(kid) });
+      }
+      // 软删除：账号移除、会话踢掉、数据目录归档为 _deleted-<id>-<时间>，不物理删除
+      usersCommit(() => { users = users.filter(u => u.id !== kid.id); });
+      sessionsDropUser(kid.id);
+      kidData.delete(kid.id);
+      try {
+        if (fs.existsSync(kidDir(kid.id))) fs.renameSync(kidDir(kid.id), path.join(KIDS_DIR, `_deleted-${kid.id}-${Date.now().toString(36)}`));
+      } catch (e) { console.log("[auth] could not archive the kid's data: " + e.message); }
+      console.log(`[auth] kid account deleted (data archived): ${kid.name}`);
+      return send(res, 200, { ok: true });
+    }
+
     /* API */
     if (url.pathname === "/api/providers" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       await detectProviders();
       const list = Object.keys(PROVIDER_META).map(id => ({
         id, ...PROVIDER_META[id],
         available: !!(detected[id] && detected[id].available),
         model: detected[id] && detected[id].model || undefined
       }));
-      return send(res, 200, { authRequired: !!cfg.accessCode, active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(), curriculumGrades: curriculumGrades(), curriculumBooks: curriculumBooks() });
+      const resp = {
+        active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(),
+        packedLessons: lessonPackCount(), packedUnitTests: unitPackCount(),
+        curriculumGrades: curriculumGrades(), curriculumBooks: curriculumBooks(),
+        role: a.role, user: publicUser(a.user)
+      };
+      if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
+      return send(res, 200, resp);
     }
 
     if (url.pathname === "/api/tts" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      if (!allow(req, res, "student")) return;
       if (!ttsAvailable()) return send(res, 200, { enabled: false, items: [] });
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
       const defLang = normLang(body.lang);
@@ -1395,11 +2135,16 @@ const server = http.createServer(async (req, res) => {
 
     if (url.pathname.startsWith("/api/tts/audio/") && req.method === "GET") {
       const m = /^\/api\/tts\/audio\/([a-f0-9]{40})\.wav$/.exec(url.pathname);
-      const p = m && ttsWavPath(m[1]);
-      let st = null;
-      try { st = p && fs.statSync(p); } catch (_) {}
+      // 先现场合成的缓存，再随包发的语音包。URL 一律 .wav，实际格式看 content-type（浏览器认头不认后缀）
+      let p = null, st = null;
+      if (m) {
+        for (const cand of [ttsWavPath(m[1]), voicePackPath(m[1])]) {
+          if (!cand) continue;
+          try { st = fs.statSync(cand); p = cand; break; } catch (_) {}
+        }
+      }
       if (!st) { res.writeHead(404); return res.end(); }
-      const head = { "content-type": "audio/wav", "accept-ranges": "bytes", "cache-control": "public, max-age=604800, immutable" };
+      const head = { "content-type": VOICE_MIME[path.extname(p).toLowerCase()] || "audio/wav", "accept-ranges": "bytes", "cache-control": "public, max-age=604800, immutable" };
       const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
       if (range && (range[1] || range[2])) {   // iPad/Safari 播放媒体要求支持 Range
         const start = range[1] ? parseInt(range[1], 10) : 0;
@@ -1413,51 +2158,63 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (url.pathname === "/api/history" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      return send(res, 200, { items: history.map(historySummary) });
+      const a = allow(req, res, "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      return send(res, 200, { items: kd(kidId).history.map(historySummary) });
     }
 
     const hm = /^\/api\/history\/([a-z0-9]{6,24})$/.exec(url.pathname);
     if (hm && (req.method === "GET" || req.method === "DELETE")) {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      const i = history.findIndex(r => r.id === hm[1]);
+      // 删除是家长动作（防误删、防「藏起错题」），查看/重播孩子自己就行
+      const a = allow(req, res, req.method === "DELETE" ? "parent" : "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const list = kd(kidId).history;
+      const i = list.findIndex(r => r.id === hm[1]);
       if (i < 0) return send(res, 404, { error: "记录不存在 / Not found" });
       if (req.method === "DELETE") {
-        history.splice(i, 1);
-        historySave();
+        list.splice(i, 1);
+        kidSave(kidId, "history");
         return send(res, 200, { ok: true });
       }
-      return send(res, 200, { record: history[i] });
+      return send(res, 200, { record: list[i] });
     }
 
     if (url.pathname === "/api/curriculum" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const grades = curriculumGrades();
       const g = curriculumKey(url.searchParams.get("grade") || 0);
       if (!g) return send(res, 200, { grades, books: curriculumBooks() });
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const progress = kd(kidId).progress;
       const strands = strandGroups(d, it => ({
-        id: it.id, en: it.en, zh: it.zh, status: progressStatus(it.id),
+        id: it.id, en: it.en, zh: it.zh, status: progressStatus(kidId, it.id),
         // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
         lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || ""
       }));
       return send(res, 200, { grade: g, grades, source: d.source, strands });
     }
 
-    /* P3 家长报告：按主线汇总 + BC 四级话术级别 */
+    /* P3 家长报告（家长专属）：按主线汇总 + BC 四级话术级别 */
     if (url.pathname === "/api/report" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const grades = curriculumGrades();
       const g = curriculumKey(url.searchParams.get("grade") || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
+      const progress = kd(kidId).progress;
       const strands = strandGroups(d, it => {
         const e = progress[it.id];
         return {
           id: it.id, en: it.en, zh: it.zh,
-          status: progressStatus(it.id),
-          level: progressLevel(it.id),
+          status: progressStatus(kidId, it.id),
+          level: progressLevel(kidId, it.id),
           manualSolid: !!(e && e.solid),   // 家长手动标记的「扎实」，前端星标可切换
           taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
           lastAt: e ? e.lastAt : 0
@@ -1467,7 +2224,7 @@ const server = http.createServer(async (req, res) => {
         seen: sg.items.filter(i => i.status !== "new").length,
         solid: sg.items.filter(i => i.status === "solid").length
       }));
-      const totals = strands.reduce((a, sg) => ({ total: a.total + sg.total, seen: a.seen + sg.seen, solid: a.solid + sg.solid }),
+      const totals = strands.reduce((a2, sg) => ({ total: a2.total + sg.total, seen: a2.seen + sg.seen, solid: a2.solid + sg.solid }),
         { total: 0, seen: 0, solid: 0 });
       // 术语对照：这个年级大纲里出现过的中英术语，随报告打印（家长看成绩单/和老师面谈用）
       const termSeen = new Set(); const terms = [];
@@ -1475,20 +2232,79 @@ const server = http.createServer(async (req, res) => {
         const k = tm.en.toLowerCase();
         if (!termSeen.has(k)) { termSeen.add(k); terms.push({ en: tm.en, zh: tm.zh }); }
       }
-      return send(res, 200, { grade: g, grades, source: d.source, strands, totals, terms });
+      const kidUser = userById(kidId);
+      return send(res, 200, { grade: g, grades, source: d.source, strands, totals, terms, kid: kidUser ? publicUser(kidUser) : null });
+    }
+
+    /* 完整学生报告（家长专属）：生成（💰 LLM）/ 列表 / 单份查看 / 删除 */
+    if (url.pathname === "/api/report/full" && req.method === "POST") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const lang = normLang(body.lang);
+      const g = curriculumKey(body.grade || 0);
+      const digest = buildReportDigest(kidId, g);
+      if (!digest) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
+      const id = pickProvider(body.provider);
+      if (!id) return send(res, 503, { error: L(lang,
+        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
+        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
+      const kidUser = userById(kidId);
+      const sys = reportPrompt(kidUser ? kidUser.name : "", lang);
+      const q = L(lang, "学习数据如下：\n", "The learning data:\n") + JSON.stringify(digest);
+      const opts = { schema: REPORT_SCHEMA, hint: REPORT_HINT[lang] };
+      const t0 = Date.now();
+      console.log(`[report] engine=${id} kid=${kidId} grade=${g} lang=${lang}`);
+      let content;
+      try {
+        content = validateFullReport(await ADAPTERS[id](sys, q, null, null, lang, opts));
+      } catch (e1) {
+        console.log(`[report] first try failed (${e1.message}), retrying once...`);
+        content = validateFullReport(await ADAPTERS[id](sys, q, null, null, lang, opts));
+      }
+      console.log(`[report] ok in ${Math.round((Date.now() - t0) / 1000)}s`);
+      const rec = { time: Date.now(), grade: String(g), lang, provider: id, kidName: kidUser ? kidUser.name : "", digest, content };
+      reportsAdd(kidId, rec);
+      return send(res, 200, { report: rec, ms: Date.now() - t0 });
+    }
+
+    if (url.pathname === "/api/report/full/list" && req.method === "GET") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      return send(res, 200, { items: kd(kidId).reports.map(reportSummary) });
+    }
+
+    const rfm = /^\/api\/report\/full\/([a-z0-9]{6,24})$/.exec(url.pathname);
+    if (rfm && (req.method === "GET" || req.method === "DELETE")) {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const list = kd(kidId).reports;
+      const i = list.findIndex(r => r.id === rfm[1]);
+      if (i < 0) return send(res, 404, { error: "报告不存在 / Not found" });
+      if (req.method === "DELETE") {
+        list.splice(i, 1);
+        kidSave(kidId, "reports");
+        return send(res, 200, { ok: true });
+      }
+      return send(res, 200, { record: list[i] });
     }
 
     /* P4 FSA 模拟卷：按大纲出多步骤情境选择题（G4/G7 是 FSA 年级，其他年级也可当普通练习卷） */
     if (url.pathname === "/api/fsa" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 256 * 1024)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const lang = normLang(body.lang);
       const g = Number(body.grade || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
       const strand = STRANDS.some(s => s[0] === body.strand) ? body.strand : "";
       const count = Math.max(4, Math.min(10, Number(body.count) || 6));
-      const id = pickProvider(body.provider);
+      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎，走 config 默认
       if (!id) return send(res, 503, { error: L(lang,
         "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
         "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
@@ -1507,33 +2323,41 @@ const server = http.createServer(async (req, res) => {
       console.log(`[fsa] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
       // 出一次卷不便宜：立刻持久化，以后直接打开做，不再重新生成
       const rec = { time: Date.now(), grade: g, strand, lang, provider: id, title: set.title, questions: set.questions, attempts: [] };
-      fsaSetsAdd(rec);
+      fsaSetsAdd(kidId, rec);
       return send(res, 200, { set: rec, provider: id, ms: Date.now() - t0 });
     }
 
     if (url.pathname === "/api/fsa/sets" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const g = Number(url.searchParams.get("grade") || 0);
-      return send(res, 200, { items: fsaSets.filter(r => !g || r.grade === g).map(fsaSetSummary) });
+      return send(res, 200, { items: kd(kidId).fsaSets.filter(r => !g || r.grade === g).map(fsaSetSummary) });
     }
 
     const fsm = /^\/api\/fsa\/sets\/([a-z0-9]{6,24})$/.exec(url.pathname);
     if (fsm && (req.method === "GET" || req.method === "DELETE")) {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      const i = fsaSets.findIndex(r => r.id === fsm[1]);
+      // 删卷是家长动作，打开做卷孩子自己就行
+      const a = allow(req, res, req.method === "DELETE" ? "parent" : "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const sets = kd(kidId).fsaSets;
+      const i = sets.findIndex(r => r.id === fsm[1]);
       if (i < 0) return send(res, 404, { error: "卷子不存在 / Not found" });
       if (req.method === "DELETE") {
-        fsaSets.splice(i, 1);
-        fsaSetsSave();
+        sets.splice(i, 1);
+        kidSave(kidId, "fsaSets");
         return send(res, 200, { ok: true });
       }
-      return send(res, 200, { record: fsaSets[i] });
+      return send(res, 200, { record: sets[i] });
     }
 
     if (url.pathname === "/api/fsa/attempt" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
-      const rec = fsaSets.find(r => r.id === String(body.id || ""));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const rec = kd(kidId).fsaSets.find(r => r.id === String(body.id || ""));
       if (!rec) return send(res, 404, { error: "卷子不存在 / Not found" });
       // total 以卷内题数为准，right 夹在 [0, total]——不全信客户端
       const total = (rec.questions || []).length;
@@ -1544,22 +2368,156 @@ const server = http.createServer(async (req, res) => {
         ms: Math.max(0, Math.round(Number(body.ms) || 0))
       };
       rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
-      fsaSetsSave();
+      kidSave(kidId, "fsaSets");
       return send(res, 200, { ok: true });
     }
 
-    /* P5 闯关练习：看完课一道一道做题，SAT 式升降难度，通关标 solid（标准 docs/qbank-standard.md） */
+    /* P6 单元测试：一个单元（BC 主线 / 教材章节）一张卷，覆盖本单元知识点，难度 L1→L3 混排。
+     * 出卷同 FSA（跑一次 AI 就永久存档）；判分和记进度都在服务端做（见 /api/unit-test/attempt）。 */
+    if (url.pathname === "/api/unit-test" && req.method === "POST") {
+      const a = allow(req, res, "student"); if (!a) return;
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const lang = normLang(body.lang);
+      const g = curriculumKey(body.grade || 0);
+      const d = curriculum.get(g);
+      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
+      const strand = String(body.strand || "");
+      const def = (d.strandDefs || STRANDS).find(s => s[0] === strand);
+      const unitItems = (d.items || []).filter(it => it.strand === strand);
+      if (!def || !unitItems.length) return send(res, 400, { error: "未知的单元 / Unknown unit" });
+      const count = Math.max(6, Math.min(12, Number(body.count) || 8));
+
+      // 随包发的卷子：命中就直接发一份给这个孩子，不碰引擎。
+      // fresh=true 是「再出一张新的」，那条路照旧要引擎。
+      if (!body.fresh) {
+        const packed = unitPackGet(g, strand, lang);
+        if (packed) {
+          const rec = {
+            time: Date.now(), grade: String(g), strand, lang, provider: "pack",
+            title: packed.title || (lang === "en" ? def[2] : def[1]),
+            unitName: { zh: def[1], en: def[2] },
+            questions: packed.questions, attempts: []
+          };
+          unitTestsAdd(kidId, rec);
+          console.log(`[unit] pack hit grade=${g} unit=${strand} lang=${lang} kid=${kidId}`);
+          return send(res, 200, { set: rec, provider: "pack", ms: 0, packed: true });
+        }
+      }
+
+      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎，走 config 默认
+      if (!id) return send(res, 503, {
+        error: L(lang,
+          "这个单元的卷子不在随附的题库里，现出卷需要一个 AI 引擎。怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
+          "This unit's test isn't in the bundled set, so writing one needs an AI engine. See the README to set one up (Ollama is free and offline / claude / gemini / grok / codex or an API)."),
+        needsEngine: true });
+      const sys = unitTestPrompt(d, strand, lang, count);
+      const q = L(lang, "请出这张单元测验。", "Please write this unit test.");
+      const opts = { schema: UNIT_TEST_SCHEMA, hint: UNIT_TEST_HINT[lang] };
+      const t0 = Date.now();
+      console.log(`[unit] engine=${id} grade=${g} unit=${strand} lang=${lang} n=${count}`);
+      let set;
+      try {
+        set = validateUnitTest(await ADAPTERS[id](sys, q, null, null, lang, opts), d, strand, count);
+      } catch (e1) {
+        console.log(`[unit] first try failed (${e1.message}), retrying once...`);
+        set = validateUnitTest(await ADAPTERS[id](sys, q, null, null, lang, opts), d, strand, count);
+      }
+      console.log(`[unit] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
+      const rec = {
+        time: Date.now(), grade: String(g), strand, lang, provider: id,
+        // 标题兜底用单元名：AI 偶尔给个空串，存档列表里就成了无名卷
+        title: set.title || (lang === "en" ? def[2] : def[1]),
+        unitName: { zh: def[1], en: def[2] },
+        questions: set.questions, attempts: []
+      };
+      unitTestsAdd(kidId, rec);
+      return send(res, 200, { set: rec, provider: id, ms: Date.now() - t0 });
+    }
+
+    if (url.pathname === "/api/unit-test/sets" && req.method === "GET") {
+      const a = allow(req, res, "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const g = String(url.searchParams.get("grade") || "");
+      const strand = String(url.searchParams.get("strand") || "");
+      return send(res, 200, {
+        items: kd(kidId).unitTests
+          .filter(r => (!g || String(r.grade) === g) && (!strand || r.strand === strand))
+          .map(unitTestSummary)
+      });
+    }
+
+    const utm = /^\/api\/unit-test\/sets\/([a-z0-9]{6,24})$/.exec(url.pathname);
+    if (utm && (req.method === "GET" || req.method === "DELETE")) {
+      // 删卷是家长动作，打开做卷孩子自己就行（同 FSA）
+      const a = allow(req, res, req.method === "DELETE" ? "parent" : "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const list = kd(kidId).unitTests;
+      const i = list.findIndex(r => r.id === utm[1]);
+      if (i < 0) return send(res, 404, { error: "卷子不存在 / Not found" });
+      if (req.method === "DELETE") {
+        list.splice(i, 1);
+        kidSave(kidId, "unitTests");
+        return send(res, 200, { ok: true });
+      }
+      return send(res, 200, { record: list[i] });
+    }
+
+    /* 交卷：只收「第几题选了第几个」，对错由服务端按存档里的答案算，顺带把每题记进对应知识点的进度。
+     * （FSA 是前端逐题上报，这里收口到一次请求：少一半往返，也不用信客户端报的分数。） */
+    if (url.pathname === "/api/unit-test/attempt" && req.method === "POST") {
+      const a = allow(req, res, "student"); if (!a) return;
+      const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const rec = kd(kidId).unitTests.find(r => r.id === String(body.id || ""));
+      if (!rec) return send(res, 404, { error: "卷子不存在 / Not found" });
+      const qs = rec.questions || [];
+      const answers = qs.map((_, i) => {
+        const v = Math.round(Number((Array.isArray(body.answers) ? body.answers : [])[i]));
+        return v >= 0 && v <= 3 ? v : -1;   // -1 = 没作答（中途退出也能交）
+      });
+      const answered = answers.filter(v => v >= 0).length;
+      // 一题没答就别记成绩：否则存档列表里「上次 0/8」看着像考砸了，其实是点进来又退出去
+      if (!answered) return send(res, 200, { ok: true, right: 0, total: qs.length, answered: 0, skipped: true });
+      let right = 0;
+      qs.forEach((q, i) => {
+        if (answers[i] < 0) return;
+        const ok = answers[i] === q.answerIndex;
+        if (ok) right++;
+        // 选择题判定是确定性的（不是 AI 判题），直接记进度；没挂上知识点的题只计分不记进度
+        if (q.curriculumId) progressRecord(kidId, q.curriculumId, ok ? "practiced-right" : "practiced-wrong");
+      });
+      const at = {
+        time: Date.now(), right, total: qs.length, answered,
+        done: answered === qs.length,   // 中途退出的那次别当成绩单报，列表里标「没做完」
+        ms: Math.max(0, Math.round(Number(body.ms) || 0)),
+        answers
+      };
+      rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
+      kidSave(kidId, "unitTests");
+      return send(res, 200, { ok: true, right, total: qs.length, answered });
+    }
+
+    /* P5 闯关练习：看完课一道一道做题，SAT 式升降难度，通关标 solid（标准 docs/qbank-standard.md）
+     * 题库是全局共享的内容缓存，这一步不写孩子数据；成绩在 /api/quiz/finish 记到孩子名下 */
     if (url.pathname === "/api/quiz/session" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
       const lang = normLang(body.lang);
       const found = findCurriculumItem(String(body.curriculumId || ""));
       if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const id = pickProvider(body.provider);
-      if (!id) return send(res, 503, { error: L(lang,
-        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
-        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
-      const bank = await ensureQuizBank(found.item, found.data, lang, id);
+      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎
+      const ready = qbankPlayable(found.item.id, lang);   // 随包发的题库：没引擎也能闯
+      if (!id && !ready) return send(res, 503, {
+        error: L(lang,
+          "这一节的闯关题不在随附的题库里，现出题需要一个 AI 引擎。" + "怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
+          "This topic's quiz questions aren't in the bundled question bank, so writing them needs an AI engine." + " See the README to set one up (Ollama is free and offline / claude / gemini / grok / codex or an API)."),
+        needsEngine: true });
+      const bank = id ? await ensureQuizBank(found.item, found.data, lang, id) : ready;
       return send(res, 200, {
         questions: quizSession(bank),
         rules: { maxQuestions: QUIZ_MAX_QUESTIONS, passNeed: QUIZ_PASS_NEED, topLevel: QUIZ_TOP_LEVEL }
@@ -1568,8 +2526,10 @@ const server = http.createServer(async (req, res) => {
 
     /* 闯关结算：单题对错记统计、做过的题打 usedAt；通关判定以服务器题库里的难度为准 */
     if (url.pathname === "/api/quiz/finish" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const cid = String(body.curriculumId || "");
       if (!findCurriculumItem(cid)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
       const bank = qbank[qbankKey(cid, normLang(body.lang))];
@@ -1583,70 +2543,100 @@ const server = http.createServer(async (req, res) => {
         counted.add(qid);
         q.usedAt = now;
         const ok = !!(r && r.correct);
-        progressRecord(cid, ok ? "quiz-right" : "quiz-wrong");
+        progressRecord(kidId, cid, ok ? "quiz-right" : "quiz-wrong");
         if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
       }
       if (bank) qbankSave();
       const passed = topRight >= QUIZ_PASS_NEED;
-      if (passed) progressRecord(cid, "quiz-pass");
-      return send(res, 200, { ok: true, passed, status: progressStatus(cid), level: progressLevel(cid) });
+      if (passed) progressRecord(kidId, cid, "quiz-pass");
+      return send(res, 200, { ok: true, passed, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid) });
     }
 
-    /* 清空（设置里的「清空学习进度 / 清空全部记录」，前端有确认框） */
+    /* 清空（家长专属，设置里的「清空学习进度 / 清空全部记录」；只作用于指定孩子，题库全局共享除外） */
     if (url.pathname === "/api/progress" && req.method === "DELETE") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      progress = {};
-      progressSave();
-      console.log("[progress] 已清空");
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      kd(kidId).progress = {};
+      kidSave(kidId, "progress");
+      console.log(`[progress] cleared (kid=${kidId})`);
       return send(res, 200, { ok: true });
     }
     if (url.pathname === "/api/history" && req.method === "DELETE") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      history = [];
-      historySave();
-      console.log("[history] 已清空");
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      kd(kidId).history = [];
+      kidSave(kidId, "history");
+      console.log(`[history] cleared (kid=${kidId})`);
       return send(res, 200, { ok: true });
     }
     if (url.pathname === "/api/fsa/sets" && req.method === "DELETE") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
-      fsaSets = [];
-      fsaSetsSave();
-      console.log("[fsa] 卷子已清空");
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      kd(kidId).fsaSets = [];
+      kidSave(kidId, "fsaSets");
+      console.log(`[fsa] practice sets cleared (kid=${kidId})`);
+      return send(res, 200, { ok: true });
+    }
+    if (url.pathname === "/api/unit-test/sets" && req.method === "DELETE") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      kd(kidId).unitTests = [];
+      kidSave(kidId, "unitTests");
+      console.log(`[unit] tests cleared (kid=${kidId})`);
       return send(res, 200, { ok: true });
     }
     if (url.pathname === "/api/qbank" && req.method === "DELETE") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      if (!allow(req, res, "parent")) return;
       qbank = {};
       qbankSave();
-      console.log("[quiz] 题库已清空");
+      console.log("[quiz] question bank cleared (it is shared by the whole family)");
       return send(res, 200, { ok: true });
     }
 
     if (url.pathname === "/api/progress" && req.method === "GET") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const g = Number(url.searchParams.get("grade") || 0);
       const prefix = g ? `BC.MATH.G${g}.` : "";
       const items = {};
-      for (const [id, e] of Object.entries(progress)) {
+      for (const [id, e] of Object.entries(kd(kidId).progress)) {
         if (prefix && !id.startsWith(prefix)) continue;
-        items[id] = Object.assign({}, e, { status: progressStatus(id) });
+        items[id] = Object.assign({}, e, { status: progressStatus(kidId, id) });
       }
       return send(res, 200, { items });
     }
 
     if (url.pathname === "/api/progress" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+      const event = String(body.event || "");
+      // 内部事件不从这里进：跟不认识的事件一样回 400，不额外告诉调用方它存在
+      if (INTERNAL_EVENTS.has(event)) return send(res, 400, { error: "未知的事件 / Unknown event" });
+      // 标扎实/取消标扎实是家长的评价动作；孩子只能自报练习对错
+      if (PARENT_ONLY_EVENTS.has(event) && a.role !== "parent") {
+        return send(res, 403, { error: "需要家长权限 / Parent access required", parentRequired: true });
+      }
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
       const id = String(body.curriculumId || "");
       if (!findCurriculumItem(id)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const e = progressRecord(id, String(body.event || ""));
+      const e = progressRecord(kidId, id, event);
       if (!e) return send(res, 400, { error: "未知的事件 / Unknown event" });
-      return send(res, 200, { ok: true, status: progressStatus(id), entry: e });
+      return send(res, 200, { ok: true, status: progressStatus(kidId, id), entry: e });
     }
 
     if (url.pathname === "/api/lesson" && req.method === "POST") {
-      if (!authorized(req)) return send(res, 401, { error: "需要访问码 / Access code required", authRequired: true });
+      const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req)).toString("utf8"));
+      const kidId = resolveKid(a, body.kid);
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      const kidUser = userById(kidId);
+      const kidName = kidUser ? kidUser.name : "";   // 讲课称呼来自账号，不再信请求体
       let question = String(body.question || "").slice(0, 4000);
       const imageB64 = body.imageB64 || null;
       const mediaType = body.mediaType || "image/jpeg";
@@ -1660,10 +2650,34 @@ const server = http.createServer(async (req, res) => {
         if (!question) question = lang === "en" ? teachCtx.item.en : `${teachCtx.item.zh}（${teachCtx.item.en}）`;
       } else if (!question && !imageB64) return send(res, 400, { error: L(lang, "题目是空的", "The question is empty.") });
 
-      const id = pickProvider(body.provider);
-      if (!id) return send(res, 503, { error: L(lang,
-        "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
-        "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
+      // 预生成课程包：teach 模式先查包，命中就不用引擎（秒开、免费、断网也行）。
+      // fresh=true 是「换个讲法再讲一遍」，那条路照旧走引擎。
+      if (teachCtx && !body.fresh) {
+        const packed = lessonPackGet(teachCtx.item.id, lang);
+        if (packed) {
+          const rec = { time: Date.now(), question, hasImage: false, lang, grade: String(body.grade || ""),
+            provider: "pack", lesson: packed, mode: "teach", curriculumId: teachCtx.item.id };
+          historyAdd(kidId, rec);
+          progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
+          if (ttsAvailable() && packed.isMath !== false) {
+            try { ttsStates(packed.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
+          }
+          console.log(`[lesson] pack hit ${teachCtx.item.id} lang=${lang} kid=${kidId}`);
+          return send(res, 200, {
+            lesson: packed, provider: "pack", ms: 0, tts: ttsAvailable(), packed: true,
+            curriculumId: teachCtx.item.id, status: progressStatus(kidId, teachCtx.item.id), lessonId: rec.id
+          });
+        }
+      }
+
+      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎
+      if (!id) return send(res, 503, {
+        error: L(lang,
+          (teachCtx ? "这一节课不在随附的课程包里，现场讲需要一个 AI 引擎。"
+                    : "自己出题（打字或拍照）需要一个 AI 引擎——「跟大纲学」里的课不用，可以直接上。") + "怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
+          (teachCtx ? "This lesson isn't in the bundled course pack, so teaching it live needs an AI engine."
+                    : "Asking your own question (typed or photographed) needs an AI engine — the lessons under Follow the curriculum don't, so you can start there.") + " See the README to set one up (Ollama is free and offline / claude / gemini / grok / codex or an API)."),
+        needsEngine: true });
       if (imageB64 && !PROVIDER_META[id].supportsImage) {
         return send(res, 400, { error: L(lang,
           PROVIDER_META[id].label + " 暂不支持看图，请把题目打字输入，或在设置里换一个支持看图的引擎。",
@@ -1671,10 +2685,10 @@ const server = http.createServer(async (req, res) => {
       }
 
       const sys = teachCtx
-        ? systemPromptTeach(teachCtx.item, teachCtx.data, body.kidName, lang)
-        : systemPrompt(body.grade, body.kidName, lang, Number(body.gradeCode) || 0);
+        ? systemPromptTeach(teachCtx.item, teachCtx.data, kidName, lang)
+        : systemPrompt(body.grade, kidName, lang, Number(body.gradeCode) || 0);
       const t0 = Date.now();
-      console.log(`[lesson] engine=${id} mode=${mode} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
+      console.log(`[lesson] engine=${id} mode=${mode} kid=${kidId} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
       let lesson;
       try {
         lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
@@ -1685,16 +2699,16 @@ const server = http.createServer(async (req, res) => {
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
       const rec = { time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson };
       if (teachCtx) { rec.mode = "teach"; rec.curriculumId = teachCtx.item.id; }
-      historyAdd(rec);
+      historyAdd(kidId, rec);
       // 生成即视为「讲过」：进度立刻从 new 变 seen，并把这节课挂到知识点上
-      if (teachCtx) progressRecord(teachCtx.item.id, "taught", rec.id);
+      if (teachCtx) progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
       // 讲解生成好就立刻预合成语音（不等前端），孩子点开第一步时大概率已就绪
       if (ttsAvailable() && lesson.isMath !== false) {
         try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
       }
       const resp = { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() };
       // lessonId 带回给前端：清单/FSA 错题下次点开直接重播这节课，不再重新生成
-      if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(teachCtx.item.id); resp.lessonId = rec.id; }
+      if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(kidId, teachCtx.item.id); resp.lessonId = rec.id; }
       return send(res, 200, resp);
     }
 
@@ -1713,31 +2727,64 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-detectProviders().then(() => {
+/* 直接 node server.js 才起服务。构建期脚本（tools/pregen.mjs / prevoice.mjs）把本文件
+ * require 进来，只为借用上面的提示词、引擎适配器和 ttsId，不监听端口。 */
+if (require.main === module) detectProviders().then(() => {
   server.listen(cfg.port, () => {
     const avail = Object.keys(PROVIDER_META).filter(id => detected[id] && detected[id].available);
     console.log("");
-    console.log("  🧮 圆圆数学 已启动");
-    console.log("  本机访问:   http://localhost:" + cfg.port);
+    console.log("  🧮 Yuanyuan Math is running");
+    console.log("  Local:        http://localhost:" + cfg.port);
     const nets = os.networkInterfaces();
     for (const n of Object.values(nets)) for (const a of n || []) {
-      if (a.family === "IPv4" && !a.internal) console.log("  局域网访问: http://" + a.address + ":" + cfg.port);
+      if (a.family === "IPv4" && !a.internal) console.log("  On your LAN:  http://" + a.address + ":" + cfg.port);
     }
-    console.log("  可用引擎:   " + (avail.length ? avail.map(id => PROVIDER_META[id].label + (detected[id].model ? "(" + detected[id].model + ")" : "")).join("、") : "（没检测到！请看 README）"));
-    console.log("  默认引擎:   " + (pickProvider() ? PROVIDER_META[pickProvider()].label : "无"));
-    console.log("  自然语音:   " + (ttsAvailable()
-      ? "已开启（" + (cfg.tts.url ? "守护进程 " + cfg.tts.url : "命令模式") + " · " + (cfg.tts.mode || "instruct") + " · 缓存 " + path.basename(TTS_CACHE) + "/）"
-      : "未配置（用浏览器语音兜底，见 README 的「自然语音」一节）"));
-    console.log("  历史记录:   " + history.length + " 条（history.json，上限 " + HISTORY_MAX + " 条）");
-    console.log("  BC 大纲:    " + (curriculumGrades().length
-      ? curriculumGrades().map(g => "G" + g).join("、") + " 已加载（进度 " + Object.keys(progress).length + " 条，progress.json）"
-      : "未加载（data/curriculum/bc/ 里还没有 grade-N.json）"));
-    console.log("  书籍课程:   " + (curriculumBooks().length
-      ? curriculumBooks().map(b => b.en + "（" + b.id + "，" + (curriculum.get(b.id).items || []).length + " 节）").join("、")
-      : "未加载（data/curriculum/books/ 里还没有书籍 JSON）"));
-    console.log("  FSA 卷:     " + fsaSets.length + " 份（fsa-sets.json，上限 " + FSA_SETS_MAX + " 份，做过的卷直接重开不再生成）");
-    console.log("  闯关题库:   " + Object.keys(qbank).length + " 个（qbank.json，做对升难度、通关标 solid；标准 docs/qbank-standard.md）");
-    if (!cfg.accessCode) console.log("  ⚠ 未设置访问码。部署到外网前请在 config.json 里设置 accessCode。");
+    console.log("  AI engines:   " + (avail.length
+      ? avail.map(id => (PROVIDER_META[id].labelEn || id) + (detected[id].model ? " (" + detected[id].model + ")" : "")).join(", ")
+      : "none detected - lessons still work from the bundled pack; see the README to add one"));
+    console.log("  Default:      " + (pickProvider() ? (PROVIDER_META[pickProvider()].labelEn || pickProvider()) : "none"));
+    const voiceBits = [];
+    if (ttsEngineAvailable()) voiceBits.push("live synthesis via " + (cfg.tts.url ? "daemon " + cfg.tts.url : "command mode") + " (" + (cfg.tts.mode || "instruct") + ")");
+    if (voicePack.size) voiceBits.push(voicePack.size + " pre-baked clips (data/voice/, read-only)");
+    console.log("  Voice:        " + (voiceBits.length
+      ? voiceBits.join(" + ")
+      : "browser speech only (see the Natural Voice section of the README)"));
+    const nParents = users.filter(u => u.role === "parent").length;
+    const nKids = users.filter(u => u.role === "kid").length;
+    console.log("  Accounts:     " + (nParents
+      ? nParents + " parent(s), " + nKids + " kid(s) - data/users.json; per-kid data under data/kids/"
+      : "none yet - open the address above and create a parent account, then a kid account"));
+    console.log("  Curriculum:   " + (curriculumGrades().length
+      ? "BC " + curriculumGrades().map(g => "G" + g).join(", ") + " loaded"
+      : "not loaded (no grade-N.json under data/curriculum/bc/)"));
+    console.log("  Book courses: " + (curriculumBooks().length
+      ? curriculumBooks().map(b => b.en + " (" + b.id + ", " + (curriculum.get(b.id).items || []).length + " sections)").join("; ")
+      : "none (no book JSON under data/curriculum/books/)"));
+    console.log("  Quiz banks:   " + Object.keys(qbank).length + " (qbank.json, shared by the whole family)");
+    const nPack = lessonPackCount();
+    console.log("  Lesson pack:  " + (nPack
+      ? nPack + " pre-generated (data/lessons/ - instant, no engine needed)"
+      : "empty (data/lessons/ has none; every lesson goes to an engine live)"));
+    const nUnit = unitPackCount();
+    console.log("  Unit tests:   " + (nUnit
+      ? nUnit + " pre-generated (data/unit-tests/ - no engine needed)"
+      : "empty (data/unit-tests/ has none; every test goes to an engine live)"));
+    if (cfg.accessCode) console.log("  ! accessCode in config.json is deprecated - access is handled by the account system now; you can delete it.");
+    console.log("  Sign-up:      " + (!nParents
+      ? "open, waiting for the first parent (closes itself once one exists)"
+      : cfg.registrationCode ? "needs the invite code (registrationCode in config.json)"
+      : "closed - a parent already exists. Set registrationCode in config.json to let another family in."));
     console.log("");
   });
 });
+
+/* 构建期脚本用得到的内部件。服务器自己不依赖这个导出，删了也不影响运行。 */
+module.exports = {
+  cfg, ROOT, L, DEFAULT_CONFIG, deepMerge,
+  ADAPTERS, PROVIDER_META, detectProviders, pickProvider,
+  curriculum, curriculumGrades, curriculumBooks, findCurriculumItem,
+  systemPromptTeach, validateLesson,
+  qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable,
+  ttsId, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
+  STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
+};

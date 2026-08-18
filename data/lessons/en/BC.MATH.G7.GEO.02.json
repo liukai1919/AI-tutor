@@ -1,0 +1,135 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.GEO.02",
+ "lang": "en",
+ "title": "volume of rectangular prisms and cylinders",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "How Much Fits Inside? Volume of Boxes and Cylinders",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're at a market in Vancouver and you see a beautiful cedar bentwood box, carved and folded from one single plank of wood by a Coast Salish artist. You want to know how much dried salmon, or berries, or gear it can hold inside. That amount of space inside is called volume, and we measure it in cubic centimetres. This box is thirty centimetres long, twenty centimetres wide, and twenty-five centimetres tall.",
+    "math": "V = ?",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      30,
+      20,
+      25
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cedar bentwood box: 30 cm by 20 cm by 25 cm"
+    }
+   },
+   {
+    "say": "Here's the one big idea for today, and it works for almost every straight-sided container. Find the area of the base, then multiply by the height. Think of it like stacking layers: the base is one flat layer, and the height tells you how many layers you pile up. That's it. Volume equals area of the base times height.",
+    "math": "V = A_{base} \\times h",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So let's start with the base of the bentwood box. The bottom is a rectangle, thirty centimetres by twenty centimetres. Area of a rectangle is length times width, so thirty times twenty is six hundred square centimetres. That's one flat layer, one centimetre thick, sitting on the bottom of the box.",
+    "math": "A_{base} = 30 \\times 20 = 600\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      30,
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The base of the box: 30 cm × 20 cm = 600 cm²"
+    }
+   },
+   {
+    "say": "Now stack those layers up. The box is twenty-five centimetres tall, so we pile up twenty-five layers of six hundred. Six hundred times twenty-five is fifteen thousand. So the volume is fifteen thousand cubic centimetres. And here's a nice Canadian bonus: one thousand cubic centimetres is exactly one litre, so this box holds fifteen litres. That's about fifteen milk cartons worth of space.",
+    "math": "V = 600 \\times 25 = 15\\,000\\ \\text{cm}^3 = 15\\ \\text{L}",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      30,
+      20,
+      25
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "600 cm² of base × 25 layers = 15 000 cm³"
+    }
+   },
+   {
+    "say": "Now, what if the container is round instead? Think of a birch bark scroll, a wiigwaasabak, rolled up and tucked into a round protective tube. Or honestly, your water bottle. Same rule, different base. This time the base is a circle, and the area of a circle is pi times the radius times the radius. Let's say our tube has a radius of five centimetres. Five times five is twenty-five, and pi is about three point one four, so the base area is about seventy-eight point five square centimetres.",
+    "math": "A_{base} = \\pi r^2 = 3.14 \\times 5^2 = 78.5\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Circular base, radius 5 cm → area about 78.5 cm²"
+    }
+   },
+   {
+    "say": "Now stack it, exactly like before. If the tube is twenty centimetres tall, we take seventy-eight point five and multiply by twenty. Seventy-eight point five times twenty is one thousand five hundred seventy. So the volume is about one thousand five hundred seventy cubic centimetres, which is about one point five seven litres. Notice I did the same two moves as with the box: base area first, then times the height.",
+    "math": "V = \\pi r^2 h = 78.5 \\times 20 = 1570\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      5,
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Cylinder: radius 5 cm, height 20 cm → about 1570 cm³"
+    }
+   },
+   {
+    "say": "Let's put our two containers side by side. The bentwood box holds fifteen thousand cubic centimetres and the round tube holds about one thousand five hundred seventy. The box holds roughly ten times more, even though the tube looked pretty big. That's the fun part of volume: your eyes can fool you, but the numbers don't.",
+    "math": "15\\,000 \\div 1570 \\approx 9.6",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15000,
+      1570
+     ],
+     "labels": [
+      "Bentwood box",
+      "Round tube"
+     ],
+     "caption": "Volume in cubic centimetres — the box wins by a lot"
+    }
+   },
+   {
+    "say": "So remember the one move that works for both shapes. Find the area of the base, then multiply by the height. For a box the base is length times width. For a cylinder the base is pi times radius squared. Everything else is just careful multiplying.",
+    "math": "V_{box} = l \\times w \\times h \\qquad V_{cyl} = \\pi r^2 h",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A 10 cm cube holds 1000 cm³, which is exactly 1 litre"
+    }
+   }
+  ],
+  "answer": "Volume = area of the base × height — box: length × width × height; cylinder: pi × radius × radius × height.",
+  "practice": {
+   "question": "You're packing for a hike in Garibaldi Park with a cylindrical thermos. Its inside radius is 4 cm and its inside height is 15 cm. Using pi as 3.14, how many cubic centimetres of hot chocolate does it hold? About how many litres is that?",
+   "answer": "Base area = 3.14 × 4 × 4 = 50.24 cm². Volume = 50.24 × 15 = 753.6 cm³, which is about 0.75 litres (three quarters of a litre)."
+  }
+ }
+}

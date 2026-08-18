@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "5",
+ "strand": "patterning",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Patterning · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G5.PAT.01",
+    "level": 1,
+    "question": "Look at this increasing pattern: 4, 7, 10, 13, __ . What is the next number?",
+    "options": [
+     "15",
+     "16",
+     "17",
+     "19"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the gap between neighbours: 7 − 4 = 3, so the rule is 'start at 4, add 3 each time', and 13 + 3 = 16. A common trap is 19 — that jumps two steps ahead instead of one."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.02",
+    "level": 1,
+    "question": "Solve the equation: X + 8 = 23. What is the value of X?",
+    "options": [
+     "X = 31",
+     "X = 16",
+     "X = 15",
+     "X = 14"
+    ],
+    "answerIndex": 2,
+    "explain": "To undo '+ 8' you subtract 8 from both sides: 23 − 8 = 15, and checking gives 15 + 8 = 23. The most common trap is adding instead of undoing, which gives 31."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.01",
+    "level": 1,
+    "question": "A decreasing pattern goes 45, 40, 35, 30. Which sentence describes the rule?",
+    "options": [
+     "Start at 45 and subtract 5 each time",
+     "Start at 45 and add 5 each time",
+     "Start at 45 and subtract 4 each time",
+     "Start at 30 and subtract 5 each time"
+    ],
+    "answerIndex": 0,
+    "explain": "A pattern rule names the first term and the change: the numbers go down by 5 (45 − 40 = 5), so it is 'start at 45, subtract 5 each time'. Watch out for 'subtract 4' — that counts how many numbers are listed instead of the size of the jump."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.02",
+    "level": 2,
+    "question": "Sofia had $52 saved. She bought a raincoat for c dollars and now has $38 left. Which equation matches the story, and what is c?",
+    "options": [
+     "52 + c = 38; c = $90",
+     "c − 38 = 52; c = $90",
+     "52 − c = 38; c = $26",
+     "52 − c = 38; c = $14"
+    ],
+    "answerIndex": 3,
+    "explain": "Money left = money before − money spent, so 52 − c = 38 and c = 52 − 38 = $14. The trap is 52 − 38 = 26, which happens when you subtract the smaller digit from the larger one instead of regrouping."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.01",
+    "level": 2,
+    "question": "Chairs are set up for a school assembly in Kamloops. Row 1 has 6 chairs, and each row after that has 4 more chairs than the row before. How many chairs are in row 8?",
+    "options": [
+     "30 chairs",
+     "34 chairs",
+     "32 chairs",
+     "38 chairs"
+    ],
+    "answerIndex": 1,
+    "explain": "From row 1 to row 8 there are only 7 jumps of 4, so 6 + (7 × 4) = 34 chairs. The classic trap is 38, which uses 8 jumps instead of 7 — count the gaps between rows, not the rows."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.02",
+    "level": 2,
+    "question": "Liam picks 84 blueberries and packs the same number into each of 6 baskets. This is written as 6 × b = 84. How many blueberries are in each basket?",
+    "options": [
+     "b = 78",
+     "b = 504",
+     "b = 90",
+     "b = 14"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiplication is undone by division: b = 84 ÷ 6 = 14, and 6 × 14 = 84 checks out. Many students subtract or multiply the two numbers they see (78 or 504) instead of undoing the operation in the equation."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.01",
+    "level": 3,
+    "question": "Emma is filling a rain barrel with a hose. She records: after 2 minutes there are 14 L, after 3 minutes 19 L, and after 4 minutes 24 L. If the pattern keeps going, how much water is in the barrel after 7 minutes?",
+    "options": [
+     "35 L",
+     "34 L",
+     "39 L",
+     "44 L"
+    ],
+    "answerIndex": 2,
+    "explain": "The rule is 'add 5 L each minute', so working back the barrel already held 4 L at 0 minutes, giving 4 + (7 × 5) = 39 L. The most common trap is 35 L — that forgets the 4 L that were in the barrel before the hose started."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.PAT.02",
+    "level": 3,
+    "question": "At the Steveston market, Priya buys 4 identical boxes of blueberries. She pays with a $50 bill and gets $18 in change. How much does one box cost?",
+    "options": [
+     "$8",
+     "$4.50",
+     "$32",
+     "$12.50"
+    ],
+    "answerIndex": 0,
+    "explain": "First find the total spent: 50 − 18 = $32, then solve 4 × b = 32 to get b = $8 per box. The trap is dividing the $50 bill by 4 ($12.50) or stopping at the $32 total — the change must be taken off first, and then shared among the 4 boxes."
+   }
+  ]
+ }
+}

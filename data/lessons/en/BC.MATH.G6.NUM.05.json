@@ -1,0 +1,131 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.NUM.05",
+ "lang": "en",
+ "title": "whole-number percents and percentage discounts",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Percents and Sale Signs: How Much Do I Really Pay?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're at the mall in Burnaby and you spot a hoodie you love. The tag says forty dollars, but a big red sign says twenty-five percent off. Your friend asks, so how much is it now? That little percent sign is the whole puzzle, and today we're going to crack it together.",
+    "math": "\\$40 \\quad \\text{with} \\quad 25\\% \\text{ off}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40
+     ],
+     "labels": [
+      "Regular price"
+     ],
+     "caption": "The hoodie costs $40 before the discount"
+    }
+   },
+   {
+    "say": "Here's the big secret. The word percent just means out of one hundred. So twenty-five percent means twenty-five out of every hundred. Look at this grid, it has exactly one hundred little squares, and I've coloured in twenty-five of them. Twenty-five percent is twenty-five hundredths, which is the decimal zero point two five, and it's also one quarter of the whole grid.",
+    "math": "25\\% = \\frac{25}{100} = 0.25 = \\frac{1}{4}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "25 squares coloured out of 100 — that's 25%"
+    }
+   },
+   {
+    "say": "Let's try the friendliest percent of all. Fifty percent means fifty out of one hundred, and that's exactly half the grid. So fifty percent is the same as one half, the same as the decimal zero point five, and the same as the ratio fifty to one hundred. Four different outfits, one same amount. When a sign says fifty percent off, it just means half price.",
+    "math": "50\\% = \\frac{50}{100} = \\frac{1}{2} = 0.5",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      50
+     ],
+     "labels": [],
+     "caption": "Half the grid — 50% and one half are twins"
+    }
+   },
+   {
+    "say": "Now back to our hoodie. We want twenty-five percent of forty dollars. Since twenty-five percent is one quarter, we just split forty dollars into four equal parts. Forty divided by four is ten. So the discount is ten dollars. Let's double check the other way, zero point two five times forty is also ten dollars. Both ways agree.",
+    "math": "25\\% \\text{ of } 40 = \\frac{1}{4}\\times 40 = 40\\div 4 = \\$10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10,
+      10,
+      10,
+      10
+     ],
+     "labels": [
+      "quarter",
+      "quarter",
+      "quarter",
+      "quarter"
+     ],
+     "caption": "$40 split into four equal quarters of $10 each"
+    }
+   },
+   {
+    "say": "Careful here, this is where lots of people slip. The ten dollars is what you save, not what you pay. To get the sale price, take the discount off the regular price. Forty dollars minus ten dollars is thirty dollars. Another way to see it, if twenty-five percent comes off, then seventy-five percent stays on, and seventy-five percent of forty is thirty dollars. Same answer, and that always feels good.",
+    "math": "\\$40-\\$10=\\$30",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      75,
+      25
+     ],
+     "labels": [
+      "You pay 75%",
+      "You save 25%"
+     ],
+     "caption": "The whole price is 100% — the sale splits it into pay and save"
+    }
+   },
+   {
+    "say": "Let's try a slightly trickier one. A hiking backpack for the Grouse Grind costs sixty dollars, and it's fifteen percent off. Fifteen isn't a friendly fraction, so use ten percent as your helper. Ten percent of sixty is six dollars, because ten percent is one tenth. Five percent is half of that, so three dollars. Six plus three is nine dollars off. So you pay sixty minus nine, which is fifty-one dollars.",
+    "math": "10\\%=\\$6,\\; 5\\%=\\$3,\\; 15\\%=\\$9,\\quad \\$60-\\$9=\\$51",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      9,
+      51
+     ],
+     "labels": [
+      "You save 15%",
+      "You pay 85%"
+     ],
+     "caption": "$9 saved and $51 paid — together they rebuild the $60"
+    }
+   },
+   {
+    "say": "One more kind of question, where the percent is the missing piece. A book at the Vancouver library sale is twenty dollars, and you saved five dollars. What percent was the discount? Write the saving over the whole price, five out of twenty. Now stretch it to be out of one hundred, multiply top and bottom by five, and you get twenty-five out of one hundred. That's twenty-five percent off.",
+    "math": "\\frac{5}{20}=\\frac{25}{100}=25\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "5 out of 20 is the same shading as 25 out of 100"
+    }
+   },
+   {
+    "say": "So whenever you see a sale sign, remember the two little steps. First find the part that comes off, then subtract it from the regular price. Percent is just a friendly way of saying out of one hundred, and once you see that, sale signs stop being tricky and start being fun.",
+    "math": "\\text{sale price}=\\text{regular price}-\\text{discount}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Percent means out of one hundred — find the discount first, then subtract it from the regular price.",
+  "practice": {
+   "question": "A pair of soccer cleats at a shop in Kelowna costs $50, and the sign says 20% off. How much do you save, and what is the sale price?",
+   "answer": "10% of $50 is $5, so 20% is $10. You save $10, and the sale price is $50 − $10 = $40."
+  }
+ }
+}

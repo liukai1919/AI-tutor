@@ -1,0 +1,137 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.GEO.02",
+ "lang": "en",
+ "title": "relationships between area and perimeter",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Same Fence, Different Garden: Area and Perimeter",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine your family gets a plot at the community garden here in BC, and the garden centre gives you exactly twenty metres of little fence. You want to fence a rectangle for your carrots. Here's the surprising question: does every rectangle you make with that same twenty metres of fence hold the same amount of dirt inside? Let's find out together.",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A garden plot fenced with 20 m of fence"
+    }
+   },
+   {
+    "say": "First, the two words. Perimeter is the walk all the way around the edge — it's the fence. For this rectangle, we walk six, then four, then six, then four. Six plus four plus six plus four equals twenty. So the perimeter is twenty metres. Perimeter is measured in metres, because it's just a length.",
+    "math": "6+4+6+4=20\\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Perimeter = the fence around the outside = 20 m"
+    }
+   },
+   {
+    "say": "Area is different. Area is the ground inside — the dirt you actually get to plant in. Picture covering the inside with square tiles that are one metre on each side. There are four rows with six tiles in each row. Four times six equals twenty-four. So the area is twenty-four square metres. Area is measured in square metres, because it's made of little squares.",
+    "math": "4\\times 6=24\\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "Area = 24 tiles inside = 24 square metres"
+    }
+   },
+   {
+    "say": "Now here's the fun part. Let's keep the very same twenty metres of fence, but make the garden long and skinny instead — eight metres by two metres. Check the fence first: eight plus two plus eight plus two equals twenty. Yes, the same twenty metres! But count the tiles inside: two rows of eight is only sixteen. Sixteen square metres. We lost eight square metres of planting space, and we never changed the fence at all.",
+    "math": "8+2+8+2=20\\text{ m},\\quad 2\\times 8=16\\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      8,
+      2,
+      8
+     ],
+     "labels": [],
+     "caption": "Same 20 m fence, but only 16 square metres inside"
+    }
+   },
+   {
+    "say": "Let's line them up so you can really see it. Every one of these gardens uses exactly twenty metres of fence. Eight by two gives sixteen square metres. Six by four gives twenty-four. And five by five — a perfect square — gives five times five, which is twenty-five square metres, the biggest of them all. Same perimeter every time, but the area keeps changing.",
+    "math": "8\\times2=16,\\quad 6\\times4=24,\\quad 5\\times5=25",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      16,
+      24,
+      25
+     ],
+     "labels": [
+      "8 by 2",
+      "6 by 4",
+      "5 by 5"
+     ],
+     "caption": "All have a 20 m fence — but look how different the areas are"
+    }
+   },
+   {
+    "say": "So here's the big idea. Perimeter and area are related — they're both about the same shape — but one does not decide the other. Knowing the fence is twenty metres does not tell you how much garden you get. The squarer and chunkier you make a rectangle, the more area you get from the same fence. The longer and skinnier, the less.",
+    "math": "P=20\\text{ m}\\;\\Rightarrow\\;A=?\\;(16,\\;24,\\;\\text{or }25)",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      5
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "The square shape gives the most area: 25 square metres"
+    }
+   },
+   {
+    "say": "People here figured this out long before rulers and tape measures. Coast Salish families built long cedar plank houses — big rectangles. Picture one that is twelve metres long and six metres wide. Its perimeter is twelve plus six plus twelve plus six, which is thirty-six metres of cedar wall to build. Its area is twelve times six, which is seventy-two square metres of floor for families to live on. Interior Salish families built round pit houses, called kekuli, and a round shape wraps even more floor inside the same amount of wall. If an Elder or knowledge keeper visits your class, ask how they measured and estimated with paces, arm spans, and canoe lengths.",
+    "math": "P=12+6+12+6=36\\text{ m},\\quad A=12\\times6=72\\text{ m}^2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      12,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A plank house floor: 36 m of wall around, 72 square metres inside"
+    }
+   },
+   {
+    "say": "So next time you see a fence, remember: the fence is the perimeter, the ground inside is the area, and they are two different stories about the very same shape.",
+    "math": "P=2\\times(l+w),\\quad A=l\\times w",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Same perimeter does not mean same area — the fence stays 20 m, but the garden inside can be 16, 24, or 25 square metres.",
+  "practice": {
+   "question": "Maya has 16 metres of fencing for a rectangular vegetable patch behind her house in Kamloops. She's deciding between a patch that is 7 m by 1 m and one that is 4 m by 4 m. Check that both use all 16 metres of fence, then find the area of each. Which one gives her more room to plant?",
+   "answer": "Both use 16 m of fence: 7 + 1 + 7 + 1 = 16, and 4 + 4 + 4 + 4 = 16. Areas: 7 × 1 = 7 square metres, and 4 × 4 = 16 square metres. The 4 m by 4 m square is much better — it gives 9 more square metres of planting space with the exact same fence!"
+  }
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G4.DAT.02",
+ "lang": "en",
+ "title": "probability experiments",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Let's Try It and See! Probability Experiments",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Last Friday my family played a board game, and we had one spinner to decide who moves first. My nephew said, \"I bet it lands on red!\" But how could he know? That's what today is about. When we can't be sure what will happen, we do a probability experiment. That means we try it lots of times, write down what happens, and let the results teach us. Chance isn't magic — it's something we can actually test.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+     ],
+     "caption": "Our game night spinner: red, blue, yellow"
+    }
+   },
+   {
+    "say": "First, some words we use for chance. Some things are impossible — they can never happen, like rolling a seven on a regular six-sided die. Some things are certain — they always happen, like the sun coming up tomorrow over the mountains. And lots of things sit in the middle, like a coin landing heads. We can put them on a line that goes from impossible on the left to certain on the right.",
+    "math": "",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0,
+      0.5,
+      1
+     ],
+     "labels": [
+      "Roll a 7 on a die",
+      "Coin lands heads",
+      "Sun comes up tomorrow"
+     ],
+     "caption": "From impossible to certain"
+    }
+   },
+   {
+    "say": "Now look closely at our spinner. It has four equal parts. Two parts are red, one part is blue, and one part is yellow. So red covers two parts out of four, which is the same as one half. Blue is one out of four, and yellow is one out of four. Red takes up the biggest space, so red is the most likely colour. My nephew's guess was a smart one! That's called predicting a single outcome.",
+    "math": "\\frac{2}{4}=\\frac{1}{2}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+     ],
+     "caption": "Red fills 2 of the 4 equal parts"
+    }
+   },
+   {
+    "say": "Here's the fun part — we test it. We spun the spinner twenty times, and every single time we made a little tally mark beside the colour. Tally marks are quick lines, and we cross the fifth one across the other four so it's easy to count in fives. When we finished twenty spins, we counted up: red got eleven, blue got five, and yellow got four.",
+    "math": "11+5+4=20",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      11,
+      5,
+      4
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+     ],
+     "caption": "Our tally results after 20 spins"
+    }
+   },
+   {
+    "say": "Let's turn our tallies into a bar graph so we can see it. We predicted red would win, because red is one half of the spinner, and half of twenty is ten. We actually got eleven reds — really close to ten! It wasn't exactly ten, and that's totally okay. Chance is a little wobbly. But when the experiment matches your prediction pretty closely, it means your thinking was good.",
+    "math": "\\frac{1}{2}\\times20=10",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      11,
+      5,
+      4
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+     ],
+     "caption": "We predicted about 10 reds — we got 11"
+    }
+   },
+   {
+    "say": "Spinners aren't the only way. Try this one: I put ten balls in a paper bag — six red, three white, and one blue. Without peeking, you reach in and pull one out. Which colour will you probably get? Red, because there are more red balls than anything else — six out of ten. Blue is the least likely, only one ball out of ten. More of a colour means a better chance.",
+    "math": "6+3+1=10",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      6,
+      3,
+      1
+     ],
+     "labels": [
+      "red",
+      "white",
+      "blue"
+     ],
+     "caption": "6 red, 3 white, 1 blue — red is most likely"
+    }
+   },
+   {
+    "say": "Here in British Columbia, people have been playing chance games for a very long time. In the Dene and Kaska hand games, and in Lahal, the stick game, one player hides a marked bone or stick in one hand, and the other player has to guess which hand it's in. There are only two hands, and each one has exactly the same chance. We say the two outcomes are equally likely — one out of two, or one half. That's why these games are fair, and why they're so exciting to watch.",
+    "math": "\\frac{1}{2}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1
+     ],
+     "labels": [
+      "Left hand",
+      "Right hand"
+     ],
+     "caption": "Two equal chances — a fair guess"
+    }
+   },
+   {
+    "say": "So here's what I want you to carry home. Before you spin, roll, or reach into a bag, look at what's inside and make a prediction. Then do it many times and tally what really happens. Your tallies are the proof. You're not guessing anymore — you're a scientist of chance!",
+    "math": "",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.1,
+      0.5,
+      0.5
+     ],
+     "labels": [
+      "Pull the blue ball",
+      "Spin red",
+      "Guess the right hand"
+     ],
+     "caption": "Everything we tested today, on the chance line"
+    }
+   }
+  ],
+  "answer": "Predict first, then try it many times and tally — the results show you how likely something really is.",
+  "practice": {
+   "question": "At a corner store in Victoria, Maya buys a small bag with 10 gummies: 5 red, 3 green, and 2 blue. She reaches in without looking, pulls one out, then puts it back — 20 times, tallying each colour. (a) Which colour is she most likely to pull? (b) About how many red ones should she predict out of 20 pulls?",
+   "answer": "(a) Red, because there are 5 red — more than any other colour. (b) Red is 5 out of 10, which is one half, and one half of 20 is 10, so she should predict about 10 reds. Her real tally might be 9 or 11 — that's normal for chance!"
+  }
+ }
+}

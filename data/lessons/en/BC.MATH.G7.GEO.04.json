@@ -1,0 +1,207 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.GEO.04",
+ "lang": "en",
+ "title": "combinations of transformations",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Slide, Flip, Turn: Putting Moves Together",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Think about a game on your phone where you drag a puzzle piece across the screen, then flip it over so it fits. You just did two moves in a row. In math we call those moves transformations, and doing more than one in a row is called a combination of transformations. Today we'll learn how to track exactly where a shape lands after two moves.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      2,
+      -3,
+      -3
+     ],
+     "labels": [
+      "start",
+      "end"
+     ],
+     "caption": "A piece starts at three, two and ends up at negative three, negative three. Two moves got it there."
+    }
+   },
+   {
+    "say": "First, our playing field. Two number lines cross at zero and split the page into four quadrants. Every spot has an address like three, two — the first number tells you how far right or left, the second tells you how far up or down. Negative numbers just mean left, or down.",
+    "math": "(x,\\;y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      2,
+      -3,
+      2,
+      -3,
+      -2,
+      3,
+      -2
+     ],
+     "labels": [
+      "3,2",
+      "-3,2",
+      "-3,-2",
+      "3,-2"
+     ],
+     "caption": "Same numbers, four different corners — the signs decide which quadrant."
+    }
+   },
+   {
+    "say": "There are only three moves to learn. A translation is a slide: you add or subtract from the coordinates. A reflection is a flip across an axis, like a mirror. A rotation is a turn around the centre point. Look at the picture: the point four, three flips across the up-and-down axis to negative four, three, and turns half a circle to negative four, negative three.",
+    "math": "\\text{slide: }(x+a,\\;y+b)\\quad\\text{flip in }y\\text{-axis: }(-x,\\;y)\\quad\\text{turn }180^\\circ:(-x,\\;-y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      3,
+      -4,
+      3,
+      -4,
+      -3
+     ],
+     "labels": [
+      "P",
+      "flip",
+      "turn"
+     ],
+     "caption": "One point, three different moves."
+    }
+   },
+   {
+    "say": "Now let's combine two moves. Start at the point three, two. Move one: flip it across the up-and-down axis. Only the first number changes sign, so three, two becomes negative three, two. Move two: slide it down five. Now only the second number changes: two minus five is negative three. So we land on negative three, negative three. Notice the trick — do one move, write the new coordinates, then do the next move from there.",
+    "math": "(3,2)\\;\\xrightarrow{\\text{flip}}\\;(-3,2)\\;\\xrightarrow{\\text{down }5}\\;(-3,-3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      2,
+      -3,
+      2,
+      -3,
+      -3
+     ],
+     "labels": [
+      "P",
+      "after flip",
+      "after slide"
+     ],
+     "caption": "Two moves, one at a time: flip, then slide down five."
+    }
+   },
+   {
+    "say": "Let's try a whole shape now. Here's a triangle with corners at one, one and four, one and one, three. Move one: flip it across the side-to-side axis. That means every second number flips sign, and the first numbers stay put. So one, one becomes one, negative one. Four, one becomes four, negative one. And one, three becomes one, negative three. The triangle is now upside down below the axis.",
+    "math": "(x,y)\\to(x,-y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1,
+      1,
+      3,
+      1,
+      -1,
+      4,
+      -1,
+      1,
+      -3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "The triangle flipped across the side-to-side axis."
+    }
+   },
+   {
+    "say": "Move two: slide the flipped triangle six units to the left. Left means subtract six from every first number, and leave the second numbers alone. One minus six is negative five. Four minus six is negative two. And one minus six is negative five again. So the final triangle sits at negative five, negative one and negative two, negative one and negative five, negative three. Same size, same shape — it just travelled.",
+    "math": "(1,-1)\\to(-5,-1),\\;(4,-1)\\to(-2,-1),\\;(1,-3)\\to(-5,-3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      -1,
+      4,
+      -1,
+      1,
+      -3,
+      -5,
+      -1,
+      -2,
+      -1,
+      -5,
+      -3
+     ],
+     "labels": [
+      "A'",
+      "B'",
+      "C'",
+      "A''",
+      "B''",
+      "C''"
+     ],
+     "caption": "Sliding six left: subtract six from each first number."
+    }
+   },
+   {
+    "say": "Here's the part that trips people up: the order matters. Take the point two, one. Flip it first, then slide right three: two, one becomes negative two, one, then negative two plus three gives one, one. But slide first, then flip: two plus three is five, one, and flipping gives negative five, one. Two different landing spots! So always do the moves in the order you're given.",
+    "math": "(2,1)\\xrightarrow{\\text{flip, then }+3}(1,1)\\qquad(2,1)\\xrightarrow{+3,\\text{ then flip}}(-5,1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      1,
+      1,
+      -5,
+      1
+     ],
+     "labels": [
+      "start",
+      "way A",
+      "way B"
+     ],
+     "caption": "Same two moves, swapped order, totally different answer."
+    }
+   },
+   {
+    "say": "One last cool thing. Repeating slides, flips and turns is exactly how a tessellation works — a shape copied over and over with no gaps. You can see this beautifully in First Peoples art here in B.C.: the mirrored designs on bentwood boxes and silver bracelets, and birchbark biting, where a folded piece of bark is bitten and opens into a perfectly symmetrical pattern. That's a reflection made with your teeth!",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      2,
+      0,
+      2,
+      4,
+      2,
+      -4,
+      -2,
+      0,
+      -2,
+      4,
+      -2
+     ],
+     "labels": [],
+     "caption": "The same shape slid again and again — a tessellation pattern."
+    }
+   }
+  ],
+  "answer": "Do one move at a time, rewrite the coordinates after each move — and remember, changing the order changes the answer.",
+  "practice": {
+   "question": "On a map grid of Stanley Park, a bench is at the point four, three, where each unit is ten metres. First reflect the bench across the side-to-side axis, then translate it five units to the left. What are its final coordinates?",
+   "answer": "Negative one, negative three. Flipping across the side-to-side axis turns four, three into four, negative three, and sliding five left gives four minus five equals negative one, so the final point is negative one, negative three."
+  }
+ }
+}

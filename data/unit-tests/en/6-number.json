@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "6",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Number · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G6.NUM.01",
+    "level": 1,
+    "question": "In science class, four students each weighed the same rock and wrote down these masses: 1.205 kg, 1.25 kg, 1.052 kg, 1.5 kg. Which mass is the greatest?",
+    "options": [
+     "1.205 kg",
+     "1.25 kg",
+     "1.052 kg",
+     "1.5 kg"
+    ],
+    "answerIndex": 3,
+    "explain": "Line up the decimal points and compare place by place: the tenths digits are 2, 2, 0 and 5, so 1.5 is the largest. The common trap is thinking a decimal with more digits (like 1.205) must be bigger — extra thousandths do not beat a larger tenths digit."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.03",
+    "level": 1,
+    "question": "Write the improper fraction 17/5 as a mixed number.",
+    "options": [
+     "3 2/5",
+     "2 3/5",
+     "3 1/5",
+     "5 2/5"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide 17 by 5: it goes in 3 times with 2 left over, so 17/5 = 3 2/5. Watch out for swapping the whole number and the remainder (2 3/5), or using the denominator 5 as the whole number."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.02",
+    "level": 1,
+    "question": "Which of these is the prime factorization of 60?",
+    "options": [
+     "2 × 30",
+     "2 × 2 × 15",
+     "2 × 2 × 3 × 5",
+     "2 × 3 × 5"
+    ],
+    "answerIndex": 2,
+    "explain": "Keep splitting with a factor tree until every factor is prime: 60 = 2 × 2 × 3 × 5 (also written 2² × 3 × 5). The usual mistake is stopping too early and leaving a composite factor like 30 or 15, or dropping a 2 so the factors only multiply to 30."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.05",
+    "level": 2,
+    "question": "A hoodie at a shop in Kelowna costs $45. It is on sale for 20% off. What is the sale price?",
+    "options": [
+     "$9.00",
+     "$36.00",
+     "$40.50",
+     "$54.00"
+    ],
+    "answerIndex": 1,
+    "explain": "10% of $45 is $4.50, so 20% is $9.00 — that is the discount, and the sale price is $45 − $9 = $36.00. The most common trap is stopping at $9.00 (the amount saved) instead of subtracting it from the original price."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.04",
+    "level": 2,
+    "question": "In Maya's class, 12 students ski and 16 students snowboard. Everyone does one or the other. What is the ratio of skiers to the whole class, in lowest terms?",
+    "options": [
+     "3:4",
+     "4:3",
+     "7:3",
+     "3:7"
+    ],
+    "answerIndex": 3,
+    "explain": "The whole class is 12 + 16 = 28 students, so skiers to whole class is 12:28, and dividing both parts by 4 gives 3:7. The common mistake is giving the part-to-part ratio 12:16 = 3:4 instead of a part-to-whole ratio."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.06",
+    "level": 2,
+    "question": "Jayden has $36 saved and earns $12 allowance each week. A skateboard costs $144. If he saves every dollar of his allowance, how many more weeks until he can buy it?",
+    "options": [
+     "4 weeks",
+     "9 weeks",
+     "12 weeks",
+     "15 weeks"
+    ],
+    "answerIndex": 1,
+    "explain": "First subtract what he already has: $144 − $36 = $108 still needed, then divide by the weekly amount: $108 ÷ $12 = 9 weeks. The common trap is dividing $144 by $12 and answering 12 weeks, which forgets the $36 already saved."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.02",
+    "level": 3,
+    "question": "At a Burnaby community centre, the pool shuttle leaves every 12 minutes and the arena shuttle leaves every 18 minutes. Both leave together at 9:00 a.m. At what time will they next leave together?",
+    "options": [
+     "9:06 a.m.",
+     "9:30 a.m.",
+     "9:36 a.m.",
+     "12:36 p.m."
+    ],
+    "answerIndex": 2,
+    "explain": "You need the least common multiple: multiples of 12 are 12, 24, 36 and multiples of 18 are 18, 36, so they meet again 36 minutes later, at 9:36 a.m. Common traps are finding the greatest common factor (6 minutes) or just multiplying 12 × 18 = 216 minutes."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.NUM.03",
+    "level": 3,
+    "question": "Amara walks 2 3/4 km along the seawall in the morning and 1 5/8 km in the afternoon. How far does she walk in total?",
+    "options": [
+     "4 3/8 km",
+     "3 3/8 km",
+     "3 8/12 km",
+     "4 1/2 km"
+    ],
+    "answerIndex": 0,
+    "explain": "Use a common denominator of 8: 2 6/8 + 1 5/8 = 3 + 11/8, and since 11/8 = 1 3/8, the total regroups to 4 3/8 km. The biggest trap is adding numerators and denominators straight across (3 8/12); the next is forgetting to regroup the extra whole from 11/8 and answering 3 3/8."
+   }
+  ]
+ }
+}

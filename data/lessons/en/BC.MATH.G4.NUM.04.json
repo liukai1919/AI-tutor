@@ -1,0 +1,146 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G4.NUM.04",
+ "lang": "en",
+ "title": "financial literacy — monetary calculations, including making change with amounts to 100 dollars and making simple financial decisions",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Making Change Like a Store Clerk",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you are at a little bookshop in Victoria. You find a comic book that costs thirteen dollars and seventy-five cents, and you hand the clerk a twenty dollar bill. The clerk gives you money back — that money is called your change. Change is just the leftover part of what you paid.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      13.75
+     ],
+     "labels": [
+      "You paid",
+      "Book cost"
+     ],
+     "caption": "The little bit sticking out is your change"
+    }
+   },
+   {
+    "say": "First, let's read money the right way. In thirteen dollars and seventy-five cents, everything before the dot is whole dollars, and everything after the dot is cents. Seventy-five cents means seventy-five out of the one hundred pennies that make one dollar. So the dot is like a fence between dollars and cents.",
+    "math": "13.75 = 13 \\text{ dollars} + 75 \\text{ cents}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      13.75
+     ],
+     "labels": [],
+     "caption": "Dollars on the left of the dot, cents on the right"
+    }
+   },
+   {
+    "say": "Here is my favourite trick, and it's the one real clerks use. It's called counting up. Start at the price and hop up to the money you gave. First hop from thirteen dollars and seventy-five cents up to fourteen dollars — that's twenty-five cents. Then hop from fourteen dollars up to twenty dollars — that's six dollars. Six dollars plus twenty-five cents makes six dollars and twenty-five cents. That's your change!",
+    "math": "13.75 \\xrightarrow{+0.25} 14.00 \\xrightarrow{+6.00} 20.00",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      13,
+      21,
+      13.75,
+      20
+     ],
+     "labels": [],
+     "caption": "Hop up from the price to the money you paid"
+    }
+   },
+   {
+    "say": "Let's check it the other way too, because we always double check with money. Twenty dollars take away thirteen dollars and seventy-five cents equals six dollars and twenty-five cents. And here is what the clerk actually puts in your hand: one five dollar bill, one loonie, and one quarter. Five plus one plus twenty-five cents really is six dollars and twenty-five cents.",
+    "math": "20.00 - 13.75 = 6.25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      1,
+      0.25
+     ],
+     "labels": [
+      "$5 bill",
+      "$1 loonie",
+      "25 cent quarter"
+     ],
+     "caption": "Five plus one plus zero point two five equals six twenty-five"
+    }
+   },
+   {
+    "say": "Now a quick money rule called fair trading. A trade is fair only when both sides are worth exactly the same. Four quarters are worth one dollar, and a loonie is worth one dollar, so trading four quarters for a loonie is perfectly fair. Trading three quarters for a loonie would not be fair, because seventy-five cents is less than one dollar.",
+    "math": "4 \\times 0.25 = 1.00",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4 quarters",
+      "1 loonie"
+     ],
+     "caption": "Equal value on both sides means a fair trade"
+    }
+   },
+   {
+    "say": "Let's try a bigger one, with amounts up to one hundred dollars. At an outdoor store you buy hiking boots for forty-seven dollars and fifty cents, and a water bottle for twelve dollars and ninety-five cents. First we add. Fifty cents plus ninety-five cents is one dollar and forty-five cents. Forty-seven plus twelve is fifty-nine. Fifty-nine plus one dollar and forty-five cents gives sixty dollars and forty-five cents.",
+    "math": "47.50 + 12.95 = 60.45",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      47.5,
+      12.95,
+      60.45
+     ],
+     "labels": [
+      "Boots",
+      "Bottle",
+      "Total"
+     ],
+     "caption": "Two prices joined together make the total"
+    }
+   },
+   {
+    "say": "You pay with a one hundred dollar bill, so let's count up again in easy hops. From sixty dollars and forty-five cents, hop five cents to sixty dollars and fifty cents. Hop fifty cents to sixty-one dollars. Hop nine dollars to seventy dollars. Hop thirty dollars to one hundred. Now add the hops: five cents plus fifty cents is fifty-five cents, and nine plus thirty is thirty-nine. Your change is thirty-nine dollars and fifty-five cents.",
+    "math": "100.00 - 60.45 = 39.55",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      60,
+      100,
+      60.45,
+      100
+     ],
+     "labels": [],
+     "caption": "Small hops first, then big friendly jumps"
+    }
+   },
+   {
+    "say": "Money isn't only about spending, though. Say you earn thirty dollars helping your neighbour rake leaves. A smart plan might be: save fifteen dollars for something big later, spend ten dollars now, and give five dollars to the food bank. Fifteen plus ten plus five is thirty — every dollar has a job, and nothing goes missing.",
+    "math": "15 + 10 + 5 = 30",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15,
+      10,
+      5
+     ],
+     "labels": [
+      "Save",
+      "Spend",
+      "Give"
+     ],
+     "caption": "Thirty dollars earned, split into three jobs"
+    }
+   }
+  ],
+  "answer": "To find change, start at the price and count up to the money you paid — cents first, then dollars.",
+  "practice": {
+   "question": "At a shop in Kamloops you buy warm gloves for eighteen dollars and sixty cents, and you pay with a fifty dollar bill. How much change should you get back?",
+   "answer": "Thirty-one dollars and forty cents. Count up: 18.60 to 19.00 is 40 cents, then 19.00 to 50.00 is 31 dollars, so the change is $31.40 (and 18.60 + 31.40 = 50.00)."
+  }
+ }
+}

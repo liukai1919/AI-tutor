@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.GEO.03",
+ "lang": "en",
+ "title": "duration, using measurement of time",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "How Long Did That Take? Elapsed Time",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Imagine you and your family are catching the ferry over to Vancouver Island. The sign says the boat leaves at ten forty-five in the morning and gets there at twelve twenty in the afternoon. Your little brother asks, how long are we going to be on the boat? That question is what today's lesson is all about.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      10,
+      45,
+      12,
+      20
+     ],
+     "labels": [],
+     "caption": "Leaves 10:45 a.m., arrives 12:20 p.m. — how long is the ride?"
+    }
+   },
+   {
+    "say": "Here's the big idea. A clock time tells you when something happens, like a dot on a map. A duration tells you how long it lasts, like the distance between two dots. Look at these cookies: they go in the oven at four o'clock and come out at four twenty-five. Four o'clock is a when. Twenty-five minutes is the how long.",
+    "math": "4\\text{:}25 - 4\\text{:}00 = 25 \\text{ minutes}",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      4,
+      0,
+      4,
+      25
+     ],
+     "labels": [],
+     "caption": "Two whens... and the gap in between is the duration"
+    }
+   },
+   {
+    "say": "Now the trick I want you to remember: don't try to subtract times all in one jump. Instead, hop to the next whole hour first. Your school bus leaves at eight fifteen and gets to school at nine o'clock. From eight fifteen, how many minutes until nine? An hour has sixty minutes, and fifteen have already gone by, so sixty take away fifteen leaves forty-five minutes. That's the whole ride.",
+    "math": "60 - 15 = 45 \\text{ minutes}",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      8,
+      15,
+      9,
+      0
+     ],
+     "labels": [],
+     "caption": "8:15 to 9:00 is 45 minutes"
+    }
+   },
+   {
+    "say": "Let's try a bigger one. Swim practice at the rec centre starts at four forty in the afternoon and finishes at six fifteen. We take three friendly hops. Hop one, from four forty up to five o'clock, is twenty minutes. Hop two, from five o'clock to six o'clock, is one whole hour, sixty minutes. Hop three, from six o'clock to six fifteen, is fifteen minutes.",
+    "math": "20 + 60 + 15",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      60,
+      15
+     ],
+     "labels": [
+      "4:40 to 5:00",
+      "5:00 to 6:00",
+      "6:00 to 6:15"
+     ],
+     "caption": "Three hops from 4:40 to 6:15, measured in minutes"
+    }
+   },
+   {
+    "say": "Now we add the hops up. Twenty plus sixty is eighty, and eighty plus fifteen is ninety-five minutes. But we don't usually say ninety-five minutes out loud. Sixty of those minutes make one full hour, and ninety-five take away sixty leaves thirty-five. So swim practice lasts one hour and thirty-five minutes. Let's check it backwards: four forty plus one hour is five forty, and five forty plus thirty-five minutes lands right on six fifteen. It works!",
+    "math": "95 = 60 + 35 \\Rightarrow 1\\text{ h } 35\\text{ min}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      120,
+      60,
+      95
+     ],
+     "labels": [],
+     "caption": "95 minutes: one whole hour (60), then 35 more"
+    }
+   },
+   {
+    "say": "Time hops work going forward too. Back to our ferry! The boat leaves at ten forty-five and the crossing takes one hour and thirty-five minutes. First add the hour: ten forty-five becomes eleven forty-five. Then add the thirty-five minutes in two friendly pieces — fifteen minutes gets us to twelve o'clock noon, and the twenty minutes left over take us to twelve twenty. So we arrive at twelve twenty in the afternoon, just like the sign said.",
+    "math": "10\\text{:}45 + 1\\text{h} = 11\\text{:}45,\\ \\ 11\\text{:}45 + 35\\text{min} = 12\\text{:}20",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      10,
+      45,
+      12,
+      20
+     ],
+     "labels": [],
+     "caption": "Start time plus duration gives the end time"
+    }
+   },
+   {
+    "say": "Once you can measure duration, you can compare all the parts of your day, and even nature's cycles. Recess is fifteen minutes, lunch is forty minutes, and that ferry ride is ninety-five minutes. Look how much taller the ferry bar is — it's more than twice as long as lunch. Out on the coast, the ocean does the same thing: the time from one high tide to the next high tide is about twelve hours and twenty-five minutes, every single day.",
+    "math": "15 < 40 < 95",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15,
+      40,
+      95
+     ],
+     "labels": [
+      "Recess",
+      "Lunch",
+      "Ferry ride"
+     ],
+     "caption": "Comparing durations in minutes"
+    }
+   },
+   {
+    "say": "So here's what I want you to carry in your pocket: to find how long something lasts, hop to the next whole hour, then count the whole hours, then add the leftover minutes. Small friendly hops beat one scary jump every time. Great work today!",
+    "math": "\\text{minutes to the hour} + \\text{whole hours} + \\text{leftover minutes}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To find a duration, hop to the next whole hour, count the whole hours, then add the leftover minutes — and remember 60 minutes make 1 hour.",
+  "practice": {
+   "question": "Ava's ferry from Nanaimo leaves at 3:50 p.m. and arrives at 5:30 p.m. How long is the ride?",
+   "answer": "1 hour 40 minutes. Hop 3:50 to 4:00 is 10 minutes, 4:00 to 5:00 is 60 minutes, 5:00 to 5:30 is 30 minutes. 10 + 60 + 30 = 100 minutes, and 100 minutes is 1 hour 40 minutes."
+  }
+ }
+}

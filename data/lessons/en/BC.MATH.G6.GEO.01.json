@@ -1,0 +1,152 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.GEO.01",
+ "lang": "en",
+ "title": "perimeter of complex shapes",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Walking Around L-Shaped Yards: Perimeter of Complex Shapes",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Imagine your family wants to put a fence around the backyard, and the fence costs nine dollars for every metre. If the yard were a plain rectangle, easy. But real yards are hardly ever plain rectangles — most have a corner cut off where the shed or the deck sits. That's called a complex shape: a few rectangles stuck together with no holes in the middle. Today we learn how to measure all the way around one, so nobody buys too little fence.",
+    "math": "\\text{fence cost} = \\text{perimeter} \\times \\$9",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "If the yard were a simple rectangle: 8 m by 6 m"
+    }
+   },
+   {
+    "say": "Here's our real yard. Think of it as two rectangles pushed together. The big bottom part is eight metres long and four metres tall. Picture a patch of grass that shape.",
+    "math": "8 \\text{ m} \\times 4 \\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Piece 1: the wide bottom part of the yard"
+    }
+   },
+   {
+    "say": "And sitting on top of the left side of it is a smaller rectangle, five metres long and two metres tall. Put the two pieces together and you get an L shape — like a big letter L lying in the grass. That is our complex shape.",
+    "math": "5 \\text{ m} \\times 2 \\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      2
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Piece 2: the smaller part sitting on top"
+    }
+   },
+   {
+    "say": "Now the big idea, and it's a gentle one. Perimeter just means: walk all the way around the outside and add up every step. Put your finger on a corner and travel around the whole edge until you come back home. Very important — the line where the two pieces join is inside the shape, so you never walk on it. Fences only go around the outside!",
+    "math": "P = \\text{sum of all outside sides}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's walk our L-shaped yard together. Go along the bottom, eight metres. Up the right side, four metres. Left along the little ledge, three metres. Up two metres. Left along the top, five metres. And down the long left side, six metres, and we're home. Now add them all up: eight plus four is twelve, plus three is fifteen, plus two is seventeen, plus five is twenty-two, plus six is twenty-eight. The perimeter is twenty-eight metres. So the fence costs twenty-eight times nine dollars, which is two hundred fifty-two dollars.",
+    "math": "8+4+3+2+5+6=28\\text{ m}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      4,
+      3,
+      2,
+      5,
+      6
+     ],
+     "labels": [
+      "bottom",
+      "right",
+      "ledge",
+      "up",
+      "top",
+      "left"
+     ],
+     "caption": "The six sides of the walk, adding to 28 m"
+    }
+   },
+   {
+    "say": "Sometimes a drawing doesn't tell you every side — it hides one or two. No problem, you can be a detective. Look at this dog run at the park. It's a twelve metre by eight metre rectangle with a five metre by three metre corner missing. The drawing gives you: bottom twelve, right side five, then in five, then up three. The top and the far left side are missing. To find the top: the whole width is twelve, and five of it belongs to the notch, so twelve minus five is seven metres. To find the left side: it must match five plus three, which is eight metres. Opposite sides always have to match up.",
+    "math": "12-5=7\\quad\\text{and}\\quad 5+3=8",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      12,
+      8
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "The whole rectangle before the 5 m by 3 m corner is cut off"
+    }
+   },
+   {
+    "say": "Now we have all six sides, so let's add them: twelve plus five is seventeen, plus five is twenty-two, plus three is twenty-five, plus seven is thirty-two, plus eight is forty. The dog run needs forty metres of fencing. And here's a lovely check for L shapes: wrap the shape in a rectangle around it, twelve by eight, and go two times twelve plus eight, which is two times twenty, which is forty. Same answer! That works because pushing a corner in doesn't make the walk any longer.",
+    "math": "12+5+5+3+7+8=40 \\;=\\; 2\\times(12+8)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      5,
+      5,
+      3,
+      7,
+      8
+     ],
+     "labels": [
+      "bottom",
+      "right",
+      "in",
+      "up",
+      "top",
+      "left"
+     ],
+     "caption": "All six sides of the dog run, adding to 40 m"
+    }
+   },
+   {
+    "say": "So remember: a complex shape is just simple shapes holding hands, and its perimeter is one careful walk around the outside. Find any hidden sides by adding or subtracting the ones you know, then add every step. You've got this!",
+    "math": "P = 8+4+3+2+5+6 = 28 \\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Our first yard's wrapping rectangle: 2 × (8 + 6) = 28 m, the same answer"
+    }
+   }
+  ],
+  "answer": "To find the perimeter of a complex shape, walk once around the outside and add every side — never the inside join.",
+  "practice": {
+   "question": "A garden bed at a community garden in Surrey is L-shaped. Walking around it, the sides are: 10 m along the bottom, 3 m up the right side, 4 m to the left, 2 m up, 6 m to the left along the top, and 5 m down the left side. How many metres of wooden edging go around the bed? If edging costs $8 per metre, what is the total cost?",
+   "answer": "10 + 3 + 4 + 2 + 6 + 5 = 30 metres of edging. Cost: 30 × $8 = $240. (Check: the bed fits inside a 10 m by 5 m rectangle, and 2 × (10 + 5) = 30 m too.)"
+  }
+ }
+}

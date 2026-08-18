@@ -1,0 +1,147 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.DAT.02",
+ "lang": "en",
+ "title": "probability experiments, single events or outcomes",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Ms. Yuanyuan's Spinner Surprise: Chances and Fractions",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend! Imagine it's a rainy Tuesday in Vancouver, so your class has indoor recess. Your teacher has one spinner to decide which game you play. Everyone wants to know the same thing before it spins: what are my chances? That question is exactly what probability answers. Probability is just a way to measure how likely something is, using numbers instead of guessing.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Tag",
+      "Lego",
+      "Reading",
+      "Art"
+     ],
+     "caption": "One spin, four equal choices — what are your chances?"
+    }
+   },
+   {
+    "say": "Let's start with the idea of likely and unlikely. Some things can never happen, like the sun coming out inside your classroom. Some things always happen, like tomorrow coming after today. Most things live somewhere in between. We can put them on a line from impossible, which is zero, all the way to certain, which is one.",
+    "math": "0 \\le P \\le 1",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0,
+      0.5,
+      1
+     ],
+     "labels": [
+      "Snow in July",
+      "Coin lands heads",
+      "Sun rises"
+     ],
+     "caption": "From impossible (0) to certain (1)"
+    }
+   },
+   {
+    "say": "Now here is the secret method, and it's beautifully simple. When every choice is the same size and fair, probability is a fraction. On the bottom you write how many outcomes there are in total. On the top you write how many of those outcomes are the one you're hoping for. That's it — bottom is all of them, top is your favourites.",
+    "math": "P=\\frac{\\text{favourable outcomes}}{\\text{total outcomes}}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      1
+     ],
+     "labels": [],
+     "caption": "One favourite part out of four equal parts"
+    }
+   },
+   {
+    "say": "Let's try it for real. Here's a spinner cut into six equal slices, like a little pizza: three blue, two yellow, and one red. What's the chance one spin lands on yellow? Count the yellow slices — that's two. Count all the slices — that's six. So the chance is two out of six. And since two and six can both be shared by two, two sixths is the same as one third. So you'd land on yellow about one spin out of every three.",
+    "math": "P(\\text{yellow})=\\frac{2}{6}=\\frac{1}{3}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "blue",
+      "yellow",
+      "red"
+     ],
+     "caption": "Six equal slices: 3 blue, 2 yellow, 1 red"
+    }
+   },
+   {
+    "say": "Careful thinkers always check the biggest piece too. Blue has three slices out of six, which is three sixths, and that's exactly one half. So blue is the most likely colour — it should happen about half the time. Red has only one slice out of six, so red is the least likely. Bigger part of the circle means bigger chance. That always works.",
+    "math": "P(\\text{blue})=\\frac{3}{6}=\\frac{1}{2},\\quad P(\\text{red})=\\frac{1}{6}",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      6,
+      3,
+      6,
+      1
+     ],
+     "labels": [],
+     "caption": "Blue fills half the circle; red fills only one sixth"
+    }
+   },
+   {
+    "say": "Now a slightly trickier one, with a bag instead of a spinner. You have a small cloth bag with ten marbles from the toy shop: four red and six white. You shake it, close your eyes, and pull out just one marble. What's the chance it's red? Four marbles are red, and ten marbles altogether, so it's four out of ten. Both four and ten can be shared by two, so four tenths becomes two fifths. Less than half — so pulling a red one is a little unlikely, but it definitely could happen.",
+    "math": "P(\\text{red})=\\frac{4}{10}=\\frac{2}{5}",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      4,
+      6
+     ],
+     "labels": [
+      "red",
+      "white"
+     ],
+     "caption": "4 red and 6 white marbles — 10 in the bag"
+    }
+   },
+   {
+    "say": "One more quick one, because you already know how. Roll a regular six-sided die. There are six faces, and only one of them shows a three, so the chance of rolling a three is one out of six. Notice something lovely: the spinner's red slice was also one sixth. Different toys, same chance. That's the power of the fraction — it lets you compare a spinner, a bag, and a die all on the same line.",
+    "math": "P(3)=\\frac{1}{6}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.1667,
+      0.4,
+      0.5
+     ],
+     "labels": [
+      "Roll a three",
+      "Pull a red marble",
+      "Spin blue"
+     ],
+     "caption": "Comparing all three experiments on one line"
+    }
+   },
+   {
+    "say": "So here's the whole lesson in one breath: count what you want on top, count everything on the bottom, and that fraction is your chance.",
+    "math": "P=\\frac{\\text{favourable}}{\\text{total}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Probability of one outcome = (number of ways you can win) over (total number of equal outcomes) — a fraction from 0 to 1.",
+  "practice": {
+   "question": "At a Kelowna farmers market you buy a paper bag with 12 fruit candies: 5 blueberry and 7 raspberry. Without looking, you pull out one candy. What is the probability that it is blueberry? What is the probability it is raspberry?",
+   "answer": "Blueberry: 5 out of 12, so 5/12 (a bit less than half). Raspberry: 7 out of 12, so 7/12 (a bit more than half). The two add up to 12/12 = 1, because you are certain to pull out one of the two flavours."
+  }
+ }
+}

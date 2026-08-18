@@ -1,0 +1,189 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.PAT.01",
+ "lang": "en",
+ "title": "discrete linear relations, using expressions, tables, and graphs",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Growing Patterns: From Table to Rule to Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Let's start with something real. Say you have two dollars saved in a jar, and every week you add three more dollars from your allowance. Week by week the jar goes two, five, eight, eleven. It grows by the same jump every single time. That steady, same-size jump is what math calls a linear relation, and today we'll learn how to predict it without counting week by week.",
+    "math": "2,\\;5,\\;8,\\;11,\\;\\ldots",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      5,
+      8,
+      11
+     ],
+     "labels": [
+      "Start",
+      "Week 1",
+      "Week 2",
+      "Week 3"
+     ],
+     "caption": "Same jump of $3 every week"
+    }
+   },
+   {
+    "say": "The tidiest way to hold a pattern is a table of values. On the top row I write the week number, and I'll call it n. On the bottom row I write how many dollars are in the jar. Look across the bottom row: two, five, eight, eleven, fourteen. Each one is three more than the one before. That constant difference of three is the heartbeat of the pattern.",
+    "math": "+3\\;\\text{each week}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      2,
+      5,
+      8,
+      11,
+      14
+     ],
+     "labels": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week n",
+      "Dollars"
+     ],
+     "caption": "Bottom row climbs by 3 every step"
+    }
+   },
+   {
+    "say": "Now let's turn that table into a short rule. After four weeks you've added three dollars four times, that's twelve dollars, and you still have the original two dollars sitting there. Twelve plus two is fourteen, which matches the table. So the rule is three times n, plus two. We write it as three n plus two. The three is the jump, and the two is where you started.",
+    "math": "3n+2 \\quad\\Rightarrow\\quad 3(4)+2=14",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "4 groups of 3, plus the 2 you started with = 14"
+    }
+   },
+   {
+    "say": "Here's the payoff. Want to know week ten without writing out ten rows? Just plug ten in. Three times ten is thirty, plus two is thirty-two dollars. One line of work instead of ten. That's why we bother writing a rule at all.",
+    "math": "3(10)+2=32",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Third way to see it: a graph. I put the week number along the bottom and the dollars up the side, then plot the pairs from the table. Zero and two, one and five, two and eight, three and eleven. Notice the dots march up in a perfectly straight line, three steps up for every one step across. And notice they're separate dots, not a solid line, because there's no such thing as week two and a half in this jar. That's what discrete means.",
+    "math": "(0,2),(1,5),(2,8),(3,11)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      2,
+      1,
+      5,
+      2,
+      8,
+      3,
+      11
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "caption": "Straight line of separate dots: over 1, up 3"
+    }
+   },
+   {
+    "say": "Rules work backwards too, and that's where negative numbers show up. What if n is negative one, meaning one week before you started? Three times negative one is negative three, plus two gives negative one. And two weeks before? Three times negative two is negative six, plus two is negative four. Plotting those pulls the pattern down into the other quadrants, and the dots still line up perfectly straight.",
+    "math": "3(-1)+2=-1,\\quad 3(-2)+2=-4",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -2,
+      -4,
+      -1,
+      -1,
+      0,
+      2,
+      1,
+      5,
+      2,
+      8
+     ],
+     "labels": [
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "caption": "The same straight pattern, now across all four quadrants"
+    }
+   },
+   {
+    "say": "Let's try a harder one, going the other direction: from a table to the rule. Your neighbour pays you to walk their dog around Burnaby Lake. For one kilometre you get six dollars, for two you get ten, three gives fourteen, four gives eighteen. First find the jump: ten minus six is four, fourteen minus ten is four. So the jump is four, and the rule starts with four n. Now test one kilometre: four times one is four, but you actually got six, so you need two more. The rule is four n plus two. Check the last one: four times four is sixteen, plus two is eighteen. It works.",
+    "math": "4n+2\\quad\\text{since}\\;4(4)+2=18",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      10,
+      14,
+      18
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Kilometres n",
+      "Dollars"
+     ],
+     "caption": "Jump of 4 each km, starting from 2"
+    }
+   },
+   {
+    "say": "Here's the takeaway, and a fun place to see patterns in a story. The First Nations math stories from Simon Fraser University, like Small Number Counts to One Hundred, follow a boy who spots number patterns in everyday life, and you can read them free online at mathcatcher dot irmacs dot sfu dot ca. The big idea is this: a table, a rule, and a graph are three faces of the very same pattern. Find the jump, find the start, and you can write the rule for any of them.",
+    "math": "y=(\\text{jump})\\times n+(\\text{start})",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      6,
+      10,
+      14,
+      18
+     ],
+     "labels": [
+      "1 km",
+      "2 km",
+      "3 km",
+      "4 km"
+     ],
+     "caption": "Same pattern, drawn as a rising line"
+    }
+   }
+  ],
+  "answer": "Find the constant jump and the starting value, and the rule is jump times n plus start — table, expression, and graph all say the same thing.",
+  "practice": {
+   "question": "You rent a kayak at Deep Cove. It costs $5 just to get in the boat, plus $4 for every hour you paddle. Write the rule for the cost after n hours, then find the cost for 6 hours and name the point you would plot on the graph.",
+   "answer": "Rule: cost = 4n + 5. For 6 hours: 4 × 6 = 24, plus 5 = $29. The point is (6, 29)."
+  }
+ }
+}

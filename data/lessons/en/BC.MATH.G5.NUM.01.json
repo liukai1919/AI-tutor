@@ -1,0 +1,159 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.NUM.01",
+ "lang": "en",
+ "title": "number concepts to 1 000 000",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Big Numbers All the Way to One Million",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi there! Let's talk about really big numbers. If I asked how many people live in your town, you couldn't count them one by one — it would take forever! In British Columbia, Victoria has about ninety-two thousand people, Kelowna about one hundred forty-five thousand, and Surrey about five hundred sixty-eight thousand. Big numbers are how we talk about big amounts quickly. But to read them, we need a little secret: place value.",
+    "math": "",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      92000,
+      145000,
+      568000
+     ],
+     "labels": [
+      "Victoria",
+      "Kelowna",
+      "Surrey"
+     ],
+     "caption": "About how many people live in three BC cities"
+    }
+   },
+   {
+    "say": "Let's start small so the secret is easy to see. Here are base ten blocks showing three hundred forty-two. Three big flat squares are three hundreds, four rods are four tens, and two little cubes are two ones. Same digits, but each one is worth a different amount, depending on where it sits.",
+    "math": "342 = 300 + 40 + 2",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      342
+     ],
+     "labels": [],
+     "caption": "342 is 3 hundreds, 4 tens, and 2 ones"
+    }
+   },
+   {
+    "say": "Here's the secret: every time you step one place to the left, the value gets ten times bigger. One, then ten, then one hundred, then one thousand, then ten thousand, then one hundred thousand, and finally one million. Just keep multiplying by ten, and you climb all the way to a million!",
+    "math": "1 \\times 10 = 10,\\quad 10 \\times 10 = 100,\\quad 100 \\times 10 = 1\\,000",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      10,
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+     ],
+     "labels": [
+      "1s",
+      "10s",
+      "100s",
+      "1000s",
+      "10 000s",
+      "100 000s",
+      "1 000 000s"
+     ],
+     "caption": "Each place to the left is ten times bigger"
+    }
+   },
+   {
+    "say": "Now let's try a big one together. Two hundred fifty-three thousand, four hundred eighteen. Look at each digit in its own house. The two is worth two hundred thousand. The five is worth fifty thousand. The three is worth three thousand. The four is worth four hundred, the one is worth ten, and the eight is just eight. Add all those up and you get the number back. The digit doesn't tell you its value all by itself — its house does!",
+    "math": "253\\,418 = 200\\,000 + 50\\,000 + 3\\,000 + 400 + 10 + 8",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      253418
+     ],
+     "labels": [],
+     "caption": "253 418 broken into its place values"
+    }
+   },
+   {
+    "say": "Here's a slightly harder job: which number is bigger, four hundred sixty-two thousand three hundred eighteen, or four hundred fifty-eight thousand nine hundred five? Don't count — just compare from the left. Both have four hundred thousands, that's a tie. Next house over: six ten thousands against five ten thousands. Six wins! So four hundred sixty-two thousand three hundred eighteen is the bigger number, and we didn't even need to look at the rest.",
+    "math": "462\\,318 > 458\\,905",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      6,
+      2,
+      3,
+      1,
+      8,
+      4,
+      5,
+      8,
+      9,
+      0,
+      5
+     ],
+     "labels": [
+      "100 000s",
+      "10 000s",
+      "1000s",
+      "100s",
+      "10s",
+      "1s",
+      "462 318",
+      "458 905"
+     ],
+     "caption": "Compare from the left: 4 ties, then 6 beats 5"
+    }
+   },
+   {
+    "say": "One more helpful trick: benchmarks. Think of a number line from zero all the way to one million. Right in the middle sits five hundred thousand, half a million. Our number, two hundred fifty-three thousand four hundred eighteen, lands to the left of the middle — so we can say it's a bit more than a quarter of a million, and less than half a million. That's a great way to estimate big amounts without counting.",
+    "math": "253\\,418 < 500\\,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1000000,
+      253418,
+      500000
+     ],
+     "labels": [],
+     "caption": "253 418 sits left of the halfway mark, 500 000"
+    }
+   },
+   {
+    "say": "Here's something lovely: not everyone counts the same way. The Tlingit people name numbers using the body. Ten is called two hands, because two hands have five fingers each, and five plus five makes ten. Twenty is called one person, because one person has ten fingers and ten toes, and ten plus ten makes twenty. And the Tsimshian people use different counting words depending on whether you're counting animals, people, or things. Counting is a human idea, and different peoples built it in beautiful, different ways.",
+    "math": "5 + 5 = 10",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      5
+     ],
+     "labels": [],
+     "caption": "Two hands, five fingers each: ten"
+    }
+   },
+   {
+    "say": "So remember: a digit's value comes from where it lives. Give every digit its own house, read from the left, and even a number as big as one million becomes easy and friendly.",
+    "math": "1\\,000\\,000 = 10 \\times 100\\,000",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      1000000
+     ],
+     "labels": [],
+     "caption": "One million: a 1 followed by six zeros"
+    }
+   }
+  ],
+  "answer": "In a big number, where a digit sits tells you what it's worth — read from the left, house by house.",
+  "practice": {
+   "question": "Last summer, 137 506 people visited a provincial park in BC. (a) What is the value of the digit 3 in 137 506? (b) The next summer 137 560 people visited. Which summer had more visitors?",
+   "answer": "(a) The 3 is in the ten thousands house, so it is worth 30 000. (b) The next summer. Comparing from the left, 1, 3, 7, and 5 all match, but in the tens house 6 beats 0 — so 137 560 is greater than 137 506."
+  }
+ }
+}

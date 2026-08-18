@@ -1,0 +1,149 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.DAT.01",
+ "lang": "en",
+ "title": "circle graphs",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Circle Graphs: Reading the Whole Pie",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine your school does a survey: two hundred students, and each one says how they get to school. You could read a long list of numbers, or you could look at one circle. A circle graph takes one whole group and slices it up, like a pizza, so you can see at a glance which part is biggest. Look at this one — you can tell right away that the bus is the most popular way to get to school, without doing any math at all.",
+    "math": "",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      40,
+      25,
+      25,
+      10
+     ],
+     "labels": [
+      "Bus 40%",
+      "Walk 25%",
+      "Car 25%",
+      "Bike 10%"
+     ],
+     "caption": "How 200 students get to school"
+    }
+   },
+   {
+    "say": "Here is the key idea. The whole circle is everybody — all two hundred students. And we always call the whole thing one hundred percent. Percent just means out of one hundred. So when the bus slice says forty percent, picture a grid of one hundred squares with forty of them coloured in for the bus, and twenty five more coloured for the walkers. Notice that all the slices together must add up to one hundred percent — forty plus twenty five plus twenty five plus ten really is one hundred.",
+    "math": "40\\%+25\\%+25\\%+10\\%=100\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      40,
+      25
+     ],
+     "labels": [
+      "Bus 40 of 100",
+      "Walk 25 of 100"
+     ],
+     "caption": "Percent means out of one hundred"
+    }
+   },
+   {
+    "say": "Now the useful part — turning a percent into real people. Forty percent of the students take the bus, and there are two hundred students. Forty percent means forty over one hundred, which is the decimal zero point four. So we do zero point four times two hundred, and that gives eighty. Eighty students ride the bus. Same trick for the rest: twenty five percent of two hundred is fifty walkers, fifty car riders, and ten percent of two hundred is twenty bikers. Check it — eighty plus fifty plus fifty plus twenty is two hundred. Perfect, nobody got lost.",
+    "math": "40\\%\\times 200=\\frac{40}{100}\\times 200=80",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      80,
+      50,
+      50,
+      20
+     ],
+     "labels": [
+      "Bus",
+      "Walk",
+      "Car",
+      "Bike"
+     ],
+     "caption": "The percents turned into actual students"
+    }
+   },
+   {
+    "say": "You can also run it backwards. Suppose you counted the bikes yourself and found twenty bikers out of two hundred students, and you want to know what percent that is. Write it as a fraction: twenty over two hundred. That simplifies to one tenth, or zero point one. To make a decimal into a percent, multiply by one hundred — so it is ten percent. That matches the slice on our graph. Fraction first, then percent.",
+    "math": "\\frac{20}{200}=0.1=10\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "Bike 10 of 100"
+     ],
+     "caption": "20 out of 200 is the same as 10 out of 100"
+    }
+   },
+   {
+    "say": "What if you have to draw the circle graph yourself? Then you need one more number: a full turn around a circle is three hundred sixty degrees. So each slice gets that share of three hundred sixty degrees. The bus is forty percent, so zero point four times three hundred sixty equals one hundred forty four degrees. Walking and car are twenty five percent each, and zero point two five times three hundred sixty is ninety degrees — a perfect right angle, a quarter of the pie. Bikes get ten percent, which is thirty six degrees. Add them: one forty four plus ninety plus ninety plus thirty six is three hundred sixty. The circle closes up exactly.",
+    "math": "40\\%\\times 360^\\circ=144^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      144
+     ],
+     "labels": [
+      "Bus slice"
+     ],
+     "caption": "The bus slice is a 144 degree wedge"
+    }
+   },
+   {
+    "say": "Let's try a harder one, from a real BC beach. On a field trip to a tidepool near Tofino you count fifty creatures: twenty mussels, fifteen sea stars, ten crabs, and five anemones. To build the circle graph, turn each count into a percent by dividing by the total. Twenty over fifty is zero point four, so mussels are forty percent. Fifteen over fifty is zero point three, so sea stars are thirty percent. Ten over fifty is twenty percent, and five over fifty is ten percent. Forty plus thirty plus twenty plus ten is one hundred. And the angles? Forty percent of three hundred sixty is one hundred forty four degrees, thirty percent is one hundred eight, twenty percent is seventy two, ten percent is thirty six — and those four add to three hundred sixty.",
+    "math": "\\frac{20}{50}=0.4=40\\%\\quad 0.4\\times 360^\\circ=144^\\circ",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      20,
+      15,
+      10,
+      5
+     ],
+     "labels": [
+      "Mussels 40%",
+      "Sea stars 30%",
+      "Crabs 20%",
+      "Anemones 10%"
+     ],
+     "caption": "50 tidepool creatures as a circle graph"
+    }
+   },
+   {
+    "say": "Here is the trap I want you to dodge. Your friend counts a second tidepool and her graph also shows forty percent mussels — the slices look identical. But she counted one hundred creatures, not fifty. Forty percent of fifty is twenty mussels, while forty percent of one hundred is forty mussels. Same slice, double the animals. So a circle graph tells you the share, not the amount. Always ask yourself, percent of what total?",
+    "math": "0.4\\times 50=20\\qquad 0.4\\times 100=40",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      40
+     ],
+     "labels": [
+      "Pool A mussels",
+      "Pool B mussels"
+     ],
+     "caption": "Same 40 percent slice, very different counts"
+    }
+   },
+   {
+    "say": "So that is the whole idea. A circle graph is one whole group sliced into shares. The full circle is one hundred percent and three hundred sixty degrees. To go from a slice to real stuff, multiply the percent by the total. To go from real stuff to a slice, divide the part by the total. That is it — you can now read any circle graph you meet, and draw your own.",
+    "math": "\\text{part}=\\%\\times\\text{total}\\qquad \\%=\\frac{\\text{part}}{\\text{total}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The whole circle is 100% and 360 degrees — percent times the total gives the amount, and part divided by the total gives the percent.",
+  "practice": {
+   "question": "Maya gets sixty dollars of allowance a month and draws a circle graph of it: Savings 45%, Snacks 25%, Bus fare 20%, Phone credit 10%. (a) How many dollars go to savings? (b) How many degrees wide is the bus fare slice?",
+   "answer": "(a) 0.45 times 60 equals 27 dollars for savings. (b) 0.20 times 360 equals a 72 degree slice for bus fare."
+  }
+ }
+}

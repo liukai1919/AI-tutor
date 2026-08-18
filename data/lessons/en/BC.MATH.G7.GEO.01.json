@@ -1,0 +1,137 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.GEO.01",
+ "lang": "en",
+ "title": "circumference and area of circles",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Circles: All the Way Around, and All the Way Inside",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're helping decorate a round hand drum for a school event in your community. You want to glue a ribbon all the way around the edge, and you also want to know how much painted surface is on the front. Here's the problem: a ruler is straight, but a circle is curved. You can't just lay a ruler around the rim. This drum is forty centimetres across. So how do we figure out the ribbon length, and the surface, without wrapping string around everything? That's exactly what today's lesson solves.",
+    "math": "",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A drum: 20 cm from centre to edge, so 40 cm all the way across"
+    }
+   },
+   {
+    "say": "First, two words. The distance from the centre out to the edge is the radius. The distance all the way across, through the centre, is the diameter — and it's always double the radius. So our drum has a radius of twenty centimetres and a diameter of forty centimetres. The distance all the way around the outside has its own name too: the circumference. Think of it as the perimeter of a circle.",
+    "math": "d = 2 \\times r",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "radius = 20 cm, diameter = 40 cm, circumference = around the outside"
+    }
+   },
+   {
+    "say": "Now here's the amazing part, and it's the big idea of this whole unit. If you take any circle at all — a loonie, a coffee cup, a drum, a bike wheel — and you measure around it, then divide by the distance across it, you always get about the same number: three point one four. Always. Look at the table. The loonie is two point six centimetres across and about eight point two centimetres around. The cup is eight centimetres across and about twenty-five centimetres around. The drum is forty across and about one hundred twenty-six around. Every single one is a little more than three times around compared to across. That special number has a name — pi.",
+    "math": "\\pi = \\frac{C}{d} \\approx 3.14",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2.6,
+      8,
+      40,
+      8.2,
+      25.1,
+      125.6
+     ],
+     "labels": [
+      "Loonie",
+      "Cup",
+      "Drum",
+      "Diameter (cm)",
+      "Circumference (cm)"
+     ],
+     "caption": "Around divided by across is always about 3.14"
+    }
+   },
+   {
+    "say": "So if going around is always about three point one four times going across, we can just multiply. Circumference equals pi times the diameter. Let's do our drum. The diameter is forty centimetres, so three point one four times forty. Three times forty is one hundred twenty, and zero point one four times forty is five point six. Add them: one hundred twenty-five point six centimetres of ribbon. That's just over a metre and a quarter — good to know before you head to the craft store.",
+    "math": "C = \\pi \\times d = 3.14 \\times 40 = 125.6\\ \\text{cm}",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Ribbon needed around the rim: 125.6 cm"
+    }
+   },
+   {
+    "say": "Want to see the circumference straightened out? Picture a soup can with a radius of four centimetres. Peel the label off and unroll it — it becomes a rectangle, and the long side of that rectangle is exactly the circumference of the circular base. The diameter is four doubled, which is eight centimetres, so three point one four times eight equals twenty-five point one two centimetres. That's how long the label is. A curve became a straight line.",
+    "math": "C = 3.14 \\times 8 = 25.12\\ \\text{cm}",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      4,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Unrolled can label: the long side is the base circumference, 25.12 cm"
+    }
+   },
+   {
+    "say": "Now the inside — the area. For a circle, the rule is: area equals pi times the radius times the radius. Careful, it's the radius, not the diameter. Let's use a large pizza with a radius of fifteen centimetres. First, fifteen times fifteen is two hundred twenty-five. Then multiply by three point one four. Three times two twenty-five is six hundred seventy-five, and zero point one four times two twenty-five is thirty-one point five. Add them up: seven hundred six point five square centimetres of pizza. And notice — area is in square centimetres, because we're covering a surface, not walking a line.",
+    "math": "A = \\pi \\times r \\times r = 3.14 \\times 15 \\times 15 = 706.5\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      15
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Pizza with radius 15 cm covers 706.5 square centimetres"
+    }
+   },
+   {
+    "say": "One more, slightly trickier, because it gives you the diameter instead. A dreamcatcher hoop is twenty-four centimetres across. Step one: halve it to get the radius — twelve centimetres. Step two, the webbing around the rim: three point one four times twenty-four equals seventy-five point three six centimetres. Step three, the area inside: twelve times twelve is one hundred forty-four, and three point one four times one forty-four is four hundred fifty-two point one six square centimetres. So the trap is always the same one — when they hand you the diameter, cut it in half before you touch the area formula.",
+    "math": "r = 12,\\quad C = 3.14 \\times 24 = 75.36\\ \\text{cm},\\quad A = 3.14 \\times 12 \\times 12 = 452.16\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      12
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Hoop 24 cm across: radius 12 cm, around 75.36 cm, inside 452.16 cm²"
+    }
+   },
+   {
+    "say": "That's the whole lesson. Around the outside, multiply pi by the diameter. Inside the circle, multiply pi by the radius twice. And if you only see the diameter, halve it first.",
+    "math": "C = \\pi d \\qquad A = \\pi r^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Around a circle: C = pi × diameter. Inside a circle: A = pi × radius × radius — and always halve the diameter first!",
+  "practice": {
+   "question": "A round garden bed at a community garden in Victoria has a radius of two and a half metres. Using pi as 3.14: (a) How many metres of wooden edging do you need to go all the way around it? (b) How many square metres of soil does it cover?",
+   "answer": "(a) The diameter is 2.5 × 2 = 5 m, so C = 3.14 × 5 = 15.7 metres of edging. (b) A = 3.14 × 2.5 × 2.5 = 3.14 × 6.25 = 19.625, so about 19.6 square metres of soil."
+  }
+ }
+}

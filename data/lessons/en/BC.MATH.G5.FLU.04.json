@@ -1,0 +1,148 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.FLU.04",
+ "lang": "en",
+ "title": "addition and subtraction facts to 20 (extending computational fluency)",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "The Zero Trick: Big Adding with Facts You Already Know",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Your school held a bottle drive. In September you raised eight hundred dollars, and in October you raised seven hundred dollars. The principal asks, how much altogether? That sounds like a big grown-up number… but I promise you already know how to do it.",
+    "math": "800+700=?",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      800,
+      700
+     ],
+     "labels": [
+      "September",
+      "October"
+     ],
+     "caption": "Two months of bottle-drive money"
+    }
+   },
+   {
+    "say": "Here's the secret. Before we touch the big numbers, look at a tiny fact you have known since Grade two: eight plus seven equals fifteen. Start at eight on the number line and hop seven steps forward, and you land on fifteen. That one little fact is the whole key.",
+    "math": "8+7=15",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      8,
+      15
+     ],
+     "labels": [],
+     "caption": "Hop seven forward from eight, and land on fifteen"
+    }
+   },
+   {
+    "say": "Now think about what eight hundred really is. It is just eight hundred-blocks, like eight big flat squares. And seven hundred is seven of those same flat squares. So the question is really, eight flats plus seven flats — and that is our friend, eight plus seven.",
+    "math": "800 = 8 \\times 100",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      800
+     ],
+     "labels": [],
+     "caption": "Eight hundred is simply eight hundred-blocks"
+    }
+   },
+   {
+    "say": "Eight flats plus seven flats makes fifteen flats. Fifteen hundred-blocks is one thousand five hundred. So the bottle drive raised one thousand five hundred dollars. We covered up the two zeros, used the fact eight plus seven, then put the zeros back on. That's the zero trick!",
+    "math": "800+700=1500",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      800,
+      700,
+      1500
+     ],
+     "labels": [
+      "September",
+      "October",
+      "Total"
+     ],
+     "caption": "Eight hundred and seven hundred make one thousand five hundred"
+    }
+   },
+   {
+    "say": "Let's try it with tens. Your class jogged sixty metres, then eighty metres more. Cover the zeros: six plus eight equals fourteen. Put the zero back: one hundred forty metres. Look at the number line — starting at sixty and jumping eighty really does land on one hundred forty.",
+    "math": "60+80=140",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      200,
+      60,
+      140
+     ],
+     "labels": [],
+     "caption": "Six plus eight is fourteen, so sixty plus eighty is one hundred forty"
+    }
+   },
+   {
+    "say": "Subtracting works the same way. Say the school needs one thousand five hundred dollars for a field trip, and you already have seven hundred. Cover the zeros: fifteen take away seven equals eight. Put the zeros back: eight hundred dollars still to go.",
+    "math": "1500-700=800",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1600,
+      1500,
+      800
+     ],
+     "labels": [],
+     "caption": "Jump back seven hundred from one thousand five hundred"
+    }
+   },
+   {
+    "say": "Here are our facts side by side. Notice the top row is the little fact you memorized, and the bottom row is the very same answer wearing extra zeros. Twelve minus five is seven, so one thousand two hundred minus five hundred is seven hundred.",
+    "math": "12-5=7 \\;\\Rightarrow\\; 1200-500=700",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      15,
+      14,
+      8,
+      7,
+      1500,
+      140,
+      800,
+      700
+     ],
+     "labels": [
+      "8+7",
+      "6+8",
+      "15-7",
+      "12-5",
+      "small fact",
+      "with zeros"
+     ],
+     "caption": "Same facts, just bigger clothes"
+    }
+   },
+   {
+    "say": "One careful reminder: this trick only works when both numbers end in the same number of zeros. Eight hundred plus seven hundred is fine, but eight hundred plus seventy is not a matching pair — those are hundreds and tens, so you have to line up the place values instead. Match the zeros, then trust your facts.",
+    "math": "800+70 \\neq 15\\text{ hundred}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      870
+     ],
+     "labels": [],
+     "caption": "Eight hundreds and seven tens are different sizes — don't mix them up"
+    }
+   }
+  ],
+  "answer": "Cover the matching zeros, use your addition and subtraction facts to 20, then put the zeros back on.",
+  "practice": {
+   "question": "The Stanley Park seawall trail your family is walking is 1400 metres long. You have already walked 600 metres. How many metres are left?",
+   "answer": "800 metres. Cover the zeros: 14 minus 6 equals 8. Put the zeros back: 1400 minus 600 equals 800 metres."
+  }
+ }
+}

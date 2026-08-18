@@ -1,0 +1,130 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G4.NUM.01",
+ "lang": "en",
+ "title": "number concepts to 10 000",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Big Numbers, Big Jobs: Numbers to 10 000",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Two schools in your town had a bottle drive to help the food bank. Maple School collected three thousand four hundred seven bottles. Cedar School collected three thousand four hundred seventy bottles. When numbers are this big, you cannot just look and know which is more. That is exactly why we learn about place value.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3407,
+      3470
+     ],
+     "labels": [
+      "Maple School",
+      "Cedar School"
+     ],
+     "caption": "Two big bottle counts — which school collected more?"
+    }
+   },
+   {
+    "say": "Here is the secret. Every digit lives in its own little house, and the house tells you how much that digit is worth. In three thousand four hundred seven, the three lives in the thousands house, the four lives in the hundreds house, the zero lives in the tens house, and the seven lives in the ones house.",
+    "math": "3407 = 3000 + 400 + 0 + 7",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3407
+     ],
+     "labels": [],
+     "caption": "Each digit sits in its own place: thousands, hundreds, tens, ones"
+    }
+   },
+   {
+    "say": "Let's build the smaller part with blocks so you can really see it. Four hundred seven is four big hundred flats, zero ten rods, and seven little ones cubes. The zero is not nothing — it is a place holder that keeps the four sitting in the hundreds house.",
+    "math": "407 = 400 + 0 + 7",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      407
+     ],
+     "labels": [],
+     "caption": "Four hundreds, zero tens, seven ones"
+    }
+   },
+   {
+    "say": "Now here is the neat pattern. Ten ones make one ten. Ten tens make one hundred. And ten hundreds make one thousand. Every time you move one house to the left, the digit is worth ten times more. That is how we climb all the way up to ten thousand.",
+    "math": "10 \\times 1 = 10,\\quad 10 \\times 10 = 100,\\quad 10 \\times 100 = 1000",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      1000
+     ],
+     "labels": [],
+     "caption": "Ten hundreds bundle up into one thousand"
+    }
+   },
+   {
+    "say": "Let's answer the bottle question. To compare, start at the biggest house on the left and walk right. Thousands: three and three, a tie. Hundreds: four and four, still a tie. Tens: zero and seven. Seven is bigger, so three thousand four hundred seventy wins. Cedar School collected more bottles.",
+    "math": "3407 < 3470",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3407,
+      3470
+     ],
+     "labels": [],
+     "caption": "Between 3400 and 3500, 3470 sits further right, so it is bigger"
+    }
+   },
+   {
+    "say": "Let's try one a little harder. Put these three in order from smallest to largest: three thousand four hundred seven, three thousand four hundred seventy, and three thousand forty-seven. Check the hundreds house: zero, four, and four. The zero one is smallest. So the order is three thousand forty-seven, then three thousand four hundred seven, then three thousand four hundred seventy.",
+    "math": "3047 < 3407 < 3470",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3047,
+      3407,
+      3470
+     ],
+     "labels": [
+      "3047",
+      "3407",
+      "3470"
+     ],
+     "caption": "Smallest to largest, just by reading the houses left to right"
+    }
+   },
+   {
+    "say": "Sometimes we do not need the exact number, we just need a friendly one close by. Three thousand four hundred seventy sits between three thousand and four thousand. It is four hundred seventy past three thousand, but five hundred thirty away from four thousand. So it is closer to three thousand. We would say, about three thousand bottles.",
+    "math": "3470 - 3000 = 470,\\quad 4000 - 3470 = 530",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3000,
+      4000,
+      3470
+     ],
+     "labels": [],
+     "caption": "3470 is closer to the 3000 benchmark than to 4000"
+    }
+   },
+   {
+    "say": "So remember: in any number up to ten thousand, where a digit sits tells you what it is worth, and comparing is just checking the houses from left to right. You did some big-number thinking today!",
+    "math": "3407 = 3000 + 400 + 0 + 7",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3407
+     ],
+     "labels": [],
+     "caption": "Place tells value — that is the whole idea"
+    }
+   }
+  ],
+  "answer": "In numbers up to 10 000, a digit's place tells its value — so compare from the left, house by house.",
+  "practice": {
+   "question": "A school in Kamloops raised $5 208 for new soccer nets, and a school in Nanaimo raised $5 280. Which school raised more money? And what is the value of the digit 2 in $5 208?",
+   "answer": "Nanaimo raised more. The thousands and hundreds are the same (5 and 2), but in the tens place 8 is bigger than 0, so $5 280 > $5 208. In $5 208, the digit 2 is in the hundreds place, so it is worth 200 dollars."
+  }
+ }
+}

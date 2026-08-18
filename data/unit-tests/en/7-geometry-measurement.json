@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "7",
+ "strand": "geometry-measurement",
+ "lang": "en",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Geometry & Measurement · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G7.GEO.01",
+    "level": 1,
+    "question": "A cedar drum has a circular top with a diameter of 10 cm. Using π ≈ 3.14, what is the circumference of the drum top?",
+    "options": [
+     "15.7 cm",
+     "31.4 cm",
+     "62.8 cm",
+     "78.5 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Circumference uses C = π × d, so C = 3.14 × 10 = 31.4 cm. A common trap is treating the 10 cm as the radius and doubling it first (giving 62.8 cm), or finding the area instead (78.5 cm²)."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.03",
+    "level": 1,
+    "question": "Maya draws a coordinate grid over a map of her neighbourhood in Kamloops. Which point is located in Quadrant III?",
+    "options": [
+     "(4, −3)",
+     "(−4, 3)",
+     "(−4, −3)",
+     "(3, 4)"
+    ],
+    "answerIndex": 2,
+    "explain": "Quadrant III is where x is negative AND y is negative, so (−4, −3) is correct. Students often mix up Quadrant II (−, +) with Quadrant III, so always check the sign of both coordinates, not just the first one."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.04",
+    "level": 1,
+    "question": "A bead in a dreamcatcher design sits at point B(−2, 5). The design is reflected in the y-axis. What are the coordinates of the bead's image?",
+    "options": [
+     "(2, 5)",
+     "(−2, −5)",
+     "(2, −5)",
+     "(5, −2)"
+    ],
+    "answerIndex": 0,
+    "explain": "A reflection in the y-axis flips left-right, so only the x-coordinate changes sign: (−2, 5) → (2, 5). The most common mistake is changing the y-coordinate instead, which is what a reflection in the x-axis does."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.02",
+    "level": 2,
+    "question": "Ravi's water bottle is a cylinder with a radius of 5 cm and a height of 20 cm. Using π ≈ 3.14, what is its volume?",
+    "options": [
+     "314 cm³",
+     "628 cm³",
+     "6280 cm³",
+     "1570 cm³"
+    ],
+    "answerIndex": 3,
+    "explain": "Volume = area of base × height = (3.14 × 5 × 5) × 20 = 78.5 × 20 = 1570 cm³. The usual slip is forgetting to square the radius (3.14 × 5 × 20 = 314 cm³) or using the diameter, 10 cm, in place of the radius."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.01",
+    "level": 2,
+    "question": "A round bannock pan has a diameter of 20 cm. Using π ≈ 3.14, what is the area of the bottom of the pan?",
+    "options": [
+     "31.4 cm²",
+     "62.8 cm²",
+     "314 cm²",
+     "1256 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "Halve the diameter first to get r = 10 cm, then A = π × r × r = 3.14 × 10 × 10 = 314 cm². Putting the diameter straight into the formula gives 1256 cm² — four times too big — which is the most common error on this type of question."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.03",
+    "level": 2,
+    "question": "A rectangular garden plot is drawn on a grid with corners at (−4, 2), (5, 2), (5, −3), and (−4, −3). Each unit is 1 metre. How much fencing is needed to go all the way around the plot?",
+    "options": [
+     "14 m",
+     "28 m",
+     "24 m",
+     "45 m"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the side lengths by counting across the axes: width = 5 − (−4) = 9 m and height = 2 − (−3) = 5 m, so the perimeter is 2 × (9 + 5) = 28 m. Fencing is a perimeter question, so answering 45 (the area, 9 × 5) is the classic perimeter-versus-area mix-up."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.02",
+    "level": 3,
+    "question": "Jordan's rectangular aquarium is 60 cm long, 40 cm wide, and 30 cm tall. He fills it with water to a depth of 25 cm. How many litres of water are in the aquarium? (1 L = 1000 cm³)",
+    "options": [
+     "6 L",
+     "72 L",
+     "600 L",
+     "60 L"
+    ],
+    "answerIndex": 3,
+    "explain": "Use the water's depth, not the tank's height: 60 × 40 × 25 = 60 000 cm³, then divide by 1000 to get 60 L. Two traps here — using the 30 cm height (72 L) and skipping the cm³ to L conversion or dividing by the wrong power of 10."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.GEO.04",
+    "level": 3,
+    "question": "A triangle in a birchbark-biting design has a vertex at P(2, 5). The triangle is first rotated 90° clockwise about the origin, and then that image is reflected in the y-axis. Where is the final image of P?",
+    "options": [
+     "(−5, −2)",
+     "(5, −2)",
+     "(−2, −5)",
+     "(5, 2)"
+    ],
+    "answerIndex": 0,
+    "explain": "Do the transformations in order: a 90° clockwise turn about the origin sends (2, 5) to (5, −2), and reflecting that in the y-axis changes the x-sign to give (−5, −2). The most common errors are stopping after the rotation, or turning counter-clockwise by mistake."
+   }
+  ]
+ }
+}

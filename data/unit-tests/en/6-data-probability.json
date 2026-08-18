@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "6",
+ "strand": "data-probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "数据与可能性",
+  "en": "Data & Probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Data & Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G6.DAT.01",
+    "level": 1,
+    "question": "Maya recorded the noon temperature in Kelowna for one week and made a line graph. Her table of values was: Monday 12 °C, Tuesday 15 °C, Wednesday 14 °C, Thursday 18 °C, Friday 17 °C. On which day was the temperature the highest?",
+    "options": [
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday"
+    ],
+    "answerIndex": 2,
+    "explain": "Compare all the values and pick the largest: 18 °C on Thursday. A common trap is choosing the last point (Friday) or the first point that goes up (Tuesday) — on a line graph the highest point is what matters, not the last one."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.02",
+    "level": 1,
+    "question": "Ravi rolls a fair six-sided die labelled 1, 2, 3, 4, 5, 6. What is the theoretical probability of rolling a 4?",
+    "options": [
+     "1/6",
+     "1/4",
+     "4/6",
+     "1/2"
+    ],
+    "answerIndex": 0,
+    "explain": "List all possible outcomes (1, 2, 3, 4, 5, 6); only one of the 6 is a 4, so P(4) = 1/6. The usual mistake is letting the number on the die become part of the fraction (1/4 or 4/6) — the denominator is always the total number of outcomes."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.01",
+    "level": 1,
+    "question": "Which set of data would be best shown on a line graph?",
+    "options": [
+     "The favourite lunch of each student in the class",
+     "The eye colour of the students in Grade 6",
+     "The number of students who walk, bus, or bike to school",
+     "The temperature of the classroom measured every hour of the school day"
+    ],
+    "answerIndex": 3,
+    "explain": "A line graph shows how one thing changes over time, so hourly classroom temperature fits. The common trap is picking category counts (lunches, eye colour, ways of travelling) — those are separate groups with no order in time, so they belong on a bar graph."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.02",
+    "level": 2,
+    "question": "A spinner is divided into 8 equal sections: 3 red, 2 blue, 2 green, and 1 yellow. Jasleen spins it once. What is the probability that it lands on blue?",
+    "options": [
+     "1/8",
+     "1/4",
+     "2/6",
+     "1/2"
+    ],
+    "answerIndex": 1,
+    "explain": "There are 2 blue sections out of 8 equal sections, so P(blue) = 2/8 = 1/4. A very common mistake is writing 2/6 by comparing blue sections to the non-blue sections — the denominator must be the total number of equal sections (8)."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.01",
+    "level": 2,
+    "question": "Owen made a line graph of the money in his savings jar on the first day of each month: September $45, October $60, November $22, December $50, January $60. Between which two months did his savings increase the most?",
+    "options": [
+     "September to October",
+     "October to November",
+     "November to December",
+     "December to January"
+    ],
+    "answerIndex": 2,
+    "explain": "Find each change: +$15, −$38, +$28, +$10, so the biggest increase is $28 from November to December. The trap is choosing October to November because the line moves the farthest — but that segment goes down, so it is the biggest decrease, not an increase."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.02",
+    "level": 2,
+    "question": "In a Lahal (bone game) round, one player hides a marked bone in one hand and the other player guesses which hand it is in. Nadia played 30 rounds and guessed correctly 18 times. What is the experimental probability that Nadia guesses correctly?",
+    "options": [
+     "1/2",
+     "3/5",
+     "2/5",
+     "3/2"
+    ],
+    "answerIndex": 1,
+    "explain": "Experimental probability = successes ÷ total trials = 18/30 = 3/5. The most common trap is answering 1/2, which is the theoretical probability (2 hands, 1 correct) — the question asks what actually happened in the trials, not what was expected."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.02",
+    "level": 3,
+    "question": "Devon's class tested a fair spinner with 4 equal sections: red, blue, green, and yellow. In 100 spins, red came up 34 times. The class will now spin it 200 more times. Which prediction is best?",
+    "options": [
+     "About 68 reds, because 34 out of 100 is the rate this spinner keeps going at",
+     "Fewer than 50 reds, because red already came up more than its share and has to even out",
+     "Exactly 50 reds, because a fair spinner must land on red exactly one quarter of the time",
+     "About 50 reds, because each spin still has a 1 in 4 chance of landing on red"
+    ],
+    "answerIndex": 3,
+    "explain": "The spinner is fair, so the theoretical probability stays 1/4 and 200 × 1/4 ≈ 50 reds. Two big traps: thinking past results make red \"due\" to slow down, and expecting the result to be exactly 50 — experimental results cluster near the theoretical amount but rarely match it exactly."
+   },
+   {
+    "curriculumId": "BC.MATH.G6.DAT.01",
+    "level": 3,
+    "question": "A line graph shows the snow depth measured at 6 a.m. at Cypress Mountain: Monday 40 cm, Tuesday 55 cm, Wednesday 55 cm, Thursday 70 cm, Friday 68 cm, Saturday 90 cm. A run opens on a day only if the snow is at least 65 cm deep AND deeper than it was the day before. On how many days did the run open?",
+    "options": [
+     "2 days",
+     "3 days",
+     "4 days",
+     "6 days"
+    ],
+    "answerIndex": 0,
+    "explain": "Check both conditions on each day: Thursday (70 cm, deeper than 55) and Saturday (90 cm, deeper than 68) qualify, so 2 days. Friday is the trap — it is at least 65 cm but the graph is going down from 70 cm, so it fails the second condition; checking only one rule gives 3."
+   }
+  ]
+ }
+}

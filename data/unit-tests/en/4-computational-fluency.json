@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "4",
+ "strand": "computational-fluency",
+ "lang": "en",
+ "unitName": {
+  "zh": "运算熟练",
+  "en": "Computational Fluency"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Computational Fluency · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G4.FLU.04",
+    "level": 1,
+    "question": "Ravi is adding 9 + 6 in his head. He thinks: \"I'll take 1 from the 6 to turn the 9 into 10, so now I have 10 + 5.\" What is 9 + 6?",
+    "options": [
+     "14",
+     "15",
+     "16",
+     "13"
+    ],
+    "answerIndex": 1,
+    "explain": "Make ten: 9 + 1 = 10, and the 6 becomes 5, so 10 + 5 = 15. The common trap is moving the 1 over but still adding the whole 6 (10 + 6 = 16) — once you give the 1 away, only 5 is left."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.05",
+    "level": 1,
+    "question": "A sheet of salmon stickers has 8 rows with 7 stickers in each row. How many stickers are on the sheet?",
+    "options": [
+     "56",
+     "48",
+     "54",
+     "63"
+    ],
+    "answerIndex": 0,
+    "explain": "An array of 8 rows of 7 means 8 × 7 = 56 (think 8 × 7 = 8 × 5 + 8 × 2 = 40 + 16). Watch out for neighbour facts that feel close: 6 × 8 = 48, 6 × 9 = 54, and 7 × 9 = 63."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.01",
+    "level": 1,
+    "question": "What is 4 638 + 2 795?",
+    "options": [
+     "6 323",
+     "6 433",
+     "7 333",
+     "7 433"
+    ],
+    "answerIndex": 3,
+    "explain": "Add place by place and carry each time: 8 + 5 = 13, 3 + 9 + 1 = 13, 6 + 7 + 1 = 14, 4 + 2 + 1 = 7, giving 7 433. Every wrong choice here comes from dropping one or more of those carries."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.02",
+    "level": 2,
+    "question": "A Surrey school's snack program orders 6 crates of apples. Each crate holds 148 apples. How many apples are there in total?",
+    "options": [
+     "648",
+     "888",
+     "848",
+     "688"
+    ],
+    "answerIndex": 1,
+    "explain": "Decompose and use the distributive principle: 6 × 148 = 6 × 100 + 6 × 40 + 6 × 8 = 600 + 240 + 48 = 888. The usual mistake is forgetting to carry the regrouped tens or hundreds in the standard algorithm."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.03",
+    "level": 2,
+    "question": "At the community centre, Mei buys a slushie for $2.45 and a granola bar for $1.80. She pays with a $10 bill. How much change should she get?",
+    "options": [
+     "$4.25",
+     "$5.65",
+     "$5.75",
+     "$5.85"
+    ],
+    "answerIndex": 2,
+    "explain": "First add the cost: $2.45 + $1.80 = $4.25, then subtract from $10.00 to get $5.75. Line up the decimal points (write $1.80, not $1.8) and remember the question asks for the change, not the total spent."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.01",
+    "level": 2,
+    "question": "A ski hill near Whistler sold 5 200 lift tickets in December and 3 468 lift tickets in January. How many more tickets were sold in December than in January?",
+    "options": [
+     "1 732",
+     "1 832",
+     "2 268",
+     "2 732"
+    ],
+    "answerIndex": 0,
+    "explain": "Subtract with regrouping, or count up: 3 468 + 32 = 3 500, + 1 700 = 5 200, so the difference is 1 732. The big trap is subtracting the smaller digit from the larger one in each column (8 − 0, 6 − 0 …), which gives 2 268."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.03",
+    "level": 3,
+    "question": "Aanya has $20.00 to spend at the school book fair. She buys a book for $8.75 and two juice boxes that cost $1.45 each. How much money does she have left?",
+    "options": [
+     "$11.65",
+     "$9.80",
+     "$9.35",
+     "$8.35"
+    ],
+    "answerIndex": 3,
+    "explain": "Two steps: the juice costs 2 × $1.45 = $2.90, so she spends $8.75 + $2.90 = $11.65, and $20.00 − $11.65 = $8.35 is left. The most common slips are paying for only one juice box and answering with the amount spent instead of the amount left."
+   },
+   {
+    "curriculumId": "BC.MATH.G4.FLU.02",
+    "level": 3,
+    "question": "A Grade 4 class of 34 students plus 4 adult helpers is travelling to a salmon hatchery. Each van can carry 6 people. What is the smallest number of vans the group needs?",
+    "options": [
+     "5 vans",
+     "6 vans",
+     "7 vans",
+     "8 vans"
+    ],
+    "answerIndex": 2,
+    "explain": "First find the total people: 34 + 4 = 38, then divide: 38 ÷ 6 = 6 with 2 left over, and those 2 people still need a ride, so 7 vans. The classic mistakes are forgetting the adults, dropping the remainder (answering 6), or adding one van per leftover person (answering 8)."
+   }
+  ]
+ }
+}

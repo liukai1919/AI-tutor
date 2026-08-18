@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.FLU.02",
+ "lang": "en",
+ "title": "order of operations with whole numbers",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Brackets First: The Order of Operations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Let's go shopping at the corner store here in BC. You buy one juice box for four dollars, and three granola bars that cost two dollars each. How much money do you need at the till? Look at the bar picture: the juice is four dollars, and the three granola bars together are six dollars.",
+    "math": "4 + 3 \\times 2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      6
+     ],
+     "labels": [
+      "Juice $4",
+      "3 granola bars"
+     ],
+     "caption": "Juice is 4 dollars, and 3 bars at 2 dollars each is 6 dollars"
+    }
+   },
+   {
+    "say": "Now here is the tricky part. If you just read left to right, you'd do four plus three is seven, then seven times two is fourteen dollars. But that's wrong! The store only charges ten dollars. Why? Because the three and the two belong together — they make the price of the bars. So we do three times two first, which is six, and then add the four to land on ten.",
+    "math": "3 \\times 2 = 6,\\quad 6 + 4 = 10",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      15,
+      6,
+      10
+     ],
+     "labels": [],
+     "caption": "Start at 6 dollars for the bars, then hop 4 more to 10 dollars"
+    }
+   },
+   {
+    "say": "So mathematicians made one rule that everybody in the world follows, so we all get the same answer. Here it is. First, do anything inside brackets. Second, do all the multiplying and dividing, going left to right. Last, do all the adding and subtracting, going left to right. Both sides of this scale balance because we followed the rule.",
+    "math": "4 + 3 \\times 2 = 10",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4 + 3 × 2",
+      "10"
+     ],
+     "caption": "Follow the rule and the two sides balance perfectly"
+    }
+   },
+   {
+    "say": "Let's try one together. Twenty minus twelve divided by four. Dividing comes before subtracting, so first: twelve divided by four is three. Now the question is just twenty minus three, which is seventeen. Watch the number line hop backwards from twenty down to seventeen.",
+    "math": "20 - 12 \\div 4 = 20 - 3 = 17",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      20,
+      17
+     ],
+     "labels": [],
+     "caption": "20 minus 3 lands on 17"
+    }
+   },
+   {
+    "say": "Now watch what brackets do. Same numbers, but I'll wrap the first part in brackets: open bracket, twenty minus twelve, close bracket, divided by four. Brackets are the boss, so we do twenty minus twelve first, which is eight. Then eight divided by four is two. Same numbers, totally different answer — brackets change everything!",
+    "math": "(20 - 12) \\div 4 = 8 \\div 4 = 2",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      2
+     ],
+     "labels": [],
+     "caption": "8 split into 4 equal groups gives 2 in each group"
+    }
+   },
+   {
+    "say": "Ready for a real one? You and three friends, four of you altogether, order two pizzas at nine dollars each, plus one tub of dip for three dollars. You want to split the whole bill evenly. We write it as: open bracket, two times nine plus three, close bracket, divided by four. Inside the brackets we multiply first: two times nine is eighteen dollars of pizza. Add the three dollar dip, and the bill is twenty-one dollars.",
+    "math": "(2 \\times 9 + 3) \\div 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      18,
+      3
+     ],
+     "labels": [
+      "2 pizzas",
+      "Dip"
+     ],
+     "caption": "18 dollars of pizza plus 3 dollars of dip is a 21 dollar bill"
+    }
+   },
+   {
+    "say": "Last step: twenty-one dollars shared by four people. Twenty-one divided by four is five point two five. So each friend pays five dollars and twenty-five cents. Notice the answer isn't a whole number — that's totally fine, money splits into quarters all the time!",
+    "math": "21 \\div 4 = 5.25",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5.25,
+      5.25,
+      5.25,
+      5.25
+     ],
+     "labels": [
+      "You",
+      "Ana",
+      "Ben",
+      "Cara"
+     ],
+     "caption": "Each person pays $5.25"
+    }
+   }
+  ],
+  "answer": "Brackets first, then multiply and divide left to right, then add and subtract left to right.",
+  "practice": {
+   "question": "At the Saturday market, Mr. Singh buys 4 baskets of blueberries at $6 each plus one bag of carrots for $2, then splits the total evenly with his neighbour. Write it with brackets and solve: (4 × 6 + 2) ÷ 2 = ?",
+   "answer": "$13 each. Inside the brackets: 4 × 6 = 24, then 24 + 2 = 26. Finally 26 ÷ 2 = 13."
+  }
+ }
+}

@@ -1,0 +1,175 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.PAT.01",
+ "lang": "en",
+ "title": "increasing and decreasing patterns, using expressions, tables, and graphs as functional relationships",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Patterns That Grow: Tables, Rules, and Graphs",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Imagine we're setting up for a class picnic at the park. One picnic table seats three people. Every time we push on one more table, we get two more seats. One table seats three, two tables seat five, three tables seat seven. See how it grows by the same amount every single time? That steady growing is called an increasing pattern.",
+    "math": "3,\\ 5,\\ 7,\\ \\ldots",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      5,
+      7
+     ],
+     "labels": [
+      "1 table",
+      "2 tables",
+      "3 tables"
+     ],
+     "caption": "Each extra table adds two more seats"
+    }
+   },
+   {
+    "say": "Let's look at just the jump. From three seats to five seats is a jump of two. From five to seven is a jump of two again. In a pattern like this we say: start at three, add two each time. The starting number and the jump are the two secrets of the whole pattern.",
+    "math": "3\\ \\xrightarrow{+2}\\ 5\\ \\xrightarrow{+2}\\ 7",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      12,
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "The jump from three to five is plus two"
+    }
+   },
+   {
+    "say": "Now let's get organized with a table. On the top row I write the number of tables, and underneath I write the number of seats. One table, three seats. Two tables, five seats. Three tables, seven seats. Four tables, nine seats. Five tables, eleven seats. A table like this keeps our thinking tidy, and it helps us spot the rule.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      3,
+      5,
+      7,
+      9,
+      11
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "Tables",
+      "Seats"
+     ],
+     "caption": "Tables on top, seats underneath"
+    }
+   },
+   {
+    "say": "Here comes the magic part. Look at four tables and nine seats. Four groups of two is eight, and then one extra seat at the end makes nine. That works every time! So the rule is: seats equals two times the number of tables, plus one. If we let the letter n stand for the number of tables, we write it short and neat as two n plus one.",
+    "math": "\\text{seats} = 2n + 1",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      2,
+      1
+     ],
+     "labels": [],
+     "caption": "Four groups of two, plus one extra, equals nine"
+    }
+   },
+   {
+    "say": "Let's draw it! Along the bottom I put the number of tables, and going up I put the number of seats. One and three, two and five, three and seven, four and nine, five and eleven. Look — the dots march up in a perfectly straight line. We leave them as separate dots, not a solid line, because you can't have half a picnic table!",
+    "math": "(1,3),(2,5),(3,7),(4,9),(5,11)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      5,
+      3,
+      7,
+      4,
+      9,
+      5,
+      11
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "caption": "Straight-marching dots: an increasing pattern"
+    }
+   },
+   {
+    "say": "Patterns can also shrink, and that's called a decreasing pattern. Picture a community keeping track of how many people speak their language fluently. Say it starts at one hundred speakers and drops by ten each year: one hundred, ninety, eighty, seventy, sixty. The line slides downward. But then the community starts language classes, and each year four more people become fluent: sixty-four, sixty-eight, seventy-two. The graph turns and climbs again — that's why this math matters in real life.",
+    "math": "100 \\xrightarrow{-10} 90 \\xrightarrow{-10} 80\\quad\\text{then}\\quad 60 \\xrightarrow{+4} 64",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      100,
+      90,
+      80,
+      70,
+      60,
+      64,
+      68,
+      72
+     ],
+     "labels": [
+      "Yr 1",
+      "Yr 2",
+      "Yr 3",
+      "Yr 4",
+      "Yr 5",
+      "Yr 6",
+      "Yr 7",
+      "Yr 8"
+     ],
+     "caption": "Going down by ten, then climbing by four after classes start"
+    }
+   },
+   {
+    "say": "Back to our picnic, and let's go bigger. How many seats with twenty tables? Instead of counting forever, use the rule: two times twenty is forty, plus one is forty-one seats. Now backwards! We need thirty-one seats — how many tables? Take away the one extra seat to get thirty, then share it into groups of two: thirty divided by two is fifteen tables. Let's check: two times fifteen is thirty, plus one is thirty-one. Perfect!",
+    "math": "2(20)+1=41 \\qquad \\frac{31-1}{2}=15",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2n + 1",
+      "31"
+     ],
+     "caption": "Peel off the plus one, then undo the times two"
+    }
+   },
+   {
+    "say": "So remember: find your starting number, find the jump, and turn them into a rule. The table, the rule, and the graph are just three ways of telling the very same story.",
+    "math": "3,5,7,\\ldots \\;=\\; 2n+1",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the start and the steady jump, write the rule like two n plus one — then the table, the expression, and the graph all tell the same story.",
+  "practice": {
+   "question": "At a Richmond night market, a bubble tea stall charges a two dollar cup deposit plus three dollars for each tea. So one tea costs five dollars, two teas cost eight dollars, three teas cost eleven dollars. (a) Write an expression for the cost of n teas. (b) How much for seven teas?",
+   "answer": "(a) Cost = 3n + 2 dollars (start at two dollars, add three each time). (b) 3 × 7 + 2 = 21 + 2 = 23 dollars."
+  }
+ }
+}

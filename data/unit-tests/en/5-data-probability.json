@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "5",
+ "strand": "data-probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "数据与可能性",
+  "en": "Data & Probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Data & Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G5.DAT.01",
+    "level": 1,
+    "question": "Maya's class made a double bar graph of books read in October. On the graph, each square stands for 4 books. Maya's bar is 6 squares long. How many books did Maya read?",
+    "options": [
+     "10 books",
+     "24 books",
+     "20 books",
+     "12 books"
+    ],
+    "answerIndex": 1,
+    "explain": "With many-to-one correspondence, multiply the number of squares by the value of one square: 6 × 4 = 24 books. A common trap is adding 6 + 4 = 10, or forgetting the scale and reading the bar as if one square meant one book."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.02",
+    "level": 1,
+    "question": "Liam's spinner is divided into 8 equal sections. 3 of the sections are red. If he spins it once, what is the probability that it lands on red?",
+    "options": [
+     "3/5",
+     "1/8",
+     "3/8",
+     "5/8"
+    ],
+    "answerIndex": 2,
+    "explain": "Probability = favourable outcomes ÷ total equal sections, so P(red) = 3/8. The most common trap is writing 3/5 by comparing red sections to the not-red sections instead of to the total of 8."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.01",
+    "level": 1,
+    "question": "A double bar graph shows cans collected for a bottle drive. Each square stands for 10 cans. The Grade 5 bar is 7 squares long and the Grade 6 bar is 9 squares long. How many cans did Grade 5 collect?",
+    "options": [
+     "7 cans",
+     "17 cans",
+     "90 cans",
+     "70 cans"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply the squares in the Grade 5 bar by the scale: 7 × 10 = 70 cans. On a double bar graph, check the legend first so you read the right bar — 90 is Grade 6's total, not Grade 5's."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.01",
+    "level": 2,
+    "question": "At a school water station, a double bar graph shows refills on Saturday and Sunday. Each square stands for 6 water bottles. The Saturday bar is 5 squares long and the Sunday bar is 8 squares long. How many MORE bottles were filled on Sunday than on Saturday?",
+    "options": [
+     "3 bottles",
+     "13 bottles",
+     "18 bottles",
+     "78 bottles"
+    ],
+    "answerIndex": 2,
+    "explain": "Either find each total (8 × 6 = 48 and 5 × 6 = 30, so 48 − 30 = 18) or multiply the 3 extra squares by 6. The most common trap is answering 3, the difference in squares, without applying the many-to-one scale."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.02",
+    "level": 2,
+    "question": "Priya has a bag with 4 green marbles, 6 yellow marbles, and 2 purple marbles. Without looking, she pulls out one marble. What is the probability that it is yellow?",
+    "options": [
+     "1/2",
+     "6/6",
+     "1/3",
+     "1/12"
+    ],
+    "answerIndex": 0,
+    "explain": "There are 4 + 6 + 2 = 12 marbles in all, so P(yellow) = 6/12 = 1/2. The usual trap is comparing yellow to the other marbles (6/6) or using the number of colours (1/3) instead of the total number of marbles."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.02",
+    "level": 2,
+    "question": "Noah's spinner has 5 equal sections and 2 of them are blue. He plans to spin it 40 times. About how many times should he predict it will land on blue?",
+    "options": [
+     "8 times",
+     "2 times",
+     "20 times",
+     "16 times"
+    ],
+    "answerIndex": 3,
+    "explain": "P(blue) = 2/5, so predict 2/5 of 40: 40 ÷ 5 = 8, then 8 × 2 = 16 times. A common trap is stopping at 8 (that is only 1/5 of the spins) or guessing 20 because blue \"feels like half.\""
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.02",
+    "level": 3,
+    "question": "Aanya is rolling a fair 6-sided die in a board game. Amazingly, she has rolled a 5 four times in a row. What is the probability that her NEXT roll is a 5?",
+    "options": [
+     "Less than 1/6, because 5 has already come up so many times",
+     "1/6, because each roll is independent of the rolls before it",
+     "More than 1/6, because this die seems to favour 5",
+     "4/6, because 5 came up 4 times out of the 6 numbers"
+    ],
+    "answerIndex": 1,
+    "explain": "Each roll of a fair die is an independent event: past results never change the next roll, so P(5) stays 1/6. The biggest misconception in this unit is thinking a number is \"used up\" or is \"on a hot streak\" — the die has no memory."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.DAT.01",
+    "level": 3,
+    "question": "A double bar graph shows money raised at a school fun fair. Each square stands for $15. Division 4's bar is 6 squares long and Division 5's bar is 4 squares long. The two divisions put all of their money together to buy soccer balls that cost $25 each. How many soccer balls can they buy?",
+    "options": [
+     "6 soccer balls",
+     "10 soccer balls",
+     "3 soccer balls",
+     "4 soccer balls"
+    ],
+    "answerIndex": 0,
+    "explain": "First use the scale: 6 × $15 = $90 and 4 × $15 = $60, giving $150 in total, then $150 ÷ $25 = 6 balls. Two common traps are adding the squares (6 + 4 = 10) as if each square were one ball, and using only one division's money ($90 ÷ $25 → 3)."
+   }
+  ]
+ }
+}

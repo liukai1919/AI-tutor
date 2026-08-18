@@ -1,0 +1,159 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.DAT.02",
+ "lang": "en",
+ "title": "experimental probability with two independent events",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Two Coins, Two Chances: Experimental Probability",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture the spring fun fair at your school in Surrey. There's a booth with a game: you flip a loonie and you spin a four colour spinner, both at the same time. If you get heads AND blue, you win a smoothie. Your friend asks, \"Is that even worth two dollars?\" Nobody knows... so the only honest way to find out is to actually play it a bunch of times and keep track. That's what this whole lesson is about.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Blue",
+      "Green",
+      "Red",
+      "Yellow"
+     ],
+     "caption": "Spin this AND flip a coin — win only on heads and blue"
+    }
+   },
+   {
+    "say": "Here's the big idea. Experimental probability just means: what actually happened, divided by how many tries you took. Let's warm up with one coin. I flipped a loonie twenty times and got heads eleven times. So the experimental probability of heads is eleven out of twenty, which is zero point five five, or fifty five percent. Notice it's not exactly fifty percent — and that's totally normal. Real experiments are a bit wobbly.",
+    "math": "P(\\text{heads})=\\frac{11}{20}=0.55=55\\%",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      11,
+      9
+     ],
+     "labels": [
+      "Heads",
+      "Tails"
+     ],
+     "caption": "20 flips of a loonie: what actually happened"
+    }
+   },
+   {
+    "say": "Now for two things at once. Two events are called independent when one has zero effect on the other. A coin has no memory and no feelings — flipping a first coin doesn't change what the second coin does. So with two coins there are four equally likely outcomes: heads heads, heads tails, tails heads, and tails tails. Two heads is just one of those four, so in theory it should happen about one quarter of the time.",
+    "math": "HH,\\ HT,\\ TH,\\ TT\\ \\Rightarrow\\ P(\\text{two heads})=\\frac{1}{4}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "HH",
+      "HT",
+      "TH",
+      "TT"
+     ],
+     "caption": "All four outcomes are equally likely"
+    }
+   },
+   {
+    "say": "Let's actually run it. My class tossed two quarters together forty times and tallied the results. We got two heads twelve times, exactly one head twenty one times, and no heads at all seven times. Quick check: twelve plus twenty one plus seven is forty, so nothing got lost. The experimental probability of two heads is twelve out of forty. Twelve over forty simplifies to three tenths, which is zero point three, or thirty percent.",
+    "math": "P(\\text{two heads})=\\frac{12}{40}=\\frac{3}{10}=0.3=30\\%",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      21,
+      7
+     ],
+     "labels": [
+      "Two heads",
+      "One head",
+      "No heads"
+     ],
+     "caption": "40 trials of tossing two coins"
+    }
+   },
+   {
+    "say": "So how did we do? Theory said one quarter, which is twenty five percent. Our experiment said thirty percent. Those aren't the same, and that's the honest truth about experiments — coins don't read the textbook. Thirty percent is close to twenty five percent, just a little high, the same way your free throw percentage in one short game isn't your real season average.",
+    "math": "\\frac{1}{4}=25\\%\\qquad\\text{vs}\\qquad\\frac{12}{40}=30\\%",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.25,
+      0.3
+     ],
+     "labels": [
+      "Theory 1/4",
+      "Our result 12/40"
+     ],
+     "caption": "Our experiment landed just above the theory"
+    }
+   },
+   {
+    "say": "Now a slightly tougher one, with dice. Rolling doubles means both dice show the same number, like two fours. We rolled two dice sixty times and got doubles nine times. Experimental probability equals nine out of sixty. Nine over sixty simplifies to three twentieths, which is zero point one five, or fifteen percent. In theory, doubles happen six times out of the thirty six possible pairs, which is one sixth, about sixteen point seven percent. Fifteen is pretty close to sixteen point seven.",
+    "math": "P(\\text{doubles})=\\frac{9}{60}=\\frac{3}{20}=15\\%\\ ;\\quad \\frac{6}{36}=\\frac{1}{6}\\approx16.7\\%",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      9,
+      51
+     ],
+     "labels": [
+      "Doubles",
+      "Not doubles"
+     ],
+     "caption": "60 rolls of two dice — 9 + 51 = 60"
+    }
+   },
+   {
+    "say": "Here's the coolest part. The more trials you do, the closer your experimental probability creeps toward the true value. We kept rolling: after sixty rolls we were at fifteen percent, then nineteen, then eighteen, and after six hundred rolls we had one hundred four doubles. One hundred four out of six hundred is about zero point one seven three, or seventeen point three percent — really snuggled up to sixteen point seven. More data, less wobble.",
+    "math": "\\frac{104}{600}\\approx0.173=17.3\\%",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      15,
+      19,
+      18,
+      17
+     ],
+     "labels": [
+      "60 rolls",
+      "120 rolls",
+      "300 rolls",
+      "600 rolls"
+     ],
+     "caption": "Percent of rolls that were doubles — it settles near 16.7%"
+    }
+   },
+   {
+    "say": "So back to that fun fair booth. Heads is one out of two, and blue is one out of four, and they're independent, so in theory you'd win about one time in eight — twelve point five percent. If you played it thirty times and won five, your experimental probability would be five out of thirty, about seventeen percent. Both numbers are useful: theory tells you what to expect, and your experiment tells you what really happened.",
+    "math": "\\frac{1}{2}\\times\\frac{1}{4}=\\frac{1}{8}=12.5\\%",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.125
+     ],
+     "labels": [
+      "Heads and blue"
+     ],
+     "caption": "One win in about every eight plays"
+    }
+   }
+  ],
+  "answer": "Experimental probability = times it happened ÷ number of trials — and the more trials you run, the closer it gets to the true chance.",
+  "practice": {
+   "question": "At a beach day in White Rock, you flip a loonie and spin a three colour spinner (red, blue, green) together, fifty times. You get \"heads and red\" nine times. What is the experimental probability of heads and red, as a fraction, a decimal, and a percent?",
+   "answer": "9 out of 50, which is 9/50 = 0.18 = 18%. (In theory it would be one half times one third = 1/6, about 16.7%, so 18% is nice and close.)"
+  }
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.FLU.01",
+ "lang": "en",
+ "title": "multiplication and division facts to 100 (developing computational fluency)",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "The Double-Double Trick",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine your family is going to the Vancouver Aquarium. Each ticket costs twenty-three dollars, and you need four tickets. How much money is that? Writing it out on paper takes a while, but there is a clever way to do it right in your head. Let's learn it together.",
+    "math": "23 \\times 4 = ?",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      23,
+      23,
+      23,
+      23
+     ],
+     "labels": [
+      "Ticket 1",
+      "Ticket 2",
+      "Ticket 3",
+      "Ticket 4"
+     ],
+     "caption": "Four tickets, twenty-three dollars each"
+    }
+   },
+   {
+    "say": "Here is the big idea. Four is just two twos. So instead of multiplying by four all at once, we can double the number, and then double it again. That is why it's called the double-double trick. Doubling is easy, because doubling just means adding a number to itself.",
+    "math": "\\times 4 = \\times 2 \\times 2",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Four is two groups of two"
+    }
+   },
+   {
+    "say": "Let's take our first double. Twenty-three plus twenty-three. Twenty plus twenty is forty, and three plus three is six. So double twenty-three is forty-six. That's the cost of two tickets.",
+    "math": "23 + 23 = 46",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      46
+     ],
+     "labels": [],
+     "caption": "Two tickets cost forty-six dollars"
+    }
+   },
+   {
+    "say": "Now double it one more time. Forty-six plus forty-six. Forty plus forty is eighty, and six plus six is twelve. Eighty plus twelve is ninety-two. So four tickets cost ninety-two dollars. We never wrote a single thing down.",
+    "math": "46 + 46 = 92",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      100,
+      46,
+      92
+     ],
+     "labels": [],
+     "caption": "Jump from forty-six to ninety-two"
+    }
+   },
+   {
+    "say": "Let's check our answer with a picture, so we know it's really true. We break twenty-three into twenty and three. Twenty times four is eighty, and three times four is twelve. Eighty plus twelve is ninety-two. Same answer, so we can trust it.",
+    "math": "20 \\times 4 + 3 \\times 4 = 80 + 12 = 92",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      4
+     ],
+     "labels": [],
+     "caption": "Twenty-three times four, split into two easy pieces"
+    }
+   },
+   {
+    "say": "Your turn to watch one more. A hiking trail sign says each section is eighteen metres long, and there are four sections. Double eighteen is thirty-six. Double thirty-six is seventy-two. So the trail is seventy-two metres long.",
+    "math": "18 \\times 4 = 36 \\times 2 = 72",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      18,
+      4
+     ],
+     "labels": [],
+     "caption": "Ten times four is forty, eight times four is thirty-two, together seventy-two"
+    }
+   },
+   {
+    "say": "Division is just this trick walking backwards. If seventy-two metres is split into four equal sections, we ask, what number times four makes seventy-two? We already know it's eighteen. So seventy-two divided by four is eighteen. Knowing your times facts to one hundred gives you the division facts for free.",
+    "math": "72 \\div 4 = 18",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      18,
+      18,
+      18,
+      18
+     ],
+     "labels": [
+      "Part 1",
+      "Part 2",
+      "Part 3",
+      "Part 4"
+     ],
+     "caption": "Seventy-two shared into four equal parts"
+    }
+   },
+   {
+    "say": "One last thing to notice. When you count by fours on a hundred chart, you land on all these numbers. The more of these you know by heart, the faster your mental math gets. Keep practising, and soon you'll be quicker than a calculator.",
+    "math": "4, 8, 12, 16, 20, 24, \\ldots",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48
+     ],
+     "labels": [],
+     "caption": "Counting by fours"
+    }
+   }
+  ],
+  "answer": "To multiply by four, just double, then double again: twenty-three times four is forty-six, then ninety-two.",
+  "practice": {
+   "question": "A movie ticket in Kamloops costs 16 dollars. Your family buys 4 tickets. Use the double-double trick to find the total cost.",
+   "answer": "64 dollars. Double 16 is 32, and double 32 is 64."
+  }
+ }
+}

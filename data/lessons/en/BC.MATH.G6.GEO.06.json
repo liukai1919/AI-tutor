@@ -1,0 +1,241 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.GEO.06",
+ "lang": "en",
+ "title": "combinations of transformations",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Sliding, Flipping, and Turning: Making Pattern Art on a Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Have you ever seen a long border pattern along the top of a wall, or the beautiful printed borders in Northwest Coast First Nations printmaking? An artist carves one shape, then stamps it again and again — sliding it along, flipping it over like a mirror, sometimes turning it. Today we learn how to do that same artist trick with numbers, on a grid.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1,
+      7,
+      1,
+      10,
+      1
+     ],
+     "labels": [
+      "stamp 1",
+      "stamp 2",
+      "stamp 3",
+      "stamp 4"
+     ],
+     "caption": "One stamp, repeated along a border — each one three steps to the right"
+    }
+   },
+   {
+    "say": "First, we need a way to say exactly where a shape is. On a coordinate grid we use two numbers, and the order matters: first go across, then go up. It's like a street address. Our little triangle has corner A at one across and one up, corner B at three across and one up, and corner C at one across and four up.",
+    "math": "(x,\\;y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Triangle A, B, C — always read across first, then up"
+    }
+   },
+   {
+    "say": "Move number one is a slide. Grown-ups call it a translation. Let's slide our triangle four steps to the right and two steps up. Nothing spins, nothing flips — every single corner takes the exact same walk. So one across becomes five across, and one up becomes three up. Corner A lands at five across, three up. Corner B goes from three and one to seven and three. Corner C goes from one and four to five and six.",
+    "math": "(x,\\;y)\\rightarrow(x+4,\\;y+2)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4,
+      5,
+      3,
+      7,
+      3,
+      5,
+      6
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Slide: every corner moves 4 right and 2 up"
+    }
+   },
+   {
+    "say": "Move number two is a flip, or a reflection. Imagine standing a little mirror straight up on the line where across equals eight. Corner A prime is five across, which is three steps away from the mirror — so its reflection lands three steps on the other side, at eleven across. Corner B prime is seven across, only one step away, so it lands at nine across. The up numbers never change in a mirror like this — three stays three, six stays six.",
+    "math": "x_{new}=2\\times 8-x",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      3,
+      7,
+      3,
+      5,
+      6,
+      11,
+      3,
+      9,
+      3,
+      11,
+      6
+     ],
+     "labels": [
+      "A'",
+      "B'",
+      "C'",
+      "A''",
+      "B''",
+      "C''"
+     ],
+     "caption": "Flip across the vertical mirror line at 8 — the up numbers stay the same"
+    }
+   },
+   {
+    "say": "Now here's the big idea of today's lesson: a combination of transformations just means doing two or more of these moves one after another. We slid, then we flipped. Our triangle started at one and one, three and one, one and four, and after both moves it sits at eleven and three, nine and three, eleven and six. And here's something important — the order matters, just like putting on socks then shoes is not the same as shoes then socks.",
+    "math": "(1,1)\\rightarrow(5,3)\\rightarrow(11,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4,
+      11,
+      3,
+      9,
+      3,
+      11,
+      6
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A''",
+      "B''",
+      "C''"
+     ],
+     "caption": "Start and finish: slide 4 right and 2 up, then flip across the line at 8"
+    }
+   },
+   {
+    "say": "Let's try a slightly harder move: a turn, which grown-ups call a rotation. Take a new triangle with corner A at four across and two up, corner B at six across and two up, and corner C at four across and five up. We'll turn it a quarter turn clockwise, holding corner A still like a pin. When you turn clockwise, whatever pointed right now points down, and whatever pointed up now points right. So B was two steps right of the pin — now it's two steps below, at four and zero. C was three steps above the pin — now it's three steps to the right, at seven and two.",
+    "math": "90^{\\circ}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      2,
+      6,
+      2,
+      4,
+      5,
+      4,
+      0,
+      7,
+      2
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "B'",
+      "C'"
+     ],
+     "caption": "Quarter turn clockwise around the pin at corner A"
+    }
+   },
+   {
+    "say": "Now let's finish the combination by adding a slide: move the turned triangle three steps straight up. Nothing changes going across, we only add three to each up number. Four and two becomes four and five. Four and zero becomes four and three. Seven and two becomes seven and five. So our whole recipe is: turn a quarter turn clockwise about the point four, two, then slide three up. That's a combination of transformations, and now you can describe it in one clear sentence.",
+    "math": "(x,\\;y)\\rightarrow(x,\\;y+3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      2,
+      4,
+      0,
+      7,
+      2,
+      4,
+      5,
+      4,
+      3,
+      7,
+      5
+     ],
+     "labels": [
+      "A'",
+      "B'",
+      "C'",
+      "A''",
+      "B''",
+      "C''"
+     ],
+     "caption": "After the turn, slide 3 up — the shape keeps the same size and shape"
+    }
+   },
+   {
+    "say": "One last thing to tuck in your pocket: slides, flips, and turns never stretch or shrink a shape. The image is always exactly the same size and shape as the original — it has just moved to a new address. That's why a printed border pattern looks so perfectly even all the way along the wall.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      3,
+      1,
+      1,
+      4,
+      5,
+      3,
+      7,
+      3,
+      5,
+      6
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Same size, same shape — only the address changed"
+    }
+   }
+  ],
+  "answer": "A combination of transformations is just slides, flips, and turns done one after another — the shape never changes size, only its address on the grid, and the order you do them in matters.",
+  "practice": {
+   "question": "For a Grade 6 art project in Victoria, you design a stamp shaped like a triangle on a coordinate grid, with corners at two across and one up, four across and one up, and two across and three up. First slide the stamp three units right and two units up. Then flip it across the vertical mirror line where across equals eight. Where do the three corners end up?",
+   "answer": "After the slide the corners are at five and three, seven and three, and five and five. After the flip across the line at eight, they land at eleven and three, nine and three, and eleven and five. (The up numbers never changed in the flip — only the across numbers were mirrored: eight minus five is three, so it goes three past the mirror to eleven; eight minus seven is one, so it goes one past to nine.)"
+  }
+ }
+}

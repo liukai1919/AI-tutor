@@ -1,0 +1,146 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.NUM.06",
+ "lang": "en",
+ "title": "financial literacy — simple budgeting and consumer math",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Saving Up for a Bike: Budgeting Week by Week",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're Maya, and you live in Kelowna. You spot a bike at the shop for one hundred eighty dollars. In your pocket right now? Twelve dollars — that's your allowance for one week. The bike feels sooooo far away! But here's the cool thing: you don't need one hundred eighty dollars today. You just need a plan. Math can tell you exactly how many weeks of saving it will take.",
+    "math": "\\$180 \\text{ bike} \\quad \\$12 \\text{ per week}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      180,
+      12
+     ],
+     "labels": [
+      "Bike price",
+      "One week's allowance"
+     ],
+     "caption": "One little bar at a time, we can fill up the big bar"
+    }
+   },
+   {
+    "say": "First, let's talk about a budget. A budget is just a simple list: money coming in, and money going out. Maya gets twelve dollars each week. But every Friday she buys a hot chocolate and a snack at the rink for four dollars and fifty cents. So what's actually left to save? Twelve dollars take away four dollars and fifty cents leaves seven dollars and fifty cents. That leftover part is the real saving money.",
+    "math": "\\$12.00 - \\$4.50 = \\$7.50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      4.5,
+      7.5
+     ],
+     "labels": [
+      "Money in",
+      "Money out",
+      "Left to save"
+     ],
+     "caption": "Maya's weekly budget"
+    }
+   },
+   {
+    "say": "Now here's the big idea of the whole lesson. If you save the same amount every single week, your money grows in equal steps. Look how it climbs: after one week, twelve dollars. After two weeks, twenty-four. After three weeks, thirty-six. Each step is exactly one more allowance. So to find how many weeks you need, you divide the price by what you save each week.",
+    "math": "\\text{weeks} = \\frac{\\text{price}}{\\text{saved each week}}",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      12,
+      24,
+      36,
+      48,
+      60
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5"
+     ],
+     "caption": "Saving twelve dollars a week — a steady climb"
+    }
+   },
+   {
+    "say": "Let's try the easy version first. Pretend Maya skips the snacks and saves her whole twelve dollars every week. The bike costs one hundred eighty dollars. So we do one hundred eighty divided by twelve, which is fifteen. Fifteen weeks! Let's check it backwards: twelve times fifteen equals one hundred eighty. It matches perfectly. Look at the table — by week five she has sixty dollars, by week ten one hundred twenty dollars, and by week fifteen the full one hundred eighty.",
+    "math": "180 \\div 12 = 15 \\text{ weeks}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      10,
+      15,
+      60,
+      120,
+      180
+     ],
+     "labels": [
+      "Week 5",
+      "Week 10",
+      "Week 15"
+     ],
+     "caption": "Top row: weeks. Bottom row: dollars saved"
+    }
+   },
+   {
+    "say": "Now the trickier version — the real one, with the Friday snacks. Remember, Maya only truly saves seven dollars and fifty cents a week. So we divide one hundred eighty by seven dollars and fifty cents. Here's a friendly trick: two weeks of saving is fifteen dollars, and one hundred eighty divided by fifteen is twelve. So that's twelve pairs of weeks, which is twenty-four weeks. Let's check: seven dollars fifty times twenty-four equals one hundred eighty. Yes! Twenty-four weeks — almost half a year.",
+    "math": "180 \\div 7.50 = 24 \\text{ weeks}",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      30,
+      60,
+      90,
+      120,
+      150,
+      180
+     ],
+     "labels": [
+      "Week 4",
+      "Week 8",
+      "Week 12",
+      "Week 16",
+      "Week 20",
+      "Week 24"
+     ],
+     "caption": "Saving seven dollars fifty a week — a slower climb"
+    }
+   },
+   {
+    "say": "And now the most important part: making a smart choice. Put the two plans side by side. Snacks every week means twenty-four weeks of waiting. No snacks means only fifteen weeks. That's a difference of nine whole weeks — twenty-four take away fifteen is nine. Nobody says you must give up snacks! But now you can see what each choice actually costs you in time. That's what a budget is for: it doesn't boss you around, it shows you your choices.",
+    "math": "24 - 15 = 9 \\text{ weeks sooner}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15,
+      24
+     ],
+     "labels": [
+      "Save $12 a week",
+      "Save $7.50 a week"
+     ],
+     "caption": "Weeks of waiting for each plan"
+    }
+   },
+   {
+    "say": "One last tip for real life. Sometimes the division doesn't come out even — maybe you get eight and a bit weeks. When that happens, always round up to the next whole week. Why? Because after eight weeks you'd still be a few dollars short, and the shop won't hand you a bike for almost enough. So round up, and you'll walk out with your bike for sure.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Weeks of saving = price divided by what you really save each week — and if it isn't even, round up.",
+  "practice": {
+   "question": "Ravi lives in Victoria and wants a bike helmet that costs forty-five dollars. He gets eight dollars allowance each week, but spends two dollars and fifty cents on a hot chocolate every week. How many weeks until he can buy the helmet?",
+   "answer": "He truly saves $8.00 − $2.50 = $5.50 each week. Then $45 ÷ $5.50 = 8.18…, so round up: 9 weeks. (After 8 weeks he has only $44 — one dollar short!)"
+  }
+ }
+}

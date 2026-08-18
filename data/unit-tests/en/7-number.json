@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "7",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Number · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G7.NUM.01",
+    "level": 1,
+    "question": "At a beach cleanup near Kits Beach, Jaya's bag is 3/4 full of recyclables. Written as a percent, how full is her bag?",
+    "options": [
+     "0.75%",
+     "34%",
+     "7.5%",
+     "75%"
+    ],
+    "answerIndex": 3,
+    "explain": "Change 3/4 to a decimal (3 ÷ 4 = 0.75), then multiply by 100 to get 75%. The most common trap is stopping at 0.75 and just adding a percent sign — 0.75% is less than 1%, which is almost nothing."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.02",
+    "level": 1,
+    "question": "Marcus and his mom have lunch at a diner in Kamloops. The bill is $24.00 and they want to leave a 10% tip. How much is the tip?",
+    "options": [
+     "$2.40",
+     "$0.24",
+     "$21.60",
+     "$26.40"
+    ],
+    "answerIndex": 0,
+    "explain": "To find 10%, move the decimal point one place left: $24.00 → $2.40. The common trap is answering $26.40, which is the total bill with the tip added, not the tip the question asked for."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.01",
+    "level": 1,
+    "question": "Which of these fractions becomes a repeating decimal?",
+    "options": [
+     "1/8",
+     "1/3",
+     "3/5",
+     "7/10"
+    ],
+    "answerIndex": 1,
+    "explain": "Divide the numerator by the denominator: 1 ÷ 3 = 0.333… which never ends, so it repeats. Fractions like 1/8 = 0.125 and 3/5 = 0.6 stop, so they terminate — a small denominator does not mean the decimal repeats."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.02",
+    "level": 2,
+    "question": "A rain jacket at a Victoria store is $60.00 and is on sale for 15% off. What is the sale price, before tax?",
+    "options": [
+     "$9.00",
+     "$45.00",
+     "$51.00",
+     "$69.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Find 15% of $60 (0.15 × 60 = $9), then subtract it from the original price: $60 − $9 = $51. The biggest trap is taking $15 off instead of 15% off, which gives $45."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.01",
+    "level": 2,
+    "question": "Four students each report how much of their cleanup bag they filled: Amir 0.6, Bella 62%, Chen 3/5, Dara 5/8. Who filled the most?",
+    "options": [
+     "Amir (0.6)",
+     "Bella (62%)",
+     "Chen (3/5)",
+     "Dara (5/8)"
+    ],
+    "answerIndex": 3,
+    "explain": "Write them all as decimals to compare on one number line: 0.6, 0.62, 0.6, and 5 ÷ 8 = 0.625, so 5/8 is largest. The trap is picking 62% because 62 looks like the biggest number — you must convert to the same form before comparing."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.02",
+    "level": 2,
+    "question": "Tomas buys a skateboard priced at $50.00. In BC he pays 12% tax in total (5% GST + 7% PST). How much does he pay altogether?",
+    "options": [
+     "$6.00",
+     "$44.00",
+     "$56.00",
+     "$62.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Find 12% of $50 (0.12 × 50 = $6) and add it to the price: $50 + $6 = $56. A common error is adding $12 instead of 12%, which gives $62 — a percent must be calculated from the price first."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.01",
+    "level": 3,
+    "question": "A Grade 7 class collects 400 items at a shoreline cleanup. Exactly 60% of the items are plastic, and 1/4 of that plastic is bottle caps. How many bottle caps did they collect?",
+    "options": [
+     "60",
+     "100",
+     "160",
+     "240"
+    ],
+    "answerIndex": 0,
+    "explain": "Work in two steps: 60% of 400 = 240 plastic items, then 1/4 of 240 = 60 bottle caps. The trap is taking 1/4 of the whole 400 (= 100) — the fraction applies only to the plastic, not to everything collected."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.NUM.02",
+    "level": 3,
+    "question": "A hoodie at the mall costs $80.00. It is marked 25% off, and 12% tax is then charged on the sale price. What is the final amount paid?",
+    "options": [
+     "$69.60",
+     "$67.20",
+     "$61.60",
+     "$60.00"
+    ],
+    "answerIndex": 1,
+    "explain": "First take the discount: 25% of $80 = $20, so the sale price is $60. Then tax the sale price: 12% of $60 = $7.20, giving $67.20. The most common mistake is calculating the tax on the original $80 ($9.60) instead of on the discounted price."
+   }
+  ]
+ }
+}

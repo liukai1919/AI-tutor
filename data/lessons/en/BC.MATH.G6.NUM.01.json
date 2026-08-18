@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.NUM.01",
+ "lang": "en",
+ "title": "small to large numbers (thousandths to billions)",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "From Thousandths to Billions: Reading Every Size of Number",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hi friend, it's Ms. Yuanyuan! Yesterday I was reading the news here in BC. One story said a new bridge will cost four billion nine hundred million dollars. Right beside it, a story about a vitamin drop said each drop holds zero point zero zero five grams. Wow — one number is gigantic, the other is teeny tiny. Today we learn one single pattern that reads them both.",
+    "math": "0.005 \\quad \\text{and} \\quad 4\\,900\\,000\\,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.005
+     ],
+     "labels": [],
+     "caption": "0.005 of a gram sits almost on top of zero — that is how tiny thousandths are"
+    }
+   },
+   {
+    "say": "Here is the whole secret. Every time you step one place to the left, the number is ten times bigger. Every time you step one place to the right, it is ten times smaller. Look at the snow depth at Whistler one morning: three point four zero seven metres. The three is three whole metres, the four is four tenths, the zero is zero hundredths, and the seven is seven thousandths.",
+    "math": "3.407 = 3 + 0.4 + 0.007",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3.407
+     ],
+     "labels": [],
+     "caption": "ones, tenths, hundredths, thousandths — each place is ten times smaller than the one before it"
+    }
+   },
+   {
+    "say": "Now let's walk the same staircase the other way, to the left. Ones, tens, hundreds — then a comma. Thousands, ten thousands, hundred thousands — comma. Millions, then billions. Those commas are like little bus stops that split the number into groups of three, so you only ever read three digits at a time. That is how we say four billion, nine hundred million dollars.",
+    "math": "4\\,900\\,000\\,000",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      4900000000
+     ],
+     "labels": [],
+     "caption": "read it in groups of three: 4 billion, 900 million"
+    }
+   },
+   {
+    "say": "Let's try an easy one together. Three ski hills measured their snow: zero point four metres, zero point three seven five metres, and zero point zero nine metres. To compare, give them all the same number of decimal places by adding zeros on the end. That gives four hundred thousandths, three hundred seventy five thousandths, and ninety thousandths. Now it's easy — smallest to largest is zero point zero nine, then zero point three seven five, then zero point four.",
+    "math": "0.090 < 0.375 < 0.400",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      0.5,
+      0.09,
+      0.4
+     ],
+     "labels": [],
+     "caption": "0.09 is the shallowest, 0.4 the deepest — and 0.375 sits just before 0.4"
+    }
+   },
+   {
+    "say": "Now a slightly harder one, up at the big end. The bridge costs four point nine billion dollars and a new hospital costs one point five billion dollars. How much more is the bridge? Four point nine minus one point five is three point four. So the bridge costs three point four billion dollars more — that's three billion, four hundred million dollars.",
+    "math": "4\\,900\\,000\\,000 - 1\\,500\\,000\\,000 = 3\\,400\\,000\\,000",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.9,
+      1.5
+     ],
+     "labels": [
+      "Bridge",
+      "Hospital"
+     ],
+     "caption": "amounts in billions of dollars — the bridge bar is 3.4 billion longer"
+    }
+   },
+   {
+    "say": "One more helpful trick. News reporters and scientists almost never say every digit. They round. Four point nine billion is much closer to five billion than to four billion, so the headline just says about five billion dollars. Estimating like this keeps huge numbers friendly, and it works the same for tiny ones — zero point zero zero five grams is about five thousandths of a gram.",
+    "math": "4\\,900\\,000\\,000 \\approx 5\\,000\\,000\\,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      4,
+      5,
+      4.9,
+      5
+     ],
+     "labels": [],
+     "caption": "in billions: 4.9 rounds up to 5"
+    }
+   },
+   {
+    "say": "So there it is. Whether a number is as small as a drop of medicine or as big as a bridge budget, it is built from the very same staircase of places. Each step left is ten times bigger, each step right is ten times smaller. Line the places up, and you can read, compare, and estimate any number in the world.",
+    "math": "0.005 \\quad \\longleftrightarrow \\quad 5\\,000\\,000\\,000",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.005
+     ],
+     "labels": [],
+     "caption": "five thousandths — the tiny end of the very same staircase"
+    }
+   }
+  ],
+  "answer": "Every place is ten times the one to its right — line up the places and you can read anything from thousandths to billions.",
+  "practice": {
+   "question": "Grouse Mountain reports 1.205 metres of snow and Cypress reports 1.25 metres. Which hill has more snow, and by how much? Then write four billion two hundred million in digits.",
+   "answer": "Cypress has more. Write them as 1.250 and 1.205, then subtract: 1.250 minus 1.205 equals 0.045 metres (4.5 cm) more. And four billion two hundred million is 4,200,000,000."
+  }
+ }
+}

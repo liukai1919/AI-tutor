@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G6.GEO.02",
+ "lang": "en",
+ "title": "area of triangles, parallelograms, and trapezoids",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Finding the Area of Triangles, Parallelograms, and Trapezoids",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're helping build the school garden in the corner of the playground. The garden isn't a neat square — one bed is a slanted shape, one is a triangle, and one is wider at the front than at the back. Before you can buy soil, you need to know how much ground each bed covers. That's what area is: the number of little squares that would cover the shape. Today we'll learn three easy formulas, and here's the lovely secret — all three of them come from the plain old rectangle you already know.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's start with the shape you already trust. Here's a rectangle six squares across and four squares down. You don't need to count them one by one — you can just do six times four, which is twenty-four. So this bed covers twenty-four square centimetres. Remember that number, six times four is twenty-four, because we're about to use it again in a sneaky way.",
+    "math": "A = l \\times w = 6 \\times 4 = 24",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "A 6 by 4 rectangle = 24 little squares"
+    }
+   },
+   {
+    "say": "Now the slanted bed — that's a parallelogram. Here's the magic. Take a pair of scissors, snip the slanted triangle off one end, and slide it over to the other end. Nothing is lost, nothing is added, and look what you get — a rectangle! Its width is the base of the parallelogram, and its height is the straight up and down distance, not the slanted side. So if the base is six centimetres and the height is four centimetres, the area is six times four, twenty-four square centimetres. A parallelogram is just a rectangle that got pushed over.",
+    "math": "A = b \\times h = 6 \\times 4 = 24",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Slide the cut triangle over: the parallelogram becomes a 6 by 4 rectangle"
+    }
+   },
+   {
+    "say": "Next, the triangle bed. Picture two identical triangles cut from cardboard. Flip one upside down and snuggle it against the other — together they make a parallelogram! So one triangle is exactly half of that parallelogram. Let's try it. This triangle has a base of eight centimetres and a height of five centimetres, shown by the dashed line. Two of them would make a parallelogram of eight times five, which is forty. Half of forty is twenty. So the triangle's area is twenty square centimetres.",
+    "math": "A = \\frac{b \\times h}{2} = \\frac{8 \\times 5}{2} = \\frac{40}{2} = 20",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      8,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Base 8 cm, height 5 cm (dashed) → area 20 cm²"
+    }
+   },
+   {
+    "say": "Let's do one a little bigger, the way a real garden bed might be. This triangle has a base of twelve metres and a height of seven metres. First multiply: twelve times seven is eighty-four. Then take half: eighty-four divided by two is forty-two. So the area is forty-two square metres. Always do those two moves in that order — multiply first, then halve. Multiply, then halve.",
+    "math": "A = \\frac{12 \\times 7}{2} = \\frac{84}{2} = 42",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      12,
+      7
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Base 12 m, height 7 m → area 42 m²"
+    }
+   },
+   {
+    "say": "Last shape: the trapezoid, the bed that's wider at the front than at the back. It has two parallel sides — say five centimetres at the back and nine centimetres at the front — and a height of four centimetres. Same trick! Two identical trapezoids fit together into a parallelogram whose base is five plus nine, which is fourteen. Fourteen times four is fifty-six, and half of fifty-six is twenty-eight. So the trapezoid covers twenty-eight square centimetres. Add the two parallel sides, times the height, then halve.",
+    "math": "A = \\frac{(a+b) \\times h}{2} = \\frac{(5+9) \\times 4}{2} = \\frac{56}{2} = 28",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      14,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Two trapezoids joined: base 5 + 9 = 14 cm, height 4 cm → 56 ÷ 2 = 28 cm²"
+    }
+   },
+   {
+    "say": "Here's something beautiful from right here in Canada. In birchbark biting, an artist folds a thin sheet of birchbark two or three times and gently bites it with their teeth. When they unfold it, a perfectly symmetrical design appears — full of triangles and diamond shapes. That's exactly what we've been doing with numbers: folding a shape in half, or doubling it, to make something easier to measure. Fold, unfold, and the pattern shows you the answer.",
+    "math": "",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      10,
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A folded-bark triangle: half of a 10 by 6 shape = 30 cm²"
+    }
+   }
+  ],
+  "answer": "Parallelogram is base times height; triangle and trapezoid are just half of a parallelogram — so multiply, then halve.",
+  "practice": {
+   "question": "A community garden bed in Surrey is shaped like a trapezoid. The two parallel sides measure 3 metres and 7 metres, and the height between them is 4 metres. What is the area of the bed?",
+   "answer": "20 square metres. Add the parallel sides: 3 + 7 = 10. Multiply by the height: 10 × 4 = 40. Then halve: 40 ÷ 2 = 20 m²."
+  }
+ }
+}

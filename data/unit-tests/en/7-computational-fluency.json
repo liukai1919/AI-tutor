@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "7",
+ "strand": "computational-fluency",
+ "lang": "en",
+ "unitName": {
+  "zh": "运算熟练",
+  "en": "Computational Fluency"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Computational Fluency · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G7.FLU.01",
+    "level": 1,
+    "question": "Maya wants to find 68 x 5 in her head. She multiplies 68 by 10, then divides the answer by 2. What is 68 x 5?",
+    "options": [
+     "340",
+     "34",
+     "680",
+     "3400"
+    ],
+    "answerIndex": 0,
+    "explain": "68 x 10 = 680, and half of 680 is 340. The most common trap is stopping after the x 10 step and answering 680, or halving 68 instead of halving 680."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.02",
+    "level": 1,
+    "question": "What is -6 - (-9)?",
+    "options": [
+     "-15",
+     "-3",
+     "3",
+     "15"
+    ],
+    "answerIndex": 2,
+    "explain": "Subtracting a negative is the same as adding its opposite: -6 - (-9) = -6 + 9 = 3. The usual mistake is leaving it as -6 - 9 = -15, forgetting that the two negative signs together mean 'add'."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.03",
+    "level": 1,
+    "question": "At a Granville Island cafe, Leo buys a carton of milk for $3.60 and a sandwich for $12.45. How much does he spend in total?",
+    "options": [
+     "$12.81",
+     "$15.05",
+     "$16.50",
+     "$16.05"
+    ],
+    "answerIndex": 3,
+    "explain": "Line up the decimal points: 3.60 + 12.45 = 16.05, remembering to carry the 1 from 0.60 + 0.45 = 1.05 into the ones column. Students who forget that carry get $15.05, and students who line up the last digits instead of the decimal points get $12.81."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.01",
+    "level": 2,
+    "question": "A Surrey school buys 6 boxes of markers with 48 markers in each box. The markers are shared equally among 8 classrooms. How many markers does each classroom get?",
+    "options": [
+     "31",
+     "36",
+     "48",
+     "64"
+    ],
+    "answerIndex": 1,
+    "explain": "First multiply: 48 x 6 = 288 markers, then divide: 288 / 8 = 36 per classroom. The most common trap is forgetting to regroup in 48 x 6 (getting 248, then 31), or dividing by 6 instead of 8."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.02",
+    "level": 2,
+    "question": "Ms. Lee writes this expression on the board: -4 + 3 x (-5 + 2). What is its value?",
+    "options": [
+     "-17",
+     "3",
+     "-13",
+     "5"
+    ],
+    "answerIndex": 2,
+    "explain": "Brackets first: -5 + 2 = -3, then multiply: 3 x (-3) = -9, then add: -4 + (-9) = -13. The classic errors are ignoring the brackets (-4 + 3 x -5 + 2 = -17) or working straight left to right (-4 + 3 = -1, then -1 x -3 = 3)."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.03",
+    "level": 2,
+    "question": "Priya buys 4 cartons of milk at $2.45 each and pays with a $20 bill. How much change should she get?",
+    "options": [
+     "$9.80",
+     "$10.20",
+     "$10.80",
+     "$11.20"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiply first: 2.45 x 4 = $9.80, then subtract: $20.00 - $9.80 = $10.20. The biggest trap is answering $9.80, which is the cost, not the change; a regrouping slip in the multiplication ($9.20) leads to $10.80."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.03",
+    "level": 3,
+    "question": "At a Kelowna grocery store, Store A sells a 1.5 L bottle of apple juice for $4.35 and Store B sells a 2 L bottle for $5.60. Which store's juice costs less per litre, and by how much?",
+    "options": [
+     "Store A, because $4.35 is less than $5.60",
+     "Store A, by $0.10 per litre",
+     "Store B, by $1.25 per litre",
+     "Store B, by $0.10 per litre"
+    ],
+    "answerIndex": 3,
+    "explain": "Find each unit price by dividing: 4.35 / 1.5 = $2.90 per litre and 5.60 / 2 = $2.80 per litre, so Store B is cheaper by $0.10 per litre. The most common mistake is comparing the total prices ($4.35 vs $5.60) instead of the price per litre, since the bottles are different sizes."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.FLU.02",
+    "level": 3,
+    "question": "Mateo parks in a Vancouver parkade on level -3. The spot is taken, so he drives down 2 more levels to park. He then rides the elevator up 7 levels to the food court. Which level is the food court on?",
+    "options": [
+     "level 2",
+     "level 6",
+     "level -12",
+     "level 12"
+    ],
+    "answerIndex": 0,
+    "explain": "Going down is negative and going up is positive: -3 - 2 = -5, then -5 + 7 = 2. The common traps are treating 'down 2' as +2 (giving level 6) or ignoring the negative signs altogether and adding 5 + 7 = 12."
+   }
+  ]
+ }
+}

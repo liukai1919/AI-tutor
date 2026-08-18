@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "7",
+ "strand": "patterning",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Patterning · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G7.PAT.01",
+    "level": 1,
+    "question": "A pattern is described by the expression 3n + 2, where n is the term number. What is the value of the 6th term?",
+    "options": [
+     "18",
+     "20",
+     "24",
+     "11"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiply first, then add: 3 × 6 = 18, and 18 + 2 = 20. The most common trap is stopping at 18 (forgetting the constant +2) or adding before multiplying to get 3 × 8 = 24 — in an expression like 3n + 2, the multiplication always happens first."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.02",
+    "level": 1,
+    "question": "Solve for x:  4x + 3 = 19",
+    "options": [
+     "x = 4.75",
+     "x = 5.5",
+     "x = 4",
+     "x = 16"
+    ],
+    "answerIndex": 2,
+    "explain": "Undo the equation in reverse order: subtract 3 from both sides (4x = 16), then divide both sides by 4 (x = 4). Check by substituting: 4 × 4 + 3 = 19 ✓. The usual traps are stopping after subtracting (16) or dividing by 4 before removing the +3 (4.75)."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.01",
+    "level": 1,
+    "question": "This table of values shows a linear relation. Which expression gives y for any value of n?\n\nn = 1, y = 5\nn = 2, y = 9\nn = 3, y = 13\nn = 4, y = 17",
+    "options": [
+     "y = 5n",
+     "y = n + 4",
+     "y = 4n",
+     "y = 4n + 1"
+    ],
+    "answerIndex": 3,
+    "explain": "The y-values go up by 4 each time, so the relation contains 4n; since 4 × 1 = 4 but y is 5, you must add 1, giving y = 4n + 1. A common mistake is writing y = n + 4 because the numbers 'go up by 4' — always test your rule on every row of the table before choosing."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.01",
+    "level": 2,
+    "question": "At a kayak rental shop on Okanagan Lake, the cost is a $12 launch fee plus $8 for each hour of rental. The relation is c = 8n + 12, where n is the number of hours. How much does a 5-hour rental cost?",
+    "options": [
+     "$52",
+     "$40",
+     "$68",
+     "$100"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply the hourly part first, then add the one-time fee: 8 × 5 = 40, and 40 + 12 = $52. The classic errors are forgetting the launch fee ($40) or adding the fee to the hourly rate before multiplying, giving (8 + 12) × 5 = $100 — the $12 is charged only once."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.02",
+    "level": 2,
+    "question": "Maya buys 3 identical packs of stickers and one notebook that costs $4. She spends $19 in total. If p is the cost of one pack, which equation models this, and what is p?",
+    "options": [
+     "3p + 4 = 19, so p = $15",
+     "3p = 19, so p = $6.33",
+     "3p + 4 = 19, so p = $5",
+     "3p = 19 + 4, so p = $7.67"
+    ],
+    "answerIndex": 2,
+    "explain": "The notebook is bought once, so the equation is 3p + 4 = 19; subtract 4 to get 3p = 15, then divide by 3 to get p = $5. Check: 3 × $5 + $4 = $19 ✓. Watch for stopping at 15 (that's the cost of all three packs, not one) or forgetting to remove the notebook before dividing."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.01",
+    "level": 2,
+    "question": "A graph of a linear relation passes through these points with integral coordinates: (-2, -4), (-1, -1), (0, 2), (1, 5). What is the value of y when n = -3?",
+    "options": [
+     "7",
+     "-1",
+     "-11",
+     "-7"
+    ],
+    "answerIndex": 3,
+    "explain": "The y-values increase by 3 and the graph crosses the y-axis at 2, so the relation is y = 3n + 2; substituting n = -3 gives 3 × (-3) + 2 = -9 + 2 = -7. The most common trap is treating the +2 as -2 once the numbers turn negative (giving -11) — the constant keeps its own sign no matter which quadrant you are in."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.02",
+    "level": 3,
+    "question": "A Grade 7 class is pre-planning a spirit canoe trip. They have raised $250. They must pay $46 for the shuttle van, and the money left over is shared equally among the 6 paddlers to buy gear. Using the equation 6g + 46 = 250, how much gear money does each paddler get?",
+    "options": [
+     "$204",
+     "$34",
+     "$41.67",
+     "$49.33"
+    ],
+    "answerIndex": 1,
+    "explain": "Subtract the van cost first: 250 - 46 = 204, then divide the remainder among the paddlers: 204 ÷ 6 = $34. Verify: 6 × $34 + $46 = $250 ✓. The two big traps are dividing the full $250 by 6 before paying for the van ($41.67) and forgetting to divide at all ($204, which is the whole group's gear money)."
+   },
+   {
+    "curriculumId": "BC.MATH.G7.PAT.01",
+    "level": 3,
+    "question": "Ava is weaving a bracelet. The table shows the finished length for each number of beads:\n\n1 bead → 9 cm\n2 beads → 14 cm\n3 beads → 19 cm\n4 beads → 24 cm\n\nHow long will the bracelet be with 20 beads?",
+    "options": [
+     "104 cm",
+     "109 cm",
+     "100 cm",
+     "120 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "The length grows by 5 cm per bead, so the rule is 5b + something; since 5 × 1 = 5 but the length is 9, the constant is 4, giving 5b + 4, and 5 × 20 + 4 = 104 cm. The most common misconception is using the first table value as the constant and writing 5b + 9 (109 cm) — the constant is the value at b = 0, which you find by working one step backwards from the first row."
+   }
+  ]
+ }
+}

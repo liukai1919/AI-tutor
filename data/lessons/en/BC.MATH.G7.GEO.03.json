@@ -1,0 +1,173 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.GEO.03",
+ "lang": "en",
+ "title": "Cartesian coordinates and graphing",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Meet Me at (3, 2): The Coordinate Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're texting your friends to meet up at the big park in your neighbourhood. You say \"meet me by the trees\" — but there are trees everywhere, and everyone ends up in a different spot. Now imagine the park map had a grid on it, like a giant piece of graph paper. You could text \"go five squares right, then three squares up\" and everyone lands in exactly the same place. That's the whole reason the coordinate grid exists: it turns a fuzzy \"over there\" into an exact address.",
+    "math": "(5,\\ 3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "skate ramp"
+     ],
+     "caption": "Five to the right, three up — one exact spot on the map"
+    }
+   },
+   {
+    "say": "Every coordinate grid starts at one special place called the origin. It's the corner where the two number lines cross — the flat one going across is the x-axis, and the standing-up one is the y-axis. The origin is your starting point, like the front door of your house. Its address is zero comma zero, because you haven't walked across at all and you haven't walked up at all.",
+    "math": "\\text{origin} = (0,\\ 0)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0
+     ],
+     "labels": [
+      "origin"
+     ],
+     "caption": "The origin: where the x-axis and y-axis cross"
+    }
+   },
+   {
+    "say": "Here's the one rule that keeps you out of trouble. A point's address always comes in the same order: the x number first, then the y number. Walk across first, then climb up. I remember it alphabetically — x comes before y in the alphabet, so it comes first in the brackets. So the point six comma four means walk six to the right, then four up. If you flipped it and did four across and six up, you'd land somewhere totally different.",
+    "math": "(x,\\ y) \\rightarrow (6,\\ 4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "P (6, 4)"
+     ],
+     "caption": "Across 6, then up 4 — always x first, then y"
+    }
+   },
+   {
+    "say": "Now, the grid doesn't stop at the origin. The number lines keep going into the negatives, and that splits the whole page into four regions we call quadrants. We number them starting from the top right and going counter-clockwise, like the hands of a clock running backwards. In quadrant one, both numbers are positive. Quadrant two, x is negative and y is positive. Quadrant three, both are negative. Quadrant four, x is positive and y is negative. Notice how the signs tell you the quadrant before you even plot the point.",
+    "math": "\\text{I}(+,+)\\quad \\text{II}(-,+)\\quad \\text{III}(-,-)\\quad \\text{IV}(+,-)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      3,
+      -4,
+      3,
+      -4,
+      -3,
+      4,
+      -3
+     ],
+     "labels": [
+      "I",
+      "II",
+      "III",
+      "IV"
+     ],
+     "caption": "Four quadrants — the signs of x and y tell you which one"
+    }
+   },
+   {
+    "say": "Let's try one together. Three friends are meeting at a grid map of the seawall. Aisha is at negative five comma two — that's five to the left, two up, so she's in quadrant two. Ben is at three comma four — three right, four up, quadrant one. Chen is at zero comma negative three — he doesn't move across at all, he just goes three down, so he sits right on the y-axis. That last one is worth noticing: a point sitting on an axis isn't in any quadrant, it's on the border.",
+    "math": "A(-5,\\ 2)\\quad B(3,\\ 4)\\quad C(0,\\ -3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -5,
+      2,
+      3,
+      4,
+      0,
+      -3
+     ],
+     "labels": [
+      "A Aisha",
+      "B Ben",
+      "C Chen"
+     ],
+     "caption": "A is in quadrant II, B in quadrant I, C sits on the y-axis"
+    }
+   },
+   {
+    "say": "Here's a slightly harder one, and it's where coordinates get really powerful. You've drawn a triangle-shaped flag on a grid at negative three comma four, negative one comma four, and negative three comma one. Now you want to slide the whole flag five to the right and three down — that's called a translation. You don't redraw anything; you just do the arithmetic. Five to the right means add five to every x. Three down means subtract three from every y. So negative three plus five is two, and four minus three is one — that corner lands at two comma one. Negative one plus five is four, four minus three is one — that's four comma one. And negative three plus five is two, one minus three is negative two — so two comma negative two. The whole shape moved out of quadrant two and into quadrants one and four, and all you did was add and subtract.",
+    "math": "(x,\\ y) \\rightarrow (x+5,\\ y-3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      4,
+      -1,
+      4,
+      -3,
+      1,
+      2,
+      1,
+      4,
+      1,
+      2,
+      -2
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Slide right 5, down 3: add 5 to each x, subtract 3 from each y"
+    }
+   },
+   {
+    "say": "One more thing I love about this grid. If you lay a coordinate grid over a medicine wheel — an important symbol for many First Nations here in B.C. and across Canada — the centre sits right on the origin, and the four quadrants line up with the four directions. North is straight up at zero comma four, east is right at four comma zero, south is down at zero comma negative four, and west is left at negative four comma zero. Same idea when you bead a dreamcatcher pattern or read a trail map: the origin is your centre, and every point around it has an exact address.",
+    "math": "N(0,4)\\quad E(4,0)\\quad S(0,-4)\\quad W(-4,0)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      4,
+      4,
+      0,
+      0,
+      -4,
+      -4,
+      0
+     ],
+     "labels": [
+      "North",
+      "East",
+      "South",
+      "West"
+     ],
+     "caption": "A coordinate grid laid over a medicine wheel — centre at the origin"
+    }
+   },
+   {
+    "say": "So that's it. A coordinate is just an exact address on a grid: walk across, then climb up, and use negatives when you go left or down. Once a shape has coordinates, you can slide it around with nothing but adding and subtracting. Nice work today.",
+    "math": "(x,\\ y)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A coordinate is an address: x first (across), y second (up) — and the signs tell you which quadrant you're in.",
+  "practice": {
+   "question": "On a grid map of your school field (each square is 1 metre), the water fountain is at (-2, 5). The bike rack is 6 metres right and 7 metres down from the fountain. What are the bike rack's coordinates, and which quadrant is it in?",
+   "answer": "(4, -2), in quadrant IV. Add 6 to the x: -2 + 6 = 4. Subtract 7 from the y: 5 - 7 = -2. Positive x with negative y means quadrant four."
+  }
+ }
+}

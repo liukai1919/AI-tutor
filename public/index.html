@@ -140,9 +140,18 @@
   .sdot.seen{background:var(--brand2)}
   .sdot.solid{background:var(--good)}
   .strandHead{margin:18px 2px 2px}
+  .strandHead .shTop{display:flex;align-items:flex-start;gap:10px}
+  .strandHead .shName{flex:1;min-width:0}
   .strandHead .sn{font-weight:800;font-size:16px}
   .strandHead .se{color:var(--muted);font-size:12px;margin-left:8px}
   .strandHead .bi{color:var(--muted);font-size:12.5px;line-height:1.6;margin-top:3px}
+  /* 单元测试（P6）：入口挂在单元标题右边，展开一格面板出卷/做存档卷 */
+  .unitBtn{flex:0 0 auto;border:2px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;white-space:nowrap;transition:.15s}
+  .unitBtn:hover,.unitBtn.on{border-color:var(--brand);color:var(--ink);background:var(--soft)}
+  .unitBtn .unitN{margin-left:5px;border-radius:999px;background:var(--brand2);color:#fff;font-size:11px;padding:1px 6px}
+  .unitPanel{border:2px dashed var(--line);border-radius:14px;padding:10px 12px;margin-top:8px;background:var(--soft)}
+  .unitPanel .histItem{margin-top:8px}
+  .unitPanel .uhint{color:var(--muted);font-size:12.5px;line-height:1.6}
   .learnItem{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;background:#fff;transition:.15s;margin-top:8px}
   .learnItem:hover{border-color:var(--brand);background:var(--soft)}
   .learnItem .lz{font-weight:700;font-size:15px}
@@ -201,6 +210,81 @@
     body.reportOpen .noprint{display:none!important}
   }
   .footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
+  /* 登录 / 注册（全屏，盖住主界面） */
+  .authScreen{position:fixed;inset:0;z-index:80;overflow:auto;display:grid;place-items:center;padding:18px;
+    background:radial-gradient(1200px 600px at 80% -10%,#ffe6d2 0%,transparent 60%),
+               radial-gradient(900px 500px at -10% 10%,#dce6ff 0%,transparent 55%),var(--bg)}
+  .profileGrid{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;justify-content:center}
+  .profileBtn{border:2px solid var(--line);background:#fff;border-radius:20px;padding:16px 20px;font-size:17px;
+    font-weight:800;cursor:pointer;min-width:112px;box-shadow:var(--shadow);color:var(--ink);font-family:inherit}
+  .profileBtn .pe{font-size:34px;display:block;margin-bottom:6px}
+  .profileBtn:hover{border-color:var(--brand);background:var(--soft)}
+  .authLink{background:none;border:none;color:var(--brand2);font-size:14px;font-weight:700;cursor:pointer;
+    margin-top:16px;text-decoration:underline;font-family:inherit}
+  /* 家长模式徽章条（孩子设备上临时解锁时显示） */
+  .parentBar{display:flex;align-items:center;gap:10px;background:#eef2ff;border:2px solid #c9d4ff;border-radius:14px;
+    padding:8px 14px;margin:0 0 12px;font-size:14px;font-weight:700;color:#4a66d8}
+  .parentBar .btn{padding:6px 12px;font-size:13px;margin-left:auto}
+  /* 设置里的孩子管理 */
+  .kidRow{display:flex;align-items:center;gap:8px;border:2px solid var(--line);border-radius:14px;padding:8px 12px;margin-top:8px;background:#fff}
+  .kidRow .kn{font-weight:800;flex:1;min-width:0}
+  .kidRow button{border:none;background:none;cursor:pointer;font-size:15px;opacity:.5;padding:2px 4px;flex:0 0 auto}
+  .kidRow button:hover{opacity:1}
+  /* 完整学习报告 */
+  .fullRepBar{margin:10px 0 4px;border:2px dashed #c9d4ff;border-radius:14px;padding:10px 12px;background:#f8faff}
+  .fullRepList{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  .fullRepSec{margin-top:14px}
+  .fullRepSec h4{margin:0 0 6px;font-size:15px}
+  .fullRepSec p,.fullRepSec li{font-size:14px;line-height:1.7;margin:4px 0}
+  .fullRepSec ul{margin:4px 0;padding-left:20px}
+  .repTable{width:100%;border-collapse:collapse;margin-top:6px;font-size:12.5px}
+  .repTable th,.repTable td{border:1px solid var(--line);padding:5px 8px;text-align:center}
+  .repTable th{background:var(--soft)}
+  .weakItem{border:2px solid #ffd9b8;background:#fff7f0;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.6}
+
+  /* ---------- iPad 分栏：左边选课栏常驻，右边讲课舞台 ----------
+   * 窄屏和 iPad 竖屏一条规则都不生效，还是原来的「一屏一张卡片」。 */
+  #stageEmpty{display:none}
+  .learnItem.on{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 3px rgba(255,138,91,.14)}
+  .learnItem.on .lz{color:var(--brand)}
+  @media (min-width:1000px){
+    .wrap{max-width:1240px;padding:18px 20px 40px}
+    .shell{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px;align-items:start}
+    /* flex 的 gap 会跳过 display:none 的卡片，不像 `+` 那样给隐藏兄弟留空 */
+    .rail,.stageCol{display:flex;flex-direction:column;gap:14px;min-width:0}
+    /* 舞台滚动时左栏钉住；列表太长时它自己滚，不跟着课文跑 */
+    .rail{position:sticky;top:14px;max-height:calc(100vh - 30px);overflow-y:auto;
+          overscroll-behavior:contain;padding:8px;margin:-8px}
+    .rail .card{padding:16px}
+    .rail .tabs{margin:0}
+    .rail .hi{font-size:18px}
+    .rail .sub{font-size:13px;margin-bottom:10px}
+    .rail textarea{min-height:96px}
+    /* 例题在 340px 里会折成 6 行占掉大半张卡片，把「开始讲解」挤出屏外 —— 收成单行 */
+    .rail .chips{gap:6px}
+    .rail .chip{width:100%;text-align:left;font-size:13px;padding:7px 12px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .rail::-webkit-scrollbar{width:8px}
+    .rail::-webkit-scrollbar-thumb{background:#e8dccf;border-radius:99px}
+    /* 计时考试 / 闯关全宽：孩子正在做题，旁边不要挂一排能点走的课 */
+    body.focus .shell{grid-template-columns:minmax(0,1fr)}
+    body.focus .rail{display:none}
+    /* 宽屏了就把讲解放大：图更大、字更大 */
+    .stageCol .visualBox{min-height:200px;padding:18px}
+    .stageCol .sayBox{font-size:19px}
+    .stageCol .stage{min-height:300px}
+    #stageEmpty{display:block;border:2px dashed var(--line);border-radius:var(--r);
+      padding:64px 24px;text-align:center;color:var(--muted);font-size:15px;line-height:1.9}
+    #stageEmpty .bigpi{font-size:56px;display:block;margin-bottom:12px;opacity:.45}
+    #stageEmpty b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+    .stageCol:has(> section:not(.hidden)) #stageEmpty{display:none}
+    .iconbtn{width:44px;height:44px}
+  }
+  /* 触摸设备：列表行里那两个小图标按钮原来只有 ~23px，手指戳不中 */
+  @media (pointer:coarse){
+    .histItem .hdel,.learnItem .hregen,.learnItem .hquiz{font-size:18px;padding:7px 8px;opacity:.6}
+    .unitBtn{font-size:13.5px;padding:8px 13px}
+  }
 </style>
 </head>
 <body>
@@ -214,9 +298,21 @@
       <button class="iconbtn hidden" id="reportBtn" data-i18n-title="reportTitle" title="家长报告">📊</button>
       <button class="iconbtn" id="histBtn" data-i18n-title="historyTitle" title="历史记录">📖</button>
       <button class="iconbtn txt" id="langBtn" title="Language">EN</button>
+      <button class="iconbtn" id="userBtn" data-i18n-title="switchUser" title="切换用户">👤</button>
       <button class="iconbtn" id="gear" data-i18n-title="settingsTitle" title="设置">⚙️</button>
     </div>
   </header>
+
+  <!-- 家长模式徽章：只在孩子设备上临时解锁（sessionStorage）时出现，关标签页自动退出 -->
+  <div class="parentBar hidden" id="parentBar">
+    <span>🔓 <span data-i18n="parentBadge">家长模式</span> · <span id="parentBarName"></span></span>
+    <button class="btn ghost" id="parentExit" data-i18n="parentExit">退出</button>
+  </div>
+
+  <!-- ≥1000px（iPad 横屏）时 .shell 变两栏：左 rail 是选课/出题，右 stageCol 是讲课舞台。
+       窄屏下 .shell 就是普通的 block，跟改造前一模一样。 -->
+  <div class="shell">
+  <div class="rail">
 
   <!-- 模式切换：出题讲课 / 跟大纲学（服务器有大纲数据才显示） -->
   <div class="tabs hidden" id="modeTabs">
@@ -244,6 +340,8 @@
     <div class="row" style="margin-top:16px">
       <button class="btn big" id="go" data-i18n="go">开始讲解 ✨</button>
     </div>
+    <!-- 没装 AI 引擎时：说清楚哪条路还能走，别让人以为整个软件坏了 -->
+    <p class="help hidden" id="noEngineHint" style="margin-top:10px"></p>
   </section>
 
   <!-- 跟大纲学：BC 大纲清单 -->
@@ -264,6 +362,9 @@
     <div id="learnList"></div>
     <div class="help" id="learnSource" style="text-align:center;margin-top:14px"></div>
   </section>
+
+  </div><!-- /rail -->
+  <div class="stageCol">
 
   <!-- FSA 模拟练习（P4）：计时作答 → 成绩单 → 错题转讲解 -->
   <section class="card hidden" id="fsaCard">
@@ -341,6 +442,16 @@
     </div>
   </section>
 
+  <!-- 分栏时右边还没内容的引导位（单栏下 display:none，看不见） -->
+  <div id="stageEmpty">
+    <span class="bigpi">🧮</span>
+    <b data-i18n="stageEmptyTitle"></b>
+    <span data-i18n="stageEmptyHint"></span>
+  </div>
+
+  </div><!-- /stageCol -->
+  </div><!-- /shell -->
+
   <div class="footer" id="footerText"></div>
 </div>
 
@@ -359,12 +470,6 @@
     <h3 data-i18n="settingsTitle">设置</h3>
     <p class="help" style="margin-top:2px" data-i18n="settingsHelp">保存在这台设备的浏览器里。</p>
 
-    <div class="field hidden" id="codeField">
-      <label data-i18n="codeLabel">访问码</label>
-      <input id="accessCode" type="password" data-i18n-ph="codePh" placeholder="问爸爸妈妈要访问码" autocomplete="off" />
-      <div class="help" data-i18n="codeHelp">家里服务器设置了访问码，输入一次就好。</div>
-    </div>
-
     <div class="field">
       <label data-i18n="langLabel">语言 / Language</label>
       <select id="langSel">
@@ -374,22 +479,29 @@
     </div>
 
     <div class="field">
+      <label data-i18n="gradeLabel">年级 / 难度</label>
+      <select id="grade"></select>
+    </div>
+
+    <!-- 以下均为家长专属（学生模式隐藏；服务端另有 403 兜底） -->
+    <div class="field hidden" id="curKidField">
+      <label data-i18n="curKidLabel">当前孩子（家长查看与操作的对象）</label>
+      <select id="curKidSel"></select>
+    </div>
+
+    <div class="field hidden" id="kidsField">
+      <label data-i18n="kidsLabel">孩子管理</label>
+      <div id="kidsList"></div>
+      <button class="btn ghost" id="addKidBtn" style="margin-top:8px;padding:10px 12px;font-size:14px">＋ <span data-i18n="addKid">添加孩子</span></button>
+    </div>
+
+    <div class="field hidden" id="engineField">
       <label data-i18n="engineFieldLabel">AI 引擎</label>
       <div class="engineList" id="engineList"></div>
       <div class="help" data-i18n="engineHelp">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
     </div>
 
-    <div class="field">
-      <label data-i18n="kidLabel">孩子的名字（可选，讲解会更亲切）</label>
-      <input id="kidName" type="text" data-i18n-ph="kidPh" placeholder="比如：朵朵" maxlength="12" />
-    </div>
-
-    <div class="field">
-      <label data-i18n="gradeLabel">年级 / 难度</label>
-      <select id="grade"></select>
-    </div>
-
-    <div class="field">
+    <div class="field hidden" id="dataField">
       <label data-i18n="dataLabel">学习数据</label>
       <div class="row" style="margin-top:0">
         <button class="btn ghost" id="clearProgressBtn" data-i18n="clearProgress" style="flex:1;padding:10px 12px;font-size:14px">清空学习进度</button>
@@ -412,10 +524,21 @@
   <div class="modalCard reportCard">
     <div class="row" style="justify-content:space-between;margin:0">
       <h3 data-i18n="reportTitle">家长报告</h3>
-      <select id="reportGrade" class="learnGradeSel noprint"></select>
+      <div class="row noprint" style="margin:0;gap:6px;flex:0 0 auto">
+        <select id="reportKid" class="learnGradeSel hidden"></select>
+        <select id="reportGrade" class="learnGradeSel"></select>
+      </div>
     </div>
     <p class="help" id="reportHead" style="margin-top:6px;font-size:13.5px"></p>
     <div class="legend" id="reportLegend" style="gap:6px"></div>
+    <!-- 完整学习报告（LLM 生成，按孩子存档；实时视图之上的家长功能） -->
+    <div class="fullRepBar noprint hidden" id="fullRepBar">
+      <div class="row" style="margin:0;justify-content:space-between">
+        <b style="font-size:14px">📄 <span data-i18n="fullRepTitle">完整学习报告</span></b>
+        <button class="btn blue" id="fullRepGen" style="padding:8px 14px;font-size:14px" data-i18n="fullRepGen">生成完整报告</button>
+      </div>
+      <div class="fullRepList" id="fullRepList"></div>
+    </div>
     <div id="reportBody"></div>
     <div class="help" id="reportSource" style="margin-top:12px;line-height:1.6"></div>
     <div class="modalRow noprint">
@@ -428,7 +551,10 @@
 <!-- 历史记录 -->
 <div class="modal hidden" id="historyModal">
   <div class="modalCard">
-    <h3 data-i18n="historyTitle">历史记录</h3>
+    <div class="row" style="justify-content:space-between;margin:0">
+      <h3 data-i18n="historyTitle">历史记录</h3>
+      <select id="histKid" class="learnGradeSel hidden"></select>
+    </div>
     <p class="help" style="margin-top:2px" data-i18n="historyHelp">讲过的题都自动记在这里，点一条重新听。</p>
     <div class="field">
       <input id="histSearch" type="search" data-i18n-ph="historySearchPh" placeholder="搜题目、答案…" autocomplete="off" />
@@ -437,6 +563,38 @@
     <div class="modalRow">
       <button class="btn ghost" id="closeHistory" data-i18n="closeBtn" style="flex:1">关闭</button>
     </div>
+  </div>
+</div>
+
+<!-- 家长门：孩子设备上临时进入家长模式（token 只存 sessionStorage，关标签页自动退出） -->
+<div class="modal hidden" id="parentGate">
+  <div class="modalCard">
+    <h3>🔓 <span data-i18n="parentBadge">家长模式</span></h3>
+    <p class="help" style="margin-top:2px" data-i18n="gateHint">输入家长账号临时进入家长模式；关掉这个标签页会自动退出，不影响孩子的登录。</p>
+    <div class="field">
+      <label data-i18n="usernameLabel">用户名</label>
+      <input id="gateUser" type="text" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label data-i18n="passwordLabel">密码</label>
+      <input id="gatePass" type="password" autocomplete="off" />
+    </div>
+    <div class="err hidden" id="gateErr"></div>
+    <div class="modalRow">
+      <button class="btn ghost" id="gateCancel" data-i18n="cancel" style="flex:1">取消</button>
+      <button class="btn" id="gateGo" data-i18n="gateGo" style="flex:1">进入</button>
+    </div>
+  </div>
+</div>
+
+<!-- 登录 / 注册（全屏，先于主界面；视图由 JS 渲染：孩子头像墙 / PIN / 家长登录 / 注册向导） -->
+<div class="authScreen hidden" id="authScreen">
+  <div class="modalCard" style="max-width:440px;width:100%">
+    <div style="text-align:center;font-size:44px">🧮</div>
+    <h3 id="authTitle" style="text-align:center;margin-top:6px"></h3>
+    <p class="help" id="authSub" style="text-align:center;margin-top:4px"></p>
+    <div id="authBody"></div>
+    <div class="err hidden" id="authErr"></div>
   </div>
 </div>
 
@@ -454,6 +612,9 @@ const I18N = {
     qPh:"比如：3/4 + 1/6 等于多少？　或者：一个长方形长 8 厘米、宽 5 厘米，面积是多少？",
     photoLabel:"📷 拍照 / 传图", photoReady:"已选图片，点「开始讲解」",
     engineLabel:"引擎：", detecting:"检测中…", serverOffline:"服务器未连接", locked:"待解锁", noneFound:"未检测到",
+    packLabel:"随附课程包", packBadge:"课程包 · 离线",
+    noEngineHint:"这台电脑上没装 AI 引擎，「自己出题」暂时用不了。上面的「📚 跟大纲学」里有 {n} 节现成的课，点开就能上，闯关也能玩。想解锁拍照出题和模拟卷，照 README 装一个引擎（Ollama 免费、离线）。",
+    noEngineHintNoPack:"这台电脑上没装 AI 引擎，所以还讲不了课。照 README 装一个（Ollama 免费、离线；或 claude / gemini / grok / codex），再刷新这个页面。",
     go:"开始讲解 ✨", newQ:"← 再问一题", thisProblem:"这道题",
     teacher:"圆圆老师",
     prevBtn:"‹ 上一步", nextBtn:"下一步 ›", playTitle:"播放 / 暂停", replayTitle:"重听这一步",
@@ -490,6 +651,8 @@ const I18N = {
     learnSub:"这学期该学的都在这里。点一条，圆圆老师开讲。",
     learnLoading:"正在打开大纲…",
     learnNoData:"这个年级的大纲数据还没准备好，先选「BC 四年级」试试。",
+    stageEmptyTitle:"这边是圆圆老师的画板",
+    stageEmptyHint:"左边点一条，或者出一道题，讲解就画在这里。",
     statusNew:"还没学", statusSeen:"讲过", statusSolid:"扎实",
     backToLearn:"← 回到大纲",
     practiceJudge:"孩子做对了吗？会记进学习进度：",
@@ -512,6 +675,20 @@ const I18N = {
     fsaLastScore:(r,n)=>`上次 ${r}/${n}`,
     fsaNoTake:"还没做过",
     fsaDelConfirm:"删除这卷？",
+    unitBtn:"📝 单元测试",
+    unitBtnTitle:"给这个单元出一张测验卷",
+    unitGen:(n)=>`＋ 出一张新卷（${n} 题）`,
+    unitGenSub:"圆圆老师正在出这个单元的卷子…一分钟左右",
+    unitEmpty:"还没出过卷。出一张覆盖整个单元的测验，看看这一单元哪里还没学会。",
+    unitSavedHint:"点开直接做，不用重新出题：",
+    unitDelConfirm:"删除这张单元测试？",
+    unitDone:"🎉 交卷啦！",
+    unitAutoNote:"每题对错已按知识点记入学习进度（📊 家长报告里能看到）。",
+    unitLevel:(lv)=>lv===1?"基础":lv===2?"应用":"挑战",
+    unitScoreHint:(r,n)=>r>=Math.ceil(n*0.8)?"这个单元学得很扎实 🌟":r>=Math.ceil(n*0.6)?"大部分会了，把错题的知识点再听一遍就稳了。":"错得有点多，把下面标 ❌ 的知识点重新听一遍再来一卷。",
+    unitAgain:"再来一卷 📝",
+    unitPartial:(a,n)=>`上次做到第 ${a}/${n} 题`,
+    unitQuitConfirm:"这张单元测试还没做完，要退出吗？（已答的题会算分）",
     quizBtn:"⚡ 闯关练习 · 通关变扎实",
     quizEntryHint:"做对升难度（像 SAT 一样）。在最高难度 ★★★ 答对 2 题就通关，这个知识点标成「扎实」。",
     quizListTitle:"闯关练习：做对升难度，通关变扎实",
@@ -559,6 +736,49 @@ const I18N = {
     avgFmt:(v)=>`平均 ${v}`,
     stemHead:"茎（十位）", leafHead:"叶（个位）",
     probScale:["不可能","不太可能","一半一半","很可能","一定"],
+    /* 账号 / 登录 */
+    loginWho:"今天谁来学数学？", loginTapName:"点自己的名字进入",
+    loginParentLink:"我是家长 →",
+    pinFor:(n)=>`你好，${n}！输入你的 PIN`, pinPh:"4-6 位数字",
+    enterBtn:"进入 ✨", backBtn:"← 返回",
+    parentLoginTitle:"家长登录",
+    usernameLabel:"用户名", passwordLabel:"密码",
+    regTitle:"欢迎使用圆圆数学！", regSub:"先给家长建一个管理账号（用于查看报告、管理孩子、调整设置）。",
+    regNameLabel:"你的称呼（孩子会看到）", regNamePh:"比如：妈妈 / 爸爸",
+    regCodeLabel:"服务器邀请码", regBtn:"创建家长账号 →",
+    kidSetupTitle:"给孩子建一个账号", kidSetupSub:"孩子用自己的名字 + PIN 登录，学习记录都记在自己名下。",
+    kidNameLabel2:"孩子的名字", kidNamePh:"比如：圆圆",
+    kidPinLabel:"孩子的 PIN（4-6 位数字）",
+    createKidBtn:"创建 ✓",
+    noKidsYet:"还没有孩子账号——请家长登录后在设置里添加。",
+    loginFailed:"账号或密码不对，再试一次。",
+    tooMany:"试太多次啦，休息 30 秒再试。",
+    parentBadge:"家长模式", parentExit:"退出",
+    gateHint:"输入家长账号临时进入家长模式；关掉这个标签页会自动退出，不影响孩子的登录。",
+    gateGo:"进入", needParent:"这个操作需要家长模式。",
+    switchUser:"切换用户", switchConfirm:(n)=>`退出「${n}」的登录，回到选择页面？`,
+    curKidLabel:"当前孩子（家长查看与操作的对象）",
+    kidsLabel:"孩子管理", addKid:"添加孩子",
+    renameTitle:"改名", resetPinTitle:"重置 PIN", deleteKidTitle:"删除账号",
+    renamePrompt:"新名字：",
+    resetPinPrompt:(n)=>`给「${n}」设置新 PIN（4-6 位数字）：`,
+    resetPinDone:"PIN 已重置 ✓（旧设备需要重新登录）",
+    deleteKidConfirm:(n)=>`删除孩子「${n}」的账号？\n\n学习数据会归档保留在服务器上（data/kids/ 的 _deleted- 目录），应用里不再显示。`,
+    /* 完整学习报告 */
+    fullRepTitle:"完整学习报告", fullRepGen:"生成完整报告",
+    fullRepGenSub:"圆圆老师正在汇总学习数据、撰写报告…一两分钟",
+    fullRepEmpty:"还没有生成过。点上面的按钮，圆圆老师会把学习数据写成一份带评语和建议的完整报告。",
+    fullRepDelConfirm:"删除这份报告？",
+    backToLive:"← 返回实时视图",
+    repOverall:"总评", repStrands:"各主线分析", repHighlights:"亮点",
+    repWeak:"需要加强", repTips:"给家长的建议", repNext:"接下来学什么",
+    repWhyLab:"为什么", repPracticeLab:"在家怎么练",
+    repAppendix:"数据附录（真实统计，非 AI 生成）",
+    repAppxTotals:(total,seen,solid)=>`共 ${total} 条内容 · 已讲 ${seen} 条 · 扎实 ${solid} 条`,
+    repAppxStrand:"主线", repAppxSeen:"已讲/总数", repAppxSolid:"扎实", repAppxRW:"答对/答错",
+    repAppxRecent:"近 14 天",
+    repAppxRecentFmt:(r)=>`上了 ${r.lessonsTeach} 节大纲课、问了 ${r.lessonsSolve} 道题，动过 ${r.itemsTouched} 个知识点，闯关通过 ${r.quizPassed} 个，练习活跃 ${r.activeDays} 天`,
+    repAppxFsa:"FSA 模拟卷（最近成绩）",
     examples:[
       "3/4 + 1/6 等于多少？",
       "把 0.25 变成分数，怎么做？",
@@ -577,6 +797,9 @@ const I18N = {
     qPh:"e.g. What is 3/4 + 1/6?   Or: A rectangle is 8 cm long and 5 cm wide — what is its area?",
     photoLabel:"📷 Photo / upload", photoReady:"Photo added — press “Explain it”",
     engineLabel:"Engine: ", detecting:"detecting…", serverOffline:"server offline", locked:"locked", noneFound:"none found",
+    packLabel:"bundled course pack", packBadge:"course pack · offline",
+    noEngineHint:"No AI engine is installed on this computer, so \"ask your own question\" is off for now. The {n} lessons under \"📚 Follow the curriculum\" above are ready to go — open one and start, quizzes work too. To unlock photo questions and practice tests, install an engine per the README (Ollama is free and offline).",
+    noEngineHintNoPack:"No AI engine is installed on this computer, so there's nothing to teach with yet. Install one per the README (Ollama is free and offline; or claude / gemini / grok / codex), then refresh this page.",
     go:"Explain it ✨", newQ:"← New question", thisProblem:"This problem",
     teacher:"Ms. Yuanyuan",
     prevBtn:"‹ Back", nextBtn:"Next ›", playTitle:"Play / pause", replayTitle:"Replay this step",
@@ -613,6 +836,8 @@ const I18N = {
     learnSub:"Everything this term covers, in one list. Tap a topic and Ms. Yuanyuan starts the lesson.",
     learnLoading:"Opening the curriculum…",
     learnNoData:"This grade isn’t ready yet — try BC Grade 4 first.",
+    stageEmptyTitle:"Ms. Yuanyuan’s board",
+    stageEmptyHint:"Pick a lesson on the left, or ask a question — it gets drawn here.",
     statusNew:"New", statusSeen:"Seen", statusSolid:"Solid",
     backToLearn:"← Back to topics",
     practiceJudge:"Did they get it right? It goes into the progress record:",
@@ -635,6 +860,20 @@ const I18N = {
     fsaLastScore:(r,n)=>`last ${r}/${n}`,
     fsaNoTake:"not taken yet",
     fsaDelConfirm:"Delete this set?",
+    unitBtn:"📝 Unit test",
+    unitBtnTitle:"Write a test for this unit",
+    unitGen:(n)=>`＋ New test (${n} questions)`,
+    unitGenSub:"Ms. Yuanyuan is writing the unit test… about a minute",
+    unitEmpty:"No test yet. Write one that covers the whole unit and see what is still shaky.",
+    unitSavedHint:"Tap to take again, no regenerating:",
+    unitDelConfirm:"Delete this unit test?",
+    unitDone:"🎉 Handed in!",
+    unitAutoNote:"Every answer was recorded against its topic in the progress tracker (see the 📊 parent report).",
+    unitLevel:(lv)=>lv===1?"Basic":lv===2?"Applying":"Challenge",
+    unitScoreHint:(r,n)=>r>=Math.ceil(n*0.8)?"This unit looks solid 🌟":r>=Math.ceil(n*0.6)?"Most of it is there — re-listen to the topics you missed and it will stick.":"Quite a few misses. Re-listen to the ❌ topics below, then take a fresh test.",
+    unitAgain:"New test 📝",
+    unitPartial:(a,n)=>`stopped at ${a}/${n}`,
+    unitQuitConfirm:"Quit this unit test before finishing? (Answered questions still count.)",
     quizBtn:"⚡ Solid Quiz — pass it to go Solid",
     quizEntryHint:"Right answers raise the difficulty, like the SAT. Get 2 right at ★★★ and this topic turns Solid.",
     quizListTitle:"Solid Quiz: right answers raise the difficulty — pass it to go Solid",
@@ -682,6 +921,49 @@ const I18N = {
     avgFmt:(v)=>`average ${v}`,
     stemHead:"Stem (tens)", leafHead:"Leaf (ones)",
     probScale:["impossible","unlikely","even chance","likely","certain"],
+    /* Accounts / sign-in */
+    loginWho:"Who's doing math today?", loginTapName:"Tap your name to start",
+    loginParentLink:"I'm a parent →",
+    pinFor:(n)=>`Hi ${n}! Enter your PIN`, pinPh:"4-6 digits",
+    enterBtn:"Let's go ✨", backBtn:"← Back",
+    parentLoginTitle:"Parent sign-in",
+    usernameLabel:"Username", passwordLabel:"Password",
+    regTitle:"Welcome to Yuanyuan Math!", regSub:"First, create a parent account (for reports, managing kids, and settings).",
+    regNameLabel:"What the kids call you", regNamePh:"e.g. Mom / Dad",
+    regCodeLabel:"Server registration code", regBtn:"Create parent account →",
+    kidSetupTitle:"Create your child's account", kidSetupSub:"Kids sign in with their name + PIN; their learning records stay under their own name.",
+    kidNameLabel2:"Child's name", kidNamePh:"e.g. Emma",
+    kidPinLabel:"Child's PIN (4-6 digits)",
+    createKidBtn:"Create ✓",
+    noKidsYet:"No kid accounts yet — a parent can sign in and add one in Settings.",
+    loginFailed:"Wrong account or password — try again.",
+    tooMany:"Too many attempts — take a 30-second break.",
+    parentBadge:"Parent mode", parentExit:"Exit",
+    gateHint:"Enter the parent account to unlock parent mode temporarily; closing this tab exits automatically and keeps the child signed in.",
+    gateGo:"Unlock", needParent:"This needs parent mode.",
+    switchUser:"Switch user", switchConfirm:(n)=>`Sign out ${n} and go back to the picker?`,
+    curKidLabel:"Current child (whose data you view and manage)",
+    kidsLabel:"Kids", addKid:"Add a child",
+    renameTitle:"Rename", resetPinTitle:"Reset PIN", deleteKidTitle:"Delete account",
+    renamePrompt:"New name:",
+    resetPinPrompt:(n)=>`New PIN for ${n} (4-6 digits):`,
+    resetPinDone:"PIN reset ✓ (old devices must sign in again)",
+    deleteKidConfirm:(n)=>`Delete ${n}'s account?\n\nTheir learning data is archived on the server (under data/kids/ _deleted-), but no longer shown in the app.`,
+    /* Full report */
+    fullRepTitle:"Full progress report", fullRepGen:"Generate full report",
+    fullRepGenSub:"Ms. Yuanyuan is gathering the data and writing the report… a minute or two",
+    fullRepEmpty:"None yet. Tap the button above and Ms. Yuanyuan will turn the learning data into a full written report.",
+    fullRepDelConfirm:"Delete this report?",
+    backToLive:"← Back to live view",
+    repOverall:"Overall", repStrands:"By strand", repHighlights:"Highlights",
+    repWeak:"Needs work", repTips:"Tips for parents", repNext:"What's next",
+    repWhyLab:"Why", repPracticeLab:"Practice at home",
+    repAppendix:"Data appendix (real stats, not AI-generated)",
+    repAppxTotals:(total,seen,solid)=>`${total} topics · ${seen} covered · ${solid} solid`,
+    repAppxStrand:"Strand", repAppxSeen:"Covered/Total", repAppxSolid:"Solid", repAppxRW:"Right/Wrong",
+    repAppxRecent:"Last 14 days",
+    repAppxRecentFmt:(r)=>`${r.lessonsTeach} curriculum lessons, ${r.lessonsSolve} questions asked, ${r.itemsTouched} topics touched, ${r.quizPassed} quizzes passed, active on ${r.activeDays} days`,
+    repAppxFsa:"FSA practice sets (recent)",
     examples:[
       "What is 3/4 + 1/6?",
       "How do you write 0.25 as a fraction?",
@@ -696,7 +978,8 @@ const I18N = {
 /* ---------- 配置存取 ---------- */
 const LS = "yuanyuan_math_v2";
 // 默认英文界面（主要面向在英文学校上学的孩子）；设备上保存过的语言选择优先
-const cfg = Object.assign({accessCode:"",kidName:"",gradeCode:"5",provider:"auto",lang:"en"},
+// （旧版的 accessCode/kidName 字段已由账号系统取代，读到也不再使用）
+const cfg = Object.assign({gradeCode:"5",provider:"auto",lang:"en",curKid:""},
   JSON.parse(localStorage.getItem(LS) || "{}"));
 // 老版本存的是中文年级串，迁移成代码
 if(cfg.grade && !cfg.gradeCode) cfg.gradeCode=({"小学四年级":"4","小学五年级":"5","小学六年级":"6"})[cfg.grade]||"5";
@@ -706,6 +989,28 @@ function saveCfg(){ localStorage.setItem(LS, JSON.stringify(cfg)); }
 const $ = id => document.getElementById(id);
 const t = key => { const d=I18N[cfg.lang]||I18N.en; return (key in d)?d[key]:I18N.en[key]; };
 const inputCard=$("inputCard"), playerCard=$("playerCard"), loading=$("loading"), settings=$("settings");
+
+/* ---------- iPad 分栏 ----------
+ * ≥1000px（iPad 横屏 / 12.9 竖屏）左选课栏常驻，讲课只换右边的舞台；
+ * 再窄就还是原来的一屏一张卡片。CSS 决定几栏，这里只管「左栏那张卡片要不要收起来」。 */
+const splitMQ = window.matchMedia("(min-width:1000px)");
+function isSplit(){ return splitMQ.matches; }
+/* 专注模式：计时考试 / 闯关时收起左栏全宽做题，别让孩子中途点走 */
+function setFocus(on){ document.body.classList.toggle("focus", !!on); }
+/* 转屏补一刀：横→竖要把左栏收起来（否则清单和播放器叠着），竖→横要放回来（否则右边讲课左边空着） */
+function syncLayout(){
+  if(playerCard.classList.contains("hidden")) return;   // 不在讲课时 switchView 自己管得住
+  if(isSplit()){
+    updateTabs();
+    inputCard.classList.toggle("hidden", view!=="ask");
+    $("learnCard").classList.toggle("hidden", view!=="learn");
+  }else{
+    inputCard.classList.add("hidden");
+    $("learnCard").classList.add("hidden");
+    $("modeTabs").classList.add("hidden");
+  }
+}
+splitMQ.addEventListener("change", syncLayout);
 
 function applyLang(){
   document.documentElement.lang = cfg.lang==="en" ? "en" : "zh-CN";
@@ -725,8 +1030,14 @@ function applyLang(){
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
   if(!$("reportModal").classList.contains("hidden")) openReport();                  // 换语言重画报告
 }
+/* 首屏问候里的名字：孩子 = 自己的账号名；家长 = 当前选中的孩子 */
+function kidDisplayName(){
+  if(me && me.role==="kid") return me.name;
+  if(myRole==="parent"){ const k=myKids.find(x=>x.id===curKid()); if(k) return k.name; }
+  return "";
+}
 function applyKidName(){
-  const el=$("kidNameLabel"); if(el) el.textContent = cfg.kidName || t("defaultName");
+  const el=$("kidNameLabel"); if(el) el.textContent = kidDisplayName() || t("defaultName");
 }
 /* 书籍课程源：cfg.gradeCode 既可以是 "4"-"7"（BC 年级），也可以是书籍 id（如 "aops-prealgebra"） */
 function bookInfo(code){ return (serverInfo.curriculumBooks||[]).find(b=>b.id===code)||null; }
@@ -764,35 +1075,291 @@ function sourceTitle(){
   return b ? bookLabel(b) : gradeText();
 }
 
-/* ---------- 服务器状态 ---------- */
-let serverInfo = { authRequired:false, active:null, providers:[], tts:false, curriculumGrades:[] };
-function apiHeaders(){
-  const h={ "content-type":"application/json" };
-  if(cfg.accessCode) h["x-access-code"]=cfg.accessCode;
-  return h;
+/* ---------- 账号 / 会话 ----------
+ * 设备登录 token 存 localStorage（60 天滑动，服务端管过期）；
+ * 孩子设备上家长临时解锁的 token 只存 sessionStorage（关标签页即失效）。 */
+const TOK_LS="yuanyuan_token", TOK_SS="yuanyuan_parent_token";
+function deviceToken(){ try{ return localStorage.getItem(TOK_LS)||""; }catch(_){ return ""; } }
+function gateToken(){ try{ return sessionStorage.getItem(TOK_SS)||""; }catch(_){ return ""; } }
+function apiToken(){ return gateToken()||deviceToken(); }
+
+let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[] };
+let profilesInfo = null;   // /api/auth/profiles：登录前的孩子名单、要不要注册向导
+let me=null, myRole=null, myKids=[];
+
+/* 家长的「当前孩子」：报告/历史/清空/代做练习都作用于 TA；学生恒为自己（服务端强制） */
+function curKid(){
+  if(myRole!=="parent") return "";
+  if(cfg.curKid && myKids.some(k=>k.id===cfg.curKid)) return cfg.curKid;
+  return myKids.length ? myKids[0].id : "";
 }
-async function fetchProviders(){
+function withKid(path){
+  const k=curKid(); if(!k) return path;
+  return path+(path.includes("?")?"&":"?")+"kid="+encodeURIComponent(k);
+}
+function kidBody(){ const k=curKid(); return k?{kid:k}:{}; }
+
+/* 统一的 API 通道：带 token、统一 401（弹登录）/403（弹家长门）/429（限速提示） */
+async function api(path, opts){
+  opts=opts||{};
+  const headers={ "content-type":"application/json" };
+  const tok=apiToken(); if(tok) headers["x-session"]=tok;
+  let r;
   try{
-    const r=await fetch("/api/providers",{headers:apiHeaders()});
-    if(r.status===401){ serverInfo.authRequired=true; updateEngineBadge(); openSettings(t("needCode1")); return; }
+    r=await fetch(path,{ method:opts.method||"GET", headers,
+      body:opts.body!==undefined?JSON.stringify(opts.body):undefined });
+  }catch(e){ throw Object.assign(new Error(t("historyOffline")),{offline:true}); }
+  const data=await r.json().catch(()=>({}));
+  if(r.status===401 && !opts.rawAuth){
+    hideLoading();
+    if(gateToken()) sessionStorage.removeItem(TOK_SS);   // 临时家长态过期 → 先退回孩子态再重判
+    refreshAuth();
+    throw Object.assign(new Error(data.error||""),{silent:true,status:401});
+  }
+  if(r.status===403 && data.parentRequired){
+    hideLoading();
+    openParentGate();
+    throw Object.assign(new Error(t("needParent")),{silent:true,status:403});
+  }
+  if(r.status===429) throw Object.assign(new Error(t("tooMany")),{status:429});
+  if(!r.ok) throw Object.assign(new Error(data.error||t("genericErr")),{status:r.status,data});
+  return data;
+}
+
+/* 用当前 token 拉 /api/providers 确定身份与角色；没有有效登录就弹登录屏 */
+async function refreshAuth(){
+  if(!apiToken()){ me=null; myRole=null; myKids=[]; showAuthScreen(); return false; }
+  try{
+    const r=await fetch("/api/providers",{headers:{"x-session":apiToken()}});
+    if(r.status===401){
+      if(gateToken()) sessionStorage.removeItem(TOK_SS);
+      else localStorage.removeItem(TOK_LS);
+      return refreshAuth();   // 最多再递归两层：丢临时家长态 → 丢设备登录 → 弹登录屏
+    }
+    if(!r.ok) throw new Error();
     serverInfo=await r.json();
     serverInfo.loaded=true;
+    me=serverInfo.user||null; myRole=serverInfo.role||null; myKids=serverInfo.kids||[];
+    hideAuthScreen();
+    applyRoleUI();
     updateEngineBadge();
     updateTabs();
     buildGradeOptions();   // 书籍列表随 /api/providers 到达，重建下拉让「📚 教材」出现
+    applyKidName();
+    return true;
   }catch(e){
     $("engineName").textContent=t("serverOffline");
+    return false;
   }
 }
-/* 服务器有大纲数据才显示「跟大纲学」入口（数据没铺的年级在列表里单独提示） */
+const fetchProviders = refreshAuth;   // 旧名字的调用点继续可用
+
+async function loadProfiles(){
+  try{ profilesInfo=await (await fetch("/api/auth/profiles")).json(); }
+  catch(_){ profilesInfo=null; $("engineName").textContent=t("serverOffline"); }
+}
+
+async function boot(){
+  await loadProfiles();
+  if(profilesInfo && profilesInfo.needsSetup){ showAuthScreen("setup"); return; }
+  if(!apiToken()){ showAuthScreen(); return; }
+  const ok=await refreshAuth();
+  // 注册了家长但还没建孩子（比如中途关了页面）：接着走建孩子这步
+  if(ok && myRole==="parent" && myKids.length===0) showAuthScreen("kidSetup");
+}
+
+/* ---------- 登录 / 注册界面（四个视图渲染进同一张卡片） ---------- */
+function showAuthScreen(v){ $("authScreen").classList.remove("hidden"); renderAuth(v||"wall"); }
+function hideAuthScreen(){ $("authScreen").classList.add("hidden"); }
+function authErr(msg){
+  const e=$("authErr");
+  if(msg){ e.textContent=msg; e.classList.remove("hidden"); } else e.classList.add("hidden");
+}
+const PROFILE_EMOJI=["🦊","🐰","🐻","🐯","🐸","🦄"];
+function renderAuth(v, ctx){
+  authErr("");
+  const body=$("authBody"), title=$("authTitle"), sub=$("authSub");
+  if(v==="wall"){   // 孩子头像墙：点名字 → 输 PIN；角落是家长入口
+    title.textContent=t("loginWho"); sub.textContent=t("loginTapName");
+    body.innerHTML=`<div class="profileGrid" id="profGrid"></div>`
+      +`<div style="text-align:center"><button class="authLink" id="toParent"></button></div>`;
+    body.querySelector("#toParent").textContent=t("loginParentLink");
+    const grid=body.querySelector("#profGrid");
+    const kids=(profilesInfo&&profilesInfo.kids)||[];
+    if(!kids.length) grid.innerHTML=`<div class="help" style="text-align:center">${escapeHtml(t("noKidsYet"))}</div>`;
+    kids.forEach((k,i)=>{
+      const b=document.createElement("button"); b.className="profileBtn";
+      b.innerHTML=`<span class="pe">${PROFILE_EMOJI[i%PROFILE_EMOJI.length]}</span>${escapeHtml(k.name)}`;
+      b.onclick=()=>renderAuth("pin",k);
+      grid.appendChild(b);
+    });
+    body.querySelector("#toParent").onclick=()=>renderAuth("parent");
+  }
+  else if(v==="pin"){   // 孩子输 PIN
+    title.textContent=t("pinFor")(ctx.name); sub.textContent="";
+    body.innerHTML=`<div class="field"><input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="${escapeHtml(t("pinPh"))}" autocomplete="off" style="text-align:center;font-size:24px;letter-spacing:8px"/></div>`
+      +`<div class="modalRow"><button class="btn ghost" id="authBack" style="flex:1">${escapeHtml(t("backBtn"))}</button><button class="btn" id="pinGo" style="flex:1">${escapeHtml(t("enterBtn"))}</button></div>`;
+    const go=async()=>{
+      try{
+        const d=await api("/api/auth/login",{method:"POST",body:{kidId:ctx.id,pin:$("pinInput").value.trim()},rawAuth:true});
+        localStorage.setItem(TOK_LS,d.token);
+        sessionStorage.removeItem(TOK_SS);
+        hideAuthScreen();
+        await refreshAuth();
+      }catch(err){ authErr(err.status===401?t("loginFailed"):(err.message||t("genericErr"))); }
+    };
+    body.querySelector("#pinGo").onclick=go;
+    $("pinInput").onkeydown=e=>{ if(e.key==="Enter") go(); };
+    body.querySelector("#authBack").onclick=()=>renderAuth("wall");
+    $("pinInput").focus();
+  }
+  else if(v==="parent"){   // 家长登录（在自己设备上：token 记住在 localStorage）
+    title.textContent=t("parentLoginTitle"); sub.textContent="";
+    body.innerHTML=`<div class="field"><label>${escapeHtml(t("usernameLabel"))}</label><input id="puInput" type="text" autocomplete="username"/></div>`
+      +`<div class="field"><label>${escapeHtml(t("passwordLabel"))}</label><input id="ppInput" type="password" autocomplete="current-password"/></div>`
+      +`<div class="modalRow"><button class="btn ghost" id="authBack" style="flex:1">${escapeHtml(t("backBtn"))}</button><button class="btn" id="plGo" style="flex:1">${escapeHtml(t("enterBtn"))}</button></div>`;
+    const go=async()=>{
+      try{
+        const d=await api("/api/auth/login",{method:"POST",body:{username:$("puInput").value.trim(),password:$("ppInput").value},rawAuth:true});
+        localStorage.setItem(TOK_LS,d.token);
+        sessionStorage.removeItem(TOK_SS);
+        hideAuthScreen();
+        const ok=await refreshAuth();
+        if(ok && myKids.length===0) showAuthScreen("kidSetup");
+      }catch(err){ authErr(err.status===401?t("loginFailed"):(err.message||t("genericErr"))); }
+    };
+    body.querySelector("#plGo").onclick=go;
+    $("ppInput").onkeydown=e=>{ if(e.key==="Enter") go(); };
+    body.querySelector("#authBack").onclick=()=>renderAuth("wall");
+  }
+  else if(v==="setup"){   // 首次使用：注册家长
+    title.textContent=t("regTitle"); sub.textContent=t("regSub");
+    const needCode=profilesInfo&&profilesInfo.registrationCodeRequired;
+    body.innerHTML=`<div class="field"><label>${escapeHtml(t("regNameLabel"))}</label><input id="rgName" type="text" maxlength="12" placeholder="${escapeHtml(t("regNamePh"))}"/></div>`
+      +`<div class="field"><label>${escapeHtml(t("usernameLabel"))}</label><input id="rgUser" type="text" autocomplete="username"/></div>`
+      +`<div class="field"><label>${escapeHtml(t("passwordLabel"))}</label><input id="rgPass" type="password" autocomplete="new-password"/></div>`
+      +(needCode?`<div class="field"><label>${escapeHtml(t("regCodeLabel"))}</label><input id="rgCode" type="text" autocomplete="off"/></div>`:"")
+      +`<div class="modalRow"><button class="btn" id="rgGo" style="flex:1">${escapeHtml(t("regBtn"))}</button></div>`;
+    body.querySelector("#rgGo").onclick=async()=>{
+      try{
+        const b={ name:$("rgName").value.trim(), username:$("rgUser").value.trim(), password:$("rgPass").value };
+        if($("rgCode")) b.registrationCode=$("rgCode").value.trim();
+        const d=await api("/api/auth/register",{method:"POST",body:b,rawAuth:true});
+        localStorage.setItem(TOK_LS,d.token);
+        sessionStorage.removeItem(TOK_SS);
+        renderAuth("kidSetup");   // 下一步：建第一个孩子
+      }catch(err){ authErr(err.message||t("genericErr")); }
+    };
+  }
+  else if(v==="kidSetup"){   // 建孩子（注册向导第二步；家长没建过孩子时也会走到这）
+    title.textContent=t("kidSetupTitle"); sub.textContent=t("kidSetupSub");
+    body.innerHTML=`<div class="field"><label>${escapeHtml(t("kidNameLabel2"))}</label><input id="ksName" type="text" maxlength="12" placeholder="${escapeHtml(t("kidNamePh"))}"/></div>`
+      +`<div class="field"><label>${escapeHtml(t("kidPinLabel"))}</label><input id="ksPin" type="text" inputmode="numeric" maxlength="6" autocomplete="off"/></div>`
+      +`<div class="modalRow"><button class="btn" id="ksGo" style="flex:1">${escapeHtml(t("createKidBtn"))}</button></div>`;
+    body.querySelector("#ksGo").onclick=async()=>{
+      try{
+        await api("/api/kids",{method:"POST",body:{name:$("ksName").value.trim(),pin:$("ksPin").value.trim()}});
+        hideAuthScreen();
+        await loadProfiles();
+        await refreshAuth();
+      }catch(err){ authErr(err.message||t("genericErr")); }
+    };
+  }
+}
+
+/* ---------- 家长门：孩子设备上临时解锁（token 只进 sessionStorage） ---------- */
+let gateAfter=null;
+function openParentGate(after){
+  gateAfter=after||null;
+  $("gateErr").classList.add("hidden");
+  $("gateUser").value=""; $("gatePass").value="";
+  $("parentGate").classList.remove("hidden");
+  $("gateUser").focus();
+}
+function closeParentGate(){ $("parentGate").classList.add("hidden"); }
+$("gateCancel").onclick=closeParentGate;
+$("gateGo").onclick=async()=>{
+  const e=$("gateErr");
+  try{
+    const d=await api("/api/auth/login",{method:"POST",body:{username:$("gateUser").value.trim(),password:$("gatePass").value},rawAuth:true});
+    if(!d.user || d.user.role!=="parent") throw Object.assign(new Error(t("loginFailed")),{status:401});
+    sessionStorage.setItem(TOK_SS,d.token);
+    closeParentGate();
+    await refreshAuth();
+    const after=gateAfter; gateAfter=null;
+    if(after==="report") openReport();
+  }catch(err){
+    e.textContent=err.status===401?t("loginFailed"):(err.message||t("genericErr"));
+    e.classList.remove("hidden");
+  }
+};
+$("gatePass").onkeydown=e=>{ if(e.key==="Enter") $("gateGo").click(); };
+$("parentExit").onclick=async()=>{
+  const tok=gateToken();
+  if(tok){
+    try{ await fetch("/api/auth/logout",{method:"POST",headers:{"x-session":tok}}); }catch(_){}
+    sessionStorage.removeItem(TOK_SS);
+  }
+  await refreshAuth();
+};
+$("userBtn").onclick=async()=>{
+  if(!me){ showAuthScreen(); return; }
+  if(!confirm(t("switchConfirm")(me.name))) return;
+  for(const tok of [gateToken(),deviceToken()]){
+    if(tok){ try{ await fetch("/api/auth/logout",{method:"POST",headers:{"x-session":tok}}); }catch(_){} }
+  }
+  sessionStorage.removeItem(TOK_SS);
+  localStorage.removeItem(TOK_LS);
+  me=null; myRole=null; myKids=[];
+  await loadProfiles();
+  showAuthScreen();
+};
+
+/* ---------- 角色显隐：UI 只是体验，服务端 401/403 才是边界 ---------- */
+function applyRoleUI(){
+  const parent = myRole==="parent";
+  const gated = parent && !!gateToken();
+  $("userBtn").title=(me?me.name+" · ":"")+t("switchUser");
+  $("parentBar").classList.toggle("hidden", !gated);
+  if(gated) $("parentBarName").textContent=me?me.name:"";
+  $("engineField").classList.toggle("hidden", !parent);
+  $("dataField").classList.toggle("hidden", !parent);
+  $("kidsField").classList.toggle("hidden", !parent);
+  $("curKidField").classList.toggle("hidden", !(parent&&myKids.length>1));
+  buildKidSelectors();
+  if(parent) renderKidsList();
+}
+/* 家长的孩子选择器（设置 / 报告 / 历史三处联动同一个 cfg.curKid） */
+function buildKidSelectors(){
+  const show=myRole==="parent"&&myKids.length>1;
+  [["curKidSel",true],["reportKid",show],["histKid",show]].forEach(([id,vis])=>{
+    const sel=$(id); if(!sel) return;
+    sel.innerHTML="";
+    myKids.forEach(k=>{ const o=document.createElement("option"); o.value=k.id; o.textContent="👧 "+k.name; sel.appendChild(o); });
+    if(curKid()) sel.value=curKid();
+    if(id!=="curKidSel") sel.classList.toggle("hidden",!vis);
+  });
+}
+function setCurKid(id, rerender){
+  cfg.curKid=id; saveCfg();
+  buildKidSelectors(); applyKidName();
+  if(rerender) rerender();
+}
+$("curKidSel").onchange=()=>setCurKid($("curKidSel").value);
+$("reportKid").onchange=()=>setCurKid($("reportKid").value,()=>openReport());
+$("histKid").onchange=()=>setCurKid($("histKid").value,()=>openHistory());
+
+/* 服务器有大纲数据才显示「跟大纲学」入口（数据没铺的年级在列表里单独提示）。
+ * 📊 对学生也显示：点开走家长门。 */
 function updateTabs(){
   const has=(serverInfo.curriculumGrades||[]).length>0;
   const inLesson=!playerCard.classList.contains("hidden");
-  $("modeTabs").classList.toggle("hidden", !has || inLesson);
+  $("modeTabs").classList.toggle("hidden", !has || (inLesson && !isSplit()));   // 分栏时左栏是导航，讲课中也留着
   $("reportBtn").classList.toggle("hidden", !has);
   if(!has && view==="learn") switchView("ask");
 }
 function providerLabel(p){
+  if(p==="pack") return t("packLabel");   // 这节课来自随附课程包，不是现场生成的
   if(typeof p==="string") p=(serverInfo.providers||[]).find(x=>x.id===p)||{id:p,label:p};
   return (cfg.lang==="en" ? (p.labelEn||p.label) : p.label) || p.id;
 }
@@ -806,9 +1373,18 @@ function activeProvider(){
 }
 function updateEngineBadge(){
   const a=activeProvider();
+  const packed=Number(serverInfo.packedLessons)||0;
+  // 没引擎但有课程包：这台机器不是「坏了」，是「离线可用」，徽章别吓人
   $("engineName").textContent = a ? providerLabel(a)
-    : serverInfo.authRequired ? t("locked")
-    : serverInfo.loaded ? t("noneFound") : t("detecting");
+    : !serverInfo.loaded ? t("detecting")
+    : packed ? t("packBadge") : t("noneFound");
+  const hint=$("noEngineHint");
+  if(hint){
+    hint.classList.toggle("hidden", !!a || !serverInfo.loaded);
+    if(!a && serverInfo.loaded){
+      hint.textContent = packed ? t("noEngineHint").replace("{n}", packed) : t("noEngineHintNoPack");
+    }
+  }
 }
 
 /* ---------- 例题 ---------- */
@@ -883,10 +1459,7 @@ function ttsStart(){
 async function ttsSync(){
   if(!lessonTts.enabled || !lessonTts.texts.length){ stopTtsPoll(); return; }
   try{
-    const r=await fetch("/api/tts",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({lang:lessonLang,items:lessonTts.texts})});
-    if(!r.ok) return;
-    const d=await r.json();
+    const d=await api("/api/tts",{method:"POST",body:{lang:lessonLang,items:lessonTts.texts}});
     if(!d.enabled){ lessonTts.enabled=false; stopTtsPoll(); return; }
     lessonTts.items=d.items||[];
     if(lessonTts.items.length){
@@ -895,7 +1468,7 @@ async function ttsSync(){
       if(anyPending && !ttsPollTimer && lesson) ttsPollTimer=setInterval(ttsSync,1500);
       if(!anyPending) stopTtsPoll();
     }
-  }catch(_){}
+  }catch(e){ if(e.status===401||e.status===403) stopTtsPoll(); }
 }
 function stopTtsPoll(){ if(ttsPollTimer){ clearInterval(ttsPollTimer); ttsPollTimer=null; } }
 function ttsItem(i){ return (lessonTts.enabled && lessonTts.items[i]) || null; }
@@ -1972,22 +2545,14 @@ function renderVisual(v){
 
 /* ---------- 调用家里的桥梁服务器 ---------- */
 async function generateLesson(question, imageB64, mediaType){
-  const resp = await fetch("/api/lesson", {
+  return api("/api/lesson", {
     method:"POST",
-    headers: apiHeaders(),
-    body: JSON.stringify({
+    body: Object.assign({
       question, imageB64, mediaType,
-      grade: gradeText(), gradeCode: cfg.gradeCode, kidName: cfg.kidName,
+      grade: gradeText(), gradeCode: cfg.gradeCode,
       provider: cfg.provider, lang: cfg.lang
-    })
+    }, kidBody())
   });
-  const data = await resp.json().catch(()=>({}));
-  if(resp.status===401){
-    serverInfo.authRequired=true; openSettings(t("needCode2"));
-    throw Object.assign(new Error("auth"),{silent:true});
-  }
-  if(!resp.ok) throw new Error(data.error || (cfg.lang==="en"?"Request failed (":"请求失败（")+resp.status+(cfg.lang==="en"?")":"）"));
-  return data;
 }
 
 /* ---------- 播放器 ---------- */
@@ -1995,11 +2560,15 @@ let lesson=null, lessonLang="zh", idx=0, playing=false, lessonCurriculumId=null;
 function startLesson(l, lang, curriculumId){
   lesson=l; lessonLang=lang||cfg.lang; idx=0; playing=false;
   lessonCurriculumId=curriculumId||null;
-  inputCard.classList.add("hidden");
-  $("learnCard").classList.add("hidden");
+  setFocus(false);
+  if(!isSplit()){          // 分栏时左栏留着：讲课只占右边，随时能点下一条
+    inputCard.classList.add("hidden");
+    $("learnCard").classList.add("hidden");
+    $("modeTabs").classList.add("hidden");
+  }
   $("fsaCard").classList.add("hidden");
-  $("modeTabs").classList.add("hidden");
   playerCard.classList.remove("hidden");
+  markLearnActive();
   $("newQ").textContent = lessonCurriculumId ? t("backToLearn") : t("newQ");
   $("judgeRow").classList.add("hidden");
   $("judgeMsg").textContent="";
@@ -2087,7 +2656,8 @@ $("newQ").onclick=()=>{
   lessonCurriculumId=null;
   if(lessonReturnTo==="fsa" && fsa){
     lessonReturnTo="";
-    $("fsaCard").classList.remove("hidden");   // 从错题讲解回到 FSA 成绩单
+    setFocus(true);
+    $("fsaCard").classList.remove("hidden");   // 从错题讲解回到卷子成绩单（FSA / 单元测试同一张卡）
   }else{
     lessonReturnTo="";
     updateTabs();
@@ -2103,6 +2673,10 @@ $("showAns").onclick=()=>{
 /* ---------- 跟大纲学（BC 大纲清单 + teach 模式） ---------- */
 let view="ask";          // ask | learn（播放器盖在两者之上）
 let learnIndex={};       // id -> 当前年级清单条目（FSA 错题「转讲解」靠它拿 lessonId 复用存档课）
+const UNIT_TEST_N=8;     // 一张单元测试的题数（服务端夹在 6~12）
+let unitNames={};        // strand -> 当前语言的单元名（做卷标题、成绩单上要用）
+let unitSets={};         // strand -> 该单元已存档的卷子摘要（进清单时一次拉全，不按单元发请求）
+let unitOpen="";         // 当前展开的单元面板（一次只开一个）
 function switchView(v){
   view=v;
   $("tabAsk").classList.toggle("on", v==="ask");
@@ -2132,12 +2706,12 @@ async function loadLearn(){
   box.innerHTML=`<div class="learnEmpty">${t("learnLoading")}</div>`;
   $("learnSource").textContent="";
   try{
-    const r=await fetch("/api/curriculum?grade="+(cfg.gradeCode||"4"),{headers:apiHeaders()});
-    if(r.status===401){ serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
-    if(r.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; $("fsaEntry").classList.add("hidden"); return; }
-    if(!r.ok) throw new Error();
-    renderLearn(await r.json());
-  }catch(_){ box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden"); }
+    renderLearn(await api(withKid("/api/curriculum?grade="+(cfg.gradeCode||"4"))));
+  }catch(err){
+    if(err.silent) return;
+    if(err.status===404){ box.innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; $("fsaEntry").classList.add("hidden"); return; }
+    box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden");
+  }
 }
 function renderLearn(d){
   const box=$("learnList"); box.innerHTML="";
@@ -2146,10 +2720,18 @@ function renderLearn(d){
   (d.strands||[]).forEach(sg=>{
     const head=document.createElement("div"); head.className="strandHead";
     const bi=sg.bigIdea ? (en ? sg.bigIdea.en : (sg.bigIdea.zh||sg.bigIdea.en)) : "";
-    head.innerHTML=`<div><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
+    head.innerHTML=`<div class="shTop"><div class="shName"><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
       +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)+`</div>`
+      +`<button class="unitBtn" data-strand="${escapeHtml(sg.strand)}" title="${escapeHtml(t("unitBtnTitle"))}">`
+      +`${escapeHtml(t("unitBtn"))}<span class="unitN hidden"></span></button></div>`
       +(bi?`<div class="bi">💡 ${escapeHtml(bi)}</div>`:"");
     box.appendChild(head);
+    // 单元测试面板：默认收起，点标题右边的按钮才展开（列表已经够长了）
+    const panel=document.createElement("div"); panel.className="unitPanel hidden";
+    panel.dataset.strand=sg.strand;
+    box.appendChild(panel);
+    unitNames[sg.strand]=en?sg.enName:sg.zhName;
+    head.querySelector(".unitBtn").onclick=(e)=>{ e.stopPropagation(); toggleUnitPanel(sg.strand); };
     (sg.items||[]).forEach(it=>{
       learnIndex[it.id]=it;
       const el=document.createElement("div"); el.className="learnItem";
@@ -2160,6 +2742,7 @@ function renderLearn(d){
         +(it.lessonId?`<button class="hregen" title="${t("teachAgainTitle")}">🔄</button>`:"")
         +`<button class="hquiz" title="${t("quizListTitle")}">⚡</button>`
         +`<span class="st">${statusLabel(it.status)}</span>`;
+      el.dataset.cid=it.id;                   // 分栏时左栏要给「正在上的这节」打高亮
       el.onclick=()=>startTeach(it);          // 讲过的直接重播存好的课（秒开），没讲过的才生成
       const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
@@ -2171,7 +2754,15 @@ function renderLearn(d){
     ? (d.source.label || sourceTitle())
     : "BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
   renderLegend();
+  loadUnitSets();
   fsaShowEntry(d);
+  markLearnActive();
+}
+/* 分栏时清单一直挂在左边，得标出右边正在讲的是哪一条 */
+function markLearnActive(){
+  document.querySelectorAll("#learnList .learnItem").forEach(el=>{
+    el.classList.toggle("on", !!lessonCurriculumId && el.dataset.cid===lessonCurriculumId);
+  });
 }
 
 async function startTeach(it, forceNew){
@@ -2179,21 +2770,15 @@ async function startTeach(it, forceNew){
   // 讲过的知识点默认重播上次那节课：免费、秒开、语音大概率已缓存
   if(!forceNew && it.lessonId){
     try{
-      const r=await fetch("/api/history/"+it.lessonId,{headers:apiHeaders()});
-      if(r.ok){
-        const rec=(await r.json()).record;
-        if(rec && rec.lesson){ startLesson(rec.lesson, rec.lang, it.id); return; }
-      }
-    }catch(_){}
+      const rec=(await api(withKid("/api/history/"+it.lessonId))).record;
+      if(rec && rec.lesson){ startLesson(rec.lesson, rec.lang, it.id); return; }
+    }catch(err){ if(err.silent) return; }
     // 旧课找不到（被删除/超出历史上限）就往下走正常生成
   }
   showLoading();
   try{
-    const resp=await fetch("/api/lesson",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ mode:"teach", curriculumId:it.id, grade:gradeText(), kidName:cfg.kidName, provider:cfg.provider, lang })});
-    const data=await resp.json().catch(()=>({}));
-    if(resp.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
-    if(!resp.ok) throw new Error(data.error||t("genericErr"));
+    const data=await api("/api/lesson",{method:"POST",
+      body:Object.assign({ mode:"teach", curriculumId:it.id, grade:gradeText(), provider:cfg.provider, lang }, kidBody())});
     if(typeof data.tts==="boolean") serverInfo.tts=data.tts;
     // 记下这节课的存档 id：同一屏里再点这条就直接重播，不再花一次生成
     if(data.lessonId){ it.lessonId=data.lessonId; if(learnIndex[it.id]) learnIndex[it.id].lessonId=data.lessonId; }
@@ -2210,23 +2795,22 @@ async function judgePractice(event){
   if(!lessonCurriculumId) return;
   $("judgeRight").disabled=true; $("judgeWrong").disabled=true;
   try{
-    const r=await fetch("/api/progress",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ curriculumId:lessonCurriculumId, event })});
-    const d=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error();
+    const d=await api("/api/progress",{method:"POST",
+      body:Object.assign({ curriculumId:lessonCurriculumId, event }, kidBody())});
     $("judgeMsg").textContent = d.status==="solid" ? t("practiceSolid") : t("practiceThanks");
-  }catch(_){
+  }catch(err){
     $("judgeRight").disabled=false; $("judgeWrong").disabled=false;
-    alert(t("genericErr"));
+    if(!err.silent) alert(err.message||t("genericErr"));
   }
 }
 $("judgeRight").onclick=()=>judgePractice("practiced-right");
 $("judgeWrong").onclick=()=>judgePractice("practiced-wrong");
 
-/* ---------- FSA 模拟练习（P4）：出卷 → 计时作答 → 成绩单 → 错题转讲解 ---------- */
-let fsa=null;            // { set, answers[], idx, t0, done }
+/* ---------- FSA 模拟练习（P4）：出卷 → 计时作答 → 成绩单 → 错题转讲解 ----------
+ * 这套播放器同时给单元测试（P6）用，靠 fsa.kind 区分（见 enterFsa）。 */
+let fsa=null;            // { kind:"fsa"|"unit", setId, set, answers[], idx, t0, done }
 let fsaTimerIv=null;
-let lessonReturnTo="";   // "fsa"：从错题跳去讲课，返回时回成绩单
+let lessonReturnTo="";   // "fsa"：从卷子错题跳去讲课（FSA / 单元测试都算），返回时回成绩单
 function fsaShowEntry(d){
   const is47=cfg.gradeCode==="4"||cfg.gradeCode==="7";   // FSA 只有 4/7 年级考
   $("fsaEntry").classList.toggle("hidden",!is47);
@@ -2245,44 +2829,42 @@ function fsaShowEntry(d){
 async function loadFsaSaved(){
   const box=$("fsaSaved");
   try{
-    const r=await fetch("/api/fsa/sets?grade="+cfg.gradeCode,{headers:apiHeaders()});
-    if(!r.ok) throw new Error();
-    const items=(await r.json()).items||[];
+    const items=(await api(withKid("/api/fsa/sets?grade="+cfg.gradeCode))).items||[];
     box.innerHTML="";
     if(!items.length){ box.classList.add("hidden"); return; }
     box.classList.remove("hidden");
     const cap=document.createElement("div"); cap.className="help"; cap.style.margin="0 0 6px";
     cap.textContent=t("fsaSavedTitle");
     box.appendChild(cap);
+    const canDel=myRole==="parent";   // 删卷是家长动作（服务端也有 403 兜底）
     items.forEach(it=>{
       const el=document.createElement("div"); el.className="histItem";
       const meta=[fmtHistTime(it.time), t("fsaCountFmt")(it.count),
         it.last?t("fsaLastScore")(it.last.right,it.last.total):t("fsaNoTake"),
         it.lang==="zh"?"中":"EN"].join(" · ");
       el.innerHTML=`<div class="hrow"><div class="ht">📄 ${escapeHtml(it.title)}</div>`
-        +`<button class="hdel" title="${t("historyDelTitle")}">🗑</button></div>`
+        +(canDel?`<button class="hdel" title="${t("historyDelTitle")}">🗑</button>`:"")+`</div>`
         +`<div class="hm">${escapeHtml(meta)}</div>`;
       el.onclick=()=>takeFsaSet(it.id);
-      el.querySelector(".hdel").onclick=(e)=>{ e.stopPropagation(); deleteFsaSet(it.id); };
+      const del=el.querySelector(".hdel");
+      if(del) del.onclick=(e)=>{ e.stopPropagation(); deleteFsaSet(it.id); };
       box.appendChild(el);
     });
   }catch(_){ box.classList.add("hidden"); }
 }
 async function takeFsaSet(id){
   try{
-    const r=await fetch("/api/fsa/sets/"+id,{headers:apiHeaders()});
-    if(!r.ok) throw new Error();
-    const rec=(await r.json()).record;
+    const rec=(await api(withKid("/api/fsa/sets/"+id))).record;
     if(!rec||!rec.questions||!rec.questions.length) throw new Error();
     enterFsa(rec);
-  }catch(_){ alert(t("genericErr")); }
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
 }
 async function deleteFsaSet(id){
   if(!confirm(t("fsaDelConfirm"))) return;
   try{
-    const r=await fetch("/api/fsa/sets/"+id,{method:"DELETE",headers:apiHeaders()});
-    if(r.ok) loadFsaSaved();
-  }catch(_){}
+    await api(withKid("/api/fsa/sets/"+id),{method:"DELETE"});
+    loadFsaSaved();
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
 }
 function fmtClock(ms){
   const s=Math.max(0,Math.floor(ms/1000));
@@ -2299,23 +2881,26 @@ async function startFsa(){
   showLoading();
   $("loadSub").textContent=t("fsaGenSub");
   try{
-    const r=await fetch("/api/fsa",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ grade:Number(cfg.gradeCode), strand:$("fsaStrand").value, count:6, lang, provider:cfg.provider })});
-    const data=await r.json().catch(()=>({}));
-    if(r.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
-    if(!r.ok) throw new Error(data.error||t("genericErr"));
+    const data=await api("/api/fsa",{method:"POST",
+      body:Object.assign({ grade:Number(cfg.gradeCode), strand:$("fsaStrand").value, count:6, lang, provider:cfg.provider }, kidBody())});
     hideLoading();
     enterFsa(data.set);
-  }catch(err){ hideLoading(); alert(err.message||t("genericErr")); }
+  }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
 }
-/* 进入一份卷（新生成的和存档里点开的都走这里） */
-function enterFsa(record){
+/* 进入一份卷（新生成的和存档里点开的都走这里）
+ * kind："fsa" = FSA 模拟卷；"unit" = 单元测试。两种卷的题卡/计时/成绩单是同一套，
+ * 差别只在标题、交卷接口和「再来一卷」按钮 —— 用 kind 分流，不再复制一遍播放器。 */
+function enterFsa(record, kind){
   lessonReturnTo="";
-  fsa={ setId:record.id||null, set:record, answers:new Array(record.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
+  fsa={ kind:kind==="unit"?"unit":"fsa", setId:record.id||null, set:record,
+        answers:new Array(record.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
+  setFocus(true);          // 计时考试全宽，收起左栏
   $("learnCard").classList.add("hidden");
   $("modeTabs").classList.add("hidden");
   $("fsaCard").classList.remove("hidden");
-  $("fsaTitle").textContent=(record.title||"FSA")+" · "+gradeText();
+  $("fsaTitle").textContent = fsa.kind==="unit"
+    ? "📝 "+(record.title||unitNames[record.strand]||"")
+    : (record.title||"FSA")+" · "+gradeText();
   const dots=$("fsaDots"); dots.innerHTML="";
   fsa.set.questions.forEach(()=>{ const el=document.createElement("div"); el.className="dot"; dots.appendChild(el); });
   startFsaTimer();
@@ -2332,7 +2917,10 @@ function renderFsaQ(){
   const q=fsa.set.questions[fsa.idx];
   markFsaDots();
   const box=$("fsaBody");
-  box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(t("fsaOf")(fsa.idx+1,fsa.set.questions.length))}</div>`
+  // 单元测试的题按难度排过序，标出「基础/应用/挑战」让孩子知道压轴题来了
+  const meta=[t("fsaOf")(fsa.idx+1,fsa.set.questions.length)];
+  if(fsa.kind==="unit"&&q.level) meta.push(t("unitLevel")(q.level));
+  box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
     +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
@@ -2346,10 +2934,11 @@ function answerFsa(i){
   if(!fsa||fsa.answers[fsa.idx]>=0) return;
   fsa.answers[fsa.idx]=i;
   const q=fsa.set.questions[fsa.idx];
-  // 选择题判定是确定性的（不是 AI 判题），直接自动记进度
-  if(q.curriculumId){
-    fetch("/api/progress",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ curriculumId:q.curriculumId, event:i===q.answerIndex?"practiced-right":"practiced-wrong" })}).catch(()=>{});
+  // 选择题判定是确定性的（不是 AI 判题），直接自动记进度。
+  // 单元测试例外：交卷时一次性提交答案，由服务端按存档答案判分记进度。
+  if(q.curriculumId&&fsa.kind!=="unit"){
+    api("/api/progress",{method:"POST",
+      body:Object.assign({ curriculumId:q.curriculumId, event:i===q.answerIndex?"practiced-right":"practiced-wrong" }, kidBody())}).catch(()=>{});
   }
   [...$("fsaBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{ b.disabled=true; b.classList.toggle("sel",bi===i); });
   setTimeout(()=>{
@@ -2361,19 +2950,18 @@ function answerFsa(i){
 }
 function showFsaResult(){
   fsa.done=true; stopFsaTimer(); markFsaDots();
+  const unit=fsa.kind==="unit";
   const qs=fsa.set.questions;
   const right=qs.filter((q,i)=>fsa.answers[i]===q.answerIndex).length;
   const tm=fmtClock(Date.now()-fsa.t0);
   // 这卷的成绩记到卷子上（存档列表里显示「上次 x/y」）
-  if(fsa.setId){
-    fetch("/api/fsa/attempt",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ id:fsa.setId, right, total:qs.length, ms:Date.now()-fsa.t0 })}).catch(()=>{});
-  }
+  if(fsa.setId) submitFsaAttempt();
   $("fsaTimer").textContent="⏱ "+tm;
   const box=$("fsaBody");
-  box.innerHTML=`<div class="fsaScore">${t("fsaDone")} ${escapeHtml(t("fsaScoreFmt")(right,qs.length,tm))}</div>`
-    +`<div class="help">${escapeHtml(t("fsaAutoNote"))}</div><div class="fsaRes"></div>`
-    +`<div class="row" style="margin-top:14px"><button class="btn blue" id="fsaAgainBtn">${escapeHtml(t("fsaAgain"))}</button></div>`;
+  box.innerHTML=`<div class="fsaScore">${unit?t("unitDone"):t("fsaDone")} ${escapeHtml(t("fsaScoreFmt")(right,qs.length,tm))}</div>`
+    +(unit?`<div class="help" style="font-size:14px;color:var(--ink)">${escapeHtml(t("unitScoreHint")(right,qs.length))}</div>`:"")
+    +`<div class="help">${escapeHtml(unit?t("unitAutoNote"):t("fsaAutoNote"))}</div><div class="fsaRes"></div>`
+    +`<div class="row" style="margin-top:14px"><button class="btn blue" id="fsaAgainBtn">${escapeHtml(unit?t("unitAgain"):t("fsaAgain"))}</button></div>`;
   const res=box.querySelector(".fsaRes");
   qs.forEach((q,i)=>{
     const ok=fsa.answers[i]===q.answerIndex;
@@ -2389,18 +2977,119 @@ function showFsaResult(){
     }
     res.appendChild(div);
   });
-  box.querySelector("#fsaAgainBtn").onclick=()=>{ quitFsa(true); startFsa(); };
+  const strand=fsa.set.strand||"";
+  box.querySelector("#fsaAgainBtn").onclick=()=>{ quitFsa(true); unit?genUnitTest(strand):startFsa(); };
   window.scrollTo({top:0,behavior:"smooth"});
 }
+/* 交卷：FSA 报自己算的分（每题作答时已逐题记过进度）；
+ * 单元测试只报「第几题选了第几个」，对错和进度由服务端按存档答案算。 */
+function submitFsaAttempt(){
+  if(!fsa||!fsa.setId) return;
+  const ms=Date.now()-fsa.t0;
+  if(fsa.kind==="unit"){
+    api("/api/unit-test/attempt",{method:"POST",
+      body:Object.assign({ id:fsa.setId, answers:fsa.answers, ms }, kidBody())}).catch(()=>{});
+    return;
+  }
+  const qs=fsa.set.questions;
+  api("/api/fsa/attempt",{method:"POST",
+    body:Object.assign({ id:fsa.setId, right:qs.filter((q,i)=>fsa.answers[i]===q.answerIndex).length, total:qs.length, ms }, kidBody())}).catch(()=>{});
+}
 function quitFsa(silent){
-  if(fsa&&!fsa.done&&!silent){ if(!confirm(t("fsaQuitConfirm"))) return; }
+  if(fsa&&!fsa.done&&!silent){
+    if(!confirm(t(fsa.kind==="unit"?"unitQuitConfirm":"fsaQuitConfirm"))) return;
+    // 单元测试中途退出：已答的题照交（服务端按答案判分记进度），没答的不算
+    if(fsa.kind==="unit"&&fsa.answers.some(a=>a>=0)) submitFsaAttempt();
+  }
   stopFsaTimer(); fsa=null; lessonReturnTo="";
   $("fsaCard").classList.add("hidden");
+  setFocus(false);
   updateTabs();
   switchView("learn");
 }
 $("fsaGo").onclick=startFsa;
 $("fsaQuit").onclick=()=>quitFsa();
+
+/* ---------- 单元测试（P6）：一个单元一张卷，覆盖整个单元 ----------
+ * 入口挂在「跟大纲学」每个单元标题右边；卷子生成后存档，点开可重做。
+ * 做卷/成绩单复用 FSA 播放器（enterFsa 的 kind:"unit"）。 */
+function unitPanelEl(strand){
+  return document.querySelector(`#learnList .unitPanel[data-strand="${CSS.escape(strand)}"]`);
+}
+/* 一次拉全当前课程源的存档卷，按单元分组：清单里每个单元都要显示数量，不能一个单元发一个请求 */
+async function loadUnitSets(){
+  unitSets={};
+  try{
+    const items=(await api(withKid("/api/unit-test/sets?grade="+encodeURIComponent(cfg.gradeCode||"")))).items||[];
+    items.forEach(it=>{ (unitSets[it.strand]=unitSets[it.strand]||[]).push(it); });
+  }catch(_){ /* 拉不到就当没有存档卷，出新卷的入口照常可用 */ }
+  document.querySelectorAll("#learnList .unitBtn").forEach(btn=>{
+    const n=(unitSets[btn.dataset.strand]||[]).length;
+    const badge=btn.querySelector(".unitN");
+    badge.textContent=n||"";
+    badge.classList.toggle("hidden",!n);
+  });
+  syncUnitPanels();
+}
+function toggleUnitPanel(strand){
+  unitOpen = unitOpen===strand ? "" : strand;
+  syncUnitPanels();
+}
+/* 一次只开一个面板；重画清单（换年级、做完卷子回来）后也靠它把展开状态贴回去 */
+function syncUnitPanels(){
+  if(unitOpen && !unitPanelEl(unitOpen)) unitOpen="";   // 换了课程源，这个单元没了
+  document.querySelectorAll("#learnList .unitPanel").forEach(p=>p.classList.toggle("hidden", p.dataset.strand!==unitOpen));
+  document.querySelectorAll("#learnList .unitBtn").forEach(b=>b.classList.toggle("on", b.dataset.strand===unitOpen));
+  if(unitOpen) renderUnitPanel(unitOpen);
+}
+function renderUnitPanel(strand){
+  const panel=unitPanelEl(strand); if(!panel) return;
+  const items=unitSets[strand]||[];
+  panel.innerHTML=`<div class="uhint">${escapeHtml(items.length?t("unitSavedHint"):t("unitEmpty"))}</div>`
+    +`<div class="row" style="margin-top:8px"><button class="btn blue" style="padding:9px 14px;font-size:14px">${escapeHtml(t("unitGen")(UNIT_TEST_N))}</button></div>`;
+  panel.querySelector("button").onclick=()=>genUnitTest(strand);
+  const canDel=myRole==="parent";   // 删卷是家长动作（服务端也有 403 兜底）
+  items.forEach(it=>{
+    const el=document.createElement("div"); el.className="histItem";
+    const last=it.last;
+    const meta=[fmtHistTime(it.time), t("fsaCountFmt")(it.count),
+      !last?t("fsaNoTake"):last.done===false?t("unitPartial")(last.answered,last.total):t("fsaLastScore")(last.right,last.total),
+      it.lang==="zh"?"中":"EN"].join(" · ");
+    el.innerHTML=`<div class="hrow"><div class="ht">📝 ${escapeHtml(it.title)}</div>`
+      +(canDel?`<button class="hdel" title="${escapeHtml(t("historyDelTitle"))}">🗑</button>`:"")+`</div>`
+      +`<div class="hm">${escapeHtml(meta)}</div>`;
+    el.onclick=()=>takeUnitTest(it.id);
+    const del=el.querySelector(".hdel");
+    if(del) del.onclick=(e)=>{ e.stopPropagation(); deleteUnitTest(it.id); };
+    panel.appendChild(el);
+  });
+}
+async function genUnitTest(strand){
+  if(!strand) return;
+  showLoading();
+  $("loadSub").textContent=t("unitGenSub");
+  try{
+    const data=await api("/api/unit-test",{method:"POST",
+      body:Object.assign({ grade:cfg.gradeCode, strand, count:UNIT_TEST_N, lang:cfg.lang, provider:cfg.provider }, kidBody())});
+    hideLoading();
+    unitOpen=strand;                       // 做完回清单时这个单元还是展开的
+    enterFsa(data.set,"unit");
+  }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
+}
+async function takeUnitTest(id){
+  try{
+    const rec=(await api(withKid("/api/unit-test/sets/"+id))).record;
+    if(!rec||!(rec.questions||[]).length) throw new Error(t("genericErr"));
+    enterFsa(rec,"unit");
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+}
+async function deleteUnitTest(id){
+  if(!confirm(t("unitDelConfirm"))) return;
+  try{
+    await api(withKid("/api/unit-test/sets/"+id),{method:"DELETE"});
+    loadUnitSets();
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+}
 
 /* ---------- 闯关练习（P5）：SAT 式升降难度，通关标 solid ----------
  * 从 L1 起步：对升一级、错降一级；★★★ 答对 2 题通关，8 题内没通关下次再来。
@@ -2412,14 +3101,12 @@ async function startQuiz(cid, from){
   showLoading();
   $("loadSub").textContent=t("quizGenSub");
   try{
-    const r=await fetch("/api/quiz/session",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ curriculumId:cid, lang:cfg.lang, provider:cfg.provider })});
-    const data=await r.json().catch(()=>({}));
-    if(r.status===401){ hideLoading(); serverInfo.authRequired=true; openSettings(t("needCode2")); return; }
-    if(!r.ok||!(data.questions||[]).length) throw new Error(data.error||t("genericErr"));
+    const data=await api("/api/quiz/session",{method:"POST",
+      body:{ curriculumId:cid, lang:cfg.lang, provider:cfg.provider }});
+    if(!(data.questions||[]).length) throw new Error(t("genericErr"));
     hideLoading();
     enterQuiz(cid, data, from);
-  }catch(err){ hideLoading(); alert(err.message||t("genericErr")); }
+  }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
 }
 
 function enterQuiz(cid, data, from){
@@ -2431,6 +3118,7 @@ function enterQuiz(cid, data, from){
   (data.questions||[]).forEach(q=>{ if(byLevel[q.level]) byLevel[q.level].push(q); });
   quiz={ cid, byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
          rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), done:false };
+  setFocus(true);          // 闯关全宽，收起左栏
   $("learnCard").classList.add("hidden");
   $("modeTabs").classList.add("hidden");
   $("fsaCard").classList.add("hidden");
@@ -2502,10 +3190,8 @@ async function finishQuiz(){
   const right=quiz.results.filter(r=>r.correct).length, total=quiz.results.length;
   let passed=quiz.topRight>=quiz.rules.passNeed, saveFail=false;
   try{
-    const r=await fetch("/api/quiz/finish",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results })});
-    const d=await r.json().catch(()=>({}));
-    if(!r.ok) throw new Error();
+    const d=await api("/api/quiz/finish",{method:"POST",
+      body:Object.assign({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results }, kidBody())});
     passed=!!d.passed;   // 通关判定以服务器为准（按题库里的真实难度算）
   }catch(_){ saveFail=true; }
   if(!quiz) return;      // 结算等待期间被退出
@@ -2532,10 +3218,10 @@ function renderQuizResult(passed, right, total, saveFail){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function quizExitSilent(){ quiz=null; $("quizCard").classList.add("hidden"); }
+function quizExitSilent(){ quiz=null; $("quizCard").classList.add("hidden"); setFocus(false); }
 function quizExit(){
   quizExitSilent();
-  if(lessonReturnTo==="fsa"&&fsa){ lessonReturnTo=""; $("fsaCard").classList.remove("hidden"); }  // FSA 错题→讲解→闯关的回路
+  if(lessonReturnTo==="fsa"&&fsa){ lessonReturnTo=""; setFocus(true); $("fsaCard").classList.remove("hidden"); }  // FSA 错题→讲解→闯关的回路
   else { updateTabs(); switchView("learn"); }   // 回清单顺带刷新状态点，通关的绿点马上能看到
   window.scrollTo({top:0,behavior:"smooth"});
 }
@@ -2544,8 +3230,8 @@ $("quizQuit").onclick=()=>{
   if(!quiz.done && quiz.results.length){
     if(!confirm(t("quizQuitConfirm"))) return;
     // 中途退出：已答的照记对错（服务器按题库难度判，不会误判通关）
-    fetch("/api/quiz/finish",{method:"POST",headers:apiHeaders(),
-      body:JSON.stringify({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results })}).catch(()=>{});
+    api("/api/quiz/finish",{method:"POST",
+      body:Object.assign({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results }, kidBody())}).catch(()=>{});
   }
   quizExit();
 };
@@ -2559,13 +3245,15 @@ async function openReport(){
   document.body.classList.add("reportOpen");
   $("reportBody").innerHTML=`<div class="learnEmpty">${t("learnLoading")}</div>`;
   $("reportHead").textContent=""; $("reportLegend").innerHTML=""; $("reportSource").textContent="";
+  $("fullRepBar").classList.toggle("hidden", myRole!=="parent");
+  buildKidSelectors();
   try{
-    const r=await fetch("/api/report?grade="+(cfg.gradeCode||"4"),{headers:apiHeaders()});
-    if(r.status===401){ closeReport(); serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
-    if(r.status===404){ $("reportBody").innerHTML=`<div class="learnEmpty">${t("learnNoData")}</div>`; return; }
-    if(!r.ok) throw new Error();
-    renderReport(await r.json());
-  }catch(_){ $("reportBody").innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; }
+    renderReport(await api(withKid("/api/report?grade="+(cfg.gradeCode||"4"))));
+    loadFullRepList();
+  }catch(err){
+    if(err.silent){ closeReport(); return; }
+    $("reportBody").innerHTML=`<div class="learnEmpty">${err.status===404?t("learnNoData"):t("historyOffline")}</div>`;
+  }
 }
 function closeReport(){
   $("reportModal").classList.add("hidden");
@@ -2573,7 +3261,8 @@ function closeReport(){
 }
 function renderReport(d){
   const en=cfg.lang==="en";
-  $("reportHead").textContent=t(d.source&&d.source.kind==="book"?"reportHeadBookFmt":"reportHeadFmt")(sourceTitle(),d.totals.total,d.totals.seen,d.totals.solid);
+  $("reportHead").textContent=(d.kid?d.kid.name+" · ":"")
+    +t(d.source&&d.source.kind==="book"?"reportHeadBookFmt":"reportHeadFmt")(sourceTitle(),d.totals.total,d.totals.seen,d.totals.solid);
   $("reportLegend").innerHTML=LEVELS.map(l=>`<span class="levelBadge ${l}">${escapeHtml(levelText(l))}</span>`).join("");
   const box=$("reportBody"); box.innerHTML="";
   (d.strands||[]).forEach(sg=>{
@@ -2593,11 +3282,10 @@ function renderReport(d){
       row.querySelector(".riStar").onclick=async(ev)=>{
         ev.target.disabled=true;
         try{
-          const r=await fetch("/api/progress",{method:"POST",headers:apiHeaders(),
-            body:JSON.stringify({ curriculumId:it.id, event:it.manualSolid?"unmark-solid":"mark-solid" })});
-          if(!r.ok) throw new Error();
+          await api("/api/progress",{method:"POST",
+            body:Object.assign({ curriculumId:it.id, event:it.manualSolid?"unmark-solid":"mark-solid" }, kidBody())});
           openReport();
-        }catch(_){ ev.target.disabled=false; alert(t("genericErr")); }
+        }catch(err){ ev.target.disabled=false; if(!err.silent) alert(err.message||t("genericErr")); }
       };
       div.appendChild(row);
     });
@@ -2613,7 +3301,8 @@ function renderReport(d){
     ? (d.source.label || sourceTitle())+" · "+t("reportNote")
     : "BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
 }
-$("reportBtn").onclick=openReport;
+/* 学生点 📊 → 家长门（临时解锁后自动打开报告）；家长直接开 */
+$("reportBtn").onclick=()=>{ if(myRole==="parent") openReport(); else openParentGate("report"); };
 $("closeReport").onclick=closeReport;
 $("printReport").onclick=()=>window.print();
 $("reportGrade").onchange=()=>{
@@ -2621,6 +3310,90 @@ $("reportGrade").onchange=()=>{
   buildGradeOptions();
   openReport();
 };
+
+/* ---------- 完整学习报告（家长专属）：LLM 叙事 + 数据附录，按孩子存档可回看/打印 ---------- */
+async function loadFullRepList(){
+  if(myRole!=="parent") return;
+  const box=$("fullRepList"); box.innerHTML="";
+  try{
+    const items=(await api(withKid("/api/report/full/list"))).items||[];
+    if(!items.length){ box.innerHTML=`<div class="help">${escapeHtml(t("fullRepEmpty"))}</div>`; return; }
+    items.forEach(it=>{
+      const el=document.createElement("div"); el.className="histItem";
+      el.innerHTML=`<div class="hrow"><div class="ht">📄 ${escapeHtml(it.title||t("fullRepTitle"))}</div>`
+        +`<button class="hdel" title="${escapeHtml(t("historyDelTitle"))}">🗑</button></div>`
+        +`<div class="hm">${escapeHtml(fmtHistTime(it.time)+" · "+(it.lang==="zh"?"中":"EN")+(it.provider?" · "+it.provider:""))}</div>`;
+      el.onclick=async()=>{
+        try{ showFullReport((await api(withKid("/api/report/full/"+it.id))).record); }
+        catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+      };
+      el.querySelector(".hdel").onclick=async(e)=>{
+        e.stopPropagation();
+        if(!confirm(t("fullRepDelConfirm"))) return;
+        try{ await api(withKid("/api/report/full/"+it.id),{method:"DELETE"}); loadFullRepList(); }
+        catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+      };
+      box.appendChild(el);
+    });
+  }catch(_){ box.innerHTML=`<div class="help">${escapeHtml(t("historyOffline"))}</div>`; }
+}
+$("fullRepGen").onclick=async()=>{
+  showLoading();
+  $("loadSub").textContent=t("fullRepGenSub");
+  try{
+    const d=await api("/api/report/full",{method:"POST",
+      body:Object.assign({ grade:cfg.gradeCode, lang:cfg.lang, provider:cfg.provider }, kidBody())});
+    hideLoading();
+    showFullReport(d.report);
+    loadFullRepList();
+  }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
+};
+/* 在报告弹窗里渲染一份完整报告（替换实时视图，可打印；返回按钮回实时视图） */
+function showFullReport(rec){
+  if(!rec) return;
+  const c=rec.content||{}, dg=rec.digest||{};
+  $("reportHead").textContent="";
+  $("reportLegend").innerHTML="";
+  $("reportSource").textContent="";
+  const box=$("reportBody"); box.innerHTML="";
+  const back=document.createElement("button");
+  back.className="btn ghost noprint";
+  back.style.cssText="padding:8px 12px;font-size:13.5px;margin-top:6px";
+  back.textContent=t("backToLive");
+  back.onclick=()=>openReport();
+  box.appendChild(back);
+  const head=document.createElement("div"); head.className="fullRepSec";
+  head.innerHTML=`<h3 style="margin:8px 0 2px">${escapeHtml(c.title||t("fullRepTitle"))}</h3>`
+    +`<div class="help">${escapeHtml(fmtHistTime(rec.time)+(rec.kidName?" · "+rec.kidName:"")+(rec.provider?" · "+rec.provider:""))}</div>`;
+  box.appendChild(head);
+  const sec=(title,html)=>{
+    const d2=document.createElement("div"); d2.className="fullRepSec";
+    d2.innerHTML=`<h4>${escapeHtml(title)}</h4>${html}`;
+    box.appendChild(d2);
+  };
+  if(c.overall) sec(t("repOverall"),`<p>${escapeHtml(c.overall)}</p>`);
+  if((c.strandComments||[]).length) sec(t("repStrands"),
+    c.strandComments.map(x=>`<p><b>${escapeHtml(x.strand)}</b>　${escapeHtml(x.comment)}</p>`).join(""));
+  if((c.highlights||[]).length) sec(t("repHighlights"),
+    "<ul>"+c.highlights.map(x=>`<li>✨ ${escapeHtml(x)}</li>`).join("")+"</ul>");
+  if((c.weakSpots||[]).length) sec(t("repWeak"),
+    c.weakSpots.map(x=>`<div class="weakItem"><b>${escapeHtml(x.topic)}</b><br/>${escapeHtml(t("repWhyLab"))}：${escapeHtml(x.why)}<br/>${escapeHtml(t("repPracticeLab"))}：${escapeHtml(x.practice)}</div>`).join(""));
+  if((c.parentTips||[]).length) sec(t("repTips"),
+    "<ul>"+c.parentTips.map(x=>`<li>${escapeHtml(x)}</li>`).join("")+"</ul>");
+  if((c.nextSteps||[]).length) sec(t("repNext"),
+    "<ul>"+c.nextSteps.map(x=>`<li>→ ${escapeHtml(x)}</li>`).join("")+"</ul>");
+  // 数据附录：digest 的确定性数字直接渲染，和 AI 叙事分开呈现
+  if(dg.totals){
+    const en=cfg.lang==="en";
+    let html=`<p>${escapeHtml(t("repAppxTotals")(dg.totals.total,dg.totals.seen,dg.totals.solid))}</p>`;
+    html+=`<div style="overflow-x:auto"><table class="repTable"><tr><th>${escapeHtml(t("repAppxStrand"))}</th><th>${escapeHtml(t("repAppxSeen"))}</th><th>${escapeHtml(t("repAppxSolid"))}</th><th>${escapeHtml(t("repAppxRW"))}</th></tr>`
+      +(dg.strands||[]).map(s=>`<tr><td>${escapeHtml(en?s.enName:s.zhName)}</td><td>${s.seen}/${s.total}</td><td>${s.solid}</td><td>✓${s.right} ✗${s.wrong}</td></tr>`).join("")
+      +`</table></div>`;
+    if(dg.recent14) html+=`<p><b>${escapeHtml(t("repAppxRecent"))}</b>：${escapeHtml(t("repAppxRecentFmt")(dg.recent14))}</p>`;
+    if((dg.fsaRecent||[]).length) html+=`<p><b>${escapeHtml(t("repAppxFsa"))}</b>：${dg.fsaRecent.map(f=>escapeHtml(f.right+"/"+f.total)).join("、")}</p>`;
+    sec(t("repAppendix"),html);
+  }
+}
 
 /* ---------- 输入处理 ---------- */
 let pendingImage=null;
@@ -2693,48 +3466,88 @@ function renderEngineList(){
   });
 }
 function openSettings(errMsg){
-  $("kidName").value=cfg.kidName||"";
   $("grade").value=cfg.gradeCode||"5";
   $("langSel").value=cfg.lang;
-  $("accessCode").value=cfg.accessCode||"";
-  $("codeField").classList.toggle("hidden", !serverInfo.authRequired);
   renderEngineList();
+  applyRoleUI();   // 家长专属区块的显隐 + 孩子列表
   const eb=$("settingsErr");
   if(errMsg){ eb.textContent=errMsg; eb.classList.remove("hidden"); } else { eb.classList.add("hidden"); }
   settings.classList.remove("hidden");
 }
 $("gear").onclick=()=>openSettings();
 $("closeSettings").onclick=()=>settings.classList.add("hidden");
-/* 清空学习数据（危险操作，确认后执行；清完刷新清单/报告） */
+
+/* ---------- 孩子管理（家长专属，设置里） ---------- */
+function renderKidsList(){
+  const box=$("kidsList"); if(!box) return;
+  box.innerHTML="";
+  myKids.forEach(k=>{
+    const el=document.createElement("div"); el.className="kidRow";
+    el.innerHTML=`<span class="kn">${escapeHtml(k.name)}</span>`
+      +`<button class="krn" title="${escapeHtml(t("renameTitle"))}">✏️</button>`
+      +`<button class="krp" title="${escapeHtml(t("resetPinTitle"))}">🔑</button>`
+      +`<button class="krd" title="${escapeHtml(t("deleteKidTitle"))}">🗑</button>`;
+    el.querySelector(".krn").onclick=async()=>{
+      const name=prompt(t("renamePrompt"),k.name);
+      if(!name||!name.trim()) return;
+      try{ await api("/api/kids/"+k.id,{method:"PATCH",body:{name:name.trim()}}); await loadProfiles(); await refreshAuth(); }
+      catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+    };
+    el.querySelector(".krp").onclick=async()=>{
+      const pin=prompt(t("resetPinPrompt")(k.name));
+      if(pin==null||!pin.trim()) return;
+      try{ await api("/api/kids/"+k.id,{method:"PATCH",body:{pin:pin.trim()}}); alert(t("resetPinDone")); }
+      catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+    };
+    el.querySelector(".krd").onclick=async()=>{
+      if(!confirm(t("deleteKidConfirm")(k.name))) return;
+      try{
+        await api("/api/kids/"+k.id,{method:"DELETE"});
+        if(cfg.curKid===k.id){ cfg.curKid=""; saveCfg(); }
+        await loadProfiles(); await refreshAuth();
+      }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+    };
+    box.appendChild(el);
+  });
+}
+$("addKidBtn").onclick=async()=>{
+  const name=prompt(t("kidNameLabel2"));
+  if(!name||!name.trim()) return;
+  const pin=prompt(t("kidPinLabel"));
+  if(pin==null||!pin.trim()) return;
+  try{
+    await api("/api/kids",{method:"POST",body:{name:name.trim(),pin:pin.trim()}});
+    await loadProfiles(); await refreshAuth();
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
+};
+
+/* 清空学习数据（家长专属；只清「当前孩子」，题库是全家共享的一并清） */
 async function clearData(all){
   if(!confirm(t(all?"clearAllConfirm":"clearProgressConfirm"))) return;
   const btn=$(all?"clearAllBtn":"clearProgressBtn");
   btn.disabled=true;
   try{
-    const del=p=>fetch(p,{method:"DELETE",headers:apiHeaders()}).then(r=>{ if(!r.ok&&r.status!==404) throw new Error(); });
+    const del=p=>api(withKid(p),{method:"DELETE"}).catch(err=>{ if(err.status!==404) throw err; });
     await del("/api/progress");
-    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/qbank"); }
+    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/unit-test/sets"); await del("/api/qbank"); }
     const old=t(all?"clearAll":"clearProgress");
     btn.textContent=t("clearDone");
     setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);
     if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();
-  }catch(_){
+  }catch(err){
     btn.disabled=false;
-    alert(t("genericErr"));
+    if(!err.silent) alert(err.message||t("genericErr"));
   }
 }
 $("clearProgressBtn").onclick=()=>clearData(false);
 $("clearAllBtn").onclick=()=>clearData(true);
 $("saveSettings").onclick=async ()=>{
-  cfg.kidName=$("kidName").value.trim();
   cfg.gradeCode=$("grade").value;
   cfg.lang=$("langSel").value==="en"?"en":"zh";
-  cfg.accessCode=$("accessCode").value.trim();
   saveCfg();
   applyLang();
   settings.classList.add("hidden");
-  await fetchProviders();   // 用新访问码重新拉一次
-  updateEngineBadge();
+  await refreshAuth();
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 年级可能改了
 };
 
@@ -2755,12 +3568,13 @@ async function openHistory(){
   $("historyModal").classList.remove("hidden");
   $("histSearch").value="";
   $("histList").innerHTML=`<div class="histEmpty">${t("historyLoading")}</div>`;
+  buildKidSelectors();
   try{
-    const r=await fetch("/api/history",{headers:apiHeaders()});
-    if(r.status===401){ closeHistory(); serverInfo.authRequired=true; openSettings(t("needCode1")); return; }
-    if(!r.ok) throw new Error();
-    histItems=(await r.json()).items||[];
-  }catch(_){ histItems=null; }
+    histItems=(await api(withKid("/api/history"))).items||[];
+  }catch(err){
+    if(err.silent){ closeHistory(); return; }
+    histItems=null;
+  }
   renderHistory();
 }
 function closeHistory(){ $("historyModal").classList.add("hidden"); }
@@ -2774,34 +3588,35 @@ function renderHistory(){
     box.innerHTML=`<div class="histEmpty">${histItems.length?t("historyNoMatch"):t("historyEmpty")}</div>`;
     return;
   }
+  const canDel=myRole==="parent";   // 删记录是家长动作（服务端也有 403 兜底）
   list.forEach(it=>{
     const el=document.createElement("div"); el.className="histItem";
     const meta=[fmtHistTime(it.time), it.mode==="teach"?("🎓 "+t("histLearn")):"", it.hasImage?("📷 "+t("histPhoto")):"", it.question||""].filter(Boolean).join(" · ");
-    el.innerHTML=`<div class="hrow"><div class="ht">${escapeHtml(it.title||t("thisProblem"))}</div><button class="hdel" title="${t("historyDelTitle")}">🗑</button></div>`
+    el.innerHTML=`<div class="hrow"><div class="ht">${escapeHtml(it.title||t("thisProblem"))}</div>`
+      +(canDel?`<button class="hdel" title="${t("historyDelTitle")}">🗑</button>`:"")+`</div>`
       +`<div class="hm">${escapeHtml(meta)}</div>`
       +(it.answer?`<div class="ha">${t("ansPrefix")}${escapeHtml(it.answer)}</div>`:"");
     el.onclick=()=>replayHistory(it.id);
-    el.querySelector(".hdel").onclick=(e)=>{ e.stopPropagation(); deleteHistory(it.id); };
+    const del=el.querySelector(".hdel");
+    if(del) del.onclick=(e)=>{ e.stopPropagation(); deleteHistory(it.id); };
     box.appendChild(el);
   });
 }
 async function replayHistory(id){
   try{
-    const r=await fetch("/api/history/"+id,{headers:apiHeaders()});
-    if(!r.ok) throw new Error();
-    const rec=(await r.json()).record;
+    const rec=(await api(withKid("/api/history/"+id))).record;
     if(!rec||!rec.lesson) throw new Error();
     pause();            // 万一正在播别的课，先停声音
     closeHistory();
     startLesson(rec.lesson, rec.lang, rec.curriculumId||null);   // 大纲课重播也能标记练习对错
-  }catch(_){ alert(t("genericErr")); }
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
 }
 async function deleteHistory(id){
   if(!confirm(t("historyDelConfirm"))) return;
   try{
-    const r=await fetch("/api/history/"+id,{method:"DELETE",headers:apiHeaders()});
-    if(r.ok && histItems){ histItems=histItems.filter(x=>x.id!==id); renderHistory(); }
-  }catch(_){}
+    await api(withKid("/api/history/"+id),{method:"DELETE"});
+    if(histItems){ histItems=histItems.filter(x=>x.id!==id); renderHistory(); }
+  }catch(err){ if(!err.silent) alert(err.message||t("genericErr")); }
 }
 $("histBtn").onclick=openHistory;
 $("closeHistory").onclick=closeHistory;
@@ -2809,7 +3624,7 @@ $("histSearch").addEventListener("input",renderHistory);
 
 /* ---------- 初始化 ---------- */
 applyLang();
-fetchProviders();
+boot();
 </script>
 </body>
 </html>

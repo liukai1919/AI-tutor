@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "5",
+ "strand": "computational-fluency",
+ "lang": "en",
+ "unitName": {
+  "zh": "运算熟练",
+  "en": "Computational Fluency"
+ },
+ "provider": "claude",
+ "at": "2026-08-18",
+ "set": {
+  "title": "Computational Fluency · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G5.FLU.04",
+    "level": 1,
+    "question": "Ms. Tran's class raised 17 salmon fry in the classroom tank. On the field trip to the creek, they released 9 of them. How many salmon fry are still in the tank?",
+    "options": [
+     "6",
+     "7",
+     "8",
+     "26"
+    ],
+    "answerIndex": 2,
+    "explain": "\"How many are still there\" after releasing some means subtract: 17 − 9 = 8. A common trap is seeing the two numbers and adding them (17 + 9 = 26) — read the action in the story first, then choose the operation."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.05",
+    "level": 1,
+    "question": "For the winter assembly, the gym is set up with 7 rows of chairs and 8 chairs in each row. How many chairs are set up in total?",
+    "options": [
+     "56",
+     "54",
+     "63",
+     "15"
+    ],
+    "answerIndex": 0,
+    "explain": "Equal rows means multiply: 7 × 8 = 56 chairs. The two traps here are adding instead of multiplying (7 + 8 = 15) and slipping to a neighbouring fact such as 7 × 9 = 63."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.01",
+    "level": 1,
+    "question": "Last weekend the Vancouver Aquarium had 38 476 visitors on Saturday and 25 897 visitors on Sunday. How many visitors was that altogether?",
+    "options": [
+     "63 273",
+     "64 373",
+     "64 273",
+     "63 373"
+    ],
+    "answerIndex": 1,
+    "explain": "Line up the place values and add, regrouping each time a column reaches 10: 38 476 + 25 897 = 64 373. The usual mistake is dropping one of the carried digits — every column here except the last one regroups, so check each carry."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.02",
+    "level": 2,
+    "question": "A BC Ferries sailing from Tsawwassen carries 248 vehicles. If the ferry makes 6 full sailings in one day, how many vehicles does it carry that day?",
+    "options": [
+     "1 248",
+     "1 288",
+     "1 448",
+     "1 488"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply 248 × 6, or decompose it: (200 × 6) + (40 × 6) + (8 × 6) = 1 200 + 240 + 48 = 1 488. The common error is forgetting to add a regrouped digit into the next column, which loses either 40 or 200 from the answer."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.03",
+    "level": 2,
+    "question": "At the school bake sale, Priya buys a box of Nanaimo bars for $8.75 and a fruit smoothie for $6.49. She pays with a $20 bill. How much change should she get?",
+    "options": [
+     "4.66",
+     "$4.76",
+     "$5.76",
+     "$11.25"
+    ],
+    "answerIndex": 1,
+    "explain": "Two steps: add the prices first ($8.75 + $6.49 = $15.24), then subtract from $20.00 to get $4.76. Traps are stopping after subtracting only one item ($20 − $8.75 = $11.25) and forgetting to carry the extra $1 when the cents add past 100."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.01",
+    "level": 2,
+    "question": "A tree-planting crew in the Interior has a goal of 250 000 seedlings this year. They planted 137 500 seedlings in spring and 84 250 in summer. How many more seedlings must they plant to reach the goal?",
+    "options": [
+     "28 250",
+     "28 750",
+     "112 500",
+     "221 750"
+    ],
+    "answerIndex": 0,
+    "explain": "Add what is already planted (137 500 + 84 250 = 221 750), then subtract from the goal: 250 000 − 221 750 = 28 250 seedlings. The biggest trap is answering after only one step — 221 750 is the amount planted, not the amount still needed."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.02",
+    "level": 3,
+    "question": "213 students and teachers are going to Science World. Each school bus seats 48 people. How many buses does the school need to book so that everyone gets a seat?",
+    "options": [
+     "4",
+     "4 R21",
+     "5",
+     "6"
+    ],
+    "answerIndex": 2,
+    "explain": "213 ÷ 48 = 4 with a remainder of 21, but those 21 people still need seats, so book 5 buses. The classic mistake is writing the bare quotient (4) or the raw \"4 R21\" — in a real-life packing question you must decide what the remainder means and round up."
+   },
+   {
+    "curriculumId": "BC.MATH.G5.FLU.03",
+    "level": 3,
+    "question": "A rain gauge at a Victoria school measured 4.6 mm of rain on Monday, 0.85 mm on Tuesday, and 12.375 mm on Wednesday. The class wants the three-day total to reach 20 mm. How much more rain is needed?",
+    "options": [
+     "2.275",
+     "7.625 mm",
+     "17.825 mm",
+     "2.175 mm"
+    ],
+    "answerIndex": 3,
+    "explain": "Add with the decimal points lined up (think 4.600 + 0.850 + 12.375 = 17.825 mm), then subtract from 20.000 mm to get 2.175 mm. The trap is lining the numbers up by their last digit instead of by place value, or stopping at the total (17.825 mm) instead of finding the difference."
+   }
+  ]
+ }
+}

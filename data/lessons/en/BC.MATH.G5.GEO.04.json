@@ -1,0 +1,144 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.GEO.04",
+ "lang": "en",
+ "title": "classification of prisms and pyramids",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Prisms and Pyramids: Sorting 3D Shapes",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're helping unpack groceries at the Save-On-Foods in your neighbourhood. You pick up a box of Shreddies cereal, a carton of milk, and a can of soup. Then at the checkout you see one of those little chocolate bars shaped like a long triangle tube. All of these are three-D objects, which just means they take up real space in your hands. Today we're going to learn how to sort them into two special families: prisms and pyramids. Knowing the family tells you how many faces, edges and corners a shape has, and that's what helps us wrap it, build it, or measure it later.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      30,
+      8,
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cereal box is a rectangular prism: 30 cm long, 8 cm wide, 20 cm tall"
+    }
+   },
+   {
+    "say": "Here's the big secret for spotting a prism. A prism has two matching flat ends, called bases, that are exactly the same shape and the same size. Then straight rectangles join those two ends together, like a tunnel. Slice a prism anywhere in the middle, parallel to the ends, and you always get the same shape. A tin of soup is a bit like this too, but a true prism must have flat sides, so let's stick with boxes and tubes with flat faces.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      10,
+      4,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Two matching ends, rectangles joining them — that's a prism"
+    }
+   },
+   {
+    "say": "We name a prism after the shape of its two matching ends. If the two ends are rectangles, it's a rectangular prism, like that cereal box. If the two ends are triangles, it's a triangular prism, like the long chocolate bar box or the roof shape on a bird house. And here's a fun one: if every single face is a square, we call it a cube, which is really just a very fair rectangular prism. A regular six sided dice from a board game is a perfect cube.",
+    "math": "",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cube: a rectangular prism where all six faces are equal squares, 3 cm on every edge"
+    }
+   },
+   {
+    "say": "Now let's meet the other family, the pyramids. A pyramid has only one base at the bottom, and all its other faces are triangles that lean in and meet at one sharp point on top, called the apex. Think of the pointy roof on a garden shed, or the little paper party hat shape. So here's the easy test: two matching ends means prism, one base and a point on top means pyramid. We name a pyramid after its base too, so a square base gives a square pyramid.",
+    "math": "",
+    "visual": {
+     "type": "solidCone",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One base, everything rising to one point on top — that's the pyramid idea"
+    }
+   },
+   {
+    "say": "Let's do our first worked example with real numbers. Take a rectangular prism, like a shoebox from a store in Kelowna. Let's count its parts carefully. It has six flat faces: the top and bottom, the front and back, and the two ends. It has twelve edges, which are the lines where two faces meet: four around the top, four around the bottom, and four standing up the sides. And it has eight vertices, which are the corners: four on top and four on the bottom. Let's check that with numbers. Six plus eight is fourteen, and twelve plus two is also fourteen. They match, so our count is correct.",
+    "math": "6 + 8 = 14 \\quad\\text{and}\\quad 12 + 2 = 14",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      24,
+      14,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Shoebox: 24 cm by 14 cm by 10 cm — 6 faces, 12 edges, 8 vertices"
+    }
+   },
+   {
+    "say": "Now let's unfold that box and lay it flat. This flat picture is called a net, and it shows every face at once. Look carefully: the front and back match, the two ends match, and the top and bottom match. Three pairs, and two times three is six faces. That's another way to prove it's a prism — the faces come in matching pairs, and two of those pairs are the two identical bases.",
+    "math": "2 \\times 3 = 6 \\text{ faces}",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      24,
+      14,
+      10
+     ],
+     "labels": [],
+     "caption": "The unfolded shoebox — opposite faces share a colour and match perfectly"
+    }
+   },
+   {
+    "say": "Here's a slightly harder example. A chocolate bar box shaped like a long triangular prism sits on the shelf. Its two ends are triangles, and triangles have three sides. So the prism has two triangle faces plus three rectangle faces joining them, and two plus three is five faces. For the corners, each triangle end has three vertices, and two ends means two times three, which is six vertices. Let's check with our rule: five faces plus six vertices is eleven, so the edges must be eleven minus two, which is nine edges. And that's right — three around one triangle, three around the other, and three long ones joining them, and three plus three plus three is nine.",
+    "math": "F + V = E + 2 \\;\\Rightarrow\\; 5 + 6 = 9 + 2 = 11",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The triangle end of the prism: base 6 cm, height 5 cm — this shape appears at BOTH ends"
+    }
+   },
+   {
+    "say": "Let's put both families side by side one last time. A square pyramid has one square base with four vertices, plus one point on top, so four plus one is five vertices. It has one square face plus four triangle faces, and one plus four is five faces. Compare that to the cube, which has eight vertices and six faces. Different families, different numbers. So whenever you see a three-D object around Vancouver — a shipping container, a tent, a chocolate box, a church steeple — just ask yourself: does it have two matching ends, or one base and a point?",
+    "math": "\\text{Cube: }8\\text{ vertices},\\;6\\text{ faces}\\quad\\text{Square pyramid: }5\\text{ vertices},\\;5\\text{ faces}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      8,
+      5,
+      5
+     ],
+     "labels": [
+      "Shape",
+      "Faces",
+      "Vertices"
+     ],
+     "caption": "Row 1: Cube — 6 faces, 8 vertices. Row 2: Square pyramid — 5 faces, 5 vertices"
+    }
+   }
+  ],
+  "answer": "Two matching ends joined by rectangles means a PRISM; one base rising to a single point means a PYRAMID — and both are named after their base.",
+  "practice": {
+   "question": "Mia is wrapping a gift box for her friend in Victoria. The box is a rectangular prism measuring 20 cm long, 15 cm wide and 10 cm tall. (a) Is this a prism or a pyramid, and what is it named after? (b) How many faces, edges and vertices does it have? (c) Her little brother's gift is a square-based pyramid — how many faces does his have?",
+   "answer": "(a) It is a PRISM, named a rectangular prism because its two matching ends are rectangles. (b) 6 faces, 12 edges, and 8 vertices (check: 6 + 8 = 14 and 12 + 2 = 14 ✓). (c) A square pyramid has 5 faces: 1 square base plus 4 triangles (1 + 4 = 5)."
+  }
+ }
+}

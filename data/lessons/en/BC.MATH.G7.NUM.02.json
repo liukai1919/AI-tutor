@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.NUM.02",
+ "lang": "en",
+ "title": "financial literacy — financial percentage",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Percent Power: Discounts, Tax, and Tips",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You're at the mall in Vancouver with your friends and you spot a hoodie you love. The tag says forty dollars, but there's a big sign on the rack: twenty-five percent off. So... what do you actually pay? And wait, there's tax too. This is exactly why we learn percent — it's the math you use every single time you spend your own money.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here's the one idea that unlocks everything. Percent just means out of one hundred. Picture a big square cut into one hundred little cells. Twenty-five percent is twenty-five of those cells. That's one quarter of the square — so twenty-five percent off means one quarter of the price comes off.",
+    "math": "25\\% = \\frac{25}{100} = 0.25",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "25 of the 100 cells shaded — that's 25%"
+    }
+   },
+   {
+    "say": "Now the trick that makes this easy in your head. Ten percent of any amount is just that amount with the decimal point moved one place left. Ten percent of forty dollars is four dollars. Then five percent is half of ten percent, so two dollars. And one percent is four dollars divided by ten, which is forty cents. Once you have those, you can build almost any percent.",
+    "math": "10\\%\\ \\text{of}\\ \\$40 = \\$4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      2,
+      0.4
+     ],
+     "labels": [
+      "10% of $40",
+      "5% of $40",
+      "1% of $40"
+     ],
+     "caption": "Your building blocks for $40"
+    }
+   },
+   {
+    "say": "Let's find the discount on that hoodie. Twenty-five percent is two tens plus one five. Ten percent is four dollars, another ten percent is four dollars, and five percent is two dollars. Four plus four plus two is ten dollars off. So the sale price is forty minus ten, which is thirty dollars. Nice — the price bar splits into ten dollars saved and thirty dollars you actually pay.",
+    "math": "\\$40 - (0.25 \\times \\$40) = \\$40 - \\$10 = \\$30",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10,
+      30
+     ],
+     "labels": [
+      "Discount saved",
+      "Sale price"
+     ],
+     "caption": "$40 splits into $10 off and $30 to pay"
+    }
+   },
+   {
+    "say": "But we're not done — here in British Columbia, most things like clothing over a certain price get sales tax added at the till. There's five percent G S T and seven percent P S T. Together that's twelve percent added on top. Look at the grid: five cells plus seven cells makes twelve cells out of one hundred.",
+    "math": "5\\% + 7\\% = 12\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      5,
+      7
+     ],
+     "labels": [],
+     "caption": "5% GST plus 7% PST = 12% total tax in BC"
+    }
+   },
+   {
+    "say": "Now the important part — tax goes on the sale price, not the original price. Ten percent of thirty dollars is three dollars, and one percent is thirty cents, so two percent is sixty cents. Three dollars plus sixty cents is three dollars and sixty cents of tax. Add that to thirty and you pay thirty-three dollars and sixty cents. That's the real number on the receipt.",
+    "math": "\\$30 + (0.12 \\times \\$30) = \\$30 + \\$3.60 = \\$33.60",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      30,
+      3.6,
+      33.6
+     ],
+     "labels": [
+      "Sale price",
+      "Tax (12%)",
+      "You pay"
+     ],
+     "caption": "Discount first, then tax on the new price"
+    }
+   },
+   {
+    "say": "One more real-life percent: tipping. Say you and your friends grab dinner in Kelowna and the bill is twenty-four dollars. A fifteen percent tip is ten percent plus five percent. Ten percent of twenty-four is two dollars and forty cents, and half of that is one dollar and twenty cents. Add them: three dollars and sixty cents tip. Your total is twenty-seven dollars and sixty cents. Same trick, totally different situation.",
+    "math": "\\$24 + 0.15 \\times \\$24 = \\$24 + \\$3.60 = \\$27.60",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      24,
+      3.6
+     ],
+     "labels": [
+      "Food bill",
+      "15% tip"
+     ],
+     "caption": "A $24 meal with a $3.60 tip"
+    }
+   },
+   {
+    "say": "So here's the whole lesson in one breath: break the percent into tens, fives, and ones, take the discount off first, then add the tax or tip onto the new price. Do that and you'll always know exactly what you're paying before you get to the till.",
+    "math": "\\text{Sale price} = \\text{Price} - \\text{Discount};\\quad \\text{Total} = \\text{Sale price} \\times 1.12",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Percent means out of 100 — take the discount off first, then add tax or tip to the new price.",
+  "practice": {
+   "question": "A skateboard at a shop in Victoria costs $80 and is on sale for 15% off. What is the sale price, and what do you pay in total after BC's 12% sales tax?",
+   "answer": "The discount is 15% of $80 = $12, so the sale price is $68. The tax is 12% of $68 = $8.16. You pay $76.16 in total."
+  }
+ }
+}

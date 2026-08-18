@@ -1,0 +1,134 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.FLU.03",
+ "lang": "en",
+ "title": "operations with decimals (addition, subtraction, multiplication, division, and order of operations)",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Decimals in Real Life: Add, Subtract, Multiply, Divide — and Brackets First",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hey, let's talk about decimals. Picture this: you're at a shop on Granville Street with your friends. A bubble tea costs five dollars and seventy-five cents, and a snack costs two dollars and forty cents. You've got a ten dollar bill in your pocket. Can you afford both? Every single money question you'll ever ask is really a decimal question, and that's exactly why we learn this.",
+    "math": "\\$5.75 \\quad \\text{and} \\quad \\$2.40",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5.75,
+      2.4
+     ],
+     "labels": [
+      "Bubble tea",
+      "Snack"
+     ],
+     "caption": "Two prices — can a ten dollar bill cover both?"
+    }
+   },
+   {
+    "say": "To add decimals, there's one golden rule: line up the decimal points. Ones under ones, tenths under tenths, hundredths under hundredths. Then add like normal. Five seventy-five plus two forty. Five hundredths plus zero hundredths is five hundredths. Seven tenths plus four tenths is eleven tenths, so that's one whole and one tenth — carry the one. Five plus two plus that carried one gives eight. So it's eight dollars and fifteen cents.",
+    "math": "\\begin{array}{r}5.75\\\\+\\;2.40\\\\\\hline 8.15\\end{array}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      8.15
+     ],
+     "labels": [],
+     "caption": "8.15 — eight ones, one tenth, five hundredths"
+    }
+   },
+   {
+    "say": "Now subtraction, same golden rule: line up those decimal points. You hand over ten dollars. Ten minus eight point one five. It helps to write the ten as ten point zero zero so the columns match. Ten minus eight fifteen is one dollar and eighty-five cents. That's your change — enough for a bus fare snack next time.",
+    "math": "10.00-8.15=1.85",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      10,
+      8.15,
+      10
+     ],
+     "labels": [],
+     "caption": "Jump from $8.15 up to $10.00 — that gap is $1.85"
+    }
+   },
+   {
+    "say": "Multiplying decimals is where kids often panic, but it's honestly the easiest one. Ignore the dots, multiply like whole numbers, then count how many digits were after the dots and put that many back in your answer. Try zero point six times zero point four. Six times four is twenty-four. There was one digit after the dot in each number, so two digits total, which makes the answer zero point two four. Look at the grid — six columns of ten and four rows of ten overlap in twenty-four little squares out of one hundred. That is zero point two four.",
+    "math": "0.6\\times0.4=0.24",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      10,
+      10,
+      6,
+      4
+     ],
+     "labels": [],
+     "caption": "6 tenths across, 4 tenths down — the overlap is 24 hundredths"
+    }
+   },
+   {
+    "say": "Dividing decimals: say you and two friends split a twenty-two dollar and fifty cent pizza three ways. Twenty-two fifty divided by three. Twenty-one divided by three is seven, that leaves one dollar fifty, and one fifty divided by three is fifty cents. So seven dollars and fifty cents each. And here's a handy trick if you're ever dividing by a decimal, like seven point five divided by zero point five — slide both decimal points one place to the right and it becomes seventy-five divided by five, which is fifteen. Same answer, way friendlier numbers.",
+    "math": "22.50\\div3=7.50",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      22.5,
+      7.5
+     ],
+     "labels": [
+      "Total pizza",
+      "Each person"
+     ],
+     "caption": "$22.50 shared 3 ways = $7.50 each"
+    }
+   },
+   {
+    "say": "Now the last piece: order of operations. When a question has more than one operation, we don't just go left to right — we follow BEDMAS. Brackets first, then division and multiplication, then addition and subtraction. Say a combo of fries and a drink is two fifty plus one seventy-five, and you're buying three combos. The brackets tell you to add first: two fifty plus one seventy-five is four dollars and twenty-five cents. Then multiply by three: four twenty-five times three is twelve dollars and seventy-five cents.",
+    "math": "3\\times(2.50+1.75)=3\\times4.25=12.75",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.25,
+      12.75
+     ],
+     "labels": [
+      "One combo",
+      "Three combos"
+     ],
+     "caption": "Brackets first, then multiply"
+    }
+   },
+   {
+    "say": "Let's put it all together with the full question. You walk in with twenty dollars and buy those three combos. Write it as twenty minus three times the bracket two fifty plus one seventy-five. Step one, brackets: two fifty plus one seventy-five is four twenty-five. Step two, multiply: three times four twenty-five is twelve seventy-five. Step three, subtract: twenty minus twelve seventy-five is seven dollars and twenty-five cents left over. Notice what happens if you ignore BEDMAS and go left to right — you'd get a completely wrong answer, and the cashier would definitely notice.",
+    "math": "20-3\\times(2.50+1.75)=20-12.75=7.25",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      12.75,
+      20
+     ],
+     "labels": [],
+     "caption": "Spent $12.75 of $20 — $7.25 still in your wallet"
+    }
+   },
+   {
+    "say": "So that's the whole idea. Line up the dots when you add or subtract, count the dots when you multiply, slide the dots when you divide by a decimal, and always do what's in the brackets first. Decimals aren't a different kind of math — they're just numbers with a bit more detail, and you already know how to handle them.",
+    "math": "\\text{Brackets} \\rightarrow \\times\\,\\div \\rightarrow +\\,-",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Line up the dots to add and subtract, count the dots to multiply — and always do the brackets first.",
+  "practice": {
+   "question": "At a store in Kelowna you buy 2 bags of trail mix at $3.45 each and a 1.5 litre bottle of juice for $2.80. You pay with a $20 bill. Write it with brackets and find your change.",
+   "answer": "$10.30. Work it out as 20 − (2 × 3.45 + 2.80): first 2 × 3.45 = 6.90, then 6.90 + 2.80 = 9.70, then 20 − 9.70 = 10.30."
+  }
+ }
+}

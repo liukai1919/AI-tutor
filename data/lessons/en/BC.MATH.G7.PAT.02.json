@@ -1,0 +1,144 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.PAT.02",
+ "lang": "en",
+ "title": "two-step equations with whole-number coefficients, constants, and solutions",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "Two-Step Equations: Undo It, Step by Step",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this. You stop at a shop in your neighbourhood on the way home. You pay four dollars for the bus, and then you buy three smoothies that all cost the same. In total you spent sixteen dollars. So how much was one smoothie? That mystery price is what we call x, and the whole story fits on a balance scale: three x plus four on one side, sixteen dollars on the other. Both sides weigh the same, because they are the same amount of money.",
+    "math": "3x + 4 = 16",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x + 4",
+      "16"
+     ],
+     "caption": "Both sides are equal — the scale is level"
+    }
+   },
+   {
+    "say": "Here is the golden rule of equations: whatever you do to one side, you must do to the other side, or the scale tips. The four dollars for the bus is the easy part to get rid of, so let's take four away. But watch — I take four off the left AND four off the right. Sixteen take away four is twelve. Now the scale says three x equals twelve, and it is still perfectly level.",
+    "math": "3x + 4 - 4 = 16 - 4 \\;\\Rightarrow\\; 3x = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x",
+      "12"
+     ],
+     "caption": "Subtract 4 from both sides — still balanced"
+    }
+   },
+   {
+    "say": "Now three smoothies together cost twelve dollars. Three of the same thing, sharing twelve dollars equally. Twelve divided by three is four. So one smoothie costs four dollars. That is our x.",
+    "math": "\\frac{3x}{3} = \\frac{12}{3} \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "12 dollars split into 3 equal groups of 4"
+    }
+   },
+   {
+    "say": "Never skip this next bit — always check your answer. Put four back where the x was. Three times four is twelve, and twelve plus four is sixteen. Sixteen equals sixteen. The scale is level, so four dollars is definitely right.",
+    "math": "3(4) + 4 = 12 + 4 = 16 \\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3(4) + 4",
+      "16"
+     ],
+     "caption": "Check: it really does balance"
+    }
+   },
+   {
+    "say": "Here is the same thing as a bar. The whole bar is your sixteen dollars. Three equal chunks are the smoothies, and one little chunk of four is the bus. When you chop off the bus part first, the three equal chunks are all that's left — and that's exactly why we subtract before we divide. Undo the plus first, then undo the times.",
+    "math": "x + x + x + 4 = 16",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [
+      "x",
+      "x",
+      "x",
+      "$4 bus"
+     ],
+     "caption": "Sixteen dollars in total"
+    }
+   },
+   {
+    "say": "Let's try a slightly bigger one, from the story Small Number and the Big Tree. Small Number climbs three metres up the trunk to reach the first branch, then makes four equal pulls to get to his hiding spot nineteen metres up. How long is one pull? Four x plus three equals nineteen. Take three off both sides: four x equals sixteen. Divide both sides by four: x equals four. Check it — four times four is sixteen, plus three is nineteen. It works. Each pull is four metres.",
+    "math": "4x + 3 = 19 \\;\\Rightarrow\\; 4x = 16 \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      4,
+      4,
+      4,
+      3
+     ],
+     "labels": [
+      "x",
+      "x",
+      "x",
+      "x",
+      "3 m"
+     ],
+     "caption": "19 metres up the big tree"
+    }
+   },
+   {
+    "say": "One more, with bigger numbers. Your class is pre-planning a spirit canoe trip. Five paddlers each carry the same mass of gear, plus one shared seven kilogram food barrel, and the canoe holds forty-two kilograms in total. Five x plus seven equals forty-two. Take seven off both sides: forty-two minus seven is thirty-five, so five x equals thirty-five. Divide both sides by five: x equals seven. Check it — five times seven is thirty-five, plus seven is forty-two. Each paddler carries seven kilograms.",
+    "math": "5x + 7 = 42 \\;\\Rightarrow\\; 5x = 35 \\;\\Rightarrow\\; x = 7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "5x",
+      "35"
+     ],
+     "caption": "After removing 7 kg from both sides"
+    }
+   },
+   {
+    "say": "So every two-step equation is the same little dance. Subtract the extra bit from both sides, divide both sides by the number in front of x, then plug your answer back in to check. Do it to one side, do it to the other, and the scale never lies to you.",
+    "math": "ax + b = c \\;\\Rightarrow\\; ax = c - b \\;\\Rightarrow\\; x = \\frac{c-b}{a}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Undo the plus first, then undo the times — and always do the same thing to BOTH sides.",
+  "practice": {
+   "question": "On a field trip to Stanley Park, your bus ticket costs six dollars and you buy four snacks that all cost the same. You spend thirty dollars in total. Write and solve the equation to find the price of one snack.",
+   "answer": "4x + 6 = 30, so 4x = 24 and x = 6. One snack costs six dollars. Check: 4 × 6 = 24, and 24 + 6 = 30. ✓"
+  }
+ }
+}

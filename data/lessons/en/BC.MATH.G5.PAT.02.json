@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G5.PAT.02",
+ "lang": "en",
+ "title": "one-step equations with variables",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "The Mystery Number: One-Step Equations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine this. You have been saving money in a jar for a new book at the school book fair, but you forgot how much was in there. Then your grandma gives you four more dollars, and now you count fifteen dollars. How much was already in the jar? That hidden amount is a mystery number, and in math we give mystery numbers a letter, like x. This is exactly why equations exist — they let us write down a puzzle before we know the answer.",
+    "math": "x = ?",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 4",
+      "15"
+     ],
+     "caption": "An equation is a balanced scale: both sides are worth the same"
+    }
+   },
+   {
+    "say": "Let's write the story as an equation. The money in the jar is x. Grandma's four dollars is plus four. And the total is fifteen. So we write: four plus x equals fifteen. That equals sign is very special — it means the left side and the right side weigh exactly the same, like a balanced scale.",
+    "math": "4 + x = 15",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15,
+      4
+     ],
+     "labels": [
+      "Total: 15 dollars",
+      "Grandma gave: 4 dollars"
+     ],
+     "caption": "The whole bar is 15. One part is 4. The missing part is x"
+    }
+   },
+   {
+    "say": "Now here is the golden rule. A scale stays balanced only if you do the same thing to both sides. We want x all by itself, so let's take away the four. Take four off the left side, and take four off the right side too. On the left, four plus x take away four leaves just x. On the right, fifteen take away four leaves eleven.",
+    "math": "4 + x - 4 = 15 - 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "11"
+     ],
+     "caption": "Same amount removed from both sides — still balanced!"
+    }
+   },
+   {
+    "say": "So x equals eleven. There were eleven dollars in the jar. Now the most important habit of all — check it. Put eleven back into the original equation: four plus eleven equals fifteen. Yes! It works. On a number line you can see it too: jumping from four up to fifteen is a jump of eleven.",
+    "math": "x = 11 \\quad\\text{check: } 4 + 11 = 15",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      15,
+      4,
+      15
+     ],
+     "labels": [],
+     "caption": "The jump from 4 to 15 is 11"
+    }
+   },
+   {
+    "say": "Let's try a slightly harder one. At the farmers market in Kelowna, a box of blueberries costs three dollars. You spent twenty-four dollars in total on blueberries. How many boxes did you buy? Call the number of boxes n. Each box is three dollars, so three times n equals twenty-four.",
+    "math": "3 \\times n = 24",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      8,
+      3
+     ],
+     "labels": [],
+     "caption": "Some boxes, 3 dollars each, making 24 dollars in total"
+    }
+   },
+   {
+    "say": "This time the mystery number is being multiplied by three, so we undo it with the opposite of multiplying — dividing. Divide both sides by three. On the left, three times n divided by three leaves just n. On the right, twenty-four divided by three is eight. So n equals eight boxes. Check it: three times eight is twenty-four. Perfect.",
+    "math": "n = 24 \\div 3 = 8",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3 × 8",
+      "24"
+     ],
+     "caption": "Check: both sides are 24, so the scale balances"
+    }
+   },
+   {
+    "say": "See the pattern? If the mystery number has something added to it, subtract. If something is taken away, add it back. If it is multiplied, divide. Always do it to both sides, and always check your answer by putting it back in. That is all a one-step equation is — one little undo.",
+    "math": "+ \\leftrightarrow - \\qquad \\times \\leftrightarrow \\div",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "answer"
+     ],
+     "caption": "Keep the scale balanced and the mystery number shows itself"
+    }
+   }
+  ],
+  "answer": "An equation is a balanced scale — undo the operation on BOTH sides to set the mystery number free, then check by putting your answer back in.",
+  "practice": {
+   "question": "A BC Ferries ride costs the same amount for each person. Six people travel and the total cost is forty-two dollars. Write a one-step equation using a variable c for the cost per person, then solve it.",
+   "answer": "6 × c = 42, so c = 42 ÷ 6 = 7. Each person pays 7 dollars. Check: 6 × 7 = 42. ✓"
+  }
+ }
+}

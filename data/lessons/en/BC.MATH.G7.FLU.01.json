@@ -1,0 +1,136 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G7.FLU.01",
+ "lang": "en",
+ "title": "multiplication and division facts to 100 (extending computational fluency)",
+ "provider": "claude",
+ "at": "2026-08-18",
+ "lesson": {
+  "title": "The Times-Five Shortcut: Double Ten, Then Halve",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're at a school fundraiser in Surrey selling reusable water bottles for five dollars each. By the end of the day your class has sold two hundred and fourteen bottles. Someone shouts, how much money did we make? Nobody wants to do two hundred fourteen times five on paper. But there's a shortcut, and once you see it you'll use it forever.",
+    "math": "214\\times 5=\\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here's the secret. Five is exactly half of ten. And multiplying by ten is the easiest thing in math — you just slide the digits over and add a zero. So instead of fighting with five, multiply by ten first, then cut your answer in half.",
+    "math": "5=\\frac{10}{2}",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+     ],
+     "labels": [],
+     "caption": "Counting by fives — every second one lands on a ten"
+    }
+   },
+   {
+    "say": "Let's try a small one so you can see it working. Fourteen times five. First, fourteen times ten is one hundred forty. Now take half of one hundred forty, which is seventy. So fourteen times five is seventy. Look at the bar picture — the five times bar is exactly half the length of the ten times bar.",
+    "math": "14\\times 10=140\\;\\longrightarrow\\;140\\div 2=70",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      140,
+      70
+     ],
+     "labels": [
+      "14 × 10",
+      "14 × 5"
+     ],
+     "caption": "Half of the ten-times bar"
+    }
+   },
+   {
+    "say": "Not convinced yet? Let's check it the slow way with an area model. Break fourteen into ten and four. Ten rows of five is fifty, and four rows of five is twenty. Fifty plus twenty is seventy. Same answer — the shortcut really works.",
+    "math": "(10\\times 5)+(4\\times 5)=50+20=70",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      14,
+      5
+     ],
+     "labels": [],
+     "caption": "14 × 5 broken into 50 + 20"
+    }
+   },
+   {
+    "say": "Now back to the water bottles. Two hundred fourteen times ten is two thousand one hundred forty. Now halve it: half of two thousand is one thousand, half of one hundred forty is seventy. One thousand plus seventy is one thousand and seventy. Your class raised one thousand and seventy dollars.",
+    "math": "214\\times 10=2140\\;\\longrightarrow\\;2140\\div 2=1070",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      1070
+     ],
+     "labels": [],
+     "caption": "$1070 raised"
+    }
+   },
+   {
+    "say": "The trick flips around for dividing too. To divide by five, divide by ten and then double. Say three hundred forty dollars of prize money gets split between five teams. Three hundred forty divided by ten is thirty four, and double thirty four is sixty eight. Each team gets sixty eight dollars.",
+    "math": "340\\div 5=(340\\div 10)\\times 2=34\\times 2=68",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      5,
+      68
+     ],
+     "labels": [],
+     "caption": "5 teams, $68 each"
+    }
+   },
+   {
+    "say": "Quick check that it's right: sixty eight times five. Sixty eight times ten is six hundred eighty, and half of that is three hundred forty. It matches, so we're good. Always check your shortcut with the shortcut — it takes two seconds.",
+    "math": "68\\times 5=680\\div 2=340\\;\\checkmark",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      680,
+      340
+     ],
+     "labels": [
+      "68 × 10",
+      "68 × 5"
+     ],
+     "caption": "The check lands back on 340"
+    }
+   },
+   {
+    "say": "So whenever you see a five, don't panic — think ten. Times five means times ten then halve. Divide by five means divide by ten then double. That's it, that's the whole trick.",
+    "math": "\\times 5=\\times 10\\div 2\\qquad \\div 5=\\div 10\\times 2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To multiply by 5, multiply by 10 and halve it — 214 × 5 = 2140 ÷ 2 = 1070.",
+  "practice": {
+   "question": "Your school sells reusable water bottles for $5 each and sells 148 of them at the fall fair. How much money did the school collect? Use the times-ten-then-halve shortcut.",
+   "answer": "$740. Because 148 × 10 = 1480, and half of 1480 is 740."
+  }
+ }
+}
