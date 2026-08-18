@@ -1,9 +1,10 @@
 {
   "outputDirectory": "public",
+  "buildCommand": "node tools/vercel-fetch-voice.mjs",
   "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }],
   "functions": {
     "api/index.js": {
-      "includeFiles": "{public/**,demo/**,data/curriculum/**,data/lessons/**,data/unit-tests/**}"
+      "includeFiles": "{public/**,demo/**,data/curriculum/**,data/lessons/**,data/unit-tests/**,data/voice/**}"
     }
   }
 }
