@@ -9,6 +9,14 @@ with pictures, read aloud — then shows the answer to check plus one practice p
 Runs on your own computer or a Raspberry Pi. **No API key needs to go in the webpage** — it automatically
 borrows whichever AI tool is already logged in on your machine.
 
+## Try it live (no install)
+
+A free demo runs at **[ai-tutor-olive-eight.vercel.app](https://ai-tutor-olive-eight.vercel.app/)** — the
+BC curriculum lessons, quizzes and unit tests, instantly, no signup. Kid login: tap the avatar, PIN
+`1234`. Parent login: `demo` / `demo1234`. It's a serverless deployment with no AI engine attached, so
+photo questions and natural voice aren't available there (that's what the installer below is for) — and
+there's no persistent storage, so anything you change resets whenever the instance recycles.
+
 ## Just install it (for people who don't want to tinker)
 
 Grab the package for your system from [Releases](https://github.com/liukai1919/AI-tutor/releases). Install, double-click the icon, and lessons start —

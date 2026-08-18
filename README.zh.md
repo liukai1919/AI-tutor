@@ -6,6 +6,10 @@
 
 跑在你自己的电脑或树莓派上，**不需要往网页里填任何 API key** —— 它会自动借用你机器上已登录的 AI 工具。
 
+## 在线试用（不用装）
+
+免费在线 demo：**[ai-tutor-olive-eight.vercel.app](https://ai-tutor-olive-eight.vercel.app/)** —— BC 大纲的课程、闯关、单元测试，秒开不用注册。孩子端：点头像，PIN 输 `1234`；家长账号：`demo` / `demo1234`。这是没接 AI 引擎的 serverless 部署，所以拍照出题、真人语音在这上面用不了（这些留给下面的安装版）；也没有持久存储，实例一回收，改动就清零。
+
 ## 装好就能用（给不折腾的人）
 
 从 [Releases](https://github.com/liukai1919/AI-tutor/releases) 下载对应的包，装完双击图标就开始上课 —— **不用装 Node，不用装 AI，不用联网，不用注册任何服务**：
