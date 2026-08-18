@@ -340,8 +340,40 @@ signs in on a computer and selects that child.
 
 ## Build your own release
 
-Three steps: generate the lessons, bake the voice, then package. Everything lives in `tools/`, and
-every step is resumable (Ctrl-C, run it again, finished work is skipped).
+### First: what is and isn't in this repo
+
+Pre-generated content splits two ways. **Text is committed; binaries and live user state are not** —
+otherwise the repo would carry hundreds of MB of audio plus a quiz file that changes every time a
+child answers a question.
+
+| Thing | In the repo? | Notes |
+|---|---|---|
+| Lesson pack `data/lessons/` (138) | ✅ yes | 1.2 MB of text — works straight after a clone |
+| Unit tests `data/unit-tests/` (40) | ✅ yes | 328 KB of text |
+| BC curriculum `data/curriculum/bc/` | ✅ yes | public government material |
+| **Quiz bank `qbank.json` (1656 questions)** | ❌ **no** | every answered question writes `usedAt` — it is live state, and committing it would dirty the tree daily |
+| **Voice pack `data/voice/` (1075 clips)** | ❌ **no** | 158 MB of binaries; once in git history it can never really be removed |
+| User data `data/kids/`, `users.json` | ❌ no | children's learning records and accounts — never belongs in a public repo |
+| Build output `build/` | ❌ no | also contains downloaded Node runtimes |
+
+So: **a fresh clone runs and teaches fine** (the lesson pack is complete), but **to build a package
+as complete as the published one you have to regenerate two things yourself**:
+
+```bash
+# Quiz bank: about 92 minutes, needs an AI engine
+node tools/pregen.mjs --only quiz --concurrency 3
+
+# Voice pack: about 3.5 hours, needs the CosyVoice daemon + ffmpeg
+node tools/prevoice.mjs --langs zh,en
+```
+
+You can package without them — the app just falls back to writing quiz questions live (which needs
+an engine) and to the robotic browser voice.
+
+### The three steps
+
+Generate the lessons, bake the voice, then package. Everything lives in `tools/`, and every step is
+resumable (Ctrl-C, run it again, finished work is skipped).
 
 ```bash
 # 1. Lessons + quiz banks + unit tests

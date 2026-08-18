@@ -40,6 +40,12 @@ tools/books/package-lock.json
 # 打包产物（里面有下载来的 Node 运行时，几十上百 MB）
 build/
 
-# 预烘语音包：几百个 m4a、几十 MB 二进制，不进 git。
-# 要的时候用 tools/prevoice.mjs 重烘（需要 CosyVoice 守护进程 + ffmpeg）。
+# 预烘语音包：1000+ 个 m4a、150 MB 以上的二进制。进了 git 历史就永远删不掉，
+# 所以只当构建产物。clone 下来打包前先跑
+#   node tools/prevoice.mjs --langs zh,en （约 3.5 小时，要 CosyVoice 守护进程 + ffmpeg）
+# 不跑也能打包，只是装出来的软件只有浏览器那个机械音。
 data/voice/
+
+# 反过来，这两样是文本、体积小、不随使用变化，所以【要】进仓库，别加进来：
+#   data/lessons/      预生成的 138 节课（1.2 MB）
+#   data/unit-tests/   预生成的 40 张单元测试卷（328 KB）
