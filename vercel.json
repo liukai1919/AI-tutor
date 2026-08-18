@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "public",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{public/**,demo/**,data/curriculum/**,data/lessons/**,data/unit-tests/**}"
+    }
+  }
+}

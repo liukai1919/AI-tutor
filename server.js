@@ -924,6 +924,9 @@ function cleanup(dir) { try { fs.rmSync(dir, { recursive: true, force: true }); 
 /* ---------------- 引擎检测 ---------------- */
 const detected = {}; // id -> {available, bin?, model?, note}
 async function detectProviders() {
+  // YY_DEMO（Vercel 在线 demo）：不探测也不启用任何引擎。公开部署不该替访客
+  // 花任何人的订阅/API 额度；也保证本地模拟（机器上装着真 CLI）和线上行为一致。
+  if (process.env.YY_DEMO) return;
   // Ollama
   try {
     const r = await fetch(cfg.ollama.url + "/api/tags", { signal: AbortSignal.timeout(2500) });
@@ -1385,7 +1388,9 @@ try {
  * 结构兼容 grade-N.json，另带 type:"book"、strandDefs（章节代替五大主线）、teachStyle（原书讲法）。
  * 讲课/闯关/进度/报告全部走现有条目 id 机制；FSA 只认数字年级，书籍天然不出卷。 */
 const BOOKS_DIR = path.join(ROOT, "data", "curriculum", "books");
-try {
+/* YY_DEMO（Vercel 在线 demo，入口 api/index.js）不放书籍课程：demo 没有引擎，
+ * 书籍小节又没有预生成课，列出来点进去全是死路。本地/打包运行不设这个变量，不受影响。 */
+if (!process.env.YY_DEMO) try {
   for (const f of fs.readdirSync(BOOKS_DIR)) {
     if (!f.endsWith(".json")) continue;
     try {
@@ -2875,8 +2880,10 @@ if (require.main === module) detectProviders().then(() => {
   });
 });
 
-/* 构建期脚本用得到的内部件。服务器自己不依赖这个导出，删了也不影响运行。 */
+/* 构建期脚本和 Vercel demo 包装器（api/index.js 取 server）用得到的内部件。
+ * 服务器自己不依赖这个导出，删了也不影响本地运行。 */
 module.exports = {
+  server,
   cfg, ROOT, DATA_ROOT, PACKAGED, L, DEFAULT_CONFIG, deepMerge,
   ADAPTERS, PROVIDER_META, detectProviders, pickProvider,
   curriculum, curriculumGrades, curriculumBooks, findCurriculumItem,

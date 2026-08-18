@@ -49,3 +49,7 @@ data/voice/
 # 反过来，这两样是文本、体积小、不随使用变化，所以【要】进仓库，别加进来：
 #   data/lessons/      预生成的 138 节课（1.2 MB）
 #   data/unit-tests/   预生成的 40 张单元测试卷（328 KB）
+
+# Vercel demo 的种子题库（tools 下脚本从本地 qbank.json 过滤出 BC.* 键生成，
+# 见 api/index.js）。上面的 qbank.json 规则按文件名匹配会把它也挡掉，这里放行。
+!demo/qbank.json
