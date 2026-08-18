@@ -740,6 +740,8 @@ const I18N = {
     loginWho:"今天谁来学数学？", loginTapName:"点自己的名字进入",
     loginParentLink:"我是家长 →",
     pinFor:(n)=>`你好，${n}！输入你的 PIN`, pinPh:"4-6 位数字",
+    demoPinHint:(pin)=>`这是在线演示，PIN 是 ${pin}`,
+    demoParentHint:(who)=>`这是在线演示，家长账号是 ${who}`,
     enterBtn:"进入 ✨", backBtn:"← 返回",
     parentLoginTitle:"家长登录",
     usernameLabel:"用户名", passwordLabel:"密码",
@@ -925,6 +927,8 @@ const I18N = {
     loginWho:"Who's doing math today?", loginTapName:"Tap your name to start",
     loginParentLink:"I'm a parent →",
     pinFor:(n)=>`Hi ${n}! Enter your PIN`, pinPh:"4-6 digits",
+    demoPinHint:(pin)=>`This is a live demo — the PIN is ${pin}`,
+    demoParentHint:(who)=>`This is a live demo — the parent login is ${who}`,
     enterBtn:"Let's go ✨", backBtn:"← Back",
     parentLoginTitle:"Parent sign-in",
     usernameLabel:"Username", passwordLabel:"Password",
@@ -1211,7 +1215,8 @@ function renderAuth(v, ctx){
     body.querySelector("#toParent").onclick=()=>renderAuth("parent");
   }
   else if(v==="pin"){   // 孩子输 PIN
-    title.textContent=t("pinFor")(ctx.name); sub.textContent="";
+    title.textContent=t("pinFor")(ctx.name);
+    sub.textContent=(profilesInfo&&profilesInfo.demoPin)?t("demoPinHint")(profilesInfo.demoPin):"";
     body.innerHTML=`<div class="field"><input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="${escapeHtml(t("pinPh"))}" autocomplete="off" style="text-align:center;font-size:24px;letter-spacing:8px"/></div>`
       +`<div class="modalRow"><button class="btn ghost" id="authBack" style="flex:1">${escapeHtml(t("backBtn"))}</button><button class="btn" id="pinGo" style="flex:1">${escapeHtml(t("enterBtn"))}</button></div>`;
     const go=async()=>{
@@ -1229,7 +1234,8 @@ function renderAuth(v, ctx){
     $("pinInput").focus();
   }
   else if(v==="parent"){   // 家长登录（在自己设备上：token 记住在 localStorage）
-    title.textContent=t("parentLoginTitle"); sub.textContent="";
+    title.textContent=t("parentLoginTitle");
+    sub.textContent=(profilesInfo&&profilesInfo.demoParent)?t("demoParentHint")(profilesInfo.demoParent):"";
     body.innerHTML=`<div class="field"><label>${escapeHtml(t("usernameLabel"))}</label><input id="puInput" type="text" autocomplete="username"/></div>`
       +`<div class="field"><label>${escapeHtml(t("passwordLabel"))}</label><input id="ppInput" type="password" autocomplete="current-password"/></div>`
       +`<div class="modalRow"><button class="btn ghost" id="authBack" style="flex:1">${escapeHtml(t("backBtn"))}</button><button class="btn" id="plGo" style="flex:1">${escapeHtml(t("enterBtn"))}</button></div>`;

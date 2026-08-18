@@ -21,6 +21,11 @@ const os = require("os");
 
 process.env.YY_DEMO = "1";
 if (!process.env.YY_DATA_DIR) process.env.YY_DATA_DIR = path.join(os.tmpdir(), "yuanyuan-demo");
+/* 登录屏的演示账号提示（server.js /api/auth/profiles 原样透传给前端）。
+ * 明文密码没法从 demo/users.json 里的 scrypt 哈希反推，只能在这唯一一处
+ * 和造种子账号时（见对话记录）用的是同一套凭据，跟着改。 */
+if (!process.env.YY_DEMO_PIN) process.env.YY_DEMO_PIN = "1234";
+if (!process.env.YY_DEMO_PARENT) process.env.YY_DEMO_PARENT = "demo / demo1234";
 
 const DATA = process.env.YY_DATA_DIR;
 const SEED = path.join(__dirname, "..", "demo");

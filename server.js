@@ -2081,7 +2081,11 @@ const server = http.createServer(async (req, res) => {
         needsSetup,
         registrationCodeRequired: !!cfg.registrationCode,
         registrationOpen: needsSetup || !!cfg.registrationCode,   // 首位家长之后只剩邀请码这一条路
-        kids: users.filter(u => u.role === "kid").map(publicUser)
+        kids: users.filter(u => u.role === "kid").map(publicUser),
+        // Vercel demo 专用：登录屏显示演示账号提示，免得陌生访客卡在 PIN 上。
+        // 明文只活在 api/index.js（永不进安装包）；这里原样透传，不关心具体是什么。
+        demoPin: process.env.YY_DEMO_PIN || undefined,
+        demoParent: process.env.YY_DEMO_PARENT || undefined
       });
     }
 
