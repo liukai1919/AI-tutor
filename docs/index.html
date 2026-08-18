@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yuanyuan Math 圆圆数学 · A private AI math tutor for BC Grades 4–7</title>
+<meta name="description" content="A self-hosted AI math tutor for kids: 138 offline BC-curriculum lessons (Grades 4–7), quiz banks, unit tests and natural voice, bilingual EN/中文. Runs on your own PC or a Raspberry Pi — no cloud accounts, and it teaches fine with no AI engine at all." />
+<link rel="canonical" href="https://liukai1919.github.io/AI-tutor/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Yuanyuan Math 圆圆数学 — a private AI math tutor that lives on your own computer" />
+<meta property="og:description" content="138 offline BC-curriculum lessons (Grades 4–7), quizzes, unit tests and natural voice, bilingual EN/中文. Free, MIT-licensed, no cloud accounts." />
+<meta property="og:image" content="https://liukai1919.github.io/AI-tutor/assets/og.jpg" />
+<meta property="og:url" content="https://liukai1919.github.io/AI-tutor/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="26" fill="%23ff8a5b"/><text x="50" y="72" font-size="62" text-anchor="middle" fill="white" font-family="Georgia,serif" font-weight="bold">π</text></svg>' />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Yuanyuan Math 圆圆数学",
+ "operatingSystem":"Windows, macOS, Linux","applicationCategory":"EducationalApplication",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "license":"https://github.com/liukai1919/AI-tutor/blob/main/LICENSE",
+ "url":"https://liukai1919.github.io/AI-tutor/",
+ "downloadUrl":"https://github.com/liukai1919/AI-tutor/releases"}
+</script>
+<style>
+  :root{
+    --bg:#fff7ee; --card:#ffffff; --ink:#3a2f2a; --muted:#8a7d74;
+    --brand:#ff8a5b; --brand2:#6c8cff; --good:#3fbf7f;
+    --line:#f0e4d8; --soft:#fff1e4; --shadow:0 10px 30px rgba(90,60,40,.12);
+    --r:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%,#ffe6d2 0%,transparent 60%),
+      radial-gradient(900px 500px at -10% 10%,#dce6ff 0%,transparent 55%),
+      var(--bg);
+    color:var(--ink); min-height:100vh; -webkit-font-smoothing:antialiased;
+    line-height:1.65; font-size:16.5px;
+  }
+  /* 语言开关：html[data-lang] 决定谁显示；两种语言都在 DOM 里 */
+  html[data-lang="en"] [lang="zh"]{display:none !important}
+  html[data-lang="zh"] [lang="en"]{display:none !important}
+
+  a{color:var(--brand2)}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,247,238,.85);backdrop-filter:blur(10px);
+    border-bottom:1.5px solid var(--line);
+  }
+  .hbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:.3px;color:var(--ink);text-decoration:none}
+  .logo .pi{
+    width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:21px;
+    background:linear-gradient(135deg,var(--brand),#ffb27a);box-shadow:var(--shadow);transform:rotate(-4deg);
+    font-family:Georgia,serif;
+  }
+  .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:0;line-height:1.2}
+  nav{display:flex;gap:20px;align-items:center;font-size:14.5px;font-weight:700}
+  nav a{color:var(--muted);text-decoration:none}
+  nav a:hover{color:var(--ink)}
+  .hbtns{display:flex;gap:9px;align-items:center}
+  .langpill{display:flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;background:#fff;cursor:pointer}
+  .langpill button{border:none;background:none;padding:7px 13px;font-size:13.5px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
+  .langpill button.on{background:linear-gradient(135deg,var(--brand),#ff9f6a);color:#fff}
+  .ghbtn{display:inline-flex;align-items:center;gap:7px;border:2px solid var(--line);background:#fff;border-radius:999px;
+    padding:7px 15px;font-size:13.5px;font-weight:800;color:var(--ink);text-decoration:none;transition:.15s}
+  .ghbtn:hover{border-color:var(--brand)}
+  .ghbtn svg{width:17px;height:17px;fill:currentColor}
+  @media(max-width:760px){ nav{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;padding:64px 0 30px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:13px;font-weight:800;color:var(--muted);margin-bottom:18px}
+  .eyebrow .dotg{width:8px;height:8px;border-radius:99px;background:var(--good)}
+  h1{font-size:clamp(30px,4.6vw,44px);line-height:1.22;margin:0 0 16px;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--brand)}
+  .lede{color:var(--muted);font-size:17.5px;margin:0 0 26px;max-width:34em}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;border:none;border-radius:16px;padding:14px 22px;font-size:16.5px;font-weight:800;
+    cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--brand),#ff9f6a);
+    box-shadow:0 8px 20px rgba(255,138,91,.35);text-decoration:none;transition:.15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--brand)}
+  .trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .chip{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:999px;
+    padding:6px 12px;font-size:12.5px;font-weight:700;color:var(--muted)}
+  .chip b{color:var(--good)}
+
+  .heroArt{position:relative;min-height:340px}
+  .browser{
+    background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(90,60,40,.22);overflow:hidden;border:1.5px solid var(--line);
+  }
+  .browser .bar{display:flex;align-items:center;gap:8px;background:var(--soft);border-bottom:1.5px solid var(--line);padding:9px 12px}
+  .browser .bar i{width:11px;height:11px;border-radius:99px;display:block}
+  .browser .bar i:nth-child(1){background:#ff8a5b}.browser .bar i:nth-child(2){background:#ffd27a}.browser .bar i:nth-child(3){background:#3fbf7f}
+  .browser .url{flex:1;max-width:230px;margin-left:8px;background:#fff;border:1.5px solid var(--line);border-radius:99px;
+    font-size:11.5px;color:var(--muted);padding:3px 12px;font-weight:700}
+  .phone{
+    position:absolute;right:-10px;bottom:-26px;width:150px;height:312px;border-radius:26px;border:6px solid #3a2f2a;overflow:hidden;
+    box-shadow:0 24px 50px rgba(90,60,40,.35);background:#fff;transform:rotate(3deg);
+  }
+  .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:44px}
+    .heroArt{margin-top:6px}
+    .phone{right:6px;bottom:-20px;width:118px;height:246px;transform:rotate(2deg)}
+  }
+
+  /* ---------- stats ---------- */
+  .stats{margin:56px 0 8px;background:var(--card);border:2px solid #fff;border-radius:var(--r);box-shadow:var(--shadow);
+    padding:26px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+  .stat b{display:block;font-size:clamp(24px,3vw,34px);color:var(--brand);letter-spacing:-.5px}
+  .stat span{font-size:13.5px;color:var(--muted);font-weight:700}
+  .statNote{text-align:center;color:var(--muted);font-size:14px;margin:14px auto 0;max-width:46em}
+  @media(max-width:760px){ .stats{grid-template-columns:repeat(2,1fr)} }
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0 8px}
+  .kicker{color:var(--brand);font-weight:800;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px}
+  h2{font-size:clamp(25px,3.4vw,34px);margin:0 0 10px;letter-spacing:-.4px;line-height:1.25}
+  .secsub{color:var(--muted);max-width:42em;margin:0 0 34px;font-size:16.5px}
+
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:0 0 58px}
+  .row2 .shot{background:#fff;border-radius:18px;overflow:hidden;border:1.5px solid var(--line);box-shadow:var(--shadow)}
+  .row2 h3{font-size:21px;margin:0 0 10px}
+  .row2 p{color:var(--muted);margin:0 0 10px}
+  .row2 .mini{font-size:13.5px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
+  .row2:nth-of-type(even) .txt{order:-1}
+  @media(max-width:820px){
+    .row2{grid-template-columns:1fr;gap:18px;margin-bottom:44px}
+    .row2:nth-of-type(even) .txt{order:0}
+  }
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fcard{background:var(--card);border:2px solid #fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px}
+  .fcard .ico{font-size:26px;display:inline-grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--soft);margin-bottom:12px}
+  .fcard h3{font-size:17.5px;margin:0 0 7px}
+  .fcard p{font-size:14.5px;color:var(--muted);margin:0}
+  @media(max-width:820px){ .grid{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .grid{grid-template-columns:1fr} }
+
+  /* ---------- install ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
+  .step{background:var(--card);border:2px solid #fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px;position:relative}
+  .step .n{position:absolute;top:-14px;left:18px;width:32px;height:32px;border-radius:99px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--brand),#ff9f6a);color:#fff;font-weight:800;font-size:15px;box-shadow:0 6px 14px rgba(255,138,91,.4)}
+  .step h3{font-size:16.5px;margin:8px 0 7px}
+  .step p{font-size:14.5px;color:var(--muted);margin:0}
+  @media(max-width:760px){ .steps{grid-template-columns:1fr} }
+  .signnote{font-size:13.5px;color:var(--muted);background:var(--soft);border:1.5px dashed #ffd9bf;border-radius:14px;padding:12px 16px;max-width:56em}
+  .srcbox{margin-top:34px;background:#fff;border:2px solid var(--line);border-radius:var(--r);padding:22px}
+  .srcbox h3{margin:0 0 6px;font-size:18px}
+  .srcbox p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+  pre{background:#3a2f2a;color:#ffe9d9;border-radius:14px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.7;margin:0}
+  pre .c{color:#b9a394}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:70px;border-top:1.5px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:13.5px}
+  footer .cols{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer a{color:var(--muted);font-weight:700}
+  footer .fine{margin-top:16px;max-width:62em;line-height:1.7}
+
+  /* 进场动画（尊重 reduced-motion） */
+  .rise{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .rise.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#top">
+      <span class="pi">π</span>
+      <span>Yuanyuan Math<small>圆圆数学 · your AI math tutor</small></span>
+    </a>
+    <nav>
+      <a href="#box"><span lang="en">Out of the box</span><span lang="zh">开箱即教</span></a>
+      <a href="#features"><span lang="en">Details</span><span lang="zh">细节</span></a>
+      <a href="#install"><span lang="en">Install</span><span lang="zh">安装</span></a>
+    </nav>
+    <div class="hbtns">
+      <div class="langpill" role="group" aria-label="Language">
+        <button id="langEn" class="on" type="button">EN</button><button id="langZh" type="button">中</button>
+      </div>
+      <a class="ghbtn" href="https://github.com/liukai1919/AI-tutor" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- ================= hero ================= -->
+  <div class="hero">
+    <div>
+      <span class="eyebrow"><span class="dotg"></span>
+        <span lang="en">Free &amp; open source · BC curriculum · Grades 4–7</span>
+        <span lang="zh">免费开源 · BC 官方大纲 · 4–7 年级</span>
+      </span>
+      <h1>
+        <span lang="en">A private AI math tutor that lives on <em>your own computer</em></span>
+        <span lang="zh">住在<em>自己电脑里</em>的 AI 数学家教</span>
+      </h1>
+      <p class="lede">
+        <span lang="en">138 pre-generated lessons that follow the official BC math curriculum — explained step by step, with pictures and a natural voice, in English and 中文. No cloud accounts, no subscription, and your child's data never leaves home.</span>
+        <span lang="zh">138 节预生成课程，紧跟 BC 官方数学大纲——一步步讲、配图、真人感语音朗读，中英双语。不用注册任何云服务，没有订阅，孩子的学习数据不出家门。</span>
+      </p>
+      <div class="ctas">
+        <a class="btn" href="https://github.com/liukai1919/AI-tutor/releases" target="_blank" rel="noopener">
+          ⬇ <span lang="en">Download · Windows / macOS</span><span lang="zh">下载 · Windows / macOS</span>
+        </a>
+        <a class="btn ghost" href="https://github.com/liukai1919/AI-tutor" target="_blank" rel="noopener">
+          <span lang="en">View the source</span><span lang="zh">去 GitHub 看源码</span>
+        </a>
+      </div>
+      <div class="trust">
+        <span class="chip"><b>✓</b><span lang="en">Works fully offline</span><span lang="zh">完全离线可用</span></span>
+        <span class="chip"><b>✓</b><span lang="en">No accounts on anyone's server</span><span lang="zh">不在任何服务器开账号</span></span>
+        <span class="chip"><b>✓</b><span lang="en">MIT licensed</span><span lang="zh">MIT 开源协议</span></span>
+      </div>
+    </div>
+    <div class="heroArt rise">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span class="url">localhost:8434</span></div>
+        <img src="assets/lesson-en.webp" width="1600" height="1075"
+             alt="Yuanyuan Math teaching 'Which Slice Is Bigger?' — fraction bars comparing 3/8 and 5/8, with the BC Grade 4 topic list on the left" />
+      </div>
+      <div class="phone">
+        <img src="assets/lesson-zh-mobile.webp" width="640" height="1385"
+             alt="The same lesson in Chinese on a phone: 分数比大小, with a 3/4 fraction bar" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= stats ================= -->
+  <div class="stats rise">
+    <div class="stat"><b>138</b><span lang="en">bilingual lessons</span><span lang="zh">双语课程</span></div>
+    <div class="stat"><b>1,656</b><span lang="en">quiz questions</span><span lang="zh">闯关题目</span></div>
+    <div class="stat"><b>40</b><span lang="en">unit tests</span><span lang="zh">单元测试卷</span></div>
+    <div class="stat"><b>1,075</b><span lang="en">natural-voice clips</span><span lang="zh">真人感语音条</span></div>
+  </div>
+  <p class="statNote">
+    <span lang="en">All pre-generated and bundled with the installer. Everything above works offline, before any AI engine is set up.</span>
+    <span lang="zh">全部预生成、随安装包发货。上面这些装完就能用——一个 AI 引擎都不用配。</span>
+  </p>
+
+  <!-- ================= out of the box ================= -->
+  <section id="box">
+    <p class="kicker"><span lang="en">What's in the box</span><span lang="zh">开箱即教</span></p>
+    <h2>
+      <span lang="en">Teaches right out of the box</span>
+      <span lang="zh">装完就开讲，不用折腾</span>
+    </h2>
+    <p class="secsub">
+      <span lang="en">Install, double-click, and lessons start — no Node, no API keys, no internet needed. Kids tap their name, enter a PIN, and Ms. Yuanyuan takes it from there.</span>
+      <span lang="zh">安装、双击、开讲——不用装 Node，不用填 API key，断网也行。孩子点自己的名字、输入 PIN，剩下的交给圆圆老师。</span>
+    </p>
+
+    <div class="row2 rise">
+      <div class="shot"><img src="assets/learn-en.webp" loading="lazy" width="1200" height="1281"
+        alt="The Learn tab: BC Grade 4 topics grouped by strand, with grey/blue/green progress dots and a unit-test button" /></div>
+      <div class="txt">
+        <h3><span lang="en">Learn along the official BC curriculum</span><span lang="zh">跟着 BC 官方大纲学</span></h3>
+        <p>
+          <span lang="en">Pick a grade (4–7) and the whole term is laid out strand by strand, in the curriculum's official wording. Grey means new, blue means seen, green means solid — solid takes correct answers on two different days, not one lucky afternoon.</span>
+          <span lang="zh">选好年级（4–7），这学期五大主线的知识点一目了然，条目用的是大纲官方原文。灰点没学、蓝点讲过、绿点扎实——「扎实」要在两个不同的日子都答对才算，不靠一个下午的手气。</span>
+        </p>
+        <p class="mini">
+          <span lang="en">Every strand has a unit test; Grades 4 and 7 also get FSA-style practice sets for BC's province-wide assessment.</span>
+          <span lang="zh">每条主线配一张单元测；4、7 年级还有 FSA 模拟练习，对应 BC 全省统测。</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="row2 rise">
+      <div class="shot"><img src="assets/quiz-en.webp" loading="lazy" width="1200" height="750"
+        alt="A quiz question on ordering and comparing fractions with four options, in distraction-free focus mode" /></div>
+      <div class="txt">
+        <h3><span lang="en">Quizzes that mean something</span><span lang="zh">闯关不是做做样子</span></h3>
+        <p>
+          <span lang="en">Each topic has a ⚡ quiz whose difficulty steps up and down as your child answers. Marking happens on the server against the stored answer key — whatever the browser claims doesn't count. Passing marks the topic solid.</span>
+          <span lang="zh">每个知识点都有 ⚡ 闯关，边答边升降难度。判分在服务器端对着存好的答案来——浏览器说了不算。通关直接把知识点标成扎实。</span>
+        </p>
+        <p class="mini">
+          <span lang="en">Miss a question on any test and it turns into a full lesson on that topic with one tap.</span>
+          <span lang="zh">测试里错的每道题，一键就能变成一节针对那个知识点的课。</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="row2 rise">
+      <div class="shot"><img src="assets/report-en.webp" loading="lazy" width="1100" height="1206"
+        alt="The parent report: 18 topics this term, rated Emerging / Developing / Proficient / Extending strand by strand" /></div>
+      <div class="txt">
+        <h3><span lang="en">Parent reports that speak report-card</span><span lang="zh">家长报告，说成绩单的语言</span></h3>
+        <p>
+          <span lang="en">A parent-only 📊 view rates every topic Emerging / Developing / Proficient / Extending — the same four-tier language as a real BC report card — ready to print for a parent-teacher conference.</span>
+          <span lang="zh">家长专属的 📊 报告，把每个知识点评成 Emerging / Developing / Proficient / Extending——和 BC 学校成绩单同一套四档说法，打印出来就能带去家长会。</span>
+        </p>
+        <p class="mini">
+          <span lang="en">With an AI engine, Ms. Yuanyuan also writes a full narrative report — but every number in it is computed by the server, never invented by the AI.</span>
+          <span lang="zh">配上 AI 引擎，圆圆老师还能写整份书面报告——但里面每个数字都由服务器算好，AI 只写评语，编不了数。</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="row2 rise">
+      <div class="shot"><img src="assets/home-en.webp" loading="lazy" width="1000" height="1281"
+        alt="Ask a question: type a problem or snap a photo of the homework, and pick from suggested starter questions" /></div>
+      <div class="txt">
+        <h3><span lang="en">Ask it anything <small style="color:var(--muted);font-weight:700">(this part wants an engine)</small></span>
+            <span lang="zh">自己的题随便问 <small style="color:var(--muted);font-weight:700">（这部分需要引擎）</small></span></h3>
+        <p>
+          <span lang="en">Type a problem or snap a photo of the homework, and it's explained step by step with pictures, read aloud — then the answer to check, plus one practice problem of the same kind.</span>
+          <span lang="zh">打字，或者拍一张作业照片，圆圆老师一步步讲、配图、朗读——最后给核对答案，再留一道同类练习。</span>
+        </p>
+        <p class="mini">
+          <span lang="en">This is what needs an AI engine. It borrows whichever tool is already signed in on your machine — Claude Code, Gemini CLI, or free offline Ollama — and no API key ever goes into the webpage.</span>
+          <span lang="zh">这是唯一需要 AI 引擎的部分。它直接借用你电脑上已登录的工具——Claude Code、Gemini CLI，或免费离线的 Ollama——API key 永远不进网页。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= feature grid ================= -->
+  <section id="features">
+    <p class="kicker"><span lang="en">The details</span><span lang="zh">细节</span></p>
+    <h2><span lang="en">Built the way parents wish software was built</span><span lang="zh">按家长希望的方式做软件</span></h2>
+    <p class="secsub">
+      <span lang="en">The boring parts are the point: where the data lives, who can see it, and what happens when the AI is wrong.</span>
+      <span lang="zh">无聊的部分才是重点：数据放在哪、谁能看到、AI 讲错了怎么办。</span>
+    </p>
+    <div class="grid">
+      <div class="fcard rise"><span class="ico">🔒</span>
+        <h3><span lang="en">Private by design</span><span lang="zh">隐私是默认值</span></h3>
+        <p><span lang="en">Accounts are a JSON file on your machine. Registration closes itself after the first parent. Passwords are scrypt-hashed; kids sign in with a 4–6 digit PIN.</span>
+           <span lang="zh">账号就是你机器上的一个 JSON 文件。第一位家长注册完，注册通道自动关闭。密码 scrypt 加盐存储，孩子用 4–6 位 PIN 登录。</span></p>
+      </div>
+      <div class="fcard rise"><span class="ico">🌐</span>
+        <h3><span lang="en">Bilingual to the bone</span><span lang="zh">双语到骨子里</span></h3>
+        <p><span lang="en">One tap switches UI, lessons, examples and voice between English and Chinese. Chinese lessons weave in the English terms kids hear at school — “小数, called <i>decimal</i> in English class”.</span>
+           <span lang="zh">一键切换界面、课程、例题和语音。中文课里自然带出学校里用的英文术语——「小数，英文课上叫 <i>decimal</i>」。</span></p>
+      </div>
+      <div class="fcard rise"><span class="ico">🗣️</span>
+        <h3><span lang="en">A voice that isn't robotic</span><span lang="zh">不是机器人腔</span></h3>
+        <p><span lang="en">1,075 natural-voice clips (CosyVoice 2) ship in the box — the same warm voice for both languages. If a clip is ever missing, browser speech steps in; a lesson is never blocked.</span>
+           <span lang="zh">随包附带 1,075 条 CosyVoice 2 预合成语音，中英同一个温柔声线。缺了哪条就退回浏览器语音——讲课永远不会被卡住。</span></p>
+      </div>
+      <div class="fcard rise"><span class="ico">📐</span>
+        <h3><span lang="en">Diagrams that can't be wrong</span><span lang="zh">图示永远画不错</span></h3>
+        <p><span lang="en">Fraction bars, number lines, grids and bar models are drawn by code. The AI only chooses which diagram to use and fills in the numbers.</span>
+           <span lang="zh">分数条、数轴、方格、条形图全部由程序绘制。AI 只负责挑用哪张图、填哪些数。</span></p>
+      </div>
+      <div class="fcard rise"><span class="ico">🤖</span>
+        <h3><span lang="en">Any engine — or none</span><span lang="zh">引擎随便换，没有也行</span></h3>
+        <p><span lang="en">Works with Claude Code, Gemini CLI, Codex, Grok, any OpenAI-compatible API, or free local Ollama. The whole curriculum teaches fine with no engine at all.</span>
+           <span lang="zh">支持 Claude Code、Gemini CLI、Codex、Grok、任何 OpenAI 兼容 API，或免费本地 Ollama。整套大纲课没有引擎也照常教。</span></p>
+      </div>
+      <div class="fcard rise"><span class="ico">🍓</span>
+        <h3><span lang="en">Runs on a Raspberry Pi</span><span lang="zh">树莓派也带得动</span></h3>
+        <p><span lang="en">A Pi 4 with 2 GB is plenty — the server is zero-dependency Node. Add free Tailscale and kids can use it safely from anywhere.</span>
+           <span lang="zh">Pi 4 / 2GB 就绰绰有余——服务器是零依赖 Node。配上免费的 Tailscale，孩子在外面也能安全地用。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= install ================= -->
+  <section id="install">
+    <p class="kicker"><span lang="en">Install</span><span lang="zh">安装</span></p>
+    <h2><span lang="en">Up and running in three steps</span><span lang="zh">三步开工</span></h2>
+    <p class="secsub">
+      <span lang="en">No Node, no admin rights, no internet needed after the download.</span>
+      <span lang="zh">不用装 Node，不要管理员权限，下载完断网也能装。</span>
+    </p>
+    <div class="steps">
+      <div class="step rise"><span class="n">1</span>
+        <h3><span lang="en">Download</span><span lang="zh">下载</span></h3>
+        <p><span lang="en">Grab the package for your system from <a href="https://github.com/liukai1919/AI-tutor/releases" target="_blank" rel="noopener">Releases</a>: a Windows installer, a no-install zip, or a macOS app.</span>
+           <span lang="zh">去 <a href="https://github.com/liukai1919/AI-tutor/releases" target="_blank" rel="noopener">Releases</a> 拿对应系统的包：Windows 安装版、免安装 zip，或 macOS 应用。</span></p>
+      </div>
+      <div class="step rise"><span class="n">2</span>
+        <h3><span lang="en">Double-click</span><span lang="zh">双击</span></h3>
+        <p><span lang="en">Next-next-done. It installs into your own user folder and puts an icon on the desktop.</span>
+           <span lang="zh">下一步下一步完成。装进你自己的用户目录，桌面放好图标。</span></p>
+      </div>
+      <div class="step rise"><span class="n">3</span>
+        <h3><span lang="en">Meet Ms. Yuanyuan</span><span lang="zh">见圆圆老师</span></h3>
+        <p><span lang="en">Your browser opens on <code>localhost:8434</code>. Create a parent account, set your child's PIN, and lessons start. iPads and phones on the same Wi-Fi work too.</span>
+           <span lang="zh">浏览器自动打开 <code>localhost:8434</code>。建一个家长账号、给孩子设个 PIN，开讲。同一 Wi-Fi 下的平板和手机也能用。</span></p>
+      </div>
+    </div>
+    <p class="signnote">
+      <span lang="en">⚠️ First run: Windows or macOS may warn about an “unknown publisher” — the build isn't code-signed (certificates cost real money every year). Click “More info → Run anyway” (Windows) or right-click → Open (macOS). You only do this once.</span>
+      <span lang="zh">⚠️ 首次运行：Windows / macOS 可能提示「未知发布者」——安装包没买代码签名证书（证书每年都要花不少钱）。Windows 点「更多信息 → 仍要运行」，macOS 右键 → 打开。只需要这一次。</span>
+    </p>
+
+    <div class="srcbox rise">
+      <h3><span lang="en">Prefer to run from source?</span><span lang="zh">想从源码跑？</span></h3>
+      <p>
+        <span lang="en">The server is zero-dependency Node 18+ — there is no <code>npm install</code>. The full lesson pack (138 lessons, 40 unit tests, the BC curriculum data) is committed to the repo, so a fresh clone teaches fine.</span>
+        <span lang="zh">服务器是零依赖的 Node 18+——连 <code>npm install</code> 这一步都没有。完整课程包（138 节课、40 张单元测、BC 大纲数据）就在仓库里，clone 下来就能开讲。</span>
+      </p>
+<pre><code>git clone https://github.com/liukai1919/AI-tutor.git
+cd AI-tutor
+node server.js     <span class="c"># open http://localhost:8434</span></code></pre>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= footer ================= -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <span>© 2026 <a href="https://github.com/liukai1919" target="_blank" rel="noopener">liukai1919</a> ·
+        <span lang="en">MIT licensed — the code and the pre-generated lessons alike.</span>
+        <span lang="zh">MIT 协议——代码和预生成课程都随便用。</span>
+      </span>
+      <span>
+        <a href="https://github.com/liukai1919/AI-tutor" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://github.com/liukai1919/AI-tutor/releases" target="_blank" rel="noopener">Releases</a> ·
+        <a href="https://github.com/liukai1919/AI-tutor/blob/main/README.md" target="_blank" rel="noopener">README</a> ·
+        <a href="https://github.com/liukai1919/AI-tutor/blob/main/README.zh.md" target="_blank" rel="noopener">中文说明</a>
+      </span>
+    </div>
+    <p class="fine">
+      <span lang="en">This project is not affiliated with or endorsed by the Province of British Columbia; the BC curriculum learning standards it organizes lessons against are © Province of British Columbia. Lessons are AI-generated and can make mistakes — the final answer is always shown separately, and parents are encouraged to double-check important homework. This page has no analytics, no cookies and no trackers, which felt only fair for a product whose whole point is keeping your kid's data at home.</span>
+      <span lang="zh">本项目与不列颠哥伦比亚省政府无关、未获其认可；课程所对齐的 BC 大纲学习标准版权归省政府所有。课程内容由 AI 生成，可能出错——最终答案始终单独醒目展示，重要作业请家长复核。本页没有统计、没有 cookie、没有任何跟踪——一个把「孩子数据留在家里」当卖点的产品，理应如此。</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='yy_site_lang';
+  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
+  var lang=saved || (((navigator.language||'').toLowerCase().indexOf('zh')===0)?'zh':'en');
+  var en=document.getElementById('langEn'), zh=document.getElementById('langZh');
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l==='zh'?'zh-CN':'en');
+    en.classList.toggle('on', l==='en');
+    zh.classList.toggle('on', l==='zh');
+    try{ localStorage.setItem(KEY, l); }catch(e){}
+  }
+  en.onclick=function(){ setLang('en'); };
+  zh.onclick=function(){ setLang('zh'); };
+  setLang(lang);
+
+  // 卡片进场
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rise').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

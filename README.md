@@ -1,6 +1,6 @@
 # Yuanyuan Math 🧮
 
-*[中文版 →](README.zh.md)*
+*[中文版 →](README.zh.md) · [Project website](https://liukai1919.github.io/AI-tutor/)*
 
 An AI math tutor for kids: give it a problem (typed or photographed), and it explains it step by step,
 with pictures, read aloud — then shows the answer to check plus one practice problem of the same kind.

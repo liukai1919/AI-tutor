@@ -1,6 +1,6 @@
 # 圆圆数学 🧮
 
-*[English version →](README.md)*
+*[English version →](README.md) · [项目主页](https://liukai1919.github.io/AI-tutor/)*
 
 给孩子的 AI 数学小老师：出一道题（打字或拍照），一步一步、配着图、用语音讲给孩子听，最后给答案核对 + 一道同类练习。**支持中文和英文**（右上角一键切换，讲解、界面、语音全套跟着换）。
 
