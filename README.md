@@ -11,7 +11,7 @@ borrows whichever AI tool is already logged in on your machine.
 
 ## Just install it (for people who don't want to tinker)
 
-Grab the package for your system from Releases. Install, double-click the icon, and lessons start —
+Grab the package for your system from [Releases](https://github.com/liukai1919/AI-tutor/releases). Install, double-click the icon, and lessons start —
 **no Node, no AI setup, no internet, no accounts on anyone's server**:
 
 | System | Download | How to install |
