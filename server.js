@@ -21,6 +21,73 @@ const { spawn } = require("child_process");
 
 /* ---------------- 配置 ---------------- */
 const ROOT = __dirname;
+
+/* ---------------- 可写数据根目录 ----------------
+ * 随包内容（代码、课程、语音包、seed/）在 ROOT，升级时整体替换；
+ * 用户数据（账号、进度、题库、config、语音缓存）在 DATA_ROOT，升级绝不能碰。
+ * 源码模式下两者是同一个目录（数据照旧写在仓库里，开发流不变）；
+ * 打包运行（pack.mjs 会在 app 目录放一个 .packaged 标记）时切到系统的用户数据目录：
+ *   macOS    ~/Library/Application Support/YuanyuanMath
+ *   Windows  %APPDATA%\YuanyuanMath
+ *   其他     $XDG_DATA_HOME/YuanyuanMath（默认 ~/.local/share/...）
+ * 环境变量 YY_DATA_DIR 永远最优先（U 盘便携、多套数据、测试都靠它）。 */
+const PACKAGED = fs.existsSync(path.join(ROOT, ".packaged"));
+const DATA_ROOT = (() => {
+  if (process.env.YY_DATA_DIR) return path.resolve(process.env.YY_DATA_DIR);
+  if (!PACKAGED) return ROOT;
+  if (process.platform === "darwin") return path.join(os.homedir(), "Library", "Application Support", "YuanyuanMath");
+  if (process.platform === "win32") return path.join(process.env.APPDATA || path.join(os.homedir(), "AppData", "Roaming"), "YuanyuanMath");
+  return path.join(process.env.XDG_DATA_HOME || path.join(os.homedir(), ".local", "share"), "YuanyuanMath");
+})();
+
+/* 老版本把用户数据留在 app 目录里（Windows 覆盖安装 / 原地解压升级后原样还在）：
+ * DATA_ROOT 启用后第一次启动整体拷过来接管。只拷不删——迁移中途出任何差错，
+ * 旧数据必须原样留在老位置；已存在的目标一律不覆盖。全部成功才落标记，
+ * 之后每次启动零成本跳过；中途失败下次启动自动续拷。 */
+if (DATA_ROOT !== ROOT) {
+  const migratedFlag = path.join(DATA_ROOT, ".migrated-from-app");
+  if (!fs.existsSync(migratedFlag)) {
+    const carry = [
+      "config.json", "qbank.json", "tts-cache",
+      path.join("data", "users.json"), path.join("data", "sessions.json"), path.join("data", "kids"),
+      "history.json", "progress.json", "fsa-sets.json"   // 远古单用户版留在根目录的单例
+    ];
+    let copied = 0, failed = 0;
+    for (const rel of carry) {
+      const src = path.join(ROOT, rel), dst = path.join(DATA_ROOT, rel);
+      try {
+        if (!fs.existsSync(src) || fs.existsSync(dst)) continue;
+        fs.mkdirSync(path.dirname(dst), { recursive: true });
+        fs.cpSync(src, dst, { recursive: true, force: false });
+        copied++;
+      } catch (e) { failed++; console.log("[data] migrate " + rel + " failed: " + e.message); }
+    }
+    if (copied) console.log("[data] took over " + copied + " item(s) of user data from the app folder -> " + DATA_ROOT);
+    if (!failed) {
+      try {
+        fs.mkdirSync(DATA_ROOT, { recursive: true });
+        fs.writeFileSync(migratedFlag, new Date().toISOString() + " from " + ROOT + "\n", "utf8");
+      } catch (_) { /* 标记写不上只是下次多扫一遍，不致命 */ }
+    }
+  }
+}
+
+/* 随包种子：seed/config.json 首启落到 DATA_ROOT（预烘语音包的哈希按默认配置算，
+ * 配置对不上语音包一条都命中不了）。用户已有 config 永远不动。
+ * seed/qbank.json 在题库模块加载后合并（见 qbank 一节）。 */
+const SEED_DIR = path.join(ROOT, "seed");
+if (DATA_ROOT !== ROOT && !fs.existsSync(path.join(DATA_ROOT, "config.json"))) {
+  // 老包（1.0.0）的种子在 ROOT/config.json；迁移没赶上的极端情况这里兜底
+  for (const seedCfg of [path.join(SEED_DIR, "config.json"), path.join(ROOT, "config.json")]) {
+    if (!fs.existsSync(seedCfg)) continue;
+    try {
+      fs.mkdirSync(DATA_ROOT, { recursive: true });
+      fs.cpSync(seedCfg, path.join(DATA_ROOT, "config.json"), { force: false });
+    } catch (e) { console.log("[config] could not seed config.json: " + e.message); }
+    break;
+  }
+}
+
 const DEFAULT_CONFIG = {
   port: 8434,
   accessCode: "",                 // 已弃用：账号系统（注册/登录）取代了访问码，此项不再参与鉴权
@@ -57,7 +124,7 @@ let cfg = DEFAULT_CONFIG;
 try {
   // 去掉 BOM：Windows 记事本「另存为 UTF-8」会加一个，JSON.parse 见了就抛，
   // 结果整份配置被静默忽略——端口、邀请码、API key 全回默认，语音包也跟着失效。
-  const raw = fs.readFileSync(path.join(ROOT, "config.json"), "utf8").replace(/^\uFEFF/, "");
+  const raw = fs.readFileSync(path.join(DATA_ROOT, "config.json"), "utf8").replace(/^\uFEFF/, "");
   cfg = deepMerge(DEFAULT_CONFIG, JSON.parse(raw));
 } catch (e) {
   // 文件不存在是正常情况（用默认）；存在却读不动必须吭声，否则就像上面那样悄悄坏掉
@@ -1039,7 +1106,7 @@ const ADAPTERS = { ollama: genOllama, grok: genGrok, claude: genClaude, gemini: 
  * 思路来自 vediotube-videogen：config 声明一条本地命令，服务器只管「文本进、wav 出」。
  * 这里按整节课批量提交（tools/tts_batch.py 一次加载模型合成全部步骤），
  * 结果按内容哈希落盘缓存；文件出现 = 就绪。没配置或失败时前端自动退回浏览器语音。 */
-const TTS_CACHE = path.join(ROOT, (cfg.tts && cfg.tts.cacheDir) || "tts-cache");
+const TTS_CACHE = path.resolve(DATA_ROOT, (cfg.tts && cfg.tts.cacheDir) || "tts-cache");
 const TTS_FAIL_TTL = 5 * 60 * 1000;
 const ttsInFlight = new Set();     // 已排队/正在合成的 id
 const ttsFailed = new Map();       // id -> 失败时间（TTL 内不重试，前端走兜底）
@@ -1222,7 +1289,7 @@ function ttsStates(reqItems, defLang) {
  *   reports.json   家长生成的完整学习报告                   上限 50
  * qbank.json（闯关题库）仍是全局共享：题按知识点缓存，多孩子复用省 LLM 费用。
  * 全部沿用原子写（.tmp + rename）。旧版根目录的三个单例文件在创建第一个孩子时自动迁入。 */
-const KIDS_DIR = path.join(ROOT, "data", "kids");
+const KIDS_DIR = path.join(DATA_ROOT, "data", "kids");
 const HISTORY_MAX = 500;
 const FSA_SETS_MAX = 100;
 const UNIT_TESTS_MAX = 100;
@@ -1534,7 +1601,7 @@ function unitTestSummary(r) {
 /* ---------------- 闯关题库持久化（P5）----------------
  * 出一批题要跑一次 AI，所以生成后永久保存（qbank.json，原子写同 progress.json）。
  * 做过的题打 usedAt，优先给没做过的题；不够自动补，封顶后按最久没做过复用。 */
-const QBANK_FILE = path.join(ROOT, "qbank.json");
+const QBANK_FILE = path.join(DATA_ROOT, "qbank.json");
 let qbank = {};   // "curriculumId|lang" -> { questions: [{qid, level, question, options, answerIndex, explain, usedAt}] }
 try {
   const b = JSON.parse(fs.readFileSync(QBANK_FILE, "utf8"));
@@ -1562,6 +1629,33 @@ function qbankMerge(bank, batch) {
     bank.questions.push(Object.assign({ qid: "q" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), usedAt: 0 }, q));
   }
 }
+
+/* 随包种子题库：打包模式每次启动把 seed/qbank.json 里没见过的题并进来
+ * （qbankMerge 按题干去重、每级封顶）。升级带来的新题就这样进用户题库，
+ * 用户自己攒的题永远不丢。源码模式没有 seed/，天然跳过。 */
+try {
+  const seedFile = path.join(SEED_DIR, "qbank.json");
+  if (DATA_ROOT !== ROOT && fs.existsSync(seedFile)) {
+    const seed = JSON.parse(fs.readFileSync(seedFile, "utf8"));
+    let added = 0;
+    if (seed && typeof seed === "object" && !Array.isArray(seed)) {
+      for (const [key, sb] of Object.entries(seed)) {
+        const qs = (sb && Array.isArray(sb.questions) ? sb.questions : [])
+          .filter(q => q && typeof q.question === "string" && [1, 2, 3].includes(q.level))
+          .map(q => { const c = Object.assign({}, q); delete c.usedAt; return c; });   // 种子的做题记录不带过来
+        if (!qs.length) continue;
+        const bank = qbank[key] || (qbank[key] = { questions: [] });
+        const n0 = bank.questions.length;
+        qbankMerge(bank, qs);
+        added += bank.questions.length - n0;
+      }
+    }
+    if (added) {
+      qbankSave();
+      console.log("[quiz] merged " + added + " new question(s) from the bundled seed bank");
+    }
+  }
+} catch (e) { console.log("[quiz] seed bank merge skipped: " + e.message); }
 
 /* 开练前保证每级有足够没做过的题；不足就让 AI 补（初次 = 三级各 4 道一次生成） */
 /* 题库够不够直接开一局：三级都有题就够（做过的按最久没做过复用，见 quizSession）。
@@ -1628,8 +1722,8 @@ function quizSession(bank) {
  * 家长自助注册（可选邀请码），孩子由家长创建（名字 + 4-6 位 PIN），不需要邮箱。
  * 登录发随机 token（x-session 头），60 天滑动过期，落盘 data/sessions.json 重启不掉线。
  * 密码/PIN 用 scrypt + 每用户随机盐存储；登录失败限速防孩子暴力试家长密码。 */
-const USERS_FILE = path.join(ROOT, "data", "users.json");
-const SESSIONS_FILE = path.join(ROOT, "data", "sessions.json");
+const USERS_FILE = path.join(DATA_ROOT, "data", "users.json");
+const SESSIONS_FILE = path.join(DATA_ROOT, "data", "sessions.json");
 const SESSION_TTL = 60 * 24 * 3600 * 1000;
 const SESSIONS_MAX = 200;
 
@@ -1752,7 +1846,7 @@ function migrateLegacyData(kidId) {
   let moved = 0;
   fs.mkdirSync(kidDir(kidId), { recursive: true });
   for (const f of ["history.json", "progress.json", "fsa-sets.json"]) {
-    const src = path.join(ROOT, f);
+    const src = path.join(DATA_ROOT, f);
     try {
       if (fs.existsSync(src)) { fs.renameSync(src, path.join(kidDir(kidId), f)); moved++; }
     } catch (e) { console.log(`[migrate] ${f} failed to move: ` + e.message); }
@@ -2749,6 +2843,9 @@ if (require.main === module) detectProviders().then(() => {
     console.log("  Voice:        " + (voiceBits.length
       ? voiceBits.join(" + ")
       : "browser speech only (see the Natural Voice section of the README)"));
+    console.log("  Data folder:  " + (DATA_ROOT === ROOT
+      ? DATA_ROOT + " (source run - user data lives next to the code)"
+      : DATA_ROOT + " (outside the app - upgrades and reinstalls never touch it)"));
     const nParents = users.filter(u => u.role === "parent").length;
     const nKids = users.filter(u => u.role === "kid").length;
     console.log("  Accounts:     " + (nParents
@@ -2780,7 +2877,7 @@ if (require.main === module) detectProviders().then(() => {
 
 /* 构建期脚本用得到的内部件。服务器自己不依赖这个导出，删了也不影响运行。 */
 module.exports = {
-  cfg, ROOT, L, DEFAULT_CONFIG, deepMerge,
+  cfg, ROOT, DATA_ROOT, PACKAGED, L, DEFAULT_CONFIG, deepMerge,
   ADAPTERS, PROVIDER_META, detectProviders, pickProvider,
   curriculum, curriculumGrades, curriculumBooks, findCurriculumItem,
   systemPromptTeach, validateLesson,

@@ -18,11 +18,22 @@ Grab the package for your system from [Releases](https://github.com/liukai1919/A
 |---|---|---|
 | Windows | `YuanyuanMath-x.y.z-win-x64-setup.exe` | Double-click, next-next-done. Installs into your own user folder — no administrator rights needed. Windows may warn "unknown publisher" the first time (this build has no code-signing certificate); click "More info → Run anyway". |
 | Windows (no install) | `YuanyuanMath-x.y.z-win-x64.zip` | Unzip anywhere, double-click `圆圆数学.bat` inside. |
-| macOS | `YuanyuanMath-x.y.z-mac.tar.gz` | Double-click to expand → drag `圆圆数学.app` into Applications → **right-click it → "Open" → "Open" again** (also unsigned; you only do this once). |
+| macOS | `YuanyuanMath-x.y.z-mac.tar.gz` | Double-click to expand → drag `圆圆数学.app` into Applications (drag first — otherwise macOS runs it from a read-only spot and nothing can be saved) → run `xattr -dr com.apple.quarantine "/Applications/圆圆数学.app"` once in Terminal to clear the quarantine flag (also unsigned, so Gatekeeper blocks it; no Terminal? double-click it once, let it get blocked, then System Settings → Privacy & Security → "Open Anyway". The old "right-click → Open" trick was removed in macOS 15). One-time only. |
 
 Your browser opens http://localhost:8434 automatically. Create a parent account, then an account for
 your child, and you're going. An iPad or phone on the same Wi-Fi works too — use the "LAN access"
 address printed in the window.
+
+**Where your data lives / is upgrading safe**: accounts, learning progress, the accumulated quiz bank
+and your config are stored in the system's per-user data folder (Windows `%APPDATA%\YuanyuanMath`,
+macOS `~/Library/Application Support/YuanyuanMath`), so **upgrading, reinstalling, or uninstalling and
+installing again never loses them**. The one manual step is for macOS users upgrading from 1.0.0, which
+kept data inside the .app bundle (exactly the problem that got fixed): **before** replacing the .app,
+right-click the old `圆圆数学.app` → "Show Package Contents", and copy the `data` folder plus
+`config.json` and `qbank.json` from `Contents/Resources/app/` into a folder you create at
+`~/Library/Application Support/YuanyuanMath/`, then install the new version. Windows upgrades from
+1.0.0 need nothing: install the new version (zip users: extract over the old folder) and the first
+launch takes over the old data automatically.
 
 **What's already in the box** (none of it needs an AI engine):
 

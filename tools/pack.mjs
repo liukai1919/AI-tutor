@@ -198,12 +198,19 @@ function stageApp(dst) {
   copyInto(path.join(ROOT, "README.zh.md"), dst, { optional: true });
   copyInto(path.join(ROOT, "LICENSE"), dst, { optional: true });
   copyInto(path.join(ROOT, "config.example.json"), dst);
-  copyInto(path.join(ROOT, "qbank.json"), dst, { optional: true });
 
-  // 随包发的 config.json：语音包的哈希是按 config.example.json 算的，
-  // 不发这个文件的话默认 mode 会变成 instruct，语音包一条都命中不了。
+  // 随包种子放 seed/，server 首启把它落到用户数据目录（DATA_ROOT）：
+  //   config.json  语音包的哈希按 config.example.json 算，默认配置对不上语音包一条都命中不了，
+  //                所以种子一定要发；用户改过的 config 升级时不会被它覆盖。
+  //   qbank.json   预生成起始题库；server 启动时只并新题（题干去重），用户攒的题不丢。
+  // 顶层不再发这两个文件——1.0.0 装过的机器上顶层是用户的真数据，升级清单里不能有同名文件。
+  const seedDir = path.join(dst, "seed");
+  mkdirp(seedDir);
   const example = JSON.parse(fs.readFileSync(path.join(ROOT, "config.example.json"), "utf8"));
-  fs.writeFileSync(path.join(dst, "config.json"), JSON.stringify(example, null, 2) + "\n", "utf8");
+  fs.writeFileSync(path.join(seedDir, "config.json"), JSON.stringify(example, null, 2) + "\n", "utf8");
+  copyInto(path.join(ROOT, "qbank.json"), seedDir, { optional: true });
+  // 打包标记：server 看到它才把用户数据切到系统用户目录（源码模式照旧写仓库）
+  fs.writeFileSync(path.join(dst, ".packaged"), APP_EN + " " + VERSION + "\n", "utf8");
 
   // 课程数据：BC 大纲一定带；书籍课程默认不带（AoPS 的版权材料）
   const cur = path.join(dst, "data", "curriculum");
@@ -318,8 +325,9 @@ function innoScript(srcDir) {
     "[Run]",
     "Filename: \"{app}\\" + APP_ZH + ".bat\"; Description: \"现在就打开 {#AppName}\"; Flags: postinstall shellexec skipifsilent",
     "",
-    "; 卸载只删装进去的文件。孩子的学习数据（app\\data\\kids、users.json）是运行时生成的，",
-    "; Inno 不认识它们，所以会原样留在硬盘上——重装能接上，也不会被无声抹掉。",
+    "; 孩子的学习数据（账号、进度、题库、config）在 %APPDATA%\\YuanyuanMath，由 server 首次",
+    "; 启动时迁过去；Inno 的清单里从来没有它们，升级/卸载都碰不到。",
+    "; 从 1.0.0 原地升级的机器：老数据还留在 {app}\\app 里，新版启动会自动接管（只拷不删）。",
     ""
   ].join("\r\n");
 }
@@ -352,6 +360,8 @@ function macPlist() {
     "  <key>CFBundleExecutable</key><string>launch</string>",
     "  <key>CFBundlePackageType</key><string>APPL</string>",
     "  <key>LSMinimumSystemVersion</key><string>11.0</string>",
+    // 让系统优先按原生 arm64 起这个 app；不写的话脚本主程序的 .app 会被扔给 Rosetta
+    "  <key>LSArchitecturePriority</key><array><string>arm64</string><string>x86_64</string></array>",
     "</dict></plist>",
     ""
   ].join("\n");
@@ -376,16 +386,22 @@ async function buildMac(ver) {
   fs.writeFileSync(path.join(stage, "打开我 READ ME FIRST.txt"), [
     APP_ZH + " " + VERSION + " · macOS",
     "",
-    "把 " + appDir + " 拖进「应用程序」文件夹，然后打开它。",
+    "第 1 步：把 " + appDir + " 拖进「应用程序」文件夹。",
+    "  （必须先拖。留在「下载」里直接打开，系统会把它搬进一个只读的临时位置运行，",
+    "    学习数据会存不进去。）",
     "",
-    "第一次打开会被 macOS 拦一下（说「无法验证开发者」）——这个包没有花钱买",
-    "苹果的开发者签名，所以系统对它一律先拦。绕过办法：",
-    "  在 " + appDir + " 上点右键 →「打开」→ 再点一次「打开」。",
-    "  （或者：系统设置 → 隐私与安全性 → 下面那句「仍要打开」）",
+    "第 2 步：第一次打开会被 macOS 拦（说「无法验证开发者」）——这个包没有花钱买",
+    "苹果的开发者签名。打开「终端」，粘贴这一行按回车，去掉下载隔离标记：",
+    "  xattr -dr com.apple.quarantine \"/Applications/" + appDir + "\"",
+    "  （不想用终端也行：双击让它被拦一次，再到 系统设置 → 隐私与安全性 →",
+    "    拉到最下面点「仍要打开」。老教程说的「右键 →「打开」」macOS 15 起已被苹果移除。）",
     "只需要做这一次，以后双击就行。",
     "",
     "打开后浏览器会自动跳到 http://localhost:8434 。",
     "同一个 Wi-Fi 下的 iPad / 手机也能用，地址看终端里打印的「局域网访问」。",
+    "",
+    "账号和学习数据存在 ~/Library/Application Support/YuanyuanMath 里，",
+    "以后升级、重装、换新 .app 都不会丢。",
     ""
   ].join("\n"), "utf8");
 

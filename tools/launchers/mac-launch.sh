@@ -2,7 +2,10 @@
 # 双击 .app 走这里：先停掉端口上的旧实例，再按芯片挑 node 起服务、开浏览器。
 # 打包时由 tools/pack.mjs 原样拷进 Contents/MacOS/launch 并置为可执行。
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../Resources" && pwd)"
+# uname -m 在 Rosetta 下会谎报 x86_64（macOS 对脚本主程序的 .app 默认走 Rosetta），
+# 所以用 hw.optional.arm64 判断真实芯片。
 ARCH="$(uname -m)"
+if [ "$(sysctl -n hw.optional.arm64 2>/dev/null)" = "1" ]; then ARCH="arm64"; fi
 NODE="$DIR/node-x64"
 if [ "$ARCH" = "arm64" ]; then NODE="$DIR/node-arm64"; fi
 PORT="${PORT:-8434}"
@@ -28,5 +31,6 @@ if [ -n "$OLD" ]; then
   fi
 fi
 
-( sleep 2; open "http://localhost:$PORT" ) &
+# 等服务真的能响应了再开浏览器（首次启动可能要十几秒），最多等 60 秒。
+( for _ in $(seq 1 60); do curl -s -m 1 -o /dev/null "http://localhost:$PORT" && break; sleep 1; done; open "http://localhost:$PORT" ) &
 exec "$NODE" "$DIR/app/server.js"

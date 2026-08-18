@@ -14,10 +14,12 @@
 |---|---|---|
 | Windows | `YuanyuanMath-x.y.z-win-x64-setup.exe` | 双击 → 下一步装完。装在你自己的用户目录，不需要管理员权限。第一次运行 Windows 可能弹「未知发布者」（这个包没买代码签名证书），点「更多信息 → 仍要运行」。 |
 | Windows（免安装） | `YuanyuanMath-x.y.z-win-x64.zip` | 解压到任意文件夹，双击里面的 `圆圆数学.bat`。 |
-| macOS | `YuanyuanMath-x.y.z-mac.tar.gz` | 双击解压 → 把 `圆圆数学.app` 拖进「应用程序」→ **右键点它 →「打开」→ 再点一次「打开」**（同样是没买苹果签名，只需这一次）。 |
+| macOS | `YuanyuanMath-x.y.z-mac.tar.gz` | 双击解压 → 把 `圆圆数学.app` 拖进「应用程序」（必须先拖，否则系统会把它放进只读位置运行，数据存不下来）→ 终端里跑一次 `xattr -dr com.apple.quarantine "/Applications/圆圆数学.app"` 去掉隔离标记（同样是没买苹果签名，系统会先拦；不想用终端就双击让它被拦一次，再到 系统设置 → 隐私与安全性 → 点「仍要打开」。「右键 → 打开」macOS 15 起已被苹果移除）。只需这一次。 |
 
 装完浏览器会自动打开 http://localhost:8434 。先注册家长账号，再给孩子建账号，就能开始了。
 同一个 Wi-Fi 下的 iPad / 手机也能用，地址看窗口里打印的「局域网访问」。
+
+**数据存在哪、升级会不会丢**：账号、学习进度、攒下的题库和配置都存在系统的用户数据目录（Windows `%APPDATA%\YuanyuanMath`，macOS `~/Library/Application Support/YuanyuanMath`），**升级、重装、卸载再装都不会丢**。唯一要动手的是从 1.0.0 升级的 macOS 用户——1.0.0 把数据存在 .app 包内部（这正是后来改掉的问题）：替换 .app **之前**，右键旧 `圆圆数学.app` →「显示包内容」，把 `Contents/Resources/app/` 里的 `data` 文件夹和 `config.json`、`qbank.json` 拷到自己新建的 `~/Library/Application Support/YuanyuanMath/` 里，然后再装新版。Windows 从 1.0.0 升级不用动手：装新版（zip 版解压覆盖旧文件夹）后第一次启动会自动接管老数据。
 
 **包里已经带了什么**（都不需要 AI 引擎）：
 

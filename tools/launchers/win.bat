@@ -7,7 +7,8 @@ if "%PORT%"=="" set "PORT=8434"
 rem 端口上还挂着上一次的服务就先停掉：不然双击图标，浏览器连上的还是旧进程。
 call :stopold
 
-start "" powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 2; Start-Process 'http://localhost:%PORT%'"
+rem 等服务真的能连上再开浏览器（首次启动可能要十几秒），最多等 60 秒。
+start "" powershell -NoProfile -WindowStyle Hidden -Command "for ($i=0; $i -lt 60; $i++) { try { (New-Object Net.Sockets.TcpClient('127.0.0.1', %PORT%)).Close(); break } catch { Start-Sleep -Seconds 1 } }; Start-Process 'http://localhost:%PORT%'"
 
 "%~dp0runtime\node.exe" "%~dp0app\server.js"
 

@@ -402,8 +402,8 @@
       </div>
     </div>
     <p class="signnote">
-      <span lang="en">⚠️ First run: Windows or macOS may warn about an “unknown publisher” — the build isn't code-signed (certificates cost real money every year). Click “More info → Run anyway” (Windows) or right-click → Open (macOS). You only do this once.</span>
-      <span lang="zh">⚠️ 首次运行：Windows / macOS 可能提示「未知发布者」——安装包没买代码签名证书（证书每年都要花不少钱）。Windows 点「更多信息 → 仍要运行」，macOS 右键 → 打开。只需要这一次。</span>
+      <span lang="en">⚠️ First run: the build isn't code-signed (certificates cost real money every year), so the system warns once. Windows: click “More info → Run anyway”. macOS: drag the app into Applications first, then run <code>xattr -dr com.apple.quarantine "/Applications/圆圆数学.app"</code> once in Terminal — or double-click it, let it get blocked, then System Settings → Privacy &amp; Security → “Open Anyway” (the old right-click → Open trick was removed in macOS 15). You only do this once.</span>
+      <span lang="zh">⚠️ 首次运行：安装包没买代码签名证书（证书每年都要花不少钱），系统会拦一次。Windows 点「更多信息 → 仍要运行」。macOS 先把 app 拖进「应用程序」，再在终端跑一次 <code>xattr -dr com.apple.quarantine "/Applications/圆圆数学.app"</code>；不想用终端就双击让它被拦一次，到 系统设置 → 隐私与安全性 → 点「仍要打开」（「右键 → 打开」macOS 15 起已被移除）。只需要这一次。</span>
     </p>
 
     <div class="srcbox rise">
