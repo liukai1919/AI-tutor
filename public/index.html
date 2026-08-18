@@ -1029,6 +1029,21 @@ function applyLang(){
   renderLegend();
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
   if(!$("reportModal").classList.contains("hidden")) openReport();                  // 换语言重画报告
+  // 正在看的内容也得跟着换，不然界面换了题目还是原来的语言：
+  // 大纲/书籍课重取同一节的新语言版（预生成包两种语言都有，秒开）；
+  // 闯关先按原语言把已答的记上（同中途退出），再用新语言重开一局（题库按语言分桶，qid 对不上号）。
+  // 自己出的题（内容语言=出题时的语言）和已存档的卷子（FSA/单元测验，语言是卷子属性）保持原样。
+  if(!playerCard.classList.contains("hidden") && lesson && lessonCurriculumId && lessonLang!==cfg.lang){
+    startTeach(learnIndex[lessonCurriculumId]||{ id:lessonCurriculumId });
+  }
+  if(quiz && !quiz.done && quiz.lang!==cfg.lang){
+    if(quiz.results.length){
+      api("/api/quiz/finish",{method:"POST",
+        body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())}).catch(()=>{});
+      quiz.results=[];   // 新会话到达前又切一次语言也不会重复上报
+    }
+    startQuiz(quiz.cid);
+  }
 }
 /* 首屏问候里的名字：孩子 = 自己的账号名；家长 = 当前选中的孩子 */
 function kidDisplayName(){
@@ -1169,7 +1184,7 @@ async function boot(){
 }
 
 /* ---------- 登录 / 注册界面（四个视图渲染进同一张卡片） ---------- */
-function showAuthScreen(v){ $("authScreen").classList.remove("hidden"); renderAuth(v||"wall"); }
+function showAuthScreen(v){ pause(); $("authScreen").classList.remove("hidden"); renderAuth(v||"wall"); }   // 退出/掉线时别让课在登录墙后面继续讲
 function hideAuthScreen(){ $("authScreen").classList.add("hidden"); }
 function authErr(msg){
   const e=$("authErr");
@@ -2558,6 +2573,7 @@ async function generateLesson(question, imageB64, mediaType){
 /* ---------- 播放器 ---------- */
 let lesson=null, lessonLang="zh", idx=0, playing=false, lessonCurriculumId=null;
 function startLesson(l, lang, curriculumId){
+  pause();               // 上一节的语音立刻停：CosyVoice 的 Audio 不主动 pause 会和新课叠着响
   lesson=l; lessonLang=lang||cfg.lang; idx=0; playing=false;
   lessonCurriculumId=curriculumId||null;
   setFocus(false);
@@ -2641,6 +2657,12 @@ function finishLesson(){
 }
 function pause(){ playing=false; stopAllSound(); $("sayBox").classList.remove("speaking"); updatePlayBtn(); }
 function updatePlayBtn(){ $("playToggle").textContent = playing ? "⏸" : "▶"; }
+/* 收掉播放器（语音、TTS 轮询、状态一起清）。换到闯关/试卷等别的内容前必须调：
+ * 分栏下清单一直在左边，课没收干净就会藏在新卡片后面继续自动往下讲 */
+function closeLesson(){
+  pause(); lesson=null; stopTtsPoll(); lessonCurriculumId=null;
+  playerCard.classList.add("hidden");
+}
 
 $("playToggle").onclick=()=>{
   if(playing){ pause(); }
@@ -2650,10 +2672,8 @@ $("next").onclick=()=>{ pause(); if(idx<lesson.steps.length-1) showStep(idx+1); 
 $("prev").onclick=()=>{ pause(); if(idx>0) showStep(idx-1); };
 $("replay").onclick=()=>{ pause(); playing=true; updatePlayBtn(); playCurrent(); };
 $("newQ").onclick=()=>{
-  pause(); lesson=null; stopTtsPoll();
-  playerCard.classList.add("hidden");
   const backToLearn=!!lessonCurriculumId;
-  lessonCurriculumId=null;
+  closeLesson();
   if(lessonReturnTo==="fsa" && fsa){
     lessonReturnTo="";
     setFocus(true);
@@ -2746,7 +2766,7 @@ function renderLearn(d){
       el.onclick=()=>startTeach(it);          // 讲过的直接重播存好的课（秒开），没讲过的才生成
       const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
-      el.querySelector(".hquiz").onclick=(e)=>{ e.stopPropagation(); startQuiz(it.id,"list"); };   // 不重听课直接闯关（隔天再战用）
+      el.querySelector(".hquiz").onclick=(e)=>{ e.stopPropagation(); startQuiz(it.id); };   // 不重听课直接闯关（隔天再战用）
       box.appendChild(el);
     });
   });
@@ -2767,13 +2787,15 @@ function markLearnActive(){
 
 async function startTeach(it, forceNew){
   const lang=cfg.lang;
-  // 讲过的知识点默认重播上次那节课：免费、秒开、语音大概率已缓存
+  // 讲过的知识点默认重播上次那节课：免费、秒开、语音大概率已缓存。
+  // 语言得对得上——中文界面点开英文存档课（或反过来）应该拿当前语言的版本，
+  // 对不上就往下走生成（大纲课基本都有预生成包，照样秒开）。
   if(!forceNew && it.lessonId){
     try{
       const rec=(await api(withKid("/api/history/"+it.lessonId))).record;
-      if(rec && rec.lesson){ startLesson(rec.lesson, rec.lang, it.id); return; }
+      if(rec && rec.lesson && (rec.lang||"zh")===lang){ startLesson(rec.lesson, rec.lang, it.id); return; }
     }catch(err){ if(err.silent) return; }
-    // 旧课找不到（被删除/超出历史上限）就往下走正常生成
+    // 旧课找不到（被删除/超出历史上限）或语言不对，走正常生成
   }
   showLoading();
   try{
@@ -2891,6 +2913,7 @@ async function startFsa(){
  * kind："fsa" = FSA 模拟卷；"unit" = 单元测试。两种卷的题卡/计时/成绩单是同一套，
  * 差别只在标题、交卷接口和「再来一卷」按钮 —— 用 kind 分流，不再复制一遍播放器。 */
 function enterFsa(record, kind){
+  closeLesson();   // 分栏下可能正上着课（清单里的单元测验按钮随时能点）：开卷前把播放器收干净
   lessonReturnTo="";
   fsa={ kind:kind==="unit"?"unit":"fsa", setId:record.id||null, set:record,
         answers:new Array(record.questions.length).fill(-1), idx:0, t0:Date.now(), done:false };
@@ -3095,9 +3118,9 @@ async function deleteUnitTest(id){
  * 从 L1 起步：对升一级、错降一级；★★★ 答对 2 题通关，8 题内没通关下次再来。
  * 题包由服务器给（没做过的优先，不够自动补题）；结算判定以服务器为准。
  * 规则常量和出题标准见 docs/qbank-standard.md。 */
-let quiz=null;   // { cid, byLevel:{1:[],2:[],3:[]}, level, n, cur, answered, results[], topRight, rules, done }
+let quiz=null;   // { cid, lang, byLevel:{1:[],2:[],3:[]}, level, n, cur, answered, results[], topRight, rules, done }
 
-async function startQuiz(cid, from){
+async function startQuiz(cid){
   showLoading();
   $("loadSub").textContent=t("quizGenSub");
   try{
@@ -3105,18 +3128,15 @@ async function startQuiz(cid, from){
       body:{ curriculumId:cid, lang:cfg.lang, provider:cfg.provider }});
     if(!(data.questions||[]).length) throw new Error(t("genericErr"));
     hideLoading();
-    enterQuiz(cid, data, from);
+    enterQuiz(cid, data);
   }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
 }
 
-function enterQuiz(cid, data, from){
-  if(from==="lesson"){   // 从课末进闯关：收掉播放器（同「回大纲」的清理，但不切视图）
-    pause(); lesson=null; stopTtsPoll(); lessonCurriculumId=null;
-    playerCard.classList.add("hidden");
-  }
+function enterQuiz(cid, data){
+  closeLesson();   // 课末进闯关是收尾；分栏下从清单直接进也可能正上着课，一律收干净
   const byLevel={1:[],2:[],3:[]};
   (data.questions||[]).forEach(q=>{ if(byLevel[q.level]) byLevel[q.level].push(q); });
-  quiz={ cid, byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
+  quiz={ cid, lang:cfg.lang, byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
          rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), done:false };
   setFocus(true);          // 闯关全宽，收起左栏
   $("learnCard").classList.add("hidden");
@@ -3191,7 +3211,7 @@ async function finishQuiz(){
   let passed=quiz.topRight>=quiz.rules.passNeed, saveFail=false;
   try{
     const d=await api("/api/quiz/finish",{method:"POST",
-      body:Object.assign({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results }, kidBody())});
+      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())});
     passed=!!d.passed;   // 通关判定以服务器为准（按题库里的真实难度算）
   }catch(_){ saveFail=true; }
   if(!quiz) return;      // 结算等待期间被退出
@@ -3230,12 +3250,13 @@ $("quizQuit").onclick=()=>{
   if(!quiz.done && quiz.results.length){
     if(!confirm(t("quizQuitConfirm"))) return;
     // 中途退出：已答的照记对错（服务器按题库难度判，不会误判通关）
+    // lang 用开局时的：qid 在语言分桶的题库里，切过界面语言后 cfg.lang 会对不上号
     api("/api/quiz/finish",{method:"POST",
-      body:Object.assign({ curriculumId:quiz.cid, lang:cfg.lang, results:quiz.results }, kidBody())}).catch(()=>{});
+      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())}).catch(()=>{});
   }
   quizExit();
 };
-$("quizGoBtn").onclick=()=>{ if(lessonCurriculumId) startQuiz(lessonCurriculumId,"lesson"); };
+$("quizGoBtn").onclick=()=>{ if(lessonCurriculumId) startQuiz(lessonCurriculumId); };
 
 /* ---------- 家长报告（P3）：BC 四级话术，可打印 ---------- */
 const LEVELS=["emerging","developing","proficient","extending"];
@@ -3414,6 +3435,7 @@ $("photo").onchange=(e)=>{
 
 let loadTimer=null;
 function showLoading(){
+  pause();   // 全屏加载 = 马上要换内容，正在讲的课先住嘴（生成慢的时候旧课能一直讲到新课开场）
   loading.classList.remove("hidden");
   const a=activeProvider();
   $("loadSub").textContent = (a==="ollama") ? t("loadSubOllama") : t("loadSubDefault");
