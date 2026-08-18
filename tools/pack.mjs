@@ -195,7 +195,8 @@ function stageApp(dst) {
   copyInto(path.join(ROOT, "server.js"), dst);
   copyInto(path.join(ROOT, "public"), dst);
   copyInto(path.join(ROOT, "README.md"), dst);
-  copyInto(path.join(ROOT, "README.en.md"), dst, { optional: true });
+  copyInto(path.join(ROOT, "README.zh.md"), dst, { optional: true });
+  copyInto(path.join(ROOT, "LICENSE"), dst, { optional: true });
   copyInto(path.join(ROOT, "config.example.json"), dst);
   copyInto(path.join(ROOT, "qbank.json"), dst, { optional: true });
 
