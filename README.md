@@ -352,7 +352,9 @@ signs in on a computer and selects that child.
   device takes priority over the default.
 - Voice: uses the natural CosyVoice voice if configured (see above), otherwise falls back to the child's
   device's built-in browser voice (free, doesn't touch the server; Edge's online "Natural" voices sound
-  best and are auto-preferred when available).
+  best and are auto-preferred when available). That's why the Windows build (since v1.1.1) launches in an
+  Edge app window when Edge is installed — with internet, ad-hoc "ask a question" explanations get a
+  natural voice too; without Edge it opens the default browser as before.
 - Diagrams (fraction bars, number lines, area grids, bar models) are drawn by the program itself, so they
   are never wrong — the AI only chooses which diagram to use and fills in the numbers.
 - The AI occasionally makes arithmetic mistakes when explaining. The final answer is always shown

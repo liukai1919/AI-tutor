@@ -8,7 +8,10 @@ rem 端口上还挂着上一次的服务就先停掉：不然双击图标，浏�
 call :stopold
 
 rem 等服务真的能连上再开浏览器（首次启动可能要十几秒），最多等 60 秒。
-start "" powershell -NoProfile -WindowStyle Hidden -Command "for ($i=0; $i -lt 60; $i++) { try { (New-Object Net.Sockets.TcpClient('127.0.0.1', %PORT%)).Close(); break } catch { Start-Sleep -Seconds 1 } }; Start-Process 'http://localhost:%PORT%'"
+rem 优先用 Edge 应用窗口：Edge 的浏览器语音自带微软「Natural」在线音色（前端会自动
+rem 选中它），没配本地语音引擎的机器上「自己出题」的即时讲解联网时也能是自然人声；
+rem Chrome 只有系统机械音。没装 Edge 就照旧开默认浏览器，行为不变。
+start "" powershell -NoProfile -WindowStyle Hidden -Command "for ($i=0; $i -lt 60; $i++) { try { (New-Object Net.Sockets.TcpClient('127.0.0.1', %PORT%)).Close(); break } catch { Start-Sleep -Seconds 1 } }; $edge = @(${env:ProgramFiles(x86)}, $env:ProgramFiles, $env:LOCALAPPDATA) | Where-Object { $_ } | ForEach-Object { Join-Path $_ 'Microsoft\Edge\Application\msedge.exe' } | Where-Object { Test-Path $_ } | Select-Object -First 1; if ($edge) { Start-Process $edge -ArgumentList ('--app=http://localhost:%PORT%') } else { Start-Process 'http://localhost:%PORT%' }"
 
 "%~dp0runtime\node.exe" "%~dp0app\server.js"
 
