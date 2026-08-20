@@ -343,6 +343,26 @@ action (sign in as a parent to delete). Photographed problems don't save the pho
 marker. History follows the server — a problem the child worked through on a tablet shows up when a parent
 signs in on a computer and selects that child.
 
+## Usage ledger (usage.jsonl)
+
+Every AI call gets one line of accounting in the data folder (`usage.jsonl`, next to
+`config.json`): which task (lesson / photo question / quiz bank / test paper / report /
+build-time `pregen:*`), which engine, which model, seconds spent, tokens, and dollars —
+whatever the engine reports (the claude CLI, Ollama and the API adapters all do). Failed
+calls are logged too — the tokens were already spent, so a retry shows up as two lines.
+Lesson-pack / quiz-bank hits are logged as zero-cost lines, so you can see exactly how
+many calls the bundled content saved this machine.
+
+Parents can query the summary (by engine, by task, last 20 entries):
+
+```
+GET /api/usage            # everything
+GET /api/usage?days=30    # last 30 days only
+```
+
+This ledger is the foundation for per-task engine routing later: first know what each
+kind of task really costs, then decide how to save.
+
 ## Notes
 
 - See "Build your own release" below if you want to produce the installers yourself.

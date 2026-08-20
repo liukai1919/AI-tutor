@@ -127,9 +127,9 @@ async function genLesson(j, provider) {
   const t0 = Date.now();
   let lesson;
   try {
-    lesson = S.validateLesson(await S.ADAPTERS[provider](sys, question, null, null, j.lang));
+    lesson = await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson);
   } catch (e1) {
-    lesson = S.validateLesson(await S.ADAPTERS[provider](sys, question, null, null, j.lang));   // 和服务器一样，失败重试一次
+    lesson = await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson);   // 和服务器一样，失败重试一次
   }
   writeJson(lessonFile(j.item.id, j.lang), {
     v: 1, curriculumId: j.item.id, lang: j.lang,
@@ -149,9 +149,9 @@ async function genUnit(j, provider) {
   const t0 = Date.now();
   let set;
   try {
-    set = S.validateUnitTest(await S.ADAPTERS[provider](sys, q, null, null, j.lang, opts), j.data, j.strand, UNIT_COUNT);
+    set = await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT));
   } catch (e1) {
-    set = S.validateUnitTest(await S.ADAPTERS[provider](sys, q, null, null, j.lang, opts), j.data, j.strand, UNIT_COUNT);
+    set = await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT));
   }
   writeJson(unitFile(j.gradeKey, j.strand, j.lang), {
     v: 1, grade: j.gradeKey, strand: j.strand, lang: j.lang,
@@ -221,7 +221,7 @@ async function main() {
     await pool(todoQuiz, CONCURRENCY, async j => {
       if (stop) return;
       try {
-        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, provider);
+        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, provider, "pregen:quiz");
         stats.quizOk++;
         tick("题", j, bank.questions.length + " 道");
       } catch (e) {

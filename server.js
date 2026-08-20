@@ -989,6 +989,7 @@ async function genOllama(sys, question, imageB64, mediaType, lang, opts) {
   });
   if (!r.ok) throw new Error("Ollama 出错：" + (await r.text()).slice(0, 200));
   const d = await r.json();
+  if (opts.meta) { opts.meta.tokensIn = d.prompt_eval_count; opts.meta.tokensOut = d.eval_count; }
   return extractJson(d.message && d.message.content);
 }
 
@@ -1004,6 +1005,11 @@ async function genGrok(sys, question, imageB64, mediaType, lang, opts) {
       "--max-turns", "1", "--no-subagents", "--disable-web-search", "--no-memory", "--no-plan"
     ], { cwd: dir, timeout: 300000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
+    const gu = env.usage || {};
+    if (opts.meta && (gu.input_tokens || gu.prompt_tokens)) {
+      opts.meta.tokensIn = gu.input_tokens || gu.prompt_tokens;
+      opts.meta.tokensOut = gu.output_tokens || gu.completion_tokens || 0;
+    }
     if (env.structuredOutput) return env.structuredOutput;
     return extractJson(env.result || out);
   } finally { cleanup(dir); }
@@ -1025,6 +1031,14 @@ async function genClaude(sys, question, imageB64, mediaType, lang, opts) {
     }
     const out = await runCmd(detected.claude.bin, ["-p", prompt, "--output-format", "json"], { cwd: dir, timeout: 300000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
+    if (opts.meta && env.usage) {   // claude CLI 的 JSON 信封自带用量和美元花费，白给的账不记白不记
+      const u = env.usage;
+      opts.meta.tokensIn = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+      opts.meta.tokensOut = u.output_tokens || 0;
+      if (env.total_cost_usd != null) opts.meta.costUsd = env.total_cost_usd;
+      const mm = Object.keys(env.modelUsage || {});
+      if (mm.length) opts.meta.model = mm.join("+");
+    }
     return extractJson(env.result || out);
   } finally { cleanup(dir); }
 }
@@ -1077,6 +1091,10 @@ async function genAnthropic(sys, question, imageB64, mediaType, lang, opts) {
   });
   if (!r.ok) throw new Error("Anthropic API 出错：" + (await r.text()).slice(0, 200));
   const d = await r.json();
+  if (opts.meta && d.usage) {   // 拒答也先记账：token 已经花出去了
+    opts.meta.tokensIn = d.usage.input_tokens; opts.meta.tokensOut = d.usage.output_tokens;
+    if (d.model) opts.meta.model = d.model;
+  }
   if (d.stop_reason === "refusal") throw new Error(L(lang, "这道题不方便讲，换一道数学题吧", "I'd rather not cover that one — try another math question!"));
   const tb = (d.content || []).find(b => b.type === "text");
   return extractJson(tb && tb.text);
@@ -1100,10 +1118,91 @@ async function genOpenAI(sys, question, imageB64, mediaType, lang, opts) {
   });
   if (!r.ok) throw new Error("API 出错：" + (await r.text()).slice(0, 200));
   const d = await r.json();
+  if (opts.meta && d.usage) {
+    opts.meta.tokensIn = d.usage.prompt_tokens; opts.meta.tokensOut = d.usage.completion_tokens;
+    if (d.model) opts.meta.model = d.model;
+  }
   return extractJson(d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content);
 }
 
 const ADAPTERS = { ollama: genOllama, grok: genGrok, claude: genClaude, gemini: genGemini, codex: genCodex, anthropic: genAnthropic, openai: genOpenAI };
+
+/* ---------------- 用量账本（usage.jsonl） ----------------
+ * 每笔引擎调用记一行 JSONL：任务、引擎、模型、耗时、token、花费——能拿到的都记，
+ * 拿不到的字段省略（CLI 类引擎不一定报 token）。失败也记一行：token 已经花了，
+ * 重试就是账上的两行，「一个任务试了几次才成」正是这本账要回答的问题。
+ * pack / bank 命中同样记（零成本），随包内容替这台机器省了多少次调用一眼可见。
+ * 账本落在 DATA_ROOT（升级不丢）；写不动（Vercel demo 的只读盘）绝不拦着上课。
+ * 家长在 /api/usage 看汇总；构建期 pregen 走同一本账（任务名带 pregen: 前缀）。 */
+const LEDGER_FILE = path.join(DATA_ROOT, "usage.jsonl");
+function ledgerAdd(e) {
+  try { fs.appendFileSync(LEDGER_FILE, JSON.stringify(Object.assign({ at: Date.now() }, e)) + "\n"); } catch (_) {}
+}
+function ledgerRead(since) {
+  let raw = "";
+  try { raw = fs.readFileSync(LEDGER_FILE, "utf8"); } catch (_) { return []; }
+  const rows = [];
+  for (const line of raw.split("\n")) {
+    if (!line) continue;
+    try { const r = JSON.parse(line); if (!since || r.at >= since) rows.push(r); } catch (_) {}   // 坏行跳过，账本不因一行坏而全废
+  }
+  return rows;
+}
+
+/* /api/usage 的汇总：和报告一个理念——全部确定性计算，一个数字都不猜 */
+function ledgerSummary(rows) {
+  const zero = () => ({ calls: 0, failed: 0, tokensIn: 0, tokensOut: 0, costUsd: 0, ms: 0 });
+  const acc = (b, r) => {
+    b.calls++;
+    if (r.ok === false) b.failed++;
+    if (r.tokensIn) b.tokensIn += r.tokensIn;
+    if (r.tokensOut) b.tokensOut += r.tokensOut;
+    if (r.costUsd) b.costUsd += r.costUsd;
+    if (r.ms) b.ms += r.ms;
+  };
+  const totals = Object.assign(zero(), { engineCalls: 0, freeHits: 0 });
+  const byProvider = {}, byTask = {};
+  for (const r of rows) {
+    acc(totals, r);
+    if (r.provider === "pack" || r.provider === "bank") totals.freeHits++; else totals.engineCalls++;
+    const p = byProvider[r.provider] || (byProvider[r.provider] = zero());
+    acc(p, r);
+    if (r.model && !(p.models || (p.models = [])).includes(r.model)) p.models.push(r.model);
+    acc(byTask[r.task || "?"] || (byTask[r.task || "?"] = zero()), r);
+  }
+  for (const b of [totals, ...Object.values(byProvider), ...Object.values(byTask)])
+    b.costUsd = Math.round(b.costUsd * 10000) / 10000;   // 别把浮点尾巴写进报表
+  return { totals, byProvider, byTask };
+}
+
+/* 引擎名 -> 当前模型名（适配器能从返回里读到更准的就用返回里的，见各 opts.meta） */
+function engineModel(id) {
+  if (id === "ollama") return (detected.ollama && detected.ollama.model) || "";
+  if (id === "anthropic") return cfg.anthropic.model || "";
+  if (id === "openai") return cfg.openai.model || "";
+  return "";   // CLI 们不一定报模型名
+}
+
+/* 所有要花钱的调用都从这里过：计时、记账。validate 也算在这一笔里——
+ * 引擎答了但格式不合格照样是失败的一次尝试（token 白花了，账上要看得见）。 */
+async function runEngine(providerId, task, sys, question, imageB64, mediaType, lang, opts, validate) {
+  const callOpts = Object.assign({}, opts, { meta: {} });   // meta 每笔独立，并发不串账
+  const t0 = Date.now();
+  let data, err = null;
+  try {
+    data = await ADAPTERS[providerId](sys, question, imageB64, mediaType, lang, callOpts);
+    if (validate) data = validate(data);
+  } catch (e) { err = e; }
+  const m = callOpts.meta;
+  const line = { task, provider: providerId, model: m.model || engineModel(providerId) || undefined, lang, ms: Date.now() - t0, ok: !err };
+  if (m.tokensIn != null) line.tokensIn = m.tokensIn;
+  if (m.tokensOut != null) line.tokensOut = m.tokensOut;
+  if (m.costUsd != null) line.costUsd = Math.round(m.costUsd * 1e6) / 1e6;   // 落盘就修掉浮点尾巴
+  if (err) line.err = String((err && err.message) || err).slice(0, 160);
+  ledgerAdd(line);
+  if (err) throw err;
+  return data;
+}
 
 /* ---------------- 语音合成（CosyVoice 等本地 TTS，可选） ----------------
  * 思路来自 vediotube-videogen：config 声明一条本地命令，服务器只管「文本进、wav 出」。
@@ -1671,7 +1770,8 @@ function qbankPlayable(itemId, lang) {
   return [1, 2, 3].every(lv => bank.questions.some(q => q.level === lv)) ? bank : null;
 }
 
-async function ensureQuizBank(item, gradeData, lang, providerId) {
+async function ensureQuizBank(item, gradeData, lang, providerId, task) {
+  task = task || "quiz";
   const key = qbankKey(item.id, lang);
   const bank = qbank[key] || (qbank[key] = { questions: [] });
   const needs = {};
@@ -1679,7 +1779,7 @@ async function ensureQuizBank(item, gradeData, lang, providerId) {
     const qs = bank.questions.filter(q => q.level === lv);
     if (qs.filter(q => !q.usedAt).length < QUIZ_SESSION_PER_LEVEL && qs.length < QUIZ_LEVEL_CAP) needs[lv] = QUIZ_PER_LEVEL_NEW;
   }
-  if (!Object.keys(needs).length) return bank;
+  if (!Object.keys(needs).length) { ledgerAdd({ task, provider: "bank", lang, ms: 0, ok: true }); return bank; }
   const total = Object.values(needs).reduce((a, b) => a + b, 0);
   const sys = qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
   const msg = L(lang, "请出这批题。", "Please write this batch of questions.");
@@ -1687,7 +1787,7 @@ async function ensureQuizBank(item, gradeData, lang, providerId) {
   const t0 = Date.now();
   console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}`);
   const attempt = async () => {
-    qbankMerge(bank, validateQbankBatch(await ADAPTERS[providerId](sys, msg, null, null, lang, opts), total));
+    qbankMerge(bank, await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total)));
     // 阶梯每一级都得有题可出，缺级就算失败
     if ([1, 2, 3].some(lv => !bank.questions.some(q => q.level === lv))) throw new Error("有难度级还没有题");
   };
@@ -2228,6 +2328,16 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, resp);
     }
 
+    /* 用量账本（家长专属）：讲课/出题/报告各花了多少次调用、token、时间、美元，
+     * pack/bank 又免费顶了多少次。?days=30 只看最近 30 天，不传看全部。 */
+    if (url.pathname === "/api/usage" && req.method === "GET") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const days = Math.max(0, Number(url.searchParams.get("days")) || 0);
+      const rows = ledgerRead(days ? Date.now() - days * 24 * 3600 * 1000 : 0);
+      const s = ledgerSummary(rows);
+      return send(res, 200, { days, file: LEDGER_FILE, totals: s.totals, byProvider: s.byProvider, byTask: s.byTask, recent: rows.slice(-20).reverse() });
+    }
+
     if (url.pathname === "/api/tts" && req.method === "POST") {
       if (!allow(req, res, "student")) return;
       if (!ttsAvailable()) return send(res, 200, { enabled: false, items: [] });
@@ -2361,10 +2471,10 @@ const server = http.createServer(async (req, res) => {
       console.log(`[report] engine=${id} kid=${kidId} grade=${g} lang=${lang}`);
       let content;
       try {
-        content = validateFullReport(await ADAPTERS[id](sys, q, null, null, lang, opts));
+        content = await runEngine(id, "report", sys, q, null, null, lang, opts, validateFullReport);
       } catch (e1) {
         console.log(`[report] first try failed (${e1.message}), retrying once...`);
-        content = validateFullReport(await ADAPTERS[id](sys, q, null, null, lang, opts));
+        content = await runEngine(id, "report", sys, q, null, null, lang, opts, validateFullReport);
       }
       console.log(`[report] ok in ${Math.round((Date.now() - t0) / 1000)}s`);
       const rec = { time: Date.now(), grade: String(g), lang, provider: id, kidName: kidUser ? kidUser.name : "", digest, content };
@@ -2418,10 +2528,10 @@ const server = http.createServer(async (req, res) => {
       console.log(`[fsa] engine=${id} grade=${g} strand=${strand || "all"} lang=${lang} n=${count}`);
       let set;
       try {
-        set = validateFsaSet(await ADAPTERS[id](sys, q, null, null, lang, opts), d, count);
+        set = await runEngine(id, "fsa", sys, q, null, null, lang, opts, x => validateFsaSet(x, d, count));
       } catch (e1) {
         console.log(`[fsa] first try failed (${e1.message}), retrying once...`);
-        set = validateFsaSet(await ADAPTERS[id](sys, q, null, null, lang, opts), d, count);
+        set = await runEngine(id, "fsa", sys, q, null, null, lang, opts, x => validateFsaSet(x, d, count));
       }
       console.log(`[fsa] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
       // 出一次卷不便宜：立刻持久化，以后直接打开做，不再重新生成
@@ -2505,6 +2615,7 @@ const server = http.createServer(async (req, res) => {
           };
           unitTestsAdd(kidId, rec);
           console.log(`[unit] pack hit grade=${g} unit=${strand} lang=${lang} kid=${kidId}`);
+          ledgerAdd({ task: "unit", provider: "pack", lang, ms: 0, ok: true });
           return send(res, 200, { set: rec, provider: "pack", ms: 0, packed: true });
         }
       }
@@ -2522,10 +2633,10 @@ const server = http.createServer(async (req, res) => {
       console.log(`[unit] engine=${id} grade=${g} unit=${strand} lang=${lang} n=${count}`);
       let set;
       try {
-        set = validateUnitTest(await ADAPTERS[id](sys, q, null, null, lang, opts), d, strand, count);
+        set = await runEngine(id, "unit", sys, q, null, null, lang, opts, x => validateUnitTest(x, d, strand, count));
       } catch (e1) {
         console.log(`[unit] first try failed (${e1.message}), retrying once...`);
-        set = validateUnitTest(await ADAPTERS[id](sys, q, null, null, lang, opts), d, strand, count);
+        set = await runEngine(id, "unit", sys, q, null, null, lang, opts, x => validateUnitTest(x, d, strand, count));
       }
       console.log(`[unit] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
       const rec = {
@@ -2620,7 +2731,9 @@ const server = http.createServer(async (req, res) => {
           "这一节的闯关题不在随附的题库里，现出题需要一个 AI 引擎。" + "怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
           "This topic's quiz questions aren't in the bundled question bank, so writing them needs an AI engine." + " See the README to set one up (Ollama is free and offline / claude / gemini / grok / codex or an API)."),
         needsEngine: true });
-      const bank = id ? await ensureQuizBank(found.item, found.data, lang, id) : ready;
+      let bank;
+      if (id) bank = await ensureQuizBank(found.item, found.data, lang, id);
+      else { ledgerAdd({ task: "quiz", provider: "bank", lang, ms: 0, ok: true }); bank = ready; }   // 没引擎、纯吃随包题库
       return send(res, 200, {
         questions: quizSession(bank),
         rules: { maxQuestions: QUIZ_MAX_QUESTIONS, passNeed: QUIZ_PASS_NEED, topLevel: QUIZ_TOP_LEVEL }
@@ -2766,6 +2879,7 @@ const server = http.createServer(async (req, res) => {
             try { ttsStates(packed.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
           }
           console.log(`[lesson] pack hit ${teachCtx.item.id} lang=${lang} kid=${kidId}`);
+          ledgerAdd({ task: "teach", provider: "pack", lang, ms: 0, ok: true });
           return send(res, 200, {
             lesson: packed, provider: "pack", ms: 0, tts: ttsAvailable(), packed: true,
             curriculumId: teachCtx.item.id, status: progressStatus(kidId, teachCtx.item.id), lessonId: rec.id
@@ -2794,10 +2908,10 @@ const server = http.createServer(async (req, res) => {
       console.log(`[lesson] engine=${id} mode=${mode} kid=${kidId} lang=${lang} q="${question.slice(0, 40)}" image=${!!imageB64}`);
       let lesson;
       try {
-        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
+        lesson = await runEngine(id, teachCtx ? "teach" : "ask", sys, question, imageB64, mediaType, lang, null, validateLesson);
       } catch (e1) {
         console.log(`[lesson] first try failed (${e1.message}), retrying once...`);
-        lesson = validateLesson(await ADAPTERS[id](sys, question, imageB64, mediaType, lang));
+        lesson = await runEngine(id, teachCtx ? "teach" : "ask", sys, question, imageB64, mediaType, lang, null, validateLesson);
       }
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
       const rec = { time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson };
@@ -2890,6 +3004,7 @@ module.exports = {
   server,
   cfg, ROOT, DATA_ROOT, PACKAGED, L, DEFAULT_CONFIG, deepMerge,
   ADAPTERS, PROVIDER_META, detectProviders, pickProvider,
+  runEngine, ledgerAdd, ledgerRead, ledgerSummary, LEDGER_FILE,
   curriculum, curriculumGrades, curriculumBooks, findCurriculumItem,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable,
