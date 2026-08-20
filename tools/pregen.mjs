@@ -11,7 +11,8 @@
  *   node tools/pregen.mjs --grades 5,6       # 只做某几个年级
  *   node tools/pregen.mjs --langs zh         # 只做一种语言
  *   node tools/pregen.mjs --only lessons     # 只做课（quiz 只做闯关题库，unit 只做单元测试卷）
- *   node tools/pregen.mjs --provider claude  # 指定引擎（默认按 config.json 自动挑）
+ *   node tools/pregen.mjs --provider claude  # 一刀切指定引擎（默认按 config.json 的
+ *                                            # providerByTask["pregen:teach"|"pregen:quiz"|"pregen:unit"] 路由，再退 provider/自动挑）
  *   node tools/pregen.mjs --concurrency 3    # 并发（默认 2；CLI 类引擎别开太大）
  *   node tools/pregen.mjs --limit 3          # 只做前 N 个（先验货再开大批）
  *   node tools/pregen.mjs --force            # 已生成的也重做
@@ -165,16 +166,24 @@ async function genUnit(j, provider) {
 /* ---------------- 主流程 ---------------- */
 async function main() {
   await S.detectProviders();
-  const provider = S.pickProvider(opt("provider", null));
-  if (!provider) {
+  // 三类任务各自走路由（config.providerByTask 的 pregen:* 键）；--provider 一刀切压过路由
+  const cli = opt("provider", null);
+  const prov = {
+    teach: S.pickProvider(cli, "pregen:teach"),
+    quiz: S.pickProvider(cli, "pregen:quiz"),
+    unit: S.pickProvider(cli, "pregen:unit")
+  };
+  if (!prov.teach || !prov.quiz || !prov.unit) {
     console.error("没有可用的 AI 引擎。装一个再来：");
     console.error("  npm i -g @anthropic-ai/claude-code   然后跑一次 claude 登录");
     console.error("或者 gemini / grok / codex / ollama，或者在 config.json 里填 anthropic.apiKey。");
     process.exit(1);
   }
 
-  const meta = S.PROVIDER_META[provider];
-  console.log("引擎:     " + provider + (meta ? "（" + meta.label + "）" : ""));
+  const provLabel = t => prov[t] + (S.PROVIDER_META[prov[t]] ? "（" + S.PROVIDER_META[prov[t]].label + "）" : "");
+  console.log("引擎:     " + (prov.teach === prov.quiz && prov.quiz === prov.unit
+    ? provLabel("teach")
+    : "课 " + provLabel("teach") + "   题 " + provLabel("quiz") + "   卷 " + provLabel("unit")));
   console.log("范围:     " + sources().map(d => d.type === "book" ? d.bookId : "G" + d.grade).join("、")
     + "   语言 " + LANGS.join("+") + "   并发 " + CONCURRENCY);
   console.log("课程:     " + (doLessons ? todoLessons.length + " 节要生成（共 " + jobs.length + " 节，其余已有）" : "跳过"));
@@ -204,7 +213,7 @@ async function main() {
     await pool(todoLessons, CONCURRENCY, async j => {
       if (stop) return;
       try {
-        const r = await genLesson(j, provider);
+        const r = await genLesson(j, prov.teach);
         stats.lessonOk++;
         tick("课", j, r.steps + " 步  " + Math.round(r.ms / 1000) + "s");
       } catch (e) {
@@ -221,7 +230,7 @@ async function main() {
     await pool(todoQuiz, CONCURRENCY, async j => {
       if (stop) return;
       try {
-        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, provider, "pregen:quiz");
+        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, prov.quiz, "pregen:quiz");
         stats.quizOk++;
         tick("题", j, bank.questions.length + " 道");
       } catch (e) {
@@ -239,7 +248,7 @@ async function main() {
       if (stop) return;
       const label = j.gradeKey + "-" + j.strand;
       try {
-        const r = await genUnit(j, provider);
+        const r = await genUnit(j, prov.unit);
         stats.unitOk++;
         n++;
         console.log("[" + String(Math.round(n / total * 100)).padStart(3, " ") + "% " + String(n).padStart(3, " ") + "/" + total

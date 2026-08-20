@@ -93,6 +93,7 @@ const DEFAULT_CONFIG = {
   accessCode: "",                 // 已弃用：账号系统（注册/登录）取代了访问码，此项不再参与鉴权
   registrationCode: "",           // 第一位家长注册完注册就自动关了；设了这个邀请码才能再注册新家庭
   provider: "auto",               // auto | ollama | grok | claude | gemini | codex | anthropic | openai
+  providerByTask: {},             // 按任务挑引擎（可选），例 { "quiz": "ollama", "ask": "claude" }；任务名同用量账本，见 pickProvider
   ollama: { url: "http://localhost:11434", model: "", think: true },
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
@@ -961,9 +962,26 @@ const PROVIDER_META = {
 };
 const AUTO_ORDER = ["claude", "grok", "gemini", "ollama", "codex", "anthropic", "openai"];
 
-function pickProvider(requested) {
-  const want = requested && requested !== "auto" ? requested : (cfg.provider !== "auto" ? cfg.provider : null);
-  if (want && detected[want] && detected[want].available) return want;
+/* 路由和用量账本共用同一套任务名：先在 /api/usage 看清每类任务真实花多少，
+ * 再到 config.providerByTask 里决定谁干什么活（比如出题跑批给本地 Ollama，
+ * 拍照问题留给 Claude）。写错的引擎名/任务名启动时吭一声，不悄悄吞。 */
+const TASKS = ["teach", "ask", "quiz", "unit", "fsa", "report", "pregen:teach", "pregen:quiz", "pregen:unit"];
+for (const [t, p] of Object.entries(cfg.providerByTask || {})) {
+  if (!PROVIDER_META[p]) console.log(`[config] providerByTask.${t} = "${p}" 不是已知引擎（可选：${Object.keys(PROVIDER_META).join(" / ")}），忽略`);
+  else if (!TASKS.includes(t)) console.log(`[config] providerByTask 里的任务名 "${t}" 不认识（可选：${TASKS.join(" / ")}），这条永远不会生效`);
+}
+
+/* 挑引擎：请求里明选的（家长 ⚙️）> 按任务路由（providerByTask）>
+ * 全局默认（provider）> 自动顺序第一个可用的。路由指到的引擎当时不可用
+ * （比如本地 Ollama 没开机）就照这个顺序往后落——孩子的课不能被路由表
+ * 卡住；实际用了谁，账本里都看得见。 */
+function pickProvider(requested, task) {
+  const wants = [
+    requested && requested !== "auto" ? requested : null,
+    task && cfg.providerByTask ? cfg.providerByTask[task] : null,
+    cfg.provider !== "auto" ? cfg.provider : null
+  ];
+  for (const want of wants) if (want && detected[want] && detected[want].available) return want;
   for (const id of AUTO_ORDER) if (detected[id] && detected[id].available) return id;
   return null;
 }
@@ -2319,7 +2337,7 @@ const server = http.createServer(async (req, res) => {
         model: detected[id] && detected[id].model || undefined
       }));
       const resp = {
-        active: pickProvider(cfg.provider), providers: list, tts: ttsAvailable(),
+        active: pickProvider(cfg.provider), routes: cfg.providerByTask || {}, providers: list, tts: ttsAvailable(),
         packedLessons: lessonPackCount(), packedUnitTests: unitPackCount(),
         curriculumGrades: curriculumGrades(), curriculumBooks: curriculumBooks(),
         role: a.role, user: publicUser(a.user)
@@ -2459,7 +2477,7 @@ const server = http.createServer(async (req, res) => {
       const g = curriculumKey(body.grade || 0);
       const digest = buildReportDigest(kidId, g);
       if (!digest) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
-      const id = pickProvider(body.provider);
+      const id = pickProvider(body.provider, "report");
       if (!id) return send(res, 503, { error: L(lang,
         "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
         "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
@@ -2517,7 +2535,7 @@ const server = http.createServer(async (req, res) => {
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
       const strand = STRANDS.some(s => s[0] === body.strand) ? body.strand : "";
       const count = Math.max(4, Math.min(10, Number(body.count) || 6));
-      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎，走 config 默认
+      const id = pickProvider(a.role === "parent" ? body.provider : null, "fsa");   // 学生不能指定引擎，走 config 默认
       if (!id) return send(res, 503, { error: L(lang,
         "没有检测到可用的 AI 引擎。请看 README 配置一个（Ollama / grok / claude / gemini / codex 或 API）。",
         "No AI engine detected. See the README to set one up (Ollama / grok / claude / gemini / codex or an API).") });
@@ -2620,7 +2638,7 @@ const server = http.createServer(async (req, res) => {
         }
       }
 
-      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎，走 config 默认
+      const id = pickProvider(a.role === "parent" ? body.provider : null, "unit");   // 学生不能指定引擎，走 config 默认
       if (!id) return send(res, 503, {
         error: L(lang,
           "这个单元的卷子不在随附的题库里，现出卷需要一个 AI 引擎。怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
@@ -2724,7 +2742,7 @@ const server = http.createServer(async (req, res) => {
       const lang = normLang(body.lang);
       const found = findCurriculumItem(String(body.curriculumId || ""));
       if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎
+      const id = pickProvider(a.role === "parent" ? body.provider : null, "quiz");   // 学生不能指定引擎
       const ready = qbankPlayable(found.item.id, lang);   // 随包发的题库：没引擎也能闯
       if (!id && !ready) return send(res, 503, {
         error: L(lang,
@@ -2887,7 +2905,7 @@ const server = http.createServer(async (req, res) => {
         }
       }
 
-      const id = pickProvider(a.role === "parent" ? body.provider : null);   // 学生不能指定引擎
+      const id = pickProvider(a.role === "parent" ? body.provider : null, teachCtx ? "teach" : "ask");   // 学生不能指定引擎
       if (!id) return send(res, 503, {
         error: L(lang,
           (teachCtx ? "这一节课不在随附的课程包里，现场讲需要一个 AI 引擎。"
@@ -3003,7 +3021,7 @@ if (require.main === module) detectProviders().then(() => {
 module.exports = {
   server,
   cfg, ROOT, DATA_ROOT, PACKAGED, L, DEFAULT_CONFIG, deepMerge,
-  ADAPTERS, PROVIDER_META, detectProviders, pickProvider,
+  ADAPTERS, PROVIDER_META, detectProviders, pickProvider, detected, TASKS,
   runEngine, ledgerAdd, ledgerRead, ledgerSummary, LEDGER_FILE,
   curriculum, curriculumGrades, curriculumBooks, findCurriculumItem,
   systemPromptTeach, validateLesson,

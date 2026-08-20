@@ -92,6 +92,10 @@ browser (default http://localhost:8434). To use it on a phone or tablet on the s
   "port": 8434,
   "registrationCode": "",    // registration closes itself once the first parent exists; set an invite code to open it for another family
   "provider": "auto",        // pin a specific engine: ollama | grok | claude | gemini | codex | anthropic | openai
+  "providerByTask": {        // route engines per task (optional). Task names match the usage ledger:
+    "quiz": "ollama",        //   teach / ask (photo questions) / quiz / unit / fsa / report /
+    "ask": "claude"          //   pregen:teach|quiz|unit (build-time batches)
+  },                         // if a routed engine is down, falls back to provider / auto — never blocks a lesson
   "ollama": {
     "url": "http://localhost:11434",
     "model": "",             // leave blank to auto-pick; the qwen family is recommended (good at math, supports Chinese and vision)
@@ -360,8 +364,10 @@ GET /api/usage            # everything
 GET /api/usage?days=30    # last 30 days only
 ```
 
-This ledger is the foundation for per-task engine routing later: first know what each
-kind of task really costs, then decide how to save.
+This ledger is the foundation for per-task engine routing (`providerByTask` in the
+configuration section): first see on paper what each kind of task really costs and how
+often it succeeds, then decide who does what — e.g. quiz-bank batches go to a free local
+Ollama model while photo questions stay with Claude.
 
 ## Notes
 

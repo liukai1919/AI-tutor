@@ -71,6 +71,10 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
   "port": 8434,
   "registrationCode": "",    // 第一位家长注册完，注册就自动关闭了；设了邀请码才能再开新家庭
   "provider": "auto",        // 固定用某个引擎：ollama | grok | claude | gemini | codex | anthropic | openai
+  "providerByTask": {        // 按任务挑引擎（可选）。任务名和用量账本一致：
+    "quiz": "ollama",        //   teach 讲课 / ask 拍照问题 / quiz 闯关出题 / unit 单元卷 /
+    "ask": "claude"          //   fsa / report / pregen:teach|quiz|unit（构建期跑批）
+  },                         // 路由的引擎当时不可用就退回 provider / 自动挑，绝不挡孩子的课
   "ollama": {
     "url": "http://localhost:11434",
     "model": "",             // 留空自动挑；建议 qwen 系列（数学好、支持中文和看图）
@@ -303,7 +307,9 @@ GET /api/usage            # 全部
 GET /api/usage?days=30    # 只看最近 30 天
 ```
 
-这本账是后面「按任务挑引擎」的地基：先知道每类任务真实花多少，再谈怎么省。
+这本账是「按任务挑引擎」（配置一节里的 `providerByTask`）的地基：先在账上看清
+每类任务真实花多少、成功率如何，再决定谁干什么活——比如出题跑批交给本地
+Ollama 白嫖，拍照问题留给最稳的 Claude。
 
 ## 自己打包发布
 
