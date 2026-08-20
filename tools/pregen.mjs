@@ -13,6 +13,9 @@
  *   node tools/pregen.mjs --only lessons     # 只做课（quiz 只做闯关题库，unit 只做单元测试卷）
  *   node tools/pregen.mjs --provider claude  # 一刀切指定引擎（默认按 config.json 的
  *                                            # providerByTask["pregen:teach"|"pregen:quiz"|"pregen:unit"] 路由，再退 provider/自动挑）
+ *   node tools/pregen.mjs --judge [claude]   # 生成完送审稿引擎核数学/贴题（便宜引擎跑批 + 强引擎审）：
+ *                                            # 没过重生成一次再审，仍没过放弃这条留给下次；
+ *                                            # 裸 --judge 按 config providerByTask["judge:*"] 挑审稿引擎
  *   node tools/pregen.mjs --concurrency 3    # 并发（默认 2；CLI 类引擎别开太大）
  *   node tools/pregen.mjs --limit 3          # 只做前 N 个（先验货再开大批）
  *   node tools/pregen.mjs --force            # 已生成的也重做
@@ -42,6 +45,8 @@ const FORCE = flag("force");
 const WITH_BOOKS = flag("books");
 const DRY = flag("dry");
 const GRADES = String(opt("grades", "")).split(",").map(s => s.trim()).filter(Boolean);
+const JUDGE = flag("judge");                 // 生成完送另一个引擎审稿：没过重来一次，仍没过就放弃这条
+const JUDGE_CLI = opt("judge", null);        // --judge claude = 指定审稿引擎；裸 --judge 按 providerByTask["judge:*"] 路由
 const doLessons = ONLY === "all" || ONLY === "lessons";
 const doQuiz = ONLY === "all" || ONLY === "quiz";
 const doUnit = ONLY === "all" || ONLY === "unit";
@@ -117,8 +122,42 @@ process.on("SIGINT", () => {
 });
 
 const t00 = Date.now();
-const stats = { lessonOk: 0, lessonFail: 0, quizOk: 0, quizFail: 0, unitOk: 0, unitFail: 0 };
+const stats = { lessonOk: 0, lessonFail: 0, quizOk: 0, quizFail: 0, unitOk: 0, unitFail: 0, judgeReject: 0 };
 const failures = [];
+
+/* ---------------- 审稿（--judge） ----------------
+ * judges.teach/quiz/unit：内容 → {pass, problems}。跑一遍审稿比让强引擎
+ * 自己写一遍便宜得多（输入长输出短）；审稿的账记在 judge:* 任务名下，
+ * 拒绝次数统一在这里计（quiz 的审在 ensureQuizBank 里层跑，也从这经过）。 */
+let judges = null;
+function mkJudges(prov) {
+  const call = async (kind, sys, lang) => {
+    const v = await S.runEngine(prov[kind], "judge:" + kind, sys,
+      S.L(lang, "请审这份内容。", "Review this content."), null, null, lang,
+      { schema: S.JUDGE_SCHEMA, hint: S.JUDGE_HINT[lang] }, S.validateJudge);
+    if (!v.pass) stats.judgeReject++;
+    return v;
+  };
+  return {
+    teach: (j, lesson) => call("teach", S.judgeLessonPrompt(j.item, j.data, lesson, j.lang), j.lang),
+    quiz: (j, batch) => call("quiz", S.judgeQuizPrompt(j.item, j.data, batch, j.lang), j.lang),
+    unit: (j, set) => call("unit", S.judgeUnitPrompt(j.data, j.strand, set, j.lang), j.lang)
+  };
+}
+
+/* 生成 → 审 → 没过重来一次 → 仍没过放弃这条（进 failures，下次跑接着补）。
+ * gen 自带的「失败重试一次」在里层，这里只管审稿维度。 */
+async function withJudge(kind, j, gen) {
+  let content = await gen();
+  if (!judges) return content;
+  let v = await judges[kind](j, content);
+  if (v.pass) return content;
+  console.log(`    审稿没过（${j.lang} ${kind} ${j.item ? j.item.id : j.gradeKey + "-" + j.strand}），重来：${v.problems[0] || "（没给理由）"}`);
+  content = await gen();
+  v = await judges[kind](j, content);
+  if (!v.pass) throw new Error("审稿两次没过：" + (v.problems[0] || "（没给理由）"));
+  return content;
+}
 
 /* ---------------- 生成一节课 ---------------- */
 async function genLesson(j, provider) {
@@ -126,12 +165,11 @@ async function genLesson(j, provider) {
   const sys = S.systemPromptTeach(j.item, j.data, "", j.lang);
   const question = j.lang === "en" ? j.item.en : j.item.zh + "（" + j.item.en + "）";
   const t0 = Date.now();
-  let lesson;
-  try {
-    lesson = await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson);
-  } catch (e1) {
-    lesson = await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson);   // 和服务器一样，失败重试一次
-  }
+  const gen = async () => {
+    try { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson); }
+    catch (e1) { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson); }   // 和服务器一样，失败重试一次
+  };
+  const lesson = await withJudge("teach", j, gen);
   writeJson(lessonFile(j.item.id, j.lang), {
     v: 1, curriculumId: j.item.id, lang: j.lang,
     title: j.lang === "en" ? j.item.en : j.item.zh,
@@ -148,12 +186,11 @@ async function genUnit(j, provider) {
   const q = j.lang === "en" ? "Please write this unit test." : "请出这张单元测验。";
   const opts = { schema: S.UNIT_TEST_SCHEMA, hint: S.UNIT_TEST_HINT[j.lang] };
   const t0 = Date.now();
-  let set;
-  try {
-    set = await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT));
-  } catch (e1) {
-    set = await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT));
-  }
+  const gen = async () => {
+    try { return await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT)); }
+    catch (e1) { return await S.runEngine(provider, "pregen:unit", sys, q, null, null, j.lang, opts, x => S.validateUnitTest(x, j.data, j.strand, UNIT_COUNT)); }
+  };
+  const set = await withJudge("unit", j, gen);
   writeJson(unitFile(j.gradeKey, j.strand, j.lang), {
     v: 1, grade: j.gradeKey, strand: j.strand, lang: j.lang,
     unitName: { zh: j.def[1], en: j.def[2] },
@@ -184,6 +221,25 @@ async function main() {
   console.log("引擎:     " + (prov.teach === prov.quiz && prov.quiz === prov.unit
     ? provLabel("teach")
     : "课 " + provLabel("teach") + "   题 " + provLabel("quiz") + "   卷 " + provLabel("unit")));
+
+  if (JUDGE) {
+    const jp = {
+      teach: S.pickProvider(JUDGE_CLI, "judge:teach"),
+      quiz: S.pickProvider(JUDGE_CLI, "judge:quiz"),
+      unit: S.pickProvider(JUDGE_CLI, "judge:unit")
+    };
+    if (!jp.teach || !jp.quiz || !jp.unit) {
+      console.error("--judge 需要一个可用的审稿引擎：--judge <引擎名>，或在 config.providerByTask 里配 judge:teach / judge:quiz / judge:unit。");
+      process.exit(1);
+    }
+    judges = mkJudges(jp);
+    const jl = t => jp[t] + (S.PROVIDER_META[jp[t]] ? "（" + S.PROVIDER_META[jp[t]].label + "）" : "");
+    console.log("审稿:     " + (jp.teach === jp.quiz && jp.quiz === jp.unit
+      ? jl("teach")
+      : "课 " + jl("teach") + "   题 " + jl("quiz") + "   卷 " + jl("unit")));
+    if (jp.teach === prov.teach && jp.quiz === prov.quiz && jp.unit === prov.unit)
+      console.log("          （审稿和生成是同一个引擎：自审也能拦低级错，但换个更强的引擎审更稳）");
+  }
   console.log("范围:     " + sources().map(d => d.type === "book" ? d.bookId : "G" + d.grade).join("、")
     + "   语言 " + LANGS.join("+") + "   并发 " + CONCURRENCY);
   console.log("课程:     " + (doLessons ? todoLessons.length + " 节要生成（共 " + jobs.length + " 节，其余已有）" : "跳过"));
@@ -230,7 +286,7 @@ async function main() {
     await pool(todoQuiz, CONCURRENCY, async j => {
       if (stop) return;
       try {
-        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, prov.quiz, "pregen:quiz");
+        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, prov.quiz, "pregen:quiz", judges ? b => judges.quiz(j, b) : null);
         stats.quizOk++;
         tick("题", j, bank.questions.length + " 道");
       } catch (e) {
@@ -265,7 +321,8 @@ async function main() {
   console.log("用时 " + hhmmss(Date.now() - t00)
     + "   课 " + stats.lessonOk + " 成 / " + stats.lessonFail + " 败"
     + "   题 " + stats.quizOk + " 成 / " + stats.quizFail + " 败"
-    + "   卷 " + stats.unitOk + " 成 / " + stats.unitFail + " 败");
+    + "   卷 " + stats.unitOk + " 成 / " + stats.unitFail + " 败"
+    + (JUDGE ? "   审稿拒 " + stats.judgeReject + " 次" : ""));
   if (failures.length) {
     console.log("");
     console.log("没成的（再跑一次这个脚本会自动重试，已成的不会重做）：");

@@ -72,8 +72,8 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
   "registrationCode": "",    // 第一位家长注册完，注册就自动关闭了；设了邀请码才能再开新家庭
   "provider": "auto",        // 固定用某个引擎：ollama | grok | claude | gemini | codex | anthropic | openai
   "providerByTask": {        // 按任务挑引擎（可选）。任务名和用量账本一致：
-    "quiz": "ollama",        //   teach 讲课 / ask 拍照问题 / quiz 闯关出题 / unit 单元卷 /
-    "ask": "claude"          //   fsa / report / pregen:teach|quiz|unit（构建期跑批）
+    "quiz": "ollama",        //   teach 讲课 / ask 拍照问题 / quiz 闯关出题 / unit 单元卷 / fsa / report /
+    "ask": "claude"          //   pregen:teach|quiz|unit（构建期跑批）/ judge:teach|quiz|unit（构建期审稿）
   },                         // 路由的引擎当时不可用就退回 provider / 自动挑，绝不挡孩子的课
   "ollama": {
     "url": "http://localhost:11434",
@@ -351,6 +351,11 @@ node tools/prevoice.mjs --langs zh,en
 #    138 节课、138 组题库、40 张卷。需要一个 AI 引擎。
 #    跑一遍大概三四个小时，建议挂着过夜。
 node tools/pregen.mjs --concurrency 3
+
+#    有本地显卡想省订阅额度？便宜引擎跑批 + 强引擎审稿：
+#    生成交给 Ollama，数学对不对让 Claude 把关（审一遍比写一遍便宜得多），
+#    没过审的自动重生成一次，仍没过就留给下次跑。总账在 /api/usage 里对比。
+node tools/pregen.mjs --provider ollama --judge claude
 
 # 2. 预烘语音（中英各约 540 条，共三四个小时，约 160 MB）
 #    需要 CosyVoice 守护进程跑着 + ffmpeg。

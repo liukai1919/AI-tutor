@@ -808,6 +808,79 @@ function validateQbankBatch(raw, requested) {
   return qs;
 }
 
+/* ---------------- 构建期审稿（pregen --judge） ----------------
+ * 便宜引擎跑批生成，强引擎只当审稿人：读一遍、判过/不过、列出问题。
+ * 审稿输入长输出短，比让强引擎自己写一遍便宜得多；审稿的账单独记
+ * （judge:teach / judge:quiz / judge:unit），在 /api/usage 里能直接算
+ * 「便宜引擎生成 + 强引擎审 + 重来」的总价和让强引擎直接写的差价。 */
+const JUDGE_SCHEMA = {
+  type: "object",
+  properties: {
+    pass: { type: "boolean" },
+    problems: { type: "array", items: { type: "string" } }
+  },
+  required: ["pass", "problems"]
+};
+const JUDGE_HINT = {
+  zh: `
+
+【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块：
+{"pass":true或false,"problems":["发现的问题，一条一句；没有就给空数组"]}`,
+  en: `
+
+[Output format] Output ONE JSON object only — no other text, no markdown code fences:
+{"pass":true or false,"problems":["one issue per string; empty array if none"]}`
+};
+
+function judgeCommon(lang) {
+  return L(lang,
+`你是一位严格的小学数学教研审稿人。下面是自动生成、要发给孩子的内容，请逐项核查：
+1. 数学必须全对：每一步计算、每个最终答案、每道选择题标的正确选项，错一处就不能过；
+   标成正确答案的选项必须真的对，其余选项必须真的错。
+2. 内容要贴住指定的知识点和年级，不能跑题、不能明显超纲。
+3. 讲法不能引入会误导孩子的说法。
+只报真问题：风格和口味上的小瑕疵放过，数学错误和跑题一个都不能放。
+判定：有任何数学错误或明显跑题 → pass=false，problems 里一条一句写清哪里错、为什么错；
+否则 pass=true（problems 给空数组）。`,
+`You are a strict elementary-math content reviewer. The content below was auto-generated for a child. Check:
+1. The math must be entirely correct: every step, every final answer, and for multiple choice the
+   option marked correct must truly be correct and the other options truly wrong. One error fails it.
+2. The content must stay on the given curriculum topic and grade level.
+3. No explanation may teach the child something misleading.
+Report real problems only: let style quibbles pass; never let a math error or off-topic drift pass.
+Verdict: any math error or clear off-topic drift → pass=false with one issue per problems entry
+(where and why); otherwise pass=true with an empty problems array.`);
+}
+const gradeTag = d => d.type === "book" ? String(d.bookId || "") : "G" + d.grade;
+
+function judgeLessonPrompt(item, gradeData, lesson, lang) {
+  return judgeCommon(lang)
+    + "\n\n" + L(lang, "知识点（", "Curriculum item (") + gradeTag(gradeData) + "）：" + item.zh + " / " + item.en
+    + "\n\n" + L(lang, "待审的讲课内容（JSON，steps 是一步步的讲解，practice 是课后练习）：\n",
+                       "Lesson under review (JSON; steps are the walkthrough, practice is the follow-up exercise):\n")
+    + JSON.stringify(lesson);
+}
+function judgeQuizPrompt(item, gradeData, questions, lang) {
+  return judgeCommon(lang)
+    + "\n\n" + L(lang, "知识点（", "Curriculum item (") + gradeTag(gradeData) + "）：" + item.zh + " / " + item.en
+    + "\n\n" + L(lang, "待审的选择题（JSON，answerIndex 指向 options 里标为正确的那项）：\n",
+                       "Multiple-choice questions under review (JSON; answerIndex marks the correct option):\n")
+    + JSON.stringify(questions);
+}
+function judgeUnitPrompt(gradeData, strand, set, lang) {
+  return judgeCommon(lang)
+    + "\n\n" + L(lang, "单元（", "Unit (") + gradeTag(gradeData) + "）：" + strand
+    + "\n\n" + L(lang, "待审的单元测试卷（JSON，answerIndex 指向 options 里标为正确的那项）：\n",
+                       "Unit test under review (JSON; answerIndex marks the correct option):\n")
+    + JSON.stringify(set);
+}
+
+function validateJudge(v) {
+  if (!v || typeof v !== "object" || typeof v.pass !== "boolean") throw new Error("审稿结果格式不对");
+  const problems = (Array.isArray(v.problems) ? v.problems : []).map(p => String(p == null ? "" : p).trim()).filter(Boolean).slice(0, 10);
+  return { pass: v.pass, problems };
+}
+
 /* ---------------- 工具函数 ---------------- */
 const L = (lang, zh, en) => lang === "en" ? en : zh;
 /* 请求里的 lang 归一：只认 "zh"，其余一律英文（面向英文学校的孩子） */
@@ -965,7 +1038,8 @@ const AUTO_ORDER = ["claude", "grok", "gemini", "ollama", "codex", "anthropic", 
 /* 路由和用量账本共用同一套任务名：先在 /api/usage 看清每类任务真实花多少，
  * 再到 config.providerByTask 里决定谁干什么活（比如出题跑批给本地 Ollama，
  * 拍照问题留给 Claude）。写错的引擎名/任务名启动时吭一声，不悄悄吞。 */
-const TASKS = ["teach", "ask", "quiz", "unit", "fsa", "report", "pregen:teach", "pregen:quiz", "pregen:unit"];
+const TASKS = ["teach", "ask", "quiz", "unit", "fsa", "report",
+  "pregen:teach", "pregen:quiz", "pregen:unit", "judge:teach", "judge:quiz", "judge:unit"];
 for (const [t, p] of Object.entries(cfg.providerByTask || {})) {
   if (!PROVIDER_META[p]) console.log(`[config] providerByTask.${t} = "${p}" 不是已知引擎（可选：${Object.keys(PROVIDER_META).join(" / ")}），忽略`);
   else if (!TASKS.includes(t)) console.log(`[config] providerByTask 里的任务名 "${t}" 不认识（可选：${TASKS.join(" / ")}），这条永远不会生效`);
@@ -1788,7 +1862,10 @@ function qbankPlayable(itemId, lang) {
   return [1, 2, 3].every(lv => bank.questions.some(q => q.level === lv)) ? bank : null;
 }
 
-async function ensureQuizBank(item, gradeData, lang, providerId, task) {
+/* judge（可选，pregen --judge 用）：拿到一批新题先送审，没过就抛错——
+ * 正好落进下面「失败重试一次」的既有路径：重新生成一批、再审一次。
+ * 审没过的批次绝不 merge 进题库。 */
+async function ensureQuizBank(item, gradeData, lang, providerId, task, judge) {
   task = task || "quiz";
   const key = qbankKey(item.id, lang);
   const bank = qbank[key] || (qbank[key] = { questions: [] });
@@ -1805,7 +1882,12 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task) {
   const t0 = Date.now();
   console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}`);
   const attempt = async () => {
-    qbankMerge(bank, await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total)));
+    const batch = await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total));
+    if (judge) {
+      const v = await judge(batch);
+      if (!v.pass) throw new Error(L(lang, "审稿没过：", "Review failed: ") + (v.problems[0] || L(lang, "（没给理由）", "(no reason given)")));
+    }
+    qbankMerge(bank, batch);
     // 阶梯每一级都得有题可出，缺级就算失败
     if ([1, 2, 3].some(lv => !bank.questions.some(q => q.level === lv))) throw new Error("有难度级还没有题");
   };
@@ -3028,4 +3110,5 @@ module.exports = {
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable,
   ttsId, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
+  JUDGE_SCHEMA, JUDGE_HINT, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
 };

@@ -94,7 +94,7 @@ browser (default http://localhost:8434). To use it on a phone or tablet on the s
   "provider": "auto",        // pin a specific engine: ollama | grok | claude | gemini | codex | anthropic | openai
   "providerByTask": {        // route engines per task (optional). Task names match the usage ledger:
     "quiz": "ollama",        //   teach / ask (photo questions) / quiz / unit / fsa / report /
-    "ask": "claude"          //   pregen:teach|quiz|unit (build-time batches)
+    "ask": "claude"          //   pregen:teach|quiz|unit (build-time batches) / judge:teach|quiz|unit (build-time review)
   },                         // if a routed engine is down, falls back to provider / auto — never blocks a lesson
   "ollama": {
     "url": "http://localhost:11434",
@@ -428,6 +428,12 @@ resumable (Ctrl-C, run it again, finished work is skipped).
 #    138 lessons, 138 quiz banks, 40 test papers. Needs an AI engine.
 #    Takes three or four hours — run it overnight.
 node tools/pregen.mjs --concurrency 3
+
+#    Got a local GPU and want to save subscription quota? Cheap engine generates,
+#    strong engine reviews: Ollama writes, Claude checks the math (one review pass
+#    costs far less than writing it), rejects regenerate once, still-failing items
+#    wait for the next run. Compare the total bill in /api/usage.
+node tools/pregen.mjs --provider ollama --judge claude
 
 # 2. Pre-bake the voice (~540 clips per language, three or four hours, ~160 MB)
 #    Needs the CosyVoice daemon running plus ffmpeg.
