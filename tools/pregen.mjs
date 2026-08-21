@@ -15,7 +15,8 @@
  *                                            # providerByTask["pregen:teach"|"pregen:quiz"|"pregen:unit"] 路由，再退 provider/自动挑）
  *   node tools/pregen.mjs --judge [claude]   # 生成完送审稿引擎核数学/贴题（便宜引擎跑批 + 强引擎审）：
  *                                            # 没过重生成一次再审，仍没过放弃这条留给下次；
- *                                            # 裸 --judge 按 config providerByTask["judge:*"] 挑审稿引擎
+ *                                            # 裸 --judge 按 config providerByTask["judge:*"] 挑审稿引擎，
+ *                                            # 写了名字就必须是它——没装/写错当场报错，不悄悄换人
  *   node tools/pregen.mjs --concurrency 3    # 并发（默认 2；CLI 类引擎别开太大）
  *   node tools/pregen.mjs --limit 3          # 只做前 N 个（先验货再开大批）
  *   node tools/pregen.mjs --force            # 已生成的也重做
@@ -223,6 +224,17 @@ async function main() {
     : "课 " + provLabel("teach") + "   题 " + provLabel("quiz") + "   卷 " + provLabel("unit")));
 
   if (JUDGE) {
+    /* 明写了 --judge <引擎名> 就必须是那个引擎。审稿的全部意义是换个更强的把关，
+     * 名字打错（--judge cluade）或那台引擎没装却悄悄换人，跑完一晚上批次才发现
+     * 「强引擎复核」根本没发生——这种账事后补不回来，不如当场停。
+     * 裸 --judge 照旧按 providerByTask 的 judge:* 路由挑，挑不着退 provider/自动。 */
+    if (JUDGE_CLI && !(S.detected[JUDGE_CLI] && S.detected[JUDGE_CLI].available)) {
+      console.error("--judge " + JUDGE_CLI + "：" + (S.PROVIDER_META[JUDGE_CLI]
+        ? "这台机器上没检测到这个引擎，装好再来。"
+        : "不是已知引擎（可选：" + Object.keys(S.PROVIDER_META).join(" / ") + "）。"));
+      console.error("不指定引擎的话，裸 --judge 会按 config.providerByTask 里的 judge:teach / judge:quiz / judge:unit 路由挑。");
+      process.exit(1);
+    }
     const jp = {
       teach: S.pickProvider(JUDGE_CLI, "judge:teach"),
       quiz: S.pickProvider(JUDGE_CLI, "judge:quiz"),

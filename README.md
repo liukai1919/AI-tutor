@@ -357,7 +357,12 @@ calls are logged too — the tokens were already spent, so a retry shows up as t
 Lesson-pack / quiz-bank hits are logged as zero-cost lines, so you can see exactly how
 many calls the bundled content saved this machine.
 
-Parents can query the summary (by engine, by task, last 20 entries):
+Signed in as a parent, open **⚙️ Settings → AI engine → 📒 Usage ledger**: totals, a breakdown
+by task and by engine, and the last 20 calls, over all time / the last 30 / the last 7 days.
+
+The same summary is available over HTTP, but note it is parent-only and the session token
+travels in a header — typing the URL into the address bar gets you a 401, so use the panel
+or a client that can set `x-session`:
 
 ```
 GET /api/usage            # everything

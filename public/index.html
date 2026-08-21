@@ -242,6 +242,21 @@
   .repTable th{background:var(--soft)}
   .weakItem{border:2px solid #ffd9b8;background:#fff7f0;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.6}
 
+  /* 用量账本：表格全部复用 .repTable，只补一个横向滚动壳（窄屏别把弹窗撑破）
+     和几个小样式。首列左对齐——任务名/引擎名是文字，居中读着别扭。 */
+  .useScroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .useScroll .repTable{min-width:340px}
+  .useScroll .repTable td:first-child,.useScroll .repTable th:first-child{text-align:left}
+  .useHead{background:var(--soft);border-radius:14px;padding:12px 14px;margin-top:10px;font-size:13.5px;line-height:1.8}
+  .useHead b{font-size:20px}
+  .useSec{font-size:13px;font-weight:800;margin-top:16px;color:var(--muted)}
+  .useFail{color:var(--bad);font-weight:700}
+  .useFree{color:var(--good);font-weight:700}
+  .useRecent{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+  .useRow{border:1px solid var(--line);border-radius:12px;padding:7px 10px;font-size:12.5px;line-height:1.5;background:#fff}
+  .useRow .ut{color:var(--muted)}
+  .useErr{color:var(--bad);word-break:break-word}
+
   /* ---------- iPad 分栏：左边选课栏常驻，右边讲课舞台 ----------
    * 窄屏和 iPad 竖屏一条规则都不生效，还是原来的「一屏一张卡片」。 */
   #stageEmpty{display:none}
@@ -499,6 +514,7 @@
       <label data-i18n="engineFieldLabel">AI 引擎</label>
       <div class="engineList" id="engineList"></div>
       <div class="help" data-i18n="engineHelp">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
+      <button class="btn ghost" id="usageBtn" style="margin-top:8px;padding:10px 12px;font-size:14px">📒 <span data-i18n="usageTitle">用量账本</span></button>
     </div>
 
     <div class="field hidden" id="dataField">
@@ -562,6 +578,26 @@
     <div class="histList" id="histList"></div>
     <div class="modalRow">
       <button class="btn ghost" id="closeHistory" data-i18n="closeBtn" style="flex:1">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 用量账本（家长专属）：每笔 AI 调用的账。服务端 /api/usage 只认家长 token，
+     这里是它唯一的入口——没有这一屏，账本就只能靠 curl 看。 -->
+<div class="modal hidden" id="usageModal">
+  <div class="modalCard reportCard">
+    <div class="row" style="justify-content:space-between;margin:0">
+      <h3 data-i18n="usageTitle">用量账本</h3>
+      <select id="usageDays" class="learnGradeSel">
+        <option value="0" data-i18n="usageAll">全部</option>
+        <option value="30" data-i18n="usage30">最近 30 天</option>
+        <option value="7" data-i18n="usage7">最近 7 天</option>
+      </select>
+    </div>
+    <p class="help" style="margin-top:2px" data-i18n="usageHelp">每一笔 AI 调用记一行账：哪个任务、哪个引擎、多少 token、多少钱。课程包和题库命中记 0 花费，替你省下的调用一眼可见。</p>
+    <div id="usageBody"></div>
+    <div class="modalRow">
+      <button class="btn ghost" id="closeUsage" data-i18n="closeBtn" style="flex:1">关闭</button>
     </div>
   </div>
 </div>
@@ -636,6 +672,21 @@ const I18N = {
     codeLabel:"访问码", codePh:"问爸爸妈妈要访问码", codeHelp:"家里服务器设置了访问码，输入一次就好。",
     langLabel:"语言 / Language",
     engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
+    usageTitle:"用量账本", usageAll:"全部", usage30:"最近 30 天", usage7:"最近 7 天",
+    usageHelp:"每一笔 AI 调用记一行账：哪个任务、哪个引擎、多少 token、多少钱。课程包和题库命中记 0 花费，替你省下的调用一眼可见。",
+    usageLoading:"正在算账…", usageEmpty:"这段时间还没有调用记录。",
+    usageCalls:"笔调用", usageFreeHits:"笔没花引擎（课程包 / 题库直接命中）",
+    usageEngineCalls:"笔真的调了引擎", usageFailed:"笔失败（token 已经花了，重试在账上就是两行）",
+    usageCostNone:"引擎没报花费——订阅制和本地模型本来就不按笔计费。",
+    usageWait:"等引擎累计",
+    usageByTask:"按任务", usageByEngine:"按引擎", usageRecent:"最近 20 笔",
+    usageColTask:"任务", usageColEngine:"引擎", usageColCalls:"次", usageColFailed:"败",
+    usageColIn:"token 进", usageColOut:"出", usageColCost:"花费",
+    usageRoutes:"按任务指定了引擎（config.providerByTask）：",
+    usageFile:"账本文件",
+    taskTeach:"讲课", taskAsk:"提问 / 拍照题", taskQuiz:"闯关出题", taskUnit:"单元卷",
+    taskFsa:"FSA 卷", taskReport:"家长报告", taskPregen:"构建期生成", taskJudge:"构建期审稿",
+    provPack:"课程包", provBank:"题库",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
     booksGroup:"跟教材学",
@@ -823,6 +874,21 @@ const I18N = {
     codeLabel:"Access code", codePh:"Ask mom or dad for the code", codeHelp:"Your home server needs an access code — enter it once.",
     langLabel:"Language / 语言",
     engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
+    usageTitle:"Usage ledger", usageAll:"All time", usage30:"Last 30 days", usage7:"Last 7 days",
+    usageHelp:"Every AI call gets one line of accounting: which task, which engine, how many tokens, how many dollars. Lesson-pack and question-bank hits are logged at zero cost, so you can see exactly what the bundled content saved you.",
+    usageLoading:"Adding it up…", usageEmpty:"No calls recorded in this period.",
+    usageCalls:"calls", usageFreeHits:"used no engine (lesson pack / question bank hits)",
+    usageEngineCalls:"actually reached an engine", usageFailed:"failed (the tokens were already spent — a retry is two lines here)",
+    usageCostNone:"No engine reported a cost — subscriptions and local models aren’t billed per call.",
+    usageWait:"total engine time",
+    usageByTask:"By task", usageByEngine:"By engine", usageRecent:"Last 20 calls",
+    usageColTask:"Task", usageColEngine:"Engine", usageColCalls:"Calls", usageColFailed:"Failed",
+    usageColIn:"Tokens in", usageColOut:"out", usageColCost:"Cost",
+    usageRoutes:"Engines pinned per task (config.providerByTask):",
+    usageFile:"Ledger file",
+    taskTeach:"Lesson", taskAsk:"Question / photo", taskQuiz:"Quiz bank", taskUnit:"Unit test",
+    taskFsa:"FSA paper", taskReport:"Parent report", taskPregen:"Build-time batch", taskJudge:"Build-time review",
+    provPack:"Lesson pack", provBank:"Question bank",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
     booksGroup:"Books",
@@ -1033,6 +1099,7 @@ function applyLang(){
   renderLegend();
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
   if(!$("reportModal").classList.contains("hidden")) openReport();                  // 换语言重画报告
+  if(!$("usageModal").classList.contains("hidden")) loadUsage();                    // 换语言重画账本
   // 正在看的内容也得跟着换，不然界面换了题目还是原来的语言：
   // 大纲/书籍课重取同一节的新语言版（预生成包两种语言都有，秒开）；
   // 闯关先按原语言把已答的记上（同中途退出），再用新语言重开一局（题库按语言分桶，qid 对不上号）。
@@ -1309,6 +1376,7 @@ $("gateGo").onclick=async()=>{
     await refreshAuth();
     const after=gateAfter; gateAfter=null;
     if(after==="report") openReport();
+    if(after==="usage") openUsage();
   }catch(err){
     e.textContent=err.status===401?t("loginFailed"):(err.message||t("genericErr"));
     e.classList.remove("hidden");
@@ -3504,6 +3572,109 @@ function openSettings(errMsg){
 }
 $("gear").onclick=()=>openSettings();
 $("closeSettings").onclick=()=>settings.classList.add("hidden");
+
+/* ---------- 用量账本（家长专属，设置里） ----------
+ * /api/usage 只认家长 token，浏览器地址栏直接敲会 401（没有 x-session 头），
+ * 所以这一屏是家长看账的唯一入口。全部数字来自服务端的确定性汇总，
+ * 前端只负责翻译任务名/引擎名和排版，一个数都不自己算。 */
+const USAGE_TASK_KEY = { teach:"taskTeach", ask:"taskAsk", quiz:"taskQuiz", unit:"taskUnit", fsa:"taskFsa", report:"taskReport" };
+function usageTaskLabel(task){
+  if(USAGE_TASK_KEY[task]) return t(USAGE_TASK_KEY[task]);
+  const m=/^(pregen|judge):(.+)$/.exec(task||"");   // 构建期的任务名带前缀，拆开显示更好认
+  if(m) return t(m[1]==="pregen"?"taskPregen":"taskJudge")+" · "+(USAGE_TASK_KEY[m[2]]?t(USAGE_TASK_KEY[m[2]]):m[2]);
+  return task||"?";
+}
+function usageEngineLabel(id){
+  if(id==="pack") return t("provPack");
+  if(id==="bank") return t("provBank");
+  return providerLabel(id);   // 认得的引擎给中文名，认不得的原样显示 id
+}
+const useNum = n => (n||0).toLocaleString(cfg.lang==="en"?"en-US":"zh-CN");
+/* 花费：不足一分钱的按四位显示，否则两位；0 和缺失一律「—」，别拿 $0.00 冒充「不要钱」 */
+const useCost = c => c ? ("$"+(c<0.01?c.toFixed(4):c.toFixed(2))) : "—";
+const useDur = ms => { const s=Math.round((ms||0)/1000);
+  return s<60 ? s+"s" : Math.floor(s/60)+"m "+String(s%60).padStart(2,"0")+"s"; };
+
+function usageTable(map, head, labelFn){
+  const keys=Object.keys(map||{}).sort((a,b)=>(map[b].calls||0)-(map[a].calls||0));
+  if(!keys.length) return "";
+  let h='<div class="useScroll"><table class="repTable"><tr>'
+    +`<th>${escapeHtml(head)}</th><th>${escapeHtml(t("usageColCalls"))}</th>`
+    +`<th>${escapeHtml(t("usageColFailed"))}</th><th>${escapeHtml(t("usageColIn"))}</th>`
+    +`<th>${escapeHtml(t("usageColOut"))}</th><th>${escapeHtml(t("usageColCost"))}</th></tr>`;
+  for(const k of keys){
+    const b=map[k];
+    h+=`<tr><td>${escapeHtml(labelFn(k))}</td><td>${useNum(b.calls)}</td>`
+      +`<td${b.failed?' class="useFail"':""}>${b.failed?useNum(b.failed):"—"}</td>`
+      +`<td>${b.tokensIn?useNum(b.tokensIn):"—"}</td>`
+      +`<td>${b.tokensOut?useNum(b.tokensOut):"—"}</td>`
+      +`<td>${useCost(b.costUsd)}</td></tr>`;
+  }
+  return h+"</table></div>";
+}
+
+function renderUsage(d){
+  const box=$("usageBody"), tt=d.totals||{};
+  if(!tt.calls){ box.innerHTML=`<p class="help">${escapeHtml(t("usageEmpty"))}</p>`; return; }
+  let h=`<div class="useHead"><b>${useNum(tt.calls)}</b> ${escapeHtml(t("usageCalls"))}`;
+  if(tt.freeHits) h+=`<br><span class="useFree">${useNum(tt.freeHits)}</span> ${escapeHtml(t("usageFreeHits"))}`;
+  if(tt.engineCalls) h+=`<br>${useNum(tt.engineCalls)} ${escapeHtml(t("usageEngineCalls"))}`;
+  if(tt.failed) h+=`<br><span class="useFail">${useNum(tt.failed)}</span> ${escapeHtml(t("usageFailed"))}`;
+  if(tt.tokensIn||tt.tokensOut)
+    h+=`<br>${escapeHtml(t("usageColIn"))} ${useNum(tt.tokensIn)} · ${escapeHtml(t("usageColOut"))} ${useNum(tt.tokensOut)}`;
+  h+=`<br>${escapeHtml(t("usageColCost"))} ${useCost(tt.costUsd)}`;
+  if(tt.ms) h+=` · ${escapeHtml(t("usageWait"))} ${useDur(tt.ms)}`;
+  h+="</div>";
+  if(!tt.costUsd && tt.engineCalls) h+=`<p class="help">${escapeHtml(t("usageCostNone"))}</p>`;
+
+  // 路由表：解释「为什么这个任务记在这个引擎头上」，就近放在两张表前面
+  const routes=serverInfo.routes||{};
+  const rk=Object.keys(routes);
+  if(rk.length) h+=`<p class="help">${escapeHtml(t("usageRoutes"))} `
+    +rk.map(k=>escapeHtml(usageTaskLabel(k)+" → "+usageEngineLabel(routes[k]))).join(" · ")+"</p>";
+
+  h+=`<div class="useSec">${escapeHtml(t("usageByTask"))}</div>`+usageTable(d.byTask, t("usageColTask"), usageTaskLabel);
+  h+=`<div class="useSec">${escapeHtml(t("usageByEngine"))}</div>`+usageTable(d.byProvider, t("usageColEngine"), usageEngineLabel);
+
+  const rows=d.recent||[];
+  if(rows.length){
+    h+=`<div class="useSec">${escapeHtml(t("usageRecent"))}</div><div class="useRecent">`;
+    for(const r of rows){
+      const bits=[];
+      if(r.model) bits.push(escapeHtml(r.model));
+      if(r.tokensIn||r.tokensOut) bits.push(useNum(r.tokensIn)+"→"+useNum(r.tokensOut));
+      if(r.costUsd) bits.push(useCost(r.costUsd));
+      if(r.ms) bits.push(useDur(r.ms));
+      h+=`<div class="useRow">${r.ok===false?"⚠️":"✅"} <b>${escapeHtml(usageTaskLabel(r.task))}</b>`
+        +` · ${escapeHtml(usageEngineLabel(r.provider))}`
+        +(bits.length?` · ${bits.join(" · ")}`:"")
+        +` <span class="ut">${escapeHtml(fmtHistTime(r.at))}</span>`
+        +(r.err?`<br><span class="useErr">${escapeHtml(r.err)}</span>`:"")
+        +"</div>";
+    }
+    h+="</div>";
+  }
+  if(d.file) h+=`<p class="help">${escapeHtml(t("usageFile"))}: ${escapeHtml(d.file)}</p>`;
+  box.innerHTML=h;
+}
+
+async function loadUsage(){
+  const box=$("usageBody");
+  box.innerHTML=`<p class="help">${escapeHtml(t("usageLoading"))}</p>`;
+  try{
+    const days=Number($("usageDays").value)||0;
+    renderUsage(await api("/api/usage"+(days?"?days="+days:"")));
+  }catch(e){
+    if(e.silent) return;   // 401/403 已经由 api() 接管（弹登录 / 弹家长门）
+    box.innerHTML=`<p class="help">${escapeHtml(e.message||t("genericErr"))}</p>`;
+  }
+}
+function openUsage(){ $("usageModal").classList.remove("hidden"); loadUsage(); }
+/* 按钮本来就锁在家长专属区块里，孩子看不见；真被点到（临时家长态过期）就走家长门，
+ * 和 📊 报告一个走法——别让账本卡在「正在算账…」上 */
+$("usageBtn").onclick=()=>{ if(myRole==="parent") openUsage(); else openParentGate("usage"); };
+$("closeUsage").onclick=()=>$("usageModal").classList.add("hidden");
+$("usageDays").onchange=()=>loadUsage();
 
 /* ---------- 孩子管理（家长专属，设置里） ---------- */
 function renderKidsList(){
