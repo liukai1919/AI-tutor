@@ -208,7 +208,18 @@ function stageApp(dst) {
   mkdirp(seedDir);
   const example = JSON.parse(fs.readFileSync(path.join(ROOT, "config.example.json"), "utf8"));
   fs.writeFileSync(path.join(seedDir, "config.json"), JSON.stringify(example, null, 2) + "\n", "utf8");
-  copyInto(path.join(ROOT, "qbank.json"), seedDir, { optional: true });
+  // 种子题库要按 --books 过滤：本机 qbank.json 里混着书籍小节的题（AOPS.* 等），
+  // 那是照着版权教材的章节结构出的，和书籍课程一样不能进公开包（1.1.x 漏发过 2 组）。
+  try {
+    const bank = JSON.parse(fs.readFileSync(path.join(ROOT, "qbank.json"), "utf8"));
+    const keep = {};
+    let dropped = 0;
+    for (const [k, v] of Object.entries(bank)) {
+      if (WITH_BOOKS || /^BC\./.test(k)) keep[k] = v; else dropped++;
+    }
+    fs.writeFileSync(path.join(seedDir, "qbank.json"), JSON.stringify(keep), "utf8");
+    if (dropped) console.log("  种子题库去掉 " + dropped + " 组书籍题库（版权材料不进公开包）");
+  } catch (_) { /* 没有 qbank.json 也能打包，装完第一次出题自己长 */ }
   // 打包标记：server 看到它才把用户数据切到系统用户目录（源码模式照旧写仓库）
   fs.writeFileSync(path.join(dst, ".packaged"), APP_EN + " " + VERSION + "\n", "utf8");
 
