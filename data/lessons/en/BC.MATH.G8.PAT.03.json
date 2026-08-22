@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.PAT.03",
+ "lang": "en",
+ "title": "two-step equations with integer coefficients, constants, and solutions",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Solving Two-Step Equations: The Balance Trick",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're checking your phone bill at the end of the month. Your data plan says: five dollars base fee, plus two dollars for every extra gigabyte you used. Your total bill came out to thirteen dollars. So how many extra gigs did you blow through? You'd probably think, thirteen minus five is eight, eight divided by two is four. Four extra gigs. And notice, you did TWO steps in your head: you undid the adding, then you undid the multiplying. That's exactly what a two-step equation is, and today we're going to solve them properly, every single time, using a trick that never fails.",
+    "math": "2x + 5 = 13",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5,
+      8,
+      13
+     ],
+     "labels": [
+      "base fee",
+      "extra data",
+      "total bill"
+     ],
+     "caption": "Your $13 bill = $5 base + $8 in extra data charges"
+    }
+   },
+   {
+    "say": "Here's the golden rule of equations, and it's the only rule you really need. An equation is a balance scale. The left side and the right side are holding up the same weight. So whatever you do to one side, you HAVE to do to the other side. Add four to the left? Add four to the right. Take away three from the left? Take away three from the right. Divide the left by two? Divide the right by two. The scale stays balanced. That's it. That's the whole secret. You're just rearranging the blocks on the scale until x is all alone on one side.",
+    "math": "\\text{If } a = b, \\text{ then } a + c = b + c \\text{ and } \\frac{a}{c} = \\frac{b}{c}\\text{ (when } c \\neq 0\\text{)}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 3",
+      "10"
+     ],
+     "caption": "A balanced scale: both sides are equal. Whatever you do to one side, do to the other."
+    }
+   },
+   {
+    "say": "Let's try our first one together. Two x plus five equals thirteen. So on the left side of our balance we've got two x-blocks and a 5-block, and on the right we've got 13. Step one: get rid of that plus five. How? We do the opposite, we subtract five from BOTH sides. Two x plus five minus five is just two x. Thirteen minus five is eight. Now our balance says two x equals eight. Step two: undo the multiplying. Two x means two times x, so we do the opposite, we divide both sides by two. Two x divided by two is just x. Eight divided by two is four. So x equals four. Let's check: two times four is eight, eight plus five is thirteen. It balances! Beautiful.",
+    "math": "2x + 5 = 13 \\implies 2x = 8 \\implies x = 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2x + 5",
+      "13"
+     ],
+     "caption": "Step 1: Start balanced. Step 2: Remove 5 from both sides → 2x = 8. Step 3: Divide both sides by 2 → x = 4."
+    }
+   },
+   {
+    "say": "Alright, now let's look at the two moves in the right order, because that's where people get tripped up. When you see a two-step equation, you UNDO in reverse order, like taking off your shoes before your socks. In two x plus five equals thirteen, the five was added LAST, so we undo it FIRST. Then the two was multiplied LAST, so we undo it SECOND. You always peel the operations off from the outside in. Add or subtract comes off before multiply or divide. Write it down: first, undo the adding or subtracting. Second, undo the multiplying or dividing. That two-line checklist will save you every time.",
+    "math": "\\text{Undo order:} \\quad \\text{Step 1: undo } +/− \\quad \\text{Step 2: undo } \\times/\\div",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now here's one with a negative number, and I want you to see it's not scary. Three x minus four equals negative twelve. On the left of our balance: three x-blocks, and we've TAKEN AWAY four. On the right: negative twelve. Step one: undo the minus four by adding four to BOTH sides. Three x minus four plus four is three x. Negative twelve plus four is negative eight. Now we have three x equals negative eight. Step two: undo the times three by dividing both sides by three. Three x divided by three is x. Negative eight divided by three is negative eight thirds. So x equals negative eight thirds. Let's verify: three times negative eight thirds is negative eight, negative eight minus four is negative twelve. The balance holds. You nailed a negative-number equation. High five.",
+    "math": "3x - 4 = -12 \\implies 3x = -8 \\implies x = -\\frac{8}{3}\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x - 4",
+      "-12"
+     ],
+     "caption": "Add 4 to both sides → 3x = −8. Divide both sides by 3 → x = −8⁄3. Check: 3(−8⁄3) − 4 = −8 − 4 = −12 ✓"
+    }
+   },
+   {
+    "say": "Alright, let's put this in a BC setting you can actually picture. You and your friends are out on a spirit canoe journey up a river on Vancouver Island. Your starting dock is at the zero mark. Upstream is the negative direction. The paddler starts seven kilometres upstream of the dock, at negative seven, and paddles downstream at three kilometres per hour. After x hours, her position is three x minus seven kilometres. She's trying to reach the harbour, which sits at plus eight kilometres downstream. So when is she there? Three x minus seven equals eight. Add seven to both sides: three x equals fifteen. Divide by three: x equals five hours. She arrives at the harbour after five hours of paddling. Check: three times five is fifteen, fifteen minus seven is eight. She's right at the harbour. The canoe crew is stoked.",
+    "math": "3x - 7 = 8 \\implies 3x = 15 \\implies x = 5 \\text{ hours}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      10,
+      -7,
+      8
+     ],
+     "labels": [],
+     "caption": "Spirit canoe journey: starts at −7 km (upstream), paddles at 3 km/h, reaches the harbour at +8 km after 5 hours."
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway, the thing you'll whisper to yourself on a test: do the opposite to both sides, in reverse order, and the balance never breaks. Add? Subtract. Subtract? Add. Times? Divide. Divide? Times. Always both sides. Always reverse order. That's the whole trick, and it works for every two-step equation you'll ever see. You've got this.",
+    "math": "\\boxed{\\text{Opposite to both sides, reverse order. Balance stays equal.}}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "4"
+     ],
+     "caption": "When x is all alone on one side and the number is on the other, you've solved it. The balance is still equal."
+    }
+   }
+  ],
+  "answer": "Do the opposite to both sides, in reverse order — the balance never breaks, and x walks away free.",
+  "practice": {
+   "question": "You work at a small coffee shop in Kelowna. You earn fifteen dollars per hour, but the shop deducts six dollars per week for a work-permit fee. At the end of the week your take-home pay is fifty-four dollars. How many hours did you work? (Set up and solve a two-step equation.)",
+   "answer": "15x − 6 = 54 → 15x = 60 → x = 4 hours. Check: 15 × 4 − 6 = 60 − 6 = 54. ✓"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

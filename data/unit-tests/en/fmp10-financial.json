@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "financial",
+ "lang": "en",
+ "unitName": {
+  "zh": "理财",
+  "en": "Financial Literacy"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Financial Literacy · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 1,
+    "question": "Maya works 15 hours at a grocery store in Surrey earning $14.50 per hour. What is her gross pay for that week?",
+    "options": [
+     "$210.00",
+     "$217.50",
+     "$232.00",
+     "$29.50"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiply hourly rate by hours: 14.50 × 15 = 217.50. A common trap is adding the two numbers or miscounting the hours, which gives a value close but wrong."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 1,
+    "question": "Sam earns a gross pay of $500.00 for the week. His income-tax deduction is $75.00. What is his net pay?",
+    "options": [
+     "$575.00",
+     "$450.00",
+     "$425.00",
+     "$475.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Net pay = gross pay minus deductions: 500 − 75 = 425. Students often accidentally add the deduction instead of subtracting it, or misread the amount."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 1,
+    "question": "Which of the following is a deduction taken from gross pay before an employee receives net pay?",
+    "options": [
+     "Canada Pension Plan (CPP) contribution",
+     "Overtime pay at a ski resort",
+     "A performance bonus from a manager",
+     "Tips received at a restaurant in Vancouver"
+    ],
+    "answerIndex": 0,
+    "explain": "CPP is a mandatory contribution withheld by the employer from gross pay. Overtime pay, bonuses, and tips are all forms of income, not deductions."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 2,
+    "question": "Jake earns $20.00 per hour and works 25 hours per week. His deductions are: income tax 12 %, CPP 5.95 %, and EI 1.53 % of gross pay. What is his net pay?",
+    "options": [
+     "$440.00",
+     "$410.25",
+     "$462.60",
+     "$402.60"
+    ],
+    "answerIndex": 3,
+    "explain": "Gross = 20 × 25 = 500. Deductions: 60 + 29.75 + 7.65 = 97.40. Net = 500 − 97.40 = 402.60. The most common error is forgetting one of the three deduction categories, which inflates the answer."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 2,
+    "question": "Lena earns $15.00 per hour and her total deductions equal 20 % of gross pay. She needs at least $300.00 in net pay for the week. How many hours must she work?",
+    "options": [
+     "20 hours",
+     "25 hours",
+     "24 hours",
+     "30 hours"
+    ],
+    "answerIndex": 1,
+    "explain": "Net = 80 % of Gross, so Gross = 300 / 0.80 = 375, and hours = 375 / 15 = 25. The trap is dividing 300 by 15 first (giving 20 h) and then multiplying by 1.2, which is the wrong way to reverse a percentage deduction."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 2,
+    "question": "A Whistler ski-resort job offers two pay options. Option A: $18.00/hour gross with 15 % total deductions. Option B: $16.00/hour gross with 10 % total deductions. If Taneika works 20 hours, which option gives her more net pay, and by how much?",
+    "options": [
+     "Option A, by $18.00",
+     "Option B, by $18.00",
+     "Option A, by $40.00",
+     "Option B, by $40.00"
+    ],
+    "answerIndex": 0,
+    "explain": "Option A net = 360 × 0.85 = 306; Option B net = 320 × 0.90 = 288. Difference = 18. The $40 distractor comes from comparing gross pays (360 − 320) instead of the actual take-home amounts."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 3,
+    "question": "Dev earns $400.00 gross per week with 10 % total deductions, giving a net pay of $360.00. He receives a raise that increases his gross pay by $50.00. His friend says his new net pay will be $360.00 + $50.00 = $410.00. What is wrong with this reasoning?",
+    "options": [
+     "Nothing is wrong; a $50 raise always adds exactly $50 to net pay.",
+     "A raise is added before CPP and EI, so the extra is only $42.50, not $50.",
+     "The 10 % deduction also applies to the new gross of $450.00, so net pay is $405.00, not $410.00.",
+     "Deductions should be calculated on net pay, making the new deduction $36.00 instead of $40.00."
+    ],
+    "answerIndex": 2,
+    "explain": "Deductions are always a percentage of the new gross pay: 10 % × 450 = 45, so net = 405. The misconception is assuming the raise passes through in full, ignoring that the extra 10 % tax on the $50 increase eats $5 of it."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.FIN.01",
+    "level": 3,
+    "question": "Over a summer week in Kelowna, Priya works two jobs. Job 1 (coffee shop): 12 hours at $13.00/hour with 8 % total deductions. Job 2 (vineyard): 18 hours at $11.00/hour with 12 % total deductions. What is her combined net pay for the week?",
+    "options": [
+     "$354.00",
+     "$325.68",
+     "$318.60",
+     "$317.76"
+    ],
+    "answerIndex": 3,
+    "explain": "Job 1 net = 156 × 0.92 = 143.52; Job 2 net = 198 × 0.88 = 174.24; Total = 317.76. The most common error is applying one average rate to the combined gross, or forgetting deductions entirely, rather than calculating each job separately."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

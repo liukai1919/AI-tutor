@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "trigonometry",
+ "lang": "en",
+ "unitName": {
+  "zh": "三角比",
+  "en": "Trigonometry"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Trigonometry · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "A right triangle has an angle θ. The side opposite θ is 3 cm, the side adjacent to θ is 4 cm, and the hypotenuse is 5 cm. What is sin(θ)?",
+    "options": [
+     "3/5",
+     "4/5",
+     "3/4",
+     "5/3"
+    ],
+    "answerIndex": 0,
+    "explain": "sin(θ) = opposite / hypotenuse = 3/5. The most common trap is mixing up sin (opp/hyp) with tan (opp/adj) or cos (adj/hyp) — always label O, A, H before writing the ratio."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "In a right triangle, angle A = 30° and the hypotenuse is 10 cm. What is the length of the side opposite A?",
+    "options": [
+     "8.66 cm",
+     "10 cm",
+     "5 cm",
+     "2.5 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "sin(30°) = opp/10, so opp = 10 × 0.50 = 5 cm. A frequent error is reaching for cos (giving 8.66 cm) or dividing instead of multiplying, which yields 20 or 2.5."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "A ladder leans against a wall. You know the angle the ladder makes with the ground and the length of the ladder (the hypotenuse). You want to find how high up the wall the ladder reaches. Which trigonometric ratio should you use?",
+    "options": [
+     "tangent",
+     "sine",
+     "cosine",
+     "cotangent"
+    ],
+    "answerIndex": 1,
+    "explain": "The height on the wall is opposite the angle and the ladder is the hypotenuse, so sin = opp/hyp. Students often grab cos by mistake because the wall feels like the 'adjacent' side, but adjacent is the ground distance."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "A skateboard ramp is 4.0 m long (the slanted surface) and rises 2.0 m vertically. What is the angle the ramp makes with the horizontal ground?",
+    "options": [
+     "26.6°",
+     "60°",
+     "15°",
+     "30°"
+    ],
+    "answerIndex": 3,
+    "explain": "You know the hypotenuse (4.0 m) and the opposite side (2.0 m), so sin(θ) = 2.0/4.0 = 0.5, giving θ = 30°. The trap is treating the ramp length as the 'adjacent' side and using tan, which gives 26.6°, or swapping to cos, which gives 60°."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "On a windy day in Squamish, a kid flies a kite. The string makes a 40° angle with the horizontal ground and is 25 m long. How high above the ground is the kite?",
+    "options": [
+     "16.1 m",
+     "19.2 m",
+     "32.6 m",
+     "21.0 m"
+    ],
+    "answerIndex": 0,
+    "explain": "The height is opposite the 40° angle and the string is the hypotenuse, so sin(40°) = h/25, giving h = 25 × 0.643 ≈ 16.1 m. Common errors: using cos (gives 19.2 m), using tan (gives 21.0 m), or dividing by cos (gives 32.6 m)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "A flagpole at a Surrey school casts a shadow 12 m long. The angle of elevation from the tip of the shadow to the top of the pole is 55°. How tall is the flagpole?",
+    "options": [
+     "8.4 m",
+     "6.9 m",
+     "12 m",
+     "17.1 m"
+    ],
+    "answerIndex": 3,
+    "explain": "The shadow is the adjacent side and the pole is opposite, so tan(55°) = h/12, giving h = 12 × 1.428 ≈ 17.1 m. Students who grab cos get 6.9 m, and those who divide get 8.4 m — always check which side you need relative to the angle."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 3,
+    "question": "A surveyor in the Cariboo Mountains measures the angle of elevation to the top of a cliff as 42°. She stands 30 m from the base, and her measuring instrument is 1.5 m above the ground. What is the total height of the cliff?",
+    "options": [
+     "27.0 m",
+     "25.5 m",
+     "28.5 m",
+     "30.0 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Step 1: tan(42°) = h/30, so h = 30 × 0.900 ≈ 27.0 m (height above instrument). Step 2: add the 1.5 m instrument height → 27.0 + 1.5 = 28.5 m. The classic trap is stopping at 27.0 m and forgetting the instrument is not at ground level."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 3,
+    "question": "A student at a park in Parksville estimates a tree's height. Her eyes are 1.2 m above the ground, she stands 20 m from the trunk, and the angle of elevation to the treetop is 38°. She writes: 'tan(38°) = h/20, so h = 20 × 0.781 = 15.6 m. The tree is 15.6 m tall.' What is the error in her conclusion?",
+    "options": [
+     "She should have used sin instead of tan.",
+     "She forgot to add the 1.2 m eye height; the tree is actually about 16.8 m tall.",
+     "She should have treated the 20 m distance as the opposite side.",
+     "She divided instead of multiplying by the tangent value."
+    ],
+    "answerIndex": 1,
+    "explain": "Her trig setup is correct (tan for opp/adj), and 20 × tan(38°) ≈ 15.6 m is the height above her eye level. The error is reporting 15.6 m as the full tree height without adding the 1.2 m to get 16.8 m. This is the most common 'forgot the reference height' mistake in elevation problems."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

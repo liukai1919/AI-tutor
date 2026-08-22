@@ -1,0 +1,180 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.SEQ.01",
+ "lang": "en",
+ "title": "geometric sequences and series",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Geometric Sequences & Series: The Bouncing Ball Story",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You drop a basketball from a height of eighty centimetres. It bounces back up to seventy-five percent of where it was, then falls again, bounces to seventy-five percent of that height, and so on. Notice something? Every single bounce is the previous one times the same number, zero point seven five. That is not addition, that is multiplication. And that idea, each term is the last term times a fixed ratio, is what we call a geometric sequence. Let us build it up properly, because once you see the pattern, it becomes one of the most useful tools in all of math.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      80,
+      60,
+      45,
+      33.8,
+      25.3,
+      19,
+      14.2
+     ],
+     "labels": [
+      "Drop",
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th",
+      "6th"
+     ],
+     "caption": "Drop height, then each bounce is the previous one times 0.75"
+    }
+   },
+   {
+    "say": "Here is the vocabulary. The first term, where you start, we call a. The number you multiply by every single time is the common ratio, and we call it r. So the general term, the n-th term, is a times r to the power of n minus one. Why n minus one and not just n? Because the first term already is a; you do not multiply by r until you get to the second term. So for our ball, a is eighty and r is zero point seven five. Term one is eighty, term two is eighty times zero point seven five which is sixty, term three is sixty times zero point seven five which is forty-five. The table makes it click.",
+    "math": "a_n = a \\cdot r^{\\,n-1}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      80,
+      60,
+      45,
+      33.8,
+      25.3,
+      19
+     ],
+     "labels": [
+      "n = 1",
+      "n = 2",
+      "n = 3",
+      "n = 4",
+      "n = 5",
+      "n = 6"
+     ],
+     "caption": "Geometric sequence: a = 80, r = 0.75"
+    }
+   },
+   {
+    "say": "Now here is where it gets beautiful. If you write out the formula a times r to the power of n minus one, and you treat n as a continuous variable x instead of just whole numbers, you get an exponential function. It is the exact same shape as two to the x, or e to the x. The common ratio r is the base of the exponential, and the first term a is the vertical stretch. So geometric sequences are just the integer-point snapshots of an exponential curve. Look at the graph: if you were to plot our bounce heights as dots, they would sit right on that decaying exponential curve. That is the deep connection between sequences and functions.",
+    "math": "f(x) = 80\\cdot(0.75)^{x-1}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      8,
+      0,
+      90
+     ],
+     "labels": [
+      "80*(0.75)^(x-1)"
+     ],
+     "caption": "The exponential curve passing through every term of the sequence"
+    }
+   },
+   {
+    "say": "Let us do a proper problem. You drop a ball from eighty centimetres and it bounces to seventy-five percent of its previous height each time. What is the height of the fifth bounce? Careful with the counting: the drop height, eighty, is term one, so the fifth bounce is term six. So a is eighty, r is zero point seven five, and we want n equals six. Plug into the formula: eighty times zero point seven five to the power of five. Let us work out that power step by step. Zero point seven five squared is zero point five six two five. Times zero point seven five again gives zero point four two one eight seven five. Times zero point seven five gives zero point three one six four zero six two five. One more multiplication by zero point seven five gives zero point two three seven three zero four six eight seven five. Now multiply that by eighty, and we get eighteen point nine eight four centimetres. So by the fifth bounce the ball is barely nineteen centimetres off the floor. You can feel it losing energy.",
+    "math": "a_6 = 80\\cdot(0.75)^{5} = 80\\cdot 0.2373\\ldots \\approx 18.98\\text{ cm}",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      60,
+      45,
+      33.8,
+      25.3,
+      19,
+      14.2
+     ],
+     "labels": [
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th",
+      "6th"
+     ],
+     "caption": "Bounce heights, 1st to 6th, shrink geometrically toward zero"
+    }
+   },
+   {
+    "say": "Now what if you want the total upward distance the ball has covered after five bounces? That is sixty plus forty-five plus thirty-three point seven five plus twenty-five point three one plus eighteen point nine eight. Adding up the terms of a geometric sequence gives you a geometric series. We write that with sigma notation: the sum from k equals one to n of a times r to the power of k minus one. There is a beautiful shortcut. The partial sum formula is S sub n equals a times (r to the n minus one) divided by (r minus one). Quick check with different numbers: a equals two, r equals three, first five terms. The terms are two, six, eighteen, fifty-four, one hundred sixty-two. Adding them gives two hundred forty-two. Now the formula: two times (three to the fifth minus one) over (three minus one). Three to the fifth is two hundred forty-three, minus one is two hundred forty-two. So two times two hundred forty-two over two, which is two hundred forty-two. Perfect match.",
+    "math": "S_n=\\sum_{k=1}^{n} a\\,r^{k-1} = \\frac{a(r^n - 1)}{r - 1}, \\qquad S_5 = \\frac{2(3^5-1)}{3-1} = \\frac{2(242)}{2} = 242",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      60,
+      45,
+      33.8,
+      25.3,
+      19,
+      60,
+      105,
+      138.8,
+      164.1,
+      183
+     ],
+     "labels": [
+      "Bounce 1",
+      "Bounce 2",
+      "Bounce 3",
+      "Bounce 4",
+      "Bounce 5",
+      "Height",
+      "Total"
+     ],
+     "caption": "Each term and its running total (cm)"
+    }
+   },
+   {
+    "say": "Here is the really cool part, and it surprises a lot of people. What if the ball keeps bouncing forever? Can you add up an infinite number of positive numbers and still get a finite answer? Yes, but only when the absolute value of r is less than one. In that case the partial sum formula simplifies beautifully to S equals a divided by (one minus r). Let us try a game example. You win eight dollars, then four, then two, then one, then half a dollar, then a quarter, and so on forever. That is eight plus four plus two plus one plus zero point five plus zero point two five plus... The partial sums are: eight, twelve, fourteen, fifteen, fifteen point five, fifteen point seven five, fifteen point eight seven five... They are creeping toward sixteen and never going over. The formula confirms it: eight over (one minus half) is eight over half, which is sixteen. The series has converged to sixteen dollars total, even though you keep adding terms forever. That is a geometric series with a equals eight and r equals one half.",
+    "math": "S = \\frac{a}{1-r} = \\frac{8}{1-\\tfrac{1}{2}} = \\frac{8}{\\tfrac{1}{2}} = 16",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      8,
+      12,
+      14,
+      15,
+      15.5,
+      15.75,
+      15.875
+     ],
+     "labels": [
+      "n=1",
+      "n=2",
+      "n=3",
+      "n=4",
+      "n=5",
+      "n=6",
+      "n=7"
+     ],
+     "caption": "Partial sums after n terms, converging toward $16"
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway to carry with you. A geometric sequence multiplies by a fixed ratio each step, which makes it an exponential function sampled at whole numbers. When you add those terms up and the ratio is less than one in absolute value, the infinite sum snaps to a single finite number, a over one minus r. Sequences give you the dots, the function gives you the smooth curve, and the series gives you the total. One pattern, three views. You have got this.",
+    "math": "a_n = a\\,r^{n-1}, \\qquad S_{\\infty} = \\frac{a}{1-r} \\quad (|r|<1)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A geometric sequence multiplies by a fixed ratio r each step (exponential shape); when |r| < 1 the infinite series converges to a/(1−r).",
+  "practice": {
+   "question": "A small BC town starts with a population of 50 000 and grows by 8 % each year (a geometric sequence with r = 1.08). (a) Write the general term a_n. (b) What is the population at the start of year 11 (i.e. the 11th term)? Round to the nearest person.",
+   "answer": "(a) a_n = 50 000 × (1.08)^(n−1).  (b) a_11 = 50 000 × (1.08)^10 ≈ 50 000 × 2.1589 ≈ 107 946 people."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 7
+ }
+}

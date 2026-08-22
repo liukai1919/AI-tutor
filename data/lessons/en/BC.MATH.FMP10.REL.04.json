@@ -1,0 +1,144 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.REL.04",
+ "lang": "en",
+ "title": "systems of linear equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Where Two Lines Meet: Solving Systems of Linear Equations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this: you're in Vancouver, picking a phone plan. Plan A costs twenty dollars a month plus ten dollars for every gigabyte of data you use. Plan B costs thirty-five a month plus five dollars per gigabyte. You stream a lot and text a lot, so data really matters. You want to know: at how many gigabytes do these two plans cost exactly the same amount? You could guess — try ten gigs, try twenty — but there's a cleaner, more reliable way. You write both cost rules down as equations and ask where they overlap. That idea is a system of linear equations, and today we're going to learn three different ways to solve one.",
+    "math": "y = 10x + 20 \\qquad \\text{and} \\qquad y = 5x + 35",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      6,
+      0,
+      80
+     ],
+     "labels": [
+      "10*x+20",
+      "5*x+35"
+     ],
+     "caption": "Two phone plans on the same grid — where do they cross?"
+    }
+   },
+   {
+    "say": "Let's be precise about what we just wrote. A system of linear equations is a set of two or more equations that share the same variables. Here, both equations use x, the number of gigabytes, and y, the total monthly cost in dollars. The solution is the single ordered pair, the one x and the one y, that makes both equations true at the same time. Think of it like a balance scale: both sides have to match, and that has to be true for both equations simultaneously. Only one point in the entire plane satisfies both, and that point is our answer.",
+    "math": "\\begin{cases} y = 10x + 20 \\\\ y = 5x + 35 \\end{cases}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "y = 10x + 20",
+      "y = 5x + 35"
+     ],
+     "caption": "Both equations must balance at the same x and y"
+    }
+   },
+   {
+    "say": "The first way to solve is graphical, and it's the most visual. You already know how to draw a line from its slope and y-intercept. Plan A starts at twenty dollars and climbs ten dollars for each gigabyte, so it's a steep line. Plan B starts at thirty-five and climbs five per gigabyte, so it's gentler. Plot both on the same grid and look for the crossing. Reading off the grid, the lines cross at x equals three and y equals fifty. That means at three gigabytes, both plans cost fifty dollars. Graphical solutions are a great quick check, but if the crossing lands between grid lines, you lose precision, so let's also solve it with algebra.",
+    "math": "10x + 20 = 5x + 35 \\;\\;\\Longrightarrow\\;\\; x = 3,\\;\\; y = 50",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      6,
+      0,
+      80
+     ],
+     "labels": [
+      "10*x+20",
+      "5*x+35"
+     ],
+     "caption": "The intersection point (3, 50) is the solution"
+    }
+   },
+   {
+    "say": "Now for the first algebraic method, substitution. Because both equations are already equal to y, we can set them equal to each other. Ten x plus twenty equals five x plus thirty-five. Subtract five x from both sides and you get five x plus twenty equals thirty-five. Subtract twenty from both sides and you get five x equals fifteen. Divide both sides by five, and x equals three. Now plug that back into either original equation to find y. Using the first one: y equals ten times three plus twenty, which is thirty plus twenty, so y equals fifty. The solution is the ordered pair three, fifty. Substitution is especially clean when one equation already has a variable all by itself.",
+    "math": "10x+20=5x+35 \\;\\Rightarrow\\; 5x=15 \\;\\Rightarrow\\; x=3 \\;\\Rightarrow\\; y=10(3)+20=50",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "10x + 20",
+      "5x + 35"
+     ],
+     "caption": "Set both expressions for y equal, then isolate x"
+    }
+   },
+   {
+    "say": "The second algebraic method is elimination, and it really shines when the equations are in standard form with the variables on one side. Let's try a fresh pair to see the technique. Suppose you have x plus y equals seven, and two x minus y equals five. Look at the y terms: one is plus y, the other is minus y. If you add the two equations straight down, the y's cancel out completely. You're left with three x equals twelve, so x equals four. Now substitute back into the simpler equation: four plus y equals seven, so y equals three. Always check: four plus three is seven, good; two times four minus three is eight minus three, which is five, good. Elimination is the fastest route whenever you can cancel a variable by adding or subtracting the two equations.",
+    "math": "\\begin{aligned} x+y &= 7 \\\\ 2x-y &= 5 \\\\ \\hline 3x &= 12 \\;\\;\\Rightarrow\\; x=4,\\;\\; y=3 \\end{aligned}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x",
+      "12"
+     ],
+     "caption": "After adding the two equations the y terms cancel: 3x = 12"
+    }
+   },
+   {
+    "say": "Here's a point that students often miss, so let's make it click. That ordered pair, three and fifty, is not just a dot floating on a coordinate plane. It has a real, practical meaning. In our phone plan problem, it tells you that if you use exactly three gigabytes of data, Plan A and Plan B will both charge you exactly fifty dollars. Below three gigabytes, Plan A is the cheaper deal because its monthly fee is lower. Above three gigabytes, Plan B takes over because its per-gigabyte rate is smaller. The solution is the break-even point, the exact moment where your best choice flips. That's why systems of equations show up everywhere: comparing savings plans, budgeting a road trip, figuring out when two part-time earnings strategies catch up to each other.",
+    "math": "(3,\\;50) \\;\\;\\text{means: at 3 GB, both plans cost \\$50}",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      30,
+      40,
+      50,
+      60,
+      70,
+      40,
+      45,
+      50,
+      55,
+      60
+     ],
+     "labels": [
+      "1 GB",
+      "2 GB",
+      "3 GB",
+      "4 GB",
+      "5 GB",
+      "Plan A",
+      "Plan B"
+     ],
+     "caption": "At 3 GB the bars are the same height — the break-even point"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway. A system of linear equations asks for the one point where two rules agree, and you can find it three ways: graph the lines and read the crossing, substitute one equation into the other, or eliminate a variable by adding or subtracting. Whichever method you pick, that ordered pair is the answer that makes both equations true at the same time. You now have three tools for the same job, so pick whichever feels most natural for the shape of your equations.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A system of linear equations has one solution — the ordered pair that makes both equations true at the same time — and you can find it by graphing, substituting, or eliminating.",
+  "practice": {
+   "question": "You're working two part-time jobs in Kelowna over summer. Job A pays fifteen dollars per hour, and Job B pays twelve dollars per hour. Last week you worked a total of twenty hours across both jobs and earned two hundred seventy dollars. Let x be the hours at Job A and y be the hours at Job B. Set up the system of two linear equations and solve for x and y. How many hours did you work at each job?",
+   "answer": "System: x + y = 20 and 15x + 12y = 270. Substitute y = 20 − x into the second equation: 15x + 12(20 − x) = 270 → 15x + 240 − 12x = 270 → 3x = 30 → x = 10. Then y = 20 − 10 = 10. Check: 10 + 10 = 20 ✓ and 15(10) + 12(10) = 150 + 120 = 270 ✓. You worked 10 hours at each job."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

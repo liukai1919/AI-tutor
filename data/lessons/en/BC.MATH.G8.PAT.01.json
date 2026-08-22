@@ -1,0 +1,150 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.PAT.01",
+ "lang": "en",
+ "title": "discrete linear relations (extended to larger numbers, limited to integers)",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Discrete Linear Relations: Dots, Not Lines",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're at the airport in Vancouver and you're hailing a taxi to get to your hotel. The meter says: one dollar base fare, plus two dollars for every whole kilometre you go. So one kilometre costs three dollars total. Two kilometres? Five dollars. Three kilometres? Seven dollars. You get it — each extra kilometre adds exactly two dollars. But here's the thing: you can't ride one point three kilometres. The meter only clicks up in whole-kilometre steps. So this isn't some smooth sliding line — it jumps, one whole step at a time. And that is exactly what a discrete linear relation is: a rule that connects two variables, but only at whole-number values.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's name our two variables. Let x be the number of whole kilometres you ride, and y be the total cost in dollars. The rule is: y equals two times x, plus one. The plus one is that base fare. The two times x is the per-kilometre charge. We call it LINEAR because the change is constant — every extra kilometre adds exactly two dollars, no matter where you are. We call it DISCRETE because x can only be a whole number: zero, one, two, three, and so on. You don't get to ride one-and-a-half kilometres and pay for that half. The values jump in whole-number steps, and every coordinate is an integer.",
+    "math": "y = 2x + 1",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Alright, let's build a table of values. We'll pick whole-number values for x and plug them into y equals two x plus one. When x is zero, y is one. When x is one, y is three. When x is two, y is five. Three gives seven, four gives nine, five gives eleven. Now look at the y column: each time x goes up by one, y goes up by exactly two. That constant jump of two is the rate of change — in a linear relation it never changes. And because we only use whole numbers for both x and y, every pair in this table is an integer coordinate.",
+    "math": "y = 2x + 1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11
+     ],
+     "labels": [
+      "x=0",
+      "x=1",
+      "x=2",
+      "x=3",
+      "x=4",
+      "x=5"
+     ],
+     "caption": "Table of values for y = 2x + 1 — top row is x, bottom row is y"
+    }
+   },
+   {
+    "say": "Now let's put those points on a coordinate grid. Here is the important part: because this is a DISCRETE relation, we draw DOTS — one dot for each whole-number pair. We do NOT connect them with a line. In a continuous linear relation you would draw a solid line through the points, but here the points are like individual stops on a train. You are at stop one, then stop three, then stop five — there is no stop at two or four. Each dot is a real, whole-number situation: zero kilometres costs one dollar, one kilometre costs three dollars, two kilometres costs five dollars, and so on. The dots march up and to the right with that constant gap of two.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      1,
+      1,
+      3,
+      2,
+      5,
+      3,
+      7,
+      4,
+      9,
+      5,
+      11
+     ],
+     "labels": [],
+     "caption": "Discrete points on the grid — dots, not a line"
+    }
+   },
+   {
+    "say": "Now here is where it gets practical for bigger numbers. What if you are taking that taxi across the whole city? Twenty kilometres? Thirty? Let's check: at twenty kilometres, y equals two times twenty plus one, which is forty-one dollars. At thirty kilometres, it is sixty-one dollars. If we tried to draw all of that on a grid where every tick mark is one unit, the axis would be impossibly long. So we use SCALE VALUES. Instead of labelling every single unit, we mark every five or every ten. On the x-axis, one tick might mean five kilometres. On the y-axis, one tick might mean ten dollars. The idea is the same — you still only plot whole-number points — but the axis is compact enough to fit on the page. The golden rule: always write the scale value on the axis, like 'five km per tick' or 'ten dollars per tick,' so nobody gets confused reading the graph.",
+    "math": "y = 2(20) + 1 = 41",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      1,
+      11,
+      21,
+      31,
+      41,
+      51,
+      61
+     ],
+     "labels": [
+      "0 km",
+      "5 km",
+      "10 km",
+      "15 km",
+      "20 km",
+      "25 km",
+      "30 km"
+     ],
+     "caption": "Same relation y = 2x + 1 at a larger scale — note the x-axis ticks jump by 5 km, not 1"
+    }
+   },
+   {
+    "say": "One more idea to lock in. So far every point has been in the first quadrant — positive x, positive y. But what about negative values? Say you have nine dollars for the week and you spend two dollars a day. Write the rule: y equals negative two times x plus nine. Day zero: nine dollars. Day one: seven. Day two: five. Day three: three. Day four: one. Day five: negative one — you are a dollar in the red. Now your points cross into the fourth quadrant. The rule does not change: x and y must still be whole numbers. Discrete means integer coordinates, whether they are positive or negative, and the points can live in any of the four quadrants as long as both values are integers.",
+    "math": "y = -2x + 9",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      9,
+      1,
+      7,
+      2,
+      5,
+      3,
+      3,
+      4,
+      1,
+      5,
+      -1
+     ],
+     "labels": [],
+     "caption": "Points crossing into the fourth quadrant — still discrete, still integers"
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway to carry forward: a discrete linear relation is a rule linking two integer variables with a constant rate of change, and you can see it three ways — as an expression like y equals two x plus one, as a table of whole-number pairs, or as a set of unconnected dots on a grid. When the numbers grow big, you scale the axis ticks. Dots, not lines; integers, not decimals. That is the whole idea.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A discrete linear relation links two integer variables with a constant rate of change — shown as an expression, a table, or unconnected dots on a grid (not a solid line).",
+  "practice": {
+   "question": "You're at a BC ski resort. The lift ticket is $5 for the first whole hour, then $8 for each additional whole hour. Write the expression for the total cost y in dollars if you ski for x whole hours (x is at least 1). Then find the cost for exactly 4 hours.",
+   "answer": "y = 8x − 3 (for x ≥ 1). For 4 hours: y = 8(4) − 3 = 32 − 3 = $29."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.NUM.02",
+ "lang": "en",
+ "title": "powers with rational exponents",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Rational Exponents: The Fraction in the Exponent Is Just a Recipe",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, so picture this. You're helping your little brother build a cardboard box to ship a gaming console to a cousin in Kelowna. The box needs to be a perfect cube, and it has to hold exactly 27 cubic centimetres of space. You already know that side length cubed gives you the volume. But here you need to go backwards. You need the cube root of 27. And the cool thing is, we can write that as 27 to the power of one-third. That little fraction sitting in the exponent is what we call a rational exponent. Today we're going to understand what those fractions in the exponent actually mean and how to compute them without a calculator.",
+    "math": "27^{1/3} = 3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cube with side 3 cm has volume 27 cm³ — finding the side from the volume is a cube-root (rational exponent) problem."
+    }
+   },
+   {
+    "say": "Here's the golden rule. When you see a fraction in the exponent, like the two-thirds in 8 to the power of two-thirds, the bottom number, the denominator, tells you which root to take. And the top number, the numerator, tells you what power to raise that result to. So for 8 to the power of two-thirds: first take the cube root of 8, which is 2. Then square that 2, and you get 4. Root first, then power. The denominator is the 'undo' step and the numerator is the 'rebuild' step. That's the whole recipe.",
+    "math": "8^{2/3} = \\left(\\sqrt[3]{8}\\right)^{2} = 2^{2} = 4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8,
+      3,
+      2,
+      2,
+      4
+     ],
+     "labels": [
+      "base",
+      "denominator",
+      "root result",
+      "numerator",
+      "answer"
+     ],
+     "caption": "The step-by-step recipe for evaluating 8 to the power of two-thirds."
+    }
+   },
+   {
+    "say": "What if the exponent is negative? Like 27 to the power of negative one-third? Same recipe: take the cube root of 27, you get 3. But because of the negative sign, you flip the whole thing into a fraction. So the answer is one-third. Here's a quick check that makes it click: 27 to the one-third times 27 to the negative one-third should give you 27 to the zero, which is 1. And indeed, 3 times one-third is 1. It balances perfectly. The negative sign just means: do the root and the power, then take the reciprocal.",
+    "math": "27^{-1/3} = \\frac{1}{27^{1/3}} = \\frac{1}{3}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3 × 1/3",
+      "1"
+     ],
+     "caption": "The two expressions are reciprocals — their product is exactly 1."
+    }
+   },
+   {
+    "say": "Now here's the really nice part. All the exponent rules you already know — the product rule, the power rule, the quotient rule — they still work, even when the exponents are fractions. For example, 5 to the half times 5 to the three-halves. Product rule says: keep the base, add the exponents. One-half plus three-halves is two. So you get 5 squared, which is 25. No new rules at all. The fraction exponents just play by the exact same rules as the whole-number ones you already mastered in Grade 10.",
+    "math": "5^{1/2} \\cdot 5^{3/2} = 5^{1/2+3/2} = 5^{2} = 25",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      3,
+      0,
+      30
+     ],
+     "labels": [
+      "5^x"
+     ],
+     "caption": "The curve y = 5 to the x. At x = 0.5 you get about 2.24, at x = 1.5 about 11.18, and at x = 2 you get 25 — the product of the first two."
+    }
+   },
+   {
+    "say": "Let's do a full worked example. Evaluate 32 to the power of three-fifths. Step one: the denominator is 5, so take the fifth root of 32. What number do you multiply by itself five times to get 32? Two, because two times two is four, four times two is eight, eight times two is sixteen, sixteen times two is thirty-two. Step two: the numerator is 3, so cube that result. Two cubed is eight. Done. 32 to the three-fifths equals 8. Notice the root came first, then the power. Order matters and it always goes root-then-power.",
+    "math": "32^{3/5} = \\left(\\sqrt[5]{32}\\right)^{3} = 2^{3} = 8",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      2
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The final step: cubing 2 gives a volume of 8, so 32^(3/5) = 8."
+    }
+   },
+   {
+    "say": "One more, a little trickier. Evaluate 8 to the one-third times 8 to the negative two-thirds. Use the product rule: keep the base 8, add the exponents. One-third plus negative two-thirds is negative one-third. So you have 8 to the negative one-third. Negative means reciprocal, so that's one over the cube root of 8. Cube root of 8 is 2. So the answer is one-half. See how the rules just flow together? Root, power, reciprocal — all handled by the same exponent rules you already know. No memorising a new case.",
+    "math": "8^{1/3} \\cdot 8^{-2/3} = 8^{1/3-2/3} = 8^{-1/3} = \\frac{1}{\\sqrt[3]{8}} = \\frac{1}{2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to lock in before you move on: a fraction in the exponent is just a recipe — the bottom number tells you which root to take, the top number tells you what power to raise to, a negative sign means flip it into a fraction — and every exponent rule you already know applies without change. You are not learning a new system. You are just letting the old system handle one more type of exponent.",
+    "math": "a^{m/n} = \\left(\\sqrt[n]{a}\\right)^{m}, \\quad a^{-m/n} = \\frac{1}{\\left(\\sqrt[n]{a}\\right)^{m}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A fraction in the exponent is a recipe: denominator = which root, numerator = which power, negative = reciprocal — and the usual exponent rules apply unchanged.",
+  "practice": {
+   "question": "In a BC high-school math competition, a bonus score is calculated as 125 to the power of two-thirds. What is the bonus score?",
+   "answer": "The denominator 3 means take the cube root: the cube root of 125 is 5 (because 5 × 5 × 5 = 125). The numerator 2 means square it: 5 squared = 25. The bonus score is 25 points."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

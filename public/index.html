@@ -163,7 +163,7 @@
   .judgeRow .btn{padding:10px 16px;font-size:15px}
   .judgeRow .btn.good{background:linear-gradient(135deg,var(--good),#6fd39c);box-shadow:0 8px 20px rgba(63,191,127,.3)}
   .judgeMsg{font-weight:700;color:var(--good)}
-  .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px}
+  .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px;white-space:pre-line}  /* pre-line：方程组等多行题干按换行显示 */
   .fsaOpts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
   .fsaOpt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);background:#fff;border-radius:14px;padding:11px 14px;font-size:15.5px;cursor:pointer;text-align:left;line-height:1.5;font-family:inherit;color:var(--ink)}
   .fsaOpt:hover{border-color:var(--brand)}
@@ -689,7 +689,8 @@ const I18N = {
     provPack:"课程包", provBank:"题库",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
-    booksGroup:"跟教材学",
+    g8:"BC 八年级", g9:"BC 九年级", g10:"BC 十年级", g11:"BC 十一年级", g12:"BC 十二年级",
+    coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学",
     dataLabel:"学习数据",
     dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
@@ -891,7 +892,8 @@ const I18N = {
     provPack:"Lesson pack", provBank:"Question bank",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
-    booksGroup:"Books",
+    g8:"BC Grade 8", g9:"BC Grade 9", g10:"BC Grade 10", g11:"BC Grade 11", g12:"BC Grade 12",
+    coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books",
     dataLabel:"Learning data",
     dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
@@ -1125,38 +1127,62 @@ function kidDisplayName(){
 function applyKidName(){
   const el=$("kidNameLabel"); if(el) el.textContent = kidDisplayName() || t("defaultName");
 }
-/* 书籍课程源：cfg.gradeCode 既可以是 "4"-"7"（BC 年级），也可以是书籍 id（如 "aops-prealgebra"） */
+/* 课程源：cfg.gradeCode 既可以是 "4"-"9"（BC 年级），也可以是高中分科课程 id（如 "pc11"）或书籍 id（如 "aops-prealgebra"） */
 function bookInfo(code){ return (serverInfo.curriculumBooks||[]).find(b=>b.id===code)||null; }
+function courseInfo(code){ return (serverInfo.curriculumCourses||[]).find(c=>c.id===code)||null; }
 function bookLabel(b){ return cfg.lang==="en" ? (b.en||b.id) : (b.zh||b.en||b.id); }
-function effectiveGradeCode(){                     // 书籍映射到对标年级（AI 语气和问答模式用）
+function courseLabel(c){ return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : ((c.titleZh||c.zh||c.id)+(c.en?"（"+c.en+"）":"")); }
+function effectiveGradeCode(){                     // 课程/书籍映射到对标年级（AI 语气和问答模式用）
   const code=cfg.gradeCode||"5";
+  const c=courseInfo(code);
+  if(c) return String(c.grade||10);
   const b=bookInfo(code);
   if(b) return String(b.grade||7);
-  return /^\d+$/.test(code) ? code : "7";          // 书籍列表还没到达时的兜底（书籍都按 G7 语气）
+  return /^\d+$/.test(code) ? code : "7";          // 列表还没到达时的兜底（书籍都按 G7 语气）
 }
+/* 年级清单跟着服务端走（data/curriculum/bc/ 里有哪些 grade-N.json），没拿到前先按 4-7 */
+function gradeList(){ const gs=(serverInfo.curriculumGrades||[]).map(String); return gs.length?gs:["4","5","6","7"]; }
+function gradeLabel(v){ return t("g"+v) || (cfg.lang==="en" ? "BC Grade "+v : "BC "+v+" 年级"); }
 function buildGradeOptions(){
-  const books=serverInfo.curriculumBooks||[];
+  const books=serverInfo.curriculumBooks||[], courses=serverInfo.curriculumCourses||[];
   [$("grade"),$("learnGrade"),$("reportGrade")].forEach(sel=>{
     if(!sel) return;
-    const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级，不放书
+    const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级（含高中按年级折算），不放课程/书
     sel.innerHTML="";
-    ["4","5","6","7"].forEach(v=>{
-      const o=document.createElement("option"); o.value=v; o.textContent=t("g"+v); sel.appendChild(o);
+    gradeList().forEach(v=>{
+      const o=document.createElement("option"); o.value=v; o.textContent=gradeLabel(v); sel.appendChild(o);
     });
-    if(withBooks && books.length){
-      const og=document.createElement("optgroup"); og.label=t("booksGroup");
-      books.forEach(b=>{
-        const o=document.createElement("option"); o.value=b.id; o.textContent="📚 "+bookLabel(b); og.appendChild(o);
+    if(withBooks){
+      if(courses.length){
+        const og=document.createElement("optgroup"); og.label=t("coursesGroup");
+        courses.forEach(c=>{
+          const o=document.createElement("option"); o.value=c.id; o.textContent="🎓 "+courseLabel(c); og.appendChild(o);
+        });
+        sel.appendChild(og);
+      }
+      if(books.length){
+        const og=document.createElement("optgroup"); og.label=t("booksGroup");
+        books.forEach(b=>{
+          const o=document.createElement("option"); o.value=b.id; o.textContent="📚 "+bookLabel(b); og.appendChild(o);
+        });
+        sel.appendChild(og);
+      }
+    }else{
+      // 问答模式：高中课程折算成 10-12 年级的难度档
+      ["10","11","12"].forEach(v=>{
+        if(!courses.some(c=>String(c.grade)===v) || gradeList().includes(v)) return;
+        const o=document.createElement("option"); o.value=v; o.textContent=gradeLabel(v); sel.appendChild(o);
       });
-      sel.appendChild(og);
     }
     sel.value = withBooks ? (cfg.gradeCode||"5") : effectiveGradeCode();
-    if(!sel.value) sel.value = withBooks ? "5" : effectiveGradeCode();   // 书籍列表还没到达时兜底
+    if(!sel.value) sel.value = withBooks ? "5" : effectiveGradeCode();   // 列表还没到达时兜底
   });
 }
-function gradeText(){ return t("g"+effectiveGradeCode()); }   // 语义 = "BC Grade N"（书籍按对标年级）
-/* 「跟大纲学」当前来源的显示名：书籍显示书名，否则显示年级 */
+function gradeText(){ return gradeLabel(effectiveGradeCode()); }   // 语义 = "BC Grade N"（课程/书籍按对标年级）
+/* 「跟大纲学」当前来源的显示名：课程显示课名、书籍显示书名，否则显示年级 */
 function sourceTitle(){
+  const c=courseInfo(cfg.gradeCode);
+  if(c) return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : (c.titleZh||c.zh||c.id);
   const b=bookInfo(cfg.gradeCode);
   return b ? bookLabel(b) : gradeText();
 }
@@ -1169,7 +1195,7 @@ function deviceToken(){ try{ return localStorage.getItem(TOK_LS)||""; }catch(_){
 function gateToken(){ try{ return sessionStorage.getItem(TOK_SS)||""; }catch(_){ return ""; } }
 function apiToken(){ return gateToken()||deviceToken(); }
 
-let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[] };
+let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[], curriculumCourses:[], curriculumBooks:[] };
 let profilesInfo = null;   // /api/auth/profiles：登录前的孩子名单、要不要注册向导
 let me=null, myRole=null, myKids=[];
 
@@ -1617,6 +1643,22 @@ function svg(w,h,inner){return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w
 function clampInt(n,lo,hi,def){ n=Math.round(Number(n)); if(!isFinite(n)) return def; return Math.max(lo,Math.min(hi,n)); }
 function fmtNum(n){ return Math.abs(n-Math.round(n))<1e-9 ? String(Math.round(n)) : String(+Number(n).toFixed(2)); }
 function escapeHtml(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+/* 题干/选项/解析是纯文本，但高中题里常夹着 \( \dfrac{8x^3}{12x^2} \) 或 $\sqrt{2}$ 这种行内公式：
+ * 把公式段交给 KaTeX 渲染，其余照旧转义。KaTeX 没加载或公式有错就原样显示文字，不会炸。 */
+function mathText(s){
+  s=String(s==null?"":s);
+  const re=/\\\((.+?)\\\)|\\\[(.+?)\\\]|\$\$(.+?)\$\$|\$([^$\n]+?)\$/g;
+  let out="", last=0, m;
+  while((m=re.exec(s))){
+    out+=escapeHtml(s.slice(last,m.index));
+    const tex=m[1]||m[2]||m[3]||m[4];
+    let html="";
+    if(window.katex){ try{ html=katex.renderToString(tex,{throwOnError:false,displayMode:false}); }catch(_){ html=""; } }
+    out+=html||escapeHtml(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+escapeHtml(s.slice(last));
+}
 /* 扇形路径（从正上方顺时针） */
 function sectorPath(cx,cy,r,a0,a1){
   const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
@@ -1737,12 +1779,16 @@ function vAreaGrid(nums){
 function vBarModel(nums,labels){
   const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0).slice(0,6);
   if(vals.length===0) return "";
-  const max=Math.max(...vals,1), W=460,pad=90,barH=26,gap=16;
+  // 标签列宽随最长标签走（中文一字约 13px、拉丁字符约 7.5px），最多 14 字 / 180px，别再把「Last year」截成「Last yea」
+  const labs=vals.map((_,i)=>(labels&&labels[i])?String(labels[i]).slice(0,14):t("barItemFmt")(i+1));
+  const est=s=>[...s].reduce((a,c)=>a+(/[⺀-￿]/.test(c)?13:7.5),0);
+  const pad=Math.min(180,Math.max(90,Math.ceil(Math.max(...labs.map(est)))+16));
+  const max=Math.max(...vals,1), W=460,barH=26,gap=16;
   const H=vals.length*(barH+gap)+20;
   let r="";
   vals.forEach((v,i)=>{
     const y=14+i*(barH+gap), w=(W-pad-30)*(v/max);
-    const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):t("barItemFmt")(i+1);
+    const lab=labs[i];
     r+=`<text x="8" y="${y+barH/2+5}" font-size="13" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
     r+=`<rect x="${pad}" y="${y}" width="${Math.max(2,w).toFixed(1)}" height="${barH}" rx="6" fill="${i%2?COL.fill2:COL.fill}"/>`;
     r+=`<text x="${(pad+Math.max(2,w)+8).toFixed(1)}" y="${y+barH/2+5}" font-size="13" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
@@ -2107,8 +2153,8 @@ function barTop(x,yT,w,y0,fill){
  * 2) 数值数 = 2×(标签数-2) → 复式，labels 末尾两项是系列名
  * 3) 数值数 = 2×标签数 → 复式，无系列名
  * 4) 其余 → 单系列兜底 */
-function parseStatSeries(nums,labels){
-  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0);
+function parseStatSeries(nums,labels,allowNeg){
+  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&(allowNeg||n>=0));
   const rawLabs=(labels||[]).map(String);
   const L=rawLabs.length;
   if(vals.length&&vals.length===L&&L<=8)
@@ -2390,7 +2436,9 @@ function vCoordGrid(nums,labels){
   pts.forEach((p,i)=>{
     const px=neg?ox+p[0]*cell:ox+p[0]*cell, py=neg?oy-p[1]*cell:oy-p[1]*cell;
     r+=`<circle cx="${f(px)}" cy="${f(py)}" r="5" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
-    const nm=(labels&&labels[i])?String(labels[i]).slice(0,4):"ABCDEF"[i];
+    // 模型常把坐标本身当标签传进来（"(1, 2)"、"A(1,2)"），那样会画成「(1,2)(1, 2)」：含坐标/括号的标签只取括号前的名字
+    const raw=(labels&&labels[i])?String(labels[i]).replace(/\s*[(（].*$/,"").trim():"";
+    const nm=raw?raw.slice(0,6):(labels&&labels[i]?"":"ABCDEF"[i]);
     const flip=px>x0+size-70;
     r+=`<text x="${f(px+(flip?-9:9))}" y="${f(py-8)}" ${flip?'text-anchor="end"':''} font-size="11.5" font-weight="700" fill="${COL.ink}">${escapeHtml(nm)}(${p[0]}, ${p[1]})</text>`;
   });
@@ -2534,20 +2582,28 @@ function vHundredChart(nums){
 
 /* 数据表：一行 = 频数表，两行 = 比率表 / 找规律表（输入同复式 statBar） */
 function vDataTable(nums,labels){
-  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  // 表格里负数是正经数据（代数表、温度、账目），不像统计图那样过滤掉
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels,true);
   if(!s1.length) return "";
-  const N=s1.length, rowHW=names?86:0;
-  const colW=Math.max(46,Math.min(90,(444-rowHW)/N));
+  const N=s1.length;
+  // 列宽跟着内容走（中文一字约 12px、拉丁字符约 6.5px），表头最多 12 字；放不下整张表就缩字号，别再把「Decorations」截成「Decor」
+  const est=s=>[...String(s)].reduce((a,c)=>a+(/[⺀-￿]/.test(c)?12:6.5),0);
+  const tr=s=>String(s==null?"":s).slice(0,12);
+  const hdrs=cats.map(tr), rn=(names||[]).map(tr);
+  const rowHW=names?Math.min(120,Math.max(60,Math.ceil(Math.max(...rn.map(est)))+14)):0;
+  const need=Math.ceil(Math.max(40,...hdrs.map(est),...s1.map(v=>est(fmtNum(v))),...(s2||[]).map(v=>est(fmtNum(v))))+12);
+  let colW=Math.max(need,Math.min(90,(444-rowHW)/N)), fs=13;
+  if(rowHW+colW*N>452){ colW=(452-rowHW)/N; fs=colW<need?11:13; }
   const tw=rowHW+colW*N, x0=(460-tw)/2, y0=6, rowH=31;
   const f=n=>Number(n).toFixed(1);
   const cell=(x,y,w,fill,txt,bold)=>`<rect x="${f(x)}" y="${y}" width="${f(w)}" height="${rowH}" fill="${fill}" stroke="${COL.line}" stroke-width="1.5"/>`
-    +`<text x="${f(x+w/2)}" y="${y+rowH/2+4.5}" text-anchor="middle" font-size="13" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
+    +`<text x="${f(x+w/2)}" y="${y+rowH/2+4.5}" text-anchor="middle" font-size="${fs}" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
   let r="", y=y0;
   if(names) r+=cell(x0,y,rowHW,"#f7efe6","",0);
-  cats.forEach((c,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#ffe9db",escapeHtml(String(c).slice(0,5)),1); });
+  hdrs.forEach((c,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#ffe9db",escapeHtml(c),1); });
   y+=rowH;
   const valRow=(s,name)=>{
-    if(names) r+=cell(x0,y,rowHW,"#e4ebff",escapeHtml(String(name||"").slice(0,5)),1);
+    if(names) r+=cell(x0,y,rowHW,"#e4ebff",escapeHtml(tr(name)),1);
     s.forEach((v,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#fff",fmtNum(v),1); });
     y+=rowH;
   };
@@ -2581,6 +2637,189 @@ function vProbLine(nums,labels){
     r+=`<text x="${f(lx)}" y="${ly}" text-anchor="middle" font-size="12" font-weight="700" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
   });
   return svg(460,124,r);
+}
+
+/* ---------- 高中（G8-12）配图：函数图像、直角三角形、一般三角形、单位圆 ---------- */
+
+/* 安全的表达式求值：只认数字、x、四则、^、括号和一小撮函数。不用 eval/Function——表达式来自模型输出。
+ * 返回 (x)=>number 或 null（语法不对）。 */
+function compileExpr(src){
+  const s=String(src||"").trim().replace(/\s+/g,"").replace(/π/g,"pi").replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-");
+  if(!s||s.length>120) return null;
+  const toks=[]; let i=0;
+  while(i<s.length){
+    const c=s[i];
+    if(/[0-9.]/.test(c)){ let j=i; while(j<s.length&&/[0-9.]/.test(s[j])) j++; const v=Number(s.slice(i,j)); if(!isFinite(v)) return null; toks.push({t:"n",v}); i=j; continue; }
+    if(/[a-z]/i.test(c)){ let j=i; while(j<s.length&&/[a-z0-9_]/i.test(s[j])) j++; toks.push({t:"id",v:s.slice(i,j).toLowerCase()}); i=j; continue; }
+    if("+-*/^(),".includes(c)){ toks.push({t:c}); i++; continue; }
+    return null;
+  }
+  const FN={sin:Math.sin,cos:Math.cos,tan:Math.tan,sqrt:Math.sqrt,abs:Math.abs,ln:Math.log,log:Math.log10,log10:Math.log10,log2:Math.log2,exp:Math.exp,floor:Math.floor,ceil:Math.ceil,round:Math.round,asin:Math.asin,acos:Math.acos,atan:Math.atan};
+  const CONST={x:null,pi:Math.PI,e:Math.E};
+  // 隐式乘法：2x、3(x+1)、x(x-2)、(x+1)(x-1)、2pi 都补上 *（函数名后面的括号是调用，不补）
+  for(let k=0;k+1<toks.length;k++){
+    const a=toks[k], b=toks[k+1];
+    const aVal=a.t==="n"||a.t===")"||(a.t==="id"&&!FN[a.v]);
+    const bVal=b.t==="n"||b.t==="("||b.t==="id";
+    if(aVal&&bVal){ toks.splice(k+1,0,{t:"*"}); k++; }
+  }
+  let p=0;
+  const peek=()=>toks[p], next=()=>toks[p++];
+  function primary(){
+    const k=next(); if(!k) throw 0;
+    if(k.t==="n") return ()=>k.v;
+    if(k.t==="("){ const e=expr(); if(!next()||toks[p-1].t!==")") throw 0; return e; }
+    if(k.t==="id"){
+      if(FN[k.v]){ if(!peek()||peek().t!=="(") throw 0; next(); const a=expr(); if(!next()||toks[p-1].t!==")") throw 0; const f=FN[k.v]; return x=>f(a(x)); }
+      if(k.v==="x") return x=>x;
+      if(k.v in CONST && CONST[k.v]!==null){ const c=CONST[k.v]; return ()=>c; }
+      throw 0;
+    }
+    throw 0;
+  }
+  // 优先级：一元负号低于乘方（-x^2 = -(x^2)），指数位置允许再带负号（2^-x）
+  function unary(){
+    if(peek()&&peek().t==="-"){ next(); const e=unary(); return x=>-e(x); }
+    if(peek()&&peek().t==="+"){ next(); return unary(); }
+    return power();
+  }
+  function power(){ let b=primary(); if(peek()&&peek().t==="^"){ next(); const e=unary(); const bb=b; b=x=>Math.pow(bb(x),e(x)); } return b; }
+  function term(){ let l=unary(); while(peek()&&(peek().t==="*"||peek().t==="/")){ const op=next().t, r=unary(), ll=l; l=op==="*"?x=>ll(x)*r(x):x=>ll(x)/r(x); } return l; }
+  function expr(){ let l=term(); while(peek()&&(peek().t==="+"||peek().t==="-")){ const op=next().t, r=term(), ll=l; l=op==="+"?x=>ll(x)+r(x):x=>ll(x)-r(x); } return l; }
+  try{ const f=expr(); if(p!==toks.length) return null; f(1); return f; }catch(_){ return null; }
+}
+/* 函数图像：labels=[表达式...]（≤3），nums=[xmin,xmax,ymin,ymax]（可省略）。按段画折线，跨渐近线处断开。 */
+function vFuncGraph(nums,labels){
+  const exprs=(labels||[]).map(String).map(s=>s.trim()).filter(Boolean).slice(0,3);
+  const fns=exprs.map(e=>{ const src=e.replace(/^y\s*=\s*/i,"").replace(/^f\(x\)\s*=\s*/i,""); return {src,f:compileExpr(src)}; }).filter(o=>o.f);
+  if(!fns.length) return "";
+  let [xmin,xmax,ymin,ymax]=(nums||[]).map(Number);
+  if(!isFinite(xmin)||!isFinite(xmax)||xmax<=xmin){ xmin=-6; xmax=6; }
+  if(!isFinite(ymin)||!isFinite(ymax)||ymax<=ymin){ ymin=-6; ymax=6; }
+  const W=460,H=300,L=44,R=16,T=14,B=34;
+  const pw=W-L-R, ph=H-T-B;
+  const X=v=>L+(v-xmin)/(xmax-xmin)*pw, Y=v=>T+(ymax-v)/(ymax-ymin)*ph;
+  const f=n=>Number(n).toFixed(1);
+  const niceStep=span=>{ const raw=span/8, pow=Math.pow(10,Math.floor(Math.log10(raw))), m=raw/pow; return (m<1.5?1:m<3.5?2:m<7.5?5:10)*pow; };
+  const sx=niceStep(xmax-xmin), sy=niceStep(ymax-ymin);
+  let r=`<rect x="${L}" y="${T}" width="${pw}" height="${ph}" fill="#fffaf5" stroke="#efe4d7"/>`;
+  for(let v=Math.ceil(xmin/sx)*sx; v<=xmax+1e-9; v+=sx){
+    r+=`<line x1="${f(X(v))}" y1="${T}" x2="${f(X(v))}" y2="${T+ph}" stroke="#efe4d7" stroke-width="1"/>`;
+    if(Math.abs(v)>1e-9) r+=`<text x="${f(X(v))}" y="${T+ph+14}" text-anchor="middle" font-size="10" fill="#8a7d74">${fmtNum(v)}</text>`;
+  }
+  for(let v=Math.ceil(ymin/sy)*sy; v<=ymax+1e-9; v+=sy){
+    r+=`<line x1="${L}" y1="${f(Y(v))}" x2="${L+pw}" y2="${f(Y(v))}" stroke="#efe4d7" stroke-width="1"/>`;
+    if(Math.abs(v)>1e-9) r+=`<text x="${L-5}" y="${f(Y(v)+3.5)}" text-anchor="end" font-size="10" fill="#8a7d74">${fmtNum(v)}</text>`;
+  }
+  if(ymin<=0&&ymax>=0) r+=`<line x1="${L}" y1="${f(Y(0))}" x2="${L+pw}" y2="${f(Y(0))}" stroke="${COL.ink}" stroke-width="1.8"/>`;
+  if(xmin<=0&&xmax>=0) r+=`<line x1="${f(X(0))}" y1="${T}" x2="${f(X(0))}" y2="${T+ph}" stroke="${COL.ink}" stroke-width="1.8"/>`;
+  r+=`<text x="${L+pw-4}" y="${f((ymin<=0&&ymax>=0?Y(0):T+ph)+13)}" text-anchor="end" font-size="12" font-style="italic" fill="${COL.ink}">x</text>`;
+  r+=`<text x="${f((xmin<=0&&xmax>=0?X(0):L)+6)}" y="${T+12}" font-size="12" font-style="italic" fill="${COL.ink}">y</text>`;
+  const N=360, yspan=ymax-ymin;
+  fns.forEach((o,k)=>{
+    const col=PAL[k%PAL.length];
+    let d="", pen=false, prev=null;
+    for(let i=0;i<=N;i++){
+      const x=xmin+(xmax-xmin)*i/N; let y;
+      try{ y=o.f(x); }catch(_){ y=NaN; }
+      const ok=isFinite(y)&&y>=ymin-yspan&&y<=ymax+yspan;     // 出界太远就断笔，免得渐近线两侧连成竖线
+      if(!ok||(prev!==null&&Math.abs(y-prev)>yspan*0.9)){ pen=false; prev=ok?y:null; if(!ok) continue; }
+      const px=X(x), py=Y(Math.max(ymin-yspan,Math.min(ymax+yspan,y)));
+      d+=(pen?" L ":" M ")+f(px)+" "+f(py); pen=true; prev=y;
+    }
+    r+=`<path d="${d.trim()}" fill="none" stroke="${col}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" clip-path="inset(0)"/>`;
+    const lx=L+8, ly=T+ph-8-(fns.length-1-k)*16;
+    r+=`<rect x="${lx-2}" y="${ly-11}" width="${Math.min(220,o.src.length*7.2+14).toFixed(0)}" height="15" rx="4" fill="#ffffffcc"/>`;
+    r+=`<line x1="${lx}" y1="${ly-4}" x2="${lx+14}" y2="${ly-4}" stroke="${col}" stroke-width="3"/>`;
+    r+=`<text x="${lx+18}" y="${ly}" font-size="11.5" font-weight="700" fill="${col}">y = ${escapeHtml(o.src.replace(/\*/g,"·"))}</text>`;
+  });
+  // 曲线裁剪到绘图区
+  r=`<defs><clipPath id="fgclip"><rect x="${L}" y="${T}" width="${pw}" height="${ph}"/></clipPath></defs>`+r.replace(/clip-path="inset\(0\)"/g,'clip-path="url(#fgclip)"');
+  return svg(W,H,r);
+}
+/* 直角三角形：nums=[底, 竖直边]，labels=[底标注, 竖直边标注, 斜边标注, 角标注]（直角在左下，角标在底边右端） */
+function vRightTriangle(nums,labels){
+  let b=Number(nums&&nums[0]), h=Number(nums&&nums[1]);
+  if(!isFinite(b)||b<=0) b=4; if(!isFinite(h)||h<=0) h=3;
+  const lab=i=>escapeHtml(String((labels&&labels[i])||"").slice(0,14));
+  const ratio=Math.max(0.45,Math.min(2.6,b/h));
+  let w,hh; if(ratio>=1){ w=260; hh=260/ratio; } else { hh=190; w=190*ratio; }
+  const ox=(460-w)/2-10, oy=22, baseY=oy+hh, f=n=>Number(n).toFixed(1);
+  let r=`<polygon points="${f(ox)},${f(baseY)} ${f(ox+w)},${f(baseY)} ${f(ox)},${f(oy)}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3" stroke-linejoin="round"/>`;
+  r+=`<path d="M ${f(ox+14)} ${f(baseY)} v -14 h -14" fill="none" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  const bl=lab(0)||fmtNum(b), hl=lab(1)||fmtNum(h), cl=lab(2), al=lab(3);
+  r+=`<text x="${f(ox+w/2)}" y="${f(baseY+20)}" text-anchor="middle" font-size="15" font-weight="700" fill="${COL.ink}">${bl}</text>`;
+  r+=`<text x="${f(ox-8)}" y="${f(oy+hh/2+5)}" text-anchor="end" font-size="15" font-weight="700" fill="${COL.fill2}">${hl}</text>`;
+  if(cl) r+=`<text x="${f(ox+w/2+12)}" y="${f(oy+hh/2-6)}" text-anchor="start" font-size="15" font-weight="700" fill="${COL.fill}">${cl}</text>`;
+  if(al){
+    const ang=Math.atan2(hh,w), r0=34, x1=ox+w-r0, y1=baseY, x2=ox+w-r0*Math.cos(ang), y2=baseY-r0*Math.sin(ang);
+    r+=`<path d="M ${f(x1)} ${f(y1)} A ${r0} ${r0} 0 0 1 ${f(x2)} ${f(y2)}" fill="none" stroke="${COL.fill2}" stroke-width="2.2"/>`;
+    r+=`<text x="${f(ox+w-r0-26)}" y="${f(baseY-10)}" text-anchor="end" font-size="14" font-weight="800" fill="${COL.fill2}">${al}</text>`;
+  }
+  return svg(460,baseY+30,r);
+}
+/* 一般三角形：nums=[a,b,c]（三边，按比例），labels=[a,b,c 标注, A,B,C 角标注]。a 对 A（顶点 A 在上），b 对 B（左下），c 对 C（右下）。 */
+function vTriangle(nums,labels){
+  let [a,b,c]=(nums||[]).map(Number);
+  if(!(a>0&&b>0&&c>0)||a+b<=c||a+c<=b||b+c<=a){ a=5; b=6; c=7; }   // 不成三角形就画个默认的
+  const lab=i=>escapeHtml(String((labels&&labels[i])||"").slice(0,14));
+  // 顶点定义：A 对边 a=BC，B 对边 b=AC，C 对边 c=AB。A 放左下、B 放右下（底边 c=AB），C 在上；
+  // C 的位置由角 A（余弦定理）和边 b 定出。
+  const angA=Math.acos(Math.max(-1,Math.min(1,(b*b+c*c-a*a)/(2*b*c))));
+  const Cx=b*Math.cos(angA), Cy=b*Math.sin(angA);
+  const minx=Math.min(0,Cx), maxx=Math.max(c,Cx), spanx=maxx-minx, spany=Cy;
+  const sc=Math.min(300/spanx,190/spany);
+  const W=460, ox=(W-spanx*sc)/2-minx*sc, oy=28+spany*sc, f=n=>Number(n).toFixed(1);
+  const P=[ [ox,oy], [ox+c*sc,oy], [ox+Cx*sc,oy-Cy*sc] ];   // A, B, C
+  let r=`<polygon points="${P.map(p=>f(p[0])+","+f(p[1])).join(" ")}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3" stroke-linejoin="round"/>`;
+  const mid=(p,q)=>[(p[0]+q[0])/2,(p[1]+q[1])/2];
+  const cen=[(P[0][0]+P[1][0]+P[2][0])/3,(P[0][1]+P[1][1]+P[2][1])/3];
+  const out=(m,d)=>{ const dx=m[0]-cen[0], dy=m[1]-cen[1], L=Math.hypot(dx,dy)||1; return [m[0]+dx/L*d, m[1]+dy/L*d]; };
+  const side=(p,q,txt,col)=>{ if(!txt) return ""; const m=out(mid(p,q),16); return `<text x="${f(m[0])}" y="${f(m[1]+5)}" text-anchor="middle" font-size="15" font-weight="700" fill="${col}">${txt}</text>`; };
+  r+=side(P[1],P[2],lab(0)||("a = "+fmtNum(a)),COL.ink);     // a = BC
+  r+=side(P[0],P[2],lab(1)||("b = "+fmtNum(b)),COL.ink);     // b = AC
+  r+=side(P[0],P[1],lab(2)||("c = "+fmtNum(c)),COL.ink);     // c = AB
+  const vert=(p,txt)=>{ if(!txt) return ""; const m=out(p,16); return `<text x="${f(m[0])}" y="${f(m[1]+5)}" text-anchor="middle" font-size="14" font-weight="800" fill="${COL.fill2}">${txt}</text>`; };
+  r+=vert(P[0],lab(3)||"A")+vert(P[1],lab(4)||"B")+vert(P[2],lab(5)||"C");
+  return svg(W,oy+34,r);
+}
+/* 单位圆：nums=[角度]（标准位置，-360~720），labels=[角名]。画终边、角弧、参考角和 (cos, sin) 坐标点。 */
+function vUnitCircle(nums,labels){
+  let deg=Number(nums&&nums[0]); if(!isFinite(deg)) deg=60; deg=Math.max(-360,Math.min(720,deg));
+  // 标签里已经带了度数/等号（"θ = 120°"）就原样用，别画成「θ = 120° = 120°」
+  const rawName=String((labels&&labels[0])||"").trim();
+  const name=escapeHtml(/[0-9°=]/.test(rawName)?rawName.slice(0,18):rawName.slice(0,8));
+  const titleTxt=/[0-9°=]/.test(rawName)?name:`${name?name+" = ":""}${fmtNum(deg)}°`;
+  const cx=200, cy=150, R=110, f=n=>Number(n).toFixed(1);
+  const th=deg*Math.PI/180, ex=cx+R*Math.cos(th), ey=cy-R*Math.sin(th);
+  let r=`<line x1="${cx-R-28}" y1="${cy}" x2="${cx+R+28}" y2="${cy}" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  r+=`<line x1="${cx}" y1="${cy+R+22}" x2="${cx}" y2="${cy-R-22}" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${COL.line}" stroke-width="2"/>`;
+  r+=`<text x="${cx+R+6}" y="${cy+14}" font-size="11" fill="#8a7d74">(1, 0)</text><text x="${cx+6}" y="${cy-R-6}" font-size="11" fill="#8a7d74">(0, 1)</text>`;
+  // 角弧：从 x 正向转到终边（逆时针为正）；超过一圈就画螺旋式两圈
+  const turns=Math.abs(deg)/360, sign=deg>=0?1:-1;
+  let d="", steps=Math.max(12,Math.round(Math.abs(deg)/4));
+  for(let i=0;i<=steps;i++){ const t=sign*Math.abs(deg)*i/steps*Math.PI/180, rr=34+10*(Math.abs(deg)*i/steps)/360; d+=(i?" L ":"M ")+f(cx+rr*Math.cos(t))+" "+f(cy-rr*Math.sin(t)); }
+  r+=`<path d="${d}" fill="none" stroke="${COL.fill}" stroke-width="2.4"/>`;
+  // 参考角（终边与 x 轴的锐角），不在坐标轴上才画
+  const m=((deg%360)+360)%360, ref=m<=90?m:m<=180?180-m:m<=270?m-180:360-m;
+  if(ref>0&&ref<90){
+    // 参考角 = 终边和最近那条 x 半轴夹的锐角：按象限定出弧的起止角（数学坐标，逆时针为正）
+    const lo=m<90?0:m<180?m:m<270?180:m, hi=m<90?m:m<180?180:m<270?m:360;
+    const r0=52; let dd="";
+    for(let i=0;i<=12;i++){ const t=(lo+(hi-lo)*i/12)*Math.PI/180; dd+=(i?" L ":"M ")+f(cx+r0*Math.cos(t))+" "+f(cy-r0*Math.sin(t)); }
+    r+=`<path d="${dd}" fill="none" stroke="${COL.fill2}" stroke-width="2" stroke-dasharray="4 3"/>`;
+    const tm=(lo+hi)/2*Math.PI/180;
+    r+=`<text x="${f(cx+70*Math.cos(tm))}" y="${f(cy-70*Math.sin(tm)+4)}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.fill2}">${fmtNum(ref)}°</text>`;
+  }
+  r+=`<line x1="${cx}" y1="${cy}" x2="${f(ex)}" y2="${f(ey)}" stroke="${COL.fill}" stroke-width="3" stroke-linecap="round"/>`;
+  r+=`<circle cx="${f(ex)}" cy="${f(ey)}" r="5.5" fill="${COL.fill}" stroke="#fff" stroke-width="2"/>`;
+  const cosv=Math.cos(th), sinv=Math.sin(th);
+  r+=`<line x1="${f(ex)}" y1="${f(ey)}" x2="${f(ex)}" y2="${cy}" stroke="${COL.fill2}" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  const lblx=ex+(cosv>=0?8:-8), anchor=cosv>=0?"start":"end";
+  r+=`<text x="${f(lblx)}" y="${f(ey-10)}" text-anchor="${anchor}" font-size="11.5" font-weight="700" fill="${COL.ink}">(${fmtNum(+cosv.toFixed(3))}, ${fmtNum(+sinv.toFixed(3))})</text>`;
+  r+=`<text x="${cx+R+34}" y="${cy-R-2}" text-anchor="end" font-size="14" font-weight="800" fill="${COL.fill}">${titleTxt}</text>`;
+  return svg(400,300,r);
 }
 
 function renderVisual(v){
@@ -2625,6 +2864,10 @@ function renderVisual(v){
       case "hundredChart":  s=vHundredChart(nums); break;
       case "dataTable":     s=vDataTable(nums,labels); break;
       case "probLine":      s=vProbLine(nums,labels); break;
+      case "funcGraph":     s=vFuncGraph(nums,labels); break;
+      case "rightTriangle": s=vRightTriangle(nums,labels); break;
+      case "triangle":      s=vTriangle(nums,labels); break;
+      case "unitCircle":    s=vUnitCircle(nums,labels); break;
     }
   }catch(e){ s=""; }
   if(!s) return "";
@@ -2638,7 +2881,7 @@ async function generateLesson(question, imageB64, mediaType){
     method:"POST",
     body: Object.assign({
       question, imageB64, mediaType,
-      grade: gradeText(), gradeCode: cfg.gradeCode,
+      grade: gradeText(), gradeCode: effectiveGradeCode(),   // 课程/书籍折算成年级数，服务端按它定语气
       provider: cfg.provider, lang: cfg.lang
     }, kidBody())
   });
@@ -2846,6 +3089,8 @@ function renderLearn(d){
   });
   if(d.source) $("learnSource").textContent = d.source.kind==="book"
     ? (d.source.label || sourceTitle())
+    : d.source.kind==="bc-course"
+    ? (d.source.label || sourceTitle())+" · curriculum.gov.bc.ca"
     : "BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
   renderLegend();
   loadUnitSets();
@@ -3018,11 +3263,11 @@ function renderFsaQ(){
   const meta=[t("fsaOf")(fsa.idx+1,fsa.set.questions.length)];
   if(fsa.kind==="unit"&&q.level) meta.push(t("unitLevel")(q.level));
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
-    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div>`;
+    +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
     const b=document.createElement("button"); b.className="fsaOpt";
-    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${mathText(op)}</span>`;
     b.onclick=()=>answerFsa(i);
     opts.appendChild(b);
   });
@@ -3063,10 +3308,10 @@ function showFsaResult(){
   qs.forEach((q,i)=>{
     const ok=fsa.answers[i]===q.answerIndex;
     const div=document.createElement("div"); div.className="fsaRItem"+(ok?"":" bad");
-    div.innerHTML=`<div class="fq">${ok?"✅":"❌"} ${escapeHtml(q.question)}</div>`
-      +`<div class="fa">${escapeHtml(t("fsaYours"))}: <b>${"ABCD"[fsa.answers[i]]||"?"}. ${escapeHtml(q.options[fsa.answers[i]]||"")}</b>`
-      +(ok?"":` · ${escapeHtml(t("fsaRight"))}: <b>${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b>`)+`</div>`
-      +(q.explain?`<div class="fx">💡 ${escapeHtml(q.explain)}</div>`:"");
+    div.innerHTML=`<div class="fq">${ok?"✅":"❌"} ${mathText(q.question)}</div>`
+      +`<div class="fa">${escapeHtml(t("fsaYours"))}: <b>${"ABCD"[fsa.answers[i]]||"?"}. ${mathText(q.options[fsa.answers[i]]||"")}</b>`
+      +(ok?"":` · ${escapeHtml(t("fsaRight"))}: <b>${"ABCD"[q.answerIndex]}. ${mathText(q.options[q.answerIndex])}</b>`)+`</div>`
+      +(q.explain?`<div class="fx">💡 ${mathText(q.explain)}</div>`:"");
     if(!ok&&q.curriculumId){
       const tb=document.createElement("button"); tb.className="btn blue"; tb.textContent=t("fsaTeach");
       tb.onclick=()=>{ lessonReturnTo="fsa"; startTeach(learnIndex[q.curriculumId]||{ id:q.curriculumId }); };
@@ -3240,11 +3485,11 @@ function renderQuizQ(){
   if(quiz.level===quiz.rules.topLevel) meta.push(t("quizToPass")(quiz.rules.passNeed-quiz.topRight));
   const box=$("quizBody");
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
-    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
+    +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
     const b=document.createElement("button"); b.className="fsaOpt";
-    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${mathText(op)}</span>`;
     b.onclick=()=>answerQuiz(i);
     opts.appendChild(b);
   });
@@ -3272,7 +3517,7 @@ function answerQuiz(i){
   }else{
     quiz.level=Math.max(1, quiz.level-1);                     // 做错降一级，答案和讲解当场看
     fb.innerHTML=`<div class="quizFb bad"><div><b>${escapeHtml(t("fsaRight"))}: ${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b></div>`
-      +(q.explain?`<div style="margin-top:6px">💡 ${escapeHtml(q.explain)}</div>`:"")
+      +(q.explain?`<div style="margin-top:6px">💡 ${mathText(q.explain)}</div>`:"")
       +`<button class="btn blue" id="quizNextBtn">${escapeHtml(finished?t("quizSeeResult"):t("quizNext"))}</button></div>`;
     fb.querySelector("#quizNextBtn").onclick=()=>{ if(quiz&&!quiz.done) finished?finishQuiz():renderQuizQ(); };
   }
@@ -3394,6 +3639,8 @@ function renderReport(d){
   }
   if(d.source) $("reportSource").textContent = d.source.kind==="book"
     ? (d.source.label || sourceTitle())+" · "+t("reportNote")
+    : (d.source.kind==="bc-course"||d.source.kind==="course")
+    ? (d.source.label||("BC "+sourceTitle()))+" · "+t("reportNote")
     : "BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
 }
 /* 学生点 📊 → 家长门（临时解锁后自动打开报告）；家长直接开 */

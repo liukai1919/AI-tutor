@@ -1,0 +1,139 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.REL.01",
+ "lang": "en",
+ "title": "functions and relations : connecting data, graphs, and situations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Functions: One In, One Out (and Why It Matters)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Alright, picture this: you hop in a taxi in downtown Vancouver. The driver tells you the fare is five dollars base, plus three dollars for every kilometre. So if you go zero kilometres, you pay five dollars. One kilometre? Eight dollars. Two kilometres? Eleven. Three? Fourteen. Four? Seventeen. Notice something cool: for every distance you pick, there is exactly ONE fare. You never get two different prices for the same trip. That 'one input gives exactly one output' idea is the heart of a function, and today we are going to see how the same idea shows up in a table, on a graph, and in a formula.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8,
+      11,
+      14,
+      17
+     ],
+     "labels": [
+      "Trip 1",
+      "Trip 2",
+      "Trip 3",
+      "Trip 4",
+      "Trip 5",
+      "Distance km",
+      "Fare ($)"
+     ],
+     "caption": "Vancouver taxi fare: each distance gives one fare"
+    }
+   },
+   {
+    "say": "So what exactly is a function? Forget the fancy definition for a second. A function is just a rule that takes an input and hands back exactly one output. No more, no less. Think of it like a vending machine: you press one button, you get one snack. You do NOT press one button and get a chocolate bar AND a bag of chips. Every input, one output. In math we call the input the x-value and the output the y-value, and we say 'y is a function of x.' The key test is: can any single x-value sneak in and produce two different y-values? If yes, it is NOT a function. If no, it is.",
+    "math": "f: x \\rightarrow y \\quad \\text{(one } x \\text{ gives exactly one } y\\text{)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now let us connect that table to a picture. Plot those taxi points on a coordinate grid: the distance goes on the horizontal axis, the fare on the vertical axis. Zero kilometres and five dollars, one and eight, two and eleven, three and fourteen, four and seventeen. When you connect the dots, they fall on a straight line. That is the graph of the function. And here is a handy trick: if you draw a vertical line anywhere on the graph and it touches the curve in more than one spot, that curve is NOT a function. Our taxi line only gets touched once at every x-value, so it passes the vertical line test. It is a function.",
+    "math": "(0,5),\\;(1,8),\\;(2,11),\\;(3,14),\\;(4,17)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      5,
+      1,
+      8,
+      2,
+      11
+     ],
+     "labels": [],
+     "caption": "The first three taxi points line up on a straight line (the rest continue off the grid)"
+    }
+   },
+   {
+    "say": "Let us break the rule on purpose and see what a non-function looks like. Imagine a messy set of points: x equals one with y equals two; x equals one with y equals five; and x equals three with y equals four. Look at the input one. It gives you TWO outputs: two and five. That is like the vending machine giving you both a chocolate AND a chips for one button press. A vertical line through x equals one hits both points. Fails the vertical line test. So this relation is NOT a function. The problem is not that the point three, four is weird; it is that one input is paired with more than one output.",
+    "math": "\\{(1,2),\\;(1,5),\\;(3,4)\\} \\quad \\text{NOT a function}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      2,
+      1,
+      5,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "x = 1 has two y-values: not a function"
+    }
+   },
+   {
+    "say": "Now let us talk about domain and range, because in a real situation they are not just 'all numbers.' Domain means: what inputs actually make sense? For our taxi, you cannot drive negative kilometres, and let us say the city limits cap it at fifty kilometres. So the domain is zero to fifty kilometres. Range means: what outputs actually come out? The smallest fare is five dollars at zero kilometres, and the biggest is three times fifty plus five, which is one hundred and fifty-five dollars. So the range is five to one hundred and fifty-five dollars. In a word problem, domain and range are always tied to what the situation actually allows.",
+    "math": "\\text{Domain: } 0 \\le x \\le 50 \\quad\\quad \\text{Range: } 5 \\le f(x) \\le 155",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      100,
+      0,
+      50
+     ],
+     "labels": [],
+     "caption": "Domain: 0 to 50 km (the inputs that make sense)"
+    }
+   },
+   {
+    "say": "Finally, let us give this function a proper name using function notation. Instead of saying 'the fare is three times the distance plus five,' we write f of x equals three x plus five. The f is just the name of the function, like a nickname. x is the input, the distance. f of x is the output, the fare. So f of two means: plug two into the rule, get three times two plus five, which is eleven. That is your eleven-dollar fare. You could name it g or h or fare-of-x, but f of x is the convention you will see in every BC math class from now on.",
+    "math": "f(x) = 3x + 5 \\qquad f(2) = 3(2)+5 = 11",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      5,
+      0,
+      20
+     ],
+     "labels": [
+      "3*x+5"
+     ],
+     "caption": "f of x = 3x + 5: the taxi fare function"
+    }
+   },
+   {
+    "say": "Here is your one-line takeaway to carry into the next unit: a function is a rule where every input gets exactly one output, and you can see that same rule hiding in a table of values, in a set of graph points, or in a formula like f of x. Once you recognize that connection, switching between the table, the picture, and the equation becomes second nature. You got this.",
+    "math": "\\text{One input} \\;\\longrightarrow\\; \\text{one output. Table = Graph = Formula.}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A function pairs every input with exactly one output — and the same rule shows up in a table, on a graph, and in a formula like f(x) = 3x + 5.",
+  "practice": {
+   "question": "You work a Saturday shift at a Tim Hortons in your neighbourhood. You earn nine dollars and fifty cents per hour, and there is no base pay (you earn nothing if you work zero hours). (a) Write the function f(t) that gives your pay in dollars for t hours worked. (b) What is your pay for four hours? (c) Is the relation {(1, 9.50), (1, 19.00), (3, 28.50)} a function? Explain why or why not.",
+   "answer": "(a) f(t) = 9.50 t.  (b) f(4) = 9.50 × 4 = 38, so you earn thirty-eight dollars.  (c) No — the input 1 is paired with TWO different outputs (9.50 and 19.00), so it fails the 'one input, one output' rule and is not a function."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

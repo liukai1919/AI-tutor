@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.PAT.03",
+ "lang": "en",
+ "title": "multi-step one-variable linear equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Solving Multi-Step Linear Equations: Distribute, Collect, Divide",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "So imagine you and your friend Maya are comparing your phone bills at the end of the month. You're on Plan A, which costs twenty-five dollars plus fifteen dollars for every gigabyte you go over. Maya is on Plan B, which is forty dollars flat plus ten dollars per gigabyte. You both used exactly the same amount of extra data, and your bills came out the same. You want to figure out how many gigabytes you went over. If we call that number x, your bill is twenty-five plus fifteen x, and hers is forty plus ten x. Setting them equal gives you a little equation where x shows up on both sides. That is exactly the kind of problem we are cracking today: equations where you need to open up brackets, gather the x's together, and peel away the numbers.",
+    "math": "25 + 15x = 40 + 10x",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      25,
+      40
+     ],
+     "labels": [
+      "Plan A base",
+      "Plan B base"
+     ],
+     "caption": "Two phone plans with different base costs and per-GB rates"
+    }
+   },
+   {
+    "say": "Here is the secret, and it never changes. No matter how messy the equation looks, you are always doing the same three moves. Move one: open up the brackets. That is distributing a number across the terms inside. Move two: gather all the x-terms on one side and all the plain numbers on the other. That is collecting like terms. Move three: divide both sides by the coefficient of x so that x stands all by itself. Think of the whole equation as a balance scale. Whatever you do to the left pan, you must do to the right pan. The scale stays level, and x reveals itself.",
+    "math": "\\text{Distribute} \\;\\longrightarrow\\; \\text{Collect like terms} \\;\\longrightarrow\\; \\text{Isolate } x",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "left side",
+      "right side"
+     ],
+     "caption": "The equation as a balanced scale: equal both sides at all times"
+    }
+   },
+   {
+    "say": "Let's warm up with a nice one. Three times the quantity x plus two, equals two x plus fourteen. Step one, distribute: three x plus six equals two x plus fourteen. Step two, collect the x's. Subtract two x from both sides. You get x plus six equals fourteen. Now subtract six from both sides. x equals eight. Quick check: three times eight plus two is thirty. Two times eight plus fourteen is also thirty. The scale balances. Done.",
+    "math": "3(x+2)=2x+14 \\;\\Rightarrow\\; 3x+6=2x+14 \\;\\Rightarrow\\; x+6=14 \\;\\Rightarrow\\; x=8",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x + 6",
+      "2x + 14"
+     ],
+     "caption": "After distributing: 3(x+2) becomes 3x + 6, and both sides stay balanced"
+    }
+   },
+   {
+    "say": "Alright, here is the real deal. One plus two x, equals three minus two-thirds times the quantity x plus six. Step one: distribute. Two-thirds times x is two-thirds x. Two-thirds times six is four. Watch that minus sign in front of the bracket: it applies to both pieces, so the right side becomes three minus two-thirds x minus four. Three minus four is negative one, so the right side simplifies to negative one minus two-thirds x. Your equation is now one plus two x equals negative one minus two-thirds x. Step two: collect the x's. Add two-thirds x to both sides. Two x is six-thirds x, plus two-thirds x gives you eight-thirds x. So you have one plus eight-thirds x equals negative one. Step three: subtract one from both sides to get eight-thirds x equals negative two. Multiply both sides by three-eighths. x equals negative two times three-eighths, which is negative six-eighths, which simplifies to negative three-quarters.",
+    "math": "1+2x=3-\\tfrac{2}{3}(x+6) \\;\\Rightarrow\\; 1+2x=-1-\\tfrac{2}{3}x \\;\\Rightarrow\\; 1+\\tfrac{8}{3}x=-1 \\;\\Rightarrow\\; \\tfrac{8}{3}x=-2 \\;\\Rightarrow\\; x=-\\tfrac{3}{4}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "1 + 2x",
+      "3 - 2/3(x+6)"
+     ],
+     "caption": "The starting equation: x appears on both sides, and there is a bracket to distribute"
+    }
+   },
+   {
+    "say": "Always, always check. Plug negative three-quarters back in. Left side: one plus two times negative three-quarters is one minus three-halves, which is negative one-half. Right side: three minus two-thirds times the quantity negative three-quarters plus six. Negative three-quarters plus six is twenty-one-fourths. Two-thirds times twenty-one-fourths is forty-two-twelfths, which simplifies to seven-halves. Three minus seven-halves is six-halves minus seven-halves, which is negative one-half. Both sides give negative one-half. It checks out perfectly. You nailed it.",
+    "math": "\\text{LHS}: 1+2\\!\\left(-\\tfrac{3}{4}\\right)=-\\tfrac{1}{2} \\qquad \\text{RHS}: 3-\\tfrac{2}{3}\\!\\left(\\tfrac{21}{4}\\right)=3-\\tfrac{7}{2}=-\\tfrac{1}{2} \\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "-1/2",
+      "-1/2"
+     ],
+     "caption": "Verification: both sides equal negative one-half, so the scale balances"
+    }
+   },
+   {
+    "say": "So here is your pocket rule to remember: distribute, collect, divide. Three moves, every single time. The equation is a balance scale — touch both sides equally, do not skip steps, and x will always reveal itself. You just did the hardest version, with fractions and x on both sides. You are ready.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Distribute, collect like terms, divide — three moves on a balanced scale, and x is yours.",
+  "practice": {
+   "question": "A local bakery sells two types of pastry gift boxes. Box A costs twelve dollars plus four dollars per pastry. Box B costs twenty dollars plus two dollars per pastry. A customer fills both boxes with the same number of pastries and the two boxes cost exactly the same total. How many pastries are in each box?",
+   "answer": "Set up 12 + 4x = 20 + 2x. Subtract 2x from both sides: 12 + 2x = 20. Subtract 12: 2x = 8. Divide by 2: x = 4. Each box holds 4 pastries. Check: 12 + 16 = 28 and 20 + 8 = 28."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

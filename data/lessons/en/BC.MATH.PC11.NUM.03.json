@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.NUM.03",
+ "lang": "en",
+ "title": "radical operations and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Radicals: Taming the Ugly Square Roots",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're in a Best Buy in Richmond comparing two phones. One screen is six point eight inches tall and seven and a half inches from corner to corner. You want to know how wide it is. So you use the Pythagorean theorem: width squared, plus six point eight squared, equals seven and a half squared. Width squared is fifty-six point two five minus forty-six point two four, which is ten point zero one. So the width is the square root of ten point zero one. That's not a nice round number. You can't just do it in your head. This is where radicals come in. They're the language we use when a square root doesn't land on a whole number. And you're not stuck with just one ugly number. You have to add them, simplify them, and even solve equations where the unknown is hiding under the root sign. Let's make these feel normal.",
+    "math": "\\text{width} = \\sqrt{7.5^2 - 6.8^2} = \\sqrt{56.25 - 46.24} = \\sqrt{10.01} \\approx 3.16",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3.2,
+      6.8
+     ],
+     "labels": [
+      "width ?",
+      "6.8 in",
+      "7.5 in",
+      ""
+     ],
+     "caption": "Phone screen: we know the height and the diagonal; the width is a radical"
+    }
+   },
+   {
+    "say": "Here's the core move. Simplify a radical by finding the biggest perfect square hiding inside. Take the square root of forty-eight. What's the largest perfect square that divides into forty-eight? Sixteen does. Sixteen times three is forty-eight. So you pull the sixteen out as its root, which is four, and the three stays under the sign. You get four times the square root of three. Notice you can't pull the three out. Three isn't a perfect square. It stays under the root. That's the whole rule. Split into a perfect-square part and a leftover, take the square root of the square, keep the rest under the sign.",
+    "math": "\\sqrt{48} = \\sqrt{16 \\times 3} = \\sqrt{16}\\;\\sqrt{3} = 4\\sqrt{3}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      5,
+      8,
+      6.93
+     ],
+     "labels": [],
+     "caption": "√48 ≈ 6.93, sitting just below 7 (because 7² = 49)"
+    }
+   },
+   {
+    "say": "Now here's the thing that trips people up. You can only add or subtract radicals if they have the same number under the sign. It works exactly like combining variables. Two x's plus three x's is five x's, right? Same idea. The square root of twelve is two times root three. The square root of twenty-seven is three times root three. So root twelve plus root twenty-seven is two root three plus three root three, which gives five root three. But what about root three plus root five? You can't combine those. They're different flavours. You just leave them as a sum. No shortcut.",
+    "math": "\\sqrt{12} + \\sqrt{27} = 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      3,
+      5
+     ],
+     "labels": [
+      "2√3",
+      "3√3",
+      "5√3"
+     ],
+     "caption": "Like terms: 2 of √3 plus 3 of √3 equals 5 of √3"
+    }
+   },
+   {
+    "say": "Now let's solve a radical equation. The square root of x plus three equals five. The move is to get rid of the root by squaring both sides. x plus three equals twenty-five. x equals twenty-two. Now, and this is non-negotiable, you plug it back in. The square root of twenty-two plus three is the square root of twenty-five, which is five. Five equals five. Check. Done. Always check. That's the deal with squaring both sides. It's a powerful move, but it can introduce fakes, so verification is part of the process, not an optional extra.",
+    "math": "\\sqrt{x+3} = 5 \\;\\Longrightarrow\\; x+3 = 25 \\;\\Longrightarrow\\; x = 22 \\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "√(x+3)",
+      "5"
+     ],
+     "caption": "Squaring both sides keeps the balance: x + 3 = 25, so x = 22"
+    }
+   },
+   {
+    "say": "Now here's where it gets sneaky. The square root of x minus two equals x minus four. Square both sides. x minus two equals x minus four, all squared, which expands to x squared minus eight x plus sixteen. Bring everything to one side: x squared minus nine x plus eighteen equals zero. Factor: x minus six times x minus three equals zero. So x is six or x is three. Looks good, right? Now check. x equals six: root of four is two, six minus four is two. Two equals two. Works. x equals three: root of one is one, three minus four is negative one. One does NOT equal negative one. Boom. x equals three is a fake answer. We call it an extraneous root. It appeared because squaring both sides can manufacture solutions the original equation never had.",
+    "math": "\\sqrt{x-2}=x-4 \\;\\Longrightarrow\\; x^2-9x+18=0 \\;\\Longrightarrow\\; (x-6)(x-3)=0",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      8,
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "x = 3 is extraneous (fails the check); x = 6 is the real solution"
+    }
+   },
+   {
+    "say": "And here's how you can catch that fake answer before you even solve. Two domain restrictions. First, whatever is under the root sign must be zero or bigger. You can't take the square root of a negative number in the real number system. So x minus two must be at least zero, meaning x is at least two. Second, and this is the sneaky one: the left side, a square root, is always zero or positive. So the right side, x minus four, must also be zero or positive. That means x must be at least four. So right at the start, x equals three is outside the domain. You never even need to check it. The workflow is: domain first, solve second, verify third. Every single time.",
+    "math": "x-2 \\ge 0 \\quad\\text{and}\\quad x-4 \\ge 0 \\;\\Longrightarrow\\; x \\ge 4",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      8,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "Domain: x ≥ 4. The solution x = 6 lives inside; x = 3 doesn't even qualify"
+    }
+   },
+   {
+    "say": "One last thing to lock in before we wrap. Radicals are just exponents wearing a different hat. The square root of a is the same as a to the one-half power. Simplify by pulling out perfect squares. Combine only like radicals, just like combining like terms in algebra. Solve radical equations by isolating the root and squaring, but always check your answers and always respect the domain. Do those three things and radicals stop being scary and start being just another tool in your toolbox. You've totally got this.",
+    "math": "\\sqrt[n]{a} = a^{\\,1/n}, \\qquad \\text{always check!}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Simplify by pulling out perfect squares, combine only like radicals, and always check your work against the domain — that's the whole game.",
+  "practice": {
+   "question": "Your friend has a square vegetable patch with an area of 48 square metres, and you have a square herb bed with an area of 75 square metres. Express the sum of the two side lengths as one simplified radical, in metres.",
+   "answer": "√48 + √75 = 4√3 + 5√3 = 9√3 metres (≈ 15.59 m)"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

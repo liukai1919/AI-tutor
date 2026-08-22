@@ -1,0 +1,137 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.REL.02",
+ "lang": "en",
+ "title": "linear functions : slope and equations of lines",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Slope & Equations of Lines: The Recipe for Any Straight Line",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're working a part-time job at a coffee shop in your neighbourhood, and the pay is fifteen dollars an hour, no deductions for now. After one hour you've earned fifteen dollars. After two hours, thirty. After three hours, forty-five. Notice something? Every single extra hour adds exactly the same amount: fifteen dollars. That constant, unchanging 'per hour' amount? That is slope. In math we care about situations where things change at a steady rate, and slope is the number that captures that steady rate. A phone plan that charges a flat fee plus the same amount per gigabyte, a car using the same amount of gas per kilometre, saving the same amount every week for university — they all live on a straight line, and the slope tells you how fast things are growing or shrinking.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      0,
+      15,
+      30,
+      45,
+      60,
+      75
+     ],
+     "labels": [
+      "0 h",
+      "1 h",
+      "2 h",
+      "3 h",
+      "4 h",
+      "5 h"
+     ],
+     "caption": "Part-time pay at $15 per hour — a perfectly straight line"
+    }
+   },
+   {
+    "say": "So what exactly is slope? Here's the clean definition: slope equals the change in y, divided by the change in x. In words, that's 'rise over run.' You pick any two points on the line, figure out how much you go up — that's the rise — and how much you go to the right — that's the run — and you divide. Let's say our line passes through the point at one, three and the point at four, nine. The rise is nine minus three, which is six. The run is four minus one, which is three. So the slope is six divided by three, which is two. That two means: for every one unit you step to the right, you climb two units up. Simple, right? The beauty is you can pick any two points on the line and you'll get the same slope, because it's a straight line — the rate never changes.",
+    "math": "m = \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{9 - 3}{4 - 1} = \\frac{6}{3} = 2",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      4,
+      9
+     ],
+     "labels": [],
+     "caption": "Rise = 6, Run = 3, so slope = 2"
+    }
+   },
+   {
+    "say": "Now here's where it gets fun, because slope can be positive, negative, zero, or undefined, and each one paints a totally different picture. A positive slope means the line climbs from left to right — like your pay going up as you work more hours. A negative slope means the line drops from left to right — like a bank balance shrinking every day you spend money. A slope of zero means the line is perfectly horizontal, flat, no change at all — like a parking lot. And an undefined slope means the line is perfectly vertical, going straight up and down, because the run is zero and you can't divide by zero — like a cliff face. Let me show you the first three on one screen so you can see the shapes. The vertical one is a line like x equals one; it can't be written as y equals something, because its slope is undefined.",
+    "math": "m > 0: \\text{climbing} \\quad m < 0: \\text{falling} \\quad m = 0: \\text{horizontal} \\quad m = \\text{undefined}: \\text{vertical}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -3,
+      8,
+      -2,
+      9
+     ],
+     "labels": [
+      "2*x+1",
+      "-x+4",
+      "3"
+     ],
+     "caption": "Positive (y = 2x + 1), negative (y = −x + 4) and zero (y = 3) slopes; a vertical line such as x = 1 has an undefined slope"
+    }
+   },
+   {
+    "say": "Great, you know what slope is. Now let's talk about the three flavours of equation for a line, because depending on what information you're handed, one form is easier than the others. First: slope-intercept form, which is y equals m x plus b. You know the slope and the y-intercept, the point where the line crosses the y-axis. Second: point-slope form, which is y minus y-one equals m times the quantity x minus x-one. You know the slope and one point on the line, but not where it hits the y-axis. Third: general form, A x plus B y plus C equals zero. This is just the slope-intercept form rearranged with everything on one side and whole-number coefficients. They're the same line, three different costumes. Pick whichever matches the info you've got.",
+    "math": "\\text{slope-intercept: } y = mx + b \\qquad \\text{point-slope: } y - y_1 = m(x - x_1) \\qquad \\text{general: } Ax + By + C = 0",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's do a worked example, nice and straightforward. You're given two points on a line: the point at one, three, and the point at four, nine. Find the equation. Step one: find the slope. m equals nine minus three, divided by four minus one. That's six over three, so m equals two. Step two: plug into slope-intercept form. y equals two x plus b. Step three: use one of the points to solve for b. I'll use one, three. Three equals two times one plus b, so three equals two plus b, and b equals one. So the equation is y equals two x plus one. Quick check: plug in x equals four. Two times four is eight, plus one is nine. Yep, that's our second point. Done. You just built the line from scratch.",
+    "math": "m = \\frac{9-3}{4-1} = 2 \\quad\\Rightarrow\\quad y = 2x + b \\quad\\Rightarrow\\quad 3 = 2(1)+b \\quad\\Rightarrow\\quad b=1 \\quad\\Rightarrow\\quad \\boxed{y = 2x+1}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      4,
+      9,
+      0,
+      1
+     ],
+     "labels": [],
+     "caption": "The line y = 2x + 1 through both points"
+    }
+   },
+   {
+    "say": "Okay, now a slightly trickier one that shows why point-slope form is a lifesaver. You're told: find the equation of the line that passes through the point at two, negative one, and is parallel to the line y equals three x plus four. Here's the key idea: parallel lines have the same slope. The given line has slope three, so your mystery line also has slope three. You don't know the y-intercept yet, so slope-intercept form would make you solve for b anyway. Let's just use point-slope: y minus negative one equals three times the quantity x minus two. That simplifies to y plus one equals three x minus six. Subtract one from both sides: y equals three x minus seven. Done. Notice the two lines are parallel — same steepness, different starting height. And if the problem had said 'perpendicular' instead of 'parallel,' you'd have used the negative reciprocal: the slope would have been negative one third, because perpendicular slopes multiply to negative one.",
+    "math": "m = 3,\\;\\text{through } (2,\\,-1):\\;\\; y-(-1) = 3(x-2) \\;\\Rightarrow\\; y+1 = 3x-6 \\;\\Rightarrow\\; \\boxed{y = 3x - 7}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -2,
+      6,
+      -8,
+      10
+     ],
+     "labels": [
+      "3*x+4",
+      "3*x-7"
+     ],
+     "caption": "Two parallel lines (slope 3): y = 3x+4 and y = 3x−7"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to lock this in: slope is the rate of change — the steady, unshakable 'how much per one' — and an equation of a line is just a recipe that starts from that rate and a single anchor point to build the whole line. Once you can read slope off two points and pick the right form, every linear problem in this course is just arithmetic in disguise. You've got this.",
+    "math": "\\text{Slope} = \\text{rate of change} \\qquad \\text{Equation} = \\text{recipe built from slope} + \\text{one point}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Slope is the constant rate of change (rise over run), and any straight line can be written as y = mx + b, y − y₁ = m(x − x₁), or Ax + By + C = 0 — pick the form that matches the info you have.",
+  "practice": {
+   "question": "You're saving for a new pair of hiking boots that cost $120. You already have $30 saved, and you put aside $10 at the end of every week. (a) Write the equation for your total savings S after w weeks. (b) What is the slope, and what does it represent in your situation? (c) After how many weeks will you have exactly $120?",
+   "answer": "(a) S = 10w + 30. (b) The slope is 10, meaning you save ten dollars per week. (c) Set 10w + 30 = 120, so 10w = 90, w = 9 weeks."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

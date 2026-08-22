@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.NUM.01",
+ "lang": "en",
+ "title": "real number system",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "The Real Number Family Tree: Sorting Numbers into Their Homes",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Alright, so picture this. You're at a Tim Hortons on Commercial Drive in Vancouver, looking at the menu. A double double is four dollars and thirty cents. A plain bagel is three dollars. And let's say there's some weird loyalty deal where your coffee costs the square root of two dollars, about one dollar and forty-one cents. All three of those are real numbers — they're prices you can actually pay. But they live in different families within the real number system. And knowing which family a number belongs to? That's classification. It tells you whether it can be written as a fraction, whether its decimal goes on forever, and what you can and can't do with it in algebra. So let's build that family tree from the inside out.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -1,
+      5,
+      3,
+      1.41
+     ],
+     "labels": [
+      "whole $",
+      "√2 $"
+     ],
+     "caption": "Every real number lives on this one line — whole numbers, fractions, and radicals included"
+    }
+   },
+   {
+    "say": "Here's the hierarchy, and I want you to think of it like Russian nesting dolls. The innermost set is the natural numbers: one, two, three, four, and so on. The counting numbers. One layer out, we add zero to get the whole numbers. Another layer out, we add all the negatives — negative one, negative two, and so on — and now we have the integers. Then we widen it further to include every fraction, every repeating decimal. That's the set of rational numbers. And finally, we add in all the numbers that cannot be written as a fraction — the square root of two, pi, that kind of thing. Those are the irrationals. Rational numbers plus irrational numbers gives us the real numbers. Every number you'll ever measure, calculate, or type into a calculator is a real number.",
+    "math": "\\mathbb{N} \\subset \\mathbb{W} \\subset \\mathbb{Z} \\subset \\mathbb{Q}, \\quad \\mathbb{R} = \\mathbb{Q} \\cup \\{\\text{irrationals}\\}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now, the big fork in the road is: rational or irrational? A rational number is any number you can write as a fraction a over b, where a and b are integers and b is not zero. Three halves, negative seven, zero, four point two five — they're all rational, because four point two five is the same as four hundred twenty-five over one hundred. An irrational number is one that cannot be written as a fraction. Its decimal goes on forever and never repeats. Pi is the classic example: three point one four one five nine two six five, and it just keeps going with no pattern. The square root of two is another. And here's the key thing: both rational and irrational numbers live on the same number line. Pi sits between three and four. The square root of two sits between one and two. They're just pinned down in a different way — you can never write them as an exact fraction.",
+    "math": "\\text{Rational: } \\frac{a}{b},\\; a,b \\in \\mathbb{Z},\\; b \\neq 0 \\qquad \\text{Irrational: decimal goes on forever, no repeat}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      4,
+      1.41,
+      3.14
+     ],
+     "labels": [
+      "√2 ≈ 1.41",
+      "π ≈ 3.14"
+     ],
+     "caption": "Both live on the line, but neither can be written as an exact fraction"
+    }
+   },
+   {
+    "say": "Here's the rule that'll save you every time you see a radical in a classification question. Take the square root of n. If n is a perfect square — like nine, sixteen, twenty-five, one hundred and forty-four — then the square root comes out to a whole number. Square root of nine is three. Square root of one hundred and forty-four is twelve. Those are integers, and therefore rational. But if n is not a perfect square — like two, seven, fifty — then the square root is irrational. You simply cannot write the square root of two as a fraction. Same with the square root of fifty. Quick trick: if you can't name a whole number that times itself gives you the number under the radical, it's irrational. And this rule extends to cube roots and beyond. Cube root of twenty-seven is three, so rational. Cube root of five? Irrational. Same logic.",
+    "math": "\\sqrt{9}=3 \\in \\mathbb{Z} \\quad \\text{but} \\quad \\sqrt{2},\\;\\sqrt{50} \\;\\notin\\; \\mathbb{Q}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's classify a quick set of five numbers. Number one: five. That's a natural number, a whole number, an integer, a rational number, and a real number. It's in every single set. Number two: negative three. Not a natural, not a whole, but it is an integer, a rational, and a real. Number three: seven halves, or three and a half. Not a natural, not a whole, not an integer — but it's a fraction of two integers, so it's rational and real. Number four: the square root of sixteen. This is the sneaky one. Square root of sixteen is four, because sixteen is a perfect square. So it's a natural number, whole, integer, rational, real. Don't let the radical symbol scare you. Number five: negative one quarter. Not an integer, but it's a fraction, so it's rational and real.",
+    "math": "5 \\in \\mathbb{N},\\;\\mathbb{Z},\\;\\mathbb{Q},\\;\\mathbb{R} \\qquad -\\frac{1}{4} \\in \\mathbb{Q},\\;\\mathbb{R}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -3,
+      6,
+      5,
+      3.5
+     ],
+     "labels": [
+      "5",
+      "7/2"
+     ],
+     "caption": "All five numbers sit on the same line, but they belong to different families"
+    }
+   },
+   {
+    "say": "Now a slightly harder set. Number one: the square root of fifty. Is fifty a perfect square? Seven squared is forty-nine, eight squared is sixty-four. Fifty is not a perfect square, so the square root of fifty is irrational, and therefore real. It's about seven point zero seven, and that decimal never terminates and never repeats. Number two: negative square root of three. Three is not a perfect square, so this is irrational and real. The negative sign doesn't change whether something is rational or irrational. Number three: three point seven seven seven, with the sevens repeating forever. That repeating pattern means it's rational — in fact it equals thirty-four ninths. Number four: two thirds squared, which is four ninths. A fraction of two integers. Rational and real. Number five: pi. The classic irrational. It's a real number, but it is not rational. No fraction will ever equal pi exactly. Number six: zero. In the BC curriculum, zero is a whole number, an integer, a rational number, and a real number. It is not a natural number — we start naturals at one.",
+    "math": "\\sqrt{50} \\approx 7.07\\ldots \\notin \\mathbb{Q}, \\qquad \\pi \\notin \\mathbb{Q}, \\qquad 3.\\overline{7} = \\frac{34}{9} \\in \\mathbb{Q}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      8,
+      7.07,
+      3.14
+     ],
+     "labels": [
+      "√50 ≈ 7.07",
+      "π ≈ 3.14"
+     ],
+     "caption": "Both irrational — you can approximate them, but never pin them down as an exact fraction"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to carry into the rest of Pre-Calculus. The real number line is one unbroken stretch, and every number on it is either rational — a fraction, a terminating decimal, or a repeating decimal — or irrational — a non-repeating, non-terminating decimal like pi or the square root of two. And when you see a radical in a classification question, ask yourself exactly one question: is the number under the root a perfect square? If yes, it's rational. If no, it's irrational. That's the whole classification game, and it'll show up again and again when we get into exponents, radicals, and polynomials.",
+    "math": "\\mathbb{R} = \\mathbb{Q} \\;\\cup\\; \\{\\text{irrationals}\\} = \\{\\text{rational}\\} \\cup \\{\\text{non-repeating, non-terminating decimals}\\}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Every real number is either rational (a fraction, terminating, or repeating decimal) or irrational (non-repeating, non-terminating); to classify a radical, just check if the number under the root is a perfect square.",
+  "practice": {
+   "question": "You're helping a friend make a chart for a Grade 11 math project. Classify each number by stating which of these sets it belongs to: natural, integer, rational, irrational, real. (Remember: in BC, natural numbers start at 1.) The numbers are: √81, −2.333…, 4/7, −√5, 0, and 6.",
+   "answer": "√81 = 9 → natural, integer, rational, real.  −2.333… (repeating) → rational, real (not integer).  4/7 → rational, real (not integer).  −√5 → irrational, real (5 is not a perfect square).  0 → whole, integer, rational, real (not natural).  6 → natural, integer, rational, real."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.NUM.01",
+ "lang": "en",
+ "title": "exponents and exponent laws with whole-number exponents",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Exponents & Exponent Laws: The Repeated-Multiplication Toolkit",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this: you've got a part-time job mowing lawns in Surrey, and your rate starts at two dollars an hour. Your boss says, 'Cool, and it doubles every day.' Day one: two bucks. Day two: four. Day three: eight. Day four: sixteen. Day five: thirty-two. Day six: sixty-four. You see what's happening? Each day you're multiplying by two again. Day six is two times two times two times two times two times two — that's six twos smashed together. Instead of writing that whole string, mathematicians write 'two to the power of six.' That little six on top is the exponent, and it's just counting how many times the base repeats. Exponents are shorthand so you don't have to write out forty multiplications.",
+    "math": "2^1=2,\\; 2^2=4,\\; 2^3=8,\\; 2^4=16,\\; 2^5=32,\\; 2^6=64",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+     ],
+     "labels": [
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 4",
+      "Day 5",
+      "Day 6"
+     ],
+     "caption": "Doubling each day: each bar is the previous one times two"
+    }
+   },
+   {
+    "say": "Now swap the two for a letter. Say your video-game score is n points, and the level-up rule says 'score to the fourth power.' That means n times n times n times n — four copies of n multiplied together. The exponent is always a counter: it tells you how many times the base repeats. Three to the fifth? Five threes. x to the second? Two x's. x to the third? That's x times x times x, which is literally the volume of a cube with side length x. The little number on top is doing all the counting for you.",
+    "math": "n^4 = n \\times n \\times n \\times n \\qquad x^3 = x \\cdot x \\cdot x",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      3
+     ],
+     "labels": [
+      ""
+     ],
+     "caption": "A cube with side 3: volume = 3 · 3 · 3 = 3³ = 27 — that is why the third power is called “cubed”"
+    }
+   },
+   {
+    "say": "Here's where exponent laws make life easy. When you multiply two powers with the same base, you add the exponents. Think about it: n to the fifth is five n's lined up, n to the third is three more n's. Put them together? Eight n's! So n to the fifth times n to the third equals n to the eighth. Dividing? You subtract. y to the seventh divided by y to the third: picture seven y's on top and three y's on the bottom — three cancel out, four survive. y to the fourth. It's like crossing items off a grocery list; the leftovers are your answer.",
+    "math": "n^5 \\times n^3 = n^{5+3} = n^8 \\qquad \\frac{y^7}{y^3} = y^{7-3} = y^4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Two more rules to lock in. First: a power raised to a power — you multiply the exponents. Three-squared, all to the fourth power: that's (three times three) repeated four times, giving you eight threes total, so three to the eighth. Second: a product raised to a power — every single piece gets the exponent. Five-n to the third power means (5n) times (5n) times (5n), which is 5 times 5 times 5, times n times n times n, giving 125 n cubed. Same deal with a fraction: m over n, all to the fifth, is m to the fifth over n to the fifth. The exponent hits every piece inside the parentheses, no exceptions.",
+    "math": "(3^2)^4 = 3^{2 \\times 4} = 3^8 \\qquad (5n)^3 = 5^3 \\cdot n^3 = 125n^3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "n"
+     ],
+     "caption": "(5n)³: a cube with side 5n → volume = 5³·n³ = 125n³"
+    }
+   },
+   {
+    "say": "Now, a classic trap that trips people up every time. Negative three, squared, with parentheses: that's (minus three) times (minus three), and negative times negative gives positive, so the answer is positive nine. But negative three-squared without parentheses? That's a different beast. The minus sign sits outside, so it's really 'the negative of (three squared),' which is negative nine. The parentheses decide what the base is. With the parentheses, the base is negative three. Without them, the base is just three, and the minus flips the sign at the very end. Nine versus negative nine — completely different answers, one tiny set of parentheses apart.",
+    "math": "(-3)^2 = (-3)\\times(-3) = 9 \\qquad -3^2 = -(3\\times3) = -9",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "(–3)² = 9",
+      "–3² = –9"
+     ],
+     "caption": "NOT equal — parentheses change what the base is"
+    }
+   },
+   {
+    "say": "One last connection to seal things. Remember distributing? Three x times (x minus four). You give the three-x to each term inside the brackets. Three-x times x gives you three x-squared. Three-x times negative four gives you negative twelve x. So the whole thing simplifies to three x-squared minus twelve x. Notice: the exponent just rides along on the x — you're not changing it. You're distributing the coefficient and the variable separately. It's the exact same distributive rule from Grade 8; the only new thing is that an x-squared term pops out of the multiplication.",
+    "math": "3x(x-4) = 3x \\cdot x \\; - \\; 3x \\cdot 4 = 3x^2 - 12x",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here's your one-page cheat sheet. The exponent counts how many times you multiply the base. Same base and you're multiplying? Add the exponents. Same base and you're dividing? Subtract. A power to a power? Multiply. A product to a power? The exponent hits every piece inside. And always, always check your parentheses — they decide what the base actually is. You've got this.",
+    "math": "a^m \\cdot a^n = a^{m+n} \\qquad a^m \\div a^n = a^{m-n} \\qquad (a^m)^n = a^{mn} \\qquad (ab)^n = a^n b^n",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      6,
+      0,
+      300
+     ],
+     "labels": [
+      "2^x",
+      "3^x"
+     ],
+     "caption": "Exponential growth: small exponents produce surprisingly large numbers"
+    }
+   }
+  ],
+  "answer": "The exponent is a counter of repeated multiplications; same-base multiply → add, divide → subtract, power-to-power → multiply, and parentheses decide the base.",
+  "practice": {
+   "question": "Your friend works the Friday night shift at a coffee shop in Burnaby. Their starting pay is three dollars per hour, and the owner doubles it every week for four weeks. (a) How much per hour do they earn at the end of week four? (b) Write the full calculation using an exponent.",
+   "answer": "(a) 3 × 2⁴ = 3 × 16 = $48 per hour. (b) 3 × 2⁴"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

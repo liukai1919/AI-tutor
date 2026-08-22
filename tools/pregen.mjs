@@ -7,8 +7,8 @@
  * 「跟大纲学」和「闯关」变成秒开、免费、断网也能用；拍照出题那类还是得有引擎。
  *
  * 用法：
- *   node tools/pregen.mjs                    # BC 全年级、中英双语、课 + 题
- *   node tools/pregen.mjs --grades 5,6       # 只做某几个年级
+ *   node tools/pregen.mjs                    # BC 全年级（K-9 年级 + 10-12 分科课程）、中英双语、课 + 题
+ *   node tools/pregen.mjs --grades 5,6       # 只做某几个年级；分科课程用 id（--grades 8,9,fmp10,pc11,pc12）
  *   node tools/pregen.mjs --langs zh         # 只做一种语言
  *   node tools/pregen.mjs --only lessons     # 只做课（quiz 只做闯关题库，unit 只做单元测试卷）
  *   node tools/pregen.mjs --provider claude  # 一刀切指定引擎（默认按 config.json 的
@@ -59,9 +59,15 @@ function sources() {
     if (GRADES.length && !GRADES.includes(String(g))) continue;
     out.push(S.curriculum.get(g));
   }
+  // 10-12 年级分科课程（FMP10 / Pre-calc 11 / Pre-calc 12）：BC 公开材料，和年级一样默认就做
+  for (const c of S.curriculumCourses()) {
+    if (GRADES.length && !GRADES.includes(c.id)) continue;
+    out.push(S.curriculum.get(c.id));
+  }
   if (WITH_BOOKS) for (const b of S.curriculumBooks()) out.push(S.curriculum.get(b.id));
   return out;
 }
+const sourceTag = d => d.type === "book" ? d.bookId : d.type === "course" ? d.courseId : "G" + d.grade;
 const jobs = [];
 for (const data of sources()) {
   for (const item of data.items || []) {
@@ -72,7 +78,7 @@ for (const data of sources()) {
 /* 单元 = 大纲的一条主线 / 教材的一章。卷子内容只由（年级, 单元, 语言）决定，所以能预生成。 */
 const unitJobs = [];
 for (const data of sources()) {
-  const gradeKey = data.type === "book" ? String(data.bookId) : String(data.grade);
+  const gradeKey = data.type === "book" ? String(data.bookId) : data.type === "course" ? String(data.courseId) : String(data.grade);
   for (const strand of [...new Set((data.items || []).map(it => it.strand))]) {
     const def = (data.strandDefs || S.STRANDS).find(s => s[0] === strand);
     if (!def) continue;
@@ -160,15 +166,35 @@ async function withJudge(kind, j, gen) {
   return content;
 }
 
+/* 构建期的课比现场讲课多一道门：进包的课是给所有用户的，残缺的宁可重生成。
+ * 2026-08-21 本地模型跑批时出现过「say 半句截断」「一节课只剩 2 步」这类结构上就不合格的课，
+ * 校验过不了就让 runEngine 当失败处理（重试一次，再不行进 failures 下次补）。 */
+function validateLessonStrict(lang) {
+  const minSay = lang === "en" ? 25 : 10;
+  return l => {
+    l = S.validateLesson(l);
+    if (l.steps.length < 4) throw new Error("只有 " + l.steps.length + " 步（讲课至少 4 步）");
+    const short = l.steps.filter(s => s.say.trim().length < minSay);
+    if (short.length) throw new Error("有 " + short.length + " 步台词太短，像是被截断了：「" + short[0].say.slice(0, 30) + "」");
+    // 台词没有句末标点 = 典型截断（138 节人工校过的课里 1075 步全部以标点/括号/引号收尾）
+    const cut = l.steps.find(s => !/[。！？!?.…」”）)"’]$/.test(s.say.trim()));
+    if (cut) throw new Error("有一步台词像被截断：「…" + cut.say.slice(-20) + "」");
+    if (!l.steps.some(s => s.visual && s.visual.type !== "none")) throw new Error("整节课一张图都没有");
+    if (!l.practice.question.trim() || !l.practice.answer.trim()) throw new Error("缺课后练习");
+    return l;
+  };
+}
+
 /* ---------------- 生成一节课 ---------------- */
 async function genLesson(j, provider) {
   // 和 /api/lesson 的 teach 分支保持一致；孩子名传空，包里的课对谁都一样
   const sys = S.systemPromptTeach(j.item, j.data, "", j.lang);
   const question = j.lang === "en" ? j.item.en : j.item.zh + "（" + j.item.en + "）";
   const t0 = Date.now();
+  const check = validateLessonStrict(j.lang);
   const gen = async () => {
-    try { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson); }
-    catch (e1) { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, S.validateLesson); }   // 和服务器一样，失败重试一次
+    try { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, check); }
+    catch (e1) { return await S.runEngine(provider, "pregen:teach", sys, question, null, null, j.lang, null, check); }   // 和服务器一样，失败重试一次
   };
   const lesson = await withJudge("teach", j, gen);
   writeJson(lessonFile(j.item.id, j.lang), {
@@ -252,7 +278,7 @@ async function main() {
     if (jp.teach === prov.teach && jp.quiz === prov.quiz && jp.unit === prov.unit)
       console.log("          （审稿和生成是同一个引擎：自审也能拦低级错，但换个更强的引擎审更稳）");
   }
-  console.log("范围:     " + sources().map(d => d.type === "book" ? d.bookId : "G" + d.grade).join("、")
+  console.log("范围:     " + sources().map(sourceTag).join("、")
     + "   语言 " + LANGS.join("+") + "   并发 " + CONCURRENCY);
   console.log("课程:     " + (doLessons ? todoLessons.length + " 节要生成（共 " + jobs.length + " 节，其余已有）" : "跳过"));
   console.log("题库:     " + (doQuiz ? todoQuiz.length + " 组要生成（共 " + jobs.length + " 组，其余已有）" : "跳过"));

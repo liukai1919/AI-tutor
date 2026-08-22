@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "data-probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "数据与可能性",
+  "en": "Data & Probability"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ },
+ "set": {
+  "title": "Data & Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 1,
+    "question": "A researcher surveys 100 students at a Vancouver high school to estimate the average sleep time of all students in British Columbia. Who is the population?",
+    "options": [
+     "The 100 students who were surveyed",
+     "All students in British Columbia",
+     "All students at that one Vancouver high school",
+     "All Grade 9 students in Vancouver"
+    ],
+    "answerIndex": 1,
+    "explain": "The population is the entire group the researcher wants to draw conclusions about — here, every student in BC. The 100 surveyed students form the sample, not the population. A common mix-up is calling the surveyed group the population."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 1,
+    "question": "A classmate stands at the school entrance and asks the first 15 people who walk in whether they would pay $5 for a new school app. What sampling method is she using?",
+    "options": [
+     "Random sampling",
+     "Stratified sampling",
+     "Systematic sampling",
+     "Convenience sampling"
+    ],
+    "answerIndex": 3,
+    "explain": "Choosing whoever is easiest to reach (the first 15 people at the door) is convenience sampling. It is not random, stratified, or systematic because no random or structured selection rule is used."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 1,
+    "question": "A school newsletter states: '100% of surveyed students say the new gym is the best in the district.' Only 3 students from one basketball team were asked. What is the main problem with this statistic?",
+    "options": [
+     "The sample of 3 students from one team is too small and not representative of the whole school",
+     "The percentage should be written as a fraction rather than 100%",
+     "A 100% result is automatically a lie because no survey can get unanimity",
+     "The word 'best' is subjective and makes the survey invalid"
+    ],
+    "answerIndex": 0,
+    "explain": "Three students from a single team cannot represent an entire school, so the '100%' figure is misleading. The most common trap is focusing on the format (percent vs. fraction) or the wording instead of the sample size and representativeness."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 2,
+    "question": "A town council asks residents: 'Don't you agree that the new skate park is the greatest addition to our community?' What makes this survey question biased?",
+    "options": [
+     "It asks about a completely unrelated topic",
+     "It requires respondents to be over 18 years old",
+     "The loaded words 'greatest addition' push respondents toward a positive answer",
+     "It uses metric units instead of imperial units"
+    ],
+    "answerIndex": 2,
+    "explain": "Loaded or leading language such as 'greatest addition' nudges respondents toward a favourable response, creating response bias. A neutral question would simply ask, 'What is your opinion of the new skate park?'"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 2,
+    "question": "A phone company collects the GPS location of every app user 24 hours a day, shares the data with advertisers, and does not tell users or ask permission. Which ethical issue is MOST clearly violated?",
+    "options": [
+     "The data is stored on an unsecured server",
+     "Users' informed consent and privacy are disregarded",
+     "The GPS technology is too expensive to maintain",
+     "The timing of data collection is inconvenient for users"
+    ],
+    "answerIndex": 1,
+    "explain": "Collecting sensitive location data continuously without disclosure or consent is a direct breach of informed-consent and privacy ethics. Options about cost, timing, or server security describe practical issues, not the core ethical violation."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 2,
+    "question": "A school has 200 Grade 9, 300 Grade 10, and 500 Grade 11 students. A researcher wants a stratified random sample of 100 students so each grade is proportionally represented. How many Grade 11 students should be in the sample?",
+    "options": [
+     "20",
+     "30",
+     "40",
+     "50"
+    ],
+    "answerIndex": 3,
+    "explain": "Grade 11 is 500 out of 1000 total students, so 50% × 100 = 50. A frequent error is splitting 100 equally across the three grades (giving about 33 each) instead of using the proportional share for each stratum."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 3,
+    "question": "A company advertises a 25% profit increase. Its bar graph shows profit rising from $1,000,000 to $1,250,000, but the vertical axis starts at $900,000 instead of $0. What is the main problem with this graph?",
+    "options": [
+     "The truncated y-axis makes the 25% increase look far larger than it actually is",
+     "The profit actually decreased, not increased",
+     "A bar chart is the wrong type of graph for profit data",
+     "The company should have used dollars and cents instead of whole dollars"
+    ],
+    "answerIndex": 0,
+    "explain": "Starting the axis above zero (at $900,000) visually stretches a modest $250,000 gain into what looks like a dramatic jump, exaggerating the real 25% change. Always check where the axis begins before trusting a bar graph."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.DAT.01",
+    "level": 3,
+    "question": "A city mails a questionnaire only to households in the downtown neighbourhood, then reports in the local paper that '95% of the city supports a new downtown development project.' Which two problems are present?",
+    "options": [
+     "The survey used the wrong statistical formula and was printed on cheap paper",
+     "The results were rounded to the nearest whole number and sent on a weekend",
+     "The sample excludes other neighbourhoods (selection bias) AND reporting it as a city-wide result is misleading",
+     "The paper questionnaire was too long and the residents did not have enough time"
+    ],
+    "answerIndex": 2,
+    "explain": "Only surveying one neighbourhood means the sample is not representative of the whole city (selection bias), and presenting it as '95% of the city' misleads readers about who was actually asked. Always ask both: who was sampled, and is the language accurately describing the sample?"
+   }
+  ]
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "exponential-log",
+ "lang": "zh",
+ "unitName": {
+  "zh": "指数与对数",
+  "en": "Exponential & Logarithmic Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "指数与对数 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 1,
+    "question": "求 4^(-3/2) 的值。",
+    "options": [
+     "8",
+     "1/8",
+     "−1/8",
+     "1/64"
+    ],
+    "answerIndex": 1,
+    "explain": "4^(-3/2) = (√4)^(-3) = 2^(-3) = 1/8。常见错误：漏掉负号得 8，或漏掉开方得 4^(-3) = 1/64。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 1,
+    "question": "log₅(1/25) = ？",
+    "options": [
+     "2",
+     "25",
+     "−2",
+     "1/25"
+    ],
+    "answerIndex": 2,
+    "explain": "1/25 = 5^(-2)，所以 log₅(5^(-2)) = −2。常见错误：忽略分母中的负指数，误答 2。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 1,
+    "question": "解方程 7^x = 49。",
+    "options": [
+     "x = 2",
+     "x = 7",
+     "x = 1/2",
+     "x = 49"
+    ],
+    "answerIndex": 0,
+    "explain": "49 = 7²，两边同底，直接令指数相等得 x = 2。常见错误：把底数和指数混淆，误答 x = 7。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 2,
+    "question": "将 y = 3^x 的图象沿 x 轴（x-axis）做反射，再向上平移 2 个单位，所得图象的方程是？",
+    "options": [
+     "y = 3^(-x) + 2",
+     "y = −3^(x+2)",
+     "y = 3^x − 2",
+     "y = −3^x + 2"
+    ],
+    "answerIndex": 3,
+    "explain": "沿 x 轴反射即 y → −y，得 y = −3^x；再上移 2 得 y = −3^x + 2。常见错误：把 x 轴反射误做 y 轴反射（得 3^(-x)），或把上移误做左移（得 3^(x+2)）。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 2,
+    "question": "化简：2log(5) + log(4) − log(2)（常用对数，底为 10）。",
+    "options": [
+     "log(50)",
+     "log(200)",
+     "log(20)",
+     "log(27)"
+    ],
+    "answerIndex": 0,
+    "explain": "2log(5) = log(25)，再 log(25) + log(4) − log(2) = log(25×4/2) = log(50)。常见错误：把系数 2 当作加法得 log(10)，或把减法误作乘法得 log(200)。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 2,
+    "question": "解方程 log(x) + log(x−3) = 1（常用对数，底为 10）。",
+    "options": [
+     "x = −2",
+     "x = 5",
+     "x = 5 或 x = −2",
+     "x = 3"
+    ],
+    "answerIndex": 1,
+    "explain": "合并得 log(x(x−3)) = 1 → x²−3x−10 = 0 → (x−5)(x+2) = 0。因对数要求 x > 3，必须舍去 x = −2，故唯一解 x = 5。常见错误：忘记检验定义域（domain），保留了增根。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 3,
+    "question": "UBC 生物实验室里，一个培养皿初始有 2 000 个细菌，每 20 分钟数量翻倍（doubling）。经过多少分钟后，数量恰好达到 16 000？",
+    "options": [
+     "40 分钟",
+     "20 分钟",
+     "60 分钟",
+     "80 分钟"
+    ],
+    "answerIndex": 2,
+    "explain": "2000 × 2^(t/20) = 16 000 → 2^(t/20) = 8 = 2³ → t = 60 min，即 2000→4000→8000→16000 共 3 次翻倍。常见错误：少数一次（答 40 min）或多一次（答 80 min）翻倍。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 3,
+    "question": "一架喷气式飞机在距跑道 30 m 处产生的声级（sound level）为 140 dB，声级公式 L = 10 log(I/I₀)。已知声强与距离的平方成反比（I ∝ 1/d²）。当声级降至 120 dB 时，距离跑道多少米？",
+    "options": [
+     "60 m",
+     "3 000 m",
+     "3 m",
+     "300 m"
+    ],
+    "answerIndex": 3,
+    "explain": "140 dB 对应 I₁/I₀ = 10¹⁴，120 dB 对应 I₂/I₀ = 10¹²，故 I₁/I₂ = 100。由 I ∝ 1/d² 得 (d₂/30)² = 100 → d₂ = 30 × 10 = 300 m。常见错误：忘记开平方，误得 3 000 m。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

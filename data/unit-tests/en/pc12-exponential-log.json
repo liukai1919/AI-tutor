@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "exponential-log",
+ "lang": "en",
+ "unitName": {
+  "zh": "指数与对数",
+  "en": "Exponential & Logarithmic Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "Exponential & Logarithmic Functions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 1,
+    "question": "The graph of y = 3^x is reflected over the x-axis and then shifted up 4 units. What is the equation of the transformed graph?",
+    "options": [
+     "y = 3^(-x) + 4",
+     "y = -3^(x+4)",
+     "y = -3^x + 4",
+     "y = 3^x - 4"
+    ],
+    "answerIndex": 2,
+    "explain": "Reflecting over the x-axis negates the output (y → -y), giving -3^x; shifting up 4 adds a constant, giving -3^x + 4. The common trap is confusing an x-axis reflection (negate the function) with a y-axis reflection (negate the input: 3^(-x))."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 1,
+    "question": "Solve for x: 5^(2x) = 25",
+    "options": [
+     "x = 2",
+     "x = 1",
+     "x = 1/2",
+     "x = 5"
+    ],
+    "answerIndex": 1,
+    "explain": "Rewrite 25 as 5^2 so both sides share the same base: 5^(2x) = 5^2. Equate exponents: 2x = 2, so x = 1. The common trap is equating 2x directly to 25, or solving 2x = 2 and then dividing by the wrong factor."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 1,
+    "question": "Evaluate: log base 2 of 32  +  log base 10 of 100",
+    "options": [
+     "7",
+     "16",
+     "6",
+     "3"
+    ],
+    "answerIndex": 0,
+    "explain": "log base 2 of 32 = 5 because 2^5 = 32, and log base 10 of 100 = 2 because 10^2 = 100, so the sum is 7. The common trap is treating the log as a division (32 ÷ 2 = 16) or miscounting the exponent (e.g. thinking log base 10 of 100 = 1)."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 2,
+    "question": "Solve: log(x + 1) + log(x - 4) = log(6).  What is the solution set?",
+    "options": [
+     "x = -2",
+     "x = 5 or x = -2",
+     "x = 10",
+     "x = 5"
+    ],
+    "answerIndex": 3,
+    "explain": "Combine using log a + log b = log(ab): log((x+1)(x-4)) = log 6, so x² - 3x - 4 = 6, giving (x-5)(x+2) = 0. Because the original logarithms require x - 4 > 0 (i.e. x > 4), x = -2 is extraneous. The key trap is accepting both algebraic roots without checking the domain of every logarithmic expression."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 2,
+    "question": "A bacterial culture in a BC biology lab starts with 200 cells and doubles every 3 hours. How many cells will there be after 9 hours?",
+    "options": [
+     "800",
+     "1600",
+     "102400",
+     "3200"
+    ],
+    "answerIndex": 1,
+    "explain": "In 9 hours there are 9 ÷ 3 = 3 doubling periods, so N = 200 × 2³ = 1600. The common trap is using 9 as the exponent directly (200 × 2⁹ = 102 400) instead of dividing by the doubling interval to find the number of periods."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.02",
+    "level": 2,
+    "question": "Simplify:  3 log(2) + log(125)    (log base 10)",
+    "options": [
+     "3",
+     "log(750)",
+     "131",
+     "log(130)"
+    ],
+    "answerIndex": 0,
+    "explain": "Move the coefficient inside as an exponent: 3 log(2) = log(2³) = log(8). Then log(8) + log(125) = log(8 × 125) = log(1000) = 3. The common trap is distributing the 3 as multiplication (3 × 2 = 6) rather than as an exponent (2³ = 8), or adding the arguments directly instead of multiplying them."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 3,
+    "question": "A small city in BC had a population of 40 000 in 2020 and grows at 3% per year. In which year will the population first exceed 50 000?   (Use log(1.03) ≈ 0.0128 and log(1.25) ≈ 0.0969.)",
+    "options": [
+     "2027",
+     "2029",
+     "2030",
+     "2028"
+    ],
+    "answerIndex": 3,
+    "explain": "Set 40 000(1.03)^t > 50 000, so (1.03)^t > 1.25. Taking logs: t > log(1.25)/log(1.03) ≈ 0.0969/0.0128 ≈ 7.57, so t = 8 and the year is 2028. Verify: 40 000(1.03)^7 ≈ 49 195 (too low) but 40 000(1.03)^8 ≈ 50 671 (exceeds). The traps are rounding 7.57 down to 7, or modelling growth linearly (40 000 + 1 200t) which shifts the answer to 2029."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.EXP.01",
+    "level": 3,
+    "question": "A radio tower in Vancouver broadcasts with power P(d) = 100(1/2)^(d/10) watts, where d is the distance in km. A car radio needs at least 5 watts for a clear signal. To the nearest kilometre, how far can a listener drive and still receive a clear signal?   (Use log(0.05) ≈ -1.30 and log(0.5) ≈ -0.30.)",
+    "options": [
+     "4 km",
+     "20 km",
+     "43 km",
+     "10 km"
+    ],
+    "answerIndex": 2,
+    "explain": "Set 100(1/2)^(d/10) ≥ 5, so (1/2)^(d/10) ≥ 0.05. Taking logs and flipping the inequality (since log(1/2) < 0): d/10 ≤ log(0.05)/log(0.5) ≈ (-1.30)/(-0.30) ≈ 4.3, giving d ≤ 43 km. Check: P(43) ≈ 5.08 W ≥ 5 ✓, P(44) ≈ 4.74 W < 5 ✗. The common traps are forgetting the /10 in the exponent (getting 4 km) or simply dividing 100 by 5 to get 20 km."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

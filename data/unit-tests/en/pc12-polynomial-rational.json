@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "polynomial-rational",
+ "lang": "en",
+ "unitName": {
+  "zh": "多项式与有理函数",
+  "en": "Polynomial & Rational Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "Polynomial & Rational Functions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.POL.01",
+    "level": 1,
+    "question": "A student in Kelowna is checking her work on a polynomial division. Use the Remainder Theorem to find the remainder when f(x) = 2x³ − 5x² + 3x − 7 is divided by (x − 2).",
+    "options": [
+     "−5",
+     "5",
+     "−15",
+     "3"
+    ],
+    "answerIndex": 0,
+    "explain": "By the Remainder Theorem, evaluate f(2) = 2(8) − 5(4) + 3(2) − 7 = −5. The common trap is a sign error when substituting a positive value into terms that carry negative coefficients."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.02",
+    "level": 1,
+    "question": "A graphic designer in Vancouver is sketching the rational function y = (3x + 1)/(x − 4) for a logo. What is the vertical asymptote of this graph?",
+    "options": [
+     "x = −4",
+     "y = 3",
+     "x = 4",
+     "x = 1/3"
+    ],
+    "answerIndex": 2,
+    "explain": "A vertical asymptote occurs where the denominator equals zero and the factor does not cancel: x − 4 = 0, so x = 4. The trap is confusing the vertical asymptote with the horizontal asymptote (y = 3) or making a sign error to get x = −4."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.01",
+    "level": 1,
+    "question": "A math tutor in Surrey is working with the polynomial g(x) = x³ − 6x² + 11x − 6. Which of the following is a factor of g(x)?",
+    "options": [
+     "(x + 1)",
+     "(x − 2)",
+     "(x + 3)",
+     "(x − 4)"
+    ],
+    "answerIndex": 1,
+    "explain": "By the Factor Theorem, g(2) = 8 − 24 + 22 − 6 = 0, so (x − 2) is a factor. The trap is testing g(−2) instead of g(2), or misreading the zero's sign and choosing (x + 2) instead."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.01",
+    "level": 2,
+    "question": "A gardener in Kelowna designs a raised planting bed whose area (in m²) is modelled by A(x) = x³ − 9x² + 20x, where x is the width in metres. She needs a positive zero to set the minimum width. Which of the following is a positive zero of A(x)?",
+    "options": [
+     "x = 1",
+     "x = 9",
+     "x = 20",
+     "x = 5"
+    ],
+    "answerIndex": 3,
+    "explain": "Factor: A(x) = x(x² − 9x + 20) = x(x − 4)(x − 5), giving positive zeros 4 and 5. The trap is misreading the constant 20 as a zero or expanding the trinomial incorrectly."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.02",
+    "level": 2,
+    "question": "A group of students in Vancouver is splitting the cost of a pizza delivery. The cost per person (in dollars) is C(n) = (2n + 15)/n, where n is the number of people (n > 0). What is the horizontal asymptote, and what does it represent in context?",
+    "options": [
+     "y = 2; the per-person cost approaches $2 as more people join the order",
+     "y = 15; the total delivery cost approaches $15",
+     "y = 2; the total cost of the pizza approaches $2",
+     "y = 15/n; the cost per person eventually becomes zero"
+    ],
+    "answerIndex": 0,
+    "explain": "As n → ∞, C(n) = (2n + 15)/n → 2, so the horizontal asymptote is y = 2, meaning the per-person share approaches $2. The trap is picking the y-intercept value 15 as the asymptote or misidentifying what the asymptote means in context."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.01",
+    "level": 2,
+    "question": "A student in Victoria is sketching the graph of p(x) = −3x⁴ + 2x³ − x + 7 to model a roller-coaster height profile (scaled). Based on the degree and leading coefficient, what is the end behaviour of this graph?",
+    "options": [
+     "Both ends rise to +∞",
+     "Left end → −∞, right end → +∞",
+     "Both ends fall to −∞",
+     "Left end → +∞, right end → −∞"
+    ],
+    "answerIndex": 2,
+    "explain": "The degree is 4 (even) and the leading coefficient is −3 (negative), so both ends fall to −∞. The trap is confusing even-degree with odd-degree end behaviour or forgetting that a negative leading coefficient flips the direction."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.02",
+    "level": 3,
+    "question": "A water-quality technician in Surrey models the concentration (mg/L) of a tracer dye in a treatment tank as C(t) = (3t − 9)/(t² − 9), where t is time in hours (t > 0). A colleague claims there is a vertical asymptote at t = 3. Is this correct, and what actually happens at t = 3?",
+    "options": [
+     "Yes — the denominator is zero at t = 3, so the concentration becomes infinitely large",
+     "No — the factor (t − 3) cancels, leaving a removable discontinuity (hole) at t = 3 where C would equal 0.5 mg/L",
+     "Yes — t² − 9 also vanishes at t = −3, creating a vertical asymptote that dominates the behaviour",
+     "No — the function is perfectly continuous at t = 3 with C(3) = 0"
+    ],
+    "answerIndex": 1,
+    "explain": "Factor: 3(t−3)/[(t−3)(t+3)] = 3/(t+3) for t ≠ 3. Because (t−3) cancels, t = 3 is a hole (removable discontinuity), not a vertical asymptote; the hole's y-value is 3/6 = 0.5. The trap is seeing t² − 9 = 0 and declaring a vertical asymptote without first checking for a common factor to cancel."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.POL.01",
+    "level": 3,
+    "question": "A water-treatment engineer in Kamloops models the flow rate (L/s) through a valve as F(x) = x³ − 5x² + 8x − 4, where x is the pressure setting in bar. She needs every pressure value at which the flow shuts off (F(x) = 0). How many distinct pressure values shut off the flow, and what are they?",
+    "options": [
+     "Three distinct zeros: x = 1, x = 2, and x = 4",
+     "Three distinct zeros: x = −1, x = 2, and x = 2",
+     "One zero: x = 1 (the remaining quadratic has no real roots)",
+     "Two distinct zeros: x = 1 and x = 2, where x = 2 is a repeated (double) root"
+    ],
+    "answerIndex": 3,
+    "explain": "Factor: x³ − 5x² + 8x − 4 = (x − 1)(x² − 4x + 4) = (x − 1)(x − 2)². There are two distinct zeros, 1 and 2, with x = 2 repeated. The trap is counting a repeated root as three distinct zeros, or incorrectly concluding the quadratic is irreducible (its discriminant is 0, not negative)."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}
