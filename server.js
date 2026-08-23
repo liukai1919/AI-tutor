@@ -1622,6 +1622,21 @@ function ttsId(text, lang) {
   )).digest("hex");
 }
 function ttsWavPath(id) { return path.join(TTS_CACHE, id + ".wav"); }
+/* 送去合成之前把「看着对、念着错」的写法换成读音：CosyVoice 把 "Ms. Yuanyuan" 按字母念成
+ * "M S Yuanyuan"（2026-08-23 用户反馈）。只改送给引擎的文本，**不改哈希**（ttsId 仍按原文算），
+ * 否则所有已烘的语音包和缓存全部失效。屏幕上显示的还是 "Ms."。
+ * 规则只收最保险的几条，别在这里做大而全的 TTS 归一化。 */
+function ttsSpeakable(text, lang) {
+  let t = String(text || "");
+  if (lang === "en") {
+    t = t.replace(/\bMs\.\s*Yuanyuan\b/g, "Miss Yuanyuan")   // 用户钦定的读法
+         .replace(/\bMs\.(?=\s)/g, "Miss")
+         .replace(/\bMrs\.(?=\s)/g, "Missus")
+         .replace(/\bMr\.(?=\s)/g, "Mister")
+         .replace(/\bDr\.(?=\s)/g, "Doctor");
+  }
+  return t;
+}
 
 /* ---------------- 预烘语音包（安装包随附，只读） ----------------
  * data/voice/<和 ttsId 同一套 sha1>.m4a —— 构建期由 tools/prevoice.mjs 生成。
@@ -1659,7 +1674,7 @@ async function ttsRunJob(items) {
     refAudio: cfg.tts.refAudio || null, refText: cfg.tts.refText || null,
     refLang: cfg.tts.refLang || "zh",
     instruct: cfg.tts.instruct || {},
-    items: pend.map(it => ({ id: it.id, text: it.text, lang: it.lang }))
+    items: pend.map(it => ({ id: it.id, text: ttsSpeakable(it.text, it.lang), lang: it.lang }))
   };
   const mf = path.join(TTS_CACHE, "job-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8) + ".json");
   fs.writeFileSync(mf, JSON.stringify(manifest), "utf8");
@@ -1697,7 +1712,7 @@ async function ttsRunJobDaemon(items, pend) {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          text: it.text, lang: it.lang,
+          text: ttsSpeakable(it.text, it.lang), lang: it.lang,
           mode: cfg.tts.mode || "instruct",
           speed: cfg.tts.speed || 1.0,
           instruct: cfg.tts.instruct || {},
@@ -3739,7 +3754,7 @@ module.exports = {
   curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews, isCourseData, findCurriculumItem, extractJson,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
-  ttsId, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
+  ttsId, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
 };

@@ -121,7 +121,7 @@ async function synth(item) {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
-      text: item.text, lang: item.lang,
+      text: S.ttsSpeakable(item.text, item.lang), lang: item.lang,   // 读音归一（Ms. → Miss），哈希仍按原文
       mode: shippedTts.mode, speed: shippedTts.speed,
       refAudio: shippedTts.refAudio || null, refText: shippedTts.refText || null,
       refLang: shippedTts.refLang || "zh",
