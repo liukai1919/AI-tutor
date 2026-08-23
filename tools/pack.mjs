@@ -16,6 +16,7 @@
  *   node tools/pack.mjs --version 1.0.0       # 版本号（默认 0.1.0）
  *   node tools/pack.mjs --node v22.14.0       # 指定内置的 Node（默认取最新 LTS）
  *   node tools/pack.mjs --books               # 把书籍课程也装进去（版权自负）
+ *   node tools/pack.mjs --skills              # 把技能图谱预览（设计草稿）也装进去，默认不带
  *   node tools/pack.mjs --skip-installer      # 不调 Inno Setup，只出 zip
  *
  * Node 运行时从 nodejs.org 官方下载并核对 SHASUMS256，缓存在 build/.cache/。
@@ -40,6 +41,7 @@ const opt = (n, d) => {
 const VERSION = String(opt("version", "0.1.0"));
 const PLATFORMS = String(opt("platforms", "win,mac")).split(",").map(s => s.trim()).filter(Boolean);
 const WITH_BOOKS = flag("books");
+const WITH_SKILLS = flag("skills");   // 技能图谱预览（设计草稿）：默认不进包，评审定稿前只在开发机上看
 const SKIP_INSTALLER = flag("skip-installer");
 const APP_ZH = "圆圆数学";
 const APP_EN = "YuanyuanMath";
@@ -215,10 +217,12 @@ function stageApp(dst) {
     const keep = {};
     let dropped = 0;
     for (const [k, v] of Object.entries(bank)) {
-      if (WITH_BOOKS || /^BC\./.test(k)) keep[k] = v; else dropped++;
+      // BC 大纲题永远带；技能草稿题（YY.*）要 --skills；其余（书籍小节题）沿用 --books
+      const ok = /^BC\./.test(k) ? true : /^YY\./.test(k) ? WITH_SKILLS : WITH_BOOKS;
+      if (ok) keep[k] = v; else dropped++;
     }
     fs.writeFileSync(path.join(seedDir, "qbank.json"), JSON.stringify(keep), "utf8");
-    if (dropped) console.log("  种子题库去掉 " + dropped + " 组书籍题库（版权材料不进公开包）");
+    if (dropped) console.log("  种子题库去掉 " + dropped + " 组（书籍版权材料 / 未随包发布的技能草稿题库）");
   } catch (_) { /* 没有 qbank.json 也能打包，装完第一次出题自己长 */ }
   // 打包标记：server 看到它才把用户数据切到系统用户目录（源码模式照旧写仓库）
   fs.writeFileSync(path.join(dst, ".packaged"), APP_EN + " " + VERSION + "\n", "utf8");
@@ -232,6 +236,8 @@ function stageApp(dst) {
       filter: src => !src.split(/[\\/]/).includes("text")   // 原书正文一律不进包
     });
   }
+  // 技能图谱预览（docs/skill-graph-plan.md）：设计草稿，--skills 才带
+  if (WITH_SKILLS) copyInto(path.join(ROOT, "data", "curriculum", "skills"), cur, { optional: true });
   // 预生成的课程包、单元测试卷、语音包
   copyInto(path.join(ROOT, "data", "lessons"), path.join(dst, "data"), { optional: true });
   copyInto(path.join(ROOT, "data", "unit-tests"), path.join(dst, "data"), { optional: true });

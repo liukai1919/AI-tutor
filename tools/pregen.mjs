@@ -21,6 +21,10 @@
  *   node tools/pregen.mjs --limit 3          # 只做前 N 个（先验货再开大批）
  *   node tools/pregen.mjs --force            # 已生成的也重做
  *   node tools/pregen.mjs --books            # 书籍课程也算进来（版权自负，默认只做 BC）
+ *   node tools/pregen.mjs --skills           # 技能图谱预览（data/curriculum/skills/，设计草稿）也算进来
+ *   node tools/pregen.mjs --skills --grades 5 --only quiz    # 只给 G5 技能出题库
+ *   node tools/pregen.mjs --skills --only quiz --pilot         # 只做 23 个带诊断分支的试点技能（先验货）
+ *   node tools/pregen.mjs --skills --only quiz --core          # 只做核心技能，拓展技能先不花钱
  *   node tools/pregen.mjs --dry              # 只列要做什么，不真跑
  *
  * 断点续跑：已有的默认跳过，中途 Ctrl-C 再跑一次接着做。
@@ -44,6 +48,7 @@ const ONLY = String(opt("only", "all"));
 const CONCURRENCY = Math.max(1, Math.min(8, Number(opt("concurrency", 2)) || 2));
 const FORCE = flag("force");
 const WITH_BOOKS = flag("books");
+const WITH_SKILLS = flag("skills");     // 技能图谱预览（设计草稿）；默认不做，跑它要显式加 --skills
 const DRY = flag("dry");
 const GRADES = String(opt("grades", "")).split(",").map(s => s.trim()).filter(Boolean);
 const JUDGE = flag("judge");                 // 生成完送另一个引擎审稿：没过重来一次，仍没过就放弃这条
@@ -65,9 +70,14 @@ function sources() {
     out.push(S.curriculum.get(c.id));
   }
   if (WITH_BOOKS) for (const b of S.curriculumBooks()) out.push(S.curriculum.get(b.id));
+  /* 技能图谱预览：--skills 打开；--grades 用它的 id（skills-g5）或光写年级数字（5）都认 */
+  if (WITH_SKILLS) for (const sp of S.curriculumSkillsPreviews()) {
+    if (GRADES.length && !GRADES.includes(sp.id) && !GRADES.includes(String(sp.grade))) continue;
+    out.push(S.curriculum.get(sp.id));
+  }
   return out;
 }
-const sourceTag = d => d.type === "book" ? d.bookId : d.type === "course" ? d.courseId : "G" + d.grade;
+const sourceTag = d => d.type === "book" ? d.bookId : d.type === "course" ? d.courseId : d.type === "skills-preview" ? d.skillsId : "G" + d.grade;
 const jobs = [];
 for (const data of sources()) {
   for (const item of data.items || []) {
@@ -78,7 +88,7 @@ for (const data of sources()) {
 /* 单元 = 大纲的一条主线 / 教材的一章。卷子内容只由（年级, 单元, 语言）决定，所以能预生成。 */
 const unitJobs = [];
 for (const data of sources()) {
-  const gradeKey = data.type === "book" ? String(data.bookId) : data.type === "course" ? String(data.courseId) : String(data.grade);
+  const gradeKey = data.type === "book" ? String(data.bookId) : data.type === "course" ? String(data.courseId) : data.type === "skills-preview" ? String(data.skillsId) : String(data.grade);
   for (const strand of [...new Set((data.items || []).map(it => it.strand))]) {
     const def = (data.strandDefs || S.STRANDS).find(s => s[0] === strand);
     if (!def) continue;
@@ -94,8 +104,14 @@ function quizDone(j) { return !!S.qbankPlayable(j.item.id, j.lang); }
 
 const LIMIT = Number(opt("limit", 0)) || 0;
 const cap = a => LIMIT ? a.slice(0, LIMIT) : a;
-const todoLessons = cap(doLessons ? jobs.filter(j => FORCE || !lessonDone(j)) : []);
-const todoQuiz = cap(doQuiz ? jobs.filter(j => FORCE || !quizDone(j)) : []);
+/* 技能图谱的两个子集开关（只对 --skills 的条目生效，BC 条目/书籍没有 item.skill，不受影响）：
+ *   --core   只做核心技能（core:true），拓展技能先不花钱——设计文档 §7 阶段 2 的建议顺序
+ *   --pilot  只做带诊断分支的 23 个试点技能，先验货再开大批 */
+const ONLY_CORE = flag("core");
+const ONLY_PILOT = flag("pilot");
+const skillOk = j => !j.item.skill || ((!ONLY_CORE || j.item.skill.core !== false) && (!ONLY_PILOT || !!j.item.skill.diag));
+const todoLessons = cap(doLessons ? jobs.filter(j => skillOk(j) && (FORCE || !lessonDone(j))) : []);
+const todoQuiz = cap(doQuiz ? jobs.filter(j => skillOk(j) && (FORCE || !quizDone(j))) : []);
 const todoUnit = cap(doUnit ? unitJobs.filter(j => FORCE || !unitDone(j)) : []);
 
 /* ---------------- 小工具 ---------------- */
@@ -141,7 +157,8 @@ function mkJudges(prov) {
   const call = async (kind, sys, lang) => {
     const v = await S.runEngine(prov[kind], "judge:" + kind, sys,
       S.L(lang, "请审这份内容。", "Review this content."), null, null, lang,
-      { schema: S.JUDGE_SCHEMA, hint: S.JUDGE_HINT[lang] }, S.validateJudge);
+      // 题库审稿用带 bad 序号的格式说明：按题剔除，不整批作废（ensureQuizBank 认 v.bad）
+      { schema: S.JUDGE_SCHEMA, hint: (kind === "quiz" ? S.JUDGE_HINT_QUIZ : S.JUDGE_HINT)[lang] }, S.validateJudge);
     if (!v.pass) stats.judgeReject++;
     return v;
   };

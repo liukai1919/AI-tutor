@@ -135,6 +135,34 @@
   .tabbtn{flex:1;border:2px solid var(--line);background:#fff;border-radius:16px;padding:12px 10px;font-size:15px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
   .tabbtn.on{border-color:var(--brand);color:var(--ink);background:var(--soft)}
   .learnGradeSel{border:2px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;font-weight:700;background:var(--soft);color:var(--ink);outline:none}
+  /* 自绘下拉：原生弹层是系统画的（白底蓝高亮），宽度还按最长选项撑——
+     「Foundations of Mathematics and Pre-calculus 10」一条就能把它顶出卡片。这里只换看得见的那层。 */
+  .fsel{position:relative;display:inline-block;max-width:100%;vertical-align:middle}
+  .fsel.full{display:block;width:100%}
+  .fselNative{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+  .fselBtn{display:flex;align-items:center;gap:8px;width:100%;max-width:100%;border:2px solid var(--line);border-radius:12px;
+    padding:8px 10px;font-size:14px;font-weight:700;font-family:inherit;background:var(--soft);color:var(--ink);cursor:pointer;text-align:left;transition:.15s}
+  .fsel.full .fselBtn{border-radius:14px;padding:12px 14px;font-size:16px}
+  .fselBtn .fv{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .fselBtn .fc{flex:0 0 auto;font-size:11px;color:var(--muted);transition:transform .15s}
+  .fselBtn:hover{border-color:var(--brand)}
+  .fselBtn:disabled{opacity:.5;cursor:default}
+  .fsel.open .fselBtn{border-color:var(--brand);background:#fff}
+  .fsel.open .fselBtn .fc{transform:rotate(180deg)}
+  .fselPop{position:fixed;z-index:100;background:var(--card);border:2px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:6px;overflow-y:auto;overscroll-behavior:contain}
+  .fselPop::-webkit-scrollbar{width:8px}
+  .fselPop::-webkit-scrollbar-thumb{background:#e8dccf;border-radius:99px}
+  .fselGrp{font-size:11.5px;font-weight:800;color:var(--muted);padding:9px 10px 3px;letter-spacing:.3px}
+  .fselGrp:first-child{padding-top:4px}
+  .fselOpt{display:flex;align-items:flex-start;gap:8px;border-radius:11px;padding:8px 10px;font-size:14px;font-weight:700;
+    color:var(--ink);line-height:1.45;cursor:pointer}
+  .fselOpt .ft{flex:1;min-width:0;word-break:break-word}   /* 长课名换行，不再横着撑 */
+  .fselOpt .fk{flex:0 0 auto;color:var(--brand);opacity:0}
+  .fselOpt:hover,.fselOpt.hot{background:var(--soft)}
+  .fselOpt.on{background:var(--soft);color:var(--brand)}
+  .fselOpt.on .fk{opacity:1}
+  .fselOpt.ing{padding-left:20px}
   .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:2px 0 6px}
   .sdot{display:inline-block;width:10px;height:10px;border-radius:999px;background:#ddd2c6;vertical-align:middle;margin-right:5px;flex:0 0 auto}
   .sdot.seen{background:var(--brand2)}
@@ -158,6 +186,27 @@
   .learnItem .le{color:var(--muted);font-size:12px;margin-top:2px}
   .learnItem .st{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;flex:0 0 auto}
   .learnEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
+  /* 技能图谱视图：主题可折叠（一个年级 50-70 个技能，全摊开没法看），技能行带类型徽章 */
+  .strandHead.tp{cursor:pointer;user-select:none}
+  .strandHead .tw{flex:0 0 auto;color:var(--muted);font-size:12px;transition:transform .15s;margin-top:2px}
+  .strandHead.open .tw{transform:rotate(90deg)}
+  .strandHead .tn{margin-left:8px;font-size:11.5px;color:var(--muted);font-weight:700}
+  .skBadge{flex:0 0 auto;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 7px;letter-spacing:.2px;
+    border:1.5px solid var(--line);color:var(--muted);background:var(--soft);white-space:nowrap}
+  .skBadge.concept{border-color:#8ec5ff;color:#1d6fd0}
+  .skBadge.represent{border-color:#b6a6f5;color:#6146c6}
+  .skBadge.procedure{border-color:#ffc78a;color:#c06a10}
+  .skBadge.reason{border-color:#9adcb4;color:#1f7a4d}
+  .skBadge.apply{border-color:#ff9fb0;color:#c4344f}
+  .skBadge.fluency{border-color:#d5d5d5;color:#6b6b6b}
+  .skMeta{color:var(--muted);font-size:11.5px;margin-top:3px}
+  .skFix{color:#c4344f;font-size:11.5px;margin-top:3px;line-height:1.5}
+  .skFix .fixLink{text-decoration:underline;cursor:pointer;font-weight:700}
+  .learnItem.ovw{background:var(--soft);border-style:dashed}
+  .learnItem.ovw .lz{font-size:14px}
+  .ovwIcon{flex:0 0 auto;font-size:15px;opacity:.75}
+  .learnItem.rev{border-style:dashed}
+  .learnItem.ext{opacity:.72}
   .judgeRow{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-top:1.5px dashed #c9d4ff;padding-top:12px}
   .judgeRow .lab2{font-size:13px;color:var(--muted);flex-basis:100%}
   .judgeRow .btn{padding:10px 16px;font-size:15px}
@@ -295,10 +344,29 @@
     .stageCol:has(> section:not(.hidden)) #stageEmpty{display:none}
     .iconbtn{width:44px;height:44px}
   }
+  /* 屏幕再宽就把壳子放开：1240 的定宽在 1600 的屏上两边各空掉 200px，左栏却挤得课名都放不下 */
+  @media (min-width:1360px){
+    .wrap{max-width:1360px;padding:20px 24px 44px}
+    .shell{grid-template-columns:390px minmax(0,1fr);gap:22px}
+    .card{padding:22px}
+    .rail .card{padding:18px}
+    .rail .hi{font-size:19px}
+    .rail .sub{font-size:13.5px}
+    .rail .chip{font-size:13.5px;padding:8px 13px}
+  }
+  @media (min-width:1660px){
+    .wrap{max-width:1580px}
+    .shell{grid-template-columns:430px minmax(0,1fr);gap:26px}
+    .card{padding:24px}
+    .rail .card{padding:20px}
+    /* 舞台宽了，课文也跟着大一号 */
+    .stageCol .sayBox{font-size:20px}
+  }
   /* 触摸设备：列表行里那两个小图标按钮原来只有 ~23px，手指戳不中 */
   @media (pointer:coarse){
     .histItem .hdel,.learnItem .hregen,.learnItem .hquiz{font-size:18px;padding:7px 8px;opacity:.6}
     .unitBtn{font-size:13.5px;padding:8px 13px}
+    .fselOpt{padding:11px 12px;font-size:15px}
   }
 </style>
 </head>
@@ -690,7 +758,8 @@ const I18N = {
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
     g8:"BC 八年级", g9:"BC 九年级", g10:"BC 十年级", g11:"BC 十一年级", g12:"BC 十二年级",
-    coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学",
+    coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学", skillsGroup:"🧩 技能图谱预览（设计草稿）",
+    fixNotHere:"要补的那个技能在别的年级，先切过去再练。",
     dataLabel:"学习数据",
     dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
@@ -893,7 +962,8 @@ const I18N = {
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
     g8:"BC Grade 8", g9:"BC Grade 9", g10:"BC Grade 10", g11:"BC Grade 11", g12:"BC Grade 12",
-    coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books",
+    coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books", skillsGroup:"🧩 Skill graph preview (design draft)",
+    fixNotHere:"That skill lives in another grade — switch to it first.",
     dataLabel:"Learning data",
     dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
@@ -1130,6 +1200,8 @@ function applyKidName(){
 /* 课程源：cfg.gradeCode 既可以是 "4"-"9"（BC 年级），也可以是高中分科课程 id（如 "pc11"）或书籍 id（如 "aops-prealgebra"） */
 function bookInfo(code){ return (serverInfo.curriculumBooks||[]).find(b=>b.id===code)||null; }
 function courseInfo(code){ return (serverInfo.curriculumCourses||[]).find(c=>c.id===code)||null; }
+function skillsPreviewInfo(code){ return (serverInfo.curriculumSkillsPreviews||[]).find(s=>s.id===code)||null; }
+function skillsPreviewLabel(s){ return cfg.lang==="en" ? (s.en||s.id) : (s.zh||s.en||s.id); }
 function bookLabel(b){ return cfg.lang==="en" ? (b.en||b.id) : (b.zh||b.en||b.id); }
 function courseLabel(c){ return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : ((c.titleZh||c.zh||c.id)+(c.en?"（"+c.en+"）":"")); }
 function effectiveGradeCode(){                     // 课程/书籍映射到对标年级（AI 语气和问答模式用）
@@ -1138,13 +1210,15 @@ function effectiveGradeCode(){                     // 课程/书籍映射到对�
   if(c) return String(c.grade||10);
   const b=bookInfo(code);
   if(b) return String(b.grade||7);
+  const s=skillsPreviewInfo(code);
+  if(s) return String(s.grade||5);
   return /^\d+$/.test(code) ? code : "7";          // 列表还没到达时的兜底（书籍都按 G7 语气）
 }
 /* 年级清单跟着服务端走（data/curriculum/bc/ 里有哪些 grade-N.json），没拿到前先按 4-7 */
 function gradeList(){ const gs=(serverInfo.curriculumGrades||[]).map(String); return gs.length?gs:["4","5","6","7"]; }
 function gradeLabel(v){ return t("g"+v) || (cfg.lang==="en" ? "BC Grade "+v : "BC "+v+" 年级"); }
 function buildGradeOptions(){
-  const books=serverInfo.curriculumBooks||[], courses=serverInfo.curriculumCourses||[];
+  const books=serverInfo.curriculumBooks||[], courses=serverInfo.curriculumCourses||[], skillsPreviews=serverInfo.curriculumSkillsPreviews||[];
   [$("grade"),$("learnGrade"),$("reportGrade")].forEach(sel=>{
     if(!sel) return;
     const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级（含高中按年级折算），不放课程/书
@@ -1167,6 +1241,9 @@ function buildGradeOptions(){
         });
         sel.appendChild(og);
       }
+      // 技能图谱不再单列一组：有技能文件的年级，选年级本身就是技能视图（服务端 learnView 决定）。
+      // 旧配置里残留的 "skills-g5" 归一成 "5"，免得下拉找不到选项。
+      if(/^skills-g(\d+)$/.test(cfg.gradeCode||"")) cfg.gradeCode=cfg.gradeCode.replace(/^skills-g/,"");
     }else{
       // 问答模式：高中课程折算成 10-12 年级的难度档
       ["10","11","12"].forEach(v=>{
@@ -1184,7 +1261,9 @@ function sourceTitle(){
   const c=courseInfo(cfg.gradeCode);
   if(c) return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : (c.titleZh||c.zh||c.id);
   const b=bookInfo(cfg.gradeCode);
-  return b ? bookLabel(b) : gradeText();
+  if(b) return bookLabel(b);
+  const s=skillsPreviewInfo(cfg.gradeCode);
+  return s ? skillsPreviewLabel(s) : gradeText();
 }
 
 /* ---------- 账号 / 会话 ----------
@@ -1195,7 +1274,7 @@ function deviceToken(){ try{ return localStorage.getItem(TOK_LS)||""; }catch(_){
 function gateToken(){ try{ return sessionStorage.getItem(TOK_SS)||""; }catch(_){ return ""; } }
 function apiToken(){ return gateToken()||deviceToken(); }
 
-let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[], curriculumCourses:[], curriculumBooks:[] };
+let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[], curriculumCourses:[], curriculumBooks:[], curriculumSkillsPreviews:[] };
 let profilesInfo = null;   // /api/auth/profiles：登录前的孩子名单、要不要注册向导
 let me=null, myRole=null, myKids=[];
 
@@ -3050,17 +3129,33 @@ async function loadLearn(){
     box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden");
   }
 }
+/* 技能类型徽章的文案（技能图谱视图用）。key 和后端 SKILL_TYPE 一一对应 */
+const SKILL_TYPE_LABEL={
+  zh:{concept:"概念",represent:"表示",procedure:"步骤",reason:"推理",apply:"应用",fluency:"熟练"},
+  en:{concept:"concept",represent:"represent",procedure:"procedure",reason:"reason",apply:"apply",fluency:"fluency"}
+};
 function renderLearn(d){
   const box=$("learnList"); box.innerHTML="";
   learnIndex={};
   const en=cfg.lang==="en";
-  (d.strands||[]).forEach(sg=>{
-    const head=document.createElement("div"); head.className="strandHead";
+  // 技能图谱视图：一个年级 50-70 个技能，主题默认折叠，点标题才展开
+  const isSkills=((d.source||{}).kind==="skills-preview");
+  const stdsOf=tid=>((d.topicStandards||{})[tid]||[]);
+  const stdOf=tid=>stdsOf(tid).map(s=>s.id.replace("BC.MATH.","")).join("、");
+  (d.strands||[]).forEach((sg,si)=>{
+    const head=document.createElement("div"); head.className="strandHead"+(isSkills?" tp":"");
     const bi=sg.bigIdea ? (en ? sg.bigIdea.en : (sg.bigIdea.zh||sg.bigIdea.en)) : "";
-    head.innerHTML=`<div class="shTop"><div class="shName"><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
-      +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)+`</div>`
+    const nSk=(sg.items||[]).length;
+    const nSolid=(sg.items||[]).filter(i=>i.status==="solid").length;
+    head.innerHTML=`<div class="shTop">`
+      +(isSkills?`<span class="tw">▶</span>`:"")
+      +`<div class="shName"><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
+      +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)
+      +(isSkills?`<span class="tn">${nSolid}/${nSk}</span>`:"")+`</div>`
       +`<button class="unitBtn" data-strand="${escapeHtml(sg.strand)}" title="${escapeHtml(t("unitBtnTitle"))}">`
       +`${escapeHtml(t("unitBtn"))}<span class="unitN hidden"></span></button></div>`
+      // 技能图谱：主题标题下显示它对齐的 BC 标准号（Big Idea 每条主线只出现一次，见后端）
+      +(isSkills&&stdOf(sg.strand)?`<div class="skMeta">📎 ${escapeHtml(stdOf(sg.strand))}</div>`:"")
       +(bi?`<div class="bi">💡 ${escapeHtml(bi)}</div>`:"");
     box.appendChild(head);
     // 单元测试面板：默认收起，点标题右边的按钮才展开（列表已经够长了）
@@ -3069,13 +3164,54 @@ function renderLearn(d){
     box.appendChild(panel);
     unitNames[sg.strand]=en?sg.enName:sg.zhName;
     head.querySelector(".unitBtn").onclick=(e)=>{ e.stopPropagation(); toggleUnitPanel(sg.strand); };
+    const rows=[];
+    // 总览课：原来「一条大纲一节课」的 69 节课没作废，降级成主题的总览（技能图谱 §7 阶段 2）。
+    // 它们都有预生成包，点开秒出、不花钱；技能微课才是主线。
+    if(isSkills) stdsOf(sg.strand).forEach(std=>{
+      const el=document.createElement("div");
+      el.className="learnItem ovw"+(si!==0?" hidden":"");
+      rows.push(el);
+      el.innerHTML=`<span class="ovwIcon">🎓</span>`
+        +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml((en?"Overview · ":"总览课 · ")+(en?std.en:std.zh))}</div>`
+        +`<div class="skMeta">${escapeHtml(en?"the whole standard in one lesson":"这条大纲整条讲一遍")} · ${escapeHtml(std.id.replace("BC.MATH.",""))}</div></div>`;
+      el.onclick=()=>startTeach({ id:std.id, en:std.en, zh:std.zh });
+      box.appendChild(el);
+    });
+    if(isSkills){
+      // 第一个主题默认展开，其余收起——一进来就能看到东西，又不至于刷屏
+      const open=si===0;
+      head.classList.toggle("open",open);
+      head.onclick=()=>{
+        const now=!head.classList.contains("open");
+        head.classList.toggle("open",now);
+        rows.forEach(r=>r.classList.toggle("hidden",!now));
+      };
+    }
     (sg.items||[]).forEach(it=>{
       learnIndex[it.id]=it;
-      const el=document.createElement("div"); el.className="learnItem";
+      const el=document.createElement("div");
+      el.className="learnItem"+(isSkills&&it.reviewFrom?" rev":"")+(isSkills&&it.core===false?" ext":"")
+        +(isSkills&&si!==0?" hidden":"");
+      if(isSkills) rows.push(el);
       const title=en ? it.en : (it.zh||it.en);
+      const meta=[];
+      if(isSkills){
+        if(it.reviewFrom) meta.push(en?`review from G${it.reviewFrom}`:`复习 G${it.reviewFrom}`);
+        if(it.core===false) meta.push(en?"extension":"拓展");
+        if(it.prereqN) meta.push(en?`${it.prereqN} prereq`:`${it.prereqN} 个先修`);
+        if(it.miscN) meta.push(en?`${it.miscN} traps`:`${it.miscN} 个易错点`);
+        if(it.standard) meta.push(it.standard.replace("BC.MATH.",""));
+      }
+      // 稳定错误模式 → 建议先回去补哪个技能（技能图谱 §6）
+      const rem=isSkills&&it.remediate ? it.remediate : null;
       el.innerHTML=`<span class="sdot ${it.status}"></span>`
+        +(isSkills&&it.type?`<span class="skBadge ${escapeHtml(it.type)}">${escapeHtml((SKILL_TYPE_LABEL[en?"en":"zh"]||{})[it.type]||it.type)}</span>`:"")
         +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
-        +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
+        +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)
+        +(meta.length?`<div class="skMeta">${escapeHtml(meta.join(" · "))}</div>`:"")
+        +(rem?`<div class="skFix">🩹 ${escapeHtml(en?`Keeps slipping on "${rem.en}" (${rem.times}×)`:`总在「${rem.zh}」上栽跟头（${rem.times} 次）`)}`
+          +(rem.skillId?` — <span class="fixLink" data-fix="${escapeHtml(rem.skillId)}">${escapeHtml(en?"go back to: "+rem.skillEn:"先回去补："+rem.skillZh)}</span>`:"")
+          +`</div>`:"")+`</div>`
         +(it.lessonId?`<button class="hregen" title="${t("teachAgainTitle")}">🔄</button>`:"")
         +`<button class="hquiz" title="${t("quizListTitle")}">⚡</button>`
         +`<span class="st">${statusLabel(it.status)}</span>`;
@@ -3084,10 +3220,13 @@ function renderLearn(d){
       const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
       el.querySelector(".hquiz").onclick=(e)=>{ e.stopPropagation(); startQuiz(it.id); };   // 不重听课直接闯关（隔天再战用）
+      // 「先回去补 xxx」：跳去讲那个先修技能，不是重讲当前这条
+      const fx=el.querySelector(".fixLink");
+      if(fx) fx.onclick=(e)=>{ e.stopPropagation(); const target=learnIndex[fx.dataset.fix]; if(target) startTeach(target); else alert(t("fixNotHere")); };
       box.appendChild(el);
     });
   });
-  if(d.source) $("learnSource").textContent = d.source.kind==="book"
+  if(d.source) $("learnSource").textContent = (d.source.kind==="book"||d.source.kind==="skills-preview")
     ? (d.source.label || sourceTitle())
     : d.source.kind==="bc-course"
     ? (d.source.label || sourceTitle())+" · curriculum.gov.bc.ca"
@@ -3159,7 +3298,8 @@ function fsaShowEntry(d){
   const sel=$("fsaStrand"), keep=sel.value;
   sel.innerHTML="";
   const all=document.createElement("option"); all.value=""; all.textContent=t("fsaAll"); sel.appendChild(all);
-  ((d&&d.strands)||[]).forEach(sg=>{
+  // 技能视图下清单分组是主题，FSA 仍按 BC 五大主线出卷：服务端另带了 fsaStrands
+  ((d&&(d.fsaStrands||d.strands))||[]).forEach(sg=>{
     const o=document.createElement("option"); o.value=sg.strand;
     o.textContent=cfg.lang==="en"?sg.enName:sg.zhName; sel.appendChild(o);
   });
@@ -3500,7 +3640,8 @@ function answerQuiz(i){
   if(!quiz||quiz.answered) return;
   quiz.answered=true;
   const q=quiz.cur, ok=i===q.answerIndex;
-  quiz.results.push({ qid:q.qid, correct:ok });
+  // picked：选了第几个。答错时服务端靠它查这道题的误区标签，攒够两次就提示回补（技能图谱 §6）
+  quiz.results.push({ qid:q.qid, correct:ok, picked:i });
   if(ok&&q.level===quiz.rules.topLevel) quiz.topRight++;
   [...$("quizBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{
     b.disabled=true;
@@ -3613,8 +3754,13 @@ function renderReport(d){
       +(bi?`<div class="rsBig">💡 ${escapeHtml(t("reportWhy"))}${escapeHtml(bi)}</div>`:"");
     (sg.items||[]).forEach(it=>{
       const row=document.createElement("div"); row.className="repItem";
+      // 这条标准下面有技能时，标出「几个技能站稳 / 共几个」；老口径还有记录的话另注一句（低置信，不等价）
+      const sk=it.skills;
+      const skNote=sk ? (en?`${sk.proficient}/${sk.total} skills solid`:`${sk.proficient}/${sk.total} 个技能站稳`)
+        +(sk.legacy?(en?` · earlier record: ${levelText(sk.legacy.level)} (unverified)`:` · 旧记录：${levelText(sk.legacy.level)}（未按技能核实）`):"") : "";
       row.innerHTML=`<div class="riT">${escapeHtml(en?it.en:(it.zh||it.en))}`
-        +(en?"":`<div class="riE">${escapeHtml(it.en)}</div>`)+`</div>`
+        +(en?"":`<div class="riE">${escapeHtml(it.en)}</div>`)
+        +(skNote?`<div class="riE">${escapeHtml(skNote)}</div>`:"")+`</div>`
         +((it.right||it.wrong)?`<span class="riN">${escapeHtml(t("reportRW")(it.right,it.wrong))}</span>`:"")
         +`<button class="riStar noprint" title="${escapeHtml(t("markSolidTitle"))}">${it.manualSolid?"★":"☆"}</button>`
         +`<span class="levelBadge ${it.level}">${escapeHtml(levelText(it.level))}</span>`;
@@ -4068,7 +4214,113 @@ $("histBtn").onclick=openHistory;
 $("closeHistory").onclick=closeHistory;
 $("histSearch").addEventListener("input",renderHistory);
 
+/* ---------- 自绘下拉 ----------
+ * 原生 <select> 的弹层归系统画：白底蓝高亮，跟奶油主题两回事；宽度还按最长选项撑，
+ * 高中课名一条就能把它顶到卡片外面。这里把 <select> 留在 DOM 里当数据源（sel.value / onchange
+ * 的老代码一行不改），只在它前面挂一个自己画的按钮 + 弹层。 */
+const FSEL_VAL = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,"value");
+let fselNow = null;                                  // 同一时刻只开一个弹层
+function fselClose(){
+  if(!fselNow) return;
+  const cur=fselNow; fselNow=null;
+  cur.pop.remove(); cur.wrap.classList.remove("open");
+  cur.btn.setAttribute("aria-expanded","false");
+  document.removeEventListener("mousedown",cur.onDoc,true);
+  document.removeEventListener("keydown",cur.onKey,true);
+  window.removeEventListener("scroll",cur.onScroll,true);
+  window.removeEventListener("resize",cur.onWin);
+}
+function fselAttach(sel){
+  if(sel.dataset.fsel) return;
+  sel.dataset.fsel="1";
+  const wrap=document.createElement("span");
+  wrap.className="fsel"+(sel.closest(".field")?" full":"");
+  const btn=document.createElement("button");
+  btn.type="button"; btn.className="fselBtn";
+  btn.setAttribute("aria-haspopup","listbox"); btn.setAttribute("aria-expanded","false");
+  btn.innerHTML=`<span class="fv"></span><span class="fc">▾</span>`;
+  sel.parentNode.insertBefore(wrap,sel);
+  wrap.appendChild(btn); wrap.appendChild(sel);
+  sel.classList.add("fselNative");
+
+  const sync=()=>{                                   // 按钮上的字 = 当前选中项
+    const o=sel.selectedOptions&&sel.selectedOptions[0];
+    btn.querySelector(".fv").textContent=o?o.textContent:"";
+    btn.disabled=!!sel.disabled;
+    wrap.classList.toggle("hidden", sel.classList.contains("hidden"));
+  };
+  // 选项重建（buildGradeOptions / 换语言）跟着重画；sel.value=x 不产生 DOM 变化，所以还得劫持 setter
+  new MutationObserver(sync).observe(sel,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["class","disabled"]});
+  Object.defineProperty(sel,"value",{configurable:true,
+    get(){ return FSEL_VAL.get.call(this); },
+    set(v){ FSEL_VAL.set.call(this,v); sync(); }});
+
+  btn.onclick=()=>{
+    if(wrap.classList.contains("open")){ fselClose(); return; }
+    fselClose();
+    const pop=document.createElement("div");
+    pop.className="fselPop"; pop.setAttribute("role","listbox");
+    const rows=[], opts=[];
+    const addOpt=(o,ing)=>{
+      const r=document.createElement("div");
+      r.className="fselOpt"+(ing?" ing":"")+(o.selected?" on":"");
+      r.setAttribute("role","option"); r.setAttribute("aria-selected",o.selected?"true":"false");
+      r.innerHTML=`<span class="ft"></span><span class="fk">✓</span>`;
+      r.querySelector(".ft").textContent=o.textContent;
+      r.onclick=()=>{
+        fselClose();
+        if(sel.value!==o.value){ sel.value=o.value; sel.dispatchEvent(new Event("change",{bubbles:true})); }
+        btn.focus();
+      };
+      rows.push(r); opts.push(o); pop.appendChild(r);
+    };
+    Array.from(sel.children).forEach(node=>{
+      if(node.tagName==="OPTGROUP"){
+        const g=document.createElement("div"); g.className="fselGrp"; g.textContent=node.label; pop.appendChild(g);
+        Array.from(node.children).forEach(o=>addOpt(o,true));
+      }else if(node.tagName==="OPTION") addOpt(node,false);
+    });
+    document.body.appendChild(pop);
+    wrap.classList.add("open"); btn.setAttribute("aria-expanded","true");
+
+    const place=()=>{                                // 弹层跟着按钮走，撞到屏幕边就翻上去/收窄
+      const r=btn.getBoundingClientRect();
+      pop.style.minWidth=r.width+"px";
+      pop.style.maxWidth=Math.min(window.innerWidth-24,460)+"px";
+      pop.style.maxHeight="none";
+      const h=pop.offsetHeight, below=window.innerHeight-r.bottom-14, above=r.top-14;
+      let top;
+      if(h<=below || below>=above){ top=r.bottom+6; pop.style.maxHeight=Math.min(360,Math.max(160,below))+"px"; }
+      else { pop.style.maxHeight=Math.min(360,Math.max(160,above))+"px"; top=Math.max(12, r.top-6-pop.offsetHeight); }
+      pop.style.left=Math.max(12, Math.min(r.left, window.innerWidth-pop.offsetWidth-12))+"px";
+      pop.style.top=top+"px";
+    };
+    place();
+    const on=pop.querySelector(".fselOpt.on"); if(on) on.scrollIntoView({block:"nearest"});
+
+    let hot=Math.max(0, opts.findIndex(o=>o.selected));
+    const mark=i=>{ hot=i; rows.forEach((r,k)=>r.classList.toggle("hot",k===i)); if(rows[i]) rows[i].scrollIntoView({block:"nearest"}); };
+    const onDoc=e=>{ if(!pop.contains(e.target)&&!wrap.contains(e.target)) fselClose(); };
+    const onKey=e=>{
+      if(e.key==="Escape"){ fselClose(); btn.focus(); e.preventDefault(); }
+      else if(e.key==="ArrowDown"){ mark(Math.min(rows.length-1,hot+1)); e.preventDefault(); }
+      else if(e.key==="ArrowUp"){ mark(Math.max(0,hot-1)); e.preventDefault(); }
+      else if(e.key==="Enter"||e.key===" "){ if(rows[hot]) rows[hot].click(); e.preventDefault(); }
+    };
+    const onScroll=e=>{ if(!pop.contains(e.target)) fselClose(); };
+    const onWin=()=>fselClose();
+    document.addEventListener("mousedown",onDoc,true);
+    document.addEventListener("keydown",onKey,true);
+    window.addEventListener("scroll",onScroll,true);
+    window.addEventListener("resize",onWin);
+    fselNow={wrap,btn,pop,onDoc,onKey,onScroll,onWin};
+  };
+  sel.addEventListener("change",sync);
+  sync();
+}
+
 /* ---------- 初始化 ---------- */
+document.querySelectorAll("select").forEach(fselAttach);
 applyLang();
 boot();
 </script>

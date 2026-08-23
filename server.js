@@ -95,6 +95,9 @@ const DEFAULT_CONFIG = {
   provider: "auto",               // auto | ollama | grok | claude | gemini | codex | anthropic | openai
   providerByTask: {},             // 按任务挑引擎（可选），例 { "quiz": "ollama", "ask": "claude" }；任务名同用量账本，见 pickProvider
   ollama: { url: "http://localhost:11434", model: "", think: true, structured: false },   // structured: 见 genOllama
+  /* Claude Code CLI（走 claude.ai 订阅，不按 token 计费）。model/effort 都空 = 用 CLI 自己的默认。
+   * 批量出题建议钉死 model:"claude-opus-5" + effort:"high"：默认 effort 偏低，出题的数学质量靠它。 */
+  claude: { model: "claude-opus-5", effort: "high" },
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
   tts: {
@@ -238,11 +241,11 @@ ${lessonFieldsZh()}
 }
 
 /* solve/teach 两种课共用的输出字段说明（含 visual 目录那一大段） */
-function lessonFieldsZh() {
+function lessonFieldsZh(stepHint) {
   return `输出字段说明：
 - title：这节课的小标题（简短、友好）。
 - isMath：是不是一道数学/数字题。如果不是，isMath=false，steps 里放一句温柔的话把孩子引导回数学，answer 和 practice 填占位即可。
-- steps：讲解步骤，5～8 步最好。每步：
+- steps：讲解步骤，${stepHint || "5～8 步最好"}。每步：
   - say：要【读出来】给孩子听的话。纯口语中文，不要 LaTeX、不要奇怪符号；数字和加减乘除直接用中文说（如"四分之三"、"乘以"）。百分数读作"百分之五""百分之零点五""百分之一百二十二"（不要写成"五百分之"），负数读"负三"，幂读"二的三次方"，根号读"根号二"，函数读"f of x"或"f x"。
   - math：这一步屏幕上显示的算式，用 LaTeX（如 \\frac{3}{4}+\\frac{1}{6}）。不需要就填 ""。
   - visual：这一步配的图。图是孩子理解的关键：只要能画，就配一张，至少一半的步骤应该有图。type 取以下之一：
@@ -309,11 +312,11 @@ ${lessonFieldsEn()}
 Teach just this one problem, in the easiest possible way.`;
 }
 
-function lessonFieldsEn() {
+function lessonFieldsEn(stepHint) {
   return `Output fields:
 - title: a short, friendly title for this lesson.
 - isMath: whether this is a math/number question. If not, set isMath=false, put one gentle sentence in steps guiding the child back to math, and fill answer and practice with placeholders.
-- steps: 5-8 steps is best. Each step:
+- steps: ${stepHint || "5-8 steps is best"}. Each step:
   - say: the words to be READ ALOUD to the child. Plain spoken English — no LaTeX, no odd symbols (no ^, *, /, _ or markdown); say numbers and operations in words (like "three quarters", "times", "x squared", "the square root of two", "f of x", "two to the power of five").
   - math: the formula shown on screen for this step, in LaTeX (e.g. \\frac{3}{4}+\\frac{1}{6}). Use "" if not needed.
   - visual: the picture for this step. Pictures are how the child understands: add one whenever possible — at least half the steps should have one. type is one of:
@@ -388,8 +391,15 @@ function systemPromptTeach(item, gradeData, kidName, lang) {
   const hints = item.teachHints ? `（这个知识点优先用这些图：${item.teachHints}）` : "";
   const isBook = gradeData.type === "book";
   const isCourse = isCourseData(gradeData);
+  const isSkills = isSkillsData(gradeData);
+  const sk = isSkills ? (item.skill || {}) : null;
   const courseTitle = (gradeData.title || {});
-  const origin = isBook
+  const origin = isSkills
+    ? `这节课教的是**一个小技能**——它是 BC Grade ${sk.reviewFrom || g} 数学大纲里某条内容拆出来的其中一小步，不是整条内容：
+- 这一小步要会什么：${item.zh}（英文说法：${item.en}）
+- 它属于的大纲条目（官方原文）：${sk.standardEn || "—"}${sk.standardZh ? "（" + sk.standardZh + "）" : ""}
+- 所在主题：${strand ? strand[1] : item.strand}${bigIdea ? "\n- 这个主题为什么学（Big Idea）：" + bigIdea : ""}${sk.reviewFrom ? "\n- 注意：这是从 Grade " + sk.reviewFrom + " 借回来复习的技能，孩子以前学过，这次是回顾加深，别当全新内容从零讲。" : ""}`
+    : isBook
     ? `知识点来自数学教材《${(gradeData.title || {}).zh || (gradeData.title || {}).en || gradeData.bookId}》（${(gradeData.source || {}).publisher || ""}）的「${strand ? strand[1] : item.strand}」：
 - 小节标题（原书为英文）：${item.en}
 - 中文说法：${item.zh}
@@ -419,26 +429,35 @@ ${refText}
     : `你是「圆圆老师」，一位给 BC ${GRADE_ZH[g] || g}年级孩子讲数学的${st.personaZh}，说地道、亲切的中文。`;
   return `${who}${name}
 
-这节课不是讲一道题，而是给${isCourse ? "学生" : "孩子"}讲一个新知识点，像一节小视频课。
-${origin}${elabs ? "\n- 包含子技能：\n" + elabs : ""}${terms ? "\n- 术语对照：" + terms : ""}${style}${ref}
+${isSkills
+  ? `这不是一整节大课，是一节 3-5 分钟的**微课**：只把下面这一小步讲透，别顺带把整条大纲内容都讲了。`
+  : `这节课不是讲一道题，而是给${isCourse ? "学生" : "孩子"}讲一个新知识点，像一节小视频课。`}
+${origin}${elabs ? (isSkills ? "\n- 这节微课怎么讲：\n" : "\n- 包含子技能：\n") + elabs : ""}${terms ? "\n- 术语对照：" + terms : ""}${style}${ref}
 
 铁律：
 1. 准确第一。动笔前把每一步算术都验算一遍，答案必须正确。这是给一个真实的孩子看的，算错比不讲更糟。
 2. 一步只讲一个小意思，语气鼓励、口语化，多用生活里的例子（${st.exZh || "分披萨、用加元买东西、量身高"}）。
 3. 例题驱动，不空泛：每个概念都要落到具体的数字和例子上。${st.toneZh}
 
-课的结构（仍然输出 5-8 步 steps）：
+${isSkills
+  ? `微课的结构（输出 4-6 步 steps，比整节课短）：
+1. 一句话接上孩子已经会的东西，点出这一小步要解决什么
+2. 把这一小步讲清楚，配图${hints}
+3. 一个例题走一遍；如果上面列了常见的坑，专门用一步把坑演一遍：「这样做为什么不对」
+4. 最后一步一句话小结
+只讲这一小步。要用到的前置知识直接用，不展开重讲；后面才学的内容一个字都不要提前讲。`
+  : `课的结构（仍然输出 5-8 步 steps）：
 1. 用生活例子引出这个概念（为什么有它、它解决什么问题）
 2. 讲清楚核心方法，配图${hints}
 3. 带着${isCourse ? "学生" : "孩子"}做 1-2 个由浅入深的小例题
-4. 最后一步给一句小结或口诀
+4. 最后一步给一句小结或口诀`}
 say 里自然提到英文关键术语一两次（比如「小数，英文课上叫 decimal」），孩子在学校听英文课能对上号，但不要堆砌英文。
 
-${lessonFieldsZh()}
+${lessonFieldsZh(isSkills ? "4～6 步（这是微课，比整节课短）" : null)}
 - answer：这节课的一句话要点或小口诀，简短好记，会醒目显示。
-- practice：一道贴合这个知识点的练习题（question + answer），用孩子在 BC 的生活场景（加元、公制单位、本地的事物）。
+- practice：一道贴合${isSkills ? "这一小步" : "这个知识点"}的练习题（question + answer），用孩子在 BC 的生活场景（加元、公制单位、本地的事物）。${isSkills && (sk.rep || []).length ? `练习题围绕「${SKILL_REP_ZH[sk.rep[0]] || sk.rep[0]}」这个模型出，但练习区没有配图，所以要用文字把数都说清楚（或者让孩子自己动手画），不要写「看下面的图」。` : ""}
 
-只讲这一个知识点，用最好懂的方式。`;
+只讲${isSkills ? "这一小步" : "这一个知识点"}，用最好懂的方式。`;
 }
 
 function systemPromptTeachEn(item, gradeData, kidName) {
@@ -451,9 +470,16 @@ function systemPromptTeachEn(item, gradeData, kidName) {
   const hints = hintTypes ? ` (for this concept, prefer these visuals: ${hintTypes})` : "";
   const isBook = gradeData.type === "book";
   const isCourse = isCourseData(gradeData);
+  const isSkills = isSkillsData(gradeData);
+  const sk = isSkills ? (item.skill || {}) : null;
   const courseTitle = (gradeData.title || {});
-  const strandDef = (isBook || isCourse) ? (gradeData.strandDefs || []).find(s => s[0] === item.strand) : null;
-  const origin = isBook
+  const strandDef = (isBook || isCourse || isSkills) ? (gradeData.strandDefs || []).find(s => s[0] === item.strand) : null;
+  const origin = isSkills
+    ? `This lesson teaches **one small skill** — a single step taken out of a BC Grade ${sk.reviewFrom || g} curriculum content standard, not the whole standard:
+- What this one step is: ${item.en}
+- The standard it belongs to (official wording): ${sk.standardEn || "—"}
+- Topic: ${strandDef ? strandDef[2] : item.strand}${bigIdea ? "\n- Why this topic matters (Big Idea): " + bigIdea : ""}${sk.reviewFrom ? "\n- Note: this skill is borrowed back from Grade " + sk.reviewFrom + " for review — the child met it before, so refresh and deepen it rather than teaching it from scratch." : ""}`
+    : isBook
     ? `The concept comes from the math book "${(gradeData.title || {}).en || gradeData.bookId}" (${(gradeData.source || {}).publisher || ""}), ${strandDef ? strandDef[2] : item.strand}:
 - Section: ${item.en}
 - What this chapter is about (Big Idea): ${bigIdea}`
@@ -480,26 +506,35 @@ How to use it: see what this section teaches, how it builds up, and what kinds o
     : `You are "Ms. Yuanyuan", a kind ${st.personaEn} explaining math to a BC Grade ${g} child, in natural, warm, everyday English.`;
   return `${who} ${name}
 
-This lesson is not about solving one problem — you are teaching the ${isCourse ? "student" : "child"} a new concept, like a little video class.
-${origin}${elabs ? "\n- Sub-skills included:\n" + elabs : ""}${style}${ref}
+${isSkills
+  ? `This is not a full lesson — it is a 3-5 minute **micro-lesson**: teach just this one small step well, and do not cover the whole curriculum standard around it.`
+  : `This lesson is not about solving one problem — you are teaching the ${isCourse ? "student" : "child"} a new concept, like a little video class.`}
+${origin}${elabs ? (isSkills ? "\n- How to teach this micro-lesson:\n" : "\n- Sub-skills included:\n") + elabs : ""}${style}${ref}
 
 Iron rules:
 1. Accuracy first. Re-check every bit of arithmetic before writing. The answer must be correct — a real child is watching, and getting it wrong is worse than not teaching at all.
 2. One small idea per step. Encouraging, conversational tone; use everyday examples (${st.exEn || "sharing pizza, shopping with dollars, measuring heights"}).
 3. Drive the lesson with worked examples — never stay abstract; always land on concrete numbers.${st.toneEn}
 
-Lesson structure (still output 5-8 steps):
+${isSkills
+  ? `Micro-lesson structure (output 4-6 steps — shorter than a full lesson):
+1. One sentence connecting to what the child already knows, naming what this step solves
+2. Teach this one step clearly, with pictures${hints}
+3. One worked example; if common mistakes are listed above, spend one step showing the mistake and why it is wrong
+4. End with a one-line takeaway
+Teach only this step. Use prerequisite knowledge freely without re-teaching it, and never preview material that comes later.`
+  : `Lesson structure (still output 5-8 steps):
 1. Open with a real-life example that shows why this concept exists and what problem it solves
 2. Teach the core method clearly, with pictures${hints}
 3. Walk the ${isCourse ? "student" : "child"} through 1-2 worked examples, from easy to slightly harder
-4. End with a one-line takeaway
+4. End with a one-line takeaway`}
 Use BC-flavoured everyday contexts where natural (Canadian dollars, metric units, local life).
 
-${lessonFieldsEn()}
+${lessonFieldsEn(isSkills ? "4-6 steps (this is a micro-lesson, shorter than a full one)" : null)}
 - answer: the one-line takeaway of this lesson, short and memorable — shown prominently.
-- practice: one practice problem matching this concept (question + answer), set in a BC everyday context (dollars, metric units).
+- practice: one practice problem matching ${isSkills ? "this one step" : "this concept"} (question + answer), set in a BC everyday context (dollars, metric units).${isSkills && (sk.rep || []).length ? ` Frame the practice problem around the "${sk.rep[0]}" model, but the practice area has no picture — state every number in words (or ask the child to draw it themselves); never write "look at the figure below".` : ""}
 
-Teach just this one concept, in the easiest possible way.`;
+Teach just this one ${isSkills ? "step" : "concept"}, in the easiest possible way.`;
 }
 
 const JSON_HINT = {
@@ -771,7 +806,10 @@ const QBANK_SCHEMA = {
           question: { type: "string" },
           options: { type: "array", items: { type: "string" } },
           answerIndex: { type: "number" },
-          explain: { type: "string" }
+          explain: { type: "string" },
+          /* 技能层题库才有：4 个选项各挂一个标签，正确项 "ok"，干扰项是误区 id（设计文档 §6）。
+           * 老题库没有这个字段，判分完全不看它——它只喂给诊断/回补。 */
+          tags: { type: "array", items: { type: "string" } }
         }, required: ["level", "question", "options", "answerIndex", "explain"]
       }
     }
@@ -787,6 +825,11 @@ const QBANK_HINT = {
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. Never put a double-quote character " inside a string value (use single quotes or “ ” to quote words), and escape every backslash as \\\\ (e.g. \\\\frac):
 {"questions":[{"level":1,"question":"...","options":["...","...","...","..."],"answerIndex":0,"explain":"..."}]}`
 };
+/* 技能层题库多一个 tags（每个选项一个标签），格式说明也要跟着变，否则模型不会输出它 */
+const QBANK_HINT_SKILL = {
+  zh: QBANK_HINT.zh.replace('"explain":"..."}]}', '"explain":"...","tags":["ok","误区id","误区id","误区id"]}]}'),
+  en: QBANK_HINT.en.replace('"explain":"..."}]}', '"explain":"...","tags":["ok","misconception-id","misconception-id","misconception-id"]}]}')
+};
 
 function qbankPrompt(item, gradeData, lang, needs, existingStems) {
   const g = gradeData.grade;
@@ -796,21 +839,64 @@ function qbankPrompt(item, gradeData, lang, needs, existingStems) {
   const avoid = (existingStems || []).slice(0, 30);
   const isBook = gradeData.type === "book";
   const isCourse = isCourseData(gradeData);
+  const isSkills = isSkillsData(gradeData);
+  const sk = isSkills ? (item.skill || {}) : null;
   const trap = distractorHint(gradeData, lang);
+  /* 技能层出题的额外约束（设计文档 §3.3 / §6）：L1 必须用这个技能的第一种表示，
+   * L3 的干扰项要逐个打在登记在册的误区上。用数组拼而不是层层嵌套模板——这段要经常改。 */
+  const skillRules = (() => {
+    if (!isSkills) return "";
+    const en = lang === "en";
+    const ty = SKILL_TYPE[sk.type] || {};
+    const rep0 = (sk.rep || [])[0] || "symbolic";
+    const L = [""];
+    L.push(en
+      ? "This is ONE small skill, not a whole standard — keep every question inside it."
+      : "这是一个**小技能**，不是一整条大纲内容——每道题都要落在这一小步里面。");
+    L.push(en
+      ? `- Skill type: ${ty.en || sk.type} — ${ty.teachEn || ""}.`
+      : `- 技能类型：${ty.zh || sk.type}——${ty.teachZh || ""}。`);
+    L.push(en
+      /* 注意：闯关题是纯文字四选一，没有配图字段。所以「用某种表示出题」= 用文字把那个模型
+       * 说清楚（几等份、涂了几份），而不是让孩子去看一张不存在的图。2026-08-22 审稿抓到过
+       * 「Look at the fraction bar below」这种引用不存在图形的题，就是这句话没写清楚导致的。 */
+      ? `- Level 1 must be framed around the "${rep0}" model, described ENTIRELY IN WORDS: there is no picture, so state every number the child needs (how many equal parts, how many are shaded, what the whole is). Never write "look at the diagram/figure/bar below" or refer to an image — the question must be fully answerable from its own text. Level 2 may move to bare symbols; Level 3 is a context or misconception question.`
+      : `- L1 要围绕「${SKILL_REP_ZH[rep0] || rep0}」这个模型出，但必须**全部用文字说清楚**：题目里没有图，所以要把孩子需要的数都写出来（平均分成几份、涂了几份、整体是什么）。绝对不要写「看下面的图/分数条」之类引用图形的话——光读题干就要能答。L2 可以转到纯符号；L3 出情境题或误区辨析题。`);
+    L.push(en
+      ? `- The standard this skill belongs to (context only, do not test the rest of it): ${sk.standardEn || "—"}`
+      : `- 这个技能所属的大纲条目（只作背景，别把整条都考了）：${sk.standardEn || "—"}${sk.standardZh ? "（" + sk.standardZh + "）" : ""}`);
+    if ((sk.prereq || []).length) L.push(en
+      ? `- The child already has these prerequisites — you may use them, but they must not be the point being tested: ${sk.prereq.map(p => p.en).join("; ")}`
+      : `- 孩子已经会的先修（可以用，但考点不能落在它们身上）：${sk.prereq.map(p => p.zh).join("；")}`);
+    if ((sk.misc || []).length) {
+      L.push(en
+        ? "- Build distractors on THESE registered misconceptions, and tag each option with the id:"
+        : "- 干扰项请**逐个**建立在下面这些登记在册的误区上，并给每个选项打标签：");
+      for (const m of sk.misc) L.push(en
+        ? `  · ${m.id} — ${m.en} (looks like: ${m.pattern})`
+        : `  · ${m.id} —— ${m.zh}（长这样：${m.pattern}）`);
+      L.push(en
+        ? `- Also output "tags": an array of 4 strings, one per option in the same order — "ok" for the correct option, and the misconception id for each distractor. Use "other" only if a distractor genuinely matches none of the ids above.`
+        : `- 另外输出 "tags"：4 个字符串的数组，顺序和 options 一一对应——正确项写 "ok"，每个干扰项写它对应的误区 id。实在对不上上面任何一个才写 "other"。`);
+    }
+    return L.join("\n");
+  })();
   if (lang === "en") {
-    const elab = (item.elaborations || []).map(e => "- " + e.en).join("\n");
+    const elab = isSkills ? "" : (item.elaborations || []).map(e => "- " + e.en).join("\n");   // 技能层由 skillRules 讲，别重复一遍
     const terms = itemTerms(item).map(tm => tm.en).join(", ");
-    const who = isBook
+    const who = isSkills
+      ? `You are a BC math teacher building a question bank for ONE small skill (Grade ${g}, topic "${strand[2]}").`
+      : isBook
       ? `You are a math teacher building a question bank for ONE section of the book "${(gradeData.title || {}).en || gradeData.bookId}" (${strand[2]}), studied by a Grade ${g} child in BC, Canada.`
       : isCourse
       ? `You are a BC high-school math teacher building a question bank for ONE topic of the course "${(gradeData.title || {}).en || gradeData.courseId}" (Grade ${g}, unit "${strand[2]}").`
       : `You are a BC math teacher building a question bank for ONE Grade ${g} topic ("${strand[2]}" strand).`;
     return `${who} The child just watched a lesson on it and now answers questions one at a time — right answers raise the difficulty, like the SAT. Write ${total} original multiple-choice questions: ${wants.map(lv => `${needs[lv]} at Level ${lv}`).join(", ")}.
 
-${isBook ? "The section" : "The topic (official wording)"}: ${item.en}${elab ? `
+${isSkills ? "The skill" : isBook ? "The section" : "The topic (official wording)"}: ${item.en}${elab ? `
 What it covers:
 ${elab}` : ""}${terms ? `
-Key terms: ${terms}` : ""}
+Key terms: ${terms}` : ""}${skillRules}
 
 Difficulty levels:
 - Level 1 (warm-up): one step, direct use of the concept just taught; short stem, no or minimal context. Checks "did you get it".
@@ -818,29 +904,32 @@ Difficulty levels:
 - Level 3 (challenge): FSA-style — a real-life scenario needing at least two reasoning steps, or a question built around the most common misconception in this topic. Checks "is it solid".
 
 Iron rules:
-1. Test ONLY this topic. Earlier skills may appear naturally, but the point being tested must be this topic.
+1. Test ONLY this ${isSkills ? "one small skill" : "topic"}. Earlier skills may appear naturally, but the point being tested must be this ${isSkills ? "skill" : "topic"}.
 2. Exactly 4 options, exactly 1 correct. Distractors come from real common mistakes (${trap}) — never obviously wrong.
 3. answerIndex is the index (0-3) of the correct option. Scatter correct positions across the batch.
 4. Numbers must be computable by hand and age-appropriate; use dollars and metric units; scenes from a BC child's life.
 5. Accuracy first: re-check every question so exactly one option is correct.
 6. explain: one or two sentences — the correct method plus the most common trap. It is shown to the child right after a wrong answer, so write it to teach.
+   Never refer to an option by position ("option B", "the third choice") — options get reordered; name the content instead ("the one that says 3/8").
 7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
 ${avoid.map(s => "- " + s).join("\n")}` : ""}.`;
   }
-  const elab = (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");
+  const elab = isSkills ? "" : (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");   // 技能层由 skillRules 讲，别重复一遍
   const terms = itemTerms(item).map(tm => `${tm.en}=${tm.zh}`).join("、");
-  const whoZh = isBook
+  const whoZh = isSkills
+    ? `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主题里的**一个小技能**建题库。`
+    : isBook
     ? `你是数学出题老师，为教材《${(gradeData.title || {}).zh || (gradeData.title || {}).en || gradeData.bookId}》（${strand[1]}）里的一个小节建题库；孩子在加拿大 BC 上 Grade ${g}。`
     : isCourse
     ? `你是 BC 省的高中数学出题老师，为 ${(gradeData.title || {}).en || gradeData.courseId}（${(gradeData.title || {}).zh || ""}，Grade ${g}）课程「${strand[1]}」单元里的一个知识点建题库。`
     : `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主线里的一个知识点建题库。`;
   return `${whoZh}孩子刚看完这个知识点的讲解课，现在一道一道做题——做对了会升难度（类似 SAT 机制）。请出 ${total} 道原创选择题：${wants.map(lv => `L${lv} ${needs[lv]} 道`).join("、")}。
 
-${isBook ? "小节（原书标题）" : "知识点（官方原文）"}：${item.en}
+${isSkills ? "技能（英文说法）" : isBook ? "小节（原书标题）" : "知识点（官方原文）"}：${item.en}
 中文：${item.zh}${elab ? `
 包含内容：
 ${elab}` : ""}${terms ? `
-关键术语：${terms}` : ""}
+关键术语：${terms}` : ""}${skillRules}
 
 难度定义：
 - L1 热身：单步、直接套用刚学的概念；题干短，无情境或极简情境。检查「听懂了没」。
@@ -848,12 +937,13 @@ ${elab}` : ""}${terms ? `
 - L3 挑战：FSA 风格——需要至少两步推理的真实情境题，或针对这个知识点最常见误区的辨析题。检查「真扎实没」。
 
 出题铁律：
-1. 只考这个知识点。可以自然用到更早学过的技能，但考点必须落在本知识点上。
+1. 只考${isSkills ? "这一个小技能" : "这个知识点"}。可以自然用到更早学过的技能，但考点必须落在${isSkills ? "本技能" : "本知识点"}上。
 2. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实常见错误（${trap}），不要一眼假。
 3. answerIndex 是正确选项的下标（0~3），整批正确答案的位置要打散，别集中在同一个下标。
 4. 数字口算/竖式能算动、适龄；货币用加元、单位用公制，情境用孩子在 BC 的真实生活。
 5. 准确第一：每题出完自己验算一遍，确认有且只有一个选项正确。
 6. explain 一两句话：正确解法 + 最容易踩的坑。孩子答错后马上会看到，要写得能教会人。
+   解析里不要写「选项 B」「第三个选项」这种位置说法（选项顺序会被重排），要说内容本身（如「写成 3/8 的那个」）。
 7. 题干用中文，关键数学术语可自然带一次英文对照（如「周长（perimeter）」）。
 8. 这批题互相不能重复${avoid.length ? `，也不能和题库里已有的这些题重复：
 ${avoid.map(s => "- " + s).join("\n")}` : ""}。`;
@@ -861,7 +951,9 @@ ${avoid.map(s => "- " + s).join("\n")}` : ""}。`;
 
 /* 题干里的换行：模型常把换行写成字面量 \n（反斜杠加 n）塞进字符串，前端会原样显示两个字符，换成真换行 */
 const unlitNewline = s => String(s == null ? "" : s).replace(/\\n/g, "\n");
-function validateQbankBatch(raw, requested) {
+/* allowedTags：技能层题库传该技能的误区 id 集合，干扰项标签必须落在里面（"ok"/"other" 永远允许）。
+ * 标签只喂诊断/回补，判分完全不看它——所以标签不合格只丢标签，绝不因此丢掉一道好题。 */
+function validateQbankBatch(raw, requested, allowedTags) {
   if (!raw || typeof raw !== "object") throw new Error("出题格式不对");
   const qs = (Array.isArray(raw.questions) ? raw.questions : []).map(q => {
     if (!q || typeof q !== "object") return null;
@@ -871,7 +963,20 @@ function validateQbankBatch(raw, requested) {
     const lv = Math.round(Number(q.level));
     if (!String(q.question || "").trim() || options.length !== 4 || options.some(o => !o)
       || !(ai >= 0 && ai <= 3) || !(lv >= 1 && lv <= QUIZ_TOP_LEVEL)) return null;
-    return { level: lv, question: unlitNewline(q.question).trim(), options, answerIndex: ai, explain: unlitNewline(q.explain).trim() };
+    const out = { level: lv, question: unlitNewline(q.question).trim(), options, answerIndex: ai, explain: unlitNewline(q.explain).trim() };
+    if (allowedTags && Array.isArray(q.tags) && q.tags.length === 4) {
+      const tags = q.tags.map((t, i) => {
+        const v = String(t || "").trim();
+        if (i === ai) return "ok";                       // 正确项的标签一律规范成 ok
+        return (v && v !== "ok" && (allowedTags.has(v) || v === "other")) ? v : "other";
+      });
+      /* 只要模型给了 4 个标签就存，哪怕全是 other。之前这里要求"至少命中一个登记误区"才存，
+       * 结果只登记了 1 个误区的技能（如 FRAC.EQUIV.NUMBERLINE）有 3/4 的题被当空壳丢掉——
+       * 实测 tags 覆盖率掉到 25%。["ok","other","other","other"] 不是空壳：它明确说明这道题
+       * 答错不对应任何登记误区、不该触发回补，和"没打标签"是两回事。 */
+      out.tags = tags;
+    }
+    return out;
   }).filter(Boolean);
   if (qs.length < Math.max(3, Math.ceil(requested * 0.5))) throw new Error("有效题目太少");
   return qs;
@@ -886,7 +991,10 @@ const JUDGE_SCHEMA = {
   type: "object",
   properties: {
     pass: { type: "boolean" },
-    problems: { type: "array", items: { type: "string" } }
+    problems: { type: "array", items: { type: "string" } },
+    /* bad：有问题的题的序号（0 起，对应送审数组的下标）。题库审稿按题剔除用：
+     * 12 道里错 1 道只丢那 1 道，不再整批重来。课/卷的审稿不用它。 */
+    bad: { type: "array", items: { type: "number" } }
   },
   required: ["pass", "problems"]
 };
@@ -899,6 +1007,15 @@ const JUDGE_HINT = {
 
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. Never put a double-quote character " inside a string value (use single quotes or “ ” to quote words), and escape every backslash as \\\\ (e.g. \\\\frac):
 {"pass":true or false,"problems":["one issue per string; empty array if none"]}`
+};
+/* 题库审稿的格式说明：多一个 bad 数组，指出哪几道题有问题（序号从 0 起）。
+ * 2026-08-22 实测 qwen 单题错误率约 4-5%，但「12 道里错 1 道整批作废」把它放大成了
+ * 40-50% 的整批拒绝率——95% 的好题跟着倒掉，审稿钱也白花。按题剔除后只补缺的几道。 */
+const JUDGE_HINT_QUIZ = {
+  zh: JUDGE_HINT.zh.replace('{"pass":true或false,"problems":["发现的问题，一条一句；没有就给空数组"]}',
+    '{"pass":true或false,"problems":["发现的问题，一条一句；没有就给空数组"],"bad":[有问题的题的序号，从0起，对应送审数组的下标；没有就给空数组]}\n每条 problem 都要对应 bad 里的一个序号；pass=false 时 bad 不能为空。'),
+  en: JUDGE_HINT.en.replace('{"pass":true or false,"problems":["one issue per string; empty array if none"]}',
+    '{"pass":true or false,"problems":["one issue per string; empty array if none"],"bad":[0-based indexes of the questions with problems, matching the reviewed array; empty if none]}\nEvery problem must correspond to an index in bad; when pass=false, bad must not be empty.')
 };
 
 function judgeCommon(lang, gradeData) {
@@ -948,7 +1065,12 @@ function judgeUnitPrompt(gradeData, strand, set, lang) {
 function validateJudge(v) {
   if (!v || typeof v !== "object" || typeof v.pass !== "boolean") throw new Error("审稿结果格式不对");
   const problems = (Array.isArray(v.problems) ? v.problems : []).map(p => String(p == null ? "" : p).trim()).filter(Boolean).slice(0, 10);
-  return { pass: v.pass, problems };
+  // bad 可选：去重、只留非负整数。审稿人偶尔会写 1 起的序号或字符串，这里不猜，调用方按范围再过滤一遍
+  // 只认真正的数字或纯数字字符串；null/true/"" 经 Number() 会变成 0，不能让它们把第 0 题冤枉掉
+  const bad = [...new Set((Array.isArray(v.bad) ? v.bad : [])
+    .filter(n => typeof n === "number" || (typeof n === "string" && /^\s*\d+\s*$/.test(n)))
+    .map(n => Math.round(Number(n))).filter(n => Number.isInteger(n) && n >= 0))];
+  return { pass: v.pass, problems, bad };
 }
 
 /* ---------------- 工具函数 ---------------- */
@@ -965,10 +1087,14 @@ function repairJson(t) {
     const c = t[i];
     if (!inStr) {
       if (c === '"') {
-        // qwen 的一个固定毛病：数字值后面多粘一个引号（"level":2"，"answerIndex":1"）——前面是个值、后面紧跟 , } ] 就丢掉它
+        // qwen 的一个固定毛病：值后面多粘一个引号，后面紧跟 , } ] 就丢掉它。
+        //   数字后：{"level":2"，{"answerIndex":1"
+        //   字符串后：["ok","other"","ok"]、"explain":"…"" —— 合法 JSON 里字符串收尾引号后面
+        //   只可能跟 , } ] :，绝不会再来一个引号，所以这里丢掉它是安全的
+        //   （空字符串 "" 走的是 inStr 分支，到不了这里）
         const prev = out.replace(/\s+$/, "").slice(-1);
         let j = i + 1; while (j < t.length && /\s/.test(t[j])) j++;
-        if (/[0-9el]/.test(prev) && j < t.length && ",}]".includes(t[j])) continue;
+        if (/[0-9el"]/.test(prev) && j < t.length && ",}]".includes(t[j])) continue;
         inStr = true;
       }
       out += c; continue;
@@ -988,7 +1114,15 @@ function repairJson(t) {
     if (c === '"') {
       let j = i + 1;
       while (j < t.length && /\s/.test(t[j])) j++;
-      if (j >= t.length || ",}]:".includes(t[j])) { inStr = false; out += c; }
+      // 后面紧跟一个多余引号、再后面才是 , } ] :（"other"" 这种）：当前这个才是收尾引号，
+      // 多余那个留给上面「值后多粘引号」的规则丢掉。不这么判的话收尾引号会被当成内容转义进字符串。
+      let stray = false;
+      if (t[j] === '"') {
+        let k = j + 1;
+        while (k < t.length && /\s/.test(t[k])) k++;
+        stray = k >= t.length || ",}]:".includes(t[k]);
+      }
+      if (j >= t.length || ",}]:".includes(t[j]) || stray) { inStr = false; out += c; }
       else out += '\\"';
       continue;
     }
@@ -1001,7 +1135,12 @@ function extractJson(text) {
   let t = String(text);
   const fenced = t.match(/```(?:json)?\s*([\s\S]*?)```/);
   if (fenced) t = fenced[1];
-  const s = t.indexOf("{"), e = t.lastIndexOf("}");
+  /* 顶层可能是对象也可能是数组：模型偶尔直接吐一个数组（尤其被 format/schema 约束时）。
+   * 只按 { } 截会把数组里第一个对象抠出来当整体，报 "Unexpected non-whitespace after JSON"。
+   * 取两者中先出现的那个作为起点，配对的收尾符号作为终点。 */
+  const so = t.indexOf("{"), sa = t.indexOf("[");
+  const useArr = sa >= 0 && (so < 0 || sa < so);
+  const s = useArr ? sa : so, e = useArr ? t.lastIndexOf("]") : t.lastIndexOf("}");
   if (s < 0 || e <= s) throw new Error("返回内容里找不到 JSON");
   const body = t.slice(s, e + 1);
   try { return JSON.parse(body); }
@@ -1209,11 +1348,16 @@ async function genOllama(sys, question, imageB64, mediaType, lang, opts) {
     model: detected.ollama.model,
     stream: false,
     messages: [{ role: "system", content: structured ? sys : sys + hint }, m],
-    options: { num_predict: 16384 },   // 含思考 token：思考长一点的题也别把 JSON 截断
+    options: { num_predict: 32768 },   // 含思考 token：qwen3 出一批题光思考就要 1~1.5 万，留够余量别把 JSON 截断
     keep_alive: "30m"
   };
   if (structured) body.format = opts.schema || LESSON_SCHEMA;
-  if (cfg.ollama.think === false) body.think = false;
+  /* 思考开关：opts.think 优先于 config。2026-08-22 实测（qwen3.8，一批 12 道题）：
+   *   关思考 → 2162 token / 19 秒，JSON 干净，但数学错误率高，审稿 74 次拒了 30 次；
+   *   开思考 → 1~1.5 万 token / 1~2 分钟，数学明显更好（6 份样本里解析成功的全部过审）。
+   * 结论：出题保持开思考，慢一点换对的题；格式毛病由 num_predict 留余量 + repairJson 兜。 */
+  const wantThink = opts.think != null ? opts.think : cfg.ollama.think;
+  if (wantThink === false) body.think = false;
   const r = await fetch(cfg.ollama.url + "/api/chat", {
     method: "POST", body: JSON.stringify(body), signal: AbortSignal.timeout(600000)
   });
@@ -1261,7 +1405,13 @@ async function genClaude(sys, question, imageB64, mediaType, lang, opts) {
                 "The problem is in the image question." + ext + " in the current directory. Look at the image first.") +
         (question ? "\n" + L(lang, "补充说明：", "Additional note: ") + question : "");
     }
-    const out = await runCmd(detected.claude.bin, ["-p", prompt, "--output-format", "json"], { cwd: dir, timeout: 300000 });
+    const args = ["-p", prompt, "--output-format", "json"];
+    const cc = cfg.claude || {};
+    if (cc.model) args.push("--model", String(cc.model));
+    if (cc.effort && /^(low|medium|high|xhigh|max)$/.test(cc.effort)) args.push("--effort", String(cc.effort));
+    /* 600 秒：effort high 出一批 12 道题通常 1-3 分钟，但个别知识点（多位小数竖式、
+     * 分数小数百分数混合排序）会想 5 分钟以上，300 秒时跑全量 444 份有 3 份反复超时。 */
+    const out = await runCmd(detected.claude.bin, args, { cwd: dir, timeout: 600000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
     if (opts.meta && env.usage) {   // claude CLI 的 JSON 信封自带用量和美元花费，白给的账不记白不记
       const u = env.usage;
@@ -1738,6 +1888,153 @@ if (!process.env.YY_DEMO) try {
     } catch (e) { console.log(`[curriculum] books/${f} failed to parse: ${e.message}`); }
   }
 } catch (_) { /* 没有书籍数据也能跑 */ }
+
+/* 技能图谱预览（data/curriculum/skills/g*.json，见 docs/skill-graph-plan.md）：设计草稿，还在评审中。
+ * 复用书籍的形状（strandDefs=主题，items=技能）挂进同一张 Map，讲课/闯关/进度/报告零改动跑通——
+ * 这条路已经被书籍验证过。条目 id 就是技能 id（YY.MATH.xxx），elaborations 由技能的
+ * 先修/表示/误区现算，没有额外的人工内容。和书籍一样在 YY_DEMO 跳过（没有预生成课）。 */
+const SKILLS_DIR = path.join(ROOT, "data", "curriculum", "skills");
+/* 六种技能类型（设计文档 §3.4）：一个技能只测一种能力，讲课和出题都按它调重心 */
+const SKILL_TYPE = {
+  concept:   { zh: "理解概念", en: "concept",        teachZh: "重点是「这是什么、为什么这样」，别急着教步骤", teachEn: "focus on what it means and why, not the procedure" },
+  represent: { zh: "会用表示", en: "representation", teachZh: "重点是同一个意思换几种画法/写法都认得", teachEn: "focus on moving between models, number lines and symbols" },
+  procedure: { zh: "会算会做", en: "procedure",      teachZh: "重点是步骤清楚、每步为什么这么做", teachEn: "focus on clear steps and why each step works" },
+  reason:    { zh: "会讲道理", en: "reasoning",      teachZh: "重点是让孩子说出理由、判断对错", teachEn: "focus on justifying and judging, not just computing" },
+  apply:     { zh: "会用起来", en: "application",    teachZh: "重点是从真实情境里认出该用这个方法", teachEn: "focus on recognizing the situation in real contexts" },
+  fluency:   { zh: "练到熟练", en: "fluency",        teachZh: "重点是又快又准，讲策略而不是硬背", teachEn: "focus on speed and accuracy through strategies, not rote memory" }
+};
+/* 表示方式 → 中文说法（讲课提示词用；未列出的直接用英文 visual 名，它们本来就是配图类型名） */
+const SKILL_REP_ZH = {
+  symbolic: "算式符号", context: "生活情境", numberLine: "数轴", fractionBar: "分数条", pie: "圆形分数图",
+  areaGrid: "方格纸", hundredthsGrid: "百格图", baseTen: "十进制积木", placeValue: "数位表", groups: "分组图",
+  areaModel: "面积模型", barModel: "条形图", balance: "天平", coordGrid: "坐标格", dataTable: "表格",
+  statBar: "条形统计图", statLine: "折线统计图", pieChart: "扇形统计图", spinner: "转盘", balls: "摸球",
+  probLine: "可能性数轴", clock: "钟面", shapeRect: "长方形", shapeTriangle: "三角形", shapeCircle: "圆",
+  solidCube: "正方体", solidCuboid: "长方体", solidCylinder: "圆柱", netCuboid: "长方体展开图",
+  netCylinder: "圆柱展开图", angle: "角", hundredChart: "百数表"
+};
+const skillMisconceptions = new Map();   // 误区 id -> { id, zh, en, pattern, remedy }
+const skillIndex = new Map();            // 技能 id -> 技能（另带 grade / topicId / topicZh / topicEn）
+const skillsByStandard = new Map();      // BC 标准 id -> [技能 id]（只收 primary，标准级汇总用）
+try {
+  const d = JSON.parse(fs.readFileSync(path.join(SKILLS_DIR, "misconceptions.json"), "utf8"));
+  for (const m of d.items || []) skillMisconceptions.set(m.id, m);
+} catch (_) { /* 没有误区登记表也能跑，只是讲课少一句提醒、出题少一批标签 */ }
+const skillOf = id => skillIndex.get(id) || null;
+const isSkillsData = d => !!d && d.type === "skills-preview";
+/* 技能的「课程说明」：类型 / 表示 / 先修 / 误区，现算成 elaborations 的形状，
+ * 让不认识技能层的老代码（单元卷出题、报告）也能拿到有用的上下文 */
+function skillElaborations(s) {
+  const out = [];
+  const ty = SKILL_TYPE[s.type] || { zh: s.type, en: s.type, teachZh: "", teachEn: "" };
+  const reps = (s.rep || []).map(r => SKILL_REP_ZH[r] || r);
+  out.push({
+    en: `Skill type: ${ty.en} — ${ty.teachEn}. Representations to use: ${(s.rep || []).join(", ")}.`,
+    zh: `技能类型：${ty.zh}——${ty.teachZh}。要用到的表示方式：${reps.join("、")}。`
+  });
+  const pre = (s.prereq || []).map(id => skillOf(id)).filter(Boolean);
+  if (pre.length) out.push({
+    en: "Already learned (build on these, do not re-teach): " + pre.map(p => p.en).join("; "),
+    zh: "孩子在这之前已经学过（直接借力，不要从头再讲一遍）：" + pre.map(p => p.zh).join("；")
+  });
+  const miscs = (s.misc || []).map(id => skillMisconceptions.get(id)).filter(Boolean);
+  if (miscs.length) out.push({
+    en: "Common mistakes to call out explicitly: " + miscs.map(m => `${m.en} (e.g. ${m.pattern})`).join("; "),
+    zh: "这个技能孩子最容易踩的坑，讲课时主动点破：" + miscs.map(m => `${m.zh}（比如「${m.pattern}」）`).join("；")
+  });
+  return out;
+}
+if (!process.env.YY_DEMO) try {
+  /* 两遍加载：先把所有年级的技能收进 skillIndex，先修/复习才能跨年级解析 */
+  const parsed = [];
+  for (const f of fs.readdirSync(SKILLS_DIR)) {
+    const m = /^g(\d+)\.json$/.exec(f);
+    if (!m) continue;
+    try {
+      const raw = JSON.parse(fs.readFileSync(path.join(SKILLS_DIR, f), "utf8"));
+      if (raw.schema !== "yy-skills/1" || !Array.isArray(raw.skills)) {
+        console.log(`[curriculum] skills/${f} ignored: needs schema "yy-skills/1" and skills[]`);
+        continue;
+      }
+      const grade = Number(m[1]);
+      const topics = new Map((raw.topics || []).map(t => [t.id, t]));
+      for (const s of raw.skills) {
+        const t = topics.get(s.topic);
+        skillIndex.set(s.id, { ...s, grade, topicId: s.topic, topicZh: (t || {}).zh || s.topic, topicEn: (t || {}).en || s.topic });
+        if (s.primary) {
+          if (!skillsByStandard.has(s.primary)) skillsByStandard.set(s.primary, []);
+          skillsByStandard.get(s.primary).push(s.id);
+        }
+      }
+      parsed.push({ grade, raw, topics });
+    } catch (e) { console.log(`[curriculum] skills/${f} failed to parse: ${e.message}`); }
+  }
+  for (const { grade, raw, topics } of parsed) {
+    const bcGrade = curriculum.get(grade);   // grade-N.json 已在上面的主循环里加载好，借它的原文和术语
+    const stdById = new Map(((bcGrade && bcGrade.items) || []).map(it => [it.id, it]));
+    const mkItem = (s, reviewFrom) => {
+      const std = stdById.get(s.primary) || null;
+      return {
+        id: s.id, strand: s.topic, en: s.en, zh: s.zh,
+        elaborations: skillElaborations(s),
+        terms: (std && std.terms) || [],
+        teachHints: s.hints || "",
+        /* 技能层专属元数据：讲课 / 出题 / 汇总认这个字段，老代码不认也不受影响 */
+        skill: {
+          type: s.type, rep: s.rep || [], core: s.core !== false,
+          primary: s.primary, supporting: s.supporting || [],
+          standardEn: (std && std.en) || "", standardZh: (std && std.zh) || "",
+          prereq: (s.prereq || []).map(id => { const p = skillOf(id); return p ? { id, zh: p.zh, en: p.en, grade: p.grade } : null; }).filter(Boolean),
+          misc: (s.misc || []).map(id => skillMisconceptions.get(id)).filter(Boolean),
+          diag: s.diag || null,
+          reviewFrom: reviewFrom || 0        // >0 = 这条是从低年级借来复习的
+        }
+      };
+    };
+    const items = raw.skills.map(s => mkItem(s));
+    /* 主题的 review[]：把低年级技能借过来放在本主题末尾，不复制定义（设计文档 §3.1） */
+    for (const t of raw.topics || []) {
+      for (const rid of t.review || []) {
+        const r = skillOf(rid);
+        if (!r || items.some(it => it.id === rid)) continue;
+        items.push({ ...mkItem(r, r.grade), strand: t.id });
+      }
+    }
+    const d = {
+      jurisdiction: "BC", type: "skills-preview", skillsId: "skills-g" + grade, grade,
+      title: { en: "BC Grade " + grade + " · skills", zh: "BC " + grade + " 年级 · 技能" },
+      short: { en: "G" + grade + " skills", zh: "G" + grade + " 技能" },
+      /* 来源标注：底层仍是 BC 官方大纲（技能全部对齐到条目），前端页脚显示这一行 */
+      source: { kind: "skills-preview", version: (bcGrade && bcGrade.source && bcGrade.source.version) || "",
+        label: "BC Curriculum · " + ((bcGrade && bcGrade.source && bcGrade.source.version) || "") + " · curriculum.gov.bc.ca · " + (raw.topics || []).length + " topics / " + raw.skills.length + " skills" },
+      strandDefs: (raw.topics || []).map(t => [t.id, t.zh, t.en]),
+      /* 主题的「为什么学」借它对齐的 BC Big Idea（同一条主线那句）。BC 每条主线只有一句，
+       * 而一条主线下面往往有好几个主题——同一句话挂满整屏是噪音，还会张冠李戴
+       * （理财挂到「数与运算」那句上）。所以每条主线只在它的第一个主题上出现一次。 */
+      bigIdeas: (() => {
+        const used = new Set(), out = [];
+        for (const t of raw.topics || []) {
+          const std = stdById.get((t.standards || [])[0]);
+          if (!std || used.has(std.strand)) continue;
+          const bi = (bcGrade.bigIdeas || []).find(b => b.strand === std.strand);
+          if (!bi) continue;
+          used.add(std.strand);
+          out.push({ strand: t.id, en: bi.en, zh: bi.zh });
+        }
+        return out;
+      })(),
+      /* 每个主题对齐到哪几条 BC 标准：前端拿来在标题上标注，并给出「总览课」入口——
+       * 原来那 69 节条目课不作废，降级成主题的总览课（设计文档 §7 阶段 2）。 */
+      topicStandards: Object.fromEntries((raw.topics || []).map(t => [t.id, (t.standards || []).map(sid => {
+        const std = stdById.get(sid);
+        return { id: sid, zh: (std && std.zh) || sid, en: (std && std.en) || sid };
+      })])),
+      items
+    };
+    curriculum.set(d.skillsId, d);
+  }
+} catch (_) { /* 没有技能图谱草稿也能跑 */ }
+
 function curriculumGrades() { return [...curriculum.keys()].filter(k => typeof k === "number").sort((a, b) => a - b); }
 function curriculumBooks() {
   return [...curriculum.entries()].filter(([k, d]) => typeof k === "string" && d.type === "book").map(([k, d]) => ({
@@ -1745,6 +2042,14 @@ function curriculumBooks() {
     zh: ((d.short || d.title || {}).zh) || k,
     en: ((d.short || d.title || {}).en) || k
   }));
+}
+/* 技能图谱预览（设计草稿）：形状和 curriculumBooks() 一样，前端按同一套下拉/标签逻辑渲染 */
+function curriculumSkillsPreviews() {
+  return [...curriculum.entries()].filter(([k, d]) => typeof k === "string" && d.type === "skills-preview").map(([k, d]) => ({
+    id: k, grade: d.grade || 0,
+    zh: ((d.short || d.title || {}).zh) || k,
+    en: ((d.short || d.title || {}).en) || k
+  })).sort((a, b) => a.grade - b.grade);
 }
 /* 10-12 年级分科课程：按年级排，前端下拉接在 G9 后面 */
 function curriculumCourses() {
@@ -1766,6 +2071,17 @@ function curriculumKey(raw) {
   const s = String(raw == null ? "" : raw);
   return /^\d+$/.test(s) ? Number(s) : s;
 }
+/* 「跟大纲学」清单用哪份数据：年级有技能图谱（data/curriculum/skills/g<N>.json）就用技能视图
+ * （年级 → 主题 → 技能，设计文档 §3），没有就用大纲条目视图。BC 标准树只留给家长报告和 FSA——
+ * 那两处继续直接 curriculum.get(数字)。传 view="standards" 可以强制看老清单。 */
+function learnView(key, view) {
+  const d = curriculum.get(key);
+  if (!d || typeof key !== "number" || view === "standards") return d;
+  return curriculum.get("skills-g" + key) || d;
+}
+/* 单元测试 / 题库等按「年级 key + 单元」存档的东西，技能视图下 key 得是技能视图自己的 id，
+ * 不然 skills-g5 的主题卷和老 5 年级的主线卷会撞同一个文件名 */
+const viewKey = (key, d) => (d && d.type === "skills-preview") ? d.skillsId : key;
 function findCurriculumItem(id) {
   for (const d of curriculum.values()) {
     const item = (d.items || []).find(it => it.id === id);
@@ -1876,6 +2192,70 @@ function progressLevel(kidId, id) {
   if (e.solid || e.quizPassedAt || days >= 2) return "proficient";
   return (e.taught || e.right || e.wrong) ? "developing" : "emerging";
 }
+/* ---------------- 标准级汇总（技能 → BC 标准，设计文档 §6） ----------------
+ * 技能进度沿用同一套 progress 事件，key 换成 skillId；一条 BC 标准的级别由它下面的
+ * 核心技能（core:true）汇总出来。没有技能挂靠的标准返回 null，调用方回退到原来的
+ * 「标准自己那条 progress」——所以 G8/G9、高中课、书籍完全不受影响。 */
+const LEVEL_RANK = { emerging: 0, developing: 1, proficient: 2, extending: 3 };
+function standardRollup(kidId, standardId) {
+  const ids = skillsByStandard.get(standardId);
+  if (!ids || !ids.length) return null;
+  const core = ids.filter(id => (skillOf(id) || {}).core !== false);
+  const pool = core.length ? core : ids;
+  const progress = kd(kidId).progress;
+  const levels = pool.map(id => progressLevel(kidId, id));
+  const touched = pool.filter(id => progress[id]).length;
+  const proficient = levels.filter(l => LEVEL_RANK[l] >= 2).length;
+  let level = "emerging";
+  if (proficient === pool.length) {
+    /* 全部核心技能站稳 = Proficient；再要 Extending，得有一个「会讲道理/会用起来」的技能到 Extending */
+    const deep = pool.some(id => {
+      const s = skillOf(id);
+      return s && (s.type === "apply" || s.type === "reason") && progressLevel(kidId, id) === "extending";
+    });
+    level = deep ? "extending" : "proficient";
+  } else if (touched) level = "developing";
+  /* 旧数据：孩子在 BC 标准这条 id 上有进度，但一个技能都没做过。不能等价成「所有子技能都会了」，
+   * 记成低置信度的历史证据，让前端/报告分开显示，后续做题自然校准（设计文档 §6 / §7 阶段 2）。 */
+  const own = progress[standardId];
+  const legacy = (!touched && own && (own.taught || own.right || own.wrong || own.solid || own.quizPassedAt))
+    ? { level: progressLevel(kidId, standardId), confidence: "low" } : null;
+  return { level, total: pool.length, touched, proficient, legacy };
+}
+/* 误区计数与回补建议（设计文档 §6）
+ * 一道题答错、且它的干扰项挂了误区 id，就在这个技能名下记一笔。同一个误区攒到
+ * MISS_TRIGGER 次，说明不是手滑而是稳定的错误模式 —— 按技能自己的 diag.branch
+ * （没有就按误区登记表的 remedy）找出该回去补的技能。计数写在孩子的 progress 条目里，
+ * 和 right/wrong 一起走同一套持久化。 */
+const MISS_TRIGGER = 2;
+function missRecord(kidId, skillId, miscId) {
+  const progress = kd(kidId).progress;
+  const e = progress[skillId] || (progress[skillId] = { taught: 0, right: 0, wrong: 0, lastAt: 0, solid: false, rightDays: [], lessonIds: [] });
+  const m = e.miss || (e.miss = {});
+  m[miscId] = (m[miscId] || 0) + 1;
+  e.lastAt = Date.now();
+  kidSave(kidId, "progress");
+}
+/* 这个技能现在该不该回补？返回 { miscId, zh, en, times, skillId, skillZh, skillEn } 或 null */
+function remediationFor(kidId, skillId) {
+  const e = kd(kidId).progress[skillId];
+  if (!e || !e.miss) return null;
+  const s = skillOf(skillId);
+  let best = null;
+  for (const [miscId, times] of Object.entries(e.miss)) {
+    if (times < MISS_TRIGGER) continue;
+    if (!best || times > best.times) best = { miscId, times };
+  }
+  if (!best) return null;
+  const branch = (s && s.diag && s.diag.branch) || {};
+  const targetId = branch[best.miscId] || (skillMisconceptions.get(best.miscId) || {}).remedy || "";
+  const target = targetId ? skillOf(targetId) : null;
+  const m = skillMisconceptions.get(best.miscId) || {};
+  return {
+    miscId: best.miscId, times: best.times, zh: m.zh || best.miscId, en: m.en || best.miscId,
+    skillId: targetId, skillZh: target ? target.zh : "", skillEn: target ? target.en : ""
+  };
+}
 function progressRecord(kidId, id, event, lessonId) {
   const progress = kd(kidId).progress;
   const e = progress[id] || (progress[id] = { taught: 0, right: 0, wrong: 0, lastAt: 0, solid: false, rightDays: [], lessonIds: [] });
@@ -1977,14 +2357,34 @@ function qbankSave() {
 const qbankKey = (id, lang) => id + "|" + lang;
 
 /* 新题并入题库：题干去重（空白不敏感）、每级封顶 */
+/* 正确答案位置打散（qbank-standard §1）。提示词里要求过，但模型不听：2026-08-22 实测
+ * 120 道题的 answerIndex 分布是 38/53/20/9——闭着眼睛全选 B 就有 44% 正确率。
+ * 所以在入库这一步强制重排：options 和 tags 是位置对齐的，必须一起搬。
+ * 解析里点名「选项 B」「option C」的题跳过不动，打散了会把解析说岔。 */
+const REFS_OPTION_POS = /选项\s*[ABCD一二三四]|第[一二三四1234]\s*个选项|\boption\s*[ABCD]\b|\bchoice\s*[ABCD]\b/i;
+function qbankSpread(q, wantIdx) {
+  if (q.answerIndex === wantIdx) return q;
+  if (REFS_OPTION_POS.test(q.explain || "")) return q;
+  const order = [0, 1, 2, 3];
+  [order[q.answerIndex], order[wantIdx]] = [order[wantIdx], order[q.answerIndex]];   // 只对调正确项和目标位
+  q.options = order.map(i => q.options[i]);
+  if (Array.isArray(q.tags) && q.tags.length === 4) q.tags = order.map(i => q.tags[i]);
+  q.answerIndex = wantIdx;
+  return q;
+}
 function qbankMerge(bank, batch) {
   const norm = s => s.toLowerCase().replace(/\s+/g, "");
   const seen = new Set(bank.questions.map(q => norm(q.question)));
+  // 本题库已有的答案位置分布，新题往最空的位置填，整体自然趋于均匀
+  const spread = [0, 1, 2, 3].map(i => bank.questions.filter(x => x.answerIndex === i).length);
   for (const q of batch) {
     const k = norm(q.question);
     if (seen.has(k)) continue;
     if (bank.questions.filter(x => x.level === q.level).length >= QUIZ_LEVEL_CAP) continue;
     seen.add(k);
+    const want = spread.indexOf(Math.min(...spread));
+    qbankSpread(q, want);
+    spread[q.answerIndex]++;
     bank.questions.push(Object.assign({ qid: "q" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), usedAt: 0 }, q));
   }
 }
@@ -2041,16 +2441,32 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task, judge) {
   const total = Object.values(needs).reduce((a, b) => a + b, 0);
   const sys = qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
   const msg = L(lang, "请出这批题。", "Please write this batch of questions.");
-  const opts = { schema: QBANK_SCHEMA, hint: QBANK_HINT[lang] };
+  /* 技能层题库：干扰项要打误区标签，格式说明和校验白名单都跟着换 */
+  const skillTags = isSkillsData(gradeData) && ((item.skill || {}).misc || []).length
+    ? new Set(item.skill.misc.map(m => m.id)) : null;
+  /* 出题保持思考开着（跟 config 走）：2026-08-22 实测，关掉思考 JSON 是干净了，
+   * 但数学错误率暴涨——审稿在 74 次尝试里拒了 30 次（标错答案、两个选项都对、题干自相矛盾）；
+   * 开着思考的样本凡是解析成功的全都过审。格式问题改由 repairJson 兜（值后多粘引号那条）。 */
+  const opts = { schema: QBANK_SCHEMA, hint: (skillTags ? QBANK_HINT_SKILL : QBANK_HINT)[lang] };
   const t0 = Date.now();
   console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}`);
   const attempt = async () => {
-    const batch = await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total));
+    const batch = await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total, skillTags));
+    let keep = batch;
     if (judge) {
       const v = await judge(batch);
-      if (!v.pass) throw new Error(L(lang, "审稿没过：", "Review failed: ") + (v.problems[0] || L(lang, "（没给理由）", "(no reason given)")));
+      if (!v.pass) {
+        /* 按题剔除：审稿人指了序号就只丢那几道，其余照收。
+         * 指不出序号（老审稿人/格式不对）才退回整批作废的老行为。 */
+        const bad = new Set((v.bad || []).filter(i => i < batch.length));
+        if (!bad.size) throw new Error(L(lang, "审稿没过：", "Review failed: ") + (v.problems[0] || L(lang, "（没给理由）", "(no reason given)")));
+        keep = batch.filter((_, i) => !bad.has(i));
+        console.log(`[quiz] judge dropped ${bad.size}/${batch.length} for ${item.id} ${lang}: ${(v.problems[0] || "").slice(0, 120)}`);
+        // 剔完还得剩一半以上，不然说明这批整体质量差，重来更划算
+        if (keep.length < Math.ceil(batch.length / 2)) throw new Error(L(lang, "审稿没过：", "Review failed: ") + L(lang, `${bad.size} 道有问题`, `${bad.size} questions rejected`));
+      }
     }
-    qbankMerge(bank, batch);
+    qbankMerge(bank, keep);
     // 阶梯每一级都得有题可出，缺级就算失败
     if ([1, 2, 3].some(lv => !bank.questions.some(q => q.level === lv))) throw new Error("有难度级还没有题");
   };
@@ -2587,6 +3003,7 @@ const server = http.createServer(async (req, res) => {
         active: pickProvider(cfg.provider), routes: cfg.providerByTask || {}, providers: list, tts: ttsAvailable(),
         packedLessons: lessonPackCount(), packedUnitTests: unitPackCount(),
         curriculumGrades: curriculumGrades(), curriculumCourses: curriculumCourses(), curriculumBooks: curriculumBooks(),
+        curriculumSkillsPreviews: curriculumSkillsPreviews(),
         role: a.role, user: publicUser(a.user)
       };
       if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
@@ -2663,18 +3080,35 @@ const server = http.createServer(async (req, res) => {
       const a = allow(req, res, "student"); if (!a) return;
       const grades = curriculumGrades();
       const g = curriculumKey(url.searchParams.get("grade") || 0);
-      if (!g) return send(res, 200, { grades, courses: curriculumCourses(), books: curriculumBooks() });
-      const d = curriculum.get(g);
+      if (!g) return send(res, 200, { grades, courses: curriculumCourses(), books: curriculumBooks(), skillsPreviews: curriculumSkillsPreviews() });
+      const d = learnView(g, url.searchParams.get("view"));
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
+      /* 技能视图下 FSA 仍按 BC 五大主线出卷，清单里的分组是主题，所以另带一份主线名单给 FSA 下拉 */
+      const bc = (d.type === "skills-preview") ? curriculum.get(g) : null;
+      const fsaStrands = bc ? STRANDS.filter(([s]) => (bc.items || []).some(it => it.strand === s)).map(([s, zh, en]) => ({ strand: s, zhName: zh, enName: en })) : null;
       const kidId = resolveKid(a, url.searchParams.get("kid"));
       if (!kidId) return send(res, 400, NEED_KID_MSG);
       const progress = kd(kidId).progress;
       const strands = strandGroups(d, it => ({
         id: it.id, en: it.en, zh: it.zh, status: progressStatus(kidId, it.id),
         // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
-        lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || ""
+        lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || "",
+        /* 技能层多带几个字段给前端做徽章和折叠（老年级/书籍没有 it.skill，什么都不多发） */
+        ...(it.skill ? {
+          type: it.skill.type,
+          core: it.skill.core,
+          reviewFrom: it.skill.reviewFrom || 0,
+          prereqN: (it.skill.prereq || []).length,
+          miscN: (it.skill.misc || []).length,
+          standard: it.skill.primary || "",
+          ...(remediationFor(kidId, it.id) ? { remediate: remediationFor(kidId, it.id) } : {})
+        } : {})
       }));
-      return send(res, 200, { grade: g, grades, source: d.source, strands });
+      return send(res, 200, { grade: g, grades, source: d.source, strands,
+        ...(d.topicStandards ? { topicStandards: d.topicStandards } : {}),
+        ...(fsaStrands ? { fsaStrands } : {}),
+        unitKey: String(viewKey(g, d))     // 单元测试存档/读包用的 key（技能视图是 skills-g5，不是 5）
+      });
     }
 
     /* P3 家长报告（家长专属）：按主线汇总 + BC 四级话术级别 */
@@ -2689,13 +3123,22 @@ const server = http.createServer(async (req, res) => {
       const progress = kd(kidId).progress;
       const strands = strandGroups(d, it => {
         const e = progress[it.id];
+        /* 这条 BC 标准下面已经有技能了，就顺带把技能汇总带上（设计文档 §6）：
+         * status/level 仍按老规则算，前端可以并排显示「按技能看：3/7 站稳」。
+         * 没有技能挂靠（G8/G9、高中、书籍）时 roll 是 null，报告和以前一模一样。 */
+        const roll = standardRollup(kidId, it.id);
+        /* 有技能挂靠的标准，级别由技能汇总决定（孩子现在学的是技能，标准 id 上不再有新事件）；
+         * 家长星标仍是最高优先级的 override。老口径的那条记录放在 legacy 里，前端分开显示 */
+        const manual = !!(e && e.solid);
+        const level = manual ? "proficient" : roll ? roll.level : progressLevel(kidId, it.id);
+        const status = level === "emerging" ? "new" : level === "developing" ? "seen" : "solid";
         return {
           id: it.id, en: it.en, zh: it.zh,
-          status: progressStatus(kidId, it.id),
-          level: progressLevel(kidId, it.id),
-          manualSolid: !!(e && e.solid),   // 家长手动标记的「扎实」，前端星标可切换
+          status, level,
+          manualSolid: manual,   // 家长手动标记的「扎实」，前端星标可切换
           taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
-          lastAt: e ? e.lastAt : 0
+          lastAt: e ? e.lastAt : 0,
+          ...(roll ? { skills: roll } : {})
         };
       }).map(sg => Object.assign(sg, {
         total: sg.items.length,
@@ -2858,10 +3301,13 @@ const server = http.createServer(async (req, res) => {
       const kidId = resolveKid(a, body.kid);
       if (!kidId) return send(res, 400, NEED_KID_MSG);
       const lang = normLang(body.lang);
-      const g = curriculumKey(body.grade || 0);
-      const d = curriculum.get(g);
-      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
+      const g0 = curriculumKey(body.grade || 0);
+      /* 数字年级 → 技能视图（主题当单元）；单元 id 不在技能视图里就退回大纲视图（老存档里的主线名还能用） */
+      let d = learnView(g0);
       const strand = String(body.strand || "");
+      if (d && d.type === "skills-preview" && !(d.strandDefs || []).some(s => s[0] === strand)) d = curriculum.get(g0);
+      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet" });
+      const g = viewKey(g0, d);
       const def = (d.strandDefs || STRANDS).find(s => s[0] === strand);
       const unitItems = (d.items || []).filter(it => it.strand === strand);
       if (!def || !unitItems.length) return send(res, 400, { error: "未知的单元 / Unknown unit" });
@@ -2921,9 +3367,13 @@ const server = http.createServer(async (req, res) => {
       if (!kidId) return send(res, 400, NEED_KID_MSG);
       const g = String(url.searchParams.get("grade") || "");
       const strand = String(url.searchParams.get("strand") || "");
+      /* 年级 5 的卷子可能存在两个 key 下：老的主线卷 grade="5"，技能视图的主题卷 grade="skills-g5"。
+       * 清单两种都列，前端按 strand（主题 id / 主线名）再分到各自的面板 */
+      const keys = new Set([g]);
+      if (/^\d+$/.test(g)) keys.add("skills-g" + g);
       return send(res, 200, {
         items: kd(kidId).unitTests
-          .filter(r => (!g || String(r.grade) === g) && (!strand || r.strand === strand))
+          .filter(r => (!g || keys.has(String(r.grade))) && (!strand || r.strand === strand))
           .map(unitTestSummary)
       });
     }
@@ -3026,11 +3476,21 @@ const server = http.createServer(async (req, res) => {
         const ok = !!(r && r.correct);
         progressRecord(kidId, cid, ok ? "quiz-right" : "quiz-wrong");
         if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
+        /* 答错且这道题挂了误区标签：记一笔，攒够 2 次就建议回补（技能图谱 §6）。
+         * 老题库没有 tags，这里什么都不做，行为和以前一样。 */
+        if (!ok && Array.isArray(q.tags)) {
+          const picked = Math.round(Number(r && r.picked));
+          const tag = (picked >= 0 && picked <= 3) ? q.tags[picked] : "";
+          if (tag && tag !== "ok" && tag !== "other") missRecord(kidId, cid, tag);
+        }
       }
       if (bank) qbankSave();
       const passed = topRight >= QUIZ_PASS_NEED;
       if (passed) progressRecord(kidId, cid, "quiz-pass");
-      return send(res, 200, { ok: true, passed, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid) });
+      return send(res, 200, {
+        ok: true, passed, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid),
+        ...(remediationFor(kidId, cid) ? { remediate: remediationFor(kidId, cid) } : {})
+      });
     }
 
     /* 清空（家长专属，设置里的「清空学习进度 / 清空全部记录」；只作用于指定孩子，题库全局共享除外） */
@@ -3248,6 +3708,9 @@ if (require.main === module) detectProviders().then(() => {
     console.log("  Book courses: " + (curriculumBooks().length
       ? curriculumBooks().map(b => b.en + " (" + b.id + ", " + (curriculum.get(b.id).items || []).length + " sections)").join("; ")
       : "none (no book JSON under data/curriculum/books/)"));
+    console.log("  Skill graph:  " + (curriculumSkillsPreviews().length
+      ? curriculumSkillsPreviews().map(s => s.en + " (" + s.id + ", " + (curriculum.get(s.id).items || []).length + " skills)").join("; ") + " [design draft, see docs/skill-graph-plan.md]"
+      : "none (no skills JSON under data/curriculum/skills/)"));
     console.log("  Quiz banks:   " + Object.keys(qbank).length + " (qbank.json, shared by the whole family)");
     const nPack = lessonPackCount();
     console.log("  Lesson pack:  " + (nPack
@@ -3273,10 +3736,10 @@ module.exports = {
   cfg, ROOT, DATA_ROOT, PACKAGED, L, DEFAULT_CONFIG, deepMerge,
   ADAPTERS, PROVIDER_META, detectProviders, pickProvider, detected, TASKS,
   runEngine, ledgerAdd, ledgerRead, ledgerSummary, LEDGER_FILE,
-  curriculum, curriculumGrades, curriculumCourses, curriculumBooks, isCourseData, findCurriculumItem, extractJson,
+  curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews, isCourseData, findCurriculumItem, extractJson,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
   ttsId, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
-  JUDGE_SCHEMA, JUDGE_HINT, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
+  JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
 };
