@@ -139,12 +139,13 @@
      「Foundations of Mathematics and Pre-calculus 10」一条就能把它顶出卡片。这里只换看得见的那层。 */
   .fsel{position:relative;display:inline-block;max-width:100%;vertical-align:middle}
   .fsel.full{display:block;width:100%}
-  .fselNative{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+  /* 原生 select 留着当数据源，但不占位、不可点（选择器要压得过 .field select 的 width:100%） */
+  .fsel > .fselNative{position:absolute;left:0;top:0;width:1px;height:1px;padding:0;border:0;opacity:0;pointer-events:none}
   .fselBtn{display:flex;align-items:center;gap:8px;width:100%;max-width:100%;border:2px solid var(--line);border-radius:12px;
     padding:8px 10px;font-size:14px;font-weight:700;font-family:inherit;background:var(--soft);color:var(--ink);cursor:pointer;text-align:left;transition:.15s}
   .fsel.full .fselBtn{border-radius:14px;padding:12px 14px;font-size:16px}
   .fselBtn .fv{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .fselBtn .fc{flex:0 0 auto;font-size:11px;color:var(--muted);transition:transform .15s}
+  .fselBtn .fc{flex:0 0 auto;font-size:12px;color:var(--muted);opacity:.8;transition:transform .15s}
   .fselBtn:hover{border-color:var(--brand)}
   .fselBtn:disabled{opacity:.5;cursor:default}
   .fsel.open .fselBtn{border-color:var(--brand);background:#fff}
@@ -313,7 +314,13 @@
   .learnItem.on .lz{color:var(--brand)}
   @media (min-width:1000px){
     .wrap{max-width:1240px;padding:18px 20px 40px}
-    .shell{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px;align-items:start}
+    /* --rail 边条宽度；--railIdle 是舞台还空着时的宽度（见下面的 :has 规则） */
+    .shell{--rail:340px;--railIdle:560px;
+           display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:18px;align-items:start;
+           transition:grid-template-columns .22s ease}
+    /* 还没点开课的时候，右边整片是块空板子，清单却挤在 340 里 —— 空着就把清单放宽 */
+    .shell:not(:has(.stageCol > section:not(.hidden))){grid-template-columns:var(--railIdle) minmax(0,1fr)}
+    .shell:not(:has(.stageCol > section:not(.hidden))) .rail .chip{width:auto}
     /* flex 的 gap 会跳过 display:none 的卡片，不像 `+` 那样给隐藏兄弟留空 */
     .rail,.stageCol{display:flex;flex-direction:column;gap:14px;min-width:0}
     /* 舞台滚动时左栏钉住；列表太长时它自己滚，不跟着课文跑 */
@@ -347,7 +354,7 @@
   /* 屏幕再宽就把壳子放开：1240 的定宽在 1600 的屏上两边各空掉 200px，左栏却挤得课名都放不下 */
   @media (min-width:1360px){
     .wrap{max-width:1360px;padding:20px 24px 44px}
-    .shell{grid-template-columns:390px minmax(0,1fr);gap:22px}
+    .shell{--rail:390px;--railIdle:640px;gap:22px}
     .card{padding:22px}
     .rail .card{padding:18px}
     .rail .hi{font-size:19px}
@@ -356,7 +363,7 @@
   }
   @media (min-width:1660px){
     .wrap{max-width:1580px}
-    .shell{grid-template-columns:430px minmax(0,1fr);gap:26px}
+    .shell{--rail:430px;--railIdle:720px;gap:26px}
     .card{padding:24px}
     .rail .card{padding:20px}
     /* 舞台宽了，课文也跟着大一号 */
@@ -3955,7 +3962,8 @@ function renderEngineList(){
   });
 }
 function openSettings(errMsg){
-  $("grade").value=cfg.gradeCode||"5";
+  // 这个下拉只有年级，没有课程/书；正在跟课程或教材学的时候得填折算后的年级，否则它是空白的
+  $("grade").value=effectiveGradeCode();
   $("langSel").value=cfg.lang;
   renderEngineList();
   applyRoleUI();   // 家长专属区块的显隐 + 孩子列表
@@ -4134,7 +4142,9 @@ async function clearData(all){
 $("clearProgressBtn").onclick=()=>clearData(false);
 $("clearAllBtn").onclick=()=>clearData(true);
 $("saveSettings").onclick=async ()=>{
-  cfg.gradeCode=$("grade").value;
+  // 没动这个下拉就别覆盖：cfg.gradeCode 可能正指着一门课或一本书，直接写回去会把它折成光秃秃的年级
+  const g=$("grade").value;
+  if(g && g!==effectiveGradeCode()) cfg.gradeCode=g;
   cfg.lang=$("langSel").value==="en"?"en":"zh";
   saveCfg();
   applyLang();
@@ -4246,6 +4256,7 @@ function fselAttach(sel){
   const sync=()=>{                                   // 按钮上的字 = 当前选中项
     const o=sel.selectedOptions&&sel.selectedOptions[0];
     btn.querySelector(".fv").textContent=o?o.textContent:"";
+    btn.title=o?o.textContent:"";                    // 长课名按钮上放不下，鼠标停一下能看全
     btn.disabled=!!sel.disabled;
     wrap.classList.toggle("hidden", sel.classList.contains("hidden"));
   };
@@ -4283,16 +4294,21 @@ function fselAttach(sel){
     document.body.appendChild(pop);
     wrap.classList.add("open"); btn.setAttribute("aria-expanded","true");
 
-    const place=()=>{                                // 弹层跟着按钮走，撞到屏幕边就翻上去/收窄
+    const place=()=>{                                // 弹层跟着按钮走：宽度不越出所在卡片，撞到屏幕底就翻上去
       const r=btn.getBoundingClientRect();
+      const host=btn.closest(".card,.modalCard");
+      const hb=host?host.getBoundingClientRect():{left:12,right:window.innerWidth-12,width:window.innerWidth-24};
       pop.style.minWidth=r.width+"px";
-      pop.style.maxWidth=Math.min(window.innerWidth-24,460)+"px";
+      pop.style.maxWidth=Math.min(window.innerWidth-24, Math.min(460, Math.max(240, hb.width-8)))+"px";
       pop.style.maxHeight="none";
       const h=pop.offsetHeight, below=window.innerHeight-r.bottom-14, above=r.top-14;
       let top;
-      if(h<=below || below>=above){ top=r.bottom+6; pop.style.maxHeight=Math.min(360,Math.max(160,below))+"px"; }
-      else { pop.style.maxHeight=Math.min(360,Math.max(160,above))+"px"; top=Math.max(12, r.top-6-pop.offsetHeight); }
-      pop.style.left=Math.max(12, Math.min(r.left, window.innerWidth-pop.offsetWidth-12))+"px";
+      if(h<=below || below>=above){ top=r.bottom+6; pop.style.maxHeight=Math.min(440,Math.max(160,below))+"px"; }
+      else { pop.style.maxHeight=Math.min(440,Math.max(160,above))+"px"; top=Math.max(12, r.top-6-pop.offsetHeight); }
+      const w=pop.offsetWidth;
+      let left=Math.min(r.left, hb.right-w-4);       // 长课名不再把弹层顶到卡片外面
+      left=Math.max(12, Math.min(left, window.innerWidth-w-12));
+      pop.style.left=left+"px";
       pop.style.top=top+"px";
     };
     place();
