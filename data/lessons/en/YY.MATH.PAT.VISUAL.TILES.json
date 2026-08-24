@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.VISUAL.TILES",
+ "lang": "en",
+ "title": "Find the expression for a growing tile pattern",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Tile Patterns Into Expressions",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a number pattern like three, five, seven into two n plus one. Today we do the same trick, but starting from a picture of tiles instead of a list of numbers.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "A café in Victoria is building patio mats out of square tiles. Every mat is two rows tall. Mat number one is two rows by three columns, so it has two times three, which is six tiles. Let's count the first few mats.",
+    "math": "2\\times 3=6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      3,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Mat 1: 2 rows by 3 columns = 6 tiles"
+    }
+   },
+   {
+    "say": "Here are the counts. Mat one has six tiles, mat two has eight tiles, mat three has ten tiles. Each new mat adds one more column, and a column is two tiles, so the count jumps by two every time. That two is the number that goes in front of the n.",
+    "math": "6,\\;8,\\;10\\;\\rightarrow\\;+2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10
+     ],
+     "labels": [
+      "Mat 1",
+      "Mat 2",
+      "Mat 3",
+      "Columns",
+      "Tiles"
+     ],
+     "caption": "One more column each time, two more tiles each time"
+    }
+   },
+   {
+    "say": "Now look at mat three in the picture. The dark block on the left is the same in every single mat, and it holds four tiles. The lighter part is the growing part: mat three has three light columns of two tiles, which is six. So mat three is two times three plus four, which equals ten. That means any mat is two n plus four.",
+    "math": "2n+4",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      5,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Mat 3: dark 4 stay forever, light 2 times 3 = 6, total 10"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. A child notices it grows by two and writes just two n. Let's test it on mat one. Two times one is two tiles, but the real mat one has six tiles. We are four tiles short, so we must add the four that never changes. Always test your expression on mat one before you trust it.",
+    "math": "2\\times 1=2\\;\\text{but}\\;2\\times 1+4=6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      3,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Mat 1: the 4 dark tiles are still there!"
+    }
+   },
+   {
+    "say": "Let's use our expression on a big mat. Mat ten is two times ten plus four, which is twenty plus four, so twenty four tiles. And look, mat ten really is two rows by twelve columns, and two times twelve is twenty four. It matches.",
+    "math": "2\\times 10+4=24",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      12,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Mat 10: 2 rows by 12 columns = 24 tiles"
+    }
+   }
+  ],
+  "answer": "How much it grows by goes in front of the n, and the tiles that never change get added on: two n plus four.",
+  "practice": {
+   "question": "A garden centre in Kelowna builds square tile mats too. Every mat is three rows tall. Mat number one is three rows by two columns, mat number two is three rows by three columns, and mat number three is three rows by four columns. Draw the three mats on grid paper if that helps. Write an expression for the number of tiles in mat number n, then use it to find how many tiles are in mat number ten.",
+   "answer": "Three n plus three. Mat one has six tiles, mat two has nine, mat three has twelve, so it grows by three each time, and three tiles always stay. Check mat one: three times one plus three equals six. Mat ten: three times ten plus three equals thirty three tiles."
+  }
+ }
+}

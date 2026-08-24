@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV10K.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare and order numbers to 10 000",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which Number Is Bigger? Start From the Left",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that in a number like three thousand four hundred fifty-six, each digit has its own place: thousands, hundreds, tens, and ones. Today we use that same power to answer one question fast: which of two numbers is bigger?",
+    "math": "3456",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3456
+     ],
+     "labels": [],
+     "caption": "3 thousands, 4 hundreds, 5 tens, 6 ones"
+    }
+   },
+   {
+    "say": "Here is the rule. Line the two numbers up so the places match, then compare starting from the biggest place on the left. Thousands first. If the thousands are the same, slide over to the hundreds. Then the tens, then the ones. The very first place where the digits are different tells you the answer, and you can stop right there. That works because one thousand is worth more than any number of hundreds, and one hundred is worth more than any number of tens.",
+    "math": "\\text{thousands} \\to \\text{hundreds} \\to \\text{tens} \\to \\text{ones}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      4,
+      5,
+      6,
+      3,
+      5,
+      0,
+      1
+     ],
+     "labels": [
+      "Thousands",
+      "Hundreds",
+      "Tens",
+      "Ones"
+     ],
+     "caption": "3 456 on top, 3 501 below — compare left to right"
+    }
+   },
+   {
+    "say": "Let us try it with real numbers. Two Vancouver schools are collecting bottles. One school collected three thousand four hundred fifty-six bottles, the other collected three thousand five hundred one. Thousands: three and three, the same, so keep going. Hundreds: four and five. Five is more than four, so three thousand five hundred one is the bigger number. We stop there — we never even look at the tens and ones.",
+    "math": "3456 < 3501",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3600,
+      3456,
+      3501
+     ],
+     "labels": [],
+     "caption": "3 456 sits to the left of 3 501, so it is smaller"
+    }
+   },
+   {
+    "say": "Now here is the mistake lots of kids make. They peek at the fifty-six on the end of three thousand four hundred fifty-six, see that it looks chunky next to the number one, and say that number is bigger. Or they just check that both numbers start with a three and give up. But the ones place is the tiniest place of all! Fifty-six extra bottles can never beat a whole extra hundred. The hundreds place already decided it: three thousand five hundred one wins.",
+    "math": "3456 \\ne 3501",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3456,
+      3501
+     ],
+     "labels": [
+      "3 456",
+      "3 501"
+     ],
+     "caption": "The bar for 3 501 is longer — the extra hundred wins"
+    }
+   },
+   {
+    "say": "Ordering three numbers works the very same way, just one pair at a time. Put two thousand nine hundred eighty, three thousand five hundred one, and three thousand four hundred fifty-six in order from smallest to biggest. Two thousand nine hundred eighty only has two thousands, so it is the smallest. The other two both have three thousands, and we already know four hundreds is less than five hundreds. So the order is two thousand nine hundred eighty, then three thousand four hundred fifty-six, then three thousand five hundred one.",
+    "math": "2980 < 3456 < 3501",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      2900,
+      3600,
+      2980,
+      3501
+     ],
+     "labels": [],
+     "caption": "Smallest on the left, biggest on the right"
+    }
+   },
+   {
+    "say": "So remember: compare from the left, and the first place where the digits differ is the boss.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Compare from the left — the first place where the digits are different decides which number is bigger.",
+  "practice": {
+   "question": "Two Burnaby classes raised money for the food bank. Class A raised four thousand two hundred eight dollars. Class B raised four thousand two hundred eighty dollars. Which class raised more? Write the two numbers one above the other and compare them place by place, starting from the left.",
+   "answer": "Class B, with four thousand two hundred eighty dollars. Thousands: 4 and 4, the same. Hundreds: 2 and 2, the same. Tens: 0 and 8 — eight tens beats zero tens, so 4 208 is less than 4 280."
+  }
+ }
+}

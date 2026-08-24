@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.GRAPH.INTERPRET",
+ "lang": "en",
+ "title": "Answer questions and draw conclusions from a graph",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Reading Answers Right Off a Bar Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a bar graph where one square stands for five. Today we take the next little step: using that graph to answer real questions, like which day was the biggest and how much bigger it was.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our graph. Our class in Surrey collected juice boxes for recycling from Monday to Thursday. To answer any question, do three things: find the bar, run your finger up to the top of it, then read the number on the side. Monday is fifteen juice boxes, Tuesday is twenty five, Wednesday is ten, and Thursday is thirty.",
+    "math": "",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      15,
+      25,
+      10,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu"
+     ],
+     "caption": "Juice boxes collected each day"
+    }
+   },
+   {
+    "say": "Now a real question: which day did we collect the most, and how many more than Wednesday? The tallest bar is Thursday, so Thursday wins with thirty. Wednesday is only ten. Thirty take away ten is twenty. So we collected twenty more juice boxes on Thursday than on Wednesday.",
+    "math": "30-10=20",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      15,
+      25,
+      10,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu"
+     ],
+     "caption": "Thursday 30, Wednesday 10, difference 20"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. They look at the squares instead of the numbers. Thursday has six squares, Wednesday has two squares, six take away two is four, so they say four more. But four is four squares, not four juice boxes! Each square is worth five, so four squares means four times five, which is twenty. Always answer with the real number from the side of the graph.",
+    "math": "4\\times 5=20",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      15,
+      25,
+      10,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu"
+     ],
+     "caption": "4 squares of difference means 4 times 5 equals 20 boxes"
+    }
+   },
+   {
+    "say": "Last of all, a graph lets you say something smart about the whole week. The bars go up on Thursday and dip down on Wednesday, so we can conclude our class collected the most near the end of the week, and Wednesday needs a reminder. Adding all four days gives fifteen plus twenty five plus ten plus thirty, which is eighty juice boxes in all.",
+    "math": "15+25+10+30=80",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      15,
+      25,
+      10,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu"
+     ],
+     "caption": "80 juice boxes altogether for the week"
+    }
+   }
+  ],
+  "answer": "Find the bar, read its real number from the side, then compare — never count squares as if they were ones.",
+  "practice": {
+   "question": "Our school had a bake sale with four tables, and someone drew a bar graph where each square stands for five dollars. Table A has four squares, Table B has seven squares, Table C has three squares, and Table D has six squares. Which table raised the most money, how much did it raise, and how many dollars more is that than Table C?",
+   "answer": "Table B raised the most. Seven squares times five dollars is thirty five dollars. Table C is three times five, which is fifteen dollars. Thirty five take away fifteen is twenty, so Table B raised twenty dollars more than Table C."
+  }
+ }
+}

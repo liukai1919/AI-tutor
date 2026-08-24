@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "factors-multiples",
+ "lang": "en",
+ "unitName": {
+  "zh": "因数、倍数、质数",
+  "en": "Factors, multiples & primes"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Factors, multiples & primes · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.FACTORS.LIST",
+    "level": 1,
+    "question": "Using factor pairs, list all the factors of 24. Which list is complete and correct?",
+    "options": [
+     "2, 3, 4, 6, 8, 12",
+     "24, 48, 72, 96",
+     "1, 2, 3, 4, 6, 8, 12, 24",
+     "1, 2, 3, 4, 6, 8, 12, 16, 24"
+    ],
+    "answerIndex": 2,
+    "explain": "Work through the pairs in order: 1×24, 2×12, 3×8, 4×6, then stop when the pairs meet. The most common slip is forgetting the pair 1×24, so 1 and the number itself get left out; 16 is not a factor because no whole number times 16 makes 24."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.MULTIPLES.LIST",
+    "level": 1,
+    "question": "Which list shows the first five multiples of 7?",
+    "options": [
+     "7, 14, 21, 28, 35",
+     "14, 21, 28, 35, 42",
+     "7, 14, 28, 56, 112",
+     "7, 14, 21, 28, 34"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiples are 7×1, 7×2, 7×3, 7×4, 7×5, so the list starts at the number itself and goes up by 7 each time. Two common traps: starting at 14 (skipping 7×1) and doubling instead of adding 7."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PRIME_COMPOSITE",
+    "level": 1,
+    "question": "Which of these numbers is prime?",
+    "options": [
+     "1",
+     "9",
+     "21",
+     "23"
+    ],
+    "answerIndex": 3,
+    "explain": "A prime number has exactly two different factors, 1 and itself; 23 can only be built as 1×23. Watch the classic traps: 1 has only one factor so it is neither prime nor composite, and odd numbers are not automatically prime (9 = 3×3 and 21 = 3×7)."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.DIVISIBILITY",
+    "level": 2,
+    "question": "A class is planting seedlings in the school garden in Kelowna. They want a number of seedlings that can be set out in equal rows of 3 AND in equal rows of 4, with none left over. Using divisibility rules, which total works?",
+    "options": [
+     "426 seedlings",
+     "528 seedlings",
+     "512 seedlings",
+     "736 seedlings"
+    ],
+    "answerIndex": 1,
+    "explain": "Use both rules: for 3, the digits must add to a multiple of 3 (5+2+8 = 15, yes); for 4, the last two digits must make a multiple of 4 (28 ÷ 4 = 7, yes). The usual mistake is checking only one rule — 426 passes the 3 test but fails the 4 test, while 512 and 736 pass the 4 test but fail the 3 test."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PRIME_FACTORIZATION",
+    "level": 2,
+    "question": "Leo builds a factor tree for his locker number, 180. Which line writes 180 as a product of primes with exponents?",
+    "options": [
+     "2 × 3² × 5",
+     "4 × 9 × 5",
+     "2² × 3² × 5",
+     "2² × 3 × 5²"
+    ],
+    "answerIndex": 2,
+    "explain": "Keep breaking branches until every leaf is prime: 180 = 2×2×3×3×5, which is 2² × 3² × 5. The two common traps are stopping early and leaving composite numbers like 4 and 9 in the answer, and losing a repeated prime so an exponent comes out too small."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.GCF",
+    "level": 2,
+    "question": "Maya makes a table of the factors of 36 and the factors of 48 and circles the ones in both lists. What is the greatest common factor of 36 and 48?",
+    "options": [
+     "12",
+     "6",
+     "144",
+     "4"
+    ],
+    "answerIndex": 0,
+    "explain": "The shared factors of 36 and 48 are 1, 2, 3, 4, 6 and 12, so the greatest one is 12 (by primes: 2²×3² and 2⁴×3 share 2²×3). Common traps are stopping at a common factor that is not the largest, such as 6 or 4, and giving 144, which is the least common multiple, not the GCF."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.LCM",
+    "level": 3,
+    "question": "At Lonsdale Quay the SeaBus leaves every 12 minutes and the number 230 bus leaves every 18 minutes. Both leave together at 7:00 a.m. At what time do they next leave together?",
+    "options": [
+     "7:24 a.m.",
+     "7:54 a.m.",
+     "10:36 a.m.",
+     "7:36 a.m."
+    ],
+    "answerIndex": 3,
+    "explain": "List multiples until they match: 12, 24, 36 and 18, 36 — the least common multiple is 36 minutes, so the next shared departure is 7:36 a.m. The biggest trap is multiplying 12 × 18 = 216 minutes, which is a common multiple but not the least one; 7:24 and 7:54 each fit only one of the two schedules."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.GCF_LCM.APPLY",
+    "level": 3,
+    "question": "Priya is making identical thank-you bags for a school fundraiser in Burnaby. She has 84 stickers and 56 pencils, and every bag must get the same number of stickers and the same number of pencils with nothing left over. What is the greatest number of bags she can make, and what goes in each?",
+    "options": [
+     "14 bags, each with 6 stickers and 4 pencils",
+     "28 bags, each with 3 stickers and 2 pencils",
+     "168 bags, each with 3 stickers and 2 pencils",
+     "4 bags, each with 21 stickers and 14 pencils"
+    ],
+    "answerIndex": 1,
+    "explain": "Equal groups with nothing left over means find the GCF: 84 = 2²×3×7 and 56 = 2³×7, so the GCF is 2²×7 = 28 bags, then divide to get 84 ÷ 28 = 3 stickers and 56 ÷ 28 = 2 pencils per bag. The main trap is using the LCM (168) — sharing out cannot make more bags than items — and the second is stopping at a smaller common factor like 14 or 4."
+   }
+  ]
+ }
+}

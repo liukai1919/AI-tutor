@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "linear-relations",
+ "lang": "en",
+ "unitName": {
+  "zh": "坐标系与线性关系",
+  "en": "Coordinates & linear relations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Coordinates & linear relations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.COORD.Q4.PLOT",
+    "level": 1,
+    "question": "On a coordinate grid, Priya marks the point (-4, 3). Which quadrant is her point in?",
+    "options": [
+     "Quadrant I",
+     "Quadrant II",
+     "Quadrant III",
+     "Quadrant IV"
+    ],
+    "answerIndex": 1,
+    "explain": "The first number is the x-coordinate (left/right) and the second is the y-coordinate (up/down): x is negative and y is positive, so the point is left of the origin and above it — Quadrant II. The common trap is reading the pair backwards and landing in Quadrant IV."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.TABLE",
+    "level": 1,
+    "question": "Emma makes a growing bracelet pattern. Figure number n: 1, 2, 3, 4. Beads used: 5, 9, 13, 17. Which statement best explains why this table shows a linear relation?",
+    "options": [
+     "Every number of beads is an odd number.",
+     "The number of beads gets larger as the figure number gets larger.",
+     "Each time the figure number goes up by 1, the number of beads goes up by the same amount, 4.",
+     "The number of beads is always 4 times the figure number."
+    ],
+    "answerIndex": 2,
+    "explain": "A relation is linear when the output changes by a constant amount for each step of 1 in the input — here +4 every time. The common trap is thinking 'it just keeps growing' is enough; growing by different amounts each step would not be linear."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.EXPRESSION",
+    "level": 1,
+    "question": "Liam builds a tile pattern where figure n uses 3n + 2 tiles. How many tiles are in figure 6?",
+    "options": [
+     "20",
+     "30",
+     "11",
+     "36"
+    ],
+    "answerIndex": 0,
+    "explain": "Substitute n = 6 and multiply before adding: 3 × 6 = 18, then 18 + 2 = 20. The common trap is adding first and getting (3 + 2) × 6 = 30, which breaks the order of operations."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH",
+    "level": 1,
+    "question": "A rain barrel in Victoria is collecting water. Time t (hours): 1, 2, 3, 4. Water W (litres): 15, 25, 35, 45. Which set of points correctly graphs this table with time on the horizontal axis?",
+    "options": [
+     "(1, 10), (2, 20), (3, 30), (4, 40)",
+     "(15, 1), (25, 2), (35, 3), (45, 4)",
+     "(1, 15), (2, 30), (3, 45), (4, 60)",
+     "(1, 15), (2, 25), (3, 35), (4, 45)"
+    ],
+    "answerIndex": 3,
+    "explain": "Each row becomes one point written as (input, output), so t goes first and W second: (1, 15), (2, 25), (3, 35), (4, 45). The common trap is reversing the pair and plotting (15, 1), which puts time on the vertical axis."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.COORD.Q4.PLOT",
+    "level": 2,
+    "question": "On a park map, the picnic table is at (-3, 4) and each grid square is 1 metre. Noah walks 5 squares right and then 6 squares down. What are the coordinates of the spot where Noah stops?",
+    "options": [
+     "(2, -2)",
+     "(2, 10)",
+     "(-8, -2)",
+     "(-2, 2)"
+    ],
+    "answerIndex": 0,
+    "explain": "Moving right adds to x (-3 + 5 = 2) and moving down subtracts from y (4 - 6 = -2), giving (2, -2). The common trap is treating 'down' as adding to y, or writing the two coordinates in the wrong order."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.RATE_INTERCEPT",
+    "level": 2,
+    "question": "A graph shows the money in Jayden's savings jar. It passes through the points (0, 8), (1, 13), (2, 18) and (3, 23), where x is the number of weeks and y is dollars. Which statement describes his saving?",
+    "options": [
+     "He started with $5 and saves $8 each week.",
+     "He started with $0 and saves $5 each week.",
+     "He started with $8 and saves $5 each week.",
+     "He started with $8 and saves $13 each week."
+    ],
+    "answerIndex": 2,
+    "explain": "The value at x = 0 is the starting amount ($8) and the constant jump from point to point is the rate of change ($5 per week). The common trap is swapping the two, or using the week-1 total ($13) as the weekly rate instead of the increase."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.FROM_GRAPH",
+    "level": 3,
+    "question": "A kayak rental at Deep Cove charges a fixed launch fee plus an hourly rate. The graph of the total cost C for h hours passes through (2, 35) and (5, 65). Which relation matches the graph?",
+    "options": [
+     "C = 17.5h",
+     "C = 10h + 35",
+     "C = 15h + 10",
+     "C = 10h + 15"
+    ],
+    "answerIndex": 3,
+    "explain": "The cost rises $30 over 3 hours, so the rate is $10 per hour; working back from (2, 35), the fee is 35 - 2 × 10 = $15, giving C = 10h + 15. The common trap is dividing 35 by 2 as if there were no fixed fee, or using the $35 from a data point as the starting value."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.EXPRESSION",
+    "level": 3,
+    "question": "At a bowling alley, Lane A charges an $8 shoe fee plus $3 per game, so the cost is 3g + 8. Lane B charges no shoe fee but $5 per game, so the cost is 5g. After how many games do the two lanes cost the same amount?",
+    "options": [
+     "2 games",
+     "4 games",
+     "5 games",
+     "8 games"
+    ],
+    "answerIndex": 1,
+    "explain": "Build a table for both rules: at 4 games Lane A costs 3 × 4 + 8 = $20 and Lane B costs 5 × 4 = $20, so they meet at 4 games. The common trap is comparing only the $3 and $5 per-game rates and ignoring the $8 starting fee."
+   }
+  ]
+ }
+}

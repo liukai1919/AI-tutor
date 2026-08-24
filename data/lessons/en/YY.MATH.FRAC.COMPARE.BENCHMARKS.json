@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.COMPARE.BENCHMARKS",
+ "lang": "en",
+ "title": "Estimate and compare fractions using the benchmarks 0, 1/2 and 1",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Zero, One Half, One: Fraction Landmarks",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to compare fractions when the bottom numbers match, like three fifths and four fifths. But what about three eighths and five sixths, where nothing matches? Today we use three friendly landmarks on the number line — zero, one half, and one — to size up any fraction fast.",
+    "math": "0,\\ \\frac{1}{2},\\ 1",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "Our three landmarks: 0 at the start, one half in the middle, 1 at the end"
+    }
+   },
+   {
+    "say": "Here is the quick check. Look at the bottom number and cut it in half. For three eighths, half of eight is four. The top number is three, and three is less than four, so three eighths sits a little below one half. If the top number were bigger than four, like seven, the fraction would sit above one half and lean toward one.",
+    "math": "\\frac{3}{8}<\\frac{1}{2}\\quad\\text{because}\\quad 3<4",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      3,
+      2,
+      1
+     ],
+     "labels": [],
+     "caption": "Three eighths shaded on top, one half shaded below — the top bar is shorter"
+    }
+   },
+   {
+    "say": "Now let's compare three eighths and five sixths. Three eighths is just under one half. For five sixths, half of six is three, and five is way past three — in fact only one piece is missing, so five sixths is close to one. One of them is below the middle and one is nearly at the end, so five sixths is bigger. We never needed to find a common denominator at all.",
+    "math": "\\frac{3}{8}<\\frac{1}{2}<\\frac{5}{6}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.375,
+      0.833
+     ],
+     "labels": [],
+     "caption": "Three eighths sits below the middle; five sixths sits close to 1"
+    }
+   },
+   {
+    "say": "Here is a mix-up lots of kids make. Someone looks at one eighth and one fourth and says one eighth is bigger, because eight is bigger than four. But think about sharing one pizza. With eight people your slice is tiny, hugging zero. With only four people your slice is twice as big. The bigger the bottom number, the more pieces the whole is cut into, so each piece is smaller. One eighth is nearer zero than one fourth is, so one fourth wins.",
+    "math": "\\frac{1}{8}<\\frac{1}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      1,
+      4,
+      1
+     ],
+     "labels": [],
+     "caption": "One eighth on top, one fourth below — more pieces means smaller pieces"
+    }
+   },
+   {
+    "say": "So whenever two fractions look confusing, ask one simple question about each one: is it near zero, near one half, or near one? Then just read them off the number line.",
+    "math": "0\\ \\longrightarrow\\ \\frac{1}{2}\\ \\longrightarrow\\ 1",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "Park every fraction near 0, near one half, or near 1"
+    }
+   }
+  ],
+  "answer": "Ask if a fraction is near 0, near one half, or near 1 — compare the landmarks, not the numbers.",
+  "practice": {
+   "question": "Draw a number line from 0 to 1 and mark one half in the middle. On a hike near Squamish, Maya drank two fifths of her one litre water bottle and Owen drank seven eighths of his. Mark both fractions on your line. Who drank more water?",
+   "answer": "Owen. Half of five is two and a half, and two is less than that, so two fifths lands just below one half. Half of eight is four, and seven is much more than four, so seven eighths lands close to 1. Seven eighths is greater than two fifths."
+  }
+ }
+}

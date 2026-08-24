@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "patterns-equations",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与方程",
+  "en": "Pattern rules & equations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Pattern rules & equations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PAT.RULE.WORDS_NUMBERS",
+    "level": 1,
+    "question": "The table shows the number of stickers left on Mia's sheet.\n\nDay:        1    2    3    4\nStickers:  60   53   46   39\n\nWhich sentence states the pattern rule correctly?",
+    "options": [
+     "Start at 60, add 7 each time",
+     "Start at 53, subtract 7 each time",
+     "Start at 60, subtract 7 each time",
+     "Start at 60, subtract 6 each time"
+    ],
+    "answerIndex": 2,
+    "explain": "A pattern rule needs two parts: where the pattern starts (60, the Day 1 value) and what happens each step (60 − 53 = 7, so subtract 7). The usual trap is naming the second number as the start, or saying add when the numbers are getting smaller."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.VAR.SOLVE_ADDSUB",
+    "level": 1,
+    "question": "The two sides of a balance are equal: n + 17 = 45.\nWhat is the value of n?",
+    "options": [
+     "n = 28",
+     "n = 32",
+     "n = 38",
+     "n = 62"
+    ],
+    "answerIndex": 0,
+    "explain": "To keep the balance level, undo the +17 by subtracting 17 from both sides: 45 − 17 = 28. Two common traps are adding instead of subtracting (62) and subtracting without regrouping, which turns 45 − 17 into 32."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.RULE.SYMBOLS",
+    "level": 1,
+    "question": "Each hexagon table in the school library seats 6 students. The table shows the pattern.\n\nNumber of tables (n):  1    2    3    4\nStudents seated:       6   12   18   24\n\nWhich rule with the variable n matches this pattern?",
+    "options": [
+     "n + 6",
+     "n ÷ 6",
+     "12 × n",
+     "6 × n"
+    ],
+    "answerIndex": 3,
+    "explain": "Test a rule by putting the term number in: 6 × 1 = 6, 6 × 2 = 12, 6 × 3 = 18 — it works for every row. The most common mistake is writing n + 6 because the pattern goes up by 6, but adding gives 7 for the first table, not 6."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.TABLE.PREDICT",
+    "level": 2,
+    "question": "Sofia is saving for a bike helmet. Her savings follow this pattern.\n\nWeek:      1     2     3     4\nSavings:  $12   $19   $26   $33\n\nIf the pattern keeps going, how much will she have saved in Week 10?",
+    "options": [
+     "$82",
+     "$75",
+     "$70",
+     "$68"
+    ],
+    "answerIndex": 1,
+    "explain": "From Week 1 to Week 10 there are only 9 jumps of $7, so the total is 12 + (9 × 7) = 12 + 63 = $75. The classic trap is doing 12 + (10 × 7) = $82, which counts one jump too many."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.VAR.WRITE",
+    "level": 2,
+    "question": "Liam took some money to the movies in Vancouver. He spent $14 on his ticket and had $23 left. Let m be the amount of money he started with.\nWhich equation matches this situation?",
+    "options": [
+     "m + 14 = 23",
+     "14 − m = 23",
+     "m − 14 = 23",
+     "m + 23 = 14"
+    ],
+    "answerIndex": 2,
+    "explain": "Money spent is taken away from the starting amount, so the equation is m − 14 = 23 (which gives m = $37). The common trap is writing m + 14 = 23 because 14 and 23 appear in that order in the story — but that would make the starting amount smaller than what is left."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.VAR.SOLVE_MULTDIV",
+    "level": 2,
+    "question": "For a field trip to Stanley Park, 96 granola bars are packed equally into 8 bags. The equation 8 × b = 96 shows the number of bars in each bag.\nWhat is the value of b?",
+    "options": [
+     "b = 12",
+     "b = 16",
+     "b = 88",
+     "b = 104"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiplication is undone by division, so divide both sides by 8: 96 ÷ 8 = 12 bars in each bag. Many students undo × 8 by subtracting 8 (88) or adding 8 (104) instead of dividing."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.TABLE.PREDICT",
+    "level": 2,
+    "question": "Ava and Ben are both saving for a soccer camp in Kelowna.\nAva has $18 now and puts in $6 every week.\nBen has $46 now and puts in $2 every week.\nAfter how many weeks will they have exactly the same amount?",
+    "options": [
+     "5 weeks",
+     "7 weeks",
+     "8 weeks",
+     "14 weeks"
+    ],
+    "answerIndex": 1,
+    "explain": "Ben is $28 ahead, and Ava gains $6 − $2 = $4 on him each week, so 28 ÷ 4 = 7 weeks (both reach $60). The common trap is dividing the $28 gap by just one person's rate, such as 28 ÷ 2 = 14, instead of by the difference between the two rates."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.VAR.SOLVE_MULTDIV",
+    "level": 3,
+    "question": "At a Burnaby school bake sale, Maya's class raised $135 in total. Of that, $15 was a donation from a parent, and the rest came from selling bags of cookies at $5 each. Let b be the number of bags sold.\nHow many bags did the class sell?",
+    "options": [
+     "27 bags",
+     "30 bags",
+     "115 bags",
+     "24 bags"
+    ],
+    "answerIndex": 3,
+    "explain": "First take out the money that did not come from cookies: 135 − 15 = $120, then solve 5 × b = 120 by dividing, giving b = 24 bags. The biggest trap is dividing the whole $135 by 5 and answering 27, because the donation was never part of the cookie sales."
+   }
+  ]
+ }
+}

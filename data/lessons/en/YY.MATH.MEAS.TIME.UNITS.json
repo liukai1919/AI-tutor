@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.UNITS",
+ "lang": "en",
+ "title": "Convert between minutes, hours, days and weeks",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Minutes, Hours, Days and Weeks: Swapping Units",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to work out that from three fifteen to three forty is twenty-five minutes. But what if something lasts longer than an hour, like a two hour hockey practice or a two week camp? Today we learn how to swap between minutes, hours, days and weeks.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      15,
+      3,
+      40
+     ],
+     "labels": [],
+     "caption": "You can already do jumps inside one hour. Now we go bigger."
+    }
+   },
+   {
+    "say": "There are only three numbers you need to remember. One hour is sixty minutes. One day is twenty-four hours. One week is seven days. Here is the rule: when you go from a bigger unit down to a smaller unit, you multiply, because you get more little pieces. When you go from a smaller unit up to a bigger unit, you divide.",
+    "math": "1\\text{ h}=60\\text{ min},\\quad 1\\text{ day}=24\\text{ h},\\quad 1\\text{ week}=7\\text{ days}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      60,
+      24,
+      7
+     ],
+     "labels": [
+      "Minutes in 1 hour",
+      "Hours in 1 day",
+      "Days in 1 week"
+     ],
+     "caption": "Going down a step? Multiply by this number. Going up? Divide by it."
+    }
+   },
+   {
+    "say": "Let us try one. Your soccer practice at the community centre lasts two hours and fifteen minutes. How many minutes is that? Hours are bigger than minutes, so we multiply. Two times sixty is one hundred twenty minutes. Then we still have the extra fifteen minutes, so we add them on. One hundred twenty plus fifteen is one hundred thirty-five minutes.",
+    "math": "2\\times 60=120,\\quad 120+15=135\\text{ min}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      60,
+      120,
+      180
+     ],
+     "labels": [
+      "1 hour",
+      "2 hours",
+      "3 hours",
+      "Hours",
+      "Minutes"
+     ],
+     "caption": "Every hour you add puts sixty more minutes in the bottom row."
+    }
+   },
+   {
+    "say": "Now here is the trap almost everybody falls into. Suppose your bike ride was one hour and fifty minutes, and then you rode twenty minutes more. Some people write one hour and seventy minutes. But minutes do not go up to one hundred like dollars and cents do! They stop at sixty and roll over into a new hour. So seventy minutes is really one hour and ten minutes, which makes the answer two hours and ten minutes. Check it in pure minutes: one hour fifty is one hundred ten minutes, plus twenty is one hundred thirty minutes, and one hundred thirty minutes is two hours and ten minutes. It matches.",
+    "math": "1\\text{ h }50\\text{ min}+20\\text{ min}=2\\text{ h }10\\text{ min}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      180,
+      110,
+      130
+     ],
+     "labels": [],
+     "caption": "110 minutes plus 20 lands on 130 minutes, which is 2 hours 10 minutes."
+    }
+   },
+   {
+    "say": "So whenever you switch time units, first ask yourself: am I going to a smaller unit or a bigger one? Smaller means multiply, bigger means divide. And never let your minutes climb past fifty-nine.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      60,
+      24,
+      7
+     ],
+     "labels": [
+      "1 hour = ? minutes",
+      "1 day = ? hours",
+      "1 week = ? days"
+     ],
+     "caption": "Keep these three numbers in your pocket."
+    }
+   }
+  ],
+  "answer": "Bigger unit to smaller unit, multiply; smaller to bigger, divide — and remember one hour is sixty minutes, never one hundred.",
+  "practice": {
+   "question": "Your swimming lesson at the Richmond pool lasts one hour and forty minutes. Your friend's lesson is forty-five minutes longer than yours. How long is your friend's lesson, written in hours and minutes?",
+   "answer": "2 hours and 25 minutes. Change yours into minutes first: one times sixty is sixty, plus forty is one hundred minutes. Then one hundred plus forty-five is one hundred forty-five minutes. Since one hundred twenty minutes make two hours, that leaves twenty-five minutes over, so it is 2 hours 25 minutes."
+  }
+ }
+}

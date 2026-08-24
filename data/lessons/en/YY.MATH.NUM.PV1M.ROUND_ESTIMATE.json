@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV1M.ROUND_ESTIMATE",
+ "lang": "en",
+ "title": "Round to a given place and estimate large quantities with benchmarks",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Rounding Big Numbers to the Place You Are Told",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to round to the nearest ten, hundred, or thousand. Today we do one small thing on top of that: when someone tells you which place to round to, how do you make sure you round at the right spot and in the right direction?",
+    "math": "",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3478
+     ],
+     "labels": [],
+     "caption": "Three thousand four hundred seventy-eight — each digit sits in its own place."
+    }
+   },
+   {
+    "say": "Here is the little routine. First, put your finger on the place you were asked for. Then look at just one digit, the one right beside it on the right. If that digit is five or more, you go up to the next number; if it is four or less, you stay where you are. A number line makes this easy to see, because the number you are rounding always sits between two friendly numbers, and there is a halfway mark in the middle.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3450
+     ],
+     "labels": [],
+     "caption": "The halfway mark between three thousand four hundred and three thousand five hundred is three thousand four hundred fifty."
+    }
+   },
+   {
+    "say": "Let us try it. A school in Surrey collected three thousand four hundred seventy-eight cans for a food drive, and we want that rounded to the nearest hundred. Finger on the hundreds place, that is the four. The digit beside it is a seven, and seven is five or more, so we go up. Three thousand four hundred seventy-eight rounds to three thousand five hundred. Look at the line: it really is past the middle, sitting closer to three thousand five hundred.",
+    "math": "3\\,478 \\approx 3\\,500",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3478
+     ],
+     "labels": [],
+     "caption": "Three thousand four hundred seventy-eight is past the halfway mark, so it hops up to three thousand five hundred."
+    }
+   },
+   {
+    "say": "Now here is the mistake I see a lot. Some kids write three thousand four hundred seventy-eight rounds to three thousand four hundred. They chopped the ending off instead of checking the neighbour digit. But the number line does not lie: three thousand four hundred seventy-eight is on the right side of the middle, so it can never fall back down to three thousand four hundred. Always ask, which friendly number am I closer to?",
+    "math": "3\\,478 \\neq 3\\,400",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3450,
+      3478
+     ],
+     "labels": [],
+     "caption": "Past the middle means up, not down."
+    }
+   },
+   {
+    "say": "The same routine works on really big numbers too. Say a BC Ferries route carried fifty-four thousand three hundred twenty passengers one weekend, and we want a nice round estimate to the nearest thousand. Finger on the thousands place, that is the four. The digit beside it is a three, and three is four or less, so we stay put. About fifty-four thousand passengers.",
+    "math": "54\\,320 \\approx 54\\,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      54000,
+      55000,
+      54320
+     ],
+     "labels": [],
+     "caption": "Fifty-four thousand three hundred twenty is before the halfway mark of fifty-four thousand five hundred, so it stays at fifty-four thousand."
+    }
+   },
+   {
+    "say": "So remember, no matter how big the number is, it is always the same two moves: point at the place, then peek at the one digit right next door.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Point at the place you were asked for, peek at the one digit to its right: five or more goes up, four or less stays.",
+  "practice": {
+   "question": "A campground on Vancouver Island counted twenty-six thousand four hundred eighty visitors in July. Round that to the nearest thousand. Try drawing your own number line from twenty-six thousand to twenty-seven thousand, mark the halfway point of twenty-six thousand five hundred, and see which side the visitor number lands on.",
+   "answer": "About twenty-six thousand visitors. The thousands digit is six, and the digit right beside it is a four, which is four or less, so we stay put — and on the number line, twenty-six thousand four hundred eighty sits just before the halfway mark of twenty-six thousand five hundred."
+  }
+ }
+}

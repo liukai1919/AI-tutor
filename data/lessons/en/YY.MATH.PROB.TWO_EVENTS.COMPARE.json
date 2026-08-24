@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.TWO_EVENTS.COMPARE",
+ "lang": "en",
+ "title": "Compare experimental results for two events with the expected results",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Did the Coins Behave? Comparing Real Results to Expected",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to flip two coins lots of times and work out the experimental probability, and you know the theoretical answer for two heads is one quarter. Today we do just one small thing with that: we look at real results and decide, is this close enough to what we expected, or is something actually off?",
+    "math": "P(\\text{two heads})=\\frac{1}{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Before you judge anything, turn the theoretical probability into an expected count. Maya flips a loonie and a toonie together forty times. One quarter of forty is ten, so she expects about ten double heads. That word about is doing a lot of work. Ten is the centre, not a promise.",
+    "math": "\\frac{1}{4}\\times 40=10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      10,
+      10,
+      10,
+      0,
+      0,
+      0,
+      0
+     ],
+     "labels": [
+      "HH",
+      "HT",
+      "TH",
+      "TT",
+      "Expected",
+      "Actual"
+     ],
+     "caption": "Expected counts out of 40 flips: 10 of each pair"
+    }
+   },
+   {
+    "say": "Now Maya's real results. She got seven double heads, eleven head then tail, twelve tail then head, and ten double tails. Look along the row. Every single number sits within a few of ten. Seven is three below, twelve is two above. For only forty trials, that is exactly the kind of wobble we expect. Real results bounce around the expected number, they do not land on it.",
+    "math": "7+11+12+10=40",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      10,
+      10,
+      10,
+      7,
+      11,
+      12,
+      10
+     ],
+     "labels": [
+      "HH",
+      "HT",
+      "TH",
+      "TT",
+      "Expected",
+      "Actual"
+     ],
+     "caption": "Maya's 40 flips compared to the expected 10 each"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes. Maya's brother sees seven instead of ten and says, you counted wrong, or these coins are rigged. But think about it with money. If you spend about forty dollars on groceries most weeks, a week at thirty seven dollars does not mean the till is broken. Seven out of forty is zero point one seven five, and one quarter is zero point two five. On the likelihood line those two dots are practically neighbours. Nothing is wrong here.",
+    "math": "\\frac{7}{40}=0.175 \\quad \\text{vs} \\quad \\frac{1}{4}=0.25",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.175,
+      0.25
+     ],
+     "labels": [
+      "Maya got",
+      "Expected"
+     ],
+     "caption": "Maya's result and the expected value sit close together"
+    }
+   },
+   {
+    "say": "So when would you actually be suspicious? Imagine a different set of coins giving thirty one double heads out of forty. That is zero point seven seven five, way up the line, nowhere near one quarter. That gap is far too big to blame on luck, so now you have a real reason to say something is off with those coins. Small gap, shrug. Huge gap, investigate.",
+    "math": "\\frac{31}{40}=0.775",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.175,
+      0.25,
+      0.775
+     ],
+     "labels": [
+      "Maya",
+      "Expected",
+      "Suspicious set"
+     ],
+     "caption": "A small gap is normal; a huge gap is a red flag"
+    }
+   },
+   {
+    "say": "So your job is never to check if the numbers match exactly. Your job is to ask, is this close enough that plain old luck explains it?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Experimental results should land near the expected number, not exactly on it — only a big gap means something is wrong.",
+  "practice": {
+   "question": "Owen spins two spinners at the same food truck stand. Each spinner has an equal chance of landing on poutine or tacos, so the chance of getting poutine on both is one quarter. He spins the pair sixty times. First, what count of double poutine should he expect? Then he makes a table with two rows, expected and actual, and his actual results are: double poutine eighteen, poutine then tacos fourteen, tacos then poutine sixteen, double tacos twelve. Should Owen say his spinners are broken? Explain why or why not.",
+   "answer": "Expected is one quarter of sixty, which is fifteen double poutines. Owen actually got eighteen, only three more than expected. Eighteen out of sixty is zero point three, and one quarter is zero point two five — those are very close on the likelihood line. His other counts (fourteen, sixteen, twelve) are all near fifteen too, and they add to sixty. So the spinners are fine; that small wobble is just normal luck, not a broken spinner."
+  }
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.INT.ADD",
+ "lang": "en",
+ "title": "Add integers with two-colour counters and number lines, then symbolically",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Adding Integers: Zero Pairs and Number Line Jumps",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that every integer has an opposite, like negative one and positive one. Here is the cool part: when you put an opposite pair together, they cancel out to zero. That one idea is the whole secret to adding integers.",
+    "math": "(+1) + (-1) = 0",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      1,
+      2
+     ],
+     "labels": [],
+     "caption": "One red counter plus one yellow counter makes a zero pair, worth 0"
+    }
+   },
+   {
+    "say": "Let us add negative three plus five with two colour counters. Red counters are negative, yellow are positive. So put down three red and five yellow. Now match them up: each red grabs one yellow and they cancel. Three zero pairs disappear, and two lonely yellow counters are left. So the answer is positive two.",
+    "math": "(-3) + (+5) = +2",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "3 zero pairs cancel out, 2 yellow counters left over, so the total is +2"
+    }
+   },
+   {
+    "say": "Now the same problem on a number line. Start at negative three. Adding five means jump five steps to the right, because adding a positive always moves you right. Count with me: negative two, negative one, zero, one, two. You land on positive two, exactly what the counters said.",
+    "math": "-3 + 5 = 2",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -8,
+      8,
+      -3,
+      2
+     ],
+     "labels": [],
+     "caption": "Start at -3, jump 5 steps right, land on +2"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes. Someone sees negative three plus five and just adds three and five to get eight. But that ignores the little minus sign. Think of it like money: you owe a friend three dollars and then you earn five dollars. You cannot end up with eight dollars, because three of those dollars go straight to paying your friend back. You only keep two.",
+    "math": "-3 + 5 \\neq 8",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [
+      "owe 3",
+      "earn 5"
+     ],
+     "caption": "The 5 dollars covers the 3 you owe, leaving only 2"
+    }
+   },
+   {
+    "say": "Once you see it, you can do it without drawing. Ask two questions. First, which colour has more? Second, how many more? Try negative seven plus four. There are more reds, seven against four, so the answer is negative. The difference is three. So the answer is negative three. Check it on the number line: start at negative seven, jump four to the right, and you land on negative three.",
+    "math": "-7 + 4 = -3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      6,
+      -7,
+      -3
+     ],
+     "labels": [],
+     "caption": "Start at -7, jump 4 steps right, land on -3"
+    }
+   },
+   {
+    "say": "So whenever you add integers, cancel the zero pairs first, then look at what is left over. The bigger pile decides the sign.",
+    "math": "-3 + 5 = 2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Cancel the zero pairs, then the leftovers tell you the answer, and the bigger pile picks the sign.",
+  "practice": {
+   "question": "You owe your sister 6 dollars for a bus pass, so picture 6 red counters. Then you get paid 9 dollars for shovelling a neighbour's driveway, so picture 9 yellow counters. Draw them if it helps. How many zero pairs can you make, what colour is left over, and what is negative six plus nine?",
+   "answer": "You can make 6 zero pairs, and 3 yellow counters are left over, so negative six plus nine equals positive three. You end up with 3 dollars."
+  }
+ }
+}

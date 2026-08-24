@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.BALANCE",
+ "lang": "en",
+ "title": "Keep an equation balanced: do the same thing to both sides",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Keep the Scale Balanced",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write an equation for a problem, like four plus x equals fifteen. Today we learn what that little equals sign really means, so we can move numbers around without breaking the equation.",
+    "math": "4 + x = 15",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4 + x",
+      "15"
+     ],
+     "caption": "The equals sign means: both sides weigh the same"
+    }
+   },
+   {
+    "say": "Think of an equation as a scale at the farmers market in Kelowna. On the left pan we have a mystery bag of apples, called x, plus three more apples. On the right pan we have ten apples. The equals sign is telling us the scale is perfectly level.",
+    "math": "x + 3 = 10",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 3",
+      "10"
+     ],
+     "caption": "Level scale: x plus 3 apples weighs the same as 10 apples"
+    }
+   },
+   {
+    "say": "Now here is the big idea. If I take three apples off the left pan only, the left side gets lighter and the scale tips over. To keep it level, whatever I do to one side, I must do to the other side too. So I take three apples off the left AND three apples off the right.",
+    "math": "x + 3 - 3 = 10 - 3",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "x",
+      "10"
+     ],
+     "caption": "Taking 3 off just the left side makes it tip — not allowed!"
+    }
+   },
+   {
+    "say": "Let's finish it. On the left, three apples plus three apples taken away leaves just the mystery bag x. On the right, ten apples take away three apples leaves seven apples. The scale is level again, and now it tells us the bag holds seven apples.",
+    "math": "x = 7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "7"
+     ],
+     "caption": "Still level — and now we can read the answer: x is 7"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. They see three times x equals twelve and write x equals twelve. But look what happened: they divided the left side by three and left the right side alone. That is like lifting weight off one pan only. The scale crashes down. If you divide the left by three, you must divide the right by three as well, so both pans stay level.",
+    "math": "3x = 12 \\;\\longrightarrow\\; x = 12 \\;\\;(\\text{wrong!})",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "x",
+      "12"
+     ],
+     "caption": "Changing only one side breaks the balance"
+    }
+   },
+   {
+    "say": "So remember, an equation is a scale that is already balanced. Do the very same thing to both sides, and it stays true.",
+    "math": "",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "same change",
+      "same change"
+     ],
+     "caption": "Same move on both sides keeps it fair"
+    }
+   }
+  ],
+  "answer": "An equation is a balanced scale — whatever you do to one side, do the exact same thing to the other side.",
+  "practice": {
+   "question": "Ms. Yuanyuan has a balance scale. On the left side she puts a mystery jar of blueberries, called b, plus a five kilogram weight. On the right side she puts a twelve kilogram weight, and the scale is perfectly level. She wants to get the jar alone on the left side. What should she take off the left side, and what must she do to the right side to keep the scale level? What does the jar weigh?",
+   "answer": "Take the five kilogram weight off the left side, and take five kilograms off the right side too. Left side: b plus five minus five leaves b. Right side: twelve minus five leaves seven. So b equals seven, the jar of blueberries weighs seven kilograms."
+  }
+ }
+}

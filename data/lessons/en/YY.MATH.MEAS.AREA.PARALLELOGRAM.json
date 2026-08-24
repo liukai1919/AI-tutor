@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.PARALLELOGRAM",
+ "lang": "en",
+ "title": "Find the area of a parallelogram by cutting it into a rectangle (base × height)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Cut It, Slide It: The Area of a Parallelogram",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the area of a rectangle: you just multiply the two sides. A rectangle that is five centimetres long and three centimetres tall covers fifteen square centimetres. Today we learn how to use that same trick on a leaning shape called a parallelogram.",
+    "math": "5 \\times 3 = 15",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "You already know this one: five times three equals fifteen square centimetres"
+    }
+   },
+   {
+    "say": "Here is the big idea. Picture a parallelogram like a leaning garden box. Snip the slanted triangle off one end, slide it all the way over to the other end, and it fits perfectly. Nothing was added, nothing was thrown away, so the area did not change one bit. And look what you get: a plain rectangle. Its width is the base, and its height is the straight up and down distance, not the leaning side.",
+    "math": "A = b \\times h",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "After cutting and sliding: a rectangle six centimetres across and four centimetres tall"
+    }
+   },
+   {
+    "say": "Let us count it on grid paper to be sure. Our parallelogram has a base of six centimetres and a straight up and down height of four centimetres. After the cut and slide, we have four rows with six squares in each row. Four rows of six is twenty four. So the area is twenty four square centimetres, and every single little square really is there on the grid.",
+    "math": "A = 6 \\times 4 = 24 \\text{ cm}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "Four rows of six squares equals twenty four square centimetres"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everybody makes, so let us catch it together. That leaning side measures five centimetres, and it is very tempting to grab it. If you do six times five, you get thirty. But that is too big. Think about it: the leaning side is a slanted walk, like a ramp, and it is always longer than the straight up and down height. The rectangle we made is only four centimetres tall, not five. So always use the dashed straight height, never the slanted side.",
+    "math": "6 \\times 5 = 30 \\; \\text{✗} \\qquad 6 \\times 4 = 24 \\; \\text{✓}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The dashed line is the real height, four centimetres — the slanted edge is longer"
+    }
+   },
+   {
+    "say": "So remember: a parallelogram is just a rectangle in disguise. Cut, slide, then multiply the base by the straight up and down height.",
+    "math": "A = b \\times h",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Cut and slide it into a rectangle: area equals base times the straight height — never the slanted side.",
+  "practice": {
+   "question": "Mr. Singh is painting a parallelogram shaped sign for the Saturday farmers market. Draw it yourself on grid paper: the base is seven metres long, the straight up and down height is three metres, and the slanted side measures four metres. How many rows of squares will your rectangle have, and what is the area of the sign in square metres?",
+   "answer": "Three rows of seven squares, so seven times three equals twenty one square metres. The four metre slanted side is a trap — do not use it."
+  }
+ }
+}

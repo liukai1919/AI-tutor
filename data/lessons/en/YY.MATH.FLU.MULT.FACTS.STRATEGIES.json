@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MULT.FACTS.STRATEGIES",
+ "lang": "en",
+ "title": "Work out harder facts with doubling/halving, annexing zeros and the distributive property",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Break It Apart: Easy Ways to Get the Tricky Facts",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know your fives, your threes and your tens really well. So when a tricky fact like six times eight pops up, we do not have to guess — we can break it into pieces we already know.",
+    "math": "6 \\times 8 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is six rows of eight. Six is just five plus one, so I can slice the picture into a five-row piece and a one-row piece. The big shaded piece is five times eight, which is forty. The leftover row is one more eight. Forty plus eight is forty-eight.",
+    "math": "6 \\times 8 = (5 \\times 8) + (1 \\times 8) = 40 + 8 = 48",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      5,
+      8
+     ],
+     "labels": [],
+     "caption": "Six rows of eight, sliced into five rows (40) plus one more row (8)"
+    }
+   },
+   {
+    "say": "There is a second easy path: doubling. Three times eight is twenty-four, and six is double three, so six times eight is double twenty-four. Double twenty-four is forty-eight. Same answer — nice, that means we got it right.",
+    "math": "3 \\times 8 = 24 \\quad\\Rightarrow\\quad 6 \\times 8 = 24 + 24 = 48",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      3,
+      8
+     ],
+     "labels": [],
+     "caption": "Three rows of eight is 24; six rows is double that, 48"
+    }
+   },
+   {
+    "say": "Now the zero trick. Say hockey pucks cost eighty dollars for a team pack and you buy six packs. Six times eight is forty-eight, and because we are counting eights of ten, the answer is forty-eight tens — that is four hundred eighty dollars. Multiply the easy fact first, then stick the zero on.",
+    "math": "6 \\times 80 = (6 \\times 8) \\times 10 = 48 \\times 10 = 480",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      480
+     ],
+     "labels": [],
+     "caption": "48 tens is 480 dollars"
+    }
+   },
+   {
+    "say": "Here is the slip lots of kids make. They break six into five plus one, get forty, then add only one and say forty-one. But look at that leftover row — it is a whole row of eight squares, not one square. The one means one more group of eight. So it is forty plus eight, forty-eight.",
+    "math": "6 \\times 8 \\neq 40 + 1; \\quad 6 \\times 8 = 40 + 8 = 48",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      1,
+      8
+     ],
+     "labels": [],
+     "caption": "The leftover row holds eight squares, not one"
+    }
+   },
+   {
+    "say": "So whenever a fact feels hard, break it into friendly pieces, or double an easier fact, and handle the zeros last.",
+    "math": "7 \\times 8 = (5 \\times 8) + (2 \\times 8) = 40 + 16 = 56",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Break the tricky fact into friendly pieces you already know, add them up, then annex the zeros.",
+  "practice": {
+   "question": "A hockey puck at the Burnaby sports shop costs eight dollars. Coach buys seven pucks. Break seven into five plus two: work out five times eight, then two times eight, then add them. What is the total? Then try the bigger one — if each puck cost eighty dollars instead, what would seven pucks cost?",
+   "answer": "Five times eight is forty, and two times eight is sixteen. Forty plus sixteen is fifty-six, so seven pucks cost 56 dollars. At eighty dollars each: seven times eight is fifty-six, so seven times eighty is 560 dollars."
+  }
+ }
+}

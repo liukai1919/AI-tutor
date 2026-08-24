@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.INC_DEC.EXTEND",
+ "lang": "en",
+ "title": "Extend increasing and decreasing number patterns",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Keep the Pattern Going!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to skip count forward and backward by twenty-fives and hundreds. Today we use that skill to keep a number pattern going, so we can tell what comes next.",
+    "math": "25,\\ 50,\\ 75,\\ 100,\\ \\ldots",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      25,
+      50,
+      75,
+      100
+     ],
+     "labels": [],
+     "caption": "Counting by twenty-fives on the hundred chart"
+    }
+   },
+   {
+    "say": "Here is the one step. First, look at two numbers that sit side by side and ask, what happened to get from this one to the next one? Then check that the same thing happens every time. That is the rule of the pattern.",
+    "math": "50 \\xrightarrow{+25} 75 \\xrightarrow{+25} 100 \\xrightarrow{+25} 125",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      50,
+      75,
+      100,
+      125
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4"
+     ],
+     "caption": "Maya's savings in dollars — plus twenty-five each week"
+    }
+   },
+   {
+    "say": "Now we extend it. Maya keeps saving twenty-five dollars every week. One hundred twenty-five plus twenty-five is one hundred fifty. And one hundred fifty plus twenty-five is one hundred seventy-five. So week five is one hundred fifty dollars and week six is one hundred seventy-five dollars. We did not guess — we just used the rule again.",
+    "math": "125+25=150,\\quad 150+25=175",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      50,
+      75,
+      100,
+      125,
+      150,
+      175
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+     ],
+     "caption": "The last two numbers came from the rule: plus twenty-five"
+    }
+   },
+   {
+    "say": "Decreasing patterns work exactly the same way, just going down. A water tank on a farm loses one hundred litres every hour: nine hundred, eight hundred, seven hundred, six hundred. The rule is minus one hundred, so the next two are five hundred and four hundred litres.",
+    "math": "600-100=500,\\quad 500-100=400",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      900,
+      800,
+      700,
+      600,
+      500,
+      400
+     ],
+     "labels": [
+      "1 pm",
+      "2 pm",
+      "3 pm",
+      "4 pm",
+      "5 pm",
+      "6 pm"
+     ],
+     "caption": "Litres in the tank — minus one hundred each hour"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. After six hundred, someone writes seven hundred, because they forget which way the pattern is going and add instead of subtract. But this pattern is getting smaller every single time, so it can never jump back up. Check the direction first, then keep going that same way: six hundred minus one hundred is five hundred.",
+    "math": "600+100=700\\ \\text{✗}\\qquad 600-100=500\\ \\text{✓}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      400,
+      900,
+      600,
+      500
+     ],
+     "labels": [],
+     "caption": "The arrow keeps going the same way — down by one hundred"
+    }
+   },
+   {
+    "say": "So remember: find the rule, check it works between every pair, then use that same rule again and again.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the rule that happens every time, then keep doing it — add to go up, subtract to go down.",
+  "practice": {
+   "question": "A water tank at a farm near Kelowna starts with one thousand two hundred litres, and the numbers go like this: one thousand two hundred, one thousand one hundred seventy-five, one thousand one hundred fifty, one thousand one hundred twenty-five. What is the rule, and what are the next two numbers?",
+   "answer": "The rule is minus twenty-five each time. The next two numbers are one thousand one hundred, and one thousand seventy-five."
+  }
+ }
+}

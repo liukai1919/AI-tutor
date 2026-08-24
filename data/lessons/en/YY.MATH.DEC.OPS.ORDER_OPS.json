@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.OPS.ORDER_OPS",
+ "lang": "en",
+ "title": "Use the order of operations with decimals, including brackets",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Brackets First, Even With Decimals",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add, subtract, multiply and divide decimals, and you know what brackets mean. Today we just answer one question: when a decimal question has brackets AND other operations mixed together, which part do you do first?",
+    "math": "(5.50-2.25)\\times 4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the order, and it never changes. Brackets first. Then multiplying and dividing, going left to right. Then adding and subtracting. Decimals do not change this order at all — a point in a number is not a special pass to go first. Think of it like a balance scale: as long as you follow the order, both sides stay perfectly equal.",
+    "math": "(1.5+2.5)\\times 4 \\;=\\; 4\\times 4 \\;=\\; 16",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "(1.5+2.5)×4",
+      "16"
+     ],
+     "caption": "Follow the order and the two sides balance"
+    }
+   },
+   {
+    "say": "Let us try a real one. At the movie theatre, a snack combo costs five dollars and fifty cents, and you each have a two dollar twenty-five cent coupon. Four friends are buying one each. The expression is four times, in brackets, five point five zero minus two point two five. Brackets first: five point five zero minus two point two five is three point two five. So each friend really pays three dollars and twenty-five cents.",
+    "math": "4\\times(5.50-2.25)=4\\times 3.25",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      6,
+      5.5,
+      3.25
+     ],
+     "labels": [],
+     "caption": "Inside the brackets: 5.50 minus 2.25 lands on 3.25"
+    }
+   },
+   {
+    "say": "Now, and only now, do the multiplying. Four times three point two five. Three point two five plus three point two five is six point five zero, and doubling that gives thirteen. So the four friends pay thirteen dollars in total.",
+    "math": "4\\times 3.25=13",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.25,
+      3.25,
+      3.25,
+      3.25
+     ],
+     "labels": [
+      "3.25",
+      "3.25",
+      "3.25",
+      "3.25"
+     ],
+     "caption": "Four friends × $3.25 each = $13.00"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes at least once: ignoring the brackets. Look at, in brackets, one point five plus two point five, all times four. If you rush and multiply two point five by four first, you get ten, then add one point five and get eleven point five. But the brackets are telling you that the whole four is being multiplied, not just the two point five. Doing brackets first gives four times four, which is sixteen. Eleven point five and sixteen are not the same — the scale tips. Brackets are instructions, not decoration.",
+    "math": "1.5+2.5\\times 4=11.5\\quad\\text{✗}\\qquad (1.5+2.5)\\times 4=16\\quad\\text{✓}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "1.5 + 2.5×4 = 11.5",
+      "(1.5+2.5)×4 = 16"
+     ],
+     "caption": "Skipping the brackets gives a different, wrong answer"
+    }
+   },
+   {
+    "say": "So remember: brackets first, then multiply and divide, then add and subtract. Decimals follow exactly the same rules as whole numbers.",
+    "math": "(\\;)\\;\\rightarrow\\;\\times\\,\\div\\;\\rightarrow\\;+\\,-",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Do the brackets first, then multiply and divide, then add and subtract — decimals don't get to skip the line.",
+  "practice": {
+   "question": "At the corner store, a slushie costs two dollars and forty cents and a bag of chips costs one dollar and eighty-five cents. Three friends each buy one slushie and one bag of chips. Work out three times, in brackets, two point four zero plus one point eight five. What is the total cost?",
+   "answer": "$12.75 — brackets first: 2.40 + 1.85 = 4.25, then 3 × 4.25 = 12.75"
+  }
+ }
+}

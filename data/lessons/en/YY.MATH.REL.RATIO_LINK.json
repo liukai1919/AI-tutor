@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.RATIO_LINK",
+ "lang": "en",
+ "title": "Write a part-to-whole ratio as a fraction, decimal and percent (50:100 = 1/2 = 0.5 = 50%)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "From Ratio to Fraction, Decimal and Percent",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to flip a fraction into a decimal and a percent, like three eighths becoming zero point three seven five and thirty seven point five percent. Today we start one step earlier: someone hands you a part-to-whole ratio, and we turn it into all three of those.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. A part-to-whole ratio compares one part to the whole group, so it slides straight into a fraction: the part goes on top, the whole goes on the bottom. Imagine you shot one hundred free throws at the community centre and made fifty. The ratio fifty to one hundred means fifty made out of one hundred shots, which is the fraction fifty over one hundred. That simplifies to one half, which is zero point five, which is fifty percent.",
+    "math": "50:100=\\frac{50}{100}=\\frac{1}{2}=0.5=50\\%",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      50,
+      50
+     ],
+     "labels": [
+      "Made",
+      "Missed"
+     ],
+     "caption": "50 made out of 100 shots — half the bar"
+    }
+   },
+   {
+    "say": "Let us try one together. In your class of twenty five students, twenty take the bus home. The ratio of bus riders to the whole class is twenty to twenty five. Write it as twenty over twenty five. Both numbers divide by five, so that is four fifths. Four divided by five is zero point eight, and zero point eight is eighty percent. So eighty percent of your class rides the bus.",
+    "math": "20:25=\\frac{20}{25}=\\frac{4}{5}=0.8=80\\%",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      5
+     ],
+     "labels": [
+      "Bus",
+      "Walk"
+     ],
+     "caption": "20 bus + 5 walk = 25 in the whole class"
+    }
+   },
+   {
+    "say": "Now the trap to watch for. Your team has three red jerseys and two blue ones. Three to two is a part-to-part ratio, and someone might write red as three halves. But three halves is more than one whole, and red cannot be more than the entire team. Look at the bar: the whole team is three plus two, which is five. So red out of the whole team is three fifths, which is zero point six, or sixty percent. Always ask yourself first, is that bottom number the whole?",
+    "math": "\\frac{3}{2}\\ \\text{wrong}\\quad\\frac{3}{3+2}=\\frac{3}{5}=0.6=60\\%",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "Red",
+      "Blue"
+     ],
+     "caption": "Whole team = 3 + 2 = 5, so red is 3 out of 5"
+    }
+   },
+   {
+    "say": "So the whole move is just this: build the fraction with the whole underneath, divide to get the decimal, then multiply by one hundred for the percent. Same amount, three different outfits.",
+    "math": "\\text{part}:\\text{whole}\\rightarrow\\frac{\\text{part}}{\\text{whole}}\\rightarrow\\text{decimal}\\rightarrow\\text{percent}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      50
+     ],
+     "labels": [],
+     "caption": "50 out of 100 squares = 1/2 = 0.5 = 50%"
+    }
+   }
+  ],
+  "answer": "Part on top, WHOLE on the bottom — then divide for the decimal and times one hundred for the percent.",
+  "practice": {
+   "question": "You get twenty dollars of allowance. Picture a bar split into two pieces: fifteen dollars you put into savings and five dollars you spend at the corner store — try sketching that bar yourself. Write the ratio of money saved to your whole allowance as a fraction, a decimal and a percent.",
+   "answer": "Saved to whole is fifteen to twenty, which is fifteen over twenty, which simplifies to three quarters. Three divided by four is zero point seven five, so that is seventy five percent."
+  }
+ }
+}

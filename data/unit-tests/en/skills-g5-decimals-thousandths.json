@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "decimals-thousandths",
+ "lang": "en",
+ "unitName": {
+  "zh": "小数（到千分位）",
+  "en": "Decimals to thousandths"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Decimals to thousandths · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.DEC.PV1000.MODEL",
+    "level": 1,
+    "question": "In Ms. Chan's class, one large base-ten cube stands for 1 whole. It is cut into 1000 equal small cubes. Owen shades 7 of the small cubes. Which decimal shows the shaded part?",
+    "options": [
+     "0.7",
+     "0.07",
+     "0.007",
+     "7.000"
+    ],
+    "answerIndex": 2,
+    "explain": "Each small cube is one thousandth of the whole cube, so 7 of them is 7 thousandths, written 0.007. The trap is writing 0.7 or 0.07 — those would mean 7 tenths (7 slabs) or 7 hundredths (7 rods), much larger pieces."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV1000.READ_WRITE",
+    "level": 1,
+    "question": "A weather station in Kamloops recorded 4.386 mm of rain. What is the value of the digit 8 in 4.386?",
+    "options": [
+     "8 hundredths, or 0.08",
+     "8 tenths, or 0.8",
+     "8 thousandths, or 0.008",
+     "8 ones, or 8"
+    ],
+    "answerIndex": 0,
+    "explain": "After the decimal point the places go tenths, hundredths, thousandths, so the second digit 8 sits in the hundredths place and is worth 0.08. A common trap is counting the places backwards from the end and calling it 8 thousandths."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV1000.FRAC_LINK",
+    "level": 1,
+    "question": "Which decimal is equal to the fraction 45/1000?",
+    "options": [
+     "0.45",
+     "0.0045",
+     "45.0",
+     "0.045"
+    ],
+    "answerIndex": 3,
+    "explain": "A denominator of 1000 means the last digit must land in the thousandths place, so 45 needs three decimal places: 0.045, with a zero holding the tenths place. The most common mistake is writing 0.45, which is really 45/100 — ten times too big."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV1000.COMPARE",
+    "level": 1,
+    "question": "At the school track meet these long-jump distances were measured: 0.405 m, 0.54 m, 0.5 m, 0.45 m. Which distance is the greatest?",
+    "options": [
+     "0.405 m",
+     "0.54 m",
+     "0.5 m",
+     "0.45 m"
+    ],
+    "answerIndex": 1,
+    "explain": "Compare place by place from the left: all have 0 ones, so look at tenths — 5, 5, 4, 4 — then hundredths, where 0.54 beats 0.50. The trap is thinking 0.405 is biggest because it has the most digits; more digits does not mean a bigger number."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.1000.ALGORITHM",
+    "level": 2,
+    "question": "Ella sets up 6.5 − 2.375 in a column. Which answer is correct?",
+    "options": [
+     "4.275",
+     "4.225",
+     "4.135",
+     "4.125"
+    ],
+    "answerIndex": 3,
+    "explain": "Line up the decimal points and fill the empty places with zeros: 6.500 − 2.375 = 4.125, regrouping from the tenths. The classic trap is flipping a column and doing 5 − 0 or 7 − 0 to avoid regrouping, which gives 4.275."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE",
+    "level": 2,
+    "question": "On a hike near Squamish, Noor walks 4.875 km before lunch and 2.09 km after lunch. Without adding exactly, which is the best estimate of the total distance?",
+    "options": [
+     "about 7 km",
+     "about 6 km",
+     "about 8 km",
+     "about 5 km"
+    ],
+    "answerIndex": 0,
+    "explain": "Round each number to the nearest whole: 4.875 is close to 5 and 2.09 is close to 2, so the total is about 7 km. The trap is chopping off the decimals instead of rounding — that turns 4.875 into 4 and makes the estimate about 6 km, which is too low."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.1000.WORD",
+    "level": 3,
+    "question": "At a Saturday market in Victoria, Jayden buys a basket of blueberries for $4.85 and a piece of bannock for $3.50. He pays with a $20 bill. How much change should he get?",
+    "options": [
+     "$8.35",
+     "$12.65",
+     "$11.65",
+     "$11.75"
+    ],
+    "answerIndex": 2,
+    "explain": "First add the two prices ($4.85 + $3.50 = $8.35), then subtract from $20.00 to get $11.65. Two traps here: stopping after the addition and choosing $8.35, or subtracting without regrouping across the zeros in $20.00."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.1000.WORD",
+    "level": 3,
+    "question": "Priya's water bottle holds 1.5 L. At recess she drinks 375 mL and at lunch she drinks 0.42 L. How much water is left in the bottle?",
+    "options": [
+     "0.795 L",
+     "0.705 L",
+     "1.083 L",
+     "0.805 L"
+    ],
+    "answerIndex": 1,
+    "explain": "Convert first: 375 mL = 0.375 L, then add what she drank (0.375 + 0.420 = 0.795 L) and subtract from 1.500 L to get 0.705 L. Two traps: lining the numbers up by their last digit instead of by the decimal point, and answering with 0.795 L, which is how much she drank, not how much is left."
+   }
+  ]
+ }
+}

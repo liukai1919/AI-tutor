@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.WITHIN_HOUR",
+ "lang": "en",
+ "title": "Find elapsed time within one hour",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "How Long Did That Take? Minutes Inside One Hour",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a clock right down to the minute — like seeing that soccer practice starts at four twenty. Today we learn one small new thing: how to find how long something lasted, when the start and the end are inside the same hour.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      4,
+      20
+     ],
+     "labels": [],
+     "caption": "Practice starts at 4:20"
+    }
+   },
+   {
+    "say": "Here is the trick. When both times have the same hour, the hour never changes, so you only look at the minutes. Just find how many minutes it is from the start minute to the end minute. Practice starts at four twenty and ends at four fifty five. Both are four o’clock something, so we only care about twenty and fifty five.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      4,
+      20,
+      4,
+      55
+     ],
+     "labels": [],
+     "caption": "Same hour: only the minutes change"
+    }
+   },
+   {
+    "say": "Let’s put the minutes on a number line, from zero to sixty, because one hour has sixty minutes. We start at twenty and jump to fifty five. To find the size of that jump we take away: fifty five minus twenty equals thirty five. So practice lasted thirty five minutes.",
+    "math": "55-20=35",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60,
+      20,
+      55
+     ],
+     "labels": [],
+     "caption": "Jump from minute 20 to minute 55 is 35 minutes"
+    }
+   },
+   {
+    "say": "Now here is a mistake lots of kids make. On the clock, the long hand starts pointing at the four and ends pointing at the eleven. Some kids do eleven take away four equals seven, and say seven minutes. But those numbers on the clock are not minutes for the long hand — each one is worth five minutes. Seven of those jumps is seven times five, which is thirty five minutes. Same answer as before, thirty five. So always read the minutes, not the clock numbers.",
+    "math": "7\\times 5=35",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      4,
+      20,
+      4,
+      55
+     ],
+     "labels": [],
+     "caption": "7 clock numbers = 7 x 5 = 35 minutes, not 7 minutes"
+    }
+   },
+   {
+    "say": "So remember: same hour means same hour, just subtract the minutes. End minutes take away start minutes gives you how long it lasted.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60,
+      20,
+      55
+     ],
+     "labels": [],
+     "caption": "End minute minus start minute"
+    }
+   }
+  ],
+  "answer": "Same hour? Just subtract the minutes: end minutes minus start minutes.",
+  "practice": {
+   "question": "Nadia’s swim lesson at the community pool starts at three twenty five in the afternoon and finishes at three fifty in the afternoon. How many minutes long is her lesson? Try drawing two clocks yourself, one showing three twenty five and one showing three fifty.",
+   "answer": "25 minutes, because both times are in the three o’clock hour, so fifty take away twenty five equals twenty five."
+  }
+ }
+}

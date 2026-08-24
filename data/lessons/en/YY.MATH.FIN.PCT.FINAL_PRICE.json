@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
+ "lang": "en",
+ "title": "Find the final price after a discount and tax, and the overall percentage change",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Discount First, Then Tax",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add GST and PST onto a price. Today we add one small thing before that: a discount. When something is on sale, the price goes down first, and then the tax gets added onto the new, smaller price. Two steps, in order.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our shopping trip. Headphones at the mall cost eighty dollars, and today they are twenty five percent off. Step one is only about the discount. Twenty five percent of eighty dollars is twenty dollars. But careful, twenty dollars is what you save, not what you pay. Take it off the bar: eighty minus twenty leaves a sale price of sixty dollars.",
+    "math": "\\$80 \\times 0.25 = \\$20 \\quad\\Rightarrow\\quad \\$80 - \\$20 = \\$60",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      80,
+      20,
+      60
+     ],
+     "labels": [
+      "Full price",
+      "You save",
+      "Sale price"
+     ],
+     "caption": "Twenty five percent off eighty dollars leaves sixty dollars"
+    }
+   },
+   {
+    "say": "Now step two, the tax. Here in B C the tax on headphones is twelve percent, and it goes on the sale price of sixty dollars, not on the old eighty. Twelve percent of sixty is seven dollars and twenty cents. So you hand over sixty plus seven twenty, which is sixty seven dollars and twenty cents.",
+    "math": "\\$60 \\times 1.12 = \\$67.20",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      7.2,
+      67.2
+     ],
+     "labels": [
+      "Sale price",
+      "Tax 12%",
+      "You pay"
+     ],
+     "caption": "Tax is added onto the sale price only"
+    }
+   },
+   {
+    "say": "Two traps to watch for. First trap: saying the headphones cost twenty dollars. No, twenty dollars is the discount, the sale price is sixty. Second trap: taking away twenty five percent and adding twelve percent and thinking that is just thirteen percent off. If you do that you get sixty nine dollars and sixty cents, which is more than the real answer. The percents are slices of different sized bars, so you cannot just add and subtract them. Always do the two steps in order.",
+    "math": "\\$80 \\times 0.87 = \\$69.60 \\;\\;(\\text{wrong!})",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      67.2,
+      69.6
+     ],
+     "labels": [
+      "Correct: two steps",
+      "Wrong: added the percents"
+     ],
+     "caption": "Adding the percents overcharges you by two dollars forty"
+    }
+   },
+   {
+    "say": "Last question: overall, did you win or lose? Compare what you actually paid with the sticker price. Sixty seven dollars and twenty cents divided by eighty dollars is zero point eight four, which is eighty four percent. You paid eighty four percent of the original price, so overall you came out sixteen percent below the sticker price. Nice deal, even after tax.",
+    "math": "\\frac{67.20}{80} = 0.84 = 84\\% \\;\\Rightarrow\\; 16\\% \\text{ decrease}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      80,
+      67.2
+     ],
+     "labels": [
+      "Sticker price",
+      "What you paid"
+     ],
+     "caption": "Paying 84 percent of the original means 16 percent off overall"
+    }
+   }
+  ],
+  "answer": "Discount off the full price first, then tax on the sale price — never just add the percents together.",
+  "practice": {
+   "question": "A skateboard at a Vancouver shop is fifty dollars, and it is twenty percent off. The tax is twelve percent. How much do you actually pay at the till, and overall is that more or less than fifty dollars, by what percent? Try sketching a bar for the fifty dollars and shading the part you save.",
+   "answer": "The discount is ten dollars, so the sale price is forty dollars. The tax is twelve percent of forty, which is four dollars and eighty cents. You pay forty four dollars and eighty cents. Since forty four eighty divided by fifty is zero point eight nine six, that is 89.6 percent of the sticker price, so overall it is 10.4 percent less than fifty dollars."
+  }
+ }
+}

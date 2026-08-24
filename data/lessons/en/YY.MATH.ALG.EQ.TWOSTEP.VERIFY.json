@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY",
+ "lang": "en",
+ "title": "Verify a solution by substituting it back into the equation",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Check Your Answer: Plug It Back In",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve a two step equation like four x plus five equals twenty five by undoing the operations. But how do you know your answer is actually right, without asking anyone? That is this one little move: put your answer back into the original equation and see if it holds up.",
+    "math": "4x + 5 = 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of the equal sign as a balance scale. The left side sits in one pan, the right side sits in the other. If your answer is the correct one, then when you swap the x for that number, both pans work out to the exact same weight and the scale stays perfectly level. If it tips, your answer is not the one.",
+    "math": "4x + 5 = 25",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4x + 5",
+      "25"
+     ],
+     "caption": "The equal sign means: both sides weigh the same"
+    }
+   },
+   {
+    "say": "Let us test x equals five. Everywhere you see an x, write five instead. The left side becomes four times five plus five. Careful with the order: multiply first, four times five is twenty, then add five, which gives twenty five. The right side is already twenty five. Twenty five equals twenty five, so the scale is level. Five is correct.",
+    "math": "4(5) + 5 = 20 + 5 = 25",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4(5) + 5 = 25",
+      "25"
+     ],
+     "caption": "Both sides land on 25, so the scale balances"
+    }
+   },
+   {
+    "say": "Now watch what a wrong answer looks like. Suppose a friend says x equals six. Substitute it in: four times six is twenty four, plus five is twenty nine. But the right side is only twenty five. Twenty nine is not twenty five, so the left pan is heavier and the scale tips. That tells you straight away that six is not the solution, and nobody had to mark it for you.",
+    "math": "4(6) + 5 = 24 + 5 = 29 \\neq 25",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "4(6) + 5 = 29",
+      "25"
+     ],
+     "caption": "29 is heavier than 25 — the scale tips, so x = 6 is wrong"
+    }
+   },
+   {
+    "say": "So checking is just three quick moves: replace every x with your number, work out each side on its own, and ask does the scale balance. If both sides match, you are right. If they do not, go back and hunt for your slip.",
+    "math": "\\text{substitute} \\rightarrow \\text{simplify both sides} \\rightarrow \\text{equal?}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "left side",
+      "right side"
+     ],
+     "caption": "Same on both sides = correct solution"
+    }
+   }
+  ],
+  "answer": "Put your answer back in: if both sides come out equal, the scale balances and you are right.",
+  "practice": {
+   "question": "Your school ski trip costs a flat eight dollars for the bus, plus the same price for every lift ticket. That gives the equation six x plus eight equals fifty, where x is the price of one lift ticket in dollars. Your friend says x equals seven. Substitute seven in place of x, work out both sides, and decide whether your friend is right.",
+   "answer": "Yes, your friend is right. Six times seven is forty two, plus eight is fifty. The left side is fifty and the right side is fifty, so both sides match and x equals seven is the solution."
+  }
+ }
+}

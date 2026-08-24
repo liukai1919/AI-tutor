@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "integers",
+ "lang": "en",
+ "unitName": {
+  "zh": "整数（含负数）的运算",
+  "en": "Integer operations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Integer operations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.INT.CONCEPT",
+    "level": 1,
+    "question": "Which situation is best represented by the integer -8?",
+    "options": [
+     "The temperature in Kelowna rose 8 °C during the afternoon.",
+     "Owen climbed 8 m up the trail at Mount Seymour.",
+     "A diver near Nanaimo is 8 m below the surface of the ocean.",
+     "Priya put $8 into her savings account."
+    ],
+    "answerIndex": 2,
+    "explain": "A negative integer names an amount on the 'below zero' side of a starting point, so 8 m below the ocean surface is -8. The common trap is thinking any change or any loss of effort is negative — climbing 8 m up and depositing $8 are both +8."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.COMPARE_ORDER",
+    "level": 1,
+    "question": "Order these integers from least to greatest: -7, 3, -12, 0",
+    "options": [
+     "-7, -12, 0, 3",
+     "3, 0, -7, -12",
+     "0, 3, -7, -12",
+     "-12, -7, 0, 3"
+    ],
+    "answerIndex": 3,
+    "explain": "On a number line, the further left a number sits, the smaller it is, so -12 comes before -7. The most common trap is ordering negatives as if they were positive numbers (thinking -7 is less than -12 because 7 is less than 12)."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.ADD",
+    "level": 1,
+    "question": "A two-colour counter model shows 9 red counters (each worth -1) and 4 yellow counters (each worth +1). What integer does the model represent?",
+    "options": [
+     "-13",
+     "-5",
+     "5",
+     "13"
+    ],
+    "answerIndex": 1,
+    "explain": "Each red-yellow pair is a zero pair: 4 pairs cancel out, leaving 5 red counters, so the value is -5. The trap is adding 9 and 4 to get 13 instead of cancelling the zero pairs first."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.SUBTRACT",
+    "level": 2,
+    "question": "At 6 a.m. the temperature in Prince George was -11 °C. By noon it had climbed to 6 °C. How many degrees did the temperature rise?",
+    "options": [
+     "17 °C",
+     "5 °C",
+     "-5 °C",
+     "-17 °C"
+    ],
+    "answerIndex": 0,
+    "explain": "A rise is the finish minus the start: 6 - (-11), and subtracting a negative is the same as adding, so 6 + 11 = 17 °C. The trap is dropping the negative sign and writing 6 - 11 = -5."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.MULT_DIV",
+    "level": 2,
+    "question": "Over 6 weeks, Ravi's bank balance changed by a total of -$48, and it changed by the same amount each week. What integer shows the change each week?",
+    "options": [
+     "$8",
+     "-$42",
+     "-$8",
+     "-$288"
+    ],
+    "answerIndex": 2,
+    "explain": "Share the total equally: -48 ÷ 6 = -8, and a negative divided by a positive is always negative, so the weekly change is -$8. The traps are dropping the sign (writing $8) or multiplying instead of dividing."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.ORDER_OPS",
+    "level": 2,
+    "question": "Evaluate: -3 + 2 × (-5)",
+    "options": [
+     "5",
+     "-13",
+     "7",
+     "13"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiplication comes before addition: 2 × (-5) = -10, then -3 + (-10) = -13. The classic trap is working left to right, which gives (-3 + 2) × (-5) = 5."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.WORD",
+    "level": 3,
+    "question": "Nadia's account is overdrawn, so her balance is -$18. For each of the next 3 weeks she deposits $12 from her paper route, and the bank charges her one $5 overdraft fee. What is her balance after the 3 weeks?",
+    "options": [
+     "$18",
+     "-$11",
+     "$23",
+     "$13"
+    ],
+    "answerIndex": 3,
+    "explain": "Work in order: 3 deposits give 3 × 12 = $36, so -18 + 36 = 18, then take off the one fee: 18 - 5 = $13. The traps are forgetting the fee ($18), counting only one deposit (-$11), or adding the fee instead of subtracting it ($23)."
+   },
+   {
+    "curriculumId": "YY.MATH.INT.ORDER_OPS",
+    "level": 3,
+    "question": "Evaluate: (-4) × (3 - 7) - (-6) ÷ 2",
+    "options": [
+     "19",
+     "13",
+     "-19",
+     "22"
+    ],
+    "answerIndex": 0,
+    "explain": "Brackets first: 3 - 7 = -4, so (-4) × (-4) = 16 and (-6) ÷ 2 = -3, giving 16 - (-3) = 16 + 3 = 19. The biggest trap in this unit is treating - (-3) as -3 and answering 13, when subtracting a negative always means adding."
+   }
+  ]
+ }
+}

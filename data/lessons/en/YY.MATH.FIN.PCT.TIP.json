@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PCT.TIP",
+ "lang": "en",
+ "title": "Estimate and calculate a tip (10%, 15%, 20%)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Quick Tips: 10, 15 and 20 Percent",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like twenty five percent of eighty. Today we make one of those super fast, so you can figure out a tip at a restaurant in your head, before the waiter even walks away.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick. Ten percent means ten out of one hundred, which is just one tenth. To find ten percent of any amount of money, slide the decimal point one place to the left. So if the bill is forty dollars, ten percent is four dollars. That one move is the engine for everything else today.",
+    "math": "10\\%\\ \\text{of}\\ \\$40 = \\$4.00",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      10
+     ],
+     "labels": [],
+     "caption": "10 shaded out of 100 squares is 10 percent, or one tenth"
+    }
+   },
+   {
+    "say": "Now twenty percent is easy, because twenty percent is just two tens. Find ten percent, then double it. Ten percent of forty dollars is four dollars, so twenty percent is four plus four, which is eight dollars. Notice we never multiplied by anything messy. We slid a decimal, then doubled.",
+    "math": "20\\%\\ \\text{of}\\ \\$40 = 2\\times \\$4 = \\$8",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      4,
+      8
+     ],
+     "labels": [
+      "Bill 40 dollars",
+      "10 percent is 4",
+      "20 percent is 8"
+     ],
+     "caption": "Ten percent doubled gives twenty percent"
+    }
+   },
+   {
+    "say": "Fifteen percent is the one people think is hard, but it is just ten percent plus half of that ten percent. Say you and your friends grab pizza in Vancouver and the bill is thirty six dollars. Ten percent is three dollars and sixty cents. Half of that is one dollar and eighty cents. Add them: three sixty plus one eighty is five dollars and forty cents. That is your fifteen percent tip.",
+    "math": "15\\% = 10\\% + 5\\% = \\$3.60 + \\$1.80 = \\$5.40",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.6,
+      1.8,
+      5.4
+     ],
+     "labels": [
+      "10 percent is 3.60",
+      "5 percent is 1.80",
+      "15 percent is 5.40"
+     ],
+     "caption": "Stack ten percent and half of it to build fifteen percent"
+    }
+   },
+   {
+    "say": "Here is the slip to watch for. Some people see the word percent, think of one hundred, and slide the decimal two places instead of one. That turns thirty six dollars into thirty six cents. Look at those two bars. Thirty six cents would not even buy a stick of gum, so you know right away it is too small. Ten percent is one tenth, so it is only ever one slide.",
+    "math": "10\\%\\ \\text{of}\\ \\$36 = \\$3.60,\\ \\text{not}\\ \\$0.36",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      0.36,
+      3.6
+     ],
+     "labels": [
+      "Wrong: 36 cents",
+      "Right: 3 dollars 60"
+     ],
+     "caption": "One slide, not two"
+    }
+   },
+   {
+    "say": "So whenever someone asks what the tip should be, start with ten percent, then build. Double it for twenty, or add half of it for fifteen. You will be faster than the phone.",
+    "math": "10\\% \\rightarrow \\times 2 = 20\\%,\\quad 10\\% + \\tfrac{1}{2}(10\\%) = 15\\%",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find 10 percent first by sliding the decimal one place left, then double it for 20 percent or add half of it for 15 percent.",
+  "practice": {
+   "question": "Your family's dinner bill at a diner in Kelowna comes to sixty dollars. First find ten percent of sixty dollars. Then use it to find a fifteen percent tip, and also a twenty percent tip. Try writing the three amounts down as you go.",
+   "answer": "Ten percent of sixty dollars is six dollars. For fifteen percent, add half of six, which is three, so six plus three is nine dollars. For twenty percent, double six, which is twelve dollars."
+  }
+ }
+}

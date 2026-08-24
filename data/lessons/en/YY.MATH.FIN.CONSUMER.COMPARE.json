@@ -1,0 +1,117 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.CONSUMER.COMPARE",
+ "lang": "en",
+ "title": "Compare purchase options by price, size and discount to make an informed choice",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which One Is the Better Buy?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a sale price when something is a percent off, and how to divide to find the price of just one litre. Today we put those two skills together to answer a real question at the store: which deal is actually the better buy?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our shopping trip. At a Vancouver grocery store, Juice A is a two litre bottle for four dollars and fifty cents, with no discount. Juice B is a three litre bottle marked seven dollars and eighty cents, and today it is twenty five percent off. The bottles are different sizes and one has a discount, so we cannot just look at the shelf price. The trick is to line everything up in a table.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4.5,
+      7.8,
+      2,
+      3
+     ],
+     "labels": [
+      "Juice A",
+      "Juice B",
+      "Shelf price ($)",
+      "Size (L)"
+     ],
+     "caption": "Line the two juices up side by side"
+    }
+   },
+   {
+    "say": "First we fix Juice B, because its shelf price is not what we pay. Twenty five percent of seven dollars and eighty cents is one dollar and ninety five cents. That is the money we save, so we take it away: seven dollars and eighty cents minus one dollar and ninety five cents leaves five dollars and eighty five cents. That is what Juice B really costs at the till.",
+    "math": "\\$7.80\\times 0.25=\\$1.95\\qquad \\$7.80-\\$1.95=\\$5.85",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5.85,
+      1.95
+     ],
+     "labels": [
+      "You pay",
+      "You save"
+     ],
+     "caption": "The seven dollars and eighty cents splits into what you pay and what you save"
+    }
+   },
+   {
+    "say": "Now the sizes are still different, so we bring both down to the price of one single litre. For Juice A, four dollars and fifty cents divided by two litres is two dollars and twenty five cents a litre. For Juice B, five dollars and eighty five cents divided by three litres is one dollar and ninety five cents a litre. Juice B costs more money in total, but each litre is cheaper, so Juice B is the better buy.",
+    "math": "\\$4.50\\div 2=\\$2.25\\qquad \\$5.85\\div 3=\\$1.95",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4.5,
+      5.85,
+      2.25,
+      1.95
+     ],
+     "labels": [
+      "Juice A",
+      "Juice B",
+      "What you pay ($)",
+      "Price of 1 litre ($)"
+     ],
+     "caption": "Same size, fair race: the price of one litre"
+    }
+   },
+   {
+    "say": "Here is the slip lots of people make. Someone sees twenty five percent off seven dollars and eighty cents, works out one dollar and ninety five cents, and says the juice costs one dollar and ninety five cents. But one dollar and ninety five cents is only the discount, the money you save, not the price. Think of a forty dollar hoodie at twenty percent off. The saving is eight dollars, so you still hand over thirty two dollars, not eight. A discount is always a piece taken off, never the whole new price.",
+    "math": "\\$40\\times 0.20=\\$8\\;(\\text{saving})\\qquad \\$40-\\$8=\\$32\\;(\\text{price})",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      32,
+      8
+     ],
+     "labels": [
+      "Price you pay",
+      "Discount"
+     ],
+     "caption": "The forty dollar hoodie: the discount is only the small piece"
+    }
+   },
+   {
+    "say": "So whenever two deals look different, build a little table, take the discount off first, then divide to find the price of one unit. The smaller unit price wins.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2.25,
+      1.95
+     ],
+     "labels": [
+      "A per litre",
+      "B per litre"
+     ],
+     "caption": "Juice B wins: less money for every litre"
+    }
+   }
+  ],
+  "answer": "Take the discount off first, then divide to find the price of one unit — the smaller unit price is the better buy.",
+  "practice": {
+   "question": "At a Kelowna store, Box A has six granola bars for four dollars and eighty cents, with no discount. Box B has ten granola bars, marked ten dollars, and today it is thirty percent off. Draw yourself a small table with a row for the price you pay and a row for the number of bars, then work out the price of one bar in each box. Which box is the better buy?",
+   "answer": "Box B. Box A: four dollars and eighty cents divided by six is eighty cents a bar. Box B: thirty percent of ten dollars is three dollars saved, so you pay seven dollars, and seven dollars divided by ten is seventy cents a bar. Seventy cents beats eighty cents, so Box B is the better buy."
+  }
+ }
+}

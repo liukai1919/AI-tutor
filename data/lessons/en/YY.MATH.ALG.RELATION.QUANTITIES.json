@@ -1,0 +1,128 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.RELATION.QUANTITIES",
+ "lang": "en",
+ "title": "Describe how one quantity depends on another (per person, per group, over time)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "When One Thing Depends on Another",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a pattern table, and you know that three groups of two is the same as two plus two plus two. Today we take one small step further: we learn to say out loud how one number depends on another number, like how many granola bars we need depends on how many students are going on the trip.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Ms. Yuanyuan is packing snacks for a field trip to Stanley Park. Every student gets three granola bars. Look at the table. One student needs three bars. Two students need six bars. Three students need nine bars. Each time one more student joins, the bars go up by three. So we say it like this: the number of bars depends on the number of students, and it is always the students times three.",
+    "math": "3\\times 4=12",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      3,
+      6,
+      9,
+      12,
+      15
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "Students",
+      "Granola bars"
+     ],
+     "caption": "Every extra student adds three more bars"
+    }
+   },
+   {
+    "say": "Here is the same idea as bars you can see. One student is one bar of three. Two students make a bar twice as long, which is six. Three students make a bar three times as long, which is nine. The bar grows by the same jump of three every single time, because every student gets the same three granola bars.",
+    "math": "1\\times 3=3,\\ 2\\times 3=6,\\ 3\\times 3=9",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      6,
+      9
+     ],
+     "labels": [
+      "1 student",
+      "2 students",
+      "3 students"
+     ],
+     "caption": "Same jump of three each time"
+    }
+   },
+   {
+    "say": "Now let us try a bigger group. Six students are going. We do not have to draw six rows if we remember what the bars depend on. Bars equals students times three. So six times three is eighteen. Ms. Yuanyuan needs eighteen granola bars. And if a seventh student signs up, we just add one more group of three, which gives twenty one.",
+    "math": "6\\times 3=18",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      6,
+      3
+     ],
+     "labels": [],
+     "caption": "Six students, three bars each, eighteen bars"
+    }
+   },
+   {
+    "say": "Here is a mistake that trips lots of kids up. Some people see the three and just keep adding three to the student number, like one plus three is four, two plus three is five. Look at the top row. That is wrong, because three is not something we add on once. Three is how many bars each student gets, so every new student brings a whole new group of three. The bottom row is right: three, six, nine, twelve, fifteen. Ask yourself, is this per person, or is it one extra thing added at the end?",
+    "math": "5\\times 3=15\\ \\text{not}\\ 5+3=8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      3,
+      6,
+      9,
+      12,
+      15
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "Adding three (wrong)",
+      "Times three (right)"
+     ],
+     "caption": "Per student means groups of three, not plus three"
+    }
+   },
+   {
+    "say": "So remember this. When something is given to each person, or comes in each group, or happens each day, you multiply by that amount, and the table grows by the same jump every row.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "If it is “each one gets this much,” then the total is the number of ones times that much — and the table jumps by the same amount every row.",
+  "practice": {
+   "question": "At a Kelowna farm stand, one basket of blueberries costs four dollars. Draw a table yourself with a top row that says one basket, two baskets, three baskets, four baskets, five baskets, and a bottom row for the cost in dollars. Fill in the costs. How much do five baskets cost, and how does the cost depend on the number of baskets?",
+   "answer": "The bottom row is four dollars, eight dollars, twelve dollars, sixteen dollars, twenty dollars. Five baskets cost twenty dollars. The cost depends on the baskets: each extra basket adds four dollars, so cost equals baskets times four."
+  }
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.PERIM.COUNT",
+ "lang": "en",
+ "title": "Find perimeter by counting units on a grid or geoboard",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Walking Around the Outside: Perimeter on a Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know a rectangle is a polygon, a closed shape with four straight sides. Today we learn what perimeter means: it is the distance all the way around the outside of that shape, like walking around the edge of a soccer field.",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [
+      "units"
+     ],
+     "caption": "A closed shape with four straight sides"
+    }
+   },
+   {
+    "say": "When a shape sits on grid paper, the grid gives us a ruler for free. Every little square has sides that are one unit long. So to find the perimeter, we put our finger on a corner and walk along the outside edge, counting one, two, three for each little edge we pass. We count edges on the outside, not squares on the inside.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "Trace the outside edge with your finger, one unit at a time"
+    }
+   },
+   {
+    "say": "Here is a real one. Imagine a vegetable garden drawn on centimetre grid paper. It is four squares across and three squares down. Let's walk. Across the top I count four unit edges. Down the right side I count three. Across the bottom, four again. Up the left side, three. Four plus three plus four plus three is fourteen. So the perimeter is fourteen centimetres. That is how much fence you would need.",
+    "math": "4+3+4+3=14",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Perimeter is 4 + 3 + 4 + 3 = 14 cm"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everybody makes the first time. Some kids look at that same garden and count the little squares inside it. Three rows of four squares is twelve squares, so they say twelve. But twelve is the space inside, the ground you would cover with soil. It is not the walk around the outside. Squares inside and edges outside are two different things, and perimeter only cares about the outside edges.",
+    "math": "12\\text{ squares inside}\\neq 14\\text{ units around}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "12 squares inside, but 14 unit edges around the outside"
+    }
+   },
+   {
+    "say": "So whenever you see a shape on a grid or a geoboard, do not count the squares. Put your finger on one corner, walk all the way around, and count each little unit edge until you come back home.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Perimeter is the walk around the outside: count unit edges, not squares.",
+  "practice": {
+   "question": "Maya is drawing on centimetre grid paper to plan a border of ribbon for a rectangular photo of Stanley Park. Her rectangle is five squares across and two squares down. Draw it on grid paper if you like, then put your finger on a corner and walk all the way around, counting one unit edge at a time. How many centimetres of ribbon does she need?",
+   "answer": "Fourteen centimetres. Five across the top, two down the side, five across the bottom, two up the other side: five plus two plus five plus two equals fourteen. Careful — ten is the number of little squares inside, which is not the perimeter."
+  }
+ }
+}

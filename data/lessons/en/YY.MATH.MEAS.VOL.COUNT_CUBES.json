@@ -1,0 +1,83 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.COUNT_CUBES",
+ "lang": "en",
+ "title": "Find volume by counting unit cubes, including hidden ones",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Counting Cubes You Cannot See",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find area by counting little squares inside a shape. Today we do the same friendly trick, but with boxes: we find volume by counting little cubes that fill the box up. The tricky part is that some cubes hide inside where your eyes cannot reach, and we have to count those too.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our counting unit. It is one little cube, one centimetre on every edge. We call it one cubic centimetre. Volume just means: how many of these little cubes fit inside, with no gaps and no squishing. So instead of asking how many squares cover a shape, we ask how many cubes fill a box.",
+    "math": "1\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One unit cube: 1 cubic centimetre"
+    }
+   },
+   {
+    "say": "Now imagine a little sugar cube tower, two cubes long, two cubes wide, and two cubes tall. Look at the drawing and count the corners you can see. Most kids count seven, because one cube is hiding at the very back corner where the dashed lines are. It is still really there, holding the tower up! So the volume is eight cubic centimetres, not seven.",
+    "math": "2\\times 2\\times 2 = 8",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      2
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "2 by 2 by 2: 8 cubes, one hidden at the back"
+    }
+   },
+   {
+    "say": "Let us count a bigger one the safe way, by layers. Picture a box of granola bars from the store, three cubes long, two cubes wide, and two cubes tall. The bottom layer is a flat rectangle of cubes, three across and two back, so that layer holds six cubes. The top layer looks exactly the same, another six. Six and six makes twelve. The volume is twelve cubic centimetres, and counting by layers means we never forget the hidden ones in the middle.",
+    "math": "6 + 6 = 12\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      3,
+      2,
+      2
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Bottom layer 6 cubes, top layer 6 cubes, total 12"
+    }
+   },
+   {
+    "say": "So whenever you count cubes, do not trust your eyes alone. Count one whole layer, then ask yourself how many layers are stacked up. The cubes you cannot see are still doing their job inside the box.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Volume is how many unit cubes fill a solid — count a whole layer, then count the layers, so the hidden cubes get counted too.",
+  "practice": {
+   "question": "At the Vancouver market you buy a cube shaped box of maple candies. It is three little cubes long, three little cubes wide, and three little cubes tall, and every little cube is one centimetre on each edge. Draw it if it helps! How many little cubes fill the box, and what is the volume?",
+   "answer": "One layer holds three times three, which is nine cubes. There are three layers, so nine plus nine plus nine equals twenty-seven cubes. The volume is 27 cubic centimetres. Only 26 cubes are on the outside — one cube hides right in the middle where you can never see it."
+  }
+ }
+}

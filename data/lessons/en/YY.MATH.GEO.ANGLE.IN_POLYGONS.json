@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.ANGLE.IN_POLYGONS",
+ "lang": "en",
+ "title": "Find missing angles in triangles and quadrilaterals (180°, 360°)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Missing Angles in Triangles and Quadrilaterals",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to measure an angle with a protractor, and how to solve a little equation like x plus five equals eleven. Today we put those two skills together, so you can find an angle you cannot even reach with a protractor — like the top corner of a roof.",
+    "math": "",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      55
+     ],
+     "labels": [],
+     "caption": "You know how to read an angle like this one: 55 degrees"
+    }
+   },
+   {
+    "say": "Here is the one big fact. In every triangle, the three angles always add up to one hundred eighty degrees. Every single time, no matter if the triangle is skinny or wide. So if you know two of the angles, the third one is just hiding — you can find it.",
+    "math": "\\angle A + \\angle B + \\angle C = 180^\\circ",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      8,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Any triangle at all: its three angles add to 180 degrees"
+    }
+   },
+   {
+    "say": "Let's try a real one. Your family is building a triangle-shaped garden bed in the backyard in Surrey. Two of its corners measure sixty degrees and eighty degrees. What is the third corner? Add the two you know: sixty plus eighty is one hundred forty. Then take that away from one hundred eighty: one hundred eighty minus one hundred forty is forty. The missing corner is forty degrees. Let's check: sixty plus eighty plus forty is one hundred eighty. It works.",
+    "math": "60^\\circ + 80^\\circ + x = 180^\\circ \\;\\Rightarrow\\; x = 180^\\circ - 140^\\circ = 40^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      40
+     ],
+     "labels": [],
+     "caption": "The missing corner of the garden bed: 40 degrees"
+    }
+   },
+   {
+    "say": "Now a four-sided shape, like a kite or a window frame. A quadrilateral is really just two triangles pushed together, so its angles add up to double one hundred eighty — that is three hundred sixty degrees. Say a kite has angles of one hundred degrees, ninety degrees, and seventy degrees. Add them: one hundred plus ninety is one hundred ninety, plus seventy is two hundred sixty. Then three hundred sixty minus two hundred sixty is one hundred. The last angle is one hundred degrees.",
+    "math": "100^\\circ + 90^\\circ + 70^\\circ + x = 360^\\circ \\;\\Rightarrow\\; x = 100^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      100
+     ],
+     "labels": [],
+     "caption": "The last corner of the kite: 100 degrees"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Some kids see a four-sided shape and still subtract from one hundred eighty. For the kite that would give one hundred eighty minus two hundred sixty, which is negative eighty degrees. A corner can never be a negative amount of turn — that is your warning bell. So always count the sides first: three sides means one hundred eighty, four sides means three hundred sixty.",
+    "math": "180^\\circ - 260^\\circ = -80^\\circ \\;\\text{(impossible!)}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Count the sides first: 3 sides go with 180 degrees"
+    }
+   },
+   {
+    "say": "So remember: count the sides, add the angles you know, and subtract from one hundred eighty or three hundred sixty.",
+    "math": "x = 180^\\circ - (\\text{known angles}) \\quad \\text{or} \\quad x = 360^\\circ - (\\text{known angles})",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Three sides add to 180 degrees, four sides add to 360 degrees — subtract what you know to find what is missing.",
+  "practice": {
+   "question": "Ms. Yuanyuan is cutting a triangle-shaped piece of felt for the classroom bulletin board. Draw a triangle on your paper if it helps. Two of its corners measure 45 degrees and 95 degrees. What is the third corner?",
+   "answer": "40 degrees, because 45 plus 95 is 140, and 180 minus 140 is 40."
+  }
+ }
+}

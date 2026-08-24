@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS",
+ "lang": "en",
+ "title": "Evaluate expressions using the order of operations without brackets",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which One Comes First?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know your times tables really well, so here is the only tricky part left: when a question has adding and multiplying mixed together, which one do you do first? That is what we are learning today.",
+    "math": "2 + 3 \\times 4 = \\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the rule. Multiplying and dividing are the strong operations, so they go first. Adding and subtracting wait their turn and go last. If there are two strong ones, or two waiting ones, you just work from left to right.",
+    "math": "\\times \\;\\text{and}\\; \\div \\;\\text{first},\\quad + \\;\\text{and}\\; - \\;\\text{after}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2 + 3 × 4",
+      "14"
+     ],
+     "caption": "Do the times first: three times four is twelve, then two plus twelve is fourteen. The scale balances."
+    }
+   },
+   {
+    "say": "Let us try a real one. At the movies in Vancouver a ticket costs nine dollars, and you buy three bags of popcorn at six dollars each. That is nine plus three times six. Multiplying goes first: three times six is eighteen. Then add: nine plus eighteen is twenty seven dollars.",
+    "math": "9 + 3 \\times 6 = 9 + 18 = 27",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "Three bags, six dollars each, makes eighteen dollars of popcorn — worked out before the nine dollar ticket is added."
+    }
+   },
+   {
+    "say": "Now the mistake lots of kids make. They read two plus three times four straight across like a sentence and say two plus three is five, five times four is twenty. But multiplying does not wait. The three belongs to the four, so it is three times four is twelve, then two plus twelve is fourteen. Twenty is too heavy.",
+    "math": "2 + 3 \\times 4 = 2 + 12 = 14",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "2 + 3 × 4",
+      "20"
+     ],
+     "caption": "Twenty is too heavy — the left side is really only fourteen."
+    }
+   },
+   {
+    "say": "Here is the other slip. Some kids think adding always goes before subtracting. In ten minus four plus two, they add four and two first and get four. But adding and subtracting are equally strong, so go left to right: ten minus four is six, then six plus two is eight.",
+    "math": "10 - 4 + 2 = 6 + 2 = 8",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      12,
+      10,
+      6
+     ],
+     "labels": [],
+     "caption": "Start at ten, hop back four to six — then hop forward two more to land on eight."
+    }
+   },
+   {
+    "say": "So remember: do the multiplying and dividing first, then the adding and subtracting, always moving left to right.",
+    "math": "\\times, \\div \\;\\rightarrow\\; +, -",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Multiply and divide first, then add and subtract — left to right.",
+  "practice": {
+   "question": "You have twenty dollars at the corner store in Victoria. You buy three granola bars that cost two dollars each. Work out twenty minus three times two. What do you get?",
+   "answer": "14 dollars. Do the times first: three times two is six. Then twenty minus six is fourteen."
+  }
+ }
+}

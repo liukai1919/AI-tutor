@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.AM_PM_24H",
+ "lang": "en",
+ "title": "Use a.m./p.m. and convert between 12-hour and 24-hour time",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "a.m., p.m., and the 24-Hour Clock",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a clock, like when the hands say three o'clock. But here is a funny thing — three o'clock happens twice every single day! Once when you are at school, and once in the middle of the night. Today we learn how grown-ups tell those two apart.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      0
+     ],
+     "labels": [],
+     "caption": "Three o'clock — but which one?"
+    }
+   },
+   {
+    "say": "Here is the trick. The hour hand goes all the way around the clock twice in one day. The first trip, from midnight to noon, we call a dot m. Those are the sleepy morning hours. The second trip, from noon to midnight, we call p dot m. Those are the afternoon and evening hours. So eight a dot m is breakfast, and eight p dot m is bedtime story time.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      8,
+      0
+     ],
+     "labels": [],
+     "caption": "8 a.m. = breakfast, 8 p.m. = bedtime"
+    }
+   },
+   {
+    "say": "Now, some clocks in Canada — like on a BC Ferries schedule or a bus sign — do not want to write a dot m or p dot m at all. So they just keep counting past twelve. Instead of starting over at one o'clock in the afternoon, they say thirteen. Then fourteen, then fifteen, all the way to twenty three. That is the twenty four hour clock, and it never gets confused.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      24,
+      12
+     ],
+     "labels": [],
+     "caption": "Noon sits at 12 — the hours keep counting to 24"
+    }
+   },
+   {
+    "say": "Let's try one. Soccer practice starts at three p dot m. Morning hours already made one full trip around the clock, and one full trip is twelve hours. So we add those twelve hours on: three plus twelve is fifteen. Three p dot m is fifteen hundred. Notice the minutes never change — only the hour number does.",
+    "math": "3 + 12 = 15",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      0
+     ],
+     "labels": [],
+     "caption": "3 p.m. → 15:00"
+    }
+   },
+   {
+    "say": "Now here is a mistake lots of kids make. Some people add ten instead of twelve, and say three p dot m is thirteen hundred. But look — thirteen hundred is really one o'clock in the afternoon, because one plus twelve is thirteen. That is two whole hours too early, and you would show up to soccer before anyone else! It has to be twelve, because one trip around the clock face is twelve hours, not ten.",
+    "math": "1 + 12 = 13",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      1,
+      0
+     ],
+     "labels": [],
+     "caption": "13:00 is really 1 p.m. — not 3 p.m."
+    }
+   },
+   {
+    "say": "So remember: a dot m is before noon, p dot m is after noon, and to make a p dot m time into twenty four hour time, you add twelve — one whole trip around the clock.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "a.m. is before noon, p.m. is after — and for p.m. hours, add 12 (a full trip around the clock), never 10.",
+  "practice": {
+   "question": "The ferry from Tsawwassen leaves at four thirty in the afternoon — that is four thirty p.m. Write that time on a twenty four hour clock. (Try drawing a clock face and counting one full trip around it!)",
+   "answer": "16:30. Four plus twelve is sixteen, and the minutes stay thirty. (If you added ten you would get 14:30, which is really two thirty p.m. — you'd be two hours early for the ferry!)"
+  }
+ }
+}

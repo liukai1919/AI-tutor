@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.EQUIV.JUDGE",
+ "lang": "en",
+ "title": "Decide whether two fractions are equivalent and explain why",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Are These Two Fractions Twins?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build equivalent fractions by multiplying the top and bottom by the same number, and how to simplify by dividing. Today we use that skill backwards: someone hands you two fractions, and you decide if they are secretly the same amount.",
+    "math": "\\frac{3}{4} \\;?\\; \\frac{6}{8}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole test. Ask yourself: can I get from the first fraction to the second by multiplying the top and the bottom by the same number? Look at three quarters and six eighths. Three times two is six, and four times two is eight. Same number both times, so yes, they are equivalent.",
+    "math": "\\frac{3\\times 2}{4\\times 2}=\\frac{6}{8}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3,
+      8,
+      6
+     ],
+     "labels": [],
+     "caption": "Three quarters and six eighths shade the same length"
+    }
+   },
+   {
+    "say": "A number line shows it too. If you walk three quarters of the way from zero to one, and your friend walks six eighths of the way, you both stop at exactly the same spot. Equivalent fractions always land on the same point.",
+    "math": "\\frac{3}{4}=\\frac{6}{8}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75
+     ],
+     "labels": [],
+     "caption": "Both three quarters and six eighths stop here"
+    }
+   },
+   {
+    "say": "Let's try a real one. On a hike near Squamish, Ava has walked three fifths of the trail and Ben says he has walked six tenths. Are they in the same place? Three times two is six, and five times two is ten. Same multiplier, so three fifths and six tenths are equivalent. Ava and Ben are side by side.",
+    "math": "\\frac{3}{5}=\\frac{3\\times 2}{5\\times 2}=\\frac{6}{10}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      5,
+      3,
+      10,
+      6
+     ],
+     "labels": [],
+     "caption": "Three fifths and six tenths are the same amount of trail"
+    }
+   },
+   {
+    "say": "Now the trap. Some people look at two thirds and three fourths and say they are equivalent because you just add one to the top and one to the bottom. That does not work. Adding changes the amount. Let's check with twelfths: two thirds is eight twelfths, and three fourths is nine twelfths. Nine twelfths is one little piece bigger, so they are not equivalent. And notice the fraction with the bigger bottom number is the bigger one here, so never assume a bigger bottom number means a smaller fraction either. You must always check by multiplying or dividing.",
+    "math": "\\frac{2}{3}=\\frac{8}{12},\\quad \\frac{3}{4}=\\frac{9}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      8,
+      12,
+      9
+     ],
+     "labels": [],
+     "caption": "Eight twelfths is not the same as nine twelfths"
+    }
+   },
+   {
+    "say": "So here is what to remember: multiplying or dividing the top and bottom by the same number keeps a fraction equal, but adding never does.",
+    "math": "\\frac{a}{b}=\\frac{a\\times n}{b\\times n}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Two fractions are equivalent only if you can multiply or divide BOTH the top and bottom by the same number — adding the same number does not work.",
+  "practice": {
+   "question": "Liam drank four sixths of his water bottle. Nora drank six ninths of hers. Are four sixths and six ninths equivalent? Explain how you know.",
+   "answer": "Yes. Divide four sixths top and bottom by two to get two thirds, and divide six ninths top and bottom by three to also get two thirds. Since both simplify to two thirds, they are equivalent — Liam and Nora drank the same fraction of their bottles."
+  }
+ }
+}

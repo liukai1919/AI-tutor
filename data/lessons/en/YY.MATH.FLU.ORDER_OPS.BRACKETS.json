@@ -1,0 +1,82 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ORDER_OPS.BRACKETS",
+ "lang": "en",
+ "title": "Evaluate expressions with brackets",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Brackets Go First!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the rule that multiplying and dividing happen before adding and subtracting. Today we meet something that can jump the line ahead of all of them: brackets. Brackets tell you, do me first!",
+    "math": "(\\;\\;)\\ \\text{first}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of brackets like a hug around a little piece of the question. Whatever is inside the hug gets finished first and turns into one single number. Only then do you carry on with the rest. Here, two plus three is hugged, so it becomes five, and then you multiply by four to get twenty.",
+    "math": "(2+3)\\times 4 = 5\\times 4 = 20",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "(2+3) x 4",
+      "20"
+     ],
+     "caption": "Both sides are equal, so the scale balances."
+    }
+   },
+   {
+    "say": "Let us spend some money. At a Richmond farmers market, a juice box costs two dollars and a granola bar costs three dollars. You buy four snack packs, and each pack has one juice box and one granola bar. First finish the hug: two plus three is five dollars for one pack. Then four packs times five dollars is twenty dollars.",
+    "math": "(2+3)\\times 4 = 5\\times 4 = 20",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "Four packs, five dollars in each pack: twenty dollars."
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Some people ignore the brackets and jump straight to multiplying, doing three times four is twelve, then two plus twelve is fourteen. But that answer is wrong! Fourteen would mean you only paid for one juice box instead of four. The brackets were there to say, put one whole pack together first.",
+    "math": "2+3\\times 4 = 14\\ \\text{(wrong!)}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "(2+3) x 4 = 20",
+      "14"
+     ],
+     "caption": "Ignoring the brackets gives too little — the sides do not balance."
+    }
+   },
+   {
+    "say": "So whenever you see brackets, do the hug first, turn it into one number, and then keep going with your usual order of operations.",
+    "math": "(\\;)\\ \\rightarrow\\ \\times\\ \\div\\ \\rightarrow\\ +\\ -",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Brackets first: finish what is inside the hug, then do the rest.",
+  "practice": {
+   "question": "At a Victoria school store a pencil costs three dollars and an eraser costs one dollar. You buy six sets, and each set has one pencil and one eraser. Work out the brackets first: open bracket three plus one close bracket, times six. How many dollars is that?",
+   "answer": "Twenty-four dollars. Inside the brackets, three plus one is four dollars for one set, and four times six is twenty-four."
+  }
+ }
+}

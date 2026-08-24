@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.EXPERIMENTAL",
+ "lang": "en",
+ "title": "Find experimental probability from the results of trials",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "How to Find Experimental Probability",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make a prediction, run an experiment, and see how it turned out. Today we learn how to turn those results into a number — that number is called the experimental probability.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea in one line. Experimental probability is the number of times the thing you want actually happened, divided by the total number of tries. Count the wins, count the tries, write them as a fraction.",
+    "math": "P_{\\text{experimental}}=\\frac{\\text{number of times it happened}}{\\text{total number of trials}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": "Wins on top, total tries on the bottom."
+    }
+   },
+   {
+    "say": "Let us try it. Maya spins a spinner at the Richmond school fair twenty times and writes her results in a table. Blue came up eight times, red six times, and green six times. Step one, find the total tries. Eight plus six plus six is twenty. Step two, pick out blue, which happened eight times. Step three, write it as a fraction, eight out of twenty. Eight over twenty simplifies to two over five, because both eight and twenty divide by four. So the experimental probability of blue is two fifths.",
+    "math": "P(\\text{blue})=\\frac{8}{20}=\\frac{2}{5}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8,
+      6,
+      6
+     ],
+     "labels": [
+      "Blue",
+      "Red",
+      "Green"
+     ],
+     "caption": "Maya's 20 spins: 8 + 6 + 6 = 20 in total"
+    }
+   },
+   {
+    "say": "Now the mistake I see all the time. The spinner has three equal colours, so a lot of kids expect blue to land exactly one third of the time. When blue came up eight times instead of the tidy number, they say oh no, I counted wrong. But nothing is wrong! Experimental probability comes from what really happened, so it almost never matches the theoretical number exactly. Real spins are a bit bumpy — that is normal, not an error.",
+    "math": "\\frac{8}{20}=\\frac{2}{5}\\neq\\frac{1}{3}\\;\\text{— and that is okay}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Blue",
+      "Red",
+      "Green"
+     ],
+     "caption": "Three equal parts — but real spins come out bumpy"
+    }
+   },
+   {
+    "say": "One more quick one so the steps stick. Liam tosses a loonie ten times and gets heads six times and tails four times. Total tries, ten. Heads happened six times. So the experimental probability of heads is six out of ten, which is three fifths. He did not get five heads, and he did not make a mistake — that is just how his ten tosses landed.",
+    "math": "P(\\text{heads})=\\frac{6}{10}=\\frac{3}{5}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "Heads",
+      "Tails"
+     ],
+     "caption": "Liam's 10 coin tosses: 6 + 4 = 10"
+    }
+   },
+   {
+    "say": "So remember, count what happened, put it over the total number of tries, and do not worry if it is not the perfect number.",
+    "math": "\\frac{\\text{times it happened}}{\\text{total trials}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Experimental probability equals times it happened divided by total trials — and it almost never matches the tidy theoretical number exactly.",
+  "practice": {
+   "question": "Priya pulls one marble out of a bag, writes down the colour, and puts it back. She does this 25 times and makes a table with three columns: green, orange, and purple. Her table shows green 10 times, orange 9 times, and purple 6 times. (Try drawing her table yourself!) What is the experimental probability of pulling green? Give your answer as a simplified fraction.",
+   "answer": "Total trials: 10 + 9 + 6 = 25. Green happened 10 times, so the experimental probability of green is 10 out of 25, which simplifies to 2 over 5 (two fifths), because 10 and 25 both divide by 5."
+  }
+ }
+}

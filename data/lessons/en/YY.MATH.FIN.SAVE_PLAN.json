@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.SAVE_PLAN",
+ "lang": "en",
+ "title": "Plan saving toward a purchase (how many weeks of allowance for a bike?)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "How Many Weeks Until I Can Buy the Bike?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make a savings plan and how to divide with dollars, so today we just learn to spot that plan hiding inside a real shopping day. Maya sees a bike at a shop in Kelowna for one hundred eighty dollars. She already has forty five dollars in her money jar, and she gets fifteen dollars of allowance every week. The question is, how many weeks until she can buy it?",
+    "math": "\\text{Price }\\$180 \\quad \\text{Saved }\\$45 \\quad \\text{Each week }\\$15",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      180,
+      45
+     ],
+     "labels": [
+      "Bike price",
+      "Already saved"
+     ],
+     "caption": "Maya still has a gap to fill"
+    }
+   },
+   {
+    "say": "The easiest way to see a saving plan is to make a table and just walk forward one week at a time. The top row is how much money Maya has, and the bottom row is how much she still needs. Every week the top row goes up by fifteen dollars, and the bottom row goes down by fifteen dollars. Watch how the still needed row shrinks like a countdown.",
+    "math": "45,\\ 60,\\ 75,\\ 90,\\ 105 \\ldots",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      45,
+      60,
+      75,
+      90,
+      105,
+      135,
+      120,
+      105,
+      90,
+      75
+     ],
+     "labels": [
+      "Start",
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Money saved",
+      "Still needed"
+     ],
+     "caption": "Saved goes up by 15, still needed goes down by 15"
+    }
+   },
+   {
+    "say": "Now here is the shortcut. Maya does not need all one hundred eighty dollars from her allowance, because forty five dollars is already sitting in the jar. So first find the gap, one hundred eighty minus forty five, which is one hundred thirty five dollars. Then ask how many fifteens fit inside one hundred thirty five. One hundred thirty five divided by fifteen is nine. So nine more weeks, and the still needed row hits zero right on week nine.",
+    "math": "180-45=135 \\qquad 135\\div 15=9",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      150,
+      165,
+      180,
+      30,
+      15,
+      0
+     ],
+     "labels": [
+      "Week 7",
+      "Week 8",
+      "Week 9",
+      "Money saved",
+      "Still needed"
+     ],
+     "caption": "On week nine she reaches exactly 180 dollars"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes the first time. They grab the price and divide right away, one hundred eighty divided by fifteen equals twelve, and say twelve weeks. But that is the plan for a kid with an empty jar. Maya already has forty five dollars, which is three weeks of allowance she has already done. Twelve weeks minus those three weeks is nine weeks. So always subtract what you already have before you divide.",
+    "math": "180\\div 15=12 \\;\\text{(too many)} \\qquad 12-3=9",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      9
+     ],
+     "labels": [
+      "Wrong: 12 weeks",
+      "Right: 9 weeks"
+     ],
+     "caption": "Forgetting the money in the jar adds three fake weeks"
+    }
+   },
+   {
+    "say": "Let us check it, because a real plan should land exactly on the price. Nine weeks times fifteen dollars is one hundred thirty five dollars, and one hundred thirty five plus the forty five she already had is one hundred eighty dollars. That is the bike, right on the nose. Nine weeks of saving and Maya is riding.",
+    "math": "45+9\\times 15=45+135=180",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      45,
+      135
+     ],
+     "labels": [
+      "Already saved",
+      "Nine weeks of allowance"
+     ],
+     "caption": "45 plus 135 makes exactly 180 dollars"
+    }
+   }
+  ],
+  "answer": "Subtract what you already have, then divide by what you save each week: (180 − 45) ÷ 15 = 9 weeks.",
+  "practice": {
+   "question": "Owen wants a skateboard that costs ninety six dollars at a shop in Victoria. He already has twenty four dollars in his piggy bank, and he saves nine dollars every week from his allowance. Make yourself a little table with a Money saved row and a Still needed row, starting at twenty four dollars saved and seventy two dollars still needed. How many more weeks until Owen can buy the skateboard?",
+   "answer": "8 weeks. Ninety six minus twenty four is seventy two dollars still needed, and seventy two divided by nine is eight. Check: twenty four plus eight times nine is twenty four plus seventy two, which is ninety six dollars."
+  }
+ }
+}

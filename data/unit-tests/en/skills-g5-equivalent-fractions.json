@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "equivalent-fractions",
+ "lang": "en",
+ "unitName": {
+  "zh": "等值分数",
+  "en": "Equivalent fractions"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Equivalent fractions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.VISUAL",
+    "level": 1,
+    "question": "Ravi shades a circle that is cut into 6 equal slices. He shades 4 slices. Which picture shows the same fraction shaded?",
+    "options": [
+     "A grid of 12 equal squares with 4 squares shaded",
+     "A circle cut into 8 equal slices with 4 slices shaded",
+     "A grid of 3 equal columns with 2 columns shaded",
+     "A bar cut into 6 equal parts with 3 parts shaded"
+    ],
+    "answerIndex": 2,
+    "explain": "Ravi shaded 4/6, and 4/6 = 2/3 because both the top and bottom are divided by 2, which matches 2 columns out of 3. The common trap is hunting for a picture with 4 shaded pieces — the number of pieces can change as long as the amount of the whole stays the same."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.MULTIPLY",
+    "level": 1,
+    "question": "Ben is filling in a fraction wall. He needs a fraction equal to 3/5 that has 20 as its denominator. Which fraction should he write?",
+    "options": [
+     "7/9",
+     "12/20",
+     "12/5",
+     "3/20"
+    ],
+    "answerIndex": 1,
+    "explain": "To get from 5 to 20 you multiply by 4, so you must multiply the numerator by 4 as well: 3 x 4 = 12, giving 12/20. The common trap is adding 4 to both numbers (7/9) or changing only one of them — adding does not keep the value the same, multiplying does."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.NUMBERLINE",
+    "level": 2,
+    "question": "In class, Ella draws a number line from 0 to 1 and divides it into 8 equal spaces. She puts a dot on the 6th mark after 0. Which fraction lands on exactly the same point as Ella's dot?",
+    "options": [
+     "2/3",
+     "6/10",
+     "3/8",
+     "3/4"
+    ],
+    "answerIndex": 3,
+    "explain": "The dot is at 6/8, and dividing the top and bottom by 2 gives 3/4, so both fractions mark the same point on the line. The common trap is halving only the numerator (3/8), which moves the dot to a completely different place."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.DIVIDE",
+    "level": 2,
+    "question": "Léa wants a $24 ticket for the Science World trip. She has already saved $18. Written in lowest terms, what fraction of the ticket price has she saved?",
+    "options": [
+     "3/4",
+     "9/12",
+     "6/8",
+     "3/8"
+    ],
+    "answerIndex": 0,
+    "explain": "She has saved 18/24; dividing the top and bottom by the greatest common factor 6 gives 3/4. The common trap is stopping early — dividing by only 2 or only 3 gives 9/12 or 6/8, which are equal in value but are not in lowest terms."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.JUDGE",
+    "level": 2,
+    "question": "Tia and Jonah are reading the same novel. Tia has read 4/6 of the book and Jonah has read 6/9 of it. Have they read the same amount, and how can you tell?",
+    "options": [
+     "No — you cannot get from 4/6 to 6/9 by multiplying, so they must be different.",
+     "Yes — 4/6 and 6/9 both simplify to 2/3, so they are equivalent.",
+     "No — 6/9 is more because both of its numbers are bigger than the numbers in 4/6.",
+     "Yes — you just add 2 to the top and 3 to the bottom, so the fractions keep the same value."
+    ],
+    "answerIndex": 1,
+    "explain": "Divide 4/6 by 2 and 6/9 by 3: both become 2/3, so the two readers are at the same point in the book. The common trap is judging by the size of the digits, or by adding a number to the top and bottom — only multiplying or dividing both parts by the same number keeps the value."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.APPLY",
+    "level": 3,
+    "question": "At the Burnaby block party there are two identical trays of blueberry cake. Tray A is cut into 12 equal pieces and 8 pieces are taken. Tray B is cut into 9 equal pieces and 6 pieces are taken. Which tray has more cake left?",
+    "options": [
+     "Tray A, because 4 pieces are left on Tray A and only 3 pieces are left on Tray B.",
+     "Tray B, because ninths are bigger pieces, so 3 big pieces beat 4 small pieces.",
+     "Neither — the same amount is left, because 8/12 and 6/9 both equal 2/3 taken, leaving 1/3 of each tray.",
+     "Tray A, because 8/12 is a smaller fraction taken than 6/9."
+    ],
+    "answerIndex": 2,
+    "explain": "Simplify each amount taken: 8/12 = 2/3 and 6/9 = 2/3, so exactly 1/3 of each identical tray is left. The common trap is counting leftover pieces instead of comparing fractions — 4 pieces and 3 pieces look different, but the pieces are different sizes."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.EQUIV.JUDGE",
+    "level": 3,
+    "question": "Owen says that 2/3 = 5/6 because he added 3 to the top and 3 to the bottom. To check, he draws one number line from 0 to 1 marked in thirds and another marked in sixths, lined up underneath. What do the number lines show?",
+    "options": [
+     "Both dots land on the same point, so Owen is right that 2/3 = 5/6.",
+     "2/3 lands past 5/6, because thirds are bigger pieces than sixths.",
+     "Owen should have added 3 to the denominator only, so 2/3 = 2/6.",
+     "5/6 lands past 2/3: on the sixths line 2/3 matches 4/6, so equivalent fractions come from multiplying the top and bottom, not adding."
+    ],
+    "answerIndex": 3,
+    "explain": "Multiplying 2/3 by 2/2 gives 4/6, so 2/3 sits on the 4/6 mark and 5/6 is one sixth further along the line. The most common mistake in this unit is adding the same number to the numerator and denominator — that always changes the value, while multiplying or dividing both by the same number keeps it."
+   }
+  ]
+ }
+}

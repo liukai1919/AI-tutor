@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB",
+ "lang": "en",
+ "title": "Solve one-step addition and subtraction equations (start, change or result unknown)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Missing Number on a Balance",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that an equation is like a balance scale that must stay perfectly even, with a mystery number hiding on one side. Today we learn the trick for actually finding that mystery number: we undo whatever was done to it.",
+    "math": "x + 6 = 14",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 6",
+      "14"
+     ],
+     "caption": "Both sides weigh the same, so the scale is level"
+    }
+   },
+   {
+    "say": "Here is the whole idea. If something was added to the mystery number, we take it away to find it. If something was taken away, we add it back. Adding and subtracting undo each other, like putting on your rain boots and then taking them off. And whatever we do, we do it to both sides so the scale stays level.",
+    "math": "x + 6 = 14 \\;\\longrightarrow\\; x = 14 - 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "14 - 6"
+     ],
+     "caption": "Take six off both sides and the scale is still level"
+    }
+   },
+   {
+    "say": "Let us try a real one. Nora had some loonies in her pocket, then her grandma gave her six more, and now she has fourteen. So the mystery number plus six equals fourteen. Six was added, so we take six away: fourteen take away six is eight. Nora started with eight loonies. Let us check by putting eight back in: eight plus six is fourteen. It balances, so we got it right.",
+    "math": "x + 6 = 14 \\;\\Rightarrow\\; x = 8",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "x = 8",
+      "6"
+     ],
+     "caption": "Eight and six together make fourteen"
+    }
+   },
+   {
+    "say": "Now here is the mistake I want you to watch out for. Look at x plus five equals eleven. Some children add and say x is sixteen. But let us test it on the scale: sixteen plus five is twenty one, and twenty one is much heavier than eleven. The scale tips over. Five was added, so we must subtract, not add. Eleven take away five is six, and six plus five really is eleven. That balances.",
+    "math": "x + 5 = 11 \\;\\Rightarrow\\; x = 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "16 + 5",
+      "11"
+     ],
+     "caption": "Sixteen plus five is far too heavy, so x is not sixteen"
+    }
+   },
+   {
+    "say": "Subtraction works the same way, just backwards. Say x take away three equals nine. This time three was taken away, so we add it back: nine plus three is twelve. Check it: twelve take away three is nine. Perfect balance. Always finish by putting your answer back in, and if the two sides match, you know you are right.",
+    "math": "x - 3 = 9 \\;\\Rightarrow\\; x = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "12 - 3",
+      "9"
+     ],
+     "caption": "Put twelve back in and both sides show nine"
+    }
+   },
+   {
+    "say": "So remember this one little sentence: to find the hidden number, do the opposite. If it was added, subtract it. If it was subtracted, add it. Then check your answer by putting it back in.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To find the hidden number, do the opposite: added means subtract, subtracted means add — then check by putting your answer back in.",
+  "practice": {
+   "question": "On a balance scale at the farmers market, a small box of BC blueberries sits on the left side together with a two hundred fifty gram mass. On the right side there is one eight hundred gram mass, and the scale is perfectly level. Write this as an equation with a mystery number, then find how heavy the box of blueberries is. You can draw the balance yourself if it helps.",
+   "answer": "The equation is x plus two hundred fifty equals eight hundred. Two hundred fifty was added, so subtract it: eight hundred take away two hundred fifty is five hundred fifty. The box weighs five hundred fifty grams. Check: five hundred fifty plus two hundred fifty is eight hundred, so it balances."
+  }
+ }
+}
