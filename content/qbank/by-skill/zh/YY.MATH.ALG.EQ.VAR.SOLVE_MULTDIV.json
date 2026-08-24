@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.VAR.SOLVE_MULTDIV",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5i6ajvyacbfl",
+   "level": 1,
+   "question": "一台天平（balance）两边正好平衡。左盘上放着 3 个完全一样的小沙袋，每袋重 x 克；右盘上只放着一个 24 克的砝码，两边再没有别的东西。可以列出方程 3x = 24。每个小沙袋重多少克？",
+   "options": [
+    "x = 8",
+    "x = 27",
+    "x = 72",
+    "x = 21"
+   ],
+   "answerIndex": 0,
+   "explain": "3 个一样重的沙袋合起来是 24 克，所以两边同时除以 3：x = 24 ÷ 3 = 8 克，检验 3 × 8 = 24。最容易踩的坑是看到乘法就把两个数乘起来得 72，但乘法方程要用除法来还原。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvb3gpk6",
+   "level": 1,
+   "question": "小图有一团橡皮泥，重 x 克。她把这团橡皮泥平均分成 4 块一样重的小块，把其中 1 小块放在天平左盘，右盘放一个 8 克砝码，天平正好平衡，两边没有别的东西。可以列出方程 x ÷ 4 = 8。这团橡皮泥原来重多少克？",
+   "options": [
+    "x = 2",
+    "x = 32",
+    "x = 12",
+    "x = 4"
+   ],
+   "answerIndex": 1,
+   "explain": "x ÷ 4 = 8 的意思是 x 被平均分成 4 份、每份 8 克，所以还原时两边同时乘 4：x = 8 × 4 = 32 克，检验 32 ÷ 4 = 8。坑在于看到除号又除一次算成 2，那样整团比一小块还轻，一看就不合理。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvegnrmv",
+   "level": 1,
+   "question": "天平左盘放着 n 颗完全一样的钢珠，每颗重 6 克；右盘放着一个 42 克的砝码，两边正好平衡，再没有别的东西。可以列出方程 6n = 42。左盘上有多少颗钢珠？",
+   "options": [
+    "n = 252",
+    "n = 48",
+    "n = 7",
+    "n = 36"
+   ],
+   "answerIndex": 2,
+   "explain": "每颗 6 克、总共 42 克，两边同时除以 6：n = 42 ÷ 6 = 7 颗，检验 6 × 7 = 42。写成 252 的那个是把 42 又乘了 6，钢珠的颗数不可能比总克数还大。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvkt3z54",
+   "level": 1,
+   "question": "一大袋葵花籽重 x 克。老师把它平均分给 5 个同学，每人分到的那一份放在天平左盘，右盘放一个 7 克砝码，天平正好平衡，两边没有别的东西。可以列出方程 x ÷ 5 = 7。这一大袋葵花籽原来重多少克？",
+   "options": [
+    "x = 12",
+    "x = 2",
+    "x = 5",
+    "x = 35"
+   ],
+   "answerIndex": 3,
+   "explain": "一份是 7 克、一共有 5 份，还原整袋要用乘法：x = 7 × 5 = 35 克，检验 35 ÷ 5 = 7。写成 12 的那个是把 7 和 5 相加，等于把这个除法方程当成了加法方程来解。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvhrwvvz",
+   "level": 2,
+   "question": "解方程（equation）：7x = 91。x 等于多少？",
+   "options": [
+    "x = 13",
+    "x = 98",
+    "x = 84",
+    "x = 637"
+   ],
+   "answerIndex": 0,
+   "explain": "7 和 x 是相乘关系，用除法还原：两边同时除以 7，x = 91 ÷ 7 = 13，检验 7 × 13 = 91。写成 637 的那个是把 91 又乘了一次 7，逆运算方向反了。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvde2u7h",
+   "level": 2,
+   "question": "解方程：x ÷ 12 = 6。x 等于多少？",
+   "options": [
+    "x = 18",
+    "x = 72",
+    "x = 2",
+    "x = 6"
+   ],
+   "answerIndex": 1,
+   "explain": "x ÷ 12 = 6 表示 x 平均分成 12 份、每份是 6，所以两边同时乘 12：x = 6 × 12 = 72，检验 72 ÷ 12 = 6。写成 2 的那个是算了 12 ÷ 6，把被除数和除数弄反了。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajv0fsgb3",
+   "level": 2,
+   "question": "要解方程 9m = 72，把变量（variable）m 单独留在一边，下面哪一步做法是对的？",
+   "options": [
+    "两边同时乘 9，得 m = 72 × 9 = 648",
+    "两边同时减 9，得 m = 72 − 9 = 63",
+    "两边同时除以 9，得 m = 72 ÷ 9 = 8",
+    "两边同时加 9，得 m = 72 + 9 = 81"
+   ],
+   "answerIndex": 2,
+   "explain": "9m 表示 9 与 m 相乘，乘法的逆运算是除法，所以两边同时除以 9 才能把 m 单独留下：m = 8，检验 9 × 8 = 72。再乘 9 或者加减 9 都不是乘法的逆运算，只会把式子弄得更乱。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvyao7oy",
+   "level": 2,
+   "question": "小丽解方程 8k = 56，她写成 k = 56 × 8 = 448。把 448 代回方程检验，发现 8 × 448 根本不等于 56。k 到底是多少？",
+   "options": [
+    "k = 48",
+    "k = 448",
+    "k = 64",
+    "k = 7"
+   ],
+   "answerIndex": 3,
+   "explain": "8k = 56 要用除法还原：k = 56 ÷ 8 = 7，检验 8 × 7 = 56 正好相等。小丽的错在于乘法方程又乘了一次；只要发现答案比 56 还大，就该马上警觉逆运算用反了。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajvsgnqma",
+   "level": 3,
+   "question": "在 Kelowna 的果园，采到的樱桃被装进 8 个完全一样的盒子里，每盒装的重量相同，8 盒一共 3200 克。设每盒重 w 克，可列出方程 8w = 3200。每盒樱桃有多少千克？",
+   "options": [
+    "0.4 千克",
+    "25600 克",
+    "400 千克",
+    "3192 克"
+   ],
+   "answerIndex": 0,
+   "explain": "两边同时除以 8：w = 3200 ÷ 8 = 400 克，再换算成千克，400 克 = 0.4 千克。这题有两个坑：一是把 3200 × 8 当成答案，二是算出 400 后忘了把克换成千克，直接写成 400 千克。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "other",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajv5a0hqg",
+   "level": 3,
+   "question": "在 Burnaby 的一家文具店，6 包一模一样的贴纸一共卖 30 加元。设每包 p 加元，可列出方程 6p = 30。悠悠想买 4 包这样的贴纸，要付多少加元？",
+   "options": [
+    "720 加元",
+    "20 加元",
+    "5 加元",
+    "96 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先解 6p = 30，两边同时除以 6 得每包 5 加元；再算 4 包：5 × 4 = 20 加元。写 5 加元的那个是解完方程就停下了，没回答题目问的 4 包；写 720 的那个是把 30 × 6 当成了每包的价钱。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "other",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajv5azajr",
+   "level": 3,
+   "question": "小美要解方程 m ÷ 7 = 6，她写成 m = 6 ÷ 7。下面哪种说法是对的？",
+   "options": [
+    "不对，应该用加法，m = 6 + 7 = 13",
+    "对的，m = 6 ÷ 7",
+    "不对。除法的逆运算是乘法，要两边同时乘 7，m = 6 × 7 = 42",
+    "不对，应该写成 m = 7 ÷ 6"
+   ],
+   "answerIndex": 2,
+   "explain": "m ÷ 7 = 6 表示 m 平均分成 7 份、每份是 6，还原整体要乘 7：m = 6 × 7 = 42，检验 42 ÷ 7 = 6。小美把该乘的一步又除了一次，这就是逆运算用错；答案比每份还小时基本可以断定做反了。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5i6ajv9aktbb",
+   "level": 3,
+   "question": "Victoria 一个班把班里的水彩笔平均装进 9 个笔盒，每盒正好 12 支。设原来一共有 x 支，可列出方程 x ÷ 9 = 12。后来老师又送来 24 支水彩笔，现在班里一共有多少支水彩笔？",
+   "options": [
+    "45 支",
+    "27 支",
+    "108 支",
+    "132 支"
+   ],
+   "answerIndex": 3,
+   "explain": "先解 x ÷ 9 = 12，两边同时乘 9 得 x = 108 支；再加上后来的 24 支，一共 108 + 24 = 132 支。写 108 的那个是解完方程忘了加新送来的，写 45 的那个是把 12 + 9 当成了解方程的方法。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

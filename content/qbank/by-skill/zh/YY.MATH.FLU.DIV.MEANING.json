@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.DIV.MEANING",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5aeibqcjmpht",
+   "level": 1,
+   "question": "桌上有 18 块积木，把它们平均分成 3 堆，每堆的块数一样多。每堆有几块积木？",
+   "options": [
+    "6 块",
+    "54 块",
+    "15 块",
+    "3 块"
+   ],
+   "answerIndex": 0,
+   "explain": "平均分（sharing）就是把总数 18 平均分给 3 堆，用 18 ÷ 3 = 6，每堆 6 块。最容易踩的坑是把「分成 3 堆」里的 3 当成答案——3 是堆数，不是每堆的块数。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "div.sharing_grouping_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5aeibq817alm",
+   "level": 1,
+   "question": "有 20 个橘子，每 5 个装成一袋，正好装完。一共装了几袋？",
+   "options": [
+    "15 袋",
+    "4 袋",
+    "5 袋",
+    "100 袋"
+   ],
+   "answerIndex": 1,
+   "explain": "按份分（grouping）就是看 20 里面有几个 5，用 20 ÷ 5 = 4，装了 4 袋。写 5 袋的那个是把「每袋 5 个」错当成了袋数，5 说的是每袋的个数。",
+   "tags": [
+    "other",
+    "ok",
+    "div.sharing_grouping_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqpjikg6",
+   "level": 1,
+   "question": "一共有 15 颗珠子，平均串成 5 串，每串一样多，每串 3 颗。算式 15 ÷ 5 = 3 里的 3 表示什么？",
+   "options": [
+    "一共分成了 3 串",
+    "一共有 3 颗珠子",
+    "每串有 3 颗珠子",
+    "每串比另一串多 3 颗"
+   ],
+   "answerIndex": 2,
+   "explain": "这里 15 是总数、5 是份数，所以得数 3 表示每份（每串）有几颗。说「分成了 3 串」的那个把份数和每份的数量弄反了——串数是 5，不是 3。",
+   "tags": [
+    "div.sharing_grouping_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibq3c4jig",
+   "level": 1,
+   "question": "一盒鸡蛋摆成 2 排，每排 6 个，一共 12 个。要回答「12 个鸡蛋平均分成 2 排，每排几个」，应该用哪个算式？",
+   "options": [
+    "12 − 2 = 10",
+    "2 × 6 = 12",
+    "12 ÷ 6 = 2",
+    "12 ÷ 2 = 6"
+   ],
+   "answerIndex": 3,
+   "explain": "总数 ÷ 份数 = 每份的数量，所以是 12 ÷ 2 = 6，每排 6 个。写成 12 ÷ 6 = 2 的那个回答的是另一个问题（每排 6 个能摆几排），得数是排数而不是每排的个数。",
+   "tags": [
+    "other",
+    "other",
+    "div.sharing_grouping_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqp2b5qt",
+   "level": 2,
+   "question": "已经知道 8 × 7 = 56。不用重新计算，56 ÷ 8 等于多少？",
+   "options": [
+    "7",
+    "48",
+    "8",
+    "64"
+   ],
+   "answerIndex": 0,
+   "explain": "乘法和除法互逆：既然 8 × 7 = 56，那么 56 ÷ 8 就是 7。坑在于顺手写成 8 或者去做加减（56 + 8、56 − 8），除法要找的是「8 乘几得 56」里的那个数。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibq6ihs9x",
+   "level": 2,
+   "question": "5、9、45 这三个数组成一个乘除算式家族（fact family）。下面哪一组算式全部正确？",
+   "options": [
+    "5 × 9 = 45，45 ÷ 5 = 5",
+    "5 × 9 = 45，45 ÷ 9 = 5",
+    "5 × 9 = 45，45 − 9 = 5",
+    "5 × 9 = 45，9 ÷ 45 = 5"
+   ],
+   "answerIndex": 1,
+   "explain": "同一个算式家族里，积 45 除以一个因数就得到另一个因数，所以 45 ÷ 9 = 5 成立。写 45 ÷ 5 = 5 的那个把除数直接当成了得数（45 ÷ 5 应该是 9），而 9 ÷ 45 把大数小数颠倒了。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqfa8xi1",
+   "level": 2,
+   "question": "□ × 6 = 48，方框里的数是多少？",
+   "options": [
+    "288",
+    "42",
+    "8",
+    "6"
+   ],
+   "answerIndex": 2,
+   "explain": "求未知因数就用除法：48 ÷ 6 = 8，代回去 8 × 6 = 48 正好。最常见的坑是看到算式就减（48 − 6 = 42）或者再乘一次（48 × 6），乘法的逆运算是除法。",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibq0w72wz",
+   "level": 2,
+   "question": "温哥华一个班有 28 名学生去水族馆，每辆小车坐 4 人，坐满为止。一共需要几辆小车？",
+   "options": [
+    "24 辆",
+    "112 辆",
+    "4 辆",
+    "7 辆"
+   ],
+   "answerIndex": 3,
+   "explain": "看 28 里面有几个 4，用 28 ÷ 4 = 7，需要 7 辆车。答 4 辆的是把「每辆坐 4 人」当成了车的数量——4 是每辆的人数，不是车数。",
+   "tags": [
+    "other",
+    "other",
+    "div.sharing_grouping_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqkvofqy",
+   "level": 3,
+   "question": "题目是：「王老师有 32 个球，每个箱子放 8 个，可以装满几个箱子？」小杰列式 32 ÷ 8 = 4，然后写答案「每个箱子里有 4 个球」。他的问题出在哪里？",
+   "options": [
+    "算式是对的，但 4 表示装满的箱子数，不是每箱的球数",
+    "算式列错了，应该用 32 ÷ 4",
+    "算式列错了，应该用 32 × 8",
+    "算式和答案都对，每箱确实是 4 个球"
+   ],
+   "answerIndex": 0,
+   "explain": "题目已经告诉我们每箱放 8 个，要求的是箱子数，所以 32 ÷ 8 = 4 得到的 4 是 4 个箱子。踩坑的地方是把除法的得数一律读成「每份几个」——得数表示什么，要看被分掉的是总数还是份数。",
+   "tags": [
+    "ok",
+    "div.sharing_grouping_confuse",
+    "other",
+    "div.sharing_grouping_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5aeibql817ta",
+   "level": 3,
+   "question": "学校义卖烤了 48 个纸杯蛋糕，先平均装进 4 个大盒；每个大盒里面又平均分成 2 层。每层有几个纸杯蛋糕？",
+   "options": [
+    "96 个",
+    "6 个",
+    "12 个",
+    "24 个"
+   ],
+   "answerIndex": 1,
+   "explain": "分两步：48 ÷ 4 = 12（每个大盒 12 个），再 12 ÷ 2 = 6（每层 6 个）。答 12 的那个只做了第一步就停下了，题目问的是每层，不是每盒。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqt8jchf",
+   "level": 3,
+   "question": "老师有 5 板贴纸，每板 8 张。她把所有贴纸平均分给 10 名学生。每名学生分到几张？",
+   "options": [
+    "8 张",
+    "10 张",
+    "4 张",
+    "30 张"
+   ],
+   "answerIndex": 2,
+   "explain": "先求总数 5 × 8 = 40，再平均分 40 ÷ 10 = 4，每人 4 张。答 10 张的是把学生人数当成了每人的张数——10 是份数，除出来的才是每份。",
+   "tags": [
+    "other",
+    "div.sharing_grouping_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5aeibqyc6foy",
+   "level": 3,
+   "question": "Liam 在超市买了 3 盒草莓，一共花了 18 加元，每盒价钱相同。Emma 买同样的草莓花了 30 加元。Emma 买了几盒？",
+   "options": [
+    "10 盒",
+    "12 盒",
+    "6 盒",
+    "5 盒"
+   ],
+   "answerIndex": 3,
+   "explain": "先算单价 18 ÷ 3 = 6（每盒 6 加元），再用 30 ÷ 6 = 5，Emma 买了 5 盒。答 6 盒的是把每盒的价钱当成了盒数，6 的单位是加元，不是盒。",
+   "tags": [
+    "other",
+    "other",
+    "div.sharing_grouping_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

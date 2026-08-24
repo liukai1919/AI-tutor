@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.CIRCLE.AREA",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5vbapjd7u5s8",
+   "level": 1,
+   "question": "一个圆形杯垫的半径（radius）是 5 cm。用面积公式 A = π × r × r，π 取 3.14，这个杯垫的面积（area）是多少？",
+   "options": [
+    "78.5 cm²",
+    "314 cm²",
+    "31.4 cm²",
+    "15.7 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "面积要把半径乘两次：3.14 × 5 × 5 = 78.5 cm²。最常踩的坑是写成 3.14 × 2 × 5 = 31.4，那是把 r × r 当成了 2 × r，算出来的其实是周长（circumference）那一类的数。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapj82mr41",
+   "level": 1,
+   "question": "一块圆形地毯的半径（radius）是 3 m。π 取 3.14，用 A = π × r × r 求它的面积（area）是多少平方米？",
+   "options": [
+    "18.84 m²",
+    "28.26 m²",
+    "113.04 m²",
+    "9.42 m²"
+   ],
+   "answerIndex": 1,
+   "explain": "3 × 3 = 9，再乘 π：3.14 × 9 = 28.26 m²。写成 113.04 的人是先把半径 3 翻成了直径 6 再平方，公式里要用的是半径（radius），不是直径（diameter）。",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjq5h3jx",
+   "level": 1,
+   "question": "一个圆形饼干模具的半径（radius）是 10 cm。π 取 3.14，这个圆的面积（area）是多少？",
+   "options": [
+    "62.8 cm²",
+    "1256 cm²",
+    "314 cm²",
+    "78.5 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "A = π × r × r = 3.14 × 10 × 10 = 314 cm²。得到 78.5 的人把 10 cm 当成了直径、偷偷除以 2；得到 1256 的人反过来把 10 翻倍成 20 再平方——题目给的 10 就是半径，直接用。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjt9dktb",
+   "level": 1,
+   "question": "一个圆形钟面的半径（radius）是 7 cm。下面哪个算式能正确算出它的面积（area）？",
+   "options": [
+    "π × 2 × 7",
+    "π × 14 × 14",
+    "π × 7",
+    "π × 7 × 7"
+   ],
+   "answerIndex": 3,
+   "explain": "面积公式是 A = π × r × r，半径要出现两次，所以是 π × 7 × 7。写成 π × 2 × 7 的把平方换成了乘 2；写成 π × 14 × 14 的把直径 14 当成了半径。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjke5qja",
+   "level": 2,
+   "question": "一个圆的半径（radius）r = 9 cm。答案用 π 表示，这个圆的面积（area）是多少？",
+   "options": [
+    "81π cm²",
+    "18π cm²",
+    "324π cm²",
+    "9π cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "A = π × 9 × 9 = 81π cm²。写成 18π 的把 r × r 做成了 2 × r；写成 324π 的用了直径 18 去平方，公式里平方的必须是半径。",
+   "tags": [
+    "ok",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjsm3sfx",
+   "level": 2,
+   "question": "一个圆的直径（diameter）是 12 cm。答案用 π 表示，它的面积（area）是多少？",
+   "options": [
+    "144π cm²",
+    "36π cm²",
+    "6π cm²",
+    "12π cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "先由直径求半径：12 ÷ 2 = 6，再 A = π × 6 × 6 = 36π cm²。写成 144π 的直接把直径 12 平方了——公式 A = π × r × r 里的 r 永远是半径。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjx9r8c5",
+   "level": 2,
+   "question": "一个圆形井盖的直径（diameter）是 16 cm。π 取 3.14，它的面积（area）大约是多少？",
+   "options": [
+    "50.24 cm²",
+    "803.84 cm²",
+    "200.96 cm²",
+    "25.12 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "半径 = 16 ÷ 2 = 8，A = 3.14 × 8 × 8 = 200.96 cm²。得到 803.84 的人把直径 16 直接平方了；先换成半径再套公式，这一步不能省。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjv1avzl",
+   "level": 2,
+   "question": "温哥华一家餐厅做的大号披萨是圆形的，半径（radius）15 cm。π 取 3.14，这张披萨的面积（area）是多少平方厘米？",
+   "options": [
+    "94.2 cm²",
+    "2826 cm²",
+    "47.1 cm²",
+    "706.5 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "A = 3.14 × 15 × 15 = 3.14 × 225 = 706.5 cm²。写成 94.2 的人算的是 3.14 × 2 × 15，那不是面积；披萨这么大，只有几十平方厘米明显不合理，算完可以用常识回头检查一下。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vbapj0298qi",
+   "level": 3,
+   "question": "小宇要算一个圆形飞盘的面积（area），飞盘的直径（diameter）是 14 cm。他写下的算式是 A = 3.14 × 14 × 14。π 取 3.14，这个飞盘真正的面积是多少？",
+   "options": [
+    "153.86 cm²",
+    "43.96 cm²",
+    "21.98 cm²",
+    "615.44 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "小宇把直径当成了半径。正确做法是先 14 ÷ 2 = 7，再 A = 3.14 × 7 × 7 = 153.86 cm²。615.44 就是他没换半径直接平方的结果，会把面积放大到 4 倍。",
+   "tags": [
+    "ok",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjbpn8n5",
+   "level": 3,
+   "question": "本拿比一所学校要在操场上做一个圆形花坛，花坛的半径（radius）是 4 m，里面要全部铺上草皮，草皮每平方米 12 加元。π 取 3.14，铺满这个花坛一共要花多少钱？",
+   "options": [
+    "301.44 加元",
+    "602.88 加元",
+    "2411.52 加元",
+    "150.72 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "两步：先算面积 A = 3.14 × 4 × 4 = 50.24 m²，再乘单价 50.24 × 12 = 602.88 加元。算成 301.44 的人第一步用了 3.14 × 2 × 4，那是把 r × r 换成了 2 × r，面积一错，钱就全错。",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjc8oi5p",
+   "level": 3,
+   "question": "素里一个圆形溜冰场的直径（diameter）是 20 m。工作人员要在整个冰面上刷一层漆，一桶漆能刷 50 m²。π 取 3.14，至少要买几桶漆才够？",
+   "options": [
+    "2 桶",
+    "26 桶",
+    "7 桶",
+    "6 桶"
+   ],
+   "answerIndex": 2,
+   "explain": "半径 = 20 ÷ 2 = 10，面积 A = 3.14 × 10 × 10 = 314 m²，314 ÷ 50 = 6.28，漆不能买半桶，所以要向上取到 7 桶。答 6 桶的人把 6.28 直接砍成 6，冰面会有一块刷不到。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vbapjcbumus",
+   "level": 3,
+   "question": "小林要算一个圆形垃圾桶盖的面积（area），盖子的半径（radius）是 20 cm。他写下 A = 3.14 × 2 × 20 = 125.6 cm²。下面哪句话说得对？",
+   "options": [
+    "他算得对，圆的面积就是 π × 2 × r，答案 125.6 cm² 没问题",
+    "他应该先把半径换成直径 40 cm，再算 3.14 × 40 × 40 = 5024 cm²",
+    "他多乘了一个 2，正确算法是 3.14 × 20 = 62.8 cm²",
+    "他把 r × r 错写成了 2 × r，正确算法是 3.14 × 20 × 20 = 1256 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "面积公式 A = π × r × r 里半径要乘自己，不是乘 2，所以 3.14 × 20 × 20 = 1256 cm²。说要换成直径 40 再平方的那句同样错——平方的必须是半径，那样会把答案放大到 4 倍。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

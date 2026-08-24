@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PCT.FRAC_DEC_LINK",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5nad8zg2qbv0",
+   "level": 1,
+   "question": "一个正方形被平均分成 100 个一样大的小格（百格图），其中 37 格涂成蓝色，整张图算作 1 个整体。涂色部分用百分数（percent）怎么写？",
+   "options": [
+    "37%",
+    "370%",
+    "3.7%",
+    "0.37%"
+   ],
+   "answerIndex": 0,
+   "explain": "百分数就是「每 100 份里的几份」，100 格里涂了 37 格，所以是 37%。坑在于把 37% 和小数 0.37 混着写：写百分数时数字保持 37，不用移小数点。",
+   "tags": [
+    "ok",
+    "other",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5nad8zxdwfw9",
+   "level": 1,
+   "question": "一个百格图被平均分成 100 个相同的小格，涂色的有 45 格，没涂的有 55 格，整张图算作 1。涂色部分写成小数（decimal）是多少？",
+   "options": [
+    "4.5",
+    "0.45",
+    "0.045",
+    "0.55"
+   ],
+   "answerIndex": 1,
+   "explain": "涂色部分是 \\frac{45}{100}，分母是 100，小数点（decimal point）从 45 后面向左移两位，得到 0.45。常见坑是只移一位写成 4.5，那已经比整张图还大了；另外别把没涂的 55 格当成答案。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5nad8zv8dkl1",
+   "level": 1,
+   "question": "一个百格图被平均分成 100 个相同的小格，其中 25 格涂色，整张图算作 1。涂色部分用最简分数（fraction）表示是哪个？",
+   "options": [
+    "\\frac{25}{10}",
+    "\\frac{25}{1000}",
+    "\\frac{1}{4}",
+    "\\frac{1}{25}"
+   ],
+   "answerIndex": 2,
+   "explain": "涂色是 \\frac{25}{100}，分子分母同时除以 25 得 \\frac{1}{4}。坑一是把分子分母写反成 \\frac{1}{25}；坑二是分母写错位，比如 \\frac{25}{1000} 其实只有 0.025，比 25 格少得多。",
+   "tags": [
+    "other",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5nad8zdo6b39",
+   "level": 1,
+   "question": "一个百格图被平均分成 100 个相同的小格，其中 60 格涂成绿色，整张图算作 1。下面哪一组三种写法都表示这块涂色部分？",
+   "options": [
+    "60%、6.0、60:100",
+    "6%、0.6、6:100",
+    "60%、0.06、60:100",
+    "60%、0.6、60:100"
+   ],
+   "answerIndex": 3,
+   "explain": "100 格里的 60 格可以写成 60%、\\frac{60}{100}=0.6，也可以写成比 60:100，三种写法说的是同一件事。坑是小数写成 6.0（那等于 6 整张图）或 0.06（那只有 6 格里的 100 分之 6）。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "other",
+    "pct.decimal_shift_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z6xid0z",
+   "level": 2,
+   "question": "把 8% 写成小数（decimal），应该是多少？",
+   "options": [
+    "0.08",
+    "8.0",
+    "0.008",
+    "0.8"
+   ],
+   "answerIndex": 0,
+   "explain": "8% 就是 \\frac{8}{100}，分母 100 表示小数点要从 8 后面向左移两位，得 0.08。最容易踩的坑是只移一位写成 0.8——那其实是 80%。",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5nad8zjlrtf3",
+   "level": 2,
+   "question": "把小数 0.4 写成整数百分数（percent），应该是多少？",
+   "options": [
+    "4%",
+    "40%",
+    "0.4%",
+    "400%"
+   ],
+   "answerIndex": 1,
+   "explain": "0.4 = \\frac{4}{10} = \\frac{40}{100}，所以是 40%。坑是直接把数字 4 搬过来写成 4%，那只有 \\frac{4}{100}，是正确答案的十分之一。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z6pzh8f",
+   "level": 2,
+   "question": "把分数 \\frac{3}{5} 写成整数百分数（percent），应该是多少？",
+   "options": [
+    "6%",
+    "0.6%",
+    "60%",
+    "35%"
+   ],
+   "answerIndex": 2,
+   "explain": "分子分母同乘 20：\\frac{3}{5}=\\frac{60}{100}=60%。坑是先算出 0.6 再直接抄成 6%，漏了「小数化百分数要向右移两位」；也别把分子分母数字拼成 35%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z5zbn97",
+   "level": 2,
+   "question": "把 12% 写成最简分数（fraction），应该是哪个？",
+   "options": [
+    "\\frac{3}{50}",
+    "\\frac{12}{10}",
+    "\\frac{1}{12}",
+    "\\frac{3}{25}"
+   ],
+   "answerIndex": 3,
+   "explain": "12% = \\frac{12}{100}，分子分母同除以 4 得 \\frac{3}{25}。坑是分母写成 10（\\frac{12}{10} 等于 1.2，比一个整体还大），或者约分时只把分子除以 4 却忘了分母也要除。",
+   "tags": [
+    "other",
+    "pct.decimal_shift_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z9ydxx1",
+   "level": 3,
+   "question": "Surrey 一所学校的六年级班上有 25 名学生，其中 18 人骑自行车上学。老师要在班级海报上同时写出百分数（percent）和小数（decimal）。下面哪一组写法都正确？",
+   "options": [
+    "72% 和 0.72",
+    "7.2% 和 0.72",
+    "72% 和 7.2",
+    "18% 和 0.18"
+   ],
+   "answerIndex": 0,
+   "explain": "先把 \\frac{18}{25} 分子分母同乘 4 变成 \\frac{72}{100}，于是是 72%，小数是 0.72。坑是看到 18 人就写 18%——分母不是 100 时必须先化成等值分数（equivalent fractions）；另一个坑是小数点位置写成 7.2。",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5nad8ze91f4q",
+   "level": 3,
+   "question": "Kelowna 一家店贴出「今日全场减价 5%」的牌子。索菲说：「5% 写成小数就是 0.5，把百分号去掉、小数点放在 5 前面就行。」下面哪个说法是对的？",
+   "options": [
+    "她说得对，去掉百分号后把小数点放在 5 前面就是 0.5。",
+    "她错了，5% 表示 100 份里的 5 份，即 \\frac{5}{100}=0.05，小数点要从 5 的后面向左移两位。",
+    "她错了，5% 应该写成 5.0，因为百分数总比小数大。",
+    "她错了，5% 应该写成 0.005，因为百分数要除以 1000。"
+   ],
+   "answerIndex": 1,
+   "explain": "百分数的分母永远是 100，5% = \\frac{5}{100} = 0.05，小数点向左移两位（不是一位）。0.5 其实是 50%，整整差了 10 倍——这正是这个知识点最常见的坑。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z9r0bk5",
+   "level": 3,
+   "question": "Victoria 一家水族馆某天卖出 20 张门票，其中 7 张是学生票。工作人员要在日报表上把学生票的比例填成整数百分数（percent），应该填多少？",
+   "options": [
+    "7%",
+    "3.5%",
+    "35%",
+    "0.35%"
+   ],
+   "answerIndex": 2,
+   "explain": "\\frac{7}{20} 分子分母同乘 5 得 \\frac{35}{100}，所以是 35%。坑是直接把分子 7 当成 7%（分母不是 100 不能照抄），或者算出 0.35 后忘了向右移两位而写成 3.5%。",
+   "tags": [
+    "other",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5nad8z594to0",
+   "level": 3,
+   "question": "Burnaby 一家面包店的窗上贴了几张纸，店主说它们都表示同一个数：全部面包中有 40% 是全麦的。下面哪一种写法**不能**表示 40%？",
+   "options": [
+    "0.4",
+    "\\frac{2}{5}",
+    "40:100",
+    "0.04"
+   ],
+   "answerIndex": 3,
+   "explain": "40% = \\frac{40}{100} = 0.4 = 40:100 = \\frac{2}{5}（分子分母同除以 20），这几种写法互相等值。写成 0.04 的那个小数点向左多移了一位，它其实是 4%。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

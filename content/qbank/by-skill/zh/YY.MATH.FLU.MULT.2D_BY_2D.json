@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.MULT.2D_BY_2D",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5g4dscgo3iya",
+   "level": 1,
+   "question": "一块长方形菜园，长 23 米，宽 14 米。用面积模型（area model）把它切成四小块：第一块 20 米乘 10 米，面积 200 平方米；第二块 20 米乘 4 米，面积 80 平方米；第三块 3 米乘 10 米，面积 30 平方米；第四块 3 米乘 4 米，面积 12 平方米。整块菜园的面积（area）是多少平方米？",
+   "options": [
+    "322 平方米",
+    "212 平方米",
+    "230 平方米",
+    "115 平方米"
+   ],
+   "answerIndex": 0,
+   "explain": "四小块要全部加起来：200+80+30+12=322 平方米，正好是 23×14。最常踩的坑是只加了对角的两块（200+12）或漏掉中间的一块，另一个坑是把宽里的 10 当成 1，算成 92+23。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsc8ui8ez",
+   "level": 1,
+   "question": "学校停车场是长方形，长 16 米，宽 12 米。把长拆成 10 和 6，把宽拆成 10 和 2，就得到四小块：10×10=100 平方米、10×2=20 平方米、6×10=60 平方米、6×2=12 平方米。停车场的面积是多少平方米？",
+   "options": [
+    "160 平方米",
+    "192 平方米",
+    "112 平方米",
+    "48 平方米"
+   ],
+   "answerIndex": 1,
+   "explain": "把四块面积全部相加：100+20+60+12=192 平方米，就是 16×12 的积（product）。写成 160 或 112 的都是只加了其中两块，漏掉了另外两块；写成 48 的是把宽的 10 当成了 1。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g4dscqtp6s7",
+   "level": 1,
+   "question": "用面积模型算 25×13：把 25 拆成 20 和 5，把 13 拆成 10 和 3，长方形就被切成四小块。下面哪个算式正好把这四小块的面积全部加起来？",
+   "options": [
+    "20×10 + 5×3",
+    "25×3 + 25×1",
+    "20×10 + 20×3 + 5×10 + 5×3",
+    "20×10 + 20×3 + 5×3"
+   ],
+   "answerIndex": 2,
+   "explain": "两位数乘两位数按分配律（distributive principle）拆开后一定有四小块，四项都要写：20×10+20×3+5×10+5×3=200+60+50+15=325。只写两项或三项就漏掉了小块；写成 25×3+25×1 的那个把十位的 10 当成 1，忘了错位。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "ok",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsci30djr",
+   "level": 1,
+   "question": "一块长方形地毯长 34 厘米，宽 21 厘米。把宽 21 拆成 20 和 1，地毯就分成两块：一块是 34×20，一块是 34×1。这块地毯的面积是多少平方厘米？",
+   "options": [
+    "680 平方厘米",
+    "102 平方厘米",
+    "684 平方厘米",
+    "714 平方厘米"
+   ],
+   "answerIndex": 3,
+   "explain": "34×20=680，34×1=34，两块相加 680+34=714 平方厘米。只写 680 的是算完大块就忘了小块；写成 102 的是把宽里的 20 当成 2，没有错位。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "mult.partial_product_missing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsc7ltngo",
+   "level": 2,
+   "question": "计算 27 × 36 = ?",
+   "options": [
+    "972",
+    "762",
+    "243",
+    "642"
+   ],
+   "answerIndex": 0,
+   "explain": "分步算：27×30=810，27×6=162，810+162=972。写成 243 的是把 30 当成 3（162+81），第二行忘了错位；写成 642 或 762 的是拆开后漏掉了 7×30=210 这样的部分积。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsc7hlart",
+   "level": 2,
+   "question": "计算 48 × 25 = ?",
+   "options": [
+    "840",
+    "1200",
+    "336",
+    "1040"
+   ],
+   "answerIndex": 1,
+   "explain": "48×20=960，48×5=240，960+240=1200。写成 336 的是把 20 当成 2（240+96）；写成 1040 的是漏掉了 8×20=160 这一项部分积。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.place_shift_forget",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsclipej2",
+   "level": 2,
+   "question": "下面哪个算式的结果和 43 × 26 相等？",
+   "options": [
+    "40×20 + 3×6",
+    "43×2 + 43×6",
+    "43×20 + 43×6",
+    "40×26 + 3×6"
+   ],
+   "answerIndex": 2,
+   "explain": "把 26 拆成 20 和 6：43×20+43×6=860+258=1118，就是 43×26。写成 43×2+43×6 的那个把十位的 2 当成了个位；另外两个把 3 只乘了 6，漏掉了 3×20 这一项。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "ok",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g4dscwe68vx",
+   "level": 2,
+   "question": "小林用分步乘计算 52 × 34，他已经算出 52×30 = 1560。接下来该怎么做，积（product）是多少？",
+   "options": [
+    "不用再算了，积就是 1560",
+    "积是 1500+200+8=1708",
+    "再算 52×4=208，积是 156+208=364",
+    "再算 52×4=208，积是 1560+208=1768"
+   ],
+   "answerIndex": 3,
+   "explain": "34 拆成 30 和 4，两步都要算：52×30=1560，52×4=208，相加得 1768。停在 1560 的是漏了一步；用 156 去加的是把 30 当成 3 忘了错位；1708 那个漏掉了 2×30=60。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsc4n2xp9",
+   "level": 3,
+   "question": "素里一所小学的五年级有 28 名学生，每人卖出 15 张社区游园会的抽奖券，每张券 2 加元。这个班一共筹到多少加元？",
+   "options": [
+    "840 加元",
+    "680 加元",
+    "480 加元",
+    "336 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先算券数：28×15，28×10=280、28×5=140，共 420 张；再算钱：420×2=840 加元。第一步最容易错——把 15 的 10 当成 1（140+28=168 张）或者拆开后漏掉 8×10=80 这样的部分积，钱数就跟着全错了。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g4dscr4pwpd",
+   "level": 3,
+   "question": "基洛纳社区中心的活动室是长方形，长 24 米、宽 16 米，要在地面全部铺上运动地垫。地垫每平方米 3 加元，铺满这间活动室一共要花多少加元？",
+   "options": [
+    "672 加元",
+    "1152 加元",
+    "1032 加元",
+    "504 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先求面积（area）：24×16，24×10=240、24×6=144，共 384 平方米；再算钱：384×3=1152 加元。算面积时把 16 的 10 当成 1（144+24=168）或漏掉 4×10=40 这样的部分积，都会让最后的钱数偏小。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.partial_product_missing",
+    "mult.place_shift_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g4dscdji8i4",
+   "level": 3,
+   "question": "小舟这样算 37 × 24：先写 37×4 = 148，再写 37×2 = 74，最后 148 + 74 = 222。他的做法对吗？",
+   "options": [
+    "他多算了一步，37×4 = 148 就是答案",
+    "对的，积就是 222",
+    "不对，第二步其实是 37×20 = 740，正确的积是 148 + 740 = 888",
+    "应该算 30×20 + 7×4 = 600 + 28 = 628"
+   ],
+   "answerIndex": 2,
+   "explain": "24 里的 2 站在十位（digit），代表 20，所以第二步应该是 37×20=740，148+740=888。认为 222 正确的就是忘了第二行要错位；只留 148 或只算 30×20+7×4 的，都漏掉了该有的部分积。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "ok",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g4dsc4syfx1",
+   "level": 3,
+   "question": "小雅用面积模型算 46 × 23：她把 46 拆成 40 和 6，把 23 拆成 20 和 3，但只写了 40×20 = 800 和 6×3 = 18，然后得到 800 + 18 = 818。下面哪句话说得对？",
+   "options": [
+    "她没算错，46×23 的积就是 818",
+    "应该用 46×3 = 138 加 46×2 = 92，积是 230",
+    "她只漏了 6×20 = 120，积应该是 938",
+    "她还漏了 40×3 = 120 和 6×20 = 120，正确的积是 1058"
+   ],
+   "answerIndex": 3,
+   "explain": "两位数乘两位数拆开后一共有四小块：800+120+120+18=1058。只算对角两块（800 和 18）是最常见的漏项错误；用 46×2 去加的那个则是把十位的 2 当成 2 个一，忘了错位。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.place_shift_forget",
+    "mult.partial_product_missing",
+    "ok"
+   ]
+  }
+ ]
+}

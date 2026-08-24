@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.EXPRESSION",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5u5qmbbo8aen",
+   "level": 1,
+   "question": "The expression for a linear relation is 3n + 2. What is its value when n = 4?",
+   "options": [
+    "14",
+    "17",
+    "11",
+    "12"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply first, then add: 3 × 4 = 12, and 12 + 2 = 14. A common trap is swapping the numbers and doing 2 × 4 + 3 — in 3n + 2 the 3 is the rate and the 2 is the starting value.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbitijpl",
+   "level": 1,
+   "question": "A number pattern is described in words: the first number is 5, and every next number is 3 more than the one before, giving 5, 8, 11, 14, and so on. Which expression gives the nth number of this pattern?",
+   "options": [
+    "2n + 3",
+    "3n + 2",
+    "Start at 5 and add 3 each time, over and over",
+    "3n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "The value climbs by 3 each step, so the rate part is 3n; since 3 × 1 = 3 but the first number is 5, you add 2, giving 3n + 2. Writing 3n + 5 comes from copying the first number instead of asking what must be added to 3 × 1 to make 5.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbpdii0b",
+   "level": 1,
+   "question": "A rule is given in words: take the term number, multiply it by 3, then add 2. Which expression matches this rule?",
+   "options": [
+    "2n + 3",
+    "3(n + 2)",
+    "3n + 2",
+    "Add 3 to the term before it"
+   ],
+   "answerIndex": 2,
+   "explain": "Multiply by 3 first, then add 2, which is written 3n + 2. The one that says 3(n + 2) adds 2 first and then multiplies, so for n = 4 it gives 18 instead of 14.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbdf1jkb",
+   "level": 1,
+   "question": "A table of a linear relation is described in words: when n = 1 the value is 5, when n = 2 the value is 8, and when n = 3 the value is 11, so the value goes up by 3 each time. What is the value when n = 6?",
+   "options": [
+    "23",
+    "18",
+    "15",
+    "20"
+   ],
+   "answerIndex": 3,
+   "explain": "The expression for this table is 3n + 2, so 3 × 6 + 2 = 20. Getting 23 means adding 3 six times on top of 5, but the 5 already contains one of those 3s, so only five more jumps belong there.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbkffcot",
+   "level": 2,
+   "question": "Evaluate 3n + 2 when n = 25.",
+   "options": [
+    "77",
+    "53",
+    "80",
+    "75"
+   ],
+   "answerIndex": 0,
+   "explain": "3 × 25 = 75 and 75 + 2 = 77 — the explicit expression lets you jump straight to n = 25 without listing every term. Counting 5, 8, 11 and adding 3 twenty-five times gives 80, which is one 3 too many.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbkk288o",
+   "level": 2,
+   "question": "Skating at the Burnaby rink costs a $2 skate-rental fee plus $3 for each hour on the ice. The cost in dollars for n hours is 3n + 2. How much does 5 hours cost?",
+   "options": [
+    "$13",
+    "$17",
+    "$15",
+    "$20"
+   ],
+   "answerIndex": 1,
+   "explain": "The hours are multiplied by the $3 rate and the $2 fee is added just once: 3 × 5 + 2 = 17. The answer $15 forgets the one-time rental fee, and $13 swaps the hourly rate with the fee.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmb6h11ns",
+   "level": 2,
+   "question": "For the relation y = 3n + 2, which pair of values is correct for n = 7 and then n = 8?",
+   "options": [
+    "26 and 29",
+    "17 and 19",
+    "23 and 26",
+    "21 and 24"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute each value separately: 3 × 7 + 2 = 23 and 3 × 8 + 2 = 26. The pair 26 and 29 comes from starting the count at 5 and adding 3 one extra time instead of substituting into the expression.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbtgo5p5",
+   "level": 2,
+   "question": "Ellie plants a seedling that is already 2 cm tall, and it grows 3 cm every week. Which expression gives its height in centimetres after n weeks?",
+   "options": [
+    "2n + 3",
+    "3(n + 2)",
+    "Take last week's height and add 3 cm",
+    "3n + 2"
+   ],
+   "answerIndex": 3,
+   "explain": "The 3 cm happens every week so it is multiplied by n, and the 2 cm the plant started at is added only once: 3n + 2. Adding 3 cm to last week's height is true but recursive — it cannot give you week 40 without doing all 40 steps.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbvp11p5",
+   "level": 3,
+   "question": "A pattern of numbers is 5, 8, 11, 14, and so on. Nico says the only way to get the 20th number is to keep adding 3 over and over. Which calculation gives the 20th number in one step, and what is it?",
+   "options": [
+    "3 × 20 + 2 = 62",
+    "2 × 20 + 3 = 43",
+    "3 × 20 = 60",
+    "5 + 3 × 20 = 65"
+   ],
+   "answerIndex": 0,
+   "explain": "Write the explicit expression 3n + 2 and substitute n = 20: 3 × 20 + 2 = 62. Using 5 + 3 × 20 counts twenty jumps of 3 even though the starting 5 already includes the first jump, so it lands 3 too high.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmb4ult8o",
+   "level": 3,
+   "question": "A bike rental in Stanley Park charges C = 3n + 2 dollars for n hours. Which statement describes this relation correctly?",
+   "options": [
+    "The bike costs $3 to start and $2 more for each hour.",
+    "The bike costs $2 to start and $3 more for each hour.",
+    "Each hour costs $5, because 3 + 2 = 5.",
+    "You can only find the 12-hour cost by first working out the 11-hour cost and adding $3."
+   ],
+   "answerIndex": 1,
+   "explain": "In 3n + 2 the number attached to n is the rate ($3 for each hour) and the number standing alone is the starting value ($2 up front). Reading it backwards as $3 to start and $2 per hour is the most common mix-up.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmb9pxh09",
+   "level": 3,
+   "question": "A museum tour costs a $2 booking fee plus $3 for each student, so the total cost in dollars for n students is 3n + 2. A class of 24 students has a budget of $80. How much money is left after paying for the tour?",
+   "options": [
+    "$29",
+    "$3",
+    "$6",
+    "$8"
+   ],
+   "answerIndex": 2,
+   "explain": "First evaluate the expression: 3 × 24 + 2 = 74, then subtract from the budget: 80 − 74 = 6. The $2 booking fee is paid once for the whole class, not once per student, and the $3 is the rate that multiplies the 24.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u5qmbgtsai9",
+   "level": 3,
+   "question": "A student made a table for 3n + 2 and wrote: n = 1 gives 5, n = 2 gives 8, n = 3 gives 12, n = 4 gives 14. Exactly one value is wrong. Which choice fixes it correctly?",
+   "options": [
+    "The 8 is wrong; 3 × 2 = 6.",
+    "The 14 is wrong; after 12 you add 3, so it should be 15.",
+    "The 5 is wrong; the pattern should start at 3 and go up by 2 each time.",
+    "The 12 is wrong; 3 × 3 + 2 = 11."
+   ],
+   "answerIndex": 3,
+   "explain": "Test every entry by substituting into 3n + 2: n = 3 gives 3 × 3 + 2 = 11, so the 12 is the bad value. Changing the 14 to 15 keeps the error alive by adding 3 to a value that was already wrong — always check against the expression, not against the number before it.",
+   "tags": [
+    "other",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  }
+ ]
+}

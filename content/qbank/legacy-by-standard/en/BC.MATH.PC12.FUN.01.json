@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC12.FUN.01",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3jsgr93i7nl8",
+   "level": 1,
+   "question": "The parent function is f(x) = x². The graph is shifted 3 units up. What is the new equation?",
+   "options": [
+    "y = (x - 3)²",
+    "y = x² + 3",
+    "y = (x + 3)²",
+    "y = x² - 3"
+   ],
+   "answerIndex": 1,
+   "explain": "A vertical translation adds or subtracts outside the function: shift up 3 means y = x² + 3. The most common trap is writing (x - 3)², which is actually a horizontal shift to the right."
+  },
+  {
+   "qid": "qmt3jsgr9x8lff5",
+   "level": 1,
+   "question": "The parent function is f(x) = √x. Reflect the graph over the x-axis. What is the new equation?",
+   "options": [
+    "y = √(-x)",
+    "y = -√(-x)",
+    "y = √x - 1",
+    "y = -√x"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflecting over the x-axis negates the output: y = -f(x) = -√x. Confusing this with √(-x) (a reflection over the y-axis) is the most frequent mistake."
+  },
+  {
+   "qid": "qmt3jsgr9s1fl5n",
+   "level": 1,
+   "question": "The parent function is f(x) = x². Stretch the graph vertically by a factor of 4. What is the new equation?",
+   "options": [
+    "y = 4x²",
+    "y = (4x)²",
+    "y = x² + 4",
+    "y = x⁴"
+   ],
+   "answerIndex": 0,
+   "explain": "A vertical stretch multiplies the output: y = 4·x². Writing (4x)² actually gives 16x², which is a horizontal compression, not a vertical stretch."
+  },
+  {
+   "qid": "qmt3jsgr9ovup0j",
+   "level": 1,
+   "question": "The parent function is f(x) = 1/x. Shift the graph 5 units to the left. What is the new equation?",
+   "options": [
+    "y = 1/x - 5",
+    "y = 1/x + 5",
+    "y = 1/(x + 5)",
+    "y = 1/(x - 5)"
+   ],
+   "answerIndex": 2,
+   "explain": "A horizontal shift changes the input: shift left 5 means replace x with (x + 5), giving y = 1/(x + 5). Adding or subtracting outside the function is a vertical shift, not a horizontal one."
+  },
+  {
+   "qid": "qmt3jsgr9h34858",
+   "level": 2,
+   "question": "A satellite dish has a parabolic cross-section modelled by y = x². The dish is modified by shifting it 2 units to the right and then compressing it vertically by a factor of 1/2. What is the new equation?",
+   "options": [
+    "y = (1/2)(x - 2)²",
+    "y = (1/2)(x + 2)²",
+    "y = (1/2)x² - 2",
+    "y = (1/2)(x - 2)² + 2"
+   ],
+   "answerIndex": 0,
+   "explain": "Apply the horizontal shift first: replace x with (x - 2). Then apply the vertical compression by multiplying the whole expression by 1/2. The trap is doing the vertical operations on x instead of on the output."
+  },
+  {
+   "qid": "qmt3jsgr9di6v0e",
+   "level": 2,
+   "question": "Given f(x) = (3x - 7)/2, find the inverse function f⁻¹(x).",
+   "options": [
+    "f⁻¹(x) = (3x + 7)/2",
+    "f⁻¹(x) = (2x - 7)/3",
+    "f⁻¹(x) = (2x + 7)/3",
+    "f⁻¹(x) = (3x - 7)/2"
+   ],
+   "answerIndex": 2,
+   "explain": "Set y = (3x - 7)/2, swap x and y to get x = (3y - 7)/2, then solve: 2x = 3y - 7, so y = (2x + 7)/3. The common error is forgetting to change the sign of the constant when isolating y."
+  },
+  {
+   "qid": "qmt3jsgr9jy3g6d",
+   "level": 2,
+   "question": "A phone battery drains according to the model A = 100(0.5)^t, where A is remaining charge in percent and t is time in hours. A new phone has half the capacity, and the drain only begins 2 hours after it is turned on. What is the new model?",
+   "options": [
+    "A = 50(0.5)^(t + 2)",
+    "A = 50(0.5)^(t - 2)",
+    "A = 100(0.5)^(t - 2)",
+    "A = 25(0.5)^(t - 2)"
+   ],
+   "answerIndex": 1,
+   "explain": "Half the capacity scales the coefficient to 50; 'starts 2 hours late' means the input shifts right by 2, giving exponent (t - 2). Using (t + 2) would make the drain start earlier, not later."
+  },
+  {
+   "qid": "qmt3jsgr959kogo",
+   "level": 2,
+   "question": "A city planner models a road segment with y = |x - 3|. A new parallel road is built by reflecting this road over the x-axis and then shifting it 4 units down. What is the new equation?",
+   "options": [
+    "y = -|x + 3| - 4",
+    "y = -|x - 3| + 4",
+    "y = |x - 3| - 4",
+    "y = -|x - 3| - 4"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflect over the x-axis by negating the output: -|x - 3|. Then shift down 4 by subtracting 4: -|x - 3| - 4. Forgetting the negative sign (option C) or flipping the vertical shift direction (option B) are the usual errors."
+  },
+  {
+   "qid": "qmt3jsgr9p9ee47",
+   "level": 3,
+   "question": "A student designing a fountain starts with y = x² and wants to: (1) shift right 3 units, (2) stretch vertically by a factor of 2, (3) shift up 4 units. A fellow student writes y = 2x² - 3 + 4. Which option gives the CORRECT equation and correctly identifies the fellow student's error?",
+   "options": [
+    "y = 2(x + 3)² + 4; the student shifted left instead of right",
+    "y = 2(x - 3)² + 4; the student applied the horizontal shift as a vertical subtraction",
+    "y = 2(x - 3)² - 4; the student used the wrong sign for the vertical translation",
+    "y = 2x² + 1; the student correctly applied all three transformations"
+   ],
+   "answerIndex": 1,
+   "explain": "The horizontal shift must be applied to the input (x - 3), not as a constant outside. The correct equation is 2(x - 3)² + 4. The fellow student treated 'shift right 3' as subtracting 3 from the output, which is a vertical shift."
+  },
+  {
+   "qid": "qmt3jsgr9fp4t2e",
+   "level": 3,
+   "question": "A ski lift carries skiers up a slope. Altitude h (metres) after t minutes is given by h = 4t + 12 (the lift starts at 12 m, rising 4 m/min). A skier wants to find how many minutes it takes to reach a target altitude. Which equation correctly gives time t as a function of altitude h?",
+   "options": [
+    "t = (h - 12)/4",
+    "t = (h + 12)/4",
+    "t = 4h - 12",
+    "t = (h - 12)/4 + 1"
+   ],
+   "answerIndex": 0,
+   "explain": "To invert h = 4t + 12, solve for t: subtract 12, then divide by 4, giving t = (h - 12)/4. The trap is adding 12 (option B), which reverses the sign of the constant term."
+  },
+  {
+   "qid": "qmt3jsgr9u5mk3k",
+   "level": 3,
+   "question": "A photographer models image brightness as y = √x, where x is light intensity in lux. A dimmer first reduces the effective light to (x - 16) lux (so x > 16), and then the camera sensor applies a 3× gain to the output. What is the composite function for the final brightness?",
+   "options": [
+    "y = √(3x - 16)",
+    "y = 3√(x - 16)",
+    "y = √(x - 16) + 3",
+    "y = 3√x - 16"
+   ],
+   "answerIndex": 1,
+   "explain": "The dimmer changes the input: √(x - 16). The 3× gain multiplies the output: 3·√(x - 16). A common error is distributing the 3 inside the radical (giving √(3x - 16)), but multiplication of the output is not the same as scaling the input."
+  },
+  {
+   "qid": "qmt3jsgr9z728yc",
+   "level": 3,
+   "question": "A farmer in the Okanagan designs a parabolic water channel with cross-section y = x² (metres). The channel must be shifted 2 m right, flipped to open downward, and widened so that at 3 m from the vertex the depth is exactly 1 m. What is the final equation?",
+   "options": [
+    "y = -9(x - 2)²",
+    "y = -(x - 2)²/3",
+    "y = -(1/9)(x + 2)²",
+    "y = -(1/9)(x - 2)²"
+   ],
+   "answerIndex": 3,
+   "explain": "After shifting right and flipping, the form is y = -a(x - 2)². At 3 m from the vertex, depth is 1: -a(9) = -1, so a = 1/9. Using 9 as the coefficient (option A) confuses stretching with compressing; using 3 (option B) plugs in the x-value instead of its square."
+  }
+ ]
+}

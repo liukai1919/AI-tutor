@@ -1,0 +1,215 @@
+{
+ "id": "YY.MATH.PAT.TABLE.PREDICT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5hv042kthnth",
+   "level": 1,
+   "question": "A table of values has two columns, ‘Term number’ and ‘Value’. The table lists these four rows: term 1 goes with 5, term 2 goes with 8, term 3 goes with 11, term 4 goes with 14. Using the pattern rule from the table, what is the value of term 7?",
+   "options": [
+    "23",
+    "20",
+    "21",
+    "17"
+   ],
+   "answerIndex": 0,
+   "explain": "The rule is ‘start at 5, add 3’, so term 7 is 5 + 6 jumps of 3 = 5 + 18 = 23. The usual trap is stopping one row too soon (that gives 20) or multiplying 7 x 3 and forgetting the starting value 5.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv0424eornt",
+   "level": 1,
+   "question": "A table of values shows a decreasing pattern. Its columns are ‘Term number’ and ‘Value’, and it lists four rows: term 1 goes with 40, term 2 goes with 36, term 3 goes with 32, term 4 goes with 28. Using the same pattern rule, what is the value of term 8?",
+   "options": [
+    "16",
+    "12",
+    "8",
+    "24"
+   ],
+   "answerIndex": 1,
+   "explain": "The rule is ‘start at 40, subtract 4’. From term 1 to term 8 there are 7 jumps, so 40 - 7 x 4 = 40 - 28 = 12. A common slip is subtracting 4 eight times (which gives 8) — term 1 is the start, not a jump.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv0427du7qg",
+   "level": 1,
+   "question": "A table of values has the columns ‘Term number’ and ‘Value’ and lists four rows: term 1 goes with 6, term 2 goes with 12, term 3 goes with 18, term 4 goes with 24. Using the pattern rule shown in the table, what is the value of term 10?",
+   "options": [
+    "54",
+    "30",
+    "60",
+    "84"
+   ],
+   "answerIndex": 2,
+   "explain": "Each term number is multiplied by 6, so term 10 is 10 x 6 = 60. The trap is starting again from the last row in the table and adding 6 ten more times (24 + 60 = 84) instead of counting from term 1.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042ypgmcg",
+   "level": 1,
+   "question": "A table of values has the columns ‘Term number’ and ‘Value’ and lists five rows: term 1 goes with 9, term 2 goes with 14, term 3 goes with 19, term 4 goes with 24, term 5 goes with 29. What is the value of term 12?",
+   "options": [
+    "59",
+    "69",
+    "60",
+    "64"
+   ],
+   "answerIndex": 3,
+   "explain": "The rule is ‘start at 9, add 5’, and from term 1 to term 12 there are 11 jumps: 9 + 11 x 5 = 64. Watch the trap of doing 12 x 5 = 60 and forgetting the starting value, or counting 12 jumps instead of 11.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5hv0428wlz1j",
+   "level": 2,
+   "question": "In a table of values, term 1 is 7 and every next term is 6 more than the one before it. Which number sentence correctly finds the value of term 25 without writing out all 25 rows?",
+   "options": [
+    "7 + 24 x 6 = 151",
+    "7 + 25 x 6 = 157",
+    "25 x 6 = 150",
+    "24 x 6 = 144"
+   ],
+   "answerIndex": 0,
+   "explain": "Going from term 1 to term 25 takes 24 jumps of 6, so the value is 7 + 24 x 6 = 151. The most common error is using 25 jumps, or multiplying only and forgetting to start from the value 7.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042onl73d",
+   "level": 2,
+   "question": "A table of values shows a decreasing pattern: term 1 is 100, term 2 is 93, term 3 is 86, term 4 is 79. What is the value of term 13?",
+   "options": [
+    "23",
+    "16",
+    "91",
+    "9"
+   ],
+   "answerIndex": 1,
+   "explain": "The rule is ‘start at 100, subtract 7’, and term 13 is 12 jumps after term 1: 100 - 12 x 7 = 100 - 84 = 16. Two traps are subtracting 7 thirteen times (giving 9) and working out 13 x 7 = 91 without subtracting it from 100.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042v6etpz",
+   "level": 2,
+   "question": "Priya tracks her savings in a table with the columns ‘Week’ and ‘Money in jar’. Week 1 shows $12, week 2 shows $17, week 3 shows $22, week 4 shows $27, and she keeps adding the same amount every week. How much will be in her jar in week 20?",
+   "options": [
+    "$102",
+    "$112",
+    "$107",
+    "$100"
+   ],
+   "answerIndex": 2,
+   "explain": "She adds $5 each week, and week 20 is 19 weeks after week 1: 12 + 19 x 5 = $107. A common mistake is using 20 jumps ($112) — week 1 is where the pattern starts, so it is not a jump.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042de1l94",
+   "level": 3,
+   "question": "Owen's table of values shows term 1 with 6, term 2 with 10, and term 3 with 14. To find term 30 he says: ‘The rule is add 4, so I start at 14 and add 4 thirty times.’ He gets 134. Which statement describes his mistake and gives the correct value of term 30?",
+   "options": [
+    "He should have started at 6 and added 4 thirty times, so term 30 is 126.",
+    "His method is correct, so term 30 is 134.",
+    "He should simply multiply 30 x 4, so term 30 is 120.",
+    "From term 3 there are only 27 more jumps of 4, so term 30 is 122."
+   ],
+   "answerIndex": 3,
+   "explain": "Count the jumps between the term you know and the term you want: from term 3 to term 30 is 27 jumps, so 14 + 27 x 4 = 122 (same as 6 + 29 x 4). The classic trap is adding the step 30 times just because the term number is 30.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5hv042over32",
+   "level": 3,
+   "question": "A class in Surrey measures a cedar seedling each month and records it in a table with the columns ‘Month’ and ‘Height (cm)’. Month 1 shows 24 cm, month 2 shows 27 cm, month 3 shows 30 cm, month 4 shows 33 cm, and it keeps growing the same amount each month. In which month will the seedling first be 60 cm tall?",
+   "options": [
+    "Month 13",
+    "Month 20",
+    "Month 11",
+    "Month 12"
+   ],
+   "answerIndex": 0,
+   "explain": "First find the extra height needed, 60 - 24 = 36 cm, then divide by the 3 cm growth to get 12 jumps; 12 jumps after month 1 is month 13. The trap is stopping at the number of jumps (12) or dividing 60 by 3 and forgetting the seedling already started at 24 cm.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042c2vfm0",
+   "level": 3,
+   "question": "Liam records his savings in a table with the columns ‘Week’ and ‘Money left’. Week 1 shows $95, week 2 shows $87, week 3 shows $79, week 4 shows $71, and he spends the same amount every week. He wants a $25 concert ticket in week 11. How much money will he have in week 11, and is that enough?",
+   "options": [
+    "$7, so he does not have enough.",
+    "$15, so he does not have enough.",
+    "$23, so he does not have enough.",
+    "$31, so he has enough."
+   ],
+   "answerIndex": 1,
+   "explain": "He spends $8 a week, and week 11 is 10 weeks after week 1: 95 - 10 x 8 = $15, which is less than $25. The usual slip is subtracting $8 eleven times (giving $7) — week 1 is the starting row, not a subtraction.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hv042bx78pq",
+   "level": 3,
+   "question": "Two tables of values are compared. Pattern A: term 1 is 8, term 2 is 13, term 3 is 18, and it keeps increasing the same way. Pattern B: term 1 is 40, term 2 is 37, term 3 is 34, and it keeps decreasing the same way. At which term number will the two patterns have the same value?",
+   "options": [
+    "Term 4",
+    "Term 8",
+    "Term 5",
+    "Term 6"
+   ],
+   "answerIndex": 2,
+   "explain": "Pattern A is 8 plus 5 for each jump and Pattern B is 40 minus 3 for each jump; after 4 jumps A is 8 + 20 = 28 and B is 40 - 12 = 28, so they meet at term 5. Remember that 4 jumps lands on term 5, since term 1 is the start of both tables.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  }
+ ]
+}

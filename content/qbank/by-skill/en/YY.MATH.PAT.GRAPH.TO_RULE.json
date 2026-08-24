@@ -1,0 +1,162 @@
+{
+ "id": "YY.MATH.PAT.GRAPH.TO_RULE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5ogekd5ucd9u",
+   "level": 1,
+   "question": "On a coordinate grid, Owen plots four points from his pattern: (1, 4), (2, 8), (3, 12) and (4, 16). Which rule matches every point he plotted?",
+   "options": [
+    "y = 4x",
+    "y = x + 3",
+    "y = x + 4",
+    "y = 4x + 4"
+   ],
+   "answerIndex": 0,
+   "explain": "A rule has to work for every point, not just the first one: 4 x 1 = 4, 4 x 2 = 8, 4 x 3 = 12, 4 x 4 = 16, so y = 4x. The common trap is checking only (1, 4), where adding 3 also seems to work but fails at (2, 8)."
+  },
+  {
+   "qid": "qmt5ogekdwwnfcd",
+   "level": 1,
+   "question": "On a coordinate grid, Leah plots the points (1, 5), (2, 7), (3, 9) and (4, 11). Which rule matches all four points?",
+   "options": [
+    "y = 2x",
+    "y = 2x + 3",
+    "y = 5x",
+    "y = 3x + 2"
+   ],
+   "answerIndex": 1,
+   "explain": "The y-values go up by 2 each time x goes up by 1, so the rule multiplies x by 2, and 2 x 1 = 2 needs 3 more to reach 5, giving y = 2x + 3. The trap is swapping the step and the starting extra and writing 3x + 2, which gives 8 instead of 7 at x = 2."
+  },
+  {
+   "qid": "qmt5ogekdpf1mn2",
+   "level": 1,
+   "question": "On a coordinate grid, Diego plots the points (0, 6), (1, 5), (2, 4) and (3, 3). Which sentence best explains the relationship between x and y?",
+   "options": [
+    "y is always 6 less than x, so y = x - 6",
+    "Each time x increases by 1, y decreases by 2, so y = 6 - 2x",
+    "Each time x increases by 1, y decreases by 1, and y starts at 6, so y = 6 - x",
+    "Each time x increases by 1, y increases by 1, so y = x + 6"
+   ],
+   "answerIndex": 2,
+   "explain": "Read the change first: from 6 to 5 to 4 to 3 the y-value drops by 1 for each step of x, and it starts at 6, so y = 6 - x. A common trap is flipping the subtraction into y = x - 6, which would give a negative value at x = 1."
+  },
+  {
+   "qid": "qmt5ogekdlbcvfb",
+   "level": 1,
+   "question": "On a coordinate grid, Amrit plots the points (1, 3), (2, 6), (3, 9) and (4, 12). Which statement correctly explains how y is related to x?",
+   "options": [
+    "The points go up by 3 each step, so y = x + 3",
+    "x is always 3 times y, so x = 3y",
+    "y is always 2 more than x, so y = x + 2",
+    "y is always 3 times x, so each time x goes up by 1, y goes up by 3"
+   ],
+   "answerIndex": 3,
+   "explain": "Compare each y with its own x: 3 = 3 x 1, 6 = 3 x 2, 9 = 3 x 3, so y is 3 times x. The trap is turning the step of 3 into y = x + 3, which gives 5 at x = 2 instead of 6."
+  },
+  {
+   "qid": "qmt5ogekdnmf76u",
+   "level": 2,
+   "question": "A table of values shows n = 1, 2, 3, 4 in the top row and c = 5, 8, 11, 14 in the bottom row. Which expression gives c for every value of n?",
+   "options": [
+    "3n + 2",
+    "5n",
+    "2n + 3",
+    "3n"
+   ],
+   "answerIndex": 0,
+   "explain": "The c-values rise by 3 each time n rises by 1, and 3 x 1 = 3 is 2 short of 5, so c = 3n + 2. Test more than one row: 2n + 3 also gives 5 at n = 1 but gives 7 instead of 8 at n = 2."
+  },
+  {
+   "qid": "qmt5ogekdpe6t77",
+   "level": 2,
+   "question": "Ella graphs her savings. Her points are (0, 2), (1, 5), (2, 8) and (3, 11), where x is the number of weeks and y is dollars saved. She wants to know her savings after 10 weeks. Which reasoning is correct?",
+   "options": [
+    "Multiply 10 by 5, giving $50, because the point (1, 5) is on the graph",
+    "She started with $2 and adds $3 each week, so 3 x 10 + 2 = $32",
+    "Multiply 10 by 3, giving $30, because y goes up by 3 each week",
+    "Multiply 10 by 2 and add 3, giving $23, because the start is 2 and the step is 3"
+   ],
+   "answerIndex": 1,
+   "explain": "Read two things off the graph: the starting amount at x = 0 (which is $2) and the change per week (which is $3), giving y = 3x + 2, so 10 weeks gives $32. The most common trap is forgetting the $2 she already had and answering $30."
+  },
+  {
+   "qid": "qmt5ogekdt7i3l0",
+   "level": 2,
+   "question": "Sam graphs the water in his rain barrel as it drains. The points are (0, 40), (1, 37), (2, 34) and (3, 31), where x is minutes and y is litres. Which statement explains the relationship?",
+   "options": [
+    "The barrel gains 3 L each minute, so y = 40 + 3x",
+    "The barrel starts with 37 L and loses 3 L each minute, so y = 37 - 3x",
+    "The barrel starts with 40 L and loses 3 L each minute, so y = 40 - 3x",
+    "The barrel loses 3 L in total over the whole time, so y = 40 - 3"
+   ],
+   "answerIndex": 2,
+   "explain": "The amount at x = 0 is the starting value of 40 L, and each minute the water drops by 3 L, so y = 40 - 3x. A common trap is reading the starting value from the point (1, 37) instead of from x = 0."
+  },
+  {
+   "qid": "qmt5ogekdrul9nv",
+   "level": 2,
+   "question": "Jae writes the rule y = 4x - 1 for a pattern. Which table of values matches Jae's rule?",
+   "options": [
+    "x: 1, 2, 3 and y: 3, 6, 9",
+    "x: 1, 2, 3 and y: 4, 8, 12",
+    "x: 1, 2, 3 and y: 5, 9, 13",
+    "x: 1, 2, 3 and y: 3, 7, 11"
+   ],
+   "answerIndex": 3,
+   "explain": "Substitute each x into the rule: 4 x 1 - 1 = 3, 4 x 2 - 1 = 7, 4 x 3 - 1 = 11. The usual trap is multiplying by 4 and forgetting to subtract 1, which gives 4, 8, 12."
+  },
+  {
+   "qid": "qmt5ogekd1mzgf6",
+   "level": 3,
+   "question": "A table shows x = 1, 2, 3, 4 with y = 5, 8, 11, 14. Priya says the rule is y = 5x because the first point on her graph is (1, 5). What is the best explanation of her mistake?",
+   "options": [
+    "A rule must work for every pair, and y = 5x gives 10 when x = 2 instead of 8; the correct rule is y = 3x + 2",
+    "She should have used the last pair instead of the first, so the rule is y = 14x",
+    "Her rule is fine for a table, but a graph would need the rule y = 3x",
+    "She mixed up x and y, so the correct rule is x = 5y"
+   ],
+   "answerIndex": 0,
+   "explain": "One matching pair never proves a rule; test it on every row, and y = 5x fails at x = 2. Here y climbs by 3 each step and sits 2 above 3x, so y = 3x + 2 works for all four pairs."
+  },
+  {
+   "qid": "qmt5ogekdjg4jnf",
+   "level": 3,
+   "question": "Malia graphs the cost of skating. Her points are (1, 6), (2, 8) and (3, 10), where x is hours and y is dollars. The rink charges a fixed entry fee plus an hourly rate. Malia has exactly $18 to spend. Which reasoning finds the number of hours correctly?",
+   "options": [
+    "Each hour costs $2, so 18 / 2 = 9 hours",
+    "The cost rises $2 per hour, so 1 hour of skating is $2 and the entry fee is $4; then 18 - 4 = 14 and 14 / 2 = 7 hours",
+    "One hour costs $6, so 18 / 6 = 3 hours",
+    "Add the $4 entry fee to the $18, then divide by 2, giving 11 hours"
+   ],
+   "answerIndex": 1,
+   "explain": "From the graph the cost goes up $2 per hour, so the $6 for one hour is $4 entry plus $2 skating; take the entry fee off first, then divide: (18 - 4) / 2 = 7 hours. The big trap is dividing the whole $18 by the hourly rate and forgetting the fixed fee."
+  },
+  {
+   "qid": "qmt5ogekdhgg9to",
+   "level": 3,
+   "question": "At the community pool, Plan A costs a $10 membership plus $3 for each swim, and Plan B costs $5 for each swim with no membership. Which statement about the two plans is true?",
+   "options": [
+    "Plan B is always cheaper because it has no membership fee",
+    "Plan A is always cheaper because it goes up by only $3 for each swim",
+    "At 5 swims both plans cost $25, and after 5 swims Plan A costs less",
+    "At 2 swims the plans cost the same, $16 each"
+   ],
+   "answerIndex": 2,
+   "explain": "Write both rules and compare: Plan A is 3n + 10 and Plan B is 5n, and they meet at n = 5 where both equal $25, after which Plan A grows more slowly. The trap is judging by the step size or the membership fee alone; a smaller step does not make a plan cheaper until enough swims have passed."
+  },
+  {
+   "qid": "qmt5ogekdigkiif",
+   "level": 3,
+   "question": "On one coordinate grid, Line P passes through (0, 1), (1, 5) and (2, 9). Line Q passes through (0, 6), (1, 8) and (2, 10). Jaya says Line Q grows faster because its points are higher up on the grid. Which explanation is correct?",
+   "options": [
+    "Jaya is right, because 6 is greater than 1, so Q must be growing faster",
+    "Jaya is wrong: Q rises 2 for each step while P rises 5, so P grows faster",
+    "Both lines grow at the same rate because both sets of points lie in a straight line",
+    "Jaya is wrong: P rises 4 for each step while Q rises 2, so P grows faster and Q only starts higher"
+   ],
+   "answerIndex": 3,
+   "explain": "Growth is about the change from one point to the next, not how high the points sit: P goes 1, 5, 9 (up 4 each step) and Q goes 6, 8, 10 (up 2 each step). Careful with the step for P, it is 5 - 1 = 4, not the y-value 5 itself."
+  }
+ ]
+}

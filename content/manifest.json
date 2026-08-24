@@ -1,0 +1,40 @@
+{
+ "exportedAt": "2026-08-24T02:08:22.673Z",
+ "source": "ai-tutor (Node) dev branch",
+ "counts": {
+  "files": 3348,
+  "curriculum.bc": 10,
+  "curriculum.skills": 6,
+  "lessons.standards.zh": 117,
+  "lessons.skills.zh": 245,
+  "lessons.standards.en": 117,
+  "lessons.skills.en": 245,
+  "qbank.legacy-by-standard.en": 117,
+  "qbank.questions": 8517,
+  "skipped.aopsBanks": 2,
+  "qbank.legacy-by-standard.zh": 117,
+  "qbank.by-skill.zh": 234,
+  "qbank.by-skill.en": 234,
+  "unitTests.strand.zh": 44,
+  "unitTests.topic.zh": 54,
+  "unitTests.strand.en": 44,
+  "unitTests.topic.en": 54,
+  "voice.steps.zh": 866,
+  "voice.missing.zh": 1399,
+  "voice.steps.en": 842,
+  "voice.missing.en": 1440,
+  "voice.files": 1708
+ },
+ "engines": {
+  "lessons": "Claude Opus 5 (effort high) via Claude Code CLI, judged",
+  "quizBanks": "same; skill banks 100% judged with per-question rejection",
+  "voice": "CosyVoice 2 (tools/tts_server.py), baked by tools/prevoice.mjs"
+ },
+ "notes": [
+  "qbank 每题的 tags 与 options 位置对齐：正确项 'ok'，干扰项是 misconceptions.json 里的误区 id（或 'other'）。tags 只供诊断/回补，绝不能下发给客户端——'ok' 的位置就是答案。",
+  "answerIndex 指向 options 原数组；题库入库时已做答案位置打散，整体分布均匀。",
+  "课程 steps[].visual.type 共 36 种（见 docs/skill-graph-plan.md / server.js LESSON_SCHEMA），客户端要有对应渲染器；没有的类型至少要能退回显示 caption。",
+  "AoPS 书籍课程、AOPS.* 题库、孩子的进度和做题记录（usedAt）都不在包里。",
+  "BC 大纲原文为 BC 省 Crown copyright，展示时保留来源标注（source.url / version）。"
+ ]
+}

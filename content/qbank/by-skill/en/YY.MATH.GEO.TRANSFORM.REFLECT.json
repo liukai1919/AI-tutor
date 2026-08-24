@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.REFLECT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5jjqqnzsl3y5",
+   "level": 1,
+   "question": "On a coordinate grid, the x-axis runs left to right and the y-axis runs up and down. A mirror line is drawn as the vertical line through 4 on the x-axis (the line x = 4). Point P sits at (1, 3), which is 3 squares to the left of the mirror line. Where does P land when it is reflected over that mirror line?",
+   "options": [
+    "(7, 3)",
+    "(-1, 3)",
+    "(4, 3)",
+    "(-2, 3)"
+   ],
+   "answerIndex": 0,
+   "explain": "P is 3 squares left of the line x = 4, so its image must be 3 squares to the right of the line: 4 + 3 = 7, giving (7, 3). The y-value never changes for a vertical mirror line. A common trap is sliding the point 3 squares and stopping on the line at (4, 3) instead of crossing over to the other side.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqnf7eyb0",
+   "level": 1,
+   "question": "On a coordinate grid, the mirror line is the x-axis (the horizontal line through 0). A point is at (3, 5), which is 5 squares above the x-axis. Where does the point land after it is reflected over the x-axis?",
+   "options": [
+    "(3, 0)",
+    "(3, -5)",
+    "(3, 10)",
+    "(-3, 5)"
+   ],
+   "answerIndex": 1,
+   "explain": "Reflecting over the x-axis keeps the x-value the same and sends the point the same distance to the opposite side: 5 squares above becomes 5 squares below, so (3, 5) becomes (3, -5). The usual mistake is sliding the point up or down without crossing the line, which leaves it on the same side, like the answer (3, 10).",
+   "tags": [
+    "transform.reflect_as_translate",
+    "ok",
+    "transform.reflect_as_translate",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqnzrfkk8",
+   "level": 1,
+   "question": "On a coordinate grid, a triangle has its three corners at (1, 2), (1, 5) and (3, 2). The mirror line is the y-axis (the vertical line through 0). What are the three corners of the triangle after it is reflected over the y-axis?",
+   "options": [
+    "(-1, 2), (-1, 5), (1, 2)",
+    "(-3, 2), (-3, 5), (-1, 2)",
+    "(-1, 2), (-1, 5), (-3, 2)",
+    "(1, -2), (1, -5), (3, -2)"
+   ],
+   "answerIndex": 2,
+   "explain": "Reflect one corner at a time: each corner keeps its y-value and its x-value changes sign, so (1, 2) goes to (-1, 2), (1, 5) goes to (-1, 5) and (3, 2) goes to (-3, 2). The big trap is sliding the whole triangle left so it still faces the same way, like the set ending in (1, 2) or the set that just shifts every corner 4 squares left.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqn0vsvw5",
+   "level": 1,
+   "question": "On a coordinate grid, the mirror line is the vertical line through 3 on the x-axis (the line x = 3). Point Q is at (7, 2), which is 4 squares to the right of the mirror line. Where is the image of Q after a reflection over that line?",
+   "options": [
+    "(3, 2)",
+    "(-7, 2)",
+    "(11, 2)",
+    "(-1, 2)"
+   ],
+   "answerIndex": 3,
+   "explain": "Q is 4 squares right of x = 3, so its image is 4 squares left of the line: 3 - 4 = -1, giving (-1, 2). Reflecting always swaps sides of the line, so an answer like (11, 2) that stays on the right side is a slide, not a flip.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "other",
+    "transform.reflect_as_translate",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqn0dkq7y",
+   "level": 2,
+   "question": "A point at (5, 2) is reflected over a vertical mirror line and its image lands at (11, 2). Where is the mirror line?",
+   "options": [
+    "x = 8",
+    "x = 11",
+    "x = 3",
+    "x = 6"
+   ],
+   "answerIndex": 0,
+   "explain": "The mirror line always sits exactly halfway between a point and its image: halfway between 5 and 11 is 8, so the line is x = 8, with each point 3 squares away from it. Answering x = 6 is thinking about the 6 squares the point moved, which describes a slide instead of the fold line.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "transform.reflect_as_translate"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqn3b0az1",
+   "level": 2,
+   "question": "A point is reflected over the y-axis and its image lands at (-6, 5). Where was the original point before the reflection?",
+   "options": [
+    "(-12, 5)",
+    "(6, 5)",
+    "(0, 5)",
+    "(-6, -5)"
+   ],
+   "answerIndex": 1,
+   "explain": "Reflections work the same way going backwards: the original must be 6 squares on the other side of the y-axis at the same height, so it is (6, 5). Moving 6 more squares in the same direction, to (-12, 5), treats the flip like a slide and keeps the point on the wrong side of the line.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "ok",
+    "transform.reflect_as_translate",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqnejg5tu",
+   "level": 2,
+   "question": "Diego is reflecting a triangle over a vertical mirror line on grid paper. Which step describes what he should do with each corner?",
+   "options": [
+    "Slide every corner the same number of squares to the right so the shape keeps facing the same way",
+    "Count how far each corner is from the line, then stop each corner right on the line",
+    "Count how far each corner is from the line, then count that same number of squares to the other side of the line",
+    "Turn the triangle a quarter turn around a point on the line"
+   ],
+   "answerIndex": 2,
+   "explain": "A reflection matches distances across the line: count the squares from a corner to the mirror line, then count the same number on the opposite side, which is why the image comes out backwards. Sliding every corner the same way keeps the shape facing the same direction, so it is a translation, not a reflection.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqna554zf",
+   "level": 2,
+   "question": "On grid paper, Priya draws a little flag: a straight pole from (2, 1) up to (2, 4), with a dot at (3, 4) just to the right of the top of the pole, so the flag points right. She reflects the whole flag over the vertical line x = 5. What happens to the dot and to the direction the flag points?",
+   "options": [
+    "The dot lands at (5, 4), on the mirror line, and the flag still points right",
+    "The dot lands at (9, 4) and the flag still points right",
+    "The dot lands at (7, 4) and the flag still points right",
+    "The dot lands at (7, 4) and the flag now points left"
+   ],
+   "answerIndex": 3,
+   "explain": "The dot is 2 squares left of x = 5, so it lands 2 squares right of the line at (7, 4), while the pole at x = 2 is 3 squares away and lands at x = 8. Since the dot now sits left of the pole, the flag points left; if the flag still points right, the shape was slid rather than flipped.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqnoauvb1",
+   "level": 3,
+   "question": "Jasmine reflects a shape over a vertical mirror line on grid paper, but when she checks her work the image looks exactly like the original, just moved sideways, and it still faces the same direction. What went wrong, and what should she do?",
+   "options": [
+    "She slid the shape instead of flipping it; she should count each corner across to the opposite side of the line, so the image faces the other way",
+    "Her image is fine, because a reflection always keeps the shape facing the same way",
+    "She should slide the shape twice as far to turn her slide into a reflection",
+    "She should turn the shape a half turn around a point on the line instead"
+   ],
+   "answerIndex": 0,
+   "explain": "If the image still faces the same direction, the shape was translated, not reflected: each corner must be counted from the line and then the same distance across to the far side, which reverses the shape like a mirror. Sliding further only moves the copy along; it never reverses which way the shape faces.",
+   "tags": [
+    "ok",
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqn44pc5q",
+   "level": 3,
+   "question": "Nina is making a poster of two matching orca fins on centimetre grid paper, where each square is 1 cm. She draws one fin on the left with its corners at (2, 3) and (4, 8), then reflects that fin over the vertical line x = 5 to make the matching fin. How wide is the finished poster picture, measured from its leftmost point to its rightmost point?",
+   "options": [
+    "8 cm",
+    "6 cm",
+    "2 cm",
+    "3 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Reflect each corner first: (2, 3) is 3 squares left of x = 5 so it lands at (8, 3), and (4, 8) is 1 square left so it lands at (6, 8). The picture now runs from x = 2 to x = 8, which is 6 cm wide; getting 8 cm comes from sliding the fin 6 squares right to x = 8 and x = 10 instead of flipping it.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqnk0onht",
+   "level": 3,
+   "question": "A class paints a salmon on a grid wall. The salmon's nose is at (3, 6) and its tail is at (1, 6), so it points to the right. The class reflects the salmon over the vertical line x = 7 so that the two salmon will face each other. Where do the nose and tail of the new salmon land, and do the two fish face each other?",
+   "options": [
+    "Nose at (13, 6) and tail at (11, 6), and both salmon point right",
+    "Nose at (11, 6) and tail at (9, 6), and both salmon point right",
+    "Nose at (11, 6) and tail at (13, 6), and the two salmon face each other",
+    "Nose at (7, 6) and tail at (5, 6), and the new salmon sits on the mirror line"
+   ],
+   "answerIndex": 2,
+   "explain": "The nose is 4 squares left of x = 7 so it lands at (11, 6), and the tail is 6 squares left so it lands at (13, 6); with the nose now left of the tail, the new salmon points left and the two fish face each other. If the new salmon still points right, the shape was slid sideways instead of flipped, which never reverses the direction it faces.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "ok",
+    "transform.reflect_as_translate"
+   ]
+  },
+  {
+   "qid": "qmt5jjqqn5e9ap0",
+   "level": 3,
+   "question": "Ravi says that reflecting a shape over the vertical line x = 6 is exactly the same as sliding it 12 squares to the right, because the point (0, 3) ends up at (12, 3) either way. Is Ravi right?",
+   "options": [
+    "Yes, because reflecting over a vertical line is always the same as sliding the shape to the right",
+    "No, because reflecting over x = 6 is really the same as sliding every point 6 squares right",
+    "Yes, as long as the whole shape starts on the left side of the line, sliding 12 right gives the reflection",
+    "No, because the point (4, 3) reflects to (8, 3) but sliding 12 right sends it to (16, 3), so the two moves match only for that one point"
+   ],
+   "answerIndex": 3,
+   "explain": "Test a second point: (4, 3) is 2 squares left of x = 6, so it reflects to (8, 3), while a 12-square slide would put it at (16, 3). A slide moves every point the same distance, but a reflection moves each point by twice its own distance from the line, which is also why the image comes out reversed.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate",
+    "ok"
+   ]
+  }
+ ]
+}

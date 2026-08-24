@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.Q4.DESCRIBE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5vt7domoe4iq",
+   "level": 1,
+   "question": "On a coordinate grid, point A is at (2, 3). Point A is first translated 5 units down, and then that image is reflected in the x-axis. What are the coordinates of the final image?",
+   "options": [
+    "(2, 2)",
+    "(2, -8)",
+    "(2, -2)",
+    "(-2, 2)"
+   ],
+   "answerIndex": 0,
+   "explain": "Do the moves in the order given: 5 units down takes (2, 3) to (2, -2), and reflecting in the x-axis flips the y-sign to give (2, 2). The common trap is flipping first and then sliding down, which lands at (2, -8) — with a vertical slide and an x-axis flip, the order really does change the answer.",
+   "tags": [
+    "ok",
+    "transform.order_ignored",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7dojrrg73",
+   "level": 1,
+   "question": "Point P is at (-3, 4). P is translated 6 units to the right, and then that image is reflected in the y-axis. What are the coordinates of the final image?",
+   "options": [
+    "(9, 4)",
+    "(-3, 4)",
+    "(3, 4)",
+    "(-9, 4)"
+   ],
+   "answerIndex": 1,
+   "explain": "Slide first: (-3, 4) moves right 6 to (3, 4); reflecting in the y-axis changes the x-sign back to (-3, 4), so the point lands right where it started. If you flip first you get (3, 4) and then sliding right 6 gives (9, 4) — a different spot, which shows the order matters.",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7doq2v9ab",
+   "level": 1,
+   "question": "A square has a corner Q at (4, 1). Q is rotated 90 degrees counter-clockwise about the origin, and then that image is translated 3 units to the left. Where is the final image of Q?",
+   "options": [
+    "(-1, 4)",
+    "(-1, 1)",
+    "(-4, 4)",
+    "(2, 4)"
+   ],
+   "answerIndex": 2,
+   "explain": "Rotate first: 90 degrees counter-clockwise sends (4, 1) to (-1, 4), then 3 units left gives (-4, 4). Sliding before rotating gives (-1, 1) instead, because the rotation would then turn the slide as well — always follow the stated order.",
+   "tags": [
+    "other",
+    "transform.order_ignored",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7do8gu4lg",
+   "level": 1,
+   "question": "Triangle T on a coordinate grid has vertices (1, 1), (4, 1) and (1, 3). After a combination of two transformations, its image has vertices (1, -4), (4, -4) and (1, -6). Which description of the combination is correct?",
+   "options": [
+    "Translate 3 units down, then reflect in the x-axis",
+    "Reflect in the y-axis, then translate 3 units down",
+    "Reflect in the x-axis, then translate 3 units up",
+    "Reflect in the x-axis, then translate 3 units down"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflecting in the x-axis sends the vertices to (1, -1), (4, -1), (1, -3), and then 3 units down gives exactly (1, -4), (4, -4), (1, -6). The description that slides down 3 first and then reflects sends the triangle to (1, 2), (4, 2), (1, 0) instead — same two moves, different result, so the order must be stated.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vt7dobstqy5",
+   "level": 2,
+   "question": "A shape is reflected in the y-axis and then that image is translated 4 units to the right. Which single rule describes what happens to any point (x, y)?",
+   "options": [
+    "(x, y) → (-x + 4, y)",
+    "(x, y) → (-x, y + 4)",
+    "(x, y) → (-x - 4, y)",
+    "(x, y) → (x + 4, -y)"
+   ],
+   "answerIndex": 0,
+   "explain": "Reflecting in the y-axis turns x into -x, and then adding the 4-unit slide to the right gives (-x + 4, y). The rule (-x - 4, y) is what you get by sliding right first and reflecting afterwards, which is the classic order mix-up.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.order_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7dox52vv1",
+   "level": 2,
+   "question": "Jasmine is designing a repeating pattern for a SkyTrain station mural on a coordinate grid. She rotates a shape 180 degrees about the origin, and then translates that image 5 units to the left. One corner of her shape starts at (3, -2). Where does that corner end up?",
+   "options": [
+    "(2, 2)",
+    "(-8, 2)",
+    "(-3, 2)",
+    "(8, 2)"
+   ],
+   "answerIndex": 1,
+   "explain": "A 180 degree turn about the origin sends (3, -2) to (-3, 2), and 5 units left then gives (-8, 2). Sliding left before turning lands at (2, 2), because the rotation would also spin the slide — a rotation combined with a translation is never order-free.",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7dobobjs1",
+   "level": 2,
+   "question": "A triangle has a vertex at (-4, 2). After a combination of two transformations, that vertex sits at (-3, 2). Which combination produces this?",
+   "options": [
+    "Reflect in the x-axis, then translate 7 units left",
+    "Rotate 180 degrees about the origin, then translate 7 units left",
+    "Reflect in the y-axis, then translate 7 units left",
+    "Translate 7 units left, then reflect in the y-axis"
+   ],
+   "answerIndex": 2,
+   "explain": "Reflecting (-4, 2) in the y-axis gives (4, 2), and 7 units left gives (-3, 2). Doing the slide first gives (-11, 2) and reflecting that gives (11, 2), far from the target — with a y-axis flip and a horizontal slide, swapping the order changes the landing point.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5vt7doqepsow",
+   "level": 2,
+   "question": "A tessellating tile is moved from one position to the next by a reflection in the y-axis followed by a translation of 6 units to the right. Sam says he can do the translation first and get exactly the same tile position. Test his claim on the tile corner at (1, 2).",
+   "options": [
+    "Sam is right — changing the order of two transformations never changes the final position.",
+    "Sam is wrong — his order puts the corner at (7, 2), because a reflection does not affect a point that has already been translated.",
+    "Sam is right — both moves keep the tile the same size and shape, so the corner lands in the same spot.",
+    "Sam is wrong — the given order puts the corner at (5, 2), but his order puts it at (-7, 2)."
+   ],
+   "answerIndex": 3,
+   "explain": "Given order: (1, 2) reflects to (-1, 2), then 6 right gives (5, 2). Sam's order: (1, 2) slides to (7, 2), then reflects to (-7, 2). Same size and shape is not the same position — congruent images can still sit in different places, so the order must be described.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vt7do8gafjz",
+   "level": 3,
+   "question": "A tessellated floor is being laid in a Richmond community centre. The plan says: take the master tile, rotate it 90 degrees counter-clockwise about the origin, then translate it 4 units down. The master tile has a corner at (2, 1). According to the plan, where should that corner be after both moves?",
+   "options": [
+    "(-1, -2)",
+    "(-5, 2)",
+    "(-1, 2)",
+    "(3, 2)"
+   ],
+   "answerIndex": 0,
+   "explain": "Rotating (2, 1) 90 degrees counter-clockwise gives (-1, 2), and moving 4 units down subtracts 4 from the y-coordinate to give (-1, -2). An installer who slides down first gets (2, -3) and then rotates to (3, 2), a completely different tile position — the plan's order is part of the instruction.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5vt7doalw7zi",
+   "level": 3,
+   "question": "In art class in Kelowna, Priya and Owen start with the same triangle and both use a reflection in the x-axis and a translation of 5 units up. Priya reflects first; Owen translates first. The triangle has a vertex at (2, 3). Which statement is correct?",
+   "options": [
+    "The two images are different because Priya's triangle ends up flipped and Owen's does not.",
+    "The two images are different: Priya's vertex lands at (2, 2) and Owen's at (2, -8), because reflecting first changes which way the 5-unit move ends up facing.",
+    "The two images are different: Priya's vertex lands at (2, 2) and Owen's at (2, 8), because Owen never reflects his triangle.",
+    "The two images land in exactly the same place, because both students used the same two transformations."
+   ],
+   "answerIndex": 1,
+   "explain": "Priya: (2, 3) reflects to (2, -3), then up 5 gives (2, 2). Owen: (2, 3) moves up to (2, 8), then reflects to (2, -8). Both triangles do get flipped and both use the same two moves, so 'same transformations' is not enough — the order has to be part of the description.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5vt7dodapldm",
+   "level": 3,
+   "question": "A stained-glass tessellation at a Victoria library is built on a coordinate grid. One tile has a vertex at (-3, 1), and the matching vertex on the next tile is at (3, 2). Which combination of two transformations maps the first vertex onto the second?",
+   "options": [
+    "A translation of 3 units up, then a rotation of 180 degrees about the origin",
+    "A reflection in the x-axis, then a translation of 3 units up",
+    "A rotation of 180 degrees about the origin, then a translation of 3 units up",
+    "A rotation of 90 degrees clockwise about the origin, then a translation of 3 units up"
+   ],
+   "answerIndex": 2,
+   "explain": "Turning (-3, 1) 180 degrees about the origin gives (3, -1), and 3 units up gives (3, 2). Sliding up 3 first gives (-3, 4), and the rotation then sends it to (3, -4) — a rotation spins any slide that came before it, so the order changes the answer.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vt7domudou8",
+   "level": 3,
+   "question": "The floor of the Nanaimo ferry terminal has a tessellation of arrow tiles. The pattern rule is: translate the tile 3 units to the right, then reflect it in the y-axis. Nadia says the order does not matter, because either way the tile keeps the same size and shape. One corner of the tile is at (1, 2). Which response to Nadia is correct?",
+   "options": [
+    "She is right — a reflection in the y-axis cancels a translation to the right, so the tile never really moves.",
+    "She is right — both orders send the corner to (-4, 2), so the tile lands in the same place.",
+    "She is wrong — doing the two moves in the other order makes the tile a different size, so the tessellation would leave gaps.",
+    "She is right that the tiles are congruent, but wrong about position: the rule sends the corner to (-4, 2), while her order sends it to (2, 2)."
+   ],
+   "answerIndex": 3,
+   "explain": "Follow the rule: (1, 2) slides to (4, 2), then reflects to (-4, 2); Nadia's order reflects to (-1, 2) and then slides to (2, 2). Every transformation here keeps the tile congruent, so congruence is never the test — check the coordinates, because the order decides where the tile sits.",
+   "tags": [
+    "other",
+    "transform.order_ignored",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

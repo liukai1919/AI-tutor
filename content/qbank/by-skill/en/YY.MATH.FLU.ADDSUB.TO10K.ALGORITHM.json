@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt59s8xxgv4tds",
+   "level": 1,
+   "question": "Set this up in columns, using only the words: the top number is 2 456, which is 2 thousands, 4 hundreds, 5 tens and 6 ones. The bottom number is 3 728, which is 3 thousands, 7 hundreds, 2 tens and 8 ones. Line the ones under the ones, the tens under the tens, the hundreds under the hundreds and the thousands under the thousands, then add each column from the right, regrouping whenever a column makes 10 or more. What is the sum?",
+   "options": [
+    "6 184",
+    "6 174",
+    "5 174",
+    "5 184"
+   ],
+   "answerIndex": 0,
+   "explain": "Ones: 6 + 8 = 14, so write 4 and carry 1 ten; tens: 5 + 2 + 1 = 8; hundreds: 4 + 7 = 11, so write 1 and carry 1 thousand; thousands: 2 + 3 + 1 = 6, giving 6 184. The usual trap is writing the column answer but forgetting to carry the extra ten or hundred, which makes the sum 10, 100 or 1 000 too small.",
+   "tags": [
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxhhf7pp",
+   "level": 1,
+   "question": "Set this up in columns, using only the words: the top number is 4 512, which is 4 thousands, 5 hundreds, 1 ten and 2 ones. The bottom number is 1 738, which is 1 thousand, 7 hundreds, 3 tens and 8 ones. Subtract 1 738 from 4 512, starting at the ones column and regrouping whenever the top digit is too small. What is the difference?",
+   "options": [
+    "3 226",
+    "2 774",
+    "2 784",
+    "2 874"
+   ],
+   "answerIndex": 1,
+   "explain": "Ones: 2 is smaller than 8, so regroup 1 ten to get 12 − 8 = 4 and the tens drop to 0; keep regrouping the same way to reach 2 774. A very common trap is turning 2 − 8 into 8 − 2 and taking the smaller digit from the larger in each column, which gives 3 226.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxf72kcm",
+   "level": 1,
+   "question": "Set this up in columns, using only the words: the top number is 3 000, which is 3 thousands, 0 hundreds, 0 tens and 0 ones. The bottom number is 1 245, which is 1 thousand, 2 hundreds, 4 tens and 5 ones. Subtract 1 245 from 3 000, regrouping across the zeros. What is the difference?",
+   "options": [
+    "2 865",
+    "2 245",
+    "1 755",
+    "1 855"
+   ],
+   "answerIndex": 2,
+   "explain": "Rename 3 000 as 2 thousands, 9 hundreds, 9 tens and 10 ones, then subtract each column: 10 − 5 = 5, 9 − 4 = 5, 9 − 2 = 7, 2 − 1 = 1, so the difference is 1 755. The trap with zeros is turning every 0 into 10 on its own without lowering the place to its left, which gives the far-too-big 2 865.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxeith41",
+   "level": 1,
+   "question": "Set this up in columns, using only the words: the top number is 6 205, which is 6 thousands, 2 hundreds, 0 tens and 5 ones. The bottom number is 1 348, which is 1 thousand, 3 hundreds, 4 tens and 8 ones. The ones column asks for 5 − 8, and there are 0 tens to take from. Which first regrouping step is correct?",
+   "options": [
+    "Make the ones 15 and leave the tens as 0 tens and the hundreds as 2 hundreds.",
+    "Make the ones 15 and the tens 9, but leave the hundreds as 2 hundreds.",
+    "Just do 8 − 5 = 3 in the ones column, since you always take the smaller digit from the larger.",
+    "Regroup 1 hundred into 10 tens, then regroup 1 of those tens into 10 ones, so the ones become 15, the tens become 9 and the hundreds become 1."
+   ],
+   "answerIndex": 3,
+   "explain": "When the tens digit is 0 you must go one more place left: 2 hundreds becomes 1 hundred and 10 tens, then 10 tens becomes 9 tens and 10 extra ones, so 5 ones become 15 ones. The trap is taking the ten out of thin air and leaving the tens and hundreds unchanged, because then the digits no longer add back up to 6 205.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59s8xx4gli5z",
+   "level": 2,
+   "question": "Work out 7 003 − 2 486 using the column method. What is the difference?",
+   "options": [
+    "4 517",
+    "5 627",
+    "5 483",
+    "4 617"
+   ],
+   "answerIndex": 0,
+   "explain": "There are no tens or hundreds to borrow from, so rename 7 003 as 6 thousands, 9 hundreds, 9 tens and 13 ones, then subtract: 13 − 6 = 7, 9 − 8 = 1, 9 − 4 = 5, 6 − 2 = 4, giving 4 517. Check with an estimate: 7 000 − 2 500 is about 4 500, so an answer in the 5 000s means the zeros were regrouped wrongly.",
+   "tags": [
+    "ok",
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xx9spu0w",
+   "level": 2,
+   "question": "A school in Kelowna raised $3 265 at its fall fun run and $4 878 at its spring craft fair. How much money did the school raise in total?",
+   "options": [
+    "7 143 dollars",
+    "8 143 dollars",
+    "8 043 dollars",
+    "8 133 dollars"
+   ],
+   "answerIndex": 1,
+   "explain": "Add in columns: 5 + 8 = 13 (write 3, carry 1 ten), 6 + 7 + 1 = 14 (write 4, carry 1 hundred), 2 + 8 + 1 = 11 (write 1, carry 1 thousand), 3 + 4 + 1 = 8, so the total is $8 143. Every carried digit must be added into the next column — dropping one makes the sum exactly 10, 100 or 1 000 too small.",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxbxbydm",
+   "level": 2,
+   "question": "A BC Ferries sailing carried 4 026 passengers on Saturday and 1 897 passengers on Sunday. How many more passengers travelled on Saturday than on Sunday?",
+   "options": [
+    "3 871",
+    "3 129",
+    "2 129",
+    "2 139"
+   ],
+   "answerIndex": 2,
+   "explain": "Subtract 4 026 − 1 897 in columns: regroup 1 ten so the ones are 16 − 7 = 9, then the tens need a hundred but there are 0 hundreds, so take 1 thousand to make 10 hundreds first, ending with 2 129. The trap is borrowing across the 0 hundreds without lowering the thousands digit, which leaves the answer 1 000 too big.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ops.borrow_across_zero",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xx3dscts",
+   "level": 2,
+   "question": "Emma's class collected 1 476 cans in October and 2 358 cans in November. Their goal for the whole year is 5 000 cans. How many more cans do they still need?",
+   "options": [
+    "1 176",
+    "2 276",
+    "2 834",
+    "1 166"
+   ],
+   "answerIndex": 3,
+   "explain": "First add: 1 476 + 2 358 = 3 834 (remember the carry from 6 + 8 = 14 and from 7 + 5 + 1 = 13). Then subtract 5 000 − 3 834 by renaming 5 000 as 4 thousands, 9 hundreds, 9 tens and 10 ones, which gives 1 166; treating each 0 as a plain 10 instead gives the much-too-big 2 276.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxcsanuf",
+   "level": 3,
+   "question": "Noah worked out 6 000 − 2 748 in columns. He wrote 10 − 8 = 2 in the ones, 10 − 4 = 6 in the tens, 10 − 7 = 3 in the hundreds and 6 − 2 = 4 in the thousands, and got 4 362. Which statement explains what happened and gives the correct difference?",
+   "options": [
+    "He changed each 0 into 10 without lowering the place to its left; 6 000 is really 5 thousands, 9 hundreds, 9 tens and 10 ones, so the difference is 3 252.",
+    "Nothing is wrong; 4 362 is the correct difference.",
+    "He should take the smaller digit from the larger in every column, which gives 4 748.",
+    "He only forgot to lower one place, so the difference is 3 352."
+   ],
+   "answerIndex": 0,
+   "explain": "A ten can only be borrowed from the place next door, so 6 000 becomes 5 thousands, 9 hundreds, 9 tens and 10 ones, and 6 000 − 2 748 = 3 252. Estimating first catches this fast: 6 000 − 2 700 is about 3 300, so any answer in the 4 000s must be wrong.",
+   "tags": [
+    "ok",
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxwmk20m",
+   "level": 3,
+   "question": "A Surrey school collected 3 468 cans in term 1. In term 2 they collected 1 295 fewer cans than in term 1. How many cans did they collect over the two terms altogether?",
+   "options": [
+    "5 701",
+    "5 641",
+    "5 651",
+    "5 631"
+   ],
+   "answerIndex": 1,
+   "explain": "Step 1: 3 468 − 1 295 = 2 173 cans in term 2. Step 2: 3 468 + 2 173 = 5 641 cans in total — watch the carry from 8 + 3 = 11, because dropping it makes the total 10 too small.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xx4wgguf",
+   "level": 3,
+   "question": "Ava added 4 596 + 3 807 in columns and got 7 403. She then estimated by rounding to the nearest hundred: 4 600 + 3 800 = 8 400, which is about 1 000 away from her answer. What is the correct sum?",
+   "options": [
+    "8 393",
+    "7 403",
+    "8 403",
+    "8 303"
+   ],
+   "answerIndex": 2,
+   "explain": "Adding carefully: 6 + 7 = 13 (write 3, carry 1), 9 + 0 + 1 = 10 (write 0, carry 1), 5 + 8 + 1 = 14 (write 4, carry 1), 4 + 3 + 1 = 8, so the sum is 8 403 and Ava lost the carry from the hundreds column. An estimate that sits 10, 100 or 1 000 away from your answer is almost always a forgotten regrouping.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt59s8xxnfnk2t",
+   "level": 3,
+   "question": "A hockey team in Kamloops wants to raise $9 000 for new equipment. They raised $2 605 at a bake sale and $3 458 from sponsors. How much more money do they still need?",
+   "options": [
+    "3 047 dollars",
+    "3 937 dollars",
+    "3 063 dollars",
+    "2 937 dollars"
+   ],
+   "answerIndex": 3,
+   "explain": "Step 1: $2 605 + $3 458 = $6 063 (carry 1 from 5 + 8 = 13 and again from 6 + 4 = 10). Step 2: rename 9 000 as 8 thousands, 9 hundreds, 9 tens and 10 ones to get 9 000 − 6 063 = $2 937; changing each 0 into 10 on its own instead leaves the answer about $100 too big.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "ops.regroup_forget",
+    "ops.subtract_smaller_from_larger",
+    "ok"
+   ]
+  }
+ ]
+}

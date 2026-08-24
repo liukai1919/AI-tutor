@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP.SOLVE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5upajq7192ax",
+   "level": 1,
+   "question": "解两步方程（two-step equation）3x + 4 = 16 时，第一步应该做什么？",
+   "options": [
+    "两边同时减去常数 4，得到 3x = 12",
+    "两边同时除以 3，得到 x + 4 = 16 ÷ 3",
+    "只把左边减去 4，得到 3x = 16",
+    "两边同时减去 3 去掉系数，得到 x + 4 = 13"
+   ],
+   "answerIndex": 0,
+   "explain": "逆运算要倒着来：先去掉常数（constant）4 得 3x = 12，再除以系数（coefficient）3 得 x = 4。写成 x + 4 = 16 ÷ 3 的那个是先除后减，顺序反了；而且除的时候左边的 4 也被漏掉了。",
+   "tags": [
+    "ok",
+    "eq.undo_wrong_order",
+    "eq.operate_one_side",
+    "eq.coefficient_subtract"
+   ]
+  },
+  {
+   "qid": "qmt5upajqehn31w",
+   "level": 1,
+   "question": "解方程 2x + 4 = 14，x 等于多少？",
+   "options": [
+    "x = 3",
+    "x = 5",
+    "x = 8",
+    "x = 10"
+   ],
+   "answerIndex": 1,
+   "explain": "两边同时减 4 得 2x = 10，两边同时除以 2 得 x = 5，验算（verify）：2 × 5 + 4 = 14。写 x = 3 的那个是先用 14 ÷ 2 再减 4，顺序反了。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "ok",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5upajqcfzxnu",
+   "level": 1,
+   "question": "解方程 4x − 4 = 16，x 等于多少？",
+   "options": [
+    "x = 8",
+    "x = 16",
+    "x = 5",
+    "x = 20"
+   ],
+   "answerIndex": 2,
+   "explain": "常数是 −4，所以两边同时加 4 得 4x = 20，再两边同时除以 4 得 x = 5，验算：4 × 5 − 4 = 16。写 x = 16 的那个是把系数 4 用减法去掉了，系数只能用除法去掉。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.coefficient_subtract",
+    "ok",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5upajqp58s4q",
+   "level": 1,
+   "question": "解方程 3x + 9 = 30 的过程中，下面哪一个式子是正确的一步？",
+   "options": [
+    "x + 9 = 10",
+    "3x = 30",
+    "x = 18（由 3x = 21 两边同时减 3 得到）",
+    "3x = 21"
+   ],
+   "answerIndex": 3,
+   "explain": "第一步两边同时减常数 9，得 3x = 21；第二步两边同时除以 3，得 x = 7。写成 x + 9 = 10 的那个只把 3x 和 30 除了 3，常数 9 没跟着除，等式两边就不平衡了。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.operate_one_side",
+    "eq.coefficient_subtract",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5upajqi0flpt",
+   "level": 2,
+   "question": "解方程 3x + 3 = 27，x 等于多少？",
+   "options": [
+    "x = 8",
+    "x = 6",
+    "x = 21",
+    "x = 9"
+   ],
+   "answerIndex": 0,
+   "explain": "两边同时减 3 得 3x = 24，两边同时除以 3 得 x = 8，验算：3 × 8 + 3 = 27。写 x = 9 的那个只把左边减掉了 3，右边还留着 27，两边没有做同样的事。",
+   "tags": [
+    "ok",
+    "eq.undo_wrong_order",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5upajqicaxbl",
+   "level": 2,
+   "question": "小雨在 Surrey 的社区中心滑冰，买了 5 张同样价钱的滑冰票，另外付了 5 加元租冰鞋，一共 40 加元。设一张票 x 加元，可列出 5x + 5 = 40。一张票多少钱？",
+   "options": [
+    "8 加元",
+    "7 加元",
+    "30 加元",
+    "3 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先两边同时减去租鞋的 5 加元，得 5x = 35；再两边同时除以 5，得 x = 7，验算：5 × 7 + 5 = 40。答 8 加元的那个是直接拿 40 ÷ 5，把租鞋费也一起分给了 5 张票。",
+   "tags": [
+    "eq.operate_one_side",
+    "ok",
+    "eq.coefficient_subtract",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmt5upajqaj8wev",
+   "level": 2,
+   "question": "解方程 8x + 24 = 64，下面哪一组步骤是正确的？",
+   "options": [
+    "8x = 40，然后 x = 32",
+    "x + 24 = 8，然后 x = −16",
+    "8x = 40，然后 x = 5",
+    "8x = 64，然后 x = 8"
+   ],
+   "answerIndex": 2,
+   "explain": "先两边同时减常数 24 得 8x = 40，再两边同时除以系数 8 得 x = 5，验算：8 × 5 + 24 = 64。得出 x = 32 的那组是用 40 − 8 去掉系数，系数要用除法而不是减法。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "eq.undo_wrong_order",
+    "ok",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5upajq46qr41",
+   "level": 2,
+   "question": "解方程 7x − 7 = 35，x 等于多少？",
+   "options": [
+    "x = 12",
+    "x = 35",
+    "x = 5",
+    "x = 6"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时加 7 得 7x = 42，两边同时除以 7 得 x = 6，验算：7 × 6 − 7 = 35。答 x = 5 的那个只在左边加了 7，右边的 35 没动，等式被破坏了。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5upajqb13vvt",
+   "level": 3,
+   "question": "Nina 参加 Kelowna 的夏令营，报名费 12 加元只收一次，之后每天再交 x 加元。她一共去了 4 天，总共花了 60 加元，可列出 4x + 12 = 60。每天的费用是多少？",
+   "options": [
+    "12 加元",
+    "44 加元",
+    "3 加元",
+    "15 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先两边同时减掉只收一次的 12 加元，得 4x = 48；再两边同时除以 4 天，得 x = 12，验算：4 × 12 + 12 = 60。答 15 加元的那个是直接 60 ÷ 4，把报名费也当成每天都要交了。",
+   "tags": [
+    "ok",
+    "eq.coefficient_subtract",
+    "eq.undo_wrong_order",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5upajqkwerg0",
+   "level": 3,
+   "question": "Leo 解方程 9x + 18 = 72：他第一步两边同时除以 9，写成 x + 18 = 8，第二步得到 x = −10。下面哪句话说得对？",
+   "options": [
+    "他应该先两边同时减去 9 把系数去掉，再减去 18，得 x = 45",
+    "他不该先除以 9；应该先两边同时减去常数 18 得 9x = 54，再除以 9，得 x = 6",
+    "他只要把左边减去 18、右边仍然是 72 就行，得 9x = 72，x = 8",
+    "他没做错，先除以 9 就可以，x = −10 就是答案"
+   ],
+   "answerIndex": 1,
+   "explain": "两步方程要按相反顺序逆运算：先去常数再去系数，9x + 18 = 72 → 9x = 54 → x = 6，验算：9 × 6 + 18 = 72。Leo 的错在于先除以 9，而且常数 18 没有一起除，才得出 −10 这种负数。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "ok",
+    "eq.operate_one_side",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmt5upajqah0l38",
+   "level": 3,
+   "question": "妈妈在 Richmond 的农夫市场买了 8 盒蓝莓，每盒 x 加元，又买了一瓶 8 加元的蜂蜜，一共付了 88 加元。每盒蓝莓多少钱？",
+   "options": [
+    "11 加元",
+    "3 加元",
+    "10 加元",
+    "72 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "列式 8x + 8 = 88；先两边同时减去蜂蜜的 8 加元得 8x = 80，再两边同时除以 8 得 x = 10，验算：8 × 10 + 8 = 88。答 11 加元的那个是直接 88 ÷ 8，蜂蜜的钱没有先拿掉。",
+   "tags": [
+    "eq.operate_one_side",
+    "eq.undo_wrong_order",
+    "ok",
+    "eq.coefficient_subtract"
+   ]
+  },
+  {
+   "qid": "qmt5upajqf4kb5a",
+   "level": 3,
+   "question": "Ben 去北温的滑雪场，一天下来一共花了 125 加元：其中租雪板 25 加元，剩下的钱正好买了 5 张同价的缆车票。一张缆车票多少钱？",
+   "options": [
+    "0 加元",
+    "25 加元",
+    "95 加元",
+    "20 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "列式 5x + 25 = 125；先两边同时减去租板的 25 加元得 5x = 100，再两边同时除以 5 得 x = 20，验算：5 × 20 + 25 = 125。得 0 加元的那个是先用 125 ÷ 5 再减 25，顺序反了，答案自然不合理。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.operate_one_side",
+    "eq.coefficient_subtract",
+    "ok"
+   ]
+  }
+ ]
+}

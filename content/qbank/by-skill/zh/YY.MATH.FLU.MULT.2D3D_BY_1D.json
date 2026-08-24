@@ -1,0 +1,196 @@
+{
+ "id": "YY.MATH.FLU.MULT.2D3D_BY_1D",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5aimlqk6t3fo",
+   "level": 1,
+   "question": "一块长方形地砖，长 23 cm，宽 4 cm。用面积模型（area model）把长拆成 20 和 3，就得到两个小长方形：一个是 20 × 4，另一个是 3 × 4。整块地砖的面积是多少平方厘米？",
+   "options": [
+    "92",
+    "83",
+    "80",
+    "82"
+   ],
+   "answerIndex": 0,
+   "explain": "两小块面积分别是 20 × 4 = 80 和 3 × 4 = 12，合起来 80 + 12 = 92 平方厘米。最常见的坑是把个位上的 3 直接加上去写成 80 + 3，忘了 3 也要乘 4。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqsn14gm",
+   "level": 1,
+   "question": "一个长方形的长是 46 cm，宽是 3 cm。把长拆成 40 和 6，分成两个小长方形。已经算出 40 × 3 = 120，那么整个长方形的面积是多少平方厘米？",
+   "options": [
+    "126",
+    "138",
+    "128",
+    "120"
+   ],
+   "answerIndex": 1,
+   "explain": "还要算第二小块 6 × 3 = 18，再把两块合起来 120 + 18 = 138 平方厘米。只写 120 就是漏掉了一整块小长方形的面积。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqr8f5ta",
+   "level": 1,
+   "question": "一个长方形的长是 213 cm，宽是 3 cm。用面积模型把长拆成 200、10、3 三段，得到三个小长方形。整个长方形的面积是多少平方厘米？",
+   "options": [
+    "630",
+    "609",
+    "639",
+    "539"
+   ],
+   "answerIndex": 2,
+   "explain": "三小块分别是 200 × 3 = 600、10 × 3 = 30、3 × 3 = 9，合起来 600 + 30 + 9 = 639 平方厘米。拆成三段时最容易漏掉中间那一段（10 × 3），要把每一段都乘一遍。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqa54zs9",
+   "level": 2,
+   "question": "用拆分的方法计算 68 × 4，积（product）是多少？",
+   "options": [
+    "248",
+    "262",
+    "240",
+    "272"
+   ],
+   "answerIndex": 3,
+   "explain": "把 68 拆成 60 和 8：60 × 4 = 240，8 × 4 = 32，240 + 32 = 272。只写 240 或写成 240 + 8 都是漏掉了个位那一步乘法。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5aimlq4tdcr6",
+   "level": 2,
+   "question": "用分配律（distributive principle）把 154 拆成 100 + 50 + 4 来计算 154 × 3，积是多少？",
+   "options": [
+    "462",
+    "452",
+    "312",
+    "450"
+   ],
+   "answerIndex": 0,
+   "explain": "100 × 3 = 300，50 × 3 = 150，4 × 3 = 12，合起来 300 + 150 + 12 = 462。得到 312 的人是漏掉了十位那一份 50 × 3 = 150。",
+   "tags": [
+    "ok",
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5aimlq2f082q",
+   "level": 2,
+   "question": "计算 128 × 7，积是多少？",
+   "options": [
+    "886",
+    "896",
+    "756",
+    "840"
+   ],
+   "answerIndex": 1,
+   "explain": "100 × 7 = 700，20 × 7 = 140，8 × 7 = 56，合起来 700 + 140 + 56 = 896。得到 840 的人漏了 8 × 7，得到 756 的人漏了 20 × 7，三个数位都不能少。",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5aimlq49fkif",
+   "level": 3,
+   "question": "素里一所小学办义卖，老师买了 8 盒饼干，每盒 24 块。老师先给 3 个班各分 50 块，剩下的留给老师们。请问还剩多少块饼干？",
+   "options": [
+    "18",
+    "32",
+    "42",
+    "10"
+   ],
+   "answerIndex": 2,
+   "explain": "先算总数：20 × 8 = 160，4 × 8 = 32，一共 192 块；再算分掉的 3 × 50 = 150，192 − 150 = 42 块。写出 10 的人只算了 20 × 8 = 160，把个位的 4 × 8 整个漏掉了。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "ok",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqyafzti",
+   "level": 3,
+   "question": "小雨计算 56 × 7 时这样写：50 × 7 = 350，然后 350 + 6 = 356。下面哪句话既说清了她的问题，又给出了正确的积？",
+   "options": [
+    "她的做法没问题，56 × 7 的积就是 356",
+    "她只要算 50 × 7 就够了，正确的积是 350",
+    "她漏算了 6 × 7 = 42，正确的积是 382",
+    "她漏算了 6 × 7 = 42，正确的积是 392"
+   ],
+   "answerIndex": 3,
+   "explain": "56 拆成 50 和 6 以后，个位的 6 也要乘 7：50 × 7 = 350，6 × 7 = 42，350 + 42 = 392。写 382 的人虽然找对了漏掉的一步，但 350 + 42 相加时少算了 10。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqez8cwz",
+   "level": 3,
+   "question": "小杰在温哥华的社区活动上卖柠檬水，每杯 3 加元。他周六卖了 46 杯，周日卖了 38 杯。两天一共收了多少加元？",
+   "options": [
+    "252",
+    "242",
+    "240",
+    "244"
+   ],
+   "answerIndex": 0,
+   "explain": "先把杯数加起来 46 + 38 = 84 杯，再算 80 × 3 = 240、4 × 3 = 12，240 + 12 = 252 加元。写 244 的人把 4 × 3 写成了 4，个位那一份也必须乘 3。",
+   "tags": [
+    "ok",
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5aimlqejvzdp",
+   "level": 3,
+   "question": "基洛纳一个社区菜园是长方形的，长 135 m、宽 4 m。园丁已经种好了 200 平方米，还有多少平方米没种？",
+   "options": [
+    "330",
+    "340",
+    "320",
+    "220"
+   ],
+   "answerIndex": 1,
+   "explain": "面积（area）= 100 × 4 + 30 × 4 + 5 × 4 = 400 + 120 + 20 = 540 平方米，再减去已种的：540 − 200 = 340 平方米。得到 320 的人漏了 5 × 4 这一小块，三段都要乘宽。",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing"
+   ]
+  }
+ ]
+}

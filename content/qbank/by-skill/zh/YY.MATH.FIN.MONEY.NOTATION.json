@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.MONEY.NOTATION",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5eddyp00oo1v",
+   "level": 1,
+   "question": "算式：3 元 + 5 分 = ？请把结果用小数记法（decimal notation）写成加元金额。",
+   "options": [
+    "$3.05",
+    "$3.50",
+    "$3.5",
+    "$8.00"
+   ],
+   "answerIndex": 0,
+   "explain": "小数点后第一位是十分位（tenths），第二位是百分位（hundredths）。5 分要写在百分位上，十分位没有就补 0，所以是 $3.05。最容易踩的坑是把 5 分直接写在小数点后第一位，那样写出来的 $3.5 其实是 3 元 50 分。",
+   "tags": [
+    "ok",
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5eddypk57gi5",
+   "level": 1,
+   "question": "算式：$12.05 = 12 元 + 5 分 = ______ 分（cents）。横线上应该填多少？",
+   "options": [
+    "125 分",
+    "1205 分",
+    "1250 分",
+    "1200 分"
+   ],
+   "answerIndex": 1,
+   "explain": "1 元 = 100 分，12 元就是 1200 分，再加上百分位上的 5 分，一共 1205 分。常见的坑是把 .05 读成 50 分（得到 1250），或者干脆把百分位的 5 忘掉（得到 1200）。",
+   "tags": [
+    "other",
+    "ok",
+    "money.cents_decimal",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddyp1iu4ns",
+   "level": 1,
+   "question": "算式：2 元 + 60 分 = ？下面哪个小数记法写对了？",
+   "options": [
+    "$0.26",
+    "$2.06",
+    "$2.60",
+    "$26.00"
+   ],
+   "answerIndex": 2,
+   "explain": "60 分等于 6 个十分位加 0 个百分位，所以写成 $2.60。写成 $2.06 的那个只表示 2 元 6 分，比原来的钱少了很多。",
+   "tags": [
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5eddyp0s8rdt",
+   "level": 1,
+   "question": "下面哪个算式的结果正好是 $4.03？",
+   "options": [
+    "4 元 + 30 分",
+    "40 元 + 3 分",
+    "4 元 + 300 分",
+    "4 元 + 3 分"
+   ],
+   "answerIndex": 3,
+   "explain": "$4.03 里，小数点前是 4 元，百分位（hundredths）上的 3 表示 3 分，所以算式是 4 元 + 3 分。写成 4 元 + 30 分的那个对应 $4.30，是把 3 分错当成十分位上的 3 了。",
+   "tags": [
+    "money.cents_decimal",
+    "other",
+    "money.cents_decimal",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5eddypo173m2",
+   "level": 2,
+   "question": "Liam 有 3 个 toonie（每个 $2.00）、1 个 quarter（25 分）和 1 个 dime（10 分）。他一共有多少钱？请选出正确的小数记法。",
+   "options": [
+    "$6.35",
+    "$6.3",
+    "$6.305",
+    "$3.35"
+   ],
+   "answerIndex": 0,
+   "explain": "3 个 toonie 是 6 元，25 分 + 10 分 = 35 分，所以是 $6.35。坑在于把 25 和 10 直接连着写成 .305，或者只写到十分位丢掉了 5 分。",
+   "tags": [
+    "ok",
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5eddyp766xq9",
+   "level": 2,
+   "question": "Maya 存钱罐里的储蓄（saving）一共是 1240 分（cents）。用加元的小数记法写出来是多少？",
+   "options": [
+    "$12.04",
+    "$12.40",
+    "$1.24",
+    "$1240.00"
+   ],
+   "answerIndex": 1,
+   "explain": "每 100 分换成 1 元：1240 分 = 12 元 40 分 = $12.40。最常见的错是把分数直接当成元写成 $1240.00，那是原来的一百倍。",
+   "tags": [
+    "money.cents_decimal",
+    "ok",
+    "other",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddypg2ox2p",
+   "level": 2,
+   "question": "售货员报价：三十元零七分（thirty dollars and seven cents）。下面哪个价签写对了？",
+   "options": [
+    "$30.70",
+    "$37.00",
+    "$30.07",
+    "$30.7"
+   ],
+   "answerIndex": 2,
+   "explain": "7 分要占百分位（hundredths），十分位上没有钱就补 0，所以写成 $30.07。写成 $30.70 或 $30.7 的都表示 30 元 70 分，多算了 63 分。",
+   "tags": [
+    "money.cents_decimal",
+    "other",
+    "ok",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddypuqbo9m",
+   "level": 2,
+   "question": "Ava 每周把 3 元 5 分放进储蓄罐。她一周存的钱用小数记法写是多少？两周一共又是多少？",
+   "options": [
+    "$3.50；$7.00",
+    "$3.05；$6.010",
+    "$30.5；$61.0",
+    "$3.05；$6.10"
+   ],
+   "answerIndex": 3,
+   "explain": "3 元 5 分写成 $3.05（十分位补 0，5 分在百分位），两周就是 $3.05 + $3.05 = $6.10。写成 $3.50 的那个把 5 分当成了 50 分，结果整整多出 90 分。",
+   "tags": [
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5eddypn1elz3",
+   "level": 3,
+   "question": "Jayden 买冰淇淋花了 4 元 5 分，他在本子上记成 $4.5。他的记法对吗？为什么？",
+   "options": [
+    "不对，应该是 $4.05：5 分写在百分位（hundredths），十分位补 0",
+    "对的，5 分就写在小数点后面第一位",
+    "不对，应该是 $4.50：分要写满两位，所以 5 分补成 50",
+    "不对，应该是 $4.005：分要写在小数点后第三位"
+   ],
+   "answerIndex": 0,
+   "explain": "金额的小数点后固定两位：第一位是十分位（角），第二位是百分位（分）。4 元 5 分要写成 $4.05。$4.5 和 $4.50 都表示 4 元 50 分，是把 5 分放错了位；补零是补在十分位上，不是在 5 后面加零。",
+   "tags": [
+    "ok",
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddypazwvbv",
+   "level": 3,
+   "question": "周六 Chloe 在 Burnaby 的农夫市集卖柠檬水。她收到 2 个 toonie（每个 $2.00）、3 个 quarter（每个 25 分）和 2 个 nickel（每个 5 分）。她要把今天的收入记在账本上，下面哪个记法对？",
+   "options": [
+    "$4.085",
+    "$4.85",
+    "$2.85",
+    "$4.8"
+   ],
+   "answerIndex": 1,
+   "explain": "2 个 toonie 是 4 元；3 × 25 = 75 分，2 × 5 = 10 分，合起来 85 分，正好换不成整元，所以写成 $4.85。写成 $4.085 的那个把 85 分挤到了小数点后第三位，钱数完全变了。",
+   "tags": [
+    "money.cents_decimal",
+    "ok",
+    "other",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddyp5vytxm",
+   "level": 3,
+   "question": "Ethan 的储蓄（saving）是 $8.06，他想买一个 $8.60 的水壶。下面哪句话说得对？",
+   "options": [
+    "够，因为 $8.06 和 $8.60 只是 0 的位置不同，钱一样多",
+    "够，因为 8 元 6 分比 8 元 60 分多",
+    "不够，因为 $8.06 是 8 元 6 分，比 8 元 60 分少 54 分",
+    "不够，因为 $8.06 只有 8 分"
+   ],
+   "answerIndex": 2,
+   "explain": "$8.06 的 6 在百分位（hundredths），表示 6 分；$8.60 的 6 在十分位，表示 60 分，两者差 54 分，所以钱不够。坑就在于以为 0 换个位置钱不变——0 挪一位，钱就差十倍。",
+   "tags": [
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "ok",
+    "money.cents_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5eddyp1xgq7z",
+   "level": 3,
+   "question": "Ryan 记录了三天的消费（spending）：星期一 4 元 5 分，星期二 4 元 50 分，星期三 40 元 5 分。他要把三天的钱用小数记法按从少到多排好，哪一组是对的？",
+   "options": [
+    "$0.45 < $4.50 < $40.05",
+    "$4.50 < $4.05 < $40.05",
+    "$4.05 < $4.50 < $40.5",
+    "$4.05 < $4.50 < $40.05"
+   ],
+   "answerIndex": 3,
+   "explain": "先分别写对：4 元 5 分是 $4.05，4 元 50 分是 $4.50，40 元 5 分是 $40.05；再比较大小就得到 $4.05 < $4.50 < $40.05。把 40 元 5 分写成 $40.5 的那个错在让 5 分占了十分位，实际变成了 40 元 50 分。",
+   "tags": [
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "money.cents_decimal",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5omjbl56snk8",
+   "level": 1,
+   "question": "一台天平（balance）左右两边刚好平衡。左盘放着 3 个一模一样的小沙袋，每个沙袋重 x 克；右盘放着一个 15 克的砝码。写成方程（equation）就是 3x = 15。每个沙袋重多少克？",
+   "options": [
+    "5 克",
+    "12 克",
+    "45 克",
+    "15 克"
+   ],
+   "answerIndex": 0,
+   "explain": "天平平衡说明两边一样重，要两边同时除以 3：15 ÷ 3 = 5，所以每个沙袋 5 克。最容易踩的坑是拿 15 减 3 得 12——3 是系数（coefficient），它跟 x 是相乘关系，只能用除法拆开。",
+   "tags": [
+    "ok",
+    "eq.coefficient_subtract",
+    "other",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5omjblc94ska",
+   "level": 1,
+   "question": "一台天平保持平衡：左盘放着 4 个完全相同的小铁块，每个重 x 克；右盘放着 24 克的砝码。也就是 4x = 24。每个小铁块重多少克？",
+   "options": [
+    "20 克",
+    "6 克",
+    "24 克",
+    "96 克"
+   ],
+   "answerIndex": 1,
+   "explain": "把左盘的 4 个铁块平均分成 4 份，右盘的 24 克也要平均分成 4 份，24 ÷ 4 = 6 克。写成 20 的那个是把 24 减去了 4，但系数要用除法去掉，不是减法。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "ok",
+    "eq.operate_one_side",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjbl0r41iu",
+   "level": 1,
+   "question": "一台天平保持平衡：左盘是 5 个同样重的小球，每个重 x 克；右盘是 30 克的砝码，即 5x = 30。为了让天平一直保持平衡（equality）并求出 x，下面哪种做法是对的？",
+   "options": [
+    "两边同时减去 5，得 x = 25",
+    "只把左盘除以 5，右盘还是 30，得 x = 30",
+    "两边同时除以 5，得 x = 6",
+    "两边同时乘 5，得 x = 150"
+   ],
+   "answerIndex": 2,
+   "explain": "5x 表示 5 乘 x，要拆开就两边同时除以 5：30 ÷ 5 = 6。说「两边同时减 5」的那个用错了逆运算；说「只动左盘」的那个会让天平立刻倾斜，两边必须做同样的事。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjblgzorjz",
+   "level": 1,
+   "question": "一台天平左右平衡：左盘是 2 块同样重的木块，每块重 x 克；右盘是 18 克的砝码，方程为 2x = 18。每块木块重多少克？",
+   "options": [
+    "18 克",
+    "36 克",
+    "16 克",
+    "9 克"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时除以 2：18 ÷ 2 = 9，每块木块 9 克。写成 18 的那个只把左边的 2 去掉、右边一动没动，天平就不平了；写成 16 的那个错在用了减法。",
+   "tags": [
+    "eq.operate_one_side",
+    "other",
+    "eq.coefficient_subtract",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5omjblpuzz0x",
+   "level": 2,
+   "question": "解方程：8x = 96。x 等于多少？",
+   "options": [
+    "12",
+    "88",
+    "8",
+    "96"
+   ],
+   "answerIndex": 0,
+   "explain": "两边同时除以 8：96 ÷ 8 = 12。写成 88 的那个是拿 96 减 8——系数 8 是乘上去的，必须用除法还原。",
+   "tags": [
+    "ok",
+    "eq.coefficient_subtract",
+    "other",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5omjblfyrnpc",
+   "level": 2,
+   "question": "解方程：6y = 18。y 等于多少？",
+   "options": [
+    "18",
+    "3",
+    "12",
+    "108"
+   ],
+   "answerIndex": 1,
+   "explain": "两边同时除以 6：18 ÷ 6 = 3。写成 18 的那个只处理了等号左边、右边没做同样的事，等式就不成立了；写成 108 的那个把除法做成了乘法。",
+   "tags": [
+    "eq.operate_one_side",
+    "ok",
+    "eq.coefficient_subtract",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjbl7r2j43",
+   "level": 2,
+   "question": "要解方程 7k = 42，下面哪一步做得既正确又能保持等式成立？",
+   "options": [
+    "两边同时减 7，得 k = 35",
+    "只把等号左边除以 7，右边保持 42，得 k = 42",
+    "两边同时除以 7，得 k = 6",
+    "两边同时乘 7，得 k = 294"
+   ],
+   "answerIndex": 2,
+   "explain": "7k 是 7 乘 k，用除法还原且两边都要做：42 ÷ 7 = 6。只对一边做运算（得 42 的那个）会破坏等式；用减法（得 35 的那个）配错了运算。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjblz8dz6p",
+   "level": 2,
+   "question": "解方程：11x = 88。x 等于多少？",
+   "options": [
+    "11",
+    "77",
+    "88",
+    "8"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时除以 11：88 ÷ 11 = 8。写成 77 的那个用 88 减了 11；写成 11 的那个把系数当成了解（solution），别忘了要求的是变量（variable）x 的值。",
+   "tags": [
+    "other",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5omjblr4lxy5",
+   "level": 3,
+   "question": "Stanley Park 的独木舟活动中，一个班有 39 名学生和 3 位老师，全部人都要上船。他们租了 7 条独木舟，每条坐的人数一样多，而且刚好坐满。设每条船坐 n 人，先算出总人数再解方程，每条独木舟坐多少人？",
+   "options": [
+    "6 人",
+    "35 人",
+    "42 人",
+    "7 人"
+   ],
+   "answerIndex": 0,
+   "explain": "先算总人数 39 + 3 = 42，得到方程 7n = 42，再两边同时除以 7，n = 6。写成 35 的那个是拿 42 减 7——系数要用除法去掉；写成 42 的那个忘了右边也要除。",
+   "tags": [
+    "ok",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjblkvco7i",
+   "level": 3,
+   "question": "在 Whistler，妈妈给孩子们买了 4 张一模一样的青少年缆车票。她递出 100 加元，收银员找回 28 加元。设一张票 t 加元，一张青少年票多少钱？",
+   "options": [
+    "25 加元",
+    "18 加元",
+    "68 加元",
+    "72 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先算实际花了 100 − 28 = 72 加元，得 4t = 72，两边同时除以 4，t = 18 加元。写成 25 的那个是直接拿 100 ÷ 4，忘了减去找回的钱。",
+   "tags": [
+    "other",
+    "ok",
+    "eq.coefficient_subtract",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmt5omjbllz4gd4",
+   "level": 3,
+   "question": "小杰解方程 9x = 36 时这样写：9x = 36，所以 x = 27。下面哪句话说得对？",
+   "options": [
+    "他做得对，36 减 9 等于 27，27 就是解（solution）。",
+    "他错了：只要把左边的 9 去掉、右边不用动就行，解是 36。",
+    "他错了：x 是被 9 乘着的，要两边同时除以 9，解是 4。",
+    "他错了：应该两边同时乘 9，解是 324。"
+   ],
+   "answerIndex": 2,
+   "explain": "9x 表示 9 乘 x，去掉系数要用除法，而且两边都要做：36 ÷ 9 = 4。小杰用了减法，这是最常见的错；说「右边不用动」的那句同样错，等式两边必须做一样的事。",
+   "tags": [
+    "eq.coefficient_subtract",
+    "eq.operate_one_side",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5omjblf4ta8w",
+   "level": 3,
+   "question": "下面四个方程里，哪一个的解（solution）是 x = 7？（可以把 x = 7 代进去检验）",
+   "options": [
+    "4x = 7",
+    "4x = 11",
+    "7x = 4",
+    "4x = 28"
+   ],
+   "answerIndex": 3,
+   "explain": "把 x = 7 代入 4x = 28：4 × 7 = 28，成立。写成 4x = 11 的那个，是把系数 4 当成加上去的数（11 − 4 = 7）；写成 4x = 7 的那个，是只把左边的 4 划掉、右边照抄。",
+   "tags": [
+    "eq.operate_one_side",
+    "eq.coefficient_subtract",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DEC.PV1000.READ_WRITE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5gmwvcyhpi48",
+   "level": 1,
+   "question": "一张卡纸被平均分成 1000 个一样大的小格，其中 9 个小格涂上了颜色。涂色部分占整张卡纸的几分之几？写成小数（decimal）是多少？",
+   "options": [
+    "0.009",
+    "0.09",
+    "0.9",
+    "9.000"
+   ],
+   "answerIndex": 0,
+   "explain": "整体被平均分成 1000 份，一份就是 1 个千分位（thousandths），也就是 0.001；9 份就是 9 个 0.001，写成 0.009。最容易踩的坑是把 9 直接写在小数点后第一位变成 0.9，那表示把整体分成 10 份取 9 份，差得很远。",
+   "tags": [
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvc0tqgzg",
+   "level": 1,
+   "question": "一块正方形木板被平均分成 100 个一样大的小方块，工人把其中 3 个小方块刷成了蓝色。蓝色部分写成小数是多少？",
+   "options": [
+    "0.3",
+    "0.03",
+    "0.003",
+    "3.00"
+   ],
+   "answerIndex": 1,
+   "explain": "平均分成 100 份，一份是 1 个百分位（hundredths），即 0.01；3 份就是 3 个 0.01，写成 0.03。写成 0.3 是把百分位当成了十分位（tenths），0.3 表示 3 个 0.1，是 100 份里的 30 份，多了十倍。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcqzyx7u",
+   "level": 1,
+   "question": "一条 1 米长的彩带被平均剪成 1000 段一样长的小段，露娜拿走了其中 25 段。她拿走的彩带写成小数是多少米？",
+   "options": [
+    "0.25",
+    "0.0025",
+    "0.025",
+    "2.5"
+   ],
+   "answerIndex": 2,
+   "explain": "一段是 0.001 米，25 段就是 25 个 0.001，即 0.025 米（2 个 0.01 加 5 个 0.001）。写成 0.25 的那个是把 25 当成了 25 个 0.01，等于 1000 段里的 250 段，取多了。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcpdgb8c",
+   "level": 1,
+   "question": "一块巧克力被平均掰成 1000 个一样大的小块，妮娜吃掉了其中 342 小块，写成小数就是 0.342 块。在 0.342 里，数字 4 表示多少？",
+   "options": [
+    "4 个 0.1，也就是 0.4",
+    "4 个 1，也就是 4",
+    "4 个 0.001，也就是 0.004",
+    "4 个 0.01，也就是 0.04"
+   ],
+   "answerIndex": 3,
+   "explain": "小数点后从左往右依次是十分位、百分位、千分位（tenths、hundredths、thousandths）。4 排在第二位，是百分位，表示 4 个 0.01，即 0.04。最常见的错是只看数字不看位置，把 4 当成 4 个 0.1。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "dec.tenths_hundredths_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvc315kz8",
+   "level": 2,
+   "question": "小数 0.507 应该怎样读？",
+   "options": [
+    "零点五零七",
+    "零点五七",
+    "零点五百零七",
+    "五点零七"
+   ],
+   "answerIndex": 0,
+   "explain": "小数点后面要按数位一个一个地读，0 也必须读出来，所以读作「零点五零七」。漏掉中间的 0 读成「零点五七」，等于把千分位上的 7 挪到了百分位，数就变成 0.57 了。",
+   "tags": [
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcg5svsv",
+   "level": 2,
+   "question": "一个数由 3 个 1、8 个 0.01 和 5 个 0.001 组成。这个数是多少？",
+   "options": [
+    "3.805",
+    "3.085",
+    "3.0085",
+    "3.85"
+   ],
+   "answerIndex": 1,
+   "explain": "个位是 3，十分位没有要用 0 占位，百分位是 8，千分位是 5，所以是 3.085。写成 3.805 的那个把 8 放进了十分位；空位不补 0 直接写成 3.85 也会让每个数字都往前挪一位。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvctitzbc",
+   "level": 2,
+   "question": "下面哪个数里的数字 7 表示 7 个 0.001（也就是在千分位上）？",
+   "options": [
+    "2.703",
+    "2.073",
+    "2.037",
+    "7.320"
+   ],
+   "answerIndex": 2,
+   "explain": "千分位是小数点后第三位。2.037 里小数点后依次是 0（十分位）、3（百分位）、7（千分位），所以 7 表示 0.007。2.073 的 7 在百分位表示 0.07，2.703 的 7 在十分位表示 0.7，都要靠数位置来分辨，不能只看有没有 7。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcomd5mu",
+   "level": 2,
+   "question": "在小数 6.905 中，十分位（tenths）上的数字与千分位（thousandths）上的数字相加，和是多少？",
+   "options": [
+    "9",
+    "5",
+    "11",
+    "14"
+   ],
+   "answerIndex": 3,
+   "explain": "6.905 里十分位是 9，百分位是 0，千分位是 5，所以 9 + 5 = 14。得 9 的人把百分位上的 0 当成了千分位，得 5 的人把十分位数错成了百分位——先按顺序念一遍「十分位、百分位、千分位」再取数就不会错。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcn6u9oi",
+   "level": 3,
+   "question": "数学课上，小雅说：「三个千分之一（three thousandths），写成小数就是 0.3。」她说得对吗？",
+   "options": [
+    "她说错了，应该写成 0.003",
+    "她说错了，应该写成 0.03",
+    "她说错了，应该写成 3.000",
+    "她说得对，三个千分之一就是 0.3"
+   ],
+   "answerIndex": 0,
+   "explain": "千分之一是 0.001，三个千分之一就是 0.003，3 必须落在小数点后第三位。写成 0.3 是把 3 放到了十分位，那是三个十分之一，正好是正确答案的 100 倍——听到「千分」两个字，就要数够三位再写数字。",
+   "tags": [
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcf6pmf3",
+   "level": 3,
+   "question": "温哥华某天的自动雨量计记录显示，1 小时降雨量是 12.408 毫米。这个数里，十分位上的数字和千分位上的数字各自表示的雨量合起来，一共是多少毫米？",
+   "options": [
+    "0.048 mm",
+    "0.408 mm",
+    "0.48 mm",
+    "4.08 mm"
+   ],
+   "answerIndex": 1,
+   "explain": "12.408 的十分位是 4，表示 0.4 mm；百分位是 0；千分位是 8，表示 0.008 mm。0.4 + 0.008 = 0.408 mm。得 0.48 的人把千分位的 8 当成了百分位，把中间那个 0 占位的作用弄丢了。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvclk56s2",
+   "level": 3,
+   "question": "在素里的加油站，牌子上写着每升汽油 $1.859。爸爸说：「这个价格里，8 表示 0.08 加元，5 表示 0.005 加元。」他说得对吗？",
+   "options": [
+    "爸爸说得对，8 表示 0.08 加元，5 表示 0.005 加元",
+    "不对，8 表示 8 加元，5 表示 0.5 加元",
+    "不对，8 表示 0.8 加元，5 表示 0.05 加元",
+    "不对，8 表示 0.08 加元，5 表示 0.05 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "1.859 中小数点后依次是十分位 8、百分位 5、千分位 9，所以 8 表示 0.8 加元，5 表示 0.05 加元。爸爸把每个数字都往后挪了一位，这正是十分位和百分位分不清的典型错误——先给每一位报名字，再说它表示多少。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "ok",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5gmwvcxggfeu",
+   "level": 3,
+   "question": "老师说：「请写出由 5 个 1、7 个 0.1 和 6 个 0.001 组成的数。」同学写成了 5.76。这个写法对吗？",
+   "options": [
+    "写错了，应该是 5.076",
+    "5.76 是对的",
+    "写错了，应该是 5.760",
+    "写错了，应该是 5.706，百分位上一个都没有，要用 0 占位"
+   ],
+   "answerIndex": 3,
+   "explain": "个位 5、十分位 7、百分位没有要写 0、千分位 6，所以是 5.706。写成 5.76 是把 6 个 0.001 当成了 6 个 0.01；小数里的 0 不是可有可无，它负责把每个数字钉在自己的数位上。",
+   "tags": [
+    "other",
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

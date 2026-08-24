@@ -1,0 +1,215 @@
+{
+ "id": "YY.MATH.MEAS.TIME.AM_PM_24H",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5d24t8v2ui8p",
+   "level": 1,
+   "question": "A 24-hour clock numbers all the hours of one whole day from 00 to 23 — that is 24 numbers, one for each hour. The first 12 numbers (00 to 11) are the a.m. hours, from midnight to noon. The last 12 numbers (12 to 23) are the p.m. hours, from noon to midnight. Which 24-hour time means the same as 3:00 p.m.?",
+   "options": [
+    "15:00",
+    "03:00",
+    "13:00",
+    "12:03"
+   ],
+   "answerIndex": 0,
+   "explain": "Because the p.m. hours are the second trip around the clock, you add 12 to the hour: 3 + 12 = 15, so 3:00 p.m. is 15:00. The usual trap is adding 10 and writing 13:00 — a 24-hour clock has 12 more hours after noon, not 10.",
+   "tags": [
+    "ok",
+    "other",
+    "time.24h_add_10",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8vhlok1",
+   "level": 1,
+   "question": "On a 24-hour clock the day is split into two halves of 12 hours each: hours 00 to 11 are the a.m. half and hours 12 to 23 are the p.m. half. A digital sign at the SkyTrain station reads 20:00. What is that time on a 12-hour clock?",
+   "options": [
+    "10:00 p.m.",
+    "8:00 p.m.",
+    "8:00 a.m.",
+    "2:00 a.m."
+   ],
+   "answerIndex": 1,
+   "explain": "The hour 20 is bigger than 12, so it sits in the p.m. half: take away 12 to get back to the 12-hour clock, 20 − 12 = 8, giving 8:00 p.m. Taking away 10 instead gives 10:00 p.m., which is a whole two hours late.",
+   "tags": [
+    "time.24h_add_10",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8hsyu0n",
+   "level": 1,
+   "question": "An analog clock face has only 12 numbers, so the hour hand passes each number twice in one day — once in the a.m. hours (midnight to noon) and once in the p.m. hours (noon to midnight). Nadia's clock shows the hour hand on 7 and the minute hand on 12, and she is eating breakfast before school. How should she write this time?",
+   "options": [
+    "7:00 p.m.",
+    "19:00",
+    "7:00 a.m.",
+    "17:00"
+   ],
+   "answerIndex": 2,
+   "explain": "Breakfast happens between midnight and noon, so it is the a.m. trip around the face: 7:00 a.m. The letters a.m. and p.m. are what tell the two trips apart, since the hands look exactly the same both times.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "time.24h_add_10"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8b7kgoz",
+   "level": 1,
+   "question": "Think of a clock face with 12 numbers around it, split into 4 equal quarters of 15 minutes each. Quarter past 8 means the minute hand has moved one quarter of the way around, to 15 minutes after 8. A hockey game starts at quarter past 8 in the evening. What is that on a 24-hour clock?",
+   "options": [
+    "20:45",
+    "18:15",
+    "08:15",
+    "20:15"
+   ],
+   "answerIndex": 3,
+   "explain": "Evening means p.m., so add 12 to the hour: 8 + 12 = 20, and quarter past means 15 minutes, giving 20:15. Adding only 10 gives 18:15, which is really quarter past 6 in the evening.",
+   "tags": [
+    "other",
+    "time.24h_add_10",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8upcxpv",
+   "level": 2,
+   "question": "The ferry from Tsawwassen to Swartz Bay leaves at 14:40. Ravi's family clock at home is a 12-hour digital clock. What time will that clock show when the ferry leaves?",
+   "options": [
+    "2:40 p.m.",
+    "12:40 p.m.",
+    "2:40 a.m.",
+    "4:40 p.m."
+   ],
+   "answerIndex": 0,
+   "explain": "An hour number of 14 is past 12, so it is afternoon: 14 − 12 = 2, giving 2:40 p.m. Taking away 10 instead gives 4:40 p.m., which would make the family two hours late for the boat.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "time.24h_add_10"
+   ]
+  },
+  {
+   "qid": "qmt5d24t88venmb",
+   "level": 2,
+   "question": "Which pair below shows one single moment written two different ways — once with a.m./p.m. and once on a 24-hour clock?",
+   "options": [
+    "9:30 p.m. and 19:30",
+    "9:30 p.m. and 21:30",
+    "9:30 a.m. and 21:30",
+    "9:30 p.m. and 09:30"
+   ],
+   "answerIndex": 1,
+   "explain": "For a p.m. time you add 12 hours: 9 + 12 = 21, so 9:30 p.m. and 21:30 are the same moment. Adding 10 gives 19:30, which is really 7:30 p.m., a different moment altogether.",
+   "tags": [
+    "time.24h_add_10",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8fc086t",
+   "level": 2,
+   "question": "A bus timetable in Victoria lists two departures: 07:05 and 19:05. Which statement about these two times is true?",
+   "options": [
+    "19:05 is 9:05 p.m., about five minutes after nine at night",
+    "19:05 is 7:05 a.m., the very same departure as 07:05",
+    "19:05 is 7:05 p.m., exactly twelve hours after the 07:05 bus",
+    "19:05 is 1:05 p.m., just after lunch"
+   ],
+   "answerIndex": 2,
+   "explain": "Hours 12 to 23 are the p.m. half of the day, so 19 − 12 = 7 makes 19:05 into 7:05 p.m., twelve hours after the morning bus. Taking away 10 gives 9:05 p.m. and would send you to the stop two hours too late.",
+   "tags": [
+    "time.24h_add_10",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8cwz4h4",
+   "level": 3,
+   "question": "Owen's hockey practice is listed as 15:30. He tells his mom, ‘That means 5:30 p.m., because 15 − 10 = 5.' His mom says he has made a mistake. Who is right, and why?",
+   "options": [
+    "Owen is right — 15 − 10 = 5, so 15:30 is 5:30 p.m.",
+    "His mom is right — he mixed up a.m. and p.m., so 15:30 is 5:30 a.m.",
+    "His mom is right — you always add 12, so 15:30 is really 27:30",
+    "His mom is right — the p.m. hours are 12 more than the 12-hour clock, so 15:30 is 3:30 p.m."
+   ],
+   "answerIndex": 3,
+   "explain": "A day has two halves of 12 hours, so the afternoon hours run 12 more than the 12-hour clock: 15 − 12 = 3, giving 3:30 p.m. Subtracting 10 is the most common slip and would make Owen show up two hours after practice ended.",
+   "tags": [
+    "time.24h_add_10",
+    "time.24h_add_10",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5d24t83wjqh8",
+   "level": 3,
+   "question": "A movie in Kamloops starts at 19:45 and runs for 1 hour and 30 minutes. Mira's dad will pick her up right when it ends, and he uses a 12-hour clock. What time should she tell him?",
+   "options": [
+    "9:15 p.m.",
+    "11:15 p.m.",
+    "8:15 p.m.",
+    "9:15 a.m."
+   ],
+   "answerIndex": 0,
+   "explain": "First add the length: 19:45 + 1 h = 20:45, then + 30 min = 21:15; then change to the 12-hour clock with 21 − 12 = 9, giving 9:15 p.m. Subtracting 10 from 21 gives 11:15 p.m., which is two hours after the movie is really over.",
+   "tags": [
+    "ok",
+    "time.24h_add_10",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5d24t84noi6g",
+   "level": 3,
+   "question": "Four students each changed a 12-hour time into a 24-hour time for the class timetable. Which one is written correctly?",
+   "options": [
+    "6:15 p.m. is written as 16:15",
+    "6:15 a.m. is written as 06:15",
+    "9:40 a.m. is written as 21:40",
+    "11:00 p.m. is written as 21:00"
+   ],
+   "answerIndex": 1,
+   "explain": "Morning times are already in the first half of the 24-hour day, so 6:15 a.m. simply becomes 06:15 with nothing added. The evening ones are wrong because 10 was added or subtracted instead of 12 — 6:15 p.m. is 18:15 and 11:00 p.m. is 23:00.",
+   "tags": [
+    "time.24h_add_10",
+    "ok",
+    "other",
+    "time.24h_add_10"
+   ]
+  },
+  {
+   "qid": "qmt5d24t8fwssc4",
+   "level": 3,
+   "question": "A Grade 4 class leaves for a field trip to the Okanagan science centre at 08:15 and the bus gets back to school at 14:50. A parent asks what time to be at the school. Which statement describes the return time correctly?",
+   "options": [
+    "2:50 a.m., in the middle of the night",
+    "4:50 p.m., in the afternoon",
+    "2:50 p.m., in the afternoon",
+    "14:50 p.m., in the afternoon"
+   ],
+   "answerIndex": 2,
+   "explain": "An hour number of 14 is past 12, so it is the afternoon half of the day, and 14 − 12 = 2 gives 2:50 p.m. Watch two traps: subtracting 10 gives 4:50 p.m., and once you write 14:50 you never add p.m., because the 24-hour clock already shows which half of the day it is.",
+   "tags": [
+    "other",
+    "time.24h_add_10",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5lzzlkbc19rd",
+   "level": 1,
+   "question": "算式（expression）是 8 + 6 × 3，里面没有括号（brackets）。它的结果是多少？",
+   "options": [
+    "26",
+    "42",
+    "18",
+    "14"
+   ],
+   "answerIndex": 0,
+   "explain": "没有括号时先算乘除、后算加减：6 × 3 = 18，再 8 + 18 = 26。最容易踩的坑是从左往右先把 8 + 6 = 14 算掉再乘 3，得到 42——加号写在前面并不代表先算它。",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkm7mltm",
+   "level": 1,
+   "question": "算式（expression）是 17 − 5 + 6，里面只有加法和减法，也没有括号（brackets）。它的结果是多少？",
+   "options": [
+    "6",
+    "18",
+    "28",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "加和减是同一级，要从左往右算：17 − 5 = 12，再 12 + 6 = 18。最容易踩的坑是以为加法一定先算，把 5 + 6 = 11 先做掉再减，得到 6。",
+   "tags": [
+    "order.add_before_sub_always",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlk1uq6or",
+   "level": 1,
+   "question": "算式（expression）是 36 ÷ 6 × 2，里面只有除法和乘法，也没有括号（brackets）。它的结果是多少？",
+   "options": [
+    "72",
+    "3",
+    "12",
+    "6"
+   ],
+   "answerIndex": 2,
+   "explain": "乘和除是同一级，要从左往右算：36 ÷ 6 = 6，再 6 × 2 = 12。最容易踩的坑是以为乘法比除法级别高，先算 6 × 2 = 12 再用 36 ÷ 12，得到 3。",
+   "tags": [
+    "other",
+    "order.add_before_sub_always",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlk4n6sq1",
+   "level": 1,
+   "question": "算式（expression）是 30 − 4 × 5，里面没有括号（brackets）。它的结果是多少？",
+   "options": [
+    "130",
+    "20",
+    "26",
+    "10"
+   ],
+   "answerIndex": 3,
+   "explain": "先算乘法 4 × 5 = 20，再算减法 30 − 20 = 10。最容易踩的坑是按写的顺序先算 30 − 4 = 26 再乘 5，得到 130；也有同学只把乘法算完就停在 20，忘了还要减。",
+   "tags": [
+    "order.left_to_right",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkukip92",
+   "level": 2,
+   "question": "计算：18 − 6 ÷ 3 + 4（没有括号）。结果是多少？",
+   "options": [
+    "20",
+    "12",
+    "8",
+    "16"
+   ],
+   "answerIndex": 0,
+   "explain": "先把除法算掉：6 ÷ 3 = 2，算式变成 18 − 2 + 4；加减同级从左往右：18 − 2 = 16，16 + 4 = 20。踩坑一是一路从左往右算成 8，踩坑二是把 2 + 4 = 6 先加起来再用 18 减，得到 12。",
+   "tags": [
+    "ok",
+    "order.add_before_sub_always",
+    "order.left_to_right",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkej3pyj",
+   "level": 2,
+   "question": "要算 6 + 18 ÷ 3 × 2（没有括号），按运算顺序（order of operations），第一步应该先算哪一个？",
+   "options": [
+    "先算 6 + 18",
+    "先算 18 ÷ 3",
+    "先算 3 × 2",
+    "先算哪一步都行，结果一样"
+   ],
+   "answerIndex": 1,
+   "explain": "乘除比加减先算，而乘和除同级要从左往右，所以第一步是 18 ÷ 3 = 6，接着 6 × 2 = 12，最后 6 + 12 = 18。先算 6 + 18 是按书写顺序乱来；先算 3 × 2 是误以为乘法比除法优先，两种都会算错。",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "order.add_before_sub_always",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlk3ibnzc",
+   "level": 2,
+   "question": "计算：20 − 4 × 2 + 5（没有括号）。结果是多少？",
+   "options": [
+    "37",
+    "7",
+    "17",
+    "13"
+   ],
+   "answerIndex": 2,
+   "explain": "先算乘法 4 × 2 = 8，得到 20 − 8 + 5；加减同级从左往右：20 − 8 = 12，12 + 5 = 17。踩坑一是从左往右先算 20 − 4 = 16 再乘 2，得到 37；踩坑二是把 8 + 5 = 13 先加起来再被 20 减，得到 7。",
+   "tags": [
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkww4kzm",
+   "level": 2,
+   "question": "计算：45 − 12 ÷ 3 + 5 × 2（没有括号）。结果是多少？",
+   "options": [
+    "41",
+    "31",
+    "32",
+    "51"
+   ],
+   "answerIndex": 3,
+   "explain": "先把所有乘除算完：12 ÷ 3 = 4，5 × 2 = 10，算式变成 45 − 4 + 10；再从左往右：45 − 4 = 41，41 + 10 = 51。最容易踩的坑是把 4 + 10 = 14 先加起来再用 45 减，得到 31；停在 41 则是漏掉了最后一项。",
+   "tags": [
+    "other",
+    "order.add_before_sub_always",
+    "order.left_to_right",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkyy0qah",
+   "level": 3,
+   "question": "四位同学都在算 30 − 12 ÷ 2 + 4（没有括号），他们的计算过程如下。哪一个过程是正确的？",
+   "options": [
+    "先算 12 ÷ 2 = 6，再算 30 − 6 = 24，最后 24 + 4 = 28",
+    "先算 12 ÷ 2 = 6，再算 6 + 4 = 10，最后 30 − 10 = 20",
+    "先算 30 − 12 = 18，再算 18 ÷ 2 = 9，最后 9 + 4 = 13",
+    "先算 30 − 12 = 18，再算 18 + 4 = 22，最后 22 ÷ 2 = 11"
+   ],
+   "answerIndex": 0,
+   "explain": "正确过程是先做除法 12 ÷ 2 = 6，再把 30 − 6 + 4 从左往右算成 24 + 4 = 28。得 13 的那个过程是完全按书写顺序从左往右算，得 20 的那个是误以为加法要排在减法前面，两种想法都会错。",
+   "tags": [
+    "ok",
+    "order.add_before_sub_always",
+    "order.left_to_right",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkdrr4y1",
+   "level": 3,
+   "question": "素里一所小学开运动会，志愿者在补水桌上摆纸杯。桌上原来有 9 个纸杯，老师又拿来 6 摞，每摞 4 个；比赛中用掉了 7 个。用算式 9 + 6 × 4 − 7 表示，现在桌上还有多少个纸杯？",
+   "options": [
+    "53 个",
+    "26 个",
+    "33 个",
+    "17 个"
+   ],
+   "answerIndex": 1,
+   "explain": "先算乘法 6 × 4 = 24（新拿来的杯子），再从左往右：9 + 24 = 33，33 − 7 = 26。最容易踩的坑是把 9 + 6 = 15 先加起来再乘 4，得到 53；停在 33 则是忘了减掉用掉的 7 个。",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkq0o7l3",
+   "level": 3,
+   "question": "维多利亚一所小学的图书馆有 80 本新书。6 个班每班借走 9 本，后来同学又还回来 12 本。用算式 80 − 6 × 9 + 12 表示，图书馆现在有多少本新书？",
+   "options": [
+    "14 本",
+    "26 本",
+    "38 本",
+    "47 本"
+   ],
+   "answerIndex": 2,
+   "explain": "先算乘法 6 × 9 = 54（借走的总数），再从左往右：80 − 54 = 26，26 + 12 = 38。最容易踩的坑是把 54 + 12 = 66 先加起来再被 80 减，得到 14——那等于把还回来的书也当成借走的了；停在 26 则是漏掉了还回来的 12 本。",
+   "tags": [
+    "order.add_before_sub_always",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lzzlkh89e6h",
+   "level": 3,
+   "question": "6 年级去 Squamish 露营。一根 72 米长的绳子被平均剪成 8 段，每段一样长；搭帐篷用掉了其中 3 段。用算式 72 ÷ 8 × 3 表示，用掉的绳子一共多少米？",
+   "options": [
+    "9 米",
+    "24 米",
+    "3 米",
+    "27 米"
+   ],
+   "answerIndex": 3,
+   "explain": "乘除同级从左往右：先 72 ÷ 8 = 9（每段 9 米），再 9 × 3 = 27 米。最容易踩的坑是以为乘法比除法先算，把 8 × 3 = 24 先做掉再用 72 ÷ 24，得到 3 米；停在 9 则只算出了一段的长度。",
+   "tags": [
+    "other",
+    "other",
+    "order.add_before_sub_always",
+    "ok"
+   ]
+  }
+ ]
+}

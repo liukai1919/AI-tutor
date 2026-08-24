@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.REL.PCT_CONVERT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5t8amkjni9mi",
+   "level": 1,
+   "question": "一张百格图（hundred grid）平均分成 100 个大小一样的小方格，整张图表示整体 1。其中 45 个小方格涂了色。涂色部分写成小数（decimal）是多少？",
+   "options": [
+    "0.45",
+    "45",
+    "4.5",
+    "0.045"
+   ],
+   "answerIndex": 0,
+   "explain": "100 格里涂了 45 格，就是分数 45/100；用分子除以分母，45÷100=0.45。最容易踩的坑是小数点只往左移一位写成 4.5，或者干脆把 45 原样搬下来当小数。",
+   "tags": [
+    "ok",
+    "pct.percent_as_number",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amk6fxjmo",
+   "level": 1,
+   "question": "一张百格图平均分成 100 个大小一样的小方格，整张图表示整体 1。其中 8 个小方格涂了色。涂色部分写成百分数（percent）是多少？",
+   "options": [
+    "80%",
+    "8%",
+    "0.08%",
+    "0.8%"
+   ],
+   "answerIndex": 1,
+   "explain": "百分数就是「每 100 份里有几份」，100 格中涂了 8 格，直接就是 8%。坑在于先算出小数 0.08 后不知所措：把 0.08 原样加个百分号写成 0.08%，或者小数点乱移写成 80%、0.8%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkm7d3p7",
+   "level": 1,
+   "question": "一张百格图平均分成 100 个大小一样的小方格，整张图表示整体 1。现在涂满了 37 个整格，另外还有 1 个小方格只涂了它的一半。涂色部分写成百分数是多少？",
+   "options": [
+    "3.75%",
+    "0.375%",
+    "37.5%",
+    "375%"
+   ],
+   "answerIndex": 2,
+   "explain": "37 个整格加半格等于 37.5 格，100 格中的 37.5 格就是 37.5%（也就是小数 0.375）。坑是把小数 0.375 直接加百分号写成 0.375%，或者小数点只移一位变成 3.75%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkrinpd3",
+   "level": 1,
+   "question": "一张百格图平均分成 100 个大小一样的小方格，整张图表示整体 1。其中 25 个小方格涂了色。下面哪一组写法（分数 fraction、小数、百分数）全部正确？",
+   "options": [
+    "25/100 = 1/4 = 0.25 = 2.5%",
+    "25/100 = 1/4 = 2.5 = 250%",
+    "25/100 = 1/4 = 0.25 = 0.25%",
+    "25/100 = 1/4 = 0.25 = 25%"
+   ],
+   "answerIndex": 3,
+   "explain": "25/100 约分是 1/4，1÷4=0.25，小数化百分数要 ×100（小数点往右移两位）得 25%。坑是移位方向或位数搞错（写成 2.5%、250%），或者把小数原样加个百分号写成 0.25%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkl2ioph",
+   "level": 2,
+   "question": "把分数 3/8 化成小数（decimal）和百分数（percent），正确的一组是哪个？",
+   "options": [
+    "0.375 和 37.5%",
+    "0.375 和 0.375%",
+    "3.75 和 375%",
+    "0.375 和 3.75%"
+   ],
+   "answerIndex": 0,
+   "explain": "分子除以分母：3÷8=0.375；小数化百分数要乘 100，小数点往右移两位，得 37.5%。最常见的坑是只移一位写成 3.75%，或者把 0.375 原样加个百分号写成 0.375%。",
+   "tags": [
+    "ok",
+    "pct.percent_as_number",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkb9ae86",
+   "level": 2,
+   "question": "把 6% 化成小数（decimal），结果是多少？",
+   "options": [
+    "0.6",
+    "0.06",
+    "6",
+    "0.006"
+   ],
+   "answerIndex": 1,
+   "explain": "6% 就是 6/100，6÷100=0.06，小数点从 6 往左移两位。坑一是只移一位写成 0.6，坑二是把百分号一擦就当成普通数 6。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.percent_as_number",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkowwaie",
+   "level": 2,
+   "question": "下面哪一个百分数和小数 0.045 相等？",
+   "options": [
+    "0.45%",
+    "45%",
+    "4.5%",
+    "0.045%"
+   ],
+   "answerIndex": 2,
+   "explain": "小数化百分数是 ×100，小数点往右移两位：0.045 → 4.5%。坑是方向或位数错（写成 0.45%、45%），或者把小数原样加百分号写成 0.045%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmt5t8amkfr0oqo",
+   "level": 2,
+   "question": "把分数 9/40 化成百分数，结果是多少？",
+   "options": [
+    "225%",
+    "2.25%",
+    "0.225%",
+    "22.5%"
+   ],
+   "answerIndex": 3,
+   "explain": "先用分子除以分母：9÷40=0.225；再 ×100，小数点往右移两位，得 22.5%。坑是只移一位得 2.25%，或者算完小数就直接加百分号写成 0.225%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5t8amk7bhvr2",
+   "level": 3,
+   "question": "体育课上，Surrey 的 Maya 练习罚球一共投了 25 次，投中 12 次。教练定的目标是命中率达到 50%。Maya 的命中率写成百分数是多少？她达到目标了吗？",
+   "options": [
+    "48%，没达到目标",
+    "4.8%，没达到目标",
+    "0.48%，没达到目标",
+    "480%，达到了目标"
+   ],
+   "answerIndex": 0,
+   "explain": "先写成分数 12/25，分子除以分母得 12÷25=0.48，再 ×100 得 48%，48% 比 50% 小，所以还差一点。坑是小数点只移一位得 4.8%，或者把 0.48 原样加百分号当成 0.48%。",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5t8amk85ihxo",
+   "level": 3,
+   "question": "Leo 说：「4% 写成小数（decimal）就是 0.4，把百分号去掉、小数点往左移一位就行了。」下面哪个判断是对的？",
+   "options": [
+    "他没说错，4% 写成小数就是 0.4",
+    "他说错了，4% 表示 4/100，小数点要往左移两位，是 0.04",
+    "他说错了，4% 写成小数是 0.004，小数点要往左移三位",
+    "他说错了，百分号去掉就是普通数，4% 写成小数是 4"
+   ],
+   "answerIndex": 1,
+   "explain": "百分号的意思是「除以 100」，所以 4%=4÷100=0.04，小数点往左移的是两位不是一位。最大的坑就是只移一位（4% 变 0.4）或者把百分号一擦当成普通数 4。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmt5t8amk4sddsq",
+   "level": 3,
+   "question": "Nanaimo 一家超市，一盒蓝莓原价 8.00 加元，现在便宜了 1.00 加元。省下的钱占原价的几分之几？写成分数、小数、百分数分别是多少？",
+   "options": [
+    "1/8，0.125，1.25%",
+    "1/8，1.25，125%",
+    "1/8，0.125，12.5%",
+    "1/8，0.125，0.125%"
+   ],
+   "answerIndex": 2,
+   "explain": "省下的 1 元比原价 8 元，是 1/8；1÷8=0.125；再 ×100，小数点往右移两位得 12.5%。坑是小数点只移一位写成 1.25%，或者算出 0.125 后直接加百分号写成 0.125%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmt5t8amk5dchgv",
+   "level": 3,
+   "question": "Leo 在算 1/3 的百分数。他写道：「1÷3=0.333…，这是循环小数（repeating decimal），所以 1/3 写成百分数就是 0.33%。」他哪里想错了？",
+   "options": [
+    "他错在移的方向反了，1/3 约等于 0.0033%",
+    "他没有想错，0.333… 后面加上百分号就是 0.33%",
+    "他错在只把小数点往右移了一位，1/3 约等于 3.33%",
+    "他把小数直接加了个百分号；小数化百分数要 ×100（小数点往右移两位），0.333… 约等于 33.3%"
+   ],
+   "answerIndex": 3,
+   "explain": "不管小数是有限小数（terminating decimal）还是循环小数，化百分数都要 ×100：0.333…×100≈33.3%。最大的坑就是把算出来的小数原样加个百分号，或者小数点只移一位。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "pct.decimal_shift_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

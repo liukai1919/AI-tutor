@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.INT.ADD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5s1jy5oom5m0",
+   "level": 1,
+   "question": "A tray holds two groups of two-colour counters: a group of 5 yellow counters, each worth +1, and a group of 3 red counters, each worth −1. A yellow counter and a red counter together make a zero pair worth 0. What is the total value of all the counters on the tray?",
+   "options": [
+    "+2",
+    "+8",
+    "−2",
+    "+3"
+   ],
+   "answerIndex": 0,
+   "explain": "Match red with yellow to make zero pairs: 3 pairs cancel, leaving 5 − 3 = 2 yellow counters, so the value is +2. The usual trap is adding 5 + 3 = 8 and ignoring that red counters are negative.",
+   "tags": [
+    "ok",
+    "int.add_ignore_sign",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5fx2a8k",
+   "level": 1,
+   "question": "Ava sets out two groups of two-colour counters: a group of 4 yellow counters, each worth +1, and a group of 7 red counters, each worth −1. Each yellow-red pair makes a zero pair worth 0. What is the total value of Ava's counters?",
+   "options": [
+    "+11",
+    "−3",
+    "+3",
+    "−7"
+   ],
+   "answerIndex": 1,
+   "explain": "Make zero pairs first: 4 yellow cancel 4 red, leaving 7 − 4 = 3 red counters, so the total is −3. Adding 4 + 7 = 11 ignores that the red counters stand for negative numbers.",
+   "tags": [
+    "int.add_ignore_sign",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy56l5o1p",
+   "level": 1,
+   "question": "A cup contains a group of 8 yellow counters, each worth +1, and a group of 3 red counters, each worth −1. Yellow and red counters cancel each other one for one. What integer is the value of the whole cup?",
+   "options": [
+    "+11",
+    "−5",
+    "+5",
+    "+3"
+   ],
+   "answerIndex": 2,
+   "explain": "Cancel 3 yellow with 3 red, and 8 − 3 = 5 yellow counters are left, so the value is +5. Watch out for adding the two counts to get 11, which forgets that red counters are negative.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5br3o2i",
+   "level": 1,
+   "question": "Noah puts down a group of 6 red counters, each worth −1, and a group of 6 yellow counters, each worth +1. Every red-yellow pair is a zero pair worth 0. What is the total value of Noah's counters?",
+   "options": [
+    "+12",
+    "−12",
+    "+6",
+    "0"
+   ],
+   "answerIndex": 3,
+   "explain": "All 6 red counters pair off with all 6 yellow counters, making 6 zero pairs and nothing left over, so the total is 0. Adding 6 + 6 = 12 treats both groups as positive instead of opposites.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5tce7ap",
+   "level": 2,
+   "question": "Work out −7 + 12.",
+   "options": [
+    "5",
+    "−5",
+    "19",
+    "−19"
+   ],
+   "answerIndex": 0,
+   "explain": "Start at −7 on a number line and move 12 units right, landing on 5; the 7 negatives cancel 7 of the positives and 12 − 7 = 5 positives remain. Adding 7 + 12 = 19 ignores the negative sign on the 7.",
+   "tags": [
+    "ok",
+    "other",
+    "int.add_ignore_sign",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy50briao",
+   "level": 2,
+   "question": "Work out −8 + (−5).",
+   "options": [
+    "13",
+    "−13",
+    "−3",
+    "3"
+   ],
+   "answerIndex": 1,
+   "explain": "Both numbers are negative, so there are no zero pairs: 8 red counters and 5 more red counters make 13 red counters, which is −13. Getting 13 means the magnitudes were added but the negative signs were dropped.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy56msnni",
+   "level": 2,
+   "question": "At 6 a.m. the temperature in Prince George is −11 °C. By noon it has risen 6 °C. What is the temperature at noon?",
+   "options": [
+    "17 °C",
+    "5 °C",
+    "−5 °C",
+    "−17 °C"
+   ],
+   "answerIndex": 2,
+   "explain": "Rising means adding: −11 + 6, so start at −11 and move 6 units right to reach −5 °C. The common trap is doing 11 + 6 = 17 and ignoring that the starting temperature is below zero.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5r4r84y",
+   "level": 2,
+   "question": "Following order of operations, add from left to right: 6 + (−4) + (−9).",
+   "options": [
+    "19",
+    "−19",
+    "7",
+    "−7"
+   ],
+   "answerIndex": 3,
+   "explain": "Left to right: 6 + (−4) = 2, then 2 + (−9) = −7, because 2 positives cancel 2 of the 9 negatives and 7 negatives are left. Adding 6 + 4 + 9 = 19 ignores the negative signs completely.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy54qjb1e",
+   "level": 3,
+   "question": "Priya is scuba diving off Nanaimo. Her dive computer shows −25 m (25 m below the surface). She rises 12 m to look at a rockfish, then descends 9 m to the sea floor. What does her dive computer show now?",
+   "options": [
+    "−22 m",
+    "−46 m",
+    "−4 m",
+    "46 m"
+   ],
+   "answerIndex": 0,
+   "explain": "Add in order: −25 + 12 = −13, then −13 + (−9) = −22 m, since descending adds another negative. A common trap is adding 25 + 12 + 9 = 46 and ignoring which moves are up and which are down.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5yilgr5",
+   "level": 3,
+   "question": "Sam says that −3 + 5 = 8, because 3 + 5 = 8. Which reply is correct?",
+   "options": [
+    "Sam is right, because adding always makes a total bigger, so −3 + 5 = 8.",
+    "Sam is wrong; 3 red counters and 5 yellow counters make 3 zero pairs, leaving 2 yellow counters, so −3 + 5 = 2.",
+    "Sam is wrong; the answer is −2, because you subtract 3 from 5 and keep the sign of the −3.",
+    "Sam is wrong; the answer is −8, because the first number is negative so the sum must be negative."
+   ],
+   "answerIndex": 1,
+   "explain": "With two-colour counters, 3 red and 5 yellow form 3 zero pairs and leave 2 yellow, so −3 + 5 = 2; on a number line you start at −3 and move 5 right to reach 2. The classic mistake is adding the magnitudes, 3 + 5 = 8, and ignoring the negative sign.",
+   "tags": [
+    "int.add_ignore_sign",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy59zk0ad",
+   "level": 3,
+   "question": "Nora's bank account balance is −$32 because she is overdrawn. She deposits $45 from her summer job, then pays $20 for a bus pass. What is her balance after both transactions?",
+   "options": [
+    "$33",
+    "$97",
+    "−$7",
+    "$7"
+   ],
+   "answerIndex": 2,
+   "explain": "Add step by step: −32 + 45 = 13, then 13 + (−20) = −7, so she is back to −$7 (still overdrawn). Two traps here are adding 32 + 45 + 20 = 97 with no signs at all, and treating the $20 payment as money coming in.",
+   "tags": [
+    "other",
+    "int.add_ignore_sign",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5s1jy5qq181i",
+   "level": 3,
+   "question": "Nadia models a sum with 12 red counters (each −1) and 5 yellow counters (each +1). She then drops 6 more yellow counters onto the pile. What is the value of the pile now?",
+   "options": [
+    "23",
+    "−7",
+    "1",
+    "−1"
+   ],
+   "answerIndex": 3,
+   "explain": "Work in order: −12 + 5 = −7, then −7 + 6 = −1, because the 6 new yellow counters cancel 6 of the 7 remaining red counters and one red is left. Adding 12 + 5 + 6 = 23 ignores the signs, and stopping at −7 forgets the last group of counters.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

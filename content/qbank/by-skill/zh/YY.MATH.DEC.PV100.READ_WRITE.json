@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DEC.PV100.READ_WRITE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5avb8j1jvikn",
+   "level": 1,
+   "question": "一个正方形被平均分成 100 个一样大的小方格，整个正方形算作 1，其中有 7 格涂了颜色。涂色部分用小数（decimal）写出来是多少？",
+   "options": [
+    "0.07",
+    "0.007",
+    "0.7",
+    "7.00"
+   ],
+   "answerIndex": 0,
+   "explain": "整体平均分成 100 份，每一份就是一个百分之一（hundredth），7 份是 \\frac{7}{100}，写成 0.07。最容易踩的坑是把 7 写在十分位上得到 0.7——那表示 7 个十分之一，是正确答案的 10 倍。",
+   "tags": [
+    "ok",
+    "other",
+    "dec.tenths_hundredths_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jx29vpo",
+   "level": 1,
+   "question": "一根纸条被平均分成 10 段一样长的部分，整根纸条算作 1，其中 4 段涂了颜色。涂色部分写成小数是多少？",
+   "options": [
+    "0.04",
+    "0.4",
+    "4.0",
+    "0.004"
+   ],
+   "answerIndex": 1,
+   "explain": "平均分成 10 份，每份是一个十分之一（tenth），4 份就是 \\frac{4}{10}，写成 0.4。写成 0.04 的那个是把 4 放到了百分位上，那要把纸条分成 100 份才对。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jwv1lao",
+   "level": 1,
+   "question": "小数 0.58 里，数字 8 在哪一个数位上？",
+   "options": [
+    "十分位（tenths）",
+    "个位（ones）",
+    "百分位（hundredths）",
+    "十位（tens）"
+   ],
+   "answerIndex": 2,
+   "explain": "小数点右边第一位是十分位（tenths），第二位是百分位（hundredths）。0.58 里 5 在十分位、8 在百分位。说 8 在十分位的那个，是把两个数位的先后顺序记反了。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jr3bom0",
+   "level": 1,
+   "question": "一个大正方形被平均分成 100 个一样大的小方格，涂了其中 25 格，写成小数是 0.25。这个小数里的数字 2 表示什么？",
+   "options": [
+    "2 个百分之一",
+    "2 个十",
+    "2 个一",
+    "2 个十分之一"
+   ],
+   "answerIndex": 3,
+   "explain": "0.25 中 2 紧挨着小数点，在十分位上，表示 2 个十分之一（也就是 20 个百分之一）；5 在百分位上，表示 5 个百分之一。说 2 表示 2 个百分之一的那个，把十分位当成了百分位。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5avb8j3ru4lh",
+   "level": 2,
+   "question": "小数 0.7 里一共有多少个百分之一（hundredths）？",
+   "options": [
+    "70 个",
+    "7 个",
+    "700 个",
+    "0.07 个"
+   ],
+   "answerIndex": 0,
+   "explain": "0.7 是 7 个十分之一，而 1 个十分之一里有 10 个百分之一，所以 7×10＝70 个，即 0.7＝\\frac{70}{100}。答 7 个的那个是把十分位上的 7 直接当成了百分位上的 7。",
+   "tags": [
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8ji5hh38",
+   "level": 2,
+   "question": "小数 0.05 读作下面哪一个？",
+   "options": [
+    "five tenths（五个十分之一）",
+    "five hundredths（五个百分之一）",
+    "five thousandths（五个千分之一）",
+    "five（五）"
+   ],
+   "answerIndex": 1,
+   "explain": "0.05 的十分位是 0、百分位是 5，所以读作 five hundredths（五个百分之一），即 \\frac{5}{100}。读成 five tenths 的那个说的其实是 0.5，比 0.05 大 10 倍。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jktvwxx",
+   "level": 2,
+   "question": "下面哪一个小数的百分位（hundredths place）上是 3？",
+   "options": [
+    "0.30",
+    "0.35",
+    "0.53",
+    "3.05"
+   ],
+   "answerIndex": 2,
+   "explain": "看小数点右边第二位：0.53 的百分位是 3（十分位是 5），符合要求。0.35 的 3 在十分位、0.30 的百分位是 0、3.05 的 3 在个位——这三个都不是把 3 放在百分位上。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jgzu5fc",
+   "level": 2,
+   "question": "把「three and seven hundredths（三又七个百分之一）」写成小数，应该是哪一个？",
+   "options": [
+    "3.7",
+    "30.7",
+    "0.37",
+    "3.07"
+   ],
+   "answerIndex": 3,
+   "explain": "整数部分是 3，七个百分之一要把 7 放在百分位（小数点右边第二位），十分位没有就补 0，所以是 3.07。写成 3.7 的那个把 7 放进了十分位，读作 three and seven tenths，大了 10 倍。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jrzzbmn",
+   "level": 3,
+   "question": "Aiden 在 Victoria 记录天气。气象站说这一天的降雨量是 four hundredths of a centimetre（四个百分之一厘米），他在本子上写成 0.4 cm。下面哪个说法是对的？",
+   "options": [
+    "应该写成 0.04 cm；0.4 是 4 个十分之一，正好是 4 个百分之一的 10 倍",
+    "应该写成 4.00 cm，因为数字是 4",
+    "应该写成 0.004 cm，因为 hundredths 要在小数点后空出两位再写",
+    "0.4 cm 写得对，因为 four hundredths 就写成 0.4"
+   ],
+   "answerIndex": 0,
+   "explain": "four hundredths 是 \\frac{4}{100}，4 必须落在百分位上，十分位补 0，写成 0.04 cm。写成 0.4 cm 的那种做法把百分位的数字挪到了十分位，雨量一下子变成了 10 倍。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jc8emxq",
+   "level": 3,
+   "question": "Leo 和 Mia 在教室窗台种豆苗。这一周里 Leo 的豆苗长高了 0.6 cm，Mia 的长高了 0.06 cm。下面哪个说法是对的？",
+   "options": [
+    "Mia 长得多，因为 0.06 的小数位数多，位数越多数就越大",
+    "Leo 长得多：0.6 是 6 个十分之一，0.06 是 6 个百分之一，一个十分之一比一个百分之一大",
+    "一样多，因为两个数里都有数字 6",
+    "Leo 长得多，因为 0.6 表示 6 个百分之一，比 0.06 里的 6 个千分之一大"
+   ],
+   "answerIndex": 1,
+   "explain": "比较小数要看数字站在哪一位：0.6＝\\frac{6}{10}＝\\frac{60}{100}，0.06＝\\frac{6}{100}，所以 Leo 的多，是 Mia 的 10 倍。说「都有 6 就一样多」的那个忘了同一个数字在十分位和百分位上表示的大小完全不同。",
+   "tags": [
+    "other",
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jptcx3l",
+   "level": 3,
+   "question": "Surrey 一所学校记录操场上的积雪深度，星期一量得 0.24 m。下面哪个说法完全正确？",
+   "options": [
+    "2 在百分位、4 在十分位，一共是 \\frac{42}{100} m",
+    "2 在十分位、4 在百分位，一共是 24 个十分之一，也就是 \\frac{24}{10} m",
+    "2 在十分位、4 在百分位，一共是 24 个百分之一，也就是 \\frac{24}{100} m",
+    "百分位上是 4，所以这个数就是 4 个百分之一，也就是 \\frac{4}{100} m"
+   ],
+   "answerIndex": 2,
+   "explain": "0.24 里 2 在十分位（＝20 个百分之一）、4 在百分位（＝4 个百分之一），合起来 24 个百分之一，即 \\frac{24}{100} m。说成 24 个十分之一（\\frac{24}{10}）的那个把百分位读成了十分位，数值会大 10 倍。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5avb8jmzbqz7",
+   "level": 3,
+   "question": "Kelowna 一位同学量一棵小云杉苗的高度，用米作单位写成小数：个位（ones）上是 2，十分位（tenths）上是 0，百分位（hundredths）上是 9。这棵树苗高多少米？",
+   "options": [
+    "2.9 m",
+    "0.29 m",
+    "20.9 m",
+    "2.09 m"
+   ],
+   "answerIndex": 3,
+   "explain": "按数位从左往右摆：个位 2，小数点后第一位（十分位）0，第二位（百分位）9，得到 2.09 m。写成 2.9 m 的那个把十分位的 0 省掉了，9 就跑到了十分位上，高度一下子多了近 0.8 m。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

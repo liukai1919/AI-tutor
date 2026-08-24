@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DEC.OPS.ORDER_OPS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5su6qji1i3p0",
+   "level": 1,
+   "question": "An expression is written with symbols only, with no picture: open bracket 2.4 plus 1.6 close bracket, times 5. In symbols this is (2.4 + 1.6) x 5. What is the value of the expression?",
+   "options": [
+    "20",
+    "4",
+    "10.4",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "Brackets always come first: 2.4 + 1.6 = 4, and then 4 x 5 = 20. The common trap is multiplying 1.6 x 5 first and getting 10.4 — the brackets tell you the adding must happen before the multiplying.",
+   "tags": [
+    "ok",
+    "other",
+    "order.ignore_brackets",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qj0c5sg0",
+   "level": 1,
+   "question": "An expression is written with symbols only, with no picture: 6.5 minus the quantity 1.2 plus 2.3. In symbols this is 6.5 - (1.2 + 2.3). What is the value of the expression?",
+   "options": [
+    "7.6",
+    "3",
+    "3.5",
+    "5.3"
+   ],
+   "answerIndex": 1,
+   "explain": "Do the bracket first: 1.2 + 2.3 = 3.5, then 6.5 - 3.5 = 3. The usual mistake is dropping the brackets and working left to right (6.5 - 1.2 + 2.3 = 7.6), which subtracts only part of the 3.5.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjaj6vfi",
+   "level": 1,
+   "question": "An expression is written with symbols only, with no picture: 4 plus 0.5 times the quantity 6 minus 2. In symbols this is 4 + 0.5 x (6 - 2). Which step must be done FIRST?",
+   "options": [
+    "Multiply 0.5 x 6 first, because multiplication comes before addition.",
+    "Add 4 + 0.5 first, because you always work from left to right.",
+    "Subtract inside the brackets first: 6 - 2 = 4.",
+    "Add 4 + 0.5 first, then multiply by 6, then subtract 2."
+   ],
+   "answerIndex": 2,
+   "explain": "Brackets sit at the very top of the order of operations, so 6 - 2 = 4 happens before any multiplying or adding (the expression then becomes 4 + 0.5 x 4 = 6). The trap is starting with multiplication or reading left to right, which ignores the brackets completely.",
+   "tags": [
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "ok",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5su6qj51td1r",
+   "level": 1,
+   "question": "An expression is written with symbols only, with no picture: the quantity 3.6 divided by 0.9, then plus 1.5. In symbols this is (3.6 / 0.9) + 1.5. What is the value of the expression?",
+   "options": [
+    "1.5",
+    "4",
+    "5.1",
+    "5.5"
+   ],
+   "answerIndex": 3,
+   "explain": "The brackets group the division, so 3.6 / 0.9 = 4 first, then 4 + 1.5 = 5.5. A common error is sliding the brackets over and computing 3.6 / (0.9 + 1.5) = 1.5 — only the numbers inside the brackets you are given may be grouped.",
+   "tags": [
+    "order.ignore_brackets",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjjzazeq",
+   "level": 2,
+   "question": "Evaluate the expression 12.5 - 2 x (1.5 + 0.75).",
+   "options": [
+    "8",
+    "10.25",
+    "4.5",
+    "8.5"
+   ],
+   "answerIndex": 0,
+   "explain": "Brackets first: 1.5 + 0.75 = 2.25; then multiply, 2 x 2.25 = 4.5; then subtract, 12.5 - 4.5 = 8. The trap is ignoring the brackets and doing 2 x 1.5 first, which gives 10.25.",
+   "tags": [
+    "ok",
+    "order.ignore_brackets",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjxvssw0",
+   "level": 2,
+   "question": "Notebooks at a Burnaby store cost $2.40 each. Liam buys 5 notebooks and has a coupon that takes $0.50 off the price of EACH notebook. He uses the expression 5 x (2.40 - 0.50). How much does Liam pay in total?",
+   "options": [
+    "$11.50",
+    "$9.50",
+    "$9.00",
+    "$12.00"
+   ],
+   "answerIndex": 1,
+   "explain": "Because the coupon comes off every notebook, subtract inside the brackets first: 2.40 - 0.50 = 1.90, then 5 x 1.90 = 9.50. The trap is multiplying before the brackets (5 x 2.40 - 0.50 = 11.50), which takes the coupon off only once.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qj0pk1gc",
+   "level": 2,
+   "question": "Evaluate the expression (7.2 - 3.2) / (0.5 x 4).",
+   "options": [
+    "8",
+    "32",
+    "2",
+    "1"
+   ],
+   "answerIndex": 2,
+   "explain": "Work out both brackets before dividing: 7.2 - 3.2 = 4 and 0.5 x 4 = 2, so 4 / 2 = 2. The trap is honouring only the first bracket and then chaining left to right (4 / 0.5 x 4 = 32) — the second bracket must be finished before the division.",
+   "tags": [
+    "other",
+    "order.ignore_brackets",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjicb6os",
+   "level": 2,
+   "question": "Noah and two friends (3 people in all) order a pizza for $18.60 and drinks for $4.50, and they split the whole bill evenly. Which expression finds how much EACH person pays?",
+   "options": [
+    "18.60 + 4.50 / 3",
+    "18.60 / 3 + 4.50",
+    "(18.60 + 4.50) x 3",
+    "(18.60 + 4.50) / 3"
+   ],
+   "answerIndex": 3,
+   "explain": "The whole bill is shared, so the two costs must be added inside brackets before dividing: (18.60 + 4.50) / 3 = 23.10 / 3 = 7.70. Without the brackets, 18.60 + 4.50 / 3 divides only the drinks, so Noah would pay for the whole pizza himself.",
+   "tags": [
+    "order.ignore_brackets",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5su6qj95y5um",
+   "level": 3,
+   "question": "Sofia checks a classmate's work. The classmate wrote: (2.5 + 1.5) x 4 = 2.5 + 6 = 8.5. What went wrong, and what is the correct value?",
+   "options": [
+    "The brackets must be done first: 2.5 + 1.5 = 4, then 4 x 4 = 16.",
+    "The classmate should have multiplied 2.5 x 4 first, giving 11.5.",
+    "The brackets were done correctly, but the 4 should be added, giving 8.",
+    "Nothing went wrong — multiplication always comes before addition, so 8.5 is right."
+   ],
+   "answerIndex": 0,
+   "explain": "Multiplication only beats addition when there are no brackets; here the brackets force 2.5 + 1.5 = 4 first, so the value is 4 x 4 = 16. The classmate multiplied 1.5 x 4 and left the 2.5 outside, which is the most common order-of-operations slip.",
+   "tags": [
+    "ok",
+    "order.ignore_brackets",
+    "other",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjw1v59g",
+   "level": 3,
+   "question": "Ava buys 3 packs of stickers at $2.40 each and pays with a $10 bill. She then splits the change equally with her sister. Ava writes the expression (10 - 3 x 2.40) / 2. How much does each girl get?",
+   "options": [
+    "$6.40",
+    "$1.40",
+    "$2.80",
+    "$3.80"
+   ],
+   "answerIndex": 1,
+   "explain": "Inside the brackets, multiply before subtracting: 3 x 2.40 = 7.20, so 10 - 7.20 = 2.80 change, and 2.80 / 2 = 1.40 each. The trap is ignoring the brackets and dividing the 7.20 by 2 first, which splits the sticker cost instead of the change.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjml39pw",
+   "level": 3,
+   "question": "Six friends go to a movie in Victoria. Each friend buys one ticket for $4.25 and one popcorn for $2.75, and the group has a single $5.00 coupon off the whole order. The total cost is 6 x (4.25 + 2.75) - 5. How much does the group pay?",
+   "options": [
+    "$23.25",
+    "$42.00",
+    "$37.00",
+    "$12.00"
+   ],
+   "answerIndex": 2,
+   "explain": "Brackets first: 4.25 + 2.75 = 7.00 per friend, then 6 x 7.00 = 42.00, then subtract the one coupon: 42.00 - 5 = 37.00. The trap is dropping the brackets (6 x 4.25 + 2.75 - 5 = 23.25), which buys popcorn for only one person.",
+   "tags": [
+    "order.ignore_brackets",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5su6qjvc62ss",
+   "level": 3,
+   "question": "Leo says the brackets make no difference here: he claims (8.4 - 2.4) / 3 and 8.4 - 2.4 / 3 have the same value. Is he right?",
+   "options": [
+    "No — with the brackets the value is 2, and without them it is 2.8.",
+    "Yes — both equal 2, because you subtract before you divide anyway.",
+    "Yes — both equal 7.6, because brackets never change a value.",
+    "No — with the brackets the value is 2, and without them it is 7.6."
+   ],
+   "answerIndex": 3,
+   "explain": "With brackets, 8.4 - 2.4 = 6 and 6 / 3 = 2; without brackets, division goes first, so 2.4 / 3 = 0.8 and 8.4 - 0.8 = 7.6. Brackets change which operation happens first, so they change the value — that is exactly why they are written.",
+   "tags": [
+    "other",
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

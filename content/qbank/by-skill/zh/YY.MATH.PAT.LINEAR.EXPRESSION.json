@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.EXPRESSION",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5u6i4ubdbjsj",
+   "level": 1,
+   "question": "小杰用小方块摆一排图案：第 1 个图案用 5 块，之后每个图案都比前一个多 3 块。如果用 n 表示图案的编号，下面哪个算式（expression）能算出第 n 个图案要用几块？",
+   "options": [
+    "3n + 2",
+    "前一个图案的块数加 3",
+    "2n + 3",
+    "5n + 3"
+   ],
+   "answerIndex": 0,
+   "explain": "每多一个编号就多 3 块，所以 n 前面的数是 3；再看 n = 1 时要 5 块，3 × 1 = 3，还差 2，所以式子是 3n + 2。最容易踩的坑是只写「每次加 3」——那只能一个一个往下数，问到第 50 个就没办法了，必须写出含 n 的式子。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4ufr4gg6",
+   "level": 1,
+   "question": "一个线性关系（linear relation）的算式是 3n + 2。当 n = 6 时，它的值是多少？",
+   "options": [
+    "15",
+    "20",
+    "18",
+    "23"
+   ],
+   "answerIndex": 1,
+   "explain": "先乘后加：3 × 6 = 18，18 + 2 = 20。写成 15 的是把 3 和 2 的角色弄反了（变成每次加 2、从 3 开始）；写成 18 的是算完乘法忘了再加 2。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4undry5j",
+   "level": 1,
+   "question": "一张表格（table）里记着一组数：n = 1 时是 5，n = 2 时是 8，n = 3 时是 11。下面哪个说法能算出任意一个 n 对应的数？",
+   "options": [
+    "2n + 3",
+    "5n",
+    "3n + 2",
+    "每次加 3，一个一个往下加"
+   ],
+   "answerIndex": 2,
+   "explain": "每次 n 增加 1，数就增加 3，所以是 3n；3 × 1 = 3 比 5 少 2，所以补上 2，得 3n + 2。写成 2n + 3 的那个在 n = 1 时也等于 5，很像对的，但 n = 2 时算出 7 而不是 8——一定要多代一个数验算。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4uf9r8jg",
+   "level": 1,
+   "question": "一个线性关系写成 3n + 2。下面哪句话解释得对？",
+   "options": [
+    "每当 n 增加 1，值就增加 5",
+    "每当 n 增加 1，值就增加 2；起始值是 3",
+    "从 3 开始，一次一次加 3，加到第 n 次才知道答案",
+    "每当 n 增加 1，值就增加 3；n = 0 时的起始值（y-intercept）是 2"
+   ],
+   "answerIndex": 3,
+   "explain": "在 3n + 2 里，跟 n 相乘的 3 是每一步的变化量，单独的 2 是起始值（y-intercept）。说成「每次加 2、起始是 3」的那句正好把两个角色调了个个儿，是最常见的错。",
+   "tags": [
+    "other",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4u4riypj",
+   "level": 2,
+   "question": "已知一个线性关系的算式是 3n + 2，求第 50 项（n = 50）的值。",
+   "options": [
+    "152",
+    "103",
+    "155",
+    "150"
+   ],
+   "answerIndex": 0,
+   "explain": "直接代入：3 × 50 = 150，150 + 2 = 152。答 155 的是从第 1 项 5 出发又加了 50 次 3，多加了一次——用式子代入就不会数错次数；答 103 的是把变化率和起始值写反成 2n + 3。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4uu7ic5x",
+   "level": 2,
+   "question": "一个线性关系的算式是 3n + 2。已知某一项的值是 41，这是第几项（n 是多少）？",
+   "options": [
+    "19",
+    "13",
+    "14",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "倒着做：先减去起始值 41 − 2 = 39，再除以每次的变化量 39 ÷ 3 = 13。答 19 的是按 2n + 3 倒推，把 3 和 2 的角色弄反了；答 12 的是数「加了几次 3」，那是次数不是项数。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4u4osnwg",
+   "level": 2,
+   "question": "下面哪个算式和 3n + 2 表示的是同一个线性关系？",
+   "options": [
+    "2n + 3",
+    "从 5 开始，每次加 3",
+    "3(n − 1) + 5",
+    "3n − 2"
+   ],
+   "answerIndex": 2,
+   "explain": "把 3(n − 1) + 5 展开：3n − 3 + 5 = 3n + 2，两个式子完全一样。写成 2n + 3 的那个把每次变化的 3 和起始的 2 调换了；只说「从 5 开始每次加 3」虽然描述的是同一组数，但它不是能直接代入 n 的算式。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4u2a9nfn",
+   "level": 2,
+   "question": "本拿比一家溜冰场：入场费 2 加元，之后每滑 1 小时收 3 加元。用 n 表示小时数，写出总费用的算式，并算出滑 4 小时要多少钱。",
+   "options": [
+    "2n + 3；一共 11 加元",
+    "从 3 开始每小时加 3：3、6、9、12；一共 12 加元",
+    "3 × (4 + 2)；一共 18 加元",
+    "3n + 2；一共 14 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "每小时变化 3 加元，所以是 3n；入场费 2 加元只收一次，是起始值，所以式子为 3n + 2，代入 n = 4 得 3 × 4 + 2 = 14 加元。写成 2n + 3 的那个把「每小时 3 元」和「一次性 2 元」搞反了。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4u2vxscx",
+   "level": 3,
+   "question": "温哥华社区中心的陶艺班：报名费 2 加元（只交一次），之后每上一节课收 3 加元。艾米带了 50 加元，上了 12 节课。她还剩多少钱？",
+   "options": [
+    "12 加元",
+    "23 加元",
+    "14 加元",
+    "9 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先用算式算花费：3n + 2，n = 12 时是 3 × 12 + 2 = 38 加元；再算剩下 50 − 38 = 12 加元。答 9 的是从第 1 节课的 5 元起又加了 12 次 3，多加了一轮；答 14 的是只算课时费、漏掉了 2 加元报名费。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4uvsao13",
+   "level": 3,
+   "question": "小凯说：「算式 3n + 2 的意思是从 3 开始、每次加 2，所以第 5 项是 3 + 2 × 5 = 13。」他说得对吗？第 5 项到底是多少？",
+   "options": [
+    "对的，从 3 开始每次加 2，第 5 项就是 13",
+    "不对，他把每次的变化量和起始值弄反了；应该是每次加 3、起始是 2，第 5 项是 17",
+    "不对，应该从 3 开始一次一次加 3，第 5 项是 3 + 3 × 5 = 18",
+    "不对，他多算了乘法，第 5 项是 3 + 2 = 5"
+   ],
+   "answerIndex": 1,
+   "explain": "和 n 相乘的数才是每次的变化量，所以每次加 3，单独的 2 是起始值；代入得 3 × 5 + 2 = 17。把 3 当起始、2 当增量正是最常见的错，检验方法是代 n = 1 看看：3 × 1 + 2 = 5，而按小凯的读法会得 5……所以还要再代 n = 2 才看得出差别（8 对 7）。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4ueixwwv",
+   "level": 3,
+   "question": "莉娜在基洛纳的后院种豆苗。第 1 周量得高 5 cm，之后每周长高 3 cm，可以写成 3n + 2（n 是周数）。第几周它的高度第一次超过 30 cm？",
+   "options": [
+    "第 9 周",
+    "第 14 周",
+    "第 10 周",
+    "第 11 周"
+   ],
+   "answerIndex": 2,
+   "explain": "代入试算：n = 9 时 3 × 9 + 2 = 29 cm，还没超过；n = 10 时 3 × 10 + 2 = 32 cm，第一次超过 30 cm。答第 11 周的是漏掉了起始的 2、只解 3n > 30；答第 9 周的是在数「加了几次 3」而不是第几周。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u6i4up0c3hk",
+   "level": 3,
+   "question": "惠斯勒租雪橇的价目表记着：租 1 小时 5 加元，2 小时 8 加元，3 小时 11 加元。小林想知道租 7 小时要多少钱，他打算从 11 开始一次次加 3。请用算式（expression）算，租 7 小时要多少钱？",
+   "options": [
+    "21 加元，算式是 3n",
+    "17 加元，算式是 2n + 3",
+    "20 加元，从 11 开始加了 3 次 3",
+    "23 加元，算式是 3n + 2"
+   ],
+   "answerIndex": 3,
+   "explain": "每多 1 小时多 3 加元，1 小时是 5 加元，所以算式是 3n + 2，代入 n = 7 得 3 × 7 + 2 = 23 加元。从 11 一次次加的做法要加 4 次（4、5、6、7 小时），很容易少数一次而得到 20——写成含 n 的算式一步到位，不会数错。",
+   "tags": [
+    "other",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  }
+ ]
+}

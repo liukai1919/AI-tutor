@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.RULE.SYMBOLS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5hqtnih21fyd",
+   "level": 1,
+   "question": "一个规律法则（pattern rule）用文字说是：第 n 项等于项数 n 乘 2。下面哪个式子用符号和变量（variable）写出了这个法则？",
+   "options": [
+    "2 × n",
+    "n ÷ 2",
+    "n + 2",
+    "2 - n"
+   ],
+   "answerIndex": 0,
+   "explain": "「项数乘 2」写成 2 × n，其中 n 是变量，代表第几项。最容易踩的坑是看到 2、4、6 只想到「每次加 2」就写成 n + 2，可是 n = 1 时 n + 2 = 3，第 1 项其实是 2。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnijvjrh1",
+   "level": 1,
+   "question": "一个规律的前四项依次是 5、6、7、8，它们分别是第 1 项、第 2 项、第 3 项、第 4 项。下面哪个法则对每一项都成立？",
+   "options": [
+    "n + 1",
+    "n + 4",
+    "5 × n",
+    "n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "把项数代进去检验：1 + 4 = 5，2 + 4 = 6，4 + 4 = 8，所以写成 n + 4 的那个是对的。坑在于相邻两项每次多 1，就误写成 n + 1，但 n = 1 时得 2，不是 5——「每次加几」和「第 n 项是多少」不是一回事。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtni7ys5r9",
+   "level": 1,
+   "question": "一个规律的法则是 n + 3，其中 n 表示项数。这个规律的第 7 项是多少？",
+   "options": [
+    "3，因为这个规律每次加 3",
+    "7",
+    "10",
+    "21"
+   ],
+   "answerIndex": 2,
+   "explain": "用变量写法则的好处就是可以直接代入：把 n 换成 7，7 + 3 = 10。坑是把式子里的 3 当成答案，或者以为 3 是「每次加 3」——n + 3 里的 n 必须换成项数才算得出这一项。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnifnoxxp",
+   "level": 1,
+   "question": "一个递减规律（decreasing pattern）的法则用文字说是：第 n 项等于 20 减去 n。下面哪个式子写对了这个法则？",
+   "options": [
+    "n - 20",
+    "20 ÷ n",
+    "n - 1，因为每一项都比前一项少 1",
+    "20 - n"
+   ],
+   "answerIndex": 3,
+   "explain": "「20 减去 n」按顺序写成 20 - n：第 1 项是 19，第 2 项是 18，一项比一项少。坑是写成 n - 1，那只说出了「每次少 1」，n = 1 时算出 0 而不是 19，也算不出第 n 项。",
+   "tags": [
+    "other",
+    "other",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5hqtniwt9lu8",
+   "level": 2,
+   "question": "一个规律是 3、6、9、12、……。用 n 表示项数，哪个法则可以算出第 n 项？",
+   "options": [
+    "3 × n",
+    "n + 3",
+    "n × n",
+    "3 × n + 3"
+   ],
+   "answerIndex": 0,
+   "explain": "每一项都是项数的 3 倍：3 × 1 = 3，3 × 4 = 12，所以法则是 3 × n。坑是把「每次加 3」直接写成 n + 3，可 n = 1 时 n + 3 = 4，而第 1 项是 3。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnioz67sf",
+   "level": 2,
+   "question": "一个规律是 7、9、11、13、……。用 n 表示项数，哪个法则对每一项都成立？",
+   "options": [
+    "n + 2",
+    "2 × n + 5",
+    "7 × n",
+    "2 × n"
+   ],
+   "answerIndex": 1,
+   "explain": "每次多 2，说明式子里有 2 × n；再看第 1 项：2 × 1 = 2，离 7 还差 5，所以法则是 2 × n + 5（检验 n = 4：8 + 5 = 13）。坑是只写 2 × n 或 n + 2，它们都对不上第 1 项。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnig39icy",
+   "level": 2,
+   "question": "一个规律的法则是 n + 3，n 表示项数。这个规律的第 50 项是多少？",
+   "options": [
+    "150",
+    "要先把前面 49 项一项一项加出来才知道",
+    "53",
+    "50"
+   ],
+   "answerIndex": 2,
+   "explain": "直接把 n 换成 50：50 + 3 = 53。这正是用变量写法则的好处——想要第几项就代第几项，不用一项一项往下加。坑是只记得「每次加几」，就以为必须从头累加才能知道第 50 项。",
+   "tags": [
+    "other",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnifc2b3r",
+   "level": 2,
+   "question": "一个递减规律是 45、40、35、30、……。用 n 表示项数，哪个法则可以算出第 n 项？",
+   "options": [
+    "n - 5",
+    "45 - 5 × n",
+    "5 × n - 50",
+    "50 - 5 × n"
+   ],
+   "answerIndex": 3,
+   "explain": "每次少 5，所以要减去 5 × n；第 1 项要得 45，50 - 5 = 45，检验 n = 4：50 - 20 = 30，所以法则是 50 - 5 × n。坑是写成 45 - 5 × n，它在 n = 1 时给出 40，把第 1 项算错了。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5hqtniezt458",
+   "level": 3,
+   "question": "小雨在 Kelowna 的存钱罐里已经有 8 加元。从这一周开始，她每周再存 4 加元。用 n 表示存钱的周数，第 n 周结束时罐里一共有多少加元？",
+   "options": [
+    "8 + 4 × n",
+    "n + 4",
+    "8 × n + 4",
+    "4 × n"
+   ],
+   "answerIndex": 0,
+   "explain": "存了 n 周就是 4 × n 加元，再加上原来就有的 8 加元，法则是 8 + 4 × n；检验第 1 周结束：8 + 4 = 12 加元。坑是忘了起始的 8 加元只写 4 × n，或者把「每周加 4」直接写成 n + 4。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnixoipk0",
+   "level": 3,
+   "question": "一个规律是 8、14、20、26、……。两个同学在讨论怎样写它的法则和算第 100 项。谁说得对？",
+   "options": [
+    "每次加 6 就是法则，第 100 项是 6 + 100 = 106",
+    "法则是 6 × n + 2，第 100 项是 602",
+    "法则是 6 × n，第 100 项是 600",
+    "这个规律写不出式子，只能从 8 开始一项一项加到第 100 项"
+   ],
+   "answerIndex": 1,
+   "explain": "每次多 6，说明式子里有 6 × n；第 1 项要得 8，6 × 1 + 2 = 8，所以法则是 6 × n + 2，第 100 项 = 6 × 100 + 2 = 602。坑是停在「每次加 6」——它只说明相邻两项的关系，既不能当成式子里的加数，也不能直接算出第 100 项。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5hqtnin5w3y6",
+   "level": 3,
+   "question": "Victoria 一所学校的午餐室把方桌接成一排：1 张桌子能坐 6 人，之后每接一张桌子就多坐 4 人。用 n 表示桌子的张数，哪一句既写对了法则，又算对了 10 张桌子的人数？",
+   "options": [
+    "法则是 n + 4，10 张桌子坐 14 人",
+    "法则是 6 × n，10 张桌子坐 60 人",
+    "法则是 4 × n + 2，10 张桌子坐 42 人",
+    "法则是 4 × n，10 张桌子坐 40 人"
+   ],
+   "answerIndex": 2,
+   "explain": "每多一张桌子多 4 人，所以有 4 × n；1 张桌子要坐 6 人，4 × 1 = 4，还差 2（那是两端的两个座位），法则是 4 × n + 2，10 张桌子 = 4 × 10 + 2 = 42 人。坑是只写 4 × n 少算了两端的 2 个座位，或者把「每次多 4」写成 n + 4。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5hqtni4rk7uy",
+   "level": 3,
+   "question": "一本 120 页的书，明明从今天起每天读 15 页。用 n 表示读书的天数，哪个法则能算出第 n 天读完后书上还剩多少页？",
+   "options": [
+    "105 - 15 × n",
+    "n - 15",
+    "15 × n - 120",
+    "120 - 15 × n"
+   ],
+   "answerIndex": 3,
+   "explain": "n 天一共读了 15 × n 页，用总页数减掉：120 - 15 × n；检验第 1 天后剩 105 页，第 6 天后剩 120 - 90 = 30 页。坑是写成 n - 15 只表达了「每天少 15 页」，代不出剩下的页数；写成 105 - 15 × n 则把第一天的 15 页减了两次。",
+   "tags": [
+    "other",
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

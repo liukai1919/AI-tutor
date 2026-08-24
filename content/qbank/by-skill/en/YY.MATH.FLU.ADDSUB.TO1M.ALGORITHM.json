@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB.TO1M.ALGORITHM",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5fgzrwfvhpvv",
+   "level": 1,
+   "question": "Write the sum 24 856 + 13 578 in columns so that ones sit under ones, tens under tens, hundreds under hundreds, and so on. Add from the right, regrouping any time a column makes 10 or more. What is the sum?",
+   "options": [
+    "38 434",
+    "37 434",
+    "38 424",
+    "38 334"
+   ],
+   "answerIndex": 0,
+   "explain": "Add right to left: 6+8=14 (write 4, regroup 1 ten), 5+7+1=13 (write 3, regroup 1 hundred), 8+5+1=14 (write 4, regroup 1 thousand), 4+3+1=8, 2+1=3, giving 38 434. The usual trap is dropping one of those regrouped 1s, which makes the sum 10, 100 or 1000 too small.",
+   "tags": [
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwyj7lob",
+   "level": 1,
+   "question": "Line up 50 341 − 27 158 in columns by place value: ones under ones, tens under tens, and so on. Subtract from the right, regrouping from the next place whenever the top digit is too small. What is the difference?",
+   "options": [
+    "37 217",
+    "23 183",
+    "23 193",
+    "33 183"
+   ],
+   "answerIndex": 1,
+   "explain": "Ones: 1 is smaller than 8, so regroup to make 11−8=3 and the 4 tens become 3 tens; then 13−5=8 (hundreds 3 becomes 2), 2−1=1, 10−7=3 (the 5 ten thousands become 4), 4−2=2, so the difference is 23 183. Never flip a column to do 8−1 — the top digit stays on top and you regroup instead.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ok",
+    "ops.regroup_forget",
+    "ops.borrow_across_zero"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwny0hgs",
+   "level": 1,
+   "question": "Set up 60 000 − 24 375 in columns by place value. The top number has a 6 in the ten thousands place and a zero in the thousands, hundreds, tens and ones places. What is the difference?",
+   "options": [
+    "44 375",
+    "36 735",
+    "35 625",
+    "45 625"
+   ],
+   "answerIndex": 2,
+   "explain": "Regroup once across all the zeros: 60 000 becomes 5 ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones, so 10−5=5, 9−7=2, 9−3=6, 9−4=5, 5−2=3, giving 35 625. The common trap is writing 10 in every zero column instead of 9, or leaving the 6 unchanged.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ops.borrow_across_zero",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwt5st8h",
+   "level": 1,
+   "question": "Write 48 675 + 26 458 in columns, ones under ones. Add each column from right to left and regroup whenever a column total is 10 or more. What is the sum?",
+   "options": [
+    "75 123",
+    "65 133",
+    "74 133",
+    "75 133"
+   ],
+   "answerIndex": 3,
+   "explain": "5+8=13 (write 3, regroup 1), 7+5+1=13 (write 3, regroup 1), 6+4+1=11 (write 1, regroup 1), 8+6+1=15 (write 5, regroup 1), 4+2+1=7, so the sum is 75 133. Four columns in a row need regrouping here, so check that every carried 1 actually got added into the next column.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrw1mjf1z",
+   "level": 2,
+   "question": "The Coquitlam library has 74 302 books on its shelves. Over the school year, 28 156 of them were checked out at least once. How many books were never checked out?",
+   "options": [
+    "46 146",
+    "46 256",
+    "56 146",
+    "54 254"
+   ],
+   "answerIndex": 0,
+   "explain": "Subtract 74 302 − 28 156 in columns: the ones need regrouping but the tens are 0, so take from the hundreds (3 becomes 2, the 0 tens become 9, ones become 12): 12−6=6, 9−5=4, 2−1=1, 14−8=6 with the 7 dropping to 6, then 6−2=4, so 46 146. Watch the zero — after it lends a ten it is worth 9, not 10.",
+   "tags": [
+    "ok",
+    "ops.borrow_across_zero",
+    "ops.regroup_forget",
+    "ops.subtract_smaller_from_larger"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwqy4pd3",
+   "level": 2,
+   "question": "A BC ferry route carried 45 780 passengers in June and 62 495 passengers in July. The company wants to carry 150 000 passengers over the whole summer. How many more passengers do they still need?",
+   "options": [
+    "42 835",
+    "41 725",
+    "58 275",
+    "41 735"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the sum: 45 780 + 62 495 = 108 275, regrouping in the tens, hundreds and thousands columns. Then 150 000 − 108 275 = 41 725, where the string of zeros regroups to 4 ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones — a dropped carry in step one or a 10 written where a 9 belongs in step two throws the whole answer off.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "ok",
+    "ops.subtract_smaller_from_larger",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwlmq0x0",
+   "level": 2,
+   "question": "Find the sum: 356 478 + 249 863.",
+   "options": [
+    "506 341",
+    "606 331",
+    "606 341",
+    "605 341"
+   ],
+   "answerIndex": 2,
+   "explain": "Every column except the last needs regrouping: 8+3=11, 7+6+1=14, 4+8+1=13, 6+9+1=16, 5+4+1=10, 3+2+1=6, so the sum is 606 341. When five carries happen in a row, the easiest mistake is forgetting one of them, which leaves the sum short by 10, 1000 or 100 000.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrw2r8kau",
+   "level": 2,
+   "question": "A Kamloops hockey club starts the season with $30 000. It spends $17 465 on ice time and jerseys. How much money is left?",
+   "options": [
+    "$27 465",
+    "$23 645",
+    "$22 535",
+    "$12 535"
+   ],
+   "answerIndex": 3,
+   "explain": "Regroup across the zeros first: $30 000 becomes 2 ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones, so 10−5=5, 9−6=3, 9−4=5, 9−7=2, 2−1=1, leaving $12 535. Writing 10 in every zero column, or leaving the 3 as a 3, makes the leftover money look far bigger than it really is.",
+   "tags": [
+    "ops.subtract_smaller_from_larger",
+    "ops.borrow_across_zero",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwtr27o5",
+   "level": 3,
+   "question": "Priya subtracted 70 004 − 25 836 and wrote 55 832. In each column she took the smaller digit away from the larger one, saying ‘you can always do the easy one first’. What is wrong, and what is the real difference?",
+   "options": [
+    "In each column the bottom digit must be taken from the top digit, so she has to regroup across the zeros; the difference is 44 168.",
+    "Her work is fine; 70 004 − 25 836 really does equal 55 832.",
+    "She only forgot one regrouping, so the difference should be 44 178.",
+    "She wrote 10 in each zero column without lowering the digit to its left, so the difference should be 45 278."
+   ],
+   "answerIndex": 0,
+   "explain": "Subtraction is not like addition — order matters, so 4−6 cannot become 6−4. Regroup instead: 70 004 becomes 6 ten thousands, 9 thousands, 9 hundreds, 9 tens and 14 ones, giving 14−6=8, 9−3=6, 9−8=1, 9−5=4, 6−2=4, so the difference is 44 168.",
+   "tags": [
+    "ok",
+    "ops.subtract_smaller_from_larger",
+    "ops.regroup_forget",
+    "ops.borrow_across_zero"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrww8wzz2",
+   "level": 3,
+   "question": "A recycling depot in Nanaimo collected 128 460 kg of material from January to June and 96 585 kg from July to December. Their yearly goal was 250 000 kg. How many kilograms short of the goal were they?",
+   "options": [
+    "25 055",
+    "24 955",
+    "34 955",
+    "35 045"
+   ],
+   "answerIndex": 1,
+   "explain": "Add first: 128 460 + 96 585 = 225 045, regrouping in the tens, hundreds, thousands and ten thousands columns. Then 250 000 − 225 045 = 24 955, where the zeros regroup to 4 ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones — if the 5 ten thousands is not lowered to 4, the shortfall looks 10 000 kg too big.",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwjvzkiy",
+   "level": 3,
+   "question": "A community centre in Surrey has $105 000 in its account. It pays $47 385 for a new roof, and later that year it receives a grant of $28 640. How much money is in the account then?",
+   "options": [
+    "$96 255",
+    "$72 255",
+    "$86 255",
+    "$85 255"
+   ],
+   "answerIndex": 2,
+   "explain": "Step 1: $105 000 − $47 385 = $57 615, regrouping twice across the zeros (the 5 thousands drops to 4, then the 1 hundred thousand is used up so the 0 ten thousands becomes 9). Step 2: $57 615 + $28 640 = $86 255, carrying from the hundreds and the thousands. Skipping either carry, or leaving the 0 ten thousands as 10, gives money the centre does not have.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "ops.subtract_smaller_from_larger",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5fgzrwr6zcqk",
+   "level": 3,
+   "question": "A school district set aside $500 000 for playground upgrades. One school's project cost $186 475 and another school's cost $213 890. How much of the $500 000 is left?",
+   "options": [
+    "$99 735",
+    "$100 365",
+    "$199 635",
+    "$99 635"
+   ],
+   "answerIndex": 3,
+   "explain": "Add the two projects: $186 475 + $213 890 = $400 365, with carries out of the tens, hundreds, thousands and ten thousands. Then $500 000 − $400 365 = $99 635, since 500 000 regroups to 4 hundred thousands, 9 ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones — forgetting to lower that 5 to a 4 leaves an extra $100 000 that is not there.",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.subtract_smaller_from_larger",
+    "ops.borrow_across_zero",
+    "ok"
+   ]
+  }
+ ]
+}

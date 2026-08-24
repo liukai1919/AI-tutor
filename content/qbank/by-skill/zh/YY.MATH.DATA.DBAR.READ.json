@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DATA.DBAR.READ",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5jxwr5g12hf4",
+   "level": 1,
+   "question": "有一幅复式条形统计图（double bar graph）记录图书馆借书数量。纵轴刻度（scale）是一格代表 5 本书；图例（legend）写着：蓝色条形＝五年级，橙色条形＝六年级。星期一这一组里，蓝色条形有 4 格，橙色条形有 3 格。星期一五年级借了多少本书？",
+   "options": [
+    "20 本",
+    "4 本",
+    "15 本",
+    "3 本"
+   ],
+   "answerIndex": 0,
+   "explain": "先看图例找到五年级是蓝色条形（4 格），再乘刻度：4×5=20 本。最容易踩的坑是把一格当成 1 本直接答 4 本——多对一的刻度里，一格代表 5 本，格数必须乘 5。",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "graph.legend_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5w3uxiq",
+   "level": 1,
+   "question": "有一幅复式条形统计图比较 Maya 和 Omar 每天练琴的时间。纵轴一格代表 10 分钟；图例说明：深色条形＝Maya，浅色条形＝Omar。星期二这一组里，深色条形有 3 格，浅色条形有 5 格。Omar 星期二练琴多少分钟？",
+   "options": [
+    "30 分钟",
+    "50 分钟",
+    "5 分钟",
+    "3 分钟"
+   ],
+   "answerIndex": 1,
+   "explain": "Omar 是浅色条形，有 5 格，每格 10 分钟，5×10=50 分钟。常见的坑有两个：把深色条形当成 Omar（答 30 分钟），或者忘了一格代表 10 分钟而直接把格数当答案。",
+   "tags": [
+    "graph.legend_swap",
+    "ok",
+    "graph.scale_misread",
+    "graph.legend_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5i7kl31",
+   "level": 1,
+   "question": "复式条形统计图里为什么一定要有图例（legend）？",
+   "options": [
+    "因为两根条形只要按左右顺序读就行，图例其实可看可不看。",
+    "因为图例告诉我们纵轴一格代表几个。",
+    "因为每个类别都有两根条形，图例告诉我们每种颜色代表哪一组数据。",
+    "因为图例规定纵轴一格永远代表 1 个。"
+   ],
+   "answerIndex": 2,
+   "explain": "复式条形统计图在同一个类别上画两根条形（比如男生和女生），图例的作用就是说明哪种颜色是哪一组。注意别把图例和刻度搞混：一格代表几个是看纵轴的刻度（scale），不是看图例。",
+   "tags": [
+    "graph.legend_swap",
+    "graph.scale_misread",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr56mb400",
+   "level": 1,
+   "question": "有一幅复式条形统计图记录 Ravi 和 Jenna 回收易拉罐的数量。纵轴一格代表 5 个易拉罐；图例说明：绿色条形＝Ravi，紫色条形＝Jenna。星期三这一组里，绿色条形有 4 格，紫色条形有 7 格。星期三紫色条形代表的那个人回收了多少个易拉罐？",
+   "options": [
+    "7 个",
+    "20 个",
+    "4 个",
+    "35 个"
+   ],
+   "answerIndex": 3,
+   "explain": "紫色条形是 Jenna，有 7 格，每格 5 个，7×5=35 个。别只数格子就答 7 个，也别按绿色条形去算——先用图例认人，再用刻度换算。",
+   "tags": [
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "graph.legend_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5s34eva",
+   "level": 2,
+   "question": "一幅复式条形统计图统计各班上学方式，纵轴一格代表 5 人；图例：橙色条形＝男生，蓝色条形＝女生。五年 2 班这一组里，橙色条形有 8 格，蓝色条形有 5 格。关于五年 2 班，下面哪句话是对的？",
+   "options": [
+    "女生比男生少 15 人",
+    "女生比男生少 3 人",
+    "女生比男生多 15 人",
+    "女生比男生多 3 人"
+   ],
+   "answerIndex": 0,
+   "explain": "男生 8×5=40 人，女生 5×5=25 人，40−25=15，所以女生比男生少 15 人。两个坑：直接用格数相减写成差 3 人（忘了一格代表 5 人），或者把颜色对应的人弄反、说成女生更多。",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "graph.legend_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5a02k29",
+   "level": 2,
+   "question": "学校义卖的复式条形统计图里，纵轴一格代表 10 加元；图例：深蓝色条形＝五（1）班，浅蓝色条形＝五（2）班。深蓝色条形正好到 2 格半，浅蓝色条形正好到 4 格。五（1）班筹到了多少加元？",
+   "options": [
+    "2.5 元",
+    "25 元",
+    "20 元",
+    "40 元"
+   ],
+   "answerIndex": 1,
+   "explain": "五（1）班是深蓝色，2 格半＝2×10+5=25 加元。半格代表 5 元，不能丢掉（答成 20 元），也不能把格数当钱数（答成 2.5 元）。",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "graph.scale_misread",
+    "graph.legend_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5wa8djp",
+   "level": 2,
+   "question": "一幅复式条形统计图记录 Amy 和 Leo 每天读书的时间，纵轴一格代表 15 分钟。Amy 的条形有 4 格；Leo 这一天读了 45 分钟。Leo 的条形应该画几格？",
+   "options": [
+    "45 格",
+    "4 格",
+    "3 格",
+    "15 格"
+   ],
+   "answerIndex": 2,
+   "explain": "多对一刻度要倒着用除法：45÷15=3，所以画 3 格。常见错误是把分钟数直接当格数（画 45 格），或者照抄 Amy 的 4 格。",
+   "tags": [
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5yeezw9",
+   "level": 2,
+   "question": "一幅复式条形统计图统计上学方式，纵轴一格代表 5 名学生；图例：红色条形＝骑车，黄色条形＝走路。星期一：红色 3 格、黄色 7 格；星期二：红色 5 格、黄色 5 格；星期三：红色 8 格、黄色 2 格。走路上学的人数最多是哪一天，有多少人？",
+   "options": [
+    "星期三，40 人",
+    "星期一，7 人",
+    "星期三，8 人",
+    "星期一，35 人"
+   ],
+   "answerIndex": 3,
+   "explain": "走路是黄色条形：星期一 7×5=35 人、星期二 25 人、星期三 10 人，所以星期一最多，35 人。最容易踩的坑是拿红色条形（骑车）去找最大值，跑到星期三；另一个坑是只报格数 7。",
+   "tags": [
+    "graph.legend_swap",
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5i3uwr5",
+   "level": 3,
+   "question": "观鸟活动的复式条形统计图里，纵轴一格代表 5 只鸟；图例：橙色条形＝Sofia 数到的，蓝色条形＝Noah 数到的。海鸥这一组里，橙色条形有 7 格，蓝色条形有 4 格。Sofia 说：橙色条形有 7 格，所以我数到 7 只海鸥。她的说法对吗？",
+   "options": [
+    "她把一格当成了 1 只。一格代表 5 只，应该是 7×5=35 只。",
+    "她看反了图例，应该读蓝色条形的 4 格，也就是 4 只。",
+    "她说得对，条形占了几格就是几只。",
+    "她应该把格数和刻度加起来，7+5=12 只。"
+   ],
+   "answerIndex": 0,
+   "explain": "多对一刻度里一格代表 5 只，格数要乘 5：7×5=35 只。数格子就报数是最常见的错；刻度也不能拿来做加法，它表示每一格的大小。",
+   "tags": [
+    "ok",
+    "graph.legend_swap",
+    "graph.scale_misread",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5cwbfcc",
+   "level": 3,
+   "question": "两个班在温哥华 Kitsilano 海滩捡垃圾，结果画成复式条形统计图。纵轴一格代表 10 件垃圾；图例：黄色条形＝Maple 班，绿色条形＝Cedar 班。第 1 周：黄色 4 格、绿色 6 格；第 2 周：黄色 7 格、绿色 3 格。两周合起来哪个班捡得多，多多少件？",
+   "options": [
+    "Cedar 班多 20 件",
+    "Maple 班多 20 件",
+    "Cedar 班多 2 件",
+    "Maple 班多 2 件"
+   ],
+   "answerIndex": 1,
+   "explain": "Maple 班（黄色）4+7=11 格，11×10=110 件；Cedar 班（绿色）6+3=9 格，9×10=90 件；110−90=20，Maple 班多 20 件。坑在于只把格数相减就写差 2 件，忘了一格代表 10 件；还要小心别把黄绿两班对调。",
+   "tags": [
+    "graph.legend_swap",
+    "ok",
+    "graph.legend_swap",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5d7ed7j",
+   "level": 3,
+   "question": "学校为社区食物银行募捐，把两个年级的金额画成复式条形统计图。纵轴一格代表 25 加元；图例：紫色条形＝五年级，绿色条形＝六年级。紫色条形有 6 格，绿色条形有 4 格。五年级的目标是 300 加元，现在还差多少？",
+   "options": [
+    "294 元",
+    "200 元",
+    "150 元",
+    "296 元"
+   ],
+   "answerIndex": 2,
+   "explain": "五年级是紫色条形：6×25=150 加元，300−150=150 加元。用 300 直接减格数（300−6）就掉进了把一格当 1 元的坑；拿绿色条形去算又会算成六年级的差额。",
+   "tags": [
+    "graph.scale_misread",
+    "graph.legend_swap",
+    "ok",
+    "graph.legend_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jxwr5go6ulp",
+   "level": 3,
+   "question": "两所学校各做了一次运动调查，各自画了一幅复式条形统计图，图例都是：蓝色条形＝男生，红色条形＝女生。Riverside 学校那幅图纵轴一格代表 5 人，足球那一组的蓝色条形有 8 格；Hillside 学校那幅图纵轴一格代表 10 人，足球那一组的蓝色条形有 5 格。哪所学校选足球的男生更多？",
+   "options": [
+    "Riverside 多，因为 8×10=80 人比 Hillside 的 5×5=25 人多。",
+    "Riverside 多，因为它的条形有 8 格，比 Hillside 的 5 格长。",
+    "Riverside 多 3 人，因为 8 格比 5 格多了 3 格。",
+    "Hillside 多。Riverside 是 8×5=40 人，Hillside 是 5×10=50 人，Hillside 多 10 人。"
+   ],
+   "answerIndex": 3,
+   "explain": "两幅图的刻度不一样，必须各用各的：40 人对 50 人，Hillside 多 10 人。条形长不等于数大——比较不同图之前，先各自把格数乘上自己那幅图的刻度。",
+   "tags": [
+    "graph.scale_misread",
+    "graph.scale_misread",
+    "graph.scale_misread",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.EXPR.FROM_PATTERN",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5o9kxwqu1i8y",
+   "level": 1,
+   "question": "A number pattern goes 4, 7, 10, 13, 16, ... Each term is 3 more than the term before it, and the first term is 4. Which expression gives the term in position n?",
+   "options": [
+    "3n + 1",
+    "n + 3",
+    "3n + 4",
+    "4n"
+   ],
+   "answerIndex": 0,
+   "explain": "The pattern goes up by 3, so the expression starts with 3n; since 3 x 1 = 3 but the first term is 4, you add 1, giving 3n + 1. The common trap is writing 'n + 3' — that is the step you add each time, not a rule that gives the term in position n.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxw4agkuj",
+   "level": 1,
+   "question": "A number pattern goes 5, 9, 13, 17, 21, ... Each term is 4 more than the one before it, and the first term is 5. Which expression gives the term in position n?",
+   "options": [
+    "n + 4",
+    "4n + 1",
+    "4n",
+    "4n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "The pattern grows by 4 each time, so use 4n, then check position 1: 4 x 1 = 4, but the term is 5, so add 1 to get 4n + 1. Watch out for '4n + 5' — adding the first term on top of 4n gives 9, 13, 17, which is the pattern shifted one place too far.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxw54v4xc",
+   "level": 1,
+   "question": "A number pattern goes 2, 5, 8, 11, 14, ... Each term is 3 more than the one before it, and the first term is 2. Which expression gives the term in position n?",
+   "options": [
+    "n + 3",
+    "3n + 2",
+    "3n − 1",
+    "3n"
+   ],
+   "answerIndex": 2,
+   "explain": "Because the pattern goes up by 3, start with 3n; at position 1, 3 x 1 = 3, which is 1 too big, so subtract 1 and get 3n − 1. The trap is choosing '3n + 2' because the pattern starts at 2 — that expression gives 5, 8, 11, which is the wrong starting point.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwf5cxfi",
+   "level": 1,
+   "question": "A number pattern goes 6, 10, 14, 18, 22, ... Each term is 4 more than the one before it. Which expression lets you find the term in position n without writing out every term before it?",
+   "options": [
+    "n + 4",
+    "6n",
+    "4n + 6",
+    "4n + 2"
+   ],
+   "answerIndex": 3,
+   "explain": "The step is 4, so the expression is 4n plus a fixed number: 4 x 1 = 4 and the first term is 6, so the fixed number is 2, giving 4n + 2. Adding 4 over and over ('n + 4') only tells you the next term, so it cannot jump straight to a far-away position.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxw55eg39",
+   "level": 2,
+   "question": "A table of values lists these pairs: when n = 1 the term is 7, when n = 2 the term is 12, when n = 3 the term is 17, and when n = 4 the term is 22. Which expression matches this table?",
+   "options": [
+    "5n + 2",
+    "5n + 7",
+    "n + 5",
+    "5n"
+   ],
+   "answerIndex": 0,
+   "explain": "The terms go up by 5 as n goes up by 1, so begin with 5n; at n = 1, 5n gives 5 but the table says 7, so add 2 to get 5n + 2. Check it at n = 4: 5 x 4 + 2 = 22, which matches; the trap is gluing the first term on as '5n + 7'.",
+   "tags": [
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwomcy6x",
+   "level": 2,
+   "question": "At a family pizza night in Burnaby, square tables are pushed together in one long row. 1 table seats 4 people, 2 tables seat 6 people, and 3 tables seat 8 people. Which expression gives the number of people who can sit at n tables?",
+   "options": [
+    "n + 2",
+    "2n + 2",
+    "2n + 4",
+    "4n"
+   ],
+   "answerIndex": 1,
+   "explain": "Each extra table adds 2 seats, so start with 2n; at 1 table, 2 x 1 = 2 but 4 people fit, so add 2, giving 2n + 2. The trap is '4n' — the first table seats 4, but every table after it only adds 2 more seats, not 4.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxw7wb5bn",
+   "level": 2,
+   "question": "A number pattern goes 8, 15, 22, 29, 36, ... Which choice gives both the correct expression for the term in position n and the correct 20th term?",
+   "options": [
+    "n + 7, so the 20th term is 27",
+    "7n, so the 20th term is 140",
+    "7n + 1, so the 20th term is 141",
+    "8n, so the 20th term is 160"
+   ],
+   "answerIndex": 2,
+   "explain": "The pattern rises by 7, so use 7n and adjust: 7 x 1 = 7 but the first term is 8, so the rule is 7n + 1, and 7 x 20 + 1 = 141. The trap is using 'n + 7', which describes the step from one term to the next and would give only 27 at position 20.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxw84tik5",
+   "level": 2,
+   "question": "A countdown pattern goes 40, 37, 34, 31, 28, ... Each term is 3 less than the one before it. Which expression gives the term in position n?",
+   "options": [
+    "n − 3",
+    "3n − 40",
+    "40 − 3n",
+    "43 − 3n"
+   ],
+   "answerIndex": 3,
+   "explain": "Since the pattern drops by 3, the expression has −3n in it: at n = 1 you need 40, and 43 − 3 = 40, so the rule is 43 − 3n. Check n = 5: 43 − 15 = 28, which matches; the trap is '40 − 3n', which starts at 37 instead of 40.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwfaq9pa",
+   "level": 3,
+   "question": "Jaya is studying the pattern 5, 8, 11, 14, 17, ... She wants the 50th term, so she starts at 5 and keeps adding 3 on her calculator. Which choice gives the 50th term in one step, with the correct value?",
+   "options": [
+    "3n + 2, so the 50th term is 152",
+    "n + 3, so the 50th term is 53",
+    "3n, so the 50th term is 150",
+    "5 + 3 x 50, so the 50th term is 155"
+   ],
+   "answerIndex": 0,
+   "explain": "The step is 3, so the rule is 3n plus a fixed number: 3 x 1 = 3 and the first term is 5, so the rule is 3n + 2, and 3 x 50 + 2 = 152. The usual trap is adding the step 50 times onto the first term (5 + 3 x 50 = 155) — the first term already includes one step, so that adds 3 too many.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwgx6kal",
+   "level": 3,
+   "question": "Ana builds a row of squares with toothpicks. 1 square uses 4 toothpicks, 2 squares use 7 toothpicks, and 3 squares use 10 toothpicks, because each new square adds 3 more toothpicks. How many toothpicks does she need for 25 squares?",
+   "options": [
+    "4n, so 100 toothpicks",
+    "3n + 1, so 76 toothpicks",
+    "3n, so 75 toothpicks",
+    "4 + 3 x 25, so 79 toothpicks"
+   ],
+   "answerIndex": 1,
+   "explain": "Each extra square adds 3 toothpicks, so the rule is 3n plus a fixed number: 3 x 1 = 3 but 1 square needs 4, so the rule is 3n + 1, and 3 x 25 + 1 = 76. The trap is starting at 4 and then adding 3 twenty-five times — the 4 already contains the first square, so that counts one group of 3 too many.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwx0q0zl",
+   "level": 3,
+   "question": "Liam and Nina look at the pattern 6, 11, 16, 21, 26, ... Liam says the rule is 'add 5 each time'. Nina says the rule is 5n + 1. Which statement about their rules is correct?",
+   "options": [
+    "Nina is close, but the rule should be n + 5 since the pattern goes up by 5",
+    "Only Liam is right, because a pattern rule has to tell you what to add each time",
+    "Both rules describe the pattern, but only 5n + 1 gives the 100th term (501) without listing every term",
+    "Nina is close, but the rule should be 5n + 6 since the pattern starts at 6"
+   ],
+   "answerIndex": 2,
+   "explain": "Adding 5 each time is true but only takes you one term forward, while 5n + 1 uses the position number directly: 5 x 1 + 1 = 6 and 5 x 100 + 1 = 501. The common trap is turning the step into the whole expression as 'n + 5', which gives 6 only at n = 1 and then falls apart.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5o9kxwdpjc09",
+   "level": 3,
+   "question": "Sofia is saving for a bike helmet. In week 1 her jar holds $12, and every week after that she adds $7, so week 2 holds $19 and week 3 holds $26. Which choice gives the correct expression for week n and the correct amount in week 15?",
+   "options": [
+    "n + 7, so in week 15 she has $22",
+    "12n, so in week 15 she has $180",
+    "7n + 12, so in week 15 she has $117",
+    "7n + 5, so in week 15 she has $110"
+   ],
+   "answerIndex": 3,
+   "explain": "She adds $7 per week, so start with 7n; at week 1, 7 x 1 = 7 but the jar holds $12, so add 5, giving 7n + 5, and 7 x 15 + 5 = $110. The trap is writing '7n + 12' because the jar started at $12 — that double-counts week 1 and gives $7 too much.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.GRAPH",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5u9lai19633x",
+   "level": 1,
+   "question": "On a coordinate grid the horizontal axis is labelled x and is numbered 0 to 6, and the vertical axis is labelled y and is numbered 0 to 12. Every square is 1 unit wide and 1 unit tall. A table of a linear relation shows x = 1, 2, 3 and, underneath, y = 4, 5, 6. How should this relation be shown on the grid?",
+   "options": [
+    "Three separate dots at (1, 4), (2, 5) and (3, 6)",
+    "Three separate dots at (4, 1), (5, 2) and (6, 3)",
+    "Dots at (1, 4), (2, 5) and (3, 6) joined by a straight line across the grid",
+    "Three separate dots at (0, 4), (1, 5) and (2, 6)"
+   ],
+   "answerIndex": 0,
+   "explain": "Each column of the table gives one point: the top row is the x-value and the bottom row is the y-value, so x = 1 with y = 4 becomes (1, 4). The usual traps are writing the pair backwards as (4, 1) and joining the dots — a discrete relation stays as separate dots.",
+   "tags": [
+    "ok",
+    "coord.xy_swap",
+    "linear.connect_discrete_points",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9laiowv02n",
+   "level": 1,
+   "question": "A coordinate grid has an x-axis numbered 0 to 5 and a y-axis numbered 0 to 15, with each square worth 1 unit in both directions. You are asked to graph the relation y = 3x for x = 0, 1 and 2 only. Which dots belong on the grid?",
+   "options": [
+    "(0, 0), (3, 1) and (6, 2)",
+    "(0, 0), (1, 3) and (2, 6)",
+    "(0, 3), (1, 6) and (2, 9)",
+    "(0, 0), (1, 3) and (2, 6) joined by a line drawn from (0, 0) to (2, 6)"
+   ],
+   "answerIndex": 1,
+   "explain": "Substitute each x into y = 3x: 3 × 0 = 0, 3 × 1 = 3, 3 × 2 = 6, giving (0, 0), (1, 3) and (2, 6). Watch out for writing the answer first as in (3, 1) — the x-value always comes first — and for drawing a line, since only these three x-values exist.",
+   "tags": [
+    "coord.xy_swap",
+    "ok",
+    "other",
+    "linear.connect_discrete_points"
+   ]
+  },
+  {
+   "qid": "qmt5u9lairky6bj",
+   "level": 1,
+   "question": "On a grid whose x-axis runs 0 to 6 and whose y-axis runs 0 to 12 (each square 1 unit), a student graphs the table x = 0, 1, 2, 3 with y = 5, 7, 9, 11. Exactly one dot lands on the y-axis. Which dot is it?",
+   "options": [
+    "(5, 0)",
+    "(0, 2)",
+    "(0, 5)",
+    "(1, 7)"
+   ],
+   "answerIndex": 2,
+   "explain": "A dot sits on the y-axis when x = 0, and the table pairs x = 0 with y = 5, so the y-intercept dot is (0, 5). A common slip is writing it as (5, 0), which is on the x-axis instead, or using the step of 2 between y-values rather than the starting value.",
+   "tags": [
+    "coord.xy_swap",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9laiiiw7et",
+   "level": 1,
+   "question": "A coordinate grid has an x-axis numbered 0 to 6 and a y-axis numbered 0 to 15, every square worth 1 unit. Four separate dots are marked at (1, 7), (2, 9), (3, 11) and (4, 13). Which table of values produced these dots?",
+   "options": [
+    "x: 7, 9, 11, 13 and y: 1, 2, 3, 4",
+    "x: 1, 2, 3, 4 and y: 7, 8, 9, 10",
+    "x: 1, 2, 3, 4 and y: 5, 7, 9, 11",
+    "x: 1, 2, 3, 4 and y: 7, 9, 11, 13"
+   ],
+   "answerIndex": 3,
+   "explain": "Read each dot as (x, y): the first numbers 1, 2, 3, 4 form the x-row and the second numbers 7, 9, 11, 13 form the y-row. The usual mistake is swapping the rows, which would put the dots at (7, 1), (9, 2) and so on.",
+   "tags": [
+    "coord.xy_swap",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u9laijsuyd6",
+   "level": 2,
+   "question": "A skate park in Surrey rents a board for a $5 helmet fee plus $4 for each hour. The cost in dollars is c = 4h + 5, where h is a whole number of hours from 1 to 3. Which dots should appear on the graph?",
+   "options": [
+    "(1, 9), (2, 13) and (3, 17)",
+    "(1, 5), (2, 9) and (3, 13)",
+    "(9, 1), (13, 2) and (17, 3)",
+    "(1, 9), (2, 13) and (3, 17) joined by a straight line"
+   ],
+   "answerIndex": 0,
+   "explain": "Evaluate c = 4h + 5 for each hour: 9, 13 and 17 dollars, so the dots are (1, 9), (2, 13) and (3, 17), with hours on the x-axis. Two traps here: putting the cost first, and joining the dots — you cannot rent for 1.5 hours in this table, so the graph stays as separate points.",
+   "tags": [
+    "ok",
+    "other",
+    "coord.xy_swap",
+    "linear.connect_discrete_points"
+   ]
+  },
+  {
+   "qid": "qmt5u9laig1vkzw",
+   "level": 2,
+   "question": "The dots (0, 2), (1, 5), (2, 8) and (3, 11) are plotted on a grid. Which expression describes this linear relation?",
+   "options": [
+    "y = 2x + 3",
+    "y = 3x + 2",
+    "x = 3y + 2",
+    "y = 3x"
+   ],
+   "answerIndex": 1,
+   "explain": "The dot on the y-axis gives the starting value 2, and each step of 1 to the right raises y by 3, so y = 3x + 2. Check it with a point: 3 × 2 + 2 = 8, matching (2, 8); mixing up the 2 and the 3 gives y = 2x + 3, which fails at x = 0.",
+   "tags": [
+    "other",
+    "ok",
+    "coord.xy_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9laivxn030",
+   "level": 2,
+   "question": "A table for the relation y = 2x + 1 uses x = -2, -1, 0 and 1. Which set of dots should be marked on a four-quadrant grid?",
+   "options": [
+    "(-3, -2), (-1, -1), (1, 0) and (3, 1)",
+    "(-2, -3), (-1, -1), (0, 1) and (1, 3) joined by a straight line",
+    "(-2, -3), (-1, -1), (0, 1) and (1, 3)",
+    "(-2, 3), (-1, 1), (0, 1) and (1, 3)"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute carefully with negatives: 2 × (-2) + 1 = -3 and 2 × (-1) + 1 = -1, so the dots are (-2, -3), (-1, -1), (0, 1) and (1, 3). Keep the x-value first — writing (-3, -2) puts the dot in a different place — and leave the four points unjoined.",
+   "tags": [
+    "coord.xy_swap",
+    "linear.connect_discrete_points",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9laiak0pnm",
+   "level": 2,
+   "question": "You are graphing the relation y = 5x - 2 by plotting a dot for each whole number x from 1 to 5. As you move from one dot to the next dot on its right, how does the dot move?",
+   "options": [
+    "It goes 5 units to the right",
+    "It goes down 2 units",
+    "It goes up 3 units",
+    "It goes up 5 units"
+   ],
+   "answerIndex": 3,
+   "explain": "Each time x grows by 1 the value 5x grows by 5, so every next dot sits 5 units higher; the -2 only lowers the whole set of dots, it does not change the step. Be careful not to describe the step sideways — the rise of 5 is measured up the y-axis.",
+   "tags": [
+    "coord.xy_swap",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u9laiien2fm",
+   "level": 3,
+   "question": "A Grade 7 class charter bus costs $30 plus $12 for each student, so c = 12p + 30. Maya plots dots for p = 1, 2, 3, 4 and 5, then draws a solid straight line through all five dots. Her teacher says the line should not be there. Which statement explains why best?",
+   "options": [
+    "The graph must stay as 5 separate dots, because the number of students can only be a whole number",
+    "The line is fine, because joining the dots makes the pattern easier to see",
+    "The line is fine, because the relation is linear and every linear graph is a line",
+    "The graph should have cost along the horizontal axis and students up the vertical axis"
+   ],
+   "answerIndex": 0,
+   "explain": "The relation is discrete: there is no such thing as 2.5 students, so no point between the dots has any meaning and the graph must stay as separate dots. Being linear only means the dots line up — it does not give you permission to fill in the space between them.",
+   "tags": [
+    "ok",
+    "linear.connect_discrete_points",
+    "linear.connect_discrete_points",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmt5u9lail66xlc",
+   "level": 3,
+   "question": "Kayak rental at Cultus Lake costs a $12 launch fee plus $8 per hour, so c = 8h + 12. Nadia makes a table for h = 1, 2, 3, 4 and plots a dot for each. Which of her dots is the first one whose height is more than $30?",
+   "options": [
+    "(2, 28)",
+    "(3, 36)",
+    "(36, 3)",
+    "(3, 24)"
+   ],
+   "answerIndex": 1,
+   "explain": "Build the table first: 20, 28, 36, 44 dollars for 1, 2, 3 and 4 hours, so the third dot (3, 36) is the first one above 30. Remember the $12 fee is added once — using only 8 × 3 = 24 forgets it — and hours stay on the x-axis.",
+   "tags": [
+    "other",
+    "ok",
+    "coord.xy_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9lail1nxln",
+   "level": 3,
+   "question": "The relation t = 2n + 4 gives the total dollars t for n hot chocolates at a school fair. Sam correctly finds the y-intercept is 4, then marks a dot at (4, 0) on his grid. What mistake did Sam make?",
+   "options": [
+    "He forgot to multiply the y-intercept by 2",
+    "He joined his dots with a straight line",
+    "He put the numbers in the wrong order, so his dot is on the x-axis instead of the y-axis",
+    "He should have used n = 1 instead of n = 0"
+   ],
+   "answerIndex": 2,
+   "explain": "The y-intercept happens when n = 0 and t = 4, so the dot belongs at (0, 4) — first number across, second number up. Writing (4, 0) moves the dot 4 units along the x-axis, which is a completely different place on the grid.",
+   "tags": [
+    "other",
+    "linear.connect_discrete_points",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u9lai2xefvw",
+   "level": 3,
+   "question": "Two babysitting plans are graphed as dots for x = 1, 2, 3, 4 and 5 hours. Plan A pays y = 5x + 10 dollars and Plan B pays y = 7x dollars. At which point do the two graphs have a dot at exactly the same height?",
+   "options": [
+    "Nowhere, because you must first join each plan's dots into a line before they can meet",
+    "(35, 5)",
+    "(2, 20)",
+    "(5, 35)"
+   ],
+   "answerIndex": 3,
+   "explain": "Make both tables and compare: Plan A gives 15, 20, 25, 30, 35 and Plan B gives 7, 14, 21, 28, 35, so the dots match at 5 hours and $35, the point (5, 35). Keep hours first in the pair, and note that discrete dots can share a height without any lines being drawn.",
+   "tags": [
+    "linear.connect_discrete_points",
+    "coord.xy_swap",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

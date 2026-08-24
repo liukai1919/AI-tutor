@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.IDENTIFY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5jt6yl1xqkbo",
+   "level": 1,
+   "question": "On a coordinate grid, triangle ABC has corners at A(2,1), B(2,4) and C(4,1). Its image has corners at A'(6,1), B'(6,4) and C'(8,1). No corner changed its up-down position, and every corner moved 4 squares in the same direction. Which single transformation maps ABC onto its image?",
+   "options": [
+    "A translation 4 units to the right",
+    "A reflection over the vertical line x = 4",
+    "A half turn (180 degrees) about the origin",
+    "A reflection over the x-axis"
+   ],
+   "answerIndex": 0,
+   "explain": "Every corner moved the same amount right and the triangle still faces the same way, so it is a translation 4 units right. A flip over x = 4 would leave C at (4,1) instead of (8,1), because a reflection turns the shape around and a slide does not.",
+   "tags": [
+    "ok",
+    "transform.reflect_as_translate",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6yl3l9ren",
+   "level": 1,
+   "question": "On a coordinate grid, triangle DEF has corners at D(1,2), E(3,2) and F(1,5). Its image has corners at D'(1,-2), E'(3,-2) and F'(1,-5). Every corner kept its left-right position, and each corner is now the same number of squares below the x-axis as it used to be above it. Which single transformation was used?",
+   "options": [
+    "A translation 4 units down",
+    "A reflection over the x-axis",
+    "A quarter turn clockwise about the origin",
+    "A reflection over the y-axis"
+   ],
+   "answerIndex": 1,
+   "explain": "Each point kept its x-number and its y-number changed sign, so it is a reflection over the x-axis. A slide 4 units down would send F(1,5) to (1,1), not (1,-5) — in a reflection the far corners move farther, in a slide every corner moves the same distance.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylgd3fz0",
+   "level": 1,
+   "question": "On a coordinate grid, triangle PQR has corners at P(1,0), Q(4,0) and R(1,2). Its image has corners at P'(0,1), Q'(0,4) and R'(-2,1). The side that used to lie flat along the x-axis now stands straight up along the y-axis. Which single transformation maps PQR onto its image?",
+   "options": [
+    "A translation 3 units left and 1 unit up",
+    "A reflection over the line y = x",
+    "A quarter turn (90 degrees) counter-clockwise about the origin",
+    "A half turn (180 degrees) about the origin"
+   ],
+   "answerIndex": 2,
+   "explain": "A side that was horizontal became vertical while the shape stayed the same way round, which is a quarter turn counter-clockwise about the origin. Flipping over the line y = x would put R at (2,1), not (-2,1), so check every corner before you decide.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6yl8jvzwv",
+   "level": 1,
+   "question": "On a coordinate grid, triangle KLM has corners at K(1,1), L(3,1) and M(1,4). Its image has corners at K'(9,1), L'(7,1) and M'(9,4). K was 4 squares to the left of the line x = 5 and K' is 4 squares to the right of it; L was 2 squares left and L' is 2 squares right. Which single transformation was used?",
+   "options": [
+    "A translation 8 units to the right",
+    "A half turn about the point (5,1)",
+    "A quarter turn clockwise about the origin",
+    "A reflection over the vertical line x = 5"
+   ],
+   "answerIndex": 3,
+   "explain": "Each corner ended up the same distance on the other side of the line x = 5, so it is a reflection over that line. A slide of 8 units right would send L(3,1) to (11,1), not (7,1) — in a flip the order of the corners reverses, in a slide it does not.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jt6yl9dkruq",
+   "level": 2,
+   "question": "Every point of a shape is moved by the rule (x, y) goes to (-x, y). Which single transformation does this rule describe?",
+   "options": [
+    "A reflection over the y-axis",
+    "A reflection over the x-axis",
+    "A translation to the left",
+    "A quarter turn clockwise about the origin"
+   ],
+   "answerIndex": 0,
+   "explain": "The y-number stays the same and the x-number changes sign, so each point crosses the y-axis to the same distance on the other side: a reflection over the y-axis. It is not a slide left, because a point at x = -3 moves right to x = 3 — the direction depends on which side you start.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.reflect_as_translate",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylyy994v",
+   "level": 2,
+   "question": "A shape on a grid is moved by the rule (x, y) goes to (x - 6, y + 2). Which single transformation does this rule describe?",
+   "options": [
+    "A reflection over the line x = -3",
+    "A translation 6 units left and 2 units up",
+    "A half turn about the origin",
+    "A quarter turn counter-clockwise about the origin"
+   ],
+   "answerIndex": 1,
+   "explain": "Every point moves the same 6 left and 2 up, and the shape keeps the same size and the same way round, so it is a translation. A reflection changes which way the shape faces, so a rule that adds the same amount to every point can never be a flip.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylxi1ye0",
+   "level": 2,
+   "question": "In art class in Surrey, Maya presses a letter F stamp onto her paper. Then she presses it again so the second F sits beside the first, both feet resting on the same line, but the second F looks exactly like the first one seen in a mirror — its arms point the opposite way. Which single transformation takes the first F to the second F?",
+   "options": [
+    "A translation to the right",
+    "A quarter turn clockwise",
+    "A reflection over a vertical line",
+    "A half turn (180 degrees)"
+   ],
+   "answerIndex": 2,
+   "explain": "The arms point the opposite way while the feet stay on the same line, so the F was flipped over a vertical mirror line. A slide right would keep the arms pointing the same way, and a half turn would put the feet up in the air.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylm1agvt",
+   "level": 2,
+   "question": "A shape on a grid is moved by the rule (x, y) goes to (-x, -y). Which single transformation does this rule describe?",
+   "options": [
+    "A reflection over the y-axis",
+    "A reflection over the x-axis",
+    "A translation that moves every point the same distance past the origin",
+    "A half turn (180 degrees) about the origin"
+   ],
+   "answerIndex": 3,
+   "explain": "Both numbers change sign, so every point ends up straight through the origin on the opposite side: a half turn about the origin. Flipping over just one axis changes only one of the two numbers, so neither single reflection can do this.",
+   "tags": [
+    "other",
+    "other",
+    "transform.reflect_as_translate",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jt6yli1kt3g",
+   "level": 3,
+   "question": "Liam is making a border of maple leaves on grid paper. His leaf has corners at (2,1), (5,1) and (2,5). His image leaf has corners at (8,1), (11,1) and (8,5), and it still points the same way as the first one. Liam says, 'I flipped my leaf over the line x = 6.' Is he right?",
+   "options": [
+    "No — it is a translation 6 units right, because the image still faces the same way as the original.",
+    "No — it is a half turn about the point (6.5, 3).",
+    "Yes — it is a reflection over the line x = 6.",
+    "Yes — a reflection and a translation are the same move when the mirror line is vertical."
+   ],
+   "answerIndex": 0,
+   "explain": "Every corner moved exactly 6 squares right and the leaf still points the same way, so it is a translation. A flip over x = 6 would send (2,1) to (10,1) and turn the leaf around — if the image is not mirrored, it cannot be a reflection.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.reflect_as_translate",
+    "transform.reflect_as_translate"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylhuva6c",
+   "level": 3,
+   "question": "Sofia is asked to reflect a triangle over the y-axis. Her image is the correct distance from the y-axis, but the triangle in her image still points to the right, exactly like the original. What mistake did she make?",
+   "options": [
+    "She turned the triangle a quarter turn instead of flipping it.",
+    "She slid the triangle instead of flipping it — in a reflection the image must face the opposite way.",
+    "She made no mistake — a reflection keeps the shape facing the same way.",
+    "She should have measured the distances from the x-axis instead."
+   ],
+   "answerIndex": 1,
+   "explain": "A reflection flips the shape, so a triangle pointing right must point left after the flip; Sofia only slid it across. Always check which way the shape faces, not just how far it moved.",
+   "tags": [
+    "other",
+    "ok",
+    "transform.reflect_as_translate",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jt6yl3zhepl",
+   "level": 3,
+   "question": "On a grid map of a Vancouver park, a flag shape has corners at (1,1), (4,1) and (1,3). After one transformation the corners are at (1,-1), (4,-1) and (1,-3). Emma says it is a translation 2 units down. Noah says it is a reflection over the x-axis. Who is right?",
+   "options": [
+    "Emma, because two of the corners moved exactly 2 units down.",
+    "Emma, because the shape stayed the same size.",
+    "Noah, because each corner is now the same distance below the x-axis as it was above it, and (1,3) landed at (1,-3), not (1,1).",
+    "Both are right, since the shape ends up in the same place either way."
+   ],
+   "answerIndex": 2,
+   "explain": "Test every corner: a slide 2 down would send (1,3) to (1,1), but it landed at (1,-3), which is 3 below the axis just as it was 3 above — a reflection over the x-axis. Two matching corners are not enough proof; the corner farthest from the mirror line is the one that gives it away.",
+   "tags": [
+    "transform.reflect_as_translate",
+    "other",
+    "ok",
+    "transform.reflect_as_translate"
+   ]
+  },
+  {
+   "qid": "qmt5jt6ylcj4n2o",
+   "level": 3,
+   "question": "Grandma is sewing a quilt square. A right triangle has corners at (2,1), (6,1) and (2,3). The sewn image has corners at (6,3), (2,3) and (6,1). The long side that ran along the bottom now runs along the top, and the square corner moved from the bottom left to the top right. Which single transformation was used?",
+   "options": [
+    "A translation 4 units right and 2 units up",
+    "A reflection over the horizontal line y = 2",
+    "A reflection over the vertical line x = 4",
+    "A half turn (180 degrees) about the point (4, 2)"
+   ],
+   "answerIndex": 3,
+   "explain": "Turning the triangle 180 degrees about the middle point (4,2) sends (2,1) to (6,3), (6,1) to (2,3) and (2,3) to (6,1) — all three match. Flipping over y = 2 would leave a corner at (2,1), which is not in the image, so check all three corners before choosing.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

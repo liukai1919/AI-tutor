@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC12.EXP.02",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt3jzy83q1qmv5",
+   "level": 1,
+   "question": "计算 log₁₀ 1000 的值。",
+   "options": [
+    "10",
+    "3",
+    "100",
+    "30"
+   ],
+   "answerIndex": 1,
+   "explain": "log₁₀ 1000 问的是「10 的几次方等于 1000」，即 10³=1000，答案为 3。常见错误是把底数和真数位置搞反，选成 10 或 100。"
+  },
+  {
+   "qid": "qmt3jzy83o26ba9",
+   "level": 1,
+   "question": "若 ln x = 4，则 x 等于？",
+   "options": [
+    "4",
+    "4e",
+    "e",
+    "e⁴"
+   ],
+   "answerIndex": 3,
+   "explain": "ln x = 4 即 x = e⁴（自然对数的底是 e）。常见错误是把指数位置写成系数，选成 4e。"
+  },
+  {
+   "qid": "qmt3jzy835f6rcp",
+   "level": 1,
+   "question": "log 2 + log 5 等于多少？（log 为常用对数，底为 10）",
+   "options": [
+    "1",
+    "log 7",
+    "2",
+    "log 25"
+   ],
+   "answerIndex": 0,
+   "explain": "对数相加 = 真数相乘：log 2 + log 5 = log(2×5) = log 10 = 1。最常见错误是直接把真数相加得 log 7。"
+  },
+  {
+   "qid": "qmt3jzy83fxrkoq",
+   "level": 1,
+   "question": "若 f(x) = 3ˣ，则其反函数 f⁻¹(x) = ？",
+   "options": [
+    "3x",
+    "x / 3",
+    "log₃ x",
+    "3ˣ"
+   ],
+   "answerIndex": 2,
+   "explain": "指数函数 aˣ 的反函数是 logₐ x，所以 (3ˣ)⁻¹ = log₃ x。常见错误是搞反方向，以为反函数还是 3ˣ。"
+  },
+  {
+   "qid": "qmt3jzy83y5ccp0",
+   "level": 2,
+   "question": "解方程 log₃(x) + log₃(x − 2) = 1，求 x 的值。",
+   "options": [
+    "x = −1",
+    "x = 2",
+    "x = 3",
+    "x = 1"
+   ],
+   "answerIndex": 2,
+   "explain": "合并得 log₃[x(x−2)] = 1，即 x²−2x−3 = 0，解得 x=3 或 x=−1；由定义域需 x>2，排除 x=−1，取 x=3。最大陷阱是漏验定义域而选了 −1。"
+  },
+  {
+   "qid": "qmt3jzy83s0p7we",
+   "level": 2,
+   "question": "用换底公式（change of base）把 log₂ 8 用常用对数表示，正确的是？",
+   "options": [
+    "log 8 / log 2",
+    "log 2 / log 8",
+    "8 log 2",
+    "log(8 − 2)"
+   ],
+   "answerIndex": 0,
+   "explain": "换底公式：log_b a = log a / log b（分子真数、分母底数）。所以 log₂ 8 = log 8 / log 2 = 3。最易犯的错误是把分子分母写反。"
+  },
+  {
+   "qid": "qmt3jzy83tz05l4",
+   "level": 2,
+   "question": "函数 y = log(x − 2) + 1 的图象是由 y = log x 经过怎样的平移得到的？",
+   "options": [
+    "左移 2 再上移 1",
+    "右移 2 再下移 1",
+    "左移 1 再上移 2",
+    "右移 2 再上移 1"
+   ],
+   "answerIndex": 3,
+   "explain": "x → x−2 是右移 2（注意：减是右、加是左），整体 +1 是上移 1。最高频错误是把 x−2 误判为左移。"
+  },
+  {
+   "qid": "qmt3jzy83fzm5vd",
+   "level": 2,
+   "question": "已知 log₂ 3 = a，log₂ 5 = b，用 a、b 表示 log₂ 45，正确的是？",
+   "options": [
+    "2a + b",
+    "a + 2b",
+    "2ab",
+    "a² + b"
+   ],
+   "answerIndex": 0,
+   "explain": "45 = 3² × 5，所以 log₂ 45 = log₂ 3² + log₂ 5 = 2log₂ 3 + log₂ 5 = 2a + b。常见错误是把真数相乘写成对数相乘（2ab），或把 log₂ 9 算成 a²——幂要变成系数，不是平方。"
+  },
+  {
+   "qid": "qmt3jzy83qigez2",
+   "level": 3,
+   "question": "在温尼伯一所大学的微生物课上，细菌数量 N 随培养时间 t（小时）满足 N = 500 · 2^(t/6)。问细菌从 500 个增长到 4000 个需要多少小时？",
+   "options": [
+    "6 小时",
+    "9 小时",
+    "12 小时",
+    "18 小时"
+   ],
+   "answerIndex": 3,
+   "explain": "500·2^(t/6)=4000 → 2^(t/6)=8=2³ → t/6=3 → t=18 h。常见错误是把 2^(t/6) 误算成 (2t)/6，或忘记先除以 500 就直接对 4000 取对数。"
+  },
+  {
+   "qid": "qmt3jzy83vgghcy",
+   "level": 3,
+   "question": "某同学解方程 log(x²) = 2 log(x) + 1 时，两边以 10 为底取指数，得到 x² = 10x²，解出 x = 0 并认为这就是答案。以下哪项判断正确？",
+   "options": [
+    "x = 0 是正确解，因为它是 x²=10x² 的唯一实数根",
+    "x = 0 不是有效解：log(x) 在 x=0 处无定义，实际上方程无解",
+    "x = 10 是正确解，因为漏乘了系数 10",
+    "x = ±10 都是解，因为对数的真数可以取负"
+   ],
+   "answerIndex": 1,
+   "explain": "对 x>0 有 2log(x)=log(x²)，代入原式得 log(x²)=log(x²)+1，即 0=1，矛盾，方程无解。x=0 不在定义域内，不是合法解。最大误区是解出数后不检验定义域。"
+  },
+  {
+   "qid": "qmt3jzy83j60nsx",
+   "level": 3,
+   "question": "温尼伯一家音乐厅用分贝（dB）表示音量：L = 10 log₁₀(I/I₀)，其中 I₀ = 10⁻¹² W/m²。若歌手在舞台上的音量为 90 dB，对应的声强 I 为多少？",
+   "options": [
+    "10⁻³ W/m²",
+    "10⁻¹² W/m²",
+    "10⁹ W/m²",
+    "10⁻¹⁵ W/m²"
+   ],
+   "answerIndex": 0,
+   "explain": "90 = 10 log₁₀(I/10⁻¹²) → 9 = log₁₀(I/10⁻¹²) → I/10⁻¹² = 10⁹ → I = 10⁻³ W/m²。常见错误是忘了把系数 10 除进去（直接用 90 当指数），或把 I₀ 乘到分子上。"
+  },
+  {
+   "qid": "qmt3jzy83wxpuqv",
+   "level": 3,
+   "question": "考虑两条曲线：y = log₃(x) 与 y = 3^(x−1)。关于它们与 x 轴的交点，以下哪项正确？",
+   "options": [
+    "log₃(x) 交于 x=1，3^(x−1) 交于 x=0",
+    "log₃(x) 交于 x=1，3^(x−1) 交于 x=1",
+    "log₃(x) 交于 x=1，而 3^(x−1) 没有 x 轴交点",
+    "log₃(x) 交于 x=3，3^(x−1) 交于 x=1"
+   ],
+   "answerIndex": 2,
+   "explain": "log₃(x)=0 → x=1；但 3^(x−1) 永远 > 0（指数函数无零点），不可能等于 0，所以没有 x 轴交点。常考的对比：对数函数有 x 轴交点，指数函数没有（对数与指数互为反函数，基本形式一个过 (1,0)，一个过 (0,1)）。"
+  }
+ ]
+}

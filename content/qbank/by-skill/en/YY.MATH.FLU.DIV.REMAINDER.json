@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.DIV.REMAINDER",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5gc7tbzlyk5n",
+   "level": 1,
+   "question": "Maya has 23 stickers. She puts them into groups of 4 stickers each. She fills 5 whole groups and some stickers are left over. What does the leftover number tell you?",
+   "options": [
+    "3 stickers are left over — not enough to make one more group of 4",
+    "23 ÷ 4 = 5 exactly, because leftover stickers do not count",
+    "7 stickers are left over, so 23 ÷ 4 = 4 R 7",
+    "Each group holds 3 stickers"
+   ],
+   "answerIndex": 0,
+   "explain": "Five groups of 4 use up 20 stickers, and 23 − 20 = 3, so the remainder 3 counts the stickers still waiting. The trap is saying 4 R 7: a leftover of 7 is bigger than the group size 4, so another whole group could still be made.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_larger_than_divisor",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbv4t06d",
+   "level": 1,
+   "question": "A teacher has 30 markers and puts 7 markers into each cup. She fills 4 cups and 2 markers are left over. Why can the leftover never be 7 or more?",
+   "options": [
+    "Because leftovers do not count, so the leftover is always 0",
+    "Because 7 or more markers would fill one more cup, so there would be 5 full cups instead of 4",
+    "Because the leftover always has to be bigger than 7",
+    "Because the leftover always equals the number of cups she filled"
+   ],
+   "answerIndex": 1,
+   "explain": "The remainder is what is left after you take out as many whole groups as you can, so it must be smaller than the group size — 7 leftover markers would just make another full cup. Watch out for answers that let the leftover be as big as or bigger than the number in each group.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_larger_than_divisor",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tb28kymk",
+   "level": 1,
+   "question": "Liam has 26 hockey cards and shares them equally among 8 friends. Each friend gets the same whole number of cards, and any cards that are left stay with Liam. Which sentence matches what happens?",
+   "options": [
+    "26 ÷ 8 = 2 R 10, so each friend gets 2 cards and 10 stay with Liam",
+    "26 ÷ 8 = 3, so every card is handed out and none stay with Liam",
+    "26 ÷ 8 = 3 R 2, so each friend gets 3 cards and 2 stay with Liam",
+    "26 ÷ 8 = 2 R 3, so each friend gets 2 cards and 3 stay with Liam"
+   ],
+   "answerIndex": 2,
+   "explain": "Eight friends can each take 3 cards (8 × 3 = 24), and 26 − 24 = 2 cards stay with Liam. The 2 R 10 answer is a trap: 10 left over is more than 8 friends, so each friend could still take one more card.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "div.remainder_ignore",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbhv4o7s",
+   "level": 1,
+   "question": "There are 45 students standing in equal rows of 6 students. Working it out gives 45 ÷ 6 = 7 R 3. What do the 7 and the 3 tell you?",
+   "options": [
+    "3 is the number of full rows, and 7 students are left standing",
+    "45 ÷ 6 = 6 R 9, so there are 6 full rows and 9 students left over",
+    "The 3 can be dropped, so 7 rows hold all 45 students",
+    "7 is the number of full rows of 6, and 3 students are left over with no full row"
+   ],
+   "answerIndex": 3,
+   "explain": "The quotient 7 counts the full rows (7 × 6 = 42) and the remainder 3 counts the students left over, since 45 − 42 = 3. Two traps here: swapping the quotient and the remainder, and leaving 9 left over when 9 is bigger than a row of 6.",
+   "tags": [
+    "other",
+    "div.remainder_larger_than_divisor",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbgsrymi",
+   "level": 2,
+   "question": "A whole number is divided by 9 and there is a remainder. What is the largest remainder that is possible?",
+   "options": [
+    "8",
+    "0, because remainders do not really count",
+    "10",
+    "9"
+   ],
+   "answerIndex": 0,
+   "explain": "A remainder must always be smaller than the divisor, so with a divisor of 9 the biggest it can be is 8. If the leftover reached 9, one more group of 9 would fit and the quotient would grow by 1.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_larger_than_divisor",
+    "div.remainder_larger_than_divisor"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tb2av253",
+   "level": 2,
+   "question": "Aiden writes 137 ÷ 6 = 21 R 11. Without dividing again, how can you tell his answer is not finished?",
+   "options": [
+    "It is fine, because 21 × 6 + 11 gives back 137",
+    "The remainder 11 is bigger than the divisor 6, so at least one more 6 still fits and the quotient should be larger",
+    "The remainder should just be dropped, so the answer is 21",
+    "The quotient 21 is bigger than the divisor 6, and that is not allowed"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiplying back can look right and still be wrong: 21 × 6 + 11 = 137, but 11 leftover holds another whole 6, so the true answer is 22 R 5. Always check that the remainder is smaller than the divisor.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "ok",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbet4c36",
+   "level": 2,
+   "question": "A bakery packs 254 buns into boxes that hold 8 buns each. Working it out gives 254 ÷ 8 = 31 R 6. What does the 6 mean?",
+   "options": [
+    "254 ÷ 8 = 30 R 14, so 14 buns are left over",
+    "The 6 does not matter — the 31 boxes hold all 254 buns",
+    "6 buns are left over, which is not enough to fill another box of 8",
+    "There are 6 boxes still waiting to be packed"
+   ],
+   "answerIndex": 2,
+   "explain": "Thirty-one full boxes hold 31 × 8 = 248 buns, so 254 − 248 = 6 buns are left over and cannot fill a 32nd box. Saying 14 are left is a trap, because 14 buns would fill another box of 8 with 6 to spare.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "div.remainder_ignore",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tb1hvl1l",
+   "level": 2,
+   "question": "A skipping rope is 250 cm long. It is cut into pieces that are each 30 cm long. Working it out gives 250 ÷ 30 = 8 R 10. What does 8 R 10 mean for the rope?",
+   "options": [
+    "250 ÷ 30 = 7 R 40, so 7 pieces with 40 cm left over",
+    "8 full pieces of 30 cm, plus 10 more pieces",
+    "9 full pieces of 30 cm, because the last 10 cm counts as a piece",
+    "8 full pieces of 30 cm, with 10 cm of rope left that is too short to be another piece"
+   ],
+   "answerIndex": 3,
+   "explain": "Eight pieces use 8 × 30 = 240 cm, so 250 − 240 = 10 cm is left, and 10 cm is shorter than 30 cm so it cannot be a full piece. The trap is counting that short scrap as a whole piece, or leaving 40 cm over when 40 cm still holds another 30 cm piece.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "other",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbyucug0",
+   "level": 3,
+   "question": "A Grade 5 class of 27 students is going to Stanley Park. Each van can carry 6 students. How many vans are needed so that every student gets a ride?",
+   "options": [
+    "5 vans — 4 vans are full and the last 3 students still need one more van",
+    "3 vans — 27 ÷ 6 = 3 R 9, so 3 full vans carry everyone",
+    "4 vans — 27 ÷ 6 = 4 R 3, and the 3 students left over are not counted",
+    "9 vans — because 27 ÷ 3 = 9, one van for every 3 students"
+   ],
+   "answerIndex": 0,
+   "explain": "27 ÷ 6 = 4 R 3, and those 3 leftover students are real people who still need a ride, so one extra van is needed: 5 in all. The classic trap is stopping at 4 and leaving the remainder behind, or writing R 9 when 9 is bigger than the 6 seats in a van.",
+   "tags": [
+    "ok",
+    "div.remainder_larger_than_divisor",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tb1l7u89",
+   "level": 3,
+   "question": "Priya has $50 to spend on notebooks that cost $7 each. She buys as many as she can. How many notebooks does she get, and what does the leftover money mean?",
+   "options": [
+    "6 notebooks with $8 left, because 50 ÷ 7 = 6 R 8",
+    "7 notebooks, and the $1 left over stays in her pocket because it is not enough for another notebook",
+    "7 notebooks, and the leftover 1 means she needs only $1 more to buy another notebook",
+    "8 notebooks, because the money left over rounds up to one more notebook"
+   ],
+   "answerIndex": 1,
+   "explain": "Seven notebooks cost 7 × $7 = $49, so 50 ÷ 7 = 7 R 1 and the remainder is $1 of change she keeps. Here the leftover cannot be rounded up into another notebook, and $1 left does not mean $1 more is needed — she would need $6 more.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "ok",
+    "other",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tbk0q2sj",
+   "level": 3,
+   "question": "A school orders 375 juice boxes and packs them into cases that hold 8 juice boxes each. Only completely full cases go to the gym; any juice box not in a full case is left in the staff room. How many juice boxes are left in the staff room?",
+   "options": [
+    "46, because that is how many cases go to the gym",
+    "0, because every juice box gets packed into a case somewhere",
+    "7",
+    "15, because 375 ÷ 8 = 45 R 15"
+   ],
+   "answerIndex": 2,
+   "explain": "375 ÷ 8 = 46 R 7, because 46 × 8 = 368 and 375 − 368 = 7, so the remainder 7 is the number of juice boxes left in the staff room. Do not answer with the quotient 46 — that counts cases, not juice boxes — and a remainder of 15 is impossible since 15 would fill another case of 8.",
+   "tags": [
+    "other",
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_larger_than_divisor"
+   ]
+  },
+  {
+   "qid": "qmt5gc7tb7vrtqv",
+   "level": 3,
+   "question": "For 178 ÷ 5 the answer is 35 R 3. In which situation should the final answer be written as 36 instead of 35 R 3?",
+   "options": [
+    "Never — the remainder is always dropped, so 35 is the answer in every situation",
+    "When you write it as 35 R 5, because the remainder is allowed to equal the divisor",
+    "When the question asks how many tables are completely full",
+    "When the question asks how many tables seating 5 students are needed so all 178 students have a seat"
+   ],
+   "answerIndex": 3,
+   "explain": "35 tables seat 5 × 35 = 175 students, and the 3 students left over still need somewhere to sit, so 36 tables are needed. The remainder is not always dropped and not always rounded up — you have to ask what the leftover means in the story, and it must always stay smaller than the divisor.",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_larger_than_divisor",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  }
+ ]
+}

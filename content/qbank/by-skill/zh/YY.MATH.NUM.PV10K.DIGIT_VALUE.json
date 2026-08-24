@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PV10K.DIGIT_VALUE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt59agw8dq7a89",
+   "level": 1,
+   "question": "在数位表（place value chart）里，从左到右依次是千位、百位、十位、个位。把 3 468 填进去：千位上是 3，百位上是 4，十位上是 6，个位上是 8。十位上的这个 6 表示的值（value）是多少？",
+   "options": [
+    "60",
+    "600",
+    "6",
+    "6000"
+   ],
+   "answerIndex": 0,
+   "explain": "6 坐在十位上，表示 6 个十，也就是 60。最容易踩的坑是直接答 6——数字（digit）确实是 6，但它在十位上代表的值是 60。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8o1eoq3",
+   "level": 1,
+   "question": "数位表从左到右是千位、百位、十位、个位。把 5 209 填进去：千位上是 5，百位上是 2，十位上是 0，个位上是 9。千位上的这个 5 表示的值是多少？",
+   "options": [
+    "5",
+    "5000",
+    "500",
+    "50"
+   ],
+   "answerIndex": 1,
+   "explain": "5 在千位，表示 5 个千，也就是 5000。答 5 是把数字本身当成了它的值；答 500 是少写了一个 0，那是 5 在百位时才有的值。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8lza5b2",
+   "level": 1,
+   "question": "数位表从左到右是千位、百位、十位、个位。把 4 703 填进去：千位上是 4，百位上是 7，十位上是 0，个位上是 3。百位上的这个 7 表示的值是多少？",
+   "options": [
+    "7",
+    "70",
+    "700",
+    "7000"
+   ],
+   "answerIndex": 2,
+   "explain": "7 在百位，表示 7 个百，也就是 700。数 0 的个数是关键：百位后面还有十位和个位两格，所以 7 后面跟两个 0；只跟一个 0 就变成十位上的 70 了。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8u33ysg",
+   "level": 1,
+   "question": "数位表从左到右是千位、百位、十位、个位。把 4 005 填进去：千位上是 4，百位上是 0，十位上是 0，个位上是 5。千位上的这个 4 表示的值是多少？",
+   "options": [
+    "400",
+    "40000",
+    "4",
+    "4000"
+   ],
+   "answerIndex": 3,
+   "explain": "4 在千位，表示 4 个千，也就是 4000；百位和十位上的两个 0 只是占位（placeholder），并不会改变 4 的值。常见的坑是把 0 数错，写成 400 或 40000。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59agw8vai95y",
+   "level": 2,
+   "question": "在 7 342 这个数里，数字 3 表示的值是多少？",
+   "options": [
+    "300",
+    "30",
+    "3000",
+    "3"
+   ],
+   "answerIndex": 0,
+   "explain": "从右往左数：2 在个位、4 在十位、3 在百位、7 在千位，所以 3 表示 3 个百 = 300。只答 3 是把数字（digit）和它的位值（place value）搞混了。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt59agw8b5oy7w",
+   "level": 2,
+   "question": "在 4 826 这个数里，4 表示的值和 8 表示的值合起来是多少？",
+   "options": [
+    "12",
+    "4800",
+    "480",
+    "4080"
+   ],
+   "answerIndex": 1,
+   "explain": "4 在千位表示 4000，8 在百位表示 800，4000 + 800 = 4800。直接把两个数字相加得到 12，就是把数字本身当成了它的值。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8kl48wz",
+   "level": 2,
+   "question": "下面哪个数里，数字 6 表示的值正好是 600？",
+   "options": [
+    "6 214",
+    "1 462",
+    "4 612",
+    "2 106"
+   ],
+   "answerIndex": 2,
+   "explain": "600 就是 6 个百，所以 6 必须站在百位上——4 612 里的 6 正好在百位。6 214 里的 6 在千位是 6000，1 462 里的 6 在十位只有 60，2 106 里的 6 在个位只有 6。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt59agw8onwpdb",
+   "level": 2,
+   "question": "Kelowna 一所小学今年一共种了 1 805 棵树苗。这个数里的数字 8 表示的值是多少？",
+   "options": [
+    "8",
+    "8000",
+    "80",
+    "800"
+   ],
+   "answerIndex": 3,
+   "explain": "1 805 里 8 在百位，表示 8 个百 = 800。十位上的 0 必须占位，如果把它漏掉、当成 185 来看，就会错答成 80。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59agw80r3pv0",
+   "level": 3,
+   "question": "老师念出「四千零五」，小杰在本子上写成了 405。下面哪句话正确说明了问题出在哪里？",
+   "options": [
+    "四千零五里的 4 在千位、表示 4000，百位和十位都要用 0 占位，应该写成 4 005",
+    "应该写成 40 005，千位后面要补三个 0",
+    "405 里的 4 也算在千位，只是把 0 省略了，两种写法都行",
+    "他写对了，4 在千位表示 4，所以 405 没问题"
+   ],
+   "answerIndex": 0,
+   "explain": "四千零五 = 4000 + 5，千位是 4、百位是 0、十位是 0、个位是 5，所以写成 4 005。写成 405 时 4 就滑到了百位，值从 4000 缩水成 400；多写 0 变成 40 005 又超过了万。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt59agw8r7x3uz",
+   "level": 3,
+   "question": "Victoria 一所学校今年为社区食物银行筹到 4 073 加元。在这个数里，4 表示的值比 7 表示的值大多少加元？",
+   "options": [
+    "3",
+    "3930",
+    "3993",
+    "330"
+   ],
+   "answerIndex": 1,
+   "explain": "先看值：4 在千位表示 4000，7 在十位表示 70，再相减 4000 − 70 = 3930。直接拿数字相减得到 3（7 − 4），或者只减去 7 得到 3993，都是把数字当成了它在数位上的值。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "ok",
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8z9xycz",
+   "level": 3,
+   "question": "Surrey 的社区图书馆有 3 460 本中文书，Burnaby 的社区图书馆有 4 360 本。两个数里都出现了数字 3。下面哪句话是对的？",
+   "options": [
+    "3 460 里的 3 表示 3000，4 360 里的 3 表示 30，前者更大",
+    "两个 3 表示的值一样大，都是 3",
+    "3 460 里的 3 表示 3000，4 360 里的 3 表示 300，前者更大",
+    "3 460 里的 3 表示 300，4 360 里的 3 表示 3000，后者更大"
+   ],
+   "answerIndex": 2,
+   "explain": "同一个数字在不同数位上值不同：3 460 里 3 在千位是 3000，4 360 里 3 在百位是 300，3000 比 300 大。说两个 3 都只值 3，就是忘了位值；把 4 360 里的 3 说成 30，是把它当成了十位上的数。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt59agw8lcranf",
+   "level": 3,
+   "question": "Nanaimo 一所学校的步数挑战纪录是 6 030 步。小美说：「这个数里有两个 0，一个在百位、一个在个位，它们表示的值都是 0，但一个都不能去掉。」她说得对吗？",
+   "options": [
+    "不对。0 什么都不表示，去掉写成 63 也是一样的数",
+    "不对。6 在千位表示 6，所以写成 63 就够了",
+    "不对。可以只去掉个位上的 0，写成 603 就行",
+    "对。百位上的 0 表示 0 个百、个位上的 0 表示 0 个一，值都是 0，但它们要占住位子；去掉后 6 就不在千位了"
+   ],
+   "answerIndex": 3,
+   "explain": "6 030 里 6 在千位表示 6000、3 在十位表示 30，两个 0 的值确实是 0，但它们把 6 和 3 顶在正确的数位上；一旦去掉，6 就掉到十位只值 60，整个数完全变了。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  }
+ ]
+}

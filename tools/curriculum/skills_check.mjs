@@ -107,8 +107,9 @@ for (const s of skills.values()) {
       if (!skills.has(target)) err(`${s.file}: ${s.id} diag.branch 目标技能不存在 ${target}`);
     }
     for (const e of s.diag.entry || []) if (![1, 2, 3].includes(e.level)) err(`${s.file}: ${s.id} diag.entry level 非法`);
-    /* rep[0] 就是 L1 出题用的表示（设计文档 §3.3），诊断的 L1 入口题必须用同一种，
-     * 否则出题提示词和诊断入口会各说各的 */
+    /* rep[0] 就是 L1 出题用的表示（设计文档 §3.3）。诊断**如果**有 L1 入口题，必须用同一种表示，
+     * 否则出题提示词和诊断入口会各说各的。注意不少技能没有 L1 入口（apply/reason 类从 L2/L3
+     * 情境起步，23 个试点里有 13 个）——那是设计使然，这里不强求补 L1。 */
     const e1 = (s.diag.entry || []).find(e => e.level === 1);
     if (e1 && e1.rep !== (s.rep || [])[0]) err(`${s.file}: ${s.id} rep[0]=${(s.rep || [])[0]} 与 diag 的 L1 表示 ${e1.rep} 不一致`);
   }

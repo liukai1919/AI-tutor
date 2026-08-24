@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.GCF",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5lcpsybqxdve",
+   "level": 1,
+   "question": "Nadia lists the factors of two numbers. The factors of 8 are 1, 2, 4, 8. The factors of 12 are 1, 2, 3, 4, 6, 12. Using only these two lists, what is the greatest common factor of 8 and 12?",
+   "options": [
+    "4",
+    "2",
+    "24",
+    "12"
+   ],
+   "answerIndex": 0,
+   "explain": "Circle the numbers that appear in both lists (1, 2, 4) and take the biggest one, which is 4. The common trap is answering 24 — that is the smallest number both 8 and 12 divide into (the least common multiple), not a factor of them.",
+   "tags": [
+    "ok",
+    "gcf.pick_any_common",
+    "gcf_lcm.confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsy9q291l",
+   "level": 1,
+   "question": "The factors of 9 are 1, 3, 9. The factors of 15 are 1, 3, 5, 15. What is the greatest common factor of 9 and 15?",
+   "options": [
+    "45",
+    "3",
+    "1",
+    "5"
+   ],
+   "answerIndex": 1,
+   "explain": "The numbers in both lists are 1 and 3, and the greatest of those is 3. Watch out for stopping at 1 — 1 is always a common factor, but the question asks for the greatest one.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "ok",
+    "gcf.pick_any_common",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsywnhu95",
+   "level": 1,
+   "question": "Liam checked both numbers and found that the common factors of 20 and 30 are 1, 2, 5, and 10. Which of these is the greatest common factor of 20 and 30?",
+   "options": [
+    "2",
+    "5",
+    "10",
+    "60"
+   ],
+   "answerIndex": 2,
+   "explain": "Once the common factors are listed as 1, 2, 5, 10, the greatest common factor is simply the largest one, 10. A common mistake is grabbing 5 just because it works for both numbers — it is common, but not the greatest.",
+   "tags": [
+    "gcf.pick_any_common",
+    "gcf.pick_any_common",
+    "ok",
+    "gcf_lcm.confuse"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyjiqunk",
+   "level": 1,
+   "question": "Emma writes each number as a product of primes: 24 = 2 × 2 × 2 × 3 and 36 = 2 × 2 × 3 × 3. To find the greatest common factor she multiplies the primes that appear in BOTH products: two 2s and one 3. What answer does she get?",
+   "options": [
+    "72",
+    "4",
+    "6",
+    "12"
+   ],
+   "answerIndex": 3,
+   "explain": "Match the shared primes (2 × 2 × 3) and multiply them to get 12. The usual trap is multiplying every prime from both lists — that gives 72, which is the least common multiple, not the GCF.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "gcf.pick_any_common",
+    "gcf.pick_any_common",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyly2egm",
+   "level": 2,
+   "question": "What is the greatest common factor of 16 and 40?",
+   "options": [
+    "8",
+    "80",
+    "4",
+    "2"
+   ],
+   "answerIndex": 0,
+   "explain": "The factors of 16 are 1, 2, 4, 8, 16 and the factors of 40 are 1, 2, 4, 5, 8, 10, 20, 40, so the largest shared factor is 8. Answers like 4 are common factors but not the greatest, so keep checking bigger ones.",
+   "tags": [
+    "ok",
+    "gcf_lcm.confuse",
+    "gcf.pick_any_common",
+    "gcf.pick_any_common"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyahdjhr",
+   "level": 2,
+   "question": "For a hike on the Coquitlam trails, Priya has 18 granola bars and 30 juice boxes. She wants to make identical snack bags using every item, with the same number of granola bars in each bag and the same number of juice boxes in each bag. What is the greatest number of bags she can make?",
+   "options": [
+    "90",
+    "6",
+    "3",
+    "2"
+   ],
+   "answerIndex": 1,
+   "explain": "The number of bags must divide both 18 and 30, so find their greatest common factor: 18 = 2 × 3 × 3 and 30 = 2 × 3 × 5 share 2 × 3 = 6 bags (3 granola bars and 5 juice boxes each). A frequent trap is 90, the least common multiple — that is far more bags than she has items for.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "ok",
+    "gcf.pick_any_common",
+    "gcf.pick_any_common"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyu2kxn4",
+   "level": 2,
+   "question": "Use prime factors to find the greatest common factor of 42 and 56. (42 = 2 × 3 × 7 and 56 = 2 × 2 × 2 × 7.)",
+   "options": [
+    "7",
+    "168",
+    "14",
+    "2"
+   ],
+   "answerIndex": 2,
+   "explain": "Both products contain one 2 and one 7, so the GCF is 2 × 7 = 14. Taking only the 7 (or only the 2) gives a common factor that is too small — you must multiply every shared prime together.",
+   "tags": [
+    "gcf.pick_any_common",
+    "gcf_lcm.confuse",
+    "ok",
+    "gcf.pick_any_common"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyi79789",
+   "level": 2,
+   "question": "A student writes 60 = 2² × 3 × 5 and 45 = 3² × 5. Which calculation gives the greatest common factor of 60 and 45?",
+   "options": [
+    "2² × 3² × 5 = 180",
+    "3, because 3 is in both products",
+    "5, because 5 is in both products",
+    "3 × 5 = 15"
+   ],
+   "answerIndex": 3,
+   "explain": "For a GCF you keep only the primes in both products, using the smaller exponent each time: one 3 and one 5, so 3 × 5 = 15. Using the larger exponents and every prime gives 180, which is the least common multiple instead.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "gcf.pick_any_common",
+    "gcf.pick_any_common",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsybcrj3t",
+   "level": 3,
+   "question": "For a class fundraiser in Kelowna, Sam has 48 stickers and 60 pencils. He wants to fill identical prize bags, using all the stickers and all the pencils, with the same number of each item in every bag. What is the greatest number of bags he can fill, and how many pencils go in each bag?",
+   "options": [
+    "12 bags, each with 5 pencils",
+    "6 bags, each with 10 pencils",
+    "12 bags, each with 4 pencils",
+    "240 bags, each with 5 pencils"
+   ],
+   "answerIndex": 0,
+   "explain": "The number of bags must be the greatest common factor of 48 and 60: 48 = 2⁴ × 3 and 60 = 2² × 3 × 5 share 2² × 3 = 12, then 60 ÷ 12 = 5 pencils per bag. Answers like 6 bags do work evenly but are not the greatest, and 240 is the least common multiple, not a factor.",
+   "tags": [
+    "ok",
+    "gcf.pick_any_common",
+    "other",
+    "gcf_lcm.confuse"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsy3gwnqk",
+   "level": 3,
+   "question": "Maya says the greatest common factor of 4 and 6 is 12, because 12 is the smallest number that both 4 and 6 go into evenly. What should you tell her?",
+   "options": [
+    "She is right — 12 is the greatest common factor of 4 and 6",
+    "She found the least common multiple; the greatest common factor of 4 and 6 is 2",
+    "She should have answered 1, because 1 is a common factor of 4 and 6",
+    "She should have answered 4, because 4 is one of the two numbers"
+   ],
+   "answerIndex": 1,
+   "explain": "A factor divides INTO the number, so the GCF of 4 and 6 can never be larger than 4; the shared factors are 1 and 2, making the GCF 2. What Maya found — the smallest number both go into — is the least common multiple, and mixing up these two is the most common error in this topic.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "ok",
+    "gcf.pick_any_common",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsy1inkxy",
+   "level": 3,
+   "question": "Jordan has a 36 cm red ribbon and a 54 cm blue ribbon for an art project at school. He cuts both into equal-length pieces, as long as possible, with no ribbon left over. How long is each piece, and how many pieces does he get altogether?",
+   "options": [
+    "108 cm long, 5 pieces in total",
+    "9 cm long, 10 pieces in total",
+    "18 cm long, 5 pieces in total",
+    "6 cm long, 15 pieces in total"
+   ],
+   "answerIndex": 2,
+   "explain": "The longest possible piece is the greatest common factor of 36 and 54: 36 = 2 × 3² × 2 and 54 = 2 × 3³ share 2 × 3² = 18 cm, giving 36 ÷ 18 = 2 pieces plus 54 ÷ 18 = 3 pieces, so 5 in total. Shorter lengths such as 9 cm also divide evenly, but they are not the longest — and 108 cm is longer than the ribbons themselves.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "gcf.pick_any_common",
+    "ok",
+    "gcf.pick_any_common"
+   ]
+  },
+  {
+   "qid": "qmt5lcpsyaoknt9",
+   "level": 3,
+   "question": "Jonah says the greatest common factor of 14 and 42 cannot be 14, because a common factor always has to be smaller than both numbers. What is the greatest common factor of 14 and 42?",
+   "options": [
+    "42",
+    "7",
+    "2",
+    "14"
+   ],
+   "answerIndex": 3,
+   "explain": "Since 42 ÷ 14 = 3 exactly, 14 is a factor of 42 as well as of itself, so the GCF is 14 — when one number is a factor of the other, the smaller number IS the GCF. Answering 42 confuses it with the least common multiple, and 7 or 2 are common factors that are not the greatest.",
+   "tags": [
+    "gcf_lcm.confuse",
+    "gcf.pick_any_common",
+    "gcf.pick_any_common",
+    "ok"
+   ]
+  }
+ ]
+}
