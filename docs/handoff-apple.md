@@ -88,9 +88,16 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 - 旧进度（标准 id 上的）记成 `legacy: { level, confidence: "low" }`，**不等价**成子技能全会
 - 回补：答错且选项挂了误区标签就记一笔；同一误区累计 2 次 → 按技能 `diag.branch`（没有就按登记表 `remedy`）指出该回补的技能
 
-### 3.4 题库 `qbank.json` 里的 `YY.*` 键（468 份 / 5556 题）
+### 3.4 题库：git 里直接拉 `content/qbank/`（2026-08-24 起）
 
-这是你们自己订阅生成的内容，拿走没有任何问题。每题：
+题库**不在** `qbank.json`（那是 gitignore 的本机文件）——干净导出已提交进 `dev`：
+
+- `content/qbank/by-skill/{zh,en}/<技能id>.json` — 468 份 / 5556 题，带误区 tags
+- `content/qbank/legacy-by-standard/{zh,en}/<条目id>.json` — 234 份（**已含审稿剔错 42 题后的修正**，
+  `demo/qbank.json` 也已刷新到同一版本）
+- `content/manifest.json` — 数量与注意事项
+
+已剥掉 `usedAt`、排除 AoPS。每题：
 
 ```jsonc
 {
