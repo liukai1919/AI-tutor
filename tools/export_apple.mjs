@@ -109,7 +109,7 @@ for (const lang of LANGS) {
   voiceIndex[lang] = {};
   for (const [id, lesson] of Object.entries(lessonIndex[lang])) {
     voiceIndex[lang][id] = (lesson.steps || []).map(step => {
-      const text = String(step.say || "").trim().slice(0, 600);     // 和 prevoice / ttsStates 的取词一致
+      const text = String(step.say || "").trim().slice(0, 2000);    // 和 prevoice / ttsStates 的取词一致
       if (!text) return null;
       const h = voiceId(text, lang);
       if (!haveVoice.has(h)) { bump("voice.missing." + lang); return null; }
@@ -123,7 +123,7 @@ if (!NO_VOICE) {
   bump("voice.files", used.size);
 }
 writeJson(path.join(OUT, "voice", "index.json"), {
-  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,600)])).",
+  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,2000)])).",
   params: { mode: tts.mode, refAudio: tts.refAudio, refText: tts.refText, instruct: tts.instruct, speed: tts.speed },
   format: "m4a (AAC 48k mono)",
   index: voiceIndex

@@ -1764,7 +1764,9 @@ function ttsStates(reqItems, defLang) {
   const now = Date.now();
   const out = [], submit = [];
   for (const raw of (reqItems || []).slice(0, 24)) {
-    const text = String((raw && raw.text) || "").trim().slice(0, 600);
+    // 上限只是防御性护栏：曾经是 600，把 219 段英文旁白拦腰截断（最长 1296，
+    // 2026-08-24 盲听项目发现），提到 2000。改这里要同步 prevoice/export_apple 的取词。
+    const text = String((raw && raw.text) || "").trim().slice(0, 2000);
     if (!text) continue;
     const lang = raw.lang === "en" || raw.lang === "zh" ? raw.lang : defLang;
     const id = ttsId(text, lang);
