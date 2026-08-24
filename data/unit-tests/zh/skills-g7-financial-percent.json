@@ -9,6 +9,11 @@
  },
  "provider": "claude",
  "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 4
+ },
  "set": {
   "title": "理财中的百分数 · 单元测试",
   "questions": [
@@ -28,7 +33,7 @@
    {
     "curriculumId": "YY.MATH.FIN.PCT.TAX",
     "level": 1,
-    "question": "在 BC 省，滑板只收 5% 的 GST。一块标价 $60 的滑板，含税总价（total with tax）是多少？",
+    "question": "在 BC 省，童装免 PST，只收 5% 的 GST。一件标价 $60 的儿童外套，含税总价（total with tax）是多少？",
     "options": [
      "$63.00",
      "$57.00",
@@ -36,7 +41,7 @@
      "$65.00"
     ],
     "answerIndex": 0,
-    "explain": "税额 = 60 × 5% = $3，含税总价 = 60 + 3 = $63。坑：税是往上加的，含税价一定比标价高，做成 60 − 3 = $57 就错了。"
+    "explain": "童装不收省税 PST，只加 5% 的 GST：税额 = 60 × 5% = $3，含税总价 = 60 + 3 = $63。坑：税是往上加的，含税价一定比标价高，做成 60 − 3 = $57 就错了。"
    },
    {
     "curriculumId": "YY.MATH.FIN.PCT.TIP",
@@ -67,7 +72,7 @@
    {
     "curriculumId": "YY.MATH.FIN.PCT.TAX",
     "level": 2,
-    "question": "在 BC 省买一双 $45.00 的跑鞋，既要交 5% 的 GST，也要交 7% 的 PST。收银台一共要付多少钱？",
+    "question": "在 BC 省买一副 $45.00 的无线耳机，既要交 5% 的 GST，也要交 7% 的 PST。收银台一共要付多少钱？",
     "options": [
      "$39.60",
      "$47.25",
@@ -93,7 +98,7 @@
    {
     "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
     "level": 3,
-    "question": "温哥华一家自行车店，头盔原价 $72.00，正在打折 25% off。结账时还要按折后价加 12% 的税（GST + PST）。最终要付多少钱？",
+    "question": "温哥华一家运动用品店，滑板原价 $72.00，正在打折 25% off。结账时还要按折后价加 12% 的税（GST + PST）。最终要付多少钱？",
     "options": [
      "$60.48",
      "$54.00",
@@ -106,7 +111,7 @@
    {
     "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
     "level": 3,
-    "question": "一件外套原价 $80.00，先打 20% off，再按折后价加 12% 的税。同桌说：−20% 再 +12%，等于一共便宜 8%。下面哪一项才是正确的最终价和相对原价的总变化？",
+    "question": "一双轮滑鞋原价 $80.00，先打 20% off，再按折后价加 12% 的税。同桌说：−20% 再 +12%，等于一共便宜 8%。下面哪一项才是正确的最终价和相对原价的总变化？",
     "options": [
      "$73.60，比原价低 8%",
      "$71.68，比原价低 10.4%",

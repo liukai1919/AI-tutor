@@ -9,6 +9,11 @@
  },
  "provider": "claude",
  "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
  "set": {
   "title": "Financial percentages · Unit Test",
   "questions": [
@@ -93,7 +98,7 @@
    {
     "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
     "level": 3,
-    "question": "Sneakers at a Burnaby mall are $120.00. They are on sale at 30% off, and 12% tax is added to the sale price. What is the final amount paid at the till?",
+    "question": "Wireless headphones at a Burnaby mall are $120.00. They are on sale at 30% off, and 12% tax is added to the sale price. What is the final amount paid at the till?",
     "options": [
      "$73.92",
      "$84.00",
@@ -101,7 +106,7 @@
      "$94.08"
     ],
     "answerIndex": 3,
-    "explain": "Discount first: 30% of $120 is $36, so the sale price is $84. Then add tax on the sale price: 0.12 x 84 = $10.08, giving 84 + 10.08 = $94.08. The big trap is subtracting the tax instead of adding it, or charging tax on the original $120."
+    "explain": "Discount first: 30% of $120 is $36, so the sale price is $84. Then add tax on the sale price: 0.12 x 84 = $10.08, giving 84 + 10.08 = $94.08. The big trap is subtracting the tax instead of adding it, or charging tax on the original $120. (Electronics charge both GST and PST, so 12% is the right rate here.)"
    },
    {
     "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",

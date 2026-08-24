@@ -9,6 +9,11 @@
  },
  "provider": "claude",
  "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
  "set": {
   "title": "Decimals to thousandths · Unit Test",
   "questions": [
@@ -53,16 +58,16 @@
    },
    {
     "curriculumId": "YY.MATH.DEC.PV1000.COMPARE",
-    "level": 1,
-    "question": "At the school track meet these long-jump distances were measured: 0.405 m, 0.54 m, 0.5 m, 0.45 m. Which distance is the greatest?",
+    "level": 2,
+    "question": "In a science experiment, four ice cubes slid these distances across a tray: 0.36 m, 0.309 m, 0.4 m, and 0.345 m. Which list orders the distances from least to greatest?",
     "options": [
-     "0.405 m",
-     "0.54 m",
-     "0.5 m",
-     "0.45 m"
+     "0.4 m, 0.36 m, 0.345 m, 0.309 m",
+     "0.309 m, 0.345 m, 0.36 m, 0.4 m",
+     "0.309 m, 0.36 m, 0.345 m, 0.4 m",
+     "0.4 m, 0.345 m, 0.36 m, 0.309 m"
     ],
     "answerIndex": 1,
-    "explain": "Compare place by place from the left: all have 0 ones, so look at tenths — 5, 5, 4, 4 — then hundredths, where 0.54 beats 0.50. The trap is thinking 0.405 is biggest because it has the most digits; more digits does not mean a bigger number."
+    "explain": "Pad every number to thousandths so the places line up: 0.360, 0.309, 0.400, 0.345. Now compare tenths first, then hundredths: 0.309 < 0.345 < 0.360 < 0.400. One trap is ordering greatest-to-least when the question asks least-to-greatest; the other is treating more digits as bigger, which wrongly slides 0.309 above 0.36."
    },
    {
     "curriculumId": "YY.MATH.DEC.ADDSUB.1000.ALGORITHM",

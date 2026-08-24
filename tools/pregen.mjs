@@ -96,11 +96,32 @@ for (const data of sources()) {
   }
 }
 const unitFile = (gradeKey, strand, lang) => path.join(S.UNIT_PACK_DIR, lang, gradeKey + "-" + strand + ".json");
-function unitDone(j) { return !!S.unitPackGet(j.gradeKey, j.strand, j.lang); }
+/* done 判定从「能用」收紧为「完整」（2026-08-24 审计）：主题卷要满 8 题且 3/3/2，课程的练习要成对，
+ * 题库每级要满 4 道。运行时的宽松判定（unitPackGet/qbankPlayable）保持不动——已经发出去的安装包
+ * 缺题也得能开局；缺口只在生成侧由这里判为未完成、下次 pregen 补齐。 */
+function unitDone(j) {
+  const set = S.unitPackGet(j.gradeKey, j.strand, j.lang);
+  if (!set) return false;
+  if (!String(j.gradeKey).startsWith("skills-")) return true;   // 老的主线卷没有 8 题/3-3-2 约定
+  const lv = { 1: 0, 2: 0, 3: 0 };
+  for (const q of set.questions) lv[q.level] = (lv[q.level] || 0) + 1;
+  return set.questions.length === 8 && lv[1] === 3 && lv[2] === 3 && lv[3] === 2;
+}
 
 const lessonFile = (id, lang) => path.join(S.LESSON_PACK_DIR, lang, id + ".json");
-function lessonDone(j) { try { return fs.statSync(lessonFile(j.item.id, j.lang)).size > 0; } catch (_) { return false; } }
-function quizDone(j) { return !!S.qbankPlayable(j.item.id, j.lang); }
+function lessonDone(j) {
+  try {
+    const raw = JSON.parse(fs.readFileSync(lessonFile(j.item.id, j.lang), "utf8"));
+    const l = raw && raw.lesson ? raw.lesson : raw;
+    if (!Array.isArray(l.steps) || !l.steps.length || l.steps.some(s => !String(s.say || "").trim())) return false;
+    const q = String((l.practice || {}).question || "").trim(), a = String((l.practice || {}).answer || "").trim();
+    return !!q === !!a;   // 练习单边空 = 生成截断（见 BC.MATH.G4.NUM.01 zh 旧例）
+  } catch (_) { return false; }
+}
+function quizDone(j) {
+  const bank = S.qbankPlayable(j.item.id, j.lang);
+  return !!bank && [1, 2, 3].every(lv => bank.questions.filter(q => q.level === lv).length >= 4);
+}
 
 const LIMIT = Number(opt("limit", 0)) || 0;
 const cap = a => LIMIT ? a.slice(0, LIMIT) : a;

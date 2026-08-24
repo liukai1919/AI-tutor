@@ -60,6 +60,25 @@
    ]
   },
   {
+   "qid": "qmt7hvb6w0b66f1",
+   "level": 1,
+   "question": "一张长方形海报，长 37 cm，宽 6 cm。用面积模型（area model）把长拆成 30 和 7，就得到两个小长方形：一个是 30 × 6，另一个是 7 × 6。整张海报的面积是多少平方厘米？",
+   "options": [
+    "180",
+    "187",
+    "212",
+    "222"
+   ],
+   "answerIndex": 3,
+   "explain": "两小块面积分别是 30 × 6 = 180 和 7 × 6 = 42，合起来 180 + 42 = 222 平方厘米。只写 180 是漏掉了 7 × 6 那一小块；写 187 是把 7 直接加上去，忘了 7 也要乘 6；写 212 的是加 180 + 42 时把进位的 10 丢了。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
    "qid": "qmt5aimlqa54zs9",
    "level": 2,
    "question": "用拆分的方法计算 68 × 4，积（product）是多少？",
@@ -114,6 +133,25 @@
     "ok",
     "mult.partial_product_missing",
     "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt7hvb6w0cebj9",
+   "level": 2,
+   "question": "计算 317 × 3。可以把 317 拆成 300、10、7 三段，每段分别乘 3。积（product）是多少？",
+   "options": [
+    "930",
+    "921",
+    "951",
+    "941"
+   ],
+   "answerIndex": 2,
+   "explain": "300 × 3 = 900，10 × 3 = 30，7 × 3 = 21，合起来 900 + 30 + 21 = 951。得 930 的漏了个位的 7 × 3，得 921 的漏了十位的 10 × 3，三段一段都不能少；得 941 的是最后相加时丢了一个十。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget"
    ]
   },
   {

@@ -45,17 +45,17 @@
    "level": 1,
    "question": "Maya says: 'The number 2 is even, so it must be composite.' Why is Maya wrong?",
    "options": [
-    "Because 2 is the only even number with exactly two factors.",
-    "Because all even numbers are prime.",
     "Because 2 has four factors.",
+    "Because all even numbers are prime.",
+    "Because 2 is the only even number with exactly two factors.",
     "Because 2 is greater than 1."
    ],
-   "answerIndex": 0,
+   "answerIndex": 2,
    "explain": "While most even numbers are composite, 2 is special. It has only two factors (1 and 2), making it the only even prime number.",
    "tags": [
+    "other",
+    "other",
     "ok",
-    "other",
-    "other",
     "prime.two_not_prime"
    ]
   },
@@ -65,17 +65,17 @@
    "question": "Jaxson writes the numbers from 1 to 4 on a chart. He asks his friend to circle the prime numbers. Which numbers should his friend circle?",
    "options": [
     "1 and 2",
-    "2 and 3",
+    "3 and 4",
     "1, 2, and 3",
-    "3 and 4"
+    "2 and 3"
    ],
-   "answerIndex": 1,
+   "answerIndex": 3,
    "explain": "Among 1, 2, 3, and 4, only 2 and 3 have exactly two factors. 1 is not prime, and 4 is composite (factors: 1, 2, 4).",
    "tags": [
     "prime.one_is_prime",
-    "ok",
+    "other",
     "prime.one_is_prime",
-    "other"
+    "ok"
    ]
   },
   {
@@ -102,16 +102,16 @@
    "level": 2,
    "question": "Leo claims that every odd number is prime. Which example disproves his claim?",
    "options": [
-    "The number 2, which is even and prime.",
     "The number 9, which is odd but has factors 1, 3, and 9.",
+    "The number 2, which is even and prime.",
     "The number 11, which is odd and prime.",
     "The number 1, which is odd but not composite."
    ],
-   "answerIndex": 1,
+   "answerIndex": 0,
    "explain": "9 is odd but composite because it is divisible by 3. This shows that being odd does not guarantee a number is prime.",
    "tags": [
-    "prime.two_not_prime",
     "ok",
+    "prime.two_not_prime",
     "other",
     "prime.one_is_prime"
    ]
@@ -141,17 +141,17 @@
    "question": "Sarah is sorting numbers into two baskets: 'Prime' and 'Composite.' She is unsure about the number 17. Where should she put it?",
    "options": [
     "In the Composite basket, because it ends in 7.",
-    "In the Prime basket, because it is not divisible by 2, 3, or 5.",
+    "In the Prime basket, because all odd numbers are prime.",
     "In the Composite basket, because it is greater than 10.",
-    "In the Prime basket, because all odd numbers are prime."
+    "In the Prime basket, because it is not divisible by 2, 3, or 5."
    ],
-   "answerIndex": 1,
+   "answerIndex": 3,
    "explain": "17 is not divisible by any number other than 1 and itself, so it is prime. The last digit or magnitude does not determine primality.",
    "tags": [
     "other",
-    "ok",
+    "prime.odd_is_prime",
     "other",
-    "prime.odd_is_prime"
+    "ok"
    ]
   },
   {
@@ -217,17 +217,17 @@
    "question": "Why is it important to distinguish between 1 and 2 when listing prime numbers for cryptography?",
    "options": [
     "Because 1 is a prime number and 2 is composite.",
-    "Because 2 is the only even prime, and 1 is neither prime nor composite.",
+    "Because 1 is an even prime and 2 is an odd prime.",
     "Because both 1 and 2 are composite numbers.",
-    "Because 1 is an even prime and 2 is an odd prime."
+    "Because 2 is the only even prime, and 1 is neither prime nor composite."
    ],
-   "answerIndex": 1,
+   "answerIndex": 3,
    "explain": "Cryptography relies on the properties of primes. 2 is a valid prime (even), but 1 is not prime because it lacks the required two factors. Confusing them breaks the logic.",
    "tags": [
     "other",
-    "ok",
+    "prime.one_is_prime",
     "other",
-    "prime.one_is_prime"
+    "ok"
    ]
   }
  ]

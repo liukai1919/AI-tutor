@@ -1185,7 +1185,9 @@ function validateLesson(l) {
   })).filter(s => s.say);
   if (l.steps.length === 0) throw new Error("讲解步骤是空的");
   if (!l.practice || typeof l.practice !== "object") l.practice = { question: "", answer: "" };
-  l.practice = { question: String(l.practice.question || ""), answer: String(l.practice.answer || "") };
+  l.practice = { question: String(l.practice.question || "").trim(), answer: String(l.practice.answer || "").trim() };
+  // 练习要么成对要么没有：只有题没有答案（或反过来）多半是生成截断，存下去会被当成正常内容（2026-08-24 审计）
+  if (!!l.practice.question !== !!l.practice.answer) throw new Error("练习不完整：题目和答案必须成对");
   return l;
 }
 

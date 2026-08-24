@@ -9,6 +9,11 @@
  },
  "provider": "claude",
  "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
  "set": {
   "title": "Numbers to 10 000 · Unit Test",
   "questions": [
@@ -39,19 +44,6 @@
     "explain": "Find the place the digit sits in: in 4 738 the 7 is in the hundreds place, so its value is 7 hundreds, or 700. The common trap is reading the digit by itself and saying just 7 — a digit's value always depends on its place, not on the digit alone."
    },
    {
-    "curriculumId": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
-    "level": 1,
-    "question": "Leo skip-counts by 25s while stacking quarters: 1 350, 1 375, 1 400, ___. What number comes next?",
-    "options": [
-     "1 425",
-     "1 415",
-     "1 450",
-     "1 405"
-    ],
-    "answerIndex": 0,
-    "explain": "Counting by 25s means adding 25 each time, so 1 400 + 25 = 1 425. A common slip is to jump by 50 right after a hundred (giving 1 450) or to add only 5 or 15 because the tens digit changed — check by seeing that each step in the pattern is exactly 25."
-   },
-   {
     "curriculumId": "YY.MATH.NUM.PV10K.COMPARE_ORDER",
     "level": 1,
     "question": "Four Surrey schools collected books for a book drive: 3 090 books, 3 909 books, 3 099 books, and 3 900 books. Which list puts them in order from least to greatest?",
@@ -63,6 +55,19 @@
     ],
     "answerIndex": 3,
     "explain": "Compare place by place from the left: all four have 3 thousands, so look at the hundreds (0, 0, 9, 9), then the tens and ones to break the ties. Two traps here are ordering from greatest to least by mistake, and thinking 3 099 is smaller than 3 090 just because it ends in bigger digits."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
+    "level": 2,
+    "question": "The scoreboard at a hockey arena counts down the remaining raffle tickets by 250s: 8 500, 8 250, 8 000, ___. What number comes next?",
+    "options": [
+     "7 750",
+     "7 850",
+     "8 250",
+     "7 500"
+    ],
+    "answerIndex": 0,
+    "explain": "Each step takes away 250, so the next number is 8 000 − 250 = 7 750. Crossing a thousand is the tricky part: take away 200 to reach 7 800, then 50 more to land on 7 750. Common slips are taking away only 150 (7 850), bouncing back up the pattern (8 250), or doubling the jump (7 500)."
    },
    {
     "curriculumId": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE",

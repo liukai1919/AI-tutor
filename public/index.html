@@ -2553,12 +2553,15 @@ function vAngle(nums){
   return svg(460,H,r);
 }
 
-/* 乘法面积模型：nums=[a,b]（≤99），按数位拆分标部分积 */
+/* 乘法面积模型：nums=[a,b]（a≤999、b≤99），按数位拆分标部分积 */
 function vAreaModel(nums){
-  const a=clampInt(nums&&nums[0],2,99,23), b=clampInt(nums&&nums[1],2,99,15);
-  const split=n=>{ if(n<10||n%10===0) return [n]; return [Math.floor(n/10)*10, n%10]; };
+  const a=clampInt(nums&&nums[0],2,999,23), b=clampInt(nums&&nums[1],2,99,15);
+  const split=n=>{ const p=[Math.floor(n/100)*100, Math.floor(n%100/10)*10, n%10].filter(v=>v>0); return p.length?p:[n]; };
   const pa=split(a), pb=split(b);
-  const ws=pa.map(v=>Math.max(70,300*v/a)), hs=pb.map(v=>Math.max(54,150*v/b));
+  let ws=pa.map(v=>Math.max(pa.length>2?52:70,300*v/a));
+  const wSum=ws.reduce((x,y)=>x+y,0);
+  if(wSum>388) ws=ws.map(w=>w*388/wSum);
+  const hs=pb.map(v=>Math.max(54,150*v/b));
   const x0=64, y0=30, f=n=>Number(n).toFixed(1);
   const TINT=["#ffe9db","#e4ebff","#dcf3e7","#fdf3d8"];
   let r="", yy=y0;

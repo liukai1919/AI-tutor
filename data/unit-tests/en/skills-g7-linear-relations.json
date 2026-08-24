@@ -9,6 +9,11 @@
  },
  "provider": "claude",
  "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
  "set": {
   "title": "Coordinates & linear relations · Unit Test",
   "questions": [
@@ -39,19 +44,6 @@
     "explain": "A relation is linear when the output changes by a constant amount for each step of 1 in the input — here +4 every time. The common trap is thinking 'it just keeps growing' is enough; growing by different amounts each step would not be linear."
    },
    {
-    "curriculumId": "YY.MATH.PAT.LINEAR.EXPRESSION",
-    "level": 1,
-    "question": "Liam builds a tile pattern where figure n uses 3n + 2 tiles. How many tiles are in figure 6?",
-    "options": [
-     "20",
-     "30",
-     "11",
-     "36"
-    ],
-    "answerIndex": 0,
-    "explain": "Substitute n = 6 and multiply before adding: 3 × 6 = 18, then 18 + 2 = 20. The common trap is adding first and getting (3 + 2) × 6 = 30, which breaks the order of operations."
-   },
-   {
     "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH",
     "level": 1,
     "question": "A rain barrel in Victoria is collecting water. Time t (hours): 1, 2, 3, 4. Water W (litres): 15, 25, 35, 45. Which set of points correctly graphs this table with time on the horizontal axis?",
@@ -63,6 +55,19 @@
     ],
     "answerIndex": 3,
     "explain": "Each row becomes one point written as (input, output), so t goes first and W second: (1, 15), (2, 25), (3, 35), (4, 45). The common trap is reversing the pair and plotting (15, 1), which puts time on the vertical axis."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.EXPRESSION",
+    "level": 2,
+    "question": "Ella's bead pattern uses 4n + 3 beads for figure n. One figure in her sequence uses exactly 31 beads. Which figure number is it?",
+    "options": [
+     "7",
+     "8",
+     "28",
+     "124"
+    ],
+    "answerIndex": 0,
+    "explain": "Work the rule backwards: take away the 3 constant beads first (31 − 3 = 28), then divide by the 4 beads added per figure: 28 ÷ 4 = 7. Check: 4 × 7 + 3 = 31. The traps are stopping at 28, an off-by-one from miscounting the first figure (8), and substituting 31 into the rule (4 × 31 = 124) instead of undoing it."
    },
    {
     "curriculumId": "YY.MATH.GEO.COORD.Q4.PLOT",
