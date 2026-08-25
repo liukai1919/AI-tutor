@@ -6,6 +6,7 @@
 <title>Yuanyuan Math · Your AI math tutor</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="visual-check.js"></script>
 <style>
   :root{
     --bg:#fff7ee; --card:#ffffff; --ink:#3a2f2a; --muted:#8a7d74;
@@ -858,7 +859,7 @@ const I18N = {
     colsRowsFmt:(c,r)=>`${c} 列 × ${r} 行`, barItemFmt:(i)=>`第${i}项`,
     groupsFmt:(g,per,rem)=>`${g} 组 × 每组 ${per} 个${rem?`，另剩 ${rem} 个`:""}，一共 ${g*per+rem} 个`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`经过 ${h} 小时 ${m} 分钟`:`经过 ${h} 小时`):`经过 ${m} 分钟`;},
-    placeInt:["个位","十位","百位","千位","万位"],
+    placeInt:["个位","十位","百位","千位","万位","十万位","百万位","千万位","亿位","十亿位"],
     placeDec:["十分位","百分位","千分位"],
     netCircum:"底面周长",
     avgFmt:(v)=>`平均 ${v}`,
@@ -1062,7 +1063,7 @@ const I18N = {
     colsRowsFmt:(c,r)=>`${c} × ${r}`, barItemFmt:(i)=>`Item ${i}`,
     groupsFmt:(g,per,rem)=>`${g} groups × ${per} each${rem?`, ${rem} left over`:""} — ${g*per+rem} in total`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`${h} h ${m} min later`:`${h} h later`):`${m} min later`;},
-    placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands"],
+    placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands","Hundred-thousands","Millions","Ten-millions","Hundred-millions","Billions"],
     placeDec:["Tenths","Hundredths","Thousandths"],
     netCircum:"base circumference",
     avgFmt:(v)=>`average ${v}`,
@@ -1723,6 +1724,18 @@ async function playStep(i,text,onend){
 }
 
 /* ---------- 可视化积木（永远画对：AI 只给小数字，图形由这里确定性画出） ---------- */
+/* ---------- 配图契约（data/curriculum/visual-contract.json）----------
+ * 违约就不画：看图模式下图是正文，画错严格差于不画，而且要和 Apple 端 LessonValidator 同一种失败方式。
+ * 拉不到契约时放行——宁可退回老行为，也不能让全站没图。 */
+let VISUAL_CONTRACT=null;
+async function loadVisualContract(){
+  try{ VISUAL_CONTRACT=await (await fetch("/api/visual-contract")).json(); }
+  catch(_){ VISUAL_CONTRACT=null; }
+}
+function visualOk(v){
+  if(!VISUAL_CONTRACT||!self.YYVisualCheck) return true;
+  return self.YYVisualCheck.checkVisual(VISUAL_CONTRACT,v.type,v.nums,v.labels).ok;
+}
 const COL={fill:"#ff8a5b",fill2:"#6c8cff",good:"#3fbf7f",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
 const PAL=["#ff8a5b","#6c8cff","#3fbf7f","#d99b18","#b07cf7","#ff6b9d"]; // 经色觉安全校验（deutan/protan/tritan ΔE≥7.7，配 2px 白缝+直接标注）
 function svg(w,h,inner){return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${inner}</svg>`;}
@@ -1764,23 +1777,33 @@ function dimArrow(x1,y1,x2,y2,label){
 /* 分数条：nums=[份数,涂色] 或 [份数1,涂色1,份数2,涂色2]（两条对齐，比较/通分） */
 function vFractionBar(nums){
   nums=(nums||[]).map(Number).filter(isFinite);
-  const bars=[];
-  const d1=clampInt(nums[0],1,20,4); bars.push([d1,clampInt(nums[1],0,d1,1)]);
-  if(nums.length>=4){ const d2=clampInt(nums[2],1,20,4); bars.push([d2,clampInt(nums[3],0,d2,1)]); }
-  const W=460,pad=14,bw=350,bh=44,gap=18;
+  /* 分子 > 分母 = 假分数：画成几个整体连排、同一个颜色、右边只标一次 n/d（契约 v2）。
+   * 两条一起画时整体宽度按最多的那条取齐——不然「同一个整体」在图上就成了假话。
+   * 越界的 nums 走不到这里：renderVisual 先按 visual-contract.json 拦一道，违约就不画。 */
+  const read=(d,n)=>{ const dd=clampInt(d,1,20,4); return [dd,clampInt(n,0,dd*4,1)]; };
+  const bars=[read(nums[0],nums[1])];
+  if(nums.length>=4) bars.push(read(nums[2],nums[3]));
+  const wholes=bars.map(([d,n])=>Math.max(1,Math.ceil(n/d)));
+  const wMax=Math.max.apply(null,wholes);
+  const W=460,pad=14,bw=350,bh=44,gap=18,wGap=6;
+  const unit=(bw-(wMax-1)*wGap)/wMax;
   const H=bars.length*(bh+gap)-gap+16;
   let r="";
   bars.forEach(([d,n],bi)=>{
-    const y=8+bi*(bh+gap), cw=bw/d, c=bi?COL.fill2:COL.fill;
-    for(let i=0;i<d;i++)
-      r+=`<rect x="${(pad+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${i<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    const y=8+bi*(bh+gap), c=bi?COL.fill2:COL.fill, cw=unit/d;
+    let k=0;
+    for(let w=0;w<wholes[bi];w++){
+      const x0=pad+w*(unit+wGap);
+      for(let i=0;i<d;i++,k++)
+        r+=`<rect x="${(x0+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${k<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    }
     r+=`<text x="${pad+bw+12}" y="${y+bh/2+6}" font-size="17" font-weight="800" fill="${c}">${n}/${d}</text>`;
   });
   return svg(W,H,r);
 }
 
 /* 分数圆（披萨图）：nums=[份数,涂色] 或两个圆 [份数1,涂色1,份数2,涂色2] */
-function onePie(cx,cy,R,d,n,color){
+function onePie(cx,cy,R,d,n,color,label){
   let s="";
   if(d===1){
     s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${n>=1?color:'#fff'}" stroke="${COL.line}" stroke-width="2.5"/>`;
@@ -1790,15 +1813,35 @@ function onePie(cx,cy,R,d,n,color){
       s+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${i<n?color:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
     }
   }
-  s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${n}/${d}</text>`;
+  const lab=label===undefined?`${n}/${d}`:label;
+  if(lab) s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${lab}</text>`;
   return s;
 }
 function vPie(nums){
   nums=(nums||[]).map(Number).filter(isFinite);
-  const d1=clampInt(nums[0],1,16,4), n1=clampInt(nums[1],0,d1,1), R=62, H=2*R+44;
-  if(nums.length<4) return svg(220,H,onePie(110,R+7,R,d1,n1,COL.fill));
-  const d2=clampInt(nums[2],1,16,4), n2=clampInt(nums[3],0,d2,1);
-  return svg(400,H,onePie(105,R+7,R,d1,n1,COL.fill)+onePie(295,R+7,R,d2,n2,COL.fill2));
+  /* 涂色份数 > 份数 = 假分数：画成几个整圆连排、同色、只在最后一个圆下面标一次 n/d（契约 v2）。
+   * 同一个量的圆挨得近、两个量之间隔开，孩子才不会读成四个互不相干的数。 */
+  const read=(d,n)=>{ const dd=clampInt(d,1,16,4); return [dd,clampInt(n,0,dd*4,1)]; };
+  const ent=[read(nums[0],nums[1])];
+  if(nums.length>=4) ent.push(read(nums[2],nums[3]));
+  const R=62, H=2*R+44;
+  const cols=[];
+  ent.forEach(([d,n],ei)=>{
+    const w=Math.max(1,Math.ceil(n/d));
+    for(let k=0;k<w;k++)
+      cols.push({ ei, d, n:Math.max(0,Math.min(d,n-k*d)), first:k===0 });
+  });
+  let x=0; const xs=[];
+  cols.forEach((c,i)=>{ if(i) x+=(c.first?190:138); xs.push(x); });
+  const W=Math.max(220,x+220), ox=(W-x)/2;
+  let s="";
+  cols.forEach((c,i)=>{ s+=onePie(ox+xs[i],R+7,R,c.d,c.n,c.ei?COL.fill2:COL.fill,""); });
+  ent.forEach(([d,n],ei)=>{
+    const mine=xs.filter((_,i)=>cols[i].ei===ei);
+    const cx=ox+(mine[0]+mine[mine.length-1])/2;
+    s+=`<text x="${cx}" y="${2*R+29}" text-anchor="middle" font-size="16" font-weight="800" fill="${ei?COL.fill2:COL.fill}">${n}/${d}</text>`;
+  });
+  return svg(W,H,s);
 }
 
 /* 数轴：nums=[min,max,点,(可选)第二个点]；两个点时画跳跃箭头 */
@@ -1809,18 +1852,56 @@ function vNumberLine(nums){
   const inRange=v=>isFinite(v)&&v>=min&&v<=max;
   const p1=(nums.length>2&&isFinite(nums[2]))?nums[2]:null;
   const p2=(nums.length>3&&isFinite(nums[3]))?nums[3]:null;
-  const arrow=p1!==null&&p2!==null&&inRange(p1)&&inRange(p2)&&p1!==p2;
-  const W=460,H=arrow?116:84,pad=26,y=H-36;
+  /* 第 5 个数 = 每一整格再平分几小份（契约 v2）。给了它就打小刻度、标记点标成分数而不是小数；
+   * 不给就是老写法，一个像素都不变（老内容天然兼容）。分数课上「四分之三」配着 0.75 是过去的常态。
+   * 给了小份数、两个点又不同，那是比大小，不画跳跃箭头——两个点各自标好分数即可。 */
+  const den=(nums.length>4&&isFinite(nums[4]))?clampInt(nums[4],2,12,0):0;
+  const arrow=!den&&p1!==null&&p2!==null&&inRange(p1)&&inRange(p2)&&p1!==p2;
+  const W=460,H=arrow?116:(den?96:84),pad=26,y=H-36;
   const span=max-min;
-  let ticks=Math.min(20,Math.max(2,Math.round(span)));
+  let ticks=Math.min(20,Math.max(den?1:2,Math.round(span)));   // 分数模式下只标整数，别在分数课上冒出 0.5
   const stepv=span/ticks;
   const x=v=>pad+(v-min)/span*(W-2*pad);
   let r=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="${COL.line}" stroke-width="3"/>`;
+  if(den){
+    for(let k=Math.ceil(min*den-1e-9);k<=Math.round(max*den)+1e-9;k++){
+      const v=k/den;
+      if(Math.abs(v-Math.round(v))<1e-9) continue;      // 整数刻度下面单独画，别画两遍
+      const px=x(v);
+      r+=`<line x1="${px}" y1="${y-4}" x2="${px}" y2="${y+4}" stroke="${COL.line}" stroke-width="1.2"/>`;
+    }
+  }
   for(let i=0;i<=ticks;i++){
     const v=min+i*stepv, px=x(v);
     r+=`<line x1="${px}" y1="${y-6}" x2="${px}" y2="${y+6}" stroke="${COL.line}" stroke-width="2"/>`;
     const lab=Math.abs(v-Math.round(v))<1e-6?Math.round(v):v.toFixed(1);
     r+=`<text x="${px}" y="${y+22}" text-anchor="middle" font-size="12" fill="${COL.ink}">${lab}</text>`;
+  }
+  /* 带分数标签：整数部分在左，分数竖着摞在右（不用 LaTeX，纯 SVG，两端都画得出来） */
+  const fracLabel=(px,baseY,v,color)=>{
+    const neg=v<0, a=Math.abs(v);
+    let whole=Math.floor(a+1e-9), k=Math.round((a-whole)*den);
+    if(k===den){ whole+=1; k=0; }
+    if(k===0) return `<text x="${px}" y="${baseY}" text-anchor="middle" font-size="13" font-weight="700" fill="${color}">${neg?"−":""}${whole}</text>`;
+    const intTxt=(neg?"−":"")+(whole?String(whole):"");
+    const fw=15, iw=intTxt?intTxt.length*8.5:0, x0=px-(iw+fw)/2, fx=x0+iw+fw/2, midY=baseY-8;
+    let t2="";
+    if(intTxt) t2+=`<text x="${x0+iw/2}" y="${midY+5}" text-anchor="middle" font-size="15" font-weight="800" fill="${color}">${intTxt}</text>`;
+    t2+=`<text x="${fx}" y="${midY-2}" text-anchor="middle" font-size="11" font-weight="700" fill="${color}">${k}</text>`;
+    t2+=`<line x1="${fx-6}" y1="${midY}" x2="${fx+6}" y2="${midY}" stroke="${color}" stroke-width="1.4"/>`;
+    t2+=`<text x="${fx}" y="${midY+11}" text-anchor="middle" font-size="11" font-weight="700" fill="${color}">${den}</text>`;
+    return t2;
+  };
+  if(den){
+    const pts=[[p1,COL.fill]];
+    if(p2!==null&&p2!==p1) pts.push([p2,COL.fill2]);
+    for(const [v,c] of pts){
+      if(v===null||!inRange(v)) continue;
+      const px=x(v);
+      r+=`<circle cx="${px}" cy="${y}" r="8" fill="${c}" stroke="#fff" stroke-width="2"/>`;
+      r+=fracLabel(px,y-20,v,c);
+    }
+    return svg(W,H,r);
   }
   if(arrow){
     const x1=x(p1),x2=x(p2),diff=p2-p1;
@@ -1839,7 +1920,7 @@ function vNumberLine(nums){
 
 /* 面积格子：nums=[行,列,涂行,涂列]；行列都只涂一部分时用色带突出重叠（分数乘分数） */
 function vAreaGrid(nums){
-  const rows=clampInt(nums&&nums[0],1,12,3), cols=clampInt(nums&&nums[1],1,12,4);
+  const rows=clampInt(nums&&nums[0],1,16,3), cols=clampInt(nums&&nums[1],1,16,4);
   const sr=clampInt(nums&&nums[2],0,rows,rows), sc=clampInt(nums&&nums[3],0,cols,cols);
   const cell=Math.min(34, Math.floor(300/Math.max(rows,cols)));
   const W=cols*cell+40,H=rows*cell+40,ox=20,oy=20;
@@ -1884,7 +1965,7 @@ function vBarModel(nums,labels){
 
 /* 分组圆点图：nums=[组数,每组个数,(可选)剩余]。乘法意义 / 平均分 / 有余数除法 */
 function vGroups(nums){
-  const g=clampInt(nums&&nums[0],1,8,3), per=clampInt(nums&&nums[1],1,12,4), rem=clampInt(nums&&nums[2],0,11,0);
+  const g=clampInt(nums&&nums[0],1,12,3), per=clampInt(nums&&nums[1],1,20,4), rem=clampInt(nums&&nums[2],0,19,0);
   const dg=19, cols=Math.min(per,4), rowsD=Math.ceil(per/cols);
   const boxW=cols*dg+14, boxH=rowsD*dg+14;
   const perRow=Math.max(1,Math.min(g,Math.floor(436/(boxW+12))));
@@ -1984,7 +2065,7 @@ function vPlaceValue(nums){
   let n=Number(nums&&nums[0]);
   if(!isFinite(n)) return "";
   n=Math.abs(n);
-  if(n>=100000) return "";
+  if(n>=1e10) return "";                    // 位值表现在排到十亿位（2026-08-25：原来卡在 99999，PV1M/PVBIG 两组课 31 步整步空图）
   let s=String(n);
   if(!/^\d+(\.\d+)?$/.test(s)) s=n.toFixed(3);
   let parts=s.split("."), ip=parts[0], dp=(parts[1]||"");
@@ -2913,6 +2994,7 @@ function vUnitCircle(nums,labels){
 
 function renderVisual(v){
   if(!v||!v.type||v.type==="none") return "";
+  if(!visualOk(v)) return "";                      // 违约降级成无图，别画一张看着对、数字错的图
   const nums=v.nums||[], labels=v.labels||[];
   let s="";
   try{
@@ -4341,6 +4423,7 @@ function fselAttach(sel){
 /* ---------- 初始化 ---------- */
 document.querySelectorAll("select").forEach(fselAttach);
 applyLang();
+loadVisualContract();
 boot();
 </script>
 </body>

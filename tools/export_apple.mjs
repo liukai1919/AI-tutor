@@ -56,6 +56,8 @@ for (const f of fs.readdirSync(path.join(ROOT, "data", "curriculum", "bc")).filt
 for (const f of fs.readdirSync(path.join(ROOT, "data", "curriculum", "skills")).filter(f => f.endsWith(".json") || f.endsWith(".md"))) {
   copy(path.join(ROOT, "data", "curriculum", "skills", f), path.join(OUT, "curriculum", "skills", f)); bump("curriculum.skills");
 }
+/* 配图契约：Apple 端 LessonValidator 照它判合法性，别再各抄一份名单 */
+copy(path.join(ROOT, "data", "curriculum", "visual-contract.json"), path.join(OUT, "curriculum", "visual-contract.json")); bump("curriculum.visualContract");
 
 /* ---- 2. 课程：按 id 前缀分 standards / skills ---- */
 const lessonIndex = {};   // lang -> id -> lesson（语音索引要用）
@@ -138,7 +140,9 @@ const manifest = {
   notes: [
     "qbank 每题的 tags 与 options 位置对齐：正确项 'ok'，干扰项是 misconceptions.json 里的误区 id（或 'other'）。tags 只供诊断/回补，绝不能下发给客户端——'ok' 的位置就是答案。",
     "answerIndex 指向 options 原数组；题库入库时已做答案位置打散，整体分布均匀。",
-    "课程 steps[].visual.type 共 36 种（见 docs/skill-graph-plan.md / server.js LESSON_SCHEMA），客户端要有对应渲染器；没有的类型至少要能退回显示 caption。",
+    "课程 steps[].visual 的唯一事实源是 curriculum/visual-contract.json（本包里就有）：图型白名单 + 每种图的 nums 约定 + 合法范围。共 41 个值（none + 40 种可画）。",
+    "越界一律降级成无图（不画）——不要钳位后硬画：看图模式下图就是正文，画错严格差于不画。web 端 public/visual-check.js 和这份契约是同一套判断。",
+    "steps[].headline 是可选的新字段：没图的步骤用它撑住看图模式，解码用 decodeIfPresent，老内容不带它。",
     "AoPS 书籍课程、AOPS.* 题库、孩子的进度和做题记录（usedAt）都不在包里。",
     "BC 大纲原文为 BC 省 Crown copyright，展示时保留来源标注（source.url / version）。"
   ]

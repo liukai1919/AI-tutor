@@ -116,7 +116,21 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 
 微课已全部烤完：`lessons/skills/{zh,en}/` 共 **490 节**（245 技能 × 中英，4–6 步、接先修、专门演一步误区，全部经审稿）。
 
-### 3.5 提示词设计（文字，不是代码）
+### 3.5 配图契约 `data/curriculum/visual-contract.json`（2026-08-25 起，v2）
+
+课程 `steps[].visual` 的图型白名单 + 每种图的 `nums` 约定 + 合法范围，**唯一事实源**。
+以前这份名单在三处各抄一份，数目漂成 36 / 39 / 41；更要命的是两端对越界的处理不一样
+（web 静默钳位画错图、Apple 降级成无图），同一份数据两种坏法。
+
+- 判定实现 `public/visual-check.js` —— 浏览器 `<script src>` 和 node `require()` 是同一个文件；
+- preflight `node tools/curriculum/visual_check.mjs` —— 违约退出码 1，现状全库零违约；
+- v2 新增两种画法（假分数、数轴分数刻度），带 `since: 2` 标记，**只实现到 v1 的客户端遇到必须降级成无图**；
+- 几何规格、为什么这么定、现网存量清单：见 [visual-contract-v2.md](visual-contract-v2.md)。
+
+`steps[].headline` 是同期加的可选字段（看图模式下没图的步骤靠它撑住屏幕），
+解码用 `decodeIfPresent`，老内容不带它。
+
+### 3.6 提示词设计（文字，不是代码）
 
 在 `server.js` 里，但思路可直接搬：
 

@@ -149,16 +149,16 @@ function deepMerge(base, over) {
 }
 
 /* ---------------- 课程 JSON Schema ---------------- */
-const VISUAL_TYPES = [
-  "none", "fractionBar", "pie", "numberLine", "areaGrid", "barModel", "groups",
-  "shapeRect", "shapeTriangle", "shapeCircle", "clock", "placeValue", "balance", "pieChart",
-  "solidCuboid", "solidCube", "solidCylinder", "solidCone", "solidSphere", "netCuboid", "netCylinder",
-  "statBar", "statLine", "average", "spinner", "balls",
-  "stemLeaf", "stackedBar", "histogram", "coordGrid", "angle", "areaModel",
-  "baseTen", "hundredthsGrid", "hundredChart", "dataTable", "probLine",
-  // 高中（G8-12）加的：函数图像、直角三角形、一般三角形、单位圆
-  "funcGraph", "rightTriangle", "triangle", "unitCircle"
-];
+/* 图型白名单和每种图的 nums 约定：唯一事实源是 data/curriculum/visual-contract.json。
+ * 以前这份名单在三个地方各抄一份（这里、提示词、export_apple 的注释），数目就漂成了 36 / 39 / 41。
+ * 渲染端 public/visual-check.js、preflight tools/curriculum/visual_check.mjs、
+ * Apple 端 LessonValidator 读的都是同一个文件。
+ * 读不到就不做枚举限制——宁可放宽，也别让一份残缺的名单把合法的图判成非法。 */
+const VISUAL_CONTRACT = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, "data", "curriculum", "visual-contract.json"), "utf8")); }
+  catch (e) { console.warn("[visual] 读不到 visual-contract.json，图型枚举本次不生效：" + e.message); return null; }
+})();
+const VISUAL_TYPES = VISUAL_CONTRACT ? Object.keys(VISUAL_CONTRACT.types) : null;
 const LESSON_SCHEMA = {
   type: "object", additionalProperties: false,
   properties: {
@@ -170,10 +170,13 @@ const LESSON_SCHEMA = {
         properties: {
           say: { type: "string" },
           math: { type: "string" },
+          /* headline：这一步的关键结论，一行大字。看图模式（Apple 2026-08-25 上线）下，
+           * 没图的步骤靠它撑住屏幕，不然只能退回整段课文。可选，老内容不带它照常跑。 */
+          headline: { type: "string" },
           visual: {
             type: "object", additionalProperties: false,
             properties: {
-              type: { type: "string", enum: VISUAL_TYPES },
+              type: VISUAL_TYPES ? { type: "string", enum: VISUAL_TYPES } : { type: "string" },
               nums: { type: "array", items: { type: "number" } },
               labels: { type: "array", items: { type: "string" } },
               caption: { type: "string" }
@@ -248,11 +251,12 @@ function lessonFieldsZh(stepHint) {
 - steps：讲解步骤，${stepHint || "5～8 步最好"}。每步：
   - say：要【读出来】给孩子听的话。纯口语中文，不要 LaTeX、不要奇怪符号；数字和加减乘除直接用中文说（如"四分之三"、"乘以"）。百分数读作"百分之五""百分之零点五""百分之一百二十二"（不要写成"五百分之"），负数读"负三"，幂读"二的三次方"，根号读"根号二"，函数读"f of x"或"f x"。
   - math：这一步屏幕上显示的算式，用 LaTeX（如 \\frac{3}{4}+\\frac{1}{6}）。不需要就填 ""。
+  - headline：这一步的关键结论，一行大字（≤18 个汉字），说结论或动作，不是描述图（描述图是 caption 的活）。开场白和收尾小结这种本来就配不了图的步骤【必须】给，其余可给可不给。不要 LaTeX、不要反斜杠。
   - visual：这一步配的图。图是孩子理解的关键：只要能画，就配一张，至少一半的步骤应该有图。type 取以下之一：
     · "none"：实在没有合适的图才用。
-    · "fractionBar"（分数条）：nums=[总份数, 涂色份数]。比较或通分时给两条：nums=[份数1, 涂色1, 份数2, 涂色2]，会画成两条对齐的分数条。
-    · "pie"（分数圆，像切披萨）：nums=[总份数, 涂色份数]；也可以给两个圆比较：[份数1, 涂色1, 份数2, 涂色2]。讲"几分之几"的意义最直观。
-    · "numberLine"（数轴）：nums=[最小值, 最大值, 标记点, (可选)第二个点]。给两个点会画出从第一个点跳到第二个点的箭头，讲加减、比大小、小数好用。
+    · "fractionBar"（分数条）：nums=[总份数, 涂色份数]。比较或通分时给两条：nums=[份数1, 涂色1, 份数2, 涂色2]，会画成两条对齐的分数条。涂色份数可以大于总份数（假分数）：[3,4] 就是三分之四，画成两个整条连排、标 4/3。别再拆成「一整条 + 余数」两条去凑。
+    · "pie"（分数圆，像切披萨）：nums=[总份数, 涂色份数]；也可以给两个圆比较：[份数1, 涂色1, 份数2, 涂色2]。讲"几分之几"的意义最直观。涂色份数可以大于总份数（假分数）：[4,7] 就是四分之七，画成两个圆、标 7/4。
+    · "numberLine"（数轴）：nums=[最小值, 最大值, 标记点, (可选)第二个点]。给两个点会画出从第一个点跳到第二个点的箭头，讲加减、比大小、小数好用。讲分数就一定要给第 5 个数=每一整格再平分几小份：[0,1,0.75,0.75,4] 会打出四等分小刻度、把点标成 3/4 而不是 0.75（只有一个点就把它写两遍）。标记点必须正好落在某根小刻度上，落不到这张图就不画了。
     · "areaGrid"（面积格子）：nums=[行数, 列数, 涂色行数, 涂色列数]。行和列都只涂一部分时会突出重叠区域，讲分数乘分数、乘法意义好用。
     · "barModel"（线段图）：labels=["甲","乙"...]，nums=[各数量...]。讲比多少、分配、倍数好用。
     · "groups"（分组圆点图）：nums=[组数, 每组个数, (可选)剩余个数]。讲乘法意义、平均分、有余数的除法好用。
@@ -319,11 +323,12 @@ function lessonFieldsEn(stepHint) {
 - steps: ${stepHint || "5-8 steps is best"}. Each step:
   - say: the words to be READ ALOUD to the child. Plain spoken English — no LaTeX, no odd symbols (no ^, *, /, _ or markdown); say numbers and operations in words (like "three quarters", "times", "x squared", "the square root of two", "f of x", "two to the power of five").
   - math: the formula shown on screen for this step, in LaTeX (e.g. \\frac{3}{4}+\\frac{1}{6}). Use "" if not needed.
+  - headline: the key takeaway of this step in one line (≤60 characters) — the conclusion or the action, not a description of the picture (that is the caption's job). REQUIRED on steps that cannot carry a picture (openers and closing summaries), optional elsewhere. No LaTeX, no backslashes.
   - visual: the picture for this step. Pictures are how the child understands: add one whenever possible — at least half the steps should have one. type is one of:
     · "none": only when nothing fits.
-    · "fractionBar": nums=[total parts, shaded parts]. For comparing or common denominators give two bars: nums=[parts1, shaded1, parts2, shaded2] — they are drawn aligned.
-    · "pie" (fraction circle, like slicing a pizza): nums=[total parts, shaded parts]; or two circles to compare: [parts1, shaded1, parts2, shaded2]. The clearest way to show what a fraction means.
-    · "numberLine": nums=[min, max, point, (optional) second point]. With two points an arrow shows the jump from the first to the second — great for adding/subtracting, comparing, decimals.
+    · "fractionBar": nums=[total parts, shaded parts]. For comparing or common denominators give two bars: nums=[parts1, shaded1, parts2, shaded2] — they are drawn aligned. Shaded may exceed total (improper fraction): [3,4] is four thirds, drawn as two wholes in a row labelled 4/3. Do not fake it with a "one whole + remainder" pair.
+    · "pie" (fraction circle, like slicing a pizza): nums=[total parts, shaded parts]; or two circles to compare: [parts1, shaded1, parts2, shaded2]. The clearest way to show what a fraction means. Shaded may exceed total (improper fraction): [4,7] is seven quarters, drawn as two circles labelled 7/4.
+    · "numberLine": nums=[min, max, point, (optional) second point]. With two points an arrow shows the jump from the first to the second — great for adding/subtracting, comparing, decimals. For fractions you must give a 5th number = how many equal parts each whole unit is cut into: [0,1,0.75,0.75,4] draws quarter ticks and labels the dot 3/4 instead of 0.75 (repeat the point if there is only one). The dot must land exactly on a tick or the picture is dropped.
     · "areaGrid": nums=[rows, cols, shaded rows, shaded cols]. When both rows and cols are partial, the overlap is highlighted — great for fraction × fraction and the meaning of multiplication.
     · "barModel": labels=["A","B"...], nums=[amounts...]. Great for comparisons, sharing, multiples.
     · "groups" (groups of dots): nums=[groups, per group, (optional) left over]. Great for the meaning of multiplication, equal sharing, division with remainders.
@@ -541,11 +546,11 @@ const JSON_HINT = {
   zh: `
 
 【输出格式要求】只输出一个 JSON 对象，不要任何其他文字、不要 markdown 代码块。字符串值里不要出现英文双引号 "（要引用词语用「」或“”），反斜杠要写成 \\\\（如 \\\\frac）。JSON 必须符合这个结构：
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls|stemLeaf|stackedBar|histogram|coordGrid|angle|areaModel|baseTen|hundredthsGrid|hundredChart|dataTable|probLine|funcGraph|rightTriangle|triangle|unitCircle","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"${(VISUAL_TYPES||["none"]).join("|")}","nums":[数字...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`,
   en: `
 
 [Output format] Output ONE JSON object only — no other text, no markdown code fences. Never put a double-quote character " inside a string value (use single quotes or “ ” to quote words), and escape every backslash as \\\\ (e.g. \\\\frac). It must match this structure:
-{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"none|fractionBar|pie|numberLine|areaGrid|barModel|groups|shapeRect|shapeTriangle|shapeCircle|clock|placeValue|balance|pieChart|solidCuboid|solidCube|solidCylinder|solidCone|solidSphere|netCuboid|netCylinder|statBar|statLine|average|spinner|balls|stemLeaf|stackedBar|histogram|coordGrid|angle|areaModel|baseTen|hundredthsGrid|hundredChart|dataTable|probLine|funcGraph|rightTriangle|triangle|unitCircle","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
+{"title":"...","isMath":true,"steps":[{"say":"...","math":"...","visual":{"type":"${(VISUAL_TYPES||["none"]).join("|")}","nums":[numbers...],"labels":["..."],"caption":"..."}}],"answer":"...","practice":{"question":"...","answer":"..."}}`
 };
 
 /* ---------------- FSA 模拟卷（P4）----------------
@@ -3093,6 +3098,12 @@ const server = http.createServer(async (req, res) => {
         return send(res, 200, { ok: true });
       }
       return send(res, 200, { record: list[i] });
+    }
+
+    /* 配图契约：前端 renderVisual 开机拉一次，违约的图就不画。
+     * 纯 schema 元数据，不含任何孩子的数据，所以不走 allow()。 */
+    if (url.pathname === "/api/visual-contract" && req.method === "GET") {
+      return send(res, 200, VISUAL_CONTRACT || { types: {} });
     }
 
     if (url.pathname === "/api/curriculum" && req.method === "GET") {

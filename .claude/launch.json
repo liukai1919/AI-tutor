@@ -4,26 +4,39 @@
     {
       "name": "yuanyuan",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["server.js"],
+      "runtimeArgs": [
+        "server.js"
+      ],
       "port": 8434,
       "autoPort": true
     },
     {
       "name": "yuanyuan-test",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "process.env.PORT='8435';require('./server.js')"],
+      "runtimeArgs": [
+        "-e",
+        "process.env.PORT=String(8435);process.argv[1]=require(\"path\").resolve(\"server.js\");require(\"module\").runMain();"
+      ],
       "port": 8435
     },
     {
       "name": "voice-abtest",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/serve_static.mjs", "build/voice-abtest", "8931"],
+      "runtimeArgs": [
+        "tools/serve_static.mjs",
+        "build/voice-abtest",
+        "8931"
+      ],
       "port": 8931
     },
     {
       "name": "voice-abtest2",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/serve_static.mjs", "build/voice-abtest2", "8932"],
+      "runtimeArgs": [
+        "tools/serve_static.mjs",
+        "build/voice-abtest2",
+        "8932"
+      ],
       "port": 8932
     }
   ]

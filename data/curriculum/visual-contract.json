@@ -1,0 +1,208 @@
+{
+  "schema": "yy-visual-contract/2",
+  "version": "2",
+  "updated": "2026-08-25",
+  "note": [
+    "课程 steps[].visual 的唯一事实源。三个消费方都读它，不许再各抄一份：",
+    "  1) public/index.html 的 renderVisual —— 违约就不画（降级成无图），不再静默钳位；",
+    "  2) tools/curriculum/visual_check.mjs —— 内容入库前的 preflight / CI 门禁；",
+    "  3) AITutor-APPLE 的 LessonValidator —— 通过 sync-skills.sh 拉走这个文件。",
+    "为什么要有它：2026-08-25 之前白名单数目在三处各说各话（36 / 39 / 41），",
+    "而且两端对越界的处理不一样（web 钳位画错图、Apple 降级成无图），同一份数据两种坏法。",
+    "改这个文件 = 改契约：两端必须同版本，version 号跟着升。"
+  ],
+  "capabilities": {
+    "_note": "v2 新增的两种画法。客户端只实现到 v1 的，遇到它们必须降级成无图——千万别按 v1 的老办法硬画（分子会被钳到分母，正好把课讲反）。两端都实现了再放内容进来。",
+    "improperFraction": {
+      "since": 2,
+      "types": ["fractionBar", "pie"],
+      "how": "分子 > 分母时画 ceil(n/d) 个整体连排、同一个颜色、整组只标一次 n/d；两条一起画时整体宽度按最多的那条取齐",
+      "why": "比 1 大的分数以前根本画不出来，内容一直靠「两张图并排 + 图注让孩子自己相加」绕（现网 15 步），看图模式下这个绕法就露馅了",
+      "fallback": "没实现就当非法 → 无图"
+    },
+    "numberLineSubdivision": {
+      "since": 2,
+      "types": ["numberLine"],
+      "how": "nums[4] = 每一整格再平分几小份：打小刻度、标记点标成分数（带分数就整数在左、分数竖着摞在右），并且不画跳跃箭头（给了分母就是比大小）",
+      "why": "数轴以前只按整数打格、点标成小数，分数课上「四分之三」配着 0.75（现网 44 步图注只讲分数、屏幕却是小数）",
+      "fallback": "没实现就当非法 → 无图；不给第 5 个数就是 v1 老写法，画法一模一样"
+    }
+  },
+  "rules": {
+    "lenIn": "nums 的长度必须是列出的值之一",
+    "int": "指定下标必须是整数",
+    "range": "nums[idx] ∈ [min, max]",
+    "rangeAll": "从 from 起的每个数 ∈ [min, max]",
+    "le": "nums[idx] ≤ nums[ofIdx]",
+    "wholes": "ceil(nums[numIdx] / nums[denIdx]) ≤ max —— 假分数最多占几个整体",
+    "count": "positive/finite 的个数 ≤ max",
+    "snapFrac": "给了 denIdx 这个分母时，标记点必须正好落在某根 1/分母 刻度上",
+    "positive": "从 from 起的每个数必须 > 0",
+    "ifLen": "该条规则只在 nums 长度等于此值时生效"
+  },
+  "types": {
+    "none": { "apple": true, "unchecked": true, "nums": "忽略" },
+
+    "fractionBar": {
+      "apple": true,
+      "nums": "[分母, 分子] 或 [分母1, 分子1, 分母2, 分子2]。分子 > 分母 = 假分数，画成几个整体连排、同色、只标一个 n/d（v2 新增）。两条时整体宽度取齐，比大小才诚实。",
+      "check": [
+        { "t": "lenIn", "values": [2, 4] },
+        { "t": "int", "idx": [0, 1, 2, 3] },
+        { "t": "range", "idx": 0, "min": 1, "max": 20 },
+        { "t": "range", "idx": 1, "min": 0, "max": 80 },
+        { "t": "wholes", "numIdx": 1, "denIdx": 0, "max": 4 },
+        { "t": "range", "idx": 2, "min": 1, "max": 20, "ifLen": 4 },
+        { "t": "range", "idx": 3, "min": 0, "max": 80, "ifLen": 4 },
+        { "t": "wholes", "numIdx": 3, "denIdx": 2, "max": 4, "ifLen": 4 }
+      ]
+    },
+
+    "pie": {
+      "apple": true,
+      "nums": "[份数, 涂色份数] 或两个圆 [份数1, 涂色1, 份数2, 涂色2]。涂色 > 份数 = 假分数，画成几个整圆连排、同色、只标一个 n/d（v2 新增）。",
+      "check": [
+        { "t": "lenIn", "values": [2, 4] },
+        { "t": "int", "idx": [0, 1, 2, 3] },
+        { "t": "range", "idx": 0, "min": 1, "max": 16 },
+        { "t": "range", "idx": 1, "min": 0, "max": 64 },
+        { "t": "wholes", "numIdx": 1, "denIdx": 0, "max": 4 },
+        { "t": "range", "idx": 2, "min": 1, "max": 16, "ifLen": 4 },
+        { "t": "range", "idx": 3, "min": 0, "max": 64, "ifLen": 4 },
+        { "t": "wholes", "numIdx": 3, "denIdx": 2, "max": 4, "ifLen": 4 }
+      ]
+    },
+
+    "numberLine": {
+      "apple": true,
+      "nums": "[最小值, 最大值, 标记点, (可选)第二个点, (可选)每单位小份数]。给了第 5 个数就按它打小刻度、标记点标成分数而不是小数（v2 新增）；只有一个点时把它写两遍占位。给了小份数，点就必须正好落在刻度上。",
+      "check": [
+        { "t": "lenIn", "values": [2, 3, 4, 5] },
+        { "t": "lt", "idx": 0, "ofIdx": 1 },
+        { "t": "inSpan", "idx": [2, 3] },
+        { "t": "int", "idx": [4] },
+        { "t": "range", "idx": 4, "min": 2, "max": 12 },
+        { "t": "snapFrac", "minIdx": 0, "ptIdx": [2, 3], "denIdx": 4 }
+      ]
+    },
+
+    "areaGrid": {
+      "apple": true,
+      "nums": "[行, 列, 高亮行, 高亮列]",
+      "check": [
+        { "t": "lenIn", "values": [2, 3, 4] },
+        { "t": "int", "idx": [0, 1, 2, 3] },
+        { "t": "range", "idx": 0, "min": 1, "max": 16 },
+        { "t": "range", "idx": 1, "min": 1, "max": 16 },
+        { "t": "le", "idx": 2, "ofIdx": 0 },
+        { "t": "le", "idx": 3, "ofIdx": 1 }
+      ]
+    },
+
+    "groups": {
+      "apple": true,
+      "nums": "[组数, 每组几个, (可选)余下几个]",
+      "check": [
+        { "t": "lenIn", "values": [2, 3] },
+        { "t": "int", "idx": [0, 1, 2] },
+        { "t": "range", "idx": 0, "min": 1, "max": 12 },
+        { "t": "range", "idx": 1, "min": 1, "max": 20 },
+        { "t": "range", "idx": 2, "min": 0, "max": 19 }
+      ]
+    },
+
+    "clock": {
+      "apple": true,
+      "nums": "[时, 分] 或两只钟 [时1, 分1, 时2, 分2]",
+      "check": [
+        { "t": "lenIn", "values": [2, 4] },
+        { "t": "int", "idx": [0, 1, 2, 3] },
+        { "t": "range", "idx": 0, "min": 0, "max": 23 },
+        { "t": "range", "idx": 1, "min": 0, "max": 59 },
+        { "t": "range", "idx": 2, "min": 0, "max": 23, "ifLen": 4 },
+        { "t": "range", "idx": 3, "min": 0, "max": 59, "ifLen": 4 }
+      ]
+    },
+
+    "spinner": {
+      "apple": true,
+      "nums": "[各区块的份数...]（最多 6 类，每类 1-12）",
+      "check": [
+        { "t": "count", "max": 6 },
+        { "t": "rangeAll", "from": 0, "min": 1, "max": 12 },
+        { "t": "int", "idx": "all" }
+      ]
+    },
+
+    "balls": {
+      "apple": true,
+      "nums": "[各颜色的个数...]（最多 6 类，每类 1-12，总数 ≤ 20 才画得下）",
+      "check": [
+        { "t": "count", "max": 6 },
+        { "t": "rangeAll", "from": 0, "min": 1, "max": 12 },
+        { "t": "int", "idx": "all" },
+        { "t": "sum", "max": 20 }
+      ]
+    },
+
+    "stemLeaf": { "apple": true, "nums": "[各数值...]（最多 16 个，0-99 的整数）",
+      "check": [ { "t": "count", "max": 16 }, { "t": "rangeAll", "from": 0, "min": 0, "max": 99 }, { "t": "int", "idx": "all" } ] },
+
+    "coordGrid": { "apple": true, "nums": "[x1, y1, x2, y2, ...] 坐标点，每个分量 |v| ≤ 12",
+      "check": [ { "t": "rangeAll", "from": 0, "min": -12, "max": 12 }, { "t": "int", "idx": "all" } ] },
+
+    "angle": { "apple": true, "nums": "[角度]（1-360）",
+      "check": [ { "t": "range", "idx": 0, "min": 1, "max": 360 } ] },
+
+    "areaModel": { "apple": true, "nums": "[被乘数, 乘数]（2-999 × 2-99）",
+      "check": [ { "t": "range", "idx": 0, "min": 2, "max": 999 }, { "t": "range", "idx": 1, "min": 2, "max": 99 }, { "t": "int", "idx": [0, 1] } ] },
+
+    "baseTen": { "apple": true, "nums": "[数值]（1-999）",
+      "check": [ { "t": "range", "idx": 0, "min": 1, "max": 999 }, { "t": "int", "idx": [0] } ] },
+
+    "hundredthsGrid": { "apple": true, "nums": "[第一色格数, (可选)第二色格数]，两者之和 ≤ 100",
+      "check": [ { "t": "range", "idx": 0, "min": 0, "max": 100 }, { "t": "range", "idx": 1, "min": 0, "max": 100 }, { "t": "sum", "max": 100 }, { "t": "int", "idx": "all" } ] },
+
+    "hundredChart": { "apple": true, "nums": "[要高亮的数...]（最多 16 个，1-100）",
+      "check": [ { "t": "count", "max": 16 }, { "t": "rangeAll", "from": 0, "min": 1, "max": 100 }, { "t": "int", "idx": "all" } ] },
+
+    "probLine": { "apple": true, "nums": "[各事件的可能性 0~1...]（最多 4 个）",
+      "check": [ { "t": "count", "max": 4 }, { "t": "rangeAll", "from": 0, "min": 0, "max": 1 } ] },
+
+    "placeValue": { "apple": true, "nums": "[数值]（整数部分最多 10 位，排到十亿位；小数部分最多 3 位）",
+      "check": [ { "t": "range", "idx": 0, "min": -9999999999, "max": 9999999999 } ] },
+
+    "barModel":  { "apple": true, "nums": "[各段长度...]（最多 6 段，非负）",
+      "check": [ { "t": "count", "max": 6 }, { "t": "rangeAll", "from": 0, "min": 0, "max": null } ] },
+    "pieChart":  { "apple": true, "nums": "[各扇区数值...]（最多 6 个，> 0）",
+      "check": [ { "t": "count", "max": 6 }, { "t": "positive", "from": 0 } ] },
+    "average":   { "apple": true, "nums": "[各数值...]（最多 8 个，非负）",
+      "check": [ { "t": "count", "max": 8 }, { "t": "rangeAll", "from": 0, "min": 0, "max": null } ] },
+    "histogram": { "apple": true, "nums": "[各组频数...]（最多 8 组，非负）",
+      "check": [ { "t": "count", "max": 8 }, { "t": "rangeAll", "from": 0, "min": 0, "max": null } ] },
+
+    "statBar":    { "apple": true, "nums": "parseStatSeries：单列或复式，复式时前后两段等长，类别 ≤ 8", "check": [ { "t": "statSeries", "max": 8 } ] },
+    "statLine":   { "apple": true, "nums": "同 statBar，至少 2 个点", "check": [ { "t": "statSeries", "max": 8, "min": 2 } ] },
+    "stackedBar": { "apple": true, "nums": "同 statBar，只有给了两段才叠", "check": [ { "t": "statSeries", "max": 8 } ] },
+    "dataTable":  { "apple": true, "nums": "同 statBar，但允许负数（代数表/温度/账目）", "check": [ { "t": "statSeries", "max": 8, "allowNeg": true } ] },
+
+    "shapeRect":     { "apple": true, "nums": "[长, 宽]，按比例画", "check": [ { "t": "positive", "from": 0 } ] },
+    "shapeTriangle": { "apple": true, "nums": "[底, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "shapeCircle":   { "apple": true, "nums": "[半径]", "check": [ { "t": "positive", "from": 0 } ] },
+    "solidCuboid":   { "apple": true, "nums": "[长, 宽, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "solidCube":     { "apple": true, "nums": "[棱长]", "check": [ { "t": "positive", "from": 0 } ] },
+    "solidCylinder": { "apple": true, "nums": "[半径, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "solidCone":     { "apple": true, "nums": "[半径, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "solidSphere":   { "apple": true, "nums": "[半径]", "check": [ { "t": "positive", "from": 0 } ] },
+    "netCuboid":     { "apple": true, "nums": "[长, 宽, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "netCylinder":   { "apple": true, "nums": "[半径, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "rightTriangle": { "apple": true, "nums": "[底边, 竖直边]", "check": [ { "t": "positive", "from": 0 } ] },
+    "triangle":      { "apple": true, "nums": "[边a, 边b, 边c] 或 [底, 高]", "check": [ { "t": "positive", "from": 0 } ] },
+    "balance":       { "apple": true, "unchecked": true, "nums": "[倾向]（正=左重，负=右重，0=平），labels 给两边的文字" },
+
+    "funcGraph":  { "apple": false, "appleNote": "G8-G12 用，Apple 端还没画；出现在 G4-G7 微课里会被降级成无图",
+      "nums": "[x最小, x最大, y最小, y最大]（可省略），labels 给表达式", "check": [] },
+    "unitCircle": { "apple": false, "appleNote": "同上",
+      "nums": "[标准位置角]（-360~720）", "check": [ { "t": "range", "idx": 0, "min": -360, "max": 720 } ] }
+  }
+}
