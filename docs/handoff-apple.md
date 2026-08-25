@@ -125,7 +125,8 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 - 判定实现 `public/visual-check.js` —— 浏览器 `<script src>` 和 node `require()` 是同一个文件；
 - preflight `node tools/curriculum/visual_check.mjs` —— 违约退出码 1，现状全库零违约；
 - v2 新增两种画法（假分数、数轴分数刻度），带 `since: 2` 标记，**只实现到 v1 的客户端遇到必须降级成无图**；
-- 几何规格、为什么这么定、现网存量清单：见 [visual-contract-v2.md](visual-contract-v2.md)。
+- 几何规格、为什么这么定、现网存量清单：见 [visual-contract-v2.md](visual-contract-v2.md)；
+- **你们该干什么、按什么顺序、别踩哪几个坑**：见 [apple-todo-visual-v2.md](apple-todo-visual-v2.md)。
 
 `steps[].headline` 是同期加的可选字段（看图模式下没图的步骤靠它撑住屏幕），
 解码用 `decodeIfPresent`，老内容不带它。
