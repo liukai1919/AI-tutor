@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.DISCOUNT",
+ "lang": "en",
+ "title": "Work out a percentage discount and the sale price",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Sale Signs: Finding the Discount and the Sale Price",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like twenty five percent of eighty. Today we use that same skill in a real place you have been to before, the store, where a sign says twenty percent off. That sign is asking you two little questions, and we are going to answer both.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40
+     ],
+     "labels": [
+      "Full price"
+     ],
+     "caption": "A hoodie at the mall: forty dollars before the sale"
+    }
+   },
+   {
+    "say": "Here is the whole idea. The word off means taken away. So first you find the percent of the price, and that piece is called the discount, the money you save. Then you take that piece away from the full price, and what is left is the sale price, the money you actually hand to the cashier. Two steps, always in that order.",
+    "math": "\\text{Sale price} = \\text{Full price} - \\text{Discount}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      8,
+      32
+     ],
+     "labels": [
+      "Full price",
+      "Discount",
+      "Sale price"
+     ],
+     "caption": "The full bar breaks into two pieces: what you save, and what you pay"
+    }
+   },
+   {
+    "say": "Let us do it with real numbers. A hoodie in Vancouver costs forty dollars, and the sign says twenty percent off. Step one, find twenty percent of forty. Ten percent of forty is four, so twenty percent is double that, eight dollars. That is the discount. Step two, take it away. Forty minus eight is thirty two. So the sale price is thirty two dollars.",
+    "math": "20\\% \\text{ of } 40 = 8 \\quad\\rightarrow\\quad 40 - 8 = 32",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      20,
+      80
+     ],
+     "labels": [],
+     "caption": "Twenty out of one hundred squares is the discount; the other eighty is what you still pay"
+    }
+   },
+   {
+    "say": "Now here is the trap almost everybody falls into once. Someone works out the eight dollars, feels finished, and says the hoodie costs eight dollars. But look at the picture. Eight dollars is only the little saved piece, not the price. If a forty dollar hoodie really cost eight dollars, that would be a huge sale, way more than twenty percent off. So whenever you find a number, ask yourself, is this the money I save, or the money I pay?",
+    "math": "8 \\neq 32",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      32
+     ],
+     "labels": [
+      "Saved (discount)",
+      "Paid (sale price)"
+     ],
+     "caption": "The small piece is what you save; the big piece is what you pay"
+    }
+   },
+   {
+    "say": "One quick check that saves you every time. Twenty percent off means you still pay the other eighty percent, so the sale price should be most of the original. Thirty two dollars is most of forty dollars, so it makes sense. Eight dollars would not.",
+    "math": "100\\% - 20\\% = 80\\%",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      40,
+      40,
+      32
+     ],
+     "labels": [],
+     "caption": "Starting at forty dollars and jumping down eight dollars lands on thirty two"
+    }
+   },
+   {
+    "say": "So remember, find the discount first, then subtract it. The discount is what you save, the sale price is what you pay.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the discount first, then subtract it: full price minus discount equals sale price.",
+  "practice": {
+   "question": "A bike helmet at a shop in Victoria costs sixty dollars, and the sign says twenty five percent off. First work out the discount, the money you save. Then work out the sale price, the money you pay. Try drawing one long bar for sixty dollars and splitting it into the saved piece and the paid piece.",
+   "answer": "The discount is fifteen dollars, because twenty five percent of sixty is fifteen. The sale price is forty five dollars, because sixty minus fifteen is forty five."
+  }
+ }
+}

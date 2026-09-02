@@ -1,0 +1,83 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.ESTIMATE",
+ "lang": "en",
+ "title": "Estimate sums and differences to check whether an answer is reasonable",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Is That Answer Reasonable? Estimate to Check!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to round numbers to the nearest hundred or thousand — today we use that skill as a little detective tool, to check whether an answer we got is believable before we say we are done.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Say the Burnaby school fundraiser collected four thousand one hundred eighty-seven dollars in the fall and two thousand nine hundred six dollars in the spring. Before adding carefully, round each number to the nearest thousand: four thousand one hundred eighty-seven becomes four thousand, and two thousand nine hundred six becomes three thousand. Four thousand plus three thousand is seven thousand. That is our estimate — the neighbourhood where the real answer should live.",
+    "math": "4187+2906\\approx 4000+3000=7000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      6000,
+      8000,
+      7000
+     ],
+     "labels": [],
+     "caption": "Our estimate: the answer should land near 7000"
+    }
+   },
+   {
+    "say": "Now we add for real: four thousand one hundred eighty-seven plus two thousand nine hundred six equals seven thousand ninety-three. Look where that sits on the number line — snuggled right up beside our estimate of seven thousand. Because the real answer is very close to the neighbourhood we predicted, we can say with confidence: yes, that answer is reasonable.",
+    "math": "4187+2906=7093",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      6000,
+      8000,
+      7000,
+      7093
+     ],
+     "labels": [],
+     "caption": "7093 sits right beside 7000 — reasonable!"
+    }
+   },
+   {
+    "say": "Now watch a mistake. A student subtracts six thousand two hundred fourteen minus two thousand eight hundred seventy-five and writes four thousand three hundred thirty-nine. Let us check. Six thousand two hundred fourteen rounds to six thousand, and two thousand eight hundred seventy-five rounds to three thousand. Six thousand minus three thousand is three thousand. But four thousand three hundred thirty-nine is more than a whole thousand away from three thousand — way outside the neighbourhood! That is a warning bell, so we subtract again slowly and find the true answer, three thousand three hundred thirty-nine. The estimate did not give the answer; it caught the error.",
+    "math": "6214-2875\\approx 6000-3000=3000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      2000,
+      5000,
+      3000,
+      4339
+     ],
+     "labels": [],
+     "caption": "4339 is far from the estimate 3000 — check again!"
+    }
+   },
+   {
+    "say": "So remember, estimating is not extra work — it is your safety check. Round, do the easy math in your head, then ask yourself: is my real answer sitting close to that?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Round first, then ask: is my answer close to the estimate? Close means reasonable; far away means check again.",
+  "practice": {
+   "question": "A Vancouver school raised three thousand two hundred fifty dollars in the fall and four thousand seven hundred eighty dollars in the spring. Ravi says the total is eight thousand thirty dollars. Round each amount to the nearest thousand, find your estimate, and decide: is Ravi's answer reasonable?",
+   "answer": "Three thousand two hundred fifty rounds to three thousand, and four thousand seven hundred eighty rounds to five thousand. Three thousand plus five thousand is eight thousand. Ravi's answer of eight thousand thirty dollars is very close to eight thousand, so yes — it is reasonable."
+  }
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.RECT_FORMULA",
+ "lang": "en",
+ "title": "Find the area of rectangles and squares with length × width",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Area of Rectangles: Just Multiply the Two Sides",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find area by counting little square units. But counting one by one takes forever when a shape is big! Today I will show you a quick shortcut that gets the same answer.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      5,
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "Counting squares one by one works, but it is slow"
+    }
+   },
+   {
+    "say": "Here is the trick. In a rectangle, each row has the same number of squares. This rectangle has five squares in every row, and there are three rows. So instead of counting all of them, I can just do five times three, which is fifteen. That is why area equals length times width.",
+    "math": "5 \\times 3 = 15",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "Three rows of five squares — that is why we multiply"
+    }
+   },
+   {
+    "say": "Let us try a real one. Your school garden bed is six metres long and four metres wide. Area equals length times width, so six times four equals twenty four. The unit is square metres, because we are covering the ground with squares. So the area is twenty four square metres.",
+    "math": "A = 6 \\times 4 = 24 \\text{ m}^2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A six metre by four metre garden bed"
+    }
+   },
+   {
+    "say": "Now the trap I want you to dodge. Some kids look at a five by three rectangle and write eight. That is adding, not multiplying, and adding the two sides does not tell you how much space is inside. Other kids answer sixteen, but that is the perimeter, the distance all the way around the edge. Area is the inside, so it is always five times three, which is fifteen square centimetres.",
+    "math": "5 + 3 = 8 \\;\\text{✗} \\qquad 5 \\times 3 = 15 \\;\\text{✓}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Inside space means multiply: fifteen square centimetres"
+    }
+   },
+   {
+    "say": "A square is even easier, because all four sides are the same. If a tile is seven centimetres on every side, the area is seven times seven, which is forty nine square centimetres.",
+    "math": "A = 7 \\times 7 = 49 \\text{ cm}^2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      7,
+      7
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A square tile: same number times itself"
+    }
+   },
+   {
+    "say": "So remember this. To find area, multiply the two sides together, and always finish your answer with square units.",
+    "math": "A = l \\times w",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Area equals length times width — multiply the two sides, never add them, and write the answer in square units.",
+  "practice": {
+   "question": "A rectangular hockey rink poster in your classroom is nine centimetres long and five centimetres wide. What is its area? Try sketching the rectangle and labelling the two sides before you multiply.",
+   "answer": "Nine times five equals forty five, so the area is forty five square centimetres."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PRIME_FACTORIZATION",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5l6seefb32w8",
+   "level": 1,
+   "question": "A factor tree for 18 starts with 18 at the top. The first split gives 2 and 9. The 2 is circled because it is prime, and the 9 splits into 3 and 3. So the circled primes at the bottom of the tree are 2, 3 and 3. Which line writes 18 as a product of primes using an exponent?",
+   "options": [
+    "2 × 3²",
+    "2 × 9",
+    "2 × 3³",
+    "2² × 3"
+   ],
+   "answerIndex": 0,
+   "explain": "Collect the circled primes 2, 3, 3: there is one 2 and two 3s, so 18 = 2 × 3². The usual traps are leaving 9 in the answer (9 is composite, it must keep splitting) and writing 3³ when only two 3s were circled — the exponent counts how many times the prime appears.",
+   "tags": [
+    "ok",
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5l6seedn3t0w",
+   "level": 1,
+   "question": "A factor tree for 20 begins by splitting 20 into 4 and 5. The 5 is circled because it is prime. The 4 splits into 2 and 2, and both are circled. The circled primes at the bottom are 2, 2 and 5. Which line writes 20 as a product of primes using an exponent?",
+   "options": [
+    "4 × 5",
+    "2² × 5",
+    "2³ × 5",
+    "2² × 5²"
+   ],
+   "answerIndex": 1,
+   "explain": "Two 2s and one 5 were circled, so 20 = 2² × 5, and you can check 4 × 5 = 20. Watch two traps: 4 × 5 stops at the composite 4 instead of splitting it, and an exponent must match the count — there are two 2s (not three) and only one 5.",
+   "tags": [
+    "pf.stop_at_composite",
+    "ok",
+    "pf.exponent_miscount",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5l6seex3scne",
+   "level": 1,
+   "question": "A factor tree for 28 splits 28 into 2 and 14. The 2 is circled because it is prime. Then 14 splits into 2 and 7, and both of those are circled. The circled primes at the bottom of the tree are 2, 2 and 7. Which line writes 28 as a product of primes using an exponent?",
+   "options": [
+    "2 × 14",
+    "2³ × 7",
+    "2² × 7",
+    "2 × 7²"
+   ],
+   "answerIndex": 2,
+   "explain": "The tree circled two 2s and one 7, so 28 = 2² × 7, and 4 × 7 = 28 checks it. The common slips are stopping at 2 × 14 (14 is composite, so the tree is not finished) and giving 2 an exponent of 3 when only two 2s appear.",
+   "tags": [
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5l6seey63a5i",
+   "level": 1,
+   "question": "Ravi starts a factor tree for 24 by writing 24 at the top and splitting it into 4 and 6. He then splits the 4 into 2 and 2, and splits the 6 into 2 and 3. The circled primes at the bottom are 2, 2, 2 and 3. Which line shows 24 as a product of primes using an exponent?",
+   "options": [
+    "4 × 6",
+    "2² × 6",
+    "2² × 3",
+    "2³ × 3"
+   ],
+   "answerIndex": 3,
+   "explain": "Three 2s and one 3 were circled, so 24 = 2³ × 3, and 8 × 3 = 24. A factor tree is only finished when every branch end is prime, so 4 × 6 and 2² × 6 stop too early, and 2² × 3 counts only two of the three 2s.",
+   "tags": [
+    "pf.stop_at_composite",
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5l6seeovuat5",
+   "level": 2,
+   "question": "Write 84 as a product of prime factors using exponents.",
+   "options": [
+    "2² × 3 × 7",
+    "2³ × 3 × 7",
+    "4 × 21",
+    "2² × 21"
+   ],
+   "answerIndex": 0,
+   "explain": "Split 84 into 4 × 21, then 4 into 2 × 2 and 21 into 3 × 7, giving primes 2, 2, 3, 7, so 84 = 2² × 3 × 7. Keep splitting until nothing composite is left (4 and 21 both still break down), and check the exponent: 2³ × 3 × 7 would be 168, not 84.",
+   "tags": [
+    "ok",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmt5l6seet1mjj4",
+   "level": 2,
+   "question": "A hockey club in Kamloops orders 360 team stickers. The coach wants 360 written as a product of prime factors with exponents. Which one is correct?",
+   "options": [
+    "2² × 3² × 5",
+    "2³ × 3² × 5",
+    "8 × 45",
+    "2³ × 9 × 5"
+   ],
+   "answerIndex": 1,
+   "explain": "A tree gives 360 = 36 × 10 = (4 × 9) × (2 × 5), so the primes are 2, 2, 2, 3, 3, 5 and 360 = 2³ × 3² × 5 (8 × 9 × 5 = 360). Numbers like 8, 45 and 9 are composite, so they cannot stay in the answer, and dropping one 2 gives only 180.",
+   "tags": [
+    "pf.exponent_miscount",
+    "ok",
+    "pf.stop_at_composite",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmt5l6seecqzpr0",
+   "level": 2,
+   "question": "A number written as a product of its prime factors is 2 × 3² × 5. What is the number?",
+   "options": [
+    "30",
+    "60",
+    "90",
+    "180"
+   ],
+   "answerIndex": 2,
+   "explain": "An exponent tells you how many times to multiply the prime by itself, so 3² = 3 × 3 = 9, and 2 × 9 × 5 = 90. The classic traps are ignoring the exponent (2 × 3 × 5 = 30) or attaching it to the wrong prime.",
+   "tags": [
+    "pf.exponent_miscount",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5l6seew47t5v",
+   "level": 2,
+   "question": "An art class in Victoria uses 144 small square tiles to make one big mosaic. Which line writes 144 as a product of prime factors with exponents?",
+   "options": [
+    "16 × 9",
+    "2⁴ × 3",
+    "2³ × 3²",
+    "2⁴ × 3²"
+   ],
+   "answerIndex": 3,
+   "explain": "Split 144 into 16 × 9, then 16 into 2 × 2 × 2 × 2 and 9 into 3 × 3, so 144 = 2⁴ × 3² (16 × 9 = 144). Both 16 and 9 are composite, so the tree is not done until they are broken apart, and each exponent must match how many of that prime you circled.",
+   "tags": [
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "pf.exponent_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5l6seewfqmzk",
+   "level": 3,
+   "question": "Owen makes a factor tree for the 40 stickers in his binder. His finished tree circles the primes 2, 2, 2 and 5. He writes 40 = 2² × 5 because he says the exponent shows there is more than one 2. Which line should Owen have written?",
+   "options": [
+    "2³ × 5",
+    "2² × 5",
+    "8 × 5",
+    "3 × 2 × 5"
+   ],
+   "answerIndex": 0,
+   "explain": "The exponent counts how many times the prime is used as a factor, and 2 × 2 × 2 = 2³, so 40 = 2³ × 5 (8 × 5 = 40). Owen's version 2² × 5 is only 20 — check by multiplying back, and remember 8 is composite so it cannot be left in a prime factorization.",
+   "tags": [
+    "ok",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l6seevbbjep",
+   "level": 3,
+   "question": "Sofia buys 3 boxes of granola bars for a Surrey school hike, and each box holds 25 bars. She wants the total number of bars written as a product of prime factors with exponents. Which line is correct?",
+   "options": [
+    "3 × 25",
+    "3 × 5²",
+    "3 × 5³",
+    "3² × 5"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the total, 3 × 25 = 75, then build the tree: 75 = 3 × 25 and 25 = 5 × 5, so 75 = 3 × 5². Stopping at 3 × 25 leaves the composite 25 unsplit, and 5³ would mean three 5s when the tree circled only two.",
+   "tags": [
+    "pf.stop_at_composite",
+    "ok",
+    "pf.exponent_miscount",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5l6seebf61p4",
+   "level": 3,
+   "question": "A community hall in Nanaimo sets up 4 rows of chairs with 27 chairs in each row. Written as a product of prime factors with exponents, the total number of chairs is:",
+   "options": [
+    "2² × 27",
+    "2³ × 3³",
+    "2² × 3³",
+    "2² × 3²"
+   ],
+   "answerIndex": 2,
+   "explain": "The total is 4 × 27 = 108; then 4 = 2 × 2 and 27 = 3 × 3 × 3, so 108 = 2² × 3³ (4 × 27 = 108). Leaving 27 in the answer means the tree is unfinished, and multiplying your exponent form back is the quickest way to catch a miscount like 2³ × 3³ = 216.",
+   "tags": [
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmt5l6sefbruniz",
+   "level": 3,
+   "question": "Jordan checks four classmates' answers for 252 written as a product of prime factors with exponents. Only one is finished and correct. Which one is it?",
+   "options": [
+    "2² × 9 × 7",
+    "2³ × 3² × 7",
+    "4 × 3² × 7",
+    "2² × 3² × 7"
+   ],
+   "answerIndex": 3,
+   "explain": "Building the tree, 252 = 4 × 63 = (2 × 2) × (7 × 9) = (2 × 2) × 7 × (3 × 3), so 252 = 2² × 3² × 7. Any answer still holding a composite such as 9 or 4 is not finished, and multiplying back catches the miscount 2³ × 3² × 7 = 504.",
+   "tags": [
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite",
+    "ok"
+   ]
+  }
+ ]
+}

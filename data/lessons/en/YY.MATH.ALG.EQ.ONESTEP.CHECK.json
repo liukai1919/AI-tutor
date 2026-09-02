@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.CHECK",
+ "lang": "en",
+ "title": "Solve one-step equations (x + 5 = 11) and verify by substitution",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Undo the Plus: Solving x plus 5 equals 11",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve equations like three x equals twelve by asking what undoes the times. Today we use that same thinking for x plus five equals eleven, and then we check our answer to be really sure.",
+    "math": "x + 5 = 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 5",
+      "11"
+     ],
+     "caption": "Both sides weigh the same — the scale is balanced"
+    }
+   },
+   {
+    "say": "Think of an equation as a balance scale. On the left pan sits a mystery bag called x, plus five gram weights. On the right pan sits eleven gram weights. They balance, so whatever is in that bag must make the left side weigh eleven too.",
+    "math": "x + 5 = 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 5",
+      "11"
+     ],
+     "caption": "The mystery bag x, plus 5 grams, balances 11 grams"
+    }
+   },
+   {
+    "say": "Here is the key move. To find out what the bag weighs on its own, I take five grams off the left pan. But if I only take from one side, the scale tips! So I must take five off the right side too. Eleven take away five is six. So x equals six. Notice we subtracted because the equation added — we always do the opposite.",
+    "math": "x + 5 - 5 = 11 - 5 \\Rightarrow x = 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "6"
+     ],
+     "caption": "Take 5 off both sides: the bag alone weighs 6 grams"
+    }
+   },
+   {
+    "say": "Now let's check by substitution, which just means putting our answer back in. Replace x with six: six plus five equals eleven. Eleven equals eleven — true! That tick mark means we can trust our answer.",
+    "math": "6 + 5 = 11 \\quad \\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "6 + 5",
+      "11"
+     ],
+     "caption": "Substitute x = 6 — both sides really are 11"
+    }
+   },
+   {
+    "say": "Watch out for this common slip. Some kids see the plus five and add: eleven plus five is sixteen, so they write x equals sixteen. Let's test it. Sixteen plus five is twenty-one, and twenty-one is not eleven. The scale crashes down on the left! Adding was the wrong move — the equation already added five, so we must subtract five to undo it.",
+    "math": "16 + 5 = 21 \\neq 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "16 + 5",
+      "11"
+     ],
+     "caption": "x = 16 makes the left side far too heavy — wrong inverse!"
+    }
+   },
+   {
+    "say": "So remember: do the opposite operation to both sides, then always substitute your answer back to prove it works.",
+    "math": "x + 5 = 11 \\Rightarrow x = 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "6 + 5",
+      "11"
+     ],
+     "caption": "Solved and checked — still perfectly balanced"
+    }
+   }
+  ],
+  "answer": "Undo a plus with a minus on both sides — then plug your answer back in to check it.",
+  "practice": {
+   "question": "Maya has some money in her piggy bank. Her grandma in Kelowna gives her seven more dollars, and now she has fifteen dollars. Writing m for her starting money, the equation is m plus seven equals fifteen. Solve for m, then check your answer by substituting it back in.",
+   "answer": "m equals eight. Subtract seven from both sides: fifteen minus seven is eight. Check: eight plus seven equals fifteen — true, so Maya started with eight dollars."
+  }
+ }
+}

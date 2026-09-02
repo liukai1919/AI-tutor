@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.TOTALS_TO_100",
+ "lang": "en",
+ "title": "Calculate the total cost of several items (to $100)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Adding Up What You Buy",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add decimals by lining up the decimal point. Today we use that same trick for something real: figuring out the total cost when you buy a few things at the store.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the idea. Every price is its own little bar, and the total is all the bars pushed together into one long bar. So to find a total cost, you just add the prices, one at a time. Let us shop for school supplies in Kelowna: a notebook for four dollars and twenty-five cents, a water bottle for twelve dollars and fifty cents, and a backpack for twenty-eight dollars and seventy-five cents.",
+    "math": "\\$4.25 \\;+\\; \\$12.50 \\;+\\; \\$28.75 \\;=\\; ?",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.25,
+      12.5,
+      28.75
+     ],
+     "labels": [
+      "Notebook",
+      "Water bottle",
+      "Backpack"
+     ],
+     "caption": "Three prices — push them together to get the total"
+    }
+   },
+   {
+    "say": "Step one: add the first two prices. Write them one above the other with the decimal points lined up in a straight column, then add. Twenty-five cents plus fifty cents is seventy-five cents, and four dollars plus twelve dollars is sixteen dollars. So the notebook and the bottle together cost sixteen dollars and seventy-five cents.",
+    "math": "\\begin{array}{r} \\$4.25 \\\\ +\\ \\$12.50 \\\\ \\hline \\$16.75 \\end{array}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.25,
+      12.5,
+      16.75
+     ],
+     "labels": [
+      "Notebook",
+      "Water bottle",
+      "So far"
+     ],
+     "caption": "Two prices joined: 16.75"
+    }
+   },
+   {
+    "say": "Step two: take that running total and add the next price. Sixteen dollars and seventy-five cents plus twenty-eight dollars and seventy-five cents. Seventy-five cents plus seventy-five cents is one dollar and fifty cents, so we carry that one dollar over. Sixteen plus twenty-eight is forty-four, plus the carried dollar makes forty-five. The total is forty-five dollars and fifty cents.",
+    "math": "\\begin{array}{r} \\$16.75 \\\\ +\\ \\$28.75 \\\\ \\hline \\$45.50 \\end{array}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      50,
+      16.75,
+      45.5
+     ],
+     "labels": [],
+     "caption": "Jump from 16.75 up by 28.75 to land on 45.50"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. They add all the dollars to get forty-four, then add all the cents, twenty-five plus fifty plus seventy-five, and get one hundred fifty cents, and write forty-four dollars and one hundred fifty cents. But you can never have one hundred fifty cents sitting in the cents spot! One hundred cents is a whole dollar, so trade it: forty-four dollars plus one more dollar is forty-five, and fifty cents is left over. Forty-five dollars and fifty cents — the same answer as before.",
+    "math": "\\$44 + 150\\text{ cents} = \\$44 + \\$1.50 = \\$45.50",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      45.5
+     ],
+     "labels": [],
+     "caption": "45 whole dollars, 5 dimes, 0 pennies"
+    }
+   },
+   {
+    "say": "So remember: stack the prices with the decimal points lined up, add them one at a time, and trade every hundred cents for one dollar.",
+    "math": "\\$45.50",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To find a total cost, line up the decimal points and add the prices one at a time — and trade every 100 cents for 1 dollar.",
+  "practice": {
+   "question": "You are picking up groceries in Victoria. A bag of apples costs five dollars and forty cents, a block of cheese costs nine dollars and seventy-five cents, and a loaf of bread costs three dollars and eighty-five cents. Write the three prices in a stack with the decimal points lined up and add them. What is the total cost?",
+   "answer": "Nineteen dollars, written as 19.00 — because 5.40 plus 9.75 is 15.15, and 15.15 plus 3.85 is 19.00."
+  }
+ }
+}

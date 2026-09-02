@@ -6,6 +6,7 @@
 <title>Yuanyuan Math · Your AI math tutor</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="visual-check.js"></script>
 <style>
   :root{
     --bg:#fff7ee; --card:#ffffff; --ink:#3a2f2a; --muted:#8a7d74;
@@ -135,6 +136,35 @@
   .tabbtn{flex:1;border:2px solid var(--line);background:#fff;border-radius:16px;padding:12px 10px;font-size:15px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
   .tabbtn.on{border-color:var(--brand);color:var(--ink);background:var(--soft)}
   .learnGradeSel{border:2px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;font-weight:700;background:var(--soft);color:var(--ink);outline:none}
+  /* 自绘下拉：原生弹层是系统画的（白底蓝高亮），宽度还按最长选项撑——
+     「Foundations of Mathematics and Pre-calculus 10」一条就能把它顶出卡片。这里只换看得见的那层。 */
+  .fsel{position:relative;display:inline-block;max-width:100%;vertical-align:middle}
+  .fsel.full{display:block;width:100%}
+  /* 原生 select 留着当数据源，但不占位、不可点（选择器要压得过 .field select 的 width:100%） */
+  .fsel > .fselNative{position:absolute;left:0;top:0;width:1px;height:1px;padding:0;border:0;opacity:0;pointer-events:none}
+  .fselBtn{display:flex;align-items:center;gap:8px;width:100%;max-width:100%;border:2px solid var(--line);border-radius:12px;
+    padding:8px 10px;font-size:14px;font-weight:700;font-family:inherit;background:var(--soft);color:var(--ink);cursor:pointer;text-align:left;transition:.15s}
+  .fsel.full .fselBtn{border-radius:14px;padding:12px 14px;font-size:16px}
+  .fselBtn .fv{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .fselBtn .fc{flex:0 0 auto;font-size:12px;color:var(--muted);opacity:.8;transition:transform .15s}
+  .fselBtn:hover{border-color:var(--brand)}
+  .fselBtn:disabled{opacity:.5;cursor:default}
+  .fsel.open .fselBtn{border-color:var(--brand);background:#fff}
+  .fsel.open .fselBtn .fc{transform:rotate(180deg)}
+  .fselPop{position:fixed;z-index:100;background:var(--card);border:2px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:6px;overflow-y:auto;overscroll-behavior:contain}
+  .fselPop::-webkit-scrollbar{width:8px}
+  .fselPop::-webkit-scrollbar-thumb{background:#e8dccf;border-radius:99px}
+  .fselGrp{font-size:11.5px;font-weight:800;color:var(--muted);padding:9px 10px 3px;letter-spacing:.3px}
+  .fselGrp:first-child{padding-top:4px}
+  .fselOpt{display:flex;align-items:flex-start;gap:8px;border-radius:11px;padding:8px 10px;font-size:14px;font-weight:700;
+    color:var(--ink);line-height:1.45;cursor:pointer}
+  .fselOpt .ft{flex:1;min-width:0;word-break:break-word}   /* 长课名换行，不再横着撑 */
+  .fselOpt .fk{flex:0 0 auto;color:var(--brand);opacity:0}
+  .fselOpt:hover,.fselOpt.hot{background:var(--soft)}
+  .fselOpt.on{background:var(--soft);color:var(--brand)}
+  .fselOpt.on .fk{opacity:1}
+  .fselOpt.ing{padding-left:20px}
   .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:2px 0 6px}
   .sdot{display:inline-block;width:10px;height:10px;border-radius:999px;background:#ddd2c6;vertical-align:middle;margin-right:5px;flex:0 0 auto}
   .sdot.seen{background:var(--brand2)}
@@ -158,12 +188,33 @@
   .learnItem .le{color:var(--muted);font-size:12px;margin-top:2px}
   .learnItem .st{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;flex:0 0 auto}
   .learnEmpty{color:var(--muted);text-align:center;padding:26px 8px;font-size:14px;line-height:1.7}
+  /* 技能图谱视图：主题可折叠（一个年级 50-70 个技能，全摊开没法看），技能行带类型徽章 */
+  .strandHead.tp{cursor:pointer;user-select:none}
+  .strandHead .tw{flex:0 0 auto;color:var(--muted);font-size:12px;transition:transform .15s;margin-top:2px}
+  .strandHead.open .tw{transform:rotate(90deg)}
+  .strandHead .tn{margin-left:8px;font-size:11.5px;color:var(--muted);font-weight:700}
+  .skBadge{flex:0 0 auto;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 7px;letter-spacing:.2px;
+    border:1.5px solid var(--line);color:var(--muted);background:var(--soft);white-space:nowrap}
+  .skBadge.concept{border-color:#8ec5ff;color:#1d6fd0}
+  .skBadge.represent{border-color:#b6a6f5;color:#6146c6}
+  .skBadge.procedure{border-color:#ffc78a;color:#c06a10}
+  .skBadge.reason{border-color:#9adcb4;color:#1f7a4d}
+  .skBadge.apply{border-color:#ff9fb0;color:#c4344f}
+  .skBadge.fluency{border-color:#d5d5d5;color:#6b6b6b}
+  .skMeta{color:var(--muted);font-size:11.5px;margin-top:3px}
+  .skFix{color:#c4344f;font-size:11.5px;margin-top:3px;line-height:1.5}
+  .skFix .fixLink{text-decoration:underline;cursor:pointer;font-weight:700}
+  .learnItem.ovw{background:var(--soft);border-style:dashed}
+  .learnItem.ovw .lz{font-size:14px}
+  .ovwIcon{flex:0 0 auto;font-size:15px;opacity:.75}
+  .learnItem.rev{border-style:dashed}
+  .learnItem.ext{opacity:.72}
   .judgeRow{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-top:1.5px dashed #c9d4ff;padding-top:12px}
   .judgeRow .lab2{font-size:13px;color:var(--muted);flex-basis:100%}
   .judgeRow .btn{padding:10px 16px;font-size:15px}
   .judgeRow .btn.good{background:linear-gradient(135deg,var(--good),#6fd39c);box-shadow:0 8px 20px rgba(63,191,127,.3)}
   .judgeMsg{font-weight:700;color:var(--good)}
-  .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px}
+  .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px;white-space:pre-line}  /* pre-line：方程组等多行题干按换行显示 */
   .fsaOpts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
   .fsaOpt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);background:#fff;border-radius:14px;padding:11px 14px;font-size:15.5px;cursor:pointer;text-align:left;line-height:1.5;font-family:inherit;color:var(--ink)}
   .fsaOpt:hover{border-color:var(--brand)}
@@ -242,6 +293,21 @@
   .repTable th{background:var(--soft)}
   .weakItem{border:2px solid #ffd9b8;background:#fff7f0;border-radius:12px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.6}
 
+  /* 用量账本：表格全部复用 .repTable，只补一个横向滚动壳（窄屏别把弹窗撑破）
+     和几个小样式。首列左对齐——任务名/引擎名是文字，居中读着别扭。 */
+  .useScroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .useScroll .repTable{min-width:340px}
+  .useScroll .repTable td:first-child,.useScroll .repTable th:first-child{text-align:left}
+  .useHead{background:var(--soft);border-radius:14px;padding:12px 14px;margin-top:10px;font-size:13.5px;line-height:1.8}
+  .useHead b{font-size:20px}
+  .useSec{font-size:13px;font-weight:800;margin-top:16px;color:var(--muted)}
+  .useFail{color:var(--bad);font-weight:700}
+  .useFree{color:var(--good);font-weight:700}
+  .useRecent{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+  .useRow{border:1px solid var(--line);border-radius:12px;padding:7px 10px;font-size:12.5px;line-height:1.5;background:#fff}
+  .useRow .ut{color:var(--muted)}
+  .useErr{color:var(--bad);word-break:break-word}
+
   /* ---------- iPad 分栏：左边选课栏常驻，右边讲课舞台 ----------
    * 窄屏和 iPad 竖屏一条规则都不生效，还是原来的「一屏一张卡片」。 */
   #stageEmpty{display:none}
@@ -249,7 +315,13 @@
   .learnItem.on .lz{color:var(--brand)}
   @media (min-width:1000px){
     .wrap{max-width:1240px;padding:18px 20px 40px}
-    .shell{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px;align-items:start}
+    /* --rail 边条宽度；--railIdle 是舞台还空着时的宽度（见下面的 :has 规则） */
+    .shell{--rail:340px;--railIdle:560px;
+           display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:18px;align-items:start;
+           transition:grid-template-columns .22s ease}
+    /* 还没点开课的时候，右边整片是块空板子，清单却挤在 340 里 —— 空着就把清单放宽 */
+    .shell:not(:has(.stageCol > section:not(.hidden))){grid-template-columns:var(--railIdle) minmax(0,1fr)}
+    .shell:not(:has(.stageCol > section:not(.hidden))) .rail .chip{width:auto}
     /* flex 的 gap 会跳过 display:none 的卡片，不像 `+` 那样给隐藏兄弟留空 */
     .rail,.stageCol{display:flex;flex-direction:column;gap:14px;min-width:0}
     /* 舞台滚动时左栏钉住；列表太长时它自己滚，不跟着课文跑 */
@@ -280,10 +352,29 @@
     .stageCol:has(> section:not(.hidden)) #stageEmpty{display:none}
     .iconbtn{width:44px;height:44px}
   }
+  /* 屏幕再宽就把壳子放开：1240 的定宽在 1600 的屏上两边各空掉 200px，左栏却挤得课名都放不下 */
+  @media (min-width:1360px){
+    .wrap{max-width:1360px;padding:20px 24px 44px}
+    .shell{--rail:390px;--railIdle:640px;gap:22px}
+    .card{padding:22px}
+    .rail .card{padding:18px}
+    .rail .hi{font-size:19px}
+    .rail .sub{font-size:13.5px}
+    .rail .chip{font-size:13.5px;padding:8px 13px}
+  }
+  @media (min-width:1660px){
+    .wrap{max-width:1580px}
+    .shell{--rail:430px;--railIdle:720px;gap:26px}
+    .card{padding:24px}
+    .rail .card{padding:20px}
+    /* 舞台宽了，课文也跟着大一号 */
+    .stageCol .sayBox{font-size:20px}
+  }
   /* 触摸设备：列表行里那两个小图标按钮原来只有 ~23px，手指戳不中 */
   @media (pointer:coarse){
     .histItem .hdel,.learnItem .hregen,.learnItem .hquiz{font-size:18px;padding:7px 8px;opacity:.6}
     .unitBtn{font-size:13.5px;padding:8px 13px}
+    .fselOpt{padding:11px 12px;font-size:15px}
   }
 </style>
 </head>
@@ -499,6 +590,7 @@
       <label data-i18n="engineFieldLabel">AI 引擎</label>
       <div class="engineList" id="engineList"></div>
       <div class="help" data-i18n="engineHelp">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
+      <button class="btn ghost" id="usageBtn" style="margin-top:8px;padding:10px 12px;font-size:14px">📒 <span data-i18n="usageTitle">用量账本</span></button>
     </div>
 
     <div class="field hidden" id="dataField">
@@ -562,6 +654,26 @@
     <div class="histList" id="histList"></div>
     <div class="modalRow">
       <button class="btn ghost" id="closeHistory" data-i18n="closeBtn" style="flex:1">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 用量账本（家长专属）：每笔 AI 调用的账。服务端 /api/usage 只认家长 token，
+     这里是它唯一的入口——没有这一屏，账本就只能靠 curl 看。 -->
+<div class="modal hidden" id="usageModal">
+  <div class="modalCard reportCard">
+    <div class="row" style="justify-content:space-between;margin:0">
+      <h3 data-i18n="usageTitle">用量账本</h3>
+      <select id="usageDays" class="learnGradeSel">
+        <option value="0" data-i18n="usageAll">全部</option>
+        <option value="30" data-i18n="usage30">最近 30 天</option>
+        <option value="7" data-i18n="usage7">最近 7 天</option>
+      </select>
+    </div>
+    <p class="help" style="margin-top:2px" data-i18n="usageHelp">每一笔 AI 调用记一行账：哪个任务、哪个引擎、多少 token、多少钱。课程包和题库命中记 0 花费，替你省下的调用一眼可见。</p>
+    <div id="usageBody"></div>
+    <div class="modalRow">
+      <button class="btn ghost" id="closeUsage" data-i18n="closeBtn" style="flex:1">关闭</button>
     </div>
   </div>
 </div>
@@ -636,9 +748,26 @@ const I18N = {
     codeLabel:"访问码", codePh:"问爸爸妈妈要访问码", codeHelp:"家里服务器设置了访问码，输入一次就好。",
     langLabel:"语言 / Language",
     engineFieldLabel:"AI 引擎", engineHelp:"列表由家里的服务器自动检测。灰色的表示那台机器上没装。",
+    usageTitle:"用量账本", usageAll:"全部", usage30:"最近 30 天", usage7:"最近 7 天",
+    usageHelp:"每一笔 AI 调用记一行账：哪个任务、哪个引擎、多少 token、多少钱。课程包和题库命中记 0 花费，替你省下的调用一眼可见。",
+    usageLoading:"正在算账…", usageEmpty:"这段时间还没有调用记录。",
+    usageCalls:"笔调用", usageFreeHits:"笔没花引擎（课程包 / 题库直接命中）",
+    usageEngineCalls:"笔真的调了引擎", usageFailed:"笔失败（token 已经花了，重试在账上就是两行）",
+    usageCostNone:"引擎没报花费——订阅制和本地模型本来就不按笔计费。",
+    usageWait:"等引擎累计",
+    usageByTask:"按任务", usageByEngine:"按引擎", usageRecent:"最近 20 笔",
+    usageColTask:"任务", usageColEngine:"引擎", usageColCalls:"次", usageColFailed:"败",
+    usageColIn:"token 进", usageColOut:"出", usageColCost:"花费",
+    usageRoutes:"按任务指定了引擎（config.providerByTask）：",
+    usageFile:"账本文件",
+    taskTeach:"讲课", taskAsk:"提问 / 拍照题", taskQuiz:"闯关出题", taskUnit:"单元卷",
+    taskFsa:"FSA 卷", taskReport:"家长报告", taskPregen:"构建期生成", taskJudge:"构建期审稿",
+    provPack:"课程包", provBank:"题库",
     kidLabel:"孩子的名字（可选，讲解会更亲切）", kidPh:"比如：朵朵",
     gradeLabel:"年级 / 难度", g4:"BC 四年级", g5:"BC 五年级", g6:"BC 六年级", g7:"BC 七年级",
-    booksGroup:"跟教材学",
+    g8:"BC 八年级", g9:"BC 九年级", g10:"BC 十年级", g11:"BC 十一年级", g12:"BC 十二年级",
+    coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学", skillsGroup:"🧩 技能图谱预览（设计草稿）",
+    fixNotHere:"要补的那个技能在别的年级，先切过去再练。",
     dataLabel:"学习数据",
     dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
@@ -730,7 +859,7 @@ const I18N = {
     colsRowsFmt:(c,r)=>`${c} 列 × ${r} 行`, barItemFmt:(i)=>`第${i}项`,
     groupsFmt:(g,per,rem)=>`${g} 组 × 每组 ${per} 个${rem?`，另剩 ${rem} 个`:""}，一共 ${g*per+rem} 个`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`经过 ${h} 小时 ${m} 分钟`:`经过 ${h} 小时`):`经过 ${m} 分钟`;},
-    placeInt:["个位","十位","百位","千位","万位"],
+    placeInt:["个位","十位","百位","千位","万位","十万位","百万位","千万位","亿位","十亿位"],
     placeDec:["十分位","百分位","千分位"],
     netCircum:"底面周长",
     avgFmt:(v)=>`平均 ${v}`,
@@ -823,9 +952,26 @@ const I18N = {
     codeLabel:"Access code", codePh:"Ask mom or dad for the code", codeHelp:"Your home server needs an access code — enter it once.",
     langLabel:"Language / 语言",
     engineFieldLabel:"AI engine", engineHelp:"Detected automatically by your home server. Grayed-out ones aren’t installed on that machine.",
+    usageTitle:"Usage ledger", usageAll:"All time", usage30:"Last 30 days", usage7:"Last 7 days",
+    usageHelp:"Every AI call gets one line of accounting: which task, which engine, how many tokens, how many dollars. Lesson-pack and question-bank hits are logged at zero cost, so you can see exactly what the bundled content saved you.",
+    usageLoading:"Adding it up…", usageEmpty:"No calls recorded in this period.",
+    usageCalls:"calls", usageFreeHits:"used no engine (lesson pack / question bank hits)",
+    usageEngineCalls:"actually reached an engine", usageFailed:"failed (the tokens were already spent — a retry is two lines here)",
+    usageCostNone:"No engine reported a cost — subscriptions and local models aren’t billed per call.",
+    usageWait:"total engine time",
+    usageByTask:"By task", usageByEngine:"By engine", usageRecent:"Last 20 calls",
+    usageColTask:"Task", usageColEngine:"Engine", usageColCalls:"Calls", usageColFailed:"Failed",
+    usageColIn:"Tokens in", usageColOut:"out", usageColCost:"Cost",
+    usageRoutes:"Engines pinned per task (config.providerByTask):",
+    usageFile:"Ledger file",
+    taskTeach:"Lesson", taskAsk:"Question / photo", taskQuiz:"Quiz bank", taskUnit:"Unit test",
+    taskFsa:"FSA paper", taskReport:"Parent report", taskPregen:"Build-time batch", taskJudge:"Build-time review",
+    provPack:"Lesson pack", provBank:"Question bank",
     kidLabel:"Child’s name (optional — makes lessons friendlier)", kidPh:"e.g. Emma",
     gradeLabel:"Grade level", g4:"BC Grade 4", g5:"BC Grade 5", g6:"BC Grade 6", g7:"BC Grade 7",
-    booksGroup:"Books",
+    g8:"BC Grade 8", g9:"BC Grade 9", g10:"BC Grade 10", g11:"BC Grade 11", g12:"BC Grade 12",
+    coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books", skillsGroup:"🧩 Skill graph preview (design draft)",
+    fixNotHere:"That skill lives in another grade — switch to it first.",
     dataLabel:"Learning data",
     dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
@@ -917,7 +1063,7 @@ const I18N = {
     colsRowsFmt:(c,r)=>`${c} × ${r}`, barItemFmt:(i)=>`Item ${i}`,
     groupsFmt:(g,per,rem)=>`${g} groups × ${per} each${rem?`, ${rem} left over`:""} — ${g*per+rem} in total`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`${h} h ${m} min later`:`${h} h later`):`${m} min later`;},
-    placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands"],
+    placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands","Hundred-thousands","Millions","Ten-millions","Hundred-millions","Billions"],
     placeDec:["Tenths","Hundredths","Thousandths"],
     netCircum:"base circumference",
     avgFmt:(v)=>`average ${v}`,
@@ -1033,6 +1179,7 @@ function applyLang(){
   renderLegend();
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
   if(!$("reportModal").classList.contains("hidden")) openReport();                  // 换语言重画报告
+  if(!$("usageModal").classList.contains("hidden")) loadUsage();                    // 换语言重画账本
   // 正在看的内容也得跟着换，不然界面换了题目还是原来的语言：
   // 大纲/书籍课重取同一节的新语言版（预生成包两种语言都有，秒开）；
   // 闯关先按原语言把已答的记上（同中途退出），再用新语言重开一局（题库按语言分桶，qid 对不上号）。
@@ -1058,40 +1205,73 @@ function kidDisplayName(){
 function applyKidName(){
   const el=$("kidNameLabel"); if(el) el.textContent = kidDisplayName() || t("defaultName");
 }
-/* 书籍课程源：cfg.gradeCode 既可以是 "4"-"7"（BC 年级），也可以是书籍 id（如 "aops-prealgebra"） */
+/* 课程源：cfg.gradeCode 既可以是 "4"-"9"（BC 年级），也可以是高中分科课程 id（如 "pc11"）或书籍 id（如 "aops-prealgebra"） */
 function bookInfo(code){ return (serverInfo.curriculumBooks||[]).find(b=>b.id===code)||null; }
+function courseInfo(code){ return (serverInfo.curriculumCourses||[]).find(c=>c.id===code)||null; }
+function skillsPreviewInfo(code){ return (serverInfo.curriculumSkillsPreviews||[]).find(s=>s.id===code)||null; }
+function skillsPreviewLabel(s){ return cfg.lang==="en" ? (s.en||s.id) : (s.zh||s.en||s.id); }
 function bookLabel(b){ return cfg.lang==="en" ? (b.en||b.id) : (b.zh||b.en||b.id); }
-function effectiveGradeCode(){                     // 书籍映射到对标年级（AI 语气和问答模式用）
+function courseLabel(c){ return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : ((c.titleZh||c.zh||c.id)+(c.en?"（"+c.en+"）":"")); }
+function effectiveGradeCode(){                     // 课程/书籍映射到对标年级（AI 语气和问答模式用）
   const code=cfg.gradeCode||"5";
+  const c=courseInfo(code);
+  if(c) return String(c.grade||10);
   const b=bookInfo(code);
   if(b) return String(b.grade||7);
-  return /^\d+$/.test(code) ? code : "7";          // 书籍列表还没到达时的兜底（书籍都按 G7 语气）
+  const s=skillsPreviewInfo(code);
+  if(s) return String(s.grade||5);
+  return /^\d+$/.test(code) ? code : "7";          // 列表还没到达时的兜底（书籍都按 G7 语气）
 }
+/* 年级清单跟着服务端走（data/curriculum/bc/ 里有哪些 grade-N.json），没拿到前先按 4-7 */
+function gradeList(){ const gs=(serverInfo.curriculumGrades||[]).map(String); return gs.length?gs:["4","5","6","7"]; }
+function gradeLabel(v){ return t("g"+v) || (cfg.lang==="en" ? "BC Grade "+v : "BC "+v+" 年级"); }
 function buildGradeOptions(){
-  const books=serverInfo.curriculumBooks||[];
+  const books=serverInfo.curriculumBooks||[], courses=serverInfo.curriculumCourses||[], skillsPreviews=serverInfo.curriculumSkillsPreviews||[];
   [$("grade"),$("learnGrade"),$("reportGrade")].forEach(sel=>{
     if(!sel) return;
-    const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级，不放书
+    const withBooks = sel!==$("grade");            // 问答模式的年级下拉只放年级（含高中按年级折算），不放课程/书
     sel.innerHTML="";
-    ["4","5","6","7"].forEach(v=>{
-      const o=document.createElement("option"); o.value=v; o.textContent=t("g"+v); sel.appendChild(o);
+    gradeList().forEach(v=>{
+      const o=document.createElement("option"); o.value=v; o.textContent=gradeLabel(v); sel.appendChild(o);
     });
-    if(withBooks && books.length){
-      const og=document.createElement("optgroup"); og.label=t("booksGroup");
-      books.forEach(b=>{
-        const o=document.createElement("option"); o.value=b.id; o.textContent="📚 "+bookLabel(b); og.appendChild(o);
+    if(withBooks){
+      if(courses.length){
+        const og=document.createElement("optgroup"); og.label=t("coursesGroup");
+        courses.forEach(c=>{
+          const o=document.createElement("option"); o.value=c.id; o.textContent="🎓 "+courseLabel(c); og.appendChild(o);
+        });
+        sel.appendChild(og);
+      }
+      if(books.length){
+        const og=document.createElement("optgroup"); og.label=t("booksGroup");
+        books.forEach(b=>{
+          const o=document.createElement("option"); o.value=b.id; o.textContent="📚 "+bookLabel(b); og.appendChild(o);
+        });
+        sel.appendChild(og);
+      }
+      // 技能图谱不再单列一组：有技能文件的年级，选年级本身就是技能视图（服务端 learnView 决定）。
+      // 旧配置里残留的 "skills-g5" 归一成 "5"，免得下拉找不到选项。
+      if(/^skills-g(\d+)$/.test(cfg.gradeCode||"")) cfg.gradeCode=cfg.gradeCode.replace(/^skills-g/,"");
+    }else{
+      // 问答模式：高中课程折算成 10-12 年级的难度档
+      ["10","11","12"].forEach(v=>{
+        if(!courses.some(c=>String(c.grade)===v) || gradeList().includes(v)) return;
+        const o=document.createElement("option"); o.value=v; o.textContent=gradeLabel(v); sel.appendChild(o);
       });
-      sel.appendChild(og);
     }
     sel.value = withBooks ? (cfg.gradeCode||"5") : effectiveGradeCode();
-    if(!sel.value) sel.value = withBooks ? "5" : effectiveGradeCode();   // 书籍列表还没到达时兜底
+    if(!sel.value) sel.value = withBooks ? "5" : effectiveGradeCode();   // 列表还没到达时兜底
   });
 }
-function gradeText(){ return t("g"+effectiveGradeCode()); }   // 语义 = "BC Grade N"（书籍按对标年级）
-/* 「跟大纲学」当前来源的显示名：书籍显示书名，否则显示年级 */
+function gradeText(){ return gradeLabel(effectiveGradeCode()); }   // 语义 = "BC Grade N"（课程/书籍按对标年级）
+/* 「跟大纲学」当前来源的显示名：课程显示课名、书籍显示书名，否则显示年级 */
 function sourceTitle(){
+  const c=courseInfo(cfg.gradeCode);
+  if(c) return cfg.lang==="en" ? (c.titleEn||c.en||c.id) : (c.titleZh||c.zh||c.id);
   const b=bookInfo(cfg.gradeCode);
-  return b ? bookLabel(b) : gradeText();
+  if(b) return bookLabel(b);
+  const s=skillsPreviewInfo(cfg.gradeCode);
+  return s ? skillsPreviewLabel(s) : gradeText();
 }
 
 /* ---------- 账号 / 会话 ----------
@@ -1102,7 +1282,7 @@ function deviceToken(){ try{ return localStorage.getItem(TOK_LS)||""; }catch(_){
 function gateToken(){ try{ return sessionStorage.getItem(TOK_SS)||""; }catch(_){ return ""; } }
 function apiToken(){ return gateToken()||deviceToken(); }
 
-let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[] };
+let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[], curriculumCourses:[], curriculumBooks:[], curriculumSkillsPreviews:[] };
 let profilesInfo = null;   // /api/auth/profiles：登录前的孩子名单、要不要注册向导
 let me=null, myRole=null, myKids=[];
 
@@ -1309,6 +1489,7 @@ $("gateGo").onclick=async()=>{
     await refreshAuth();
     const after=gateAfter; gateAfter=null;
     if(after==="report") openReport();
+    if(after==="usage") openUsage();
   }catch(err){
     e.textContent=err.status===401?t("loginFailed"):(err.message||t("genericErr"));
     e.classList.remove("hidden");
@@ -1543,12 +1724,40 @@ async function playStep(i,text,onend){
 }
 
 /* ---------- 可视化积木（永远画对：AI 只给小数字，图形由这里确定性画出） ---------- */
+/* ---------- 配图契约（data/curriculum/visual-contract.json）----------
+ * 违约就不画：看图模式下图是正文，画错严格差于不画，而且要和 Apple 端 LessonValidator 同一种失败方式。
+ * 拉不到契约时放行——宁可退回老行为，也不能让全站没图。 */
+let VISUAL_CONTRACT=null;
+async function loadVisualContract(){
+  try{ VISUAL_CONTRACT=await (await fetch("/api/visual-contract")).json(); }
+  catch(_){ VISUAL_CONTRACT=null; }
+}
+function visualOk(v){
+  if(!VISUAL_CONTRACT||!self.YYVisualCheck) return true;
+  return self.YYVisualCheck.checkVisual(VISUAL_CONTRACT,v.type,v.nums,v.labels).ok;
+}
 const COL={fill:"#ff8a5b",fill2:"#6c8cff",good:"#3fbf7f",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
 const PAL=["#ff8a5b","#6c8cff","#3fbf7f","#d99b18","#b07cf7","#ff6b9d"]; // 经色觉安全校验（deutan/protan/tritan ΔE≥7.7，配 2px 白缝+直接标注）
 function svg(w,h,inner){return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${inner}</svg>`;}
 function clampInt(n,lo,hi,def){ n=Math.round(Number(n)); if(!isFinite(n)) return def; return Math.max(lo,Math.min(hi,n)); }
 function fmtNum(n){ return Math.abs(n-Math.round(n))<1e-9 ? String(Math.round(n)) : String(+Number(n).toFixed(2)); }
 function escapeHtml(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+/* 题干/选项/解析是纯文本，但高中题里常夹着 \( \dfrac{8x^3}{12x^2} \) 或 $\sqrt{2}$ 这种行内公式：
+ * 把公式段交给 KaTeX 渲染，其余照旧转义。KaTeX 没加载或公式有错就原样显示文字，不会炸。 */
+function mathText(s){
+  s=String(s==null?"":s);
+  const re=/\\\((.+?)\\\)|\\\[(.+?)\\\]|\$\$(.+?)\$\$|\$([^$\n]+?)\$/g;
+  let out="", last=0, m;
+  while((m=re.exec(s))){
+    out+=escapeHtml(s.slice(last,m.index));
+    const tex=m[1]||m[2]||m[3]||m[4];
+    let html="";
+    if(window.katex){ try{ html=katex.renderToString(tex,{throwOnError:false,displayMode:false}); }catch(_){ html=""; } }
+    out+=html||escapeHtml(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+escapeHtml(s.slice(last));
+}
 /* 扇形路径（从正上方顺时针） */
 function sectorPath(cx,cy,r,a0,a1){
   const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
@@ -1568,23 +1777,33 @@ function dimArrow(x1,y1,x2,y2,label){
 /* 分数条：nums=[份数,涂色] 或 [份数1,涂色1,份数2,涂色2]（两条对齐，比较/通分） */
 function vFractionBar(nums){
   nums=(nums||[]).map(Number).filter(isFinite);
-  const bars=[];
-  const d1=clampInt(nums[0],1,20,4); bars.push([d1,clampInt(nums[1],0,d1,1)]);
-  if(nums.length>=4){ const d2=clampInt(nums[2],1,20,4); bars.push([d2,clampInt(nums[3],0,d2,1)]); }
-  const W=460,pad=14,bw=350,bh=44,gap=18;
+  /* 分子 > 分母 = 假分数：画成几个整体连排、同一个颜色、右边只标一次 n/d（契约 v2）。
+   * 两条一起画时整体宽度按最多的那条取齐——不然「同一个整体」在图上就成了假话。
+   * 越界的 nums 走不到这里：renderVisual 先按 visual-contract.json 拦一道，违约就不画。 */
+  const read=(d,n)=>{ const dd=clampInt(d,1,20,4); return [dd,clampInt(n,0,dd*4,1)]; };
+  const bars=[read(nums[0],nums[1])];
+  if(nums.length>=4) bars.push(read(nums[2],nums[3]));
+  const wholes=bars.map(([d,n])=>Math.max(1,Math.ceil(n/d)));
+  const wMax=Math.max.apply(null,wholes);
+  const W=460,pad=14,bw=350,bh=44,gap=18,wGap=6;
+  const unit=(bw-(wMax-1)*wGap)/wMax;
   const H=bars.length*(bh+gap)-gap+16;
   let r="";
   bars.forEach(([d,n],bi)=>{
-    const y=8+bi*(bh+gap), cw=bw/d, c=bi?COL.fill2:COL.fill;
-    for(let i=0;i<d;i++)
-      r+=`<rect x="${(pad+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${i<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    const y=8+bi*(bh+gap), c=bi?COL.fill2:COL.fill, cw=unit/d;
+    let k=0;
+    for(let w=0;w<wholes[bi];w++){
+      const x0=pad+w*(unit+wGap);
+      for(let i=0;i<d;i++,k++)
+        r+=`<rect x="${(x0+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${k<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
+    }
     r+=`<text x="${pad+bw+12}" y="${y+bh/2+6}" font-size="17" font-weight="800" fill="${c}">${n}/${d}</text>`;
   });
   return svg(W,H,r);
 }
 
 /* 分数圆（披萨图）：nums=[份数,涂色] 或两个圆 [份数1,涂色1,份数2,涂色2] */
-function onePie(cx,cy,R,d,n,color){
+function onePie(cx,cy,R,d,n,color,label){
   let s="";
   if(d===1){
     s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${n>=1?color:'#fff'}" stroke="${COL.line}" stroke-width="2.5"/>`;
@@ -1594,15 +1813,35 @@ function onePie(cx,cy,R,d,n,color){
       s+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${i<n?color:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
     }
   }
-  s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${n}/${d}</text>`;
+  const lab=label===undefined?`${n}/${d}`:label;
+  if(lab) s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${lab}</text>`;
   return s;
 }
 function vPie(nums){
   nums=(nums||[]).map(Number).filter(isFinite);
-  const d1=clampInt(nums[0],1,16,4), n1=clampInt(nums[1],0,d1,1), R=62, H=2*R+44;
-  if(nums.length<4) return svg(220,H,onePie(110,R+7,R,d1,n1,COL.fill));
-  const d2=clampInt(nums[2],1,16,4), n2=clampInt(nums[3],0,d2,1);
-  return svg(400,H,onePie(105,R+7,R,d1,n1,COL.fill)+onePie(295,R+7,R,d2,n2,COL.fill2));
+  /* 涂色份数 > 份数 = 假分数：画成几个整圆连排、同色、只在最后一个圆下面标一次 n/d（契约 v2）。
+   * 同一个量的圆挨得近、两个量之间隔开，孩子才不会读成四个互不相干的数。 */
+  const read=(d,n)=>{ const dd=clampInt(d,1,16,4); return [dd,clampInt(n,0,dd*4,1)]; };
+  const ent=[read(nums[0],nums[1])];
+  if(nums.length>=4) ent.push(read(nums[2],nums[3]));
+  const R=62, H=2*R+44;
+  const cols=[];
+  ent.forEach(([d,n],ei)=>{
+    const w=Math.max(1,Math.ceil(n/d));
+    for(let k=0;k<w;k++)
+      cols.push({ ei, d, n:Math.max(0,Math.min(d,n-k*d)), first:k===0 });
+  });
+  let x=0; const xs=[];
+  cols.forEach((c,i)=>{ if(i) x+=(c.first?190:138); xs.push(x); });
+  const W=Math.max(220,x+220), ox=(W-x)/2;
+  let s="";
+  cols.forEach((c,i)=>{ s+=onePie(ox+xs[i],R+7,R,c.d,c.n,c.ei?COL.fill2:COL.fill,""); });
+  ent.forEach(([d,n],ei)=>{
+    const mine=xs.filter((_,i)=>cols[i].ei===ei);
+    const cx=ox+(mine[0]+mine[mine.length-1])/2;
+    s+=`<text x="${cx}" y="${2*R+29}" text-anchor="middle" font-size="16" font-weight="800" fill="${ei?COL.fill2:COL.fill}">${n}/${d}</text>`;
+  });
+  return svg(W,H,s);
 }
 
 /* 数轴：nums=[min,max,点,(可选)第二个点]；两个点时画跳跃箭头 */
@@ -1613,18 +1852,56 @@ function vNumberLine(nums){
   const inRange=v=>isFinite(v)&&v>=min&&v<=max;
   const p1=(nums.length>2&&isFinite(nums[2]))?nums[2]:null;
   const p2=(nums.length>3&&isFinite(nums[3]))?nums[3]:null;
-  const arrow=p1!==null&&p2!==null&&inRange(p1)&&inRange(p2)&&p1!==p2;
-  const W=460,H=arrow?116:84,pad=26,y=H-36;
+  /* 第 5 个数 = 每一整格再平分几小份（契约 v2）。给了它就打小刻度、标记点标成分数而不是小数；
+   * 不给就是老写法，一个像素都不变（老内容天然兼容）。分数课上「四分之三」配着 0.75 是过去的常态。
+   * 给了小份数、两个点又不同，那是比大小，不画跳跃箭头——两个点各自标好分数即可。 */
+  const den=(nums.length>4&&isFinite(nums[4]))?clampInt(nums[4],2,12,0):0;
+  const arrow=!den&&p1!==null&&p2!==null&&inRange(p1)&&inRange(p2)&&p1!==p2;
+  const W=460,H=arrow?116:(den?96:84),pad=26,y=H-36;
   const span=max-min;
-  let ticks=Math.min(20,Math.max(2,Math.round(span)));
+  let ticks=Math.min(20,Math.max(den?1:2,Math.round(span)));   // 分数模式下只标整数，别在分数课上冒出 0.5
   const stepv=span/ticks;
   const x=v=>pad+(v-min)/span*(W-2*pad);
   let r=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="${COL.line}" stroke-width="3"/>`;
+  if(den){
+    for(let k=Math.ceil(min*den-1e-9);k<=Math.round(max*den)+1e-9;k++){
+      const v=k/den;
+      if(Math.abs(v-Math.round(v))<1e-9) continue;      // 整数刻度下面单独画，别画两遍
+      const px=x(v);
+      r+=`<line x1="${px}" y1="${y-4}" x2="${px}" y2="${y+4}" stroke="${COL.line}" stroke-width="1.2"/>`;
+    }
+  }
   for(let i=0;i<=ticks;i++){
     const v=min+i*stepv, px=x(v);
     r+=`<line x1="${px}" y1="${y-6}" x2="${px}" y2="${y+6}" stroke="${COL.line}" stroke-width="2"/>`;
     const lab=Math.abs(v-Math.round(v))<1e-6?Math.round(v):v.toFixed(1);
     r+=`<text x="${px}" y="${y+22}" text-anchor="middle" font-size="12" fill="${COL.ink}">${lab}</text>`;
+  }
+  /* 带分数标签：整数部分在左，分数竖着摞在右（不用 LaTeX，纯 SVG，两端都画得出来） */
+  const fracLabel=(px,baseY,v,color)=>{
+    const neg=v<0, a=Math.abs(v);
+    let whole=Math.floor(a+1e-9), k=Math.round((a-whole)*den);
+    if(k===den){ whole+=1; k=0; }
+    if(k===0) return `<text x="${px}" y="${baseY}" text-anchor="middle" font-size="13" font-weight="700" fill="${color}">${neg?"−":""}${whole}</text>`;
+    const intTxt=(neg?"−":"")+(whole?String(whole):"");
+    const fw=15, iw=intTxt?intTxt.length*8.5:0, x0=px-(iw+fw)/2, fx=x0+iw+fw/2, midY=baseY-8;
+    let t2="";
+    if(intTxt) t2+=`<text x="${x0+iw/2}" y="${midY+5}" text-anchor="middle" font-size="15" font-weight="800" fill="${color}">${intTxt}</text>`;
+    t2+=`<text x="${fx}" y="${midY-2}" text-anchor="middle" font-size="11" font-weight="700" fill="${color}">${k}</text>`;
+    t2+=`<line x1="${fx-6}" y1="${midY}" x2="${fx+6}" y2="${midY}" stroke="${color}" stroke-width="1.4"/>`;
+    t2+=`<text x="${fx}" y="${midY+11}" text-anchor="middle" font-size="11" font-weight="700" fill="${color}">${den}</text>`;
+    return t2;
+  };
+  if(den){
+    const pts=[[p1,COL.fill]];
+    if(p2!==null&&p2!==p1) pts.push([p2,COL.fill2]);
+    for(const [v,c] of pts){
+      if(v===null||!inRange(v)) continue;
+      const px=x(v);
+      r+=`<circle cx="${px}" cy="${y}" r="8" fill="${c}" stroke="#fff" stroke-width="2"/>`;
+      r+=fracLabel(px,y-20,v,c);
+    }
+    return svg(W,H,r);
   }
   if(arrow){
     const x1=x(p1),x2=x(p2),diff=p2-p1;
@@ -1643,7 +1920,7 @@ function vNumberLine(nums){
 
 /* 面积格子：nums=[行,列,涂行,涂列]；行列都只涂一部分时用色带突出重叠（分数乘分数） */
 function vAreaGrid(nums){
-  const rows=clampInt(nums&&nums[0],1,12,3), cols=clampInt(nums&&nums[1],1,12,4);
+  const rows=clampInt(nums&&nums[0],1,16,3), cols=clampInt(nums&&nums[1],1,16,4);
   const sr=clampInt(nums&&nums[2],0,rows,rows), sc=clampInt(nums&&nums[3],0,cols,cols);
   const cell=Math.min(34, Math.floor(300/Math.max(rows,cols)));
   const W=cols*cell+40,H=rows*cell+40,ox=20,oy=20;
@@ -1669,12 +1946,16 @@ function vAreaGrid(nums){
 function vBarModel(nums,labels){
   const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0).slice(0,6);
   if(vals.length===0) return "";
-  const max=Math.max(...vals,1), W=460,pad=90,barH=26,gap=16;
+  // 标签列宽随最长标签走（中文一字约 13px、拉丁字符约 7.5px），最多 14 字 / 180px，别再把「Last year」截成「Last yea」
+  const labs=vals.map((_,i)=>(labels&&labels[i])?String(labels[i]).slice(0,14):t("barItemFmt")(i+1));
+  const est=s=>[...s].reduce((a,c)=>a+(/[⺀-￿]/.test(c)?13:7.5),0);
+  const pad=Math.min(180,Math.max(90,Math.ceil(Math.max(...labs.map(est)))+16));
+  const max=Math.max(...vals,1), W=460,barH=26,gap=16;
   const H=vals.length*(barH+gap)+20;
   let r="";
   vals.forEach((v,i)=>{
     const y=14+i*(barH+gap), w=(W-pad-30)*(v/max);
-    const lab=(labels&&labels[i])?String(labels[i]).slice(0,8):t("barItemFmt")(i+1);
+    const lab=labs[i];
     r+=`<text x="8" y="${y+barH/2+5}" font-size="13" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
     r+=`<rect x="${pad}" y="${y}" width="${Math.max(2,w).toFixed(1)}" height="${barH}" rx="6" fill="${i%2?COL.fill2:COL.fill}"/>`;
     r+=`<text x="${(pad+Math.max(2,w)+8).toFixed(1)}" y="${y+barH/2+5}" font-size="13" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
@@ -1684,7 +1965,7 @@ function vBarModel(nums,labels){
 
 /* 分组圆点图：nums=[组数,每组个数,(可选)剩余]。乘法意义 / 平均分 / 有余数除法 */
 function vGroups(nums){
-  const g=clampInt(nums&&nums[0],1,8,3), per=clampInt(nums&&nums[1],1,12,4), rem=clampInt(nums&&nums[2],0,11,0);
+  const g=clampInt(nums&&nums[0],1,12,3), per=clampInt(nums&&nums[1],1,20,4), rem=clampInt(nums&&nums[2],0,19,0);
   const dg=19, cols=Math.min(per,4), rowsD=Math.ceil(per/cols);
   const boxW=cols*dg+14, boxH=rowsD*dg+14;
   const perRow=Math.max(1,Math.min(g,Math.floor(436/(boxW+12))));
@@ -1784,7 +2065,7 @@ function vPlaceValue(nums){
   let n=Number(nums&&nums[0]);
   if(!isFinite(n)) return "";
   n=Math.abs(n);
-  if(n>=100000) return "";
+  if(n>=1e10) return "";                    // 位值表现在排到十亿位（2026-08-25：原来卡在 99999，PV1M/PVBIG 两组课 31 步整步空图）
   let s=String(n);
   if(!/^\d+(\.\d+)?$/.test(s)) s=n.toFixed(3);
   let parts=s.split("."), ip=parts[0], dp=(parts[1]||"");
@@ -2039,8 +2320,8 @@ function barTop(x,yT,w,y0,fill){
  * 2) 数值数 = 2×(标签数-2) → 复式，labels 末尾两项是系列名
  * 3) 数值数 = 2×标签数 → 复式，无系列名
  * 4) 其余 → 单系列兜底 */
-function parseStatSeries(nums,labels){
-  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&n>=0);
+function parseStatSeries(nums,labels,allowNeg){
+  const vals=(nums||[]).map(Number).filter(n=>isFinite(n)&&(allowNeg||n>=0));
   const rawLabs=(labels||[]).map(String);
   const L=rawLabs.length;
   if(vals.length&&vals.length===L&&L<=8)
@@ -2322,7 +2603,9 @@ function vCoordGrid(nums,labels){
   pts.forEach((p,i)=>{
     const px=neg?ox+p[0]*cell:ox+p[0]*cell, py=neg?oy-p[1]*cell:oy-p[1]*cell;
     r+=`<circle cx="${f(px)}" cy="${f(py)}" r="5" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
-    const nm=(labels&&labels[i])?String(labels[i]).slice(0,4):"ABCDEF"[i];
+    // 模型常把坐标本身当标签传进来（"(1, 2)"、"A(1,2)"），那样会画成「(1,2)(1, 2)」：含坐标/括号的标签只取括号前的名字
+    const raw=(labels&&labels[i])?String(labels[i]).replace(/\s*[(（].*$/,"").trim():"";
+    const nm=raw?raw.slice(0,6):(labels&&labels[i]?"":"ABCDEF"[i]);
     const flip=px>x0+size-70;
     r+=`<text x="${f(px+(flip?-9:9))}" y="${f(py-8)}" ${flip?'text-anchor="end"':''} font-size="11.5" font-weight="700" fill="${COL.ink}">${escapeHtml(nm)}(${p[0]}, ${p[1]})</text>`;
   });
@@ -2351,12 +2634,15 @@ function vAngle(nums){
   return svg(460,H,r);
 }
 
-/* 乘法面积模型：nums=[a,b]（≤99），按数位拆分标部分积 */
+/* 乘法面积模型：nums=[a,b]（a≤999、b≤99），按数位拆分标部分积 */
 function vAreaModel(nums){
-  const a=clampInt(nums&&nums[0],2,99,23), b=clampInt(nums&&nums[1],2,99,15);
-  const split=n=>{ if(n<10||n%10===0) return [n]; return [Math.floor(n/10)*10, n%10]; };
+  const a=clampInt(nums&&nums[0],2,999,23), b=clampInt(nums&&nums[1],2,99,15);
+  const split=n=>{ const p=[Math.floor(n/100)*100, Math.floor(n%100/10)*10, n%10].filter(v=>v>0); return p.length?p:[n]; };
   const pa=split(a), pb=split(b);
-  const ws=pa.map(v=>Math.max(70,300*v/a)), hs=pb.map(v=>Math.max(54,150*v/b));
+  let ws=pa.map(v=>Math.max(pa.length>2?52:70,300*v/a));
+  const wSum=ws.reduce((x,y)=>x+y,0);
+  if(wSum>388) ws=ws.map(w=>w*388/wSum);
+  const hs=pb.map(v=>Math.max(54,150*v/b));
   const x0=64, y0=30, f=n=>Number(n).toFixed(1);
   const TINT=["#ffe9db","#e4ebff","#dcf3e7","#fdf3d8"];
   let r="", yy=y0;
@@ -2466,20 +2752,28 @@ function vHundredChart(nums){
 
 /* 数据表：一行 = 频数表，两行 = 比率表 / 找规律表（输入同复式 statBar） */
 function vDataTable(nums,labels){
-  const {s1,s2,cats,names}=parseStatSeries(nums,labels);
+  // 表格里负数是正经数据（代数表、温度、账目），不像统计图那样过滤掉
+  const {s1,s2,cats,names}=parseStatSeries(nums,labels,true);
   if(!s1.length) return "";
-  const N=s1.length, rowHW=names?86:0;
-  const colW=Math.max(46,Math.min(90,(444-rowHW)/N));
+  const N=s1.length;
+  // 列宽跟着内容走（中文一字约 12px、拉丁字符约 6.5px），表头最多 12 字；放不下整张表就缩字号，别再把「Decorations」截成「Decor」
+  const est=s=>[...String(s)].reduce((a,c)=>a+(/[⺀-￿]/.test(c)?12:6.5),0);
+  const tr=s=>String(s==null?"":s).slice(0,12);
+  const hdrs=cats.map(tr), rn=(names||[]).map(tr);
+  const rowHW=names?Math.min(120,Math.max(60,Math.ceil(Math.max(...rn.map(est)))+14)):0;
+  const need=Math.ceil(Math.max(40,...hdrs.map(est),...s1.map(v=>est(fmtNum(v))),...(s2||[]).map(v=>est(fmtNum(v))))+12);
+  let colW=Math.max(need,Math.min(90,(444-rowHW)/N)), fs=13;
+  if(rowHW+colW*N>452){ colW=(452-rowHW)/N; fs=colW<need?11:13; }
   const tw=rowHW+colW*N, x0=(460-tw)/2, y0=6, rowH=31;
   const f=n=>Number(n).toFixed(1);
   const cell=(x,y,w,fill,txt,bold)=>`<rect x="${f(x)}" y="${y}" width="${f(w)}" height="${rowH}" fill="${fill}" stroke="${COL.line}" stroke-width="1.5"/>`
-    +`<text x="${f(x+w/2)}" y="${y+rowH/2+4.5}" text-anchor="middle" font-size="13" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
+    +`<text x="${f(x+w/2)}" y="${y+rowH/2+4.5}" text-anchor="middle" font-size="${fs}" ${bold?'font-weight="700"':''} fill="${COL.ink}">${txt}</text>`;
   let r="", y=y0;
   if(names) r+=cell(x0,y,rowHW,"#f7efe6","",0);
-  cats.forEach((c,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#ffe9db",escapeHtml(String(c).slice(0,5)),1); });
+  hdrs.forEach((c,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#ffe9db",escapeHtml(c),1); });
   y+=rowH;
   const valRow=(s,name)=>{
-    if(names) r+=cell(x0,y,rowHW,"#e4ebff",escapeHtml(String(name||"").slice(0,5)),1);
+    if(names) r+=cell(x0,y,rowHW,"#e4ebff",escapeHtml(tr(name)),1);
     s.forEach((v,i)=>{ r+=cell(x0+rowHW+i*colW,y,colW,"#fff",fmtNum(v),1); });
     y+=rowH;
   };
@@ -2515,8 +2809,192 @@ function vProbLine(nums,labels){
   return svg(460,124,r);
 }
 
+/* ---------- 高中（G8-12）配图：函数图像、直角三角形、一般三角形、单位圆 ---------- */
+
+/* 安全的表达式求值：只认数字、x、四则、^、括号和一小撮函数。不用 eval/Function——表达式来自模型输出。
+ * 返回 (x)=>number 或 null（语法不对）。 */
+function compileExpr(src){
+  const s=String(src||"").trim().replace(/\s+/g,"").replace(/π/g,"pi").replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-");
+  if(!s||s.length>120) return null;
+  const toks=[]; let i=0;
+  while(i<s.length){
+    const c=s[i];
+    if(/[0-9.]/.test(c)){ let j=i; while(j<s.length&&/[0-9.]/.test(s[j])) j++; const v=Number(s.slice(i,j)); if(!isFinite(v)) return null; toks.push({t:"n",v}); i=j; continue; }
+    if(/[a-z]/i.test(c)){ let j=i; while(j<s.length&&/[a-z0-9_]/i.test(s[j])) j++; toks.push({t:"id",v:s.slice(i,j).toLowerCase()}); i=j; continue; }
+    if("+-*/^(),".includes(c)){ toks.push({t:c}); i++; continue; }
+    return null;
+  }
+  const FN={sin:Math.sin,cos:Math.cos,tan:Math.tan,sqrt:Math.sqrt,abs:Math.abs,ln:Math.log,log:Math.log10,log10:Math.log10,log2:Math.log2,exp:Math.exp,floor:Math.floor,ceil:Math.ceil,round:Math.round,asin:Math.asin,acos:Math.acos,atan:Math.atan};
+  const CONST={x:null,pi:Math.PI,e:Math.E};
+  // 隐式乘法：2x、3(x+1)、x(x-2)、(x+1)(x-1)、2pi 都补上 *（函数名后面的括号是调用，不补）
+  for(let k=0;k+1<toks.length;k++){
+    const a=toks[k], b=toks[k+1];
+    const aVal=a.t==="n"||a.t===")"||(a.t==="id"&&!FN[a.v]);
+    const bVal=b.t==="n"||b.t==="("||b.t==="id";
+    if(aVal&&bVal){ toks.splice(k+1,0,{t:"*"}); k++; }
+  }
+  let p=0;
+  const peek=()=>toks[p], next=()=>toks[p++];
+  function primary(){
+    const k=next(); if(!k) throw 0;
+    if(k.t==="n") return ()=>k.v;
+    if(k.t==="("){ const e=expr(); if(!next()||toks[p-1].t!==")") throw 0; return e; }
+    if(k.t==="id"){
+      if(FN[k.v]){ if(!peek()||peek().t!=="(") throw 0; next(); const a=expr(); if(!next()||toks[p-1].t!==")") throw 0; const f=FN[k.v]; return x=>f(a(x)); }
+      if(k.v==="x") return x=>x;
+      if(k.v in CONST && CONST[k.v]!==null){ const c=CONST[k.v]; return ()=>c; }
+      throw 0;
+    }
+    throw 0;
+  }
+  // 优先级：一元负号低于乘方（-x^2 = -(x^2)），指数位置允许再带负号（2^-x）
+  function unary(){
+    if(peek()&&peek().t==="-"){ next(); const e=unary(); return x=>-e(x); }
+    if(peek()&&peek().t==="+"){ next(); return unary(); }
+    return power();
+  }
+  function power(){ let b=primary(); if(peek()&&peek().t==="^"){ next(); const e=unary(); const bb=b; b=x=>Math.pow(bb(x),e(x)); } return b; }
+  function term(){ let l=unary(); while(peek()&&(peek().t==="*"||peek().t==="/")){ const op=next().t, r=unary(), ll=l; l=op==="*"?x=>ll(x)*r(x):x=>ll(x)/r(x); } return l; }
+  function expr(){ let l=term(); while(peek()&&(peek().t==="+"||peek().t==="-")){ const op=next().t, r=term(), ll=l; l=op==="+"?x=>ll(x)+r(x):x=>ll(x)-r(x); } return l; }
+  try{ const f=expr(); if(p!==toks.length) return null; f(1); return f; }catch(_){ return null; }
+}
+/* 函数图像：labels=[表达式...]（≤3），nums=[xmin,xmax,ymin,ymax]（可省略）。按段画折线，跨渐近线处断开。 */
+function vFuncGraph(nums,labels){
+  const exprs=(labels||[]).map(String).map(s=>s.trim()).filter(Boolean).slice(0,3);
+  const fns=exprs.map(e=>{ const src=e.replace(/^y\s*=\s*/i,"").replace(/^f\(x\)\s*=\s*/i,""); return {src,f:compileExpr(src)}; }).filter(o=>o.f);
+  if(!fns.length) return "";
+  let [xmin,xmax,ymin,ymax]=(nums||[]).map(Number);
+  if(!isFinite(xmin)||!isFinite(xmax)||xmax<=xmin){ xmin=-6; xmax=6; }
+  if(!isFinite(ymin)||!isFinite(ymax)||ymax<=ymin){ ymin=-6; ymax=6; }
+  const W=460,H=300,L=44,R=16,T=14,B=34;
+  const pw=W-L-R, ph=H-T-B;
+  const X=v=>L+(v-xmin)/(xmax-xmin)*pw, Y=v=>T+(ymax-v)/(ymax-ymin)*ph;
+  const f=n=>Number(n).toFixed(1);
+  const niceStep=span=>{ const raw=span/8, pow=Math.pow(10,Math.floor(Math.log10(raw))), m=raw/pow; return (m<1.5?1:m<3.5?2:m<7.5?5:10)*pow; };
+  const sx=niceStep(xmax-xmin), sy=niceStep(ymax-ymin);
+  let r=`<rect x="${L}" y="${T}" width="${pw}" height="${ph}" fill="#fffaf5" stroke="#efe4d7"/>`;
+  for(let v=Math.ceil(xmin/sx)*sx; v<=xmax+1e-9; v+=sx){
+    r+=`<line x1="${f(X(v))}" y1="${T}" x2="${f(X(v))}" y2="${T+ph}" stroke="#efe4d7" stroke-width="1"/>`;
+    if(Math.abs(v)>1e-9) r+=`<text x="${f(X(v))}" y="${T+ph+14}" text-anchor="middle" font-size="10" fill="#8a7d74">${fmtNum(v)}</text>`;
+  }
+  for(let v=Math.ceil(ymin/sy)*sy; v<=ymax+1e-9; v+=sy){
+    r+=`<line x1="${L}" y1="${f(Y(v))}" x2="${L+pw}" y2="${f(Y(v))}" stroke="#efe4d7" stroke-width="1"/>`;
+    if(Math.abs(v)>1e-9) r+=`<text x="${L-5}" y="${f(Y(v)+3.5)}" text-anchor="end" font-size="10" fill="#8a7d74">${fmtNum(v)}</text>`;
+  }
+  if(ymin<=0&&ymax>=0) r+=`<line x1="${L}" y1="${f(Y(0))}" x2="${L+pw}" y2="${f(Y(0))}" stroke="${COL.ink}" stroke-width="1.8"/>`;
+  if(xmin<=0&&xmax>=0) r+=`<line x1="${f(X(0))}" y1="${T}" x2="${f(X(0))}" y2="${T+ph}" stroke="${COL.ink}" stroke-width="1.8"/>`;
+  r+=`<text x="${L+pw-4}" y="${f((ymin<=0&&ymax>=0?Y(0):T+ph)+13)}" text-anchor="end" font-size="12" font-style="italic" fill="${COL.ink}">x</text>`;
+  r+=`<text x="${f((xmin<=0&&xmax>=0?X(0):L)+6)}" y="${T+12}" font-size="12" font-style="italic" fill="${COL.ink}">y</text>`;
+  const N=360, yspan=ymax-ymin;
+  fns.forEach((o,k)=>{
+    const col=PAL[k%PAL.length];
+    let d="", pen=false, prev=null;
+    for(let i=0;i<=N;i++){
+      const x=xmin+(xmax-xmin)*i/N; let y;
+      try{ y=o.f(x); }catch(_){ y=NaN; }
+      const ok=isFinite(y)&&y>=ymin-yspan&&y<=ymax+yspan;     // 出界太远就断笔，免得渐近线两侧连成竖线
+      if(!ok||(prev!==null&&Math.abs(y-prev)>yspan*0.9)){ pen=false; prev=ok?y:null; if(!ok) continue; }
+      const px=X(x), py=Y(Math.max(ymin-yspan,Math.min(ymax+yspan,y)));
+      d+=(pen?" L ":" M ")+f(px)+" "+f(py); pen=true; prev=y;
+    }
+    r+=`<path d="${d.trim()}" fill="none" stroke="${col}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" clip-path="inset(0)"/>`;
+    const lx=L+8, ly=T+ph-8-(fns.length-1-k)*16;
+    r+=`<rect x="${lx-2}" y="${ly-11}" width="${Math.min(220,o.src.length*7.2+14).toFixed(0)}" height="15" rx="4" fill="#ffffffcc"/>`;
+    r+=`<line x1="${lx}" y1="${ly-4}" x2="${lx+14}" y2="${ly-4}" stroke="${col}" stroke-width="3"/>`;
+    r+=`<text x="${lx+18}" y="${ly}" font-size="11.5" font-weight="700" fill="${col}">y = ${escapeHtml(o.src.replace(/\*/g,"·"))}</text>`;
+  });
+  // 曲线裁剪到绘图区
+  r=`<defs><clipPath id="fgclip"><rect x="${L}" y="${T}" width="${pw}" height="${ph}"/></clipPath></defs>`+r.replace(/clip-path="inset\(0\)"/g,'clip-path="url(#fgclip)"');
+  return svg(W,H,r);
+}
+/* 直角三角形：nums=[底, 竖直边]，labels=[底标注, 竖直边标注, 斜边标注, 角标注]（直角在左下，角标在底边右端） */
+function vRightTriangle(nums,labels){
+  let b=Number(nums&&nums[0]), h=Number(nums&&nums[1]);
+  if(!isFinite(b)||b<=0) b=4; if(!isFinite(h)||h<=0) h=3;
+  const lab=i=>escapeHtml(String((labels&&labels[i])||"").slice(0,14));
+  const ratio=Math.max(0.45,Math.min(2.6,b/h));
+  let w,hh; if(ratio>=1){ w=260; hh=260/ratio; } else { hh=190; w=190*ratio; }
+  const ox=(460-w)/2-10, oy=22, baseY=oy+hh, f=n=>Number(n).toFixed(1);
+  let r=`<polygon points="${f(ox)},${f(baseY)} ${f(ox+w)},${f(baseY)} ${f(ox)},${f(oy)}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3" stroke-linejoin="round"/>`;
+  r+=`<path d="M ${f(ox+14)} ${f(baseY)} v -14 h -14" fill="none" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  const bl=lab(0)||fmtNum(b), hl=lab(1)||fmtNum(h), cl=lab(2), al=lab(3);
+  r+=`<text x="${f(ox+w/2)}" y="${f(baseY+20)}" text-anchor="middle" font-size="15" font-weight="700" fill="${COL.ink}">${bl}</text>`;
+  r+=`<text x="${f(ox-8)}" y="${f(oy+hh/2+5)}" text-anchor="end" font-size="15" font-weight="700" fill="${COL.fill2}">${hl}</text>`;
+  if(cl) r+=`<text x="${f(ox+w/2+12)}" y="${f(oy+hh/2-6)}" text-anchor="start" font-size="15" font-weight="700" fill="${COL.fill}">${cl}</text>`;
+  if(al){
+    const ang=Math.atan2(hh,w), r0=34, x1=ox+w-r0, y1=baseY, x2=ox+w-r0*Math.cos(ang), y2=baseY-r0*Math.sin(ang);
+    r+=`<path d="M ${f(x1)} ${f(y1)} A ${r0} ${r0} 0 0 1 ${f(x2)} ${f(y2)}" fill="none" stroke="${COL.fill2}" stroke-width="2.2"/>`;
+    r+=`<text x="${f(ox+w-r0-26)}" y="${f(baseY-10)}" text-anchor="end" font-size="14" font-weight="800" fill="${COL.fill2}">${al}</text>`;
+  }
+  return svg(460,baseY+30,r);
+}
+/* 一般三角形：nums=[a,b,c]（三边，按比例），labels=[a,b,c 标注, A,B,C 角标注]。a 对 A（顶点 A 在上），b 对 B（左下），c 对 C（右下）。 */
+function vTriangle(nums,labels){
+  let [a,b,c]=(nums||[]).map(Number);
+  if(!(a>0&&b>0&&c>0)||a+b<=c||a+c<=b||b+c<=a){ a=5; b=6; c=7; }   // 不成三角形就画个默认的
+  const lab=i=>escapeHtml(String((labels&&labels[i])||"").slice(0,14));
+  // 顶点定义：A 对边 a=BC，B 对边 b=AC，C 对边 c=AB。A 放左下、B 放右下（底边 c=AB），C 在上；
+  // C 的位置由角 A（余弦定理）和边 b 定出。
+  const angA=Math.acos(Math.max(-1,Math.min(1,(b*b+c*c-a*a)/(2*b*c))));
+  const Cx=b*Math.cos(angA), Cy=b*Math.sin(angA);
+  const minx=Math.min(0,Cx), maxx=Math.max(c,Cx), spanx=maxx-minx, spany=Cy;
+  const sc=Math.min(300/spanx,190/spany);
+  const W=460, ox=(W-spanx*sc)/2-minx*sc, oy=28+spany*sc, f=n=>Number(n).toFixed(1);
+  const P=[ [ox,oy], [ox+c*sc,oy], [ox+Cx*sc,oy-Cy*sc] ];   // A, B, C
+  let r=`<polygon points="${P.map(p=>f(p[0])+","+f(p[1])).join(" ")}" fill="#fff8f2" stroke="${COL.fill}" stroke-width="3" stroke-linejoin="round"/>`;
+  const mid=(p,q)=>[(p[0]+q[0])/2,(p[1]+q[1])/2];
+  const cen=[(P[0][0]+P[1][0]+P[2][0])/3,(P[0][1]+P[1][1]+P[2][1])/3];
+  const out=(m,d)=>{ const dx=m[0]-cen[0], dy=m[1]-cen[1], L=Math.hypot(dx,dy)||1; return [m[0]+dx/L*d, m[1]+dy/L*d]; };
+  const side=(p,q,txt,col)=>{ if(!txt) return ""; const m=out(mid(p,q),16); return `<text x="${f(m[0])}" y="${f(m[1]+5)}" text-anchor="middle" font-size="15" font-weight="700" fill="${col}">${txt}</text>`; };
+  r+=side(P[1],P[2],lab(0)||("a = "+fmtNum(a)),COL.ink);     // a = BC
+  r+=side(P[0],P[2],lab(1)||("b = "+fmtNum(b)),COL.ink);     // b = AC
+  r+=side(P[0],P[1],lab(2)||("c = "+fmtNum(c)),COL.ink);     // c = AB
+  const vert=(p,txt)=>{ if(!txt) return ""; const m=out(p,16); return `<text x="${f(m[0])}" y="${f(m[1]+5)}" text-anchor="middle" font-size="14" font-weight="800" fill="${COL.fill2}">${txt}</text>`; };
+  r+=vert(P[0],lab(3)||"A")+vert(P[1],lab(4)||"B")+vert(P[2],lab(5)||"C");
+  return svg(W,oy+34,r);
+}
+/* 单位圆：nums=[角度]（标准位置，-360~720），labels=[角名]。画终边、角弧、参考角和 (cos, sin) 坐标点。 */
+function vUnitCircle(nums,labels){
+  let deg=Number(nums&&nums[0]); if(!isFinite(deg)) deg=60; deg=Math.max(-360,Math.min(720,deg));
+  // 标签里已经带了度数/等号（"θ = 120°"）就原样用，别画成「θ = 120° = 120°」
+  const rawName=String((labels&&labels[0])||"").trim();
+  const name=escapeHtml(/[0-9°=]/.test(rawName)?rawName.slice(0,18):rawName.slice(0,8));
+  const titleTxt=/[0-9°=]/.test(rawName)?name:`${name?name+" = ":""}${fmtNum(deg)}°`;
+  const cx=200, cy=150, R=110, f=n=>Number(n).toFixed(1);
+  const th=deg*Math.PI/180, ex=cx+R*Math.cos(th), ey=cy-R*Math.sin(th);
+  let r=`<line x1="${cx-R-28}" y1="${cy}" x2="${cx+R+28}" y2="${cy}" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  r+=`<line x1="${cx}" y1="${cy+R+22}" x2="${cx}" y2="${cy-R-22}" stroke="${COL.ink}" stroke-width="1.6"/>`;
+  r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${COL.line}" stroke-width="2"/>`;
+  r+=`<text x="${cx+R+6}" y="${cy+14}" font-size="11" fill="#8a7d74">(1, 0)</text><text x="${cx+6}" y="${cy-R-6}" font-size="11" fill="#8a7d74">(0, 1)</text>`;
+  // 角弧：从 x 正向转到终边（逆时针为正）；超过一圈就画螺旋式两圈
+  const turns=Math.abs(deg)/360, sign=deg>=0?1:-1;
+  let d="", steps=Math.max(12,Math.round(Math.abs(deg)/4));
+  for(let i=0;i<=steps;i++){ const t=sign*Math.abs(deg)*i/steps*Math.PI/180, rr=34+10*(Math.abs(deg)*i/steps)/360; d+=(i?" L ":"M ")+f(cx+rr*Math.cos(t))+" "+f(cy-rr*Math.sin(t)); }
+  r+=`<path d="${d}" fill="none" stroke="${COL.fill}" stroke-width="2.4"/>`;
+  // 参考角（终边与 x 轴的锐角），不在坐标轴上才画
+  const m=((deg%360)+360)%360, ref=m<=90?m:m<=180?180-m:m<=270?m-180:360-m;
+  if(ref>0&&ref<90){
+    // 参考角 = 终边和最近那条 x 半轴夹的锐角：按象限定出弧的起止角（数学坐标，逆时针为正）
+    const lo=m<90?0:m<180?m:m<270?180:m, hi=m<90?m:m<180?180:m<270?m:360;
+    const r0=52; let dd="";
+    for(let i=0;i<=12;i++){ const t=(lo+(hi-lo)*i/12)*Math.PI/180; dd+=(i?" L ":"M ")+f(cx+r0*Math.cos(t))+" "+f(cy-r0*Math.sin(t)); }
+    r+=`<path d="${dd}" fill="none" stroke="${COL.fill2}" stroke-width="2" stroke-dasharray="4 3"/>`;
+    const tm=(lo+hi)/2*Math.PI/180;
+    r+=`<text x="${f(cx+70*Math.cos(tm))}" y="${f(cy-70*Math.sin(tm)+4)}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.fill2}">${fmtNum(ref)}°</text>`;
+  }
+  r+=`<line x1="${cx}" y1="${cy}" x2="${f(ex)}" y2="${f(ey)}" stroke="${COL.fill}" stroke-width="3" stroke-linecap="round"/>`;
+  r+=`<circle cx="${f(ex)}" cy="${f(ey)}" r="5.5" fill="${COL.fill}" stroke="#fff" stroke-width="2"/>`;
+  const cosv=Math.cos(th), sinv=Math.sin(th);
+  r+=`<line x1="${f(ex)}" y1="${f(ey)}" x2="${f(ex)}" y2="${cy}" stroke="${COL.fill2}" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  const lblx=ex+(cosv>=0?8:-8), anchor=cosv>=0?"start":"end";
+  r+=`<text x="${f(lblx)}" y="${f(ey-10)}" text-anchor="${anchor}" font-size="11.5" font-weight="700" fill="${COL.ink}">(${fmtNum(+cosv.toFixed(3))}, ${fmtNum(+sinv.toFixed(3))})</text>`;
+  r+=`<text x="${cx+R+34}" y="${cy-R-2}" text-anchor="end" font-size="14" font-weight="800" fill="${COL.fill}">${titleTxt}</text>`;
+  return svg(400,300,r);
+}
+
 function renderVisual(v){
   if(!v||!v.type||v.type==="none") return "";
+  if(!visualOk(v)) return "";                      // 违约降级成无图，别画一张看着对、数字错的图
   const nums=v.nums||[], labels=v.labels||[];
   let s="";
   try{
@@ -2557,6 +3035,10 @@ function renderVisual(v){
       case "hundredChart":  s=vHundredChart(nums); break;
       case "dataTable":     s=vDataTable(nums,labels); break;
       case "probLine":      s=vProbLine(nums,labels); break;
+      case "funcGraph":     s=vFuncGraph(nums,labels); break;
+      case "rightTriangle": s=vRightTriangle(nums,labels); break;
+      case "triangle":      s=vTriangle(nums,labels); break;
+      case "unitCircle":    s=vUnitCircle(nums,labels); break;
     }
   }catch(e){ s=""; }
   if(!s) return "";
@@ -2570,7 +3052,7 @@ async function generateLesson(question, imageB64, mediaType){
     method:"POST",
     body: Object.assign({
       question, imageB64, mediaType,
-      grade: gradeText(), gradeCode: cfg.gradeCode,
+      grade: gradeText(), gradeCode: effectiveGradeCode(),   // 课程/书籍折算成年级数，服务端按它定语气
       provider: cfg.provider, lang: cfg.lang
     }, kidBody())
   });
@@ -2739,17 +3221,33 @@ async function loadLearn(){
     box.innerHTML=`<div class="learnEmpty">${t("historyOffline")}</div>`; $("fsaEntry").classList.add("hidden");
   }
 }
+/* 技能类型徽章的文案（技能图谱视图用）。key 和后端 SKILL_TYPE 一一对应 */
+const SKILL_TYPE_LABEL={
+  zh:{concept:"概念",represent:"表示",procedure:"步骤",reason:"推理",apply:"应用",fluency:"熟练"},
+  en:{concept:"concept",represent:"represent",procedure:"procedure",reason:"reason",apply:"apply",fluency:"fluency"}
+};
 function renderLearn(d){
   const box=$("learnList"); box.innerHTML="";
   learnIndex={};
   const en=cfg.lang==="en";
-  (d.strands||[]).forEach(sg=>{
-    const head=document.createElement("div"); head.className="strandHead";
+  // 技能图谱视图：一个年级 50-70 个技能，主题默认折叠，点标题才展开
+  const isSkills=((d.source||{}).kind==="skills-preview");
+  const stdsOf=tid=>((d.topicStandards||{})[tid]||[]);
+  const stdOf=tid=>stdsOf(tid).map(s=>s.id.replace("BC.MATH.","")).join("、");
+  (d.strands||[]).forEach((sg,si)=>{
+    const head=document.createElement("div"); head.className="strandHead"+(isSkills?" tp":"");
     const bi=sg.bigIdea ? (en ? sg.bigIdea.en : (sg.bigIdea.zh||sg.bigIdea.en)) : "";
-    head.innerHTML=`<div class="shTop"><div class="shName"><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
-      +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)+`</div>`
+    const nSk=(sg.items||[]).length;
+    const nSolid=(sg.items||[]).filter(i=>i.status==="solid").length;
+    head.innerHTML=`<div class="shTop">`
+      +(isSkills?`<span class="tw">▶</span>`:"")
+      +`<div class="shName"><span class="sn">${escapeHtml(en?sg.enName:sg.zhName)}</span>`
+      +(en?"":`<span class="se">${escapeHtml(sg.enName)}</span>`)
+      +(isSkills?`<span class="tn">${nSolid}/${nSk}</span>`:"")+`</div>`
       +`<button class="unitBtn" data-strand="${escapeHtml(sg.strand)}" title="${escapeHtml(t("unitBtnTitle"))}">`
       +`${escapeHtml(t("unitBtn"))}<span class="unitN hidden"></span></button></div>`
+      // 技能图谱：主题标题下显示它对齐的 BC 标准号（Big Idea 每条主线只出现一次，见后端）
+      +(isSkills&&stdOf(sg.strand)?`<div class="skMeta">📎 ${escapeHtml(stdOf(sg.strand))}</div>`:"")
       +(bi?`<div class="bi">💡 ${escapeHtml(bi)}</div>`:"");
     box.appendChild(head);
     // 单元测试面板：默认收起，点标题右边的按钮才展开（列表已经够长了）
@@ -2758,13 +3256,54 @@ function renderLearn(d){
     box.appendChild(panel);
     unitNames[sg.strand]=en?sg.enName:sg.zhName;
     head.querySelector(".unitBtn").onclick=(e)=>{ e.stopPropagation(); toggleUnitPanel(sg.strand); };
+    const rows=[];
+    // 总览课：原来「一条大纲一节课」的 69 节课没作废，降级成主题的总览（技能图谱 §7 阶段 2）。
+    // 它们都有预生成包，点开秒出、不花钱；技能微课才是主线。
+    if(isSkills) stdsOf(sg.strand).forEach(std=>{
+      const el=document.createElement("div");
+      el.className="learnItem ovw"+(si!==0?" hidden":"");
+      rows.push(el);
+      el.innerHTML=`<span class="ovwIcon">🎓</span>`
+        +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml((en?"Overview · ":"总览课 · ")+(en?std.en:std.zh))}</div>`
+        +`<div class="skMeta">${escapeHtml(en?"the whole standard in one lesson":"这条大纲整条讲一遍")} · ${escapeHtml(std.id.replace("BC.MATH.",""))}</div></div>`;
+      el.onclick=()=>startTeach({ id:std.id, en:std.en, zh:std.zh });
+      box.appendChild(el);
+    });
+    if(isSkills){
+      // 第一个主题默认展开，其余收起——一进来就能看到东西，又不至于刷屏
+      const open=si===0;
+      head.classList.toggle("open",open);
+      head.onclick=()=>{
+        const now=!head.classList.contains("open");
+        head.classList.toggle("open",now);
+        rows.forEach(r=>r.classList.toggle("hidden",!now));
+      };
+    }
     (sg.items||[]).forEach(it=>{
       learnIndex[it.id]=it;
-      const el=document.createElement("div"); el.className="learnItem";
+      const el=document.createElement("div");
+      el.className="learnItem"+(isSkills&&it.reviewFrom?" rev":"")+(isSkills&&it.core===false?" ext":"")
+        +(isSkills&&si!==0?" hidden":"");
+      if(isSkills) rows.push(el);
       const title=en ? it.en : (it.zh||it.en);
+      const meta=[];
+      if(isSkills){
+        if(it.reviewFrom) meta.push(en?`review from G${it.reviewFrom}`:`复习 G${it.reviewFrom}`);
+        if(it.core===false) meta.push(en?"extension":"拓展");
+        if(it.prereqN) meta.push(en?`${it.prereqN} prereq`:`${it.prereqN} 个先修`);
+        if(it.miscN) meta.push(en?`${it.miscN} traps`:`${it.miscN} 个易错点`);
+        if(it.standard) meta.push(it.standard.replace("BC.MATH.",""));
+      }
+      // 稳定错误模式 → 建议先回去补哪个技能（技能图谱 §6）
+      const rem=isSkills&&it.remediate ? it.remediate : null;
       el.innerHTML=`<span class="sdot ${it.status}"></span>`
+        +(isSkills&&it.type?`<span class="skBadge ${escapeHtml(it.type)}">${escapeHtml((SKILL_TYPE_LABEL[en?"en":"zh"]||{})[it.type]||it.type)}</span>`:"")
         +`<div style="flex:1;min-width:0"><div class="lz">${escapeHtml(title)}</div>`
-        +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)+`</div>`
+        +(en?"":`<div class="le">${escapeHtml(it.en)}</div>`)
+        +(meta.length?`<div class="skMeta">${escapeHtml(meta.join(" · "))}</div>`:"")
+        +(rem?`<div class="skFix">🩹 ${escapeHtml(en?`Keeps slipping on "${rem.en}" (${rem.times}×)`:`总在「${rem.zh}」上栽跟头（${rem.times} 次）`)}`
+          +(rem.skillId?` — <span class="fixLink" data-fix="${escapeHtml(rem.skillId)}">${escapeHtml(en?"go back to: "+rem.skillEn:"先回去补："+rem.skillZh)}</span>`:"")
+          +`</div>`:"")+`</div>`
         +(it.lessonId?`<button class="hregen" title="${t("teachAgainTitle")}">🔄</button>`:"")
         +`<button class="hquiz" title="${t("quizListTitle")}">⚡</button>`
         +`<span class="st">${statusLabel(it.status)}</span>`;
@@ -2773,11 +3312,16 @@ function renderLearn(d){
       const rebtn=el.querySelector(".hregen");
       if(rebtn) rebtn.onclick=(e)=>{ e.stopPropagation(); startTeach(it, true); };
       el.querySelector(".hquiz").onclick=(e)=>{ e.stopPropagation(); startQuiz(it.id); };   // 不重听课直接闯关（隔天再战用）
+      // 「先回去补 xxx」：跳去讲那个先修技能，不是重讲当前这条
+      const fx=el.querySelector(".fixLink");
+      if(fx) fx.onclick=(e)=>{ e.stopPropagation(); const target=learnIndex[fx.dataset.fix]; if(target) startTeach(target); else alert(t("fixNotHere")); };
       box.appendChild(el);
     });
   });
-  if(d.source) $("learnSource").textContent = d.source.kind==="book"
+  if(d.source) $("learnSource").textContent = (d.source.kind==="book"||d.source.kind==="skills-preview")
     ? (d.source.label || sourceTitle())
+    : d.source.kind==="bc-course"
+    ? (d.source.label || sourceTitle())+" · curriculum.gov.bc.ca"
     : "BC Curriculum · "+(d.source.version||"")+" · curriculum.gov.bc.ca";
   renderLegend();
   loadUnitSets();
@@ -2846,7 +3390,8 @@ function fsaShowEntry(d){
   const sel=$("fsaStrand"), keep=sel.value;
   sel.innerHTML="";
   const all=document.createElement("option"); all.value=""; all.textContent=t("fsaAll"); sel.appendChild(all);
-  ((d&&d.strands)||[]).forEach(sg=>{
+  // 技能视图下清单分组是主题，FSA 仍按 BC 五大主线出卷：服务端另带了 fsaStrands
+  ((d&&(d.fsaStrands||d.strands))||[]).forEach(sg=>{
     const o=document.createElement("option"); o.value=sg.strand;
     o.textContent=cfg.lang==="en"?sg.enName:sg.zhName; sel.appendChild(o);
   });
@@ -2950,11 +3495,11 @@ function renderFsaQ(){
   const meta=[t("fsaOf")(fsa.idx+1,fsa.set.questions.length)];
   if(fsa.kind==="unit"&&q.level) meta.push(t("unitLevel")(q.level));
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
-    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div>`;
+    +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
     const b=document.createElement("button"); b.className="fsaOpt";
-    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${mathText(op)}</span>`;
     b.onclick=()=>answerFsa(i);
     opts.appendChild(b);
   });
@@ -2995,10 +3540,10 @@ function showFsaResult(){
   qs.forEach((q,i)=>{
     const ok=fsa.answers[i]===q.answerIndex;
     const div=document.createElement("div"); div.className="fsaRItem"+(ok?"":" bad");
-    div.innerHTML=`<div class="fq">${ok?"✅":"❌"} ${escapeHtml(q.question)}</div>`
-      +`<div class="fa">${escapeHtml(t("fsaYours"))}: <b>${"ABCD"[fsa.answers[i]]||"?"}. ${escapeHtml(q.options[fsa.answers[i]]||"")}</b>`
-      +(ok?"":` · ${escapeHtml(t("fsaRight"))}: <b>${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b>`)+`</div>`
-      +(q.explain?`<div class="fx">💡 ${escapeHtml(q.explain)}</div>`:"");
+    div.innerHTML=`<div class="fq">${ok?"✅":"❌"} ${mathText(q.question)}</div>`
+      +`<div class="fa">${escapeHtml(t("fsaYours"))}: <b>${"ABCD"[fsa.answers[i]]||"?"}. ${mathText(q.options[fsa.answers[i]]||"")}</b>`
+      +(ok?"":` · ${escapeHtml(t("fsaRight"))}: <b>${"ABCD"[q.answerIndex]}. ${mathText(q.options[q.answerIndex])}</b>`)+`</div>`
+      +(q.explain?`<div class="fx">💡 ${mathText(q.explain)}</div>`:"");
     if(!ok&&q.curriculumId){
       const tb=document.createElement("button"); tb.className="btn blue"; tb.textContent=t("fsaTeach");
       tb.onclick=()=>{ lessonReturnTo="fsa"; startTeach(learnIndex[q.curriculumId]||{ id:q.curriculumId }); };
@@ -3172,11 +3717,11 @@ function renderQuizQ(){
   if(quiz.level===quiz.rules.topLevel) meta.push(t("quizToPass")(quiz.rules.passNeed-quiz.topRight));
   const box=$("quizBody");
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
-    +`<div class="fsaQ">${escapeHtml(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
+    +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
     const b=document.createElement("button"); b.className="fsaOpt";
-    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${escapeHtml(op)}</span>`;
+    b.innerHTML=`<span class="ol">${"ABCD"[i]}.</span><span>${mathText(op)}</span>`;
     b.onclick=()=>answerQuiz(i);
     opts.appendChild(b);
   });
@@ -3187,7 +3732,8 @@ function answerQuiz(i){
   if(!quiz||quiz.answered) return;
   quiz.answered=true;
   const q=quiz.cur, ok=i===q.answerIndex;
-  quiz.results.push({ qid:q.qid, correct:ok });
+  // picked：选了第几个。答错时服务端靠它查这道题的误区标签，攒够两次就提示回补（技能图谱 §6）
+  quiz.results.push({ qid:q.qid, correct:ok, picked:i });
   if(ok&&q.level===quiz.rules.topLevel) quiz.topRight++;
   [...$("quizBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{
     b.disabled=true;
@@ -3204,7 +3750,7 @@ function answerQuiz(i){
   }else{
     quiz.level=Math.max(1, quiz.level-1);                     // 做错降一级，答案和讲解当场看
     fb.innerHTML=`<div class="quizFb bad"><div><b>${escapeHtml(t("fsaRight"))}: ${"ABCD"[q.answerIndex]}. ${escapeHtml(q.options[q.answerIndex])}</b></div>`
-      +(q.explain?`<div style="margin-top:6px">💡 ${escapeHtml(q.explain)}</div>`:"")
+      +(q.explain?`<div style="margin-top:6px">💡 ${mathText(q.explain)}</div>`:"")
       +`<button class="btn blue" id="quizNextBtn">${escapeHtml(finished?t("quizSeeResult"):t("quizNext"))}</button></div>`;
     fb.querySelector("#quizNextBtn").onclick=()=>{ if(quiz&&!quiz.done) finished?finishQuiz():renderQuizQ(); };
   }
@@ -3300,8 +3846,13 @@ function renderReport(d){
       +(bi?`<div class="rsBig">💡 ${escapeHtml(t("reportWhy"))}${escapeHtml(bi)}</div>`:"");
     (sg.items||[]).forEach(it=>{
       const row=document.createElement("div"); row.className="repItem";
+      // 这条标准下面有技能时，标出「几个技能站稳 / 共几个」；老口径还有记录的话另注一句（低置信，不等价）
+      const sk=it.skills;
+      const skNote=sk ? (en?`${sk.proficient}/${sk.total} skills solid`:`${sk.proficient}/${sk.total} 个技能站稳`)
+        +(sk.legacy?(en?` · earlier record: ${levelText(sk.legacy.level)} (unverified)`:` · 旧记录：${levelText(sk.legacy.level)}（未按技能核实）`):"") : "";
       row.innerHTML=`<div class="riT">${escapeHtml(en?it.en:(it.zh||it.en))}`
-        +(en?"":`<div class="riE">${escapeHtml(it.en)}</div>`)+`</div>`
+        +(en?"":`<div class="riE">${escapeHtml(it.en)}</div>`)
+        +(skNote?`<div class="riE">${escapeHtml(skNote)}</div>`:"")+`</div>`
         +((it.right||it.wrong)?`<span class="riN">${escapeHtml(t("reportRW")(it.right,it.wrong))}</span>`:"")
         +`<button class="riStar noprint" title="${escapeHtml(t("markSolidTitle"))}">${it.manualSolid?"★":"☆"}</button>`
         +`<span class="levelBadge ${it.level}">${escapeHtml(levelText(it.level))}</span>`;
@@ -3326,6 +3877,8 @@ function renderReport(d){
   }
   if(d.source) $("reportSource").textContent = d.source.kind==="book"
     ? (d.source.label || sourceTitle())+" · "+t("reportNote")
+    : (d.source.kind==="bc-course"||d.source.kind==="course")
+    ? (d.source.label||("BC "+sourceTitle()))+" · "+t("reportNote")
     : "BC Curriculum · "+(d.source.version||"")+" · "+t("reportNote");
 }
 /* 学生点 📊 → 家长门（临时解锁后自动打开报告）；家长直接开 */
@@ -3494,7 +4047,8 @@ function renderEngineList(){
   });
 }
 function openSettings(errMsg){
-  $("grade").value=cfg.gradeCode||"5";
+  // 这个下拉只有年级，没有课程/书；正在跟课程或教材学的时候得填折算后的年级，否则它是空白的
+  $("grade").value=effectiveGradeCode();
   $("langSel").value=cfg.lang;
   renderEngineList();
   applyRoleUI();   // 家长专属区块的显隐 + 孩子列表
@@ -3504,6 +4058,109 @@ function openSettings(errMsg){
 }
 $("gear").onclick=()=>openSettings();
 $("closeSettings").onclick=()=>settings.classList.add("hidden");
+
+/* ---------- 用量账本（家长专属，设置里） ----------
+ * /api/usage 只认家长 token，浏览器地址栏直接敲会 401（没有 x-session 头），
+ * 所以这一屏是家长看账的唯一入口。全部数字来自服务端的确定性汇总，
+ * 前端只负责翻译任务名/引擎名和排版，一个数都不自己算。 */
+const USAGE_TASK_KEY = { teach:"taskTeach", ask:"taskAsk", quiz:"taskQuiz", unit:"taskUnit", fsa:"taskFsa", report:"taskReport" };
+function usageTaskLabel(task){
+  if(USAGE_TASK_KEY[task]) return t(USAGE_TASK_KEY[task]);
+  const m=/^(pregen|judge):(.+)$/.exec(task||"");   // 构建期的任务名带前缀，拆开显示更好认
+  if(m) return t(m[1]==="pregen"?"taskPregen":"taskJudge")+" · "+(USAGE_TASK_KEY[m[2]]?t(USAGE_TASK_KEY[m[2]]):m[2]);
+  return task||"?";
+}
+function usageEngineLabel(id){
+  if(id==="pack") return t("provPack");
+  if(id==="bank") return t("provBank");
+  return providerLabel(id);   // 认得的引擎给中文名，认不得的原样显示 id
+}
+const useNum = n => (n||0).toLocaleString(cfg.lang==="en"?"en-US":"zh-CN");
+/* 花费：不足一分钱的按四位显示，否则两位；0 和缺失一律「—」，别拿 $0.00 冒充「不要钱」 */
+const useCost = c => c ? ("$"+(c<0.01?c.toFixed(4):c.toFixed(2))) : "—";
+const useDur = ms => { const s=Math.round((ms||0)/1000);
+  return s<60 ? s+"s" : Math.floor(s/60)+"m "+String(s%60).padStart(2,"0")+"s"; };
+
+function usageTable(map, head, labelFn){
+  const keys=Object.keys(map||{}).sort((a,b)=>(map[b].calls||0)-(map[a].calls||0));
+  if(!keys.length) return "";
+  let h='<div class="useScroll"><table class="repTable"><tr>'
+    +`<th>${escapeHtml(head)}</th><th>${escapeHtml(t("usageColCalls"))}</th>`
+    +`<th>${escapeHtml(t("usageColFailed"))}</th><th>${escapeHtml(t("usageColIn"))}</th>`
+    +`<th>${escapeHtml(t("usageColOut"))}</th><th>${escapeHtml(t("usageColCost"))}</th></tr>`;
+  for(const k of keys){
+    const b=map[k];
+    h+=`<tr><td>${escapeHtml(labelFn(k))}</td><td>${useNum(b.calls)}</td>`
+      +`<td${b.failed?' class="useFail"':""}>${b.failed?useNum(b.failed):"—"}</td>`
+      +`<td>${b.tokensIn?useNum(b.tokensIn):"—"}</td>`
+      +`<td>${b.tokensOut?useNum(b.tokensOut):"—"}</td>`
+      +`<td>${useCost(b.costUsd)}</td></tr>`;
+  }
+  return h+"</table></div>";
+}
+
+function renderUsage(d){
+  const box=$("usageBody"), tt=d.totals||{};
+  if(!tt.calls){ box.innerHTML=`<p class="help">${escapeHtml(t("usageEmpty"))}</p>`; return; }
+  let h=`<div class="useHead"><b>${useNum(tt.calls)}</b> ${escapeHtml(t("usageCalls"))}`;
+  if(tt.freeHits) h+=`<br><span class="useFree">${useNum(tt.freeHits)}</span> ${escapeHtml(t("usageFreeHits"))}`;
+  if(tt.engineCalls) h+=`<br>${useNum(tt.engineCalls)} ${escapeHtml(t("usageEngineCalls"))}`;
+  if(tt.failed) h+=`<br><span class="useFail">${useNum(tt.failed)}</span> ${escapeHtml(t("usageFailed"))}`;
+  if(tt.tokensIn||tt.tokensOut)
+    h+=`<br>${escapeHtml(t("usageColIn"))} ${useNum(tt.tokensIn)} · ${escapeHtml(t("usageColOut"))} ${useNum(tt.tokensOut)}`;
+  h+=`<br>${escapeHtml(t("usageColCost"))} ${useCost(tt.costUsd)}`;
+  if(tt.ms) h+=` · ${escapeHtml(t("usageWait"))} ${useDur(tt.ms)}`;
+  h+="</div>";
+  if(!tt.costUsd && tt.engineCalls) h+=`<p class="help">${escapeHtml(t("usageCostNone"))}</p>`;
+
+  // 路由表：解释「为什么这个任务记在这个引擎头上」，就近放在两张表前面
+  const routes=serverInfo.routes||{};
+  const rk=Object.keys(routes);
+  if(rk.length) h+=`<p class="help">${escapeHtml(t("usageRoutes"))} `
+    +rk.map(k=>escapeHtml(usageTaskLabel(k)+" → "+usageEngineLabel(routes[k]))).join(" · ")+"</p>";
+
+  h+=`<div class="useSec">${escapeHtml(t("usageByTask"))}</div>`+usageTable(d.byTask, t("usageColTask"), usageTaskLabel);
+  h+=`<div class="useSec">${escapeHtml(t("usageByEngine"))}</div>`+usageTable(d.byProvider, t("usageColEngine"), usageEngineLabel);
+
+  const rows=d.recent||[];
+  if(rows.length){
+    h+=`<div class="useSec">${escapeHtml(t("usageRecent"))}</div><div class="useRecent">`;
+    for(const r of rows){
+      const bits=[];
+      if(r.model) bits.push(escapeHtml(r.model));
+      if(r.tokensIn||r.tokensOut) bits.push(useNum(r.tokensIn)+"→"+useNum(r.tokensOut));
+      if(r.costUsd) bits.push(useCost(r.costUsd));
+      if(r.ms) bits.push(useDur(r.ms));
+      h+=`<div class="useRow">${r.ok===false?"⚠️":"✅"} <b>${escapeHtml(usageTaskLabel(r.task))}</b>`
+        +` · ${escapeHtml(usageEngineLabel(r.provider))}`
+        +(bits.length?` · ${bits.join(" · ")}`:"")
+        +` <span class="ut">${escapeHtml(fmtHistTime(r.at))}</span>`
+        +(r.err?`<br><span class="useErr">${escapeHtml(r.err)}</span>`:"")
+        +"</div>";
+    }
+    h+="</div>";
+  }
+  if(d.file) h+=`<p class="help">${escapeHtml(t("usageFile"))}: ${escapeHtml(d.file)}</p>`;
+  box.innerHTML=h;
+}
+
+async function loadUsage(){
+  const box=$("usageBody");
+  box.innerHTML=`<p class="help">${escapeHtml(t("usageLoading"))}</p>`;
+  try{
+    const days=Number($("usageDays").value)||0;
+    renderUsage(await api("/api/usage"+(days?"?days="+days:"")));
+  }catch(e){
+    if(e.silent) return;   // 401/403 已经由 api() 接管（弹登录 / 弹家长门）
+    box.innerHTML=`<p class="help">${escapeHtml(e.message||t("genericErr"))}</p>`;
+  }
+}
+function openUsage(){ $("usageModal").classList.remove("hidden"); loadUsage(); }
+/* 按钮本来就锁在家长专属区块里，孩子看不见；真被点到（临时家长态过期）就走家长门，
+ * 和 📊 报告一个走法——别让账本卡在「正在算账…」上 */
+$("usageBtn").onclick=()=>{ if(myRole==="parent") openUsage(); else openParentGate("usage"); };
+$("closeUsage").onclick=()=>$("usageModal").classList.add("hidden");
+$("usageDays").onchange=()=>loadUsage();
 
 /* ---------- 孩子管理（家长专属，设置里） ---------- */
 function renderKidsList(){
@@ -3570,7 +4227,9 @@ async function clearData(all){
 $("clearProgressBtn").onclick=()=>clearData(false);
 $("clearAllBtn").onclick=()=>clearData(true);
 $("saveSettings").onclick=async ()=>{
-  cfg.gradeCode=$("grade").value;
+  // 没动这个下拉就别覆盖：cfg.gradeCode 可能正指着一门课或一本书，直接写回去会把它折成光秃秃的年级
+  const g=$("grade").value;
+  if(g && g!==effectiveGradeCode()) cfg.gradeCode=g;
   cfg.lang=$("langSel").value==="en"?"en":"zh";
   saveCfg();
   applyLang();
@@ -3650,8 +4309,121 @@ $("histBtn").onclick=openHistory;
 $("closeHistory").onclick=closeHistory;
 $("histSearch").addEventListener("input",renderHistory);
 
+/* ---------- 自绘下拉 ----------
+ * 原生 <select> 的弹层归系统画：白底蓝高亮，跟奶油主题两回事；宽度还按最长选项撑，
+ * 高中课名一条就能把它顶到卡片外面。这里把 <select> 留在 DOM 里当数据源（sel.value / onchange
+ * 的老代码一行不改），只在它前面挂一个自己画的按钮 + 弹层。 */
+const FSEL_VAL = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,"value");
+let fselNow = null;                                  // 同一时刻只开一个弹层
+function fselClose(){
+  if(!fselNow) return;
+  const cur=fselNow; fselNow=null;
+  cur.pop.remove(); cur.wrap.classList.remove("open");
+  cur.btn.setAttribute("aria-expanded","false");
+  document.removeEventListener("mousedown",cur.onDoc,true);
+  document.removeEventListener("keydown",cur.onKey,true);
+  window.removeEventListener("scroll",cur.onScroll,true);
+  window.removeEventListener("resize",cur.onWin);
+}
+function fselAttach(sel){
+  if(sel.dataset.fsel) return;
+  sel.dataset.fsel="1";
+  const wrap=document.createElement("span");
+  wrap.className="fsel"+(sel.closest(".field")?" full":"");
+  const btn=document.createElement("button");
+  btn.type="button"; btn.className="fselBtn";
+  btn.setAttribute("aria-haspopup","listbox"); btn.setAttribute("aria-expanded","false");
+  btn.innerHTML=`<span class="fv"></span><span class="fc">▾</span>`;
+  sel.parentNode.insertBefore(wrap,sel);
+  wrap.appendChild(btn); wrap.appendChild(sel);
+  sel.classList.add("fselNative");
+
+  const sync=()=>{                                   // 按钮上的字 = 当前选中项
+    const o=sel.selectedOptions&&sel.selectedOptions[0];
+    btn.querySelector(".fv").textContent=o?o.textContent:"";
+    btn.title=o?o.textContent:"";                    // 长课名按钮上放不下，鼠标停一下能看全
+    btn.disabled=!!sel.disabled;
+    wrap.classList.toggle("hidden", sel.classList.contains("hidden"));
+  };
+  // 选项重建（buildGradeOptions / 换语言）跟着重画；sel.value=x 不产生 DOM 变化，所以还得劫持 setter
+  new MutationObserver(sync).observe(sel,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["class","disabled"]});
+  Object.defineProperty(sel,"value",{configurable:true,
+    get(){ return FSEL_VAL.get.call(this); },
+    set(v){ FSEL_VAL.set.call(this,v); sync(); }});
+
+  btn.onclick=()=>{
+    if(wrap.classList.contains("open")){ fselClose(); return; }
+    fselClose();
+    const pop=document.createElement("div");
+    pop.className="fselPop"; pop.setAttribute("role","listbox");
+    const rows=[], opts=[];
+    const addOpt=(o,ing)=>{
+      const r=document.createElement("div");
+      r.className="fselOpt"+(ing?" ing":"")+(o.selected?" on":"");
+      r.setAttribute("role","option"); r.setAttribute("aria-selected",o.selected?"true":"false");
+      r.innerHTML=`<span class="ft"></span><span class="fk">✓</span>`;
+      r.querySelector(".ft").textContent=o.textContent;
+      r.onclick=()=>{
+        fselClose();
+        if(sel.value!==o.value){ sel.value=o.value; sel.dispatchEvent(new Event("change",{bubbles:true})); }
+        btn.focus();
+      };
+      rows.push(r); opts.push(o); pop.appendChild(r);
+    };
+    Array.from(sel.children).forEach(node=>{
+      if(node.tagName==="OPTGROUP"){
+        const g=document.createElement("div"); g.className="fselGrp"; g.textContent=node.label; pop.appendChild(g);
+        Array.from(node.children).forEach(o=>addOpt(o,true));
+      }else if(node.tagName==="OPTION") addOpt(node,false);
+    });
+    document.body.appendChild(pop);
+    wrap.classList.add("open"); btn.setAttribute("aria-expanded","true");
+
+    const place=()=>{                                // 弹层跟着按钮走：宽度不越出所在卡片，撞到屏幕底就翻上去
+      const r=btn.getBoundingClientRect();
+      const host=btn.closest(".card,.modalCard");
+      const hb=host?host.getBoundingClientRect():{left:12,right:window.innerWidth-12,width:window.innerWidth-24};
+      pop.style.minWidth=r.width+"px";
+      pop.style.maxWidth=Math.min(window.innerWidth-24, Math.min(460, Math.max(240, hb.width-8)))+"px";
+      pop.style.maxHeight="none";
+      const h=pop.offsetHeight, below=window.innerHeight-r.bottom-14, above=r.top-14;
+      let top;
+      if(h<=below || below>=above){ top=r.bottom+6; pop.style.maxHeight=Math.min(440,Math.max(160,below))+"px"; }
+      else { pop.style.maxHeight=Math.min(440,Math.max(160,above))+"px"; top=Math.max(12, r.top-6-pop.offsetHeight); }
+      const w=pop.offsetWidth;
+      let left=Math.min(r.left, hb.right-w-4);       // 长课名不再把弹层顶到卡片外面
+      left=Math.max(12, Math.min(left, window.innerWidth-w-12));
+      pop.style.left=left+"px";
+      pop.style.top=top+"px";
+    };
+    place();
+    const on=pop.querySelector(".fselOpt.on"); if(on) on.scrollIntoView({block:"nearest"});
+
+    let hot=Math.max(0, opts.findIndex(o=>o.selected));
+    const mark=i=>{ hot=i; rows.forEach((r,k)=>r.classList.toggle("hot",k===i)); if(rows[i]) rows[i].scrollIntoView({block:"nearest"}); };
+    const onDoc=e=>{ if(!pop.contains(e.target)&&!wrap.contains(e.target)) fselClose(); };
+    const onKey=e=>{
+      if(e.key==="Escape"){ fselClose(); btn.focus(); e.preventDefault(); }
+      else if(e.key==="ArrowDown"){ mark(Math.min(rows.length-1,hot+1)); e.preventDefault(); }
+      else if(e.key==="ArrowUp"){ mark(Math.max(0,hot-1)); e.preventDefault(); }
+      else if(e.key==="Enter"||e.key===" "){ if(rows[hot]) rows[hot].click(); e.preventDefault(); }
+    };
+    const onScroll=e=>{ if(!pop.contains(e.target)) fselClose(); };
+    const onWin=()=>fselClose();
+    document.addEventListener("mousedown",onDoc,true);
+    document.addEventListener("keydown",onKey,true);
+    window.addEventListener("scroll",onScroll,true);
+    window.addEventListener("resize",onWin);
+    fselNow={wrap,btn,pop,onDoc,onKey,onScroll,onWin};
+  };
+  sel.addEventListener("change",sync);
+  sync();
+}
+
 /* ---------- 初始化 ---------- */
+document.querySelectorAll("select").forEach(fselAttach);
 applyLang();
+loadVisualContract();
 boot();
 </script>
 </body>

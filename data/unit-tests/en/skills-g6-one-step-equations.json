@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "one-step-equations",
+ "lang": "en",
+ "unitName": {
+  "zh": "一步方程",
+  "en": "One-step equations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "One-step equations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.BALANCE",
+    "level": 1,
+    "question": "In class you model the equation x + 4 = 12 on a pan balance. The left pan holds a bag of unknown mass x plus a 4 g cube; the right pan holds 12 g. The pans are level. What should you do so the bag is alone and the pans stay level?",
+    "options": [
+     "Take the 4 g cube off the left pan only",
+     "Take 4 g off both pans",
+     "Add 4 g to both pans",
+     "Take 12 g off the right pan"
+    ],
+    "answerIndex": 1,
+    "explain": "A balanced scale stays level only if you do the same thing to both sides, so removing 4 g from each pan leaves x = 8. The usual trap is taking the 4 g off just the left pan — that tips the scale and gives the wrong answer x = 12."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+    "level": 1,
+    "question": "Solve for x: 4x = 28",
+    "options": [
+     "x = 24",
+     "x = 32",
+     "x = 7",
+     "x = 112"
+    ],
+    "answerIndex": 2,
+    "explain": "4x means 4 × x, so you undo it by dividing both sides by 4: 28 ÷ 4 = 7. The most common trap is subtracting 4 from both sides (giving 24) — subtraction only undoes addition, not multiplication."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.CHECK",
+    "level": 1,
+    "question": "Solve x + 17 = 42. Which value makes the equation true when you substitute it back in?",
+    "options": [
+     "x = 25",
+     "x = 32",
+     "x = 35",
+     "x = 59"
+    ],
+    "answerIndex": 0,
+    "explain": "Subtract 17 from both sides: 42 − 17 = 25, and checking gives 25 + 17 = 42, so it is right. Watch the regrouping — students who do not regroup the ones column often write 35, and 35 + 17 = 52, not 42."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.WORD",
+    "level": 2,
+    "question": "At the Vancouver Aquarium gift shop, Priya buys one plush orca. She pays with a $20 bill and gets $6.75 in change. Let p be the price of the plush orca. Which equation and answer are both correct?",
+    "options": [
+     "p − 6.75 = 20, so p = $26.75",
+     "p + 6.75 = 20, so p = $14.25",
+     "p + 6.75 = 20, so p = $13.35",
+     "p + 6.75 = 20, so p = $13.25"
+    ],
+    "answerIndex": 3,
+    "explain": "The price plus the change equals the $20 she handed over, so p + 6.75 = 20 and p = 20 − 6.75 = $13.25. Two traps: writing p − 6.75 = 20 (that would make the toy cost more than the bill), and slipping on the regrouping in 20.00 − 6.75."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+    "level": 2,
+    "question": "A pack of 6 identical granola bars costs $9.30. Let b be the cost of one bar, so 6b = 9.30. Which step and answer are correct?",
+    "options": [
+     "Subtract 6 from both sides: b = $3.30",
+     "Divide both sides by 6: b = $1.55",
+     "Multiply both sides by 6: b = $55.80",
+     "Divide both sides by 6: b = $1.05"
+    ],
+    "answerIndex": 1,
+    "explain": "Since 6b means 6 groups of b, divide both sides by 6: 9.30 ÷ 6 = $1.55, and 6 × 1.55 = $9.30 checks out. Subtracting 6 is the classic mistake — it does not separate the 6 from the b, and $3.30 per bar would make the pack cost far too much."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.CHECK",
+    "level": 2,
+    "question": "Nadia solves x − 8 = 15 and writes x = 7. She then checks her answer by substitution. Which statement is correct?",
+    "options": [
+     "Correct — undoing the 8 means doing 15 − 8, so x = 7.",
+     "Wrong — x should be 15, because 7 + 8 = 15.",
+     "Wrong — substituting gives 7 − 8, which is not 15, so x should be 23.",
+     "You cannot check it until you are told what x stands for."
+    ],
+    "answerIndex": 2,
+    "explain": "Substituting is the test: 7 − 8 gives −1, not 15, so 7 is not the solution; adding 8 to both sides gives x = 23, and 23 − 8 = 15 checks. The big trap is subtracting when the equation already subtracts — you undo a subtraction by adding."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.WORD",
+    "level": 3,
+    "question": "Aiden charges the same amount for every lawn he mows in his Surrey neighbourhood. Last month he mowed 7 lawns and earned $105 in total. This month he wants to earn exactly $75. How many lawns must he mow?",
+    "options": [
+     "5 lawns",
+     "15 lawns",
+     "2 lawns",
+     "525 lawns"
+    ],
+    "answerIndex": 0,
+    "explain": "First find the rate: $105 ÷ 7 = $15 per lawn. Then write and solve the one-step equation 15n = 75, so n = 5. Two traps: reporting the rate 15 as if it were the number of lawns, and using the difference 105 − 75 instead of the new total."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.BALANCE",
+    "level": 3,
+    "question": "Sofia is solving 8t = 56. She says: “To keep the equation balanced I have to do the same thing to both sides, so I subtract 8 from both sides and get t = 48.” What is the best response?",
+    "options": [
+     "She is right — subtracting 8 from both sides is allowed, so t = 48.",
+     "She should subtract the 8 from one side only.",
+     "She should add 8 to both sides instead, giving t = 64.",
+     "Subtracting 8 does keep it balanced, but 8t means 8 × t, so subtracting does not free t; dividing both sides by 8 gives t = 7."
+    ],
+    "answerIndex": 3,
+    "explain": "Staying balanced is only half the rule — the operation you choose must also undo what is being done to the variable, and 8 × t is undone by dividing by 8, giving t = 7 (check: 8 × 7 = 56). The most common misconception in this unit is subtracting the coefficient; that keeps the scale level but leaves 8t − 8, which is not t."
+   }
+  ]
+ }
+}

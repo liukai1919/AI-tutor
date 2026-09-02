@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.ADDSUB.1000.ALGORITHM",
+ "lang": "en",
+ "title": "Add and subtract decimals to thousandths by lining up the decimal point",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Line Up the Dots: Adding and Subtracting Thousandths",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add money amounts like three point four five plus one point two by lining up the decimal point. Today we take that same trick one place further, to thousandths, so you can add and subtract numbers like two point three seven five without getting mixed up.",
+    "math": "2.375 + 1.4 = ?",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      2.375
+     ],
+     "labels": [],
+     "caption": "Two point three seven five: 2 ones, 3 tenths, 7 hundredths, 5 thousandths"
+    }
+   },
+   {
+    "say": "Here is the one and only rule. Write the numbers one above the other so the decimal points sit in a straight line, right on top of each other. That way ones land under ones, tenths under tenths, hundredths under hundredths, and thousandths under thousandths. If a number runs out of digits, fill the empty spots with zeros so both rows are the same length. Zeros on the end of a decimal never change its value.",
+    "math": "\\begin{array}{r} 2.375 \\\\ +\\ 1.400 \\\\ \\hline \\end{array}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      1.4
+     ],
+     "labels": [],
+     "caption": "One point four is the same as 1.400 — the extra zeros just hold the empty seats"
+    }
+   },
+   {
+    "say": "Let us do a real one. At the pool, Maya swims two point three seven five kilometres on Saturday and one point four kilometres on Sunday. Line up the dots, write one point four as one point four zero zero, then add from the right. Five plus zero is five. Seven plus zero is seven. Three plus four is seven. Two plus one is three. Bring the decimal point straight down. She swam three point seven seven five kilometres.",
+    "math": "\\begin{array}{r} 2.375 \\\\ +\\ 1.400 \\\\ \\hline 3.775 \\end{array}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      2,
+      4,
+      2.375,
+      3.775
+     ],
+     "labels": [],
+     "caption": "Jumping 1.4 forward from 2.375 lands on 3.775"
+    }
+   },
+   {
+    "say": "Watch out for this trap. Some kids line the numbers up by the right edge instead of the dot. If you stack two point three seven five and one point four so the five sits under the four, you are adding tenths to thousandths, and you get a silly answer. Think about it with money. One dollar and forty cents is way bigger than four tenths of a cent. Always line up the dots, never the right edges.",
+    "math": "\\begin{array}{r} 2.375 \\\\ +\\ \\ \\ \\ 1.4 \\\\ \\hline \\text{✗ wrong} \\end{array}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3.775
+     ],
+     "labels": [],
+     "caption": "The correct answer, 3.775 — the dot keeps every digit in its proper seat"
+    }
+   },
+   {
+    "say": "One more thing to remember: regrouping. Take zero point four six eight plus zero point one five seven. Eight plus seven is fifteen thousandths, so write five and carry one to the hundredths. Now six plus five plus that carried one is twelve hundredths, so write two and carry one to the tenths. Four plus one plus one is six tenths. The answer is zero point six two five. If you forget to carry, your answer comes out too small — so always check every column.",
+    "math": "\\begin{array}{r} 0.468 \\\\ +\\ 0.157 \\\\ \\hline 0.625 \\end{array}",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      625
+     ],
+     "labels": [],
+     "caption": "625 thousandths: 6 tenths, 2 hundredths, 5 thousandths"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Line up the decimal points, fill the gaps with zeros, then add or subtract just like whole numbers and bring the dot straight down.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Line up the decimal points, fill empty places with zeros, then add or subtract as usual and bring the dot straight down.",
+  "practice": {
+   "question": "Liam's water bottle holds three point six two five litres and he pours in another one point two litres. Stack the two numbers so the decimal points line up, write one point two as one point two zero zero, and add. How many litres are in the bottle now?",
+   "answer": "4.825 litres. Stacked with the dots lined up: 3.625 plus 1.200. Thousandths: 5 plus 0 is 5. Hundredths: 2 plus 0 is 2. Tenths: 6 plus 2 is 8. Ones: 3 plus 1 is 4. So the answer is 4.825 litres."
+  }
+ }
+}

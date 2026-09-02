@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP.MODEL",
+ "lang": "en",
+ "title": "Model a two-step equation with a balance, algebra tiles or a bar model",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Balance It, Then Solve It: Two-Step Equations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know two big things: whatever you do to one side of a balance, you do to the other side too, and if three equal bags balance twelve, each bag is four. Today we add one small twist — what happens when there is an extra block sitting on the scale with the bags.",
+    "math": "2x+3=11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2x + 3",
+      "11"
+     ],
+     "caption": "Balanced: two mystery bags and a 3 kg block on the left, 11 kg on the right"
+    }
+   },
+   {
+    "say": "Here is the story. You buy two bubble teas that cost the same, plus a cookie that costs three dollars, and the total is eleven dollars. On the balance, each bubble tea is a mystery bag we call x, the cookie is a three kilogram block, and the whole left side balances eleven kilograms on the right. In symbols that is two x plus three equals eleven.",
+    "math": "x+x+3=11 \\;\\Rightarrow\\; 2x+3=11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + x + 3",
+      "11"
+     ],
+     "caption": "Two equal bags plus a 3-block balances 11"
+    }
+   },
+   {
+    "say": "Step one: get rid of the extra block. Lift the three kilogram block off the left side — but the scale will tip unless you also take three off the right side. Eleven take away three is eight. Now the picture is clean: two bags balance eight.",
+    "math": "2x+3-3=11-3 \\;\\Rightarrow\\; 2x=8",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2x",
+      "8"
+     ],
+     "caption": "Took 3 off BOTH sides — still balanced"
+    }
+   },
+   {
+    "say": "Step two is the part you already know. Two identical bags balance eight, so split the eight evenly between them: eight divided by two is four. Each bag is four. So one bubble tea costs four dollars. Check it: four plus four plus three is eleven. It works.",
+    "math": "\\frac{2x}{2}=\\frac{8}{2} \\;\\Rightarrow\\; x=4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      4,
+      3
+     ],
+     "labels": [
+      "x",
+      "x",
+      "3"
+     ],
+     "caption": "The whole bar is 11, so each x-piece is 4"
+    }
+   },
+   {
+    "say": "Now the mistake to watch for. Some people lift the three kilogram block off the left side and leave the right side alone, then write two x equals eleven. Picture that scale — the left just got lighter, so it flies up and the right side crashes down. It is not balanced any more, so it is not the same equation. If you take three off, take three off both sides, every single time.",
+    "math": "2x+3=11 \\;\\not\\Rightarrow\\; 2x=11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "2x",
+      "11"
+     ],
+     "caption": "Only took 3 off the left — the scale tips, so this is wrong"
+    }
+   },
+   {
+    "say": "So a two-step equation is just a balance with one extra block on it. Peel the block off both sides first, then share what is left between the equal bags.",
+    "math": "2x+3=11 \\;\\rightarrow\\; 2x=8 \\;\\rightarrow\\; x=4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "4"
+     ],
+     "caption": "One bag balances 4"
+    }
+   }
+  ],
+  "answer": "Take the extra block off BOTH sides first, then split evenly between the equal bags.",
+  "practice": {
+   "question": "Picture a balance scale, or draw one yourself. On the left side there are three identical hockey pucks plus one two hundred gram weight. On the right side there is one eight hundred gram weight, and the scale is perfectly balanced. Write the equation using p for the mass of one puck, then find p.",
+   "answer": "Three p plus two hundred equals eight hundred. Take 200 off both sides: three p equals six hundred. Split evenly between the three pucks: p equals two hundred grams. Check: 200 + 200 + 200 + 200 = 800."
+  }
+ }
+}

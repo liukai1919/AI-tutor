@@ -1,0 +1,86 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.MIXED.NUMBERLINE",
+ "lang": "en",
+ "title": "Place mixed numbers and improper fractions on a number line",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Home of Seven Quarters",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that seven quarters and one and three quarters are two names for the same amount. Today we do one small thing with that: find the exact spot where it lives on a number line.",
+    "math": "\\frac{7}{4}=1\\frac{3}{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole secret. The bottom number tells you how many equal jumps to cut each whole into. Quarters means each whole gets cut into four equal jumps, and one little jump is one quarter. We count the jumps, not the lines.",
+    "math": "\\frac{1}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.25
+     ],
+     "labels": [],
+     "caption": "From 0 to 1 cut into 4 equal jumps. One jump lands on one quarter."
+    }
+   },
+   {
+    "say": "Let's try it. Imagine you walk seven quarters of a kilometre along the Stanley Park seawall. Start at zero and take seven quarter jumps. One, two, three, four gets you to one whole kilometre. Five, six, seven carries you three more quarters past it. So you land at one and three quarters, a little before two.",
+    "math": "\\frac{7}{4}=1\\frac{3}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      3,
+      1.75
+     ],
+     "labels": [],
+     "caption": "7 quarter jumps from 0 land at 1 and three quarters"
+    }
+   },
+   {
+    "say": "Here is the slip lots of kids make. Marking three quarters, they count the lines instead of the jumps, calling the line at zero number one, so they stop on the third line and land on two quarters. But zero is where you start, not a jump you took. Count the spaces you hop over: one, two, three. Three quarters sits on the next line over, just before one.",
+    "math": "\\frac{3}{4}\\neq\\frac{2}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5,
+      0.75
+     ],
+     "labels": [],
+     "caption": "Counting lines lands on two quarters; counting jumps moves you to the right spot, three quarters"
+    }
+   },
+   {
+    "say": "So whether the number is written as seven quarters or as one and three quarters, it is the very same point on the line. Count jumps, and you will always find it.",
+    "math": "\\frac{7}{4}=1\\frac{3}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      3,
+      1.75
+     ],
+     "labels": [],
+     "caption": "One point, two names"
+    }
+   }
+  ],
+  "answer": "Cut each whole into as many equal jumps as the bottom number says, then count the jumps, not the lines.",
+  "practice": {
+   "question": "A young maple in your yard is five halves of a metre tall. Draw a number line from zero to three metres and cut each metre into two equal jumps, because these are halves. Hop five jumps from zero. Where does the tree top land, and what is that height as a mixed number?",
+   "answer": "Five half jumps from zero land halfway between two and three, so the tree is two and one half metres tall. Five halves and two and one half are the same point."
+  }
+ }
+}

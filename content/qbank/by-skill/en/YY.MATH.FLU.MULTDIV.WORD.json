@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.MULTDIV.WORD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5ggns2d0i0rc",
+   "level": 1,
+   "question": "A Grade 5 class of 26 students is going to the science centre. Each van can seat 7 students. Every student must ride. How many vans does the class need?",
+   "options": [
+    "4 vans",
+    "3 vans, and 5 students stay at school",
+    "3 vans",
+    "5 vans"
+   ],
+   "answerIndex": 0,
+   "explain": "26 ÷ 7 = 3 remainder 5, and those 5 students still need a ride, so you round the quotient up to 4 vans. The usual trap is answering 3 because the remainder gets dropped — in a 'how many are needed' story the leftover always needs one more group.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns22ae9a2",
+   "level": 1,
+   "question": "Nina has one ribbon that is 60 cm long. She cuts it into pieces that are each 8 cm long for name tags. How many complete 8 cm pieces can she cut?",
+   "options": [
+    "8 pieces",
+    "7 pieces",
+    "4 pieces",
+    "6 pieces"
+   ],
+   "answerIndex": 1,
+   "explain": "60 ÷ 8 = 7 remainder 4, so she gets 7 complete pieces and a 4 cm scrap that is too short to use. Here the remainder is thrown away, not rounded up — answering 8 counts a piece she cannot actually cut.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2vvo0ww",
+   "level": 1,
+   "question": "A teacher has 92 markers and shares them equally among 7 tables, giving every table the same number. She keeps whatever is left. How many markers are left over?",
+   "options": [
+    "13 markers",
+    "85 markers",
+    "1 marker",
+    "0 markers"
+   ],
+   "answerIndex": 2,
+   "explain": "92 ÷ 7 = 13 remainder 1, so each table gets 13 markers and 1 marker is left over. The question asks for the remainder, not the quotient — 13 is how many each table gets, and subtracting 92 − 7 answers a different story altogether.",
+   "tags": [
+    "div.remainder_ignore",
+    "word.keyword_trap",
+    "ok",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2hscgpz",
+   "level": 1,
+   "question": "Liam baked 75 blueberry muffins. He packs exactly 6 muffins in each box. How many boxes will be completely full?",
+   "options": [
+    "69 boxes",
+    "13 boxes",
+    "3 boxes",
+    "12 boxes"
+   ],
+   "answerIndex": 3,
+   "explain": "75 ÷ 6 = 12 remainder 3, so 12 boxes are completely full and 3 muffins are still on the tray. A box holding only 3 muffins is not full, so rounding up to 13 does not fit this question.",
+   "tags": [
+    "word.keyword_trap",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2wtelzi",
+   "level": 2,
+   "question": "163 ÷ 7 = 23 remainder 2. In which situation is 24 the correct answer?",
+   "options": [
+    "163 campers each need a spot in a tent. Each tent sleeps 7 campers. How many tents are needed?",
+    "163 apples are packed 7 to a bag. How many bags are completely full?",
+    "163 stickers are shared equally among 7 children. How many stickers does each child get?",
+    "163 cm of string is cut into 7 cm pieces. How many whole pieces are there?"
+   ],
+   "answerIndex": 0,
+   "explain": "The same division gives different answers depending on the story: when everyone must be included, the 2 leftover campers still need a tent, so 23 rounds up to 24. In the other stories the leftover is dropped, which is why they all answer 23.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggns23wfedk",
+   "level": 2,
+   "question": "Mrs. Patel needs 100 juice boxes for sports day. Juice boxes are sold only in packs of 8, and each juice box costs $2. How many packs must she buy so she has at least 100 juice boxes?",
+   "options": [
+    "12 packs",
+    "13 packs",
+    "4 packs",
+    "50 packs"
+   ],
+   "answerIndex": 1,
+   "explain": "100 ÷ 8 = 12 remainder 4, and 12 packs give only 96 juice boxes, so she must buy 13 packs. Watch two traps: stopping at 12 leaves her 4 short, and the $2 price is extra information that has nothing to do with counting packs.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_ignore",
+    "word.keyword_trap"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2tk5441",
+   "level": 2,
+   "question": "Ella's ribbon is 4 times as long as Ben's ribbon. Ella's ribbon is 132 cm long. How long is Ben's ribbon?",
+   "options": [
+    "528 cm",
+    "128 cm",
+    "33 cm",
+    "44 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Ella's ribbon is the long one, so you undo the 'times as long' by dividing: 132 ÷ 4 = 33 cm. The words 'times as long' tempt you to multiply, but multiplying would make Ben's ribbon longer than Ella's, which cannot be right.",
+   "tags": [
+    "word.keyword_trap",
+    "word.keyword_trap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2cq7yb4",
+   "level": 2,
+   "question": "Mr. Singh has 3 packs of pencils with 45 pencils in each pack. He gives each student a full set of 8 pencils. How many students can get a full set?",
+   "options": [
+    "17 students",
+    "7 students",
+    "5 students",
+    "16 students"
+   ],
+   "answerIndex": 3,
+   "explain": "First find the total: 3 × 45 = 135 pencils, then 135 ÷ 8 = 16 remainder 7, so 16 students get a full set and 7 pencils are left. The leftover 7 is not enough for a full set, so it cannot be rounded up to a 17th student.",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2b43pzy",
+   "level": 3,
+   "question": "184 students and 12 teachers are travelling to the Vancouver Aquarium. Each bus holds 45 people, and everyone must have a seat. How many buses are needed?",
+   "options": [
+    "5 buses",
+    "4 buses, and the extra 16 people take taxis",
+    "4 buses",
+    "6 buses"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the teachers first: 184 + 12 = 196 people, then 196 ÷ 45 = 4 remainder 16, so a 5th bus is needed for those 16 people. Forgetting the teachers or dropping the remainder both leave people without a seat.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2vl3i4a",
+   "level": 3,
+   "question": "Maya has 154 granola bars for a bake sale. She packs them into boxes of 8, and every box she sells must be completely full. How many more granola bars does she need so that no bars are left unpacked?",
+   "options": [
+    "2 more bars",
+    "6 more bars",
+    "8 more bars",
+    "19 more bars"
+   ],
+   "answerIndex": 1,
+   "explain": "154 ÷ 8 = 19 remainder 2, so 19 boxes are full and 2 bars are loose; a box needs 8, so she needs 8 − 2 = 6 more bars. The common trap is answering 2 — that is what is left over, not what is still missing.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2wg0ert",
+   "level": 3,
+   "question": "A class of 27 students each makes one bird feeder, and each feeder needs 6 pine cones. Pine cones are sold in bags of 25. How many bags must the class buy?",
+   "options": [
+    "6 bags",
+    "12 bags",
+    "7 bags",
+    "8 bags"
+   ],
+   "answerIndex": 2,
+   "explain": "27 × 6 = 162 pine cones are needed, and 162 ÷ 25 = 6 remainder 12, so 6 bags give only 150 and a 7th bag is required. Stopping at 6 bags leaves 12 pine cones missing, which means two students could not finish a feeder.",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ggns2rc8sun",
+   "level": 3,
+   "question": "A bannock recipe makes 6 bannock and uses 240 g of flour. Ava has 900 g of flour and plenty of every other ingredient. She can bake part of a recipe if she has enough flour. What is the greatest number of bannock she can make?",
+   "options": [
+    "24 bannock",
+    "18 bannock",
+    "23 bannock",
+    "22 bannock"
+   ],
+   "answerIndex": 3,
+   "explain": "One bannock uses 240 ÷ 6 = 40 g of flour, so 900 ÷ 40 = 22 remainder 20, giving 22 bannock with 20 g of flour left over. Answering 18 throws away that leftover flour after 3 full recipes, and 23 pretends 20 g is enough for one more.",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  }
+ ]
+}

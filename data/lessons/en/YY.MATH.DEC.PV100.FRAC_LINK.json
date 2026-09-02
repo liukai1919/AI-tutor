@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.PV100.FRAC_LINK",
+ "lang": "en",
+ "title": "Write the same amount as a fraction and a decimal (3/10 = 0.3, 25/100 = 0.25)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "One Amount, Two Ways: Fractions and Decimals",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read decimals like zero point three and zero point two five, and you know what the tenths and hundredths places mean. Today we learn one small trick: how to write the very same amount two ways, as a fraction and as a decimal.",
+    "math": "\\frac{3}{10} = 0.3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a big square cut into one hundred tiny squares. If we colour thirty of them, that is thirty out of one hundred, or thirty hundredths. But look, those thirty little squares fill exactly three whole columns out of ten. So the same colouring is also three tenths. Three tenths and thirty hundredths are the same amount, and we write it as zero point three.",
+    "math": "\\frac{3}{10} = \\frac{30}{100} = 0.3",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      30
+     ],
+     "labels": [],
+     "caption": "30 out of 100 squares coloured — that is 3 whole columns, so 3 tenths"
+    }
+   },
+   {
+    "say": "Now let's colour twenty five little squares instead. That is twenty five out of one hundred, or twenty five hundredths. The bottom number one hundred tells us to go all the way to the hundredths place, so we write two digits after the dot: zero point two five. Notice the two sits in the tenths place and the five sits in the hundredths place.",
+    "math": "\\frac{25}{100} = 0.25",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "25 out of 100 squares coloured — twenty five hundredths"
+    }
+   },
+   {
+    "say": "Here is the mix up I want you to watch out for. Some kids see one quarter and think, there is a four in it, so it must be zero point four. That is not right! One quarter means one of four equal pieces. If you cut the hundred squares into four fair groups, each group has twenty five squares, so one quarter is twenty five out of one hundred, which is zero point two five. And zero point four would be forty squares, which is much more. Never just copy the digits across.",
+    "math": "\\frac{1}{4} = \\frac{25}{100} = 0.25 \\neq 0.4",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25,
+      15
+     ],
+     "labels": [],
+     "caption": "One quarter is the 25 dark squares; 0.4 would be 40 squares — the 15 extra ones show the difference"
+    }
+   },
+   {
+    "say": "So here is the whole trick. If the bottom number is ten, count in tenths and write one digit after the dot, like three tenths is zero point three. If the bottom number is one hundred, count in hundredths and write two digits after the dot, like seven hundredths is zero point zero seven. It is like Canadian money, seven cents out of a dollar is zero point zero seven dollars.",
+    "math": "\\frac{7}{100} = 0.07",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.07
+     ],
+     "labels": [],
+     "caption": "7 hundredths: nothing in the tenths place, 7 in the hundredths place"
+    }
+   },
+   {
+    "say": "Remember, the bottom number of the fraction tells you how far to go after the dot, tenths for ten and hundredths for one hundred. Do not just copy the digits!",
+    "math": "\\frac{3}{10}=0.3 \\qquad \\frac{25}{100}=0.25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Bottom number 10 means tenths (one digit after the dot), bottom number 100 means hundredths (two digits) — never just copy the digits.",
+  "practice": {
+   "question": "At the corner store in Victoria, a sticker costs sixty cents. A dollar is a big square cut into one hundred equal little squares, one square for each cent. Draw that ten by ten square yourself and colour in sixty of the little squares. Write the coloured part as a fraction with one hundred on the bottom, then as a decimal. Bonus: how many whole columns did you colour, and what does that tell you the fraction is in tenths?",
+   "answer": "Sixty out of one hundred, written as 60/100, is 0.60, or just 0.6 dollars. You coloured six whole columns out of ten, so it is also 6/10 — and 6/10 and 60/100 are the same amount."
+  }
+ }
+}

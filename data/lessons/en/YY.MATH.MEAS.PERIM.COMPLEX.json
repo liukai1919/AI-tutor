@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.PERIM.COMPLEX",
+ "lang": "en",
+ "title": "Find the perimeter of complex shapes, including hidden side lengths",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "The Missing Sides of an L-Shaped Garden",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that perimeter means walking all the way around a shape and adding up every side. Like this little rectangle garden bed: five plus three plus five plus three is sixteen metres of fence. Today's one small step is what to do when the shape is L-shaped and some of the sides have no number written on them.",
+    "math": "5+3+5+3=16",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Perimeter you already know: 16 m"
+    }
+   },
+   {
+    "say": "Here is Ravi's L-shaped garden behind his house in Surrey. Picture a big rectangle eight metres across and six metres tall, with a chunk taken out of the top right corner. The shaded corner is the part that got cut away. Walk your finger around the edge and you will count six sides, not four.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "L-shaped garden: the highlighted corner is cut off"
+    }
+   },
+   {
+    "say": "Ravi's plan only labels four sides: the bottom is eight metres, the left is six metres, the top is five metres, and the short drop on the right is two metres. The two missing sides are hiding, but the shape tells us. Going up the whole right edge would be six metres, and two of those are already used, so the rest is six minus two equals four metres. Going along the whole top would be eight metres, and five are already used, so the inside piece is eight minus five equals three metres.",
+    "math": "6-2=4 \\qquad 8-5=3",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "Hidden sides: 6 − 2 = 4 m and 8 − 5 = 3 m"
+    }
+   },
+   {
+    "say": "Now every side has a number, so we just add them all the way around. Eight plus four is twelve, plus three is fifteen, plus two is seventeen, plus five is twenty two, plus six is twenty eight. Ravi needs twenty eight metres of fence.",
+    "math": "8+4+3+2+5+6=28",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      4,
+      3,
+      2,
+      5,
+      6
+     ],
+     "labels": [
+      "bottom",
+      "right",
+      "inner",
+      "up",
+      "top",
+      "left"
+     ],
+     "caption": "All six sides add to 28 m"
+    }
+   },
+   {
+    "say": "Here is the trap almost everybody falls into. If you only add the four numbers that were printed on the plan, you get eight plus six plus five plus two, which is twenty one metres. That is seven metres short, and Ravi's fence would have a big gap in it. Two sides were real, they just had no label. And remember, this is fence going around, not grass covering the inside. Perimeter is the walk around the edge.",
+    "math": "8+6+5+2=21",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      21,
+      7
+     ],
+     "labels": [
+      "only labelled sides",
+      "sides forgotten"
+     ],
+     "caption": "Forgetting the unlabelled sides loses 7 m of fence"
+    }
+   },
+   {
+    "say": "So whenever a shape has a corner cut out of it, first hunt down the hidden sides by subtracting, then walk all the way around and add every single one.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find hidden sides by subtracting the shorter piece from the longer matching side, then add every side all the way around.",
+  "practice": {
+   "question": "On grid paper, draw Maya's patio in Kelowna. Start with a rectangle seven metres long and five metres wide. Now cut a square two metres by two metres out of the top right corner, so it becomes an L shape. The plan labels the bottom as seven metres, the left side as five metres, and the two cut edges as two metres and two metres. Find the two hidden side lengths, then find the perimeter of the patio.",
+   "answer": "The hidden right side is five minus two equals three metres, and the hidden top piece is seven minus two equals five metres. Perimeter: seven plus three plus two plus two plus five plus five equals twenty four metres."
+  }
+ }
+}

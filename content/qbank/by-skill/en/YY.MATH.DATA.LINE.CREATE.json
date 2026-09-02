@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DATA.LINE.CREATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5r52muqv7w7w",
+   "level": 1,
+   "question": "On a line graph, the vertical axis runs from 0 at the bottom to 50 at the top, and that distance is divided into 10 equal spaces. What amount does each single space stand for?",
+   "options": [
+    "5",
+    "1",
+    "10",
+    "50"
+   ],
+   "answerIndex": 0,
+   "explain": "Divide the whole axis by the number of equal spaces: 50 ÷ 10 = 5, so one space is 5 units. The common trap is assuming every space is worth 1 just because they are single squares.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52mugptca3",
+   "level": 1,
+   "question": "A line graph has a vertical axis from 0 to 24, divided into 8 equal spaces. A point is plotted exactly 4 spaces above 0. What value does that point show?",
+   "options": [
+    "4",
+    "12",
+    "8",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "Each space is 24 ÷ 8 = 3, so 4 spaces up means 4 × 3 = 12. The usual mistake is counting 4 spaces and calling the value 4, which ignores that one space is worth 3.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52muwlrzdo",
+   "level": 1,
+   "question": "The largest number in a table of values is 45. The graph paper gives you 10 equal spaces above 0 on the vertical axis. Which scale lets every value fit on the grid without wasting most of the space?",
+   "options": [
+    "1 unit per space",
+    "2 units per space",
+    "5 units per space",
+    "50 units per space"
+   ],
+   "answerIndex": 2,
+   "explain": "With 10 spaces you need the top of the axis to be at least 45, so 5 units per space reaches 50 and fits comfortably. Choosing 1 unit per space only reaches 10, which is the classic mistake of treating one square as one unit no matter how big the data is.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52muibzjc4",
+   "level": 1,
+   "question": "A vertical axis runs from 0 to 30 and is divided into 6 equal spaces. To plot the value 20, how many spaces above 0 should the point go?",
+   "options": [
+    "5 spaces",
+    "6 spaces",
+    "20 spaces",
+    "4 spaces"
+   ],
+   "answerIndex": 3,
+   "explain": "Each space is 30 ÷ 6 = 5, and 20 ÷ 5 = 4, so the point sits 4 spaces up. Counting 20 spaces up treats each space as 1 unit and would run right off the grid.",
+   "tags": [
+    "other",
+    "other",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5r52muncj1ks",
+   "level": 2,
+   "question": "A table of values contains 0, 15, 30, 40 and 55. The vertical axis on the grid has 12 equal spaces. Which scale should you choose so that all five values land exactly on a grid line?",
+   "options": [
+    "5 per space",
+    "1 per space",
+    "10 per space",
+    "25 per space"
+   ],
+   "answerIndex": 0,
+   "explain": "At 5 per space the axis reaches 60 and 15, 30, 40 and 55 all land on lines (3, 6, 8 and 11 spaces up). Using 1 per space only reaches 12, the usual slip of assuming one square always means one unit.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52mux3xfu6",
+   "level": 2,
+   "question": "On Maya's line graph each space on the vertical axis stands for 4 units. She plots a point 7 spaces above 0. What value has she plotted?",
+   "options": [
+    "7",
+    "28",
+    "24",
+    "11"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply the number of spaces by what one space is worth: 7 × 4 = 28. Reading the point as 7 is the many-to-one scale trap, where the spaces get counted instead of the units.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52muxv0umo",
+   "level": 2,
+   "question": "On a line graph the vertical axis is labelled 0, 2, 4, 6, 8, … and each space stands for 2 units. Where does the value 13 belong?",
+   "options": [
+    "On the line marked 26, since 13 × 2 = 26",
+    "On the 13th line above 0",
+    "Halfway between the lines for 12 and 14",
+    "On the line marked 12"
+   ],
+   "answerIndex": 2,
+   "explain": "With 2 units per space, 13 falls between 12 and 14, so the point goes halfway up that space. Landing on the 13th line would only be right if each space were worth 1.",
+   "tags": [
+    "other",
+    "graph.scale_misread",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52muihpn0c",
+   "level": 2,
+   "question": "A table of values has the numbers 120, 240, 360 and 480. There are 10 equal spaces on the vertical axis. Which scale makes every value sit on a grid line and still uses most of the grid?",
+   "options": [
+    "6 per space",
+    "25 per space",
+    "500 per space",
+    "60 per space"
+   ],
+   "answerIndex": 3,
+   "explain": "At 60 per space the axis reaches 600 and the values land on lines 2, 4, 6 and 8. Picking 6 per space only reaches 60, far below the data, which happens when the scale is read as if each square were worth one small step.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5r52muyw7f53",
+   "level": 3,
+   "question": "Ava is graphing snowfall in Kamloops. Her vertical axis is marked 0, 5, 10, 15, 20, 25 cm, so each space stands for 5 cm. Tuesday's point is 4 spaces above 0, and Ava writes down 4 cm. What is the correct snowfall for Tuesday, in cm?",
+   "options": [
+    "20",
+    "4",
+    "9",
+    "25"
+   ],
+   "answerIndex": 0,
+   "explain": "Each space is 5 cm, so 4 spaces means 4 × 5 = 20 cm. Ava counted squares instead of centimetres, the most common error with a many-to-one scale.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52mufoyg12",
+   "level": 3,
+   "question": "Noah is drawing a line graph of monthly rainfall in Victoria from his table: 30, 45, 60, 75 and 90 mm. He sets the vertical axis from 0 to 100 mm using 20 equal spaces. How many spaces above 0 should the point for 45 mm go?",
+   "options": [
+    "45 spaces",
+    "9 spaces",
+    "4 spaces",
+    "5 spaces"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the scale: 100 ÷ 20 = 5 mm per space, then 45 ÷ 5 = 9 spaces. Going 45 spaces up treats each space as 1 mm and does not even fit on the grid.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52muj5ylyl",
+   "level": 3,
+   "question": "Liam graphs his dog-walking money for the week. His vertical axis runs from $0 to $60 in 12 equal spaces. Saturday's point is 7 spaces above 0, and Liam tells his sister he earned $7. How much did he actually earn on Saturday?",
+   "options": [
+    "$7",
+    "$12",
+    "$35",
+    "$60"
+   ],
+   "answerIndex": 2,
+   "explain": "Each space is $60 ÷ 12 = $5, so 7 spaces means 7 × $5 = $35. Liam fell for the many-to-one scale trap by reading each space as $1 instead of checking the axis labels first.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r52mucouo53",
+   "level": 3,
+   "question": "A table shows the noon temperature in Prince George for four days: 8 °C, 12 °C, 16 °C and 20 °C. On the line graph each space on the vertical axis stands for 4 °C. How far apart are the highest and lowest points, and what temperature difference is that?",
+   "options": [
+    "12 spaces apart, a difference of 12 °C",
+    "4 spaces apart, a difference of 16 °C",
+    "3 spaces apart, a difference of 3 °C",
+    "3 spaces apart, a difference of 12 °C"
+   ],
+   "answerIndex": 3,
+   "explain": "20 − 8 = 12 °C, and since each space is 4 °C, that gap is 12 ÷ 4 = 3 spaces. Saying the difference is 3 °C counts the spaces as degrees, which is exactly what a many-to-one scale is designed to make you check.",
+   "tags": [
+    "other",
+    "other",
+    "graph.scale_misread",
+    "ok"
+   ]
+  }
+ ]
+}

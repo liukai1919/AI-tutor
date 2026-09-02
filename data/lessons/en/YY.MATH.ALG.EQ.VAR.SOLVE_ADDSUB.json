@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.VAR.SOLVE_ADDSUB",
+ "lang": "en",
+ "title": "Solve one-step addition and subtraction equations with a variable",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Keeping the Scale Balanced",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write an equation like x plus four equals twelve. Today we learn how to find out what x is, by thinking about a balance scale.",
+    "math": "x + 4 = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 4",
+      "12"
+     ],
+     "caption": "An equation is a balanced scale"
+    }
+   },
+   {
+    "say": "The equals sign means both sides weigh exactly the same. On the left there is a mystery bag called x plus four kilograms of blueberries. On the right there are twelve kilograms. The scale is perfectly level, so both sides really are twelve.",
+    "math": "x + 4 = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "bag x + 4 kg",
+      "12 kg"
+     ],
+     "caption": "Both sides weigh the same"
+    }
+   },
+   {
+    "say": "To find the bag by itself, I take the four kilograms off the left side. But if I only take four off one side, the scale tips over. So I take four off the right side too. Twelve take away four is eight. Now the bag alone balances eight kilograms, so x equals eight.",
+    "math": "x + 4 - 4 = 12 - 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "8"
+     ],
+     "caption": "Take 4 off both sides, still balanced"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. For x plus five equals eleven, they add five and say x equals sixteen. Let us test it on the scale. Sixteen plus five is twenty one, but the other side is only eleven, so the left side crashes down. Adding was the wrong move. Five was added to x, so we take five away from both sides. Eleven take away five is six, and x equals six. Check it: six plus five is eleven. Level again.",
+    "math": "x + 5 = 11 \\Rightarrow x = 11 - 5 = 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "16 + 5",
+      "11"
+     ],
+     "caption": "x = 16 tips the scale — too heavy!"
+    }
+   },
+   {
+    "say": "So whatever was added to x, take it away from both sides. Do the opposite, and do it to both sides.",
+    "math": "x + a = b \\Rightarrow x = b - a",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "b - a"
+     ],
+     "caption": "Opposite move, both sides, still balanced"
+    }
+   }
+  ],
+  "answer": "Undo the operation with its opposite — and always do it to both sides so the scale stays balanced.",
+  "practice": {
+   "question": "Picture a balance scale. On the left side sits your piggy bank holding an unknown amount of money, x dollars, plus a seven dollar bill. On the right side sits twenty dollars. The scale is level, so x plus seven equals twenty. How much money is in the piggy bank? Try drawing the scale yourself.",
+   "answer": "Take seven dollars off both sides: twenty take away seven is thirteen, so x equals thirteen dollars. Check: thirteen plus seven is twenty."
+  }
+ }
+}

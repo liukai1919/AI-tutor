@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.MONEY.NOTATION",
+ "lang": "en",
+ "title": "Write and read dollar amounts in decimal notation ($12.05)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Money Has Two Little Places After the Dot",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read decimals like twelve point zero five, and you know the tenths place and the hundredths place. Today we use that same idea for money, so you can write dollars and cents the way stores in British Columbia write them.",
+    "math": "12.05",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      12.05
+     ],
+     "labels": [],
+     "caption": "Twelve point zero five — one ten, two ones, zero tenths, five hundredths"
+    }
+   },
+   {
+    "say": "Here is the big idea. With money, the dot separates the dollars from the cents. Everything on the left of the dot is whole dollars. And the two places on the right of the dot are cents, because one cent is one hundredth of a dollar. That is why money always shows exactly two places after the dot — the tenths place, which is dimes, and the hundredths place, which is pennies.",
+    "math": "\\$12.05 = 12 \\text{ dollars} + 5 \\text{ cents}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      12.05
+     ],
+     "labels": [],
+     "caption": "Left of the dot: dollars. Right of the dot: two places of cents."
+    }
+   },
+   {
+    "say": "Let us try a real one. You buy a hot chocolate at a shop in Vancouver and it costs twelve dollars and five cents. Five cents is five pennies out of one hundred pennies in a dollar, so five cents belongs in the hundredths place. The tenths place has no dimes at all, so we write a zero there to hold that spot. That gives us twelve point zero five. We read it out loud as twelve dollars and five cents.",
+    "math": "\\$12.05",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      5
+     ],
+     "labels": [],
+     "caption": "One whole dollar = 100 pennies. Five pennies shaded = 5 hundredths."
+    }
+   },
+   {
+    "say": "Now here is the mistake I see all the time. Someone wants to write three dollars and five cents, and they write dollar sign three point five. But look what that really says! The five landed in the tenths place, and one tenth of a dollar is a dime. So dollar sign three point five means three dollars and five dimes, which is fifty cents — that is ten times too much money. Five cents needs a zero in front to push it into the hundredths place: three point zero five.",
+    "math": "\\$3.5 = \\$3.50 \\neq \\$3.05",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      50,
+      5
+     ],
+     "labels": [],
+     "caption": "Big shaded part = $3.5 means 50 cents. Small part = the real 5 cents in $3.05."
+    }
+   },
+   {
+    "say": "So whenever you write money, count the places after the dot. There should always be two. If you only have one, ask yourself where the missing zero goes. Three dollars and five cents is three point zero five, and three dollars and fifty cents is three point five zero.",
+    "math": "\\$3.05 \\quad \\text{and} \\quad \\$3.50",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3,
+      4,
+      3.05,
+      3.5
+     ],
+     "labels": [],
+     "caption": "Three dollars and five cents sits way down near 3. Three dollars and fifty cents is halfway to 4."
+    }
+   },
+   {
+    "say": "You have got it. Money always wears two places after the dot: dimes first, then pennies.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "In money, the two places after the dot are dimes and pennies — so 5 cents is $0.05, not $0.5.",
+  "practice": {
+   "question": "At a farmers market in Kelowna, a bag of apples costs seven dollars and nine cents. Write that amount using a dollar sign and a decimal point. Then say how many places should come after the dot, and which place the nine goes in.",
+   "answer": "$7.09. There are two places after the dot. The nine goes in the hundredths place (pennies), and a zero holds the tenths place (dimes) because there are no dimes."
+  }
+ }
+}

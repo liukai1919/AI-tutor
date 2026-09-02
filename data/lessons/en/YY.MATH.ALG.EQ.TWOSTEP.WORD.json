@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP.WORD",
+ "lang": "en",
+ "title": "Write and solve a two-step equation for a word problem (canoe trip planning, phone plans)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Canoe Rentals and Two-Step Equations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to check an answer by plugging it back in. Today we do the part that comes before that: turning a real story into a two-step equation, and then solving it. Here is our story. At a lake in the Okanagan, renting a canoe costs a flat fifteen dollars to start, plus eight dollars for every hour you paddle. Priya paid forty seven dollars in total. How many hours did she paddle?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us draw the money as one long bar. The whole bar is the forty seven dollars Priya paid. One chunk of it is the fifteen dollar starting fee, and everything left over is the hourly part. If h stands for the number of hours, that hourly part is eight times h. So the whole bar says fifteen plus eight h equals forty seven.",
+    "math": "15 + 8h = 47",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      47,
+      15,
+      32
+     ],
+     "labels": [
+      "Total paid 47",
+      "Start fee 15",
+      "Hours part 8h"
+     ],
+     "caption": "The whole bar is 47 dollars: the 15 dollar fee plus the hourly part"
+    }
+   },
+   {
+    "say": "Now solve it in two steps. Step one, the fifteen dollar fee is not about hours at all, so take it off both sides. Forty seven take away fifteen leaves thirty two, so eight h equals thirty two. Step two, that thirty two dollars is made of eight dollar hours, so split it into eights. Thirty two divided by eight is four. Priya paddled for four hours.",
+    "math": "8h = 32 \\;\\Rightarrow\\; h = 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      8,
+      8,
+      8
+     ],
+     "labels": [
+      "1 hour",
+      "1 hour",
+      "1 hour",
+      "1 hour"
+     ],
+     "caption": "32 dollars splits into four 8 dollar hours"
+    }
+   },
+   {
+    "say": "Here is a trap lots of people fall into. They treat the equals sign as if it means 'and the answer is', and write a long chain like this: forty seven minus fifteen equals thirty two equals thirty two divided by eight equals four. Look closely, that chain claims thirty two equals four, which is just not true. The equals sign is a balance scale, not an arrow pointing to the next answer. Both sides must always weigh the same, so write each step on its own line: eight h equals thirty two, then h equals four.",
+    "math": "32 \\neq 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "15 + 8h",
+      "47"
+     ],
+     "caption": "Equals means both sides balance, not 'here comes the answer'"
+    }
+   },
+   {
+    "say": "Last, check it the way you already know how. Put four back in for h. Eight times four is thirty two, plus the fifteen dollar fee is forty seven dollars. That matches what Priya paid, so four hours is right.",
+    "math": "15 + 8(4) = 15 + 32 = 47",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15,
+      8,
+      8,
+      8,
+      8
+     ],
+     "labels": [
+      "Fee 15",
+      "8",
+      "8",
+      "8",
+      "8"
+     ],
+     "caption": "15 + 8 + 8 + 8 + 8 = 47, so h = 4 checks out"
+    }
+   }
+  ],
+  "answer": "Find the one-time part and the per-item part, write them as one balanced equation, then peel off the one-time part first and split what is left.",
+  "practice": {
+   "question": "Ravi has a phone plan that costs ten dollars every month, plus three dollars for each gigabyte of data he uses. Last month his bill was twenty eight dollars. Write a two-step equation using g for the number of gigabytes, then solve it. Try sketching a bar for the twenty eight dollars, with one chunk for the ten dollar monthly cost.",
+   "answer": "The equation is ten plus three g equals twenty eight. Take off the ten: three g equals eighteen. Split eighteen into threes: g equals six. Ravi used six gigabytes. Check: three times six is eighteen, plus ten is twenty eight."
+  }
+ }
+}

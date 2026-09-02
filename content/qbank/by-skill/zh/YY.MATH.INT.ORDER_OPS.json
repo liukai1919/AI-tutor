@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.INT.ORDER_OPS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5seb9mc4z5cw",
+   "level": 1,
+   "question": "计算这个算式（expression）：-5 + (-3) × 2 = ?",
+   "options": [
+    "-11",
+    "-16",
+    "11",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explain": "运算顺序（order of operations）要求先乘除后加减：(-3) × 2 = -6，再算 -5 + (-6) = -11。最容易踩的坑是从左往右先算 -5 + (-3) 得到 -16，或者把两个负数相加算成正的 11。",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mvk1j69",
+   "level": 1,
+   "question": "计算这个算式：-6 + (-18) ÷ 3 = ?",
+   "options": [
+    "-8",
+    "-12",
+    "12",
+    "0"
+   ],
+   "answerIndex": 1,
+   "explain": "先做除法：(-18) ÷ 3 = -6，再做加法：-6 + (-6) = -12。写成 -8 的是从左往右先加了；写成 12 的是把「负数 + 负数」错当成负负得正，加法里两个负数相加只会更小。",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mxn4yf9",
+   "level": 1,
+   "question": "计算这个算式：4 × (-2 + (-5)) = ?",
+   "options": [
+    "-13",
+    "28",
+    "-28",
+    "-20"
+   ],
+   "answerIndex": 2,
+   "explain": "括号（brackets）里的最先算：-2 + (-5) = -7，再算 4 × (-7) = -28。写成 -13 的是没管括号、先算了 4 × (-2)；写成 28 的是把括号里两个负数相加当成了 +7。",
+   "tags": [
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mmqk8g9",
+   "level": 1,
+   "question": "计算这个算式：-20 ÷ (2 + 3) + (-4) = ?",
+   "options": [
+    "-11",
+    "8",
+    "0",
+    "-8"
+   ],
+   "answerIndex": 3,
+   "explain": "先算括号：2 + 3 = 5，再算 -20 ÷ 5 = -4，最后 -4 + (-4) = -8。写成 -11 的是无视括号一路从左往右；写成 8 的是把两个负数相加当成了正数。",
+   "tags": [
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mo15e6x",
+   "level": 2,
+   "question": "计算这个算式：-3 × (7 - 10) + (-5) = ?",
+   "options": [
+    "4",
+    "-36",
+    "14",
+    "-14"
+   ],
+   "answerIndex": 0,
+   "explain": "括号最先：7 - 10 = -3；再乘：-3 × (-3) = 9（负负得正只用在乘除上）；最后 9 + (-5) = 4。写成 -36 的是从左往右先算了 -3 × 7；写成 14 的是把 9 + (-5) 当成了 9 + 5。",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mmpw92p",
+   "level": 2,
+   "question": "计算这个算式：18 ÷ (-3 + (-6)) × 2 = ?",
+   "options": [
+    "4",
+    "-4",
+    "-1",
+    "-24"
+   ],
+   "answerIndex": 1,
+   "explain": "先算括号：-3 + (-6) = -9；乘和除同级，从左往右：18 ÷ (-9) = -2，再 -2 × 2 = -4。写成 4 的是把括号里两个负数相加算成了 +9；写成 -1 的是把后面的乘法提前算了。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "other",
+    "order.left_to_right"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mdvcoee",
+   "level": 2,
+   "question": "计算这个算式：-2 × (-3 + (-8)) - (-7) = ?",
+   "options": [
+    "5",
+    "-15",
+    "29",
+    "15"
+   ],
+   "answerIndex": 2,
+   "explain": "括号先算：-3 + (-8) = -11；再乘：-2 × (-11) = 22；最后减负数等于加：22 - (-7) = 29。写成 -15 的是把括号里算成了 +11；写成 5 的是从左往右先算了 -2 × (-3)。",
+   "tags": [
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9m2qnvzc",
+   "level": 2,
+   "question": "温哥华（Vancouver）某天清晨气温是 -3 ℃，接下来 4 个小时里每小时下降 2 ℃，之后太阳出来又回升了 5 ℃。这段变化可以写成算式 -3 + (-2) × 4 + 5，它的值是多少？",
+   "options": [
+    "-15",
+    "16",
+    "10",
+    "-6"
+   ],
+   "answerIndex": 3,
+   "explain": "先算乘法表示 4 小时的总变化：(-2) × 4 = -8，再从左往右加减：-3 + (-8) = -11，-11 + 5 = -6，所以是 -6 ℃。写成 -15 的是先把 -3 + (-2) 加起来再乘；写成 16 的是把 -3 + (-8) 当成了正的 11。",
+   "tags": [
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mrlinsn",
+   "level": 3,
+   "question": "Whistler 山顶气温是 -8 ℃。缆车向下走，每下降 100 m 气温就上升 2 ℃，一共下降了 600 m；到山脚后起了风，气温又降了 3 ℃。整段过程可以写成 -8 + 2 × 6 + (-3)，山脚现在的气温是多少？",
+   "options": [
+    "1",
+    "-39",
+    "7",
+    "-23"
+   ],
+   "answerIndex": 0,
+   "explain": "600 m 里有 6 个 100 m，所以先算 2 × 6 = 12（上升 12 ℃），再 -8 + 12 = 4，最后 4 + (-3) = 1，即 1 ℃。写成 -39 的是从左往右先算了 -8 + 2；写成 7 的是把 4 + (-3) 当成了 4 + 3。",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mgxxahb",
+   "level": 3,
+   "question": "Maya 计算 -4 + (-5) × 6。她这样写：第一步 -4 + (-5) = -9，第二步 -9 × 6 = -54，所以答案是 -54。下面哪句话说得对？",
+   "options": [
+    "她做得对，混合运算本来就是从左往右一步一步算，答案就是 -54。",
+    "她错了。应该先算 (-5) × 6 = -30，再算 -4 + (-30) = -34。",
+    "她错了。应该先算 (-5) × 6 = -30，但 -4 + (-30) 里两个负数相加要得正，答案是 34。",
+    "她错了。应该先算 (-5) × 6 = 30，再算 -4 + 30 = 26。"
+   ],
+   "answerIndex": 1,
+   "explain": "混合运算不是一律从左往右：没有括号时先乘除，所以 (-5) × 6 = -30，再 -4 + (-30) = -34。说答案是 34 的那句踩了另一个坑——负负得正只适用于乘除，两个负数相加只会更小。",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9msx7vo1",
+   "level": 3,
+   "question": "Ravi 的手机账户余额是 -45 加元（表示欠费 45 元）。接下来的 3 个月里，他每个月充值 10 加元，但每个月的套餐费是 15 加元。用算式 -45 + (10 - 15) × 3 表示 3 个月后的余额，结果是多少加元？",
+   "options": [
+    "-150",
+    "60",
+    "-60",
+    "-80"
+   ],
+   "answerIndex": 2,
+   "explain": "括号里先算每个月的净变化：10 - 15 = -5；再乘 3 个月：(-5) × 3 = -15；最后 -45 + (-15) = -60 加元。写成 -150 的是无视括号从左往右算；写成 -80 的是在括号里先做了 15 × 3。",
+   "tags": [
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5seb9mt7sa4b",
+   "level": 3,
+   "question": "学校数学竞赛的计分规则是：答对一题得 5 分，答错一题记 -3 分，不答记 0 分。Amrit 答对 4 题、答错 6 题、有 2 题没答。他的总分可以写成 5 × 4 + (-3) × 6，总分是多少？",
+   "options": [
+    "-2",
+    "102",
+    "38",
+    "2"
+   ],
+   "answerIndex": 3,
+   "explain": "两个乘法要先算完再相加：5 × 4 = 20，(-3) × 6 = -18，然后 20 + (-18) = 2 分（没答的 2 题算 0 分，不影响结果）。写成 102 的是从左往右先把 20 + (-3) 加起来再乘 6；写成 38 的是把 20 + (-18) 当成了 20 + 18。",
+   "tags": [
+    "other",
+    "order.left_to_right",
+    "int.sign_rules_to_addition",
+    "ok"
+   ]
+  }
+ ]
+}

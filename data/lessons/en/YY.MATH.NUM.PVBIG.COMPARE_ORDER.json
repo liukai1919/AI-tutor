@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare, order and round very large and very small numbers",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big, Small, and Just Right: Comparing and Rounding Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to compare numbers up to a million, and how to compare decimals to thousandths. Today we take that same skill and stretch it in both directions, all the way from thousandths up to billions, using one trick that never lets you down.",
+    "math": "",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3407.25
+     ],
+     "labels": [],
+     "caption": "Every digit sits in its own place, from thousands down to hundredths"
+    }
+   },
+   {
+    "say": "Here is the one step. To compare two numbers, always line them up by place value and walk from the biggest place down. Start at the left, compare the first place where they differ, and stop right there. That place decides the winner, because one hundred is worth more than any number of tens, and one tenth is worth more than any number of hundredths.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us try it with two Vancouver ferry trips. One boat carried three thousand four hundred fifty six people this month, and the other carried three thousand five hundred one. Same thousands, both three. Same hundreds? No! Four hundreds versus five hundreds. Five is bigger, so three thousand five hundred one wins. Look at the number line: three thousand five hundred one really does sit to the right.",
+    "math": "3456 < 3501",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3600,
+      3456,
+      3501
+     ],
+     "labels": [],
+     "caption": "3456 sits to the left of 3501 — the hundreds place decided it"
+    }
+   },
+   {
+    "say": "Now the sneaky mistake. Some kids think a longer decimal must be bigger, so they say zero point two five is more than zero point three. Let us check with money. Zero point two five is twenty five cents, and zero point three is thirty cents. Thirty cents is more! Walk the places: tenths first, two tenths versus three tenths. Three wins immediately, and the extra digit never gets a turn. So zero point three is bigger.",
+    "math": "0.25 < 0.3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      0.5,
+      0.25,
+      0.3
+     ],
+     "labels": [],
+     "caption": "0.25 is 25 cents, 0.3 is 30 cents — the arrow jumps right, so 0.3 is bigger"
+    }
+   },
+   {
+    "say": "Rounding uses the very same left to right thinking. Say the Fraser River is two thousand nine hundred eighty six kilometres of trails and we round to the nearest hundred. Find the two hundreds it sits between: two thousand nine hundred and three thousand. The halfway mark is two thousand nine hundred fifty. Two thousand nine hundred eighty six is past halfway, so it hops up to three thousand.",
+    "math": "2986 \\approx 3000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      2900,
+      3000,
+      2950,
+      2986
+     ],
+     "labels": [],
+     "caption": "Halfway is 2950; 2986 is past it, so round up to 3000"
+    }
+   },
+   {
+    "say": "So remember: whether the numbers are billions or thousandths, you compare and round the same way. Line up the places, start from the left, and the first place that differs tells you everything.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Line up the place values and compare from the left — the first place that differs decides which number is bigger.",
+  "practice": {
+   "question": "Two hikers track their water. Maya's bottle holds zero point four five litres and Ben's holds zero point five litres. Draw a number line from zero to one, mark both amounts, and decide whose bottle holds more. Then round Ben's hiking distance of one thousand two hundred sixty three metres to the nearest hundred metres.",
+   "answer": "Ben's bottle holds more: zero point five is bigger than zero point four five, because four tenths is less than five tenths (forty five cents versus fifty cents). And one thousand two hundred sixty three rounds to one thousand three hundred, since it is past the halfway mark of one thousand two hundred fifty."
+  }
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE",
+ "lang": "en",
+ "title": "Calculate circumference from the radius or diameter",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Distance Around a Circle",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the cool secret of circles: if you walk all the way around a circle, that distance is always about three point one four times the distance straight across. That gives us the formula C equals pi times d. Today we just take that one step further, so you can find the circumference even when someone tells you the radius instead.",
+    "math": "C = \\pi \\times d",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The radius goes from the centre to the edge"
+    }
+   },
+   {
+    "say": "Here is the one thing to remember. The radius goes from the middle of the circle out to the edge. The diameter goes all the way across, through the middle, so the diameter is two radiuses. That means if you are given the radius, your very first step is to double it to get the diameter. Then, and only then, you multiply by pi.",
+    "math": "d = 2 \\times r \\quad\\Rightarrow\\quad C = \\pi \\times d",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "radius 5 cm, so diameter = 2 x 5 = 10 cm"
+    }
+   },
+   {
+    "say": "Let us try a real one. Your bike wheel has a radius of thirty centimetres, and you want to know how far the wheel travels in one full turn. Step one, double the radius: two times thirty is sixty, so the diameter is sixty centimetres. Step two, multiply by three point one four: three point one four times sixty is one hundred eighty eight point four. So one full turn of the wheel rolls you about one hundred eighty eight point four centimetres, which is almost two metres.",
+    "math": "d = 2 \\times 30 = 60 \\;\\text{cm} \\quad C = 3.14 \\times 60 = 188.4 \\;\\text{cm}",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      30
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Bike wheel: r = 30 cm, d = 60 cm, C = 188.4 cm"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everybody makes at least once. Some people look at that same wheel and write three point one four times thirty, and get ninety four point two centimetres. But wait, thirty was the radius, not the distance across! They forgot to double it, so their answer came out only half as big as it should be. Ninety four point two is exactly half of one hundred eighty eight point four. So before you multiply by pi, always ask yourself: is this number the whole way across, or only halfway?",
+    "math": "3.14 \\times 30 = 94.2 \\;(\\text{wrong — that is only half})",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      94.2,
+      188.4
+     ],
+     "labels": [
+      "Wrong: pi x r",
+      "Right: pi x d"
+     ],
+     "caption": "Forgetting to double the radius gives half the real answer"
+    }
+   },
+   {
+    "say": "One more, this time the easy kind. A round pizza at your local shop is measured straight across at thirty five centimetres. That is already the diameter, so you skip the doubling and go straight to multiplying. Three point one four times thirty five is one hundred nine point nine centimetres of crust around the edge.",
+    "math": "C = 3.14 \\times 35 = 109.9 \\;\\text{cm}",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      17.5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Pizza: d = 35 cm across, so C = 109.9 cm of crust"
+    }
+   },
+   {
+    "say": "So the whole step is just this: get the diameter first, then multiply by pi. If they hand you the radius, double it before you do anything else.",
+    "math": "C = \\pi \\times d = \\pi \\times 2r",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Diameter first, then times pi — if you are given the radius, double it before you multiply.",
+  "practice": {
+   "question": "A round trampoline in a backyard in Surrey has a radius of one point five metres. How far is it all the way around the edge? Use three point one four for pi. (Try sketching the circle and labelling the radius yourself.)",
+   "answer": "First double the radius: two times one point five is three metres, so the diameter is 3 m. Then multiply: 3.14 x 3 = 9.42 metres around the edge."
+  }
+ }
+}

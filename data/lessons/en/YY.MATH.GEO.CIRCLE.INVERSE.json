@@ -1,0 +1,87 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.CIRCLE.INVERSE",
+ "lang": "en",
+ "title": "Find the radius or diameter from a given circumference or area",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Working Backwards to Find the Radius",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to undo a two-step equation, like three x plus four equals sixteen — you take away the four, then divide by three. Today we do the exact same trick with circles: someone hands you the circumference or the area, and you work backwards to find the radius.",
+    "math": "3x + 4 = 16 \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x + 4",
+      "16"
+     ],
+     "caption": "Undo operations in order to get x alone"
+    }
+   },
+   {
+    "say": "Start with circumference. The rule is circumference equals pi times the diameter. So if you know the circumference, the only thing that was done to the diameter was multiplying by pi — and you undo multiplying by dividing. Say the metal rim of a round trampoline in your backyard measures sixty two point eight centimetres around. Divide sixty two point eight by three point one four and you get twenty, so the diameter is twenty centimetres, and the radius is half of that, ten centimetres.",
+    "math": "C = \\pi d \\;\\Rightarrow\\; d = \\frac{62.8}{3.14} = 20,\\quad r = 10",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Circumference 62.8 cm, so the radius is 10 cm"
+    }
+   },
+   {
+    "say": "Now area, which has one extra step. Area equals pi times r times r, so two things happened to the radius: it got squared, and then multiplied by pi. Undo them in reverse order. A round pizza has an area of seventy eight point five square centimetres. First divide by pi: seventy eight point five divided by three point one four is twenty five. That twenty five is r squared. Now undo the squaring — the square root of twenty five is five. The radius is five centimetres.",
+    "math": "\\pi r^2 = 78.5 \\;\\Rightarrow\\; r^2 = 25 \\;\\Rightarrow\\; r = 5",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Area 78.5 cm squared, so the radius is 5 cm"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes. They divide seventy eight point five by three point one four, get twenty five, and shout the radius is twenty five. But twenty five is r squared, not r — you are only halfway done. Test it: if the radius really were twenty five, the area would be three point one four times twenty five times twenty five, which is nineteen hundred and sixty two point five square centimetres. Way too big. Always plug your answer back in; the check tells you if you stopped too early.",
+    "math": "\\pi \\times 5^2 = 78.5 \\;\\checkmark \\qquad \\pi \\times 25^2 = 1962.5 \\;\\times",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "3.14 × 25 × 25",
+      "78.5"
+     ],
+     "caption": "Stopping at r squared makes the left side far too heavy"
+    }
+   },
+   {
+    "say": "So remember: from circumference, divide by pi once. From area, divide by pi and then take the square root. Same undoing skill you already have, just wearing a circle costume.",
+    "math": "d = \\frac{C}{\\pi} \\qquad r = \\sqrt{\\frac{A}{\\pi}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Work backwards: circumference means divide by pi once; area means divide by pi, then square root.",
+  "practice": {
+   "question": "A rotating sprinkler in a Surrey backyard waters a circle of grass with an area of two hundred point nine six square metres. Using three point one four for pi, find the radius of the watered circle. Try sketching the circle yourself, and check your answer by putting it back into the area formula.",
+   "answer": "The radius is 8 metres. Divide 200.96 by 3.14 to get 64, which is r squared; the square root of 64 is 8. Check: 3.14 times 8 times 8 equals 200.96 square metres."
+  }
+ }
+}

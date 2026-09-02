@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "square-numbers",
+ "lang": "zh",
+ "unitName": {
+  "zh": "平方数与平方根",
+  "en": "Square numbers & square roots"
+ },
+ "provider": "claude",
+ "at": "2026-09-02",
+ "set": {
+  "title": "平方数与平方根 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+    "level": 1,
+    "question": "下面哪个数是平方数（perfect square），也就是能正好摆成一个 n × n 的正方形点阵？",
+    "options": [
+     "20",
+     "50",
+     "90",
+     "121"
+    ],
+    "answerIndex": 3,
+    "explain": "121 = 11 × 11，可以摆成 11 行 11 列的正方形，所以是平方数。坑在于：20、50、90 这种看起来「很整」的数并不是平方数，判断标准只有一个——能不能写成同一个数乘自己。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.NOTATION",
+    "level": 1,
+    "question": "6² 等于多少？",
+    "options": [
+     "12",
+     "36",
+     "64",
+     "216"
+    ],
+    "answerIndex": 1,
+    "explain": "6² 读作「6 的平方」，意思是 6 × 6 = 36。最常见的坑是把右上角的 2 当成「乘 2」算成 6 × 2 = 12；另外 216 是 6 × 6 × 6，指数是 3 不是 2。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+    "level": 1,
+    "question": "√64 等于多少？",
+    "options": [
+     "8",
+     "16",
+     "32",
+     "4096"
+    ],
+    "answerIndex": 0,
+    "explain": "开平方是平方的逆运算：问「哪个数乘自己等于 64」，因为 8 × 8 = 64，所以 √64 = 8。坑在于把开方当成除以 2，算成 64 ÷ 2 = 32；而 4096 是 64² ，方向正好反了。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+    "level": 2,
+    "question": "Richmond 一块正方形草坪的面积是 52 平方米。它的边长（也就是 √52）在哪两个整数之间？",
+    "options": [
+     "4 和 5",
+     "6 和 7",
+     "7 和 8",
+     "25 和 26"
+    ],
+    "answerIndex": 2,
+    "explain": "找 52 左右的两个平方数：7² = 49，8² = 64，49 < 52 < 64，所以 √52 在 7 和 8 之间（更靠近 7）。坑在于用 52 ÷ 2 = 26 去猜，那是把开方当成了除以 2。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+    "level": 2,
+    "question": "Grade 7 班要用纪念瓷砖在墙上拼一个正方形（每边块数相同、不剩不缺）。现在有 96 块，学校打算再买一些补齐成尽可能小的正方形，每块瓷砖 3 加元。学校至少要再花多少钱？",
+    "options": [
+     "12 加元",
+     "45 加元",
+     "75 加元",
+     "不用再买，96 块已经能拼成正方形"
+    ],
+    "answerIndex": 0,
+    "explain": "比 96 大的最小平方数是 100（10 × 10），所以还差 100 − 96 = 4 块，4 × 3 = 12 加元。坑在于误以为 96 本身是平方数，或者跳过 100 直接补到 121（那要买 25 块）。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.NOTATION",
+    "level": 2,
+    "question": "Emma 做了一个边长 12 cm 的正方形餐垫。下面哪个式子正确地用平方记号（square notation）算出了它的面积（area）？",
+    "options": [
+     "12² = 24 cm²",
+     "12² = 144 cm²",
+     "12 × 4 = 48 cm²",
+     "10² + 2² = 104 cm²"
+    ],
+    "answerIndex": 1,
+    "explain": "正方形面积 = 边长 × 边长 = 12 × 12 = 144，写成 12² = 144 cm²。三个坑都要小心：12² 不是 12 × 2；12 × 4 = 48 算的是周长（perimeter）不是面积；12² 也不能拆成 10² + 2²。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+    "level": 3,
+    "question": "Liam 要算 √36 + √64。他是这样写的：√36 + √64 = √(36 + 64) = √100 = 10。他的答案对吗？正确结果应该是多少？",
+    "options": [
+     "10",
+     "50",
+     "100",
+     "14"
+    ],
+    "answerIndex": 3,
+    "explain": "要先分别开方再相加：√36 = 6，√64 = 8，6 + 8 = 14。Liam 踩的正是最经典的坑——把 √a + √b 当成 √(a+b)；另外两个错法是把开方当成除以 2（18 + 32 = 50），或者加完根本忘了开方（100）。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+    "level": 3,
+    "question": "Surrey 一所小学要在操场角落做一个正方形沙坑。学校订的沙正好够铺 150 平方米，沙坑的边长必须是整数米，而且不能超过订的沙量。边长最大能是多少米？铺完后还剩多少平方米的沙？",
+    "options": [
+     "13 m，还剩 19 m² 的沙",
+     "75 m，沙正好用完",
+     "12 m，还剩 6 m² 的沙",
+     "12 m，还剩 138 m² 的沙"
+    ],
+    "answerIndex": 2,
+    "explain": "先估 √150：12² = 144，13² = 169，因为 169 > 150 会超量，所以边长最大取 12 m；再算剩余 150 − 144 = 6 m²。坑有两个——直接向上取到 13 会超出沙量，以及用 150 − 12 = 138（拿面积减边长，单位对不上）。"
+   }
+  ]
+ }
+}

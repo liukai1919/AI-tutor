@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.PAT.02",
+ "lang": "en",
+ "title": "expressions - writing and evaluating using substitution",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Swapping In the Number: Evaluating Expressions with Substitution",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You work a part-time job at the local Tim Hortons on weekends. Your manager says, 'Your weekly take-home pay works like this: you earn fifty cents for every hour of cleanup help, you deduct three dollars per hour for the uniform-cleaning fee, and you get a twenty-five dollar student bonus on top.' So your pay is: zero-point-five times n, minus three times n, plus twenty-five. But here's the thing — every week, n is different. Sometimes eight hours, sometimes twelve, sometimes fourteen. I'm not rewriting that whole sentence every Friday. I write the expression ONE time, and I just swap in the new number. That little swap? We call it substitution. And today, you're going to be really good at it.",
+    "math": "0.5n - 3n + 25",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      42,
+      25
+     ],
+     "labels": [
+      "Earn",
+      "Deduct",
+      "Bonus"
+     ],
+     "caption": "Three parts of your weekly pay (shown for n equals 14)"
+    }
+   },
+   {
+    "say": "So here's the golden rule of substitution, and it's honestly one sentence: where you see the letter, you put the number in its place. That's it. No magic. No secret trick. If the expression has an n in it and I tell you n equals fourteen, I simply replace that n with the number fourteen. The letter is just a little placeholder — a parking spot — waiting for the real number to pull in. Think of it like a name tag: the expression is the template, and the number is the actual person showing up.",
+    "math": "n = 14 \\quad \\Rightarrow \\quad 0.5(14) - 3(14) + 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's do one together, nice and easy. Suppose your friend's game score is two times x plus five, and this round x equals four. To evaluate, we swap the four in for every x. So we get two times four, plus five. Two times four is eight. Eight plus five is thirteen. Done! Your friend's score is thirteen points. See? We didn't need to think about what x 'means' in some deep way. We just dropped the number into the slot and did the arithmetic.",
+    "math": "2x + 5 \\;\\;\\text{when } x=4 \\;\\;\\longrightarrow\\;\\; 2(4)+5 = 8+5 = 13",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      9,
+      11,
+      13
+     ],
+     "labels": [
+      "x=1",
+      "x=2",
+      "x=3",
+      "x=4"
+     ],
+     "caption": "2x + 5 for different x — swap in x = 4 and you get 13"
+    }
+   },
+   {
+    "say": "Alright, now for the real one. We need to evaluate zero-point-five n, minus three n, plus twenty-five, and n equals fourteen. Here's how I'd do it out loud, step by step. First, I swap: zero-point-five times fourteen, minus three times fourteen, plus twenty-five. Now I multiply each piece: zero-point-five times fourteen is seven. Three times fourteen is forty-two. So now I have seven, minus forty-two, plus twenty-five. I can add the positives first: seven plus twenty-five is thirty-two. Then thirty-two minus forty-two gives me negative ten. So the answer is negative ten. In our Tim Hortons story, that would mean you actually owe ten dollars that week — the uniform fee ate up more than the cleanup pay plus the bonus. Ouch, but at least we can SEE it now.",
+    "math": "0.5(14) - 3(14) + 25 = 7 - 42 + 25 = 32 - 42 = -10",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -40,
+      40,
+      32,
+      -10
+     ],
+     "labels": [],
+     "caption": "7 + 25 = 32, then subtract 42: you land at −10"
+    }
+   },
+   {
+    "say": "Quick warning about the two mistakes I see most often, and I want you to dodge both. Mistake one: you only multiply the first term and forget the rest. Like you do zero-point-five times fourteen to get seven, but then you just write minus three plus twenty-five. No! The fourteen hits EVERY term that has an n. Three times fourteen is forty-two, not just three. Mistake two: the negative sign. When I write seven minus forty-two plus twenty-five, that minus sign belongs to the forty-two. It does NOT magically make the twenty-five negative. I would only flip its sign if a minus sign sat in front of a bracket containing the twenty-five. In our case there isn't one, so twenty-five stays positive. Keep the signs glued to their own numbers.",
+    "math": "\\text{Wrong: } 0.5(14) - 3 + 25 \\qquad \\text{Right: } 0.5(14) - 3(14) + 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to stick on your desk: an expression is a recipe with a blank spot, substitution is where you drop the number into that blank, and then you just do the arithmetic in the right order — multiply before you add or subtract. That's the whole trick. You've got this.",
+    "math": "\\text{Expression} + \\text{Substitution} + \\text{Order of Operations} = \\text{Answer!}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Substitution means swapping the letter for its number, then multiplying before adding or subtracting — that's the whole trick.",
+  "practice": {
+   "question": "Your phone plan has a base cost of forty-five dollars, charges two dollars and fifty cents per gigabyte of data, but gives you a five-dollar-per-gigabyte student discount. Write the expression for your bill using g for gigabytes, then evaluate it for six gigabytes. How much do you actually pay?",
+   "answer": "Expression: 2.5g - 5g + 45. When g = 6: 2.5(6) - 5(6) + 45 = 15 - 30 + 45 = 30. You pay thirty dollars."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 7
+ }
+}

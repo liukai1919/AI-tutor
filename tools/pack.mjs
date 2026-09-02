@@ -16,6 +16,7 @@
  *   node tools/pack.mjs --version 1.0.0       # 版本号（默认 0.1.0）
  *   node tools/pack.mjs --node v22.14.0       # 指定内置的 Node（默认取最新 LTS）
  *   node tools/pack.mjs --books               # 把书籍课程也装进去（版权自负）
+ *   node tools/pack.mjs --no-skills           # 不带技能图谱；2026-09-02 起技能图谱 + YY.* 种子题库默认进包
  *   node tools/pack.mjs --skip-installer      # 不调 Inno Setup，只出 zip
  *
  * Node 运行时从 nodejs.org 官方下载并核对 SHASUMS256，缓存在 build/.cache/。
@@ -40,6 +41,7 @@ const opt = (n, d) => {
 const VERSION = String(opt("version", "0.1.0"));
 const PLATFORMS = String(opt("platforms", "win,mac")).split(",").map(s => s.trim()).filter(Boolean);
 const WITH_BOOKS = flag("books");
+const WITH_SKILLS = !flag("no-skills");   // 技能图谱（G4–G7 默认清单）：2026-09-02 起默认进包，--no-skills 才不带（--skills 仍认）
 const SKIP_INSTALLER = flag("skip-installer");
 const APP_ZH = "圆圆数学";
 const APP_EN = "YuanyuanMath";
@@ -208,7 +210,20 @@ function stageApp(dst) {
   mkdirp(seedDir);
   const example = JSON.parse(fs.readFileSync(path.join(ROOT, "config.example.json"), "utf8"));
   fs.writeFileSync(path.join(seedDir, "config.json"), JSON.stringify(example, null, 2) + "\n", "utf8");
-  copyInto(path.join(ROOT, "qbank.json"), seedDir, { optional: true });
+  // 种子题库要按 --books 过滤：本机 qbank.json 里混着书籍小节的题（AOPS.* 等），
+  // 那是照着版权教材的章节结构出的，和书籍课程一样不能进公开包（1.1.x 漏发过 2 组）。
+  try {
+    const bank = JSON.parse(fs.readFileSync(path.join(ROOT, "qbank.json"), "utf8"));
+    const keep = {};
+    let dropped = 0;
+    for (const [k, v] of Object.entries(bank)) {
+      // BC 大纲题永远带；技能题（YY.*）默认带、--no-skills 去掉；其余（书籍小节题）沿用 --books
+      const ok = /^BC\./.test(k) ? true : /^YY\./.test(k) ? WITH_SKILLS : WITH_BOOKS;
+      if (ok) keep[k] = v; else dropped++;
+    }
+    fs.writeFileSync(path.join(seedDir, "qbank.json"), JSON.stringify(keep), "utf8");
+    if (dropped) console.log("  种子题库去掉 " + dropped + " 组（书籍版权材料 / 未随包发布的技能草稿题库）");
+  } catch (_) { /* 没有 qbank.json 也能打包，装完第一次出题自己长 */ }
   // 打包标记：server 看到它才把用户数据切到系统用户目录（源码模式照旧写仓库）
   fs.writeFileSync(path.join(dst, ".packaged"), APP_EN + " " + VERSION + "\n", "utf8");
 
@@ -221,6 +236,8 @@ function stageApp(dst) {
       filter: src => !src.split(/[\\/]/).includes("text")   // 原书正文一律不进包
     });
   }
+  // 技能图谱（docs/skill-graph-plan.md）：G4–G7 的默认清单，默认进包（--no-skills 才不带）
+  if (WITH_SKILLS) copyInto(path.join(ROOT, "data", "curriculum", "skills"), cur, { optional: true });
   // 预生成的课程包、单元测试卷、语音包
   copyInto(path.join(ROOT, "data", "lessons"), path.join(dst, "data"), { optional: true });
   copyInto(path.join(ROOT, "data", "unit-tests"), path.join(dst, "data"), { optional: true });

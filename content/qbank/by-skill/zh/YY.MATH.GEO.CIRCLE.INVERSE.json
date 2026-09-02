@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.CIRCLE.INVERSE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkbfvj014mrwp",
+   "level": 1,
+   "question": "一个圆的周长（circumference）是 25.12 cm。周长公式是 C = π × d，取 π = 3.14，代入后得到方程（equation）25.12 = 3.14 × d。这个圆的直径（diameter）是多少？",
+   "options": [
+    "8 cm",
+    "12.56 cm",
+    "16 cm",
+    "4 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "直径 = 周长 ÷ π = 25.12 ÷ 3.14 = 8 cm，所以答案是写 8 cm 的那个。常见的坑是算出 8 之后又乘 2 变成 16，或者停在 4 cm 上——4 cm 是半径，不是直径。",
+   "tags": [
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0nfwo8a",
+   "level": 1,
+   "question": "一个圆的面积（area）是 113.04 cm²。面积公式是 A = π × r × r，取 π = 3.14，代入后得到方程 113.04 = 3.14 × r × r。这个圆的半径（radius）是多少？",
+   "options": [
+    "36 cm",
+    "6 cm",
+    "18 cm",
+    "12 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 113.04 ÷ 3.14 = 36，这个 36 是 r × r；再找自乘等于 36 的数，得到半径 6 cm。最大的坑是漏掉开方这一步，把 36 直接当成半径。",
+   "tags": [
+    "circle.r_squared_as_r",
+    "ok",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0dy4749",
+   "level": 1,
+   "question": "一个圆的周长是 43.96 m。周长也可以写成 C = 2 × π × r，取 π = 3.14，代入后得到方程 43.96 = 2 × 3.14 × r，也就是 43.96 = 6.28 × r。这个圆的半径是多少？",
+   "options": [
+    "14 m",
+    "21.98 m",
+    "7 m",
+    "28 m"
+   ],
+   "answerIndex": 2,
+   "explain": "半径 = 43.96 ÷ 6.28 = 7 m，所以答案是写 7 m 的那个。坑在于只除以 3.14 得到 14，那是直径（diameter），要求半径还得再除以 2。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0hx6kfe",
+   "level": 1,
+   "question": "一个圆的面积是 28.26 cm²，π 取 3.14。由 A = π × r × r 代入得到方程 28.26 = 3.14 × r × r。这个圆的直径是多少？",
+   "options": [
+    "3 cm",
+    "9 cm",
+    "4.5 cm",
+    "6 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "28.26 ÷ 3.14 = 9 是 r × r，自乘得 9 的数是 3，所以半径 3 cm，直径 = 3 × 2 = 6 cm。题目问直径，写 3 cm 的那个漏了最后乘 2 这一步。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.r_squared_as_r",
+    "circle.area_2r",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj020ztb9",
+   "level": 2,
+   "question": "温哥华一家店做圆形披萨，一张披萨的面积（area）是 200.96 cm²，π 取 3.14。这张披萨的半径是多少？",
+   "options": [
+    "8 cm",
+    "16 cm",
+    "32 cm",
+    "64 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "200.96 ÷ 3.14 = 64，这是 r × r，再开方得半径 8 cm。写 64 cm 的那个是忘了开方，写 16 cm 的那个求出来的是直径。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "circle.r_squared_as_r"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0eaftsc",
+   "level": 2,
+   "question": "本拿比游乐场有一座圆形旋转木马，沿着它的围栏走一整圈是 62.8 m，π 取 3.14。这座旋转木马的直径是多少？",
+   "options": [
+    "10 m",
+    "20 m",
+    "31.4 m",
+    "40 m"
+   ],
+   "answerIndex": 1,
+   "explain": "走一整圈的长度就是周长，直径 = 62.8 ÷ 3.14 = 20 m。写 10 m 的那个算的是半径，写 40 m 的那个把直径又多乘了一次 2。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0x1k3b7",
+   "level": 2,
+   "question": "维多利亚一块圆形草坪的面积是 254.34 m²，π 取 3.14。园丁想在草坪上量出它的直径，直径应该是多少？",
+   "options": [
+    "81 m",
+    "40.5 m",
+    "18 m",
+    "9 m"
+   ],
+   "answerIndex": 2,
+   "explain": "254.34 ÷ 3.14 = 81 是 r × r，开方得半径 9 m，直径 = 9 × 2 = 18 m。停在 81 或停在 9 都是少走了一步。",
+   "tags": [
+    "circle.r_squared_as_r",
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0a3u3dw",
+   "level": 2,
+   "question": "市政工人量得一个圆形井盖的周长是 219.8 cm，π 取 3.14。这个井盖的半径是多少？",
+   "options": [
+    "17.5 cm",
+    "70 cm",
+    "109.9 cm",
+    "35 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "半径 = 219.8 ÷ (2 × 3.14) = 219.8 ÷ 6.28 = 35 cm。写 70 cm 的那个只除了一次 3.14，得到的是直径。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0tvmwkz",
+   "level": 3,
+   "question": "列治文一个圆形浅水池的水面面积是 452.16 m²，π 取 3.14。工作人员要在水面正中间横跨一根装饰杆，杆长正好等于水面的直径。这根杆要多长？",
+   "options": [
+    "24 m",
+    "72 m",
+    "12 m",
+    "144 m"
+   ],
+   "answerIndex": 0,
+   "explain": "452.16 ÷ 3.14 = 144 是 r × r，开方得半径 12 m，杆长是直径 = 12 × 2 = 24 m。两步都要走：先开方求半径，再乘 2 求直径。",
+   "tags": [
+    "ok",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.r_squared_as_r"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0564n0h",
+   "level": 3,
+   "question": "素里的一家人买了圆形蹦床，包装上写着蹦床边缘一圈长 12.56 m，π 取 3.14。他们家后院有一块边长 3.5 m 的正方形空地。蹦床的直径是多少？放得进这块空地吗？",
+   "options": [
+    "直径 2 m，放得进去，因为 2 m 比 3.5 m 短",
+    "直径 4 m，放不进去，因为 4 m 比 3.5 m 长",
+    "直径 8 m，放不进去，因为 8 m 比 3.5 m 长",
+    "直径 6.28 m，放不进，因为 6.28 m 比 3.5 m 长"
+   ],
+   "answerIndex": 1,
+   "explain": "边缘一圈长就是周长，直径 = 12.56 ÷ 3.14 = 4 m，4 m 比 3.5 m 长，所以放不进去。坑是把 12.56 ÷ 6.28 = 2 当成直径，那个 2 m 其实是半径。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0mqh9uw",
+   "level": 3,
+   "question": "小林说：一个圆的面积是 78.5 cm²，所以半径是 25 cm，因为 78.5 ÷ 3.14 = 25。下面哪种说法真正说中了小林的问题？",
+   "options": [
+    "他用错公式了，面积该用 A = π × 2r，半径应是 78.5 ÷ 6.28 = 12.5 cm",
+    "他漏了一步，25 只是半径的一半，还要乘 2，半径应是 50 cm",
+    "25 是 r × r 的值，还要找自乘得 25 的数，半径其实是 5 cm",
+    "他没算错，面积除一次 3.14 就够了，25 cm 就是这个圆的半径"
+   ],
+   "answerIndex": 2,
+   "explain": "由面积求半径要两步：78.5 ÷ 3.14 = 25 得到的是 r × r，再开方才得半径 5 cm。检验一下就明白：3.14 × 25 × 25 比 78.5 大得多，所以把 25 直接当半径是最常见的坑。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.r_squared_as_r"
+   ]
+  },
+  {
+   "qid": "qmtkbfvj0m4eoy8",
+   "level": 3,
+   "question": "市政工人比较两个圆形井盖：甲的周长是 50.24 cm，乙的面积是 153.86 cm²，π 取 3.14。哪个井盖的半径更大，大多少？",
+   "options": [
+    "乙更大，乙的半径比甲大 41 cm",
+    "甲更大，甲的半径比乙大 9 cm",
+    "乙更大，乙的半径比甲大 16.5 cm",
+    "甲更大，甲的半径比乙大 1 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "甲：50.24 ÷ 6.28 = 8 cm；乙：153.86 ÷ 3.14 = 49，开方得 7 cm，所以甲比乙大 1 cm。两个坑是乙那边忘了开方（把 49 当半径），和甲那边只除以 3.14 得到 16，那是直径。",
+   "tags": [
+    "circle.r_squared_as_r",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok"
+   ]
+  }
+ ]
+}

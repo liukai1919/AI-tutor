@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.ALG.02",
+ "lang": "en",
+ "title": "rational expressions and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Rational Expressions: Fractions Where the Numbers Became Polynomials",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You just started a part-time gig at a ski shop in Whistler. You earn eighteen dollars an hour, but they make you pay for a seventy-two-dollar work jacket. They take the whole seventy-two dollars out of this week's pay. So if you work h hours this week, your take-home pay is eighteen h minus seventy-two. Now here is the cool part: to figure out what your actual effective hourly rate is, you divide your total pay by the number of hours. That gives you eighteen h minus seventy-two, all over h. That is a rational expression. The top is a polynomial in h, the bottom is h, and this little fraction tells you how your effective pay-per-hour shifts depending on how many hours you actually work.",
+    "math": "\\frac{18h - 72}{h} = 18 - \\frac{72}{h}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      18,
+      72
+     ],
+     "labels": [
+      "Hourly pay ($)",
+      "Jacket ($)"
+     ],
+     "caption": "Your pay and the jacket cost — dividing them gives a rational expression"
+    }
+   },
+   {
+    "say": "So here is the definition, and it is way simpler than the textbook makes it sound. A rational expression is any fraction where the top and the bottom are both polynomials. That is it. You already know what a fraction is: three-quarters, one-half, whatever. A rational expression is just that same idea, but instead of plain numbers on top and bottom, you have got polynomials. Like three over x minus three. See, that is a rational expression. If you graph it, you get a curve that races toward a vertical line but never touches it. That line is called a vertical asymptote, and it sits exactly where the denominator would be zero. For three over x minus three, the asymptote is at x equals three. The expression simply does not exist there.",
+    "math": "\\frac{3}{x-3}, \\quad x \\neq 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      8,
+      -8,
+      8
+     ],
+     "labels": [
+      "3/(x-3)"
+     ],
+     "caption": "Vertical asymptote at x = 3 — the curve approaches but never crosses"
+    }
+   },
+   {
+    "say": "Now let us simplify one together. Here is your expression: three x plus nine, over, x squared minus nine. Step one: factor the top and the bottom. Top: pull out a common factor of three, and you get three times the quantity x plus three. Bottom: x squared minus nine is a difference of two squares, so it factors into the quantity x minus three times the quantity x plus three. Now look carefully: you have got x plus three on top AND x plus three on the bottom. Those cancel. You are left with just three over x minus three. But here is the big but, and this is where people lose marks: even though x plus three cancelled out, x equals negative three still makes the original denominator equal to zero. So it is still excluded. You can only divide away a factor if it was never zero to begin with.",
+    "math": "\\frac{3x+9}{x^2-9} = \\frac{3(x+3)}{(x-3)(x+3)} = \\frac{3}{x-3}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So what are non-permissible values? Short answer: any x that makes a denominator zero. You just cannot divide by zero. Period. So for our simplified expression three over x minus three, x obviously cannot be three. But remember the original denominator? It was x squared minus nine, which is x minus three times x plus three. So x also cannot be negative three. On a number line, you would put little open circles at negative three and at three. The expression does not exist at those points. The golden rule: list your non-permissible values from the original denominator, before you cancel anything. Do not list them after simplifying, because you might have cancelled away the very factor that tells you where the hole is.",
+    "math": "\\text{NPVs: } x \\neq 3,\\; x \\neq -3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      6,
+      -3,
+      3
+     ],
+     "labels": [
+      "",
+      "NPV: x = −3",
+      "NPV: x = 3"
+     ],
+     "caption": "The two excluded values, −3 and 3, marked on the number line"
+    }
+   },
+   {
+    "say": "Alright, let us solve an actual rational equation. Here you go: three over x plus two equals one over x minus one. First thing, write down the non-permissible values: x cannot be negative two, and x cannot be one. Now to solve, cross-multiply. Three times the quantity x minus one equals one times the quantity x plus two. Expand: three x minus three equals x plus two. Subtract x from both sides: two x minus three equals two. Add three to both sides: two x equals five. So x equals five-halves. Now the critical step: check your answer against the non-permissible values. Is five-halves equal to negative two? Nope. Is it equal to one? Nope. So it is a perfectly valid solution. You can stop and box it.",
+    "math": "\\frac{3}{x+2}=\\frac{1}{x-1} \\;\\Rightarrow\\; 3(x-1)=x+2 \\;\\Rightarrow\\; 3x-3=x+2 \\;\\Rightarrow\\; x=\\frac{5}{2}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3(x − 1)",
+      "x + 2"
+     ],
+     "caption": "Cross-multiplying keeps both sides balanced"
+    }
+   },
+   {
+    "say": "Here is where it gets tricky, and where a lot of students lose marks on the test. Watch this one closely: one over x minus two, plus one over x plus two, equals four over x squared minus four. The common denominator is the quantity x minus two times the quantity x plus two, which is x squared minus four. Multiply both sides through by that common denominator. Left side: the quantity x plus two, plus the quantity x minus two. Right side: four. Simplify the left: x plus two plus x minus two is just two x. So two x equals four, and x equals two. Now stop. Go all the way back to the original equation and plug in x equals two. The very first fraction has a denominator of two minus two, which is zero. You are dividing by zero. That was never allowed. So x equals two is an extraneous root: the algebra produced it, but it was never a legal value. The correct final answer is: no solution. The lesson? Always, always plug your answer back into the original equation before you celebrate.",
+    "math": "\\frac{1}{x-2}+\\frac{1}{x+2}=\\frac{4}{x^2-4} \\;\\Rightarrow\\; (x+2)+(x-2)=4 \\;\\Rightarrow\\; x=2 \\;\\text{(extraneous!)} \\;\\Rightarrow\\; \\text{No solution}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway to carry into the test. A rational expression is a fraction with polynomials on top and bottom. You simplify by factoring and cancelling, you list the non-permissible values from the original denominator before you touch anything, and when you solve a rational equation you must plug your answer back into the original because multiplying by a denominator can manufacture a fake solution that was never legal. Do those three things and you will not lose a single mark on this unit.",
+    "math": "\\text{Factor} \\rightarrow \\text{Cancel} \\rightarrow \\text{List NPVs (from original)} \\rightarrow \\text{Solve} \\rightarrow \\text{Check!}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Rational expressions are fractions with polynomials — factor, cancel, list the excluded values from the original denominator, and always check your answer in the original equation to catch extraneous roots.",
+  "practice": {
+   "question": "Your phone plan costs $45 per month plus $3 per gigabyte of data. If you use x gigabytes in a month, write a single rational expression for your cost per gigabyte. Then state the non-permissible value and explain, in plain English, what it means for your bill.",
+   "answer": "Cost per GB = (45 + 3x) / x = 3 + 45/x. The non-permissible value is x = 0, meaning you cannot have zero gigabytes and still have a meaningful 'cost per gigabyte' — the plan still charges the $45 flat fee, so the per-GB cost would be undefined (division by zero)."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

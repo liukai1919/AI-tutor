@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "line-graphs",
+ "lang": "en",
+ "unitName": {
+  "zh": "折线图",
+  "en": "Line graphs"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Line graphs · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.READ",
+    "level": 1,
+    "question": "Maya checks the snow depth at Cypress Mountain every Monday and shows it on a line graph. The vertical axis is labelled 0, 10, 20, 30, 40, 50, 60 cm, and there is one small gridline exactly halfway between each pair of labels. The Week 4 point sits on the small gridline between 40 and 50. How deep was the snow in Week 4?",
+    "options": [
+     "40 cm",
+     "45 cm",
+     "50 cm",
+     "49 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "First work out what one small gridline is worth: the labels jump by 10 cm and there is one gridline halfway, so each gridline is 5 cm, giving 40 + 5 = 45 cm. The usual trap is to snap the point to the nearest label (40 or 50) or to assume every gridline means 1."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.CREATE",
+    "level": 1,
+    "question": "At the school winter fair, Leo recorded the cups of hot chocolate sold: Monday 24, Tuesday 36, Wednesday 30, Thursday 48, Friday 42. His grid paper is 10 squares tall. Which vertical scale lets all the data fit and still uses most of the grid?",
+    "options": [
+     "1 cup per square",
+     "10 cups per square",
+     "50 cups per square",
+     "5 cups per square"
+    ],
+    "answerIndex": 3,
+    "explain": "Compare the largest value with the height of the grid: 5 cups per square reaches 10 x 5 = 50, just enough for 48 and it fills the page. A scale of 1 only reaches 10 so the data will not fit, while 10 or 50 per square squashes every point into the bottom few squares."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
+    "level": 1,
+    "question": "A rain barrel in a Victoria backyard is measured every hour. The line graph shows 10 L at 8 a.m., 18 L at 9 a.m., 18 L at 10 a.m., 12 L at 11 a.m., and 6 L at 12 noon. Between which two times did the amount of water stay the same?",
+    "options": [
+     "Between 9 a.m. and 10 a.m.",
+     "Between 8 a.m. and 9 a.m.",
+     "Between 10 a.m. and 11 a.m.",
+     "Between 11 a.m. and 12 noon"
+    ],
+    "answerIndex": 0,
+    "explain": "Staying the same means the line is flat, and the only equal pair of values is 18 L at 9 a.m. and 18 L at 10 a.m. A flat line does not mean the barrel is empty, and a line going down (10 a.m. to 12 noon) means water is being lost, not staying the same."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.READ",
+    "level": 2,
+    "question": "A line graph shows the temperature in Kamloops through the morning. On the vertical axis each square stands for 2 °C. The line is at 10 °C at 9 a.m. and climbs steadily to 18 °C at noon. How much did the temperature rise from 9 a.m. to noon?",
+    "options": [
+     "4 °C",
+     "18 °C",
+     "8 °C",
+     "28 °C"
+    ],
+    "answerIndex": 2,
+    "explain": "A rise is a subtraction between the two readings: 18 - 10 = 8 °C. The most common trap is counting the 4 squares the line climbed and forgetting that each square is worth 2 °C; reading only the end point (18) or adding the two values (28) also misses what rise means."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.CREATE",
+    "level": 2,
+    "question": "Ava is drawing a line graph of her savings from this table: January $12, February $20, March $26, April $38. Her vertical axis starts at $0 and each square stands for $4. Where should she plot the March point?",
+    "options": [
+     "6 and a half squares up",
+     "6 squares up",
+     "7 squares up",
+     "26 squares up"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide the value by the scale: 26 ÷ 4 = 6.5, so the point goes halfway between the 6th and 7th gridline. Rounding to a whole square moves the point off its true value, and counting 26 squares ignores that each square is worth $4, not $1."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
+    "level": 2,
+    "question": "A Grade 6 class measures a bean plant each week and graphs it: Week 1 is 4 cm, Week 2 is 7 cm, Week 3 is 10 cm, Week 4 is 13 cm. If the plant keeps growing at the same steady rate, about how tall will it be in Week 6?",
+    "options": [
+     "16 cm",
+     "22 cm",
+     "26 cm",
+     "19 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "Find the steady step first (each week adds 3 cm), then extend it the right number of weeks: Week 5 is 16 cm and Week 6 is 19 cm. The usual slips are stopping one week early at 16 or adding three more steps instead of two, which lands on Week 7."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
+    "level": 3,
+    "question": "Noah is saving for soccer cleats that cost $95. His line graph shows his total savings at the end of each week: Week 1 $15, Week 2 $27, Week 3 $39, Week 4 $51. He keeps saving the same amount each week. Counting from the end of Week 4, how many more weeks until he can buy the cleats?",
+    "options": [
+     "3 more weeks",
+     "8 more weeks",
+     "4 more weeks",
+     "5 more weeks"
+    ],
+    "answerIndex": 2,
+    "explain": "Step 1: the graph rises $12 each week. Step 2: he still needs 95 - 51 = $44, and 12 + 12 + 12 = 36 is not enough while 4 weeks gives $48, so his total reaches $99 after 4 more weeks. Stopping at 3 weeks ($87) leaves him short, and answering 8 counts the 4 weeks he has already saved."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.LINE.READ",
+    "level": 3,
+    "question": "After a storm, the water level in a creek near Chilliwack is graphed each hour: 1 p.m. 20 cm, 2 p.m. 26 cm, 3 p.m. 40 cm, 4 p.m. 46 cm, 5 p.m. 48 cm. During which hour did the water rise the fastest?",
+    "options": [
+     "Between 1 p.m. and 2 p.m.",
+     "Between 2 p.m. and 3 p.m.",
+     "Between 3 p.m. and 4 p.m.",
+     "Between 4 p.m. and 5 p.m."
+    ],
+    "answerIndex": 1,
+    "explain": "Fastest rise means the steepest segment, so compare the changes: +6, +14, +6, +2 — the biggest jump is 26 to 40 cm. The classic mistake is picking 4 p.m. to 5 p.m. because the line is highest there, but a high point tells you the amount of water, not how quickly it is changing."
+   }
+  ]
+ }
+}

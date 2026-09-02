@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.ROTATE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5jpmquzhl13l",
+   "level": 1,
+   "question": "在坐标格上，中心点 O 处立着一根箭头，箭头从 O 指向正右方（正东）。把这根箭头绕 O 逆时针（counter-clockwise）旋转 1/4 圈，箭头会指向哪个方向？",
+   "options": [
+    "指向正上方（正北）",
+    "指向正下方（正南）",
+    "指向正左方（正西）",
+    "指向右上方（东北）"
+   ],
+   "answerIndex": 0,
+   "explain": "逆时针 1/4 圈走的是「东 → 北」这一步，格子上的箭头从指右变成指上。最容易踩的坑是把逆时针做成顺时针，那会指向正下方（南）；1/4 圈也必须转满一个直角，停在东北方是只转了半个 1/4 圈。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmquif00gt",
+   "level": 1,
+   "question": "在坐标格上，旋转中心是点 O。点 P 在 O 的右边 2 格、上边 1 格。把 P 绕 O 顺时针（clockwise）旋转 1/4 圈，P 的新位置在哪里？",
+   "options": [
+    "在 O 的左边 1 格、上边 2 格",
+    "在 O 的右边 1 格、下边 2 格",
+    "在 O 的左边 2 格、下边 1 格",
+    "在 O 的右边 1 格、上边 2 格"
+   ],
+   "answerIndex": 1,
+   "explain": "顺时针 1/4 圈会把「向右」变成「向下」、把「向上」变成「向右」：原来的右 2 格变成下 2 格，上 1 格变成右 1 格，所以新位置是右 1 格、下 2 格。坑在于只把两个格数交换、却忘了换方向，那就写成右 1 上 2 了。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmquwoajxs",
+   "level": 1,
+   "question": "在坐标格上画着一个大写字母 L：它有一条长边从角点向上 3 格，一条短脚从角点向右 2 格。把这个 L 绕它的角点顺时针旋转 1/4 圈以后，长边和短脚分别指向哪边？",
+   "options": [
+    "长边（3 格）指向左，短脚（2 格）指向上",
+    "长边（3 格）指向下，短脚（2 格）指向左",
+    "长边（3 格）指向右，短脚（2 格）指向下",
+    "长边（3 格）指向右，短脚（2 格）指向上"
+   ],
+   "answerIndex": 2,
+   "explain": "顺时针 1/4 圈把「向上」转成「向右」、把「向右」转成「向下」，所以 3 格长边指右、2 格短脚指下。坑是两条边必须一起朝同一个方向转同样多；只把长边转对、短脚仍写成向上，就是把其中一条边的方向弄反了。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqusx35pu",
+   "level": 1,
+   "question": "在坐标格上，一根箭头从旋转中心指向正上方（正北）。要让它变成指向正下方（正南），下面哪种旋转做得到？",
+   "options": [
+    "绕中心顺时针转 1/4 圈",
+    "绕中心逆时针转 1/4 圈",
+    "只能逆时针转 1/2 圈，顺时针转 1/2 圈会指到别的方向",
+    "转 1/2 圈，顺时针或逆时针都可以"
+   ],
+   "answerIndex": 3,
+   "explain": "1/2 圈（half turn）正好把方向掉个头，北变南；因为半圈是整圈的一半，顺时针和逆时针最后停的位置完全相同，所以两个方向都行。坑是 1/4 圈只能把北变成东或西，掉不了头。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqutwild2",
+   "level": 2,
+   "question": "一根箭头指向正东。先把它绕点 P 顺时针旋转 1/4 圈，再绕点 P 顺时针旋转 1/4 圈。最后箭头指向哪个方向？",
+   "options": [
+    "正西",
+    "正南",
+    "正北",
+    "正东"
+   ],
+   "answerIndex": 0,
+   "explain": "两个 1/4 圈合起来就是 1/2 圈：东 →（顺时针 1/4 圈）南 →（再 1/4 圈）西。坑是只转了一次就停在南，或者以为两次旋转会互相抵消而回到东——同方向的两次旋转是要加起来的。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmque6psts",
+   "level": 2,
+   "question": "钟面上分针指着数字 9（也就是差一刻，quarter to）。把分针绕钟面中心顺时针旋转 1/2 圈，分针会指着哪个数字？",
+   "options": [
+    "指着 12",
+    "指着 3",
+    "指着 6",
+    "还是指着 9"
+   ],
+   "answerIndex": 1,
+   "explain": "钟面一整圈是 12 个数字，1/2 圈就是走 6 个数字：从 9 顺时针数 10、11、12、1、2、3，停在 3。坑是把 1/2 圈当成 1/4 圈（只走 3 个数字，停在 12），或者把方向数反了（逆时针 1/4 圈才到 6）。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqucozeyv",
+   "level": 2,
+   "question": "在坐标格上，旋转中心是 M(6,5)，点 K 的坐标是 (9,7)。把 K 绕 M 逆时针旋转 1/4 圈，得到的点 K′ 坐标是多少？",
+   "options": [
+    "(8,2)",
+    "(3,3)",
+    "(4,8)",
+    "(8,8)"
+   ],
+   "answerIndex": 2,
+   "explain": "K 在 M 的右 3 格、上 2 格。逆时针 1/4 圈把「向右」变成「向上」、把「向上」变成「向左」，于是变成 M 的上 3 格、左 2 格，也就是 (6−2, 5+3)=(4,8)。坑是方向做反成顺时针，会算成 (8,2)；只交换 3 和 2 却不换方向，会算成 (8,8)。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqu4nvmtf",
+   "level": 2,
+   "question": "坐标格上有一个直角三角形，直角顶点是 A(4,4)，一条直角边从 A 向上 3 格，另一条直角边从 A 向右 4 格。绕 A 旋转之后，原来向上的那条边变成从 A 向右 3 格，原来向右的那条边变成从 A 向下 4 格。这是哪一种旋转？",
+   "options": [
+    "逆时针 1/4 圈",
+    "顺时针 1/2 圈",
+    "逆时针 1/2 圈",
+    "顺时针 1/4 圈"
+   ],
+   "answerIndex": 3,
+   "explain": "「向上」变成「向右」、「向右」变成「向下」，两条边都朝时钟走的方向挪了一个直角，正是顺时针 1/4 圈。坑是逆时针 1/4 圈会把向上变成向左，1/2 圈则会把向上直接变成向下、向右直接变成向左。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jpmquu1bdbr",
+   "level": 3,
+   "question": "小宇说：「把一个图形绕一个点顺时针转 1/4 圈，和逆时针转 1/4 圈，结果是一样的，因为都转了 1/4 圈。」他说得对吗？",
+   "options": [
+    "不对：这两种转法得到的图形正好相差 1/2 圈，一个转到右边、一个转到左边，除非图形本身怎么转都长得一模一样",
+    "不对：顺时针 1/4 圈的结果其实和逆时针 1/2 圈一样，因为 1/4 加 1/4 正好凑成 1/2 圈",
+    "不对：这两种转法的结果只相差 1/4 圈，因为一个转了 1/4 圈，另一个也转了 1/4 圈，差的就是 1/4",
+    "对：只要转的圈数一样，结果就一样，方向不用管，因为不管往哪边转，图形都是转了同样多的一格，位置自然一样"
+   ],
+   "answerIndex": 0,
+   "explain": "顺时针 1/4 圈把原来向上的边转到向右，逆时针 1/4 圈把它转到向左，右和左正好差 1/2 圈，所以说「相差 1/2 圈」的那个才对。坑是以为圈数相同就够了——描述旋转（rotation）必须同时说清楚圈数和方向（clockwise / counter-clockwise）。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqu7cl1au",
+   "level": 3,
+   "question": "素里一个社区中心的地板上贴着一个大箭头贴纸，一开始指向正北。工人先把它绕中心顺时针转了 1/2 圈；第二天又把它绕中心逆时针转了 1/4 圈。现在箭头指向哪个方向？",
+   "options": [
+    "正西",
+    "正东",
+    "正南",
+    "正北"
+   ],
+   "answerIndex": 1,
+   "explain": "第一步 1/2 圈把北掉头成南；第二步逆时针 1/4 圈按「北→西→南→东」的顺序走一格，从南转到东。坑是把第二步也做成顺时针会得到正西，或者以为一顺一逆刚好抵消回正北——两次的圈数不一样（1/2 圈和 1/4 圈），抵消不掉。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqusg3pe7",
+   "level": 3,
+   "question": "琳达在坐标格纸上画了一面小旗：旗杆底端固定在 O(6,6)，旗子顶点在 (6,9)。她先把整面旗绕 O 逆时针转 1/4 圈，接着再绕 O 逆时针转 1/4 圈。这时旗子顶点落在哪一点？",
+   "options": [
+    "(9,6)",
+    "(3,6)",
+    "(6,3)",
+    "(6,9)"
+   ],
+   "answerIndex": 2,
+   "explain": "顶点原来在 O 的正上方 3 格；两个逆时针 1/4 圈接起来就是 1/2 圈，正上方 3 格掉头变成正下方 3 格，也就是 (6,3)。坑是只转了一次就停在 (3,6)，或者把逆时针做成顺时针而算到 (9,6)。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jpmqu5pl5vq",
+   "level": 3,
+   "question": "小安看着教室的钟说：「分针从 12 走到 6，是绕钟面中心顺时针转了 1/4 圈，因为 6 是 12 的一半。」她哪里想错了？",
+   "options": [
+    "她的方向说错了，应该是逆时针 1/2 圈，因为分针从 12 绕到 6 走了一半，而且是从上往下转的",
+    "她没想错，从 12 走到 6 确实是顺时针 1/4 圈，因为 6 是 12 的一半，分针走到一半就是转了一刻",
+    "她的圈数没错，只是方向应该说成逆时针 1/4 圈，因为分针是从 12 往下走到 6 的，往下就是逆时针",
+    "分针走过了整个钟面的一半，一半就应该说成 1/2 圈，所以是顺时针 1/2 圈，不是 1/4 圈"
+   ],
+   "answerIndex": 3,
+   "explain": "分针从 12 走到 6，走过的是整个钟面的一半（半点 half past），一半就是 1/2 圈，方向确实是顺时针。坑是把「6 是 12 的一半」误当成 1/4 圈——数字走了一半，说的正是圈数走了一半；顺时针 1/4 圈只会从 12 走到 3（过一刻 quarter past）。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  }
+ ]
+}

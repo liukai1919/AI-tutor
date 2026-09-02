@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5l4bkgz8bb3c",
+   "level": 1,
+   "question": "Imagine a number line from 0 to 1 divided into 100 equal parts, so each part is one hundredth. Priya marks 0.25 at the 25th part from 0, and she marks 0.3 at the 30th part from 0. Which statement is true?",
+   "options": [
+    "0.3 is greater, because it sits 30 parts from 0 while 0.25 sits only 25 parts from 0.",
+    "0.25 is greater, because 25 is a bigger number than 3.",
+    "0.25 is greater, because it has more digits than 0.3.",
+    "They are equal, because both sit between 0 and 1."
+   ],
+   "answerIndex": 0,
+   "explain": "Line the numbers up by place value: 0.25 is 25 hundredths and 0.3 is 30 hundredths, so 0.3 sits farther right and is greater. The trap is thinking the longer decimal must be bigger — count the parts, not the digits.",
+   "tags": [
+    "ok",
+    "dec.longer_is_bigger",
+    "pv.more_digits_bigger_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkg7f1hck",
+   "level": 1,
+   "question": "A number line runs from 0.400 to 0.410 and is divided into 10 equal parts, so each part is one thousandth. Lea's point sits on the 6th mark to the right of 0.400, at 0.406. Rounded to the nearest hundredth, what is her number?",
+   "options": [
+    "0.40, because you just drop the 6 at the end.",
+    "0.41, because 0.406 is 6 thousandths past 0.400 but only 4 thousandths before 0.410.",
+    "0.406, because the decimal with the most digits is the most exact answer.",
+    "0.46, because the 6 moves into the hundredths place."
+   ],
+   "answerIndex": 1,
+   "explain": "Find the two hundredths the number sits between (0.400 and 0.410), then see which one is closer: 0.406 is only 4 thousandths away from 0.410, so it rounds to 0.41. The trap is chopping off the last digit instead of checking which mark is nearer.",
+   "tags": [
+    "other",
+    "ok",
+    "dec.longer_is_bigger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkggu0ad3",
+   "level": 1,
+   "question": "A number line runs from 0 to 1 000 000 000 (one billion) and is divided into 10 equal parts, so each mark is 100 000 000. Point A sits exactly on the 7th mark, at 700 000 000. Point B sits before the very first mark, at 96 000 000. Which statement is true?",
+   "options": [
+    "96 000 000 is greater, because it is closer to a round hundred million.",
+    "96 000 000 is greater, because 96 is bigger than 7.",
+    "700 000 000 is greater, because it reaches the 7th mark while 96 000 000 has not even reached the 1st mark.",
+    "They are equal, because both are less than one billion."
+   ],
+   "answerIndex": 2,
+   "explain": "Count the digits first: 700 000 000 has 9 digits (hundreds of millions) and 96 000 000 has only 8 (tens of millions), so 700 000 000 is greater. The trap is comparing the front numbers 96 and 7 instead of the place values.",
+   "tags": [
+    "other",
+    "pv.more_digits_bigger_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkg4d8036",
+   "level": 1,
+   "question": "A number line runs from 4 000 000 000 to 5 000 000 000 and is divided into 10 equal parts, so each part is 100 000 000. A point sits between the 6th and 7th marks, at 4 620 000 000. Rounded to the nearest billion, what is this number?",
+   "options": [
+    "4 000 000 000, because you look only at the first digit, 4.",
+    "4 600 000 000, because that is the mark just before the point.",
+    "4 620 000 000, because it is already a rounded number.",
+    "5 000 000 000, because the point is past the halfway mark of 4 500 000 000."
+   ],
+   "answerIndex": 3,
+   "explain": "To round to the nearest billion, ask which billion the point is closer to: 4 620 000 000 is past the halfway mark 4 500 000 000, so it rounds up to 5 000 000 000. The trap is keeping the first digit no matter what instead of checking the halfway mark.",
+   "tags": [
+    "pv.more_digits_bigger_only",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkg66bgmd",
+   "level": 2,
+   "question": "Order these four numbers from least to greatest: 0.4, 0.06, 0.375, 0.5",
+   "options": [
+    "0.06, 0.375, 0.4, 0.5",
+    "0.4, 0.5, 0.06, 0.375",
+    "0.06, 0.4, 0.5, 0.375",
+    "0.5, 0.4, 0.375, 0.06"
+   ],
+   "answerIndex": 0,
+   "explain": "Give every number the same number of decimal places first — 0.400, 0.060, 0.375, 0.500 — then compare thousandths: 60 < 375 < 400 < 500. The trap is placing 0.375 last just because it has the most digits.",
+   "tags": [
+    "ok",
+    "pv.more_digits_bigger_only",
+    "dec.longer_is_bigger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkgqd5y4t",
+   "level": 2,
+   "question": "A BC news site reports the province's population as 5 519 013 people. The headline needs that number rounded to the nearest hundred thousand. Which number should the headline use?",
+   "options": [
+    "5 600 000",
+    "5 500 000",
+    "5 520 000",
+    "6 000 000"
+   ],
+   "answerIndex": 1,
+   "explain": "Look at the digit just to the right of the hundred thousands place: the hundred thousands digit is 5 and the ten thousands digit is 1, which is less than 5, so round down to 5 500 000. The trap is rounding at the wrong place and giving 5 520 000 (nearest ten thousand) or 6 000 000 (nearest million).",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkgdypft7",
+   "level": 2,
+   "question": "At a speed-skating meet at the Richmond Olympic Oval, Noor's time was 38.7 seconds and Jae's time was 38.65 seconds. The faster skater has the smaller time. Who was faster, and why?",
+   "options": [
+    "Noor, because 38.65 is the bigger time (65 is more than 7).",
+    "Noor, because 38.65 has more digits altogether, so it must be the greater number.",
+    "Jae, because 38.7 is the same as 38.70, and 65 hundredths is less than 70 hundredths.",
+    "It is a tie, because both times start with 38."
+   ],
+   "answerIndex": 2,
+   "explain": "Match the decimal places before comparing: 38.7 becomes 38.70, and 38.65 < 38.70, so Jae's time is smaller and therefore faster. The trap is reading 65 as bigger than 7 — hundredths are much smaller pieces than tenths.",
+   "tags": [
+    "dec.longer_is_bigger",
+    "pv.more_digits_bigger_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkg22nzic",
+   "level": 2,
+   "question": "Which of these numbers sits between 3 400 000 000 and 3 500 000 000?",
+   "options": [
+    "344 000 000",
+    "3 512 000 000",
+    "3 054 000 000",
+    "3 448 000 000"
+   ],
+   "answerIndex": 3,
+   "explain": "Check the digit count first: both endpoints have 10 digits (billions), and 3 448 000 000 has 10 digits with 4 hundred millions, so it lands between 3 400 000 000 and 3 500 000 000. The trap is picking 344 000 000, which only has 9 digits and is not even one billion.",
+   "tags": [
+    "pv.more_digits_bigger_only",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkgzneu42",
+   "level": 3,
+   "question": "Devon buys 0.125 kg of blueberries and 0.4 kg of strawberries at a Kelowna farm stand. He says the blueberries weigh more, because 125 is greater than 4. What is the best response?",
+   "options": [
+    "Devon is wrong — write 0.4 as 0.400 and compare thousandths: 400 > 125, so the strawberries weigh more.",
+    "They weigh the same, because both round to 0 kg at the nearest whole kilogram, so there is no difference.",
+    "Devon is right — 0.125 has more digits after the decimal point, so it is the larger number and weighs more.",
+    "You cannot compare them, because they do not have the same number of decimal places to line up."
+   ],
+   "answerIndex": 0,
+   "explain": "Write both amounts with the same number of decimal places (0.125 and 0.400), then compare place by place: 4 tenths beats 1 tenth, so 0.4 kg is heavier. The trap is reading the digits 125 as one hundred twenty-five and forgetting they are only thousandths.",
+   "tags": [
+    "ok",
+    "other",
+    "dec.longer_is_bigger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkgswx06p",
+   "level": 3,
+   "question": "A fundraiser at a Surrey elementary school raised $2 468 950. The newsletter rounds this amount to the nearest hundred thousand dollars, and the gym banner rounds the same original amount to the nearest million dollars. Which pair is correct?",
+   "options": [
+    "Newsletter $2 500 000, banner $3 000 000",
+    "Newsletter $2 500 000, banner $2 000 000",
+    "Newsletter $2 400 000, banner $2 000 000",
+    "Newsletter $2 469 000, banner $2 500 000"
+   ],
+   "answerIndex": 1,
+   "explain": "Round the original number separately each time: for the nearest hundred thousand check the ten thousands digit (6, so round up to $2 500 000); for the nearest million check the hundred thousands digit (4, so round down to $2 000 000). The trap is rounding the already-rounded $2 500 000 a second time and getting $3 000 000.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkged2x3k",
+   "level": 3,
+   "question": "In science class three students measure the thickness of the same leaf: Mia records 0.09 cm, Owen records 0.1 cm, and Sam records 0.085 cm. Order the measurements from thinnest to thickest.",
+   "options": [
+    "0.1 cm, 0.09 cm, 0.085 cm",
+    "0.09 cm, 0.085 cm, 0.1 cm",
+    "0.085 cm, 0.09 cm, 0.1 cm",
+    "0.085 cm, 0.1 cm, 0.09 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Write them all to three decimal places — 0.085, 0.090, 0.100 — then compare thousandths: 85 < 90 < 100. The trap is calling 0.085 the thickest because it has the most digits.",
+   "tags": [
+    "dec.longer_is_bigger",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5l4bkgrfzm1x",
+   "level": 3,
+   "question": "A video game leaderboard shows Kai's score as 998 765 432 and Rowan's score as 1 002 000 000. Kai says his score is higher, because his starts with 9 and Rowan's starts with 1. Who is right?",
+   "options": [
+    "Kai, because 998 765 432 starts with 9 and 9 is greater than 1, and the first digit decides the winner.",
+    "Neither — both scores round to 1 000 000 000 at the nearest billion, so the two scores count as equal.",
+    "Kai, because his score has more non-zero digits in it, and more non-zero digits means a bigger number.",
+    "Rowan, because 1 002 000 000 has 10 digits and is past one billion, while 998 765 432 has only 9 digits."
+   ],
+   "answerIndex": 3,
+   "explain": "For whole numbers, compare the number of digits first: 1 002 000 000 has 10 digits (over a billion) and 998 765 432 has 9, so Rowan's score is higher. The trap is comparing the leading digits 9 and 1, which only works when both numbers have the same number of digits.",
+   "tags": [
+    "pv.more_digits_bigger_only",
+    "other",
+    "pv.more_digits_bigger_only",
+    "ok"
+   ]
+  }
+ ]
+}

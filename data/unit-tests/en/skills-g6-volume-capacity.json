@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "volume-capacity",
+ "lang": "en",
+ "unitName": {
+  "zh": "体积与容积",
+  "en": "Volume & capacity"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Volume & capacity · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.COUNT_CUBES",
+    "level": 1,
+    "question": "Owen builds a big solid cube out of centimetre cubes. It is 3 cubes long, 3 cubes wide and 3 cubes high, with no gaps inside. How many centimetre cubes did he use altogether?",
+    "options": [
+     "9 cubes",
+     "18 cubes",
+     "26 cubes",
+     "27 cubes"
+    ],
+    "answerIndex": 3,
+    "explain": "Count layer by layer: each layer is 3 × 3 = 9 cubes, and there are 3 layers, so 9 × 3 = 27 cubes. The classic trap is answering 26 — that forgets the one cube hidden right in the middle, which you cannot see but still takes up space."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.RECT_PRISM",
+    "level": 1,
+    "question": "A juice box is shaped like a rectangular prism. It is 6 cm long, 4 cm wide and 10 cm high. What is its volume?",
+    "options": [
+     "240 cm³",
+     "120 cm³",
+     "24 cm³",
+     "20 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "Volume = length × width × height = 6 × 4 × 10 = 240 cm³. The base area 6 × 4 = 24 cm² is only one flat layer — you must still multiply by the height of 10 to fill the box, and adding 6 + 4 + 10 = 20 gives a length, not a volume."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+    "level": 1,
+    "question": "A carton of milk in the school fridge holds 2500 mL. How much is that in litres?",
+    "options": [
+     "0.25 L",
+     "2.5 L",
+     "25 L",
+     "250 L"
+    ],
+    "answerIndex": 1,
+    "explain": "Since 1000 mL = 1 L, divide by 1000: 2500 ÷ 1000 = 2.5 L. Many students slide the decimal only two places (getting 25 L) because they are thinking of centimetres and metres — remember it takes a whole 1000 mL to make one litre."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.REFERENTS",
+    "level": 2,
+    "question": "Amara is filling a 2 L pitcher for her soccer team using a mug that holds about 250 mL. About how many full mugfuls does she need?",
+    "options": [
+     "2 mugfuls",
+     "4 mugfuls",
+     "8 mugfuls",
+     "80 mugfuls"
+    ],
+    "answerIndex": 2,
+    "explain": "First change litres to millilitres: 2 L = 2000 mL, then 2000 ÷ 250 = 8 mugfuls. It helps to remember 4 mugs make 1 L, so 2 L needs double that; answering 4 means you filled only one litre."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.COUNT_CUBES",
+    "level": 2,
+    "question": "Noah packs 1 cm³ sugar cubes into a small box with no gaps. He fits 15 cubes in one flat layer on the bottom, and the box is exactly 4 layers tall. What is the volume of the box?",
+    "options": [
+     "15 cm³",
+     "19 cm³",
+     "45 cm³",
+     "60 cm³"
+    ],
+    "answerIndex": 3,
+    "explain": "One layer is 15 cubes, so 4 identical layers give 15 × 4 = 60 cubes, and each cube is 1 cm³, so the volume is 60 cm³. The trap is counting only the layer you can see (15) or adding 15 + 4 — the layers stack up, so you multiply."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+    "level": 2,
+    "question": "A rectangular fish tank measures 20 cm long, 10 cm wide and 15 cm high. If it is filled right to the top, how much water does it hold?",
+    "options": [
+     "3 L",
+     "30 L",
+     "300 L",
+     "3000 L"
+    ],
+    "answerIndex": 0,
+    "explain": "Volume = 20 × 10 × 15 = 3000 cm³, and since 1 cm³ = 1 mL, that is 3000 mL = 3 L. The most common slip is stopping at 3000 and writing 3000 L — always finish the conversion, because 1000 mL make just one litre."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.RECT_PRISM",
+    "level": 3,
+    "question": "Jasmin is filling a rectangular planter box at her community garden. The inside of the box is 120 cm long, 50 cm wide and 25 cm deep. Soil is sold only in 20 L bags that cost $6 each. What is the least she can spend to fill the box completely?",
+    "options": [
+     "$42",
+     "$45",
+     "$48",
+     "$54"
+    ],
+    "answerIndex": 2,
+    "explain": "Volume = 120 × 50 × 25 = 150 000 cm³ = 150 000 mL = 150 L, and 150 ÷ 20 = 7.5 bags, so she must buy 8 whole bags: 8 × $6 = $48. Two traps here — you cannot buy half a bag (that gives $45), and rounding down to 7 bags leaves the planter unfilled."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.REFERENTS",
+    "level": 3,
+    "question": "Ms. Chen's class is selling hot chocolate at the winter fair. Each cup holds about 200 mL, and they expect to sell 60 cups. Hot chocolate comes in 2 L cartons. How many cartons should they buy?",
+    "options": [
+     "5 cartons",
+     "6 cartons",
+     "12 cartons",
+     "30 cartons"
+    ],
+    "answerIndex": 1,
+    "explain": "They need 60 × 200 = 12 000 mL, which is 12 000 ÷ 1000 = 12 L, and 12 ÷ 2 = 6 cartons. The usual mistake is stopping at 12 and treating litres as cartons, or dividing 60 cups by 2 without ever converting the millilitres."
+   }
+  ]
+ }
+}

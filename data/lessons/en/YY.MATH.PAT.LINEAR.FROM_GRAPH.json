@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.FROM_GRAPH",
+ "lang": "en",
+ "title": "Derive the relation from a graph or table of values",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Reading the Rule Off a Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a rule like three n plus two and plot the points on a grid. Today we go backwards. Someone hands you the graph or the table, and you figure out the rule that made it. Here is Jaya, who is saving for new soccer cleats.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      5,
+      8,
+      11
+     ],
+     "labels": [
+      "Week 0",
+      "Week 1",
+      "Week 2",
+      "Week 3"
+     ],
+     "caption": "Dollars in Jaya's jar"
+    }
+   },
+   {
+    "say": "To find the rule, you hunt for two things, and only two. First, the step up: how much does the money climb every single week? From two to five is up three. Five to eight, up three. Eight to eleven, up three. Second, the start: what was in the jar at week zero, before any week had passed? Two dollars.",
+    "math": "\\text{step up}=3,\\qquad \\text{start}=2",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      2,
+      1,
+      5,
+      2,
+      8,
+      3,
+      11
+     ],
+     "labels": [
+      "start",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Across one week, up three dollars, every time"
+    }
+   },
+   {
+    "say": "Now build it. The step up is what gets multiplied by the week number, because it happens once per week. So three times n. The start is what gets added on, because it is already sitting there at week zero. So plus two. The rule is three n plus two. Let us test it on week three: three times three is nine, plus two is eleven dollars. That matches the point on the grid perfectly.",
+    "math": "3n+2 \\;\\Rightarrow\\; 3\\times 3+2=11",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      11
+     ],
+     "labels": [
+      "week 3, eleven dollars"
+     ],
+     "caption": "The rule lands exactly on Jaya's point"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. They see three and two and write two n plus three instead, mixing up which number is the step and which is the start. Watch what happens. At week one, two times one plus three is five. That is right, so it feels safe. But at week two, two times two plus three is seven, and Jaya really has eight. The wrong rule sneaks past one point and then falls apart. Always ask yourself: which number is the climb, and which one was there before anything happened?",
+    "math": "2n+3:\\; 2\\times 2+3=7 \\neq 8",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      3,
+      1,
+      5,
+      2,
+      7,
+      3,
+      9
+     ],
+     "labels": [
+      "",
+      "",
+      "",
+      ""
+     ],
+     "caption": "The mixed up rule two n plus three drifts away from the real points"
+    }
+   },
+   {
+    "say": "So whenever you meet a graph or a table, find the step up between points and find the value at zero. Multiply by the step, add the start, then check your rule on a point you have not used yet.",
+    "math": "y=(\\text{step})\\times n+(\\text{start})",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Step up times n, plus the value at zero — then test it on another point.",
+  "practice": {
+   "question": "Sam rents skates at a rink in Burnaby and plots the cost on a coordinate grid. His points are: zero hours costs five dollars, one hour costs seven dollars, two hours costs nine dollars, and three hours costs eleven dollars. Draw the four points yourself if it helps, then write the relation that gives the cost in dollars for n hours.",
+   "answer": "Two n plus five. The cost climbs two dollars for each extra hour, and at zero hours it already starts at five dollars. Check with three hours: two times three is six, plus five is eleven dollars, which matches."
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "double-bar-graphs",
+ "lang": "en",
+ "unitName": {
+  "zh": "复式条形图",
+  "en": "Double bar graphs"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Double bar graphs · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.READ",
+    "level": 1,
+    "question": "A double bar graph at Brentwood Elementary shows how Grade 5 and Grade 6 students get to school. The graph's key says: each square stands for 5 students. The Grade 5 bar for 'walk' is 7 squares tall. How many Grade 5 students walk to school?",
+    "options": [
+     "7 students",
+     "12 students",
+     "35 students",
+     "70 students"
+    ],
+    "answerIndex": 2,
+    "explain": "With a many-to-one scale you multiply: 7 squares × 5 students per square = 35 students. The most common trap is answering 7 — reading the number of squares instead of what each square stands for."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
+    "level": 1,
+    "question": "A double bar graph shows books read in March by Grade 5 (dark bars) and Grade 6 (light bars): Mystery 20 and 25, Sports 30 and 15, Fantasy 25 and 25, Comics 15 and 35. For which kind of book did the two grades read the same number of books?",
+    "options": [
+     "Mystery",
+     "Sports",
+     "Comics",
+     "Fantasy"
+    ],
+    "answerIndex": 3,
+    "explain": "Look for the one place where the pair of bars is exactly the same height — Fantasy, 25 and 25. The trap is picking Sports or Comics because those pairs stand out the most; those are the biggest differences, not a match."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
+    "level": 1,
+    "question": "Sofia is making a double bar graph of a class survey on a grid that is 10 squares tall. Her largest number in the table is 45. Which scale should she choose?",
+    "options": [
+     "1 student per square",
+     "5 students per square",
+     "20 students per square",
+     "50 students per square"
+    ],
+    "answerIndex": 1,
+    "explain": "A good scale makes the tallest bar nearly fill the grid: 45 ÷ 5 = 9 squares, so 5 students per square fits perfectly. The trap is choosing 1 per square — the 45 bar would need 45 squares and run off the page."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.READ",
+    "level": 2,
+    "question": "At the Burnaby rink, a double bar graph shows skating time last Saturday. Each square stands for 10 minutes. Leo's bar stops exactly halfway between the 30 and 40 gridlines, and Maya's bar stops right on the 20 gridline. How many more minutes did Leo skate than Maya?",
+    "options": [
+     "15 minutes",
+     "10 minutes",
+     "20 minutes",
+     "1.5 minutes"
+    ],
+    "answerIndex": 0,
+    "explain": "Half a square is half of 10, so Leo's bar is 35 minutes; then 35 − 20 = 15 minutes. The trap is rounding Leo's bar down to the 30 gridline (giving 10) instead of reading the half-square."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
+    "level": 2,
+    "question": "Division 7 is graphing its food drive. The key says each square stands for 4 cans. The table shows Grade 5 collected 26 cans. How tall should the Grade 5 bar be?",
+    "options": [
+     "6 squares",
+     "7 squares",
+     "6 and a half squares",
+     "26 squares"
+    ],
+    "answerIndex": 2,
+    "explain": "Divide by the scale: 26 ÷ 4 = 6 with 2 left over, and 2 is half of 4, so the bar is 6 and a half squares. The trap is drawing 26 squares (using the data value as the height) or rounding to a whole square and losing the leftover 2 cans."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
+    "level": 2,
+    "question": "A double bar graph shows bottles collected for the school bottle drive by Division 5 (dark bars) and Division 6 (light bars). Week 1: 40 and 25. Week 2: 35 and 35. Week 3: 30 and 20. Week 4: 20 and 45. In which week did the two divisions collect the most bottles altogether?",
+    "options": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4"
+    ],
+    "answerIndex": 1,
+    "explain": "Altogether means add each pair: 65, 70, 50, 65 — so Week 2 is the most. The trap is hunting for the single tallest bar (Week 1's 40 or Week 4's 45) instead of adding the two bars in each pair."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
+    "level": 3,
+    "question": "A double bar graph of the school bake sale shows items sold by Division 4 (dark bars) and Division 6 (light bars): muffins 20 and 30, cookies 15 and 10. Muffins cost $2 each and cookies cost $3 each. Which division raised more money, and by how much?",
+    "options": [
+     "Division 6, by $10",
+     "Division 4, by $15",
+     "Division 4, by $5",
+     "Division 6, by $5"
+    ],
+    "answerIndex": 3,
+    "explain": "Find each division's money first: Division 4 is 20 × $2 + 15 × $3 = $40 + $45 = $85, and Division 6 is 30 × $2 + 10 × $3 = $60 + $30 = $90, so Division 6 raised $5 more. The trap is comparing just one pair of bars (Division 4 sold 5 more cookies) instead of totalling both items with their different prices."
+   },
+   {
+    "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
+    "level": 3,
+    "question": "Two classes graph the very same food-drive data. On Ms. Patel's graph each square stands for 5 cans, and the Grade 5 bar is 8 squares tall. Mr. Wong redraws the same data with a key of 10 cans per square. Kiran says the Grade 5 bar on Mr. Wong's graph will still be 8 squares tall because the data did not change. How tall will that bar really be, and why?",
+    "options": [
+     "4 squares, because 8 × 5 = 40 cans and 40 ÷ 10 = 4 squares",
+     "8 squares, because the data did not change",
+     "16 squares, because a larger scale needs a taller bar",
+     "40 squares, because each can needs its own square"
+    ],
+    "answerIndex": 0,
+    "explain": "Always turn the bar back into the real amount first — 8 squares × 5 = 40 cans — then divide by the new scale: 40 ÷ 10 = 4 squares. The trap is Kiran's thinking: comparing square heights across graphs with different keys, when the same data makes a shorter bar whenever each square stands for more."
+   }
+  ]
+ }
+}

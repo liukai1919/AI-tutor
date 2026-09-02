@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PCT.DISCOUNT",
+ "lang": "en",
+ "title": "Calculate a discount and the sale price",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Discount and Sale Price: The Two-Step Move",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like twenty-five percent of forty dollars. Today we use that exact skill in a store, to figure out what you actually pay when something is on sale.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea in one picture. Think of the full price as one long bar, one hundred percent. When a sign says twenty-five percent off, the store snips off twenty-five percent of that bar. The piece they snip off is the discount, the money you save. The piece that is left over is the sale price, the money you hand to the cashier. Two different pieces, two different numbers.",
+    "math": "100\\% = \\text{discount} + \\text{sale price}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      100,
+      25,
+      75
+     ],
+     "labels": [
+      "Full price 100%",
+      "Discount 25% off",
+      "Sale price 75%"
+     ],
+     "caption": "The full bar splits into the part you save and the part you pay"
+    }
+   },
+   {
+    "say": "Let's put real dollars on it. A hoodie at the mall in Burnaby costs forty dollars, and the tag says twenty-five percent off. Step one, find the discount. Twenty-five percent is zero point two five, and zero point two five times forty dollars is ten dollars. So you save ten dollars. Step two, subtract. Forty dollars minus ten dollars is thirty dollars. That thirty dollars is the sale price, the number you pay.",
+    "math": "0.25 \\times 40 = 10 \\quad\\Rightarrow\\quad 40 - 10 = 30",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      10,
+      30
+     ],
+     "labels": [
+      "Full price $40",
+      "Discount $10",
+      "You pay $30"
+     ],
+     "caption": "Find the discount first, then subtract it from the full price"
+    }
+   },
+   {
+    "say": "Now here is the trap almost everybody falls into, so let's catch it. Someone works out the ten dollars, feels done, and writes ten dollars as the answer. But look at the bar. Ten dollars is only the little snipped-off piece, the savings. Nobody buys a forty dollar hoodie for ten dollars just because it is twenty-five percent off! Ask yourself, does my answer look like a fair price for this thing? Ten dollars is way too small, thirty dollars makes sense. The discount is what you save. The sale price is what you pay. Always take that second step and subtract.",
+    "math": "\\text{sale price} = 40 - 10 = 30 \\ne 10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10,
+      30
+     ],
+     "labels": [
+      "Discount $10 — money saved",
+      "Sale price $30 — money paid"
+     ],
+     "caption": "Stopping at the discount gives an answer that is far too small"
+    }
+   },
+   {
+    "say": "So remember the rhythm: percent times price gives the discount, then price minus discount gives what you pay. Two steps, every single time.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Discount first, then subtract: the discount is what you save, the sale price is what you pay.",
+  "practice": {
+   "question": "A soccer ball at a shop in Surrey costs thirty-five dollars, and it is twenty percent off. Draw a bar for the full thirty-five dollars, snip off the discount piece, and label the piece that is left. How much is the discount, and how much do you actually pay?",
+   "answer": "The discount is zero point two times thirty-five dollars, which is seven dollars. The sale price is thirty-five dollars minus seven dollars, which is twenty-eight dollars. So you save seven dollars and pay twenty-eight dollars."
+  }
+ }
+}

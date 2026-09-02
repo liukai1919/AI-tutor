@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "elapsed-time",
+ "lang": "en",
+ "unitName": {
+  "zh": "经过时间",
+  "en": "Elapsed time"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
+ "set": {
+  "title": "Elapsed time · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.WITHIN_HOUR",
+    "level": 1,
+    "question": "The classroom clock reads 10:15 a.m. when silent reading starts. It reads 10:40 a.m. when silent reading ends. How long did silent reading last?",
+    "options": [
+     "15 minutes",
+     "25 minutes",
+     "35 minutes",
+     "55 minutes"
+    ],
+    "answerIndex": 1,
+    "explain": "Both times are in the same hour, so count on from 15 to 40 on the clock face: 40 − 15 = 25 minutes. The trap is adding the two numbers (15 + 40 = 55) — elapsed time is always the jump between the times, not their sum."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.UNITS",
+    "level": 1,
+    "question": "How many minutes are there in 3 hours?",
+    "options": [
+     "30 minutes",
+     "130 minutes",
+     "180 minutes",
+     "300 minutes"
+    ],
+    "answerIndex": 2,
+    "explain": "One hour is 60 minutes, so 3 hours = 3 × 60 = 180 minutes. The trap is treating time like money or place value and using 100 minutes per hour (3 × 100 = 300) — the clock counts in 60s, not 10s."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR",
+    "level": 1,
+    "question": "Nadia's swim lesson at the community centre runs from 9:30 a.m. to 11:00 a.m. How long is the lesson?",
+    "options": [
+     "1 hour 30 minutes",
+     "1 hour 70 minutes",
+     "2 hours",
+     "2 hours 30 minutes"
+    ],
+    "answerIndex": 0,
+    "explain": "Jump on a time line: 9:30 → 10:30 is 1 hour, then 10:30 → 11:00 is 30 more minutes, so 1 hour 30 minutes. The trap is subtracting like base-ten digits (11.00 − 9.30 = 1.70), which is not a real time amount because 70 minutes is more than an hour."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.START_END",
+    "level": 2,
+    "question": "Leo's school bus ride takes 45 minutes. He arrives at school at 8:20 a.m. What time does the bus pick him up?",
+    "options": [
+     "7:25 a.m.",
+     "7:35 a.m.",
+     "7:45 a.m.",
+     "9:05 a.m."
+    ],
+    "answerIndex": 1,
+    "explain": "To find a start time, jump backwards: 8:20 back 20 minutes is 8:00, then 25 more minutes back is 7:35 a.m. Two traps here — adding the 45 minutes instead of subtracting (9:05), and flipping the minutes when you cannot subtract (20 − 45 becomes 45 − 20, giving 7:25)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.UNITS",
+    "level": 2,
+    "question": "Ava practises piano for 20 minutes every day for 3 weeks. How much time is that in total?",
+    "options": [
+     "2 h 20 min",
+     "4 h 20 min",
+     "42 h",
+     "7 h"
+    ],
+    "answerIndex": 3,
+    "explain": "First convert weeks to days: 3 × 7 = 21 days, so 21 × 20 = 420 minutes, and 420 ÷ 60 = 7 hours. The traps are forgetting the week-to-day step (only 7 days gives 2 h 20 min) and reading 420 minutes as 4 h 20 min instead of dividing by 60."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.WITHIN_HOUR",
+    "level": 2,
+    "question": "Amrit's spelling test started at 1:12 p.m. The teacher gave the class 40 minutes, but Amrit put his pencil down 7 minutes before the time was up. How long did Amrit work on the test?",
+    "options": [
+     "33 minutes",
+     "40 minutes",
+     "47 minutes",
+     "52 minutes"
+    ],
+    "answerIndex": 0,
+    "explain": "Finishing early means the working time is shorter than the time allowed: 40 − 7 = 33 minutes (1:12 to 1:45). The trap is adding the 7 minutes (47) or reporting the finishing time's minutes (52) instead of the length of the jump."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR",
+    "level": 3,
+    "question": "Owen's hockey practice runs from 6:50 p.m. to 8:15 p.m. His friend Sam's practice runs from 7:05 p.m. to 8:20 p.m. How much longer is Owen's practice than Sam's?",
+    "options": [
+     "15 minutes",
+     "5 minutes",
+     "20 minutes",
+     "10 minutes"
+    ],
+    "answerIndex": 3,
+    "explain": "Find each length with time-line jumps first: Owen 6:50 → 8:15 is 85 minutes, Sam 7:05 → 8:20 is 75 minutes, so Owen's is 10 minutes longer. The trap is comparing only the start times (15 minutes) or only the end times (5 minutes) — you must compare the two durations."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.START_END",
+    "level": 3,
+    "question": "A BC Ferries sailing is scheduled to leave at 15:40 and the crossing takes 1 hour 35 minutes. On Saturday the ferry left 20 minutes late. Using 24-hour time, when did it arrive?",
+    "options": [
+     "16:95",
+     "17:15",
+     "17:35",
+     "17:55"
+    ],
+    "answerIndex": 2,
+    "explain": "Do it in two steps: 15:40 + 20 min = 16:00 (the real departure), then 16:00 + 1 h 35 min = 17:35. The traps are ignoring the delay (17:15), counting the 20 minutes twice (17:55), and writing minutes past 60 instead of regrouping 60 minutes into 1 hour (16:95 is not a time)."
+   }
+  ]
+ }
+}

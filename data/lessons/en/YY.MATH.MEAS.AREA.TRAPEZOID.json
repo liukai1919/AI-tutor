@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.TRAPEZOID",
+ "lang": "en",
+ "title": "Find the area of a trapezoid by decomposing or with the formula",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Trapezoid Areas Made Easy",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the area of a triangle, base times height divided by two. Today we meet a shape with a flat top and a flat bottom that are different lengths, called a trapezoid, like a little garden bed at a Vancouver community garden. Here it sits on grid paper where every square is one square metre. The bottom edge is five metres, the top edge is three metres, and it stands two metres tall.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      5,
+      2,
+      5
+     ],
+     "labels": [],
+     "caption": "Grid paper: each square is 1 square metre. The garden bed is 5 m along the bottom, 3 m along the top, 2 m tall."
+    }
+   },
+   {
+    "say": "The easiest trick is to cut the trapezoid into pieces we already know. Slice straight down from the top corner. That gives us a rectangle that is three metres wide and two metres tall. Three times two is six, so this piece is six square metres.",
+    "math": "3\\times 2 = 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      5,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "The shaded part is the rectangle piece: 3 m wide, 2 m tall, so 6 square metres."
+    }
+   },
+   {
+    "say": "The leftover piece on the side is a triangle. Its base is two metres, because five minus three is two, and its height is two metres. Two times two is four, and four divided by two is two. So the triangle is two square metres. Now add the pieces: six plus two is eight square metres for the whole garden bed.",
+    "math": "2\\times 2\\div 2 = 2 \\quad ; \\quad 6+2=8",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "The leftover triangle: base 2 m, dashed height 2 m, area 2 square metres."
+    }
+   },
+   {
+    "say": "Now here is the shortcut. Instead of cutting every time, take the top and the bottom, add them, and share them fairly. Three plus five is eight, and eight divided by two is four. Four is the average width. Then multiply by the height: four times two is eight square metres. Look, the very same eight we got by cutting. That is why the formula works, it just flattens the trapezoid into a nice rectangle four metres wide and two metres tall.",
+    "math": "\\frac{3+5}{2}\\times 2 = 4\\times 2 = 8",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      4,
+      2,
+      4
+     ],
+     "labels": [],
+     "caption": "Same area, tidied up: a 4 m by 2 m rectangle = 8 square metres."
+    }
+   },
+   {
+    "say": "Careful with one thing! The slanted edge of our garden bed is about two point eight metres, longer than the real height. If you grab that slanted number by mistake you get four times two point eight, which is eleven point two square metres. Way too big. The height must be the straight up and down distance, the dashed line, the same way you measure how tall you are standing against a wall, not leaning over sideways.",
+    "math": "4\\times 2.8 = 11.2\\ \\text{(wrong!)}\\quad 4\\times 2 = 8\\ \\text{(right)}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Height is the dashed straight-up line, never the slanted edge."
+    }
+   },
+   {
+    "say": "So remember: add the two parallel sides, cut that in half, then multiply by the straight height.",
+    "math": "A=\\frac{(a+b)}{2}\\times h",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Top plus bottom, divided by two, times the straight-up height.",
+  "practice": {
+   "question": "Draw this on grid paper where each square is one square metre. A wooden deck behind a house in Kelowna is shaped like a trapezoid. The back edge against the house is six metres long, the front edge is four metres long, and the deck is three metres deep from front to back. What is the area of the deck?",
+   "answer": "Fifteen square metres. Using the formula: six plus four is ten, ten divided by two is five, five times three is fifteen. Checking by cutting: the rectangle is four by three, which is twelve, and the triangle is two times three divided by two, which is three. Twelve plus three is fifteen."
+  }
+ }
+}

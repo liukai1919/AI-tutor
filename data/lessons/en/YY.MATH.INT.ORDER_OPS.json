@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.INT.ORDER_OPS",
+ "lang": "en",
+ "title": "Use the order of operations with integers, including brackets",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Brackets First, Then Times: Order of Operations with Integers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the sign rules for multiplying and dividing integers, and you already know that brackets get done first. Today we put those two skills together, so that a longer expression like negative six plus four times negative two has exactly one right answer, no matter who works it out.",
+    "math": "-6 + 4 \\times (-2)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the order everyone in the world agrees on. First, anything inside brackets. Then all the multiplying and dividing, going left to right. Then all the adding and subtracting, going left to right. Think of it like a balance scale: the expression on the left and its answer on the right only balance if you follow that order. Two plus three times four is fourteen, because three times four gets done before the plus.",
+    "math": "2 + 3 \\times 4 = 2 + 12 = 14",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2 + 3 × 4",
+      "14"
+     ],
+     "caption": "Follow the order and both sides balance"
+    }
+   },
+   {
+    "say": "Let us try one with a bracket and negatives. Three times, open bracket, negative seven plus four, close bracket, minus five. Brackets first: negative seven plus four means starting at negative seven and moving four steps up the number line, which lands on negative three. Now the multiplying: three times negative three is negative nine. Last, the subtracting: negative nine minus five is negative fourteen.",
+    "math": "3 \\times (-7 + 4) - 5 = 3 \\times (-3) - 5 = -9 - 5 = -14",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      6,
+      -7,
+      -3
+     ],
+     "labels": [],
+     "caption": "Inside the bracket: start at −7, jump up 4, land on −3"
+    }
+   },
+   {
+    "say": "Now the trap. If you just read left to right, you would do two plus three is five, then five times four is twenty. That gives twenty, and it is wrong. Multiplying is a stronger, faster operation than adding, so it always jumps the queue. Picture it like buying snacks at the corner store: you have two dollars in your pocket and you buy three drinks at four dollars each. You do not add the two first, you work out the three drinks first. The scale tips over because twenty is too heavy.",
+    "math": "2 + 3 \\times 4 \\neq 20",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "2 + 3 × 4",
+      "20"
+     ],
+     "caption": "Left to right gives 20 — the scale does not balance"
+    }
+   },
+   {
+    "say": "One more trap, and this one is about signs. The rule that a negative times a negative gives a positive belongs to multiplying only. It does not work for adding. Negative three plus negative four is not seven. Owing three dollars and then owing four more dollars means you owe seven dollars, so the answer is negative seven. On the number line you start at negative three and slide four more steps to the left.",
+    "math": "-3 + (-4) = -7",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      2,
+      -3,
+      -7
+     ],
+     "labels": [],
+     "caption": "Start at −3, move 4 more to the left → −7"
+    }
+   },
+   {
+    "say": "So here is the whole thing in one breath: brackets first, then times and divide, then plus and minus, always left to right — and keep your adding rules separate from your multiplying rules.",
+    "math": "(\\ )\\ \\rightarrow\\ \\times\\ \\div\\ \\rightarrow\\ +\\ -",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Brackets first, then multiply and divide, then add and subtract — left to right every time.",
+  "practice": {
+   "question": "You have twenty dollars loaded on your bus card. Work out this expression: twenty plus three times, open bracket, negative eight plus two, close bracket. Do the bracket first, then the multiplying, then the adding. How many dollars are left on the card?",
+   "answer": "2 dollars. Inside the bracket, negative eight plus two is negative six. Then three times negative six is negative eighteen. Finally twenty plus negative eighteen is two."
+  }
+ }
+}

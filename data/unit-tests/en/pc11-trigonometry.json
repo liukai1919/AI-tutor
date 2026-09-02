@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "trigonometry",
+ "lang": "en",
+ "unitName": {
+  "zh": "三角",
+  "en": "Trigonometry"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Trigonometry · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 1,
+    "question": "What is the exact value of sin 60°?",
+    "options": [
+     "1/2",
+     "√3/2",
+     "√2/2",
+     "1"
+    ],
+    "answerIndex": 1,
+    "explain": "In the 30-60-90 triangle, sin 60° = opposite/hypotenuse = √3/2. The most common trap is swapping the values: sin 60° is NOT 1/2 (that is sin 30° or cos 60°)."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 1,
+    "question": "What is the reference angle for 210°?",
+    "options": [
+     "30°",
+     "60°",
+     "150°",
+     "120°"
+    ],
+    "answerIndex": 0,
+    "explain": "210° lies in Quadrant III, so the reference angle is 210° − 180° = 30°. A frequent error is subtracting from 360° (giving 150°), which is the supplementary angle, not the reference angle."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 1,
+    "question": "What is the exact value of cos 45°?",
+    "options": [
+     "√3/2",
+     "1/2",
+     "√2/2",
+     "0"
+    ],
+    "answerIndex": 2,
+    "explain": "In the 45-45-90 triangle, cos 45° = adjacent/hypotenuse = 1/√2 = √2/2. Students often reach for √3/2 (which belongs to the 30-60-90 triangle) or 1/2 (which is cos 60°)."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 2,
+    "question": "Maya and Jake stand at opposite ends of a straight 100 m section of lake shore. Maya measures the angle to a kayak as 30° and Jake measures it as 60°, both angles taken from the shore line. How far is the kayak from Jake?",
+    "options": [
+     "86.6 m",
+     "57.7 m",
+     "100 m",
+     "50 m"
+    ],
+    "answerIndex": 3,
+    "explain": "The angles give C = 90°. Using the Sine Law, side a (Jake-to-kayak) = c·sin A / sin C = 100·sin 30° / sin 90° = 50 m. The 86.6 m answer is side b (Maya-to-kayak), a common mix-up of which side you actually need."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 2,
+    "question": "Two kayakers leave the same dock in Qualicum Beach. One paddles 5 km due east; the other paddles 7 km at 60° north of east. How far apart are they now (nearest 0.01 km)?",
+    "options": [
+     "8.60 km",
+     "6.24 km",
+     "2.00 km",
+     "12.00 km"
+    ],
+    "answerIndex": 1,
+    "explain": "Law of Cosines: c² = 5² + 7² − 2(5)(7)cos 60° = 74 − 35 = 39, so c = √39 ≈ 6.24 km. The 8.60 km trap comes from dropping the −2ab cos θ term (treating it as a right triangle); 2.00 km comes from using cos 0° = 1 instead of cos 60° = 0.5."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 2,
+    "question": "Using the unit circle, what is the exact value of sin 150°?",
+    "options": [
+     "1/2",
+     "−1/2",
+     "√3/2",
+     "−√3/2"
+    ],
+    "answerIndex": 0,
+    "explain": "150° is in Quadrant II where sine is positive. The reference angle is 180° − 150° = 30°, so sin 150° = sin 30° = 1/2. The most common mistake is writing −1/2 by forgetting that sine is positive in QII."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 3,
+    "question": "You are given angle A = 30°, side a = 5 m, and side b = 8 m (the SSA arrangement). How many distinct triangles can be formed?",
+    "options": [
+     "0",
+     "1",
+     "2",
+     "Not enough information to determine"
+    ],
+    "answerIndex": 2,
+    "explain": "Check the ambiguous case: b sin A = 8 sin 30° = 4. Since 4 < a < b (i.e., 4 < 5 < 8), two triangles are possible. The biggest misconception is assuming SSA always yields a unique triangle like SAS or SSS."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.TRI.01",
+    "level": 3,
+    "question": "At the Seaforth Fair, a Ferris wheel has radius 10 m and its centre is 12 m above the ground. A passenger boards at the very bottom of the wheel. After the wheel has rotated 120° clockwise, how high above the ground is the passenger?",
+    "options": [
+     "7 m",
+     "22 m",
+     "12 m",
+     "17 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Starting at 270° (bottom), 120° clockwise gives 270° − 120° = 150°. Height above centre = 10 sin 150° = 10(1/2) = 5 m, so total height = 12 + 5 = 17 m. The 7 m trap subtracts the 5 m instead of adding it (sign error on sin in QII)."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

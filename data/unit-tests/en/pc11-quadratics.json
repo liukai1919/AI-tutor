@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "quadratics",
+ "lang": "en",
+ "unitName": {
+  "zh": "二次函数与不等式",
+  "en": "Quadratics & Inequalities"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Quadratics & Inequalities · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.01",
+    "level": 1,
+    "question": "A BC math student is sketching the graph of f(x) = 3(x − 4)² + 7. What are the coordinates of the vertex?",
+    "options": [
+     "(−4, 7)",
+     "(4, 7)",
+     "(4, −7)",
+     "(−4, −7)"
+    ],
+    "answerIndex": 1,
+    "explain": "In vertex form a(x − h)² + k, the vertex is (h, k), so the answer is (4, 7). The most common trap is misreading the sign inside the parentheses: (x − 4) means h = +4, not −4."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.02",
+    "level": 1,
+    "question": "Solve the inequality 2x − 5 > 3 for x.",
+    "options": [
+     "x > 4",
+     "x > −4",
+     "x < 4",
+     "x > 3"
+    ],
+    "answerIndex": 0,
+    "explain": "Add 5 to both sides: 2x > 8, then divide by 2 to get x > 4. The common error is subtracting 5 and getting 2x > 2, or accidentally flipping the inequality sign even though you divided by a positive number."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.01",
+    "level": 1,
+    "question": "For the quadratic f(x) = 2x² − 6x + 9, what is the y-intercept of its graph?",
+    "options": [
+     "(0, 2)",
+     "(0, −6)",
+     "(0, 9)",
+     "(6, 0)"
+    ],
+    "answerIndex": 2,
+    "explain": "The y-intercept is found by evaluating f(0) = 2(0)² − 6(0) + 9 = 9, giving the point (0, 9). A frequent mistake is confusing the leading coefficient (2) or the middle coefficient (−6) with the intercept value."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.01",
+    "level": 2,
+    "question": "A BC student tosses a tennis ball straight up from a 2-metre platform. The height (in metres) after t seconds is h(t) = −5t² + 20t + 2. What is the maximum height the ball reaches?",
+    "options": [
+     "20 m",
+     "10 m",
+     "24 m",
+     "22 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Find the vertex: t = −b/(2a) = −20/(2·−5) = 2 s. Then h(2) = −5(4) + 20(2) + 2 = 22 m. The most common slip is forgetting the +2 (the starting height) and answering 20 m."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.02",
+    "level": 2,
+    "question": "A student has $50 in her wallet and buys a coffee each morning for 5 days, spending $x per cup. She wants at least $15 left over. Which inequality correctly describes the maximum she can spend per coffee?",
+    "options": [
+     "x ≥ 7",
+     "x ≤ 7",
+     "x ≥ 5",
+     "x ≤ 5"
+    ],
+    "answerIndex": 1,
+    "explain": "Set up 50 − 5x ≥ 15, so 35 ≥ 5x and x ≤ 7. The key trap is dividing by 5 and accidentally flipping the inequality (you only flip when dividing by a negative), which would give the wrong answer x ≥ 7."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.01",
+    "level": 2,
+    "question": "A BC student is solving x² − 7x + 12 = 0 to find when a rocket's height (in metres) equals zero. What are the two solutions?",
+    "options": [
+     "x = −3 or x = −4",
+     "x = 3 or x = −4",
+     "x = 3 or x = 4",
+     "x = 12 or x = −7"
+    ],
+    "answerIndex": 2,
+    "explain": "Factor: (x − 3)(x − 4) = 0, so x = 3 or x = 4. The most frequent error is mixing signs when writing the binomial factors, producing −3 and −4 or 3 and −4 instead of two positive roots."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.02",
+    "level": 3,
+    "question": "A student is designing a rectangular window whose area (in m²) is modelled by A(h) = −2h² + 16h, where h is the height in metres. The design code requires the area to be at least 24 m². Which interval of h-values satisfies this condition?",
+    "options": [
+     "2 ≤ h ≤ 6",
+     "h ≤ 2 or h ≥ 6",
+     "2 < h < 6",
+     "h < 2 or h > 6"
+    ],
+    "answerIndex": 0,
+    "explain": "Set −2h² + 16h ≥ 24, rearrange to −2h² + 16h − 24 ≥ 0, divide by −2 (FLIP the sign) to get h² − 8h + 12 ≤ 0, i.e. (h−2)(h−6) ≤ 0. An upward-opening parabola is ≤ 0 between its roots, so 2 ≤ h ≤ 6. The #1 misconception is forgetting to flip the inequality when dividing by −2, which gives the outside intervals."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.QUA.02",
+    "level": 3,
+    "question": "A BC student compares two mobile plans: Telus charges a $30 base fee plus $0.10 per text; Rogers charges $0.15 per text with no base fee. For how many texts per month is the Rogers plan cheaper?",
+    "options": [
+     "More than 600 texts",
+     "Fewer than 300 texts",
+     "Fewer than 200 texts",
+     "Fewer than 600 texts"
+    ],
+    "answerIndex": 3,
+    "explain": "Set 0.15n < 30 + 0.10n, subtract 0.10n from both sides: 0.05n < 30, so n < 600. The common mistake is dividing 30 by 0.10 (getting 300) without first collecting the like terms, or flipping the inequality and concluding Rogers is cheaper for MORE texts."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

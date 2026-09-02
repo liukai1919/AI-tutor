@@ -1,0 +1,81 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRI.CLASSIFY_BOTH",
+ "lang": "en",
+ "title": "Classify a triangle by both sides and angles, in any orientation",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Naming a Triangle Two Ways — No Matter How It Sits",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to name a triangle by its sides — scalene, isosceles, equilateral — and by its angles — right, acute, obtuse. Today we do just one small new thing: give a triangle both names at once, and keep that name even when the triangle is tipped, flipped, or lying on its side.",
+    "math": "",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One triangle, two questions: what about its sides? what about its angles?"
+    }
+   },
+   {
+    "say": "Here is the whole trick. Ask two questions in order. First, sides: are all three the same, are two the same, or are they all different? Second, angles: is there a square corner, a corner bigger than a square corner, or are all three corners small? Then say the side word first and the angle word second, like an isosceles right triangle. Two questions, two words, one name.",
+    "math": "\\text{sides word} + \\text{angles word}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us try a real one. Imagine a cedar shelf bracket from the hardware store in Burnaby. Two of its sides are both six centimetres long, and the corner between them is a perfect square corner, ninety degrees. The other two corners are forty five degrees each. Check: forty five plus forty five plus ninety makes one hundred and eighty. Sides first — two sides match, so it is isosceles. Angles next — there is a ninety degree corner, so it is right. Its full name is an isosceles right triangle.",
+    "math": "45^\\circ + 45^\\circ + 90^\\circ = 180^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [],
+     "caption": "The square corner: ninety degrees means right triangle."
+    }
+   },
+   {
+    "say": "Now the mistake I see all the time. I screw that same bracket onto the wall upside down, with the square corner pointing up instead of down. A lot of kids look at it and say, that is not a right triangle any more! But nothing changed. The two sides are still six centimetres and six centimetres. The corner is still ninety degrees. Turning a triangle is like turning your lunch container — the sandwich inside is exactly the same. So it is still an isosceles right triangle.",
+    "math": "6\\text{ cm},\\ 6\\text{ cm},\\ 90^\\circ",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Same bracket, turned around. Same lengths, same angles, same name."
+    }
+   },
+   {
+    "say": "So remember: measure, do not eyeball. Sides first, angles second, and never let the way it is sitting on the page fool you.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Name it twice — sides first, angles second — and turning the triangle never changes its name.",
+  "practice": {
+   "question": "A metal bracket on a fence in Kamloops is shaped like a triangle. Two of its sides are 5 centimetres and 5 centimetres, and the third side is 8 centimetres. Its biggest angle measures about 106 degrees, and the other two are about 37 degrees each. The bracket is bolted on sideways, so the long 8 centimetre side is standing straight up. Draw it yourself if it helps. What is its full two-word name?",
+   "answer": "An obtuse isosceles triangle. Two sides match (5 cm and 5 cm), so it is isosceles, and 106 degrees is bigger than a square corner, so it is obtuse. Being bolted on sideways changes nothing — and check the angles: 106 plus 37 plus 37 equals 180."
+  }
+ }
+}

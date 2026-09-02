@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.LCM",
+ "lang": "en",
+ "title": "Find the least common multiple of two numbers",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Least Common Multiple",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list the multiples of a number and spot the ones two numbers share. Today we take one more little step: out of all those shared multiples, we find the smallest one. That smallest shared multiple has a name — the least common multiple, or LCM for short. Let us try it with four and six. First, count by fours: four, eight, twelve, sixteen, twenty, twenty-four.",
+    "math": "4,\\ 8,\\ 12,\\ 16,\\ 20,\\ 24,\\ \\dots",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24
+     ],
+     "labels": [],
+     "caption": "Multiples of 4 circled on the hundred chart"
+    }
+   },
+   {
+    "say": "Now do the same thing for six. Count by sixes: six, twelve, eighteen, twenty-four. Notice how the circles land in different spots than the fours did — except in a couple of places where they overlap. Those overlaps are what we are hunting for.",
+    "math": "6,\\ 12,\\ 18,\\ 24,\\ \\dots",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "labels": [],
+     "caption": "Multiples of 6 circled on the hundred chart"
+    }
+   },
+   {
+    "say": "Look at both lists and find the numbers that showed up on both. Twelve is there twice, and so is twenty-four. Both of those are common multiples. But we want the least one — the very first place the two counts bump into each other. That is twelve. So the least common multiple of four and six is twelve. Think of it as two kids skipping down the same hundred chart, one jumping four squares at a time and one jumping six; twelve is the first square they both land on.",
+    "math": "\\text{LCM}(4,6)=12",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      12,
+      24
+     ],
+     "labels": [],
+     "caption": "12 and 24 are common; 12 comes first"
+    }
+   },
+   {
+    "say": "Let us do one more together, with six and eight. Counting by sixes gives six, twelve, eighteen, twenty-four, thirty. Counting by eights gives eight, sixteen, twenty-four, thirty-two. Scan for a number in both lists — there it is, twenty-four. Nothing smaller is on both lists, so the least common multiple of six and eight is twenty-four.",
+    "math": "\\text{LCM}(6,8)=24",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      6,
+      12,
+      18,
+      24,
+      30,
+      8,
+      16,
+      32
+     ],
+     "labels": [],
+     "caption": "Sixes and eights both land on 24 first"
+    }
+   },
+   {
+    "say": "Now two traps to watch for. First trap: do not mix up the LCM with the greatest common factor. For four and six, the greatest common factor is two — a small number, because factors fit inside. The least common multiple is twelve — a bigger number, because multiples stretch outwards. If your LCM comes out smaller than both numbers, something went sideways. Second trap: do not just multiply the two numbers. Four times six is twenty-four, and twenty-four really is a common multiple, but it is not the least one. Twelve is smaller and still works, so twelve wins.",
+    "math": "\\text{GCF}(4,6)=2 \\quad \\text{but} \\quad \\text{LCM}(4,6)=12",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      12
+     ],
+     "labels": [
+      "GCF of 4 and 6",
+      "LCM of 4 and 6"
+     ],
+     "caption": "GCF stays small, LCM grows bigger"
+    }
+   },
+   {
+    "say": "So here is the whole step in one breath: count by each number, find where the counts meet, and take the first meeting place. That first meeting place is the least common multiple.",
+    "math": "\\text{LCM}=\\text{smallest number on both multiple lists}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "List the multiples of both numbers, find the ones they share, and take the smallest — that is the LCM.",
+  "practice": {
+   "question": "At a SkyTrain station in Burnaby, one line has a train every eight minutes and another line has a train every twelve minutes. They both leave together at nine o'clock. Count by eights and count by twelves, then find the least common multiple. After how many minutes will the two trains leave together again, and what time will that be?",
+   "answer": "Multiples of eight are eight, sixteen, twenty-four. Multiples of twelve are twelve, twenty-four. The least common multiple is twenty-four, so they leave together again after twenty-four minutes, at nine twenty-four."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.TRANSLATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5jfg2jr9y5k9",
+   "level": 1,
+   "question": "On a coordinate grid, point A sits at (6, 2). The whole point is slid 4 units to the right. Nothing else changes. Where is point A after the slide?",
+   "options": [
+    "(10, 2)",
+    "(2, 2)",
+    "(6, 6)",
+    "(10, 6)"
+   ],
+   "answerIndex": 0,
+   "explain": "Sliding right adds to the first number (the x-coordinate) and leaves the second number alone: 6 + 4 = 10, so (6, 2) lands on (10, 2). The common trap is changing both numbers or changing the up-and-down number instead.",
+   "tags": [
+    "ok",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2j2yaek5",
+   "level": 1,
+   "question": "On a coordinate grid, point B sits at (2, 6). It is translated 3 units down. Where is point B after the translation?",
+   "options": [
+    "(2, 9)",
+    "(2, 3)",
+    "(5, 6)",
+    "(3, 2)"
+   ],
+   "answerIndex": 1,
+   "explain": "Sliding down subtracts from the second number (the y-coordinate) and leaves the first alone: 6 - 3 = 3, giving (2, 3). Watch out for going up by mistake, and always write the across number first.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "ok",
+    "coord.xy_swap",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jrkm0ji",
+   "level": 1,
+   "question": "On a coordinate grid, a dot starts at (1, 2). After one slide, the same dot is at (1, 7). Which move describes what happened?",
+   "options": [
+    "A translation 5 units right",
+    "A translation 5 units down",
+    "A translation 5 units up",
+    "A translation 7 units up"
+   ],
+   "answerIndex": 2,
+   "explain": "Compare the two positions: the across number stayed at 1 and the up number went from 2 to 7, so the move is 5 units up (7 - 2 = 5). A common trap is saying 7 units up by reading the new coordinate instead of the difference.",
+   "tags": [
+    "coord.xy_swap",
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_count_endpoint"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jy7jqf0",
+   "level": 1,
+   "question": "On a coordinate grid, a square has corners at (1, 1), (4, 1), (4, 4) and (1, 4). Every corner is moved 6 units to the right, so the square is exactly the same size and shape, and it is not turned or flipped. What is this move called?",
+   "options": [
+    "A reflection (flip)",
+    "A rotation (turn) followed by a translation (slide)",
+    "A rotation (turn)",
+    "A translation (slide)"
+   ],
+   "answerIndex": 3,
+   "explain": "When every point moves the same distance in the same direction, with no turning and no flipping, the move is a translation, or slide. A reflection would flip the shape over a line and a rotation would turn it.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2j6n5mlm",
+   "level": 2,
+   "question": "A triangle on a coordinate grid has vertices at (5, 3), (8, 3) and (5, 7). The whole triangle is translated 3 units left and 2 units up. Where does the vertex (8, 3) end up?",
+   "options": [
+    "(5, 5)",
+    "(5, 1)",
+    "(11, 5)",
+    "(6, 6)"
+   ],
+   "answerIndex": 0,
+   "explain": "Apply the same slide to that vertex: 3 left means 8 - 3 = 5, and 2 up means 3 + 2 = 5, giving (5, 5). The usual slip is swapping the amounts and moving 2 left and 3 up instead.",
+   "tags": [
+    "ok",
+    "transform.translate_sign_wrong",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jsz4dkp",
+   "level": 2,
+   "question": "On a coordinate grid, the corner of a rectangle starts at (5, 2). After one translation, that same corner is at (2, 6). Which description of the translation is correct?",
+   "options": [
+    "3 units right and 4 units up",
+    "3 units left and 4 units up",
+    "3 units left and 4 units down",
+    "4 units left and 3 units up"
+   ],
+   "answerIndex": 1,
+   "explain": "Compare each number: 5 to 2 is 3 units left, and 2 to 6 is 4 units up. The trap is mixing the two amounts up, so always match the first numbers to the across move and the second numbers to the up-and-down move.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2j0d2soz",
+   "level": 2,
+   "question": "Maya is using a grid map of her school field in Surrey. The picnic table marker is on the point (8, 5). She slides the marker 5 units left and 3 units down to show where the new bench will go. What point is the bench on?",
+   "options": [
+    "(13, 8)",
+    "(13, 2)",
+    "(3, 2)",
+    "(3, 8)"
+   ],
+   "answerIndex": 2,
+   "explain": "Left subtracts from the across number and down subtracts from the up number: 8 - 5 = 3 and 5 - 3 = 2, so the bench is at (3, 2). The common mistake is adding instead of subtracting when the slide goes left or down.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_sign_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jm2frbc",
+   "level": 2,
+   "question": "A rectangle on a coordinate grid has corners at (1, 2), (6, 2), (6, 5) and (1, 5). One translation moves the corner (1, 2) to (4, 4). Where does the corner (6, 5) land after the same translation?",
+   "options": [
+    "(9, 5)",
+    "(3, 3)",
+    "(6, 7)",
+    "(9, 7)"
+   ],
+   "answerIndex": 3,
+   "explain": "First find the rule from the corner you know: (1, 2) to (4, 4) is 3 units right and 2 units up. In a translation every point follows that same rule, so (6, 5) goes to (6 + 3, 5 + 2) = (9, 7). The trap is moving only across or only up.",
+   "tags": [
+    "other",
+    "transform.translate_sign_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jracpt0",
+   "level": 3,
+   "question": "In art class, Kai slides a paper triangle 6 units to the right across grid paper without turning or flipping it. He says the triangle must now be bigger, because it travelled so far. Is Kai right?",
+   "options": [
+    "No, a translation moves every point the same distance in the same direction, so the size and shape stay the same.",
+    "Yes, the triangle stretches in the direction it slides, because the front corner moves ahead and pulls the rest along.",
+    "Yes, the triangle is bigger because it moved 6 squares to the right, and each square it crosses adds to its size.",
+    "No, but the triangle is turned, so its sides now face a different way, because sliding across the grid twists a shape."
+   ],
+   "answerIndex": 0,
+   "explain": "A translation slides every point by the same amount, so the image is identical to the original in size, shape and direction it faces; only its position changes. Distance travelled never changes a shape's measurements.",
+   "tags": [
+    "ok",
+    "transform.translate_alters_shape",
+    "transform.translate_alters_shape",
+    "transform.translate_alters_shape"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2jrv497e",
+   "level": 3,
+   "question": "On grid paper, a square has corners at (1, 1), (3, 1), (3, 3) and (1, 3). After a slide, the same square has corners at (5, 1), (7, 1), (7, 3) and (5, 3). Rahul counts the empty space between the two squares and says the translation was 2 units right. Which description is correct?",
+   "options": [
+    "2 units right, because there are 2 empty columns of squares between the two squares.",
+    "4 units right, because each corner moves 4 units, for example (1, 1) to (5, 1).",
+    "6 units right, because the left edge starts at 1 and the right edge ends at 7.",
+    "4 units left, because the corner (5, 1) is 4 units away from the corner (1, 1)."
+   ],
+   "answerIndex": 1,
+   "explain": "To describe a slide, track one point to its matching point, not the gap between the shapes: (1, 1) goes to (5, 1), so every corner moved 4 units right. Counting the empty space in between is the most common error.",
+   "tags": [
+    "transform.translate_count_endpoint",
+    "ok",
+    "transform.translate_count_endpoint",
+    "transform.translate_sign_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2j61zyhp",
+   "level": 3,
+   "question": "In a coding club at school, a robot icon starts on the point (3, 2) of a grid. The first command slides it 6 units right, and the second command slides it 2 units left. Which single translation would put the robot in exactly the same finishing spot?",
+   "options": [
+    "A translation 8 units right, ending at (11, 2)",
+    "A translation 6 units right, ending at (9, 2)",
+    "A translation 4 units right, ending at (7, 2)",
+    "A translation 2 units right, ending at (5, 2)"
+   ],
+   "answerIndex": 2,
+   "explain": "The two slides are in opposite directions, so subtract: 6 - 2 = 4 units right, and 3 + 4 = 7, ending at (7, 2). The usual trap is adding the two slides to get 8 units instead of noticing that the second slide comes back the other way.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5jfg2j7w6er9",
+   "level": 3,
+   "question": "On a grid map of a soccer field, a cone is now on the point (9, 7). The coach says it got there by being slid 4 units left and 3 units up from where it started. Which point did the cone start on?",
+   "options": [
+    "(5, 10)",
+    "(5, 4)",
+    "(13, 10)",
+    "(13, 4)"
+   ],
+   "answerIndex": 3,
+   "explain": "To find the starting point you undo the slide: go 4 units right and 3 units down from (9, 7), giving (13, 4); checking forwards, 13 - 4 = 9 and 4 + 3 = 7. The common trap is doing the move forwards again and answering (5, 10).",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

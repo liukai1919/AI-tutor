@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "可能性",
+  "en": "Probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PROB.OUTCOMES.LIST",
+    "level": 1,
+    "question": "Maya has a spinner with 6 equal sections: 3 are red, 2 are blue, and 1 is yellow. She spins it one time. Which list shows all the different colours the arrow could land on?",
+    "options": [
+     "Red, blue, yellow",
+     "Red, red, red, blue, blue, yellow",
+     "Red only, because red has the most sections",
+     "Red, blue"
+    ],
+    "answerIndex": 0,
+    "explain": "All the possible outcomes are the different colours on the spinner, so the list is red, blue, yellow — even though yellow has only one section, it is still possible. A common trap is listing every section (red, red, red...) or leaving out the colour with the smallest piece."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.FRACTION.SINGLE",
+    "level": 1,
+    "question": "In Ravi's gym bag there are 10 bouncy balls that all feel the same: 3 are green and 7 are white. He reaches in without looking and takes one ball. What is the probability that he takes a green ball?",
+    "options": [
+     "3/7",
+     "7/10",
+     "3/10",
+     "10/3"
+    ],
+    "answerIndex": 2,
+    "explain": "A probability fraction is (number of ways to get the outcome) / (total number of possible outcomes), so green is 3/10. The most common trap is writing 3/7, comparing green to white instead of green to the whole bag of 10."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_TEST",
+    "level": 1,
+    "question": "A spinner has 4 equal sections: 2 red and 2 blue. Priya predicted that in 20 spins red would come up about 10 times. She then spun it 20 times and recorded her results in this table — Red: 8, Blue: 12. What is the best way to compare her results with her prediction?",
+    "options": [
+     "Red came up 2 more times than she predicted.",
+     "Red came up 2 fewer times than she predicted, so the results are close to her prediction.",
+     "Her prediction was wrong, because a fair spinner must give exactly 10 reds in 20 spins.",
+     "The spinner cannot be half red, because red did not win most of the spins."
+    ],
+    "answerIndex": 1,
+    "explain": "Compare the actual count with the prediction: 10 − 8 = 2, so red came up 2 fewer times, which is very close to the prediction. The trap is thinking an experiment must match the prediction exactly — real results wobble around the prediction instead of landing on it."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.OUTCOMES.LIST",
+    "level": 2,
+    "question": "Theo's marble jar is shown in this table — Red: 5, Blue: 4, Green: 3 (12 marbles in total). He draws one marble without looking. Which statement about the colours he could draw is true?",
+    "options": [
+     "There are 12 different colours he could draw, one for each marble.",
+     "There are 3 different colours he could draw, and each colour is equally likely.",
+     "There are only 2 outcomes, red or not red, so each one has a chance of 1/2.",
+     "There are 3 different colours he could draw, and red is the most likely."
+    ],
+    "answerIndex": 3,
+    "explain": "There are 3 possible outcomes (red, blue, green), and because red has the most marbles it has the best chance. The biggest trap is assuming that 3 possible outcomes means each has the same chance — outcomes are only equally likely when the amounts are equal."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.FRACTION.SINGLE",
+    "level": 2,
+    "question": "A spinner at the Science World games table has 8 equal sections: 6 are blue and 2 are white. Nadia spins it once. On a probability line that runs from 0 (impossible) to 1 (certain), where does the probability of landing on blue belong?",
+    "options": [
+     "1/4 — about one quarter of the way from 0 to 1",
+     "6 — past the end of the line at 1",
+     "3/4 — about three quarters of the way from 0 to 1",
+     "1/6 — very close to 0"
+    ],
+    "answerIndex": 2,
+    "explain": "The probability of blue is 6 out of 8, and 6/8 = 3/4, so it sits three quarters of the way along the line, between 1/2 and 1. Two common traps are counting the white sections instead of the blue ones (1/4) and putting the number of favourable sections on the line as a whole number — every probability must land between 0 and 1."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_TEST",
+    "level": 2,
+    "question": "A bag holds 5 wooden tokens: 2 yellow and 3 purple. Jayden's class will draw one token, record its colour, put it back, and repeat until they have made 100 draws. Before starting, what is the best prediction for the number of yellow draws?",
+    "options": [
+     "About 40 yellow",
+     "About 20 yellow",
+     "About 50 yellow",
+     "About 60 yellow"
+    ],
+    "answerIndex": 0,
+    "explain": "Yellow has a probability of 2/5, and 2/5 of 100 is 100 ÷ 5 × 2 = 40, so about 40 yellow draws. The usual trap is using 1/5 because there is 1 bag of 5 tokens (20), or predicting with the purple fraction 3/5 (60) instead of the yellow one."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.FRACTION.SINGLE",
+    "level": 3,
+    "question": "Sofia's marble bag has 3 red, 5 blue and 4 green marbles. Her little brother drops in 4 more red marbles and mixes them up. If Sofia now draws one marble without looking, what is the probability that it is red?",
+    "options": [
+     "3/12",
+     "7/12",
+     "4/16",
+     "7/16"
+    ],
+    "answerIndex": 3,
+    "explain": "Update both numbers: red becomes 3 + 4 = 7, and the total becomes 12 + 4 = 16, so the probability is 7/16. The most common mistake is changing only the top number and keeping the old total of 12 — adding marbles changes how many outcomes are possible, so the denominator must change too."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_TEST",
+    "level": 3,
+    "question": "A spinner has 2 equal sections, green and white, so Léa predicted about 5 greens in 10 spins. Her results table showed Green: 7, White: 3. She says, ‘White is due to come up next.’ Which statement is the best response?",
+    "options": [
+     "She is right — white is due to come up next, because green has already come up too many times.",
+     "The spinner is still fair, 10 spins is a small number, and over many more spins the fraction of greens should get closer to one half.",
+     "The spinner must be unfair, because a fair spinner always gives exactly 5 greens in 10 spins.",
+     "The probability of green on this spinner is 7/10, because that is what the experiment showed."
+    ],
+    "answerIndex": 1,
+    "explain": "Each spin is a fresh event with a 1/2 chance of green, so a short experiment can drift away from the prediction, and only a much longer experiment settles close to one half. The classic trap here is thinking a colour becomes ‘due’ — the spinner has no memory of the spins before it."
+   }
+  ]
+ }
+}

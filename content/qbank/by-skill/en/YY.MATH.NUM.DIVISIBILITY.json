@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.DIVISIBILITY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt592shqjvpndb",
+   "level": 1,
+   "question": "Here is the rule for 3, in words: add up all the digits of the number, and if that digit sum can be divided by 3 with nothing left over, then the number itself can be divided by 3 with nothing left over. Using only the four numbers written here, which one is divisible by 3?",
+   "options": [
+    "417",
+    "236",
+    "253",
+    "130"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the digits: 4 + 1 + 7 = 12, and 12 is a multiple of 3, so 417 is divisible by 3. The usual trap is judging by the last digit — 253 ends in 3, but 2 + 5 + 3 = 10, which is not a multiple of 3.",
+   "tags": [
+    "ok",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shq91j2wz",
+   "level": 1,
+   "question": "Here is the rule for 4, in words: look only at the two-digit number made by the tens digit and the ones digit; if that two-digit number is divisible by 4, then the whole number is divisible by 4. Every number you need is listed below — which one is divisible by 4?",
+   "options": [
+    "3 418",
+    "5 132",
+    "2 526",
+    "7 214"
+   ],
+   "answerIndex": 1,
+   "explain": "The last two digits of 5 132 make 32, and 32 divided by 4 is 8, so 5 132 is divisible by 4. The trap is thinking any even number works: 3 418 is even, but 18 is not a multiple of 4.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shq4dyi98",
+   "level": 1,
+   "question": "Here is the rule for 9, in words: add up all the digits of the number, and if that digit sum is a multiple of 9, then the number is a multiple of 9. Using only the four numbers listed here, which one is divisible by 9?",
+   "options": [
+    "259",
+    "483",
+    "621",
+    "912"
+   ],
+   "answerIndex": 2,
+   "explain": "Add the digits: 6 + 2 + 1 = 9, so 621 is divisible by 9 (621 = 9 x 69). Two traps to watch: 259 ends in 9 but its digits add to 16, and 483 has a digit sum of 15, which passes the rule for 3 but not the rule for 9.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shq9lb3yv",
+   "level": 1,
+   "question": "Here is the rule for 6, in words: a number is divisible by 6 only when BOTH tests pass — the number is even, and its digits add up to a multiple of 3. Using only the four numbers listed here, which one is divisible by 6?",
+   "options": [
+    "345",
+    "279",
+    "416",
+    "234"
+   ],
+   "answerIndex": 3,
+   "explain": "234 is even, and 2 + 3 + 4 = 9 is a multiple of 3, so both tests pass and 234 = 6 x 39. The trap is passing only one test: 345 has a digit sum of 12 but is odd, and 416 is even but 4 + 1 + 6 = 11 is not a multiple of 3.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt592shqqq20n6",
+   "level": 2,
+   "question": "Nina is sorting number cards in her Coquitlam classroom. She needs the card whose number is divisible by 5 but NOT divisible by 10. Which card should she pick?",
+   "options": [
+    "615",
+    "470",
+    "384",
+    "250"
+   ],
+   "answerIndex": 0,
+   "explain": "A number is divisible by 5 when its ones digit is 0 or 5, but divisible by 10 only when the ones digit is 0; 615 ends in 5, so it passes the 5 test and fails the 10 test. The trap is grabbing a number ending in 0, like 470 — it is divisible by 5 and by 10.",
+   "tags": [
+    "ok",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shqup9em7",
+   "level": 2,
+   "question": "A school store in Surrey has 1 358 erasers. The clerk wants to pack them into boxes of 4 with none left over. Which statement is correct?",
+   "options": [
+    "Yes — 1 358 is even, and every even number can be split into groups of 4.",
+    "No — the last two digits make 58, and 58 is not divisible by 4.",
+    "Yes — 1 358 ends in 8, and 8 is divisible by 4, so the whole number is.",
+    "Yes — half of 1 358 is 679, and 679 is a whole number, so 4 works too."
+   ],
+   "answerIndex": 1,
+   "explain": "For 4, test only the last two digits: 58 divided by 4 leaves a remainder of 2, so 1 358 cannot be packed in fours. The trap is using the ones digit alone or stopping after halving once — halving 1 358 gives 679, which is odd, so it cannot be halved again.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shquusgf8",
+   "level": 2,
+   "question": "A whole number is divisible by 2 and also divisible by 5. What must be true about its ones digit?",
+   "options": [
+    "The ones digit must be 5.",
+    "The ones digit can be 0 or 5.",
+    "The ones digit must be 0.",
+    "The ones digit can be any even digit — 0, 2, 4, 6 or 8."
+   ],
+   "answerIndex": 2,
+   "explain": "Divisible by 2 means the ones digit is even; divisible by 5 means the ones digit is 0 or 5; the only digit on both lists is 0 (which is the rule for 10). The trap is using just one of the two rules and forgetting the number has to pass both.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shq2865ss",
+   "level": 2,
+   "question": "A youth soccer club in Nanaimo has 258 water bottles and wants to load them into crates that hold 6 each, with none left over. Which statement is correct?",
+   "options": [
+    "No — 2 + 5 + 8 = 15 is an odd sum, so 258 cannot be divisible by 6.",
+    "No — 15 is not divisible by 6, so 258 is not divisible by 6 either.",
+    "No — 258 does not end in 6.",
+    "Yes — 258 is even and 2 + 5 + 8 = 15 is divisible by 3, so 258 is divisible by 6."
+   ],
+   "answerIndex": 3,
+   "explain": "For 6, run both smaller tests: 258 is even, and its digit sum 15 is a multiple of 3, so 258 = 6 x 43. The trap is testing the digit sum against 6 itself, or checking the last digit — the digit sum is only ever tested against 3 and 9.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt592shqbm6y6t",
+   "level": 3,
+   "question": "Jonah is checking two numbers for divisibility by 3. He says, “4 233 ends in 3, so it is divisible by 3, and 5 143 ends in 3, so it is divisible by 3 too.” Which statement about Jonah is correct?",
+   "options": [
+    "Jonah is right about both numbers, because a number ending in 3 is always divisible by 3, like ending in 5 for 5.",
+    "Jonah is wrong about both numbers, because neither one is even and only even numbers can be divisible by 3.",
+    "Jonah is right about 4 233 but wrong about 5 143 — the digit sums are 12, a multiple of 3, and 13, which is not.",
+    "Jonah is right about 5 143 but wrong about 4 233, because the digit sum 13 ends in 3 while the digit sum 12 does not."
+   ],
+   "answerIndex": 2,
+   "explain": "The 3 test uses the digit sum, never the last digit: 4 233 gives 12 (a multiple of 3) and 5 143 gives 13 (not one), so only 4 233 works. The trap is Jonah's rule — the ones digit tells you about 2, 5 and 10, but says nothing about 3.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shqgp9u4r",
+   "level": 3,
+   "question": "Mei is making party bags after a swim meet at the Burnaby pool. She has 279 mini erasers and wants every bag to hold the same number with none left over. The store sells bags in packs sized 4, 6, 9 and 10. Which size works?",
+   "options": [
+    "Bags of 4",
+    "Bags of 9",
+    "Bags of 6",
+    "Bags of 10"
+   ],
+   "answerIndex": 1,
+   "explain": "279 is odd, so 4, 6 and 10 are all out straight away (each needs an even number); then 2 + 7 + 9 = 18 is a multiple of 9, so 279 = 9 x 31. The trap is seeing that 18 is a multiple of 3 and jumping to 6 — the 6 test also needs the number to be even.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shqaf0muy",
+   "level": 3,
+   "question": "A Grade 6 class in Prince George collected 1 926 bottle caps for a recycling project and wants to sort them into trays of 6. Jaya says it works because the number ends in 6. Kai says it works because 1 926 is even and 1 + 9 + 2 + 6 = 18 is divisible by 3. Which statement is correct?",
+   "options": [
+    "Jaya's reasoning is correct, and 1 926 is divisible by 6.",
+    "Both are correct, because a number ending in 6 is always divisible by 6.",
+    "Kai's reasoning is correct, and 1 926 is divisible by 6.",
+    "Neither is correct — 18 is not divisible by 6, so 1 926 is not either."
+   ],
+   "answerIndex": 2,
+   "explain": "Both children land on “yes,” but only Kai's method is the real rule: even plus a digit sum that is a multiple of 3, giving 1 926 = 6 x 321. The trap is Jaya's shortcut — 16 and 26 also end in 6 and neither is divisible by 6.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok",
+    "divis.digit_sum_wrong_rule"
+   ]
+  },
+  {
+   "qid": "qmt592shqj1gli5",
+   "level": 3,
+   "question": "A Kelowna cycling club has 1 305 reflective bands to hand out. The organizers want to give the same number to each school, with none left over. Which statement about 1 305 is true?",
+   "options": [
+    "It can be shared evenly by 5 and by 10, because it ends in 5.",
+    "It can be shared evenly by 3 but not by 9, because 9 only works for even numbers.",
+    "It can be shared evenly by 2 and by 5, because every multiple of 5 is even.",
+    "It can be shared evenly by 5 and by 9, because it ends in 5 and 1 + 3 + 0 + 5 = 9."
+   ],
+   "answerIndex": 3,
+   "explain": "Ending in 5 passes the 5 test (1 305 = 5 x 261), and the digit sum 9 passes the 9 test (1 305 = 9 x 145). The traps: 10 needs a ones digit of 0, not 5, and the 9 rule works for odd numbers just as well as even ones.",
+   "tags": [
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "divis.digit_sum_wrong_rule",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.PAT.02",
+ "lang": "en",
+ "title": "two-variable linear relations, using graphing, interpolation, and extrapolation",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "The Straight-Line Predictor: Linear Relations, Interpolation & Extrapolation",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're on a kayaking trip up a BC river, maybe the Fraser or the Kootenay. You start two kilometres in, past a bend, and you paddle at a steady four kilometres per hour. Every hour, you cover four more kilometres. Time is one variable, distance is the other. And because your speed never changes, the relationship between them is perfectly straight. That is what we call a two-variable linear relation. Two things change together in a straight-line pattern, and once you see that pattern, you can predict anything. No guesswork. Just one clean rule.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's build a table to make it concrete. The formula is: distance equals four times time, plus two. That plus-two is where you started, your initial position. So at zero hours, you are two kilometres in. At one hour, six. At two hours, ten. At three hours, fourteen. At four hours, eighteen. See the pattern? Every step, you add exactly four. That constant step is the slope, or rate of change. It is the engine of the whole relation.",
+    "math": "d = 4t + 2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      6,
+      10,
+      14,
+      18
+     ],
+     "labels": [
+      "0 h",
+      "1 h",
+      "2 h",
+      "3 h",
+      "4 h"
+     ],
+     "caption": "Distance (km) at each hour: every hour adds exactly 4 km"
+    }
+   },
+   {
+    "say": "Now we graph it. Time goes on the x-axis, distance on the y-axis. We plot those five points and connect them with a straight line. And here is the big idea: it is not just those five dots. The line passes through every single point in between. At two and a half hours, you are somewhere between ten and fourteen, and the line tells you exactly where. The relation is continuous, meaning every point on that line is a real, valid answer. No gaps, no jumps. One smooth, unbroken straight line.",
+    "math": "d = 4t + 2",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      5,
+      0,
+      25
+     ],
+     "labels": [
+      "4*x+2"
+     ],
+     "caption": "Every point on the line is a valid (time, distance) pair"
+    }
+   },
+   {
+    "say": "This is where it gets really useful. Interpolation means finding a value that sits between your data points. Your table has two hours and three hours, but what about two and a half hours? You do not need to stop the kayak and check a GPS. You look at the graph: at two hours you are at ten, at three hours you are at fourteen. Two and a half is right in the middle, so you are at twelve kilometres. Or just plug it in: four times two point five is ten, plus two is twelve. The line gave you the answer without you ever measuring it. That is interpolation: reading inside your data.",
+    "math": "d = 4(2.5) + 2 = 10 + 2 = 12 \\text{ km}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      5,
+      0,
+      25
+     ],
+     "labels": [
+      "4*x+2",
+      "12"
+     ],
+     "caption": "At t = 2.5 h the line sits at d = 12 km, halfway between 10 and 14 — interpolation"
+    }
+   },
+   {
+    "say": "Now, extrapolation. That is when you go beyond your data. Your table only goes to four hours, but what if you paddle for five hours? You do not have to wait and find out. The line does not stop at your last data point; it keeps going forever in both directions. Four times five is twenty, plus two, that is twenty-two kilometres. You are predicting. You are trusting the pattern past the data you have. And as long as the river stays straight and your pace stays steady, that prediction is rock solid. Extrapolation is how you use a line to look into the future.",
+    "math": "d = 4(5) + 2 = 20 + 2 = 22 \\text{ km}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      7,
+      0,
+      30
+     ],
+     "labels": [
+      "4*x+2"
+     ],
+     "caption": "The line extends beyond x = 4 — that is extrapolation"
+    }
+   },
+   {
+    "say": "Let's try one more in a context you know cold. Your phone plan: twenty-five dollars a month as the base fee, plus four dollars for every gigabyte you go over. So cost equals four times gigabytes, plus twenty-five. You used three gigs this month: four times three is twelve, plus twenty-five, that is thirty-seven dollars. You used four gigs: forty-one dollars. Now say a friend used ten gigs. That is way past your normal range, so it is extrapolation: four times ten is forty, plus twenty-five, sixty-five dollars. Same straight line, same rule, you are just reading different parts of it. Interpolation when you are in the middle, extrapolation when you are way out there.",
+    "math": "C = 4g + 25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      37,
+      41,
+      65
+     ],
+     "labels": [
+      "3 GB",
+      "4 GB",
+      "10 GB"
+     ],
+     "caption": "Cost in dollars: 3 and 4 GB are interpolation; 10 GB is extrapolation"
+    }
+   },
+   {
+    "say": "Here is the whole idea in one breath. A two-variable linear relation is a straight line that connects two changing quantities. When you read a value between your data points, that is interpolation. When you read a value beyond your data points, that is extrapolation. And as long as the pattern holds, that single line is your prediction machine. One line, two variables, endless predictions. You do not need more data; you just need to trust the slope.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A two-variable linear relation is one straight line; interpolation reads inside the data, extrapolation reads beyond it — and both give you exact predictions from the same rule.",
+  "practice": {
+   "question": "A farmer in the Okanagan Valley sells tomatoes at a weekly market. Her revenue is eight dollars per kilo, plus a twelve-dollar stall fee every week. (a) Write the linear relation for revenue R in terms of kilos k. (b) How much does she earn at 7.5 kilos? (interpolation) (c) How much does she earn at 15 kilos? (extrapolation)",
+   "answer": "R = 8k + 12. (b) R = 8(7.5) + 12 = 60 + 12 = $72. (c) R = 8(15) + 12 = 120 + 12 = $132."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

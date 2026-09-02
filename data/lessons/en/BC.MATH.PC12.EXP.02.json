@@ -1,0 +1,148 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.EXP.02",
+ "lang": "en",
+ "title": "logarithms : operations, functions, and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Logarithms: Unlocking the Exponent",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're saving for university. You put a thousand dollars into a GIC at your local credit union that earns five percent compounded annually. After one year you have a thousand and fifty, after two years about eleven hundred, and it keeps growing. Now here's the question nobody can answer by just counting: how many years until your thousand becomes two thousand? You'd write the equation one thousand times one point zero five to the t equals two thousand. The variable t is stuck up in the exponent. You can't just divide both sides. This is exactly the problem logarithms were invented to solve — they pull that exponent down to where you can actually work with it.",
+    "math": "1000(1.05)^t = 2000 \\;\\implies\\; (1.05)^t = 2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1000,
+      1276,
+      1629,
+      1980,
+      2079
+     ],
+     "labels": [
+      "Year 0",
+      "Year 5",
+      "Year 10",
+      "Year 14",
+      "Year 15"
+     ],
+     "caption": "GIC balance growing at 5% per year (in dollars)"
+    }
+   },
+   {
+    "say": "So what does a logarithm actually mean? It is simply a question. It asks: what power do I raise this base to, in order to get that number? Two to what power gives me eight? Three, because two times two times two is eight. So we write log base two of eight equals three. Another one: ten to what power gives me one thousand? Three, because ten cubed is one thousand, so log base ten of one thousand is three. The logarithm is nothing more than the exponent you were looking for. It is the inverse of exponentiation.",
+    "math": "\\log_b(x) = y \\;\\iff\\; b^{\\,y} = x",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      4,
+      8,
+      16
+     ],
+     "labels": [
+      "2 to the 1st",
+      "2 to the 2nd",
+      "2 to the 3rd",
+      "2 to the 4th"
+     ],
+     "caption": "Exponential side: the exponent is the log"
+    }
+   },
+   {
+    "say": "Now here is where it gets really useful. There are three log laws that let you untangle complicated expressions. First, the product rule: a log of a multiplication becomes a sum of logs. For instance, log base two of eight times four equals log base two of eight plus log base two of four, which is three plus two, equals five. And sure enough, log base two of thirty-two is five. Second, the quotient rule: a log of a division becomes a difference of logs. Third, the power rule: an exponent sitting inside the log jumps out the front as a simple multiplier. These three moves — product to sum, quotient to difference, power to multiplier — are the entire toolkit you need to simplify or solve almost any log problem in this course.",
+    "math": "\\log_b(MN)=\\log_b M+\\log_b N \\qquad \\log_b\\!\\left(\\tfrac{M}{N}\\right)=\\log_b M-\\log_b N \\qquad \\log_b(M^p)=p\\,\\log_b M",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's see what a logarithm graph actually looks like and how it relates to its exponential partner. The graph of y equals log of x only exists for positive x — there is no log of zero or a negative number. As x gets closer and closer to zero from the right side, the curve dives straight down toward negative infinity. That vertical line at x equals zero is called the vertical asymptote; the curve gets closer and closer but never touches it. The graph crosses the x-axis at one, because the log of one is zero for any base. And notice how slowly it climbs: x must be ten to reach one, a hundred to reach two, a thousand to reach three. Compare that to its mirror image, the exponential curve, which rockets upward. They are reflections of each other across the line y equals x, which is what inverse functions always look like.",
+    "math": "y=\\log(x),\\; x>0; \\quad \\text{asymptote: } x=0; \\quad \\log(1)=0",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -2,
+      10,
+      -2,
+      10
+     ],
+     "labels": [
+      "10^x",
+      "log(x)",
+      "x"
+     ],
+     "caption": "10 to the x and log x are mirror images across the line y = x"
+    }
+   },
+   {
+    "say": "Let's put the log laws to work on a real expression. We want to simplify log of eight plus log of one hundred twenty-five minus log of ten. Step one: combine the first two terms using the product rule. That gives log of eight times one hundred twenty-five, minus log of ten. Eight times one hundred twenty-five is one thousand, so we have log of one thousand minus log of ten. Step two: use the quotient rule to fold those into one log. That is log of one thousand divided by ten, which is log of one hundred. And the log of one hundred is two. Three separate terms, one simple number. The log laws did all the heavy lifting.",
+    "math": "\\log 8+\\log 125-\\log 10=\\log\\!\\left(\\frac{8\\times125}{10}\\right)=\\log 100=2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now let's solve a full equation. Log base two of x plus log base two of x minus six equals four. First, combine the left side with the product rule: log base two of the product x times x minus six equals four. Next, rewrite in exponential form to kill the log: x times x minus six equals two to the fourth power, which is sixteen. Expand the left side: x squared minus six x equals sixteen. Bring everything to one side: x squared minus six x minus sixteen equals zero. Factor: x minus eight times x plus two equals zero. So x equals eight or x equals negative two. But hold on — we must check the domain. Log base two of x requires x to be positive, and log base two of x minus six requires x minus six to be positive, so x must be greater than six. Negative two fails that test, so it is not a valid solution. Our answer is x equals eight. Verify: log base two of eight is three, log base two of two is one, and three plus one is four. It checks out perfectly.",
+    "math": "\\log_2 x+\\log_2(x-6)=4 \\;\\Longrightarrow\\; x(x-6)=16 \\;\\Longrightarrow\\; x^2-6x-16=0 \\;\\Longrightarrow\\; x=8",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x(x − 6)",
+      "16"
+     ],
+     "caption": "After exponentiating: both sides equal"
+    }
+   },
+   {
+    "say": "Now we can finally answer the GIC question from the start. We had one point zero five to the t equals two, and two is not a nice power of one point zero five, so take the log of both sides. The power rule lets the t jump out front: t times log of one point zero five equals log of two. Divide: t equals log of two divided by log of one point zero five. On a calculator that is zero point three zero one zero divided by zero point zero two one two, which is about fourteen point two. So your thousand dollars doubles in a little over fourteen years, exactly what the table was hinting at. The natural log works just as well: the natural log of two over the natural log of one point zero five gives the same fourteen point two. That idea, a log in one base equals a ratio of logs in any other base, is called the change of base formula.",
+    "math": "(1.05)^t = 2 \\;\\Longrightarrow\\; t\\log 1.05=\\log 2 \\;\\Longrightarrow\\; t=\\frac{\\log 2}{\\log 1.05}=\\frac{\\ln 2}{\\ln 1.05}\\approx 14.2",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      20,
+      0,
+      3
+     ],
+     "labels": [
+      "1.05^x",
+      "2"
+     ],
+     "caption": "1.05 to the t meets y = 2 at t ≈ 14.2 years"
+    }
+   },
+   {
+    "say": "Here is your one-line takeaway to carry forward: a logarithm asks the question what power, and the three log laws — product becomes addition, quotient becomes subtraction, power comes out front — are the keys that let you pull variables down from exponents, simplify messy expressions, and solve equations step by step. Master those three moves and the whole unit opens up.",
+    "math": "\\text{Log asks: what power?}\\qquad \\text{Laws: }\\; \\times\\to+,\\quad \\div\\to-,\\quad M^{p}\\to p\\times",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A logarithm is the exponent you were missing; the three log laws (product→sum, quotient→difference, power→multiplier) let you untangle any log expression or solve any log equation.",
+  "practice": {
+   "question": "Your phone battery is at one hundred percent and drains five percent every minute (so after t minutes it is at 100 × 0.95 to the t percent). How many minutes, to the nearest whole minute, until the battery drops to twenty percent? Set up the equation 100(0.95)^t = 20 and solve for t using logarithms.",
+   "answer": "t = log(0.20) / log(0.95) ≈ (−0.6990) / (−0.02228) ≈ 31.4, so about 31 minutes."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

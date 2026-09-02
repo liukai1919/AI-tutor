@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+ "lang": "en",
+ "title": "Solve volume problems with rectangular prisms and cylinders (boxes, tanks, cans)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Volume Word Problems: Boxes and Cans",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the volume of a box and a cylinder. Today we just learn how to spot which one a real-life story is asking about, and then finish the job with the right units.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick. Read the story and ask yourself: does this thing have flat rectangular sides, or is it round like a tube? A cooler, a moving box, a fish tank, a truck bed — those are rectangular prisms, so it is length times width times height. A pop can, a water bottle, a thermos, a paint bucket — those are cylinders, so it is pi times the radius squared, times the height.",
+    "math": "V_{\\text{box}}=l\\times w\\times h \\qquad V_{\\text{can}}=\\pi r^2 h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      30,
+      20,
+      15
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Flat rectangular sides means length times width times height"
+    }
+   },
+   {
+    "say": "Let's do a real one. You are packing a cooler for a hike up the Grouse Grind. The cooler is a rectangular prism, thirty centimetres long, twenty centimetres wide, and fifteen centimetres tall. How much can it hold in litres? First the volume: thirty times twenty is six hundred, and six hundred times fifteen is nine thousand cubic centimetres. Now, one cubic centimetre is one millilitre, so that is nine thousand millilitres. And one thousand millilitres make one litre, so the cooler holds nine litres.",
+    "math": "V=30\\times20\\times15=9000\\ \\text{cm}^3=9000\\ \\text{mL}=9\\ \\text{L}",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      30,
+      20,
+      15
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "9000 cubic centimetres, which is 9 litres"
+    }
+   },
+   {
+    "say": "Now a round one. Your reusable water bottle is a cylinder with a radius of four centimetres and a height of twenty centimetres. Pi times four squared is pi times sixteen, which is about fifty point two seven. Times twenty gives about one thousand and five cubic centimetres. So the bottle holds roughly one thousand and five millilitres, which is just over one litre. That sounds exactly right for a sports bottle, which tells us we did it correctly.",
+    "math": "V=\\pi(4)^2(20)\\approx1005\\ \\text{cm}^3\\approx1\\ \\text{L}",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      4,
+      20
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Radius 4 cm, height 20 cm, about 1 litre"
+    }
+   },
+   {
+    "say": "Here is the mistake I want you to dodge. Say a hot tub holds two cubic metres of water and someone asks for that in cubic centimetres. Lots of people think one metre is one hundred centimetres, so one cubic metre must be one hundred cubic centimetres. That is wrong, because volume has three directions. One cubic metre is one hundred times one hundred times one hundred, which is one million cubic centimetres. So two cubic metres is two million cubic centimetres, which is two thousand litres — not two hundred. When you convert cubic units, the conversion gets used three times, once for each direction.",
+    "math": "1\\ \\text{m}^3=100\\times100\\times100=1\\,000\\,000\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      100
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A 1 m cube is 100 by 100 by 100 cm = 1 000 000 cm cubed"
+    }
+   },
+   {
+    "say": "So: look at the shape to pick the formula, then be careful with cubic units — they convert three times, not once.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Flat sides means length times width times height; round means pi r squared times height — and cubic units convert three times.",
+  "practice": {
+   "question": "Your family buys a rectangular fish tank for the living room. It is 60 centimetres long, 30 centimetres wide, and 40 centimetres tall. (a) What is its volume in cubic centimetres? (b) How many litres of water does it hold when completely full?",
+   "answer": "(a) 60 x 30 x 40 = 72 000 cubic centimetres. (b) 72 000 cubic centimetres = 72 000 mL, and 72 000 divided by 1000 = 72 litres."
+  }
+ }
+}

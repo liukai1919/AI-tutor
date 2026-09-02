@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "trigonometry",
+ "lang": "zh",
+ "unitName": {
+  "zh": "三角比",
+  "en": "Trigonometry"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "三角比 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "在一个直角三角形（right triangle）中，角 θ 的对边（opposite）为 7 m，斜边（hypotenuse）为 25 m。sin θ 的值是多少？",
+    "options": [
+     "24/25",
+     "7/25",
+     "7/24",
+     "25/7"
+    ],
+    "answerIndex": 1,
+    "explain": "sin θ = 对边 ÷ 斜边 = 7/25。最常见的坑是把「对边和邻边」搞混（误选 7/24），或者取成倒数（25/7）。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "一个直角三角形的两条直角边（legs）分别为 5 cm 和 12 cm。若 θ 是对着 5 cm 那条边的角，tan θ 等于多少？",
+    "options": [
+     "5/12",
+     "12/5",
+     "5/13",
+     "12/13"
+    ],
+    "answerIndex": 0,
+    "explain": "tan θ = 对边 ÷ 邻边 = 5/12。注意 tan 的分子分母都是直角边，不涉及斜边 13；误选 5/13 其实是 sin θ。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 1,
+    "question": "在同一个直角三角形中，已知 sin θ = 3/5。请问 cos θ 等于多少？",
+    "options": [
+     "3/5",
+     "5/4",
+     "3/4",
+     "4/5"
+    ],
+    "answerIndex": 3,
+    "explain": "sin θ = 3/5 说明对边 = 3、斜边 = 5，由勾股定理邻边 = √(25−9) = 4，所以 cos θ = 4/5。常见错误是忘了用勾股定理求邻边，直接拿 sin 的值去凑。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "温哥华史丹利公园（Stanley Park）里，一个风筝在 30° 仰角（angle of elevation）处飘扬，风筝线长 50 m。风筝离地面多高？",
+    "options": [
+     "25√3 m",
+     "50 m",
+     "25 m",
+     "12.5 m"
+    ],
+    "answerIndex": 2,
+    "explain": "仰角对应的对边是高度，用 sin：h = 50 × sin 30° = 50 × 0.5 = 25 m。最容易踩的坑是误用 cos 30° = √3/2，算出 25√3 m。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "在托菲诺（Tofino）的海崖底部，一名学生测得崖顶的仰角为 45°，她距崖脚 60 m。海崖有多高？",
+    "options": [
+     "60 m",
+     "60√2 m",
+     "30 m",
+     "120 m"
+    ],
+    "answerIndex": 0,
+    "explain": "已知水平距离（邻边）和仰角，用 tan：h = 60 × tan 45° = 60 × 1 = 60 m。45° 时 tan = 1，高度恰好等于距离。误选 60√2 是把斜边当成了高度。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 2,
+    "question": "本那比（Burnaby）公园里，太阳仰角为 60° 时，一棵树的影子（shadow）长 8 m。这棵树有多高？",
+    "options": [
+     "8 m",
+     "8√2 m",
+     "4√3 m",
+     "8√3 m"
+    ],
+    "answerIndex": 3,
+    "explain": "影子是邻边、树高是对边，用 tan：h = 8 × tan 60° = 8√3 ≈ 13.9 m。常见错误是误以为 tan 60° = √2 或先把 8 除以 2 再乘 √3。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 3,
+    "question": "暴风雨后，维多利亚（Victoria）公园的一棵大树严重倾斜（但未倒下）。从树干底部到树顶正下方的水平距离为 10 m，树干与地面成 60° 角。这根树干（即树的原高）有多长？",
+    "options": [
+     "10 m",
+     "20 m",
+     "10√3 m",
+     "20√3 m"
+    ],
+    "answerIndex": 1,
+    "explain": "树干是斜边（hypotenuse），已知邻边 = 10 m、夹角 60°，用 cos：L = 10 ÷ cos 60° = 10 ÷ 0.5 = 20 m。典型错误是误用 tan（10 × tan 60° = 10√3）或 sin（10 ÷ sin 60° = 20/√3），选错三角比。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.TRI.01",
+    "level": 3,
+    "question": "在直角三角形中，tan θ = 3/4。一名同学直接写出 sin θ = 3/4、cos θ = 4/4 = 1。请问 sin θ 的正确值是多少？",
+    "options": [
+     "3/4",
+     "4/5",
+     "3/5",
+     "5/4"
+    ],
+    "answerIndex": 2,
+    "explain": "tan θ = 3/4 只告诉你「对边 : 邻边 = 3 : 4」，必须先用勾股定理求出斜边 = 5，才能算 sin θ = 3/5。这是本单元最经典的误区：跳过求斜边这一步，直接把 tan 的分子当 sin。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

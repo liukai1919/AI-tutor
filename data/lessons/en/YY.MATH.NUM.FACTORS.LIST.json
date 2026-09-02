@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.FACTORS.LIST",
+ "lang": "en",
+ "title": "List all the factors of a number using factor pairs",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding All the Factors with Factor Pairs",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know your multiplication and division facts, like four times three equals twelve. Today we use those same facts to find every single factor of a number, without missing any. A factor is a number that divides into another number evenly, with nothing left over.",
+    "math": "4 \\times 3 = 12",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      3,
+      0
+     ],
+     "labels": [],
+     "caption": "Four groups of three make twelve, with none left over"
+    }
+   },
+   {
+    "say": "Here is the trick. Factors always come in pairs, like two friends holding hands. Think about arranging twelve granola bars into a neat rectangle on a tray. One row of twelve works. Two rows of six works. Three rows of four works. Each rectangle gives you a pair of factors.",
+    "math": "1 \\times 12 = 12 \\qquad 2 \\times 6 = 12 \\qquad 3 \\times 4 = 12",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "Three rows of four equals twelve, so three and four are a factor pair"
+    }
+   },
+   {
+    "say": "Now here is how to be sure you catch them all. Start at one and count up, one, two, three, and so on. For each number, ask, does it divide evenly? Write the partner beside it. Let us do eighteen. One times eighteen, yes. Two times nine, yes. Three times six, yes. Four does not divide eighteen evenly. Five does not either. Then we reach six, and six is already written down as a partner, so we stop. The factors of eighteen are one, two, three, six, nine, and eighteen.",
+    "math": "18: \\; 1\\times 18,\\; 2\\times 9,\\; 3\\times 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      6,
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "Three rows of six equals eighteen, one of the factor pairs"
+    }
+   },
+   {
+    "say": "Let us watch a mistake that happens a lot. A student lists the factors of thirty six as one, two, three, six, twelve, eighteen, and thirty six, and stops. But they skipped some! If we go in order, one times thirty six, two times eighteen, three times twelve, then four times nine, yes that works, and six times six. Four and nine were missed because the student jumped around instead of counting up one at a time. So the full list is one, two, three, four, six, nine, twelve, eighteen, and thirty six.",
+    "math": "36: \\; 1\\times 36,\\; 2\\times 18,\\; 3\\times 12,\\; 4\\times 9,\\; 6\\times 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      9,
+      4,
+      9
+     ],
+     "labels": [],
+     "caption": "Four rows of nine equals thirty six, the pair that is easy to miss"
+    }
+   },
+   {
+    "say": "One more thing to keep straight. Factors are smaller than or equal to the number, and they fit inside it. So four is a factor of twelve, because three rows of four fill up twelve exactly. But twelve is not a factor of six, because twelve is bigger than six and cannot fit inside it. If you ever say something like twelve is a factor of six, check the size first. That is a quick way to catch yourself.",
+    "math": "4 \\mid 12 \\quad \\text{but} \\quad 12 \\nmid 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      1,
+      4
+     ],
+     "labels": [],
+     "caption": "Four fits inside twelve three times, so four is a factor of twelve"
+    }
+   },
+   {
+    "say": "So remember, walk up from one, and write down both partners each time you find a pair. When the two partners meet in the middle, you are done, and you know you have them all.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count up from one, write down both partners of every pair, and stop when the partners meet in the middle.",
+  "practice": {
+   "question": "You are setting up twenty four water bottles for a soccer game in Burnaby, and you want them in a perfect rectangle on a table. Using factor pairs, list all the factors of twenty four. Try drawing each rectangle on paper as rows and columns.",
+   "answer": "The factor pairs are one times twenty four, two times twelve, three times eight, and four times six. So the factors of twenty four are one, two, three, four, six, eight, twelve, and twenty four — eight factors in all."
+  }
+ }
+}

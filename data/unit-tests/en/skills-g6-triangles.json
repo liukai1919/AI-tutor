@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "triangles",
+ "lang": "en",
+ "unitName": {
+  "zh": "三角形",
+  "en": "Triangles"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Triangles · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.BY_SIDES",
+    "level": 1,
+    "question": "A wooden triangle in the Grade 6 art bin has sides of 5 cm, 5 cm and 8 cm. How is this triangle classified by its sides?",
+    "options": [
+     "Equilateral, because all three sides are equal",
+     "Isosceles, because exactly two sides are the same length",
+     "Scalene, because the 8 cm side is different from the other two",
+     "Right, because it has a square-looking corner"
+    ],
+    "answerIndex": 1,
+    "explain": "To classify by sides, count how many side lengths match: two equal sides means isosceles, three equal means equilateral, none equal means scalene. The common trap is calling it scalene just because one side is different, or answering with an angle name like ‘right’ when the question asks about sides."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.BY_ANGLES",
+    "level": 1,
+    "question": "Sanjay measures the three angles of a triangular floor tile and gets 100°, 50° and 30°. How is this triangle classified by its angles?",
+    "options": [
+     "Acute, because two of its angles are less than 90°",
+     "Right, because its angles add up to 180°",
+     "Obtuse, because one angle is greater than 90°",
+     "Scalene, because the three angles are all different sizes"
+    ],
+    "answerIndex": 2,
+    "explain": "A triangle is named for its biggest angle: one angle over 90° makes it obtuse, one exactly 90° makes it right, and all three under 90° make it acute. The most common trap is voting on the majority — two acute angles do not make an acute triangle."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.CLASSIFY_BOTH",
+    "level": 1,
+    "question": "A triangle is drawn tipped onto its side. One corner has a small square mark, and two of its sides each have a matching tick mark showing they are 7 cm long. How is this triangle classified by both its sides and its angles?",
+    "options": [
+     "A right isosceles triangle",
+     "A right scalene triangle",
+     "An acute isosceles triangle, because the tipped triangle has no square corner at the bottom",
+     "An isosceles triangle only, because a triangle cannot be named by both sides and angles"
+    ],
+    "answerIndex": 0,
+    "explain": "Read the two marks separately: matching tick marks on two sides means isosceles, and the small square means a 90° angle, so the triangle is right isosceles. The trap is orientation — turning a triangle never changes its angles, so a square corner is still a right angle even when it is not at the bottom."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.BY_SIDES",
+    "level": 2,
+    "question": "A triangular garden bed at a community garden has a perimeter of 24 m. Two of its sides each measure 9 m. What is the third side, and how is the triangle classified by its sides?",
+    "options": [
+     "6 m, and it is equilateral",
+     "15 m, and it is isosceles",
+     "6 m, and it is scalene",
+     "6 m, and it is isosceles"
+    ],
+    "answerIndex": 3,
+    "explain": "Subtract both known sides from the perimeter: 24 − 9 − 9 = 6 m, so the sides are 9 m, 9 m and 6 m — exactly two match, which is isosceles. The most common trap is subtracting only one 9 and answering 15 m."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.BY_ANGLES",
+    "level": 2,
+    "question": "Amira is folding a triangular paper kite for the beach. Two of its angles measure 40° and 25°. What is the third angle, and how is the triangle classified by its angles?",
+    "options": [
+     "65°, so it is an acute triangle",
+     "115°, so it is an obtuse triangle",
+     "115°, so it is an acute triangle",
+     "25°, so it is an acute triangle"
+    ],
+    "answerIndex": 1,
+    "explain": "The three angles of any triangle add to 180°, so the third angle is 180° − 40° − 25° = 115°, and an angle over 90° makes the triangle obtuse. Two traps to avoid: adding the two given angles instead of subtracting them from 180°, and subtracting from 90° instead of 180°."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.CLASSIFY_BOTH",
+    "level": 2,
+    "question": "A triangular sail on a model boat has angles of 70°, 70° and 40°. No side lengths are printed on the diagram. Which classification is correct, and why?",
+    "options": [
+     "Scalene and acute, because no side lengths are given, so the sides must all be different",
+     "Obtuse and isosceles, because 70° + 70° = 140°, which is more than 90°",
+     "Acute and isosceles, because every angle is under 90° and the two equal angles sit opposite two equal sides",
+     "Equilateral, because two of the angles are the same size"
+    ],
+    "answerIndex": 2,
+    "explain": "All three angles are under 90°, so the triangle is acute, and two equal angles always face two equal sides, so it is isosceles even without measuring. The trap is thinking you need side lengths to name the sides, or adding two angles together and comparing that sum to 90°."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.CLASSIFY_BOTH",
+    "level": 3,
+    "question": "Maya is cutting a triangular corner shelf for her bedroom. She measures the three sides as 30 cm, 40 cm and 50 cm, and her carpenter's square fits perfectly into one corner. How should she describe the triangle?",
+    "options": [
+     "A right scalene triangle",
+     "A right isosceles triangle, because every right triangle has two equal sides",
+     "An obtuse scalene triangle, because 50 cm is much longer than the other two sides",
+     "An acute scalene triangle, because none of the sides measures 90 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "Handle the two clues one at a time: all three sides are different lengths, so it is scalene, and the carpenter's square shows a 90° angle, so it is right — giving a right scalene triangle. The big misconception here is believing a right triangle must be isosceles, or that a long side by itself proves an obtuse angle; side lengths are centimetres, not degrees."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRI.BY_ANGLES",
+    "level": 3,
+    "question": "Theo is sketching a triangular support for a skatepark ramp. He writes that two of its angles measure 95° and 100°. Which statement about his sketch is correct?",
+    "options": [
+     "It is an obtuse triangle, because both 95° and 100° are greater than 90°",
+     "It is an obtuse triangle, and the third angle must be 15°",
+     "It is an acute triangle, because the third angle is 180° − 95° = 85°",
+     "No such triangle can exist, because 95° + 100° = 195°, which is already more than 180°"
+    ],
+    "answerIndex": 3,
+    "explain": "Add the given angles first: 95° + 100° = 195°, which already passes the 180° total, so the triangle is impossible — a triangle can have at most one obtuse angle. The classic mistakes are subtracting 180° from 195° to force a third angle of 15°, or using only one of the two angles and forgetting the other."
+   }
+  ]
+ }
+}

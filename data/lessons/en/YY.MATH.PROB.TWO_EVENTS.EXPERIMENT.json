@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.TWO_EVENTS.EXPERIMENT",
+ "lang": "en",
+ "title": "Run many trials of two independent events and find the experimental probability",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Lots of Tries, Real Answers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list every outcome when two things happen at once, and how to count results to get an experimental probability. Today we do just one step: actually running lots of trials of two independent events, and reading the tally table to find the experimental probability.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our setup. Maya and her friend are deciding who buys the bubble tea after school. Maya flips a coin, and at the same time she spins a spinner that is half blue and half orange. The coin does not care what the spinner does, and the spinner does not care what the coin does, so these are independent. Every single trial means one flip and one spin together, and we write down the pair, like heads and blue.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1
+     ],
+     "labels": [
+      "blue",
+      "orange"
+     ],
+     "caption": "One trial = flip the coin AND spin the spinner"
+    }
+   },
+   {
+    "say": "So the four possible pairs are heads blue, heads orange, tails blue, and tails orange. Maya ran sixty trials and kept a tally table. Here is what she got: heads and blue happened seventeen times, heads and orange fourteen times, tails and blue sixteen times, and tails and orange thirteen times. Notice that seventeen plus fourteen plus sixteen plus thirteen equals sixty, so nothing got lost.",
+    "math": "17+14+16+13=60",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      17,
+      14,
+      16,
+      13
+     ],
+     "labels": [
+      "H, blue",
+      "H, orange",
+      "T, blue",
+      "T, orange"
+     ],
+     "caption": "Maya's tally after 60 trials"
+    }
+   },
+   {
+    "say": "Now the experimental probability. The rule is the same one you already know: how many times it happened, over how many trials in total. Heads and blue happened seventeen times out of sixty, so that is seventeen sixtieths. As a decimal, seventeen divided by sixty is about zero point two eight, which is about twenty eight percent. And what would we expect? Half the time heads, and half of those blue, so about one quarter, which is fifteen out of sixty. Seventeen is nicely close to fifteen. That is what a fair coin and a fair spinner look like in real life.",
+    "math": "P(\\text{H and blue})=\\frac{17}{60}\\approx 0.28",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      17,
+      14,
+      16,
+      13,
+      15,
+      15,
+      15,
+      15
+     ],
+     "labels": [
+      "H, blue",
+      "H, orange",
+      "T, blue",
+      "T, orange",
+      "actual (60 trials)",
+      "expected"
+     ],
+     "caption": "What actually happened vs. what we would expect"
+    }
+   },
+   {
+    "say": "Here is the mistake I want you to dodge. Imagine Maya had stopped after only four trials and got heads and blue three times. Three out of four is seventy five percent, and it is tempting to shout that the coin is rigged. But four trials is way too few. Look back at the sixty trial table: each pair landed somewhere near fifteen, close to a quarter. A few trials can look wildly lopsided just by luck. The more trials you run, the more the experimental probability settles down near the truth.",
+    "math": "\\frac{3}{4}=0.75\\quad\\text{vs.}\\quad\\frac{17}{60}\\approx 0.28",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      1,
+      0,
+      0,
+      17,
+      14,
+      16,
+      13
+     ],
+     "labels": [
+      "H, blue",
+      "H, orange",
+      "T, blue",
+      "T, orange",
+      "only 4 trials",
+      "60 trials"
+     ],
+     "caption": "4 trials look rigged; 60 trials look fair"
+    }
+   },
+   {
+    "say": "So: run plenty of trials, tally each pair in a table, then divide the count for the pair you care about by the total number of trials.",
+    "math": "P(\\text{event})=\\frac{\\text{times it happened}}{\\text{total trials}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Experimental probability for two events = how many times that pair happened, divided by the total number of trials — and you need lots of trials before you trust it.",
+  "practice": {
+   "question": "At a Surrey school fair, Jordan runs a booth with two spinners. Spinner one is half red and half green. Spinner two is half win and half lose. One trial means spinning both. Jordan ran 80 trials and made a table with four columns: red and win happened 22 times, red and lose 19 times, green and win 21 times, green and lose 18 times. First check that the four counts add to 80. Then find the experimental probability of getting red and win, as a fraction and as a decimal rounded to two places. Finally, Jordan's little brother spun both spinners 6 times, got red and win 4 times, and said the booth is rigged. Is he right?",
+   "answer": "22 + 19 + 21 + 18 = 80, so the table checks out. P(red and win) = 22 out of 80 = 22/80 = 11/40, and 22 divided by 80 = 0.275, which rounds to 0.28. No, his brother is not right: 6 trials is far too few to judge anything. Over 80 trials each pair landed near 20, which is close to the expected one quarter."
+  }
+ }
+}

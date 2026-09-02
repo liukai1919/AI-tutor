@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.DBAR.READ",
+ "lang": "en",
+ "title": "Read double bar graphs, including many-to-one scales",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two Bars, One Graph: Reading a Double Bar Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that on a graph one square can stand for more than one thing, like one square meaning five people. Today we add one small new idea: what happens when there are two bars standing side by side for each thing.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a graph of a survey in two classes at a Burnaby school. Everyone picked their favourite thing to do at the park. For each activity there are two bars: the first colour is Ms. Chen's class, and the second colour is Mr. Singh's class. That colour key is the most important part. A double bar graph is really two graphs sharing one set of numbers up the side, so you can compare the two classes in one quick look.",
+    "math": "",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      15,
+      25,
+      10,
+      20,
+      10,
+      15
+     ],
+     "labels": [
+      "Skating",
+      "Swimming",
+      "Hiking",
+      "Ms. Chen's class",
+      "Mr. Singh's class"
+     ],
+     "caption": "Favourite park activity — two classes, two colours"
+    }
+   },
+   {
+    "say": "Let's read swimming together. Going up the side, the numbers count by five, so one square is worth five people. Ms. Chen's swimming bar reaches five squares up. Five squares times five people in each square is twenty five people. Mr. Singh's swimming bar reaches only two squares, and two times five is ten people. So fifteen more children in Ms. Chen's class chose swimming, because twenty five take away ten is fifteen.",
+    "math": "5 \\times 5 = 25 \\qquad 2 \\times 5 = 10 \\qquad 25 - 10 = 15",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      25,
+      10
+     ],
+     "labels": [
+      "Swimming",
+      "Ms. Chen's class",
+      "Mr. Singh's class"
+     ],
+     "caption": "Swimming only: 25 in Ms. Chen's class, 10 in Mr. Singh's class"
+    }
+   },
+   {
+    "say": "Now here are the two slips almost everybody makes. First mistake: counting squares instead of people. Someone sees five squares and says five children, but each square is worth five, so it is really twenty five. Second mistake: mixing up the two classes. Someone reads hiking and says Ms. Chen's class had fifteen, when fifteen is actually Mr. Singh's bar. Ms. Chen's hiking bar is only two squares, which is ten. So every single time, do two checks: check the key for what one square is worth, then check the colour for whose bar it is.",
+    "math": "10 \\text{ (Ms. Chen)} \\neq 15 \\text{ (Mr. Singh)}",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      10,
+      15
+     ],
+     "labels": [
+      "Hiking",
+      "Ms. Chen's class",
+      "Mr. Singh's class"
+     ],
+     "caption": "Hiking: 10 for Ms. Chen, 15 for Mr. Singh — do not swap them"
+    }
+   },
+   {
+    "say": "So a double bar graph is not harder than one bar graph, it just asks you two little questions before you answer: how much is one square, and which colour am I looking at.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "On a double bar graph, always ask two things first: what is one square worth, and whose colour is this bar?",
+  "practice": {
+   "question": "Division 4 and Division 5 had a bottle drive. On a double bar graph, one square stands for ten bottles. For week one, Division 4's bar is four squares tall and Division 5's bar is seven squares tall. Try sketching the two bars side by side on paper. How many bottles did Division 5 collect in week one, and how many more was that than Division 4?",
+   "answer": "Division 5 collected seven times ten, which is seventy bottles. Division 4 collected four times ten, which is forty bottles. Seventy take away forty is thirty, so Division 5 collected thirty more bottles."
+  }
+ }
+}

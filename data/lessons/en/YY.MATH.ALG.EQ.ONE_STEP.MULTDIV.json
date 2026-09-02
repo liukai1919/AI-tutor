@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.ONE_STEP.MULTDIV",
+ "lang": "en",
+ "title": "Solve one-step multiplication and division equations",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Balancing Times and Divide Puzzles",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve a puzzle like x plus five equals twelve, by doing the opposite and taking five away. Today we use that same balance idea when the puzzle uses times or divide.",
+    "math": "x + 5 = 12 \\;\\rightarrow\\; x = 12 - 5 = 7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x + 5",
+      "12"
+     ],
+     "caption": "A balanced scale: both sides are equal"
+    }
+   },
+   {
+    "say": "Here is our puzzle. A scale is balanced. On the left side are four identical bags of blueberries, each holding x kilograms. On the right side are twenty kilograms of weights. So four times x equals twenty. Because four equal bags together make twenty kilograms, one bag must be twenty divided by four, which is five kilograms.",
+    "math": "4 \\times x = 20 \\;\\rightarrow\\; x = 20 \\div 4 = 5",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "4 times x",
+      "20"
+     ],
+     "caption": "Four equal bags balance twenty kilograms"
+    }
+   },
+   {
+    "say": "Look why dividing works. Twenty kilograms split fairly into four equal bags gives five kilograms in each bag. Let us check it: five, ten, fifteen, twenty. It works, so x is five. Times is undone by divide.",
+    "math": "4 \\times 5 = 20 \\;\\checkmark",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "Twenty shared equally into four groups of five"
+    }
+   },
+   {
+    "say": "Now a divide puzzle. Ms. Yuanyuan shares x granola bars equally among three kids, and each kid gets six. So x divided by three equals six. Divide is undone by times, so x is six times three, which is eighteen. Check it: eighteen shared among three kids is six each. Perfect.",
+    "math": "x \\div 3 = 6 \\;\\rightarrow\\; x = 6 \\times 3 = 18",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "Three kids with six bars each makes eighteen"
+    }
+   },
+   {
+    "say": "Here is the mistake to watch for. For six times x equals thirty, some kids grab the wrong opposite and multiply, writing x equals one hundred eighty. But then the left side would weigh way more than thirty, and the scale would crash down. Ask yourself, what is the opposite of times? Divide. So x is thirty divided by six, which is five, and six times five really is thirty.",
+    "math": "6 \\times x = 30 \\;\\rightarrow\\; x = 30 \\div 6 = 5",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "6 times 180",
+      "30"
+     ],
+     "caption": "Multiplying by mistake tips the scale over"
+    }
+   },
+   {
+    "say": "So remember, keep the scale fair and always use the opposite move: if the puzzle uses times, you divide, and if it uses divide, you multiply.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Times is undone by divide, and divide is undone by times — always do the opposite move to both sides.",
+  "practice": {
+   "question": "A balance scale is perfectly even. On the left side sit five identical boxes of apples, and every box holds the same number of kilograms, which we call x. On the right side sit forty-five kilograms of weights. Write the equation and find x. Try drawing the scale yourself!",
+   "answer": "Five times x equals forty-five, so x equals forty-five divided by five, which is nine kilograms. Check: five times nine is forty-five."
+  }
+ }
+}

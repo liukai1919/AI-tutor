@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES",
+ "lang": "en",
+ "title": "Count faces, edges and vertices; build a prism from a net",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Faces, Edges and Vertices of a Box",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot a prism by its two matching bases. Today we do one small job with a prism: counting its flat faces, its straight edges, and its pointy corners, which we call vertices.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A rectangular prism, like a granola bar box"
+    }
+   },
+   {
+    "say": "Here is a trick that makes counting easy. If we cut the box open along some edges and lay it flat, we get its net. Now nothing is hidden. Count the rectangles: one, two, three, four, five, six. So the box has six faces, and notice the matching colours — the faces come in three matching pairs.",
+    "math": "3 \\times 2 = 6",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "The box unfolded: six rectangles, three matching pairs"
+    }
+   },
+   {
+    "say": "Now fold the net back up into the box and count the edges. Edges are the straight lines where two faces meet. Go around the top: four edges. Go around the bottom: four more. Then the four upright edges joining top to bottom. Four plus four plus four is twelve edges.",
+    "math": "4 + 4 + 4 = 12",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "4 top edges plus 4 bottom edges plus 4 upright edges"
+    }
+   },
+   {
+    "say": "Last, the vertices. Those are the sharp corners where edges meet — the parts that poke you if you drop the box on your toe. The top has four corners and the bottom has four corners. Four plus four is eight vertices.",
+    "math": "4 + 4 = 8",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "4 corners on top, 4 corners underneath: 8 vertices"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes. When you look at a box on your desk, you can only really see three faces, so it is easy to say three. But the back, the bottom and one side are still there, just hiding. The net proves it — six rectangles, so six faces. Always count the hidden ones too.",
+    "math": "3 \\text{ seen} + 3 \\text{ hidden} = 6",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "The net shows all six faces, none hiding"
+    }
+   },
+   {
+    "say": "So for any rectangular prism, big or small, it is always six faces, twelve edges and eight vertices.",
+    "math": "6 \\text{ faces},\\ 12 \\text{ edges},\\ 8 \\text{ vertices}",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      6,
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Every rectangular prism: 6, 12, 8"
+    }
+   }
+  ],
+  "answer": "Unfold it into a net and nothing can hide: every rectangular prism has 6 faces, 12 edges and 8 vertices.",
+  "practice": {
+   "question": "Ms. Yuanyuan flattens an empty cracker box from the store. Laid out flat, its net is made of six rectangles: two that are twelve centimetres by five centimetres, two that are twelve centimetres by three centimetres, and two that are five centimetres by three centimetres. Try sketching those six rectangles yourself. When she tapes the net back into a box, how many faces, edges and vertices does it have?",
+   "answer": "Six faces, twelve edges and eight vertices. The six rectangles in the net become the six faces, and folding it up gives four edges around the top, four around the bottom and four upright ones, with four corners on top and four on the bottom."
+  }
+ }
+}

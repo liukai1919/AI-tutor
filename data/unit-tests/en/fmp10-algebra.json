@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "algebra",
+ "lang": "en",
+ "unitName": {
+  "zh": "幂与多项式",
+  "en": "Powers & Polynomials"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Powers & Polynomials · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 1,
+    "question": "Simplify: 2³ × 2⁴",
+    "options": [
+     "2¹²",
+     "4⁷",
+     "2⁷",
+     "2⁸"
+    ],
+    "answerIndex": 2,
+    "explain": "Use the product rule: when multiplying powers with the same base, add the exponents (3 + 4 = 7). The most common trap is multiplying the exponents (giving 2¹²) or adding the bases (giving 4⁷)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.02",
+    "level": 1,
+    "question": "What is the prime factorization of 72 expressed using powers?",
+    "options": [
+     "2³ × 3²",
+     "2² × 3³",
+     "2⁴ × 3",
+     "2³ × 3"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide 72 by primes: 72 = 2×2×2×3×3, which groups to 2³ × 3². A frequent mistake is swapping the exponents (2² × 3³ = 108) or forgetting one factor of 3."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.03",
+    "level": 1,
+    "question": "A student is building a rectangular raised garden bed. The length is (x + 3) metres and the width is 2 metres. Which expression represents the area in square metres?",
+    "options": [
+     "2x + 3",
+     "x + 6",
+     "2x² + 6",
+     "2x + 6"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply 2 by each term inside the bracket: 2·x + 2·3 = 2x + 6. The common error is distributing the 2 to only one term (giving 2x + 3) or accidentally squaring the x."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 2,
+    "question": "Simplify the expression 5⁻² × 5⁵.",
+    "options": [
+     "5⁻¹⁰",
+     "125",
+     "5⁷",
+     "1/25"
+    ],
+    "answerIndex": 1,
+    "explain": "Apply the product rule even with a negative exponent: 5⁻² × 5⁵ = 5⁻²⁺⁵ = 5³ = 125. The trap is treating 5⁻² as 1/25 and stopping, or adding the absolute values to get 5⁷."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.03",
+    "level": 2,
+    "question": "A landscaping company is quoting a rectangular patio. The length is (x + 5) m and the width is (x + 3) m. Which polynomial represents the area in square metres?",
+    "options": [
+     "x² + 8x + 15",
+     "x² + 3x + 15",
+     "x² + 8x + 8",
+     "x² + 5x + 15"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply every term in the first binomial by every term in the second: x² + 3x + 5x + 15 = x² + 8x + 15. Students often miss one cross-term (getting x² + 3x + 15) or add the constants instead of multiplying them (getting 8 instead of 15)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.04",
+    "level": 2,
+    "question": "A volunteer at a community garden writes the expression 6x³ + 9x² − 12x on a whiteboard. Factor out the greatest common factor.",
+    "options": [
+     "3(2x³ + 3x² − 4x)",
+     "3x(2x² + 3x − 12)",
+     "3x(2x² + 3x − 4)",
+     "x(6x² + 9x − 12)"
+    ],
+    "answerIndex": 2,
+    "explain": "The GCF is 3x (greatest numeric factor 3 and greatest variable factor x). Divide each term by 3x to get 2x² + 3x − 4. A typical mistake is pulling out only 3 or only x, leaving a common factor inside the bracket."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 3,
+    "question": "A Grade 10 science student evaluates the expression −2⁴ + (−3)² on a calculator and gets 25. A classmate insists the correct answer is −7. Who is right, and what is the value?",
+    "options": [
+     "25 (the student is right: (−2)⁴ + (−3)² = 16 + 9)",
+     "7 (dropping both negatives: 2⁴ − 3² = 16 − 9)",
+     "144 (multiplying: (−2)⁴ × (−3)² = 16 × 9)",
+     "−7 (the classmate is right: −(2⁴) + (−3)² = −16 + 9)"
+    ],
+    "answerIndex": 3,
+    "explain": "Without parentheses, −2⁴ means −(2⁴) = −16, NOT (−2)⁴ = 16. The classmate is correct: −16 + 9 = −7. This is the single most common exponent misconception: a negative sign in front of a base is not the same as a negative base."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.04",
+    "level": 3,
+    "question": "A student is designing a rectangular panel logo for the school hiking club. The area of the panel is (x² − 16) cm², and the panel's length and width must be written as binomials in x. Which pair of binomials represents the length and width?",
+    "options": [
+     "(x + 8) and (x − 2)",
+     "(x + 4) and (x − 4)",
+     "(x + 16) and (x − 1)",
+     "(x + 4) and (x + 4)"
+    ],
+    "answerIndex": 1,
+    "explain": "x² − 16 is a difference of squares: a² − b² = (a + b)(a − b), so x² − 16 = (x + 4)(x − 4). The biggest trap is writing (x + 4)(x + 4) = x² + 8x + 16, which is a perfect square, not a difference of squares."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

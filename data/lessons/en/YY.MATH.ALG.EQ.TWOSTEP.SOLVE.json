@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP.SOLVE",
+ "lang": "en",
+ "title": "Solve two-step equations (3x + 4 = 16) by undoing operations in order",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Undo in the Right Order: 3x + 4 = 16",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build an equation on a balance scale. Today we learn the one trick that actually solves it: undoing the operations in the right order. Think of it like taking off your shoes and socks. Socks went on first, shoes went on second, so shoes come off first.",
+    "math": "3x + 4 = 16",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x + 4",
+      "16"
+     ],
+     "caption": "Both sides weigh the same, so the scale is level"
+    }
+   },
+   {
+    "say": "Here is what happened to x. First it got multiplied by three, then four was added on. So to undo it, we go backwards: peel off the plus four first, and deal with the times three second. Always the adding or subtracting first, the multiplying or dividing second.",
+    "math": "x \\;\\xrightarrow{\\;\\times 3\\;}\\; 3x \\;\\xrightarrow{\\;+4\\;}\\; 3x+4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x + 4",
+      "16"
+     ],
+     "caption": "Peel off the +4 first, then handle the ×3"
+    }
+   },
+   {
+    "say": "Step one: take four away. But here is the golden rule of the balance — whatever you take off the left, you must take off the right, or the scale tips. Sixteen take away four is twelve, so now we have three x equals twelve.",
+    "math": "3x + 4 - 4 = 16 - 4 \\;\\Rightarrow\\; 3x = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x",
+      "12"
+     ],
+     "caption": "Take 4 off both sides — still balanced"
+    }
+   },
+   {
+    "say": "Step two: three x means three equal bags of x, and together they weigh twelve. So share the twelve into three equal groups. Twelve divided by three is four, so x equals four. Check it: three times four is twelve, plus four is sixteen. It works.",
+    "math": "\\frac{3x}{3} = \\frac{12}{3} \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "12 shared into 3 equal bags → each bag is 4"
+    }
+   },
+   {
+    "say": "Now the three traps I see all the time. Trap one: dividing before subtracting, turning three x plus four into x plus four equals sixteen over three. No — the plus four is still stuck on, so it has to go first. Trap two: seeing three x equals twelve and subtracting the three to get nine. But three x means three times x, not three plus x, so you divide, and you get four. Trap three: dividing only the left side and writing x equals twelve. That tips the scale. Whatever you do to one side, do to the other.",
+    "math": "3x = 12 \\;\\Rightarrow\\; x = 4 \\quad (\\text{not } 9, \\text{ not } 12)",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "x",
+      "12"
+     ],
+     "caption": "Dividing only the left tips the scale — that is wrong"
+    }
+   },
+   {
+    "say": "So remember: undo the plus or minus first, then undo the times or divide, and always do it to both sides.",
+    "math": "3x + 4 = 16 \\;\\Rightarrow\\; 3x = 12 \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "4"
+     ],
+     "caption": "Solved and still perfectly balanced"
+    }
+   }
+  ],
+  "answer": "Undo the adding first, the multiplying second — and always do it to both sides.",
+  "practice": {
+   "question": "You and your friends are buying movie tickets in Vancouver. You buy five tickets that all cost the same, plus a bag of popcorn that costs seven dollars. The total is fifty-two dollars. If t stands for the price of one ticket, the equation is five t plus seven equals fifty-two. What is t? (Try writing the two steps down yourself.)",
+   "answer": "t equals nine dollars. First take seven off both sides: fifty-two minus seven is forty-five, so five t equals forty-five. Then divide both sides by five: forty-five divided by five is nine. Check: five times nine is forty-five, plus seven is fifty-two."
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "fluency-order-ops",
+ "lang": "zh",
+ "unitName": {
+  "zh": "口算熟练与运算顺序",
+  "en": "Fact fluency & order of operations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "口算熟练与运算顺序 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FLU.MULT.FACTS.DEVELOPING",
+    "level": 1,
+    "question": "快速口算：63 ÷ 7 = ?",
+    "options": [
+     "7",
+     "9",
+     "8",
+     "6"
+    ],
+    "answerIndex": 1,
+    "explain": "除法用乘法口诀倒推：想 7 × ? = 63，7 × 9 = 63，所以商是 9。常见的坑是口诀记串行，把 7 × 8 = 56 或 7 × 7 = 49 拿来用，答成 8 或 7。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS",
+    "level": 1,
+    "question": "按运算顺序（order of operations）计算：2 + 6 × 5 = ?",
+    "options": [
+     "40",
+     "30",
+     "32",
+     "22"
+    ],
+    "answerIndex": 2,
+    "explain": "没有括号时先乘除后加减：先算 6 × 5 = 30，再算 2 + 30 = 32。最常见的坑是一律从左到右，先把 2 + 6 = 8 再乘 5，得到错误的 40。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.BRACKETS",
+    "level": 1,
+    "question": "计算：(8 + 4) × 3 = ?",
+    "options": [
+     "36",
+     "20",
+     "24",
+     "15"
+    ],
+    "answerIndex": 0,
+    "explain": "括号（brackets）里的要最先算：8 + 4 = 12，再算 12 × 3 = 36。最常见的坑是无视括号，按「先乘后加」算成 8 + 12 = 20。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.MENTAL.MULTI_DIGIT",
+    "level": 2,
+    "question": "学校美术室新到一批彩色铅笔，每盒 24 支，一共 4 盒。用「翻倍再翻倍」（double-double）心算，一共有多少支？",
+    "options": [
+     "72",
+     "84",
+     "104",
+     "96"
+    ],
+    "answerIndex": 3,
+    "explain": "× 4 就是翻倍两次：24 翻倍是 48，48 再翻倍是 96 支。常见的坑是只把十位乘了 4、个位忘了乘全（20 × 4 + 4 = 84），或者少数一盒按 × 3 算成 72。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS",
+    "level": 2,
+    "question": "计算：20 − 6 + 3 × 2 = ?",
+    "options": [
+     "34",
+     "8",
+     "20",
+     "14"
+    ],
+    "answerIndex": 2,
+    "explain": "先算乘法 3 × 2 = 6；剩下 20 − 6 + 6 是同级运算，从左到右：20 − 6 = 14，14 + 6 = 20。两个大坑：一是全程从左到右算成 34，二是以为加号一定比减号先算，先凑 6 + 6 = 12 再减，得到 8。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.WRITE_EXPR",
+    "level": 2,
+    "question": "学校 hot lunch 日，小美买了 3 份寿司卷，每份 4 加元，又买了 1 瓶果汁 2 加元。她付了 20 加元。下面哪个综合算式（one expression）能正确算出应找回的钱？",
+    "options": [
+     "20 − 3 × 4 + 2",
+     "20 − (3 × 4 + 2)",
+     "(20 − 3) × 4 + 2",
+     "20 − 3 × (4 + 2)"
+    ],
+    "answerIndex": 1,
+    "explain": "要先把花掉的钱整个算出来再减，所以花费部分要打括号：20 − (3 × 4 + 2) = 20 − 14 = 6 加元。常见的坑是漏掉括号写成 20 − 3 × 4 + 2，那样果汁的 2 加元变成了加回去，答案会错成 10。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.WRITE_EXPR",
+    "level": 3,
+    "question": "六年级 28 名学生去 Science World 春游，学生票每人 12 加元；另有 4 位家长陪同，成人票每人 15 加元。班级基金已经存了 300 加元。这次春游还差多少钱？",
+    "options": [
+     "96 加元",
+     "36 加元",
+     "396 加元",
+     "84 加元"
+    ],
+    "answerIndex": 0,
+    "explain": "写成一个综合算式：28 × 12 + 4 × 15 − 300 = 336 + 60 − 300 = 96 加元。常见的坑有三个——忘了算家长票（只得 36）、算完总花费忘了减掉已有的 300（答成 396）、把家长也按学生票 12 加元算（答成 84）。"
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ORDER_OPS.BRACKETS",
+    "level": 3,
+    "question": "小杰计算 48 ÷ (4 × 2) + 5，他是这样写的：48 ÷ 4 = 12，12 × 2 = 24，24 + 5 = 29。下面哪个判断是对的？",
+    "options": [
+     "29 是对的，同级运算本来就从左到右",
+     "13；先算括号得 48 ÷ 8 = 8，再加 5",
+     "6；先算括号得 48 ÷ 8 = 6，题目到这里就算完了",
+     "11；括号里的 4 × 2 = 8 必须最先算，48 ÷ 8 = 6，再 6 + 5 = 11"
+    ],
+    "answerIndex": 3,
+    "explain": "括号的优先级高于乘除，所以顺序是 4 × 2 = 8 → 48 ÷ 8 = 6 → 6 + 5 = 11。小杰的错在把括号当成不存在、直接从左往右做除法；另一个常踩的坑是括号算对了却把 48 ÷ 8 说成 8，或者漏掉最后 + 5 这一步。"
+   }
+  ]
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "big-small-numbers",
+ "lang": "en",
+ "unitName": {
+  "zh": "从千分位到十亿",
+  "en": "Numbers from thousandths to billions"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Numbers from thousandths to billions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 1,
+    "question": "In the number 386.475, what is the value of the digit 7?",
+    "options": [
+     "7 tenths (0.7)",
+     "7 hundredths (0.07)",
+     "7 thousandths (0.007)",
+     "7 ones (7)"
+    ],
+    "answerIndex": 1,
+    "explain": "Name the places to the right of the decimal point in order: 4 is tenths, 7 is hundredths, 5 is thousandths, so the 7 is worth 0.07. A common trap is counting the places from the right end of the number instead of from the decimal point, which turns the 7 into thousandths."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 1,
+    "question": "Nadia writes a measurement in words: 'six and forty-three thousandths'. Which numeral shows that number?",
+    "options": [
+     "6.43",
+     "6.0043",
+     "6.403",
+     "6.043"
+    ],
+    "answerIndex": 3,
+    "explain": "The word 'thousandths' tells you the last digit must sit in the third decimal place, so 43 thousandths fills the hundredths and thousandths places: 6.043. The usual mistake is writing 6.43, which reads as forty-three hundredths — ten times too big."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 1,
+    "question": "Round 3 748 265 000 to the nearest hundred million.",
+    "options": [
+     "3 700 000 000",
+     "3 800 000 000",
+     "3 750 000 000",
+     "4 000 000 000"
+    ],
+    "answerIndex": 0,
+    "explain": "Find the hundred millions digit (7), then look only at the digit just to its right — the ten millions digit is 4, which is less than 5, so the 7 stays and every digit after it becomes 0: 3 700 000 000. The common trap is looking at the 8 in the millions place, which is one place too far right, and rounding up to 3 800 000 000."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 2,
+    "question": "At a Kamloops track meet, four Grade 6 students ran the 60 m sprint. Their times were Ava 9.6 s, Ben 9.06 s, Cole 9.406 s and Dia 9.46 s. Who ran the fastest (the shortest time)?",
+    "options": [
+     "Cole (9.406 s)",
+     "Ava (9.6 s)",
+     "Ben (9.06 s)",
+     "Dia (9.46 s)"
+    ],
+    "answerIndex": 2,
+    "explain": "Line up the decimal points and compare one place at a time: the tenths digits are 6, 0, 4 and 4, and 0 is the smallest, so 9.06 s is the shortest time. Many students think 9.06 must be the largest because it has a 0 that makes it 'look long', or that more decimal places means a bigger number."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 2,
+    "question": "A news site reports that a wildfire-safety video made in BC has been watched 'eleven billion forty million three hundred thousand' times. Which numeral shows that number?",
+    "options": [
+     "11 040 300 000",
+     "11 004 300 000",
+     "11 400 300 000",
+     "11 040 030 000"
+    ],
+    "answerIndex": 0,
+    "explain": "Build the number one period at a time: 11 billions, 040 millions, 300 thousands, 000 ones, giving 11 040 300 000. The common error is squeezing 'forty million' into the wrong period, which produces 11 004 300 000 or 11 400 300 000."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.CONTEXT",
+    "level": 2,
+    "question": "This table shows 2021 populations of four BC communities: Kelowna 144 576, Prince George 76 708, Victoria 91 867, Nanaimo 99 863. A news headline says: 'Nearly 100 000 people now live in this city.' Which community is the headline about?",
+    "options": [
+     "Kelowna (144 576)",
+     "Prince George (76 708)",
+     "Victoria (91 867)",
+     "Nanaimo (99 863)"
+    ],
+    "answerIndex": 3,
+    "explain": "Round each population to the nearest ten thousand and see which one lands on 100 000: 99 863 rounds to 100 000, while Victoria rounds to 90 000, Prince George to 80 000 and Kelowna to 140 000. The trap is picking the biggest number in the table — a headline saying 'nearly 100 000' means just under 100 000, not more."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.CONTEXT",
+    "level": 3,
+    "question": "A science display at the Vancouver aquarium says a blue whale has a mass of about 150 000 kg. Ravi's Grade 6 class has 25 students with an average mass of 40 kg. About how many classes like Ravi's would it take to equal the mass of one blue whale?",
+    "options": [
+     "about 15 classes",
+     "about 150 classes",
+     "about 1 500 classes",
+     "about 3 750 classes"
+    ],
+    "answerIndex": 1,
+    "explain": "Two steps: first find the mass of one class, 25 × 40 = 1 000 kg, then divide, 150 000 ÷ 1 000 = 150 classes. The most common mistake is dividing 150 000 by 40 to get 3 750, which answers a different question — that is the number of students, not the number of classes."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 3,
+    "question": "Snow depth was measured on four days at Whistler: Monday 1.375 m, Tuesday 1.4 m, Wednesday 1.29 m, Thursday 1.058 m. Ravi says Monday was deepest because 1.375 has the most digits. Which list orders the depths correctly from deepest to shallowest?",
+    "options": [
+     "1.375 m, 1.4 m, 1.29 m, 1.058 m",
+     "1.375 m, 1.058 m, 1.29 m, 1.4 m",
+     "1.4 m, 1.375 m, 1.29 m, 1.058 m",
+     "1.058 m, 1.29 m, 1.375 m, 1.4 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Give every number the same number of decimal places first — 1.400, 1.375, 1.290, 1.058 — then compare place by place, so 1.4 m is the deepest. Ravi has fallen for the most common decimal trap: more digits does not mean a bigger number, because 1.4 m is the same as 1.400 m."
+   }
+  ]
+ }
+}

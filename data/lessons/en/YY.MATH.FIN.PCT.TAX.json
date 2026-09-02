@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PCT.TAX",
+ "lang": "en",
+ "title": "Calculate sales tax (GST/PST) and the total with tax",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Adding Sales Tax in BC",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a discount off a price — you find the percent and subtract it. Sales tax works almost the same way, except at the till in British Columbia the tax gets added on, so today we learn how to find the tax and the real price you pay.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "In B C there are two taxes on most things you buy: G S T is five percent and P S T is seven percent. Think of a price as one hundred pennies. G S T takes five of those pennies, P S T takes seven more, so together tax is twelve pennies for every hundred — twelve percent. A few special things skip a tax — basic groceries have no tax at all, and things like books and kids' clothing charge only G S T — but for the everyday goods in this lesson, both taxes apply. So the key number is: five plus seven equals twelve.",
+    "math": "5\\% + 7\\% = 12\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      5,
+      7
+     ],
+     "labels": [],
+     "caption": "Out of 100: 5 squares GST + 7 squares PST = 12% tax"
+    }
+   },
+   {
+    "say": "Let us buy a skateboard at the sports store for forty dollars. G S T is five percent of forty, and five percent means five hundredths, so zero point zero five times forty equals two dollars. P S T is seven percent of forty, so zero point zero seven times forty equals two dollars and eighty cents. Add the two taxes: two plus two dollars eighty is four dollars and eighty cents of tax.",
+    "math": "0.05\\times 40=2.00\\qquad 0.07\\times 40=2.80",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      2,
+      2.8
+     ],
+     "labels": [
+      "Price $40",
+      "GST $2.00",
+      "PST $2.80"
+     ],
+     "caption": "The two taxes are extra bars sitting beside the price"
+    }
+   },
+   {
+    "say": "Now the last step: the tax gets added onto the price, never taken off. Forty dollars plus four dollars eighty is forty four dollars and eighty cents. Here is the mistake to watch for — some people subtract and get thirty five dollars and twenty cents. But think about it: nothing at the cash register ever costs less because of tax. If your total came out smaller than the sticker price, you subtracted when you should have added.",
+    "math": "40.00+4.80=44.80",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      35,
+      50,
+      40,
+      44.8
+     ],
+     "labels": [],
+     "caption": "The arrow jumps up from $40 to $44.80 — tax always moves you right"
+    }
+   },
+   {
+    "say": "Here is a nice shortcut you can check yourself with. Since the two taxes together are twelve percent, you can do zero point one two times forty in one shot, which is four dollars eighty — exactly the tax we found. Same answer, fewer steps.",
+    "math": "0.12\\times 40=4.80\\;\\Rightarrow\\;40+4.80=44.80",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      4.8,
+      44.8
+     ],
+     "labels": [
+      "Price",
+      "Tax 12%",
+      "Total"
+     ],
+     "caption": "Price + tax = total you actually pay"
+    }
+   },
+   {
+    "say": "So for everyday goods that charge both taxes, the rule is short and easy to remember: find twelve percent of the price, then add it on. Tax makes the total go up, always.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "On most goods in B.C., tax = 5% GST + 7% PST = 12% of the price — then ADD it on, so the total is always bigger than the sticker price.",
+  "practice": {
+   "question": "You are buying a basketball at a sports store in Kelowna. The sticker price is twenty five dollars. G S T is five percent and P S T is seven percent. Find the G S T, find the P S T, then find the total amount you pay at the till.",
+   "answer": "GST: 0.05 × 25 = $1.25. PST: 0.07 × 25 = $1.75. Total tax = $1.25 + $1.75 = $3.00 (check: 0.12 × 25 = $3.00). Total paid = $25.00 + $3.00 = $28.00."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 4
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.COMPARE_TH_EXP",
+ "lang": "en",
+ "title": "Compare experimental results with theoretical expectation and explain the difference",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Did the Coin Cheat? Comparing What We Got to What We Expected",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find theoretical probability by listing outcomes, and how to find experimental probability from real trials. Today we learn one new thing: what to say when those two numbers are not the same.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. Theoretical probability tells us what we expect on average, over the long run. Experimental probability tells us what actually happened this one time. Real trials almost never land exactly on the expected number, and that is completely normal.",
+    "math": "",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.5,
+      0.6
+     ],
+     "labels": [
+      "expected heads",
+      "we got heads"
+     ],
+     "caption": "Expected one half, got zero point six. Close, but not identical."
+    }
+   },
+   {
+    "say": "Let us try it. Maya at her school in Kelowna flips a fair loonie ten times. Theoretically, heads has one outcome out of two, so we expect one half, which means about five heads. She actually gets six heads and four tails. So her experimental probability of heads is six out of ten, which is zero point six.",
+    "math": "P_{theory}=\\frac{1}{2}=0.5 \\quad P_{exper}=\\frac{6}{10}=0.6",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      4,
+      5,
+      5
+     ],
+     "labels": [
+      "Heads",
+      "Tails",
+      "actual (10 flips)",
+      "expected"
+     ],
+     "caption": "Maya got 6 heads and 4 tails; we expected 5 and 5."
+    }
+   },
+   {
+    "say": "Now here is the mistake lots of kids make. Maya says, I did not get exactly five heads, so I must have counted wrong, or this loonie is unfair. That is not true. Ten flips is a small number, so being one off from five is very ordinary. Zero point six and zero point five are close neighbours. Nothing is broken.",
+    "math": "0.6-0.5=0.1",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.5,
+      0.6
+     ],
+     "labels": [
+      "theoretical",
+      "experimental"
+     ],
+     "caption": "Only zero point one apart on the likelihood line — a normal wobble."
+    }
+   },
+   {
+    "say": "Here is the other mistake to watch for. Her friend flips only four times, gets three heads, and shouts, this coin is rigged, three out of four is zero point seven five! But four flips is far too few to judge anything. When Maya keeps going to two hundred flips and gets one hundred and three heads, that is zero point five one five — much closer to one half. More trials means the experimental number drifts toward the theoretical one.",
+    "math": "\\frac{3}{4}=0.75 \\quad \\frac{103}{200}=0.515",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.75,
+      0.6,
+      0.515,
+      0.5,
+      0.5,
+      0.5
+     ],
+     "labels": [
+      "4 flips",
+      "10 flips",
+      "200 flips",
+      "experimental",
+      "theoretical"
+     ],
+     "caption": "As trials grow, experimental gets closer to zero point five."
+    }
+   },
+   {
+    "say": "So when you explain a difference, say it like this: the results are close to what we expected, and the small gap is just normal chance because we only did a few trials.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Experimental almost never matches theoretical exactly — a small gap is normal chance, and more trials pull it closer.",
+  "practice": {
+   "question": "Liam spins a spinner with four equal sections coloured red, blue, green, and yellow. Make a small table with two rows. In the 'actual' row write his results from twenty spins: red seven, blue four, green five, yellow four. In the 'expected' row write how many of each we expect. Then answer: what is the theoretical probability of red, what is the experimental probability of red, and does getting seven reds mean the spinner is unfair?",
+   "answer": "Expected row: five, five, five, five (because twenty divided by four is five). Theoretical probability of red is one out of four, which is zero point two five. Experimental probability of red is seven out of twenty, which is zero point three five. No, the spinner is not unfair — seven is only two more than the expected five, and twenty spins is a small number of trials, so this gap is normal chance. With many more spins, red would likely settle near zero point two five."
+  }
+ }
+}

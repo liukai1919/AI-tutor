@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.MISSING_SIDE",
+ "lang": "en",
+ "title": "Find a missing side length from the area",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Working Backwards to Find a Missing Side",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that the area of a rectangle is the length times the width. Today we do that same thing backwards: we know the area and one side, and we go hunting for the side that is missing.",
+    "math": "\\text{Area} = \\text{length} \\times \\text{width}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Five times three gives fifteen square centimetres."
+    }
+   },
+   {
+    "say": "Here is the trick. Since area is made by multiplying, we get a side back by dividing. Imagine a flower bed at a Burnaby community garden. It covers forty-eight square metres, and one side measures eight metres. Ask yourself: eight times what number makes forty-eight? Division answers that question for us.",
+    "math": "8 \\times \\square = 48 \\;\\Longrightarrow\\; \\square = 48 \\div 8",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      6,
+      8
+     ],
+     "labels": [],
+     "caption": "Forty-eight square metres, with eight in every row."
+    }
+   },
+   {
+    "say": "So we divide. Forty-eight divided by eight is six, so the missing side is six metres. Now let us be good detectives and check it: six times eight is forty-eight square metres. It matches, so we know we are right.",
+    "math": "48 \\div 8 = 6 \\quad \\text{and} \\quad 8 \\times 6 = 48",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Eight metres by six metres — area forty-eight square metres."
+    }
+   },
+   {
+    "say": "Watch out for one sneaky mistake. Some people subtract and say forty-eight take away eight is forty, so the side must be forty metres. Let us test that. Eight times forty is three hundred twenty square metres — that is a giant field, way bigger than our flower bed! Subtracting cannot undo multiplying. Only dividing can.",
+    "math": "8 \\times 40 = 320 \\neq 48",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      40
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Eight by forty would be three hundred twenty square metres — much too big."
+    }
+   },
+   {
+    "say": "So whenever a side is missing, take the area, divide by the side you know, and then multiply your answer back to make sure it fits.",
+    "math": "\\text{missing side} = \\text{Area} \\div \\text{known side}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Area divided by the side you know gives the side you are missing — then multiply back to check.",
+  "practice": {
+   "question": "A rectangular vegetable patch in a Victoria backyard has an area of sixty-three square metres. One side of it is nine metres long. How long is the other side? Draw the rectangle yourself and label the side you know.",
+   "answer": "Seven metres, because sixty-three divided by nine is seven — and checking, nine times seven is sixty-three square metres."
+  }
+ }
+}

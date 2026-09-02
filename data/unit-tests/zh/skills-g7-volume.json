@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "volume",
+ "lang": "zh",
+ "unitName": {
+  "zh": "体积",
+  "en": "Volume"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "体积 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+    "level": 1,
+    "question": "一个直棱柱（right prism）的底面积是 24 cm²，高是 5 cm。它的体积是多少？",
+    "options": [
+     "29 cm³",
+     "60 cm³",
+     "120 cm³",
+     "240 cm³"
+    ],
+    "answerIndex": 2,
+    "explain": "任何直棱柱的体积都是「底面积 × 高」，所以 24 × 5 = 120 cm³。坑：看到两个数就想加（24 + 5 = 29），或者以为要像三角形那样再除以 2——底面积已经算好了，直接乘高就行。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 1,
+    "question": "一个圆柱形笔筒，底面半径（radius）r = 3 cm，高 h = 10 cm。取 π ≈ 3.14，它的体积是多少？",
+    "options": [
+     "188.4 cm³",
+     "282.6 cm³",
+     "94.2 cm³",
+     "90 cm³"
+    ],
+    "answerIndex": 1,
+    "explain": "先算底面积 A = π × r × r = 3.14 × 3 × 3 = 28.26 cm²，再乘高：28.26 × 10 = 282.6 cm³。坑：把底面积写成 π × 2r（得 188.4）或漏掉一个 r 只算 π × r × h（得 94.2）——半径一定要乘两次。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 1,
+    "question": "去 Stanley Park 野餐带的水杯，装满水正好是 600 cm³。这些水是多少升（L）？",
+    "options": [
+     "60 L",
+     "6 L",
+     "0.06 L",
+     "0.6 L"
+    ],
+    "answerIndex": 3,
+    "explain": "1 cm³ = 1 mL，所以 600 cm³ = 600 mL；再用 1000 mL = 1 L，600 ÷ 1000 = 0.6 L。坑：换算时小数点挪错位——从 mL 到 L 是除以 1000，不是除以 10 或 100。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+    "level": 2,
+    "question": "家里的储物箱是一个直棱柱，底面是 L 形，可以分成 6 cm × 4 cm 和 3 cm × 2 cm 两个长方形，箱子的高是 10 cm。这个箱子的体积是多少？",
+    "options": [
+     "300 cm³",
+     "240 cm³",
+     "30 cm³",
+     "60 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "底面是组合图形，先分割再相加：6 × 4 + 3 × 2 = 24 + 6 = 30 cm²，再乘高：30 × 10 = 300 cm³。坑：只算了大长方形那块（240 cm³），或者算完底面积 30 就停手——那是面积（area），还差乘高这一步。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 2,
+    "question": "超市货架上一罐番茄汤是圆柱形，底面直径（diameter）8 cm，高 12 cm。取 π ≈ 3.14，这罐汤的体积约是多少？",
+    "options": [
+     "2411.52 cm³",
+     "301.44 cm³",
+     "602.88 cm³",
+     "150.72 cm³"
+    ],
+    "answerIndex": 2,
+    "explain": "题目给的是直径，先换成半径 r = 8 ÷ 2 = 4 cm，再算 V = 3.14 × 4 × 4 × 12 = 602.88 cm³。坑：直接拿直径 8 当半径算（得 2411.52），或把底面积写成 π × 直径（得 301.44）——看到「直径」先减半。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 2,
+    "question": "一个长方体鱼缸，长 40 cm、宽 25 cm、高 30 cm。装满水的话，能装多少升（L）水？",
+    "options": [
+     "30000 L",
+     "3000 L",
+     "300 L",
+     "30 L"
+    ],
+    "answerIndex": 3,
+    "explain": "先算体积：40 × 25 × 30 = 30000 cm³；再换算容积，1 cm³ = 1 mL，所以是 30000 mL = 30000 ÷ 1000 = 30 L。坑：算出 30000 就直接写成 30000 L——那是毫升数，还要再除以 1000。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 3,
+    "question": "温哥华后院的雨水桶是圆柱形，底面半径 30 cm，桶里的水面高 50 cm。妈妈要用一个 5 L 的浇花壶把水舀出去浇花。取 π ≈ 3.14，这些水最多能装满几壶？",
+    "options": [
+     "29 壶",
+     "28 壶",
+     "141 壶",
+     "282 壶"
+    ],
+    "answerIndex": 1,
+    "explain": "第一步算水的体积：3.14 × 30 × 30 × 50 = 141300 cm³ = 141300 mL = 141.3 L；第二步除以壶的容量：141.3 ÷ 5 = 28.26，最后剩的 0.26 壶装不满，所以只有 28 满壶。坑：把 28.26 四舍五入成 29——问的是「装满几壶」，余下的水不够一壶就不能算。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 3,
+    "question": "两罐薯片都是圆柱形：A 罐的底面半径是 B 罐的 2 倍，而 B 罐的高是 A 罐的 2 倍。关于它们的体积，下面哪句话是对的？",
+    "options": [
+     "A 的体积是 B 的 2 倍",
+     "B 的体积是 A 的 2 倍",
+     "两罐体积一样大",
+     "A 的体积是 B 的 4 倍"
+    ],
+    "answerIndex": 0,
+    "explain": "设 B 的半径 r、高 h，则 B 的体积 = π × r × r × 2h = 2πr²h；A 的半径是 2r、高是 h，体积 = π × 2r × 2r × h = 4πr²h，正好是 B 的 2 倍。坑：以为「一个半径翻倍、一个高翻倍，刚好抵消」——半径在公式里要乘两次，翻倍会让底面积变成 4 倍，高只影响一次。"
+   }
+  ]
+ }
+}

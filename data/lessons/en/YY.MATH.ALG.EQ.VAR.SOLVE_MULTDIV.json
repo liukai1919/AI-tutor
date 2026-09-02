@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.VAR.SOLVE_MULTDIV",
+ "lang": "en",
+ "title": "Solve one-step multiplication and division equations with a variable",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Balancing Both Sides: Times and Divide",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write an equation like six times x equals thirty, and you know that multiplying and dividing undo each other. Today we use that to find x, keeping the scale balanced.",
+    "math": "6 \\times x = 30",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "6 × x",
+      "30"
+     ],
+     "caption": "Both sides weigh the same — the scale is level."
+    }
+   },
+   {
+    "say": "Think of a balance scale at school. On the left side there are six identical bags of blueberries, all weighing x grams each. On the right side is a thirty gram weight. The scale is level, so six times x really does equal thirty.",
+    "math": "6x = 30",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      6,
+      1
+     ],
+     "labels": [],
+     "caption": "Six equal bags, x grams in each, thirty grams altogether."
+    }
+   },
+   {
+    "say": "Here is the one rule: whatever you do to one side, do the very same thing to the other side, or the scale tips. To get one bag by itself, we undo the times six by dividing by six. Divide the left by six, divide the right by six too.",
+    "math": "\\frac{6x}{6} = \\frac{30}{6}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "6x ÷ 6",
+      "30 ÷ 6"
+     ],
+     "caption": "Same move on both sides keeps it level."
+    }
+   },
+   {
+    "say": "On the left, six divided by six is one, so we are left with just x. On the right, thirty divided by six is five. So x equals five. Each bag of blueberries weighs five grams. Let's check: six times five is thirty. It works.",
+    "math": "x = 5 \\quad \\text{check: } 6 \\times 5 = 30",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x = 5",
+      "5"
+     ],
+     "caption": "One bag weighs five grams — still balanced."
+    }
+   },
+   {
+    "say": "Now watch a mistake lots of kids make. For six times x equals thirty, someone writes x equals thirty-six because they see two numbers and just add. But adding never undoes multiplying. Check it: six times thirty-six is two hundred sixteen, way heavier than thirty — the scale crashes down on the left. The undo for times is always divide.",
+    "math": "6 \\times 36 = 216 \\neq 30",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "6 × 36 = 216",
+      "30"
+     ],
+     "caption": "Wrong inverse — the left side is far too heavy."
+    }
+   },
+   {
+    "say": "So always ask, what is happening to x right now? If x is being multiplied, divide both sides. If x is being divided, multiply both sides. Same move, both sides, every time.",
+    "math": "",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "same move",
+      "same move"
+     ],
+     "caption": "Fair to both sides keeps the equation true."
+    }
+   }
+  ],
+  "answer": "Undo times with divide, undo divide with times — and always do it to both sides.",
+  "practice": {
+   "question": "Ms. Yuanyuan buys stickers for her class. She writes the equation eight times n equals forty, where n is the cost of one sticker in cents. Picture a balance scale with eight equal stickers on the left side and a forty cent weight on the right side. What do you do to both sides, and what does n equal?",
+   "answer": "Divide both sides by eight. Eight divided by eight leaves n on the left, and forty divided by eight is five, so n equals five cents. Check: eight times five is forty."
+  }
+ }
+}

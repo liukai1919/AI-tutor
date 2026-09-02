@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.MULTDIV.WORD",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ggjjko3wcyl",
+   "level": 1,
+   "question": "素里一所小学的 5 年级有 26 名学生要去水族馆，每辆面包车最多坐 8 名学生。所有学生都要去，至少需要几辆面包车？",
+   "options": [
+    "4 辆",
+    "3 辆",
+    "5 辆",
+    "2 辆"
+   ],
+   "answerIndex": 0,
+   "explain": "26÷8=3 余 2，坐满 3 辆车后还剩 2 名学生，这 2 个人也得坐车，所以要再加 1 辆，一共 4 辆。最常踩的坑是把余数（remainder）扔掉只答 3 辆，那 2 名学生就被丢在路边了。",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "other",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjkg4jqn8",
+   "level": 1,
+   "question": "列治文一家烘焙店做了 84 个小面包，每袋装 9 个，只有装满的袋子才拿去卖。最后还剩下几个面包没装进袋子？",
+   "options": [
+    "9 个",
+    "3 个",
+    "75 个",
+    "10 个"
+   ],
+   "answerIndex": 1,
+   "explain": "84÷9=9 余 3，能装满 9 袋，余数 3 就是没装进袋子的面包数，所以答案是 3 个。看到「剩」就用 84−9 去减是关键词陷阱；答 9 的人是把商（quotient）当成了剩下的个数。",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "word.keyword_trap",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjk1jojr8",
+   "level": 1,
+   "question": "基隆拿一个班做手工，老师一共有 50 根彩色毛条，每个学生要分到 4 根才够做。最多能分给几个学生？",
+   "options": [
+    "2 个",
+    "13 个",
+    "12 个",
+    "54 个"
+   ],
+   "answerIndex": 2,
+   "explain": "50÷4=12 余 2，只有 12 个学生能拿满 4 根，剩下的 2 根不够再给一个人，所以余数要舍去，答 12 个。答 13 的人错在把不够的余数也算成了一个学生；答 2 的人把余数当成了答案。",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok",
+    "word.keyword_trap"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjkdq8jgl",
+   "level": 1,
+   "question": "妈妈给了阿桃 60 加元买泳镜，一副泳镜 7 加元。她最多能买几副泳镜？还会剩下多少钱？",
+   "options": [
+    "9 副，剩 4 加元",
+    "4 副，剩 8 加元",
+    "8 副，一分不剩",
+    "8 副，剩 4 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "60÷7=8 余 4：商 8 是能买到的副数，余数 4 是剩下的钱，所以是 8 副、剩 4 加元。买东西的题不能进一（钱不够买第 9 副），也不能把商和余数说反成 4 副剩 8 加元。",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjk975lox",
+   "level": 2,
+   "question": "已知 157÷6=26 余 1。如果问题是：157 个鸡蛋，每个盒子装 6 个，至少要几个盒子才能把鸡蛋全部装下？答案是多少？",
+   "options": [
+    "27 个",
+    "1 个",
+    "26 个",
+    "26 个盒子，多出的 1 个鸡蛋不用装"
+   ],
+   "answerIndex": 0,
+   "explain": "装满 26 盒后还余 1 个鸡蛋，这个鸡蛋也要有盒子装，所以余数要进一，答 27 个盒子。这类「全部装下 / 全部坐上」的问题，把余数舍去只答 26 就是最常见的错。",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjk2sayno",
+   "level": 2,
+   "question": "已知 245÷8=30 余 5。下面哪个问题的答案正好是 30？",
+   "options": [
+    "245 名学生去春游，每辆车坐 8 人，至少要几辆车？",
+    "245 颗糖平均分给 8 个小组，每组都要拿到整颗糖，每组最多分几颗？",
+    "一共有 245 颗糖，先拿走 8 颗，还剩多少颗？",
+    "245 颗糖每 8 颗装一袋，装满后还剩几颗糖？"
+   ],
+   "answerIndex": 1,
+   "explain": "平均分且每份要拿整颗时，余数 5 分不下去只能留着，答案就是商 30。车的问题余数要进一得 31，问剩几颗时答案是余数 5，而看到「剩」就用 245−8 去减是被关键词骗了。",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "word.keyword_trap",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjknsi2da",
+   "level": 2,
+   "question": "把 138 支铅笔平均放进 4 个笔筒，每个笔筒放同样多的整支铅笔。最后剩下几支铅笔没放进去？",
+   "options": [
+    "34 支",
+    "35 支",
+    "2 支",
+    "134 支"
+   ],
+   "answerIndex": 2,
+   "explain": "138÷4=34 余 2（4×34=136），每个笔筒放 34 支，余下的 2 支就是答案。问「剩几支」时答案是余数，答 34 的人把商当成了答案，用 138−4 去减则是被「剩」字带偏了。",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok",
+    "word.keyword_trap"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjks665qd",
+   "level": 2,
+   "question": "一根绳子长 200 厘米，每 30 厘米剪一段。能剪出几段完整的绳子？剪完后还剩多少厘米？",
+   "options": [
+    "6 段，剩 2 厘米",
+    "7 段，剩 20 厘米",
+    "20 段，剩 6 厘米",
+    "6 段，剩 20 厘米"
+   ],
+   "answerIndex": 3,
+   "explain": "200÷30=6 余 20（30×6=180），能剪 6 整段，余下的 20 厘米不够再剪一段，所以留着当零头。剩下的 20 厘米不能凑成第 7 段，也别把商和余数写反。",
+   "tags": [
+    "other",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjkb1lz8h",
+   "level": 3,
+   "question": "本拿比一所学校组织参观 Science World，去的有 96 名学生和 4 名老师，大家都要坐巴士。每辆巴士最多坐 24 人。至少要几辆巴士？最后一辆巴士上坐几个人？",
+   "options": [
+    "5 辆，最后一辆坐 4 人",
+    "4 辆，最后一辆坐 24 人",
+    "5 辆，最后一辆坐 24 人",
+    "4 辆，剩下的 4 人就不用坐车了"
+   ],
+   "answerIndex": 0,
+   "explain": "先算总人数 96+4=100，再算 100÷24=4 余 4，坐满 4 辆后还有 4 人，所以要 5 辆，最后一辆只坐 4 人。忘记加上老师就会得到 96÷24=4 辆刚好；把余下的 4 人舍去更是把人漏掉了。",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "other",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjk3p95pc",
+   "level": 3,
+   "question": "惠斯勒一个滑雪社团卖蛋糕筹到 320 加元，又收到 180 加元捐款，全部用来买头盔。一个头盔 38 加元。他们最多能买几个头盔？买完后还剩多少钱？",
+   "options": [
+    "14 个，剩 6 加元",
+    "13 个，剩 6 加元",
+    "12 个，剩 44 加元",
+    "13 个，正好用完"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 320+180=500 加元，再算 500÷38=13 余 6（38×13=494），所以买 13 个头盔、剩 6 加元。剩下的 6 加元不够再买一个，所以绝对不能进一答 14 个。",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "other",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjkkr5vwl",
+   "level": 3,
+   "question": "题目是：149 名学生参加考试，每个考场最多坐 20 人，至少要准备几个考场？三个同学都算出了 149÷20=7 余 9，但结论不同。谁的说法是对的？",
+   "options": [
+    "小艾对：商是 7，所以 7 个考场就够了",
+    "小城对：余数是 9，所以要 9 个考场",
+    "小北对：余下的 9 人也需要地方坐，所以要 8 个考场",
+    "小艾对：余下的 9 人可以坐在走廊，所以 7 个考场"
+   ],
+   "answerIndex": 2,
+   "explain": "7 个考场只能装下 140 人，余下的 9 人也必须有考场，所以余数要进一，答案是 8 个考场。这类「至少要几个」的题，把余数舍去或直接把余数 9 当成答案都是最常见的错。",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5ggjjkhsjiah",
+   "level": 3,
+   "question": "维多利亚一个班办义卖，一共烤了 6 盘饼干，每盘 24 块。他们把饼干装袋，每袋装 5 块，只有装满的袋子才拿去卖。一共能装满多少袋？还剩下多少块饼干？",
+   "options": [
+    "28 袋，正好装完",
+    "29 袋，剩 4 块",
+    "6 袋，正好装完",
+    "28 袋，剩 4 块"
+   ],
+   "answerIndex": 3,
+   "explain": "先算饼干总数 6×24=144 块，再算 144÷5=28 余 4，能装满 28 袋，余下的 4 块不够装一袋，就是剩下的。看到「一共」就把 6 和 24 加起来是关键词陷阱；余下的 4 块也不能凑成第 29 袋。",
+   "tags": [
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "word.keyword_trap",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.DIV.2D3D_BY_1D",
+ "lang": "en",
+ "title": "Divide 2- and 3-digit numbers by 1-digit numbers (repeated subtraction, partial quotients)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Chunks Make Division Easy",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that dividing means making equal groups. But when the number is big, like eighty-four dollars shared into groups of six, counting one group at a time takes forever. So today we take away big chunks of six all at once.",
+    "math": "84 \\div 6 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Instead of taking away one six at a time, take away ten sixes in one big chunk. Ten sixes is sixty. So from eighty-four we subtract sixty, and that leaves twenty-four. We just handled ten groups in a single move.",
+    "math": "84 - 60 = 24 \\quad (10 \\text{ groups})",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      10,
+      6
+     ],
+     "labels": [],
+     "caption": "Ten groups of six is sixty — one big chunk taken away"
+    }
+   },
+   {
+    "say": "Now look at what is left over: twenty-four dollars. How many sixes fit in twenty-four? Four sixes, because four times six is twenty-four. Take those away and nothing is left. Zero.",
+    "math": "24 - 24 = 0 \\quad (4 \\text{ groups})",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "Four more groups of six uses up the last twenty-four"
+    }
+   },
+   {
+    "say": "Last step, and it is the important one. We made ten groups first, then four more groups. So we add our chunks together: ten plus four is fourteen. Eighty-four divided by six is fourteen. Let us check it with multiplication: fourteen times six is eighty-four. It works.",
+    "math": "10 + 4 = 14 \\;\\Rightarrow\\; 84 \\div 6 = 14",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      24
+     ],
+     "labels": [
+      "Ten sixes",
+      "Four sixes"
+     ],
+     "caption": "Sixty and twenty-four together make eighty-four"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. They finish the last chunk, see the four, and shout four. But four is only the second chunk of groups. The ten groups from the beginning still count! Always write your chunks down the side and add every one of them at the end.",
+    "math": "\\text{Not } 4 \\quad \\text{but } 10 + 4 = 14",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10,
+      4
+     ],
+     "labels": [
+      "Chunk 1",
+      "Chunk 2"
+     ],
+     "caption": "Both chunks are answers — add them, do not forget the first one"
+    }
+   },
+   {
+    "say": "So remember: take away easy chunks, then add all the chunks together. That is your answer.",
+    "math": "84 \\div 6 = 14",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Subtract easy chunks of groups, then add all the chunks together — that sum is the answer.",
+  "practice": {
+   "question": "Your class in Kamloops raised ninety-two dollars for the animal shelter and wants to share it equally into four groups. Take away a big chunk first: twenty groups of four is eighty dollars. How much money is left, how many more groups of four fit in it, and how many groups do you get altogether? You can draw the groups if it helps.",
+   "answer": "Ninety-two take away eighty leaves twelve dollars. Twelve holds three more groups of four. Twenty groups plus three groups is twenty-three, so ninety-two divided by four is twenty-three dollars in each group. Check: twenty-three times four is ninety-two."
+  }
+ }
+}

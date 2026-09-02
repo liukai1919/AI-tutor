@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+ "lang": "en",
+ "title": "Calculate the volume of a cylinder (π r² × h)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Volume of a Cylinder: Circle Times Height",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know two handy things: the volume of any right prism is the area of the base times the height, and the area of a circle is pi times r squared. Today we just snap those two ideas together so you can find the volume of a cylinder, like the pop can in your lunch bag.",
+    "math": "V = (\\text{base area}) \\times h",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A pop can: radius 3 cm, height 10 cm"
+    }
+   },
+   {
+    "say": "A cylinder is just a prism whose base is a circle. So the base area is pi times r squared, and then we multiply by the height. That gives the formula: volume equals pi times r squared times h. Think of it as a stack of paper circles piled up to the height h.",
+    "math": "V = \\pi r^{2} h",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The base circle, radius 3 cm — its area gets multiplied by the height"
+    }
+   },
+   {
+    "say": "Let us do the can. The radius is three centimetres and the height is ten centimetres. First find the base area: pi times three squared. Three squared is nine, and nine times three point one four is twenty eight point two six square centimetres. Now multiply by the height: twenty eight point two six times ten is two hundred eighty two point six. So the volume is about two hundred eighty two point six cubic centimetres, which is about two hundred eighty three millilitres of pop.",
+    "math": "V = 3.14 \\times 3^{2} \\times 10 = 3.14 \\times 9 \\times 10 = 282.6\\ \\text{cm}^{3}",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Base area 28.26 cm² stacked 10 cm high → 282.6 cm³"
+    }
+   },
+   {
+    "say": "Here are the two traps that catch almost everybody. Trap one: writing pi times two r instead of pi times r squared. If you do that you get three point one four times six, which is eighteen point eight four, and the answer comes out as one hundred eighty eight point four — way too small. Squaring means three times three, not three plus three. Trap two: if the label says the can is six centimetres across, that six is the diameter, so the radius is only three. Cut the diameter in half before you square it.",
+    "math": "\\pi \\times 2r = 18.84\\ \\text{(wrong)} \\quad\\text{vs}\\quad \\pi r^{2} = 28.26\\ \\text{(right)}",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "r = 3 cm is half of the 6 cm across — square the 3, do not double it"
+    }
+   },
+   {
+    "say": "So remember: find the circle, then stack it. Area of the circle first, height second, and always square the radius.",
+    "math": "V = \\pi r^{2} h",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Circle area × height = volume"
+    }
+   }
+  ],
+  "answer": "Volume of a cylinder = area of the circle base times the height: V = π r² h — square the radius, never double it.",
+  "practice": {
+   "question": "Your metal water bottle is a cylinder. The radius of its circular base is 4 centimetres and it is 15 centimetres tall. Using pi as 3.14, what is its volume in cubic centimetres? (Try sketching the cylinder yourself and labelling the radius and the height first.)",
+   "answer": "753.6 cubic centimetres. Base area = 3.14 × 4² = 3.14 × 16 = 50.24 cm², then 50.24 × 15 = 753.6 cm³ — about 750 millilitres of water."
+  }
+ }
+}

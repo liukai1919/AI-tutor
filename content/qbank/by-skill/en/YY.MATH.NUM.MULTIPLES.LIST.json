@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.MULTIPLES.LIST",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt58s9f33a9zwq",
+   "level": 1,
+   "question": "A hundred chart is a grid of 100 squares, in 10 rows of 10, numbered 1 to 100 in order. Sofia starts at 4 and shades every multiple of 4. Which numbers are the first four squares she shades?",
+   "options": [
+    "4, 8, 12, 16",
+    "1, 2, 4, 8",
+    "4, 6, 8, 10",
+    "4, 14, 24, 34"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiples of 4 come from 4 x 1, 4 x 2, 4 x 3, 4 x 4, so you skip-count 4, 8, 12, 16. The common trap is shading 1, 2, 4, 8 — those are the factors of 8, numbers that fit into it, not the multiples you build by multiplying 4.",
+   "tags": [
+    "ok",
+    "factor.multiple_confuse",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f32mg195",
+   "level": 1,
+   "question": "On a hundred chart of 100 squares (10 rows of 10, numbered 1 to 100), Liam shades every multiple of 3 in green and every multiple of 5 in yellow. Some squares end up with both colours. What is the smallest number that gets both colours?",
+   "options": [
+    "30",
+    "15",
+    "1",
+    "8"
+   ],
+   "answerIndex": 1,
+   "explain": "List the two skip-counts: 3, 6, 9, 12, 15 and 5, 10, 15 — the first number in both lists is 15, the least common multiple. The trap is choosing 1, which is a common factor of 3 and 5, not a common multiple; 30 does get both colours but it is not the smallest.",
+   "tags": [
+    "other",
+    "ok",
+    "factor.multiple_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3orirwk",
+   "level": 1,
+   "question": "On a hundred chart of 100 squares (10 rows of 10, numbered 1 to 100), Priya shades every multiple of 6. How many squares does she shade in all?",
+   "options": [
+    "17",
+    "4",
+    "16",
+    "10"
+   ],
+   "answerIndex": 2,
+   "explain": "Count the multiples 6, 12, 18, ... up to 96: since 6 x 16 = 96 and 6 x 17 = 102 is past 100, exactly 16 squares are shaded. The trap is answering 4, which counts the factors of 6 (1, 2, 3 and 6) instead of its multiples.",
+   "tags": [
+    "other",
+    "factor.multiple_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3azl8tv",
+   "level": 1,
+   "question": "On a hundred chart of 100 squares (10 rows of 10, numbered 1 to 100), Noah puts a counter on every multiple of 25. Which list shows exactly the numbers he covers?",
+   "options": [
+    "1, 5, 25",
+    "25, 35, 45, 55",
+    "20, 40, 60, 80, 100",
+    "25, 50, 75, 100"
+   ],
+   "answerIndex": 3,
+   "explain": "Skip-count by 25 from 25 and stop at 100: 25, 50, 75, 100, which is 25 x 1, 25 x 2, 25 x 3 and 25 x 4. The trap is listing 1, 5, 25 — those are the factors of 25, the numbers that divide it, not the multiples you get by multiplying it.",
+   "tags": [
+    "factor.multiple_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt58s9f39d42bc",
+   "level": 2,
+   "question": "Which list shows the first five multiples of 8?",
+   "options": [
+    "8, 16, 24, 32, 40",
+    "1, 2, 4, 8",
+    "8, 18, 28, 38, 48",
+    "8, 16, 24, 30, 36"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply 8 by 1, 2, 3, 4 and 5 to get 8, 16, 24, 32, 40 — each step adds another 8. The trap is writing 1, 2, 4, 8, which are the factors of 8 (numbers that divide into it) rather than its multiples.",
+   "tags": [
+    "ok",
+    "factor.multiple_confuse",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3nkq2c5",
+   "level": 2,
+   "question": "What is the least common multiple (LCM) of 4 and 6?",
+   "options": [
+    "2",
+    "12",
+    "24",
+    "10"
+   ],
+   "answerIndex": 1,
+   "explain": "Write both lists — 4, 8, 12, 16 and 6, 12, 18 — and take the first number that appears in both, which is 12. The trap is answering 2: that is the greatest common factor, the biggest number that divides both, not the smallest number both divide into.",
+   "tags": [
+    "factor.multiple_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3rkt11e",
+   "level": 2,
+   "question": "At a bus loop in Surrey, one bus leaves every 6 minutes and a community shuttle leaves every 9 minutes. They both leave together at 8:00 a.m. At what time do they next leave together?",
+   "options": [
+    "8:03 a.m.",
+    "8:15 a.m.",
+    "8:18 a.m.",
+    "8:54 a.m."
+   ],
+   "answerIndex": 2,
+   "explain": "List the departure times as multiples: 6, 12, 18, 24 minutes and 9, 18, 27 minutes — the first shared time is 18 minutes after 8:00, so 8:18 a.m. The trap is using 3 minutes, the greatest common factor of 6 and 9, instead of the least common multiple.",
+   "tags": [
+    "factor.multiple_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3iz7bfq",
+   "level": 2,
+   "question": "Which of these numbers is a common multiple of 5 and 8?",
+   "options": [
+    "20",
+    "1",
+    "24",
+    "40"
+   ],
+   "answerIndex": 3,
+   "explain": "A common multiple must appear in both skip-counts: 5, 10, ... 40 and 8, 16, 24, 32, 40, so 40 works. The trap is picking 1, which is a common factor of 5 and 8, or picking a number like 24 that is only in the multiples-of-8 list.",
+   "tags": [
+    "other",
+    "factor.multiple_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt58s9f31hbyew",
+   "level": 3,
+   "question": "Ravi is comparing 12 and 24. He says that 12 is a multiple of 24. Which statement is correct?",
+   "options": [
+    "12 is a multiple of 24, because 24 ÷ 2 = 12",
+    "Neither number is a multiple of the other",
+    "24 is a multiple of 12, because 12 x 2 = 24",
+    "12 and 24 are each multiples of each other"
+   ],
+   "answerIndex": 2,
+   "explain": "A multiple of 12 is what you get when you multiply 12 by a whole number, and 12 x 2 = 24, so 24 is the multiple and 12 is the factor. The trap is flipping them: because 24 can be split into 12s, children often say the smaller number is the multiple, but multiples of a number are always that size or bigger.",
+   "tags": [
+    "factor.multiple_confuse",
+    "other",
+    "ok",
+    "factor.multiple_confuse"
+   ]
+  },
+  {
+   "qid": "qmt58s9f348ngg6",
+   "level": 3,
+   "question": "On a camp trip near Squamish, granola bars come in packs of 8 and juice boxes come in packs of 12. The leader wants the same number of bars and juice boxes, with none left over, using the smallest number possible. How many packs of granola bars does she buy?",
+   "options": [
+    "2 packs",
+    "3 packs",
+    "4 packs",
+    "24 packs"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the least common multiple of 8 and 12 by listing 8, 16, 24 and 12, 24, which gives 24 items; then divide 24 ÷ 8 = 3 packs of bars (and 24 ÷ 12 = 2 packs of juice). The trap is answering 4, the greatest common factor of 8 and 12, or forgetting the second step and giving 24, the total number of items.",
+   "tags": [
+    "other",
+    "ok",
+    "factor.multiple_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f37nddy2",
+   "level": 3,
+   "question": "At a pool in Kelowna, one lifeguard checks the deep end every 10 minutes and another checks it every 15 minutes. They both check at 2:00 p.m. Counting the times after 2:00 p.m. up to and including 3:00 p.m., how many times do they check together?",
+   "options": [
+    "5 times",
+    "1 time",
+    "2 times",
+    "4 times"
+   ],
+   "answerIndex": 2,
+   "explain": "The shared checks happen at common multiples of 10 and 15, and the least common multiple is 30, so they meet every 30 minutes: 2:30 and 3:00, which is 2 times. The trap is using 5, the greatest common factor of 10 and 15, instead of finding the least common multiple.",
+   "tags": [
+    "factor.multiple_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt58s9f3gp6imx",
+   "level": 3,
+   "question": "Jess was asked to write a common multiple of 6 and 9. She wrote 3. What is the best description of her work?",
+   "options": [
+    "Nothing is wrong — 3 works because 3 fits into both 6 and 9, which is what common means",
+    "She should have written 1, the smallest number that fits into both 6 and 9 with nothing left",
+    "She should have added 6 and 9 to get 15, because combining them makes a common multiple",
+    "She gave a common factor instead of a common multiple; the smallest common multiple is 18"
+   ],
+   "answerIndex": 3,
+   "explain": "Numbers that fit into 6 and 9 are common factors, while common multiples come from skip-counting: 6, 12, 18 and 9, 18, so the least common multiple is 18. The trap is that both jobs use the same pair of numbers, so check the direction — factors are smaller than or equal to the number, multiples are equal or bigger.",
+   "tags": [
+    "factor.multiple_confuse",
+    "factor.multiple_confuse",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

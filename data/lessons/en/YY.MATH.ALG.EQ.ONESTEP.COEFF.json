@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+ "lang": "en",
+ "title": "Solve one-step equations with a coefficient (3x = 12)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Undo the Times: Solving 3x = 12",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to keep an equation balanced by doing the same thing to both sides. Today we use that one idea on equations like three x equals twelve, where the x has a number stuck in front of it.",
+    "math": "3x = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3x",
+      "12"
+     ],
+     "caption": "Both sides weigh the same, so the scale is level."
+    }
+   },
+   {
+    "say": "Here is the secret. Three x does not mean three plus x. It means three groups of x. So the left pan is holding three equal mystery bags, and together they weigh the same as twelve dollars on the right pan.",
+    "math": "3x = x + x + x",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      1
+     ],
+     "labels": [
+      "three bags of x"
+     ],
+     "caption": "Three equal bags of x on the left pan."
+    }
+   },
+   {
+    "say": "To find one bag, we share the twelve dollars fairly among the three bags. Sharing means dividing. And to keep the scale level, we divide both sides by three: three x divided by three leaves one x, and twelve divided by three is four. So x equals four.",
+    "math": "\\frac{3x}{3} = \\frac{12}{3} \\quad\\Rightarrow\\quad x = 4",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "each bag holds 4"
+     ],
+     "caption": "Twelve shared into three equal bags: four each."
+    }
+   },
+   {
+    "say": "Let us check that it really balances. If x is four, then three x is three times four, which is twelve. Twelve on the left, twelve on the right. The scale stays perfectly level, so four is correct.",
+    "math": "3 \\times 4 = 12 \\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "3 × 4 = 12",
+      "12"
+     ],
+     "caption": "Checked: the scale is still level."
+    }
+   },
+   {
+    "say": "Now two mistakes to watch for. Some kids subtract the three and write x equals nine, but three x is not three plus x, so subtracting does not undo it. And some kids divide only the right side and write x equals twelve. That tips the scale over, because whatever you do to one side you must do to the other.",
+    "math": "3x = 12 \\;\\Rightarrow\\; x \\neq 9,\\; x \\neq 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "3 × 12 = 36",
+      "12"
+     ],
+     "caption": "If x were 12, the left pan would crash down. Not balanced!"
+    }
+   },
+   {
+    "say": "So whenever a number is multiplying your x, divide both sides by that number, and always check by putting your answer back in.",
+    "math": "3x = 12 \\;\\Rightarrow\\; x = 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x = 4",
+      "4"
+     ],
+     "caption": "One bag holds four dollars."
+    }
+   }
+  ],
+  "answer": "A number multiplying x is undone by dividing — divide BOTH sides by it: 3x = 12 becomes x = 4.",
+  "practice": {
+   "question": "Nadia buys five identical water bottles at the shop in Kelowna, and the total is thirty five dollars. Call the price of one bottle x. Picture a balance scale with five equal bottles on the left pan and thirty five dollars on the right pan — draw it if you like. Write the equation and solve it: what does one bottle cost?",
+   "answer": "The equation is five x equals thirty five. Divide both sides by five: x equals seven. One bottle costs seven dollars. Check: five times seven is thirty five, so the scale balances."
+  }
+ }
+}

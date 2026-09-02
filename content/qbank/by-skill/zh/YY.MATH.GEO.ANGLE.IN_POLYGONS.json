@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.ANGLE.IN_POLYGONS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ptrbf5ndp5k",
+   "level": 1,
+   "question": "一个三角形的三个内角中，有两个角分别是 55° 和 65°。第三个角是多少度？",
+   "options": [
+    "60°",
+    "120°",
+    "240°",
+    "65°"
+   ],
+   "answerIndex": 0,
+   "explain": "三角形三个内角的和是 180°，所以第三个角 = 180° − 55° − 65° = 60°。常见的坑是把两个角加起来就写成 120°，那只是已知两角的和，不是答案。",
+   "tags": [
+    "ok",
+    "angle.sum_not_subtracted",
+    "angle.sum_180_360_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbf7lp9ym",
+   "level": 1,
+   "question": "一个直角三角形里有一个直角（right angle），另外一个锐角（acute angle）是 35°。剩下那个锐角是多少度？",
+   "options": [
+    "145°",
+    "55°",
+    "235°",
+    "45°"
+   ],
+   "answerIndex": 1,
+   "explain": "直角本身就是 90°，所以剩下的角 = 180° − 90° − 35° = 55°。最容易踩的坑是忘了把那个 90° 也减掉，只算 180° − 35°，写成 145° 的那个就是这样来的。",
+   "tags": [
+    "angle.subtract_one_only",
+    "ok",
+    "angle.sum_180_360_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfljkdde",
+   "level": 1,
+   "question": "一个等腰三角形的顶角是 40°，另外两个底角一样大。每个底角是多少度？",
+   "options": [
+    "20°",
+    "140°",
+    "70°",
+    "100°"
+   ],
+   "answerIndex": 2,
+   "explain": "先求两个底角的总和：180° − 40° = 140°，因为两个底角相等，再平分：140° ÷ 2 = 70°。写成 140° 的那个是忘了平分，写成 20° 的那个是错把顶角 40 除以了 2。",
+   "tags": [
+    "other",
+    "angle.equal_pair_not_halved",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfxge256",
+   "level": 1,
+   "question": "一个三角形的三个内角分别是 x°、73° 和 41°。列出方程（equation）x + 73 + 41 = 180 后，x 是多少？",
+   "options": [
+    "246°",
+    "114°",
+    "32°",
+    "66°"
+   ],
+   "answerIndex": 3,
+   "explain": "73 + 41 = 114，所以 x = 180 − 114 = 66。写成 246 的那个是把 180 换成了 360，360 是四边形的内角和，不是三角形的。",
+   "tags": [
+    "angle.sum_180_360_confuse",
+    "angle.sum_not_subtracted",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfloevxt",
+   "level": 2,
+   "question": "一个四边形（quadrilateral）的四个内角分别是 95°、80°、110° 和 x°。x 是多少度？",
+   "options": [
+    "75°",
+    "285°",
+    "65°",
+    "85°"
+   ],
+   "answerIndex": 0,
+   "explain": "四边形四个内角的和是 360°：95 + 80 + 110 = 285，所以 x = 360 − 285 = 75。写成 285 的那个只是前三个角的和，还没减；加法一步算错（比如算成 295）就会得到 65。",
+   "tags": [
+    "ok",
+    "angle.sum_not_subtracted",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfer29w7",
+   "level": 2,
+   "question": "一个四边形有三个角都是 85°，第四个角是多少度？",
+   "options": [
+    "90°",
+    "105°",
+    "120°",
+    "255°"
+   ],
+   "answerIndex": 1,
+   "explain": "三个 85° 合起来是 85 × 3 = 255°，所以第四个角 = 360° − 255° = 105°。写成 90° 的那个是误以为四边形每个角都必须是直角，只有长方形才这样。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "angle.sum_not_subtracted"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfsh3eur",
+   "level": 2,
+   "question": "一个四边形的四个内角是 x°、x°、100° 和 140°，其中两个角一样大。x 是多少度？",
+   "options": [
+    "30°",
+    "120°",
+    "60°",
+    "110°"
+   ],
+   "answerIndex": 2,
+   "explain": "x + x + 100 + 140 = 360，所以 2x = 360 − 240 = 120，x = 120 ÷ 2 = 60。写成 120 的那个是算到两个角的和就停下来了，忘了它还要平分给两个角。",
+   "tags": [
+    "other",
+    "angle.equal_pair_not_halved",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfanzf9g",
+   "level": 2,
+   "question": "一个四边形里有两个直角，还有一个角是 65°。最后一个角是多少度？",
+   "options": [
+    "130°",
+    "205°",
+    "25°",
+    "115°"
+   ],
+   "answerIndex": 3,
+   "explain": "两个直角合起来是 90 + 90 = 180°，所以最后一个角 = 360° − 180° − 65° = 115°。写成 205 的那个是只减了一个 90°，漏掉了另一个直角。",
+   "tags": [
+    "other",
+    "angle.subtract_one_only",
+    "angle.sum_180_360_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfgru1fn",
+   "level": 3,
+   "question": "Emma 在 Stanley Park 做一个三角形的风筝面。风筝最上面那个角量得是 44°，下面两个角她要做得一样大。下面每个角应该是多少度？",
+   "options": [
+    "68°",
+    "22°",
+    "136°",
+    "158°"
+   ],
+   "answerIndex": 0,
+   "explain": "先算下面两个角的总和：180° − 44° = 136°，两个角相等所以再平分：136° ÷ 2 = 68°。写成 136° 的那个是忘了平分，写成 22° 的那个是错把 44 除以了 2。",
+   "tags": [
+    "ok",
+    "other",
+    "angle.equal_pair_not_halved",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfomui8u",
+   "level": 3,
+   "question": "Richmond 一块四边形的花坛，工人量出其中三个角是 88°、107° 和 95°。第四个角是什么角，多少度？",
+   "options": [
+    "直角（90°）",
+    "锐角（70°）",
+    "钝角（165°）",
+    "优角（290°）"
+   ],
+   "answerIndex": 1,
+   "explain": "88 + 107 + 95 = 290，第四个角 = 360° − 290° = 70°，70° 小于 90°，所以是锐角（acute angle）。写成 290° 的那个是把三个角的和当成了答案；写成 165° 的那个是漏减了 95°。",
+   "tags": [
+    "other",
+    "ok",
+    "angle.subtract_one_only",
+    "angle.sum_not_subtracted"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfri1fzp",
+   "level": 3,
+   "question": "课上 Jayden 说：一个三角形里可以有两个钝角（obtuse angle）。下面哪种说法是对的？",
+   "options": [
+    "可以，只要第三个角足够小就行",
+    "可以，因为三角形的内角和是 360°",
+    "不能，因为两个钝角加起来已经超过 180°，第三个角就放不下了",
+    "不能，因为三角形必须有一个直角（right angle）"
+   ],
+   "answerIndex": 2,
+   "explain": "钝角每个都大于 90°，两个钝角加起来就已经超过 180°，而三角形三个角合起来正好是 180°，所以不可能。说三角形内角和是 360° 的那个把四边形的和记错到三角形上了；三角形也不是非要有直角。",
+   "tags": [
+    "other",
+    "angle.sum_180_360_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ptrbfxer77a",
+   "level": 3,
+   "question": "Liam 在家里钉一个四边形相框，用量角器（protractor）量出四个角是 88°、92°、95° 和 90°。用内角和检查，他量得对不对？",
+   "options": [
+    "量得没问题，正好是 360°",
+    "错了，四个角的和多了 185°",
+    "错了，四个角的和少了 5°",
+    "错了，四个角的和多了 5°"
+   ],
+   "answerIndex": 3,
+   "explain": "88 + 92 + 95 + 90 = 365，四边形应该是 360°，365 − 360 = 5，所以多了 5°，说明至少有一个角量错了。写成多了 185° 的那个是拿三角形的 180° 去检查四边形。",
+   "tags": [
+    "other",
+    "angle.sum_180_360_confuse",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,147 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.GEO.02",
+ "lang": "en",
+ "title": "Pythagorean theorem",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "The Pythagorean Theorem – Finding That Diagonal",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're at a park in Surrey, and there's a rectangular pond. It's six metres long and eight metres wide. Your friend says, 'Let's just cut straight across diagonally to save time.' But how far do you actually walk across? That's the question we're cracking today, and the tool we use is called the Pythagorean Theorem. Don't let the fancy name scare you — the idea behind it is super clean.",
+    "math": "",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      6,
+      8
+     ],
+     "labels": [
+      "6 m",
+      "8 m",
+      "? m",
+      ""
+     ],
+     "caption": "Shortcut across the pond – we need the diagonal"
+    }
+   },
+   {
+    "say": "First, let's get comfortable with a right triangle — that's a triangle with one perfect ninety-degree corner. The side along the bottom, we call the base. The side going straight up, we call the height. And the longest side, the one slanting from corner to corner? That's the hypotenuse. It's always the longest, and it's always opposite the right angle. Lock that in.",
+    "math": "",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "base",
+      "height",
+      "hypotenuse",
+      ""
+     ],
+     "caption": "The three sides of a right triangle"
+    }
+   },
+   {
+    "say": "Now, what does it even mean to 'square' a number? It just means you multiply the number by itself. So three squared is three times three, which is nine. Four squared is four times four, which is sixteen. Here's a really neat way to picture it: if you draw a square with side length three, it has exactly nine little unit squares packed inside. That's what 'squared' really looks like on a grid.",
+    "math": "a^2 = a \\times a",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "A 3 by 3 square holds 9 unit squares – that's what '3 squared' means"
+    }
+   },
+   {
+    "say": "And here is the whole theorem, the big idea. In any right triangle, if you take the base, square it, take the height, square it, and add those two results together, you get the hypotenuse squared. That's it. That's the whole thing. a squared plus b squared equals c squared. It works for every single right triangle you will ever see, no matter how big or small.",
+    "math": "a^2 + b^2 = c^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "a",
+      "b",
+      "c",
+      ""
+     ],
+     "caption": "a² + b² = c² for every right triangle"
+    }
+   },
+   {
+    "say": "Let's try one together. You've got a right triangle. The base is three metres, the height is four metres. What's the hypotenuse? Plug it in: three squared is nine, four squared is sixteen. Nine plus sixteen is twenty-five. So c squared equals twenty-five. Now, what number, when you multiply it by itself, gives twenty-five? That's five. The hypotenuse is five metres. Beautiful. That's the famous three-four-five triangle you'll see over and over.",
+    "math": "3^2 + 4^2 = c^2 \\implies 9 + 16 = c^2 \\implies c^2 = 25 \\implies c = 5",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "3 m",
+      "4 m",
+      "c = 5 m",
+      ""
+     ],
+     "caption": "3² + 4² = 5²  →  the classic 3-4-5 triangle"
+    }
+   },
+   {
+    "say": "Now a slightly more real-world one. You're paddling a canoe across a wide stretch of river in northern BC. The river is twelve metres wide. But the current pushes your canoe five metres downstream while you cross. So your actual path is the hypotenuse. Base is twelve, height is five. Twelve squared is one hundred forty-four. Five squared is twenty-five. One hundred forty-four plus twenty-five is one hundred sixty-nine. The square root of one hundred sixty-nine is thirteen. So your canoe actually travels thirteen metres. You thought you crossed twelve, but you really went thirteen metres diagonally.",
+    "math": "12^2 + 5^2 = c^2 \\implies 144 + 25 = c^2 \\implies c^2 = 169 \\implies c = 13",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      12,
+      5
+     ],
+     "labels": [
+      "12 m (river)",
+      "5 m (drift)",
+      "c = 13 m",
+      ""
+     ],
+     "caption": "Canoe path: 12 m wide + 5 m drift = 13 m actual travel"
+    }
+   },
+   {
+    "say": "Here is your one-line takeaway to remember: in every right triangle, the two shorter sides squared and added together always equal the longest side squared. a squared plus b squared equals c squared. And that pond from the start? Six squared plus eight squared is thirty-six plus sixty-four, which is one hundred, and the square root of one hundred is ten. The shortcut across the pond is ten metres. That is the Pythagorean Theorem, and you just learned it. You've got this.",
+    "math": "a^2 + b^2 = c^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      6,
+      8
+     ],
+     "labels": [
+      "6 m",
+      "8 m",
+      "10 m",
+      ""
+     ],
+     "caption": "The pond shortcut: 6² + 8² = 36 + 64 = 100, so the diagonal is 10 m"
+    }
+   }
+  ],
+  "answer": "In any right triangle: a² + b² = c² — the two shorter sides squared, added together, always equal the hypotenuse squared.",
+  "practice": {
+   "question": "Your friend at school measures a rectangular whiteboard in the math room. It is 24 cm wide and 18 cm tall. A cleaning crew wants to know the length of the diagonal so they can order a corner protector. Use the Pythagorean Theorem to find the diagonal in centimetres.",
+   "answer": "24² + 18² = c² → 576 + 324 = c² → c² = 900 → c = 30 cm. The diagonal is 30 cm."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

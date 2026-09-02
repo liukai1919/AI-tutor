@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "sequences",
+ "lang": "en",
+ "unitName": {
+  "zh": "等比数列与级数",
+  "en": "Geometric Sequences & Series"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "Geometric Sequences & Series · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 1,
+    "question": "The geometric sequence 3, 12, 48, 192, … has a common ratio r. What is r?",
+    "options": [
+     "9",
+     "3",
+     "4",
+     "-4"
+    ],
+    "answerIndex": 2,
+    "explain": "Divide any term by the previous term: 12 ÷ 3 = 4. A common trap is subtracting consecutive terms (12 − 3 = 9), which finds the common difference of an arithmetic sequence, not the common ratio."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 1,
+    "question": "Write the general term a_n for a geometric sequence with first term a_1 = 2 and common ratio r = -3.",
+    "options": [
+     "2(-3)^n",
+     "2(-3)^(n-1)",
+     "-3(2)^(n-1)",
+     "2(-3)^(n+1)"
+    ],
+    "answerIndex": 1,
+    "explain": "The general term is a_n = a_1 · r^(n-1), giving a_n = 2(-3)^(n-1). The most common error is writing 2(-3)^n, which shifts the sequence by one term (first term becomes -6 instead of 2)."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 1,
+    "question": "Find the sum of the first four terms of the geometric series with a_1 = 5 and r = 2.",
+    "options": [
+     "80",
+     "155",
+     "25",
+     "75"
+    ],
+    "answerIndex": 3,
+    "explain": "S_4 = 5 + 10 + 20 + 40 = 75, or use S_n = a_1(r^n − 1)/(r − 1) = 5(16 − 1)/1 = 75. A frequent mistake is computing 5 · 2^4 / 1 = 80 by forgetting to subtract 1 in the numerator."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 2,
+    "question": "A petri dish in a school biology lab is counted at the start of each hour. The hour-1 count is 500 bacteria, and the population doubles every hour. How many bacteria are in the hour-6 count?",
+    "options": [
+     "16 000",
+     "32 000",
+     "3 500",
+     "3 000"
+    ],
+    "answerIndex": 0,
+    "explain": "a_n = 500(2)^(n−1); at hour 6, a_6 = 500 × 2^5 = 16 000. The classic trap is using 2^6 instead of 2^5, which gives 32 000 — the off-by-one error in the exponent."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 2,
+    "question": "A tennis ball is dropped from a height of 8 m onto the school gym floor. Each bounce reaches 3/4 of its previous height. Find the total vertical distance the ball travels before coming to rest.",
+    "options": [
+     "32 m",
+     "48 m",
+     "56 m",
+     "24 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Total distance = 8 + 2(6 + 4.5 + …) = 8 + 2 × 6/(1 − 3/4) = 8 + 48 = 56 m. The factor of 2 accounts for both the upward bounce and the downward fall; forgetting it gives 32 m."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 2,
+    "question": "Evaluate the sigma notation: the sum from k = 1 to 5 of 3(2)^(k−1).",
+    "options": [
+     "93",
+     "189",
+     "45",
+     "186"
+    ],
+    "answerIndex": 0,
+    "explain": "Expand: 3(1)+3(2)+3(4)+3(8)+3(16) = 3+6+12+24+48 = 93, or use S_5 = 3(2^5−1)/(2−1) = 93. A common error is starting k at 0, adding a sixth term, and getting 189."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 3,
+    "question": "A student evaluates the infinite geometric series 4 + 12 + 36 + 108 + … using the formula S = a/(1−r) and writes S = 4/(1−3) = −2. Which statement correctly identifies the problem?",
+    "options": [
+     "The answer is -2; a negative sum simply means the terms are decreasing in magnitude.",
+     "The correct sum is 4/(1+3) = 1, because the common ratio must be taken as a positive value in the formula.",
+     "The series sums to 4 + 12 + 36 + … = ∞, so the answer is positive infinity.",
+     "The formula is misapplied: since |r| = 3 > 1, the series diverges and has no finite sum."
+    ],
+    "answerIndex": 3,
+    "explain": "The formula S = a/(1−r) is valid only when |r| < 1. Here r = 3, so the partial sums grow without bound and the series diverges. The key trap is plugging in numbers without first checking the convergence condition |r| < 1."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.SEQ.01",
+    "level": 3,
+    "question": "The salmon population in a BC river is modelled by a_n = 2000(0.8)^(n−1), where n = 1 corresponds to the year 2025. In which year does the population first fall below 500?",
+    "options": [
+     "2031",
+     "2032",
+     "2033",
+     "2030"
+    ],
+    "answerIndex": 1,
+    "explain": "Set 2000(0.8)^(n−1) < 500 → (0.8)^(n−1) < 0.25 → (n−1) ln 0.8 < ln 0.25. Because ln 0.8 < 0, dividing flips the inequality: n − 1 > 6.21, so n ≥ 8, which is the year 2032. The critical trap is forgetting to reverse the inequality when dividing by a negative number."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

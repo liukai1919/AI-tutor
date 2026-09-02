@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.VOL.CYLINDER",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5vhojkbn9ifa",
+   "level": 1,
+   "question": "一个圆柱（cylinder）形的汤罐头，底面半径是 4 cm，高是 5 cm。π 取 3.14，这个罐头的体积（volume）是多少？",
+   "options": [
+    "251.2 cm³",
+    "1004.8 cm³",
+    "125.6 cm³",
+    "62.8 cm³"
+   ],
+   "answerIndex": 0,
+   "explain": "先求底面积（base area）：π×4×4=50.24 cm²，再乘高：50.24×5=251.2 cm³。最常见的坑是把底面积写成 π×2×4=25.12，那是把半径乘 2 而不是平方，得到 125.6 就错了。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vhojknvpjxq",
+   "level": 1,
+   "question": "一个圆柱形的纸筒，底面直径是 6 cm，高是 10 cm。π 取 3.14，它的体积是多少？",
+   "options": [
+    "1130.4 cm³",
+    "282.6 cm³",
+    "188.4 cm³",
+    "28.26 cm³"
+   ],
+   "answerIndex": 1,
+   "explain": "直径 6 cm 要先除以 2 得半径 3 cm，底面积 π×3×3=28.26 cm²，再乘高 10 得 282.6 cm³。把 6 直接当半径代进去会得到 1130.4，是最典型的半径直径混用；只写 28.26 则是忘了乘高。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.area_2r",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vhojkny7rse",
+   "level": 1,
+   "question": "一个圆柱形木块，底面半径是 6 cm，高是 4 cm。下面哪个算式能正确算出它的体积？",
+   "options": [
+    "π × 2 × 6 × 4",
+    "π × 12 × 12 × 4",
+    "π × 6 × 6 × 4",
+    "π × 3 × 3 × 4"
+   ],
+   "answerIndex": 2,
+   "explain": "圆柱体积 = 底面积 × 高 = π×r×r×h，半径 6 要自己乘自己，所以是 π×6×6×4。写成 π×2×6×4 的那个把半径乘了 2 而不是平方；把 6 当直径换成 3、或当半径换成 12 的那两个都是半径直径混用。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vhojkx47whd",
+   "level": 1,
+   "question": "一支圆柱形蜡烛，底面半径是 5 cm，高是 6 cm。用 π 表示（不用算成小数），它的体积是多少？",
+   "options": [
+    "60π cm³",
+    "37.5π cm³",
+    "600π cm³",
+    "150π cm³"
+   ],
+   "answerIndex": 3,
+   "explain": "底面积 = π×5×5 = 25π cm²，再乘高 6，得 150π cm³。写成 60π 的那个是把底面积算成 π×2×5=10π，半径没有平方；写成 600π 的那个是把 5 当成了直径去用 10 做半径。",
+   "tags": [
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vhojk35kwhq",
+   "level": 2,
+   "question": "一个圆柱的底面直径是 d，高是 h。下面哪个式子表示它的体积？",
+   "options": [
+    "π × (d÷2) × (d÷2) × h",
+    "π × d × h",
+    "π × d × d × h",
+    "π × (d÷2) × h"
+   ],
+   "answerIndex": 0,
+   "explain": "公式是 π×r×r×h，而 r = d÷2，所以要把 d÷2 自己乘自己再乘 h。直接用 π×d×d×h 是把直径当半径；π×d×h 相当于底面积写成 π×2r，半径没平方；π×(d÷2)×h 则是半径忘了平方。",
+   "tags": [
+    "ok",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vhojkixp9rc",
+   "level": 2,
+   "question": "一个圆柱形储物罐，底面半径是 7 m，高是 2 m。用 π 表示，它的体积是多少？",
+   "options": [
+    "28π m³",
+    "98π m³",
+    "49π m³",
+    "392π m³"
+   ],
+   "answerIndex": 1,
+   "explain": "底面积 = π×7×7 = 49π m²，乘高 2 得 98π m³。得到 28π 的那个把底面积算成 π×2×7；得到 392π 的那个用 14 当半径，是把半径当成了直径的一半在算；只写 49π 是忘了乘高。",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vhojk41fwb0",
+   "level": 2,
+   "question": "温哥华一户人家在后院放了一个圆柱形接雨水的桶，桶内底面半径 20 cm，高 50 cm。π 取 3.14，1 L = 1000 cm³。装满时桶里能接多少升水？",
+   "options": [
+    "251.2 L",
+    "6.28 L",
+    "62.8 L",
+    "62800 L"
+   ],
+   "answerIndex": 2,
+   "explain": "体积 = 3.14×20×20×50 = 62800 cm³，再除以 1000 换成升，得 62.8 L。答 62800 L 的是忘了把 cm³ 换成 L；答 6.28 L 的是底面积用成了 π×2×20，半径没有平方。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vhojk06wdlt",
+   "level": 2,
+   "question": "一个圆柱形茶叶罐，底面直径是 10 cm，高是 7 cm。π 取 3.14，它的体积是多少？",
+   "options": [
+    "2198 cm³",
+    "78.5 cm³",
+    "219.8 cm³",
+    "549.5 cm³"
+   ],
+   "answerIndex": 3,
+   "explain": "半径 = 10÷2 = 5 cm，底面积 π×5×5 = 78.5 cm²，乘高 7 得 549.5 cm³。得到 2198 的那个把直径 10 当成了半径；得到 219.8 的那个把底面积算成 π×2×5；只写 78.5 是忘了乘高。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "circle.area_2r",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vhojkj8kb99",
+   "level": 3,
+   "question": "小美要算一个圆柱形花瓶的体积，花瓶底面半径 5 cm，高 8 cm。她这样写：底面积 = π×2×5 = 31.4 cm²，体积 = 31.4×8 = 251.2 cm³（π 取 3.14）。下面哪种说法是对的？",
+   "options": [
+    "她错在底面积，底面积应该是 π×5×5 = 78.5 cm²，体积是 628 cm³",
+    "她应该把 5 cm 看成直径，用半径 2.5 cm，体积是 157 cm³",
+    "她做得对，底面积就是 π×2×5 = 31.4 cm²，体积 251.2 cm³ 没问题",
+    "她应该把直径 10 cm 代进公式，体积是 2512 cm³"
+   ],
+   "answerIndex": 0,
+   "explain": "圆的面积是 π×r×r，半径要自己乘自己，不是乘 2，所以底面积是 78.5 cm²，体积 78.5×8 = 628 cm³。题目给的 5 cm 已经是半径，不用再折半也不用换成 10 去代。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vhojkhoth1o",
+   "level": 3,
+   "question": "素里一所学校的圆柱形水桶，桶内底面半径 10 cm，高 30 cm。工友把水装到正好一半高的位置。π 取 3.14，桶里现在的水有多少立方厘米？",
+   "options": [
+    "942 cm³",
+    "4710 cm³",
+    "9420 cm³",
+    "18840 cm³"
+   ],
+   "answerIndex": 1,
+   "explain": "先算装满的体积 3.14×10×10×30 = 9420 cm³，水只到一半高，所以是 9420÷2 = 4710 cm³。答 9420 的忘了取一半；答 942 的把底面积算成了 π×2×10，半径没有平方。",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vhojk7f0cg3",
+   "level": 3,
+   "question": "甲圆柱的底面半径是 4 cm，高是 9 cm；乙圆柱的底面直径是 6 cm，高是 16 cm。π 取 3.14，哪个说法正确？",
+   "options": [
+    "乙更大：乙是 1808.64 cm³，甲是 452.16 cm³",
+    "乙更大：甲是 226.08 cm³，乙是 301.44 cm³",
+    "一样大，两个都是 452.16 cm³",
+    "甲更大：甲的底面半径 4 cm 比乙的 3 cm 大"
+   ],
+   "answerIndex": 2,
+   "explain": "甲 = 3.14×4×4×9 = 452.16 cm³；乙的半径是 6÷2 = 3 cm，乙 = 3.14×3×3×16 = 452.16 cm³，两个相等。算成 1808.64 的是把乙的直径 6 当半径；只比半径大小的那个说法忽略了高，底面积小但高更大照样可以一样大。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt7hvb6w0nodyu",
+   "level": 3,
+   "question": "小凯算一个圆柱形笔筒的体积：底面直径 8 cm，高 12 cm。他这样写：底面积 = 3.14×8×8 = 200.96 cm²，体积 = 200.96×12 = 2411.52 cm³（π 取 3.14）。下面哪种说法是对的？",
+   "options": [
+    "他做得对，直径 8 cm 直接代进公式，体积就是 2411.52 cm³，因为公式里的 r 就是圆最宽的那一段长度",
+    "他错在底面积，应该是 π×2×4 = 25.12 cm²，体积是 301.44 cm³，因为半径 4 要先乘 2 再乘 π",
+    "他只要把 2411.52 除以 2，就能得到正确的体积 1205.76 cm³，因为直径是半径的 2 倍，除回去就行",
+    "他把直径当成了半径：半径 8÷2 = 4 cm，底面积 3.14×4×4 = 50.24 cm²，体积 602.88 cm³"
+   ],
+   "answerIndex": 3,
+   "explain": "直径 8 cm 要先除以 2 得半径 4 cm：底面积 = 3.14×4×4 = 50.24 cm²，体积 = 50.24×12 = 602.88 cm³。把直径直接当半径，算出来是正确答案的 4 倍，所以事后除以 2 也救不回来，必须从半径那一步改起；写成 π×2×4 的那个是半径没有平方，是另一种错法。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

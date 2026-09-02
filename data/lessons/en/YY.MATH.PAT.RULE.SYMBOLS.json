@@ -1,0 +1,133 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.RULE.SYMBOLS",
+ "lang": "en",
+ "title": "Write a pattern rule with symbols and a variable (n + 3, 2 × n)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Give the Pattern a Name: Using n",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to say a pattern rule in words, like start at four and add three each time. Today we learn a shortcut way to write that rule with symbols, so we can jump straight to any term without counting up one by one.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a real one. At the Richmond community pool, it costs three dollars for each swim. Look at the table. Swim number one costs three dollars, swim two costs six dollars, swim three costs nine, swim four costs twelve. The cost is always three times the swim number.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      3,
+      6,
+      9,
+      12
+     ],
+     "labels": [
+      "Swim number",
+      "Cost in dollars",
+      "Swim number",
+      "Cost"
+     ],
+     "caption": "Each swim costs 3 dollars"
+    }
+   },
+   {
+    "say": "Instead of writing a new line for every single swim, we use a letter to stand for the swim number. Mathematicians usually pick the letter n. So n means whichever swim number you want. The rule is cost equals two... sorry, cost equals three times n. That little letter holds the spot for any number you choose.",
+    "math": "\\text{cost} = 3 \\times n",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      10,
+      3,
+      6,
+      9,
+      30
+     ],
+     "labels": [
+      "Swim number n",
+      "Cost in dollars",
+      "n",
+      "3 x n"
+     ],
+     "caption": "n stands for any swim number"
+    }
+   },
+   {
+    "say": "Now watch the mistake lots of kids make. Someone asks, what does swim number fifty cost? A friend says, easy, I will add three, then three, then three, all the way up. That works but it takes forever and it is easy to lose count. With our symbol rule we just put fifty in place of n. Three times fifty is one hundred fifty dollars. One step, done.",
+    "math": "3 \\times 50 = 150",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      50,
+      3,
+      6,
+      150
+     ],
+     "labels": [
+      "Swim number n",
+      "Cost in dollars",
+      "n",
+      "3 x n"
+     ],
+     "caption": "Jump straight to n = 50"
+    }
+   },
+   {
+    "say": "Some patterns add instead of multiply. Suppose your library card already has three books on it, and you borrow one more book each week. Week one you have four books, week two five, week three six. The rule here is n plus three, where n is the week number. Check it. Week three gives three plus three, which is six. It matches.",
+    "math": "n + 3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      5,
+      6,
+      7
+     ],
+     "labels": [
+      "Week n",
+      "Books",
+      "n",
+      "n + 3"
+     ],
+     "caption": "Books = n + 3"
+    }
+   },
+   {
+    "say": "So the big idea is this. A letter like n is just a blank spot waiting for a number. Write the rule once with n, then pop in any term number you like.",
+    "math": "n \\rightarrow 3 \\times n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Let n be the term number, write the rule once, like 3 x n or n + 3, then plug any number into n.",
+  "practice": {
+   "question": "A bag of BC apples costs four dollars. Buying one bag costs four dollars, two bags costs eight dollars, three bags costs twelve dollars. Write the rule using the letter n for the number of bags. Then use your rule to find the cost of twenty bags.",
+   "answer": "The rule is cost equals four times n. For twenty bags, four times twenty equals eighty dollars."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5v6ap9mmbnb3",
+   "level": 1,
+   "question": "一个圆形的杯垫，它的直径（diameter）是 10 cm。用 π ≈ 3.14 计算，这个杯垫一圈的长度，也就是圆的周长（circumference），是多少厘米？",
+   "options": [
+    "31.4 cm",
+    "78.5 cm",
+    "15.7 cm",
+    "20 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "周长公式是 C = π × d，直接用直径：3.14 × 10 = 31.4 cm。最容易踩的坑是把直径当成半径先减半算成 15.7，π 要乘的是直径，不是半径。",
+   "tags": [
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9e3xebo",
+   "level": 1,
+   "question": "一个圆形的钟面，直径（diameter）是 6.5 cm。用 π ≈ 3.14 计算，钟面一圈的长度（circumference）是多少厘米？",
+   "options": [
+    "10.205 cm",
+    "20.41 cm",
+    "9.64 cm",
+    "2.041 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "C = π × d = 3.14 × 6.5 = 20.41 cm。常见错误有两个：一是把 6.5 减半成 3.25 再乘 π，得到 10.205；二是把 3.14 和 6.5 相加成 9.64，公式里是乘不是加。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9vfemtw",
+   "level": 1,
+   "question": "一个圆形的饼干模具，半径（radius）是 2.5 cm。用 π ≈ 3.14 计算，模具外沿一圈的长度（circumference）是多少厘米？",
+   "options": [
+    "7.85 cm",
+    "5 cm",
+    "15.7 cm",
+    "19.625 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "半径先翻倍得直径 5 cm，再算 C = 3.14 × 5 = 15.7 cm。写成 7.85 的那个是 3.14 × 2.5，把半径塞进了直径的位置；写成 19.625 的那个算的是面积 π × r × r，不是一圈的长度。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt7hvb6w0fkkec",
+   "level": 1,
+   "question": "一个圆形的披萨（pizza），直径（diameter）是 30 cm。用 π ≈ 3.14 计算，绕披萨最外圈一整圈的长度，也就是圆的周长（circumference），是多少厘米？",
+   "options": [
+    "47.1 cm",
+    "33.14 cm",
+    "9.42 cm",
+    "94.2 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "周长公式是 C = π × d，直接用直径：3.14 × 30 = 94.2 cm。写 47.1 的把 30 先减半当成半径再乘 π——公式里乘的就是直径，不用减半；写 33.14 的把 3.14 和 30 相加了，公式里是乘不是加；写 9.42 的是小数点点错了位——30 cm 宽的披萨一圈应该有九十多厘米，先估一估就能发现不对。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap94k4o8f",
+   "level": 2,
+   "question": "某个圆的半径 r = 9.5 cm。用公式 C = 2 × π × r，π ≈ 3.14，求这个圆的周长（circumference）是多少厘米？",
+   "options": [
+    "29.83 cm",
+    "19 cm",
+    "12.64 cm",
+    "59.66 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "C = 2 × 3.14 × 9.5，先算 2 × 9.5 = 19（就是直径），再 3.14 × 19 = 59.66 cm。写成 29.83 的那个漏掉了乘 2，等于用了 C = π × r；写成 19 的那个只翻了倍却忘了乘 π。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9a2o9vi",
+   "level": 2,
+   "question": "街边一个圆形的井盖，直径（diameter）是 0.8 m。用 π ≈ 3.14 计算，沿井盖边缘走一圈是多少米？",
+   "options": [
+    "2.512 m",
+    "1.256 m",
+    "25.12 m",
+    "0.5024 m"
+   ],
+   "answerIndex": 0,
+   "explain": "C = π × d = 3.14 × 0.8 = 2.512 m。写成 1.256 的那个用了半径 0.4；写成 25.12 的那个小数点点错了位——0.8 不到 1 m，一圈也就两米多，答案大小要先估一估。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9ve7sm3",
+   "level": 2,
+   "question": "一张圆形贴纸的半径（radius）是 15 mm。用 π ≈ 3.14 计算，这张贴纸的周长（circumference）是多少厘米（cm）？",
+   "options": [
+    "4.71 cm",
+    "9.42 cm",
+    "94.2 cm",
+    "0.942 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "直径 = 15 × 2 = 30 mm，C = 3.14 × 30 = 94.2 mm，再换算成厘米：94.2 ÷ 10 = 9.42 cm。写成 94.2 的那个忘了单位换算，写成 4.71 的那个用半径代替了直径。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap97io3zb",
+   "level": 2,
+   "question": "已知某圆的直径 d = 7.2 cm，用公式 C = π × d，π ≈ 3.14 计算周长，结果保留两位小数（decimal），应该是多少？",
+   "options": [
+    "11.30 cm",
+    "2.26 cm",
+    "22.61 cm",
+    "14.4 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "3.14 × 7.2 = 22.608，保留两位小数是 22.61 cm。写成 11.30 的那个先把直径减半成 3.6 再乘 π，直径不需要减半；写成 2.26 的那个是竖式里小数点少移了一位。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap98kets5",
+   "level": 3,
+   "question": "Leo 的自行车前轮直径（diameter）是 66 cm。他在温哥华的滨海步道上骑车，车轮转了整整 10 圈。用 π ≈ 3.14 计算，这 10 圈一共前进了多少米（m）？",
+   "options": [
+    "10.362 m",
+    "207.24 m",
+    "6.6 m",
+    "20.724 m"
+   ],
+   "answerIndex": 3,
+   "explain": "车轮转一圈前进的距离就是周长：3.14 × 66 = 207.24 cm；转 10 圈是 2072.4 cm，换成米是 20.724 m。写成 10.362 的那个把 66 当半径先减半了；写成 6.6 的那个只把直径乘 10，忘了乘 π。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9y7j1yg",
+   "level": 3,
+   "question": "社区公园里有一个圆形花坛，半径（radius）是 3.5 m。园艺队要沿花坛边缘围一圈矮栅栏，栅栏每米 12.50 加元。用 π ≈ 3.14 计算，围完一圈一共要花多少钱？",
+   "options": [
+    "274.75 加元",
+    "87.50 加元",
+    "137.38 加元",
+    "43.75 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先求一圈的长度：直径 = 3.5 × 2 = 7 m，C = 3.14 × 7 = 21.98 m；再算钱：21.98 × 12.5 = 274.75 加元。写成 137.38 的那个用 3.14 × 3.5 算周长，把半径当成了直径，栅栏会少买一半。",
+   "tags": [
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap98ei0ri",
+   "level": 3,
+   "question": "一个圆的半径（radius）是 5 cm，要求周长（circumference），π 取 3.14。Maya 算成 3.14 × 5 = 15.7 cm，Ravi 算成 3.14 × 10 = 31.4 cm。谁做对了？为什么？",
+   "options": [
+    "Maya 对，因为 π 本来就是乘半径的，公式是 C = π × r，5 × 3.14 就是绕一圈。",
+    "Ravi 对，因为公式是 C = π × d，要先把半径 5 cm 翻倍成直径 10 cm 再乘 π。",
+    "Maya 对，因为 5 cm 是从圆心量到边缘的长度，拿它直接乘 π 就是绕一圈的长度，不用翻倍。",
+    "两人都不对，圆的一圈长度要用 C = π × r × r 来算，3.14 × 5 × 5 = 78.5。"
+   ],
+   "answerIndex": 1,
+   "explain": "周长公式来自 C ÷ d ≈ 3.14，所以 π 要乘的是直径：5 × 2 = 10，3.14 × 10 = 31.4 cm。说 C = π × r 的两种说法都少乘了一个 2，算出来只有真实周长的一半；π × r × r 算的是面积，不是一圈的长度。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5v6ap9gqt73f",
+   "level": 3,
+   "question": "学校要给圆柱形旗杆底座缠装饰带。底座是圆形的，直径（diameter）是 1.2 m，装饰带要绕满 3 圈，最后还要多留 0.5 m 用来打结。用 π ≈ 3.14 计算，一共需要多长的装饰带？",
+   "options": [
+    "4.268 m",
+    "6.152 m",
+    "11.804 m",
+    "11.304 m"
+   ],
+   "answerIndex": 2,
+   "explain": "一圈是 3.14 × 1.2 = 3.768 m，3 圈是 11.304 m，再加打结的 0.5 m，共 11.804 m。写成 11.304 的那个忘了加 0.5；写成 6.152 的那个把直径减半当半径用，每圈都少算了一半。",
+   "tags": [
+    "other",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

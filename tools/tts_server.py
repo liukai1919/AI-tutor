@@ -49,11 +49,15 @@ def load_model() -> None:
                 raise FileNotFoundError(f"{label}不存在: {p}")
         sys.path.insert(0, str(repo))
         sys.path.insert(0, str(repo / "third_party/Matcha-TTS"))
-        from cosyvoice.cli.cosyvoice import CosyVoice2
+        # AutoModel 按模型目录里的 cosyvoice{,2,3}.yaml 自动挑类：默认目录仍是
+        # CosyVoice2-0.5B（生产 9880 行为不变）；--model-dir 指到 Fun-CosyVoice3-0.5B
+        # 就是 CosyVoice 3 实例（盲听第二轮用 --port 9881 另起一个，互不干扰）。
+        from cosyvoice.cli.cosyvoice import AutoModel
 
         t0 = time.time()
-        MODEL = CosyVoice2(str(model_dir), load_jit=False, load_trt=False, fp16=False)
-        log(f"模型加载完成 {time.time() - t0:.1f}s")
+        # 只传公共参数：CV2 收 load_jit 而 CV3 不收，好在两边这些可选项默认全是 False
+        MODEL = AutoModel(model_dir=str(model_dir), fp16=False)
+        log(f"模型加载完成 {time.time() - t0:.1f}s（{type(MODEL).__name__}）")
     except Exception as e:  # noqa: BLE001 — 失败原因原样报给 /health
         MODEL_ERR = f"{type(e).__name__}: {e}"
         log(f"模型加载失败 {MODEL_ERR}")
@@ -77,13 +81,27 @@ def synth(req: dict) -> bytes:
     mode = req.get("mode") or "zero_shot"
     speed = float(req.get("speed") or 1.0)
 
+    # CosyVoice 3 的官方调用约定（见仓库 example.py cosyvoice3_example）：文本要带
+    # "You are a helpful assistant.<|endofprompt|>" 前缀——zero_shot 加在参考文本前、
+    # cross_lingual 加在正文前、instruct 并入指令。缺了它 LLM 几乎不产 token，
+    # 下游报 "Kernel size can't be greater than actual input size"（2026-08-23 实测）。
+    # 严格按类型判断，CosyVoice 2（生产 9880）行为不变。
+    is_v3 = type(MODEL).__name__ == "CosyVoice3"
+    v3_prefix = "You are a helpful assistant.<|endofprompt|>"
+
     if mode == "instruct":
         instruct = (req.get("instruct") or {}).get(lang) if isinstance(req.get("instruct"), dict) else req.get("instruct")
         instruct = instruct or "用温柔亲切的语气说这句话。"
+        if is_v3 and "<|endofprompt|>" not in instruct:
+            instruct = "You are a helpful assistant. " + instruct + "<|endofprompt|>"
         gen = MODEL.inference_instruct2(text, instruct, str(ref_audio), stream=False, speed=speed)
     elif lang == ref_lang:
+        if is_v3 and "<|endofprompt|>" not in ref_text:
+            ref_text = v3_prefix + ref_text
         gen = MODEL.inference_zero_shot(text, ref_text, str(ref_audio), stream=False, speed=speed)
     else:
+        if is_v3 and "<|endofprompt|>" not in text:
+            text = v3_prefix + text
         gen = MODEL.inference_cross_lingual(text, str(ref_audio), stream=False, speed=speed)
     chunks = [r["tts_speech"] for r in gen]
     if not chunks:

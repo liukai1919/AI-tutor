@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5qz95fkml3uw",
+   "level": 1,
+   "question": "On a Cartesian plane with an x-axis and a y-axis, a triangle has vertices A(1, 2), B(4, 2) and C(1, 6). Its image has vertices A'(1, -2), B'(4, -2) and C'(1, -6). No picture is needed: every ordered pair is listed here. Which single transformation maps the triangle onto its image?",
+   "options": [
+    "A reflection in the x-axis",
+    "A reflection in the y-axis",
+    "A translation of 4 units down",
+    "A rotation of 90 degrees clockwise about the origin"
+   ],
+   "answerIndex": 0,
+   "explain": "Every x-coordinate stays the same while every y-coordinate changes sign, so the shape flipped over the x-axis. The common trap is choosing a translation of 4 units down: that works for A(1, 2) but sends C(1, 6) to (1, 2), not (1, -6), so it is not the same move for the whole shape.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95f90qsvg",
+   "level": 1,
+   "question": "On a Cartesian plane, a square has vertices P(2, 3), Q(5, 3), R(5, 6) and S(2, 6). Its image has vertices P'(-1, 1), Q'(2, 1), R'(2, 4) and S'(-1, 4). All ordered pairs are given here, so no diagram is required. Which transformation describes this move?",
+   "options": [
+    "A translation of 3 units right and 2 units up",
+    "A translation of 3 units left and 2 units down",
+    "A translation of 2 units left and 3 units down",
+    "A reflection in the y-axis"
+   ],
+   "answerIndex": 1,
+   "explain": "Compare one matching pair: P(2, 3) becomes P'(-1, 1), so x drops by 3 and y drops by 2 — that is 3 left and 2 down, and it works for all four vertices. The usual trap is swapping the two numbers of the ordered pair and saying 2 left and 3 down; the first number always describes the sideways move.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fw4m1w9",
+   "level": 1,
+   "question": "On a Cartesian plane, a triangle has vertices D(2, 1), E(5, 1) and F(2, 3). Its image has vertices D'(-2, -1), E'(-5, -1) and F'(-2, -3). Every ordered pair you need is written here. Which single transformation maps the triangle onto its image?",
+   "options": [
+    "A reflection in the x-axis only",
+    "A reflection in the y-axis only",
+    "A rotation of 180 degrees about the origin",
+    "A translation of 4 units left and 2 units down"
+   ],
+   "answerIndex": 2,
+   "explain": "Both coordinates change sign, (x, y) becomes (-x, -y), which is a half turn about the origin. Watch out for the translation of 4 left and 2 down: it happens to send D(2, 1) to (-2, -1), but it sends E(5, 1) to (1, -1) instead of (-5, -1), so always test more than one vertex.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95f9j4sy5",
+   "level": 1,
+   "question": "On a Cartesian plane, a triangle has vertices K(3, 1), L(6, 1) and M(3, 5). Its image has vertices K'(-1, 3), L'(-1, 6) and M'(-5, 3). All the ordered pairs are stated here, so nothing has to be seen. Which single transformation maps the triangle onto its image?",
+   "options": [
+    "A reflection in the y-axis",
+    "A rotation of 90 degrees clockwise about the origin",
+    "A rotation of 180 degrees about the origin",
+    "A rotation of 90 degrees counter-clockwise about the origin"
+   ],
+   "answerIndex": 3,
+   "explain": "Each point (x, y) becomes (-y, x): K(3, 1) becomes (-1, 3), so the shape turned a quarter turn counter-clockwise about the origin. The most common slip is mixing up the two quarter turns — clockwise would use the rule (x, y) becomes (y, -x) and would send K(3, 1) to (1, -3).",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fzexmh9",
+   "level": 2,
+   "question": "A triangle has vertices A(1, 2), B(3, 2) and C(1, 5). After a sequence of two transformations its image has vertices A'(4, 2), B'(2, 2) and C'(4, 5). Which sequence maps the triangle onto this image?",
+   "options": [
+    "Reflect in the y-axis, then translate 5 units right",
+    "Translate 5 units right, then reflect in the y-axis",
+    "Reflect in the x-axis, then translate 5 units right",
+    "Translate 5 units right, then reflect in the x-axis"
+   ],
+   "answerIndex": 0,
+   "explain": "Reflecting in the y-axis sends A(1, 2) to (-1, 2), and sliding 5 right lands on A'(4, 2); check B and C the same way and they match too. The trap is thinking the order does not matter — sliding 5 right first puts A at (6, 2), and the reflection then throws it out to (-6, 2).",
+   "tags": [
+    "ok",
+    "transform.order_ignored",
+    "other",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fq7o5lc",
+   "level": 2,
+   "question": "In a video game, a boat sprite is drawn on a coordinate grid with corners P(2, 1), Q(4, 1) and R(2, 4). After the player presses one button, the boat appears with corners P'(1, 1), Q'(1, -1) and R'(4, 1). Which sequence of two transformations does that button carry out?",
+   "options": [
+    "Translate 3 units up, then rotate 90 degrees clockwise about the origin",
+    "Rotate 90 degrees clockwise about the origin, then translate 3 units up",
+    "Rotate 90 degrees counter-clockwise about the origin, then translate 3 units up",
+    "Rotate 90 degrees clockwise about the origin, then translate 3 units down"
+   ],
+   "answerIndex": 1,
+   "explain": "A clockwise quarter turn uses (x, y) to (y, -x), so P(2, 1) becomes (1, -2), and sliding 3 up gives P'(1, 1); Q and R check out as well. The trap is sliding first — that would put P at (2, 4), and the turn would then send it to (4, -2), a completely different spot.",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fiy4amm",
+   "level": 2,
+   "question": "A triangle with vertices (1, 2), (4, 2) and (1, 3) is reflected in the x-axis, and then that image is reflected in the y-axis. Which single transformation would map the original triangle onto exactly the same final image?",
+   "options": [
+    "A single reflection in the y-axis",
+    "A translation of 2 units left and 4 units down",
+    "A rotation of 180 degrees about the origin",
+    "A rotation of 90 degrees clockwise about the origin"
+   ],
+   "answerIndex": 2,
+   "explain": "The first reflection changes the sign of y and the second changes the sign of x, so (x, y) ends up at (-x, -y) — exactly a half turn about the origin. The trap is the translation of 2 left and 4 down: it matches the vertex (1, 2) becoming (-1, -2) but sends (4, 2) to (2, -2) instead of (-4, -2).",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95f6mqf6g",
+   "level": 2,
+   "question": "Nina is designing a logo on a coordinate grid using the triangle with vertices (3, 1), (5, 1) and (3, 2). She says that reflecting in the x-axis and then translating 4 units up gives the same image as translating 4 units up and then reflecting in the x-axis. Which statement is correct?",
+   "options": [
+    "Nina is right; with a reflection and a translation the order never changes the image",
+    "Nina is wrong; the reflection-first image is (3, -5), (5, -5), (3, -6) and the translation-first image is (3, 3), (5, 3), (3, 2)",
+    "Nina is right, because both moves keep the triangle exactly the same size and shape",
+    "Nina is wrong; the reflection-first image is (3, 3), (5, 3), (3, 2) and the translation-first image is (3, -5), (5, -5), (3, -6)"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflection first sends (3, 1) to (3, -1) and then up 4 to (3, 3); translation first sends (3, 1) to (3, 5) and then the flip gives (3, -5), so the two orders land in different places. Keeping the same size and shape does not mean the order can be swapped — test one vertex both ways before you decide.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "transform.order_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fhzyt4a",
+   "level": 3,
+   "question": "A community garden in Surrey is mapped on a coordinate grid where 1 unit stands for 1 metre. A triangular herb bed has corners A(2, 1), B(5, 1) and C(2, 3). The planning team moves it so the corners are now A'(-6, 1), B'(-9, 1) and C'(-6, 3). Which description of the move is correct?",
+   "options": [
+    "Reflect in the y-axis, then translate 4 units left",
+    "Translate 4 units left, then reflect in the y-axis",
+    "Translate 4 units left, then reflect in the x-axis",
+    "Reflect in the x-axis, then translate 4 units left"
+   ],
+   "answerIndex": 0,
+   "explain": "Reflecting in the y-axis sends A(2, 1) to (-2, 1), and sliding 4 left gives A'(-6, 1); B and C match as well, and the y-coordinates never change, which rules out any reflection in the x-axis. The trap is sliding 4 left first: that puts A at (-2, 1), and the reflection bounces it back to (2, 1) on the wrong side.",
+   "tags": [
+    "ok",
+    "transform.order_ignored",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fzn4nis",
+   "level": 3,
+   "question": "For a math fair display, Sam and Jordan each describe how the triangle P(1, 2), Q(4, 2), R(1, 3) is mapped onto the image (0, 1), (0, 4) and (-1, 1). Sam writes: rotate 90 degrees counter-clockwise about the origin, then translate 2 units right. Jordan writes: translate 2 units right, then rotate 90 degrees counter-clockwise about the origin. Which statement is correct?",
+   "options": [
+    "Both sequences work, because a rotation and a translation can be listed in any order, so both give (0, 1), (0, 4) and (-1, 1) in the end",
+    "Sam is correct, because turning first and then sliding gives (0, 1), (0, 4) and (-1, 1), while Jordan's order gives (-2, 3), (-2, 6) and (-3, 3)",
+    "Jordan is correct, because in a sequence the slide is always carried out before the turn, so sliding first is the only order that reaches the image",
+    "Neither is correct, because a 90 degree counter-clockwise rotation about the origin sends (1, 2) to (2, -1), which no slide of 2 can bring to (0, 1)"
+   ],
+   "answerIndex": 1,
+   "explain": "Counter-clockwise uses (x, y) to (-y, x), so P(1, 2) turns to (-2, 1) and then slides to (0, 1), matching the image; doing the slide first puts P at (3, 2), which turns to (-2, 3) instead. There is no rule that the slide comes first, and (2, -1) would be the clockwise result, not the counter-clockwise one.",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "transform.order_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95fo1y6ey",
+   "level": 3,
+   "question": "A campsite map of a provincial park uses a coordinate grid where 1 unit stands for 10 metres. A triangular tent pad has corners T(-3, 2), U(-1, 2) and V(-3, 5). After the pad is rebuilt, its corners are T'(3, -1), U'(1, -1) and V'(3, -4). Which sequence of two transformations describes the change?",
+   "options": [
+    "Translate 1 unit up, then rotate 180 degrees about the origin",
+    "Reflect in the y-axis, then translate 1 unit up",
+    "Rotate 180 degrees about the origin, then translate 1 unit up",
+    "Rotate 180 degrees about the origin, then translate 1 unit down"
+   ],
+   "answerIndex": 2,
+   "explain": "A half turn sends T(-3, 2) to (3, -2), and sliding 1 unit up gives T'(3, -1); U and V match as well. The trap is sliding first — that would send T to (-3, 3) and the half turn would land it at (3, -3), one unit off from the real image, so always apply the steps in the written order.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5qz95ftqbaet",
+   "level": 3,
+   "question": "Ava and Ben each start with the same triangle S(2, 1), T(5, 1), U(2, 3) on a coordinate grid. Ava reflects it in the x-axis and then translates it 6 units right. Ben translates it 6 units right and then reflects it in the x-axis. Which statement is completely correct?",
+   "options": [
+    "The images are different; Ava gets (8, -1), (11, -1), (8, -3) and Ben gets (-8, 1), (-11, 1), (-8, 3), since reflecting last flips the x-values",
+    "The images are different, because swapping the order of a reflection and a translation always changes where the image ends up landing",
+    "The images are the same, because the order of two transformations never changes the final image, whichever two moves are combined",
+    "The images are the same, (8, -1), (11, -1) and (8, -3), because the slide is sideways and the reflection only changes the y-coordinates"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflecting in the x-axis only flips the sign of y, and sliding 6 right only adds to x, so the two steps do not interfere and both orders give (8, -1), (11, -1) and (8, -3). Do not turn this into a rule either way: order often does matter — a sideways slide combined with a reflection in the y-axis gives two different images — so always test a vertex both ways.",
+   "tags": [
+    "other",
+    "transform.order_ignored",
+    "transform.order_ignored",
+    "ok"
+   ]
+  }
+ ]
+}

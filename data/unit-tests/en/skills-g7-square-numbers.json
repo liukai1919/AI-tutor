@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "square-numbers",
+ "lang": "en",
+ "unitName": {
+  "zh": "平方数与平方根",
+  "en": "Square numbers & square roots"
+ },
+ "provider": "claude",
+ "at": "2026-09-02",
+ "set": {
+  "title": "Square numbers & square roots · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.NOTATION",
+    "level": 1,
+    "question": "Ms. Patel writes 8² on the whiteboard. What does 8² mean?",
+    "options": [
+     "8 × 2 = 16",
+     "8 + 8 = 16",
+     "8 × 8 = 64",
+     "8 × 3 = 24"
+    ],
+    "answerIndex": 2,
+    "explain": "The small 2 tells you how many times to use 8 as a factor, so 8² = 8 × 8 = 64. The most common trap is reading the exponent as 'multiply by 2' and answering 16."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+    "level": 1,
+    "question": "Nova is arranging square floor tiles into one big square, with the same number of rows as columns and no tiles left over. Which number of tiles can she use?",
+    "options": [
+     "100 tiles",
+     "48 tiles",
+     "120 tiles",
+     "60 tiles"
+    ],
+    "answerIndex": 0,
+    "explain": "A perfect square is a number that makes an n × n array: 100 works because 10 rows of 10 = 100. Numbers like 48, 60 and 120 make rectangles (such as 6 × 8 or 6 × 10) but never a square, so being an even 'nice' number is not enough."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+    "level": 1,
+    "question": "What is √121?",
+    "options": [
+     "60.5",
+     "12",
+     "10",
+     "11"
+    ],
+    "answerIndex": 3,
+    "explain": "A square root asks: which number times itself gives 121? Since 11 × 11 = 121, √121 = 11. The classic trap is dividing by 2 and writing 60.5 — taking a square root is the inverse of squaring, not halving."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+    "level": 2,
+    "question": "A square patio behind a house in Kelowna covers an area of 50 m². Between which two whole numbers is the side length of the patio, in metres?",
+    "options": [
+     "between 6 and 7",
+     "between 7 and 8",
+     "between 8 and 9",
+     "between 25 and 26"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the perfect squares on either side of 50: 7² = 49 and 8² = 64, so √50 sits between 7 and 8 (and very close to 7). A common error is halving the area to get 25, which gives a side of about 25 m — far too big for a 50 m² patio."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+    "level": 2,
+    "question": "A square garden plot at a Surrey community garden has an area of 144 m². Marcus wants to put fencing all the way around the edge. Fencing costs $3 per metre. What is the total cost?",
+    "options": [
+     "$48",
+     "$432",
+     "$144",
+     "$36"
+    ],
+    "answerIndex": 2,
+    "explain": "First take the square root to get the side: √144 = 12 m, then find the perimeter 4 × 12 = 48 m, and finally 48 × $3 = $144. The biggest trap is charging for the area (144 × $3 = $432) instead of the perimeter — fencing goes around the outside, not across the ground."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+    "level": 2,
+    "question": "For a class display, Owen has 90 small square photos. He wants to build the largest possible square array of photos, with the same number of rows as columns. How many photos will be left over?",
+    "options": [
+     "10 photos",
+     "26 photos",
+     "45 photos",
+     "9 photos"
+    ],
+    "answerIndex": 3,
+    "explain": "The largest perfect square that fits inside 90 is 81, because 9 × 9 = 81 while 10 × 10 = 100 is too many, so 90 − 81 = 9 photos are left over. A common slip is stopping at 8 × 8 = 64 and leaving 26 — always check the next square before deciding."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.NOTATION",
+    "level": 3,
+    "question": "Priya writes in her notebook: 4² + 5² = 9². Which statement about her work is correct?",
+    "options": [
+     "She is right, because 4 + 5 = 9, so the squares add the same way.",
+     "She is wrong: 4² + 5² = 41, but 9² = 81.",
+     "She is wrong: 4² + 5² = 18, but 9² = 81.",
+     "She is right, because 4² + 5² = 81 and 9² = 81."
+    ],
+    "answerIndex": 1,
+    "explain": "Square each number first, then add: 16 + 25 = 41, while 9² = 81, so the two sides are not equal. Two traps hide here — you cannot add the bases before squaring, and 4² is 16, not 4 × 2 = 8."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+    "level": 3,
+    "question": "A daycare in Victoria is building a square play area that must cover at least 130 m². The side length has to be a whole number of metres. What is the smallest side length that works?",
+    "options": [
+     "12 m",
+     "11 m",
+     "13 m",
+     "65 m"
+    ],
+    "answerIndex": 0,
+    "explain": "√130 lies between 11 and 12 because 11² = 121 (too small, under 130) and 12² = 144 (big enough), so the smallest whole-number side is 12 m. The common trap is rounding √130 down to 11 — always test the squares against the requirement instead of just picking the nearer whole number."
+   }
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.EXP.01",
+ "lang": "en",
+ "title": "exponential functions and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Exponential Functions & Equations – Pre-Calculus 12",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hey, so picture this. You're eighteen, heading off to a BC university next year, and your mom says, 'Here's five thousand dollars to start your savings account. It earns four per cent interest, compounded once a year.' You want to know: how much will you have after two years? Three? Five? The key thing here is that each year you're not just adding four per cent of the original five thousand. You're adding four per cent of whatever is in the account that year. So the growth itself is growing. That's an exponential function, and today we're going to get really comfortable with them: graphing, transforming, and solving equations when the variable is hiding up in the exponent.",
+    "math": "B(t) \\;=\\; 5000\\,(1.04)^{t}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5000,
+      5200,
+      5408,
+      5624,
+      5849,
+      6083
+     ],
+     "labels": [
+      "Year 0",
+      "Year 1",
+      "Year 2",
+      "Year 3",
+      "Year 4",
+      "Year 5"
+     ],
+     "caption": "Balance over time at 4% annual compound interest"
+    }
+   },
+   {
+    "say": "So what does an exponential function look like in general? It's f of x equals a times b to the power of x, where a is not zero, b is positive, and b is not one. The a is basically your starting height: it's the y-intercept. The b is the growth factor. If b is bigger than one the curve grows; if b is between zero and one it decays. And here's the big visual feature: there's a horizontal asymptote. For the basic form that's the x-axis, y equals zero. The graph gets closer and closer but never actually touches it. Let me show you a growth and a decay side by side so you can really see that mirror-image feel.",
+    "math": "f(x)=a\\,b^{x},\\qquad b>1\\text{ (growth)},\\quad 0<b<1\\text{ (decay)}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      4,
+      -1,
+      8
+     ],
+     "labels": [
+      "2^x",
+      "0.5^x"
+     ],
+     "caption": "Growth (base 2) vs. decay (base one-half) with horizontal asymptote at y = 0"
+    }
+   },
+   {
+    "say": "Now, real-life models almost always have a shift or a stretch. The general transformed form is f of x equals a times b to the power of (x minus h) plus k. The k slides the whole graph up or down, and here's the key: it also moves the asymptote. The asymptote is no longer y equals zero; it's y equals k. The h slides the curve left or right. And a stretches it vertically or flips it. Let's look at a concrete one: f of x equals three times two to the power of (x minus one) plus four. The asymptote is now y equals four. The y-intercept is f of zero equals three times two to the power of negative one plus four, which is three times one half plus four, which is five and a half. See how the whole shape just slid up by four units compared to a plain two to the x?",
+    "math": "f(x)=a\\,b^{\\,x-h}+k \\;\\Longrightarrow\\; \\text{asymptote: } y=k",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -2,
+      5,
+      -2,
+      14
+     ],
+     "labels": [
+      "2^x",
+      "3*2^(x-1)+4"
+     ],
+     "caption": "Original (orange) vs. transformed (blue): asymptote moves from y=0 to y=4"
+    }
+   },
+   {
+    "say": "Let's solve some equations. The easiest case: both sides have the same base. Say three to the power of (x plus one) equals eighty-one. You know eighty-one is three to the fourth, so you can just match the exponents: x plus one equals four, therefore x equals three. Quick one: five to the power of two x equals five to the seventh. Same base, so two x equals seven, and x equals three and a half. The rule is simple: if a to the m equals a to the n, then m equals n, as long as a is positive and not one.",
+    "math": "3^{x+1}=81=3^{4}\\;\\Longrightarrow\\;x+1=4\\;\\Longrightarrow\\;x=3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now the harder case: different bases, or a base you can't easily rewrite. Say two to the power of x equals fifteen. You can't just match exponents here. So you take the natural log of both sides. The beauty of logs is that they let you pull the exponent down: x times ln of two equals ln of fifteen. So x equals ln of fifteen divided by ln of two. On your calculator that's about two point seven zero eight divided by zero point six nine three, which gives you roughly three point nine one. Let's sanity-check: two to the power of three point nine one is about fifteen. Good. And if the base is e, like in continuous growth models, it's even cleaner because ln and e cancel each other out completely.",
+    "math": "2^{x}=15\\;\\Longrightarrow\\;x\\ln 2=\\ln 15\\;\\Longrightarrow\\;x=\\frac{\\ln 15}{\\ln 2}\\approx 3.91",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      5,
+      0,
+      20
+     ],
+     "labels": [
+      "2^x",
+      "15"
+     ],
+     "caption": "The solution x ≈ 3.91 is where y = 2ˣ crosses the line y = 15"
+    }
+   },
+   {
+    "say": "Here's a situational problem you might actually see on the Pre-Calc 12 exam. A small tech startup in Vancouver starts with eighty thousand dollars in annual revenue. The founders model their growth as R of t equals eighty thousand times two to the power of t over five, meaning revenue doubles every five years. The board asks: in how many years will revenue hit six hundred forty thousand? Set up the equation: eighty thousand times two to the power of t over five equals six hundred forty thousand. Divide both sides by eighty thousand: two to the power of t over five equals eight. Now eight is two to the third, so t over five equals three, and t equals fifteen years. Nice, clean, same-base solve.",
+    "math": "80000\\cdot 2^{\\,t/5}=640000\\;\\Longrightarrow\\;2^{\\,t/5}=8=2^{3}\\;\\Longrightarrow\\;t=15",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      80000,
+      160000,
+      320000,
+      640000
+     ],
+     "labels": [
+      "t = 0",
+      "t = 5",
+      "t = 10",
+      "t = 15"
+     ],
+     "caption": "Revenue doubles every 5 years; reaches $640 000 at t = 15"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to carry into the exam: an exponential function puts the variable up in the exponent, its graph has a horizontal asymptote at y equals k, and when you need to solve for that exponent you either match the bases or take a natural log of both sides to drag the exponent down into a regular linear equation you can finish.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Exponential = variable in the exponent → match bases or take ln of both sides to bring it down and solve.",
+  "practice": {
+   "question": "A Vancouver coffee shop's monthly revenue (in thousands of dollars) is modelled by R(t) = 12 · 1.08^t, where t is the number of months from now. How many months (to the nearest whole month) until revenue reaches $50,000?",
+   "answer": "Set 12·(1.08)^t = 50 → (1.08)^t = 50/12 ≈ 4.1667 → t·ln(1.08) = ln(4.1667) → t = ln(4.1667)/ln(1.08) ≈ 1.427/0.07696 ≈ 18.5 → t ≈ 19 months."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

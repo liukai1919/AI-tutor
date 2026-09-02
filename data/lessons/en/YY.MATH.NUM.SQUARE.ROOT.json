@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+ "lang": "en",
+ "title": "Find the square root of a perfect square (√81 = 9) as the inverse of squaring",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Square Roots: Undoing a Square",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that nine squared means nine times nine, which is eighty-one. Today we learn the move that goes the other way: if someone hands you eighty-one and asks which number was squared to make it, how do you get back to nine? That backwards move is called taking the square root.",
+    "math": "9^2 = 81 \\;\\Longrightarrow\\; \\sqrt{81} = \\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture a square patch of turf on a soccer field, built out of eighty-one little one metre squares. Squaring asks: the side is nine, so how many squares? Square root asks the opposite: there are eighty-one squares, so what is the side? Just count along one edge, and you get nine. That is why the square root of eighty-one is nine.",
+    "math": "\\sqrt{81} = 9 \\quad \\text{because} \\quad 9 \\times 9 = 81",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      9,
+      9,
+      9,
+      9
+     ],
+     "labels": [],
+     "caption": "9 rows by 9 columns makes 81 squares, so the side is 9 m"
+    }
+   },
+   {
+    "say": "Let us do one together: the square root of sixty-four. The step is always the same question. What number times itself gives sixty-four? Try eight: eight times eight is sixty-four. That works, so the square root of sixty-four is eight. Notice I never divided anything, I only hunted for the number that squares to sixty-four.",
+    "math": "8 \\times 8 = 64 \\;\\Longrightarrow\\; \\sqrt{64} = 8",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      8,
+      8,
+      8,
+      8
+     ],
+     "labels": [],
+     "caption": "64 squares laid out 8 by 8, so the side is 8"
+    }
+   },
+   {
+    "say": "Here is the trap almost everybody falls into. Someone sees the square root of sixteen and writes eight, because half of sixteen is eight. But square root is not halving. Check it: eight times eight is sixty-four, not sixteen, so eight is way too big. The right answer is four, because four times four is sixteen.",
+    "math": "\\sqrt{16} \\neq 8 \\quad ; \\quad \\sqrt{16} = 4 \\;\\text{since}\\; 4 \\times 4 = 16",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "16 squares sit in a 4 by 4 square, so the side is 4, not 8"
+    }
+   },
+   {
+    "say": "One more thing people mix up. If you see the square root of eighty-one plus the square root of sixteen, you cannot slide the numbers under one root and call it the square root of ninety-seven. Take each root first: nine plus four, which is thirteen. And ninety-seven is not even a perfect square, its root is about nine point eight, nowhere near thirteen.",
+    "math": "\\sqrt{81} + \\sqrt{16} = 9 + 4 = 13 \\neq \\sqrt{97}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      13,
+      9.85
+     ],
+     "labels": [
+      "root 81 plus root 16",
+      "root 97"
+     ],
+     "caption": "13 and about 9.85 are clearly not the same amount"
+    }
+   },
+   {
+    "say": "So whenever you meet a square root sign, whisper this to yourself: which number, times itself, gives me that? Find it and you are done.",
+    "math": "\\sqrt{n} = a \\iff a \\times a = n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A square root undoes squaring: the square root of 81 is 9, because 9 times 9 is 81 — never 81 divided by 2.",
+  "practice": {
+   "question": "Your family is tiling a square patio in the backyard using 144 square tiles, each one exactly one metre by one metre. The tiles form a perfect square with no gaps. Find the square root of one hundred forty-four to get the side length of the patio in metres. (Try writing out some numbers times themselves until you land on 144.)",
+   "answer": "12 metres, because 12 × 12 = 144, so √144 = 12. (Careful: half of 144 is 72, and that is not the answer — 72 × 72 is far bigger than 144.)"
+  }
+ }
+}

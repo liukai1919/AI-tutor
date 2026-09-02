@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.COMPARE.SAME_DENOM",
+ "lang": "en",
+ "title": "Compare fractions with the same denominator",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Same Bottom Number? Just Look Up Top!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to shade a fraction of a shape, like three parts out of five. Today we learn one quick trick: how to tell which of two fractions is bigger, when the bottom numbers are exactly the same.",
+    "math": "\\frac{3}{5} \\quad \\text{and} \\quad \\frac{4}{5}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      5,
+      3,
+      5,
+      4
+     ],
+     "labels": [],
+     "caption": "Two bars cut into 5 equal pieces: three fifths and four fifths"
+    }
+   },
+   {
+    "say": "Here is the big idea. The bottom number tells you how many equal pieces the whole was cut into. If both bottoms are five, then every single piece is the same size in both bars. So the only thing that changes is how many pieces you took, and that is the top number.",
+    "math": "\\frac{\\square}{5}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      5,
+      1,
+      5,
+      1
+     ],
+     "labels": [],
+     "caption": "Same bottom number means one piece is the same size in both bars"
+    }
+   },
+   {
+    "say": "Let's try a real one. Imagine a banana bread cut into eight equal pieces. Maya takes three pieces, so she has three eighths. Noah takes five pieces, so he has five eighths. The bottoms are both eight, so the pieces are the same size. Five pieces is more than three pieces, so five eighths is bigger than three eighths.",
+    "math": "\\frac{5}{8} > \\frac{3}{8}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      3,
+      8,
+      5
+     ],
+     "labels": [],
+     "caption": "Three eighths on top, five eighths below — the longer shaded part wins"
+    }
+   },
+   {
+    "say": "Now here is a mistake I see a lot. Some kids look at three eighths and five eighths and think, hmm, eight is a big number, so maybe I should compare the bottoms. But the bottoms are not competing. They are both eight, so they just tell us the pieces are equal size. Only when the bottoms already match do we compare the tops. Three is less than five, so three eighths is less than five eighths.",
+    "math": "3 < 5 \\;\\Rightarrow\\; \\frac{3}{8} < \\frac{5}{8}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.375,
+      0.625
+     ],
+     "labels": [],
+     "caption": "From three eighths, the arrow jumps right to five eighths — right means bigger"
+    }
+   },
+   {
+    "say": "So here is your whole trick in one breath. Check that the bottom numbers match, then compare the top numbers. The fraction with the bigger top is the bigger fraction. That's it!",
+    "math": "\\frac{7}{10} > \\frac{4}{10}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      10,
+      4,
+      10,
+      7
+     ],
+     "labels": [],
+     "caption": "Four tenths and seven tenths — seven pieces stretch farther"
+    }
+   }
+  ],
+  "answer": "Same bottom number? The bigger top number wins.",
+  "practice": {
+   "question": "Ms. Yuanyuan buys a one metre ribbon and cuts it into six equal pieces, so each piece is one sixth of a metre. Draw two fraction bars, each cut into six equal parts. On the first bar, shade two parts to show two sixths — that's how much ribbon Liam used. On the second bar, shade five parts to show five sixths — that's how much Ava used. Who used more ribbon, and which sign goes between two sixths and five sixths?",
+   "answer": "Ava used more. The bottom numbers are both six, so the pieces are the same size, and five pieces beat two pieces: two sixths is less than five sixths."
+  }
+ }
+}

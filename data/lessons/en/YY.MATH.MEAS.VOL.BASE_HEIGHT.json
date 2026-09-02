@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+ "lang": "en",
+ "title": "Understand volume as area of base × height for any right prism",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Volume = Base Area × Height",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the volume of a rectangular prism by doing length times width times height. Today we are just going to look at that same rule from a smarter angle, so it works for lots of other prisms too, not only boxes.",
+    "math": "V = l \\times w \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A rectangular prism: 5 cm by 3 cm by 4 cm"
+    }
+   },
+   {
+    "say": "Here is the trick. Group the first two numbers together. Length times width is just the area of the bottom face, the base. So the rule really says: find the area of the base, then multiply by the height. Think of it like a stack of pancakes. The base tells you how big one flat layer is, and the height tells you how many layers are stacked up.",
+    "math": "V = (l \\times w) \\times h = B \\times h",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      5,
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "One flat layer: the base, 5 by 3, is 15 square centimetres"
+    }
+   },
+   {
+    "say": "Let us put real numbers on it. Say your lunch container is 5 centimetres long, 3 centimetres wide, and 4 centimetres tall. The base is 5 times 3, which is 15 square centimetres. That is one layer. Now stack 4 of those layers: 15 times 4 equals 60. So the volume is 60 cubic centimetres. Same answer as before, but now you can see why.",
+    "math": "B = 5 \\times 3 = 15 \\;\\text{cm}^2,\\quad V = 15 \\times 4 = 60 \\;\\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Base 15 square cm, stacked 4 high, so 60 cubic cm"
+    }
+   },
+   {
+    "say": "Now the mistake I see all the time. Someone works out 15 and stops, and writes 15 square centimetres. But 15 is only the flat base, the area of one layer, not the whole container. Others go and add up all six faces and answer 94 square centimetres, which is surface area, the wrapping paper on the outside. Watch the units, they tell on you. Square centimetres means flat, like paint or paper. Cubic centimetres means filled up, like juice inside. Volume must be 60 cubic centimetres.",
+    "math": "15 \\;\\text{cm}^2 \\ne 60 \\;\\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Area covers the outside; volume fills the inside"
+    }
+   },
+   {
+    "say": "And here is the best part. This rule is not just for boxes. Any right prism, any shape at all on the bottom, works the same way, because every layer is identical all the way up. Take a can of pop with a round base. If that circle measures about 28 square centimetres and the can is 10 centimetres tall, the volume is 28 times 10, which is about 280 cubic centimetres. Find the base, multiply by the height. That is it.",
+    "math": "V = B \\times h = 28 \\times 10 = 280 \\;\\text{cm}^3",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Round base times height works exactly the same way"
+    }
+   }
+  ],
+  "answer": "Volume = area of the base × height — one layer, stacked up.",
+  "practice": {
+   "question": "You are building a wooden planter box for the back deck. Its base is a rectangle 40 centimetres long and 25 centimetres wide, and the box is 30 centimetres deep. First find the area of the base, then use it to find how much soil the box holds. Try sketching the box yourself and labelling the three numbers.",
+   "answer": "Base area = 40 × 25 = 1000 square centimetres. Volume = 1000 × 30 = 30 000 cubic centimetres of soil. (Careful: 1000 is only the flat base — the answer must be in cubic centimetres.)"
+  }
+ }
+}

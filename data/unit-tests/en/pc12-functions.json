@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "functions",
+ "lang": "en",
+ "unitName": {
+  "zh": "函数变换",
+  "en": "Transformations of Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Transformations of Functions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 1,
+    "question": "The parent function f(x) = x² is translated 3 units down. What is the equation of the new graph?",
+    "options": [
+     "y = x² − 3",
+     "y = x² + 3",
+     "y = (x − 3)²",
+     "y = (x + 3)²"
+    ],
+    "answerIndex": 0,
+    "explain": "A vertical translation of 3 units down subtracts 3 from the entire function: y = f(x) − 3. The most common trap is using (x − 3)², which is a horizontal shift, not a vertical one."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 1,
+    "question": "The function g(x) = √x is reflected over the x-axis. Which equation represents the reflected graph?",
+    "options": [
+     "y = √(−x)",
+     "y = −√(−x)",
+     "y = √x + 1",
+     "y = −√x"
+    ],
+    "answerIndex": 3,
+    "explain": "A reflection over the x-axis multiplies the whole output by −1, giving y = −f(x). Confusing this with √(−x) (a reflection over the y-axis) or −√(−x) (a reflection over both axes) is the typical error."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 1,
+    "question": "The graph of f(x) = |x| is translated 4 units to the left. What is the equation of the new graph?",
+    "options": [
+     "y = |x − 4|",
+     "y = |x + 4|",
+     "y = |x| + 4",
+     "y = 4|x|"
+    ],
+    "answerIndex": 1,
+    "explain": "A horizontal shift of 4 units left means replacing x with (x + 4), giving y = |x + 4|. The sign convention is the #1 stumbling block: left → add, right → subtract inside the parentheses."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 2,
+    "question": "A salmon-run tracking station models the number of fish per hour as P(t) = 200 · 3^(t−2), where t is hours after dawn. The parent function is f(x) = 3^x. Which pair of transformations was applied to the parent?",
+    "options": [
+     "Vertical stretch by a factor of 200 and a horizontal translation 2 units left",
+     "Vertical stretch by a factor of 200 and a horizontal translation 2 units up",
+     "Vertical stretch by a factor of 200 and a horizontal translation 2 units right",
+     "Vertical compression by a factor of 1/200 and a horizontal translation 2 units right"
+    ],
+    "answerIndex": 2,
+    "explain": "The coefficient 200 is a vertical stretch; the (t − 2) inside the exponent is a horizontal shift 2 units right. Students often misread (x − 2) as a shift left, or confuse a vertical stretch with a shift up."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 2,
+    "question": "A kitchen thermometer converts Celsius to a custom scale with f(x) = (3x − 7)/2. Find the inverse function f⁻¹(x), which converts back from the custom scale to Celsius.",
+    "options": [
+     "f⁻¹(x) = (2x + 7)/3",
+     "f⁻¹(x) = (2x − 7)/3",
+     "f⁻¹(x) = (3x + 2)/7",
+     "f⁻¹(x) = (x + 7) · (3/2)"
+    ],
+    "answerIndex": 0,
+    "explain": "Set y = (3x − 7)/2, solve for x: 2y = 3x − 7 → x = (2y + 7)/3. The most frequent slip is writing (2x − 7)/3, which comes from subtracting 7 instead of adding it when isolating x."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 2,
+    "question": "A hiker on the Coast Mountains trail uses a base elevation model h(x) = 500 · 2^x (metres, x = km from the trailhead). The actual path starts 3 km in and sits 200 m above the base. Write the equation for the actual elevation H(x).",
+    "options": [
+     "H(x) = 500 · 2^(x+3) + 200",
+     "H(x) = 500 · 2^x + 3 + 200",
+     "H(x) = 500 · 2^(x−3) + 200",
+     "H(x) = 500 · 2^(x−3) − 200"
+    ],
+    "answerIndex": 2,
+    "explain": "Shift right 3 means replacing x with (x − 3); shift up 200 means adding 200 outside. Two common errors: putting the 200 inside the exponent or using (x + 3) for a rightward shift."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 3,
+    "question": "Your classmate sees the transformation from f(x) = ln(x) to g(x) = ln(x/4) and says, 'That's a vertical compression by 1/4, because ln(x/4) = (1/4)ln(x).' Which statement correctly identifies what actually happened?",
+    "options": [
+     "The classmate is correct: ln(x/4) = (1/4)ln(x), so it is a vertical compression by a factor of 1/4",
+     "It is a horizontal stretch by a factor of 4; equivalently, by the quotient rule ln(x/4) = ln(x) − ln(4), it is a vertical translation down by ln 4",
+     "It is a horizontal compression by a factor of 4, and the vertical compression the classmate described also applies at the same time",
+     "It is a vertical stretch by a factor of 4, since dividing the input by 4 stretches the output upward"
+    ],
+    "answerIndex": 1,
+    "explain": "ln(x/4) = ln(x) − ln(4) (quotient rule), which is a vertical shift down by ln 4, and f(x/4) is a horizontal stretch by 4. The trap is the false identity ln(x/4) = (1/4)ln(x); that equality would require ln(x^(1/4)), a completely different function."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.FUN.01",
+    "level": 3,
+    "question": "A photographer in a Squamish studio uses f(t) = 6 · 3^(t−1) (lumens, t = seconds after a flash) to model LED-panel brightness. The inverse f⁻¹(x) gives the time needed to reach x lumens. How many seconds after the flash does the panel first reach 162 lumens?",
+    "options": [
+     "2 s",
+     "3 s",
+     "6 s",
+     "4 s"
+    ],
+    "answerIndex": 3,
+    "explain": "Set 6·3^(t−1) = 162 → 3^(t−1) = 27 = 3³ → t − 1 = 3 → t = 4. The classic mistakes are forgetting to add 1 (getting 3 s) or subtracting 1 again (getting 2 s), both from mishandling the (t − 1) exponent."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}
