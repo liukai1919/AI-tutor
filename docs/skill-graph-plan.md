@@ -5,7 +5,7 @@
 >
 > 状态（2026-08-22）：设计 + 数据草稿 + **已接进运行链路**（§7 阶段 0-1 全部完成）。
 > App 里选年级下拉的「🧩 G4-G7 技能图谱（草稿）」就能看；讲课、闯关、主题测试、进度、报告、误区回补都跑通了。
-> 技能题库已全量生成（§7 阶段 2，468 份）。还**没有随包发布**：`pack.mjs` 默认不拷 `skills/`、种子题库也不带 `YY.*`（要加 `--skills`）。
+> 技能题库已全量生成（§7 阶段 2，468 份；2026-09-02 补齐 en/zh 各 249 份）。**2026-09-02 起默认随包发布**：`pack.mjs` 默认拷 `skills/` 和 `YY.*` 种子题库，`--no-skills` 才不带。
 > 校验：`node tools/curriculum/skills_check.mjs`（加 `--md` 打印本文第 4 节的目录树）。
 > 前置文档：[bc-curriculum-plan.md](bc-curriculum-plan.md)（P1–P6 现状）、[qbank-standard.md](qbank-standard.md)（闯关规则，本设计沿用）。
 
@@ -658,14 +658,14 @@ G5 等值分数的诊断分支长这样（`diag.branch` 展开）：
 | 误区 → 回补 | `missRecord` / `remediationFor` | 闯关答错且该选项挂了误区标签就记一笔（前端 `results` 多传 `picked`）；同一误区攒到 2 次触发回补，按技能自己的 `diag.branch`（没有就按登记表 `remedy`）给出该回去补的技能。`/api/quiz/finish` 和技能列表都会返回 |
 | 前端列表 | `renderLearn` | 主题可折叠（第一个默认展开）、标题带「已扎实/总数」和对齐的标准号；技能行带类型徽章（6 色）、先修数、易错点数、复习来源年级、拓展标记；触发回补的技能显示 🩹 提示并可一键跳去补那条 |
 | 总览课 | 同上 | 原来那 69 节「一条大纲一节课」降级成主题的总览课（🎓 行，每条对齐标准一行），走预生成包，实测 84 ms 返回、零引擎成本 |
-| 预生成 | `tools/pregen.mjs --skills` | 默认不做；`--skills --grades 5 --only quiz` = 只给 G5 技能出题库 |
-| 打包 | `tools/pack.mjs --skills` | 默认**不进包**（草稿）；种子题库按前缀过滤，`YY.*` 只有加 `--skills` 才带 |
+| 预生成 | `tools/pregen.mjs` | 2026-09-02 起默认做（`--no-skills` 跳过）；`--grades 5 --only quiz` = 只给 G5 出题库 |
+| 打包 | `tools/pack.mjs` | 2026-09-02 起默认**进包**；种子题库按前缀过滤，`YY.*` 默认带、`--no-skills` 去掉 |
 
 验证方式：隔离实例（`YY_DATA_DIR` 指到临时目录 + 空 users.json，不碰真实孩子数据）跑通了目录渲染、折叠、标准汇总、legacy 证据、误区触发回补、总览课秒开；微课用本地 Ollama 实跑了一节，5 步、含误区演示、练习用 fractionBar，符合提示词要求。
 
 ### 阶段 2 · 内容铺开（已完成，2026-08-23）
 
-**468 份核心技能题库（234 技能 × 中英）全部落地**，5556 题，在 `qbank.json`（gitignore，随包发要 `pack.mjs --skills`）。
+**468 份核心技能题库（234 技能 × 中英）全部落地**，5556 题，在 `qbank.json`（gitignore，`pack.mjs` 默认随包发）。
 
 怎么跑的：`pregen --skills --only quiz --core --provider claude --judge`，生成和审稿都是 Claude Code CLI（Opus 5 · effort high，走 Max 订阅），并发 2，444 份用时 11 小时，单份均速 1.4 分钟。
 

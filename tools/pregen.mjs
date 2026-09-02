@@ -21,10 +21,10 @@
  *   node tools/pregen.mjs --limit 3          # 只做前 N 个（先验货再开大批）
  *   node tools/pregen.mjs --force            # 已生成的也重做
  *   node tools/pregen.mjs --books            # 书籍课程也算进来（版权自负，默认只做 BC）
- *   node tools/pregen.mjs --skills           # 技能图谱预览（data/curriculum/skills/，设计草稿）也算进来
- *   node tools/pregen.mjs --skills --grades 5 --only quiz    # 只给 G5 技能出题库
- *   node tools/pregen.mjs --skills --only quiz --pilot         # 只做 23 个带诊断分支的试点技能（先验货）
- *   node tools/pregen.mjs --skills --only quiz --core          # 只做核心技能，拓展技能先不花钱
+ *   node tools/pregen.mjs --no-skills        # 不做技能图谱（data/curriculum/skills/）；2026-09-02 起技能默认就做
+ *   node tools/pregen.mjs --grades 5 --only quiz             # 只给 G5（主线 + 技能）出题库
+ *   node tools/pregen.mjs --only quiz --pilot                # 只做 23 个带诊断分支的试点技能（先验货）
+ *   node tools/pregen.mjs --only quiz --core                 # 只做核心技能，拓展技能先不花钱
  *   node tools/pregen.mjs --dry              # 只列要做什么，不真跑
  *
  * 断点续跑：已有的默认跳过，中途 Ctrl-C 再跑一次接着做。
@@ -48,7 +48,7 @@ const ONLY = String(opt("only", "all"));
 const CONCURRENCY = Math.max(1, Math.min(8, Number(opt("concurrency", 2)) || 2));
 const FORCE = flag("force");
 const WITH_BOOKS = flag("books");
-const WITH_SKILLS = flag("skills");     // 技能图谱预览（设计草稿）；默认不做，跑它要显式加 --skills
+const WITH_SKILLS = !flag("no-skills"); // 技能图谱（G4–G7 默认清单）：2026-09-02 起默认做，--no-skills 才跳过（--skills 仍认，兼容老命令）
 const DRY = flag("dry");
 const GRADES = String(opt("grades", "")).split(",").map(s => s.trim()).filter(Boolean);
 const JUDGE = flag("judge");                 // 生成完送另一个引擎审稿：没过重来一次，仍没过就放弃这条
@@ -70,7 +70,7 @@ function sources() {
     out.push(S.curriculum.get(c.id));
   }
   if (WITH_BOOKS) for (const b of S.curriculumBooks()) out.push(S.curriculum.get(b.id));
-  /* 技能图谱预览：--skills 打开；--grades 用它的 id（skills-g5）或光写年级数字（5）都认 */
+  /* 技能图谱：默认打开（--no-skills 关）；--grades 用它的 id（skills-g5）或光写年级数字（5）都认 */
   if (WITH_SKILLS) for (const sp of S.curriculumSkillsPreviews()) {
     if (GRADES.length && !GRADES.includes(sp.id) && !GRADES.includes(String(sp.grade))) continue;
     out.push(S.curriculum.get(sp.id));
@@ -125,7 +125,7 @@ function quizDone(j) {
 
 const LIMIT = Number(opt("limit", 0)) || 0;
 const cap = a => LIMIT ? a.slice(0, LIMIT) : a;
-/* 技能图谱的两个子集开关（只对 --skills 的条目生效，BC 条目/书籍没有 item.skill，不受影响）：
+/* 技能图谱的两个子集开关（只对技能条目生效，BC 条目/书籍没有 item.skill，不受影响）：
  *   --core   只做核心技能（core:true），拓展技能先不花钱——设计文档 §7 阶段 2 的建议顺序
  *   --pilot  只做带诊断分支的 23 个试点技能，先验货再开大批 */
 const ONLY_CORE = flag("core");

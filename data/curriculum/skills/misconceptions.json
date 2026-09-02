@@ -2,251 +2,1671 @@
   "schema": "yy-misconceptions/1",
   "note": "常见错误模式登记表。技能节点的 misc[] 和题库干扰项的 tag 都引用这里的 id；pattern 是出题/判卷时识别它的线索，remedy 是出现稳定错误时该回补的技能（可被技能节点自己的 diag.branch 覆盖）。",
   "items": [
-    { "id": "pv.digit_value_confuse", "zh": "把数字本身当成位值（4 在千位说成「4」而不是 4000）", "en": "Reads the digit instead of its place value", "pattern": "答「4」而不是「4000」", "remedy": "YY.MATH.NUM.PV10K.DIGIT_VALUE" },
-    { "id": "pv.zero_placeholder", "zh": "漏写或多写占位的 0（四千零五写成 405）", "en": "Drops or adds placeholder zeros", "pattern": "4005 → 405 / 40005", "remedy": "YY.MATH.NUM.PV10K.READ_WRITE" },
-    { "id": "pv.more_digits_bigger_only", "zh": "位数相同时不会比，或只看第一位", "en": "Compares only by digit count or first digit", "pattern": "3 456 > 3 501", "remedy": "YY.MATH.NUM.PV10K.COMPARE_ORDER" },
-    { "id": "pv.million_billion_confuse", "zh": "百万、十亿的数位数错", "en": "Mixes up millions and billions places", "pattern": "1 000 000 000 读成一百万", "remedy": "YY.MATH.NUM.PVBIG.READ_WRITE" },
-    { "id": "round.wrong_place", "zh": "凑整看错数位，或五入规则用反", "en": "Rounds at the wrong place or in the wrong direction", "pattern": "3 478 凑整到百 → 3 400", "remedy": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE" },
-
-    { "id": "ops.regroup_forget", "zh": "忘记进位 / 退位", "en": "Forgets to regroup (carry / borrow)", "pattern": "和比正确值少 10 / 100", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM" },
-    { "id": "ops.subtract_smaller_from_larger", "zh": "个位不够减就反过来减", "en": "Subtracts the smaller digit from the larger regardless of position", "pattern": "52 − 27 = 35", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM" },
-    { "id": "ops.borrow_across_zero", "zh": "隔着 0 退位出错", "en": "Borrows incorrectly across a zero", "pattern": "500 − 237 算错百位", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM" },
-    { "id": "word.keyword_trap", "zh": "看到「一共」就加、「剩下」就减，不读题意", "en": "Chooses the operation from keywords instead of the situation", "pattern": "关键词与正确运算相反的题答错", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.WORD" },
-
-    { "id": "mult.add_instead", "zh": "把乘法当加法（3 × 4 = 7）", "en": "Adds instead of multiplying", "pattern": "3 × 4 = 7", "remedy": "YY.MATH.FLU.MULT.MEANING" },
-    { "id": "mult.fact_error", "zh": "乘法口诀记错", "en": "Recalls a multiplication fact wrongly", "pattern": "7 × 8 = 54", "remedy": "YY.MATH.FLU.MULT.FACTS.EMERGING" },
-    { "id": "mult.partial_product_missing", "zh": "拆分乘法漏掉一项", "en": "Drops a partial product", "pattern": "23 × 4 = 80 + 2", "remedy": "YY.MATH.FLU.MULT.2D3D_BY_1D" },
-    { "id": "mult.place_shift_forget", "zh": "两位数乘两位数第二行忘记错位", "en": "Forgets to shift the second partial product", "pattern": "23 × 14 算成 92 + 23", "remedy": "YY.MATH.FLU.MULT.2D_BY_2D" },
-    { "id": "div.sharing_grouping_confuse", "zh": "分不清「每份几个」和「分成几份」", "en": "Confuses sharing and grouping meanings of division", "pattern": "12 ÷ 3 的情境题答反", "remedy": "YY.MATH.FLU.DIV.MEANING" },
-    { "id": "div.quotient_zero_skip", "zh": "商中间的 0 漏写", "en": "Omits a zero inside the quotient", "pattern": "624 ÷ 6 = 14", "remedy": "YY.MATH.FLU.DIV.3D_BY_1D" },
-    { "id": "div.remainder_ignore", "zh": "余数直接扔掉或当成答案", "en": "Ignores or misuses the remainder", "pattern": "每车 6 人，20 人要几辆车 → 答 3", "remedy": "YY.MATH.FLU.DIV.REMAINDER" },
-    { "id": "div.remainder_larger_than_divisor", "zh": "余数比除数还大（没除完）", "en": "Leaves a remainder larger than the divisor", "pattern": "20 ÷ 6 = 2 R 8", "remedy": "YY.MATH.FLU.DIV.REMAINDER" },
-
-    { "id": "dec.tenths_hundredths_confuse", "zh": "0.3 和 0.03 分不清", "en": "Confuses tenths and hundredths", "pattern": "三个百分之一写成 0.3", "remedy": "YY.MATH.DEC.PV100.READ_WRITE" },
-    { "id": "dec.longer_is_bigger", "zh": "小数位数越多越大（0.25 > 0.3）", "en": "Longer decimal is bigger", "pattern": "0.25 > 0.3", "remedy": "YY.MATH.DEC.PV100.COMPARE" },
-    { "id": "dec.ignore_place_align", "zh": "小数加减不对齐小数点（右对齐）", "en": "Lines up decimals by the right edge instead of the decimal point", "pattern": "1.5 + 0.25 = 0.40", "remedy": "YY.MATH.DEC.ADDSUB.100.ALGORITHM" },
-    { "id": "dec.frac_dec_digits_copy", "zh": "分数和小数直接抄数字（1/4 = 0.4，0.25 = 2/5）", "en": "Copies digits between fraction and decimal", "pattern": "1/4 = 0.4", "remedy": "YY.MATH.DEC.PV100.FRAC_LINK" },
-    { "id": "dec.mult_point_align", "zh": "小数乘法对齐小数点定位", "en": "Places the product's decimal point by alignment instead of counting places", "pattern": "1.2 × 0.3 = 3.6", "remedy": "YY.MATH.DEC.MULT.BY_DECIMAL" },
-    { "id": "dec.mult_always_bigger", "zh": "以为乘了结果一定变大", "en": "Believes multiplying always makes bigger", "pattern": "判断 8 × 0.5 > 8", "remedy": "YY.MATH.DEC.MULT.BY_WHOLE" },
-    { "id": "dec.div_point_drop", "zh": "小数除以整数时商的小数点丢了", "en": "Drops the decimal point in the quotient", "pattern": "7.2 ÷ 9 = 8", "remedy": "YY.MATH.DEC.DIV.BY_WHOLE" },
-    { "id": "dec.div_shift_one_side", "zh": "除以小数时只移除数不移被除数", "en": "Shifts the divisor's decimal but not the dividend's", "pattern": "4.8 ÷ 0.6 = 0.8", "remedy": "YY.MATH.DEC.DIV.BY_DECIMAL" },
-
-    { "id": "frac.unequal_parts", "zh": "分得不均也当分数", "en": "Treats unequal parts as fractional parts", "pattern": "不等分图形选「1/4」", "remedy": "YY.MATH.FRAC.PARTS.EQUAL_PARTITION" },
-    { "id": "frac.set_model_count_parts", "zh": "集合模型里数个数而不是数份数", "en": "Counts objects instead of groups in a set model", "pattern": "6 个里 2 个涂色答 2/4", "remedy": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR" },
-    { "id": "frac.different_whole", "zh": "整体不一样大还拿来比", "en": "Compares fractions of different wholes", "pattern": "大饼的 1/4 < 小饼的 1/2？", "remedy": "YY.MATH.FRAC.EQUIV.SAME_WHOLE" },
-    { "id": "frac.count_shaded_only", "zh": "只数涂色格，不看总份数", "en": "Counts shaded parts without the total", "pattern": "2/4 的图说成 2", "remedy": "YY.MATH.FRAC.PARTS.EQUAL_PARTITION" },
-    { "id": "frac.numberline_count_ticks", "zh": "数轴上数刻度线而不是数间隔", "en": "Counts tick marks instead of intervals on a number line", "pattern": "把 3/4 标在第 3 根线", "remedy": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR" },
-    { "id": "frac.add_same_number", "zh": "分子分母同加一个数当等值", "en": "Adds the same number to numerator and denominator", "pattern": "2/3 = 3/4", "remedy": "YY.MATH.FRAC.EQUIV.VISUAL" },
-    { "id": "frac.multiply_one_part", "zh": "只乘分子或只乘分母", "en": "Multiplies only the numerator or only the denominator", "pattern": "2/3 = 4/3", "remedy": "YY.MATH.FRAC.EQUIV.SAME_WHOLE" },
-    { "id": "frac.divide_one_part", "zh": "约分只除一边", "en": "Divides only one of numerator / denominator", "pattern": "6/8 = 3/8", "remedy": "YY.MATH.FRAC.EQUIV.MULTIPLY" },
-    { "id": "frac.not_lowest_terms", "zh": "没约到最简", "en": "Stops before lowest terms", "pattern": "12/16 = 6/8", "remedy": "YY.MATH.FLU.DIV.FACTS" },
-    { "id": "frac.bigger_denominator_bigger", "zh": "分母大分数就大", "en": "Bigger denominator means bigger fraction", "pattern": "1/8 > 1/4", "remedy": "YY.MATH.FRAC.COMPARE.BENCHMARKS" },
-    { "id": "frac.compare_numerators_only", "zh": "异分母只比分子", "en": "Compares numerators only with unlike denominators", "pattern": "3/8 > 2/3", "remedy": "YY.MATH.FRAC.COMPARE.UNLIKE" },
-    { "id": "mixed.whole_is_separate_number", "zh": "把带分数的整数部分当成另一个数", "en": "Reads a mixed number as two separate numbers", "pattern": "2½ 当成 2 和 ½", "remedy": "YY.MATH.FRAC.MIXED.MODEL" },
-    { "id": "mixed.improper_convert_wrong", "zh": "带分数化假分数只乘不加（或只加不乘）", "en": "Converts mixed numbers without adding the numerator", "pattern": "2¾ = 8/4", "remedy": "YY.MATH.FRAC.MIXED.TO_IMPROPER" },
-    { "id": "mixed.remainder_as_whole", "zh": "假分数化带分数时余数和商写反", "en": "Swaps quotient and remainder when converting", "pattern": "11/4 = 3¼ 写成 2¾ 以外的错法", "remedy": "YY.MATH.FRAC.IMPROPER.TO_MIXED" },
-
-    { "id": "ratio.order_swap", "zh": "比的前后项写反", "en": "Writes the ratio terms in the wrong order", "pattern": "3 个红 2 个蓝写成 2:3", "remedy": "YY.MATH.RATIO.MEANING" },
-    { "id": "ratio.part_whole_confuse", "zh": "部分比部分和部分比整体混淆", "en": "Confuses part-to-part with part-to-whole", "pattern": "3 红 2 蓝，红占 3/2", "remedy": "YY.MATH.RATIO.PART_PART_WHOLE" },
-    { "id": "ratio.add_to_scale", "zh": "放大比时用加法而不是乘法", "en": "Scales a ratio additively", "pattern": "2:3 → 4:5", "remedy": "YY.MATH.RATIO.EQUIVALENT" },
-    { "id": "pct.percent_as_number", "zh": "把百分数当成普通数（15% = 15）", "en": "Treats a percent as a plain number", "pattern": "15% of 40 = 15", "remedy": "YY.MATH.PCT.MEANING" },
-    { "id": "pct.decimal_shift_wrong", "zh": "百分数与小数换算移错位", "en": "Shifts the decimal point the wrong number of places", "pattern": "5% = 0.5", "remedy": "YY.MATH.PCT.FRAC_DEC_LINK" },
-    { "id": "pct.whole_part_swap", "zh": "求整体时拿部分去乘", "en": "Multiplies the part when asked for the whole", "pattern": "20% 是 8，整体答 1.6", "remedy": "YY.MATH.PCT.FIND_MISSING" },
-    { "id": "pct.of_vs_off", "zh": "折扣额和折后价混淆", "en": "Confuses the discount with the sale price", "pattern": "$40 打 8 折答 $8", "remedy": "YY.MATH.PCT.DISCOUNT" },
-    { "id": "pct.tax_subtract", "zh": "税算成减法", "en": "Subtracts tax instead of adding it", "pattern": "含税价比原价低", "remedy": "YY.MATH.FIN.PCT.TAX" },
-    { "id": "pct.successive_add", "zh": "先打折再加税时把百分数直接相加减", "en": "Adds percentages instead of applying them in sequence", "pattern": "−20% 再 +12% 当成 −8%", "remedy": "YY.MATH.FIN.PCT.FINAL_PRICE" },
-
-    { "id": "rel.frac_to_dec_digits_copy", "zh": "分数化小数直接抄数字（3/8 = 0.38）", "en": "Copies fraction digits into the decimal", "pattern": "3/8 = 0.38", "remedy": "YY.MATH.DEC.PV1000.FRAC_LINK" },
-    { "id": "rel.divide_wrong_way", "zh": "分数化小数时分母除以分子", "en": "Divides denominator by numerator", "pattern": "3/8 → 8 ÷ 3", "remedy": "YY.MATH.DEC.DIV.BY_WHOLE" },
-    { "id": "rel.repeating_rounds_to_terminating", "zh": "把循环小数当成有限小数（1/3 = 0.33）", "en": "Treats a repeating decimal as terminating", "pattern": "1/3 = 0.33 精确", "remedy": "YY.MATH.REL.FRAC_TO_DEC" },
-    { "id": "rel.third_is_0_3", "zh": "1/3 = 0.3", "en": "Believes 1/3 equals 0.3", "pattern": "1/3 = 0.3 / 30%", "remedy": "YY.MATH.REL.FRAC_TO_DEC" },
-
-    { "id": "int.negative_bigger_magnitude", "zh": "负数绝对值大就大（−7 > −2）", "en": "Orders negatives by magnitude", "pattern": "−7 > −2", "remedy": "YY.MATH.INT.CONCEPT" },
-    { "id": "int.add_ignore_sign", "zh": "整数加法忽略符号", "en": "Adds magnitudes and ignores signs", "pattern": "−3 + 5 = 8", "remedy": "YY.MATH.INT.ADD" },
-    { "id": "int.subtract_negative", "zh": "减负数当成减正数", "en": "Subtracting a negative treated as subtracting a positive", "pattern": "9 − (−4) = 5", "remedy": "YY.MATH.INT.SUBTRACT" },
-    { "id": "int.sign_rules_to_addition", "zh": "「负负得正」用到加法上", "en": "Applies multiplication sign rules to addition", "pattern": "−3 + (−4) = 7", "remedy": "YY.MATH.INT.MULT_DIV" },
-    { "id": "order.left_to_right", "zh": "无视优先级一律从左到右", "en": "Evaluates strictly left to right", "pattern": "2 + 3 × 4 = 20", "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS" },
-    { "id": "order.add_before_sub_always", "zh": "以为加一定先于减、乘一定先于除", "en": "Believes addition always precedes subtraction", "pattern": "10 − 4 + 2 = 4", "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS" },
-    { "id": "order.ignore_brackets", "zh": "无视括号", "en": "Ignores brackets", "pattern": "(2 + 3) × 4 = 14", "remedy": "YY.MATH.FLU.ORDER_OPS.BRACKETS" },
-
-    { "id": "factor.miss_pair", "zh": "列因数漏掉一对", "en": "Misses a factor pair", "pattern": "36 的因数漏 4、9", "remedy": "YY.MATH.NUM.FACTORS.LIST" },
-    { "id": "factor.multiple_confuse", "zh": "因数和倍数说反", "en": "Confuses factors with multiples", "pattern": "说 12 是 6 的因数", "remedy": "YY.MATH.FLU.DIV.MEANING" },
-    { "id": "prime.one_is_prime", "zh": "把 1 当质数", "en": "Counts 1 as prime", "pattern": "质数列表含 1", "remedy": "YY.MATH.NUM.PRIME_COMPOSITE" },
-    { "id": "prime.odd_is_prime", "zh": "奇数都是质数", "en": "Believes every odd number is prime", "pattern": "说 21、27 是质数", "remedy": "YY.MATH.NUM.FACTORS.LIST" },
-    { "id": "prime.two_not_prime", "zh": "偶数都不是质数（漏掉 2）", "en": "Believes 2 is not prime", "pattern": "质数列表无 2", "remedy": "YY.MATH.NUM.PRIME_COMPOSITE" },
-    { "id": "divis.digit_sum_wrong_rule", "zh": "整除规则张冠李戴（用末位判断 3 的倍数）", "en": "Applies the wrong divisibility rule", "pattern": "末位是 3 就说能被 3 整除", "remedy": "YY.MATH.NUM.FACTORS.LIST" },
-    { "id": "pf.stop_at_composite", "zh": "因数树没分到质数就停", "en": "Stops the factor tree at a composite", "pattern": "300 = 4 × 75", "remedy": "YY.MATH.NUM.PRIME_COMPOSITE" },
-    { "id": "pf.exponent_miscount", "zh": "幂的指数数错", "en": "Miscounts the exponent", "pattern": "2 × 2 × 2 = 2²", "remedy": "YY.MATH.NUM.PRIME_FACTORIZATION" },
-    { "id": "gcf_lcm.confuse", "zh": "最大公因数和最小公倍数搞反", "en": "Swaps GCF and LCM", "pattern": "GCF(4,6) = 12", "remedy": "YY.MATH.NUM.FACTORS.LIST" },
-    { "id": "gcf.pick_any_common", "zh": "随便挑一个公因数当最大", "en": "Picks a common factor that is not the greatest", "pattern": "GCF(12,18) = 3", "remedy": "YY.MATH.NUM.FACTORS.LIST" },
-    { "id": "lcm.product_always", "zh": "最小公倍数一律用乘积", "en": "Always uses the product as the LCM", "pattern": "LCM(4,6) = 24", "remedy": "YY.MATH.NUM.MULTIPLES.LIST" },
-
-    { "id": "pat.recursive_vs_explicit", "zh": "只会「每次加几」，不会写第 n 项", "en": "Knows the recursive rule but not the explicit one", "pattern": "第 50 项靠一个个加", "remedy": "YY.MATH.PAT.RULE.SYMBOLS" },
-    { "id": "linear.slope_intercept_swap", "zh": "变化率和起始值写反", "en": "Swaps the rate of change and the starting value", "pattern": "3n + 2 解释成起始 3 每次加 2", "remedy": "YY.MATH.PAT.LINEAR.EXPRESSION" },
-    { "id": "linear.connect_discrete_points", "zh": "离散点连成线", "en": "Connects discrete points with a line", "pattern": "人数-费用图连线", "remedy": "YY.MATH.PAT.LINEAR.GRAPH" },
-    { "id": "eq.equals_means_answer", "zh": "把「=」当成「答案是」", "en": "Reads = as 'the answer is'", "pattern": "8 + 4 = □ + 5 填 12", "remedy": "YY.MATH.ALG.EQ.ONE_STEP.MEANING" },
-    { "id": "eq.inverse_wrong", "zh": "逆运算用错（x + 5 = 11 → x = 16）", "en": "Uses the wrong inverse operation", "pattern": "x + 5 = 11 → x = 16", "remedy": "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB" },
-    { "id": "eq.operate_one_side", "zh": "只对等式一边做运算", "en": "Operates on one side only", "pattern": "3x = 12 → x = 12", "remedy": "YY.MATH.ALG.EQ.BALANCE" },
-    { "id": "eq.coefficient_subtract", "zh": "系数用减法去掉（3x = 12 → x = 9）", "en": "Subtracts the coefficient instead of dividing", "pattern": "3x = 12 → x = 9", "remedy": "YY.MATH.ALG.EQ.ONESTEP.COEFF" },
-    { "id": "eq.undo_wrong_order", "zh": "两步方程先除后减", "en": "Undoes operations in the wrong order", "pattern": "3x + 4 = 16 → x + 4 = 16/3", "remedy": "YY.MATH.ALG.EQ.TWOSTEP.MODEL" },
-
-    { "id": "area_perim.confuse", "zh": "面积周长混淆", "en": "Confuses area and perimeter", "pattern": "求面积答周长", "remedy": "YY.MATH.MEAS.AREA.COUNT_UNITS" },
-    { "id": "area_perim.assume_dependent", "zh": "以为周长大面积一定大", "en": "Assumes larger perimeter means larger area", "pattern": "同周长不同面积题答错", "remedy": "YY.MATH.MEAS.AREA_PERIM.RELATION" },
-    { "id": "area.add_sides", "zh": "面积用长加宽", "en": "Adds length and width for area", "pattern": "5 × 3 长方形面积 = 8", "remedy": "YY.MATH.MEAS.AREA.RECT_FORMULA" },
-    { "id": "area.use_side_not_height", "zh": "用斜边当高", "en": "Uses the slanted side as the height", "pattern": "平行四边形面积用斜边", "remedy": "YY.MATH.MEAS.AREA.PARALLELOGRAM" },
-    { "id": "area.tri_forget_half", "zh": "三角形面积忘记除以 2", "en": "Forgets to halve for a triangle", "pattern": "底 6 高 4 答 24", "remedy": "YY.MATH.MEAS.AREA.TRIANGLE" },
-    { "id": "perim.count_squares_not_edges", "zh": "数格子的个数而不是边的长度", "en": "Counts squares instead of unit edges", "pattern": "周长答成面积数", "remedy": "YY.MATH.MEAS.PERIM.COUNT" },
-    { "id": "perim.forget_hidden_side", "zh": "漏掉没标数字的边", "en": "Misses unlabelled sides", "pattern": "L 形周长只加标出的边", "remedy": "YY.MATH.MEAS.PERIM.CALC" },
-    { "id": "poly.curved_counts", "zh": "带弧边的图形也算多边形", "en": "Counts shapes with curved sides as polygons", "pattern": "选半圆为多边形", "remedy": "YY.MATH.GEO.POLYGON.IDENTIFY" },
-    { "id": "poly.regular_means_familiar", "zh": "「规则」= 常见、「不规则」= 奇怪", "en": "Regular means familiar-looking", "pattern": "长方形选为规则多边形", "remedy": "YY.MATH.GEO.POLYGON.REGULAR_IRREGULAR" },
-    { "id": "sym.diagonal_of_rectangle", "zh": "把长方形对角线当对称轴", "en": "Takes a rectangle's diagonal as a line of symmetry", "pattern": "长方形选 4 条对称轴", "remedy": "YY.MATH.GEO.SYMMETRY.IDENTIFY" },
-    { "id": "quad.square_not_rectangle", "zh": "不承认正方形也是长方形", "en": "Denies that a square is a rectangle", "pattern": "分类题排除正方形", "remedy": "YY.MATH.GEO.2D.QUADRILATERALS" },
-    { "id": "solid.named_by_face_not_base", "zh": "按侧面而不是底面命名立体", "en": "Names a solid by a lateral face instead of its base", "pattern": "三棱柱叫成长方体", "remedy": "YY.MATH.GEO.3D.PRISM_VS_PYRAMID" },
-    { "id": "tri.orientation_changes_type", "zh": "三角形转个方向就换类", "en": "Thinks orientation changes the triangle type", "pattern": "倒着的直角三角形不认", "remedy": "YY.MATH.GEO.TRI.CLASSIFY_BOTH" },
-    { "id": "angle.size_by_arm_length", "zh": "边越长角越大", "en": "Judges angle size by arm length", "pattern": "长边小角选大", "remedy": "YY.MATH.GEO.ANGLE.CLASSIFY" },
-    { "id": "angle.protractor_wrong_scale", "zh": "量角器读错内外圈", "en": "Reads the wrong protractor scale", "pattern": "60° 读成 120°", "remedy": "YY.MATH.GEO.ANGLE.MEASURE_DRAW" },
-    { "id": "circle.radius_diameter_confuse", "zh": "半径直径混用", "en": "Mixes up radius and diameter", "pattern": "C = π × r", "remedy": "YY.MATH.GEO.CIRCLE.PARTS" },
-    { "id": "circle.area_2r", "zh": "面积用 π × 2r", "en": "Uses 2r instead of r² for area", "pattern": "A = π × 2r", "remedy": "YY.MATH.GEO.CIRCLE.AREA" },
-    { "id": "vol.count_visible_only", "zh": "数体积只数看得见的立方体", "en": "Counts only visible cubes", "pattern": "2×2×2 答 7", "remedy": "YY.MATH.MEAS.VOL.COUNT_CUBES" },
-    { "id": "vol.surface_confuse", "zh": "体积表面积混淆", "en": "Confuses volume with surface area", "pattern": "求体积答面积和", "remedy": "YY.MATH.MEAS.VOL.RECT_PRISM" },
-    { "id": "unit.cubic_conversion_linear", "zh": "立方单位换算按线性换（1 m³ = 100 cm³）", "en": "Converts cubic units linearly", "pattern": "1 m³ = 100 cm³", "remedy": "YY.MATH.MEAS.CAPACITY.UNITS" },
-    { "id": "coord.xy_swap", "zh": "横纵坐标颠倒", "en": "Swaps x and y", "pattern": "(3, 5) 描到 (5, 3)", "remedy": "YY.MATH.GEO.COORD.Q1.PLOT" },
-    { "id": "coord.sign_quadrant_confuse", "zh": "象限符号搞错", "en": "Wrong signs for the quadrant", "pattern": "(−2, 3) 描到第四象限", "remedy": "YY.MATH.GEO.COORD.Q4.PLOT" },
-    { "id": "transform.reflect_as_translate", "zh": "翻折画成平移", "en": "Draws a reflection as a translation", "pattern": "镜像方向没反", "remedy": "YY.MATH.GEO.TRANSFORM.REFLECT" },
-    { "id": "transform.rotation_direction", "zh": "旋转方向或角度弄反", "en": "Rotates the wrong way or amount", "pattern": "顺时针 90° 画成逆时针", "remedy": "YY.MATH.GEO.TRANSFORM.ROTATE" },
-    { "id": "transform.order_ignored", "zh": "以为连续变换顺序无所谓", "en": "Ignores the order of transformations", "pattern": "先翻后移与先移后翻混", "remedy": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM" },
-
-    { "id": "time.hour_hand_misread", "zh": "时针过了半格读成下一小时", "en": "Reads the hour hand as the next hour", "pattern": "2:50 读成 3:50", "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN" },
-    { "id": "time.24h_add_10", "zh": "24 时制加 10 而不是加 12", "en": "Adds 10 instead of 12 for 24-hour time", "pattern": "3 p.m. = 13:00", "remedy": "YY.MATH.MEAS.TIME.AM_PM_24H" },
-    { "id": "time.base_100", "zh": "把时间当 100 进制（1.5 小时 = 1 小时 50 分）", "en": "Treats time as base 100", "pattern": "1 小时 50 分 + 20 分 = 1 小时 70 分", "remedy": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR" },
-    { "id": "time.elapsed_cross_hour", "zh": "跨小时经过时间直接相减", "en": "Subtracts clock readings digit-wise across the hour", "pattern": "3:10 − 2:45 = 0:65", "remedy": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR" },
-    { "id": "money.cents_decimal", "zh": "分和元的小数写法错（$3.5 表示 3 元 5 分）", "en": "Writes cents as the wrong decimal", "pattern": "3 元 5 分写成 $3.5", "remedy": "YY.MATH.FIN.MONEY.NOTATION" },
-    { "id": "money.change_subtract_wrong", "zh": "找零方向反了或退位错", "en": "Subtracts in the wrong direction when making change", "pattern": "付 $20 买 $13.45 找 $7.55 以外", "remedy": "YY.MATH.FIN.CHANGE_TO_100" },
-
-    { "id": "graph.scale_misread", "zh": "多对一刻度读错（一格当 1）", "en": "Misreads a many-to-one scale", "pattern": "一格代表 5 读成 1", "remedy": "YY.MATH.DATA.MANY_TO_ONE" },
-    { "id": "graph.half_symbol", "zh": "半个符号不会算", "en": "Cannot interpret a half symbol", "pattern": "半个图标忽略", "remedy": "YY.MATH.DATA.MANY_TO_ONE" },
-    { "id": "graph.legend_swap", "zh": "复式图图例看反", "en": "Swaps the two series in a double bar graph", "pattern": "两组数据读反", "remedy": "YY.MATH.DATA.DBAR.READ" },
-    { "id": "graph.steep_means_more", "zh": "折线陡就以为数值大", "en": "Reads steepness as magnitude", "pattern": "变化快当成数量多", "remedy": "YY.MATH.DATA.LINE.READ" },
-    { "id": "graph.percent_as_count", "zh": "扇形图的百分数直接当数量", "en": "Reads percentages on a circle graph as counts", "pattern": "25% 读成 25 人", "remedy": "YY.MATH.DATA.CIRCLE.READ" },
-    { "id": "graph.angle_percent_confuse", "zh": "画扇形图时百分数直接当角度", "en": "Uses the percent as the angle", "pattern": "25% 画成 25°", "remedy": "YY.MATH.DATA.CIRCLE.CONSTRUCT" },
-    { "id": "prob.equal_outcomes_assumed", "zh": "以为所有结果都一样可能", "en": "Assumes all outcomes are equally likely", "pattern": "不均匀转盘各色都 1/3", "remedy": "YY.MATH.PROB.PREDICT_SINGLE" },
-    { "id": "prob.few_trials_conclusion", "zh": "试几次就下结论", "en": "Draws conclusions from very few trials", "pattern": "抛 4 次 3 次正面说硬币不公平", "remedy": "YY.MATH.PROB.RECORD_TALLY" },
-    { "id": "prob.part_to_part", "zh": "可能性写成部分比部分（3 红 2 蓝答 3/2）", "en": "Writes probability as part-to-part", "pattern": "P(红) = 3/2", "remedy": "YY.MATH.PROB.FRACTION.SINGLE" },
-    { "id": "prob.experimental_equals_theoretical", "zh": "以为实验结果必须等于理论值", "en": "Expects experimental to equal theoretical exactly", "pattern": "10 次没有正好 5 次正面就说算错", "remedy": "YY.MATH.PROB.COMPARE_TH_EXP" },
-    { "id": "prob.two_events_add_outcomes", "zh": "两个事件的结果数用加法", "en": "Adds outcome counts for two events", "pattern": "两枚硬币 2 + 2 = 4 种（碰巧对）、硬币+骰子 2 + 6", "remedy": "YY.MATH.PROB.TWO_EVENTS.OUTCOMES" },
-    { "id": "eq.coeff_as_addend", "zh": "把 3x 读成 3 + x，代入算成 3 + 5 + 7", "en": "Reads the coefficient as an addend (3x as 3 + x)", "pattern": "3x + 7，x = 5 时算成 3 + 5 + 7 = 15", "remedy": "YY.MATH.ALG.EQ.ONESTEP.COEFF" },
-    { "id": "eq.verify_combine_before_mult", "zh": "代入后先把常数并进 x 再乘（3×(5+7)）", "en": "Combines the constant with x before multiplying when substituting", "pattern": "3x + 7，x = 5 算成 3 × (5 + 7) = 36", "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS" },
-    { "id": "eq.verify_stop_before_constant", "zh": "代入只算到 4×3 = 12 就比较，忘了加常数", "en": "Stops after multiplying and forgets the constant before comparing", "pattern": "4x + 5 = 17 验算成 12 ≠ 17 判「不是解」", "remedy": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY" },
-    { "id": "eq.verify_not_exact", "zh": "验算两边不等也算解（差 1 算接近／改常数迁就）", "en": "Accepts a near-miss or bends the equation to make the check pass", "pattern": "左边 11 右边 12 说「很接近所以是解」，或把 −4 改成 −3", "remedy": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY" },
-    { "id": "pat.fixed_part_mishandled", "zh": "固定起始量漏掉或跟着次数一起乘（$10 起始×5 周）", "en": "Drops the fixed part or scales it along with the variable", "pattern": "起始 $10 每周 $4，5 周答 $50 / $70 / $20", "remedy": "YY.MATH.ALG.RELATION.QUANTITIES" },
-    { "id": "pat.wrong_quantity_dependence", "zh": "搞错谁随谁变（每艘 $15 当每人 $15；轮子数×3）", "en": "Applies the rule to the wrong quantity or in the wrong direction", "pattern": "每 5 分钟 1 圈说成每分钟 5 圈；已知 21 个轮子还 ×3", "remedy": "YY.MATH.ALG.RELATION.QUANTITIES" },
-    { "id": "graph.count_lines_not_squares", "zh": "读条形图数横线连 0 那条也数，多出 1", "en": "Counts gridlines including zero instead of squares", "pattern": "条形到刻度 6 读成 7", "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE" },
-    { "id": "graph.scale_invented", "zh": "图例一格 1 个却按 2 个算（9 个符号读成 18）", "en": "Applies a scale the key does not give", "pattern": "一对一图读成两倍", "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE" },
-    { "id": "graph.read_unshaded_or_whole", "zh": "读条形时数了整列或空白格（10 格涂 7 读成 10）", "en": "Reads the whole column or the empty squares instead of the shaded bar", "pattern": "涂 7 格答 10 或 3", "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE" },
-    { "id": "graph.tallest_bar_answers_all", "zh": "只看哪根条最高，不管问的是差、增量还是哪一组", "en": "Answers from the tallest bar whatever the question asks", "pattern": "问哪项两班差最大，答条形最高的项", "remedy": "YY.MATH.DATA.DBAR.INTERPRET" },
-    { "id": "graph.partial_compare", "zh": "比总量只看其中一天／一组就下结论", "en": "Compares one category or one series instead of the totals", "pattern": "只比星期六就说饼干多 $30", "remedy": "YY.MATH.DATA.DBAR.INTERPRET" },
-    { "id": "graph.compare_bars_ignore_scale", "zh": "两张图刻度不同还直接比条形高矮", "en": "Compares bar heights across graphs with different scales", "pattern": "一格 2 个到第 6 格 vs 一格 5 个到第 4 格，说前者多", "remedy": "YY.MATH.DATA.MANY_TO_ONE" },
-    { "id": "graph.value_instead_of_change", "zh": "问变化量却答数值本身或选最高的点", "en": "Reports a value or the highest point instead of the change", "pattern": "问哪段涨最多选最后一段；问长高多少答 13 cm", "remedy": "YY.MATH.DATA.LINE.READ" },
-    { "id": "graph.extrapolate_step_count", "zh": "预测时步数或步长数错（该走两步只走一步）", "en": "Extrapolates with the wrong number or size of steps", "pattern": "每小时 +6，两小时后答 36 而不是 42", "remedy": "YY.MATH.DATA.LINE.INTERPRET" },
-    { "id": "graph.cumulative_as_interval", "zh": "累计图上把总量当成当天的量（累计 14 说周三下了 14）", "en": "Reads a running total as a single-period amount", "pattern": "累计 30、38 答「两天共 68」", "remedy": "YY.MATH.DATA.LINE.INTERPRET" },
-    { "id": "est.truncate_decimal", "zh": "估算直接去掉小数部分（9.67 当 9，7.98 当 7）", "en": "Truncates the decimal part instead of rounding to the nearest", "pattern": "$4.79 + $3.35 估成 $7", "remedy": "YY.MATH.DEC.ADDSUB.100.ESTIMATE" },
-    { "id": "est.estimate_as_exact", "zh": "把估算值当精确值（估出 4.0 就说正好 4）", "en": "Treats an estimate as the exact answer", "pattern": "说「和正好等于 8」而不是「大约 8」", "remedy": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE" },
-    { "id": "est.bias_direction_ignored", "zh": "不看凑大还是凑小，以为估算一定偏小或正好抵消", "en": "Ignores which way rounding pushed the estimate", "pattern": "说「估算总是偏小」或「一上一下抵消了」", "remedy": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE" },
-    { "id": "word.stop_early", "zh": "多步题算到中间结果就停（总价当找零）", "en": "Stops at an intermediate result", "pattern": "答案是中间步骤的数（总价、已列支出、只算了小费）", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.WORD" },
-    { "id": "dec.add_across_places", "zh": "不同数位的个数直接相加（0.9 + 0.04 = 0.13）", "en": "Adds counts from different places directly", "pattern": "9 个 0.1 加 4 个 0.01 答 0.13；2 根长条加 5 个小方块答 0.07", "remedy": "YY.MATH.DEC.PV100.MODEL" },
-    { "id": "dec.zero_placeholder", "zh": "小数占位 0 漏写或多写（0.206 写成 0.26）", "en": "Drops or inserts placeholder zeros in a decimal", "pattern": "0.206 → 0.26 / 0.2006；0.54 → 0.504", "remedy": "YY.MATH.DEC.PV100.READ_WRITE" },
-    { "id": "dec.rename_units_copy_digits", "zh": "换小单位只抄数字（0.4 = 4 个 0.001）", "en": "Copies digits when renaming decimal units", "pattern": "0.4 = 4 或 40 个 0.001；40 份 0.001 写成 0.4；一格再分十份仍答 0.01", "remedy": "YY.MATH.DEC.PV1000.MODEL" },
-    { "id": "dec.thousandths_place_confuse", "zh": "千分位和百分位分不清（0.047 写成 0.47）", "en": "Confuses thousandths with hundredths or tenths", "pattern": "0.047 → 0.47；0.243 → 0.27；20 个千分之一当 0.20", "remedy": "YY.MATH.DEC.PV1000.READ_WRITE" },
-    { "id": "fin.income_expense_mixed", "zh": "收入和支出混在一起加（收入 20 支出 15 答 35）", "en": "Adds income and expenses together", "pattern": "答案 = 预算表里所有数之和", "remedy": "YY.MATH.FIN.BUDGET_SIMPLE" },
-    { "id": "fin.balance_misjudged", "zh": "收入比支出多就算平衡，或结余超支方向弄反", "en": "Misjudges whether a budget balances", "pattern": "收入 45 支出 38 说「已平衡」；支出多却说有结余；调整时改错边或只挪行", "remedy": "YY.MATH.FIN.BUDGET_SIMPLE" },
-    { "id": "fin.period_mismatch", "zh": "周和月不统一（每周 2 元当每月 2 元）", "en": "Mixes weekly and monthly amounts", "pattern": "每周数没乘周数就和一次性的数相加", "remedy": "YY.MATH.FIN.BUDGET_SIMPLE" },
-    { "id": "fin.saving_not_expense", "zh": "储蓄不算进支出（预算漏掉储蓄那一行）", "en": "Leaves saving out of the expense side", "pattern": "支出合计少了储蓄那一项；把储蓄当成收入", "remedy": "YY.MATH.FIN.BUDGET_SIMPLE" },
-    { "id": "fin.save_spend_give_confuse", "zh": "储蓄、消费、捐赠分不清（捐出去的钱还当在手里）", "en": "Confuses saving, spending and giving", "pattern": "算剩多少时漏减捐款或花费；把花掉的钱当存下的", "remedy": "YY.MATH.FIN.DECISIONS" },
-    { "id": "money.count_coins_not_value", "zh": "数硬币个数当钱数（9 个硬币 = 9 元）", "en": "Counts coins instead of their values", "pattern": "8 个 25 分 + 3 个 1 元答 11 元", "remedy": "YY.MATH.FIN.TOTALS_TO_100" },
-    { "id": "pct.benchmark_combine_wrong", "zh": "15% 拼错（停在 10%，或 5% 当 10% 的两倍）", "en": "Combines percent benchmarks wrongly", "pattern": "15% 算成 10% 或 20%；20% 算成 10% 的一半；5% 当 10% 的两倍", "remedy": "YY.MATH.REL.BENCHMARKS" },
-    { "id": "fin.save_ignore_existing", "zh": "已存的钱没从目标里减掉（已存 30 仍算 210 ÷ 15）", "en": "Ignores money already saved when planning weeks", "pattern": "周数 = 全价 ÷ 每周存款，没先减去已有存款（或把已存的钱加到目标上）", "remedy": "YY.MATH.FIN.SAVE_PLAN" },
-    { "id": "fin.save_gross_not_net", "zh": "按全部零花钱算，忘了每周花掉的（按 12 除而非 7.5）", "en": "Divides by the full allowance instead of the amount actually saved", "pattern": "周数 = 价格 ÷ 每周零花钱总额，没扣掉每周开销", "remedy": "YY.MATH.FIN.SAVE_PLAN" },
-    { "id": "fin.weeks_not_division", "zh": "求「几周才够」不用除法（28 − 4 = 24 周）", "en": "Finds 'how many weeks' without dividing", "pattern": "周数由价格减、乘每周金额得来，或 9 ÷ 126 反着除", "remedy": "YY.MATH.DEC.MULTDIV.WORD" },
-    { "id": "fin.total_item_missed", "zh": "算总价漏掉一样，或 3 支笔只算 1 支", "en": "Leaves an item (or a repeated item) out of the total", "pattern": "总价正好少了一件（或少几件同款）的价钱", "remedy": "YY.MATH.FIN.TOTALS_TO_100" },
-    { "id": "facts.make_ten_add_whole", "zh": "凑十后把拆过的数整个再用一遍（8 + 5 = 10 + 5）", "en": "Uses the whole second number again after making ten", "pattern": "得数比正确值多出（减法则少出）移去凑十的那部分", "remedy": "YY.MATH.FLU.ADDSUB.FACTS20" },
-    { "id": "facts.near_double_no_adjust", "zh": "翻倍加一忘了调 1，或方向反了（7 + 8 = 14 或 17）", "en": "Near-doubles: forgets or misdirects the plus-or-minus-one adjustment", "pattern": "得数正好是相邻的翻倍数，或与正确值差 2", "remedy": "YY.MATH.FLU.ADDSUB.FACTS20" },
-    { "id": "facts.recall_slip", "zh": "20 以内口诀记错（7 + 7 = 12，9 + 9 = 19）", "en": "Recalls an addition or subtraction fact to 20 wrongly", "pattern": "得数与正确值差 1 或 2，或混成相邻口诀", "remedy": "YY.MATH.FLU.ADDSUB.FACTS20" },
-    { "id": "pv.annex_zeros_miscount", "zh": "口诀套大数时零补多或补少（800 + 700 = 150）", "en": "Annexes the wrong number of zeros", "pattern": "答案是正确值的 10 倍、100 倍或 1/10", "remedy": "YY.MATH.FLU.ADDSUB.FACTS20.EXTEND" },
-    { "id": "pv.mixed_places_annex", "zh": "数位不同也直接套口诀补零（800 + 70 = 1 500）", "en": "Uses the annex-zeros shortcut on digits in different places", "pattern": "800 + 70 答 1 500 / 150 / 15 000", "remedy": "YY.MATH.NUM.PV1M.DIGIT_VALUE" },
-    { "id": "est.estimate_not_a_check", "zh": "不拿估算当检查：差一千多也说合理，或说无法判断", "en": "Does not use the estimate as a check on reasonableness", "pattern": "理由是「估算只是大概」「位数一样」「比加数大」「无法判断」", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ESTIMATE" },
-    { "id": "mental.compensate_forget", "zh": "凑整后忘了补偿（3 495 + 1 998 答 5 495）", "en": "Forgets to compensate after using a friendly number", "pattern": "答案正好是用凑整数直接算出的结果", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL" },
-    { "id": "mental.compensate_direction", "zh": "补偿方向反了（减法多减了 4 还再减 4）", "en": "Compensates in the wrong direction", "pattern": "答案偏离正确值两倍的调整量（5 502 而非 5 498）", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL" },
-    { "id": "mental.decompose_drop_part", "zh": "拆分后漏加一块（47000 + 25000 答 67000）", "en": "Drops a chunk when decomposing", "pattern": "答案少了拆出去的那一块", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL" },
-    { "id": "mental.same_change_rule_confuse", "zh": "「同加同减」用到加法上（5004 + 3000 = 8004）", "en": "Confuses the constant-difference shift with compensation", "pattern": "加法两数同加不补偿，或减法同加后又多补偿一次", "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL" },
-    { "id": "mult.double_count_wrong", "zh": "翻倍、减半次数不对（23×4 停在 46）", "en": "Wrong number of doublings or halvings", "pattern": "23 × 4 = 46；96 ÷ 4 = 48 或 12；4 × 8 当成 2 × 8", "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS" },
-    { "id": "mult.halve_double_direction", "zh": "该减半却翻倍、该翻倍却减半（340÷5=17）", "en": "Halves when it should double, or vice versa", "pattern": "10×6=60 → 5×6=120；340 ÷ 5 = 17；÷5 套用 ×5 的步骤", "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS" },
-    { "id": "mult.halve_double_rule_misapplied", "zh": "减半加倍只改一边或两边一起改（24×5=12×5）", "en": "Misapplies halve-and-double: one factor only, or both the same way", "pattern": "24 × 5 = 12 × 5；2×8=16 → 4×16=64；14 × 25 = 28 × 50", "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS" },
-    { "id": "mult.double_halve_as_addsub", "zh": "翻倍、减半做成加减一个数（5×7 = 70 − 5）", "en": "Treats doubling or halving as adding or subtracting", "pattern": "3×8=24 → 6×8 = 24 + 8 = 32；10×7=70 → 5×7 = 65", "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS" },
-    { "id": "mult.group_adjust_wrong", "zh": "从邻近口诀推时加减的不是一整组（7×9=70−1）", "en": "Adjusts from a neighbouring fact by the wrong amount", "pattern": "7 × 9 = 70 − 1 = 69；6 × 8 = 40 + 6 = 46", "remedy": "YY.MATH.FLU.MULT.FACTS.STRATEGIES" },
-    { "id": "mult.zero_annex_miscount", "zh": "添零法多添或少添 0（7×10=700）", "en": "Annexes the wrong number of zeros", "pattern": "7 × 10 = 700；420 ÷ 6 = 700 或 7", "remedy": "YY.MATH.FLU.MULT.FACTS.2_5_10" },
-    { "id": "mult.x5_one_step_only", "zh": "×5 两步心算只做了一步（46×5=460 或 23）", "en": "Does only one step of the ×10-then-halve strategy", "pattern": "46 × 5 = 460 / 23；460 ÷ 5 = 46", "remedy": "YY.MATH.FLU.MENTAL.MULTI_DIGIT" },
-    { "id": "mult.x5_as_double_double", "zh": "×5 做成翻倍再翻倍（78×5=312）", "en": "Uses double-double (×4) for ×5", "pattern": "78 × 5 = 312；$1.45 × 5 = $5.80", "remedy": "YY.MATH.FLU.MULT.FACTS.EXTENDING" },
-    { "id": "div.subtract_instead", "zh": "把除法做成减法（36÷4=32）", "en": "Subtracts instead of dividing", "pattern": "36 ÷ 4 = 32；72 ÷ 9 = 63", "remedy": "YY.MATH.FLU.DIV.MEANING" },
-    { "id": "div.commutative_flip", "zh": "以为除法能像乘法一样交换（6÷24=4）", "en": "Treats division as commutative", "pattern": "4 × 6 = 24 → 说 6 ÷ 24 = 4 也成立", "remedy": "YY.MATH.FLU.DIV.MEANING" },
-    { "id": "div.partial_quotient_combine", "zh": "分段商合并出错：漏一段或加错东西（216÷4=50+16）", "en": "Combines partial quotients wrongly (drops a chunk or adds the amounts)", "pattern": "216 ÷ 4 = 50 + 16 = 66；245 ÷ 5 只算到 40；数减了几次当商", "remedy": "YY.MATH.FLU.DIV.2D3D_BY_1D" },
-    { "id": "frac.same_denom_equal", "zh": "分母相同就以为分数相等（4/6 = 2/6）", "en": "Same denominator means the fractions are equal", "pattern": "4/6 与 2/6 选「一样大」", "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM" },
-    { "id": "frac.smaller_numerator_bigger", "zh": "把「份数少每份大」用到分子上（3/8 > 5/8）", "en": "Applies 'fewer parts means bigger parts' to the numerator", "pattern": "3/8 > 5/8", "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM" },
-    { "id": "frac.same_denom_cant_compare", "zh": "分母已相同还说不能比、要先通分", "en": "Thinks same-denominator fractions still need converting or cannot be compared", "pattern": "选「无法比较」或「要先通分」", "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM" },
-    { "id": "frac.compare_denominators_only", "zh": "异分母只按分母排序，不看分子（5/8 最小）", "en": "Orders unlike fractions by denominator alone", "pattern": "5/8、3/4、2/3 按分母大小排", "remedy": "YY.MATH.FRAC.COMPARE.BENCHMARKS" },
-    { "id": "angle.sum_180_360_confuse", "zh": "三角形用 360°、四边形用 180°", "en": "Uses 360° for a triangle or 180° for a quadrilateral", "pattern": "三角形缺角答 360−75−65=220", "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS" },
-    { "id": "angle.sum_not_subtracted", "zh": "只加已知角就当答案（60°+70° 答 130°）", "en": "Stops at the sum of the known angles", "pattern": "答 130° 而不是 180−130=50°", "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS" },
-    { "id": "angle.subtract_one_only", "zh": "180° 只减一个已知角（180−35=145）", "en": "Subtracts only one of the known angles from the total", "pattern": "直角三角形另一角答 145°", "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS" },
-    { "id": "angle.equal_pair_not_halved", "zh": "两个相等角忘了平分（180−40=140 当每个角）", "en": "Forgets to halve the leftover between two equal angles", "pattern": "顶角 40° 的等腰三角形底角答 140°", "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS" },
-    { "id": "circle.pi_varies_with_size", "zh": "以为圆越大周长÷直径越大", "en": "Believes C ÷ d changes with the size of the circle", "pattern": "说大圆的比值更大 / π 随直径变", "remedy": "YY.MATH.GEO.CIRCLE.PI" },
-    { "id": "circle.pi_added_not_multiplied", "zh": "把 π 当加数（C = 5 + 3.14 = 8.14）", "en": "Adds pi to the diameter instead of multiplying", "pattern": "d=5 答 C=8.14", "remedy": "YY.MATH.GEO.CIRCLE.PI" },
-    { "id": "circle.pi_exact_value", "zh": "以为 π 正好是 3 或正好 3.14", "en": "Treats pi as exactly 3 or exactly 3.14", "pattern": "三个直径正好绕一圈；实测 3.08 就说算错", "remedy": "YY.MATH.GEO.CIRCLE.PI" },
-    { "id": "sym.half_whole_confuse", "zh": "半边格数和整体格数混（左 7 格答总数 7）", "en": "Confuses the count on one half with the count for the whole design", "pattern": "只算一半，或问一半答整体", "remedy": "YY.MATH.GEO.SYMMETRY.COMPLETE" },
-    { "id": "sym.mirror_distance_wrong", "zh": "镜像格离轴距离数错（贴着轴那格当镜像）", "en": "Mirror square placed at the wrong distance from the line", "pattern": "离轴 2 格的镜像放在贴轴那一格，或把轴当一格数进去", "remedy": "YY.MATH.GEO.SYMMETRY.COMPLETE" },
-    { "id": "sym.wrong_axis_direction", "zh": "水平轴却左右翻（行列改错）", "en": "Reflects across the wrong direction for the given line", "pattern": "水平轴的镜像改了列而不是行", "remedy": "YY.MATH.GEO.SYMMETRY.IDENTIFY" },
-    { "id": "tess.regular_only", "zh": "以为只有正多边形或等边图形才能镶嵌", "en": "Believes only regular / equal-sided shapes tessellate", "pattern": "说不规则四边形、风筝、任意三角形铺不满", "remedy": "YY.MATH.GEO.TESSELLATION" },
-    { "id": "tess.all_regular_tile", "zh": "以为所有正多边形都能镶嵌（正五边形也行）", "en": "Assumes every regular polygon tessellates", "pattern": "选正五边形 / 正八边形能铺满，或凑成 3×108=360", "remedy": "YY.MATH.GEO.TESSELLATION" },
-    { "id": "tess.point_sum_confuse", "zh": "绕一点要凑 360° 却用 180° 或内角和", "en": "Confuses the 360° around a point with 180° or the shape's angle sum", "pattern": "说三角形内角和 180° 所以铺不满", "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS" },
-    { "id": "tess.transform_requirement_myth", "zh": "以为镶嵌必须同向或必须翻转才算", "en": "Imposes a false requirement on the transformations used in a tessellation", "pattern": "说转过的砖不算镶嵌，或说必须翻转才算", "remedy": "YY.MATH.GEO.TESSELLATION" },
-    { "id": "transform.translate_sign_wrong", "zh": "平移方向反了（向左/向下还是加）", "en": "Translates in the wrong direction (adds for left/down, or reverses the rule)", "pattern": "(8,5) 左 5 下 3 答 (13,8)", "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE" },
-    { "id": "transform.translate_count_endpoint", "zh": "平移格数读终点或数数字个数（2→7 说 7 格）", "en": "Reads the endpoint coordinate or counts gridline labels instead of intervals", "pattern": "3→7 说移了 5 格；数两个图形之间的空格", "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE" },
-    { "id": "transform.translate_alters_shape", "zh": "以为平移会变大、翻面或转向", "en": "Thinks a translation changes size or orientation", "pattern": "说滑得远图形就变大 / 平移后翻了面", "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE" },
-    { "id": "tri.two_equal_called_scalene", "zh": "有一条边不同就判成不等边（8、8、5 说成 scalene）", "en": "Calls a triangle scalene when only one side differs", "pattern": "两边相等的三角形选「不等边」", "remedy": "YY.MATH.GEO.TRI.BY_SIDES" },
-    { "id": "tri.side_name_confuse", "zh": "等边/等腰/不等边名称张冠李戴（三边全等说 scalene）", "en": "Mixes up the names equilateral, isosceles and scalene", "pattern": "6、6、6 选「不等边」或「等腰」；4、7、9 选「等边」", "remedy": "YY.MATH.GEO.TRI.BY_SIDES" },
-    { "id": "tri.equilateral_not_isosceles", "zh": "以为等边三角形不算等腰，三个名称互斥", "en": "Believes an equilateral triangle cannot also be isosceles", "pattern": "说等腰的第三条边必须不同、一个三角形只能有一个名字", "remedy": "YY.MATH.GEO.TRI.BY_SIDES" },
-    { "id": "tri.sides_vs_angles_confuse", "zh": "按边分类却拿角来判断（说要先量角、钝角一定不等边）", "en": "Confuses classification by sides with classification by angles", "pattern": "选「无法判断，不知道角度」或「不等边一定有钝角」", "remedy": "YY.MATH.GEO.TRI.CLASSIFY_BOTH" },
-    { "id": "time.number_as_minute", "zh": "把分针指的大数字直接当分钟数（指 4 读成 04 分）", "en": "Reads the clock number as the minute count instead of ×5", "pattern": "分针在 4 附近读成 :04、在 11 附近读成 :11", "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN" },
-    { "id": "time.minute_marks_ignored", "zh": "只读到整 5 分就停，小格没数（7:22 读成 7:20）", "en": "Stops at the nearest 5 minutes and ignores the small marks", "pattern": "答案是 :20 / :45 这类整 5 分，与正解差 1–4 分", "remedy": "YY.MATH.MEAS.TIME.ANALOG.MINUTE" },
-    { "id": "time.marks_wrong_direction", "zh": "分针在数字前面却往前加（差 2 格到 4 读成 22 分）", "en": "Counts the small marks in the wrong direction from the number", "pattern": "正解 :18 答 :22，或正解 :48 答 :42", "remedy": "YY.MATH.MEAS.TIME.ANALOG.MINUTE" },
-    { "id": "time.elapsed_add_times", "zh": "经过时间把两个时刻相加（4:10 到 4:35 答 45）", "en": "Adds the two clock readings instead of finding the gap", "pattern": "答案 = 起止分钟数之和，常大于 60", "remedy": "YY.MATH.MEAS.TIME.ELAPSED.WITHIN_HOUR" },
-    { "id": "time.gap_count_numbers", "zh": "数钟面数字当分钟，大格没乘 5（2 到 7 答 5 分钟）", "en": "Counts clock numbers as minutes instead of 5-minute gaps", "pattern": "答案 = 大格数（3 格答 3 分钟）", "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN" },
-    { "id": "time.past_to_swap", "zh": "「过」「差」弄反（quarter to 3 读成 3:15）", "en": "Swaps 'past' and 'to'", "pattern": "差一刻 X 写成 X:15，或 X:45 说成 X 点过一刻", "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR" },
-    { "id": "time.quarter_to_wrong_hour", "zh": "差一刻用当前小时（4:45 说成 quarter to 4）", "en": "Names 'quarter to' with the current hour instead of the next", "pattern": "X:45 说成 quarter to X；quarter to X 写成 X:45", "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR" },
-    { "id": "time.half_vs_quarter", "zh": "半点和一刻混（2/4 小时说成 quarter past）", "en": "Confuses half past with quarter past / quarter to", "pattern": "30 分选「一刻」或 15/45 分选「半点」", "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR" },
-    { "id": "time.24h_pm_confuse", "zh": "24 时制下午忘加 12（下午 6:30 写成 06:30）", "en": "Forgets to add or remove 12 when converting afternoon times", "pattern": "下午时间写成 0X:XX，或 14:30 说成上午", "remedy": "YY.MATH.MEAS.TIME.AM_PM_24H" },
-    { "id": "pv.digit_place_shift", "zh": "数字挪错数位（八千零四十写成 8400）", "en": "Puts or reads a digit at the wrong place (same digit count)", "pattern": "位数对但某个数字左右挪了一位，中间有 0 时最常见", "remedy": "YY.MATH.NUM.PV10K.READ_WRITE" },
-    { "id": "linear.rule_from_one_point", "zh": "只用第一个点定规律（(1, 5) 就写 y = 5x）", "en": "Builds the rule from a single point without checking the rest", "pattern": "规律只对第一行成立，第二行就对不上", "remedy": "YY.MATH.PAT.GRAPH.TO_RULE" },
-    { "id": "linear.step_as_add_rule", "zh": "每步加 3 就写成 n + 3（应为 3n）", "en": "Turns the common difference into an additive rule", "pattern": "步长 k 的规律写成 n + k", "remedy": "YY.MATH.PAT.EXPR.FROM_PATTERN" },
-    { "id": "linear.intercept_forgotten", "zh": "漏掉常数项/起始值（3n + 2 写成 3n）", "en": "Drops the constant term or starting value", "pattern": "答案 = 步长 × n，与正解差一个常数；或反推时忘先减常数", "remedy": "YY.MATH.PAT.LINEAR.EXPRESSION" },
-    { "id": "pat.rule_from_two_terms", "zh": "只看前两项定规律（2, 6, 18 说成每次加 4）", "en": "Decides the rule from the first two terms only", "pattern": "规律只对第一步成立，后面几步没验证", "remedy": "YY.MATH.PAT.INC_DEC.EXTEND" },
-    { "id": "pat.multiply_step_ignore_start", "zh": "步长乘项数忽略首项（第 7 项答 9 × 7 = 63）", "en": "Multiplies the step by the term number and ignores the start", "pattern": "答案 = 步长 × 项数", "remedy": "YY.MATH.PAT.INC_DEC.EXTEND" },
-    { "id": "pat.rule_parts_confuse", "zh": "起点和加数拿错（3,7,11 说成从4开始每次加3）", "en": "Misassigns the start and the step of a rule", "pattern": "把起点当每次加的数，或把第二项 / 末项当起点", "remedy": "YY.MATH.PAT.INC_DEC.RULE" },
-    { "id": "pat.direction_wrong", "zh": "递减规律说成「每次加」，或往反方向延伸", "en": "Gets the direction of the pattern wrong", "pattern": "40,35,30 → 每次加 5；下一项答 45", "remedy": "YY.MATH.PAT.INC_DEC.EXTEND" },
-    { "id": "pat.step_from_nonadjacent", "zh": "隔项相减当一步的变化（第1天4、第3天12说每天加8）", "en": "Uses a gap across several terms as one step", "pattern": "跨两项的差直接当每次加的数", "remedy": "YY.MATH.PAT.INC_DEC.RULE" },
-    { "id": "pat.term_count_off_by_one", "zh": "延伸规律多算或少算一项（第6周答成第5周的数）", "en": "Off by one when extending or counting terms", "pattern": "6 小时减 15 只减 5 次；(25−4)÷3=7 答第 7 天", "remedy": "YY.MATH.PAT.INC_DEC.EXTEND" },
-    { "id": "pat.rule_missing_start", "zh": "只说「每次加几」，不说从哪个数开始", "en": "States the step but omits the start", "pattern": "法则只写「每次加 7」，认为起点可以省略", "remedy": "YY.MATH.PAT.RULE.WORDS_NUMBERS" },
-    { "id": "linear.nonconstant_as_linear", "zh": "有规律或一直变大就当线性（2,4,8,16）", "en": "Treats any pattern or any increase as linear", "pattern": "每次乘 2、差 7,5,7 取平均也判为线性", "remedy": "YY.MATH.PAT.LINEAR.TABLE" },
-    { "id": "linear.intercept_misread", "zh": "截距拿表格第一行的 y，或以为 x=0 时一定是 0", "en": "Misreads the y-intercept (first table row, or assumes zero)", "pattern": "x=1 时 y=10 答截距 10；租船 0 小时答 $0", "remedy": "YY.MATH.PAT.LINEAR.TABLE" },
-    { "id": "linear.x_step_ignored", "zh": "只看 y 列的差，不看 x 每步走多少", "en": "Ignores the x-step when judging constant change", "pattern": "x 走 2 步 y 加 6 说成每步加 6；x 不是 1,2,3 就说不线性", "remedy": "YY.MATH.PAT.LINEAR.TABLE" },
-    { "id": "prob.absolute_words_misuse", "zh": "不太可能说成不可能，很可能说成一定", "en": "Confuses unlikely with impossible, likely with certain", "pattern": "100 张 1 张大奖 → 不可能；8 份 7 份蓝 → 一定", "remedy": "YY.MATH.PROB.LIKELIHOOD" },
-    { "id": "prob.compare_to_half_missing", "zh": "只看数量多少，不和一半比（12张里4张说很可能）", "en": "Judges likelihood without comparing to half", "pattern": "有 4 张比 0 多就说很可能；5 支很多就说很可能", "remedy": "YY.MATH.PROB.LIKELIHOOD" },
-    { "id": "prob.outcomes_count_items", "zh": "把份数或物件数当结果数（3红2蓝1黄说6种）", "en": "Counts parts or items instead of distinct outcomes", "pattern": "红、红、红、蓝、蓝、黄；5 张卡答 5 种", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
-    { "id": "prob.outcomes_lumped", "zh": "把结果分组当结果（骰子说成「奇数、偶数」两种）", "en": "Lumps outcomes into categories", "pattern": "结果答「中奖、不中奖」「是我的颜色、不是」", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
-    { "id": "prob.past_results_change_outcomes", "zh": "以为出过的结果这次不会再出（出过4就剩5种）", "en": "Thinks past results change the possible outcomes", "pattern": "红连出两次就说第三次不能是红", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
-    { "id": "solid.fev_swap", "zh": "面、棱、顶点的数目互相串（长方体说成 8 个面、6 条棱）", "en": "Swaps the counts of faces, edges and vertices", "pattern": "长方体答 8 个面 / 6 条棱 / 12 个顶点", "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES" },
-    { "id": "solid.count_visible_only", "zh": "只数图上看得见的面或顶点（长方体数成 3 个面）", "en": "Counts only the faces or vertices visible in the drawing", "pattern": "长方体 3 个面 / 7 个顶点", "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES" },
-    { "id": "unit.ml_l_factor", "zh": "把 1 L 当成 100 mL（或 10 mL）", "en": "Uses the wrong factor between millilitres and litres", "pattern": "2 L = 200 mL", "remedy": "YY.MATH.MEAS.CAPACITY.UNITS" },
-    { "id": "unit.convert_wrong_direction", "zh": "单位换算乘除方向反了（小单位换大单位却去乘）", "en": "Multiplies when converting to a bigger unit (or divides to a smaller one)", "pattern": "180 分钟 = 10 800 小时", "remedy": "YY.MATH.MEAS.TIME.UNITS" },
-    { "id": "graph.series_in_circle", "zh": "把随时间变化的数据画进圆形统计图", "en": "Puts a time series into a circle graph", "pattern": "一周每天气温选圆图", "remedy": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH" },
-    { "id": "circle.r_squared_as_r", "zh": "由面积求半径时把 r² 直接当成 r（忘了开方）", "en": "Treats r² as the radius when working back from the area", "pattern": "A = 78.5 → r = 25", "remedy": "YY.MATH.GEO.CIRCLE.INVERSE" }
+    {
+      "id": "pv.digit_value_confuse",
+      "zh": "把数字本身当成位值（4 在千位说成「4」而不是 4000）",
+      "en": "Reads the digit instead of its place value",
+      "pattern": "答「4」而不是「4000」",
+      "remedy": "YY.MATH.NUM.PV10K.DIGIT_VALUE"
+    },
+    {
+      "id": "pv.zero_placeholder",
+      "zh": "漏写或多写占位的 0（四千零五写成 405）",
+      "en": "Drops or adds placeholder zeros",
+      "pattern": "4005 → 405 / 40005",
+      "remedy": "YY.MATH.NUM.PV10K.READ_WRITE"
+    },
+    {
+      "id": "pv.more_digits_bigger_only",
+      "zh": "位数相同时不会比，或只看第一位",
+      "en": "Compares only by digit count or first digit",
+      "pattern": "3 456 > 3 501",
+      "remedy": "YY.MATH.NUM.PV10K.COMPARE_ORDER"
+    },
+    {
+      "id": "pv.million_billion_confuse",
+      "zh": "百万、十亿的数位数错",
+      "en": "Mixes up millions and billions places",
+      "pattern": "1 000 000 000 读成一百万",
+      "remedy": "YY.MATH.NUM.PVBIG.READ_WRITE"
+    },
+    {
+      "id": "round.wrong_place",
+      "zh": "凑整看错数位，或五入规则用反",
+      "en": "Rounds at the wrong place or in the wrong direction",
+      "pattern": "3 478 凑整到百 → 3 400",
+      "remedy": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE"
+    },
+    {
+      "id": "ops.regroup_forget",
+      "zh": "忘记进位 / 退位",
+      "en": "Forgets to regroup (carry / borrow)",
+      "pattern": "和比正确值少 10 / 100",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM"
+    },
+    {
+      "id": "ops.subtract_smaller_from_larger",
+      "zh": "个位不够减就反过来减",
+      "en": "Subtracts the smaller digit from the larger regardless of position",
+      "pattern": "52 − 27 = 35",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM"
+    },
+    {
+      "id": "ops.borrow_across_zero",
+      "zh": "隔着 0 退位出错",
+      "en": "Borrows incorrectly across a zero",
+      "pattern": "500 − 237 算错百位",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM"
+    },
+    {
+      "id": "word.keyword_trap",
+      "zh": "看到「一共」就加、「剩下」就减，不读题意",
+      "en": "Chooses the operation from keywords instead of the situation",
+      "pattern": "关键词与正确运算相反的题答错",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.WORD"
+    },
+    {
+      "id": "mult.add_instead",
+      "zh": "把乘法当加法（3 × 4 = 7）",
+      "en": "Adds instead of multiplying",
+      "pattern": "3 × 4 = 7",
+      "remedy": "YY.MATH.FLU.MULT.MEANING"
+    },
+    {
+      "id": "mult.fact_error",
+      "zh": "乘法口诀记错",
+      "en": "Recalls a multiplication fact wrongly",
+      "pattern": "7 × 8 = 54",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.EMERGING"
+    },
+    {
+      "id": "mult.partial_product_missing",
+      "zh": "拆分乘法漏掉一项",
+      "en": "Drops a partial product",
+      "pattern": "23 × 4 = 80 + 2",
+      "remedy": "YY.MATH.FLU.MULT.2D3D_BY_1D"
+    },
+    {
+      "id": "mult.place_shift_forget",
+      "zh": "两位数乘两位数第二行忘记错位",
+      "en": "Forgets to shift the second partial product",
+      "pattern": "23 × 14 算成 92 + 23",
+      "remedy": "YY.MATH.FLU.MULT.2D_BY_2D"
+    },
+    {
+      "id": "div.sharing_grouping_confuse",
+      "zh": "分不清「每份几个」和「分成几份」",
+      "en": "Confuses sharing and grouping meanings of division",
+      "pattern": "12 ÷ 3 的情境题答反",
+      "remedy": "YY.MATH.FLU.DIV.MEANING"
+    },
+    {
+      "id": "div.quotient_zero_skip",
+      "zh": "商中间的 0 漏写",
+      "en": "Omits a zero inside the quotient",
+      "pattern": "624 ÷ 6 = 14",
+      "remedy": "YY.MATH.FLU.DIV.3D_BY_1D"
+    },
+    {
+      "id": "div.remainder_ignore",
+      "zh": "余数直接扔掉或当成答案",
+      "en": "Ignores or misuses the remainder",
+      "pattern": "每车 6 人，20 人要几辆车 → 答 3",
+      "remedy": "YY.MATH.FLU.DIV.REMAINDER"
+    },
+    {
+      "id": "div.remainder_larger_than_divisor",
+      "zh": "余数比除数还大（没除完）",
+      "en": "Leaves a remainder larger than the divisor",
+      "pattern": "20 ÷ 6 = 2 R 8",
+      "remedy": "YY.MATH.FLU.DIV.REMAINDER"
+    },
+    {
+      "id": "dec.tenths_hundredths_confuse",
+      "zh": "0.3 和 0.03 分不清",
+      "en": "Confuses tenths and hundredths",
+      "pattern": "三个百分之一写成 0.3",
+      "remedy": "YY.MATH.DEC.PV100.READ_WRITE"
+    },
+    {
+      "id": "dec.longer_is_bigger",
+      "zh": "小数位数越多越大（0.25 > 0.3）",
+      "en": "Longer decimal is bigger",
+      "pattern": "0.25 > 0.3",
+      "remedy": "YY.MATH.DEC.PV100.COMPARE"
+    },
+    {
+      "id": "dec.ignore_place_align",
+      "zh": "小数加减不对齐小数点（右对齐）",
+      "en": "Lines up decimals by the right edge instead of the decimal point",
+      "pattern": "1.5 + 0.25 = 0.40",
+      "remedy": "YY.MATH.DEC.ADDSUB.100.ALGORITHM"
+    },
+    {
+      "id": "dec.frac_dec_digits_copy",
+      "zh": "分数和小数直接抄数字（1/4 = 0.4，0.25 = 2/5）",
+      "en": "Copies digits between fraction and decimal",
+      "pattern": "1/4 = 0.4",
+      "remedy": "YY.MATH.DEC.PV100.FRAC_LINK"
+    },
+    {
+      "id": "dec.mult_point_align",
+      "zh": "小数乘法对齐小数点定位",
+      "en": "Places the product's decimal point by alignment instead of counting places",
+      "pattern": "1.2 × 0.3 = 3.6",
+      "remedy": "YY.MATH.DEC.MULT.BY_DECIMAL"
+    },
+    {
+      "id": "dec.mult_always_bigger",
+      "zh": "以为乘了结果一定变大",
+      "en": "Believes multiplying always makes bigger",
+      "pattern": "判断 8 × 0.5 > 8",
+      "remedy": "YY.MATH.DEC.MULT.BY_WHOLE"
+    },
+    {
+      "id": "dec.div_point_drop",
+      "zh": "小数除以整数时商的小数点丢了",
+      "en": "Drops the decimal point in the quotient",
+      "pattern": "7.2 ÷ 9 = 8",
+      "remedy": "YY.MATH.DEC.DIV.BY_WHOLE"
+    },
+    {
+      "id": "dec.div_shift_one_side",
+      "zh": "除以小数时只移除数不移被除数",
+      "en": "Shifts the divisor's decimal but not the dividend's",
+      "pattern": "4.8 ÷ 0.6 = 0.8",
+      "remedy": "YY.MATH.DEC.DIV.BY_DECIMAL"
+    },
+    {
+      "id": "frac.unequal_parts",
+      "zh": "分得不均也当分数",
+      "en": "Treats unequal parts as fractional parts",
+      "pattern": "不等分图形选「1/4」",
+      "remedy": "YY.MATH.FRAC.PARTS.EQUAL_PARTITION"
+    },
+    {
+      "id": "frac.set_model_count_parts",
+      "zh": "集合模型里数个数而不是数份数",
+      "en": "Counts objects instead of groups in a set model",
+      "pattern": "6 个里 2 个涂色答 2/4",
+      "remedy": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR"
+    },
+    {
+      "id": "frac.different_whole",
+      "zh": "整体不一样大还拿来比",
+      "en": "Compares fractions of different wholes",
+      "pattern": "大饼的 1/4 < 小饼的 1/2？",
+      "remedy": "YY.MATH.FRAC.EQUIV.SAME_WHOLE"
+    },
+    {
+      "id": "frac.count_shaded_only",
+      "zh": "只数涂色格，不看总份数",
+      "en": "Counts shaded parts without the total",
+      "pattern": "2/4 的图说成 2",
+      "remedy": "YY.MATH.FRAC.PARTS.EQUAL_PARTITION"
+    },
+    {
+      "id": "frac.numberline_count_ticks",
+      "zh": "数轴上数刻度线而不是数间隔",
+      "en": "Counts tick marks instead of intervals on a number line",
+      "pattern": "把 3/4 标在第 3 根线",
+      "remedy": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR"
+    },
+    {
+      "id": "frac.add_same_number",
+      "zh": "分子分母同加一个数当等值",
+      "en": "Adds the same number to numerator and denominator",
+      "pattern": "2/3 = 3/4",
+      "remedy": "YY.MATH.FRAC.EQUIV.VISUAL"
+    },
+    {
+      "id": "frac.multiply_one_part",
+      "zh": "只乘分子或只乘分母",
+      "en": "Multiplies only the numerator or only the denominator",
+      "pattern": "2/3 = 4/3",
+      "remedy": "YY.MATH.FRAC.EQUIV.SAME_WHOLE"
+    },
+    {
+      "id": "frac.divide_one_part",
+      "zh": "约分只除一边",
+      "en": "Divides only one of numerator / denominator",
+      "pattern": "6/8 = 3/8",
+      "remedy": "YY.MATH.FRAC.EQUIV.MULTIPLY"
+    },
+    {
+      "id": "frac.not_lowest_terms",
+      "zh": "没约到最简",
+      "en": "Stops before lowest terms",
+      "pattern": "12/16 = 6/8",
+      "remedy": "YY.MATH.FLU.DIV.FACTS"
+    },
+    {
+      "id": "frac.bigger_denominator_bigger",
+      "zh": "分母大分数就大",
+      "en": "Bigger denominator means bigger fraction",
+      "pattern": "1/8 > 1/4",
+      "remedy": "YY.MATH.FRAC.COMPARE.BENCHMARKS"
+    },
+    {
+      "id": "frac.compare_numerators_only",
+      "zh": "异分母只比分子",
+      "en": "Compares numerators only with unlike denominators",
+      "pattern": "3/8 > 2/3",
+      "remedy": "YY.MATH.FRAC.COMPARE.UNLIKE"
+    },
+    {
+      "id": "mixed.whole_is_separate_number",
+      "zh": "把带分数的整数部分当成另一个数",
+      "en": "Reads a mixed number as two separate numbers",
+      "pattern": "2½ 当成 2 和 ½",
+      "remedy": "YY.MATH.FRAC.MIXED.MODEL"
+    },
+    {
+      "id": "mixed.improper_convert_wrong",
+      "zh": "带分数化假分数只乘不加（或只加不乘）",
+      "en": "Converts mixed numbers without adding the numerator",
+      "pattern": "2¾ = 8/4",
+      "remedy": "YY.MATH.FRAC.MIXED.TO_IMPROPER"
+    },
+    {
+      "id": "mixed.remainder_as_whole",
+      "zh": "假分数化带分数时余数和商写反",
+      "en": "Swaps quotient and remainder when converting",
+      "pattern": "11/4 = 3¼ 写成 2¾ 以外的错法",
+      "remedy": "YY.MATH.FRAC.IMPROPER.TO_MIXED"
+    },
+    {
+      "id": "ratio.order_swap",
+      "zh": "比的前后项写反",
+      "en": "Writes the ratio terms in the wrong order",
+      "pattern": "3 个红 2 个蓝写成 2:3",
+      "remedy": "YY.MATH.RATIO.MEANING"
+    },
+    {
+      "id": "ratio.part_whole_confuse",
+      "zh": "部分比部分和部分比整体混淆",
+      "en": "Confuses part-to-part with part-to-whole",
+      "pattern": "3 红 2 蓝，红占 3/2",
+      "remedy": "YY.MATH.RATIO.PART_PART_WHOLE"
+    },
+    {
+      "id": "ratio.add_to_scale",
+      "zh": "放大比时用加法而不是乘法",
+      "en": "Scales a ratio additively",
+      "pattern": "2:3 → 4:5",
+      "remedy": "YY.MATH.RATIO.EQUIVALENT"
+    },
+    {
+      "id": "pct.percent_as_number",
+      "zh": "把百分数当成普通数（15% = 15）",
+      "en": "Treats a percent as a plain number",
+      "pattern": "15% of 40 = 15",
+      "remedy": "YY.MATH.PCT.MEANING"
+    },
+    {
+      "id": "pct.decimal_shift_wrong",
+      "zh": "百分数与小数换算移错位",
+      "en": "Shifts the decimal point the wrong number of places",
+      "pattern": "5% = 0.5",
+      "remedy": "YY.MATH.PCT.FRAC_DEC_LINK"
+    },
+    {
+      "id": "pct.whole_part_swap",
+      "zh": "求整体时拿部分去乘",
+      "en": "Multiplies the part when asked for the whole",
+      "pattern": "20% 是 8，整体答 1.6",
+      "remedy": "YY.MATH.PCT.FIND_MISSING"
+    },
+    {
+      "id": "pct.of_vs_off",
+      "zh": "折扣额和折后价混淆",
+      "en": "Confuses the discount with the sale price",
+      "pattern": "$40 打 8 折答 $8",
+      "remedy": "YY.MATH.PCT.DISCOUNT"
+    },
+    {
+      "id": "pct.tax_subtract",
+      "zh": "税算成减法",
+      "en": "Subtracts tax instead of adding it",
+      "pattern": "含税价比原价低",
+      "remedy": "YY.MATH.FIN.PCT.TAX"
+    },
+    {
+      "id": "pct.successive_add",
+      "zh": "先打折再加税时把百分数直接相加减",
+      "en": "Adds percentages instead of applying them in sequence",
+      "pattern": "−20% 再 +12% 当成 −8%",
+      "remedy": "YY.MATH.FIN.PCT.FINAL_PRICE"
+    },
+    {
+      "id": "rel.frac_to_dec_digits_copy",
+      "zh": "分数化小数直接抄数字（3/8 = 0.38）",
+      "en": "Copies fraction digits into the decimal",
+      "pattern": "3/8 = 0.38",
+      "remedy": "YY.MATH.DEC.PV1000.FRAC_LINK"
+    },
+    {
+      "id": "rel.divide_wrong_way",
+      "zh": "分数化小数时分母除以分子",
+      "en": "Divides denominator by numerator",
+      "pattern": "3/8 → 8 ÷ 3",
+      "remedy": "YY.MATH.DEC.DIV.BY_WHOLE"
+    },
+    {
+      "id": "rel.repeating_rounds_to_terminating",
+      "zh": "把循环小数当成有限小数（1/3 = 0.33）",
+      "en": "Treats a repeating decimal as terminating",
+      "pattern": "1/3 = 0.33 精确",
+      "remedy": "YY.MATH.REL.FRAC_TO_DEC"
+    },
+    {
+      "id": "rel.third_is_0_3",
+      "zh": "1/3 = 0.3",
+      "en": "Believes 1/3 equals 0.3",
+      "pattern": "1/3 = 0.3 / 30%",
+      "remedy": "YY.MATH.REL.FRAC_TO_DEC"
+    },
+    {
+      "id": "int.negative_bigger_magnitude",
+      "zh": "负数绝对值大就大（−7 > −2）",
+      "en": "Orders negatives by magnitude",
+      "pattern": "−7 > −2",
+      "remedy": "YY.MATH.INT.CONCEPT"
+    },
+    {
+      "id": "int.add_ignore_sign",
+      "zh": "整数加法忽略符号",
+      "en": "Adds magnitudes and ignores signs",
+      "pattern": "−3 + 5 = 8",
+      "remedy": "YY.MATH.INT.ADD"
+    },
+    {
+      "id": "int.subtract_negative",
+      "zh": "减负数当成减正数",
+      "en": "Subtracting a negative treated as subtracting a positive",
+      "pattern": "9 − (−4) = 5",
+      "remedy": "YY.MATH.INT.SUBTRACT"
+    },
+    {
+      "id": "int.sign_rules_to_addition",
+      "zh": "「负负得正」用到加法上",
+      "en": "Applies multiplication sign rules to addition",
+      "pattern": "−3 + (−4) = 7",
+      "remedy": "YY.MATH.INT.MULT_DIV"
+    },
+    {
+      "id": "order.left_to_right",
+      "zh": "无视优先级一律从左到右",
+      "en": "Evaluates strictly left to right",
+      "pattern": "2 + 3 × 4 = 20",
+      "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS"
+    },
+    {
+      "id": "order.add_before_sub_always",
+      "zh": "以为加一定先于减、乘一定先于除",
+      "en": "Believes addition always precedes subtraction",
+      "pattern": "10 − 4 + 2 = 4",
+      "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS"
+    },
+    {
+      "id": "order.ignore_brackets",
+      "zh": "无视括号",
+      "en": "Ignores brackets",
+      "pattern": "(2 + 3) × 4 = 14",
+      "remedy": "YY.MATH.FLU.ORDER_OPS.BRACKETS"
+    },
+    {
+      "id": "factor.miss_pair",
+      "zh": "列因数漏掉一对",
+      "en": "Misses a factor pair",
+      "pattern": "36 的因数漏 4、9",
+      "remedy": "YY.MATH.NUM.FACTORS.LIST"
+    },
+    {
+      "id": "factor.multiple_confuse",
+      "zh": "因数和倍数说反",
+      "en": "Confuses factors with multiples",
+      "pattern": "说 12 是 6 的因数",
+      "remedy": "YY.MATH.FLU.DIV.MEANING"
+    },
+    {
+      "id": "prime.one_is_prime",
+      "zh": "把 1 当质数",
+      "en": "Counts 1 as prime",
+      "pattern": "质数列表含 1",
+      "remedy": "YY.MATH.NUM.PRIME_COMPOSITE"
+    },
+    {
+      "id": "prime.odd_is_prime",
+      "zh": "奇数都是质数",
+      "en": "Believes every odd number is prime",
+      "pattern": "说 21、27 是质数",
+      "remedy": "YY.MATH.NUM.FACTORS.LIST"
+    },
+    {
+      "id": "prime.two_not_prime",
+      "zh": "偶数都不是质数（漏掉 2）",
+      "en": "Believes 2 is not prime",
+      "pattern": "质数列表无 2",
+      "remedy": "YY.MATH.NUM.PRIME_COMPOSITE"
+    },
+    {
+      "id": "divis.digit_sum_wrong_rule",
+      "zh": "整除规则张冠李戴（用末位判断 3 的倍数）",
+      "en": "Applies the wrong divisibility rule",
+      "pattern": "末位是 3 就说能被 3 整除",
+      "remedy": "YY.MATH.NUM.FACTORS.LIST"
+    },
+    {
+      "id": "pf.stop_at_composite",
+      "zh": "因数树没分到质数就停",
+      "en": "Stops the factor tree at a composite",
+      "pattern": "300 = 4 × 75",
+      "remedy": "YY.MATH.NUM.PRIME_COMPOSITE"
+    },
+    {
+      "id": "pf.exponent_miscount",
+      "zh": "幂的指数数错",
+      "en": "Miscounts the exponent",
+      "pattern": "2 × 2 × 2 = 2²",
+      "remedy": "YY.MATH.NUM.PRIME_FACTORIZATION"
+    },
+    {
+      "id": "gcf_lcm.confuse",
+      "zh": "最大公因数和最小公倍数搞反",
+      "en": "Swaps GCF and LCM",
+      "pattern": "GCF(4,6) = 12",
+      "remedy": "YY.MATH.NUM.FACTORS.LIST"
+    },
+    {
+      "id": "gcf.pick_any_common",
+      "zh": "随便挑一个公因数当最大",
+      "en": "Picks a common factor that is not the greatest",
+      "pattern": "GCF(12,18) = 3",
+      "remedy": "YY.MATH.NUM.FACTORS.LIST"
+    },
+    {
+      "id": "lcm.product_always",
+      "zh": "最小公倍数一律用乘积",
+      "en": "Always uses the product as the LCM",
+      "pattern": "LCM(4,6) = 24",
+      "remedy": "YY.MATH.NUM.MULTIPLES.LIST"
+    },
+    {
+      "id": "pat.recursive_vs_explicit",
+      "zh": "只会「每次加几」，不会写第 n 项",
+      "en": "Knows the recursive rule but not the explicit one",
+      "pattern": "第 50 项靠一个个加",
+      "remedy": "YY.MATH.PAT.RULE.SYMBOLS"
+    },
+    {
+      "id": "linear.slope_intercept_swap",
+      "zh": "变化率和起始值写反",
+      "en": "Swaps the rate of change and the starting value",
+      "pattern": "3n + 2 解释成起始 3 每次加 2",
+      "remedy": "YY.MATH.PAT.LINEAR.EXPRESSION"
+    },
+    {
+      "id": "linear.connect_discrete_points",
+      "zh": "离散点连成线",
+      "en": "Connects discrete points with a line",
+      "pattern": "人数-费用图连线",
+      "remedy": "YY.MATH.PAT.LINEAR.GRAPH"
+    },
+    {
+      "id": "eq.equals_means_answer",
+      "zh": "把「=」当成「答案是」",
+      "en": "Reads = as 'the answer is'",
+      "pattern": "8 + 4 = □ + 5 填 12",
+      "remedy": "YY.MATH.ALG.EQ.ONE_STEP.MEANING"
+    },
+    {
+      "id": "eq.inverse_wrong",
+      "zh": "逆运算用错（x + 5 = 11 → x = 16）",
+      "en": "Uses the wrong inverse operation",
+      "pattern": "x + 5 = 11 → x = 16",
+      "remedy": "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB"
+    },
+    {
+      "id": "eq.operate_one_side",
+      "zh": "只对等式一边做运算",
+      "en": "Operates on one side only",
+      "pattern": "3x = 12 → x = 12",
+      "remedy": "YY.MATH.ALG.EQ.BALANCE"
+    },
+    {
+      "id": "eq.coefficient_subtract",
+      "zh": "系数用减法去掉（3x = 12 → x = 9）",
+      "en": "Subtracts the coefficient instead of dividing",
+      "pattern": "3x = 12 → x = 9",
+      "remedy": "YY.MATH.ALG.EQ.ONESTEP.COEFF"
+    },
+    {
+      "id": "eq.undo_wrong_order",
+      "zh": "两步方程先除后减",
+      "en": "Undoes operations in the wrong order",
+      "pattern": "3x + 4 = 16 → x + 4 = 16/3",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP.MODEL"
+    },
+    {
+      "id": "area_perim.confuse",
+      "zh": "面积周长混淆",
+      "en": "Confuses area and perimeter",
+      "pattern": "求面积答周长",
+      "remedy": "YY.MATH.MEAS.AREA.COUNT_UNITS"
+    },
+    {
+      "id": "area_perim.assume_dependent",
+      "zh": "以为周长大面积一定大",
+      "en": "Assumes larger perimeter means larger area",
+      "pattern": "同周长不同面积题答错",
+      "remedy": "YY.MATH.MEAS.AREA_PERIM.RELATION"
+    },
+    {
+      "id": "area.add_sides",
+      "zh": "面积用长加宽",
+      "en": "Adds length and width for area",
+      "pattern": "5 × 3 长方形面积 = 8",
+      "remedy": "YY.MATH.MEAS.AREA.RECT_FORMULA"
+    },
+    {
+      "id": "area.use_side_not_height",
+      "zh": "用斜边当高",
+      "en": "Uses the slanted side as the height",
+      "pattern": "平行四边形面积用斜边",
+      "remedy": "YY.MATH.MEAS.AREA.PARALLELOGRAM"
+    },
+    {
+      "id": "area.tri_forget_half",
+      "zh": "三角形面积忘记除以 2",
+      "en": "Forgets to halve for a triangle",
+      "pattern": "底 6 高 4 答 24",
+      "remedy": "YY.MATH.MEAS.AREA.TRIANGLE"
+    },
+    {
+      "id": "perim.count_squares_not_edges",
+      "zh": "数格子的个数而不是边的长度",
+      "en": "Counts squares instead of unit edges",
+      "pattern": "周长答成面积数",
+      "remedy": "YY.MATH.MEAS.PERIM.COUNT"
+    },
+    {
+      "id": "perim.forget_hidden_side",
+      "zh": "漏掉没标数字的边",
+      "en": "Misses unlabelled sides",
+      "pattern": "L 形周长只加标出的边",
+      "remedy": "YY.MATH.MEAS.PERIM.CALC"
+    },
+    {
+      "id": "poly.curved_counts",
+      "zh": "带弧边的图形也算多边形",
+      "en": "Counts shapes with curved sides as polygons",
+      "pattern": "选半圆为多边形",
+      "remedy": "YY.MATH.GEO.POLYGON.IDENTIFY"
+    },
+    {
+      "id": "poly.regular_means_familiar",
+      "zh": "「规则」= 常见、「不规则」= 奇怪",
+      "en": "Regular means familiar-looking",
+      "pattern": "长方形选为规则多边形",
+      "remedy": "YY.MATH.GEO.POLYGON.REGULAR_IRREGULAR"
+    },
+    {
+      "id": "sym.diagonal_of_rectangle",
+      "zh": "把长方形对角线当对称轴",
+      "en": "Takes a rectangle's diagonal as a line of symmetry",
+      "pattern": "长方形选 4 条对称轴",
+      "remedy": "YY.MATH.GEO.SYMMETRY.IDENTIFY"
+    },
+    {
+      "id": "quad.square_not_rectangle",
+      "zh": "不承认正方形也是长方形",
+      "en": "Denies that a square is a rectangle",
+      "pattern": "分类题排除正方形",
+      "remedy": "YY.MATH.GEO.2D.QUADRILATERALS"
+    },
+    {
+      "id": "solid.named_by_face_not_base",
+      "zh": "按侧面而不是底面命名立体",
+      "en": "Names a solid by a lateral face instead of its base",
+      "pattern": "三棱柱叫成长方体",
+      "remedy": "YY.MATH.GEO.3D.PRISM_VS_PYRAMID"
+    },
+    {
+      "id": "tri.orientation_changes_type",
+      "zh": "三角形转个方向就换类",
+      "en": "Thinks orientation changes the triangle type",
+      "pattern": "倒着的直角三角形不认",
+      "remedy": "YY.MATH.GEO.TRI.CLASSIFY_BOTH"
+    },
+    {
+      "id": "angle.size_by_arm_length",
+      "zh": "边越长角越大",
+      "en": "Judges angle size by arm length",
+      "pattern": "长边小角选大",
+      "remedy": "YY.MATH.GEO.ANGLE.CLASSIFY"
+    },
+    {
+      "id": "angle.protractor_wrong_scale",
+      "zh": "量角器读错内外圈",
+      "en": "Reads the wrong protractor scale",
+      "pattern": "60° 读成 120°",
+      "remedy": "YY.MATH.GEO.ANGLE.MEASURE_DRAW"
+    },
+    {
+      "id": "circle.radius_diameter_confuse",
+      "zh": "半径直径混用",
+      "en": "Mixes up radius and diameter",
+      "pattern": "C = π × r",
+      "remedy": "YY.MATH.GEO.CIRCLE.PARTS"
+    },
+    {
+      "id": "circle.area_2r",
+      "zh": "面积用 π × 2r",
+      "en": "Uses 2r instead of r² for area",
+      "pattern": "A = π × 2r",
+      "remedy": "YY.MATH.GEO.CIRCLE.AREA"
+    },
+    {
+      "id": "vol.count_visible_only",
+      "zh": "数体积只数看得见的立方体",
+      "en": "Counts only visible cubes",
+      "pattern": "2×2×2 答 7",
+      "remedy": "YY.MATH.MEAS.VOL.COUNT_CUBES"
+    },
+    {
+      "id": "vol.surface_confuse",
+      "zh": "体积表面积混淆",
+      "en": "Confuses volume with surface area",
+      "pattern": "求体积答面积和",
+      "remedy": "YY.MATH.MEAS.VOL.RECT_PRISM"
+    },
+    {
+      "id": "unit.cubic_conversion_linear",
+      "zh": "立方单位换算按线性换（1 m³ = 100 cm³）",
+      "en": "Converts cubic units linearly",
+      "pattern": "1 m³ = 100 cm³",
+      "remedy": "YY.MATH.MEAS.CAPACITY.UNITS"
+    },
+    {
+      "id": "coord.xy_swap",
+      "zh": "横纵坐标颠倒",
+      "en": "Swaps x and y",
+      "pattern": "(3, 5) 描到 (5, 3)",
+      "remedy": "YY.MATH.GEO.COORD.Q1.PLOT"
+    },
+    {
+      "id": "coord.sign_quadrant_confuse",
+      "zh": "象限符号搞错",
+      "en": "Wrong signs for the quadrant",
+      "pattern": "(−2, 3) 描到第四象限",
+      "remedy": "YY.MATH.GEO.COORD.Q4.PLOT"
+    },
+    {
+      "id": "transform.reflect_as_translate",
+      "zh": "翻折画成平移",
+      "en": "Draws a reflection as a translation",
+      "pattern": "镜像方向没反",
+      "remedy": "YY.MATH.GEO.TRANSFORM.REFLECT"
+    },
+    {
+      "id": "transform.rotation_direction",
+      "zh": "旋转方向或角度弄反",
+      "en": "Rotates the wrong way or amount",
+      "pattern": "顺时针 90° 画成逆时针",
+      "remedy": "YY.MATH.GEO.TRANSFORM.ROTATE"
+    },
+    {
+      "id": "transform.order_ignored",
+      "zh": "以为连续变换顺序无所谓",
+      "en": "Ignores the order of transformations",
+      "pattern": "先翻后移与先移后翻混",
+      "remedy": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM"
+    },
+    {
+      "id": "time.hour_hand_misread",
+      "zh": "时针过了半格读成下一小时",
+      "en": "Reads the hour hand as the next hour",
+      "pattern": "2:50 读成 3:50",
+      "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN"
+    },
+    {
+      "id": "time.24h_add_10",
+      "zh": "24 时制加 10 而不是加 12",
+      "en": "Adds 10 instead of 12 for 24-hour time",
+      "pattern": "3 p.m. = 13:00",
+      "remedy": "YY.MATH.MEAS.TIME.AM_PM_24H"
+    },
+    {
+      "id": "time.base_100",
+      "zh": "把时间当 100 进制（1.5 小时 = 1 小时 50 分）",
+      "en": "Treats time as base 100",
+      "pattern": "1 小时 50 分 + 20 分 = 1 小时 70 分",
+      "remedy": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR"
+    },
+    {
+      "id": "time.elapsed_cross_hour",
+      "zh": "跨小时经过时间直接相减",
+      "en": "Subtracts clock readings digit-wise across the hour",
+      "pattern": "3:10 − 2:45 = 0:65",
+      "remedy": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR"
+    },
+    {
+      "id": "money.cents_decimal",
+      "zh": "分和元的小数写法错（$3.5 表示 3 元 5 分）",
+      "en": "Writes cents as the wrong decimal",
+      "pattern": "3 元 5 分写成 $3.5",
+      "remedy": "YY.MATH.FIN.MONEY.NOTATION"
+    },
+    {
+      "id": "money.change_subtract_wrong",
+      "zh": "找零方向反了或退位错",
+      "en": "Subtracts in the wrong direction when making change",
+      "pattern": "付 $20 买 $13.45 找 $7.55 以外",
+      "remedy": "YY.MATH.FIN.CHANGE_TO_100"
+    },
+    {
+      "id": "graph.scale_misread",
+      "zh": "多对一刻度读错（一格当 1）",
+      "en": "Misreads a many-to-one scale",
+      "pattern": "一格代表 5 读成 1",
+      "remedy": "YY.MATH.DATA.MANY_TO_ONE"
+    },
+    {
+      "id": "graph.half_symbol",
+      "zh": "半个符号不会算",
+      "en": "Cannot interpret a half symbol",
+      "pattern": "半个图标忽略",
+      "remedy": "YY.MATH.DATA.MANY_TO_ONE"
+    },
+    {
+      "id": "graph.legend_swap",
+      "zh": "复式图图例看反",
+      "en": "Swaps the two series in a double bar graph",
+      "pattern": "两组数据读反",
+      "remedy": "YY.MATH.DATA.DBAR.READ"
+    },
+    {
+      "id": "graph.steep_means_more",
+      "zh": "折线陡就以为数值大",
+      "en": "Reads steepness as magnitude",
+      "pattern": "变化快当成数量多",
+      "remedy": "YY.MATH.DATA.LINE.READ"
+    },
+    {
+      "id": "graph.percent_as_count",
+      "zh": "扇形图的百分数直接当数量",
+      "en": "Reads percentages on a circle graph as counts",
+      "pattern": "25% 读成 25 人",
+      "remedy": "YY.MATH.DATA.CIRCLE.READ"
+    },
+    {
+      "id": "graph.angle_percent_confuse",
+      "zh": "画扇形图时百分数直接当角度",
+      "en": "Uses the percent as the angle",
+      "pattern": "25% 画成 25°",
+      "remedy": "YY.MATH.DATA.CIRCLE.CONSTRUCT"
+    },
+    {
+      "id": "prob.equal_outcomes_assumed",
+      "zh": "以为所有结果都一样可能",
+      "en": "Assumes all outcomes are equally likely",
+      "pattern": "不均匀转盘各色都 1/3",
+      "remedy": "YY.MATH.PROB.PREDICT_SINGLE"
+    },
+    {
+      "id": "prob.few_trials_conclusion",
+      "zh": "试几次就下结论",
+      "en": "Draws conclusions from very few trials",
+      "pattern": "抛 4 次 3 次正面说硬币不公平",
+      "remedy": "YY.MATH.PROB.RECORD_TALLY"
+    },
+    {
+      "id": "prob.part_to_part",
+      "zh": "可能性写成部分比部分（3 红 2 蓝答 3/2）",
+      "en": "Writes probability as part-to-part",
+      "pattern": "P(红) = 3/2",
+      "remedy": "YY.MATH.PROB.FRACTION.SINGLE"
+    },
+    {
+      "id": "prob.experimental_equals_theoretical",
+      "zh": "以为实验结果必须等于理论值",
+      "en": "Expects experimental to equal theoretical exactly",
+      "pattern": "10 次没有正好 5 次正面就说算错",
+      "remedy": "YY.MATH.PROB.COMPARE_TH_EXP"
+    },
+    {
+      "id": "prob.two_events_add_outcomes",
+      "zh": "两个事件的结果数用加法",
+      "en": "Adds outcome counts for two events",
+      "pattern": "两枚硬币 2 + 2 = 4 种（碰巧对）、硬币+骰子 2 + 6",
+      "remedy": "YY.MATH.PROB.TWO_EVENTS.OUTCOMES"
+    },
+    {
+      "id": "eq.coeff_as_addend",
+      "zh": "把 3x 读成 3 + x，代入算成 3 + 5 + 7",
+      "en": "Reads the coefficient as an addend (3x as 3 + x)",
+      "pattern": "3x + 7，x = 5 时算成 3 + 5 + 7 = 15",
+      "remedy": "YY.MATH.ALG.EQ.ONESTEP.COEFF"
+    },
+    {
+      "id": "eq.verify_combine_before_mult",
+      "zh": "代入后先把常数并进 x 再乘（3×(5+7)）",
+      "en": "Combines the constant with x before multiplying when substituting",
+      "pattern": "3x + 7，x = 5 算成 3 × (5 + 7) = 36",
+      "remedy": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS"
+    },
+    {
+      "id": "eq.verify_stop_before_constant",
+      "zh": "代入只算到 4×3 = 12 就比较，忘了加常数",
+      "en": "Stops after multiplying and forgets the constant before comparing",
+      "pattern": "4x + 5 = 17 验算成 12 ≠ 17 判「不是解」",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY"
+    },
+    {
+      "id": "eq.verify_not_exact",
+      "zh": "验算两边不等也算解（差 1 算接近／改常数迁就）",
+      "en": "Accepts a near-miss or bends the equation to make the check pass",
+      "pattern": "左边 11 右边 12 说「很接近所以是解」，或把 −4 改成 −3",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY"
+    },
+    {
+      "id": "pat.fixed_part_mishandled",
+      "zh": "固定起始量漏掉或跟着次数一起乘（$10 起始×5 周）",
+      "en": "Drops the fixed part or scales it along with the variable",
+      "pattern": "起始 $10 每周 $4，5 周答 $50 / $70 / $20",
+      "remedy": "YY.MATH.ALG.RELATION.QUANTITIES"
+    },
+    {
+      "id": "pat.wrong_quantity_dependence",
+      "zh": "搞错谁随谁变（每艘 $15 当每人 $15；轮子数×3）",
+      "en": "Applies the rule to the wrong quantity or in the wrong direction",
+      "pattern": "每 5 分钟 1 圈说成每分钟 5 圈；已知 21 个轮子还 ×3",
+      "remedy": "YY.MATH.ALG.RELATION.QUANTITIES"
+    },
+    {
+      "id": "graph.count_lines_not_squares",
+      "zh": "读条形图数横线连 0 那条也数，多出 1",
+      "en": "Counts gridlines including zero instead of squares",
+      "pattern": "条形到刻度 6 读成 7",
+      "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE"
+    },
+    {
+      "id": "graph.scale_invented",
+      "zh": "图例一格 1 个却按 2 个算（9 个符号读成 18）",
+      "en": "Applies a scale the key does not give",
+      "pattern": "一对一图读成两倍",
+      "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE"
+    },
+    {
+      "id": "graph.read_unshaded_or_whole",
+      "zh": "读条形时数了整列或空白格（10 格涂 7 读成 10）",
+      "en": "Reads the whole column or the empty squares instead of the shaded bar",
+      "pattern": "涂 7 格答 10 或 3",
+      "remedy": "YY.MATH.DATA.BAR.ONE_TO_ONE"
+    },
+    {
+      "id": "graph.tallest_bar_answers_all",
+      "zh": "只看哪根条最高，不管问的是差、增量还是哪一组",
+      "en": "Answers from the tallest bar whatever the question asks",
+      "pattern": "问哪项两班差最大，答条形最高的项",
+      "remedy": "YY.MATH.DATA.DBAR.INTERPRET"
+    },
+    {
+      "id": "graph.partial_compare",
+      "zh": "比总量只看其中一天／一组就下结论",
+      "en": "Compares one category or one series instead of the totals",
+      "pattern": "只比星期六就说饼干多 $30",
+      "remedy": "YY.MATH.DATA.DBAR.INTERPRET"
+    },
+    {
+      "id": "graph.compare_bars_ignore_scale",
+      "zh": "两张图刻度不同还直接比条形高矮",
+      "en": "Compares bar heights across graphs with different scales",
+      "pattern": "一格 2 个到第 6 格 vs 一格 5 个到第 4 格，说前者多",
+      "remedy": "YY.MATH.DATA.MANY_TO_ONE"
+    },
+    {
+      "id": "graph.value_instead_of_change",
+      "zh": "问变化量却答数值本身或选最高的点",
+      "en": "Reports a value or the highest point instead of the change",
+      "pattern": "问哪段涨最多选最后一段；问长高多少答 13 cm",
+      "remedy": "YY.MATH.DATA.LINE.READ"
+    },
+    {
+      "id": "graph.extrapolate_step_count",
+      "zh": "预测时步数或步长数错（该走两步只走一步）",
+      "en": "Extrapolates with the wrong number or size of steps",
+      "pattern": "每小时 +6，两小时后答 36 而不是 42",
+      "remedy": "YY.MATH.DATA.LINE.INTERPRET"
+    },
+    {
+      "id": "graph.cumulative_as_interval",
+      "zh": "累计图上把总量当成当天的量（累计 14 说周三下了 14）",
+      "en": "Reads a running total as a single-period amount",
+      "pattern": "累计 30、38 答「两天共 68」",
+      "remedy": "YY.MATH.DATA.LINE.INTERPRET"
+    },
+    {
+      "id": "est.truncate_decimal",
+      "zh": "估算直接去掉小数部分（9.67 当 9，7.98 当 7）",
+      "en": "Truncates the decimal part instead of rounding to the nearest",
+      "pattern": "$4.79 + $3.35 估成 $7",
+      "remedy": "YY.MATH.DEC.ADDSUB.100.ESTIMATE"
+    },
+    {
+      "id": "est.estimate_as_exact",
+      "zh": "把估算值当精确值（估出 4.0 就说正好 4）",
+      "en": "Treats an estimate as the exact answer",
+      "pattern": "说「和正好等于 8」而不是「大约 8」",
+      "remedy": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE"
+    },
+    {
+      "id": "est.bias_direction_ignored",
+      "zh": "不看凑大还是凑小，以为估算一定偏小或正好抵消",
+      "en": "Ignores which way rounding pushed the estimate",
+      "pattern": "说「估算总是偏小」或「一上一下抵消了」",
+      "remedy": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE"
+    },
+    {
+      "id": "word.stop_early",
+      "zh": "多步题算到中间结果就停（总价当找零）",
+      "en": "Stops at an intermediate result",
+      "pattern": "答案是中间步骤的数（总价、已列支出、只算了小费）",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.WORD"
+    },
+    {
+      "id": "dec.add_across_places",
+      "zh": "不同数位的个数直接相加（0.9 + 0.04 = 0.13）",
+      "en": "Adds counts from different places directly",
+      "pattern": "9 个 0.1 加 4 个 0.01 答 0.13；2 根长条加 5 个小方块答 0.07",
+      "remedy": "YY.MATH.DEC.PV100.MODEL"
+    },
+    {
+      "id": "dec.zero_placeholder",
+      "zh": "小数占位 0 漏写或多写（0.206 写成 0.26）",
+      "en": "Drops or inserts placeholder zeros in a decimal",
+      "pattern": "0.206 → 0.26 / 0.2006；0.54 → 0.504",
+      "remedy": "YY.MATH.DEC.PV100.READ_WRITE"
+    },
+    {
+      "id": "dec.rename_units_copy_digits",
+      "zh": "换小单位只抄数字（0.4 = 4 个 0.001）",
+      "en": "Copies digits when renaming decimal units",
+      "pattern": "0.4 = 4 或 40 个 0.001；40 份 0.001 写成 0.4；一格再分十份仍答 0.01",
+      "remedy": "YY.MATH.DEC.PV1000.MODEL"
+    },
+    {
+      "id": "dec.thousandths_place_confuse",
+      "zh": "千分位和百分位分不清（0.047 写成 0.47）",
+      "en": "Confuses thousandths with hundredths or tenths",
+      "pattern": "0.047 → 0.47；0.243 → 0.27；20 个千分之一当 0.20",
+      "remedy": "YY.MATH.DEC.PV1000.READ_WRITE"
+    },
+    {
+      "id": "fin.income_expense_mixed",
+      "zh": "收入和支出混在一起加（收入 20 支出 15 答 35）",
+      "en": "Adds income and expenses together",
+      "pattern": "答案 = 预算表里所有数之和",
+      "remedy": "YY.MATH.FIN.BUDGET_SIMPLE"
+    },
+    {
+      "id": "fin.balance_misjudged",
+      "zh": "收入比支出多就算平衡，或结余超支方向弄反",
+      "en": "Misjudges whether a budget balances",
+      "pattern": "收入 45 支出 38 说「已平衡」；支出多却说有结余；调整时改错边或只挪行",
+      "remedy": "YY.MATH.FIN.BUDGET_SIMPLE"
+    },
+    {
+      "id": "fin.period_mismatch",
+      "zh": "周和月不统一（每周 2 元当每月 2 元）",
+      "en": "Mixes weekly and monthly amounts",
+      "pattern": "每周数没乘周数就和一次性的数相加",
+      "remedy": "YY.MATH.FIN.BUDGET_SIMPLE"
+    },
+    {
+      "id": "fin.saving_not_expense",
+      "zh": "储蓄不算进支出（预算漏掉储蓄那一行）",
+      "en": "Leaves saving out of the expense side",
+      "pattern": "支出合计少了储蓄那一项；把储蓄当成收入",
+      "remedy": "YY.MATH.FIN.BUDGET_SIMPLE"
+    },
+    {
+      "id": "fin.save_spend_give_confuse",
+      "zh": "储蓄、消费、捐赠分不清（捐出去的钱还当在手里）",
+      "en": "Confuses saving, spending and giving",
+      "pattern": "算剩多少时漏减捐款或花费；把花掉的钱当存下的",
+      "remedy": "YY.MATH.FIN.DECISIONS"
+    },
+    {
+      "id": "money.count_coins_not_value",
+      "zh": "数硬币个数当钱数（9 个硬币 = 9 元）",
+      "en": "Counts coins instead of their values",
+      "pattern": "8 个 25 分 + 3 个 1 元答 11 元",
+      "remedy": "YY.MATH.FIN.TOTALS_TO_100"
+    },
+    {
+      "id": "pct.benchmark_combine_wrong",
+      "zh": "15% 拼错（停在 10%，或 5% 当 10% 的两倍）",
+      "en": "Combines percent benchmarks wrongly",
+      "pattern": "15% 算成 10% 或 20%；20% 算成 10% 的一半；5% 当 10% 的两倍",
+      "remedy": "YY.MATH.REL.BENCHMARKS"
+    },
+    {
+      "id": "fin.save_ignore_existing",
+      "zh": "已存的钱没从目标里减掉（已存 30 仍算 210 ÷ 15）",
+      "en": "Ignores money already saved when planning weeks",
+      "pattern": "周数 = 全价 ÷ 每周存款，没先减去已有存款（或把已存的钱加到目标上）",
+      "remedy": "YY.MATH.FIN.SAVE_PLAN"
+    },
+    {
+      "id": "fin.save_gross_not_net",
+      "zh": "按全部零花钱算，忘了每周花掉的（按 12 除而非 7.5）",
+      "en": "Divides by the full allowance instead of the amount actually saved",
+      "pattern": "周数 = 价格 ÷ 每周零花钱总额，没扣掉每周开销",
+      "remedy": "YY.MATH.FIN.SAVE_PLAN"
+    },
+    {
+      "id": "fin.weeks_not_division",
+      "zh": "求「几周才够」不用除法（28 − 4 = 24 周）",
+      "en": "Finds 'how many weeks' without dividing",
+      "pattern": "周数由价格减、乘每周金额得来，或 9 ÷ 126 反着除",
+      "remedy": "YY.MATH.DEC.MULTDIV.WORD"
+    },
+    {
+      "id": "fin.total_item_missed",
+      "zh": "算总价漏掉一样，或 3 支笔只算 1 支",
+      "en": "Leaves an item (or a repeated item) out of the total",
+      "pattern": "总价正好少了一件（或少几件同款）的价钱",
+      "remedy": "YY.MATH.FIN.TOTALS_TO_100"
+    },
+    {
+      "id": "facts.make_ten_add_whole",
+      "zh": "凑十后把拆过的数整个再用一遍（8 + 5 = 10 + 5）",
+      "en": "Uses the whole second number again after making ten",
+      "pattern": "得数比正确值多出（减法则少出）移去凑十的那部分",
+      "remedy": "YY.MATH.FLU.ADDSUB.FACTS20"
+    },
+    {
+      "id": "facts.near_double_no_adjust",
+      "zh": "翻倍加一忘了调 1，或方向反了（7 + 8 = 14 或 17）",
+      "en": "Near-doubles: forgets or misdirects the plus-or-minus-one adjustment",
+      "pattern": "得数正好是相邻的翻倍数，或与正确值差 2",
+      "remedy": "YY.MATH.FLU.ADDSUB.FACTS20"
+    },
+    {
+      "id": "facts.recall_slip",
+      "zh": "20 以内口诀记错（7 + 7 = 12，9 + 9 = 19）",
+      "en": "Recalls an addition or subtraction fact to 20 wrongly",
+      "pattern": "得数与正确值差 1 或 2，或混成相邻口诀",
+      "remedy": "YY.MATH.FLU.ADDSUB.FACTS20"
+    },
+    {
+      "id": "pv.annex_zeros_miscount",
+      "zh": "口诀套大数时零补多或补少（800 + 700 = 150）",
+      "en": "Annexes the wrong number of zeros",
+      "pattern": "答案是正确值的 10 倍、100 倍或 1/10",
+      "remedy": "YY.MATH.FLU.ADDSUB.FACTS20.EXTEND"
+    },
+    {
+      "id": "pv.mixed_places_annex",
+      "zh": "数位不同也直接套口诀补零（800 + 70 = 1 500）",
+      "en": "Uses the annex-zeros shortcut on digits in different places",
+      "pattern": "800 + 70 答 1 500 / 150 / 15 000",
+      "remedy": "YY.MATH.NUM.PV1M.DIGIT_VALUE"
+    },
+    {
+      "id": "est.estimate_not_a_check",
+      "zh": "不拿估算当检查：差一千多也说合理，或说无法判断",
+      "en": "Does not use the estimate as a check on reasonableness",
+      "pattern": "理由是「估算只是大概」「位数一样」「比加数大」「无法判断」",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.ESTIMATE"
+    },
+    {
+      "id": "mental.compensate_forget",
+      "zh": "凑整后忘了补偿（3 495 + 1 998 答 5 495）",
+      "en": "Forgets to compensate after using a friendly number",
+      "pattern": "答案正好是用凑整数直接算出的结果",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL"
+    },
+    {
+      "id": "mental.compensate_direction",
+      "zh": "补偿方向反了（减法多减了 4 还再减 4）",
+      "en": "Compensates in the wrong direction",
+      "pattern": "答案偏离正确值两倍的调整量（5 502 而非 5 498）",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL"
+    },
+    {
+      "id": "mental.decompose_drop_part",
+      "zh": "拆分后漏加一块（47000 + 25000 答 67000）",
+      "en": "Drops a chunk when decomposing",
+      "pattern": "答案少了拆出去的那一块",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL"
+    },
+    {
+      "id": "mental.same_change_rule_confuse",
+      "zh": "「同加同减」用到加法上（5004 + 3000 = 8004）",
+      "en": "Confuses the constant-difference shift with compensation",
+      "pattern": "加法两数同加不补偿，或减法同加后又多补偿一次",
+      "remedy": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL"
+    },
+    {
+      "id": "mult.double_count_wrong",
+      "zh": "翻倍、减半次数不对（23×4 停在 46）",
+      "en": "Wrong number of doublings or halvings",
+      "pattern": "23 × 4 = 46；96 ÷ 4 = 48 或 12；4 × 8 当成 2 × 8",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS"
+    },
+    {
+      "id": "mult.halve_double_direction",
+      "zh": "该减半却翻倍、该翻倍却减半（340÷5=17）",
+      "en": "Halves when it should double, or vice versa",
+      "pattern": "10×6=60 → 5×6=120；340 ÷ 5 = 17；÷5 套用 ×5 的步骤",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS"
+    },
+    {
+      "id": "mult.halve_double_rule_misapplied",
+      "zh": "减半加倍只改一边或两边一起改（24×5=12×5）",
+      "en": "Misapplies halve-and-double: one factor only, or both the same way",
+      "pattern": "24 × 5 = 12 × 5；2×8=16 → 4×16=64；14 × 25 = 28 × 50",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS"
+    },
+    {
+      "id": "mult.double_halve_as_addsub",
+      "zh": "翻倍、减半做成加减一个数（5×7 = 70 − 5）",
+      "en": "Treats doubling or halving as adding or subtracting",
+      "pattern": "3×8=24 → 6×8 = 24 + 8 = 32；10×7=70 → 5×7 = 65",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.PATTERNS"
+    },
+    {
+      "id": "mult.group_adjust_wrong",
+      "zh": "从邻近口诀推时加减的不是一整组（7×9=70−1）",
+      "en": "Adjusts from a neighbouring fact by the wrong amount",
+      "pattern": "7 × 9 = 70 − 1 = 69；6 × 8 = 40 + 6 = 46",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.STRATEGIES"
+    },
+    {
+      "id": "mult.zero_annex_miscount",
+      "zh": "添零法多添或少添 0（7×10=700）",
+      "en": "Annexes the wrong number of zeros",
+      "pattern": "7 × 10 = 700；420 ÷ 6 = 700 或 7",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.2_5_10"
+    },
+    {
+      "id": "mult.x5_one_step_only",
+      "zh": "×5 两步心算只做了一步（46×5=460 或 23）",
+      "en": "Does only one step of the ×10-then-halve strategy",
+      "pattern": "46 × 5 = 460 / 23；460 ÷ 5 = 46",
+      "remedy": "YY.MATH.FLU.MENTAL.MULTI_DIGIT"
+    },
+    {
+      "id": "mult.x5_as_double_double",
+      "zh": "×5 做成翻倍再翻倍（78×5=312）",
+      "en": "Uses double-double (×4) for ×5",
+      "pattern": "78 × 5 = 312；$1.45 × 5 = $5.80",
+      "remedy": "YY.MATH.FLU.MULT.FACTS.EXTENDING"
+    },
+    {
+      "id": "div.subtract_instead",
+      "zh": "把除法做成减法（36÷4=32）",
+      "en": "Subtracts instead of dividing",
+      "pattern": "36 ÷ 4 = 32；72 ÷ 9 = 63",
+      "remedy": "YY.MATH.FLU.DIV.MEANING"
+    },
+    {
+      "id": "div.commutative_flip",
+      "zh": "以为除法能像乘法一样交换（6÷24=4）",
+      "en": "Treats division as commutative",
+      "pattern": "4 × 6 = 24 → 说 6 ÷ 24 = 4 也成立",
+      "remedy": "YY.MATH.FLU.DIV.MEANING"
+    },
+    {
+      "id": "div.partial_quotient_combine",
+      "zh": "分段商合并出错：漏一段或加错东西（216÷4=50+16）",
+      "en": "Combines partial quotients wrongly (drops a chunk or adds the amounts)",
+      "pattern": "216 ÷ 4 = 50 + 16 = 66；245 ÷ 5 只算到 40；数减了几次当商",
+      "remedy": "YY.MATH.FLU.DIV.2D3D_BY_1D"
+    },
+    {
+      "id": "frac.same_denom_equal",
+      "zh": "分母相同就以为分数相等（4/6 = 2/6）",
+      "en": "Same denominator means the fractions are equal",
+      "pattern": "4/6 与 2/6 选「一样大」",
+      "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM"
+    },
+    {
+      "id": "frac.smaller_numerator_bigger",
+      "zh": "把「份数少每份大」用到分子上（3/8 > 5/8）",
+      "en": "Applies 'fewer parts means bigger parts' to the numerator",
+      "pattern": "3/8 > 5/8",
+      "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM"
+    },
+    {
+      "id": "frac.same_denom_cant_compare",
+      "zh": "分母已相同还说不能比、要先通分",
+      "en": "Thinks same-denominator fractions still need converting or cannot be compared",
+      "pattern": "选「无法比较」或「要先通分」",
+      "remedy": "YY.MATH.FRAC.COMPARE.SAME_DENOM"
+    },
+    {
+      "id": "frac.compare_denominators_only",
+      "zh": "异分母只按分母排序，不看分子（5/8 最小）",
+      "en": "Orders unlike fractions by denominator alone",
+      "pattern": "5/8、3/4、2/3 按分母大小排",
+      "remedy": "YY.MATH.FRAC.COMPARE.BENCHMARKS"
+    },
+    {
+      "id": "angle.sum_180_360_confuse",
+      "zh": "三角形用 360°、四边形用 180°",
+      "en": "Uses 360° for a triangle or 180° for a quadrilateral",
+      "pattern": "三角形缺角答 360−75−65=220",
+      "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+    },
+    {
+      "id": "angle.sum_not_subtracted",
+      "zh": "只加已知角就当答案（60°+70° 答 130°）",
+      "en": "Stops at the sum of the known angles",
+      "pattern": "答 130° 而不是 180−130=50°",
+      "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+    },
+    {
+      "id": "angle.subtract_one_only",
+      "zh": "180° 只减一个已知角（180−35=145）",
+      "en": "Subtracts only one of the known angles from the total",
+      "pattern": "直角三角形另一角答 145°",
+      "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+    },
+    {
+      "id": "angle.equal_pair_not_halved",
+      "zh": "两个相等角忘了平分（180−40=140 当每个角）",
+      "en": "Forgets to halve the leftover between two equal angles",
+      "pattern": "顶角 40° 的等腰三角形底角答 140°",
+      "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+    },
+    {
+      "id": "circle.pi_varies_with_size",
+      "zh": "以为圆越大周长÷直径越大",
+      "en": "Believes C ÷ d changes with the size of the circle",
+      "pattern": "说大圆的比值更大 / π 随直径变",
+      "remedy": "YY.MATH.GEO.CIRCLE.PI"
+    },
+    {
+      "id": "circle.pi_added_not_multiplied",
+      "zh": "把 π 当加数（C = 5 + 3.14 = 8.14）",
+      "en": "Adds pi to the diameter instead of multiplying",
+      "pattern": "d=5 答 C=8.14",
+      "remedy": "YY.MATH.GEO.CIRCLE.PI"
+    },
+    {
+      "id": "circle.pi_exact_value",
+      "zh": "以为 π 正好是 3 或正好 3.14",
+      "en": "Treats pi as exactly 3 or exactly 3.14",
+      "pattern": "三个直径正好绕一圈；实测 3.08 就说算错",
+      "remedy": "YY.MATH.GEO.CIRCLE.PI"
+    },
+    {
+      "id": "sym.half_whole_confuse",
+      "zh": "半边格数和整体格数混（左 7 格答总数 7）",
+      "en": "Confuses the count on one half with the count for the whole design",
+      "pattern": "只算一半，或问一半答整体",
+      "remedy": "YY.MATH.GEO.SYMMETRY.COMPLETE"
+    },
+    {
+      "id": "sym.mirror_distance_wrong",
+      "zh": "镜像格离轴距离数错（贴着轴那格当镜像）",
+      "en": "Mirror square placed at the wrong distance from the line",
+      "pattern": "离轴 2 格的镜像放在贴轴那一格，或把轴当一格数进去",
+      "remedy": "YY.MATH.GEO.SYMMETRY.COMPLETE"
+    },
+    {
+      "id": "sym.wrong_axis_direction",
+      "zh": "水平轴却左右翻（行列改错）",
+      "en": "Reflects across the wrong direction for the given line",
+      "pattern": "水平轴的镜像改了列而不是行",
+      "remedy": "YY.MATH.GEO.SYMMETRY.IDENTIFY"
+    },
+    {
+      "id": "tess.regular_only",
+      "zh": "以为只有正多边形或等边图形才能镶嵌",
+      "en": "Believes only regular / equal-sided shapes tessellate",
+      "pattern": "说不规则四边形、风筝、任意三角形铺不满",
+      "remedy": "YY.MATH.GEO.TESSELLATION"
+    },
+    {
+      "id": "tess.all_regular_tile",
+      "zh": "以为所有正多边形都能镶嵌（正五边形也行）",
+      "en": "Assumes every regular polygon tessellates",
+      "pattern": "选正五边形 / 正八边形能铺满，或凑成 3×108=360",
+      "remedy": "YY.MATH.GEO.TESSELLATION"
+    },
+    {
+      "id": "tess.point_sum_confuse",
+      "zh": "绕一点要凑 360° 却用 180° 或内角和",
+      "en": "Confuses the 360° around a point with 180° or the shape's angle sum",
+      "pattern": "说三角形内角和 180° 所以铺不满",
+      "remedy": "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+    },
+    {
+      "id": "tess.transform_requirement_myth",
+      "zh": "以为镶嵌必须同向或必须翻转才算",
+      "en": "Imposes a false requirement on the transformations used in a tessellation",
+      "pattern": "说转过的砖不算镶嵌，或说必须翻转才算",
+      "remedy": "YY.MATH.GEO.TESSELLATION"
+    },
+    {
+      "id": "transform.translate_sign_wrong",
+      "zh": "平移方向反了（向左/向下还是加）",
+      "en": "Translates in the wrong direction (adds for left/down, or reverses the rule)",
+      "pattern": "(8,5) 左 5 下 3 答 (13,8)",
+      "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE"
+    },
+    {
+      "id": "transform.translate_count_endpoint",
+      "zh": "平移格数读终点或数数字个数（2→7 说 7 格）",
+      "en": "Reads the endpoint coordinate or counts gridline labels instead of intervals",
+      "pattern": "3→7 说移了 5 格；数两个图形之间的空格",
+      "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE"
+    },
+    {
+      "id": "transform.translate_alters_shape",
+      "zh": "以为平移会变大、翻面或转向",
+      "en": "Thinks a translation changes size or orientation",
+      "pattern": "说滑得远图形就变大 / 平移后翻了面",
+      "remedy": "YY.MATH.GEO.TRANSFORM.TRANSLATE"
+    },
+    {
+      "id": "tri.two_equal_called_scalene",
+      "zh": "有一条边不同就判成不等边（8、8、5 说成 scalene）",
+      "en": "Calls a triangle scalene when only one side differs",
+      "pattern": "两边相等的三角形选「不等边」",
+      "remedy": "YY.MATH.GEO.TRI.BY_SIDES"
+    },
+    {
+      "id": "tri.side_name_confuse",
+      "zh": "等边/等腰/不等边名称张冠李戴（三边全等说 scalene）",
+      "en": "Mixes up the names equilateral, isosceles and scalene",
+      "pattern": "6、6、6 选「不等边」或「等腰」；4、7、9 选「等边」",
+      "remedy": "YY.MATH.GEO.TRI.BY_SIDES"
+    },
+    {
+      "id": "tri.equilateral_not_isosceles",
+      "zh": "以为等边三角形不算等腰，三个名称互斥",
+      "en": "Believes an equilateral triangle cannot also be isosceles",
+      "pattern": "说等腰的第三条边必须不同、一个三角形只能有一个名字",
+      "remedy": "YY.MATH.GEO.TRI.BY_SIDES"
+    },
+    {
+      "id": "tri.sides_vs_angles_confuse",
+      "zh": "按边分类却拿角来判断（说要先量角、钝角一定不等边）",
+      "en": "Confuses classification by sides with classification by angles",
+      "pattern": "选「无法判断，不知道角度」或「不等边一定有钝角」",
+      "remedy": "YY.MATH.GEO.TRI.CLASSIFY_BOTH"
+    },
+    {
+      "id": "time.number_as_minute",
+      "zh": "把分针指的大数字直接当分钟数（指 4 读成 04 分）",
+      "en": "Reads the clock number as the minute count instead of ×5",
+      "pattern": "分针在 4 附近读成 :04、在 11 附近读成 :11",
+      "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN"
+    },
+    {
+      "id": "time.minute_marks_ignored",
+      "zh": "只读到整 5 分就停，小格没数（7:22 读成 7:20）",
+      "en": "Stops at the nearest 5 minutes and ignores the small marks",
+      "pattern": "答案是 :20 / :45 这类整 5 分，与正解差 1–4 分",
+      "remedy": "YY.MATH.MEAS.TIME.ANALOG.MINUTE"
+    },
+    {
+      "id": "time.marks_wrong_direction",
+      "zh": "分针在数字前面却往前加（差 2 格到 4 读成 22 分）",
+      "en": "Counts the small marks in the wrong direction from the number",
+      "pattern": "正解 :18 答 :22，或正解 :48 答 :42",
+      "remedy": "YY.MATH.MEAS.TIME.ANALOG.MINUTE"
+    },
+    {
+      "id": "time.elapsed_add_times",
+      "zh": "经过时间把两个时刻相加（4:10 到 4:35 答 45）",
+      "en": "Adds the two clock readings instead of finding the gap",
+      "pattern": "答案 = 起止分钟数之和，常大于 60",
+      "remedy": "YY.MATH.MEAS.TIME.ELAPSED.WITHIN_HOUR"
+    },
+    {
+      "id": "time.gap_count_numbers",
+      "zh": "数钟面数字当分钟，大格没乘 5（2 到 7 答 5 分钟）",
+      "en": "Counts clock numbers as minutes instead of 5-minute gaps",
+      "pattern": "答案 = 大格数（3 格答 3 分钟）",
+      "remedy": "YY.MATH.MEAS.TIME.ANALOG.5MIN"
+    },
+    {
+      "id": "time.past_to_swap",
+      "zh": "「过」「差」弄反（quarter to 3 读成 3:15）",
+      "en": "Swaps 'past' and 'to'",
+      "pattern": "差一刻 X 写成 X:15，或 X:45 说成 X 点过一刻",
+      "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR"
+    },
+    {
+      "id": "time.quarter_to_wrong_hour",
+      "zh": "差一刻用当前小时（4:45 说成 quarter to 4）",
+      "en": "Names 'quarter to' with the current hour instead of the next",
+      "pattern": "X:45 说成 quarter to X；quarter to X 写成 X:45",
+      "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR"
+    },
+    {
+      "id": "time.half_vs_quarter",
+      "zh": "半点和一刻混（2/4 小时说成 quarter past）",
+      "en": "Confuses half past with quarter past / quarter to",
+      "pattern": "30 分选「一刻」或 15/45 分选「半点」",
+      "remedy": "YY.MATH.MEAS.TIME.FRACTIONS_OF_HOUR"
+    },
+    {
+      "id": "time.24h_pm_confuse",
+      "zh": "24 时制下午忘加 12（下午 6:30 写成 06:30）",
+      "en": "Forgets to add or remove 12 when converting afternoon times",
+      "pattern": "下午时间写成 0X:XX，或 14:30 说成上午",
+      "remedy": "YY.MATH.MEAS.TIME.AM_PM_24H"
+    },
+    {
+      "id": "pv.digit_place_shift",
+      "zh": "数字挪错数位（八千零四十写成 8400）",
+      "en": "Puts or reads a digit at the wrong place (same digit count)",
+      "pattern": "位数对但某个数字左右挪了一位，中间有 0 时最常见",
+      "remedy": "YY.MATH.NUM.PV10K.READ_WRITE"
+    },
+    {
+      "id": "linear.rule_from_one_point",
+      "zh": "只用第一个点定规律（(1, 5) 就写 y = 5x）",
+      "en": "Builds the rule from a single point without checking the rest",
+      "pattern": "规律只对第一行成立，第二行就对不上",
+      "remedy": "YY.MATH.PAT.GRAPH.TO_RULE"
+    },
+    {
+      "id": "linear.step_as_add_rule",
+      "zh": "每步加 3 就写成 n + 3（应为 3n）",
+      "en": "Turns the common difference into an additive rule",
+      "pattern": "步长 k 的规律写成 n + k",
+      "remedy": "YY.MATH.PAT.EXPR.FROM_PATTERN"
+    },
+    {
+      "id": "linear.intercept_forgotten",
+      "zh": "漏掉常数项/起始值（3n + 2 写成 3n）",
+      "en": "Drops the constant term or starting value",
+      "pattern": "答案 = 步长 × n，与正解差一个常数；或反推时忘先减常数",
+      "remedy": "YY.MATH.PAT.LINEAR.EXPRESSION"
+    },
+    {
+      "id": "pat.rule_from_two_terms",
+      "zh": "只看前两项定规律（2, 6, 18 说成每次加 4）",
+      "en": "Decides the rule from the first two terms only",
+      "pattern": "规律只对第一步成立，后面几步没验证",
+      "remedy": "YY.MATH.PAT.INC_DEC.EXTEND"
+    },
+    {
+      "id": "pat.multiply_step_ignore_start",
+      "zh": "步长乘项数忽略首项（第 7 项答 9 × 7 = 63）",
+      "en": "Multiplies the step by the term number and ignores the start",
+      "pattern": "答案 = 步长 × 项数",
+      "remedy": "YY.MATH.PAT.INC_DEC.EXTEND"
+    },
+    {
+      "id": "pat.rule_parts_confuse",
+      "zh": "起点和加数拿错（3,7,11 说成从4开始每次加3）",
+      "en": "Misassigns the start and the step of a rule",
+      "pattern": "把起点当每次加的数，或把第二项 / 末项当起点",
+      "remedy": "YY.MATH.PAT.INC_DEC.RULE"
+    },
+    {
+      "id": "pat.direction_wrong",
+      "zh": "递减规律说成「每次加」，或往反方向延伸",
+      "en": "Gets the direction of the pattern wrong",
+      "pattern": "40,35,30 → 每次加 5；下一项答 45",
+      "remedy": "YY.MATH.PAT.INC_DEC.EXTEND"
+    },
+    {
+      "id": "pat.step_from_nonadjacent",
+      "zh": "隔项相减当一步的变化（第1天4、第3天12说每天加8）",
+      "en": "Uses a gap across several terms as one step",
+      "pattern": "跨两项的差直接当每次加的数",
+      "remedy": "YY.MATH.PAT.INC_DEC.RULE"
+    },
+    {
+      "id": "pat.term_count_off_by_one",
+      "zh": "延伸规律多算或少算一项（第6周答成第5周的数）",
+      "en": "Off by one when extending or counting terms",
+      "pattern": "6 小时减 15 只减 5 次；(25−4)÷3=7 答第 7 天",
+      "remedy": "YY.MATH.PAT.INC_DEC.EXTEND"
+    },
+    {
+      "id": "pat.rule_missing_start",
+      "zh": "只说「每次加几」，不说从哪个数开始",
+      "en": "States the step but omits the start",
+      "pattern": "法则只写「每次加 7」，认为起点可以省略",
+      "remedy": "YY.MATH.PAT.RULE.WORDS_NUMBERS"
+    },
+    {
+      "id": "linear.nonconstant_as_linear",
+      "zh": "有规律或一直变大就当线性（2,4,8,16）",
+      "en": "Treats any pattern or any increase as linear",
+      "pattern": "每次乘 2、差 7,5,7 取平均也判为线性",
+      "remedy": "YY.MATH.PAT.LINEAR.TABLE"
+    },
+    {
+      "id": "linear.intercept_misread",
+      "zh": "截距拿表格第一行的 y，或以为 x=0 时一定是 0",
+      "en": "Misreads the y-intercept (first table row, or assumes zero)",
+      "pattern": "x=1 时 y=10 答截距 10；租船 0 小时答 $0",
+      "remedy": "YY.MATH.PAT.LINEAR.TABLE"
+    },
+    {
+      "id": "linear.x_step_ignored",
+      "zh": "只看 y 列的差，不看 x 每步走多少",
+      "en": "Ignores the x-step when judging constant change",
+      "pattern": "x 走 2 步 y 加 6 说成每步加 6；x 不是 1,2,3 就说不线性",
+      "remedy": "YY.MATH.PAT.LINEAR.TABLE"
+    },
+    {
+      "id": "prob.absolute_words_misuse",
+      "zh": "不太可能说成不可能，很可能说成一定",
+      "en": "Confuses unlikely with impossible, likely with certain",
+      "pattern": "100 张 1 张大奖 → 不可能；8 份 7 份蓝 → 一定",
+      "remedy": "YY.MATH.PROB.LIKELIHOOD"
+    },
+    {
+      "id": "prob.compare_to_half_missing",
+      "zh": "只看数量多少，不和一半比（12张里4张说很可能）",
+      "en": "Judges likelihood without comparing to half",
+      "pattern": "有 4 张比 0 多就说很可能；5 支很多就说很可能",
+      "remedy": "YY.MATH.PROB.LIKELIHOOD"
+    },
+    {
+      "id": "prob.outcomes_count_items",
+      "zh": "把份数或物件数当结果数（3红2蓝1黄说6种）",
+      "en": "Counts parts or items instead of distinct outcomes",
+      "pattern": "红、红、红、蓝、蓝、黄；5 张卡答 5 种",
+      "remedy": "YY.MATH.PROB.OUTCOMES.LIST"
+    },
+    {
+      "id": "prob.outcomes_lumped",
+      "zh": "把结果分组当结果（骰子说成「奇数、偶数」两种）",
+      "en": "Lumps outcomes into categories",
+      "pattern": "结果答「中奖、不中奖」「是我的颜色、不是」",
+      "remedy": "YY.MATH.PROB.OUTCOMES.LIST"
+    },
+    {
+      "id": "prob.past_results_change_outcomes",
+      "zh": "以为出过的结果这次不会再出（出过4就剩5种）",
+      "en": "Thinks past results change the possible outcomes",
+      "pattern": "红连出两次就说第三次不能是红",
+      "remedy": "YY.MATH.PROB.OUTCOMES.LIST"
+    },
+    {
+      "id": "solid.fev_swap",
+      "zh": "面、棱、顶点的数目互相串（长方体说成 8 个面、6 条棱）",
+      "en": "Swaps the counts of faces, edges and vertices",
+      "pattern": "长方体答 8 个面 / 6 条棱 / 12 个顶点",
+      "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES"
+    },
+    {
+      "id": "solid.count_visible_only",
+      "zh": "只数图上看得见的面或顶点（长方体数成 3 个面）",
+      "en": "Counts only the faces or vertices visible in the drawing",
+      "pattern": "长方体 3 个面 / 7 个顶点",
+      "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES"
+    },
+    {
+      "id": "unit.ml_l_factor",
+      "zh": "把 1 L 当成 100 mL（或 10 mL）",
+      "en": "Uses the wrong factor between millilitres and litres",
+      "pattern": "2 L = 200 mL",
+      "remedy": "YY.MATH.MEAS.CAPACITY.UNITS"
+    },
+    {
+      "id": "unit.convert_wrong_direction",
+      "zh": "单位换算乘除方向反了（小单位换大单位却去乘）",
+      "en": "Multiplies when converting to a bigger unit (or divides to a smaller one)",
+      "pattern": "180 分钟 = 10 800 小时",
+      "remedy": "YY.MATH.MEAS.TIME.UNITS"
+    },
+    {
+      "id": "graph.series_in_circle",
+      "zh": "把随时间变化的数据画进圆形统计图",
+      "en": "Puts a time series into a circle graph",
+      "pattern": "一周每天气温选圆图",
+      "remedy": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH"
+    },
+    {
+      "id": "circle.r_squared_as_r",
+      "zh": "由面积求半径时把 r² 直接当成 r（忘了开方）",
+      "en": "Treats r² as the radius when working back from the area",
+      "pattern": "A = 78.5 → r = 25",
+      "remedy": "YY.MATH.GEO.CIRCLE.INVERSE"
+    },
+    {
+      "id": "sq.square_as_double",
+      "zh": "把平方当成乘 2（3² = 6）",
+      "en": "Treats squaring as doubling (3² = 6)",
+      "pattern": "n² 答成 2n",
+      "remedy": "YY.MATH.NUM.SQUARE.NOTATION"
+    },
+    {
+      "id": "sq.root_as_half",
+      "zh": "把开平方当成除以 2（√16 = 8）",
+      "en": "Treats the square root as halving (√16 = 8)",
+      "pattern": "√n 答成 n ÷ 2",
+      "remedy": "YY.MATH.NUM.SQUARE.ROOT"
+    },
+    {
+      "id": "sq.looks_square",
+      "zh": "觉得 10、100 这类「长得整」的数就是平方数",
+      "en": "Assumes a round-looking number like 10 is a perfect square",
+      "pattern": "10、20、50 被判成平方数；100 对但理由是「整」",
+      "remedy": "YY.MATH.NUM.SQUARE.RECOGNIZE"
+    },
+    {
+      "id": "sq.roots_add",
+      "zh": "根号下先相加再开方（√81 + √16 = √97）",
+      "en": "Adds under the root before taking it (√81 + √16 = √97)",
+      "pattern": "√a + √b 算成 √(a+b)",
+      "remedy": "YY.MATH.NUM.SQUARE.ROOT"
+    }
   ]
 }

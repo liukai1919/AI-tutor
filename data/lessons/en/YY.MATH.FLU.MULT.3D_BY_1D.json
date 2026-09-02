@@ -2,87 +2,78 @@
  "v": 1,
  "curriculumId": "YY.MATH.FLU.MULT.3D_BY_1D",
  "lang": "en",
- "title": "Multiply 3-digit numbers by 1-digit numbers (area model, partial products)",
+ "title": "Multiply 3-digit numbers by 1-digit numbers with the standard algorithm",
  "provider": "claude",
- "at": "2026-08-23",
+ "at": "2026-09-02",
  "lesson": {
-  "title": "Big Numbers, Small Steps: 253 Times 3",
+  "title": "Stacking Up: 3-Digit Times 1-Digit",
   "isMath": true,
   "steps": [
    {
-    "say": "You already know how to break a number apart to multiply, like two tens and five ones. Today we do the same trick with a three-digit number, so a big multiplication turns into three easy little ones.",
-    "math": "253 \\times 3 = ?",
-    "visual": {
-     "type": "baseTen",
-     "nums": [
-      253
-     ],
-     "labels": [],
-     "caption": "253 is 2 hundreds, 5 tens and 3 ones"
-    }
-   },
-   {
-    "say": "Imagine three crates of BC apples, and each crate holds two hundred fifty-three apples. We draw a rectangle three rows tall and two hundred fifty-three wide, then slice it by place value into two hundred, fifty, and three.",
-    "math": "253 = 200 + 50 + 3",
-    "visual": {
-     "type": "areaModel",
-     "nums": [
-      253,
-      3
-     ],
-     "labels": [],
-     "caption": "One big rectangle sliced into three friendly pieces"
-    }
-   },
-   {
-    "say": "Now multiply each piece by three. Two hundred times three is six hundred. Fifty times three is one hundred fifty. Three times three is nine. Those three answers are called the partial products.",
-    "math": "200\\times3=600,\\; 50\\times3=150,\\; 3\\times3=9",
-    "visual": {
-     "type": "barModel",
-     "nums": [
-      600,
-      150,
-      9
-     ],
-     "labels": [
-      "200 x 3",
-      "50 x 3",
-      "3 x 3"
-     ],
-     "caption": "Three partial products, three pieces of the rectangle"
-    }
-   },
-   {
-    "say": "Last step: add all three pieces back together. Six hundred plus one hundred fifty is seven hundred fifty, and seven hundred fifty plus nine is seven hundred fifty-nine apples.",
-    "math": "600+150+9=759",
+    "say": "You already know how to break a number like two hundred fourteen into two hundreds, one ten, and four ones. Today we put that same idea into a neat stacked form, so you can multiply a three digit number by a one digit number quickly on paper.",
+    "math": "214 = 200 + 10 + 4",
     "visual": {
      "type": "placeValue",
      "nums": [
-      759
+      214
      ],
      "labels": [],
-     "caption": "7 hundreds, 5 tens, 9 ones"
+     "caption": "Two hundred fourteen is 2 hundreds, 1 ten, and 4 ones"
     }
    },
    {
-    "say": "Here is the mistake I see most often. Some kids multiply the hundreds and the ones, get six hundred plus nine, and write six hundred nine. But they forgot the middle slice, fifty times three. That whole one hundred fifty piece of the rectangle just disappeared! So always count your slices: three slices means three partial products before you add.",
-    "math": "600+9=609\\;(\\text{wrong}) \\quad 600+150+9=759\\;(\\text{right})",
+    "say": "Here is the rule. Write the big number on top and the one digit number underneath, lined up under the ones place. Then multiply from right to left: ones first, then tens, then hundreds. Every column gets multiplied, so no part is ever left out.",
+    "math": "\\begin{array}{r} 214 \\\\ \\times\\ \\ 3 \\\\ \\hline \\end{array}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us try it. A Surrey school orders three crates of apples for snack day, and each crate holds two hundred fourteen apples. Start with the ones: four times three is twelve. Twelve is one ten and two ones, so we write the two in the ones column and carry the one ten over to the tens column.",
+    "math": "4 \\times 3 = 12",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      12
+     ],
+     "labels": [],
+     "caption": "12 = 1 ten rod carried over, 2 ones stay"
+    }
+   },
+   {
+    "say": "Now the tens: one times three is three, plus the one ten we carried makes four tens. Then the hundreds: two times three is six hundreds. Reading it all together, three crates hold six hundred forty two apples.",
+    "math": "214 \\times 3 = 642",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      642
+     ],
+     "labels": [],
+     "caption": "6 hundreds, 4 tens, 2 ones"
+    }
+   },
+   {
+    "say": "Watch out for this slip. Some kids write the two in the ones place but forget the carried ten, so they get six hundred thirty two. That is ten apples short of the real answer, because the ten hiding inside the twelve just vanished. A carried digit is real, so always add it into the very next column.",
+    "math": "642 - 632 = 10",
     "visual": {
      "type": "barModel",
      "nums": [
-      759,
-      609
+      632,
+      642
      ],
      "labels": [
-      "Right: 759",
-      "Oops, forgot 50 x 3: 609"
+      " forgot the carry",
+      "correct"
      ],
-     "caption": "The missing middle slice is worth 150"
+     "caption": "Forgetting the carry loses exactly 10"
     }
    },
    {
-    "say": "So remember: split the big number by place value, multiply every piece, then add them all back up.",
-    "math": "253\\times3=600+150+9=759",
+    "say": "So remember: multiply the ones, then the tens, then the hundreds, and carry every extra ten or hundred into the next column. Every digit gets its turn.",
+    "math": "",
     "visual": {
      "type": "none",
      "nums": [],
@@ -91,10 +82,10 @@
     }
    }
   ],
-  "answer": "Split by place value, multiply every piece, then add them all back — never leave a piece out.",
+  "answer": "Multiply ones, then tens, then hundreds — and always add the carried digit into the next column.",
   "practice": {
-   "question": "A bakery in Victoria fills four big boxes of muffins, and each box holds one hundred thirty-two muffins. Draw your own area model: split one hundred thirty-two into one hundred, thirty and two, multiply each part by four, then add the three partial products. How many muffins altogether?",
-   "answer": "One hundred times four is four hundred, thirty times four is one hundred twenty, and two times four is eight. Four hundred plus one hundred twenty plus eight is 528 muffins."
+   "question": "At a Kelowna farmers market, one box of blueberries weighs two hundred thirteen grams. Think of that as 2 hundreds, 1 ten, and 3 ones, and stack it up: what do four boxes weigh altogether?",
+   "answer": "852 grams. Ones: 3 times 4 is 12, so write 2 and carry 1 ten. Tens: 1 times 4 is 4, plus the carried 1 makes 5 tens. Hundreds: 2 times 4 is 8 hundreds. That gives 852."
   }
  }
 }
