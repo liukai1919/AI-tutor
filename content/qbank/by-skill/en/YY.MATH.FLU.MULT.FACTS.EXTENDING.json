@@ -28,15 +28,15 @@
    "options": [
     "670",
     "1340",
-    "1240",
+    "1072",
     "2680"
    ],
    "answerIndex": 1,
-   "explain": "Half of 2680 is 1340, because half of 2600 is 1300 and half of 80 is 40. A common trap is halving twice (once on 268 and again on the 10 times answer), which gives 670.",
+   "explain": "Half of 2680 is 1340, because half of 2600 is 1300 and half of 80 is 40. Two traps: halving twice (once on 268 and again on the 10 times answer) gives 670, and doubling 268 twice gives 1072, which is 268 × 4, not × 5.",
    "tags": [
     "other",
     "ok",
-    "other",
+    "mult.x5_as_double_double",
     "mult.x5_one_step_only"
    ]
   },
@@ -86,15 +86,15 @@
     "$740",
     "$1480",
     "$370",
-    "$704"
+    "$592"
    ],
    "answerIndex": 0,
-   "explain": "Use 148 × 10 = 1480, then halve it: half of 1480 is 740, so the total is $740. The most common trap is answering $1480, which is the 10 times amount before halving.",
+   "explain": "Use 148 × 10 = 1480, then halve it: half of 1480 is 740, so the total is $740. Two traps: answering $1480, which is the 10 times amount before halving, and doubling 148 twice to get $592, which is 148 × 4, not × 5.",
    "tags": [
     "ok",
     "mult.x5_one_step_only",
     "other",
-    "other"
+    "mult.x5_as_double_double"
    ]
   },
   {
@@ -181,15 +181,15 @@
     "$170",
     "$30",
     "$140",
-    "$115"
+    "$64"
    ],
    "answerIndex": 1,
-   "explain": "First 34 × 5 = 34 × 10 ÷ 2 = 340 ÷ 2 = $170, then $200 − $170 = $30 change. Two traps here: answering the cost instead of the change, and forgetting to halve the 340.",
+   "explain": "First 34 × 5 = 34 × 10 ÷ 2 = 340 ÷ 2 = $170, then $200 − $170 = $30 change. Three traps: answering the cost instead of the change, forgetting to halve the 340, and doubling 34 twice to get $136, which is 34 × 4 and leaves $64 change.",
    "tags": [
     "word.stop_early",
     "ok",
     "other",
-    "other"
+    "mult.x5_as_double_double"
    ]
   },
   {
