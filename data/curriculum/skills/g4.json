@@ -37,7 +37,7 @@
     { "id": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES", "topic": "numbers-to-10k", "type": "fluency", "rep": ["symbolic", "hundredChart"],
       "en": "Skip-count forward and backward by 25s, 100s and 1000s",
       "zh": "按 25、100、1000 跳着数（正着数、倒着数）",
-      "primary": "BC.MATH.G4.NUM.01", "prereq": ["YY.MATH.NUM.PV10K.READ_WRITE"], "core": false, "hints": "hundredChart、numberLine" },
+      "primary": "BC.MATH.G4.NUM.01", "prereq": ["YY.MATH.NUM.PV10K.READ_WRITE"], "core": false, "misc": ["ops.regroup_forget", "ops.borrow_across_zero"], "hints": "hundredChart、numberLine" },
 
     { "id": "YY.MATH.FLU.ADDSUB.FACTS20", "topic": "add-sub-to-10k", "type": "fluency", "rep": ["symbolic", "numberLine"],
       "en": "Recall addition and subtraction facts to 20 using mental strategies (make ten, doubles)",
@@ -213,7 +213,7 @@
     { "id": "YY.MATH.MEAS.PERIM.MISSING_SIDE", "topic": "perimeter", "type": "reason", "rep": ["shapeRect", "symbolic"],
       "en": "Find a missing side length when the perimeter is known",
       "zh": "已知周长，求缺少的边长",
-      "primary": "BC.MATH.G4.GEO.03", "prereq": ["YY.MATH.MEAS.PERIM.CALC", "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB"], "core": false, "hints": "shapeRect" },
+      "primary": "BC.MATH.G4.GEO.03", "prereq": ["YY.MATH.MEAS.PERIM.CALC", "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB"], "core": false, "misc": ["perim.forget_hidden_side", "eq.inverse_wrong"], "hints": "shapeRect" },
 
     { "id": "YY.MATH.DATA.BAR.ONE_TO_ONE", "topic": "data", "type": "procedure", "rep": ["statBar", "dataTable"],
       "en": "Read and make bar graphs and pictographs where one unit stands for one",

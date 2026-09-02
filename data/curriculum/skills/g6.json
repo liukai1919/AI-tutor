@@ -34,7 +34,7 @@
     { "id": "YY.MATH.NUM.PVBIG.CONTEXT", "topic": "big-small-numbers", "type": "apply", "rep": ["context", "dataTable"],
       "en": "Make sense of large and small numbers in science, medicine and media (populations, doses, data sizes)",
       "zh": "理解科学、医学、媒体里的大数和小数（人口、剂量、数据量）",
-      "primary": "BC.MATH.G6.NUM.01", "prereq": ["YY.MATH.NUM.PVBIG.COMPARE_ORDER"], "core": false, "hints": "dataTable" },
+      "primary": "BC.MATH.G6.NUM.01", "prereq": ["YY.MATH.NUM.PVBIG.COMPARE_ORDER"], "core": false, "misc": ["pv.zero_placeholder", "pv.million_billion_confuse"], "hints": "dataTable" },
 
     { "id": "YY.MATH.NUM.FACTORS.LIST", "topic": "factors-multiples", "type": "procedure", "rep": ["areaGrid", "symbolic"],
       "en": "List all the factors of a number using factor pairs",
@@ -125,7 +125,7 @@
     { "id": "YY.MATH.FRAC.MIXED.COMPARE_ORDER", "topic": "mixed-numbers", "type": "procedure", "rep": ["numberLine", "symbolic"],
       "en": "Compare and order mixed numbers, improper fractions and whole numbers with benchmarks or common denominators",
       "zh": "用基准或通分比较、排序带分数、假分数和整数",
-      "primary": "BC.MATH.G6.NUM.03", "prereq": ["YY.MATH.FRAC.MIXED.TO_IMPROPER", "YY.MATH.FRAC.IMPROPER.TO_MIXED", "YY.MATH.FRAC.COMPARE.UNLIKE"], "misc": ["frac.bigger_denominator_bigger"], "hints": "numberLine" },
+      "primary": "BC.MATH.G6.NUM.03", "prereq": ["YY.MATH.FRAC.MIXED.TO_IMPROPER", "YY.MATH.FRAC.IMPROPER.TO_MIXED", "YY.MATH.FRAC.COMPARE.UNLIKE", "YY.MATH.FRAC.ORDER"], "misc": ["frac.bigger_denominator_bigger"], "hints": "numberLine" },
 
     { "id": "YY.MATH.RATIO.MEANING", "topic": "ratios", "type": "concept", "rep": ["groups", "barModel", "symbolic"],
       "en": "Write a ratio to compare two quantities (3:2, 3 to 2)",
@@ -201,7 +201,7 @@
     { "id": "YY.MATH.PAT.VISUAL.TILES", "topic": "patterns-graphs", "type": "apply", "rep": ["areaGrid", "symbolic"],
       "en": "Find the expression for a growing tile pattern",
       "zh": "找出色块图形规律的通项式",
-      "primary": "BC.MATH.G6.PAT.01", "prereq": ["YY.MATH.PAT.EXPR.FROM_PATTERN"], "core": false, "hints": "areaGrid" },
+      "primary": "BC.MATH.G6.PAT.01", "prereq": ["YY.MATH.PAT.EXPR.FROM_PATTERN"], "core": false, "misc": ["pat.recursive_vs_explicit", "linear.slope_intercept_swap"], "hints": "areaGrid" },
 
     { "id": "YY.MATH.ALG.EQ.BALANCE", "topic": "one-step-equations", "type": "concept", "rep": ["balance"],
       "en": "Keep an equation balanced: do the same thing to both sides",
@@ -286,7 +286,7 @@
     { "id": "YY.MATH.MEAS.VOL.REFERENTS", "topic": "volume-capacity", "type": "apply", "rep": ["context"],
       "en": "Estimate capacity with everyday referents (how many mugs make a litre?)",
       "zh": "用身边的参照物估计容积（几个杯子是一升？）",
-      "primary": "BC.MATH.G6.GEO.04", "prereq": ["YY.MATH.MEAS.CAPACITY.UNITS"], "core": false, "hints": "dataTable" },
+      "primary": "BC.MATH.G6.GEO.04", "prereq": ["YY.MATH.MEAS.CAPACITY.UNITS"], "core": false, "misc": ["unit.ml_l_factor", "unit.convert_wrong_direction"], "hints": "dataTable" },
 
     { "id": "YY.MATH.GEO.COORD.Q1.PLOT", "topic": "coordinates-transformations", "type": "procedure", "rep": ["coordGrid"],
       "en": "Plot and read points in the first quadrant with whole-number ordered pairs",
@@ -308,11 +308,11 @@
     { "id": "YY.MATH.DATA.LINE.CREATE", "topic": "line-graphs", "type": "procedure", "rep": ["statLine", "dataTable"],
       "en": "Draw a line graph from a table of values with a suitable scale",
       "zh": "根据表格画折线图，选合适的刻度",
-      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ", "YY.MATH.GEO.COORD.Q1.PLOT"], "misc": ["graph.scale_misread"], "hints": "statLine、dataTable" },
+      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ", "YY.MATH.GEO.COORD.Q1.PLOT", "YY.MATH.DATA.DBAR.CREATE"], "misc": ["graph.scale_misread"], "hints": "statLine、dataTable" },
     { "id": "YY.MATH.DATA.LINE.INTERPRET", "topic": "line-graphs", "type": "apply", "rep": ["statLine", "context"],
       "en": "Interpret change over time and make predictions from a line graph",
       "zh": "解释随时间的变化，并用折线图做预测",
-      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ"], "misc": ["graph.value_instead_of_change", "graph.extrapolate_step_count", "graph.cumulative_as_interval", "linear.slope_intercept_swap"], "hints": "statLine" },
+      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ", "YY.MATH.DATA.DBAR.INTERPRET"], "misc": ["graph.value_instead_of_change", "graph.extrapolate_step_count", "graph.cumulative_as_interval", "linear.slope_intercept_swap"], "hints": "statLine" },
 
     { "id": "YY.MATH.PROB.THEORETICAL", "topic": "probability", "type": "procedure", "rep": ["spinner", "symbolic"],
       "en": "Find the theoretical probability of a single outcome by listing all outcomes",

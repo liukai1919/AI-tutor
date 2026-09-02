@@ -41,3 +41,16 @@ iOS 端（AITutor-APPLE）用 `Scripts/qbank-audit.py` 对随包的 234 份 en �
 
 审计信号脚本随本仓库没有落地（iOS 端的 `qbank-audit.py` 是判决来源）；本轮用的等价 Node 版信号、配平/打标签的输入包、合并脚本都在会话 scratchpad，
 关键校验点（4 个选项、答案不动、正确项不最长、tags 落在技能 `misc[]` 内）已写进 `docs/qbank-standard.md`，新出的题由提示词和审稿两道关把住。
+
+## 追加：iOS 端「上游落地清单（2026-09-01）」的处理
+
+| 清单项 | 处理 |
+|---|---|
+| 批次一：11 份拓展技能题库（en） | Apple 仓库的草稿没推到 GitHub，走清单的第二条路：去掉 `--core` 用 Claude 生成 + 审稿补跑（`pregen --skills --only quiz --langs en --provider claude --judge claude`），11 份全成、审稿拒 1 题后自动补齐。en 题库 234 → **245/245**；zh 按冻结维持 234。`core` 一个都没动。 |
+| §5.2 六条新误区 | 已登记 `solid.fev_swap`、`solid.count_visible_only`、`unit.ml_l_factor`、`unit.convert_wrong_direction`、`graph.series_in_circle`、`circle.r_squared_as_r`（登记表 228 → 234）；`sq.*` 四条随 §5.1 一起决定，未登记。 |
+| §5.3 八个节点的 `misc[]` | 按表回填，另给 FEV / VOL.REFERENTS / TIME.UNITS 挂上新误区，**在生成前**落好，所以 11 份新题库的 tags 直接对着登记误区出（真实 id 占干扰项 13/36 ～ 34/36）。 |
+| 批次二 3.2 节点标题 | `FLU.MULT.3D_BY_1D` en/zh 标题已改成「标准竖式」版；`rep/misc/prereq/hints` 未动。 |
+| 批次二 3.3 八条先修边 | 全部追加，`skills_check` 无环通过。 |
+| 批次二 3.1 课文替换 | **未做**：新课文只在 Apple 仓库本地，上游拿不到。文件到位后整份替换 `data/lessons/en/YY.MATH.FLU.MULT.3D_BY_1D.json`，再 `prevoice --langs en` 补烘。 |
+| 批次三 平方数 | 等 §5.1 拍板。 |
+| §5.4 / §5.5 | 本文上半部分已做完（配平 533 道、54 技能登记 108 条误区并回填）。 |

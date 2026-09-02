@@ -676,7 +676,7 @@ G5 等值分数的诊断分支长这样（`diag.branch` 展开）：
 - 审稿改成按题剔除（`JUDGE_HINT_QUIZ` + `bad:[序号]`），12 道错 1 道只丢 1 道：整批拒绝 0 次、按题剔除 54 次。
 - `validateQbankBatch` 之前把全 other 的 tags 当空壳丢掉，是 tags 覆盖率低的真因，已修。
 - Claude CLI 超时 300 → 600 秒（个别知识点 effort high 要想 5 分钟以上）。
-- 拓展技能（`core:false`，11 个）的题库和旧 BC 题库的 skillId 标签仍未做。
+- 旧 BC 题库的 skillId 标签仍未做（拓展技能的 11 份 en 题库 2026-09-01 已按 iOS 端清单去掉 `--core` 补跑，en 245/245；zh 按 2026-08-26 冻结维持 234）。
 - **老 BC 题库已全量送审**（2026-08-23，`tools/audit_qbank.mjs`）：234 份审 35 份不过，剔 42 题（1.5%）；错误类型：解析算错 20、跑题 10、标答错/两个正确 6、题干矛盾 2。剔后用 `pregen --only quiz --force --provider claude --judge` 补齐（41 次生成，0 失败）。删掉的题在 `audit-report.jsonl`。
 - **技能视图已成为 G4–G7 的默认清单**（`learnView()`）：选年级即「主题 → 技能」，老主线清单 `view=standards` 仍可取但界面不露出；单元测试按主题（存档 key `skills-g<N>`）；FSA 仍按主线（`fsaStrands`）；家长报告按技能汇总定级。主题级单元卷尚无预生成包（108 份），点 📝 现场出。微课只烤了 2 节示例（`pregen --skills --only lessons`，490 节待决定）。
 

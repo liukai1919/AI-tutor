@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.CIRCLE.INVERSE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtjn5h7fsoek9h",
+   "level": 1,
+   "question": "A circle has a circumference of 25.12 cm. Use π ≈ 3.14. Which equation should you set up to find the diameter d?",
+   "options": [
+    "25.12 = 3.14 × d",
+    "25.12 = 6.28 × d",
+    "25.12 = 3.14 × r",
+    "25.12 = 3.14 ÷ d"
+   ],
+   "answerIndex": 0,
+   "explain": "Circumference is π × diameter, so the setup is 25.12 = 3.14 × d and you undo the multiplication by dividing. The common trap is writing π × r, which only gives half the way around.",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fdojsec",
+   "level": 1,
+   "question": "A circle has an area of 50.24 cm². Use π ≈ 3.14. Which equation should you set up to find the radius r?",
+   "options": [
+    "50.24 = 3.14 × 2 × r",
+    "50.24 = 3.14 × r × r",
+    "50.24 = 6.28 × r × r",
+    "50.24 = 3.14 × d × d"
+   ],
+   "answerIndex": 1,
+   "explain": "Area is π × r × r, so 50.24 = 3.14 × r × r gives r × r = 16 and r = 4 cm. The usual trap is π × 2 × r, which is a circumference formula, not an area one.",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7f67cylh",
+   "level": 1,
+   "question": "A circle has a circumference of 31.4 m. Use π ≈ 3.14. Ravi divides 31.4 by 3.14 and gets 10. What does his 10 tell him?",
+   "options": [
+    "The area is 10 m²",
+    "The radius is 10 m",
+    "The diameter is 10 m",
+    "The radius is 20 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Dividing a circumference by π undoes C = π × d, so the 10 is the diameter; halve it to get a radius of 5 m. Calling that 10 the radius is the most common slip.",
+   "tags": [
+    "other",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fqz4kb9",
+   "level": 1,
+   "question": "For a circle, 3.14 × r × r = 78.5, and Maya has already worked out that r × r = 25. Use π ≈ 3.14. What is the radius?",
+   "options": [
+    "25 cm, since r × r = 25",
+    "12.5 cm, since 25 ÷ 2",
+    "50 cm, since 25 × 2 = 50",
+    "5 cm, since 5 × 5 = 25"
+   ],
+   "answerIndex": 3,
+   "explain": "After dividing by π you are left with r × r, so the radius is the number that multiplies by itself to give 25, which is 5 cm. The classic trap is stopping at 25 and calling that the radius.",
+   "tags": [
+    "circle.r_squared_as_r",
+    "circle.area_2r",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fj6dvdl",
+   "level": 2,
+   "question": "A circular pizza pan at a Kelowna restaurant has an area of 314 cm². Ella wants the radius and uses π ≈ 3.14. Which plan gets her there?",
+   "options": [
+    "Undo × 3.14 first, then undo r × r",
+    "Undo × 2 first, then undo × 3.14",
+    "Undo × 3.14 first, and stop there",
+    "Undo × 3.14 first, then undo × 2"
+   ],
+   "answerIndex": 0,
+   "explain": "Area is π × r × r, so undo the × 3.14 to get r × r = 100, then undo r × r to get r = 10 cm. Stopping right after dividing by 3.14 leaves you holding r × r, not r.",
+   "tags": [
+    "ok",
+    "other",
+    "circle.r_squared_as_r",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7f70i7hz",
+   "level": 2,
+   "question": "A circular garden bed in a Victoria community garden has a circumference of 15.7 m. Using π ≈ 3.14, what is its radius?",
+   "options": [
+    "5 m",
+    "2.5 m",
+    "7.85 m",
+    "10 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide 15.7 by 3.14 to undo C = π × d, which gives a diameter of 5 m, then halve it for a radius of 2.5 m. The usual trap is calling that 5 the radius.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fb9udtd",
+   "level": 2,
+   "question": "A circular trampoline in a Surrey backyard covers 12.56 m² of grass. Using π ≈ 3.14, what is its diameter?",
+   "options": [
+    "2 m",
+    "8 m",
+    "4 m",
+    "6.28 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Undo the area first: 12.56 ÷ 3.14 = 4, so r × r = 4 and r = 2 m, which makes the diameter 4 m. Treating that 4 as the radius doubles the answer.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.r_squared_as_r",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fgormrz",
+   "level": 2,
+   "question": "A round clock face has a circumference of 62.8 cm. A round mirror has an area of 314 cm². Using π ≈ 3.14, which statement is true?",
+   "options": [
+    "The mirror's radius is bigger, at 100 cm",
+    "The clock's radius is bigger, at 20 cm",
+    "The mirror's radius is bigger, at 50 cm",
+    "Both radii are the same, at 10 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "62.8 ÷ 3.14 = 20 is the clock's diameter, so its radius is 10 cm, and 314 ÷ 3.14 = 100 means r × r = 100, so the mirror's radius is 10 cm too. Forgetting to halve the 20, or reading the 100 as a radius, makes them look different.",
+   "tags": [
+    "circle.r_squared_as_r",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fknbv34",
+   "level": 3,
+   "question": "A circular fountain in a Vancouver park has a 1 m wide path around it. The outer edge of the path has a circumference of 43.96 m. Using π ≈ 3.14, what is the radius of the fountain itself?",
+   "options": [
+    "6 m, taking 1 m off the radius",
+    "7 m, the radius of the outside",
+    "13 m, taking 1 m off the 14",
+    "14 m, the whole outside edge"
+   ],
+   "answerIndex": 0,
+   "explain": "Divide 43.96 by 3.14 for an outer diameter of 14 m, halve it for an outer radius of 7 m, then subtract the 1 m path to get 6 m. The trap is using that 14 as if it were a radius.",
+   "tags": [
+    "ok",
+    "other",
+    "circle.radius_diameter_confuse",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7fc2qazw",
+   "level": 3,
+   "question": "Pond liners are sold by diameter in centimetres. Noah measures the circumference of his round pond as 9.42 m. Using π ≈ 3.14, which liner should he buy?",
+   "options": [
+    "150 cm",
+    "300 cm",
+    "600 cm",
+    "3 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Undo C = π × d: 9.42 ÷ 3.14 = 3 m across, and 3 m is 300 cm. Halving to 150 cm gives the radius, and forgetting the metres-to-centimetres step is the other easy slip.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7f6e1uut",
+   "level": 3,
+   "question": "A circular lid has an area of 200.96 cm². Jaya writes 200.96 ÷ 3.14 = 64, so the radius is 64 cm. Using π ≈ 3.14, what should you tell her?",
+   "options": [
+    "She divided wrongly: it should be 200.96 ÷ 2",
+    "She stopped early: 64 is 2 × r, so r is 32 cm",
+    "She stopped early: 64 is r × r, so r is 8 cm",
+    "She stopped early: 64 is the diameter, r is 32"
+   ],
+   "answerIndex": 2,
+   "explain": "Dividing the area by π leaves r × r, not r, so from 64 you still need the number that times itself gives 64, which is 8 cm. Naming 64 as the radius is exactly the mistake to watch for.",
+   "tags": [
+    "other",
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtjn5h7ftoc5cp",
+   "level": 3,
+   "question": "A circular window in a Nanaimo school has an area of 12.56 m². A metal strip is fitted right across the window through the centre, with 0.5 m extra at each end to bolt into the wall. Using π ≈ 3.14, how long is the strip?",
+   "options": [
+    "3 m",
+    "9 m",
+    "4 m",
+    "5 m"
+   ],
+   "answerIndex": 3,
+   "explain": "Undo the area: 12.56 ÷ 3.14 = 4, so r × r = 4 and r = 2 m, making the window 4 m across, and the two 0.5 m ends bring it to 5 m. Using the 4 as the radius, or forgetting the bolted ends, are the two traps here.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.r_squared_as_r",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

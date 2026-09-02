@@ -241,6 +241,12 @@
     { "id": "prob.compare_to_half_missing", "zh": "只看数量多少，不和一半比（12张里4张说很可能）", "en": "Judges likelihood without comparing to half", "pattern": "有 4 张比 0 多就说很可能；5 支很多就说很可能", "remedy": "YY.MATH.PROB.LIKELIHOOD" },
     { "id": "prob.outcomes_count_items", "zh": "把份数或物件数当结果数（3红2蓝1黄说6种）", "en": "Counts parts or items instead of distinct outcomes", "pattern": "红、红、红、蓝、蓝、黄；5 张卡答 5 种", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
     { "id": "prob.outcomes_lumped", "zh": "把结果分组当结果（骰子说成「奇数、偶数」两种）", "en": "Lumps outcomes into categories", "pattern": "结果答「中奖、不中奖」「是我的颜色、不是」", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
-    { "id": "prob.past_results_change_outcomes", "zh": "以为出过的结果这次不会再出（出过4就剩5种）", "en": "Thinks past results change the possible outcomes", "pattern": "红连出两次就说第三次不能是红", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" }
+    { "id": "prob.past_results_change_outcomes", "zh": "以为出过的结果这次不会再出（出过4就剩5种）", "en": "Thinks past results change the possible outcomes", "pattern": "红连出两次就说第三次不能是红", "remedy": "YY.MATH.PROB.OUTCOMES.LIST" },
+    { "id": "solid.fev_swap", "zh": "面、棱、顶点的数目互相串（长方体说成 8 个面、6 条棱）", "en": "Swaps the counts of faces, edges and vertices", "pattern": "长方体答 8 个面 / 6 条棱 / 12 个顶点", "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES" },
+    { "id": "solid.count_visible_only", "zh": "只数图上看得见的面或顶点（长方体数成 3 个面）", "en": "Counts only the faces or vertices visible in the drawing", "pattern": "长方体 3 个面 / 7 个顶点", "remedy": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES" },
+    { "id": "unit.ml_l_factor", "zh": "把 1 L 当成 100 mL（或 10 mL）", "en": "Uses the wrong factor between millilitres and litres", "pattern": "2 L = 200 mL", "remedy": "YY.MATH.MEAS.CAPACITY.UNITS" },
+    { "id": "unit.convert_wrong_direction", "zh": "单位换算乘除方向反了（小单位换大单位却去乘）", "en": "Multiplies when converting to a bigger unit (or divides to a smaller one)", "pattern": "180 分钟 = 10 800 小时", "remedy": "YY.MATH.MEAS.TIME.UNITS" },
+    { "id": "graph.series_in_circle", "zh": "把随时间变化的数据画进圆形统计图", "en": "Puts a time series into a circle graph", "pattern": "一周每天气温选圆图", "remedy": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH" },
+    { "id": "circle.r_squared_as_r", "zh": "由面积求半径时把 r² 直接当成 r（忘了开方）", "en": "Treats r² as the radius when working back from the area", "pattern": "A = 78.5 → r = 25", "remedy": "YY.MATH.GEO.CIRCLE.INVERSE" }
   ]
 }

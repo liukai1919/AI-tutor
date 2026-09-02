@@ -61,7 +61,7 @@
     { "id": "YY.MATH.DEC.OPS.WORD", "topic": "decimal-operations", "type": "apply", "rep": ["context"],
       "en": "Solve multi-step decimal problems (shopping totals, unit rates, measurements)",
       "zh": "多步小数应用题（购物总价、单价、测量）",
-      "primary": "BC.MATH.G7.FLU.03", "prereq": ["YY.MATH.DEC.OPS.ORDER_OPS"], "misc": ["word.keyword_trap"], "hints": "barModel" },
+      "primary": "BC.MATH.G7.FLU.03", "prereq": ["YY.MATH.DEC.OPS.ORDER_OPS", "YY.MATH.DEC.MULTDIV.WORD"], "misc": ["word.keyword_trap"], "hints": "barModel" },
 
     { "id": "YY.MATH.REL.FRAC_TO_DEC", "topic": "fractions-decimals-percents", "type": "procedure", "rep": ["hundredthsGrid", "symbolic", "numberLine"],
       "en": "Convert a fraction to a decimal by dividing the numerator by the denominator",
@@ -173,7 +173,7 @@
     { "id": "YY.MATH.GEO.CIRCLE.INVERSE", "topic": "circles", "type": "reason", "rep": ["symbolic"],
       "en": "Find the radius or diameter from a given circumference or area",
       "zh": "已知周长或面积反求半径、直径",
-      "primary": "BC.MATH.G7.GEO.01", "prereq": ["YY.MATH.GEO.CIRCLE.AREA", "YY.MATH.ALG.EQ.TWOSTEP.SOLVE"], "core": false, "hints": "shapeCircle" },
+      "primary": "BC.MATH.G7.GEO.01", "prereq": ["YY.MATH.GEO.CIRCLE.AREA", "YY.MATH.ALG.EQ.TWOSTEP.SOLVE"], "core": false, "misc": ["circle.radius_diameter_confuse", "circle.area_2r", "circle.r_squared_as_r"], "hints": "shapeCircle" },
 
     { "id": "YY.MATH.MEAS.VOL.BASE_HEIGHT", "topic": "volume", "type": "concept", "rep": ["solidCuboid", "solidCylinder"],
       "en": "Understand volume as area of base × height for any right prism",
@@ -212,7 +212,7 @@
     { "id": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH", "topic": "circle-graphs", "type": "reason", "rep": ["pieChart", "statBar"],
       "en": "Decide when a circle graph is the right choice compared with bar and line graphs",
       "zh": "判断什么时候该用扇形图，什么时候用条形图、折线图",
-      "primary": "BC.MATH.G7.DAT.01", "prereq": ["YY.MATH.DATA.CIRCLE.CONSTRUCT"], "core": false, "hints": "pieChart、statBar" },
+      "primary": "BC.MATH.G7.DAT.01", "prereq": ["YY.MATH.DATA.CIRCLE.CONSTRUCT"], "core": false, "misc": ["graph.percent_as_count", "graph.series_in_circle"], "hints": "pieChart、statBar" },
 
     { "id": "YY.MATH.PROB.TWO_EVENTS.OUTCOMES", "topic": "two-events", "type": "represent", "rep": ["dataTable", "spinner"],
       "en": "List all outcomes of two independent events with a table or tree diagram",
