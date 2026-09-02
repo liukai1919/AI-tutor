@@ -159,10 +159,10 @@
    "level": 3,
    "question": "A Nanaimo class rolls a fair 6-sided die and flips a coin, looking for 'a number greater than 4 and heads', which has probability 1/6. In 60 trials they got it 14 times (expected 10). They then ran 600 trials and got it 108 times (expected 100). Which statement is best supported?",
    "options": [
-    "The 600-trial set matches expectation better: it is 8/600 above 100/600, while the 60-trial set is 4/60 = 40/600 above, so its experimental probability is much closer to 1/6.",
-    "The 60-trial set matches better, because its count is only 4 away from the expected value, while the 600-trial count is 8 away.",
-    "Neither set matches expectation, because a matching experiment would give exactly 10 and exactly 100.",
-    "The two sets match equally well, because both came out above the expected number."
+    "The 600-trial set matches better: it is only 8/600 above 1/6, while the 60-trial set is 4/60 = 40/600 above, so it is much closer.",
+    "The 60-trial set matches better: its count is only 4 away from the expected 10, while the 600-trial count is 8 away from 100.",
+    "Neither set matches expectation: a matching experiment would give exactly 10 in 60 trials and exactly 100 in 600, not 14 and 108.",
+    "The two sets match equally well: both came out above the expected number, and being above is what matters, not by how much."
    ],
    "answerIndex": 0,
    "explain": "Compare the experimental probabilities, not just the counts: 14/60 is 4/60 (that is 40/600) above 1/6, while 108/600 is only 8/600 above, so more trials brought the experiment closer even though the raw gap grew. Judging by counts alone, or expecting an exact match, both mislead here.",
@@ -178,10 +178,10 @@
    "level": 3,
    "question": "Priya and Owen flip a coin and spin a spinner with 4 equal colours (red, green, blue, yellow) 40 times, recording 'heads and green'. The expected number is 40 × 1/2 × 1/4 = 5, but they got 8. Owen says, 'We must have made a mistake — it has to be 5.' What is the best response?",
    "options": [
-    "Owen is right: with a fair coin and a fair spinner the result has to be 5, so they should redo the trials.",
-    "Owen is wrong: an expected value says what happens on average, so 8 instead of 5 in 40 trials is a normal difference, and running many more trials would usually pull the experimental probability closer to 1/8.",
-    "Owen is wrong, because expected values work for only one event at a time, so no number could be predicted here.",
-    "Owen is right that something is wrong, because experimental results can fall below the expected value but never above it."
+    "Owen is right: with a fair coin and a fair spinner the count has to be exactly 5, so getting 8 proves a mistake and they should redo the 40 trials.",
+    "Owen is wrong: an expected value is only an average, so 8 instead of 5 in 40 trials is normal, and more trials would usually bring it nearer 1/8.",
+    "Owen is wrong, because expected values only work for one event at a time; with a coin and a spinner together, no number could be predicted at all.",
+    "Owen is right that something is wrong, because experimental results can fall below the expected value but never above it, and 8 is above 5."
    ],
    "answerIndex": 1,
    "explain": "Expected results are averages over many trials, so a gap of 3 in 40 trials is ordinary, and experimental counts land above as often as below. Insisting the count must equal 5 exactly is the most common mistake in this topic.",
@@ -197,10 +197,10 @@
    "level": 3,
    "question": "At a Victoria community centre, a wheel has 5 equal sections and exactly one says 'free swim'. A separate fair coin decides 'towel' or 'no towel', independently of the wheel. In 200 turns, 'free swim and towel' happened 26 times and 'free swim and no towel' happened 17 times. Which statement is best supported by comparing with the expected results?",
    "options": [
-    "Each of those outcomes was expected 40 times, because 1/5 of 200 turns is 40.",
-    "Because neither outcome landed on exactly 20, the wheel and the coin cannot both be fair.",
-    "Each of those outcomes was expected 20 times, so 'free swim and towel' is 6 above expected and 'free swim and no towel' is 3 below — both are close, with the towel result differing more.",
-    "Each of those outcomes was expected 100 times, because the coin splits the 200 turns in half."
+    "Each outcome was expected 40 times, because 1/5 of 200 turns is 40: 'free swim and towel' is 14 below and 'free swim and no towel' is 23 below.",
+    "Each outcome was expected 20 times, and since 'free swim and towel' hit 26 and 'free swim and no towel' hit 17, not 20, the wheel and coin cannot both be fair.",
+    "Each outcome was expected 20 times: 'free swim and towel' is 6 above and 'free swim and no towel' is 3 below, so both are close, with towel further off.",
+    "Each outcome was expected 100 times, because the coin splits the 200 turns in half: 'free swim and towel' and 'free swim and no towel' are both far below."
    ],
    "answerIndex": 2,
    "explain": "Each outcome needs both events, so 1/5 × 1/2 × 200 = 20 expected, giving gaps of +6 and −3. Using only the wheel (40) or only the coin (100) skips one event, and small gaps in 200 turns are exactly what fair equipment produces.",

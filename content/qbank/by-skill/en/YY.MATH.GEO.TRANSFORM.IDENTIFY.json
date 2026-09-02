@@ -160,9 +160,9 @@
    "question": "Liam is making a border of maple leaves on grid paper. His leaf has corners at (2,1), (5,1) and (2,5). His image leaf has corners at (8,1), (11,1) and (8,5), and it still points the same way as the first one. Liam says, 'I flipped my leaf over the line x = 6.' Is he right?",
    "options": [
     "No — it is a translation 6 units right, because the image still faces the same way as the original.",
-    "No — it is a half turn about the point (6.5, 3).",
-    "Yes — it is a reflection over the line x = 6.",
-    "Yes — a reflection and a translation are the same move when the mirror line is vertical."
+    "No — it is a half turn about the point (6.5, 3), because the image sits on the far side of that point.",
+    "Yes — it is a reflection over the line x = 6, because the whole image now sits on the other side of that line.",
+    "Yes — a reflection and a translation are the same move when the mirror line is vertical, so both names fit."
    ],
    "answerIndex": 0,
    "explain": "Every corner moved exactly 6 squares right and the leaf still points the same way, so it is a translation. A flip over x = 6 would send (2,1) to (10,1) and turn the leaf around — if the image is not mirrored, it cannot be a reflection.",
@@ -178,10 +178,10 @@
    "level": 3,
    "question": "Sofia is asked to reflect a triangle over the y-axis. Her image is the correct distance from the y-axis, but the triangle in her image still points to the right, exactly like the original. What mistake did she make?",
    "options": [
-    "She turned the triangle a quarter turn instead of flipping it.",
+    "She turned the triangle a quarter turn instead of flipping it — a turn is what moves a shape across an axis.",
     "She slid the triangle instead of flipping it — in a reflection the image must face the opposite way.",
-    "She made no mistake — a reflection keeps the shape facing the same way.",
-    "She should have measured the distances from the x-axis instead."
+    "She made no mistake — a reflection keeps the shape facing the same way, only its distance from the axis matters.",
+    "She should have measured the distances from the x-axis instead — that is the axis a reflection always uses."
    ],
    "answerIndex": 1,
    "explain": "A reflection flips the shape, so a triangle pointing right must point left after the flip; Sofia only slid it across. Always check which way the shape faces, not just how far it moved.",
@@ -197,10 +197,10 @@
    "level": 3,
    "question": "On a grid map of a Vancouver park, a flag shape has corners at (1,1), (4,1) and (1,3). After one transformation the corners are at (1,-1), (4,-1) and (1,-3). Emma says it is a translation 2 units down. Noah says it is a reflection over the x-axis. Who is right?",
    "options": [
-    "Emma, because two of the corners moved exactly 2 units down.",
-    "Emma, because the shape stayed the same size.",
-    "Noah, because each corner is now the same distance below the x-axis as it was above it, and (1,3) landed at (1,-3), not (1,1).",
-    "Both are right, since the shape ends up in the same place either way."
+    "Emma, because two of the corners moved exactly 2 units down, and two matching corners are enough to prove a slide.",
+    "Emma, because the shape stayed the same size, and a shape that keeps its size can only have been slid, not flipped.",
+    "Noah, because each corner is now as far below the x-axis as it was above it, and (1,3) landed at (1,-3), not (1,1).",
+    "Both are right, since the shape ends up in the same place either way, so a slide and a flip are just two names for it."
    ],
    "answerIndex": 2,
    "explain": "Test every corner: a slide 2 down would send (1,3) to (1,1), but it landed at (1,-3), which is 3 below the axis just as it was 3 above — a reflection over the x-axis. Two matching corners are not enough proof; the corner farthest from the mirror line is the one that gives it away.",
@@ -216,9 +216,9 @@
    "level": 3,
    "question": "Grandma is sewing a quilt square. A right triangle has corners at (2,1), (6,1) and (2,3). The sewn image has corners at (6,3), (2,3) and (6,1). The long side that ran along the bottom now runs along the top, and the square corner moved from the bottom left to the top right. Which single transformation was used?",
    "options": [
-    "A translation 4 units right and 2 units up",
-    "A reflection over the horizontal line y = 2",
-    "A reflection over the vertical line x = 4",
+    "A translation of 4 units right and 2 units up",
+    "A reflection over the horizontal mirror line y = 2",
+    "A reflection over the vertical mirror line x = 4",
     "A half turn (180 degrees) about the point (4, 2)"
    ],
    "answerIndex": 3,

@@ -13,7 +13,13 @@
     "35 counters"
    ],
    "answerIndex": 0,
-   "explain": "Skip-count by 5s six times: 5, 10, 15, 20, 25, 30, so 6 × 5 = 30. A common trap is adding 6 + 5 = 11 instead of making 6 groups, or stopping the skip-count at 25 after only five jumps."
+   "explain": "Skip-count by 5s six times: 5, 10, 15, 20, 25, 30, so 6 × 5 = 30. A common trap is adding 6 + 5 = 11 instead of making 6 groups, or stopping the skip-count at 25 after only five jumps.",
+   "tags": [
+    "ok",
+    "mult.fact_error",
+    "mult.add_instead",
+    "mult.fact_error"
+   ]
   },
   {
    "qid": "qmt5a9yep1ivr1t",
@@ -26,7 +32,13 @@
     "14 stickers"
    ],
    "answerIndex": 1,
-   "explain": "Multiplying by 2 is the same as doubling: double 8 is 16, so 8 × 2 = 16. The usual trap is adding 8 + 2 = 10, or losing count and stopping at 14 after only seven jumps."
+   "explain": "Multiplying by 2 is the same as doubling: double 8 is 16, so 8 × 2 = 16. The usual trap is adding 8 + 2 = 10, or losing count and stopping at 14 after only seven jumps.",
+   "tags": [
+    "mult.fact_error",
+    "ok",
+    "mult.add_instead",
+    "mult.fact_error"
+   ]
   },
   {
    "qid": "qmt5a9yeph874qz",
@@ -39,7 +51,13 @@
     "60 pencils"
    ],
    "answerIndex": 2,
-   "explain": "Skip-count by 10s seven times: 10, 20, 30, 40, 50, 60, 70, so 7 × 10 = 70. Watch the ‘just add zeros’ trap — 7 × 10 gets one zero (70), not two (700)."
+   "explain": "Skip-count by 10s seven times: 10, 20, 30, 40, 50, 60, 70, so 7 × 10 = 70. Watch the ‘just add zeros’ trap — 7 × 10 gets one zero (70), not two (700).",
+   "tags": [
+    "mult.zero_annex_miscount",
+    "mult.add_instead",
+    "ok",
+    "mult.fact_error"
+   ]
   },
   {
    "qid": "qmt5a9yepbr23f9",
@@ -52,7 +70,13 @@
     "45 blocks"
    ],
    "answerIndex": 3,
-   "explain": "Skip-count by 5s nine times: 5, 10, 15, 20, 25, 30, 35, 40, 45, so 9 × 5 = 45. Many children stop at 40 (that is only eight jumps) or add 9 + 5 = 14 by mistake."
+   "explain": "Skip-count by 5s nine times: 5, 10, 15, 20, 25, 30, 35, 40, 45, so 9 × 5 = 45. Many children stop at 40 (that is only eight jumps) or add 9 + 5 = 14 by mistake.",
+   "tags": [
+    "mult.fact_error",
+    "mult.fact_error",
+    "mult.add_instead",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5a9yeprpsjvx",
@@ -65,7 +89,13 @@
     "28"
    ],
    "answerIndex": 0,
-   "explain": "Multiplying by 2 means doubling, so the missing number is half of 14, which is 7. A common mistake is doubling 14 to get 28 instead of halving it."
+   "explain": "Multiplying by 2 means doubling, so the missing number is half of 14, which is 7. A common mistake is doubling 14 to get 28 instead of halving it.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "mult.halve_double_direction"
+   ]
   },
   {
    "qid": "qmt5a9yepx36b2m",
@@ -78,7 +108,13 @@
     "$16"
    ],
    "answerIndex": 1,
-   "explain": "Nine tickets at $2 each means 9 × 2, and doubling 9 gives 18, so the cost is $18. The trap is adding 9 + 2 = 11 instead of making 9 groups of $2."
+   "explain": "Nine tickets at $2 each means 9 × 2, and doubling 9 gives 18, so the cost is $18. The trap is adding 9 + 2 = 11 instead of making 9 groups of $2.",
+   "tags": [
+    "mult.add_instead",
+    "ok",
+    "mult.fact_error",
+    "mult.fact_error"
+   ]
   },
   {
    "qid": "qmt5a9yephlmusl",
@@ -91,7 +127,13 @@
     "Add 5 + 6 to get 11."
    ],
    "answerIndex": 2,
-   "explain": "Five is half of ten, so a 5s fact is half of the matching 10s fact: 10 × 6 = 60, and half of 60 is 30. The trap is doubling instead of halving, which gives a number twice as big as it should be."
+   "explain": "Five is half of ten, so a 5s fact is half of the matching 10s fact: 10 × 6 = 60, and half of 60 is 30. The trap is doubling instead of halving, which gives a number twice as big as it should be.",
+   "tags": [
+    "mult.halve_double_direction",
+    "mult.add_instead",
+    "ok",
+    "mult.add_instead"
+   ]
   },
   {
    "qid": "qmt7hvb6w16buir",
@@ -104,7 +146,13 @@
     "60 water bottles"
    ],
    "answerIndex": 3,
-   "explain": "Skip-count by 10s six times: 10, 20, 30, 40, 50, 60, so 6 × 10 = 60 bottles. The traps: adding 6 + 10 gives 16, stopping at 50 is only five jumps, and 600 adds two zeros when × 10 adds just one."
+   "explain": "Skip-count by 10s six times: 10, 20, 30, 40, 50, 60, so 6 × 10 = 60 bottles. The traps: adding 6 + 10 gives 16, stopping at 50 is only five jumps, and 600 adds two zeros when × 10 adds just one.",
+   "tags": [
+    "mult.add_instead",
+    "mult.zero_annex_miscount",
+    "mult.fact_error",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5a9yep2v9xvv",
@@ -117,7 +165,13 @@
     "70"
    ],
    "answerIndex": 3,
-   "explain": "Because 5 is half of 10, halve the 10s answer: half of 140 is 70, so 14 × 5 = 70. The trap is forgetting the halving step and leaving 140, or doubling to 280 instead."
+   "explain": "Because 5 is half of 10, halve the 10s answer: half of 140 is 70, so 14 × 5 = 70. The trap is forgetting the halving step and leaving 140, or doubling to 280 instead.",
+   "tags": [
+    "other",
+    "mult.halve_double_direction",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5a9yep50gifu",
@@ -130,7 +184,13 @@
     "$10"
    ],
    "answerIndex": 0,
-   "explain": "First find the cost: 7 × 5 = 35, then subtract, 50 − 35 = $15. The trap is stopping after the multiplication and answering $35, which is the cost, not the change."
+   "explain": "First find the cost: 7 × 5 = 35, then subtract, 50 − 35 = $15. The trap is stopping after the multiplication and answering $35, which is the cost, not the change.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5a9yepq6bwji",
@@ -143,7 +203,13 @@
     "He stopped one count too late, so 2 × 9 = 16 is close but should be 14."
    ],
    "answerIndex": 1,
-   "explain": "Skip-counting by 2s nine times needs nine numbers, and Leo said only eight, so he was one jump short: 2 × 9 = 18, which you can also get by doubling 9. The trap is losing track of how many jumps you have made, so count the jumps, not just the numbers."
+   "explain": "Skip-counting by 2s nine times needs nine numbers, and Leo said only eight, so he was one jump short: 2 × 9 = 18, which you can also get by doubling 9. The trap is losing track of how many jumps you have made, so count the jumps, not just the numbers.",
+   "tags": [
+    "mult.add_instead",
+    "ok",
+    "mult.fact_error",
+    "mult.fact_error"
+   ]
   },
   {
    "qid": "qmt5a9yephjmuno",
@@ -156,7 +222,13 @@
     "$0.65"
    ],
    "answerIndex": 2,
-   "explain": "Do each group separately: 8 × 5 = 40 cents and 3 × 10 = 30 cents, and 40 + 30 = 70 cents, so $0.70. The trap is counting 11 coins and treating them all as the same value, which gives $1.10."
+   "explain": "Do each group separately: 8 × 5 = 40 cents and 3 × 10 = 30 cents, and 40 + 30 = 70 cents, so $0.70. The trap is counting 11 coins and treating them all as the same value, which gives $1.10.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
   }
  ]
 }

@@ -13,7 +13,13 @@
     "(10, 6)"
    ],
    "answerIndex": 0,
-   "explain": "Sliding right adds to the first number (the x-coordinate) and leaves the second number alone: 6 + 4 = 10, so (6, 2) lands on (10, 2). The common trap is changing both numbers or changing the up-and-down number instead."
+   "explain": "Sliding right adds to the first number (the x-coordinate) and leaves the second number alone: 6 + 4 = 10, so (6, 2) lands on (10, 2). The common trap is changing both numbers or changing the up-and-down number instead.",
+   "tags": [
+    "ok",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap",
+    "other"
+   ]
   },
   {
    "qid": "qmt5jfg2j2yaek5",
@@ -26,7 +32,13 @@
     "(3, 2)"
    ],
    "answerIndex": 1,
-   "explain": "Sliding down subtracts from the second number (the y-coordinate) and leaves the first alone: 6 - 3 = 3, giving (2, 3). Watch out for going up by mistake, and always write the across number first."
+   "explain": "Sliding down subtracts from the second number (the y-coordinate) and leaves the first alone: 6 - 3 = 3, giving (2, 3). Watch out for going up by mistake, and always write the across number first.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "ok",
+    "coord.xy_swap",
+    "coord.xy_swap"
+   ]
   },
   {
    "qid": "qmt5jfg2jrkm0ji",
@@ -39,7 +51,13 @@
     "A translation 7 units up"
    ],
    "answerIndex": 2,
-   "explain": "Compare the two positions: the across number stayed at 1 and the up number went from 2 to 7, so the move is 5 units up (7 - 2 = 5). A common trap is saying 7 units up by reading the new coordinate instead of the difference."
+   "explain": "Compare the two positions: the across number stayed at 1 and the up number went from 2 to 7, so the move is 5 units up (7 - 2 = 5). A common trap is saying 7 units up by reading the new coordinate instead of the difference.",
+   "tags": [
+    "coord.xy_swap",
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_count_endpoint"
+   ]
   },
   {
    "qid": "qmt5jfg2jy7jqf0",
@@ -52,7 +70,13 @@
     "A translation (slide)"
    ],
    "answerIndex": 3,
-   "explain": "When every point moves the same distance in the same direction, with no turning and no flipping, the move is a translation, or slide. A reflection would flip the shape over a line and a rotation would turn it."
+   "explain": "When every point moves the same distance in the same direction, with no turning and no flipping, the move is a translation, or slide. A reflection would flip the shape over a line and a rotation would turn it.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5jfg2j6n5mlm",
@@ -65,7 +89,13 @@
     "(6, 6)"
    ],
    "answerIndex": 0,
-   "explain": "Apply the same slide to that vertex: 3 left means 8 - 3 = 5, and 2 up means 3 + 2 = 5, giving (5, 5). The usual slip is swapping the amounts and moving 2 left and 3 up instead."
+   "explain": "Apply the same slide to that vertex: 3 left means 8 - 3 = 5, and 2 up means 3 + 2 = 5, giving (5, 5). The usual slip is swapping the amounts and moving 2 left and 3 up instead.",
+   "tags": [
+    "ok",
+    "transform.translate_sign_wrong",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap"
+   ]
   },
   {
    "qid": "qmt5jfg2jsz4dkp",
@@ -78,7 +108,13 @@
     "4 units left and 3 units up"
    ],
    "answerIndex": 1,
-   "explain": "Compare each number: 5 to 2 is 3 units left, and 2 to 6 is 4 units up. The trap is mixing the two amounts up, so always match the first numbers to the across move and the second numbers to the up-and-down move."
+   "explain": "Compare each number: 5 to 2 is 3 units left, and 2 to 6 is 4 units up. The trap is mixing the two amounts up, so always match the first numbers to the across move and the second numbers to the up-and-down move.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_sign_wrong",
+    "coord.xy_swap"
+   ]
   },
   {
    "qid": "qmt5jfg2j0d2soz",
@@ -91,7 +127,13 @@
     "(3, 8)"
    ],
    "answerIndex": 2,
-   "explain": "Left subtracts from the across number and down subtracts from the up number: 8 - 5 = 3 and 5 - 3 = 2, so the bench is at (3, 2). The common mistake is adding instead of subtracting when the slide goes left or down."
+   "explain": "Left subtracts from the across number and down subtracts from the up number: 8 - 5 = 3 and 5 - 3 = 2, so the bench is at (3, 2). The common mistake is adding instead of subtracting when the slide goes left or down.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "transform.translate_sign_wrong",
+    "ok",
+    "transform.translate_sign_wrong"
+   ]
   },
   {
    "qid": "qmt5jfg2jm2frbc",
@@ -104,20 +146,32 @@
     "(9, 7)"
    ],
    "answerIndex": 3,
-   "explain": "First find the rule from the corner you know: (1, 2) to (4, 4) is 3 units right and 2 units up. In a translation every point follows that same rule, so (6, 5) goes to (6 + 3, 5 + 2) = (9, 7). The trap is moving only across or only up."
+   "explain": "First find the rule from the corner you know: (1, 2) to (4, 4) is 3 units right and 2 units up. In a translation every point follows that same rule, so (6, 5) goes to (6 + 3, 5 + 2) = (9, 7). The trap is moving only across or only up.",
+   "tags": [
+    "other",
+    "transform.translate_sign_wrong",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5jfg2jracpt0",
    "level": 3,
    "question": "In art class, Kai slides a paper triangle 6 units to the right across grid paper without turning or flipping it. He says the triangle must now be bigger, because it travelled so far. Is Kai right?",
    "options": [
-    "No, a translation moves every point the same distance in the same direction, so the size and shape stay exactly the same.",
-    "Yes, the triangle stretches in the direction it slides.",
-    "Yes, the triangle is bigger because it moved 6 squares to the right.",
-    "No, but the triangle is turned, so its sides now face a different way."
+    "No, a translation moves every point the same distance in the same direction, so the size and shape stay the same.",
+    "Yes, the triangle stretches in the direction it slides, because the front corner moves ahead and pulls the rest along.",
+    "Yes, the triangle is bigger because it moved 6 squares to the right, and each square it crosses adds to its size.",
+    "No, but the triangle is turned, so its sides now face a different way, because sliding across the grid twists a shape."
    ],
    "answerIndex": 0,
-   "explain": "A translation slides every point by the same amount, so the image is identical to the original in size, shape and direction it faces; only its position changes. Distance travelled never changes a shape's measurements."
+   "explain": "A translation slides every point by the same amount, so the image is identical to the original in size, shape and direction it faces; only its position changes. Distance travelled never changes a shape's measurements.",
+   "tags": [
+    "ok",
+    "transform.translate_alters_shape",
+    "transform.translate_alters_shape",
+    "transform.translate_alters_shape"
+   ]
   },
   {
    "qid": "qmt5jfg2jrv497e",
@@ -130,7 +184,13 @@
     "4 units left, because the corner (5, 1) is 4 units away from the corner (1, 1)."
    ],
    "answerIndex": 1,
-   "explain": "To describe a slide, track one point to its matching point, not the gap between the shapes: (1, 1) goes to (5, 1), so every corner moved 4 units right. Counting the empty space in between is the most common error."
+   "explain": "To describe a slide, track one point to its matching point, not the gap between the shapes: (1, 1) goes to (5, 1), so every corner moved 4 units right. Counting the empty space in between is the most common error.",
+   "tags": [
+    "transform.translate_count_endpoint",
+    "ok",
+    "transform.translate_count_endpoint",
+    "transform.translate_sign_wrong"
+   ]
   },
   {
    "qid": "qmt5jfg2j61zyhp",
@@ -143,7 +203,13 @@
     "A translation 2 units right, ending at (5, 2)"
    ],
    "answerIndex": 2,
-   "explain": "The two slides are in opposite directions, so subtract: 6 - 2 = 4 units right, and 3 + 4 = 7, ending at (7, 2). The usual trap is adding the two slides to get 8 units instead of noticing that the second slide comes back the other way."
+   "explain": "The two slides are in opposite directions, so subtract: 6 - 2 = 4 units right, and 3 + 4 = 7, ending at (7, 2). The usual trap is adding the two slides to get 8 units instead of noticing that the second slide comes back the other way.",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5jfg2j7w6er9",
@@ -156,7 +222,13 @@
     "(13, 4)"
    ],
    "answerIndex": 3,
-   "explain": "To find the starting point you undo the slide: go 4 units right and 3 units down from (9, 7), giving (13, 4); checking forwards, 13 - 4 = 9 and 4 + 3 = 7. The common trap is doing the move forwards again and answering (5, 10)."
+   "explain": "To find the starting point you undo the slide: go 4 units right and 3 units down from (9, 7), giving (13, 4); checking forwards, 13 - 4 = 9 and 4 + 3 = 7. The common trap is doing the move forwards again and answering (5, 10).",
+   "tags": [
+    "transform.translate_sign_wrong",
+    "other",
+    "other",
+    "ok"
+   ]
   }
  ]
 }

@@ -13,7 +13,13 @@
     "about $1.10"
    ],
    "answerIndex": 0,
-   "explain": "On the tenth marks, $0.68 is nearest $0.70 and $0.29 is nearest $0.30, so the estimate is $0.70 + $0.30 = $1.00. The common trap is sliding a dot backwards instead of to the nearest mark (using $0.60 for $0.68), which makes the estimate too small."
+   "explain": "On the tenth marks, $0.68 is nearest $0.70 and $0.29 is nearest $0.30, so the estimate is $0.70 + $0.30 = $1.00. The common trap is sliding a dot backwards instead of to the nearest mark (using $0.60 for $0.68), which makes the estimate too small.",
+   "tags": [
+    "ok",
+    "est.truncate_decimal",
+    "est.truncate_decimal",
+    "round.wrong_place"
+   ]
   },
   {
    "qid": "qmt5bo0jf958rdy",
@@ -26,7 +32,13 @@
     "about 2.20 m"
    ],
    "answerIndex": 1,
-   "explain": "The nearest tenth marks are 1.40 m and 0.80 m, so the estimated difference is 1.40 - 0.80 = 0.60 m. Watch two traps: sliding 0.79 back to 0.70 instead of forward to 0.80, and adding the two lengths when the question asks how much longer one ribbon is."
+   "explain": "The nearest tenth marks are 1.40 m and 0.80 m, so the estimated difference is 1.40 - 0.80 = 0.60 m. Watch two traps: sliding 0.79 back to 0.70 instead of forward to 0.80, and adding the two lengths when the question asks how much longer one ribbon is.",
+   "tags": [
+    "other",
+    "ok",
+    "est.truncate_decimal",
+    "word.keyword_trap"
+   ]
   },
   {
    "qid": "qmt5bo0jfug5x7e",
@@ -39,7 +51,13 @@
     "About 1.00, and the exact sum is a little more than 1.00"
    ],
    "answerIndex": 2,
-   "explain": "Both dots slide to the 0.50 mark, so the estimate is 0.50 + 0.50 = 1.00; since 0.46 was pushed up 0.04 and 0.52 only pulled down 0.02, the estimate is a bit too big and the real sum (0.98) is just under 1. The trap is sliding 0.46 down to 0.40 because 46 'starts with 4', which gives 0.90."
+   "explain": "Both dots slide to the 0.50 mark, so the estimate is 0.50 + 0.50 = 1.00; since 0.46 was pushed up 0.04 and 0.52 only pulled down 0.02, the estimate is a bit too big and the real sum (0.98) is just under 1. The trap is sliding 0.46 down to 0.40 because 46 'starts with 4', which gives 0.90.",
+   "tags": [
+    "est.truncate_decimal",
+    "round.wrong_place",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5bo0jf5dgp53",
@@ -52,7 +70,13 @@
     "between 2 m and 3 m"
    ],
    "answerIndex": 3,
-   "explain": "Round to the whole-metre marks: 1.19 m is about 1 m and 0.88 m is almost 1 m, so the total is about 2 m, and because 0.88 was rounded up only a little the true total (2.07 m) sits just past the 2 m mark. The trap is treating 0.88 m as 'less than 1, so about 0', which lands you a whole metre short."
+   "explain": "Round to the whole-metre marks: 1.19 m is about 1 m and 0.88 m is almost 1 m, so the total is about 2 m, and because 0.88 was rounded up only a little the true total (2.07 m) sits just past the 2 m mark. The trap is treating 0.88 m as 'less than 1, so about 0', which lands you a whole metre short.",
+   "tags": [
+    "est.truncate_decimal",
+    "other",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5bo0jfoydcmw",
@@ -65,7 +89,13 @@
     "About 23, because 12.48 is about 13 and 9.67 is about 10"
    ],
    "answerIndex": 0,
-   "explain": "Round each number to the nearest whole: 12.48 is nearer 12 and 9.67 is nearer 10, so 12 + 10 = 22 (the exact sum is 22.15). The most common trap is chopping off the decimal part and calling 9.67 'about 9', which loses more than half a unit."
+   "explain": "Round each number to the nearest whole: 12.48 is nearer 12 and 9.67 is nearer 10, so 12 + 10 = 22 (the exact sum is 22.15). The most common trap is chopping off the decimal part and calling 9.67 'about 9', which loses more than half a unit.",
+   "tags": [
+    "ok",
+    "est.truncate_decimal",
+    "round.wrong_place",
+    "round.wrong_place"
+   ]
   },
   {
    "qid": "qmt5bo0jfmokfub",
@@ -78,7 +108,13 @@
     "about $9"
    ],
    "answerIndex": 1,
-   "explain": "Round to the nearest dollar: $4.79 is about $5 and $3.35 is about $3, so the total is about $5 + $3 = $8 (exactly $8.14). The trap is dropping the cents from $4.79 to get $4, which pushes the estimate a whole dollar too low."
+   "explain": "Round to the nearest dollar: $4.79 is about $5 and $3.35 is about $3, so the total is about $5 + $3 = $8 (exactly $8.14). The trap is dropping the cents from $4.79 to get $4, which pushes the estimate a whole dollar too low.",
+   "tags": [
+    "est.truncate_decimal",
+    "ok",
+    "word.keyword_trap",
+    "round.wrong_place"
+   ]
   },
   {
    "qid": "qmt5bo0jfp48h2n",
@@ -91,7 +127,13 @@
     "about 9"
    ],
    "answerIndex": 2,
-   "explain": "15.05 is about 15 and 7.92 is about 8, so the estimate is 15 - 8 = 7 (the exact difference is 7.13). The trap is rounding 7.92 down to 7 because of the 7 in front; look at the decimal part, 0.92, which is nearly a whole unit."
+   "explain": "15.05 is about 15 and 7.92 is about 8, so the estimate is 15 - 8 = 7 (the exact difference is 7.13). The trap is rounding 7.92 down to 7 because of the 7 in front; look at the decimal part, 0.92, which is nearly a whole unit.",
+   "tags": [
+    "est.truncate_decimal",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5bo0jflulh3i",
@@ -104,33 +146,51 @@
     "about 0.6 m"
    ],
    "answerIndex": 3,
-   "explain": "Round to the nearest tenth of a metre: 1.32 m is about 1.3 m and 0.68 m is about 0.7 m, so the growth is about 1.3 - 0.7 = 0.6 m (exactly 0.64 m). The trap is adding the two heights, which answers 'how tall are both together' instead of 'how much did it grow'."
+   "explain": "Round to the nearest tenth of a metre: 1.32 m is about 1.3 m and 0.68 m is about 0.7 m, so the growth is about 1.3 - 0.7 = 0.6 m (exactly 0.64 m). The trap is adding the two heights, which answers 'how tall are both together' instead of 'how much did it grow'.",
+   "tags": [
+    "word.keyword_trap",
+    "est.truncate_decimal",
+    "round.wrong_place",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5bo0jf9ec0mw",
    "level": 3,
    "question": "Priya pays for a $12.75 book with a $20.00 bill. She estimates her change as 'about $8' by saying 20 - 12 = 8. Her real change is $7.25. What is wrong with her estimate?",
    "options": [
-    "She rounded $12.75 down to $12; since 75 hundredths is more than half a dollar it should go up to $13, giving about $7.",
-    "She should have added $20.00 and $12.75 to find her change.",
-    "She rounded $20.00 up to $21.00 by mistake.",
-    "She rounded $12.75 up to $13 instead of down to $12, which made her estimate too big."
+    "She rounded $12.75 up to $13 instead of down to $12, which made her estimate too big next to the real $7.25.",
+    "She should have added $20.00 and $12.75, because change is what the two amounts make together, so about $33.",
+    "She rounded $20.00 up to $21.00 by mistake; whole-dollar amounts should be left alone, so her estimate drifted.",
+    "She rounded $12.75 down to $12; 75 cents is over half a dollar, so it should go up to $13, giving about $7."
    ],
-   "answerIndex": 0,
-   "explain": "When estimating, round to the nearest dollar: $12.75 is closer to $13 than to $12, so $20 - $13 = $7, which is very close to the real change of $7.25. The trap is simply dropping the cents, which always makes the amount you subtract too small and your estimated change too big."
+   "answerIndex": 3,
+   "explain": "When estimating, round to the nearest dollar: $12.75 is closer to $13 than to $12, so $20 - $13 = $7, which is very close to the real change of $7.25. The trap is simply dropping the cents, which always makes the amount you subtract too small and your estimated change too big.",
+   "tags": [
+    "round.wrong_place",
+    "word.keyword_trap",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5bo0jfg4fqrw",
    "level": 3,
    "question": "At his school fair, Amir wants a hot dog for $3.85, a juice for $1.60 and a sticker for $0.95. He has exactly $7.00. He rounds every price UP to the next whole dollar, gets $4 + $2 + $1 = $7, and wonders if he can afford all three. Is his estimate enough to decide?",
    "options": [
-    "No - an estimate of $7 means the real cost could be more than $7.",
-    "Yes - rounding every price up gives a total larger than the real cost, so if even that total is only $7, the real cost must be under $7.",
-    "Yes, but only because he rounded each price down to the nearest dollar.",
-    "You cannot tell without adding $3.85 + $1.60 + $0.95 exactly."
+    "No - an estimate of $7 is only close to the real cost, so the real cost could just as easily be more than $7.",
+    "Yes - rounding each price up gives a total above the real cost, so if that is $7, the real cost is under $7.",
+    "Yes, but only because he rounded each price down to the nearest dollar, and rounding down leaves money spare.",
+    "You cannot tell without adding $3.85 + $1.60 + $0.95 exactly, because an estimate can never settle yes or no."
    ],
    "answerIndex": 1,
-   "explain": "Rounding every price up gives an over-estimate, so the real total must be less than $7 (it is $6.40) and Amir can afford all three. The trap is thinking every estimate is 'fuzzy' both ways; when you know you rounded only upward, the estimate becomes a safe upper limit."
+   "explain": "Rounding every price up gives an over-estimate, so the real total must be less than $7 (it is $6.40) and Amir can afford all three. The trap is thinking every estimate is 'fuzzy' both ways; when you know you rounded only upward, the estimate becomes a safe upper limit.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "est.estimate_as_exact"
+   ]
   },
   {
    "qid": "qmt5bo0jfpvd03p",
@@ -143,20 +203,32 @@
     "about 3.5 m"
    ],
    "answerIndex": 2,
-   "explain": "First estimate the ribbon used, 0.8 + 0.7 = 1.5 m, then subtract from the roll: 2.0 - 1.5 = 0.5 m left (the exact answer is 0.47 m). The trap is stopping after the first step and giving 1.5 m, which is how much was cut off, not how much remains."
+   "explain": "First estimate the ribbon used, 0.8 + 0.7 = 1.5 m, then subtract from the roll: 2.0 - 1.5 = 0.5 m left (the exact answer is 0.47 m). The trap is stopping after the first step and giving 1.5 m, which is how much was cut off, not how much remains.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "word.keyword_trap"
+   ]
   },
   {
    "qid": "qmt5bo0jf110dg8",
    "level": 3,
    "question": "Sam estimates the cost of a $7.98 game and a $6.99 puzzle by ignoring the cents: 7 + 6 = 13, so 'about $13'. The real total is $14.97. Why is his way of estimating a poor choice here?",
    "options": [
-    "He forgot to line up the decimal points before he added.",
-    "Ignoring the cents always makes an estimate that is too high.",
-    "He should have rounded $7.98 up to $8.00 but left $6.99 exactly as it is.",
-    "Both prices sit only a few cents below the next dollar, so ignoring the cents throws away almost $2 in total and makes the estimate much too low."
+    "He forgot to line up the decimal points before adding, so the 98 and 99 cents never got joined onto the 7 and the 6.",
+    "Ignoring the cents always makes an estimate too high, because cents are dropped from the answer as well as the prices.",
+    "He should have rounded $7.98 up to $8.00 but left $6.99 exactly as it is, since only one price needs rounding.",
+    "Both prices sit just below the next dollar, so ignoring the cents loses almost $2 and makes the estimate much too low."
    ],
    "answerIndex": 3,
-   "explain": "Estimate by rounding to the nearest dollar, not by chopping cents off: $7.98 is about $8 and $6.99 is about $7, giving about $15, which is close to the real $14.97. The trap is dropping the cents from prices like $7.98, since each one loses nearly a full dollar and the errors pile up."
+   "explain": "Estimate by rounding to the nearest dollar, not by chopping cents off: $7.98 is about $8 and $6.99 is about $7, giving about $15, which is close to the real $14.97. The trap is dropping the cents from prices like $7.98, since each one loses nearly a full dollar and the errors pile up.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
   }
  ]
 }

@@ -159,10 +159,10 @@
    "level": 3,
    "question": "A computer program checks if a number n is prime by seeing if it is divisible by any integer from 2 to n-1. The program reports that 1 is 'not prime' because it has no divisors in that range. Is the program's logic sufficient to explain why 1 is not prime?",
    "options": [
-    "Yes, because 1 is the only number without factors.",
-    "No, because 1 is actually prime since it has no divisors.",
-    "No, because 1 is not prime because it has only one factor (1), not two.",
-    "Yes, because 1 is divisible by 2."
+    "Yes, because 1 is the only number without factors, so no divisors means not prime.",
+    "No, because 1 is actually prime since it has no divisors, and that is what prime means.",
+    "No, because 1 is not prime for a different reason: it has only one factor (1), not two.",
+    "Yes, because 1 is divisible by 2, and the program's range check catches exactly that."
    ],
    "answerIndex": 2,
    "explain": "The program checks for divisors, but the true reason 1 is not prime is that it lacks the second required factor (the number itself is the only factor). A prime needs exactly two distinct factors.",
@@ -197,10 +197,10 @@
    "level": 3,
    "question": "A student argues that 9 is prime because it is not divisible by 2. A peer replies, 'But it is divisible by 3.' Who is correct and why?",
    "options": [
-    "The student, because 2 is the only factor that matters for primes.",
+    "The student, because 2 is the only factor that matters when you are testing for primes.",
     "The peer, because a prime number cannot have any factors other than 1 and itself.",
-    "The student, because all odd numbers are prime.",
-    "The peer, because 9 is a multiple of 1."
+    "The student, because all odd numbers are prime, and 9 is odd, so 3 does not matter.",
+    "The peer, because 9 is a multiple of 1, and any multiple of 1 has an extra factor."
    ],
    "answerIndex": 1,
    "explain": "To be prime, a number must have no factors other than 1 and itself. Since 9 is divisible by 3, it is composite. Checking divisibility by 2 is not enough.",
@@ -216,10 +216,10 @@
    "level": 3,
    "question": "Why is it important to distinguish between 1 and 2 when listing prime numbers for cryptography?",
    "options": [
-    "Because 1 is a prime number and 2 is composite.",
-    "Because 1 is an even prime and 2 is an odd prime.",
-    "Because both 1 and 2 are composite numbers.",
-    "Because 2 is the only even prime, and 1 is neither prime nor composite."
+    "Because 1 is a prime number and 2 is composite, since every even number is composite.",
+    "Because 1 is an even prime and 2 is an odd prime, so they sit in different prime lists.",
+    "Because both 1 and 2 are composite numbers, so neither belongs on a list of primes.",
+    "Because 2 is the only even prime, while 1 is neither prime nor composite at all."
    ],
    "answerIndex": 3,
    "explain": "Cryptography relies on the properties of primes. 2 is a valid prime (even), but 1 is not prime because it lacks the required two factors. Confusing them breaks the logic.",

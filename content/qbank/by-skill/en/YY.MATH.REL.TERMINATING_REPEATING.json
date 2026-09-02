@@ -159,17 +159,17 @@
    "level": 3,
    "question": "Priya divides 2 ÷ 11 on her calculator and the screen shows 0.1818181818. She says the decimal terminates because the screen stops. Which statement is correct?",
    "options": [
-    "She is wrong; the screen only fits so many digits. 2/11 = 0.18 with a bar over the 18, and it never ends.",
-    "She is right; the decimal terminates once you reach 0.18.",
-    "She is right; 2/11 equals 0.1818181818 exactly.",
-    "She is wrong; 2/11 = 0.18 with a bar over the 8, which never ends."
+    "She is right; 2/11 equals 0.1818181818 exactly, because a calculator shows every digit the number has.",
+    "She is right; the decimal terminates once you reach 0.18, since the rest of the screen just copies those digits.",
+    "She is wrong; the screen just ran out of room — 2/11 = 0.18 with a bar over the 18, and it never ends.",
+    "She is wrong; the screen only fits so many digits — 2/11 = 0.18 with a bar over the 8, and it never ends."
    ],
-   "answerIndex": 0,
+   "answerIndex": 2,
    "explain": "A calculator screen has limited space, so a cut-off display is not proof that a decimal ends; 2 ÷ 11 repeats the block 18 forever, written 0.18 with a bar over 18. Putting the bar over the 8 alone would mean 0.188888..., a different number.",
    "tags": [
+    "rel.repeating_rounds_to_terminating",
+    "rel.repeating_rounds_to_terminating",
     "ok",
-    "rel.repeating_rounds_to_terminating",
-    "rel.repeating_rounds_to_terminating",
     "other"
    ]
   },
@@ -178,10 +178,10 @@
    "level": 3,
    "question": "In Jayden's class, 15 of the 24 students walk to school. Jayden says 15/24 must be a repeating decimal, because 24 = 2 × 2 × 2 × 3 and 3 is not a 2 or a 5. Who is right?",
    "options": [
-    "Jayden is right: any denominator with a factor of 3 gives a repeating decimal.",
+    "Jayden is right: 24 has a factor of 3, and a denominator with a factor of 3 always repeats.",
     "Jayden is wrong: 15/24 simplifies to 5/8, and 8 = 2 × 2 × 2, so it terminates at 0.625.",
-    "Jayden is wrong: the 2s-and-5s test only works when the numerator is 1.",
-    "Jayden is right, and the decimal is 0.625 with a bar over the 5."
+    "Jayden is wrong: the 2s-and-5s test only works when the numerator is 1, so it does not apply here.",
+    "Jayden is right, because 24 has a 3 in it, and the decimal is 0.625 with a bar over the 5."
    ],
    "answerIndex": 1,
    "explain": "Always simplify the fraction first, then look at the prime factors of the denominator: 15/24 = 5/8, and 8 has only 2s, so the decimal terminates at 0.625. The common trap is testing the unsimplified denominator 24 and seeing a factor of 3 that actually cancels out.",
@@ -197,10 +197,10 @@
    "level": 3,
    "question": "Marcus made 2 of his 3 free throws at the community centre. The score sheet lists his rate as 67%. Which statement about 2/3 is true?",
    "options": [
-    "2/3 = 0.66 exactly, so his rate is exactly 66%.",
-    "2/3 = 0.67 exactly, so his rate is exactly 67%.",
-    "2/3 = 0.6 with a bar over the 6, so the exact percent is 66.6 with a bar over the 6 percent, and 67% is a rounded value.",
-    "2/3 = 0.666, so his rate is exactly 66.6%."
+    "2/3 = 0.66 exactly, since the division stops after two places, so his rate is exactly 66% and the sheet rounded up.",
+    "2/3 = 0.67 exactly, since the score sheet prints the true value, so his rate is exactly 67% and nothing was rounded.",
+    "2/3 = 0.6 with a bar over the 6, so the exact rate is 66.6 with a bar over the 6 percent, and 67% is just rounded.",
+    "2/3 = 0.666, since three sixes is where the division ends, so his rate is exactly 66.6% and the sheet rounded up."
    ],
    "answerIndex": 2,
    "explain": "2 ÷ 3 = 0.6666... forever, so the exact percent also repeats: 66.6 with a bar over the 6 percent, and 67% on the sheet is just rounded. The trap is believing the rounded number printed on a score sheet is the true, terminating value.",
@@ -216,9 +216,9 @@
    "level": 3,
    "question": "Noah claims: ‘If the denominator ends in 5 or 0, the decimal always terminates.’ Which example proves his claim is wrong?",
    "options": [
-    "7/50 = 0.14",
-    "7/20 = 0.35",
-    "7/40 = 0.175",
+    "7/50 = 0.14, ending after 2 digits",
+    "7/20 = 0.35, a terminating decimal",
+    "7/40 = 0.175, ending at the 5",
     "7/15 = 0.46 with a bar over the 6"
    ],
    "answerIndex": 3,

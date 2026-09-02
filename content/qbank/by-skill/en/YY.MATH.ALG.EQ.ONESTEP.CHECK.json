@@ -159,10 +159,10 @@
    "level": 3,
    "question": "Leo solves x + 5 = 11 and writes x = 16. When he substitutes to check, he gets 16 + 5 = 21, which is not 11. What went wrong, and what is the solution?",
    "options": [
-    "He added 5 when he should have subtracted it; subtracting 5 from both sides gives x = 6, and 6 + 5 = 11.",
-    "His solving was fine; the check should be 16 − 5 = 11, so x = 16.",
-    "The check is unnecessary; 16 is right because 11 + 5 = 16.",
-    "He should have added 11 to both sides; x = 22, and 22 + 5 = 27."
+    "He added 5 instead of subtracting it; subtracting 5 from both sides gives x = 6, and 6 + 5 = 11.",
+    "His solving was fine; the check just has to undo the +5 too, so 16 − 5 = 11 and x = 16.",
+    "The check is unnecessary; 16 is right because moving 5 across means 11 + 5 = 16, so x = 16.",
+    "He should have added 11 to both sides, not 5; then x = 22, and the check becomes 22 + 5 = 27."
    ],
    "answerIndex": 0,
    "explain": "A check must rebuild the original equation, so the right solution is x = 6 because 6 + 5 = 11. The two mistakes that hide each other are adding the 5 instead of subtracting it, and then checking with a different operation so the false answer seems to work.",
@@ -178,10 +178,10 @@
    "level": 3,
    "question": "At a Surrey bake sale, muffins cost $2 each. Mia collected $18 in total and wrote 2m = 18, then said m = 16 because 18 − 2 = 16. Which reasoning finds the real number of muffins?",
    "options": [
-    "Subtract 2 from both sides: m = 16, and 16 + 2 = 18.",
-    "Divide both sides by 2: m = 9, and the check 2 × 9 = $18 matches what she collected.",
-    "Multiply both sides by 2: m = 36, and 36 ÷ 2 = 18.",
-    "Add 2 to both sides: m = 20, and 20 − 2 = 18."
+    "Subtract 2 from both sides: m = 16, and the check 16 + 2 = 18 matches her total.",
+    "Divide both sides by 2: m = 9, and the check 2 × 9 = $18 matches her total.",
+    "Multiply both sides by 2: m = 36, and the check 36 ÷ 2 = 18 matches her total.",
+    "Add 2 to both sides: m = 20, and the check 20 − 2 = 18 matches her total."
    ],
    "answerIndex": 1,
    "explain": "2m means 2 times m, so divide both sides by 2: m = 9 muffins, and 9 muffins at $2 each gives exactly $18. Mia subtracted, which undoes addition rather than multiplication — 16 muffins would have brought in $32, so the check catches it.",
@@ -216,10 +216,10 @@
    "level": 3,
    "question": "Ben says: to solve k + 9 = 15, I can add 9 to the left side and subtract 9 from the right side, because the two nines cancel each other out. Which response is correct?",
    "options": [
-    "He is right that adding 9 undoes the +9; k = 24 because 15 + 9 = 24.",
-    "He is wrong about the wording, but k = 6 either way, so his method is safe to use.",
-    "He is wrong about the number only; he should add 15 to both sides, giving k = 30.",
-    "He is wrong: doing different things to the two sides destroys the equality; subtract 9 from both sides, so k = 6 and 6 + 9 = 15."
+    "He is right that adding 9 undoes the +9, because the nines cancel; that gives k = 24, since 15 + 9 = 24.",
+    "He is wrong about the wording, but the nines do cancel and k = 6 either way, so his method is safe to use.",
+    "He is wrong about the number only; the 15 is what must move, so add 15 to both sides instead, giving k = 30.",
+    "He is wrong: different changes to the two sides break the equality; subtract 9 from both sides, so k = 6."
    ],
    "answerIndex": 3,
    "explain": "An equation stays balanced only when both sides receive the exact same change, so subtract 9 from both sides: k = 6, and the check 6 + 9 = 15 confirms it. Ben's method actually turns the equation into k + 18 = 6, which is a completely different equation.",

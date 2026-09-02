@@ -13,7 +13,13 @@
     "y = 4x + 4"
    ],
    "answerIndex": 0,
-   "explain": "A rule has to work for every point, not just the first one: 4 x 1 = 4, 4 x 2 = 8, 4 x 3 = 12, 4 x 4 = 16, so y = 4x. The common trap is checking only (1, 4), where adding 3 also seems to work but fails at (2, 8)."
+   "explain": "A rule has to work for every point, not just the first one: 4 x 1 = 4, 4 x 2 = 8, 4 x 3 = 12, 4 x 4 = 16, so y = 4x. The common trap is checking only (1, 4), where adding 3 also seems to work but fails at (2, 8).",
+   "tags": [
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.step_as_add_rule",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdwwnfcd",
@@ -26,7 +32,13 @@
     "y = 3x + 2"
    ],
    "answerIndex": 1,
-   "explain": "The y-values go up by 2 each time x goes up by 1, so the rule multiplies x by 2, and 2 x 1 = 2 needs 3 more to reach 5, giving y = 2x + 3. The trap is swapping the step and the starting extra and writing 3x + 2, which gives 8 instead of 7 at x = 2."
+   "explain": "The y-values go up by 2 each time x goes up by 1, so the rule multiplies x by 2, and 2 x 1 = 2 needs 3 more to reach 5, giving y = 2x + 3. The trap is swapping the step and the starting extra and writing 3x + 2, which gives 8 instead of 7 at x = 2.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap"
+   ]
   },
   {
    "qid": "qmt5ogekdpf1mn2",
@@ -39,7 +51,13 @@
     "Each time x increases by 1, y increases by 1, so y = x + 6"
    ],
    "answerIndex": 2,
-   "explain": "Read the change first: from 6 to 5 to 4 to 3 the y-value drops by 1 for each step of x, and it starts at 6, so y = 6 - x. A common trap is flipping the subtraction into y = x - 6, which would give a negative value at x = 1."
+   "explain": "Read the change first: from 6 to 5 to 4 to 3 the y-value drops by 1 for each step of x, and it starts at 6, so y = 6 - x. A common trap is flipping the subtraction into y = x - 6, which would give a negative value at x = 1.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdlbcvfb",
@@ -52,7 +70,13 @@
     "y is always 3 times x, so each time x goes up by 1, y goes up by 3"
    ],
    "answerIndex": 3,
-   "explain": "Compare each y with its own x: 3 = 3 x 1, 6 = 3 x 2, 9 = 3 x 3, so y is 3 times x. The trap is turning the step of 3 into y = x + 3, which gives 5 at x = 2 instead of 6."
+   "explain": "Compare each y with its own x: 3 = 3 x 1, 6 = 3 x 2, 9 = 3 x 3, so y is 3 times x. The trap is turning the step of 3 into y = x + 3, which gives 5 at x = 2 instead of 6.",
+   "tags": [
+    "linear.step_as_add_rule",
+    "other",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5ogekdnmf76u",
@@ -65,7 +89,13 @@
     "3n"
    ],
    "answerIndex": 0,
-   "explain": "The c-values rise by 3 each time n rises by 1, and 3 x 1 = 3 is 2 short of 5, so c = 3n + 2. Test more than one row: 2n + 3 also gives 5 at n = 1 but gives 7 instead of 8 at n = 2."
+   "explain": "The c-values rise by 3 each time n rises by 1, and 3 x 1 = 3 is 2 short of 5, so c = 3n + 2. Test more than one row: 2n + 3 also gives 5 at n = 1 but gives 7 instead of 8 at n = 2.",
+   "tags": [
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap",
+    "linear.intercept_forgotten"
+   ]
   },
   {
    "qid": "qmt5ogekdpe6t77",
@@ -78,7 +108,13 @@
     "Multiply 10 by 2 and add 3, giving $23, because the start is 2 and the step is 3"
    ],
    "answerIndex": 1,
-   "explain": "Read two things off the graph: the starting amount at x = 0 (which is $2) and the change per week (which is $3), giving y = 3x + 2, so 10 weeks gives $32. The most common trap is forgetting the $2 she already had and answering $30."
+   "explain": "Read two things off the graph: the starting amount at x = 0 (which is $2) and the change per week (which is $3), giving y = 3x + 2, so 10 weeks gives $32. The most common trap is forgetting the $2 she already had and answering $30.",
+   "tags": [
+    "linear.rule_from_one_point",
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap"
+   ]
   },
   {
    "qid": "qmt5ogekdt7i3l0",
@@ -91,7 +127,13 @@
     "The barrel loses 3 L in total over the whole time, so y = 40 - 3"
    ],
    "answerIndex": 2,
-   "explain": "The amount at x = 0 is the starting value of 40 L, and each minute the water drops by 3 L, so y = 40 - 3x. A common trap is reading the starting value from the point (1, 37) instead of from x = 0."
+   "explain": "The amount at x = 0 is the starting value of 40 L, and each minute the water drops by 3 L, so y = 40 - 3x. A common trap is reading the starting value from the point (1, 37) instead of from x = 0.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdrul9nv",
@@ -104,7 +146,13 @@
     "x: 1, 2, 3 and y: 3, 7, 11"
    ],
    "answerIndex": 3,
-   "explain": "Substitute each x into the rule: 4 x 1 - 1 = 3, 4 x 2 - 1 = 7, 4 x 3 - 1 = 11. The usual trap is multiplying by 4 and forgetting to subtract 1, which gives 4, 8, 12."
+   "explain": "Substitute each x into the rule: 4 x 1 - 1 = 3, 4 x 2 - 1 = 7, 4 x 3 - 1 = 11. The usual trap is multiplying by 4 and forgetting to subtract 1, which gives 4, 8, 12.",
+   "tags": [
+    "other",
+    "linear.intercept_forgotten",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5ogekd1mzgf6",
@@ -112,25 +160,37 @@
    "question": "A table shows x = 1, 2, 3, 4 with y = 5, 8, 11, 14. Priya says the rule is y = 5x because the first point on her graph is (1, 5). What is the best explanation of her mistake?",
    "options": [
     "A rule must work for every pair, and y = 5x gives 10 when x = 2 instead of 8; the correct rule is y = 3x + 2",
-    "She should have used the last pair instead of the first, so the rule is y = 14x",
-    "Her rule is fine for a table, but a graph would need the rule y = 3x",
-    "She mixed up x and y, so the correct rule is x = 5y"
+    "She should have used the last pair instead of the first, because it is the furthest along, so the rule is y = 14x",
+    "Her rule is fine for a table, but a graph needs the step of 3 instead, so on a graph the rule is y = 3x",
+    "She mixed up x and y, since the bigger number goes first, so the correct rule is x = 5y and her graph is flipped"
    ],
    "answerIndex": 0,
-   "explain": "One matching pair never proves a rule; test it on every row, and y = 5x fails at x = 2. Here y climbs by 3 each step and sits 2 above 3x, so y = 3x + 2 works for all four pairs."
+   "explain": "One matching pair never proves a rule; test it on every row, and y = 5x fails at x = 2. Here y climbs by 3 each step and sits 2 above 3x, so y = 3x + 2 works for all four pairs.",
+   "tags": [
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.intercept_forgotten",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdjg4jnf",
    "level": 3,
    "question": "Malia graphs the cost of skating. Her points are (1, 6), (2, 8) and (3, 10), where x is hours and y is dollars. The rink charges a fixed entry fee plus an hourly rate. Malia has exactly $18 to spend. Which reasoning finds the number of hours correctly?",
    "options": [
-    "Each hour costs $2, so 18 / 2 = 9 hours",
-    "The cost rises $2 per hour, so 1 hour of skating is $2 and the entry fee is $4; then 18 - 4 = 14 and 14 / 2 = 7 hours",
-    "One hour costs $6, so 18 / 6 = 3 hours",
-    "Add the $4 entry fee to the $18, then divide by 2, giving 11 hours"
+    "Each hour costs $2 and there is nothing else to pay, so 18 / 2 = 9 hours uses the money exactly",
+    "The cost rises $2 per hour, so the entry fee is 6 - 2 = $4; then 18 - 4 = 14 and 14 / 2 = 7 hours",
+    "One hour costs $6, as the first point (1, 6) shows, so 18 / 6 = 3 hours is what $18 will buy",
+    "Add the $4 entry fee to the $18, since the fee counts as money too, then 22 / 2 gives 11 hours"
    ],
    "answerIndex": 1,
-   "explain": "From the graph the cost goes up $2 per hour, so the $6 for one hour is $4 entry plus $2 skating; take the entry fee off first, then divide: (18 - 4) / 2 = 7 hours. The big trap is dividing the whole $18 by the hourly rate and forgetting the fixed fee."
+   "explain": "From the graph the cost goes up $2 per hour, so the $6 for one hour is $4 entry plus $2 skating; take the entry fee off first, then divide: (18 - 4) / 2 = 7 hours. The big trap is dividing the whole $18 by the hourly rate and forgetting the fixed fee.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "ok",
+    "linear.rule_from_one_point",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdhgg9to",
@@ -143,20 +203,32 @@
     "At 2 swims the plans cost the same, $16 each"
    ],
    "answerIndex": 2,
-   "explain": "Write both rules and compare: Plan A is 3n + 10 and Plan B is 5n, and they meet at n = 5 where both equal $25, after which Plan A grows more slowly. The trap is judging by the step size or the membership fee alone; a smaller step does not make a plan cheaper until enough swims have passed."
+   "explain": "Write both rules and compare: Plan A is 3n + 10 and Plan B is 5n, and they meet at n = 5 where both equal $25, after which Plan A grows more slowly. The trap is judging by the step size or the membership fee alone; a smaller step does not make a plan cheaper until enough swims have passed.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ogekdigkiif",
    "level": 3,
    "question": "On one coordinate grid, Line P passes through (0, 1), (1, 5) and (2, 9). Line Q passes through (0, 6), (1, 8) and (2, 10). Jaya says Line Q grows faster because its points are higher up on the grid. Which explanation is correct?",
    "options": [
-    "Jaya is right, because 6 is greater than 1, so Q must be growing faster",
-    "Jaya is wrong: Q rises 2 for each step while P rises 5, so P grows faster",
-    "Both lines grow at the same rate because both sets of points lie in a straight line",
+    "Jaya is right, because 6 is greater than 1, so Q starts ahead and must be growing faster too",
+    "Jaya is wrong: Q rises 2 for each step while P rises 5, the y-value at x = 1, so P grows faster",
+    "Both lines grow at the same rate, because both sets of points lie in a straight line on the grid",
     "Jaya is wrong: P rises 4 for each step while Q rises 2, so P grows faster and Q only starts higher"
    ],
    "answerIndex": 3,
-   "explain": "Growth is about the change from one point to the next, not how high the points sit: P goes 1, 5, 9 (up 4 each step) and Q goes 6, 8, 10 (up 2 each step). Careful with the step for P, it is 5 - 1 = 4, not the y-value 5 itself."
+   "explain": "Growth is about the change from one point to the next, not how high the points sit: P goes 1, 5, 9 (up 4 each step) and Q goes 6, 8, 10 (up 2 each step). Careful with the step for P, it is 5 - 1 = 4, not the y-value 5 itself.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
   }
  ]
 }

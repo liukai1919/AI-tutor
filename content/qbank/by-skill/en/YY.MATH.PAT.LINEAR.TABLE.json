@@ -13,7 +13,13 @@
     "All four costs are even numbers, so they follow a pattern."
    ],
    "answerIndex": 0,
-   "explain": "A relation is linear when the y-value changes by the same amount for every equal step in x: here 4, 8, 12, 16 goes up by $4 each time. The common trap is looking only at 4 to 8 and calling it 'doubling' — 8 to 12 is not doubling, so that rule breaks."
+   "explain": "A relation is linear when the y-value changes by the same amount for every equal step in x: here 4, 8, 12, 16 goes up by $4 each time. The common trap is looking only at 4 to 8 and calling it 'doubling' — 8 to 12 is not doubling, so that rule breaks.",
+   "tags": [
+    "ok",
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear",
+    "other"
+   ]
   },
   {
    "qid": "qmt5u2kvji8dsos",
@@ -26,7 +32,13 @@
     "y-values are 1, 4, 9, 16."
    ],
    "answerIndex": 1,
-   "explain": "Subtract each y-value from the next one: 5, 8, 11, 14 gives 3, 3, 3, so the change is constant and the relation is linear. The trap is thinking any neat pattern counts — 2, 4, 8, 16 grows by 2, 4, 8 and 1, 4, 9, 16 grows by 3, 5, 7, so their changes are not constant."
+   "explain": "Subtract each y-value from the next one: 5, 8, 11, 14 gives 3, 3, 3, so the change is constant and the relation is linear. The trap is thinking any neat pattern counts — 2, 4, 8, 16 grows by 2, 4, 8 and 1, 4, 9, 16 grows by 3, 5, 7, so their changes are not constant.",
+   "tags": [
+    "linear.nonconstant_as_linear",
+    "ok",
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear"
+   ]
   },
   {
    "qid": "qmt5u2kvjuun8f8",
@@ -39,7 +51,13 @@
     "$33"
    ],
    "answerIndex": 2,
-   "explain": "The constant change is the jump from one row to the next: 19 − 12 = 7, and 26 − 19 = 7, so it is $7 per week. A common trap is giving $21, the total change over all 3 weeks, or $12, which is the starting amount at week 0, not the change."
+   "explain": "The constant change is the jump from one row to the next: 19 − 12 = 7, and 26 − 19 = 7, so it is $7 per week. A common trap is giving $21, the total change over all 3 weeks, or $12, which is the starting amount at week 0, not the change.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5u2kvjvlyp50",
@@ -52,7 +70,13 @@
     "8 L, the amount of water already in the barrel at 0 hours."
    ],
    "answerIndex": 3,
-   "explain": "The y-intercept is the y-value when x is 0, so it is the 8 L already sitting in the barrel before the tap ran. The usual mix-up is naming 5 L — that is the constant change per hour, not the starting value."
+   "explain": "The y-intercept is the y-value when x is 0, so it is the 8 L already sitting in the barrel before the tap ran. The usual mix-up is naming 5 L — that is the constant change per hour, not the starting value.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "linear.intercept_misread",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5u2kvj8drn3p",
@@ -65,7 +89,13 @@
     "y = 54 and the y-intercept is 9"
    ],
    "answerIndex": 0,
-   "explain": "The constant change is 15 − 9 = 6, so the next value is 27 + 6 = 33, and the y-intercept is the y-value at x = 0, which is 9. A frequent slip is naming 6 as the y-intercept — 6 is how fast y changes, while 9 is where the table starts."
+   "explain": "The constant change is 15 − 9 = 6, so the next value is 27 + 6 = 33, and the y-intercept is the y-value at x = 0, which is 9. A frequent slip is naming 6 as the y-intercept — 6 is how fast y changes, while 9 is where the table starts.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5u2kvjx6555f",
@@ -78,7 +108,13 @@
     "No, because y goes up by 6 while x only goes up by 2."
    ],
    "answerIndex": 1,
-   "explain": "Linear means equal steps in x always produce equal changes in y — here each step of 2 in x gives +6 in y, every single time. The trap is thinking x must count 1, 2, 3; the step size can be anything as long as it stays the same."
+   "explain": "Linear means equal steps in x always produce equal changes in y — here each step of 2 in x gives +6 in y, every single time. The trap is thinking x must count 1, 2, 3; the step size can be anything as long as it stays the same.",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "other",
+    "linear.x_step_ignored"
+   ]
   },
   {
    "qid": "qmt5u2kvj6qabk1",
@@ -91,7 +127,13 @@
     "The total price goes up every time a ticket is added."
    ],
    "answerIndex": 2,
-   "explain": "Check the differences between rows: 5, 4, 5 are not all equal, so the change is not constant and the relation is not linear. A common trap is judging by whether the numbers look tidy — what matters is only whether the jump between rows stays the same."
+   "explain": "Check the differences between rows: 5, 4, 5 are not all equal, so the change is not constant and the relation is not linear. A common trap is judging by whether the numbers look tidy — what matters is only whether the jump between rows stays the same.",
+   "tags": [
+    "linear.intercept_misread",
+    "other",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5u2kvjd06xot",
@@ -104,46 +146,70 @@
     "When x goes up in equal steps, subtract each y-value from the next one and check that all the differences are the same."
    ],
    "answerIndex": 3,
-   "explain": "Linearity is about constant change, so you compare the differences between consecutive y-values while x steps up evenly. Mean, median, and mode describe a set of numbers, but they say nothing about whether the change from row to row is constant."
+   "explain": "Linearity is about constant change, so you compare the differences between consecutive y-values while x steps up evenly. Mean, median, and mode describe a set of numbers, but they say nothing about whether the change from row to row is constant.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5u2kvj61flwc",
    "level": 3,
    "question": "Mia records snow depth outside her Kamloops school. Her table lists days after the storm as 1, 2, 4, 5 and the depth in centimetres as 30, 26, 22, 18. Mia says the relation is linear because the depth drops 4 cm from each row to the next. Is she correct?",
    "options": [
-    "Mia is wrong, because the days jump 1, 2, 4, 5 — the depth falls 4 cm over 1 day from day 2 onward it falls 4 cm over 2 days, so the change per day is not constant.",
-    "Mia is right, because the depth is always going down.",
-    "Mia is wrong, because a linear relation can never go down.",
-    "Mia is right, because the depth changes by the same amount, 4 cm, in every row."
+    "Mia is wrong, because the days skip from 2 to 4 — that 4 cm drop takes 2 days, so the drop per day is not constant.",
+    "Mia is right, because the depth is always going down, and a steady direction is all that makes a relation linear.",
+    "Mia is wrong, because a linear relation can never go down; the depth would have to be rising to make a line.",
+    "Mia is right, because the depth changes by the same amount, 4 cm, in every row, and that is constant change."
    ],
    "answerIndex": 0,
-   "explain": "Constant change means the same change for the same step in x, so you must check the x-steps too: day 1 to 2 is one day for 4 cm, but day 2 to 4 is two days for 4 cm, which is only 2 cm per day. The classic trap is looking at the y-column alone and missing that the days skip 3."
+   "explain": "Constant change means the same change for the same step in x, so you must check the x-steps too: day 1 to 2 is one day for 4 cm, but day 2 to 4 is two days for 4 cm, which is only 2 cm per day. The classic trap is looking at the y-column alone and missing that the days skip 3.",
+   "tags": [
+    "ok",
+    "linear.nonconstant_as_linear",
+    "other",
+    "linear.x_step_ignored"
+   ]
   },
   {
    "qid": "qmt5u2kvji2jawd",
    "level": 3,
    "question": "A kayak rental at Deep Cove records a linear relation in a table. Hours rented: 2, 3, 4, 5. Total cost in dollars: 34, 46, 58, 70. What is the y-intercept of this relation, and what does it mean in this situation?",
    "options": [
-    "$12 — the cost of renting the kayak for one hour.",
+    "$12 — the cost of one hour, since the total goes up by $12 each hour.",
     "$10 — a fixed booking fee charged before any paddling time.",
-    "$22 — you take $34 and subtract $12 once.",
-    "$0 — renting for zero hours must cost nothing."
+    "$22 — you take $34 and subtract $12 once to go back one hour.",
+    "$0 — renting for zero hours must cost nothing, so it starts at 0."
    ],
    "answerIndex": 1,
-   "explain": "The constant change is $12 per hour, so work backwards from 2 hours: 34 − 12 − 12 = $10 at 0 hours, a fixed fee. The most common trap is assuming the y-intercept must be $0 whenever x is 0, but a table can start above zero because of a flat fee."
+   "explain": "The constant change is $12 per hour, so work backwards from 2 hours: 34 − 12 − 12 = $10 at 0 hours, a fixed fee. The most common trap is assuming the y-intercept must be $0 whenever x is 0, but a table can start above zero because of a flat fee.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "linear.intercept_misread"
+   ]
   },
   {
    "qid": "qmt5u2kvjv19k14",
    "level": 3,
    "question": "Jonah's table lists bags of garden soil 1, 2, 3, 4 and total mass in kilograms 6, 13, 18, 25. He works out the differences 7, 5, 7, finds their mean is about 6.3, and says the relation is linear with a change of about 6.3 kg per bag. Is Jonah right?",
    "options": [
-    "Yes — taking the mean of the differences is how you find the constant change.",
-    "Yes, because the differences 7, 5 and 7 are all close to each other.",
-    "No — a linear relation needs the differences to be exactly the same each time, and averaging them hides the fact that the change is not constant.",
-    "No — he should have used the median of 7, 5, 7, which is 7 kg per bag."
+    "Yes — taking the mean of the differences is how you find the constant change when the steps are a bit uneven.",
+    "Yes, because the differences 7, 5 and 7 are all close to each other, so the change is constant enough to count.",
+    "No — a linear relation needs the same difference every time, and averaging hides that the change is not constant.",
+    "No — he should have used the median of 7, 5, 7, which is 7 kg per bag, because the median ignores the odd 5."
    ],
    "answerIndex": 2,
-   "explain": "Constant change means identical differences, not differences that average out nicely; 7, 5, 7 are not equal, so this table is not linear. Mean and median summarise a list of numbers, but no average can turn a changing step into a constant one."
+   "explain": "Constant change means identical differences, not differences that average out nicely; 7, 5, 7 are not equal, so this table is not linear. Mean and median summarise a list of numbers, but no average can turn a changing step into a constant one.",
+   "tags": [
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5u2kvjji3afn",
@@ -156,7 +222,13 @@
     "$69, with a $9 one-time fee."
    ],
    "answerIndex": 3,
-   "explain": "Each extra 3 swims adds $12, so 15 swims cost 57 + 12 = $69, and working back from 3 swims gives 21 − 12 = $9 at 0 swims, the one-time fee. The big trap is assuming cost is just $4 per swim with nothing added — that gives $60 and ignores the fee sitting at the y-intercept."
+   "explain": "Each extra 3 swims adds $12, so 15 swims cost 57 + 12 = $69, and working back from 3 swims gives 21 − 12 = $9 at 0 swims, the one-time fee. The big trap is assuming cost is just $4 per swim with nothing added — that gives $60 and ignores the fee sitting at the y-intercept.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "linear.intercept_misread",
+    "ok"
+   ]
   }
  ]
 }

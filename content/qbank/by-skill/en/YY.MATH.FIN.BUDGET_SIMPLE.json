@@ -13,7 +13,13 @@
     "$20"
    ],
    "answerIndex": 0,
-   "explain": "Add every row in the Expense column: 6 + 5 + 4 = $15. A common trap is stopping after two rows ($11) or adding the income row into the expense total ($35) — income and expenses are added in separate columns."
+   "explain": "Add every row in the Expense column: 6 + 5 + 4 = $15. A common trap is stopping after two rows ($11) or adding the income row into the expense total ($35) — income and expenses are added in separate columns.",
+   "tags": [
+    "ok",
+    "fin.income_expense_mixed",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktaplxnnnz3",
@@ -26,7 +32,13 @@
     "$6"
    ],
    "answerIndex": 1,
-   "explain": "Total income means adding only the rows in the Income column: 12 + 18 = $30. A common trap is using just one income row, or subtracting the two columns instead of totalling the income side first."
+   "explain": "Total income means adding only the rows in the Income column: 12 + 18 = $30. A common trap is using just one income row, or subtracting the two columns instead of totalling the income side first.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktaplo50l0w",
@@ -39,7 +51,13 @@
     "His plan is missing an income row"
    ],
    "answerIndex": 2,
-   "explain": "A budget balances when the income total equals the expense total, so 25 = 25 means every dollar is planned for. The trap is thinking the matching $25 is money left over — it is not leftover, it has already been assigned to supplies, snack, and saving."
+   "explain": "A budget balances when the income total equals the expense total, so 25 = 25 means every dollar is planned for. The trap is thinking the matching $25 is money left over — it is not leftover, it has already been assigned to supplies, snack, and saving.",
+   "tags": [
+    "other",
+    "fin.balance_misjudged",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktapld86oh3",
@@ -52,7 +70,13 @@
     "$19"
    ],
    "answerIndex": 3,
-   "explain": "Add the known expenses (12 + 9 = 21), then subtract from income: 40 - 21 = $19. A common trap is writing $21, which is the expenses already listed, or adding instead of subtracting ($61)."
+   "explain": "Add the known expenses (12 + 9 = 21), then subtract from income: 40 - 21 = $19. A common trap is writing $21, which is the expenses already listed, or adding instead of subtracting ($61).",
+   "tags": [
+    "word.stop_early",
+    "fin.income_expense_mixed",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5ktaplfbfg5q",
@@ -65,7 +89,13 @@
     "No, he is $12 over his income"
    ],
    "answerIndex": 0,
-   "explain": "Total the income first (10 + 8 = $18), then compare with the $22 of expenses: 22 - 18 = $4 too much, so he is over. The trap is comparing $22 with only one income source ($10) and getting $12."
+   "explain": "Total the income first (10 + 8 = $18), then compare with the $22 of expenses: 22 - 18 = $4 too much, so he is over. The trap is comparing $22 with only one income source ($10) and getting $12.",
+   "tags": [
+    "ok",
+    "fin.balance_misjudged",
+    "fin.balance_misjudged",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktaply3hl7e",
@@ -78,7 +108,13 @@
     "$25"
    ],
    "answerIndex": 1,
-   "explain": "Add the expenses (14 + 22 + 9 = $45) and subtract from income: 60 - 45 = $15 for saving. The trap is answering $45 (that is the spending, not the saving) or adding income and expenses together ($105)."
+   "explain": "Add the expenses (14 + 22 + 9 = $45) and subtract from income: 60 - 45 = $15 for saving. The trap is answering $45 (that is the spending, not the saving) or adding income and expenses together ($105).",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "fin.income_expense_mixed",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktaploc3b8y",
@@ -91,7 +127,13 @@
     "Move $6 from saving into snacks"
    ],
    "answerIndex": 2,
-   "explain": "Since 41 - 35 = $6, the expense side is $6 too big, so removing $6 of spending makes the two sides equal. The trap is changing the wrong side — adding to expenses or lowering income pushes the budget further out of balance."
+   "explain": "Since 41 - 35 = $6, the expense side is $6 too big, so removing $6 of spending makes the two sides equal. The trap is changing the wrong side — adding to expenses or lowering income pushes the budget further out of balance.",
+   "tags": [
+    "fin.balance_misjudged",
+    "fin.balance_misjudged",
+    "ok",
+    "fin.balance_misjudged"
+   ]
   },
   {
    "qid": "qmt5ktaplc2s0c3",
@@ -104,7 +146,13 @@
     "$6"
    ],
    "answerIndex": 3,
-   "explain": "First find total income: 9 x 4 = $36, then 36 - 30 = $6 for saving. The trap is forgetting the 4 weeks and comparing $9 with $30, or adding income and expenses instead of subtracting."
+   "explain": "First find total income: 9 x 4 = $36, then 36 - 30 = $6 for saving. The trap is forgetting the 4 weeks and comparing $9 with $30, or adding income and expenses instead of subtracting.",
+   "tags": [
+    "fin.period_mismatch",
+    "other",
+    "fin.income_expense_mixed",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5ktapl0t4wsc",
@@ -112,25 +160,37 @@
    "question": "Ravi writes a financial plan for the month: income $45, expenses $38. He labels it ‘balanced’. Which statement explains what is really going on?",
    "options": [
     "It is not balanced yet — $7 of income has no job, so he should add a $7 saving row",
-    "It is balanced, because $45 and $38 are both under $50",
-    "It is balanced, because his income is bigger than his expenses",
-    "It is not balanced, because he is $7 short and must earn more"
+    "It is balanced, because $45 and $38 are both under $50, so both totals fit the plan",
+    "It is balanced, because his income is bigger than his expenses, so he is not overspending",
+    "It is not balanced, because he is $7 short, so he must earn more before the plan works"
    ],
    "answerIndex": 0,
-   "explain": "A balanced budget has income total equal to expense total, so the extra 45 - 38 = $7 must be given a job, such as a saving row. The trap is thinking that income being larger automatically means balanced — leftover dollars still need to be planned for."
+   "explain": "A balanced budget has income total equal to expense total, so the extra 45 - 38 = $7 must be given a job, such as a saving row. The trap is thinking that income being larger automatically means balanced — leftover dollars still need to be planned for.",
+   "tags": [
+    "ok",
+    "other",
+    "fin.balance_misjudged",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktaplhs5pko",
    "level": 3,
    "question": "Jia's monthly income is $48 and her planned expenses add up to $42. Her savings goal is to put $10 into her jar this month. What does her budget tell her?",
    "options": [
-    "She can reach the goal, because $48 is more than $10",
+    "She can reach the goal, because $48 of income is a lot more than the $10 she wants to save",
     "She cannot reach the goal yet — only $6 is free, so she needs to cut $4 more from expenses",
-    "She cannot reach the goal, and she must cut $10 from her expenses",
-    "She can reach the goal, because 48 - 42 = $10"
+    "She cannot reach the goal, and she must cut the full $10 from her expenses to make room for it",
+    "She can reach the goal, because 48 - 42 = $10, which is exactly the amount she wants for her jar"
    ],
    "answerIndex": 1,
-   "explain": "Free money is income minus expenses: 48 - 42 = $6, which is $4 short of the $10 goal, so $4 of spending has to go. The trap is comparing the goal with total income instead of with the money left after expenses."
+   "explain": "Free money is income minus expenses: 48 - 42 = $6, which is $4 short of the $10 goal, so $4 of spending has to go. The trap is comparing the goal with total income instead of with the money left after expenses.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5ktapls0lugf",
@@ -143,7 +203,13 @@
     "Nothing — it still balances because his income is $60"
    ],
    "answerIndex": 2,
-   "explain": "Income stays at 25 + 35 = $60, and the new supplies cost $33, so 33 + 16 + 11 = $60 only if saving drops by the same $5 the supplies went up. The trap is thinking the budget still balances because income did not change — when one expense grows, another must shrink by the same amount."
+   "explain": "Income stays at 25 + 35 = $60, and the new supplies cost $33, so 33 + 16 + 11 = $60 only if saving drops by the same $5 the supplies went up. The trap is thinking the budget still balances because income did not change — when one expense grows, another must shrink by the same amount.",
+   "tags": [
+    "fin.balance_misjudged",
+    "fin.balance_misjudged",
+    "ok",
+    "fin.balance_misjudged"
+   ]
   },
   {
    "qid": "qmt7hvb6w0zvtsa",
@@ -156,7 +222,13 @@
     "Cut the saving row to $0 and take $5 off the movie trip"
    ],
    "answerIndex": 3,
-   "explain": "Her income is now only $25, so the expense rows must also total $25: cutting saving to $0 and the movie to $7 gives 18 + 7 + 0 = $25, removing the full $20 that was lost. The trap is thinking a budget stays balanced when only the income side changes — and crossing out just the $15 saving row still leaves $30 of spending against $25 of income."
+   "explain": "Her income is now only $25, so the expense rows must also total $25: cutting saving to $0 and the movie to $7 gives 18 + 7 + 0 = $25, removing the full $20 that was lost. The trap is thinking a budget stays balanced when only the income side changes — and crossing out just the $15 saving row still leaves $30 of spending against $25 of income.",
+   "tags": [
+    "fin.balance_misjudged",
+    "other",
+    "fin.balance_misjudged",
+    "ok"
+   ]
   }
  ]
 }

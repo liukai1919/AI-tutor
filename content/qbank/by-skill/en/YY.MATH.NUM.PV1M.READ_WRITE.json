@@ -13,7 +13,13 @@
     "307 250"
    ],
    "answerIndex": 0,
-   "explain": "Each place must keep its own digit, so the empty ten thousands and tens places are held open by zeros: 307 205. The common trap is leaving the zeros out and writing 3 725, which slides every digit into the wrong place."
+   "explain": "Each place must keep its own digit, so the empty ten thousands and tens places are held open by zeros: 307 205. The common trap is leaving the zeros out and writing 3 725, which slides every digit into the wrong place.",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.digit_place_shift"
+   ]
   },
   {
    "qid": "qmt5es7ir5yr5f8",
@@ -26,7 +32,13 @@
     "eight hundred fifty thousand nine hundred"
    ],
    "answerIndex": 1,
-   "explain": "The number is 850 090, so you say the part before the thousands (850) as ‘eight hundred fifty thousand’ and then the last three digits, ninety. A common trap is reading the 9 as nine hundred; the 9 sits in the tens place, so it is worth 90."
+   "explain": "The number is 850 090, so you say the part before the thousands (850) as ‘eight hundred fifty thousand’ and then the last three digits, ninety. A common trap is reading the 9 as nine hundred; the 9 sits in the tens place, so it is worth 90.",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.digit_place_shift",
+    "pv.digit_place_shift"
+   ]
   },
   {
    "qid": "qmt5es7ir808omd",
@@ -39,7 +51,13 @@
     "400 000 + 20 000 + 6 000 + 100 + 30 + 1"
    ],
    "answerIndex": 2,
-   "explain": "Expanded form writes the value of each digit, so 4 hundred thousands is 400 000, 2 ten thousands is 20 000, 6 thousands is 6 000, and the tens and ones give 30 + 1. Because there are 0 hundreds, that place contributes nothing and is simply skipped — do not invent a 100 or shrink 6 000 down to 600."
+   "explain": "Expanded form writes the value of each digit, so 4 hundred thousands is 400 000, 2 ten thousands is 20 000, 6 thousands is 6 000, and the tens and ones give 30 + 1. Because there are 0 hundreds, that place contributes nothing and is simply skipped — do not invent a 100 or shrink 6 000 down to 600.",
+   "tags": [
+    "pv.digit_place_shift",
+    "pv.digit_place_shift",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5es7irxsdjdz",
@@ -52,7 +70,13 @@
     "900 004"
    ],
    "answerIndex": 3,
-   "explain": "A 6-digit number needs all six places filled, so the four empty places between the 9 and the 4 each get a zero: 900 004. The usual mistake is writing 904, which squeezes the 9 down into the hundreds place instead of the hundred thousands."
+   "explain": "A 6-digit number needs all six places filled, so the four empty places between the 9 and the 4 each get a zero: 900 004. The usual mistake is writing 904, which squeezes the 9 down into the hundreds place instead of the hundred thousands.",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5es7irxea2u3",
@@ -65,7 +89,13 @@
     "2 005 060"
    ],
    "answerIndex": 0,
-   "explain": "Say it in two chunks: ‘two hundred five thousand’ is 205 in the thousands, and ‘sixty’ fills the last three places as 060, giving 205 060. The common trap is putting the 6 in the hundreds place (205 600) — sixty means 6 tens."
+   "explain": "Say it in two chunks: ‘two hundred five thousand’ is 205 in the thousands, and ‘sixty’ fills the last three places as 060, giving 205 060. The common trap is putting the 6 in the hundreds place (205 600) — sixty means 6 tens.",
+   "tags": [
+    "ok",
+    "pv.digit_place_shift",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder"
+   ]
   },
   {
    "qid": "qmt5es7irx7z06a",
@@ -78,7 +108,13 @@
     "73 040"
    ],
    "answerIndex": 1,
-   "explain": "Line the parts up by place: 7 hundred thousands, no ten thousands, 3 thousands, no hundreds, 4 tens, no ones, so the number is 703 040. The trap is pushing the 3 into the ten thousands place (730 040) because a place with nothing in it was forgotten."
+   "explain": "Line the parts up by place: 7 hundred thousands, no ten thousands, 3 thousands, no hundreds, 4 tens, no ones, so the number is 703 040. The trap is pushing the 3 into the ten thousands place (730 040) because a place with nothing in it was forgotten.",
+   "tags": [
+    "pv.digit_place_shift",
+    "ok",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder"
+   ]
   },
   {
    "qid": "qmt5es7irr4ub88",
@@ -91,7 +127,13 @@
     "16 407"
    ],
    "answerIndex": 2,
-   "explain": "Everything before ‘thousand’ makes the first part, 160, and ‘four hundred seven’ fills the last three places as 407, so the number is 160 407. Watch the missing tens: four hundred seven needs a 0 in the tens place, not a shifted 47."
+   "explain": "Everything before ‘thousand’ makes the first part, 160, and ‘four hundred seven’ fills the last three places as 407, so the number is 160 407. Watch the missing tens: four hundred seven needs a 0 in the tens place, not a shifted 47.",
+   "tags": [
+    "pv.digit_place_shift",
+    "pv.digit_place_shift",
+    "ok",
+    "pv.zero_placeholder"
+   ]
   },
   {
    "qid": "qmt5es7ir5pwol1",
@@ -104,20 +146,32 @@
     "500 000 + 80 000 + 300 + 6"
    ],
    "answerIndex": 3,
-   "explain": "Read each digit with its place: 5 hundred thousands, 8 ten thousands, 0 thousands, 3 hundreds, 0 tens, 6 ones, so it is 500 000 + 80 000 + 300 + 6. The trap is turning the 3 into 3 000; the empty thousands place is the zero right before it, and the 3 is only worth 300."
+   "explain": "Read each digit with its place: 5 hundred thousands, 8 ten thousands, 0 thousands, 3 hundreds, 0 tens, 6 ones, so it is 500 000 + 80 000 + 300 + 6. The trap is turning the 3 into 3 000; the empty thousands place is the zero right before it, and the 3 is only worth 300.",
+   "tags": [
+    "pv.digit_place_shift",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5es7iriyrzbk",
    "level": 3,
    "question": "Jae writes the expanded form of 604 020 as 600 000 + 4 000 + 200. What went wrong?",
    "options": [
-    "The 2 sits in the tens place, so that part should be 20, not 200 — the correct form is 600 000 + 4 000 + 20.",
-    "Nothing went wrong; 600 000 + 4 000 + 200 does equal 604 020.",
-    "The 4 sits in the ten thousands place, so that part should be 40 000 instead of 4 000.",
-    "Jae must also write the empty places, as 600 000 + 0 + 4 000 + 0 + 200 + 0."
+    "Nothing went wrong; 600 000 + 4 000 + 200 does equal 604 020, because the 2 comes right after the 4.",
+    "The 2 sits in the tens place, so that part is 20, not 200 — the correct form is 600 000 + 4 000 + 20.",
+    "The 4 sits in the ten thousands place, so that part should be 40 000 instead of 4 000; the rest is fine.",
+    "Jae must also write the empty places, as 600 000 + 0 + 4 000 + 0 + 200 + 0, so every digit has a part."
    ],
-   "answerIndex": 0,
-   "explain": "Count the places from the right in 604 020: the 2 is the tens digit, so it is worth 20, and the number is 600 000 + 4 000 + 20. The usual mistake is counting the digits instead of naming their places, which bumps a 20 up to 200; places with a 0 contribute nothing and are left out of expanded form."
+   "answerIndex": 1,
+   "explain": "Count the places from the right in 604 020: the 2 is the tens digit, so it is worth 20, and the number is 600 000 + 4 000 + 20. The usual mistake is counting the digits instead of naming their places, which bumps a 20 up to 200; places with a 0 contribute nothing and are left out of expanded form.",
+   "tags": [
+    "pv.digit_place_shift",
+    "ok",
+    "pv.digit_place_shift",
+    "other"
+   ]
   },
   {
    "qid": "qmt5es7irikjd1x",
@@ -130,33 +184,51 @@
     "sixty-three thousand eighty"
    ],
    "answerIndex": 1,
-   "explain": "Build the number first from the values given — 600 000 + 3 000 + 80 = 603 080 — then read it as ‘six hundred three thousand eighty’. The trap is hearing 3 000 and saying ‘thirty thousand’; a 3 worth 3 000 sits in the thousands place, so the zero stays in the ten thousands place."
+   "explain": "Build the number first from the values given — 600 000 + 3 000 + 80 = 603 080 — then read it as ‘six hundred three thousand eighty’. The trap is hearing 3 000 and saying ‘thirty thousand’; a 3 worth 3 000 sits in the thousands place, so the zero stays in the ten thousands place.",
+   "tags": [
+    "pv.digit_place_shift",
+    "ok",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder"
+   ]
   },
   {
    "qid": "qmt5es7irfa541l",
    "level": 3,
    "question": "A sign on a Vancouver bike trail shows last year’s rider count in expanded form: 400 000 + 90 000 + 800 + 5. A student reads it aloud as ‘four hundred nine thousand eight hundred five’. What should the student have said?",
    "options": [
-    "forty-nine thousand eight hundred five",
-    "four hundred ninety thousand eighty-five",
-    "four hundred ninety thousand eight hundred five",
-    "four hundred nine thousand eighty-five"
+    "forty-nine thousand eight hundred five, since 400 000 + 90 000 is forty-nine thousand",
+    "four hundred ninety thousand eighty-five, since 800 + 5 is read as eighty-five",
+    "four hundred ninety thousand eight hundred five, since 90 000 is ninety thousand",
+    "four hundred nine thousand eighty-five, as 90 000 is nine thousand and 805 is eighty-five"
    ],
    "answerIndex": 2,
-   "explain": "Add the parts to get 490 805, then read the first three digits as ‘four hundred ninety thousand’ and the last three as ‘eight hundred five’. The trap is turning 90 000 into ‘nine thousand’ — 90 000 is 9 ten thousands, so it is said as ninety thousand."
+   "explain": "Add the parts to get 490 805, then read the first three digits as ‘four hundred ninety thousand’ and the last three as ‘eight hundred five’. The trap is turning 90 000 into ‘nine thousand’ — 90 000 is 9 ten thousands, so it is said as ninety thousand.",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_place_shift",
+    "ok",
+    "pv.digit_place_shift"
+   ]
   },
   {
    "qid": "qmt7hvb6x1ofqm2",
    "level": 3,
    "question": "A sign at Science World says three hundred forty thousand sixty-two people visited last year. Amara writes the number in standard form as 34 062. What went wrong?",
    "options": [
-    "Nothing went wrong; 34 062 does say three hundred forty thousand sixty-two.",
-    "The sixty-two should fill the hundreds and tens places, so the number is 340 620.",
-    "She should write each chunk in full, as 300 040 062.",
+    "Nothing went wrong; 34 062 does say three hundred forty thousand sixty-two, since 3, 4 and 062 all appear.",
+    "The sixty-two should fill the hundreds and tens places, so the number is 340 620, with a 0 in the ones.",
+    "She should write each chunk in full, as 300 040 062, so that every word in the name gets its own number.",
     "'Three hundred forty' names the thousands chunk, 340, so the standard form needs six digits: 340 062."
    ],
    "answerIndex": 3,
-   "explain": "The words before 'thousand' make the first chunk, 340, and 'sixty-two' fills the last three places as 062, giving 340 062. Amara wrote the first chunk as 34, which shrinks the number to thirty-four thousand sixty-two; 340 620 pushes the 62 one place too far left, and 300 040 062 glues the word chunks together instead of stacking them by place value."
+   "explain": "The words before 'thousand' make the first chunk, 340, and 'sixty-two' fills the last three places as 062, giving 340 062. Amara wrote the first chunk as 34, which shrinks the number to thirty-four thousand sixty-two; 340 620 pushes the 62 one place too far left, and 300 040 062 glues the word chunks together instead of stacking them by place value.",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_place_shift",
+    "pv.zero_placeholder",
+    "ok"
+   ]
   }
  ]
 }

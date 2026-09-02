@@ -13,7 +13,13 @@
     "Start at 3 and subtract 4 each time."
    ],
    "answerIndex": 0,
-   "explain": "A pattern rule needs two parts: the first number (3) and what happens each time. Since 3 to 7 is a jump of 4, the rule is 'start at 3, add 4 each time' — a common trap is copying the first number 3 into the add part."
+   "explain": "A pattern rule needs two parts: the first number (3) and what happens each time. Since 3 to 7 is a jump of 4, the rule is 'start at 3, add 4 each time' — a common trap is copying the first number 3 into the add part.",
+   "tags": [
+    "ok",
+    "pat.rule_parts_confuse",
+    "pat.rule_parts_confuse",
+    "pat.direction_wrong"
+   ]
   },
   {
    "qid": "qmt5cbljg7022w7",
@@ -26,7 +32,13 @@
     "Start at 40 and subtract 10 each time."
    ],
    "answerIndex": 1,
-   "explain": "The numbers get smaller, so it is a decreasing pattern and the rule must subtract. From 40 to 35 the jump is 5, so the rule is 'start at 40, subtract 5 each time'; check every step, because 40 to 30 is two jumps, not one."
+   "explain": "The numbers get smaller, so it is a decreasing pattern and the rule must subtract. From 40 to 35 the jump is 5, so the rule is 'start at 40, subtract 5 each time'; check every step, because 40 to 30 is two jumps, not one.",
+   "tags": [
+    "pat.direction_wrong",
+    "ok",
+    "pat.rule_parts_confuse",
+    "pat.step_from_nonadjacent"
+   ]
   },
   {
    "qid": "qmt5cbljg186sb0",
@@ -39,7 +51,13 @@
     "6, 14, 22, 30"
    ],
    "answerIndex": 2,
-   "explain": "Begin at the starting number 6, then add 9 over and over: 6, 15, 24, 33. A common trap is starting at 9 or adding 6 — the first number and the amount you add each time do different jobs in the rule."
+   "explain": "Begin at the starting number 6, then add 9 over and over: 6, 15, 24, 33. A common trap is starting at 9 or adding 6 — the first number and the amount you add each time do different jobs in the rule.",
+   "tags": [
+    "other",
+    "pat.rule_parts_confuse",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5cbljg7llncc",
@@ -52,7 +70,13 @@
     "8"
    ],
    "answerIndex": 3,
-   "explain": "To find the amount added each time, subtract one number from the number just after it: 10 − 2 = 8, and 18 − 10 = 8 too. Do not use the starting number 2 or the second number 10 as the jump — the jump is the difference between them."
+   "explain": "To find the amount added each time, subtract one number from the number just after it: 10 − 2 = 8, and 18 − 10 = 8 too. Do not use the starting number 2 or the second number 10 as the jump — the jump is the difference between them.",
+   "tags": [
+    "pat.rule_parts_confuse",
+    "other",
+    "pat.rule_parts_confuse",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5cbljgdbub9v",
@@ -65,7 +89,13 @@
     "Start at 6 and add 14 each row."
    ],
    "answerIndex": 0,
-   "explain": "Find the jump between rows: 20 − 14 = 6, and it stays 6 every row, so the rule is 'start at 14, add 6 each row'. The starting number is the very first row (14), not the second row."
+   "explain": "Find the jump between rows: 20 − 14 = 6, and it stays 6 every row, so the rule is 'start at 14, add 6 each row'. The starting number is the very first row (14), not the second row.",
+   "tags": [
+    "ok",
+    "other",
+    "pat.rule_parts_confuse",
+    "pat.rule_parts_confuse"
+   ]
   },
   {
    "qid": "qmt5cbljgadziai",
@@ -78,7 +108,13 @@
     "$12, $17, $22, $27"
    ],
    "answerIndex": 1,
-   "explain": "The rule is 'start at $7, add $5 each week', so the list must begin at $7 and grow by $5: $7, $12, $17, $22. A common trap is adding the starting amount $7 each week instead of the weekly $5."
+   "explain": "The rule is 'start at $7, add $5 each week', so the list must begin at $7 and grow by $5: $7, $12, $17, $22. A common trap is adding the starting amount $7 each week instead of the weekly $5.",
+   "tags": [
+    "pat.rule_parts_confuse",
+    "ok",
+    "pat.rule_parts_confuse",
+    "pat.term_count_off_by_one"
+   ]
   },
   {
    "qid": "qmt5cbljglkogt0",
@@ -91,7 +127,13 @@
     "Start at 60 and add 7 each day."
    ],
    "answerIndex": 2,
-   "explain": "The ribbon gets shorter, so this is a decreasing pattern: 60 − 53 = 7, giving 'start at 60, subtract 7 each day'. The starting number is the full roll before any cutting (60 m), not the amount after the first day."
+   "explain": "The ribbon gets shorter, so this is a decreasing pattern: 60 − 53 = 7, giving 'start at 60, subtract 7 each day'. The starting number is the full roll before any cutting (60 m), not the amount after the first day.",
+   "tags": [
+    "other",
+    "pat.rule_parts_confuse",
+    "ok",
+    "pat.direction_wrong"
+   ]
   },
   {
    "qid": "qmt5cbljglgq76a",
@@ -104,33 +146,51 @@
     "Start at 4 km and add 4 km each day."
    ],
    "answerIndex": 3,
-   "explain": "From Day 1 to Day 3 is two jumps, and the total change is 12 − 4 = 8 km, so each jump is 8 ÷ 2 = 4 km: 4, 8, 12. The trap is using the whole gap of 8 km as the daily amount when it actually covers two days."
+   "explain": "From Day 1 to Day 3 is two jumps, and the total change is 12 − 4 = 8 km, so each jump is 8 ÷ 2 = 4 km: 4, 8, 12. The trap is using the whole gap of 8 km as the daily amount when it actually covers two days.",
+   "tags": [
+    "other",
+    "pat.step_from_nonadjacent",
+    "pat.rule_parts_confuse",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5cbljg5uqc9i",
    "level": 3,
    "question": "Tyler writes the pattern 9, 16, 23, 30 and says the rule is 'add 7 each time.' His teacher says the rule is not finished yet. What is missing?",
    "options": [
-    "He also needs to say where the pattern starts: 'start at 9, add 7 each time.'",
-    "He should say 'add 9 each time' because the pattern starts at 9.",
-    "He needs to say how many numbers are in the pattern.",
-    "He should say 'subtract 7 each time' because 30 is the last number."
+    "He also needs to say where the pattern starts, so the rule is 'start at 9, add 7 each time.'",
+    "He should say 'add 9 each time' because the pattern starts at 9, so 9 is the number to add.",
+    "He needs to say how many numbers are in the pattern, because a rule must know when to stop.",
+    "He should say 'subtract 7 each time' because 30 is the last number, so the pattern ends there."
    ],
    "answerIndex": 0,
-   "explain": "A complete pattern rule always has both parts — where to start and what to do each time — because 'add 7 each time' could also describe 2, 9, 16, 23. Tyler's jump of 7 is correct; only the starting number is missing."
+   "explain": "A complete pattern rule always has both parts — where to start and what to do each time — because 'add 7 each time' could also describe 2, 9, 16, 23. Tyler's jump of 7 is correct; only the starting number is missing.",
+   "tags": [
+    "ok",
+    "pat.rule_parts_confuse",
+    "other",
+    "pat.direction_wrong"
+   ]
   },
   {
    "qid": "qmt5cbljgj0jq2c",
    "level": 3,
    "question": "Priya looks at the pattern 3, 8, 13, 18 and writes the rule 'start at 3 and add 3 each time,' because the pattern begins with 3. What is wrong with her rule?",
    "options": [
-    "The starting number should be 8, not 3.",
+    "The starting number should be 8, not 3, because 3 is the amount you add and 8 is where the adding begins.",
     "The amount added should be 5, not 3, because you find it by subtracting one number from the next: 8 − 3 = 5.",
-    "The pattern is decreasing, so the rule should subtract.",
-    "Nothing is wrong; her rule matches the pattern.'"
+    "The pattern is decreasing, so the rule should subtract, because the numbers get bigger as you read backwards.",
+    "Nothing is wrong; her rule matches the pattern, because it starts at 3 and 3 is the first number you see."
    ],
    "answerIndex": 1,
-   "explain": "The starting number and the jump are found in different ways: the start is the first number, but the jump is the difference between two numbers in a row (8 − 3 = 5). Priya's rule would make 3, 6, 9, 12, which does not match her pattern."
+   "explain": "The starting number and the jump are found in different ways: the start is the first number, but the jump is the difference between two numbers in a row (8 − 3 = 5). Priya's rule would make 3, 6, 9, 12, which does not match her pattern.",
+   "tags": [
+    "pat.rule_parts_confuse",
+    "ok",
+    "pat.direction_wrong",
+    "pat.rule_parts_confuse"
+   ]
   },
   {
    "qid": "qmt5cbljgtlai9j",
@@ -143,7 +203,13 @@
     "Start at 75 and subtract 9 each time; 21 chairs are left."
    ],
    "answerIndex": 2,
-   "explain": "The rule is 'start at 84, subtract 9 each time', and 84 is the count before any class arrives, so 75 is after 1 class: 75, 66, 57, 48, 39, 30 after 6 classes. The usual trap is stopping one class early at 39 by counting 84 as the first class."
+   "explain": "The rule is 'start at 84, subtract 9 each time', and 84 is the count before any class arrives, so 75 is after 1 class: 75, 66, 57, 48, 39, 30 after 6 classes. The usual trap is stopping one class early at 39 by counting 84 as the first class.",
+   "tags": [
+    "other",
+    "pat.term_count_off_by_one",
+    "ok",
+    "pat.rule_parts_confuse"
+   ]
   },
   {
    "qid": "qmt5cbljgra4cpk",
@@ -156,7 +222,13 @@
     "Start at 8 and add 6 each day; Tuesday had 14 bottles."
    ],
    "answerIndex": 3,
-   "explain": "Wednesday to Thursday is one jump, 26 − 20 = 6, so the rule is 'start at 8, add 6 each day' and Tuesday is 8 + 6 = 14. The trap is using the two-day gap from Monday to Wednesday (20 − 8 = 12) as the daily amount."
+   "explain": "Wednesday to Thursday is one jump, 26 − 20 = 6, so the rule is 'start at 8, add 6 each day' and Tuesday is 8 + 6 = 14. The trap is using the two-day gap from Monday to Wednesday (20 − 8 = 12) as the daily amount.",
+   "tags": [
+    "pat.step_from_nonadjacent",
+    "other",
+    "other",
+    "ok"
+   ]
   }
  ]
 }

@@ -3,7 +3,7 @@
 `qbank/` 是根目录 `qbank.json`（gitignore，不进 git）的**干净导出**：剥掉了 `usedAt`（本机做题记录）、
 排除了 AoPS 键。布局按 Apple 版规划：
 
-- `qbank/by-skill/<lang>/<技能id>.json` — 技能题库（带误区 tags；tags 与选项位置对齐，正确项 "ok"，**不能下发客户端**）
+- `qbank/by-skill/<lang>/<技能id>.json` — 技能题库（每题带误区 tags，2026-09-01 起 234 份全覆盖；tags 与选项位置对齐，正确项 "ok"，**不能下发客户端**）
 - `qbank/legacy-by-standard/<lang>/<条目id>.json` — 老的大纲条目题库（已全量审稿：剔错 42 题并补齐）
 - `manifest.json` — 数量、引擎、注意事项
 

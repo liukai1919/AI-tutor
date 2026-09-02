@@ -13,7 +13,13 @@
     "$8.00"
    ],
    "answerIndex": 0,
-   "explain": "A 10% tip is one of the ten equal parts of the bill, so it is $40 divided by 10, which is $4.00. A common trap is sliding the decimal too far and getting $0.40, or writing $10 because the percent is 10."
+   "explain": "A 10% tip is one of the ten equal parts of the bill, so it is $40 divided by 10, which is $4.00. A common trap is sliding the decimal too far and getting $0.40, or writing $10 because the percent is 10.",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.percent_as_number",
+    "other"
+   ]
   },
   {
    "qid": "qmt5wo127wbe5ff",
@@ -26,7 +32,13 @@
     "$3.00"
    ],
    "answerIndex": 1,
-   "explain": "Each part is 10% of the bill ($6), so 20% is two parts: $6 + $6 = $12.00. The usual trap is stopping after one part ($6, which is only 10%)."
+   "explain": "Each part is 10% of the bill ($6), so 20% is two parts: $6 + $6 = $12.00. The usual trap is stopping after one part ($6, which is only 10%).",
+   "tags": [
+    "pct.benchmark_combine_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "other"
+   ]
   },
   {
    "qid": "qmt5wo1272ldbka",
@@ -39,7 +51,13 @@
     "$4.00"
    ],
    "answerIndex": 2,
-   "explain": "One part is 10% ($8) and half a part is 5% ($4), so 15% is $8 + $4 = $12.00. Many students give $8 (only the 10%) or $16 (that is 20%, two whole parts)."
+   "explain": "One part is 10% ($8) and half a part is 5% ($4), so 15% is $8 + $4 = $12.00. Many students give $8 (only the 10%) or $16 (that is 20%, two whole parts).",
+   "tags": [
+    "pct.benchmark_combine_wrong",
+    "pct.benchmark_combine_wrong",
+    "ok",
+    "other"
+   ]
   },
   {
    "qid": "qmt5wo127lsexhi",
@@ -52,7 +70,13 @@
     "$3.75"
    ],
    "answerIndex": 3,
-   "explain": "10% is one part ($2.50) and 5% is half a part ($1.25), so the tip is $2.50 + $1.25 = $3.75. The trap is forgetting the half-part and answering $2.50, or doubling to $5.00 which would be a 20% tip."
+   "explain": "10% is one part ($2.50) and 5% is half a part ($1.25), so the tip is $2.50 + $1.25 = $3.75. The trap is forgetting the half-part and answering $2.50, or doubling to $5.00 which would be a 20% tip.",
+   "tags": [
+    "pct.benchmark_combine_wrong",
+    "other",
+    "pct.benchmark_combine_wrong",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5wo1275wv72v",
@@ -65,7 +89,13 @@
     "$7.20"
    ],
    "answerIndex": 0,
-   "explain": "Find 10% by moving the decimal one place left ($3.60), find 5% by halving that ($1.80), then add: $3.60 + $1.80 = $5.40. A frequent error is doubling instead of halving, which gives $7.20 (that is 20%)."
+   "explain": "Find 10% by moving the decimal one place left ($3.60), find 5% by halving that ($1.80), then add: $3.60 + $1.80 = $5.40. A frequent error is doubling instead of halving, which gives $7.20 (that is 20%).",
+   "tags": [
+    "ok",
+    "other",
+    "pct.benchmark_combine_wrong",
+    "pct.benchmark_combine_wrong"
+   ]
   },
   {
    "qid": "qmt5wo127cp7lwh",
@@ -78,7 +108,13 @@
     "$54.00"
    ],
    "answerIndex": 1,
-   "explain": "10% of $45 is $4.50, and 20% is double that: $4.50 + $4.50 = $9.00. Watch out for $54.00, which is the bill plus the tip, not the tip itself."
+   "explain": "10% of $45 is $4.50, and 20% is double that: $4.50 + $4.50 = $9.00. Watch out for $54.00, which is the bill plus the tip, not the tip itself.",
+   "tags": [
+    "pct.benchmark_combine_wrong",
+    "ok",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5wo127sk8hjp",
@@ -91,7 +127,13 @@
     "Move the decimal point one place left to get $2.40, and that is the 15% tip."
    ],
    "answerIndex": 2,
-   "explain": "15% = 10% + 5%, and 5% is always half of 10%, so $2.40 + $1.20 = $3.60. Doubling the 10% gives 20%, not 15%, and moving the decimal alone only gives you the 10% part."
+   "explain": "15% = 10% + 5%, and 5% is always half of 10%, so $2.40 + $1.20 = $3.60. Doubling the 10% gives 20%, not 15%, and moving the decimal alone only gives you the 10% part.",
+   "tags": [
+    "pct.percent_as_number",
+    "pct.benchmark_combine_wrong",
+    "ok",
+    "pct.benchmark_combine_wrong"
+   ]
   },
   {
    "qid": "qmt5wo127g17r3y",
@@ -104,7 +146,13 @@
     "$33.60"
    ],
    "answerIndex": 3,
-   "explain": "10% of $28 is $2.80, so 20% is $5.60; then add it to the bill: $28.00 + $5.60 = $33.60. The most common slip is answering $5.60, which is only the tip, not the whole amount paid."
+   "explain": "10% of $28 is $2.80, so 20% is $5.60; then add it to the bill: $28.00 + $5.60 = $33.60. The most common slip is answering $5.60, which is only the tip, not the whole amount paid.",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "other",
+    "ok"
+   ]
   },
   {
    "qid": "qmt5wo127s2qfx2",
@@ -112,12 +160,18 @@
    "question": "Sofia is finding a 15% tip on a $60.00 bill. She says: 'I know 10% of $60 is $6, and 15 is 5 more than 10, so I add 5 dollars and the tip is $11.00.' What should she do instead?",
    "options": [
     "She added 5 dollars instead of 5%; 5% of $60 is $3.00, so the tip is $9.00.",
-    "She should double $6.00, so the tip is $12.00.",
-    "She should add $15 to $6.00, so the tip is $21.00.",
-    "Nothing is wrong; a 15% tip on $60 is $11.00."
+    "She should double $6.00, because 15% is more than 10%, so the tip is $12.00.",
+    "She should add $15 to $6.00, because the tip is 15 percent, so the tip is $21.00.",
+    "Nothing is wrong; 15 is 5 more than 10, so $6.00 plus $5 makes an $11.00 tip."
    ],
    "answerIndex": 0,
-   "explain": "The extra 5 in 15% means 5 percent of the bill, not 5 dollars, and 5% is half of 10%, so the tip is $6.00 + $3.00 = $9.00. Doubling the 10% would give a 20% tip instead."
+   "explain": "The extra 5 in 15% means 5 percent of the bill, not 5 dollars, and 5% is half of 10%, so the tip is $6.00 + $3.00 = $9.00. Doubling the 10% would give a 20% tip instead.",
+   "tags": [
+    "ok",
+    "pct.benchmark_combine_wrong",
+    "pct.percent_as_number",
+    "pct.percent_as_number"
+   ]
   },
   {
    "qid": "qmt5wo1275e837w",
@@ -130,7 +184,13 @@
     "They leave the same tip, $10.00 each."
    ],
    "answerIndex": 1,
-   "explain": "Work out both tips: 20% of $50 is $10.00, and 15% of $80 is $8.00 + $4.00 = $12.00, so Noah tips $2.00 more. The big trap is assuming the larger percent always means the larger tip, but the size of the bill matters too."
+   "explain": "Work out both tips: 20% of $50 is $10.00, and 15% of $80 is $8.00 + $4.00 = $12.00, so Noah tips $2.00 more. The big trap is assuming the larger percent always means the larger tip, but the size of the bill matters too.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
   },
   {
    "qid": "qmt5wo1274wpcg1",
@@ -143,7 +203,13 @@
     "about $0.96"
    ],
    "answerIndex": 2,
-   "explain": "Round $47.80 to the friendly benchmark $48, take 10% by moving the decimal one place left ($4.80), then double it for 20%: about $9.60. Answering $4.80 stops at 10%, and $0.96 comes from moving the decimal two places instead of one."
+   "explain": "Round $47.80 to the friendly benchmark $48, take 10% by moving the decimal one place left ($4.80), then double it for 20%: about $9.60. Answering $4.80 stops at 10%, and $0.96 comes from moving the decimal two places instead of one.",
+   "tags": [
+    "other",
+    "pct.benchmark_combine_wrong",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
   },
   {
    "qid": "qmt5wo1270gy9zh",
@@ -156,7 +222,13 @@
     "$9.00 tip, $72.00 in all"
    ],
    "answerIndex": 3,
-   "explain": "Tip on the $60 food amount: 10% is $6.00 and 5% is $3.00, so the tip is $9.00, and the amount paid is $63.00 + $9.00 = $72.00. The common mistake is taking 15% of the after-tax $63.00, which gives $9.45 and tips on the tax as well."
+   "explain": "Tip on the $60 food amount: 10% is $6.00 and 5% is $3.00, so the tip is $9.00, and the amount paid is $63.00 + $9.00 = $72.00. The common mistake is taking 15% of the after-tax $63.00, which gives $9.45 and tips on the tax as well.",
+   "tags": [
+    "other",
+    "pct.benchmark_combine_wrong",
+    "pct.benchmark_combine_wrong",
+    "ok"
+   ]
   }
  ]
 }

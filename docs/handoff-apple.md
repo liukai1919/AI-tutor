@@ -92,7 +92,7 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 
 题库**不在** `qbank.json`（那是 gitignore 的本机文件）——干净导出已提交进 `dev`：
 
-- `content/qbank/by-skill/{zh,en}/<技能id>.json` — 468 份 / 5556 题，带误区 tags
+- `content/qbank/by-skill/{zh,en}/<技能id>.json` — 468 份 / 5558 题，**每题**带误区 tags（2026-09-01 起：原先 54 个技能没登记误区、其题库无 tags，已补登记 108 条误区并回填；L3 错误分析题的选项已配平，正确项不再是最长的）
 - `content/qbank/legacy-by-standard/{zh,en}/<条目id>.json` — 234 份（**已含审稿剔错 42 题后的修正**，
   `demo/qbank.json` 也已刷新到同一版本）
 - `content/manifest.json` — 数量与注意事项

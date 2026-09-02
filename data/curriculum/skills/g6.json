@@ -88,11 +88,11 @@
     { "id": "YY.MATH.FLU.MULT.FACTS.DEVELOPING", "topic": "fluency-order-ops", "type": "fluency", "rep": ["symbolic"],
       "en": "Recall all multiplication and division facts to 100 quickly",
       "zh": "100 以内乘除口诀全部能快速说出",
-      "primary": "BC.MATH.G6.FLU.01", "prereq": ["YY.MATH.FLU.MULT.FACTS.EMERGING", "YY.MATH.FLU.DIV.FACTS"], "hints": "hundredChart" },
+      "primary": "BC.MATH.G6.FLU.01", "prereq": ["YY.MATH.FLU.MULT.FACTS.EMERGING", "YY.MATH.FLU.DIV.FACTS"], "misc": ["mult.fact_error", "div.subtract_instead", "mult.group_adjust_wrong", "div.commutative_flip"], "hints": "hundredChart" },
     { "id": "YY.MATH.FLU.MENTAL.MULTI_DIGIT", "topic": "fluency-order-ops", "type": "procedure", "rep": ["symbolic"],
       "en": "Multiply and divide mentally with strategies like double-double (23 × 4) and halving",
       "zh": "多位数心算策略：翻倍再翻倍（23 × 4）、减半",
-      "primary": "BC.MATH.G6.FLU.01", "prereq": ["YY.MATH.FLU.MULT.FACTS.DEVELOPING", "YY.MATH.FLU.MULT.FACTS.STRATEGIES"], "hints": "areaModel" },
+      "primary": "BC.MATH.G6.FLU.01", "prereq": ["YY.MATH.FLU.MULT.FACTS.DEVELOPING", "YY.MATH.FLU.MULT.FACTS.STRATEGIES"], "misc": ["mult.double_count_wrong", "mult.x5_one_step_only", "mult.halve_double_rule_misapplied", "word.stop_early"], "hints": "areaModel" },
     { "id": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS", "topic": "fluency-order-ops", "type": "procedure", "rep": ["symbolic"],
       "en": "Evaluate expressions using the order of operations without brackets",
       "zh": "按运算顺序计算（无括号：先乘除后加减，同级从左到右）",
@@ -197,7 +197,7 @@
     { "id": "YY.MATH.PAT.GRAPH.TO_RULE", "topic": "patterns-graphs", "type": "reason", "rep": ["coordGrid", "symbolic"],
       "en": "Read a rule from a graph or table and explain the functional relationship",
       "zh": "从图或表里读出规律，解释两个量的对应关系",
-      "primary": "BC.MATH.G6.PAT.01", "prereq": ["YY.MATH.PAT.TABLE.TO_GRAPH", "YY.MATH.PAT.EXPR.FROM_PATTERN"], "hints": "coordGrid、statLine" },
+      "primary": "BC.MATH.G6.PAT.01", "prereq": ["YY.MATH.PAT.TABLE.TO_GRAPH", "YY.MATH.PAT.EXPR.FROM_PATTERN"], "misc": ["linear.rule_from_one_point", "linear.step_as_add_rule", "linear.intercept_forgotten", "linear.slope_intercept_swap"], "hints": "coordGrid、statLine" },
     { "id": "YY.MATH.PAT.VISUAL.TILES", "topic": "patterns-graphs", "type": "apply", "rep": ["areaGrid", "symbolic"],
       "en": "Find the expression for a growing tile pattern",
       "zh": "找出色块图形规律的通项式",
@@ -256,12 +256,12 @@
     { "id": "YY.MATH.GEO.ANGLE.IN_POLYGONS", "topic": "angles", "type": "apply", "rep": ["shapeTriangle", "angle"],
       "en": "Find missing angles in triangles and quadrilaterals (180°, 360°)",
       "zh": "求三角形、四边形里缺少的角（内角和 180°、360°）",
-      "primary": "BC.MATH.G6.GEO.03", "supporting": ["BC.MATH.G6.GEO.05"], "prereq": ["YY.MATH.GEO.ANGLE.MEASURE_DRAW", "YY.MATH.ALG.EQ.ONESTEP.CHECK"], "hints": "shapeTriangle、angle" },
+      "primary": "BC.MATH.G6.GEO.03", "supporting": ["BC.MATH.G6.GEO.05"], "prereq": ["YY.MATH.GEO.ANGLE.MEASURE_DRAW", "YY.MATH.ALG.EQ.ONESTEP.CHECK"], "misc": ["angle.sum_180_360_confuse", "angle.sum_not_subtracted", "angle.subtract_one_only", "angle.equal_pair_not_halved"], "hints": "shapeTriangle、angle" },
 
     { "id": "YY.MATH.GEO.TRI.BY_SIDES", "topic": "triangles", "type": "concept", "rep": ["shapeTriangle"],
       "en": "Classify triangles by sides: scalene, isosceles, equilateral",
       "zh": "按边分类三角形：不等边、等腰、等边",
-      "primary": "BC.MATH.G6.GEO.05", "prereq": ["YY.MATH.GEO.POLYGON.REGULAR_IRREGULAR"], "hints": "shapeTriangle" },
+      "primary": "BC.MATH.G6.GEO.05", "prereq": ["YY.MATH.GEO.POLYGON.REGULAR_IRREGULAR"], "misc": ["tri.two_equal_called_scalene", "tri.side_name_confuse", "tri.equilateral_not_isosceles", "tri.sides_vs_angles_confuse"], "hints": "shapeTriangle" },
     { "id": "YY.MATH.GEO.TRI.BY_ANGLES", "topic": "triangles", "type": "concept", "rep": ["shapeTriangle", "angle"],
       "en": "Classify triangles by angles: right, acute, obtuse",
       "zh": "按角分类三角形：直角、锐角、钝角",
@@ -312,7 +312,7 @@
     { "id": "YY.MATH.DATA.LINE.INTERPRET", "topic": "line-graphs", "type": "apply", "rep": ["statLine", "context"],
       "en": "Interpret change over time and make predictions from a line graph",
       "zh": "解释随时间的变化，并用折线图做预测",
-      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ"], "hints": "statLine" },
+      "primary": "BC.MATH.G6.DAT.01", "prereq": ["YY.MATH.DATA.LINE.READ"], "misc": ["graph.value_instead_of_change", "graph.extrapolate_step_count", "graph.cumulative_as_interval", "linear.slope_intercept_swap"], "hints": "statLine" },
 
     { "id": "YY.MATH.PROB.THEORETICAL", "topic": "probability", "type": "procedure", "rep": ["spinner", "symbolic"],
       "en": "Find the theoretical probability of a single outcome by listing all outcomes",
@@ -330,7 +330,7 @@
     { "id": "YY.MATH.FIN.SAVE_PLAN", "topic": "financial", "type": "apply", "rep": ["dataTable", "context"],
       "en": "Plan saving toward a purchase (how many weeks of allowance for a bike?)",
       "zh": "为一次购买做储蓄计划（几周零花钱能买一辆自行车？）",
-      "primary": "BC.MATH.G6.NUM.06", "prereq": ["YY.MATH.FIN.PLAN_GOAL", "YY.MATH.DEC.MULTDIV.WORD"], "hints": "dataTable" },
+      "primary": "BC.MATH.G6.NUM.06", "prereq": ["YY.MATH.FIN.PLAN_GOAL", "YY.MATH.DEC.MULTDIV.WORD"], "misc": ["fin.save_ignore_existing", "fin.save_gross_not_net", "fin.weeks_not_division", "div.remainder_ignore"], "hints": "dataTable" },
     { "id": "YY.MATH.FIN.CONSUMER.COMPARE", "topic": "financial", "type": "apply", "rep": ["dataTable", "context"],
       "en": "Compare purchase options by price, size and discount to make an informed choice",
       "zh": "比价：按价格、分量、折扣做出明智的购买选择",
@@ -338,6 +338,6 @@
     { "id": "YY.MATH.FIN.BUDGET.INCOME_EXPENSE", "topic": "financial", "type": "apply", "rep": ["dataTable", "context"],
       "en": "Build and adjust a simple budget with income and expenses",
       "zh": "做一份收支预算并调整它",
-      "primary": "BC.MATH.G6.NUM.06", "prereq": ["YY.MATH.FIN.BUDGET_SIMPLE", "YY.MATH.FIN.SAVE_PLAN"], "hints": "dataTable" }
+      "primary": "BC.MATH.G6.NUM.06", "prereq": ["YY.MATH.FIN.BUDGET_SIMPLE", "YY.MATH.FIN.SAVE_PLAN"], "misc": ["fin.income_expense_mixed", "fin.saving_not_expense", "word.stop_early", "fin.balance_misjudged"], "hints": "dataTable" }
   ]
 }

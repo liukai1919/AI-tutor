@@ -917,7 +917,8 @@ Iron rules:
 6. explain: one or two sentences — the correct method plus the most common trap. It is shown to the child right after a wrong answer, so write it to teach.
    Never refer to an option by position ("option B", "the third choice") — options get reordered; name the content instead ("the one that says 3/8").
 7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
-${avoid.map(s => "- " + s).join("\n")}` : ""}.`;
+${avoid.map(s => "- " + s).join("\n")}` : ""}.
+8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.`;
   }
   const elab = isSkills ? "" : (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");   // 技能层由 skillRules 讲，别重复一遍
   const terms = itemTerms(item).map(tm => `${tm.en}=${tm.zh}`).join("、");
@@ -951,7 +952,8 @@ ${elab}` : ""}${terms ? `
    解析里不要写「选项 B」「第三个选项」这种位置说法（选项顺序会被重排），要说内容本身（如「写成 3/8 的那个」）。
 7. 题干用中文，关键数学术语可自然带一次英文对照（如「周长（perimeter）」）。
 8. 这批题互相不能重复${avoid.length ? `，也不能和题库里已有的这些题重复：
-${avoid.map(s => "- " + s).join("\n")}` : ""}。`;
+${avoid.map(s => "- " + s).join("\n")}` : ""}。
+9. 不许靠长度露馅：每题 4 个选项长度要相近（差别不超过 15% 左右），正确项绝不能是最长的那个。「某某说……他错在哪」这类辨析题尤其要注意——每个干扰项都要带上自己的「因为……」理由，不能只留一个光秃秃的错数；正确项写长了就删短它，别去给干扰项灌水。L3 里这类辨析题最多 2 道，其余必须是真正需要两步推理的情境题。`;
 }
 
 /* 题干里的换行：模型常把换行写成字面量 \n（反斜杠加 n）塞进字符串，前端会原样显示两个字符，换成真换行 */
@@ -1031,16 +1033,19 @@ function judgeCommon(lang, gradeData) {
    标成正确答案的选项必须真的对，其余选项必须真的错。
 2. 内容要贴住指定的知识点和年级，不能跑题、不能明显超纲。
 3. 讲法不能引入会误导孩子的说法。
-只报真问题：风格和口味上的小瑕疵放过，数学错误和跑题一个都不能放。
-判定：有任何数学错误或明显跑题 → pass=false，problems 里一条一句写清哪里错、为什么错；
+4. 选择题不能靠长度蒙对：正确项比其他每个选项都明显长（长出 15% 以上）的题算不合格，尤其是「某某错在哪」的辨析题。
+只报真问题：风格和口味上的小瑕疵放过，数学错误、跑题和长度露馅一个都不能放。
+判定：有任何数学错误、明显跑题或长度露馅 → pass=false，problems 里一条一句写清哪里错、为什么错；
 否则 pass=true（problems 给空数组）。`,
 `You are a strict ${senior ? "secondary-math" : "elementary-math"} content reviewer. The content below was auto-generated for a ${senior ? "student" : "child"}. Check:
 1. The math must be entirely correct: every step, every final answer, and for multiple choice the
    option marked correct must truly be correct and the other options truly wrong. One error fails it.
 2. The content must stay on the given curriculum topic and grade level.
 3. No explanation may teach the child something misleading.
-Report real problems only: let style quibbles pass; never let a math error or off-topic drift pass.
-Verdict: any math error or clear off-topic drift → pass=false with one issue per problems entry
+4. Multiple choice must not be guessable by length: a question whose correct option is clearly longer
+   than every other option (15%+ longer) fails, especially "what did X do wrong" questions.
+Report real problems only: let style quibbles pass; never let a math error, off-topic drift or a length giveaway pass.
+Verdict: any math error, clear off-topic drift or length giveaway → pass=false with one issue per problems entry
 (where and why); otherwise pass=true with an empty problems array.`);
 }
 const gradeTag = d => d.type === "book" ? String(d.bookId || "") : isCourseData(d) ? String(d.courseId || "") + " (Grade " + d.grade + ")" : "G" + d.grade;

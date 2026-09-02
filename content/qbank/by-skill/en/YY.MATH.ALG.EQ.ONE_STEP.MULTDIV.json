@@ -3,84 +3,8 @@
  "lang": "en",
  "questions": [
   {
-   "qid": "qmt5cshxj7mibt8",
-   "level": 1,
-   "question": "Ms. Patel puts 3 identical bags on the left pan of a balance scale. Every bag holds the same unknown number of marbles, n. On the right pan she puts 18 loose marbles, and the pans balance exactly. The equation is 3 × n = 18. How many marbles are in each bag?",
-   "options": [
-    "6 marbles",
-    "15 marbles",
-    "54 marbles",
-    "21 marbles"
-   ],
-   "answerIndex": 0,
-   "explain": "The 18 marbles on the right are shared by 3 equal bags, so undo the multiplication by dividing both sides by 3: n = 18 ÷ 3 = 6, and 3 × 6 = 18 keeps the pans level. The most common trap is multiplying 3 × 18 = 54, which repeats the operation instead of using its inverse.",
-   "tags": [
-    "ok",
-    "other",
-    "eq.inverse_wrong",
-    "other"
-   ]
-  },
-  {
-   "qid": "qmt5cshxj1l9xca",
-   "level": 1,
-   "question": "A balance scale is level. The left pan holds one closed box with an unknown number of counters, n. Kai empties that box onto the right pan and shares the counters into 4 equal piles, and each pile has exactly 8 counters. The equation is n ÷ 4 = 8. How many counters were in the box?",
-   "options": [
-    "2 counters",
-    "32 counters",
-    "12 counters",
-    "8 counters"
-   ],
-   "answerIndex": 1,
-   "explain": "The box was split into 4 equal piles of 8, so multiply to undo the division: n = 8 × 4 = 32, and 32 ÷ 4 = 8 checks it. The trap is dividing again (8 ÷ 4 = 2); the unknown here is the whole box, so it must be bigger than one pile.",
-   "tags": [
-    "eq.inverse_wrong",
-    "ok",
-    "other",
-    "other"
-   ]
-  },
-  {
-   "qid": "qmt5cshxj95a9f7",
-   "level": 1,
-   "question": "Ana keeps a balance scale level. The left pan holds 24 cubes all together. The right pan holds n equal piles of cubes, and each pile has exactly 6 cubes. The equation is 24 ÷ n = 6. How many piles are on the right pan?",
-   "options": [
-    "144 piles",
-    "18 piles",
-    "4 piles",
-    "30 piles"
-   ],
-   "answerIndex": 2,
-   "explain": "The 24 cubes are shared into piles of 6, so n = 24 ÷ 6 = 4 piles, and 4 × 6 = 24 balances the 24 cubes. The trap is multiplying 24 × 6 = 144, which undoes nothing and would make the right pan far heavier.",
-   "tags": [
-    "eq.inverse_wrong",
-    "other",
-    "ok",
-    "other"
-   ]
-  },
-  {
-   "qid": "qmt5cshxjuojh92",
-   "level": 1,
-   "question": "A balance scale is level. The left pan holds 8 identical bags, and each bag holds the same unknown number of stickers, n. The right pan holds 56 loose stickers, so 8 × n = 56. Which move keeps the balance level and finds n?",
-   "options": [
-    "Multiply both sides by 8, so n = 448",
-    "Add 8 to both sides, so n = 64",
-    "Subtract 8 from both sides, so n = 48",
-    "Divide both sides by 8, so n = 7"
-   ],
-   "answerIndex": 3,
-   "explain": "Whatever you do to one pan you must do to the other, and since n is multiplied by 8 you divide both sides by 8: n = 56 ÷ 8 = 7, checked by 8 × 7 = 56. Multiplying by 8 is the usual trap, because it is the same operation rather than the inverse.",
-   "tags": [
-    "eq.inverse_wrong",
-    "other",
-    "other",
-    "ok"
-   ]
-  },
-  {
    "qid": "qmt5cshxjixyvh5",
-   "level": 2,
+   "level": 1,
    "question": "Solve the equation 6 × m = 54. What is the value of the unknown m?",
    "options": [
     "m = 9",
@@ -99,7 +23,7 @@
   },
   {
    "qid": "qmt5cshxjzgw8st",
-   "level": 2,
+   "level": 1,
    "question": "Solve the equation p ÷ 3 = 15. What is the value of the unknown p?",
    "options": [
     "p = 5",
@@ -114,6 +38,120 @@
     "ok",
     "other",
     "other"
+   ]
+  },
+  {
+   "qid": "qmtjlm3ry6mm1rf",
+   "level": 1,
+   "question": "Solve the equation 5 × k = 35. What is the value of the unknown k?",
+   "options": [
+    "k = 7",
+    "k = 175",
+    "k = 30",
+    "k = 40"
+   ],
+   "answerIndex": 0,
+   "explain": "Division undoes multiplication, so k = 35 ÷ 5 = 7, and checking gives 5 × 7 = 35. Multiplying 35 × 5 = 175 repeats the operation instead of undoing it; 30 and 40 come from subtracting or adding 5, which does not undo a 'times 5' at all.",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjlm3ryrlav2b",
+   "level": 1,
+   "question": "Solve the equation 48 ÷ n = 8. What is the value of the unknown n?",
+   "options": [
+    "n = 384",
+    "n = 6",
+    "n = 40",
+    "n = 56"
+   ],
+   "answerIndex": 1,
+   "explain": "Think of 48 shared into groups of 8: n = 48 ÷ 8 = 6, and 6 × 8 = 48 checks it. Multiplying 48 × 8 = 384 repeats the operation instead of undoing it; 40 and 56 come from subtracting or adding 8.",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5cshxj7mibt8",
+   "level": 2,
+   "question": "Ms. Patel puts 3 identical bags on the left pan of a balance scale. Every bag holds the same unknown number of marbles, n. On the right pan she puts 18 loose marbles, and the pans balance exactly. The equation is 3 × n = 18. How many marbles are in each bag?",
+   "options": [
+    "6 marbles",
+    "15 marbles",
+    "54 marbles",
+    "21 marbles"
+   ],
+   "answerIndex": 0,
+   "explain": "The 18 marbles on the right are shared by 3 equal bags, so undo the multiplication by dividing both sides by 3: n = 18 ÷ 3 = 6, and 3 × 6 = 18 keeps the pans level. The most common trap is multiplying 3 × 18 = 54, which repeats the operation instead of using its inverse.",
+   "tags": [
+    "ok",
+    "other",
+    "eq.inverse_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5cshxj1l9xca",
+   "level": 2,
+   "question": "A balance scale is level. The left pan holds one closed box with an unknown number of counters, n. Kai empties that box onto the right pan and shares the counters into 4 equal piles, and each pile has exactly 8 counters. The equation is n ÷ 4 = 8. How many counters were in the box?",
+   "options": [
+    "2 counters",
+    "32 counters",
+    "12 counters",
+    "8 counters"
+   ],
+   "answerIndex": 1,
+   "explain": "The box was split into 4 equal piles of 8, so multiply to undo the division: n = 8 × 4 = 32, and 32 ÷ 4 = 8 checks it. The trap is dividing again (8 ÷ 4 = 2); the unknown here is the whole box, so it must be bigger than one pile.",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5cshxj95a9f7",
+   "level": 2,
+   "question": "Ana keeps a balance scale level. The left pan holds 24 cubes all together. The right pan holds n equal piles of cubes, and each pile has exactly 6 cubes. The equation is 24 ÷ n = 6. How many piles are on the right pan?",
+   "options": [
+    "144 piles",
+    "18 piles",
+    "4 piles",
+    "30 piles"
+   ],
+   "answerIndex": 2,
+   "explain": "The 24 cubes are shared into piles of 6, so n = 24 ÷ 6 = 4 piles, and 4 × 6 = 24 balances the 24 cubes. The trap is multiplying 24 × 6 = 144, which undoes nothing and would make the right pan far heavier.",
+   "tags": [
+    "eq.inverse_wrong",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5cshxjuojh92",
+   "level": 2,
+   "question": "A balance scale is level. The left pan holds 8 identical bags, and each bag holds the same unknown number of stickers, n. The right pan holds 56 loose stickers, so 8 × n = 56. Which move keeps the balance level and finds n?",
+   "options": [
+    "Multiply both sides by 8, so n = 448",
+    "Add 8 to both sides, so n = 64",
+    "Subtract 8 from both sides, so n = 48",
+    "Divide both sides by 8, so n = 7"
+   ],
+   "answerIndex": 3,
+   "explain": "Whatever you do to one pan you must do to the other, and since n is multiplied by 8 you divide both sides by 8: n = 56 ÷ 8 = 7, checked by 8 × 7 = 56. Multiplying by 8 is the usual trap, because it is the same operation rather than the inverse.",
+   "tags": [
+    "eq.inverse_wrong",
+    "other",
+    "other",
+    "ok"
    ]
   },
   {
@@ -159,17 +197,17 @@
    "level": 3,
    "question": "Ella is solving 8 × n = 96. She writes n = 768 because she calculated 8 × 96. Which statement about her work is correct?",
    "options": [
-    "Ella multiplied when she should have divided; n = 96 ÷ 8 = 12",
-    "Ella is right, because to solve 8 × n you multiply both sides by 8",
     "Ella should have subtracted 8 from 96, so n = 88",
+    "Ella is right, because to solve 8 × n you multiply both sides by 8",
+    "Ella multiplied when she should have divided; n = 96 ÷ 8 = 12",
     "Ella should have added 8 to 96, so n = 104"
    ],
-   "answerIndex": 0,
+   "answerIndex": 2,
    "explain": "To undo 'times 8' you divide both sides by 8, so n = 96 ÷ 8 = 12, and 8 × 12 = 96 proves it. Multiplying by 8 again is the most common trap: it makes the unknown grow when the whole (96) is already the biggest number in the equation.",
    "tags": [
-    "ok",
-    "eq.inverse_wrong",
     "other",
+    "eq.inverse_wrong",
+    "ok",
     "other"
    ]
   },
