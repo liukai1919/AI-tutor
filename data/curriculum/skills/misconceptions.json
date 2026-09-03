@@ -1667,6 +1667,426 @@
       "en": "Adds under the root before taking it (√81 + √16 = √97)",
       "pattern": "√a + √b 算成 √(a+b)",
       "remedy": "YY.MATH.NUM.SQUARE.ROOT"
+    },
+    {
+      "id": "cube.cube_as_triple",
+      "zh": "把立方当成乘 3（4³ = 12）",
+      "en": "Treats cubing as multiplying by 3",
+      "pattern": "4³ = 12",
+      "remedy": "YY.MATH.NUM.CUBE.BUILD"
+    },
+    {
+      "id": "powers.cube_test_even_exponent",
+      "zh": "判断立方数时套用「指数是偶数」的平方数规则（立方数要指数能被 3 整除）",
+      "en": "Uses the even-exponent test for cubes instead of exponents divisible by 3",
+      "pattern": "2⁴ × 3² 说成立方数",
+      "remedy": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST"
+    },
+    {
+      "id": "root.fraction_root_one_part",
+      "zh": "分数开方只开分子或只开分母（√(16/169) = 4/169）",
+      "en": "Takes the root of only the numerator or only the denominator",
+      "pattern": "√(16/169) = 4/169",
+      "remedy": "YY.MATH.NUM.ROOT.SQUARE_PERFECT"
+    },
+    {
+      "id": "root.cube_root_as_third",
+      "zh": "开立方当成除以 3（∛27 = 9）",
+      "en": "Treats a cube root as dividing by 3",
+      "pattern": "∛27 = 9",
+      "remedy": "YY.MATH.NUM.ROOT.CUBE_PERFECT"
+    },
+    {
+      "id": "root.cube_root_as_square_root",
+      "zh": "立方根按平方根来算（∛64 = 8）",
+      "en": "Finds a square root when a cube root is asked",
+      "pattern": "∛64 = 8",
+      "remedy": "YY.MATH.NUM.ROOT.CUBE_PERFECT"
+    },
+    {
+      "id": "root.wrong_neighbour_squares",
+      "zh": "估算时找错相邻的完全平方数（√30 说在 4 和 5 之间）",
+      "en": "Picks the wrong pair of neighbouring perfect squares when estimating",
+      "pattern": "√30 在 4 和 5 之间",
+      "remedy": "YY.MATH.NUM.ROOT.ESTIMATE"
+    },
+    {
+      "id": "root.prime_factor_exponent_halve_wrong",
+      "zh": "用质因数求根时指数没减半，或立方根也减半（√(2² × 3⁴) = 2 × 3⁴）",
+      "en": "Fails to halve (or third) the exponents when taking a root from prime factors",
+      "pattern": "√(2² × 3⁴) = 2 × 3⁴",
+      "remedy": "YY.MATH.NUM.ROOT.PRIME_FACTOR"
+    },
+    {
+      "id": "root.area_to_side_divide_by_4",
+      "zh": "由面积求正方形边长用除以 4（面积 64 说边长 16）",
+      "en": "Divides the area by 4 to get the side of a square",
+      "pattern": "面积 64 → 边长 16",
+      "remedy": "YY.MATH.NUM.ROOT.APPLY"
+    },
+    {
+      "id": "frac.add_denominators",
+      "zh": "分数加减时分母也相加（1/4 + 1/4 = 2/8）",
+      "en": "Adds the denominators as well as the numerators",
+      "pattern": "1/4 + 1/4 = 2/8",
+      "remedy": "YY.MATH.FRAC.ADDSUB.LIKE"
+    },
+    {
+      "id": "frac.common_denom_numerator_unchanged",
+      "zh": "通分只改分母不改分子（2/3 + 1/4 = 3/12）",
+      "en": "Changes the denominator without scaling the numerator",
+      "pattern": "2/3 + 1/4 = 3/12",
+      "remedy": "YY.MATH.FRAC.ADDSUB.UNLIKE"
+    },
+    {
+      "id": "mixed.subtract_parts_reversed",
+      "zh": "带分数减法分数部分不够减就反过来减（3 1/4 − 1 3/4 = 2 2/4）",
+      "en": "Subtracts the smaller fraction part from the larger instead of regrouping",
+      "pattern": "3 1/4 − 1 3/4 = 2 2/4",
+      "remedy": "YY.MATH.FRAC.ADDSUB.MIXED"
+    },
+    {
+      "id": "frac.mult_common_denominator",
+      "zh": "分数乘法也先通分，然后只乘分子（2/3 × 1/4 = 8/12 × 3/12 = 24/12）",
+      "en": "Finds a common denominator before multiplying and keeps it",
+      "pattern": "2/3 × 1/4 = 24/12",
+      "remedy": "YY.MATH.FRAC.MULT"
+    },
+    {
+      "id": "frac.mult_mixed_parts_separately",
+      "zh": "带分数乘法把整数和分数分开乘再拼起来（2 1/2 × 3 = 6 1/2）",
+      "en": "Multiplies the whole and fraction parts separately",
+      "pattern": "2 1/2 × 3 = 6 1/2",
+      "remedy": "YY.MATH.FRAC.MULT"
+    },
+    {
+      "id": "frac.div_no_flip",
+      "zh": "分数除法不翻倒数、直接当乘法算（3/4 ÷ 1/8 = 3/32）",
+      "en": "Multiplies straight across without flipping the divisor",
+      "pattern": "3/4 ÷ 1/8 = 3/32",
+      "remedy": "YY.MATH.FRAC.DIV"
+    },
+    {
+      "id": "frac.div_flip_wrong_fraction",
+      "zh": "翻倒数翻错了那个（翻被除数）",
+      "en": "Flips the dividend instead of the divisor",
+      "pattern": "3/4 ÷ 1/8 = 4/3 × 1/8",
+      "remedy": "YY.MATH.FRAC.DIV"
+    },
+    {
+      "id": "pct.over_100_impossible",
+      "zh": "以为百分数不能超过 100% 或不能小于 1%",
+      "en": "Believes percents cannot exceed 100% or fall below 1%",
+      "pattern": "「150% 不可能」",
+      "remedy": "YY.MATH.PCT.BEYOND100.MEANING"
+    },
+    {
+      "id": "pct.fractional_percent_as_fraction",
+      "zh": "把 ½% 当成 ½（= 50%）",
+      "en": "Reads ½% as one half",
+      "pattern": "½% = 0.5",
+      "remedy": "YY.MATH.PCT.BEYOND100.CONVERT"
+    },
+    {
+      "id": "pct.increase_not_added",
+      "zh": "百分比增长只算了增量，忘了加回原量（减少时忘了减）",
+      "en": "Reports the increase itself instead of the new amount",
+      "pattern": "增长 3.25% 只答 19 614",
+      "remedy": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE"
+    },
+    {
+      "id": "pct.increase_percent_as_total",
+      "zh": "「涨了 122%」当成「变成原来的 122%」（× 1.22 而不是 × 2.22）",
+      "en": "Treats a 122% increase as 122% of the original",
+      "pattern": "× 1.22",
+      "remedy": "YY.MATH.PCT.CHANGE.ORIGINAL"
+    },
+    {
+      "id": "pct.reverse_by_subtracting_percent",
+      "zh": "倒推原值时从新值减掉同样的百分比",
+      "en": "Reverses a percent increase by subtracting the same percent from the new amount",
+      "pattern": "93 940 × (1 − 1.22)",
+      "remedy": "YY.MATH.PCT.CHANGE.ORIGINAL"
+    },
+    {
+      "id": "ratio.simplify_one_term",
+      "zh": "化简三项比时不是每一项都除以同一个数",
+      "en": "Simplifies only some terms of a three-term ratio",
+      "pattern": "6:4:10 = 3:2:10",
+      "remedy": "YY.MATH.RATIO.THREE_TERM"
+    },
+    {
+      "id": "ratio.share_divide_by_terms",
+      "zh": "按比分配时总量直接除以项数（105 ÷ 3 = 35 每段）",
+      "en": "Divides the total by the number of parts in the ratio instead of the sum of the terms",
+      "pattern": "105 ÷ 3 = 35",
+      "remedy": "YY.MATH.RATIO.SHARE"
+    },
+    {
+      "id": "rate.divide_wrong_way",
+      "zh": "单位比率除反了（3 小时 240 km 算成 3 ÷ 240）",
+      "en": "Divides the wrong way round when finding a unit rate",
+      "pattern": "3 ÷ 240",
+      "remedy": "YY.MATH.RATE.UNIT_RATE"
+    },
+    {
+      "id": "rate.compare_without_unit_rate",
+      "zh": "比较比率只看总量或只看时间（跑得远就一定快）",
+      "en": "Compares totals instead of unit rates",
+      "pattern": "5 km 比 3 km 多所以更快",
+      "remedy": "YY.MATH.RATE.COMPARE"
+    },
+    {
+      "id": "prop.cross_multiply_wrong_pair",
+      "zh": "交叉相乘配错对，或比例两边的单位没对齐",
+      "en": "Cross-multiplies the wrong pair or mismatches units across the proportion",
+      "pattern": "3/8 = x/56 → x = 8 × 56 ÷ 3",
+      "remedy": "YY.MATH.PROPORTION.SOLVE"
+    },
+    {
+      "id": "fin.bigger_pack_always_cheaper",
+      "zh": "以为大包装一定更便宜",
+      "en": "Assumes the bigger package is always the better buy",
+      "pattern": "不算单价直接选大包",
+      "remedy": "YY.MATH.FIN.UNIT_PRICE"
+    },
+    {
+      "id": "fin.percent_vs_dollar_confuse",
+      "zh": "把「20% off」当成减 $20",
+      "en": "Confuses a percent discount with a dollar amount",
+      "pattern": "20% 当 $20",
+      "remedy": "YY.MATH.FIN.COUPON_VS_PERCENT"
+    },
+    {
+      "id": "fin.free_item_ignored",
+      "zh": "「买二送一」按 2 件算单价（送的没算进数量）",
+      "en": "Leaves the free item out when finding the unit price",
+      "pattern": "$10 ÷ 2",
+      "remedy": "YY.MATH.FIN.MULTI_BUY"
+    },
+    {
+      "id": "fin.need_ignored",
+      "zh": "只看单价不看实际需要量（囤了用不完或过期）",
+      "en": "Picks the lowest unit price regardless of how much is actually needed",
+      "pattern": "买 5 kg 只需 500 g",
+      "remedy": "YY.MATH.FIN.BEST_BUY.DECIDE"
+    },
+    {
+      "id": "expr.coefficient_one_invisible",
+      "zh": "看不见系数就当 0（x 的系数说成 0）",
+      "en": "Reads an invisible coefficient as 0",
+      "pattern": "x 的系数是 0",
+      "remedy": "YY.MATH.ALG.EXPR.PARTS"
+    },
+    {
+      "id": "expr.constant_as_coefficient",
+      "zh": "常数项当成系数（0.5n − 3n + 25 说 25 是系数）",
+      "en": "Calls the constant a coefficient",
+      "pattern": "25 是系数",
+      "remedy": "YY.MATH.ALG.EXPR.PARTS"
+    },
+    {
+      "id": "expr.substitute_negative_no_brackets",
+      "zh": "代入负数不加括号，符号丢失（n = −2 时 3n 算成 3 − 2）",
+      "en": "Substitutes a negative without brackets and loses the sign",
+      "pattern": "3n 当 n = −2 算成 1",
+      "remedy": "YY.MATH.ALG.EXPR.EVALUATE"
+    },
+    {
+      "id": "expr.combine_unlike_terms",
+      "zh": "把不同类项合并（3n + 25 = 28n）",
+      "en": "Combines unlike terms",
+      "pattern": "3n + 25 = 28n",
+      "remedy": "YY.MATH.ALG.EXPR.COMBINE_LIKE"
+    },
+    {
+      "id": "eq.negative_coefficient_sign_lost",
+      "zh": "负系数除时丢符号（−4x = 12 → x = 3）",
+      "en": "Drops the sign when dividing by a negative coefficient",
+      "pattern": "−4x = 12 → x = 3",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE"
+    },
+    {
+      "id": "eq.fraction_form_multiply_one_term",
+      "zh": "x/3 + 5 = 2 两边乘 3 时只乘了一项",
+      "en": "Multiplies only one term when clearing a fraction",
+      "pattern": "x + 5 = 6",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS"
+    },
+    {
+      "id": "eq.brackets_distribute_partially",
+      "zh": "2(x + 4) 只乘了括号里的第一项",
+      "en": "Distributes to only the first term inside the brackets",
+      "pattern": "2x + 4",
+      "remedy": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS"
+    },
+    {
+      "id": "pyth.add_sides_not_squares",
+      "zh": "直接把两条直角边相加当斜边（3 + 4 = 7）",
+      "en": "Adds the legs instead of their squares",
+      "pattern": "3 + 4 = 7",
+      "remedy": "YY.MATH.GEO.PYTH.MODEL"
+    },
+    {
+      "id": "pyth.hypotenuse_misidentified",
+      "zh": "认错斜边（三角形一转就把直角边当斜边）",
+      "en": "Misidentifies the hypotenuse when the triangle is rotated",
+      "pattern": "把直角边当 c",
+      "remedy": "YY.MATH.GEO.PYTH.IDENTIFY"
+    },
+    {
+      "id": "pyth.forget_square_root",
+      "zh": "算到 c² 就停，忘了开方（答 169）",
+      "en": "Stops at c² and forgets the square root",
+      "pattern": "答 169",
+      "remedy": "YY.MATH.GEO.PYTH.HYPOTENUSE"
+    },
+    {
+      "id": "pyth.add_when_finding_leg",
+      "zh": "求直角边也用加法（10² + 6²）",
+      "en": "Adds the squares when a leg is missing",
+      "pattern": "10² + 6²",
+      "remedy": "YY.MATH.GEO.PYTH.LEG"
+    },
+    {
+      "id": "views.front_side_swap",
+      "zh": "正视图和侧视图弄反",
+      "en": "Swaps the front and side views",
+      "pattern": "正视图当侧视图",
+      "remedy": "YY.MATH.GEO.3D.VIEWS.DRAW"
+    },
+    {
+      "id": "views.draw_hidden_depth",
+      "zh": "视图里画出深度、画成立体图",
+      "en": "Draws depth or a 3D sketch instead of a flat view",
+      "pattern": "俯视图画成立体",
+      "remedy": "YY.MATH.GEO.3D.VIEWS.DRAW"
+    },
+    {
+      "id": "views.count_from_views_add",
+      "zh": "用三视图的格数相加或相乘求方块总数",
+      "en": "Adds or multiplies the squares in the views to count cubes",
+      "pattern": "3 + 3 + 2 = 8 块",
+      "remedy": "YY.MATH.GEO.3D.VIEWS.BUILD"
+    },
+    {
+      "id": "nets.any_six_squares_fold",
+      "zh": "以为任何 6 个连着的正方形都能折成正方体",
+      "en": "Believes any six connected squares fold into a cube",
+      "pattern": "一行 6 个正方形",
+      "remedy": "YY.MATH.GEO.3D.NETS.MATCH"
+    },
+    {
+      "id": "nets.face_count_wrong",
+      "zh": "展开图面数不对（三棱柱画 6 个面）",
+      "en": "Draws the wrong number of faces on a net",
+      "pattern": "三棱柱 6 个面",
+      "remedy": "YY.MATH.GEO.3D.NETS.MATCH"
+    },
+    {
+      "id": "nets.cylinder_rect_width_is_diameter",
+      "zh": "圆柱展开图的长方形长边当成直径（应是周长）",
+      "en": "Makes the rectangle of a cylinder net as long as the diameter instead of the circumference",
+      "pattern": "长 = d",
+      "remedy": "YY.MATH.GEO.3D.NETS.DRAW"
+    },
+    {
+      "id": "sa.forget_double_faces",
+      "zh": "长方体表面积每对面只算一次（lw + lh + wh）",
+      "en": "Counts each pair of faces once",
+      "pattern": "lw + lh + wh",
+      "remedy": "YY.MATH.MEAS.SA.RECT_PRISM"
+    },
+    {
+      "id": "sa.tri_prism_rects_same_size",
+      "zh": "三棱柱的三个长方形当成一样大",
+      "en": "Treats the three rectangles of a triangular prism as identical",
+      "pattern": "3 × 同一个长方形",
+      "remedy": "YY.MATH.MEAS.SA.TRI_PRISM"
+    },
+    {
+      "id": "vol.base_area_wrong_face",
+      "zh": "底面认错，用侧面面积乘高",
+      "en": "Uses the wrong face as the base",
+      "pattern": "侧面 × 高",
+      "remedy": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT"
+    },
+    {
+      "id": "mean.divide_by_wrong_count",
+      "zh": "总和除以错的个数（漏数或多数一个）",
+      "en": "Divides the total by the wrong count",
+      "pattern": "÷ 4 而不是 ÷ 5",
+      "remedy": "YY.MATH.DATA.MEAN"
+    },
+    {
+      "id": "mean.total_as_mean",
+      "zh": "把总和当平均数",
+      "en": "Reports the total as the mean",
+      "pattern": "答总和",
+      "remedy": "YY.MATH.DATA.MEAN"
+    },
+    {
+      "id": "median.not_sorted",
+      "zh": "没排序就取中间的数",
+      "en": "Takes the middle value without ordering first",
+      "pattern": "未排序取中间",
+      "remedy": "YY.MATH.DATA.MEDIAN_MODE"
+    },
+    {
+      "id": "median.even_count_pick_one",
+      "zh": "偶数个数据只取中间一个",
+      "en": "Picks one of the two middle values instead of averaging",
+      "pattern": "偶数个取一个",
+      "remedy": "YY.MATH.DATA.MEDIAN_MODE"
+    },
+    {
+      "id": "mode.count_as_mode",
+      "zh": "把出现次数当成众数（出现 3 次就说众数是 3）",
+      "en": "Reports the frequency instead of the value as the mode",
+      "pattern": "众数是 3（次）",
+      "remedy": "YY.MATH.DATA.MEDIAN_MODE"
+    },
+    {
+      "id": "central.mean_always_best",
+      "zh": "以为平均数永远最能代表数据",
+      "en": "Assumes the mean is always the best measure",
+      "pattern": "有极端值仍选平均数",
+      "remedy": "YY.MATH.DATA.CENTRAL.COMPARE"
+    },
+    {
+      "id": "central.outlier_affects_median_most",
+      "zh": "以为极端值影响最大的是中位数",
+      "en": "Thinks an outlier moves the median the most",
+      "pattern": "极端值 → 中位数变最多",
+      "remedy": "YY.MATH.DATA.CENTRAL.COMPARE"
+    },
+    {
+      "id": "mean.target_as_next_score",
+      "zh": "把目标平均分直接当下一次要考的分",
+      "en": "Uses the target average as the required next score",
+      "pattern": "目标 80 就答 80",
+      "remedy": "YY.MATH.DATA.MEAN.MISSING_VALUE"
+    },
+    {
+      "id": "prob.independent_means_equal",
+      "zh": "以为「独立」就是机会均等，或把不放回也当独立",
+      "en": "Confuses independence with equal likelihood, or treats without-replacement as independent",
+      "pattern": "不放回也 × 1/6",
+      "remedy": "YY.MATH.PROB.INDEP.CONCEPT"
+    },
+    {
+      "id": "prob.two_events_add_probabilities",
+      "zh": "两个独立事件同时发生的可能性用加法（1/6 + 1/2）",
+      "en": "Adds the probabilities of two independent events",
+      "pattern": "1/6 + 1/2 = 2/3",
+      "remedy": "YY.MATH.PROB.INDEP.MULTIPLY"
+    },
+    {
+      "id": "prob.fair_means_equal_sectors",
+      "zh": "转盘扇区数量一样就说公平，不看每块的大小",
+      "en": "Judges fairness by the number of sectors instead of their size",
+      "pattern": "3 块就公平",
+      "remedy": "YY.MATH.PROB.INDEP.COMPARE_FAIR"
     }
   ]
 }

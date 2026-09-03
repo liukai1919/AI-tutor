@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.MEAN",
+ "lang": "en",
+ "title": "Find the mean as a fair share (total ÷ count), including decimal means",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Sharing It Out: Finding the Mean",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add a list of numbers and how to divide a decimal by a whole number. Today we use both to answer one question: if everything got shared out evenly, how much would each one get? That even share is called the mean.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here are the points you scored in five basketball games: twelve, nine, fifteen, ten, and eight. Some games are tall, some are short. Imagine scooping the extra points off the tall bars and pouring them into the short ones until every bar is the same height. That level height is the mean.",
+    "math": "",
+    "visual": {
+     "type": "average",
+     "nums": [
+      12,
+      9,
+      15,
+      10,
+      8
+     ],
+     "labels": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+     ],
+     "caption": "Green tops are the extra; dashes are the gaps they fill."
+    }
+   },
+   {
+    "say": "To level them out with numbers instead of a picture, you only need two steps. Step one, add every value to get the total. Step two, divide that total by how many values there are. Adding pools everything together, and dividing shares that pool out equally.",
+    "math": "\\text{mean}=\\frac{\\text{total}}{\\text{count}}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      9,
+      15,
+      10,
+      8
+     ],
+     "labels": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+     ],
+     "caption": "Five games, so five values to add and five to divide by."
+    }
+   },
+   {
+    "say": "Let us do it. Twelve plus nine is twenty-one, plus fifteen is thirty-six, plus ten is forty-six, plus eight is fifty-four. So the total is fifty-four points. Now count the games: one, two, three, four, five. Fifty-four divided by five is ten point eight. Your mean is ten point eight points per game — and notice the mean does not have to be a whole number, even when every score is.",
+    "math": "\\frac{54}{5}=10.8",
+    "visual": {
+     "type": "average",
+     "nums": [
+      12,
+      9,
+      15,
+      10,
+      8
+     ],
+     "labels": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+     ],
+     "caption": "The red dashed line sits at 10.8 — the levelled height."
+    }
+   },
+   {
+    "say": "Two traps to dodge here. First, some people say the mean is fifty-four. That is the total, not the share — nobody scored fifty-four in one game, so it cannot be the typical game. Second, some people divide by the wrong count, like fifty-four divided by four, which gives thirteen point five. That is what you would get if you had only played four games. Always recount how many values are in your list right before you divide.",
+    "math": "\\frac{54}{4}=13.5\\;\\text{✗}\\qquad\\frac{54}{5}=10.8\\;\\text{✓}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      9,
+      15,
+      10,
+      8
+     ],
+     "labels": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+     ],
+     "caption": "Point at each value as you count: the count here is 5, not 4."
+    }
+   },
+   {
+    "say": "So whenever someone asks for the mean, hear it as: share it out fairly. Add everything up, count how many, and divide.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Mean = total ÷ how many values — add them all, then share it out evenly.",
+  "practice": {
+   "question": "Last week you spent money on transit on four days: six dollars on Monday, nine dollars on Tuesday, seven dollars on Wednesday, and eight dollars on Thursday. What was your mean daily transit cost? Add the four amounts to get the total, then divide by how many days there are.",
+   "answer": "Total: 6 + 9 + 7 + 8 = 30 dollars. Count: 4 days. Mean = 30 ÷ 4 = $7.50 per day. (Not $30 — that is the total — and not ÷ 3.)"
+  }
+ }
+}

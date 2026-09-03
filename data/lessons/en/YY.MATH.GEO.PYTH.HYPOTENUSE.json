@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+ "lang": "en",
+ "title": "Find the hypotenuse from the two legs, exactly or to one decimal place (legs 5 and 12 → 13; legs 4 and 7 → √65 ≈ 8.1)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Finding the Hypotenuse from Two Legs",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot the hypotenuse and how to check a triangle with a squared plus b squared equals c squared. Today we use that same equation the other way around: the two legs are given, and we hunt for the hypotenuse.",
+    "math": "a^2+b^2=c^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the move, in three beats. Square each leg. Add those two squares to get c squared. Then take the square root, because c squared is the area of that big square and c is just the side of it. Square each leg, add, then square root.",
+    "math": "c=\\sqrt{a^2+b^2}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      5,
+      12
+     ],
+     "labels": [
+      "5 cm",
+      "12 cm",
+      "c",
+      ""
+     ],
+     "caption": "Two legs known, hypotenuse c unknown"
+    }
+   },
+   {
+    "say": "Let us do it with legs of five centimetres and twelve centimetres. Five squared is twenty five. Twelve squared is one hundred forty four. Add them: twenty five plus one hundred forty four is one hundred sixty nine. That is c squared, not c. So take the square root: the square root of one hundred sixty nine is thirteen. The hypotenuse is thirteen centimetres.",
+    "math": "c^2=5^2+12^2=25+144=169,\\quad c=\\sqrt{169}=13",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      5,
+      12
+     ],
+     "labels": [
+      "5 cm",
+      "12 cm",
+      "13 cm",
+      ""
+     ],
+     "caption": "25 plus 144 is 169, and the square root of 169 is 13"
+    }
+   },
+   {
+    "say": "Now legs of four metres and seven metres, where the answer is not so tidy. Four squared is sixteen, seven squared is forty nine, and sixteen plus forty nine is sixty five. So c is the square root of sixty five. Sixty five sits between sixty four and eighty one, so c is just past eight. To one decimal place it is eight point one metres. Watch three traps here. Do not add the legs and say eleven. Do not stop at sixty five, that is still c squared. And a square root is never halving, so the square root of sixty five is not thirty two point five.",
+    "math": "c=\\sqrt{4^2+7^2}=\\sqrt{65}\\approx 8.1",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      7,
+      4
+     ],
+     "labels": [
+      "7 m",
+      "4 m",
+      "8.1 m",
+      ""
+     ],
+     "caption": "The square root of 65 is about 8.1, not 11 and not 65"
+    }
+   },
+   {
+    "say": "So whenever both legs are handed to you, square them, add them, and finish with the square root. That last square root is the step people forget, so make it your habit.",
+    "math": "c=\\sqrt{a^2+b^2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Square both legs, add them, then take the square root — the square root is the step you must not skip.",
+  "practice": {
+   "question": "A community garden plot in Surrey has a right-angled triangle corner. The two legs meeting at the right angle are six metres and nine metres long, and a gravel path runs along the hypotenuse. Sketch the triangle yourself if it helps. How long is the gravel path, to one decimal place?",
+   "answer": "About 10.8 metres. Six squared is 36 and nine squared is 81, so c squared is 117, and the square root of 117 is about 10.8."
+  }
+ }
+}

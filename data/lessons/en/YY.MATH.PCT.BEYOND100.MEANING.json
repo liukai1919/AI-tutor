@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.BEYOND100.MEANING",
+ "lang": "en",
+ "title": "Make sense of percents below 1% and above 100% on hundredths grids (0.5% is half a square; 250% is two and a half grids)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Tiny Percents and Giant Percents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that a ten by ten grid is the perfect picture for percent, because the whole grid is one hundred squares and each single square is one percent. Today we take that same picture just a little further, so it can also handle percents that are smaller than one square, and percents that spill right off the edge of the grid.",
+    "math": "100\\%=\\frac{100}{100}=1",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      100
+     ],
+     "labels": [],
+     "caption": "The whole grid is 100 percent: 100 squares, each square 1 percent."
+    }
+   },
+   {
+    "say": "Start small. One square is one percent, so what would half of one square be? It has to be half of one percent, which we write as zero point five percent. Nothing new is happening here. Zero point five percent still means zero point five out of one hundred, which as a decimal is zero point zero zero five. So a percent below one percent is not a mistake, it is just a piece of a single square.",
+    "math": "1\\%=\\frac{1}{100}=0.01 \\qquad 0.5\\%=\\frac{0.5}{100}=0.005",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [],
+     "caption": "One shaded square is 1 percent. Cut just that square in half and you have 0.5 percent."
+    }
+   },
+   {
+    "say": "Now go the other way. If one full grid is one hundred percent, then two full grids is two hundred percent, and two hundred fifty percent is two whole grids plus fifty more squares, which is half of a third grid. Two hundred fifty out of one hundred is two point five. So going past one hundred percent simply means you needed more than one whole to describe the amount.",
+    "math": "250\\%=\\frac{250}{100}=2.5",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      50
+     ],
+     "labels": [],
+     "caption": "After two completely full grids, this third grid is half shaded: 50 more squares makes 250 percent."
+    }
+   },
+   {
+    "say": "Let us land on real money. Say you have six hundred dollars sitting in a savings account here in B C, and the bank pays zero point five percent interest for the year. Let the whole grid stand for your six hundred dollars, so each of the one hundred squares is six dollars. One percent is one square, which is six dollars, and zero point five percent is half of that square, which is three dollars. Checking it with the decimal gives the same thing: zero point zero zero five times six hundred is three dollars.",
+    "math": "0.5\\%\\times 600=0.005\\times 600=3",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [],
+     "caption": "Each square is 6 dollars of the 600. Half of one square is 3 dollars, which is 0.5 percent."
+    }
+   },
+   {
+    "say": "Two traps to dodge. The first is thinking something like one hundred fifty percent is impossible. It is completely possible, it just means one full grid plus fifty more squares, one and a half wholes. If your team scored one hundred fifty percent as many goals as last season, that is one and a half times last season. The second trap is treating a percent like a plain number. Fifteen percent of forty dollars is not fifteen dollars. Fifteen percent means fifteen squares out of one hundred, that is zero point one five, and zero point one five times forty is six dollars.",
+    "math": "15\\%\\text{ of }40=0.15\\times 40=6",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      15
+     ],
+     "labels": [],
+     "caption": "15 percent is 15 squares out of 100. Of 40 dollars that is 6 dollars, not 15 dollars."
+    }
+   },
+   {
+    "say": "So here is the whole idea in one breath. A percent is always a count of squares out of one hundred. Below one percent you are inside a single square, and above one hundred percent you have moved onto the next grid.",
+    "math": "0.5\\%=0.005 \\qquad 250\\%=2.5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A percent is always parts out of 100: 0.5 percent is half of one square, and 250 percent is two and a half whole grids.",
+  "practice": {
+   "question": "Draw a ten by ten grid of 100 squares and let one whole grid stand for 200 dollars in your savings account. Part a: how many dollars does one square stand for? Part b: your account earns 0.5 percent interest, so shade half of one square. How many dollars is that? Part c: your friend's savings grew to 150 percent of 200 dollars. How many grids would you shade altogether, and how many dollars is that?",
+   "answer": "Part a: one square is 200 divided by 100, which is 2 dollars. Part b: half a square is half of 2 dollars, which is 1 dollar (check: 0.005 times 200 equals 1). Part c: one full grid plus 50 more squares, so one and a half grids, which is 1.5 times 200 equals 300 dollars."
+  }
+ }
+}

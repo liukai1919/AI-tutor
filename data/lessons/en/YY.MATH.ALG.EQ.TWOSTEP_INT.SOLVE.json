@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+ "lang": "en",
+ "title": "Solve two-step equations with integer coefficients, constants and solutions (−4x + 7 = 19 → x = −3)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Two-Step Equations With a Negative Coefficient",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve something like three x plus four equals sixteen by undoing operations in order. Today we do the exact same moves, but with a negative coefficient in front of the x, like negative four x plus seven equals nineteen.",
+    "math": "-4x + 7 = 19",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "-4x + 7",
+      "19"
+     ],
+     "caption": "Both sides weigh the same — that is what the equals sign means"
+    }
+   },
+   {
+    "say": "Undo the plus seven first, because addition is the outer layer. Take seven off the left pan, and take seven off the right pan too, so the scale stays level. Nineteen minus seven is twelve, so now we have negative four x equals twelve.",
+    "math": "-4x + 7 - 7 = 19 - 7 \\quad\\Rightarrow\\quad -4x = 12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "-4x",
+      "12"
+     ],
+     "caption": "Seven removed from both pans — still balanced"
+    }
+   },
+   {
+    "say": "Now the only thing attached to x is the coefficient negative four, and it is multiplying. So we divide both sides by negative four. Twelve divided by negative four is negative three, because a positive divided by a negative is negative. So x equals negative three.",
+    "math": "\\frac{-4x}{-4} = \\frac{12}{-4} \\quad\\Rightarrow\\quad x = -3",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "x",
+      "-3"
+     ],
+     "caption": "Divide both pans by negative four — x is alone"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. Some people get to negative four x equals twelve and write x equals three, quietly dropping the negative. Check it: negative four times three is negative twelve, and negative twelve plus seven is negative five, not nineteen. The scale tips. But with negative three: negative four times negative three is positive twelve, and twelve plus seven is nineteen. That one balances.",
+    "math": "-4(3) + 7 = -5 \\;\\text{✗} \\qquad -4(-3) + 7 = 19 \\;\\text{✓}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "-4(3) + 7 = -5",
+      "19"
+     ],
+     "caption": "Dropping the negative gives -5, so the scale tips right — wrong"
+    }
+   },
+   {
+    "say": "So the rhythm is always the same: peel off the constant first, then divide by the coefficient and carry its sign with you. Then plug your answer back in to make sure the scale still balances.",
+    "math": "-4x + 7 = 19 \\;\\Rightarrow\\; x = -3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Subtract the constant first, then divide by the coefficient — and never leave its negative sign behind.",
+  "practice": {
+   "question": "Your savings app tracks a weekly change of x dollars with the equation negative three x plus five equals twenty. Solve for x by writing out both steps: first take five off both sides, then divide both sides by negative three. Then check your answer by substituting it back in.",
+   "answer": "x equals negative five. Step one: negative three x plus five minus five equals twenty minus five, so negative three x equals fifteen. Step two: fifteen divided by negative three equals negative five, so x equals negative five. Check: negative three times negative five is positive fifteen, and fifteen plus five equals twenty. It balances."
+  }
+ }
+}

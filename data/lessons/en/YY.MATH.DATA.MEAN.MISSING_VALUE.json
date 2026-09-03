@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.MEAN.MISSING_VALUE",
+ "lang": "en",
+ "title": "Work backwards from a mean: find the score needed on the next test to reach a target average",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "What Do I Need on the Next Test?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a mean: add everything up and share it out fairly by dividing by how many there are. Today we flip that around. You know the average you want, and you work backwards to find the one score that is still missing.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the key idea. A mean of 80 across 5 tests means the total of all five tests has to be 80 times 5, which is 400. So instead of guessing the last score, first ask: what total do I need? Target mean times the number of tests gives you the total. Then subtract the points you already have, and whatever is left is the score you need.",
+    "math": "\\text{needed score} = (\\text{target mean} \\times n) - \\text{total so far}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      80,
+      5,
+      400
+     ],
+     "labels": [
+      "Target mean",
+      "Number of tests",
+      "Total needed"
+     ],
+     "caption": "A mean of 80 over 5 tests needs 400 points in total"
+    }
+   },
+   {
+    "say": "Let us try it. Priya has written four math tests in Surrey: 74, 78, 81 and 77. There is one test left, and she wants her mean over all five tests to be 80. Add her four scores: 74 plus 78 is 152, plus 81 is 233, plus 77 is 310. So she has 310 points banked, and she needs 400 points in total.",
+    "math": "74+78+81+77=310",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      74,
+      78,
+      81,
+      77
+     ],
+     "labels": [
+      "Test 1",
+      "Test 2",
+      "Test 3",
+      "Test 4"
+     ],
+     "caption": "Four scores so far; the fifth one is still unknown"
+    }
+   },
+   {
+    "say": "Now just subtract. 400 minus 310 is 90. Priya needs 90 on her last test. Let us check it, because checking is the whole point: 310 plus 90 is 400, and 400 divided by 5 is exactly 80. It works. Notice the answer, 90, is well above the target of 80. That makes sense, because her first four tests were mostly below 80, so the last test has to pull the average back up.",
+    "math": "400-310=90 \\quad\\Rightarrow\\quad \\frac{74+78+81+77+90}{5}=\\frac{400}{5}=80",
+    "visual": {
+     "type": "average",
+     "nums": [
+      74,
+      78,
+      81,
+      77,
+      90
+     ],
+     "labels": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5"
+     ],
+     "caption": "The 90 fills every gap below the dashed mean line at 80"
+    }
+   },
+   {
+    "say": "Two traps to dodge here. The first is answering 80, because 80 is the target. Watch what happens: 310 plus 80 is 390, and 390 divided by 5 is only 78. Not good enough. The target is what the whole set should average, not what one test needs to be. The second trap is dividing by 4 instead of 5. If you use 80 times 4, you get 320, and 320 minus 310 gives 10, which is a silly answer. Count every test that goes into the average, including the one you have not written yet.",
+    "math": "\\frac{74+78+81+77+80}{5}=\\frac{390}{5}=78 \\ne 80",
+    "visual": {
+     "type": "average",
+     "nums": [
+      74,
+      78,
+      81,
+      77,
+      80
+     ],
+     "labels": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5"
+     ],
+     "caption": "Scoring 80 leaves the mean line stuck down at 78"
+    }
+   },
+   {
+    "say": "So here is your one line to remember. Multiply the average you want by how many scores there will be, subtract the points you already have, and what is left is the score you need.",
+    "math": "x=(\\text{target}\\times n)-\\text{total so far}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Target mean times the number of scores, minus the total you already have, equals the score you still need.",
+  "practice": {
+   "question": "Nolan has written four Socials quizzes and scored 68, 75, 80 and 72. There is one quiz left, and he wants his mean over all five quizzes to be 76. What does he need to score on the fifth quiz? Work it out with the equation, and check your answer at the end.",
+   "answer": "85. The total needed is 76 times 5, which is 380. His four quizzes add to 68 plus 75 plus 80 plus 72, which is 295. Then 380 minus 295 is 85. Check: 295 plus 85 is 380, and 380 divided by 5 is 76."
+  }
+ }
+}

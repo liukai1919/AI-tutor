@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.INDEP.COMPARE_FAIR",
+ "lang": "en",
+ "title": "Decide whether a game or spinner is fair by comparing each player's theoretical probability of winning",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Is This Spinner Actually Fair?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the probability of two things happening, like spinning red and then flipping heads. Today we use probability for one quick job: deciding whether a game is fair, or whether one player secretly has a better shot at winning.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole rule. A game is fair when every player has exactly the same theoretical probability of winning. Look at this spinner with four equal sections, two red and two blue. If you win on red, your chance is two out of four, which is one half. If your friend wins on blue, that is also two out of four, one half. Same probability, so the game is fair.",
+    "math": "P(\\text{red})=\\frac{2}{4}=\\frac{1}{2}=P(\\text{blue})",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [
+      "red",
+      "blue"
+     ],
+     "caption": "Four equal sections: two red, two blue"
+    }
+   },
+   {
+    "say": "Now a real one. At a school fundraiser booth in Kelowna, Priya and Dev spin this spinner with six equal sections: three red, two blue, one green. Priya wins on red. Dev wins on blue or green. Priya has three sections out of six, which is one half. Dev has two plus one, so three out of six, also one half. Even though Dev has two colours and Priya only has one, they both have one half. This game is fair.",
+    "math": "P(\\text{Priya})=\\frac{3}{6}=\\frac{1}{2}\\qquad P(\\text{Dev})=\\frac{2}{6}+\\frac{1}{6}=\\frac{3}{6}=\\frac{1}{2}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green"
+     ],
+     "caption": "Six equal sections: Priya wins on 3 red, Dev on 2 blue plus 1 green"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. This spinner has three colours, so people say each player has one third. But look at the sizes. Red covers six of the twelve equal parts, that is one half. Blue covers three of twelve, which is one quarter, and green is also one quarter. One half is not one third, so the player on red is way more likely to win. This game is not fair. Never judge fairness by counting colours or sectors; judge it by how much area each player actually owns.",
+    "math": "P(\\text{red})=\\frac{6}{12}=\\frac{1}{2}\\ne\\frac{1}{3}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      6,
+      3,
+      3
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green"
+     ],
+     "caption": "Unequal spinner: red takes half, blue and green a quarter each"
+    }
+   },
+   {
+    "say": "So how do we fix it? Give every player the same amount of the circle. Now red, blue and green each cover four of the twelve equal parts, which is four twelfths, or one third each. All three probabilities match, so now the game is fair and nobody can complain.",
+    "math": "P(\\text{red})=P(\\text{blue})=P(\\text{green})=\\frac{4}{12}=\\frac{1}{3}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      4,
+      4,
+      4
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green"
+     ],
+     "caption": "Same three colours, now each takes one third of the circle"
+    }
+   },
+   {
+    "say": "So whenever someone hands you a game, do this: work out each player's theoretical probability of winning, then compare them. If the probabilities are equal, it is fair. If not, whoever has the bigger probability has the advantage.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A game is fair only if every player has the same theoretical probability of winning — compare areas, not the number of colours.",
+  "practice": {
+   "question": "At a Grade 8 car wash fundraiser, you spin a spinner cut into 10 equal sections: 4 are purple, 3 are orange, and 3 are white. Jas wins if it lands on purple. Kiran wins if it lands on orange or white. Is this game fair? Show each player's probability, and if it is not fair, say how you would change one section to fix it.",
+   "answer": "Not fair. Jas has 4 out of 10, which is two fifths. Kiran has 3 plus 3, so 6 out of 10, which is three fifths. Kiran is more likely to win. To fix it, repaint one orange or white section purple, giving 5 purple and 5 for Kiran — then both players have 5 out of 10, or one half."
+  }
+ }
+}

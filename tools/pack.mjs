@@ -41,7 +41,7 @@ const opt = (n, d) => {
 const VERSION = String(opt("version", "0.1.0"));
 const PLATFORMS = String(opt("platforms", "win,mac")).split(",").map(s => s.trim()).filter(Boolean);
 const WITH_BOOKS = flag("books");
-const WITH_SKILLS = !flag("no-skills");   // 技能图谱（G4–G7 默认清单）：2026-09-02 起默认进包，--no-skills 才不带（--skills 仍认）
+const WITH_SKILLS = !flag("no-skills");   // 技能图谱（G4–G8 默认清单）：2026-09-02 起默认进包，--no-skills 才不带（--skills 仍认）
 const SKIP_INSTALLER = flag("skip-installer");
 const APP_ZH = "圆圆数学";
 const APP_EN = "YuanyuanMath";
@@ -236,7 +236,7 @@ function stageApp(dst) {
       filter: src => !src.split(/[\\/]/).includes("text")   // 原书正文一律不进包
     });
   }
-  // 技能图谱（docs/skill-graph-plan.md）：G4–G7 的默认清单，默认进包（--no-skills 才不带）
+  // 技能图谱（docs/skill-graph-plan.md）：G4–G8 的默认清单，默认进包（--no-skills 才不带）
   if (WITH_SKILLS) copyInto(path.join(ROOT, "data", "curriculum", "skills"), cur, { optional: true });
   // 预生成的课程包、单元测试卷、语音包
   copyInto(path.join(ROOT, "data", "lessons"), path.join(dst, "data"), { optional: true });

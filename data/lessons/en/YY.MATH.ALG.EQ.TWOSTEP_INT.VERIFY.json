@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+ "lang": "en",
+ "title": "Verify a solution by substituting it back, including negatives (check x = −3 in −4x + 7 = 19)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Does It Really Check Out? Testing x = negative 3",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve negative four x plus seven equals nineteen and get x equals negative three. Now let us do the part that proves you were right: putting negative three back in and judging whether the two sides truly match.",
+    "math": "-4x+7=19,\\quad x=-3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of the equation as a scale. The left side is negative four times x, then add seven. When you swap x for negative three, always wrap it in brackets, like negative four times bracket negative three bracket. The brackets protect the negative sign so it does not go missing.",
+    "math": "-4(-3)+7 \\;\\overset{?}{=}\\; 19",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "-4(-3)+7",
+      "19"
+     ],
+     "caption": "Left side rebuilt with x replaced by (-3)"
+    }
+   },
+   {
+    "say": "Now work the left side in order. Negative four times negative three is positive twelve, because a negative times a negative is positive. Then, and this is the part you must not skip, add the seven: twelve plus seven is nineteen. The right side is nineteen too, so the scale sits perfectly level. Negative three is a solution.",
+    "math": "-4(-3)+7=12+7=19=19\\;\\checkmark",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "12+7 = 19",
+      "19"
+     ],
+     "caption": "Both sides land on 19 — the check passes"
+    }
+   },
+   {
+    "say": "Here is the trap most people fall into. They multiply, get twelve, look up at the nineteen, and say nope, not a solution. But twelve is only half the left side; the plus seven has not been added yet. Judging too early makes you throw away a perfectly good answer.",
+    "math": "12 \\neq 19 \\;\\text{(too early — the } +7 \\text{ is missing)}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "12 (stopped early)",
+      "19"
+     ],
+     "caption": "Looks unbalanced only because +7 was forgotten"
+    }
+   },
+   {
+    "say": "Two more things a good checker never does. First, do not lose the sign: if you write negative four times negative three without brackets and call it negative twelve, you end up with negative five, and you would reject a correct answer. Second, close is not equal. If your left side came out eighteen and the right side is nineteen, the honest answer is no, it is not a solution. You never nudge a number to force the check to pass.",
+    "math": "-12+7=-5 \\neq 19",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "-5 (sign lost)",
+      "19"
+     ],
+     "caption": "Dropping the brackets wrecks the whole check"
+    }
+   },
+   {
+    "say": "So the rule is simple: brackets in, finish the entire left side, then compare it honestly to the right side.",
+    "math": "-4(-3)+7=19 \\;\\Rightarrow\\; x=-3 \\text{ is a solution}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To check a solution: substitute with brackets, finish the whole left side, then see if it equals the right side exactly — close does not count.",
+  "practice": {
+   "question": "At a Vancouver bike shop, a repair cost works out to the equation negative five n plus four equals fourteen. Check by substituting whether n equals negative two is a solution. Write out the left side value and then say yes or no.",
+   "answer": "Substitute with brackets: negative five times bracket negative two bracket, plus four. Negative five times negative two is positive ten, and ten plus four is fourteen. The left side is fourteen and the right side is fourteen, so yes, n equals negative two is a solution."
+  }
+ }
+}

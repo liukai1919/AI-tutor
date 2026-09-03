@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.SA_VOL.APPLY",
+ "lang": "en",
+ "title": "Decide whether a problem needs surface area or volume (painting vs. filling), pick the unit (cm² vs. cm³) and solve it",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Painting or Filling? Picking Surface Area vs Volume",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the surface area and the volume of a prism. The tricky part on a test is not the formula, it is deciding which one the question is even asking for. Here is the one trick that sorts it out every time.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Ask yourself one question: am I covering the outside, or am I filling the inside? Covering the outside, like painting, wrapping, or tiling, is surface area, and it is measured in square units such as centimetres squared. Filling the inside, like pouring in soil, water, or popcorn, is volume, and it is measured in cubic units such as centimetres cubed. Outside means squared, inside means cubed.",
+    "math": "\\text{outside} \\rightarrow \\text{cm}^2 \\qquad \\text{inside} \\rightarrow \\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      40,
+      20,
+      30
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A planter box: 40 cm long, 20 cm wide, 30 cm high"
+    }
+   },
+   {
+    "say": "Let's try it. You are building a wooden planter box for your balcony in Burnaby. It is 40 centimetres long, 20 centimetres wide, and 30 centimetres high. Question one: how much soil will fill it? Soil goes inside, so that is volume. Volume is the area of the base times the height, so 40 times 20 is 800, and 800 times 30 is 24,000. The answer is 24,000 centimetres cubed.",
+    "math": "V = 40 \\times 20 \\times 30 = 24\\,000\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      40,
+      20,
+      30
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Soil fills the inside, so we need volume"
+    }
+   },
+   {
+    "say": "Same box, new question: how much paint covers the whole outside? Paint sits on the faces, so that is surface area. Unfold the box and you get three pairs of matching rectangles. The bottom and top are 40 times 20, which is 800 each. The front and back are 40 times 30, which is 1,200 each. The two ends are 20 times 30, which is 600 each. Add one of each, 800 plus 1,200 plus 600 is 2,600, then double it because every face has a twin. That gives 5,200 centimetres squared.",
+    "math": "SA = 2(800 + 1200 + 600) = 5200\\ \\text{cm}^2",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      40,
+      20,
+      30
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Unfolded box: three pairs of faces, same colour means same size"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone is asked how much soil fits, they work hard, and they write 5,200 centimetres squared. But 5,200 is the wrapping, not the filling, and soil does not fit in a wrapper. Two quick checks save you every time. First, do the units match the job? If the question says fill and your unit is squared, something is off. Second, watch cubic units when you convert, because one metre cubed is not 100 centimetres cubed, it is 100 times 100 times 100, which is one million centimetres cubed.",
+    "math": "1\\ \\text{m}^3 = 100 \\times 100 \\times 100 = 1\\,000\\,000\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      100
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One cube with 100 cm edges holds 1,000,000 cm cubed"
+    }
+   },
+   {
+    "say": "So before you touch a formula, read the verb in the question. Paint, wrap, cover, or tile means surface area in squared units. Fill, pour, hold, or store means volume in cubic units. Decide first, then calculate, and finish with the unit written down.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Covering the outside is surface area in cm squared; filling the inside is volume in cm cubed.",
+  "practice": {
+   "question": "You are wrapping a birthday present for a friend. The box is a rectangular prism, 30 centimetres long, 10 centimetres wide, and 20 centimetres high. Does this job need surface area or volume, and how much wrapping paper do you need at the very least? Sketch the box yourself and label the three edges before you start.",
+   "answer": "Wrapping covers the outside, so it needs surface area. The pairs of faces are 30 times 10 equals 300, 30 times 20 equals 600, and 10 times 20 equals 200. Adding gives 300 plus 600 plus 200 equals 1,100, and doubling gives 2,200. You need at least 2,200 cm squared of wrapping paper."
+  }
+ }
+}

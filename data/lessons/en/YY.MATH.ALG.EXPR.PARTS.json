@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EXPR.PARTS",
+ "lang": "en",
+ "title": "Identify terms, coefficients, variables and constants in an expression (0.5n − 3n + 25)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Naming the Parts of an Expression",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build an expression, like twelve n plus five for n tickets at twelve dollars each plus a five dollar fee. Today we are not building one, we are naming its parts, so that when a question says find the coefficient, you know exactly where to look. Our expression for today is zero point five n minus three n plus twenty-five.",
+    "math": "0.5n - 3n + 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "First, terms. The plus and minus signs are the cutting lines, and they chop this expression into three chunks. Chunk one is zero point five n, chunk two is minus three n, and chunk three is plus twenty-five. Notice that the sign travels with its term, so the middle one is negative three n, not just three n.",
+    "math": "0.5n \\;-\\; 3n \\;+\\; 25 \\quad\\Rightarrow\\quad 3 \\text{ terms}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "0.5n - 3n + 25",
+      "(0.5n) + (-3n) + (25)"
+     ],
+     "caption": "The whole expression is exactly its three terms added together."
+    }
+   },
+   {
+    "say": "Now look inside one term. The letter is the variable, here it is n, the thing that is allowed to change. The number multiplying that variable is the coefficient, so zero point five is the coefficient of the first term and negative three is the coefficient of the second. The last term, twenty-five, has no variable attached at all, so we call it the constant, because it is stuck at twenty-five no matter what.",
+    "math": "\\text{variable: } n \\qquad \\text{coefficients: } 0.5,\\; -3 \\qquad \\text{constant: } 25",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "0.5n",
+      "half of n"
+     ],
+     "caption": "The coefficient zero point five simply means half of n."
+    }
+   },
+   {
+    "say": "Let us make that real. Say n is ten, as in ten hours of dog walking. The first term, zero point five n, is half of ten, which is five. The second term, three n, is three times ten, which is thirty. And the constant is still twenty-five. That is the whole idea: coefficients decide how strongly a term reacts to n, while the constant just sits there and never reacts.",
+    "math": "0.5(10) - 3(10) + 25 = 5 - 30 + 25 = 0",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5,
+      30,
+      25
+     ],
+     "labels": [
+      "0.5n",
+      "3n",
+      "25"
+     ],
+     "caption": "When n is ten: five, thirty, and a twenty-five that does not budge."
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, people often call twenty-five a coefficient. It is not, because a coefficient has to be stuck to a variable, and twenty-five is standing alone, so it is the constant. Second, when a term is written as just n with nothing in front, some people say the coefficient is zero. Think about what that would mean: a coefficient of zero would make the term weigh nothing and disappear. A plain n is really one n, so the hidden coefficient is one.",
+    "math": "n = 1n \\quad (\\text{not } 0n) \\qquad 25 = \\text{constant, not a coefficient}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "n",
+      "1n"
+     ],
+     "caption": "n and one n balance perfectly, so the hidden coefficient is one, not zero."
+    }
+   },
+   {
+    "say": "So for zero point five n minus three n plus twenty-five: three terms, coefficients zero point five and negative three, one variable n, and the constant twenty-five. Keep those four words handy, term, coefficient, variable, constant, and you can describe any expression that shows up.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "In 0.5n - 3n + 25 there are three terms, the coefficients are 0.5 and -3, the variable is n, and 25 is the constant.",
+  "practice": {
+   "question": "A ski day at Whistler is described by the expression two point five h minus seven h plus forty, where h is the number of hours. Write down the three terms, both coefficients, the variable, and the constant. Bonus: if the expression had a term that was just h on its own, what would its coefficient be?",
+   "answer": "Terms: two point five h, negative seven h, and forty. Coefficients: two point five and negative seven. Variable: h. Constant: forty (it is a constant, not a coefficient, because no variable is attached). Bonus: a plain h has a coefficient of one, since h means one h."
+  }
+ }
+}

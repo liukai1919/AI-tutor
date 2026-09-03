@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.UNIT_PRICE",
+ "lang": "en",
+ "title": "Find unit prices ($4.68 for 12 = 39¢ each; price per 100 g) to compare package sizes",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Which Package Is Actually Cheaper?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a unit rate, like two hundred forty kilometres in three hours being eighty kilometres per hour. Today we use that exact same move on price tags, so you can tell which package at the store is really the better deal.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. A unit price is just the total price divided by the number of items. Say a twelve pack of granola bars costs four dollars and sixty eight cents. Four point six eight divided by twelve is zero point three nine, so each bar costs thirty nine cents. Notice the order: dollars go on top, items go on the bottom, because we want dollars per one bar.",
+    "math": "\\frac{\\$4.68}{12\\text{ bars}} = \\$0.39 \\text{ per bar}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4.68,
+      12,
+      0.39
+     ],
+     "labels": [
+      "Total price ($)",
+      "Number of bars",
+      "Price per bar ($)"
+     ],
+     "caption": "Divide the price by the number of items to get the price of one."
+    }
+   },
+   {
+    "say": "Now the real comparison. At the store there are two boxes of granola bars: the twelve pack for four dollars and sixty eight cents, and an eighteen pack for seven dollars and two cents. Find the unit price of each. Four point six eight divided by twelve is thirty nine cents a bar. Seven point zero two divided by eighteen is thirty nine cents a bar too. Same price per bar! The big box is not cheaper here, it is just bigger.",
+    "math": "\\frac{7.02}{18}=0.39 \\quad\\text{and}\\quad \\frac{4.68}{12}=0.39",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4.68,
+      7.02,
+      12,
+      18
+     ],
+     "labels": [
+      "12-pack",
+      "18-pack",
+      "Price ($)",
+      "Bars"
+     ],
+     "caption": "Two options lined up: price on top, number of bars below."
+    }
+   },
+   {
+    "say": "For food sold by mass, we do the same thing but per one hundred grams, because that is what the shelf tag in Canada uses. A four hundred gram bag of trail mix costs six dollars. Six divided by four hundred is zero point zero one five dollars per gram, and times one hundred that is one dollar fifty per hundred grams. The seven hundred and fifty gram bag costs ten dollars and fifty cents. Ten point five zero divided by seven point five, since seven hundred and fifty grams is seven and a half lots of one hundred grams, gives one dollar and forty cents per hundred grams. The big bag wins by ten cents.",
+    "math": "\\frac{\\$6.00}{4}=\\$1.50 \\;/100\\text{g}\\quad \\frac{\\$10.50}{7.5}=\\$1.40\\;/100\\text{g}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      10.5,
+      1.5,
+      1.4
+     ],
+     "labels": [
+      "400 g bag",
+      "750 g bag",
+      "Price ($)",
+      "Per 100 g ($)"
+     ],
+     "caption": "The 750 g bag costs $1.40 per 100 g, so it is the better buy."
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, do not just grab the bigger package. In the granola bar example the eighteen pack was exactly the same thirty nine cents a bar, and sometimes the big one is actually worse. Second, watch which way you divide. If you do twelve divided by four point six eight you get about two point five six, which is bars per dollar, not dollars per bar. Ask yourself what you want one of. You want the price of one bar, so dollars go on top.",
+    "math": "\\frac{12}{4.68}\\approx 2.56 \\;\\;\\text{bars per dollar} \\;\\;\\ne\\;\\; \\$0.39",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.39,
+      2.56
+     ],
+     "labels": [
+      "Right: $ ÷ bars",
+      "Wrong way: bars ÷ $",
+      "Answer"
+     ],
+     "caption": "Same two numbers, flipped order, completely different meaning."
+    }
+   },
+   {
+    "say": "So whenever two packages are different sizes, shrink them both down to the price of one thing, or the price of one hundred grams, and then the cheaper one is obvious.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Divide price by amount to get the unit price — then the smaller number wins.",
+  "practice": {
+   "question": "At a Vancouver grocery store, orange juice comes in two sizes. Make a small table with three rows: size, price, and price per litre. The 2 litre carton costs $5.60. The 3 litre carton costs $8.70. Find the price per litre for each, then say which one is the better buy.",
+   "answer": "2 L carton: $5.60 ÷ 2 = $2.80 per litre. 3 L carton: $8.70 ÷ 3 = $2.90 per litre. The 2 litre carton is the better buy, even though it is the smaller one."
+  }
+ }
+}

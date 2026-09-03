@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "linear-relations",
+ "lang": "en",
+ "unitName": {
+  "zh": "离散线性关系",
+  "en": "Discrete linear relations"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Discrete linear relations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.COORD.Q4.SCALE",
+    "level": 1,
+    "question": "On a coordinate grid, each square is worth 5 units. Starting at the origin, point M is 3 squares to the right and 4 squares down. What are the coordinates of M?",
+    "options": [
+     "(3, −4)",
+     "(15, 20)",
+     "(15, −20)",
+     "(20, −15)"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply the number of squares by the scale: 3 squares right = +15 for x, 4 squares down = −20 for y, so M is (15, −20). The usual traps are counting squares instead of units (3, −4) and losing the negative sign when moving down."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+    "level": 1,
+    "question": "A table of values is being built for y = 3x − 4. What is the value of y when x = −2?",
+    "options": [
+     "−18",
+     "−10",
+     "−2",
+     "2"
+    ],
+    "answerIndex": 1,
+    "explain": "Substitute first, then follow the order of operations: y = 3(−2) − 4 = −6 − 4 = −10. Many students get 2 by treating 3(−2) as +6, or −2 by adding 4 instead of subtracting it."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH_Q4",
+    "level": 1,
+    "question": "Leo graphs the cost of buying bus tickets: 1 ticket costs $3, 2 tickets cost $6, 3 tickets cost $9, and so on. His teacher tells him not to join the points with a line. Why not?",
+    "options": [
+     "Because the points are too far apart to join neatly",
+     "Because the line would cross into another quadrant",
+     "Because the relation stops being linear when graphed",
+     "Because only whole numbers of tickets are possible"
+    ],
+    "answerIndex": 3,
+    "explain": "The relation is discrete: you cannot buy 1.5 tickets, so there is no data between the points and the points stay separate. The relation is still linear — a joined line is wrong because of the context, not because the pattern changed."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR",
+    "level": 2,
+    "question": "A table shows x = 0, 5, 10, 15 with matching values y = 7, 27, 47, 67. Which expression fits this table?",
+    "options": [
+     "y = 7x + 4",
+     "y = 4x + 7",
+     "y = 20x + 7",
+     "y = 4x + 20"
+    ],
+    "answerIndex": 1,
+    "explain": "The y-values rise by 20 each time x rises by 5, so the rate of change per 1 unit is 20 ÷ 5 = 4, and y = 7 when x = 0, giving y = 4x + 7. The common trap is using the table jump of 20 as the rate, or swapping the rate and the starting value."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+    "level": 2,
+    "question": "A discrete linear relation is graphed with the points (0, 5), (1, 3), (2, 1) and (3, −1). Which expression describes the relation?",
+    "options": [
+     "y = −2x + 5",
+     "y = 2x + 5",
+     "y = 5x − 2",
+     "y = −2x − 5"
+    ],
+    "answerIndex": 0,
+    "explain": "The y-value drops by 2 each time x increases by 1, so the rate of change is −2, and the value at x = 0 is 5, giving y = −2x + 5. Watch for dropping the negative on a falling graph, and for swapping the rate of change with the value at x = 0."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.APPLY",
+    "level": 2,
+    "question": "A kayak rental at Cultus Lake charges a $15 launch fee plus $9 for each hour on the water. How much does a 4-hour rental cost?",
+    "options": [
+     "$36",
+     "$96",
+     "$51",
+     "$24"
+    ],
+    "answerIndex": 2,
+    "explain": "Model it as C = 9h + 15, then substitute h = 4: 9(4) + 15 = 36 + 15 = $51. The most common error is adding the fee before multiplying, (15 + 9) × 4 = $96, which charges the launch fee every hour."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.APPLY",
+    "level": 3,
+    "question": "Nadia's phone plan costs $18 each month plus $4 for every gigabyte of data she uses. Her August bill was $46. How much data did she use in August?",
+    "options": [
+     "11.5 GB",
+     "28 GB",
+     "16 GB",
+     "7 GB"
+    ],
+    "answerIndex": 3,
+    "explain": "Write C = 4g + 18, then work backwards: 46 − 18 = 28 is the data charge, and 28 ÷ 4 = 7 GB. The trap is dividing the whole bill by 4 or stopping at 28, which forgets to remove the monthly fee first."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+    "level": 3,
+    "question": "A discrete relation is graphed with the points (0, −5), (1, −2), (2, 1) and (3, 4). Priya writes the expression y = −5x + 3. Her answer is incorrect. What went wrong?",
+    "options": [
+     "She swapped the rate of change and the value at x = 0",
+     "She subtracted the y-values in the wrong order",
+     "She used the point (1, −2) as the starting value",
+     "She counted the rise and the run on the wrong axes"
+    ],
+    "answerIndex": 0,
+    "explain": "The y-values climb by 3 for each step of 1 in x, so the rate of change is 3 and the value at x = 0 is −5, giving y = 3x − 5. Priya used the right two numbers in the wrong places — the rate of change always multiplies x, and the value at x = 0 is the number added on."
+   }
+  ]
+ }
+}

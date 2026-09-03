@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.OPS.WORD",
+ "lang": "en",
+ "title": "Solve fraction problems in context: beats in a drum song, scaling a recipe, sharing a harvest by family size",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Fractions in Real Life: Pick the Right Operation",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to run a fraction calculation from start to finish, brackets and all. The tricky part in real life is deciding which operation to use in the first place, and that is what we are sorting out today.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick that never fails. Ignore the keywords and picture what is actually happening. Am I putting amounts together? That is adding. Taking some away? Subtracting. Taking a fraction of an amount? Multiplying. Finding how many small amounts fit inside a bigger one? Dividing. Say tonight you are making bannock, and the recipe needs three quarters of a cup of flour.",
+    "math": "\\frac{3}{4}\\text{ cup of flour}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "Three quarters of a cup — the flour the recipe needs."
+    }
+   },
+   {
+    "say": "Your only scoop holds one eighth of a cup. So the real question is, how many one eighth cup scoops fit inside three quarters of a cup? Nothing is being combined and nothing is taken away, so this is a how many fit inside situation, which means division. Three quarters divided by one eighth. Flip the divisor and multiply: three quarters times eight over one gives twenty four quarters, which is six. Six scoops.",
+    "math": "\\frac{3}{4}\\div\\frac{1}{8}=\\frac{3}{4}\\times\\frac{8}{1}=\\frac{24}{4}=6",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3,
+      8,
+      6
+     ],
+     "labels": [],
+     "caption": "Three quarters lines up exactly with six eighths — six scoops."
+    }
+   },
+   {
+    "say": "Now the mistake almost everyone makes once. They write three quarters divided by one eighth and just multiply straight across, top times top and bottom times bottom, getting three over thirty two. Look at the number line: three thirty seconds would be a tiny sliver, far less than one single scoop, but we can see with our own eyes that six whole scoops fit. Dividing by a number smaller than one gives you more, not less. Always flip the second fraction first, then multiply.",
+    "math": "\\frac{3}{4}\\div\\frac{1}{8}\\neq\\frac{3}{32}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75,
+      0.75,
+      8
+     ],
+     "labels": [],
+     "caption": "Three quarters sits at six eighths — six full scoops, not a sliver."
+    }
+   },
+   {
+    "say": "One more trap: answering the wrong question. Suppose you scale the recipe up to one and a half times for the whole family. One and a half is three halves, and taking three halves of three quarters of a cup is multiplying, so three quarters times three halves equals nine eighths of a cup. Do not stop there. The question asked for scoops, so nine eighths divided by one eighth is nine. The answer is nine scoops, not nine eighths.",
+    "math": "\\frac{3}{4}\\times\\frac{3}{2}=\\frac{9}{8},\\quad\\frac{9}{8}\\div\\frac{1}{8}=9",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      9
+     ],
+     "labels": [],
+     "caption": "Nine eighths of a cup — exactly nine one eighth scoops."
+    }
+   },
+   {
+    "say": "So before you touch any numbers, tell yourself the story: am I combining, removing, taking a part of, or finding how many fit inside? Then do the maths, and read the question one last time to be sure you answered it.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Let the situation choose the operation — then check you answered the question that was actually asked.",
+  "practice": {
+   "question": "You have three quarters of a litre of maple syrup from a Fraser Valley farm stand. You use one quarter of a litre on Sunday pancakes, and you pour all the rest into small gift jars that each hold one eighth of a litre. How many jars can you fill? Try sketching a bar split into eighths to check yourself.",
+   "answer": "Four jars. First subtract, because syrup is being used up: three quarters minus one quarter is one half of a litre left. Then divide, because you are asking how many one eighth litre jars fit inside one half: one half divided by one eighth is one half times eight over one, which is eight halves, or four. Do not stop at one half — that was only the middle step."
+  }
+ }
+}

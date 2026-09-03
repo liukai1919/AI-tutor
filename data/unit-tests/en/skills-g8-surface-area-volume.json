@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "surface-area-volume",
+ "lang": "en",
+ "unitName": {
+  "zh": "表面积与体积",
+  "en": "Surface area & volume"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Surface area & volume · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.SA.FROM_NET",
+    "level": 1,
+    "question": "Nadia flattens an empty cereal box into a net and finds the area of each piece. Why does adding those areas give the surface area of the box?",
+    "options": [
+     "Every face of the box appears in the net, so their areas add to the outside",
+     "The net measures the space inside the box, so the unit for it is cm cubed",
+     "A net always has six equal pieces, so one face area times six is the total",
+     "The net outline is the box perimeter, so you add up the side lengths only"
+    ],
+    "answerIndex": 0,
+    "explain": "A net is the solid unfolded, so the net's total area is exactly the area of all the faces. The usual trap is mixing this up with volume (space inside, cm³) — surface area is the covering, in cm²."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.SA.RECT_PRISM",
+    "level": 1,
+    "question": "A gift box is a rectangular prism 8 cm long, 5 cm wide and 3 cm high. What is its surface area?",
+    "options": [
+     "79 cm²",
+     "143 cm²",
+     "158 cm²",
+     "120 cm³"
+    ],
+    "answerIndex": 2,
+    "explain": "Use 2lw + 2lh + 2wh = 2(40) + 2(24) + 2(15) = 80 + 48 + 30 = 158 cm². The common trap is forgetting that faces come in matching pairs, so one of the products never gets doubled."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT",
+    "level": 1,
+    "question": "A triangular prism has a triangular end with base 6 cm and height 4 cm. The prism is 10 cm long. What is its volume?",
+    "options": [
+     "240 cm³",
+     "120 cm³",
+     "60 cm³",
+     "120 cm²"
+    ],
+    "answerIndex": 1,
+    "explain": "Volume = area of base × height = (½ × 6 × 4) × 10 = 12 × 10 = 120 cm³. The most common slip is forgetting the ½ when finding the triangle's area, which doubles the answer to 240."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.SA.TRI_PRISM",
+    "level": 2,
+    "question": "A chocolate bar box is a triangular prism 10 cm long. Its triangular end is a right triangle with sides 3 cm, 4 cm and 5 cm. How much cardboard covers the whole box?",
+    "options": [
+     "120 cm²",
+     "126 cm²",
+     "82 cm²",
+     "132 cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "Two triangles: 2 × (½ × 3 × 4) = 12 cm². Three rectangles: 10 × (3 + 4 + 5) = 120 cm². Total 132 cm². Two traps here: using only one triangle, and forgetting the rectangle attached to the slanted 5 cm side."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.SA.CYLINDER",
+    "level": 2,
+    "question": "Kai covers a cylindrical candle in gold foil, including the top and the bottom. The candle has radius 5 cm and height 10 cm. Using π ≈ 3.14, how much foil is needed?",
+    "options": [
+     "471 cm²",
+     "392.5 cm²",
+     "314 cm²",
+     "785 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "Two circles: 2 × 3.14 × 5² = 157 cm². The curved part unrolls into a rectangle: 2 × 3.14 × 5 × 10 = 314 cm². Total 471 cm². The trap is counting only one circle (or none) — a closed cylinder always has two ends."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.SA_VOL.APPLY",
+    "level": 2,
+    "question": "A cedar planter box for the school garden is 120 cm long, 40 cm wide and 30 cm deep, open at the top. Maya wants to know how much soil it takes to fill the box. What should she work out?",
+    "options": [
+     "Surface area of the five faces: 14 400 cm²",
+     "Area of the base only: 4800 cm² of soil",
+     "Volume: 120 × 40 × 30, giving 144 000 cm³",
+     "Volume: 120 × 40 × 30, giving 144 000 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "Filling means volume, so multiply length × width × depth and label it in cm³. The classic trap is choosing the right numbers but the wrong unit: cm² measures a covering, cm³ measures the space filled."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT",
+    "level": 3,
+    "question": "A rain barrel behind a house in Surrey is a cylinder with radius 30 cm and height 100 cm. Using π ≈ 3.14 and 1000 cm³ = 1 L, about how many litres of rainwater does it hold when full?",
+    "options": [
+     "About 2826 L",
+     "About 28.26 L",
+     "About 282 600 L",
+     "About 282.6 L"
+    ],
+    "answerIndex": 3,
+    "explain": "First the volume: 3.14 × 30² × 100 = 282 600 cm³. Then convert by dividing by 1000, giving 282.6 L. The trap is stopping after step one, or dividing by 100 instead of 1000."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.SA_VOL.APPLY",
+    "level": 3,
+    "question": "A class paints the whole outside of a wooden toy chest, bottom included. The chest is 90 cm long, 40 cm wide and 50 cm high. One can of paint covers 10 000 cm² and costs $12, and cans are sold whole. What is the total cost?",
+    "options": [
+     "$24",
+     "$36",
+     "$216",
+     "$12"
+    ],
+    "answerIndex": 1,
+    "explain": "Painting means surface area: 2(3600) + 2(4500) + 2(2000) = 20 200 cm², so 20 200 ÷ 10 000 = 2.02 cans, which must round up to 3 cans, costing $36. The two traps are using volume instead of surface area and rounding 2.02 down to 2 cans."
+   }
+  ]
+ }
+}

@@ -726,7 +726,7 @@ Difficulty mix (put the easy ones first, hardest last): ${mix[1]} at Level 1, ${
 
 Iron rules:
 1. Cover the whole ${isBook ? "chapter" : "unit"}: spread the questions across the topics below, ${items.length >= count ? "each topic at most once" : "each topic at least once"}. Tag every question with the single best-matching curriculumId from this list — no other ids.
-2. Exactly 4 options, exactly 1 correct. Distractors must come from real common mistakes (${trap}) — never obviously wrong.
+2. Exactly 4 options, exactly 1 correct. Distractors must come from real common mistakes (${trap}) — never obviously wrong. Keep the four options about the same length (within ~15%) and never make the correct option the longest — this matters most for "who is right / what went wrong" questions.
 3. answerIndex is the index (0-3) of the correct option. Scatter the correct positions across the paper.
 4. Numbers must be computable by hand and age-appropriate; dollars and metric units; scenes from a BC child's life.
 5. Accuracy first: re-check every question so exactly one option is correct.
@@ -751,7 +751,7 @@ ${list}`;
 
 出题铁律：
 1. 覆盖整个${isBook ? "章" : "单元"}：题目要分散到下面的知识点上，${items.length >= count ? "同一个知识点最多出 1 题" : "每个知识点至少 1 题"}。每题标注一个最贴合的 curriculumId，只能从下面这份清单里选。
-2. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实常见错误（${trap}），不要一眼假。
+2. 每题恰好 4 个选项、恰好 1 个正确。干扰项必须来自真实常见错误（${trap}），不要一眼假。4 个选项长度要相近（差别不超过 15% 左右），正确项绝不能是最长的那个——「谁说得对／错在哪」的辨析题尤其如此。
 3. answerIndex 是正确选项的下标（0~3），整卷正确答案的位置要打散，别集中在同一个下标。
 4. 数字口算/竖式能算动、适龄；货币用加元、单位用公制，情境用孩子在 BC 的真实生活。
 5. 准确第一：每题出完自己验算一遍，确认有且只有一个选项正确。
@@ -1423,7 +1423,8 @@ async function genClaude(sys, question, imageB64, mediaType, lang, opts) {
     if (cc.effort && /^(low|medium|high|xhigh|max)$/.test(cc.effort)) args.push("--effort", String(cc.effort));
     /* 600 秒：effort high 出一批 12 道题通常 1-3 分钟，但个别知识点（多位小数竖式、
      * 分数小数百分数混合排序）会想 5 分钟以上，300 秒时跑全量 444 份有 3 份反复超时。 */
-    const out = await runCmd(detected.claude.bin, args, { cwd: dir, timeout: 600000 });
+    /* config.claude.timeoutMs 可临时调高：个别技能（如分数混合运算 zh）12 题一批要想 10 分钟以上。 */
+    const out = await runCmd(detected.claude.bin, args, { cwd: dir, timeout: Number(cc.timeoutMs) || 600000 });
     const env = JSON.parse(out.slice(out.indexOf("{")));
     if (opts.meta && env.usage) {   // claude CLI 的 JSON 信封自带用量和美元花费，白给的账不记白不记
       const u = env.usage;

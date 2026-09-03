@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EXPR.EVALUATE",
+ "lang": "en",
+ "title": "Evaluate an expression by substitution, including negative and decimal values (0.5n − 3n + 25 when n = 14)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Plugging In a Number: 0.5n − 3n + 25",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot the terms in an expression like zero point five n minus three n plus twenty five, and you already know the order of operations. Today we add one small move: swapping the letter for a number, and then finishing the arithmetic. That move is called substitution.",
+    "math": "0.5n - 3n + 25 \\quad (n = 14)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick. Everywhere you see n, write fourteen inside brackets. The brackets matter, because a coefficient sitting next to a letter always means multiply. So zero point five n becomes zero point five times fourteen, which is seven. Three n becomes three times fourteen, which is forty two. And twenty five is a constant, so it does not change at all.",
+    "math": "0.5(14) - 3(14) + 25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      42,
+      25
+     ],
+     "labels": [
+      "0.5n",
+      "3n",
+      "constant 25"
+     ],
+     "caption": "Each piece of the expression once n = 14. The 3n piece is the one being subtracted."
+    }
+   },
+   {
+    "say": "Now look at the sizes before we finish. The zero point five n piece is only seven, the constant is twenty five, so together they give thirty two. But the three n piece we are taking away is forty two, which is bigger than thirty two. So we already know the answer is going to be negative — kind of like spending forty two dollars when you only had thirty two in your bank account.",
+    "math": "7 + 25 = 32 \\;<\\; 42",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      42,
+      25
+     ],
+     "labels": [
+      "0.5n = 7",
+      "3n = 42",
+      "plus 25"
+     ],
+     "caption": "The 42 bar we subtract is taller than 7 plus 25, so the result dips below zero."
+    }
+   },
+   {
+    "say": "Let us finish it properly, left to right. Seven minus forty two is negative thirty five. Then negative thirty five plus twenty five is negative ten. So when n is fourteen, the expression equals negative ten.",
+    "math": "0.5(14) - 3(14) + 25 = 7 - 42 + 25 = -35 + 25 = -10",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -40,
+      30,
+      -35,
+      -10
+     ],
+     "labels": [],
+     "caption": "Start at −35, jump up 25, and land on −10."
+    }
+   },
+   {
+    "say": "Here are the two traps I see most often. Trap one: reading three n as three plus n, so people write three plus fourteen equals seventeen instead of forty two. Three n always means three times n. Trap two: grabbing the twenty five too early, like doing fourteen plus twenty five first. The plus twenty five only joins in after both multiplications are done.",
+    "math": "3(14) = 42 \\;\\neq\\; 3 + 14 = 17",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      17,
+      42
+     ],
+     "labels": [
+      "3 plus 14 (wrong)",
+      "3 times 14 (right)"
+     ],
+     "caption": "Same term, two readings — only multiplying gives the correct 42."
+    }
+   },
+   {
+    "say": "One last thing that makes substitution feel powerful. The same expression works for any n, so you can build a little table. When n is ten you get zero, when n is twelve you get negative five, and when n is fourteen you get negative ten. Same steps every time — swap the number in, multiply, then add and subtract.",
+    "math": "n = 10 \\to 0, \\quad n = 12 \\to -5, \\quad n = 14 \\to -10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      -5,
+      -10
+     ],
+     "labels": [
+      "n = 10",
+      "n = 12",
+      "n = 14"
+     ],
+     "caption": "Values of 0.5n − 3n + 25. Every 2 that n grows, the value drops by 5."
+    }
+   }
+  ],
+  "answer": "Put the number in brackets everywhere the letter was, multiply the coefficients first, then add and subtract: 0.5n − 3n + 25 = −10 when n = 14.",
+  "practice": {
+   "question": "A lunch budget tracker uses the expression zero point four m minus two m plus eighteen, where m is the number of cafeteria meals you buy in a week, and the answer is how many dollars you have left. Evaluate the expression when m equals twenty. Careful — two m means two times m, not two plus m.",
+   "answer": "Substitute: zero point four times twenty minus two times twenty plus eighteen, which is eight minus forty plus eighteen. Eight minus forty is negative thirty two, and negative thirty two plus eighteen is negative fourteen. So the value is −14, meaning you are $14 over budget."
+  }
+ }
+}

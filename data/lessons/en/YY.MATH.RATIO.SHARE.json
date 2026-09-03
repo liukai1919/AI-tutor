@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RATIO.SHARE",
+ "lang": "en",
+ "title": "Share a quantity in a given ratio (cut a 105 cm string in the ratio 3 : 5 : 7)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Cutting a String in a Given Ratio",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a ratio like three to five to seven. Today we do something real with it: you have a hundred and five centimetre string for a school project, and you need to cut it into three pieces in the ratio three to five to seven. The question is, how many centimetres is each piece?",
+    "math": "105\\text{ cm}\\ \\rightarrow\\ 3:5:7",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the key move. The ratio does not say three pieces, it says three parts, then five parts, then seven parts, and every one of those parts is the same size. So first add the terms: three plus five plus seven is fifteen. The whole string is fifteen equal parts.",
+    "math": "3+5+7=15",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      5,
+      7
+     ],
+     "labels": [
+      "3 parts",
+      "5 parts",
+      "7 parts"
+     ],
+     "caption": "The whole string is 15 equal parts, not 3"
+    }
+   },
+   {
+    "say": "Now find the size of one part. Fifteen equal parts make up a hundred and five centimetres, so one part is a hundred and five divided by fifteen, which is seven centimetres. That little number, seven, is the whole secret of the problem.",
+    "math": "105\\div 15=7\\text{ cm per part}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "labels": [
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7"
+     ],
+     "caption": "Every single part is worth 7 cm (10 of the 15 parts shown)"
+    }
+   },
+   {
+    "say": "Last step, multiply each term of the ratio by seven. Three parts is three times seven, twenty one centimetres. Five parts is five times seven, thirty five centimetres. Seven parts is seven times seven, forty nine centimetres. Always check by adding: twenty one plus thirty five is fifty six, plus forty nine gives one hundred and five. It fits the string exactly.",
+    "math": "3\\times 7=21,\\quad 5\\times 7=35,\\quad 7\\times 7=49",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      21,
+      35,
+      49
+     ],
+     "labels": [
+      "Short 21 cm",
+      "Middle 35 cm",
+      "Long 49 cm"
+     ],
+     "caption": "21 + 35 + 49 = 105 cm, and 21 : 35 : 49 simplifies back to 3 : 5 : 7"
+    }
+   },
+   {
+    "say": "Now the trap almost everybody falls into. Some people see three terms and divide a hundred and five by three, getting thirty five, and hand out thirty five centimetres to each piece. Look at what that means: three equal pieces, so the ratio is one to one to one, not three to five to seven. Three is not the number of parts, it is only the size of the first share. Divide by the sum of the terms, fifteen, never by how many terms there are.",
+    "math": "105\\div 3=35\\ \\text{(wrong!)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      35,
+      35,
+      35
+     ],
+     "labels": [
+      "35 cm",
+      "35 cm",
+      "35 cm"
+     ],
+     "caption": "Dividing by 3 gives 1 : 1 : 1 — three equal pieces, the wrong ratio"
+    }
+   },
+   {
+    "say": "So the whole recipe is three quick moves: add the terms to get the total number of parts, divide the total amount by that to find one part, then multiply each term by it. Add, divide, multiply.",
+    "math": "\\text{one part}=\\frac{\\text{total}}{\\text{sum of terms}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Add the terms, divide the total by that sum to get one part, then multiply: 105 cm in 3 : 5 : 7 gives 21 cm, 35 cm and 49 cm.",
+  "practice": {
+   "question": "You and two teammates split a 120 centimetre roll of hockey tape in the ratio 2 to 3 to 5. Draw a bar model with two parts, three parts and five parts, then work out how many centimetres each person gets.",
+   "answer": "Two plus three plus five is ten parts, and 120 divided by 10 is 12 cm per part. So the shares are 2 times 12 equals 24 cm, 3 times 12 equals 36 cm, and 5 times 12 equals 60 cm. Check: 24 plus 36 plus 60 equals 120 cm."
+  }
+ }
+}

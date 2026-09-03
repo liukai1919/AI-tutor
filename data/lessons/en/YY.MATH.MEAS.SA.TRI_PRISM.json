@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.SA.TRI_PRISM",
+ "lang": "en",
+ "title": "Find the surface area of a triangular prism: two triangles plus three rectangles",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Surface Area of a Triangular Prism",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the surface area of a rectangular prism — you unfold the box flat and add up the six rectangles. A triangular prism works exactly the same way, except when you unfold it you get two triangles and three rectangles instead. That is the whole idea for today.",
+    "math": "",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      10,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "Unfolding a box flat — same trick, new shape"
+    }
+   },
+   {
+    "say": "Let us use a real one. Picture a chocolate bar box, the long skinny kind shaped like a tent. Its two ends are triangles with a base of three centimetres and a height of four centimetres. Area of one triangle is base times height divided by two, so three times four is twelve, divided by two is six square centimetres. There are two ends, so together that is twelve square centimetres.",
+    "math": "2\\times\\frac{3\\times 4}{2}=12\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One end: base 3 cm, dashed height 4 cm, area 6 cm squared"
+    }
+   },
+   {
+    "say": "Now the three rectangles, and here is the key thing — they are not the same. Each one wraps along a different side of the triangle, but they all share the length of the box. The triangle sides are three, four and five centimetres, and the box is ten centimetres long. So the rectangles are three by ten, which is thirty; four by ten, which is forty; and five by ten, which is fifty. Together that is one hundred twenty square centimetres.",
+    "math": "3(10)+4(10)+5(10)=30+40+50=120",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      30,
+      40,
+      50
+     ],
+     "labels": [
+      "3 by 10",
+      "4 by 10",
+      "5 by 10"
+     ],
+     "caption": "Three different rectangles — same length, different widths"
+    }
+   },
+   {
+    "say": "Last step, just add the two groups. Twelve square centimetres of triangles plus one hundred twenty square centimetres of rectangles gives one hundred thirty two square centimetres of cardboard in total.",
+    "math": "12+120=132\\ \\text{cm}^2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      120
+     ],
+     "labels": [
+      "Two triangles",
+      "Three rectangles"
+     ],
+     "caption": "Total surface area: 132 square centimetres"
+    }
+   },
+   {
+    "say": "Three traps catch people here, so watch for them. First, do not multiply one rectangle by three — fifty times three is one hundred fifty, and that is wrong, because the three rectangles have different widths. Second, do not forget to divide by two on the triangles; three times four is twelve, but one triangle is only six. And third, the height of the triangle is the dashed line that meets the base at a right angle — it is four here. If you grab the slanted five centimetre side instead, you get three times five divided by two, which is seven point five, and that is not the area.",
+    "math": "\\frac{3\\times 5}{2}=7.5\\ \\text{✗}\\qquad \\frac{3\\times 4}{2}=6\\ \\text{✓}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Use the dashed perpendicular height 4, never the slant 5"
+    }
+   },
+   {
+    "say": "So the whole recipe is short: two triangles, using base times height divided by two, plus three different rectangles, each one a side of the triangle times the length of the prism. Add them and you are done.",
+    "math": "SA=2\\left(\\frac{b\\times h}{2}\\right)+(a+b+c)\\times L",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Surface area of a triangular prism = the 2 triangle ends (base × height ÷ 2 each) + the 3 different rectangles (each triangle side × the prism length).",
+  "practice": {
+   "question": "A chocolate box from a Granville Island shop is a triangular prism. Unfold it flat in your head, like a net. The two triangle ends each have a base of eight centimetres and a height of six centimetres, and the three sides of that triangle measure six, eight and ten centimetres. The box is twenty centimetres long. How much cardboard does it take in total? Try sketching the net yourself first.",
+   "answer": "528 square centimetres. Each triangle is eight times six divided by two, which is 24, so two ends give 48. The rectangles are 6 × 20 = 120, 8 × 20 = 160 and 10 × 20 = 200, which add to 480. Finally 48 + 480 = 528 square centimetres."
+  }
+ }
+}

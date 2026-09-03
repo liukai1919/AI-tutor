@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROPORTION.APPLY",
+ "lang": "en",
+ "title": "Solve ratio, rate and percent problems in context (scale drawings, recipes, drum-box proportions, speed)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Recipes, Rates and Real Life",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a unit rate and how to solve a proportion. Today the only new job is spotting those tools inside a real story, like a recipe you need to make bigger.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the story. Your pancake recipe makes eight pancakes using two hundred millilitres of milk, and on Saturday you need twenty pancakes. Step one is always the same: pull the two matching numbers into a ratio table, then find the rate for just one. Two hundred divided by eight is twenty five, so each pancake takes twenty five millilitres of milk.",
+    "math": "\\frac{200\\text{ mL}}{8\\text{ pancakes}}=25\\text{ mL per pancake}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      8,
+      25,
+      200
+     ],
+     "labels": [
+      "Per one",
+      "Small batch",
+      "Pancakes",
+      "Milk in mL"
+     ],
+     "caption": "Two hundred millilitres shared over eight pancakes is twenty five each"
+    }
+   },
+   {
+    "say": "Now scale up and answer the actual question. Twenty five millilitres per pancake times twenty pancakes is five hundred millilitres of milk. Check it: eight to two hundred is one to twenty five, and twenty to five hundred is also one to twenty five, so the ratio held.",
+    "math": "25\\times 20=500\\text{ mL}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      8,
+      20,
+      25,
+      200,
+      500
+     ],
+     "labels": [
+      "Per one",
+      "Small batch",
+      "Big batch",
+      "Pancakes",
+      "Milk in mL"
+     ],
+     "caption": "Every column keeps the same one to twenty five ratio"
+    }
+   },
+   {
+    "say": "Here is the trap. Some people say twenty is twelve more than eight, so add twelve to two hundred and get two hundred and twelve millilitres. That is adding, and ratios do not work by adding, they work by multiplying. Two hundred and twelve millilitres would give you dry, sad pancakes. And watch the other trap too: twenty five is not the answer, it is only the milk for one pancake, so never stop there.",
+    "math": "200+12=212\\ \\text{✗}\\qquad 200\\times 2.5=500\\ \\text{✓}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      500,
+      212
+     ],
+     "labels": [
+      "Correct 500 mL",
+      "Wrong 212 mL"
+     ],
+     "caption": "Adding twelve leaves you far short of what the recipe needs"
+    }
+   },
+   {
+    "say": "So in any recipe, map, speed or price question, find the rate for one, multiply up, then reread the question and make sure that is really what it asked for.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the rate for one, multiply up, and check you answered the real question.",
+  "practice": {
+   "question": "A hot chocolate recipe for six servings uses seven hundred and fifty millilitres of milk. Ella is making it for sixteen people at her school fundraiser in Surrey. Milk comes in one litre cartons. How many cartons does she need to buy?",
+   "answer": "Seven hundred and fifty divided by six is one hundred and twenty five millilitres per serving. One hundred and twenty five times sixteen is two thousand millilitres, which is two litres, so she needs two cartons. Do not stop at one hundred and twenty five, that is only one serving."
+  }
+ }
+}

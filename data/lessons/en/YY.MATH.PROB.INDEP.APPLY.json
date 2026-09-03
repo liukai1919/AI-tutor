@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.INDEP.APPLY",
+ "lang": "en",
+ "title": "Solve probability problems with two independent events in context (weather and the bus, passcodes, games)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Rain, Buses, and the Word AND",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to work out one probability at a time, like checking if a spinner game is fair for both players. Today we take one small step further: what happens when two separate things have to happen together, like it rains AND your bus is late on the same morning.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our situation. The forecast for tomorrow morning in Surrey says there is a one half chance of rain. And from your own tracking, your bus runs late on one third of mornings. Rain does not control the bus driver, so these two events are independent. Let us lay out every possible morning in a table, using six equal slots.",
+    "math": "P(\\text{rain})=\\frac{1}{2},\\quad P(\\text{late})=\\frac{1}{3}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      1,
+      2
+     ],
+     "labels": [
+      "Rain and late",
+      "Rain and on time",
+      "Dry and late",
+      "Dry and on time"
+     ],
+     "caption": "Out of 6 equally likely mornings, how many land in each box"
+    }
+   },
+   {
+    "say": "Look at the grid. The two rows are rain or dry, and the three columns are late or the two on-time slots. That makes six equal squares in total, and only one single square is both rainy and late. So the answer is one sixth. Notice that one sixth is exactly one half times one third. When two independent events both have to happen, you multiply.",
+    "math": "\\frac{1}{2}\\times\\frac{1}{3}=\\frac{1}{6}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      3,
+      1,
+      1
+     ],
+     "labels": [],
+     "caption": "One shaded row crossed with one shaded column gives 1 square out of 6"
+    }
+   },
+   {
+    "say": "Here is the trap almost everybody falls into. Some people add and write one half plus one third equals five sixths. But think about what that claims: it says a rainy late morning happens more often than rain by itself. That is impossible. Asking for two things at once makes the chance smaller, never bigger. Also, always write probability as part out of total, like one out of six, never as part against part like three to two.",
+    "math": "\\frac{1}{2}+\\frac{1}{3}=\\frac{5}{6}\\ \\text{(wrong!)}\\qquad \\frac{1}{2}\\times\\frac{1}{3}=\\frac{1}{6}\\ \\text{(right)}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.5,
+      0.33,
+      0.83,
+      0.17
+     ],
+     "labels": [
+      "Rain",
+      "Bus late",
+      "Added (wrong)",
+      "Both (right)"
+     ],
+     "caption": "The wrong answer sits further right than either event on its own"
+    }
+   },
+   {
+    "say": "Let us spot the same situation somewhere else. At the school fair there is a game where you spin a spinner with four equal parts, only one of them red, and then flip a loonie. You win only if you get red and heads. Red is one quarter, heads is one half, and the coin has no idea what the spinner did. So multiply: one quarter times one half is one eighth. About one player in eight walks away with the prize.",
+    "math": "\\frac{1}{4}\\times\\frac{1}{2}=\\frac{1}{8}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      3
+     ],
+     "labels": [
+      "Red",
+      "Other"
+     ],
+     "caption": "Red is 1 of 4 equal parts, then the coin still has to land heads"
+    }
+   },
+   {
+    "say": "So whenever a problem says the word and, and one event does not change the other, just multiply the two probabilities and the answer will always come out smaller than either one alone.",
+    "math": "P(A \\text{ and } B)=P(A)\\times P(B)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "For two independent events, P(A and B) = P(A) times P(B) — and the answer is always smaller than either one alone.",
+  "practice": {
+   "question": "In Vancouver in October, the chance it rains on any given day is three fifths. On a separate note, your SkyTrain gets you to school on time on four fifths of days, and the weather does not affect it. What is the probability that tomorrow it rains AND you get to school on time?",
+   "answer": "Twelve twenty-fifths. Multiply three fifths times four fifths: three times four is twelve, and five times five is twenty-five, so the answer is 12/25, which is a bit less than half."
+  }
+ }
+}

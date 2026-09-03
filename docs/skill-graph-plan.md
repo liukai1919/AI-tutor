@@ -5,7 +5,7 @@
 >
 > 状态（2026-08-22）：设计 + 数据草稿 + **已接进运行链路**（§7 阶段 0-1 全部完成）。
 > App 里选年级下拉的「🧩 G4-G7 技能图谱（草稿）」就能看；讲课、闯关、主题测试、进度、报告、误区回补都跑通了。
-> 技能题库已全量生成（§7 阶段 2，468 份；2026-09-02 补齐 en/zh 各 249 份）。**2026-09-02 起默认随包发布**：`pack.mjs` 默认拷 `skills/` 和 `YY.*` 种子题库，`--no-skills` 才不带。
+> 技能题库已全量生成（§7 阶段 2，468 份；2026-09-02 补齐 en/zh 各 249 份）。**2026-09-02 阶段 3 起步：G8 技能文件 `g8.json` 落地**（14 主题 / 71 技能 / 60 条新误区），微课 · 题库 · 主题卷用 `pregen --grades skills-g8 --provider claude --judge claude` 生成。**2026-09-02 起默认随包发布**：`pack.mjs` 默认拷 `skills/` 和 `YY.*` 种子题库，`--no-skills` 才不带。
 > 校验：`node tools/curriculum/skills_check.mjs`（加 `--md` 打印本文第 4 节的目录树）。
 > 前置文档：[bc-curriculum-plan.md](bc-curriculum-plan.md)（P1–P6 现状）、[qbank-standard.md](qbank-standard.md)（闯关规则，本设计沿用）。
 
@@ -15,11 +15,11 @@
 
 | | 现状 | v2 草稿 |
 |---|---|---|
-| G4–G7 可学的「点」 | 69 条 BC 条目 | **245 个技能**，归入 **54 个主题** |
+| G4–G7 可学的「点」 | 69 条 BC 条目 | **245 个技能**，归入 **54 个主题**（2026-09-02 加 G8：全图 **320 技能 / 69 主题**，见 §4） |
 | 每条 BC 条目 | = 1 个点 | 对应 1–8 个技能（均值 3.6） |
 | 导航分组 | 五大主线（固定） | 主题（每年级 11–17 个，按教学顺序） |
-| 先修关系 | 无 | 365 条边（120 条跨年级） |
-| 误区 | 藏在题目 `explain` 文本里 | 228 条登记在册（2026-09-01 补 108 条，245 技能全部 ≥1 条），技能引用、干扰项逐个打标签 |
+| 先修关系 | 无 | 365 条边（120 条跨年级）；含 G8 后 515 条（192 条跨年级） |
+| 误区 | 藏在题目 `explain` 文本里 | 228 条登记在册（2026-09-01 补 108 条，245 技能全部 ≥1 条；2026-09-02 加 G8 的 60 条 → 298 条），技能引用、干扰项逐个打标签 |
 | 诊断 | 无 | 23 条试点技能带 `diag`（入口题 + 误区→回补分支） |
 
 颗粒度定在哪：**每年级 50–70 个技能、每条标准 3–4 个**。一个圆圆技能 ≈ IXL 的一条「表示阶梯」（模型 → 数轴 → 符号 → 应用，IXL 切成 2–3 个 skill），阶梯放在技能内部由现有的 L1/L2/L3 三级难度承担（§3.3）。这样既比现状细 3.5 倍，又不把内容生成成本乘到 IXL 那个量级（IXL 每年级 358–458 个 skill）。
@@ -168,7 +168,7 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 
 ---
 
-## 4. 完整目录（G4–G7，54 个主题 · 245 个技能）
+## 4. 完整目录（G4–G8，69 个主题 · 320 个技能）
 
 由 `node tools/curriculum/skills_check.mjs --md` 生成；改了 JSON 重新生成贴回来即可。标注：〔类型〕，拓展 = `core:false`，诊断 = 带 `diag`，↻ = 复习低年级技能。
 
@@ -590,6 +590,125 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 - `FIN.PCT.TIP` 估算和计算小费（10%、15%、20%） / Estimate and calculate a tip (10%, 15%, 20%) 〔步骤〕
 - `FIN.PCT.FINAL_PRICE` 先打折再加税的最终价格，以及总的变化百分比 / Find the final price after a discount and tax, and the overall percentage change 〔应用〕
 
+### G8（14 个主题 · 71 个技能）
+
+**完全平方数与完全立方数 · Perfect squares & cubes**　`G8.NUM.01`
+
+- `NUM.SQUARE.TILES` 用方片摆出正方形，认出 400 以内的完全平方数（n × n） / Build perfect squares with colour tiles and identify perfect squares to 400 as n × n 〔表示〕
+- `NUM.CUBE.BUILD` 用小方块搭出正方体，认识完全立方数并用指数写出（4³ = 4 × 4 × 4 = 64） / Build perfect cubes with linking cubes and write them with exponents (4³ = 4 × 4 × 4 = 64) 〔概念〕
+- `NUM.POWERS.PRIME_FACTOR_TEST` 用质因数分解判断一个数是完全平方数还是完全立方数（324 = 2² × 3⁴ 是平方数） / Use prime factorization to decide whether a number is a perfect square or a perfect cube (324 = 2² × 3⁴ is a square) 〔步骤〕
+- `NUM.POWERS.SQUARE_CUBE_COMPARE` 区分平方、立方与乘 2、乘 3；解释为什么 64 既是完全平方数又是完全立方数 / Tell squaring and cubing apart from doubling and tripling, and explain why 64 is both a perfect square and a perfect cube 〔推理〕
+- ↻ `NUM.SQUARE.RECOGNIZE` 认识 144 以内的平方数：能摆成正方形点阵的数（n × n） / Recognize perfect squares to 144 as numbers that make a square array (n × n) 〔复习 · 来自 G7〕
+- ↻ `NUM.SQUARE.NOTATION` 认识平方记号：7² 表示 7 × 7 = 49，不是 7 × 2 / Read and write square notation: 7² means 7 × 7 = 49, not 7 × 2 〔复习 · 来自 G7〕
+
+**平方根与立方根 · Square & cube roots**　`G8.NUM.02`
+
+- `NUM.ROOT.SQUARE_PERFECT` 求 400 以内完全平方数的平方根，包括分数（√(16/169) = 4/13） / Find square roots of perfect squares to 400, including fractions (√(16/169) = 4/13) 〔步骤〕
+- `NUM.ROOT.CUBE_PERFECT` 求完全立方数的立方根（∛125 = 5）：开立方是立方的逆运算 / Find cube roots of perfect cubes (∛125 = 5) as the inverse of cubing 〔步骤〕
+- `NUM.ROOT.ESTIMATE` 用相邻的完全平方数估算非平方数的平方根到一位小数（√30 ≈ 5.5） / Estimate the square root of a non-perfect square to one decimal place using the neighbouring perfect squares (√30 ≈ 5.5) 〔推理〕
+- `NUM.ROOT.PRIME_FACTOR` 把质因数两两、三三分组求较大数的平方根和立方根（√1764 = 2 × 3 × 7 = 42） / Find square and cube roots of larger numbers by grouping prime factors in pairs or triples (√1764 = 2 × 3 × 7 = 42) 〔步骤〕
+- `NUM.ROOT.APPLY` 用平方根、立方根解决问题（由面积求正方形场地的边长、由体积求正方体水箱的棱长） / Use square and cube roots to solve problems (side of a square field from its area, edge of a cubic tank from its volume) 〔应用〕
+- ↻ `NUM.SQUARE.ROOT` 求平方数的平方根（√81 = 9）：开方是平方的逆运算 / Find the square root of a perfect square (√81 = 9) as the inverse of squaring 〔复习 · 来自 G7〕
+- ↻ `NUM.SQUARE.ROOT_ESTIMATE` 估算非平方数的平方根落在哪两个整数之间（√20 在 4 和 5 之间） / Estimate the square root of a non-square number between two whole numbers (√20 is between 4 and 5) 〔复习 · 来自 G7〕
+
+**分数的四则运算 · Operations with fractions**　`G8.FLU.01`
+
+- `FRAC.ADDSUB.LIKE` 同分母分数加减，结果化成最简（5/8 + 7/8 = 1 1/2） / Add and subtract fractions with like denominators and write the answer in lowest terms (5/8 + 7/8 = 1 1/2) 〔步骤〕
+- `FRAC.ADDSUB.UNLIKE` 异分母分数加减：先通分再计算（2/3 + 1/4 = 11/12） / Add and subtract fractions with unlike denominators using a common denominator (2/3 + 1/4 = 11/12) 〔步骤〕
+- `FRAC.ADDSUB.MIXED` 带分数加减，不够减时从整数借 1（3 1/4 − 1 3/4 = 1 1/2） / Add and subtract mixed numbers, regrouping a whole when needed (3 1/4 − 1 3/4 = 1 1/2) 〔步骤〕
+- `FRAC.MULT` 分数与带分数乘法：先用面积模型，再分子乘分子、分母乘分母（2/3 × 3/4 = 1/2） / Multiply fractions and mixed numbers with an area model, then numerator × numerator over denominator × denominator (2/3 × 3/4 = 1/2) 〔步骤〕
+- `FRAC.DIV` 分数除法：先想「能装几份」（3/4 ÷ 1/8 = 6），再学乘倒数 / Divide fractions by asking how many groups fit (3/4 ÷ 1/8 = 6), then by multiplying by the reciprocal 〔步骤〕
+- `FRAC.ORDER_OPS` 分数的混合运算顺序（含括号、不含乘方）：½ ÷ 9/6 × (7 − 4/5) / Use the order of operations with fractions, including brackets but not exponents (½ ÷ 9/6 × (7 − 4/5)) 〔步骤〕
+- `FRAC.OPS.WORD` 分数应用题：鼓歌里的节拍、按比例改配方、按家庭人数分配收获 / Solve fraction problems in context: beats in a drum song, scaling a recipe, sharing a harvest by family size 〔应用〕
+
+**小于 1 与大于 100 的百分数 · Percents below 1% and above 100%**　`G8.NUM.03`
+
+- `PCT.BEYOND100.MEANING` 在百格图上认识小于 1% 和大于 100% 的百分数（0.5% 是半格；250% 是两格半） / Make sense of percents below 1% and above 100% on hundredths grids (0.5% is half a square; 250% is two and a half grids) 〔概念〕
+- `PCT.BEYOND100.CONVERT` 分数形式、小数形式的百分数与小数、分数互化（½% = 0.005，3.25% = 0.0325，122% = 1.22） / Convert fractional and decimal percents to decimals and fractions (½% = 0.005, 3.25% = 0.0325, 122% = 1.22) 〔步骤〕
+- `PCT.BEYOND100.OF_NUMBER` 求一个量的小百分数和大百分数（10 亿的 ½%；60 的 150%） / Find fractional and large percents of a quantity (½% of 1 billion; 150% of 60) 〔步骤〕
+- `PCT.CHANGE.INCREASE_DECREASE` 算百分比增减后的新量（人口增长 3.25% → 乘 1.0325） / Apply a percent increase or decrease and find the new amount (population up 3.25% → multiply by 1.0325) 〔步骤〕
+- `PCT.CHANGE.ORIGINAL` 已知增减后的量倒推原值（工资涨了 122% 后是 $93 940，原来是多少） / Find the original amount before a percent change (a salary is $93 940 after a 122% increase — what was it?) 〔推理〕
+
+**比、比率与比例 · Ratios, rates & proportions**　`G8.NUM.04`
+
+- `RATIO.THREE_TERM` 从情境写出两项比和三项比并化简（6 红 : 4 蓝 : 10 绿 = 3 : 2 : 5） / Write and simplify two- and three-term ratios from a situation (6 red : 4 blue : 10 green = 3 : 2 : 5) 〔表示〕
+- `RATIO.SHARE` 按比分配一个总量（105 cm 的绳子按 3 : 5 : 7 剪成三段） / Share a quantity in a given ratio (cut a 105 cm string in the ratio 3 : 5 : 7) 〔步骤〕
+- `RATE.UNIT_RATE` 认识比率是不同单位的量之比，会求单位比率（3 小时 240 km = 80 km/h） / Understand a rate as a comparison of different units and find unit rates (240 km in 3 h = 80 km/h) 〔概念〕
+- `RATE.COMPARE` 化成同一单位比率来比较（谁跑得快：24 分钟 5 km 还是 15 分钟 3 km） / Compare rates by converting to the same unit rate (who is faster: 5 km in 24 min or 3 km in 15 min?) 〔推理〕
+- `PROPORTION.SOLVE` 列比例求未知项（3/8 = x/56）：用倍数关系或交叉相乘 / Set up and solve a proportion for a missing value (3/8 = x/56) using a scale factor or cross-products 〔步骤〕
+- `PROPORTION.APPLY` 比、比率、百分数的综合应用（比例图、配方、鼓箱尺寸、速度） / Solve ratio, rate and percent problems in context (scale drawings, recipes, drum-box proportions, speed) 〔应用〕
+
+**理财：怎么买最划算 · Financial literacy: best buys**　`G8.NUM.05`
+
+- `FIN.UNIT_PRICE` 算单价（12 个 $4.68 = 每个 39¢；每 100 g 多少钱）来比较不同包装 / Find unit prices ($4.68 for 12 = 39¢ each; price per 100 g) to compare package sizes 〔步骤〕
+- `FIN.COUPON_VS_PERCENT` 比较「减 $5」优惠券和「打 8 折」在某个价格下哪个更省 / Compare a dollar-off coupon with a percent-off discount and decide which saves more on a given price 〔推理〕
+- `FIN.MULTI_BUY` 用实际单价评估「3 件 $10」「买二送一」这类促销 / Evaluate multi-buy deals (3 for $10, buy 2 get 1 free) by finding the effective unit price 〔步骤〕
+- `FIN.BEST_BUY.DECIDE` 结合单价、实际需要的量、优惠券和保质期，决定怎么买最划算 / Choose the best buy for a real need by weighing unit price, quantity needed, coupons and expiry 〔应用〕
+
+**代数式与代入求值 · Expressions & substitution**　`G8.PAT.02`
+
+- `ALG.EXPR.WRITE` 用代数式描述数量关系（n 张 $12 的票加 $5 手续费 = 12n + 5） / Write an expression to describe a relationship (n tickets at $12 plus a $5 fee = 12n + 5) 〔表示〕
+- `ALG.EXPR.PARTS` 认识代数式里的项、系数、变量和常数（0.5n − 3n + 25） / Identify terms, coefficients, variables and constants in an expression (0.5n − 3n + 25) 〔概念〕
+- `ALG.EXPR.EVALUATE` 代入求值，含负数和小数（n = 14 时求 0.5n − 3n + 25） / Evaluate an expression by substitution, including negative and decimal values (0.5n − 3n + 25 when n = 14) 〔步骤〕
+- `ALG.EXPR.COMBINE_LIKE` 先合并同类项再代入（0.5n − 3n + 25 = −2.5n + 25） / Simplify an expression by combining like terms before substituting (0.5n − 3n + 25 = −2.5n + 25) 〔步骤·拓展〕
+
+**离散线性关系 · Discrete linear relations**　`G8.PAT.01`
+
+- `GEO.COORD.Q4.SCALE` 在刻度不是 1 的坐标轴上（每格 5）四个象限描点、读点 / Plot and read integer points in all four quadrants on axes with scaled tick marks (each square = 5) 〔步骤〕
+- `PAT.LINEAR.EXPR_TO_TABLE` 由线性式子列数值表，输入含负数（y = 3x − 4，x 从 −2 到 3） / Build a table of values from a linear expression with integer inputs, including negatives (y = 3x − 4 for x = −2 to 3) 〔步骤〕
+- `PAT.LINEAR.TABLE_TO_EXPR` 从等差的数值表写出式子，扩展到较大的数（x 取 0、5、10… → y = 4x + 7） / Find the expression from a table with a constant difference, extended to larger numbers (x = 0, 5, 10… → y = 4x + 7) 〔表示〕
+- `PAT.LINEAR.GRAPH_Q4` 在四个象限画离散线性关系的图，说明为什么点之间不连线 / Graph a discrete linear relation in four quadrants and explain why the points are not joined 〔表示〕
+- `PAT.LINEAR.GRAPH_TO_EXPR` 从图上读出变化率和 x = 0 时的值，写出式子（点 (0, −3)、(1, −1)、(2, 1) → y = 2x − 3） / Read the rate of change and the value at x = 0 from a graph to write the expression (points (0, −3), (1, −1), (2, 1) → y = 2x − 3) 〔推理〕
+- `PAT.LINEAR.APPLY` 用线性关系描述真实情境，用表格、式子或图回答问题（手机套餐：$20 加每 GB $5） / Model a real situation as a linear relation and use a table, expression or graph to answer questions (phone plan: $20 plus $5 per GB) 〔应用〕
+
+**两步方程（含负数） · Two-step equations with integers**　`G8.PAT.03`
+
+- `ALG.EQ.TWOSTEP_INT.MODEL` 用代数砖、天平表示含负数的两步方程（3x − 4 = −13） / Model two-step equations with negatives using algebra tiles or a balance (3x − 4 = −13) 〔表示〕
+- `ALG.EQ.TWOSTEP_INT.SOLVE` 解整数系数、常数和解的两步方程（−4x + 7 = 19 → x = −3） / Solve two-step equations with integer coefficients, constants and solutions (−4x + 7 = 19 → x = −3) 〔步骤〕
+- `ALG.EQ.TWOSTEP_INT.VERIFY` 把解代回原方程验算，含负数（把 x = −3 代入 −4x + 7 = 19） / Verify a solution by substituting it back, including negatives (check x = −3 in −4x + 7 = 19) 〔推理〕
+- `ALG.EQ.TWOSTEP_INT.OTHER_FORMS` 解其他形式的两步方程：x/3 + 5 = 2，2(x + 4) = −6 / Solve two-step equations in other forms: x/3 + 5 = 2 and 2(x + 4) = −6 〔步骤·拓展〕
+- `ALG.EQ.TWOSTEP_INT.WORD` 从含负数的情境列两步方程并求解（从 5° 每小时降 3° 降到 −13°：5 − 3h = −13） / Write and solve a two-step equation from a situation with negatives (5° falling 3° per hour reaches −13°: 5 − 3h = −13) 〔应用〕
+
+**勾股定理 · Pythagorean theorem**　`G8.GEO.02`
+
+- `GEO.PYTH.MODEL` 用面积看勾股定理：两条直角边上的正方形面积加起来等于斜边上的正方形面积 / See the Pythagorean relationship as areas: the squares on the two legs together equal the square on the hypotenuse 〔概念〕
+- `GEO.PYTH.IDENTIFY` 不管三角形怎么摆都能认出斜边和直角边；用 a² + b² = c² 判断是否直角三角形（勾股数） / Identify the hypotenuse and legs in any orientation, and test whether a triangle is right-angled with a² + b² = c² (Pythagorean triples) 〔推理〕
+- `GEO.PYTH.HYPOTENUSE` 已知两条直角边求斜边，精确值或保留一位小数（5 和 12 → 13；4 和 7 → √65 ≈ 8.1） / Find the hypotenuse from the two legs, exactly or to one decimal place (legs 5 and 12 → 13; legs 4 and 7 → √65 ≈ 8.1) 〔步骤〕
+- `GEO.PYTH.LEG` 已知斜边和一条直角边求另一条直角边：平方相减（斜边 10、直角边 6 → √(100 − 36) = 8） / Find a missing leg by subtracting squares (hypotenuse 10 and leg 6 → √(100 − 36) = 8) 〔步骤〕
+- `GEO.PYTH.APPLY` 勾股定理应用：梯子、屏幕和球场的对角线、独木舟横渡有水流的河 / Apply the Pythagorean theorem to real problems: ladders, diagonals of screens and fields, a canoe crossing a current 〔应用〕
+
+**三视图与展开图 · Views & nets of 3D objects**　`G8.GEO.03`
+
+- `GEO.3D.VIEWS.DRAW` 画出用小方块搭的物体的俯视图、正视图和侧视图 / Draw the top, front and side views of an object built from cubes 〔表示〕
+- `GEO.3D.VIEWS.BUILD` 由三视图还原或辨认立体图形，找出符合的最少方块数 / Rebuild or identify a 3D object from its top, front and side views, and find the fewest cubes that fit 〔推理〕
+- `GEO.3D.NETS.MATCH` 把展开图和棱柱、圆柱配对，识别折不起来的展开图（6 个正方形却拼不成正方体） / Match nets to prisms and cylinders and spot nets that will not fold (six squares that don't make a cube) 〔推理〕
+- `GEO.3D.NETS.DRAW` 画出长方体、三棱柱、圆柱的展开图并标上尺寸 / Draw an accurate net for a rectangular prism, triangular prism or cylinder with the dimensions labelled 〔步骤〕
+
+**表面积与体积 · Surface area & volume**　`G8.GEO.01`
+
+- `MEAS.SA.FROM_NET` 理解表面积就是所有面的面积之和，用展开图来算 / Understand surface area as the total area of every face, found from a net 〔概念〕
+- `MEAS.SA.RECT_PRISM` 求长方体的表面积（2lw + 2lh + 2wh） / Find the surface area of a rectangular prism (2lw + 2lh + 2wh) 〔步骤〕
+- `MEAS.SA.TRI_PRISM` 求三棱柱的表面积：两个三角形加三个长方形 / Find the surface area of a triangular prism: two triangles plus three rectangles 〔步骤〕
+- `MEAS.SA.CYLINDER` 求圆柱的表面积：两个圆加一个长等于圆周长的长方形 / Find the surface area of a cylinder: two circles plus a rectangle whose length is the circumference 〔步骤〕
+- `MEAS.VOL.PRISM_BASE_HEIGHT` 用底面积 × 高求直棱柱（三棱柱、梯形柱）和圆柱的体积 / Find the volume of right prisms (triangular, trapezoidal) and cylinders as area of the base × height 〔步骤〕
+- `MEAS.SA_VOL.APPLY` 判断题目要的是表面积还是体积（刷漆还是装满），选对单位（cm² 与 cm³）并解题 / Decide whether a problem needs surface area or volume (painting vs. filling), pick the unit (cm² vs. cm³) and solve it 〔应用〕
+
+**平均数、中位数与众数 · Central tendency**　`G8.DAT.01`
+
+- `DATA.MEAN` 求平均数：总和 ÷ 个数（匀一匀），结果可以是小数 / Find the mean as a fair share (total ÷ count), including decimal means 〔步骤〕
+- `DATA.MEDIAN_MODE` 求中位数（先排序；偶数个取中间两个的平均）和众数（可能没有，也可能不止一个） / Find the median (order first; average the middle two) and the mode (there may be none or more than one) 〔步骤〕
+- `DATA.CENTRAL.COMPARE` 判断哪种统计量最能代表一组数据，解释极端值怎么把平均数拉偏 / Choose which measure best describes a data set and explain how an outlier pulls the mean 〔推理〕
+- `DATA.MEAN.MISSING_VALUE` 从平均数倒推：要达到目标平均分，下一次得考多少 / Work backwards from a mean: find the score needed on the next test to reach a target average 〔推理〕
+- `DATA.CENTRAL.APPLY` 用平均数、中位数、众数比较和解读真实数据（运动数据、班级调查、价格） / Use mean, median and mode to compare and interpret real data sets (sports stats, class surveys, prices) 〔应用〕
+
+**两个独立事件的可能性 · Probability of two independent events**　`G8.DAT.02`
+
+- `PROB.INDEP.SAMPLE_SPACE` 用树状图或表格列出两个独立事件的样本空间（硬币 + 骰子 = 12 种结果） / List the sample space of two independent events with a tree diagram or table (coin + die = 12 outcomes) 〔表示〕
+- `PROB.INDEP.CONCEPT` 认识独立事件：一个结果不影响另一个（放回摸球与不放回摸球） / Recognize independent events: one outcome does not change the other (drawing with vs. without replacement) 〔概念〕
+- `PROB.INDEP.MULTIPLY` 用乘法求两个独立事件同时发生的可能性（P(掷出 5 且正面) = 1/6 × 1/2 = 1/12） / Find the probability that two independent events both happen by multiplying (P(5 and heads) = 1/6 × 1/2 = 1/12) 〔步骤〕
+- `PROB.INDEP.COMPARE_FAIR` 比较每个玩家获胜的理论可能性，判断游戏或转盘是否公平 / Decide whether a game or spinner is fair by comparing each player's theoretical probability of winning 〔推理〕
+- `PROB.INDEP.APPLY` 两个独立事件的应用题（天气和公交、密码、游戏） / Solve probability problems with two independent events in context (weather and the bus, passcodes, games) 〔应用〕
+
 <!-- TREE:END -->
 
 ---
@@ -680,9 +799,13 @@ G5 等值分数的诊断分支长这样（`diag.branch` 展开）：
 - **老 BC 题库已全量送审**（2026-08-23，`tools/audit_qbank.mjs`）：234 份审 35 份不过，剔 42 题（1.5%）；错误类型：解析算错 20、跑题 10、标答错/两个正确 6、题干矛盾 2。剔后用 `pregen --only quiz --force --provider claude --judge` 补齐（41 次生成，0 失败）。删掉的题在 `audit-report.jsonl`。
 - **技能视图已成为 G4–G7 的默认清单**（`learnView()`）：选年级即「主题 → 技能」，老主线清单 `view=standards` 仍可取但界面不露出；单元测试按主题（存档 key `skills-g<N>`）；FSA 仍按主线（`fsaStrands`）；家长报告按技能汇总定级。主题级单元卷尚无预生成包（108 份），点 📝 现场出。微课只烤了 2 节示例（`pregen --skills --only lessons`，490 节待决定）。
 
-### 阶段 3 · G8–G9、高中、书籍（未做）
+### 阶段 3 · G8–G9、高中、书籍（G8 已做，2026-09-02）
 
-同一 schema，加载器已经泛化（读任意 `skills/g<N>.json`），缺的是数据文件本身。高中 `course-*.json` 的 `strandDefs` 本来就是单元、只缺技能层；书籍小节已经够细（AoPS 预备代数 68 节），可以直接当技能用、只补 `primary` 和先修边。
+**G8 已落地**：`data/curriculum/skills/g8.json`——14 个主题（一条 BC 标准一个主题，教学顺序：平方立方 → 根 → 分数运算 → 百分数 → 比与比例 → 比价理财 → 代数式 → 线性关系 → 两步方程 → 勾股 → 三视图展开图 → 表面积体积 → 集中趋势 → 独立事件）、71 个技能（69 核心；拓展 2 条：合并同类项、x/3 + 5 = 2 型方程），每标准 5.1 条（G8 一条标准的跨度比小学大，拆细是对的）。
+先修 122 条边（大半接到 G6/G7 技能：G7 的整数、两步方程、线性关系、圆和体积，G6 的比、百分数、质因数），误区新登记 60 条（前缀 cube / root / pyth / views / nets / sa / mean / median / rate / prop / expr 等），`sq.*` 四条沿用 G7 平方数主题。
+平方数主题（G7，`core:false`，supporting G8.NUM.01/02）以 `topic.review` 借进 G8 前两个主题末尾复习，不复制定义。
+内容：`pregen --grades skills-g8 --provider claude --judge claude`（142 微课 + 142 题库 + 28 主题卷；语气走 `seniorTone(8)` 初中腔，干扰项提示按 ≥8 年级那组）。语音按 2026-09-02 的决定不烘，走系统 TTS 兜底。
+**G9、高中、书籍仍未做。** 同一 schema，加载器已经泛化（读任意 `skills/g<N>.json`），缺的是数据文件本身。高中 `course-*.json` 的 `strandDefs` 本来就是单元、只缺技能层；书籍小节已经够细（AoPS 预备代数 68 节），可以直接当技能用、只补 `primary` 和先修边。
 
 ### 不做的事
 

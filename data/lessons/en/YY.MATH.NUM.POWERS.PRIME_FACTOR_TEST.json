@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+ "lang": "en",
+ "title": "Use prime factorization to decide whether a number is a perfect square or a perfect cube (324 = 2² × 3⁴ is a square)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Reading the Exponents: Square or Cube?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to break a number down with a factor tree, like three hundred equals two squared times three times five squared. Here is the cool part: once a number is in prime form, you can decide whether it is a perfect square or a perfect cube just by looking at the exponents. No guessing, no calculator.",
+    "math": "300 = 2^2 \\times 3 \\times 5^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is why it works. A perfect square is a number times itself, so every prime has to show up in pairs. Thirty six is six times six, which is two times three, times two times three. That is a pair of twos and a pair of threes, so in exponent form it is two squared times three squared, and both exponents are even. A perfect cube is a number times itself three times, so every prime shows up in triples, which means every exponent has to be divisible by three.",
+    "math": "36 = 6 \\times 6 = 2^2 \\times 3^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [],
+     "caption": "36 is a 6 by 6 square, so its primes come in pairs"
+    }
+   },
+   {
+    "say": "Now let us test three hundred twenty four. A factor tree might start with four times eighty one, but do not stop there, because four and eighty one are not prime. Keep going and you get two squared times three to the power of four. The exponents are two and four, and both of those are even, so three hundred twenty four is a perfect square. To find the square root, just halve each exponent: two to the power of one times three squared, which is two times nine, so eighteen. And eighteen times eighteen really is three hundred twenty four.",
+    "math": "324 = 2^2 \\times 3^4 \\quad\\Rightarrow\\quad \\sqrt{324} = 2^1 \\times 3^2 = 18",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      18,
+      18
+     ],
+     "labels": [
+      "units"
+     ],
+     "caption": "324 fits exactly into an 18 by 18 square"
+    }
+   },
+   {
+    "say": "Same number, different test. For a cube, each exponent has to be divisible by three. Our exponents are two and four. Two is not divisible by three, and four is not either, so three hundred twenty four is not a perfect cube. You can double check it: six cubed is two hundred sixteen and seven cubed is three hundred forty three, so three hundred twenty four is stuck in between two whole cubes.",
+    "math": "6^3 = 216 < 324 < 343 = 7^3",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      6
+     ],
+     "labels": [
+      "units"
+     ],
+     "caption": "6 cubed is 216 and 7 cubed is 343, so 324 lands between them"
+    }
+   },
+   {
+    "say": "Here is the trap I see all the time. Someone looks at two to the power of four times three squared, notices both exponents are even, and announces it is a cube. Careful, even is the square test, not the cube test. That number is sixteen times nine, which is one hundred forty four, and one hundred forty four is twelve times twelve. So it is a perfect square, and definitely not a cube. One more thing to watch: count your factors carefully when you write the exponent. Two times two times two is two cubed, not two squared.",
+    "math": "2^4 \\times 3^2 = 144 = 12^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      12,
+      12,
+      12,
+      12
+     ],
+     "labels": [],
+     "caption": "144 is 12 by 12, a square, even though someone called it a cube"
+    }
+   },
+   {
+    "say": "So the whole step in one breath: write the number in prime form, then read the exponents. All even means perfect square. All divisible by three means perfect cube. If neither one is true, it is neither.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Write it in primes, then read the exponents: all even means perfect square, all divisible by three means perfect cube.",
+  "practice": {
+   "question": "A soccer club in Surrey is buying 1600 square metres of turf and wants to lay it out as a perfect square field. The prime factorization of sixteen hundred is two to the power of six times five squared. Using only the exponents, decide: is sixteen hundred a perfect square? Is it a perfect cube? If it is a square, what is the side length of the field in metres?",
+   "answer": "The exponents are six and two, and both are even, so sixteen hundred is a perfect square. Halve each exponent to get two cubed times five, which is eight times five, so the field is 40 metres by 40 metres. It is not a perfect cube, because the exponent two is not divisible by three, even though six is."
+  }
+ }
+}

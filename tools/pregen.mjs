@@ -48,7 +48,7 @@ const ONLY = String(opt("only", "all"));
 const CONCURRENCY = Math.max(1, Math.min(8, Number(opt("concurrency", 2)) || 2));
 const FORCE = flag("force");
 const WITH_BOOKS = flag("books");
-const WITH_SKILLS = !flag("no-skills"); // 技能图谱（G4–G7 默认清单）：2026-09-02 起默认做，--no-skills 才跳过（--skills 仍认，兼容老命令）
+const WITH_SKILLS = !flag("no-skills"); // 技能图谱（G4–G8 默认清单）：2026-09-02 起默认做，--no-skills 才跳过（--skills 仍认，兼容老命令）
 const DRY = flag("dry");
 const GRADES = String(opt("grades", "")).split(",").map(s => s.trim()).filter(Boolean);
 const JUDGE = flag("judge");                 // 生成完送另一个引擎审稿：没过重来一次，仍没过就放弃这条
