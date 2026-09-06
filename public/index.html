@@ -2129,31 +2129,50 @@ function vPieChart(nums,labels,opts){
   const vals=(nums||[]).map(Number).filter(v=>isFinite(v)&&v>0).slice(0,6);
   if(!vals.length) return "";
   const sum=vals.reduce((x,y)=>x+y,0);
-  /* 题图模式（契约 v3 questionVisual）：扇区标 nums 原值——合计恰为 100 就是百分数、带 % 号；
-   * 否则就是原始计数，百分比要孩子自己算。图例只写名字。课文模式照旧标算出来的百分比。 */
+  /* 题图模式（契约 v3 questionVisual）：扇区标 nums 原值、不取整——合计恰为 100 就是百分数、带 % 号，
+   * 12.5 就得印 12.5%（四舍五入成 13% 会把合计凑成 101%，等于改写了题目数据，复审 R1）；
+   * 否则就是原始计数，百分比要孩子自己算。图例只写名字。课文模式照旧标算出来的百分比（图例带值）。 */
   const quiz=!!(opts&&opts.quiz), asPct=Math.abs(sum-100)<1e-9;
-  const secTxt=v=>quiz?(asPct?Math.round(v)+"%":fmtNum(v)):Math.round(v/sum*100)+"%";
-  const cx=100,cy=95,R=78;
+  const secTxt=v=>quiz?(asPct?fmtNum(v)+"%":fmtNum(v)):Math.round(v/sum*100)+"%";
+  const cx=118,cy=100,R=70;
   let a0=-Math.PI/2, r="";
+  /* 题图里太窄（< 9%）标不进扇区的值不能丢——读图题的数据只在图上。拉引线到圆外，左右两侧各排成一列，
+   * 按自然高度排序、至少隔 14px，几个小扇区挤在一起也不会叠字 */
+  const out={L:[],R:[]};
   if(vals.length===1){
     r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${PAL[0]}"/>`;
     r+=`<text x="${cx}" y="${cy+5}" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">${secTxt(vals[0])}</text>`;
   }else vals.forEach((v,i)=>{
-    const a1=a0+v/sum*2*Math.PI;
+    const a1=a0+v/sum*2*Math.PI, am=(a0+a1)/2;
     r+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
-    if(v/sum>=0.09){
-      const am=(a0+a1)/2;
-      r+=`<text x="${(cx+R*0.62*Math.cos(am)).toFixed(1)}" y="${(cy+R*0.62*Math.sin(am)+4).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">${secTxt(v)}</text>`;
-    }
+    const txt=secTxt(v);
+    if(v/sum>=(txt.length>3?0.14:0.09)){   // 「12.5%」这种长标签要更宽的扇区才放得下，不然溢出扇区边
+      r+=`<text x="${(cx+R*0.62*Math.cos(am)).toFixed(1)}" y="${(cy+R*0.62*Math.sin(am)+4).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">${txt}</text>`;
+    }else if(quiz) (Math.cos(am)>=0?out.R:out.L).push({am, txt, y:cy+(R+10)*Math.sin(am)});
     a0=a1;
   });
+  const place=(list,dir)=>{   // dir=1 右侧（文字向右伸），-1 左侧
+    list.sort((a,b)=>a.y-b.y);
+    let last=-1e9;
+    for(const o of list){ o.y=Math.max(o.y,last+14,12); last=o.y; }
+    const over=list.length?list[list.length-1].y-188:0;
+    if(over>0) for(const o of list) o.y-=over;
+    const lx=cx+dir*(R+14);
+    for(const o of list){
+      r+=`<line x1="${(cx+(R-2)*Math.cos(o.am)).toFixed(1)}" y1="${(cy+(R-2)*Math.sin(o.am)).toFixed(1)}" x2="${(lx-dir*3).toFixed(1)}" y2="${o.y.toFixed(1)}" stroke="${COL.ink}" stroke-width="1.2"/>`;
+      r+=`<text x="${lx.toFixed(1)}" y="${(o.y+4).toFixed(1)}" text-anchor="${dir>0?"start":"end"}" font-size="12" font-weight="800" fill="${COL.ink}">${o.txt}</text>`;
+    }
+  };
+  place(out.R,1); place(out.L,-1);
+  /* 图例：题图靠右一些给引线标签让地方（名字最多 14 字、13px）；课文模式照旧 */
+  const lgX=quiz?248:205, lgFs=quiz?13:14;
   vals.forEach((v,i)=>{
     const y=cy-((vals.length-1)*24)/2+i*24;
-    const lab=(labels&&labels[i])?String(labels[i]).slice(0,quiz?16:10):t("barItemFmt")(i+1);
-    r+=`<rect x="205" y="${y-12}" width="14" height="14" rx="4" fill="${PAL[i%6]}"/>`;
-    r+=`<text x="227" y="${y}" font-size="14" fill="${COL.ink}">${escapeHtml(lab)}${quiz?"":` · ${fmtNum(v)} (${Math.round(v/sum*100)}%)`}</text>`;
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,quiz?14:10):t("barItemFmt")(i+1);
+    r+=`<rect x="${lgX}" y="${y-12}" width="14" height="14" rx="4" fill="${PAL[i%6]}"/>`;
+    r+=`<text x="${lgX+22}" y="${y}" font-size="${lgFs}" fill="${COL.ink}">${escapeHtml(lab)}${quiz?"":` · ${fmtNum(v)} (${Math.round(v/sum*100)}%)`}</text>`;
   });
-  return svg(460,190,r);
+  return svg(460,200,r);
 }
 
 /* ---- 立体几何：斜二测画法，看不见的棱画虚线 ---- */

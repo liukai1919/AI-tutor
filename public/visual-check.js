@@ -112,7 +112,9 @@
           break;
         }
         case "count": {
-          const c = n.filter(v => Number.isFinite(v) && v > 0).length;
+          /* 数 nums 的项数（含 0）：渲染端按整个数组截断，零值行也占一行，只数正数会让第 9 行悄悄消失（复审 R2）。
+           * 到这里每一项都已经是数字（前面的形状检查），所以就是 n.length */
+          const c = n.length;
           if (c > r.max) return bad("给了 " + c + " 项，最多只画 " + r.max + " 项");
           if (r.min && c < r.min) return bad("给了 " + c + " 项，至少要 " + r.min + " 项");
           break;

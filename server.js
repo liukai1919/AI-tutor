@@ -2595,7 +2595,10 @@ function quizOpenCreate(userId, cid, lang, questions) {
 function quizOpenTake(sid, userId, cid) {
   const key = String(sid || "");
   const s = quizOpen.get(key);
-  if (!s || s.userId !== userId || s.cid !== cid) return null;
+  if (!s) return null;
+  /* 过期票一律作废（QUIZ_OPEN_TTL）：以前只在别人开新场时顺带清理，一张票能不能用取决于这期间有没有人另开一场（复审 R3） */
+  if (Date.now() - s.at > QUIZ_OPEN_TTL) { quizOpen.delete(key); return null; }
+  if (s.userId !== userId || s.cid !== cid) return null;
   quizOpen.delete(key);
   return s;
 }
