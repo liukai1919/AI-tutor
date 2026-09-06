@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "statistics-society",
+ "lang": "en",
+ "unitName": {
+  "zh": "社会中的统计",
+  "en": "Statistics in society"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Statistics in society · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.STAT.POP_SAMPLE",
+    "level": 1,
+    "question": "A school in Surrey has 840 students. The student council asks 60 of them how they travel to school each morning. Which group is the sample?",
+    "options": [
+     "All 840 students at the school",
+     "The 60 students who were asked",
+     "The students who ride the bus",
+     "The council members who asked"
+    ],
+    "answerIndex": 1,
+    "explain": "The population is the whole group you want to know about (all 840 students); the sample is the smaller part actually surveyed, here the 60 students. A common trap is naming the whole school as the sample, or naming the people doing the asking."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.SAMPLING_METHODS",
+    "level": 1,
+    "question": "A swim club coach lists all 200 members in alphabetical order, then chooses the 7th name and every 10th name after that. Which sampling method is this?",
+    "options": [
+     "Convenience sampling",
+     "Voluntary sampling",
+     "Systematic sampling",
+     "Stratified sampling"
+    ],
+    "answerIndex": 2,
+    "explain": "Following a fixed step through an ordered list (every 10th name) is systematic sampling. Students often call it random because it feels fair, but true random sampling gives every member an equal, unpatterned chance."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.MISLEADING_GRAPHS",
+    "level": 1,
+    "question": "A bar graph compares the recycling collected by four Grade 9 classes. The vertical axis starts at 40 kg instead of 0 kg. What does this do to the graph?",
+    "options": [
+     "It makes the gaps between the bars look bigger than they are",
+     "It makes the gaps between the bars look smaller than they are",
+     "It changes the actual number of kilograms each class collected",
+     "It has no effect, because the axis labels are still correct"
+    ],
+    "answerIndex": 0,
+    "explain": "A truncated axis chops off the bottom of every bar, so a small real difference fills a large part of the picture and looks huge. Remember the data itself never changes — only how big the differences appear."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.BIAS",
+    "level": 2,
+    "question": "A student surveys 60 randomly chosen classmates with this question: ‘Do you agree that our unfair 20-minute lunch break should be made longer?' What is the main problem with this survey?",
+    "options": [
+     "The sample is too small to say anything at all",
+     "The question uses loaded words that push a yes",
+     "Students at lunch are the wrong group to ask",
+     "The survey should have been done online instead"
+    ],
+    "answerIndex": 1,
+    "explain": "The sample was chosen randomly, so the bias is in the wording: ‘unfair' is loaded language that steers people toward yes. Check the question itself before blaming the sample size."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.SAMPLING_METHODS",
+    "level": 2,
+    "question": "A school has 300 students in Grade 9, 240 in Grade 10, 180 in Grade 11 and 120 in Grade 12, for a total of 840. The principal takes a stratified sample of 70 students. How many Grade 10 students should be chosen?",
+    "options": [
+     "24 students",
+     "25 students",
+     "17 students",
+     "20 students"
+    ],
+    "answerIndex": 3,
+    "explain": "Stratified sampling keeps each grade's share: 70 out of 840 is one twelfth, and one twelfth of 240 is 20. The usual slips are splitting 70 evenly among the four grades (about 17) or using 10 percent (24)."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.MISLEADING_GRAPHS",
+    "level": 2,
+    "question": "A school newsletter reports: ‘Chess club up 50%, badminton club up 10%!' The chess club grew from 20 members to 30, and the badminton club grew from 400 members to 440. Which statement is true?",
+    "options": [
+     "Badminton gained 30 more members than chess did",
+     "Chess gained more new members than badminton did",
+     "Both clubs gained the same number of members",
+     "Chess now has more members than badminton has"
+    ],
+    "answerIndex": 0,
+    "explain": "Percents need a base: chess gained 10 members and badminton gained 40, a difference of 30. A bigger percent does not mean a bigger number when the starting groups are very different sizes."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.CRITIQUE",
+    "level": 3,
+    "question": "A news article claims: ‘95% of drinking water samples in the region met the safety standard.' All 200 samples came from the two largest towns. The region also has 14 smaller First Nations communities, several of them under long-term boil-water advisories, and none of them were sampled. Which is the fairest way to redo the study?",
+    "options": [
+     "Collect twice as many samples from the same two towns",
+     "Report the 95% figure but print it in a larger font",
+     "Sample every community, in numbers matching its size",
+     "Drop the two towns and sample only the small ones"
+    ],
+    "answerIndex": 2,
+    "explain": "The 95% describes only the two towns sampled, so it cannot speak for the whole region; a stratified sample covering every community fixes the gap. Adding more samples from the same two towns makes the number more precise but just as unrepresentative."
+   },
+   {
+    "curriculumId": "YY.MATH.STAT.BIAS",
+    "level": 3,
+    "question": "A Nanaimo radio station asks listeners to phone in and answer: ‘Should the ferry fare be cut?' Of the 4000 people who call, 92% say yes. The station says such a large sample proves that most of the 90 000 residents want a fare cut. How should you judge this claim?",
+    "options": [
+     "The station is right: 4000 replies is a very large sample",
+     "The result is fine, since 92% is far above half",
+     "It is wrong only because 4000 is under 5% of 90 000",
+     "The result is biased; only strong feelings phone in"
+    ],
+    "answerIndex": 3,
+    "explain": "This is a voluntary-response sample: people who feel strongly choose to call, so the group is not representative no matter how many reply. The big trap in this unit is thinking a large sample cancels out bias — it only makes a biased answer look more convincing."
+   }
+  ]
+ }
+}

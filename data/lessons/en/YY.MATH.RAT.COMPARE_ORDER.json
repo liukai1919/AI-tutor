@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare and order rational numbers written in mixed forms (−0.75, −2/3, −1/2, 0.6)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Lining Up Negatives, Fractions and Decimals",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to drop a fraction, a decimal, or a negative number onto a number line. Today we sort a mixed bag of them: negative zero point seven five, negative two thirds, negative one half, and zero point six. Think of these as four friends' bank balances in dollars after splitting a snack. Who is deepest in the hole, and who is doing best?",
+    "math": "-0.75,\\ -\\frac{2}{3},\\ -\\frac{1}{2},\\ 0.6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Step one: make everything the same form. Decimals are easiest because you can read them left to right. Negative one half is negative zero point five. Negative two thirds is two divided by three, which is zero point six six six repeating, so about negative zero point six seven. The other two are already decimals.",
+    "math": "-\\frac{1}{2}=-0.5\\qquad -\\frac{2}{3}=-0.\\overline{6}\\approx-0.67",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      3,
+      2,
+      2,
+      1
+     ],
+     "labels": [],
+     "caption": "Two thirds is a bigger chunk than one half, so its decimal, 0.67, is bigger than 0.5"
+    }
+   },
+   {
+    "say": "Step two: place them on a number line and read from left to right, because left is always smaller. Negative zero point seven five is farthest left. Then negative zero point six seven. Then negative zero point five. And zero point six is the only positive, so it sits way over on the right. So the order from least to greatest is negative zero point seven five, negative two thirds, negative one half, zero point six.",
+    "math": "-0.75<-\\frac{2}{3}<-\\frac{1}{2}<0.6",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -1,
+      1,
+      -0.75,
+      -0.5,
+      4
+     ],
+     "labels": [],
+     "caption": "Negative three quarters sits left of negative one half; negative two thirds lands between them"
+    }
+   },
+   {
+    "say": "Here is the trap most people fall into. They see zero point seven five is more than zero point five, so they say negative zero point seven five is bigger than negative one half. Nope. With negatives, a bigger digit means you are further from zero on the left side, so the number is actually smaller. Owing seventy five cents is worse than owing fifty cents. Moving right toward zero is what makes a negative number bigger.",
+    "math": "-0.75<-0.5\\ \\text{even though}\\ 0.75>0.5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -1,
+      0,
+      -0.75,
+      -0.5,
+      4
+     ],
+     "labels": [],
+     "caption": "Going from negative 0.75 to negative 0.5 is a jump to the right, so it is going up"
+    }
+   },
+   {
+    "say": "One more trap while converting fractions. A bigger denominator does not mean a bigger fraction. One eighth has the bigger denominator, but cutting a pizza into eight slices makes each slice smaller than cutting it into four. So one eighth is smaller than one quarter. That is exactly why we convert to decimals or draw the picture instead of guessing from the bottom number.",
+    "math": "\\frac{1}{8}<\\frac{1}{4}\\quad\\text{since}\\ 0.125<0.25",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      4,
+      1,
+      8,
+      1
+     ],
+     "labels": [],
+     "caption": "One quarter of a pizza versus one eighth: the eighth slice is smaller"
+    }
+   },
+   {
+    "say": "So here is the whole move in one line. Turn everything into decimals, drop them on a number line, and read left to right. Negatives sit left of zero, and the negative closest to zero is the biggest of the negatives. That gives negative zero point seven five, then negative two thirds, then negative one half, then zero point six.",
+    "math": "-0.75<-\\frac{2}{3}<-\\frac{1}{2}<0.6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Convert to decimals, place them on a number line, read left to right. Closer to zero is bigger for negatives.",
+  "practice": {
+   "question": "Four friends check their bank apps after splitting a bubble tea bill. Their balances in dollars are: negative zero point eight, negative three quarters, negative one quarter, and positive zero point five. Sketch a number line from negative one to positive one, mark all four balances, and list them from least to greatest.",
+   "answer": "Negative three quarters is negative 0.75 and negative one quarter is negative 0.25. Order from least to greatest: negative 0.8, negative three quarters, negative one quarter, 0.5. Negative 0.8 is farthest left, and 0.5 is the only positive."
+  }
+ }
+}

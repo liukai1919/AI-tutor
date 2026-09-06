@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA.RECT_PRISM",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqu60jjdbs9z",
+   "level": 1,
+   "question": "一个长方体的展开图（net）由 6 个长方形拼成：2 个 5 cm × 3 cm 的、2 个 5 cm × 2 cm 的、2 个 3 cm × 2 cm 的。把它折成长方体后，表面积（surface area）是多少？",
+   "options": [
+    "62 cm²",
+    "30 cm²",
+    "31 cm²",
+    "50 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "六个面两两相同，SA＝2lw＋2lh＋2wh＝2×15＋2×10＋2×6＝62 cm²。最常见的坑是把 15＋10＋6＝31 直接当答案，那只数了一半的面；而 5×3×2＝30 算的是体积，不是表面积。",
+   "tags": [
+    "ok",
+    "vol.surface_confuse",
+    "sa.forget_double_faces",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jtuychf",
+   "level": 1,
+   "question": "一个长方体的展开图上有 6 个长方形：6 cm × 4 cm、6 cm × 3 cm、4 cm × 3 cm 各两个。折起来以后，这个长方体的表面积是多少？",
+   "options": [
+    "84 cm²",
+    "108 cm²",
+    "72 cm²",
+    "54 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "三种面的面积是 24、18、12，每种都有两个，所以 SA＝2×(24＋18＋12)＝108 cm²。写成 24＋18＋12＝54 是每对面只算了一次；6×4×3＝72 是体积（volume）。",
+   "tags": [
+    "other",
+    "ok",
+    "vol.surface_confuse",
+    "sa.forget_double_faces"
+   ]
+  },
+  {
+   "qid": "qmtkqu60j286p9v",
+   "level": 1,
+   "question": "一个长方体展开图中，6 个长方形分别是：两个 10 cm × 5 cm、两个 10 cm × 2 cm、两个 5 cm × 2 cm。这个长方体的表面积是多少？",
+   "options": [
+    "100 cm²",
+    "130 cm²",
+    "160 cm²",
+    "80 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "三种面依次是 50、20、10，各有两个，SA＝2×(50＋20＋10)＝160 cm²。坑在于只把最大的一对面翻倍（100＋20＋10＝130），或者三个面各加一次（80）——展开图里每一种面都出现两次。",
+   "tags": [
+    "vol.surface_confuse",
+    "other",
+    "ok",
+    "sa.forget_double_faces"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jynqxay",
+   "level": 1,
+   "question": "一个长方体的长 7 cm、宽 2 cm、高 3 cm。它的展开图里有 7×2、7×3、2×3 三种长方形。下面哪个算法和结果是对的？",
+   "options": [
+    "41 cm²，把 14、21、6 各加一次",
+    "42 cm²，把 7、2、3 三个数相乘",
+    "24 cm²，把 7＋2＋3 的和乘以 2",
+    "82 cm²，把 14、21、6 各加两次"
+   ],
+   "answerIndex": 3,
+   "explain": "展开图里每种长方形都出现两次，所以 SA＝2×14＋2×21＋2×6＝82 cm²。把 14、21、6 只各加一次得 41，是漏掉了对面；7×2×3＝42 求的是体积。",
+   "tags": [
+    "sa.forget_double_faces",
+    "vol.surface_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqu60j76zr4w",
+   "level": 2,
+   "question": "一个长方体的长是 12 cm、宽是 5 cm、高是 4 cm。求它的表面积（surface area）。",
+   "options": [
+    "256 cm²",
+    "240 cm²",
+    "216 cm²",
+    "128 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "SA＝2lw＋2lh＋2wh＝2×60＋2×48＋2×20＝256 cm²。写成 60＋48＋20＝128 是每对面只算一次；12×5×4＝240 是体积；得 216 的人漏掉了 5×4 那一对面。",
+   "tags": [
+    "ok",
+    "vol.surface_confuse",
+    "other",
+    "sa.forget_double_faces"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jpdky3h",
+   "level": 2,
+   "question": "一个长方体木块，长 9 cm、宽 4 cm、高 5 cm。它六个面的面积之和是多少？",
+   "options": [
+    "180 cm²",
+    "202 cm²",
+    "101 cm²",
+    "162 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "三种面是 9×4＝36、9×5＝45、4×5＝20，各两个，SA＝2×(36＋45＋20)＝202 cm²。得 101 的只把每种面算了一次；9×4×5＝180 求的是体积，问的却是面积。",
+   "tags": [
+    "vol.surface_confuse",
+    "ok",
+    "sa.forget_double_faces",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jsuc9tw",
+   "level": 2,
+   "question": "一个长方体纸盒的底面是 8 cm × 3 cm 的长方形，高是 10 cm。它的表面积是多少？",
+   "options": [
+    "240 cm²",
+    "134 cm²",
+    "268 cm²",
+    "208 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "底面 8×3＝24、前后面 8×10＝80、左右面 3×10＝30，每种两个，SA＝2×(24＋80＋30)＝268 cm²。得 134 是漏了对面没翻倍；8×3×10＝240 是体积；得 208 是漏掉了 3×10 那一对侧面。",
+   "tags": [
+    "vol.surface_confuse",
+    "sa.forget_double_faces",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqu60j8dcycw",
+   "level": 2,
+   "question": "小美要给一个长 30 cm、宽 20 cm、高 10 cm 的长方体礼物盒包上包装纸，纸刚好盖住六个面、没有重叠。她至少需要多少平方厘米的包装纸？",
+   "options": [
+    "1100 cm²",
+    "1800 cm²",
+    "6000 cm²",
+    "2200 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "包装纸的面积就是表面积：2×600＋2×300＋2×200＝2200 cm²。得 1100 的人每对面只算了一次；得 6000 的人算成了 30×20×10 这个体积，那是盒子能装多少东西，不是纸的面积。",
+   "tags": [
+    "sa.forget_double_faces",
+    "other",
+    "vol.surface_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jbv6dcd",
+   "level": 3,
+   "question": "温哥华一个社区花园做了一个长方体木箱，长 1.2 m、宽 0.8 m、高 0.5 m，六个面都要刷防水漆。防水漆每平方米 8 加元，刷完这个箱子要花多少钱？",
+   "options": [
+    "31.36 加元",
+    "15.68 加元",
+    "3.84 加元",
+    "16.00 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先求表面积：2×0.96＋2×0.6＋2×0.4＝3.92 m²，再乘单价 8，得 31.36 加元。得 15.68 的人每对面只算一次；1.2×0.8×0.5＝0.48 是体积，用它算钱就成了 3.84 加元。",
+   "tags": [
+    "ok",
+    "sa.forget_double_faces",
+    "vol.surface_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jlkh7sj",
+   "level": 3,
+   "question": "素里的阿哲有一个长 50 cm、宽 30 cm、高 40 cm 的长方体储物箱，他要给箱子贴保护膜，但箱子底面贴地，不用贴。他需要多少平方厘米的膜？",
+   "options": [
+    "9400 cm²",
+    "7900 cm²",
+    "4700 cm²",
+    "60000 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "先算六个面：2×1500＋2×2000＋2×1200＝9400 cm²，再减掉一个底面 50×30＝1500，得 7900 cm²。坑一是忘了减底面（9400），坑二是每对面只算一次（4700），50×30×40＝60000 则是体积。",
+   "tags": [
+    "other",
+    "ok",
+    "sa.forget_double_faces",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkqu60j2jv6no",
+   "level": 3,
+   "question": "小宇要算一个长 6 cm、宽 5 cm、高 4 cm 的鞋盒的表面积（surface area）。他写下 30＋24＋20＝74，说答案是 74 cm²。下面哪句话说中了他的毛病？",
+   "options": [
+    "他把面积当成体积了，应改成 6×5×4，写作 120 cm²",
+    "他没错，长方体只有 3 种不同的面，74 cm² 就是答案",
+    "他每对面只算一次，六个面两两相同，应是 148 cm²",
+    "他少乘了棱的条数，应把 6＋5＋4 乘 4 得 60 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "长方体的面是成对出现的，正确写法是 2×(30＋24＋20)＝148 cm²，小宇每对面只数了一个。注意他并没有算体积，也不是把棱加起来——问题就出在少乘了那个 2。",
+   "tags": [
+    "vol.surface_confuse",
+    "sa.forget_double_faces",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqu60jb9ao05",
+   "level": 3,
+   "question": "一个长方体饭盒的底面是 10 cm × 6 cm，装满水时容积是 480 cm³。这个饭盒的表面积是多少？",
+   "options": [
+    "188 cm²",
+    "480 cm²",
+    "280 cm²",
+    "376 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "先由体积求高：480÷(10×6)＝8 cm，再算表面积 2×60＋2×80＋2×48＝376 cm²。得 188 的人每对面只算了一次；直接把 480 抄下来则是把体积当成了表面积。",
+   "tags": [
+    "sa.forget_double_faces",
+    "vol.surface_confuse",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

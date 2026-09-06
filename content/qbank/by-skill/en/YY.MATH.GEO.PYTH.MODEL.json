@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.MODEL",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkpzdxho9yaud",
+   "level": 1,
+   "question": "A right triangle has a square built on each of its three sides out of 1 cm by 1 cm tiles. The square on one leg is made of 9 tiles and the square on the other leg is made of 16 tiles. How many tiles make up the square on the hypotenuse?",
+   "options": [
+    "25 tiles",
+    "5 tiles",
+    "7 tiles",
+    "144 tiles"
+   ],
+   "answerIndex": 0,
+   "explain": "The two leg squares together fill the hypotenuse square, so 9 + 16 = 25 tiles. The common trap is adding the side lengths 3 + 4 = 7 instead of the tile areas.",
+   "tags": [
+    "ok",
+    "other",
+    "pyth.add_sides_not_squares",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxh6iu3oh",
+   "level": 1,
+   "question": "A right triangle has a square of tiles built on each side. The square on one leg holds 36 tiles and the square on the other leg holds 64 tiles. How many tiles does the square on the hypotenuse hold?",
+   "options": [
+    "14 tiles",
+    "100 tiles",
+    "28 tiles",
+    "10 tiles"
+   ],
+   "answerIndex": 1,
+   "explain": "Add the two leg areas: 36 + 64 = 100 tiles. Watch out for adding the sides 6 + 8 = 14, or giving 10, which is the side length of the big square and not its tile count.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhbjpyu1",
+   "level": 1,
+   "question": "A right triangle is drawn tilted on the page, with a square of tiles on each side. The square on the hypotenuse holds 169 tiles, and the square on one leg holds 25 tiles. How many tiles are in the square on the other leg?",
+   "options": [
+    "18 tiles",
+    "194 tiles",
+    "144 tiles",
+    "12 tiles"
+   ],
+   "answerIndex": 2,
+   "explain": "The two leg squares must add up to the hypotenuse square, so the missing leg square is 169 - 25 = 144 tiles. The trap is adding to get 194, which treats the 169 square as a leg square even though it sits on the longest side.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhuwseiy",
+   "level": 1,
+   "question": "A right triangle has a square built on each side from unit tiles. The two smaller squares hold 81 tiles and 144 tiles. Which sentence describes the square on the hypotenuse?",
+   "options": [
+    "It holds 21 tiles, because 9 + 12 = 21.",
+    "It holds 15 tiles, because its side is 15.",
+    "It holds 63 tiles, because 144 - 81 = 63.",
+    "It holds 225 tiles, from 81 + 144 = 225."
+   ],
+   "answerIndex": 3,
+   "explain": "The areas of the two leg squares add to the area of the hypotenuse square: 81 + 144 = 225 tiles. The one that says 15 tiles confuses the side length of that square with how many tiles fill it.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxh806e6b",
+   "level": 2,
+   "question": "A right triangle has legs of 9 m and 12 m, and a hypotenuse of c metres. Which equation says that the two squares on the legs together equal the square on the hypotenuse?",
+   "options": [
+    "9² + 12² = c²",
+    "9 + 12 = c",
+    "12² - 9² = c²",
+    "9² + c² = 12²"
+   ],
+   "answerIndex": 0,
+   "explain": "The areas of the leg squares add to the hypotenuse square, so 9² + 12² = c². The version with 9 + 12 adds side lengths, which are edges, not areas.",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "other",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxh64bfef",
+   "level": 2,
+   "question": "In right triangle PQR the right angle is at corner Q, and a square is built on each of the three sides. Which square has the greatest area?",
+   "options": [
+    "The square on side PQ",
+    "The square on side PR",
+    "All three have equal areas",
+    "The square on side QR"
+   ],
+   "answerIndex": 1,
+   "explain": "The hypotenuse is always the side across from the right angle, here PR, and its square equals the other two squares combined, so it is the largest. The trap is picking a side that touches the right angle just because the triangle is labelled in an unfamiliar order.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "other",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhetxrkf",
+   "level": 2,
+   "question": "A rectangular garden bed in Kelowna measures 15 m by 8 m. A stone path runs along one diagonal, cutting the bed into two right triangles. What is the area of the square built on that diagonal?",
+   "options": [
+    "It is 15 + 8 = 23 m².",
+    "It is 15 x 8 = 120 m².",
+    "It is 15² + 8² = 289 m².",
+    "It is 15² - 8² = 161 m²."
+   ],
+   "answerIndex": 2,
+   "explain": "The two sides of the rectangle are the legs, so the square on the diagonal has area 225 + 64 = 289 m². The one that says 23 m² adds the side lengths instead of the areas of the leg squares.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhaene1j",
+   "level": 2,
+   "question": "In right triangle ABC the longest side is AB. Squares are built on all three sides. Which statement about those squares is true?",
+   "options": [
+    "AC² = AB² + BC²",
+    "AB = AC + BC",
+    "BC² = AB² + AC²",
+    "AB² = AC² + BC²"
+   ],
+   "answerIndex": 3,
+   "explain": "AB is the hypotenuse, so the square on AB equals the squares on AC and BC added together. The trap is putting a leg on the left side of the equation, which claims a small square equals two bigger ones.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxh6a73un",
+   "level": 3,
+   "question": "Ella builds a right-triangle kite frame. The square on one leg has area 36 dm² and the square on the other leg has area 64 dm². What is the perimeter of the square built on the hypotenuse?",
+   "options": [
+    "40 dm",
+    "32 dm",
+    "56 dm",
+    "10 dm"
+   ],
+   "answerIndex": 0,
+   "explain": "First add the leg squares: 36 + 64 = 100 dm², so that square has side 10 dm and perimeter 4 x 10 = 40 dm. The 32 dm answer uses the 64 dm² square as if it sat on the hypotenuse, and 10 dm stops at the side length.",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhg13is0",
+   "level": 3,
+   "question": "A right triangle has sides 9 cm, 12 cm and 15 cm, with a square built on each side. Ravi says the square on the 12 cm side has the same area as the other two squares put together. What is wrong with what Ravi says?",
+   "options": [
+    "The 12 cm side is the hypotenuse, so Ravi is right.",
+    "The hypotenuse is 15 cm, so its square is the sum.",
+    "He should add side lengths: 9 + 12 = 21, not areas.",
+    "He should multiply the areas, 81 x 144, not add."
+   ],
+   "answerIndex": 1,
+   "explain": "Only the square on the longest side, the hypotenuse, equals the other two combined: 81 + 144 = 225, the square on 15 cm. Ravi picked a leg as the hypotenuse, which is easy to do when the sides are not listed in order.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.add_sides_not_squares",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxho0g7zh",
+   "level": 3,
+   "question": "Maya has three square plywood pieces with areas 225 cm², 400 cm² and 625 cm². They fit exactly onto the three sides of a right-triangle frame. Which piece covers the square on the hypotenuse, and why?",
+   "options": [
+    "The 400 cm² piece, since 625 - 225 = 400.",
+    "None of them; 15 + 20 = 35 gives the answer.",
+    "The 625 cm² piece, since 225 + 400 = 625.",
+    "The 225 cm² piece, since 15 is the shortest."
+   ],
+   "answerIndex": 2,
+   "explain": "Test which two areas add to the third: 225 + 400 = 625, so the 625 cm² piece is the square on the hypotenuse. The trap is subtracting and landing on a leg square, since only the largest square can equal the other two together.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkpzdxhabjjep",
+   "level": 3,
+   "question": "Noor leans a ladder against a wall in Burnaby. The square built on the ladder has area 25 m², and the square built on the ground from the wall to the foot of the ladder has area 9 m². How high up the wall does the ladder reach?",
+   "options": [
+    "8 m",
+    "16 m",
+    "about 5.8 m",
+    "4 m"
+   ],
+   "answerIndex": 3,
+   "explain": "The ladder is the hypotenuse, so the wall square is 25 - 9 = 16 m², giving a height of 4 m. The about 5.8 m answer comes from adding 25 + 9, which treats the ladder as a leg instead of the longest side.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  }
+ ]
+}

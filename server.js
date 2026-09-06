@@ -1434,7 +1434,9 @@ async function genClaude(sys, question, imageB64, mediaType, lang, opts) {
       const mm = Object.keys(env.modelUsage || {});
       if (mm.length) opts.meta.model = mm.join("+");
     }
-    return extractJson(env.result || out);
+    /* 解析不出 JSON 时把 CLI 的原话带上（限额、模型不可用、拒答……都藏在 result 里），否则只剩一句「找不到 JSON」没法排查 */
+    try { return extractJson(env.result || out); }
+    catch (e) { throw new Error(e.message + (env.is_error ? "（CLI 报错）" : "") + "：" + String(env.result || out).replace(/s+/g, " ").slice(0, 300)); }
   } finally { cleanup(dir); }
 }
 
@@ -2252,6 +2254,27 @@ function standardRollup(kidId, standardId) {
     ? { level: progressLevel(kidId, standardId), confidence: "low" } : null;
   return { level, total: pool.length, touched, proficient, legacy };
 }
+/* 一条 BC 标准在孩子名下的全部证据：级别 + 学习计数 + 技能汇总。
+ * 级别：家长星标 > 技能汇总（有挂靠时）> 老口径 progressLevel；
+ * 计数：标准自己那条 progress 加上挂靠技能（primary）的 progress 一起算。
+ * 实时报告和 AI 完整报告都从这里拿——以前完整报告只看标准 id 自己那条，
+ * 孩子在技能视图学的全被漏掉，两份报告互相打架（2026-09-05 审出）。 */
+function standardEvidence(kidId, standardId) {
+  const progress = kd(kidId).progress;
+  const e = progress[standardId];
+  const roll = standardRollup(kidId, standardId);
+  const manual = !!(e && e.solid);
+  const level = manual ? "proficient" : roll ? roll.level : progressLevel(kidId, standardId);
+  const ids = [standardId].concat(skillsByStandard.get(standardId) || []);
+  let taught = 0, right = 0, wrong = 0, lastAt = 0;
+  for (const id of ids) {
+    const p = progress[id];
+    if (!p) continue;
+    taught += p.taught || 0; right += p.right || 0; wrong += p.wrong || 0;
+    if ((p.lastAt || 0) > lastAt) lastAt = p.lastAt;
+  }
+  return { level, manualSolid: manual, taught, right, wrong, lastAt, skills: roll, ids };
+}
 /* 误区计数与回补建议（设计文档 §6）
  * 一道题答错、且它的干扰项挂了误区 id，就在这个技能名下记一笔。同一个误区攒到
  * MISS_TRIGGER 次，说明不是手滑而是稳定的错误模式 —— 按技能自己的 diag.branch
@@ -2402,12 +2425,30 @@ function qbankSpread(q, wantIdx) {
   q.answerIndex = wantIdx;
   return q;
 }
+/* 返回 { added, updated }。updated = 同 qid 的题原地刷新了内容（只有随包种子会带 qid 进来）：
+ * 2026-09-05 起题库修订会改题干、补 visual、改解析（issue #5），按题干去重会把改过的题当成新题再进一遍，
+ * 旧散文版和新图版并存；所以先按 qid 认——是同一道题就更新内容、保留这家的 usedAt。 */
+const QBANK_CONTENT_FIELDS = ["question", "options", "answerIndex", "explain", "tags", "visual"];
 function qbankMerge(bank, batch) {
   const norm = s => s.toLowerCase().replace(/\s+/g, "");
   const seen = new Set(bank.questions.map(q => norm(q.question)));
+  const byQid = new Map(bank.questions.filter(q => q.qid).map(q => [q.qid, q]));
   // 本题库已有的答案位置分布，新题往最空的位置填，整体自然趋于均匀
   const spread = [0, 1, 2, 3].map(i => bank.questions.filter(x => x.answerIndex === i).length);
+  let added = 0, updated = 0;
   for (const q of batch) {
+    const cur = q.qid && byQid.get(q.qid);
+    if (cur) {
+      let changed = false;
+      for (const f of QBANK_CONTENT_FIELDS) {
+        if (JSON.stringify(q[f]) === JSON.stringify(cur[f])) continue;
+        if (q[f] === undefined) delete cur[f]; else cur[f] = q[f];
+        changed = true;
+      }
+      if (changed) updated++;
+      seen.add(norm(cur.question));
+      continue;
+    }
     const k = norm(q.question);
     if (seen.has(k)) continue;
     if (bank.questions.filter(x => x.level === q.level).length >= QUIZ_LEVEL_CAP) continue;
@@ -2416,7 +2457,9 @@ function qbankMerge(bank, batch) {
     qbankSpread(q, want);
     spread[q.answerIndex]++;
     bank.questions.push(Object.assign({ qid: "q" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8), usedAt: 0 }, q));
+    added++;
   }
+  return { added, updated };
 }
 
 /* 随包种子题库：打包模式每次启动把 seed/qbank.json 里没见过的题并进来
@@ -2426,7 +2469,7 @@ try {
   const seedFile = path.join(SEED_DIR, "qbank.json");
   if (DATA_ROOT !== ROOT && fs.existsSync(seedFile)) {
     const seed = JSON.parse(fs.readFileSync(seedFile, "utf8"));
-    let added = 0;
+    let added = 0, updated = 0;
     if (seed && typeof seed === "object" && !Array.isArray(seed)) {
       for (const [key, sb] of Object.entries(seed)) {
         const qs = (sb && Array.isArray(sb.questions) ? sb.questions : [])
@@ -2434,14 +2477,13 @@ try {
           .map(q => { const c = Object.assign({}, q); delete c.usedAt; return c; });   // 种子的做题记录不带过来
         if (!qs.length) continue;
         const bank = qbank[key] || (qbank[key] = { questions: [] });
-        const n0 = bank.questions.length;
-        qbankMerge(bank, qs);
-        added += bank.questions.length - n0;
+        const r = qbankMerge(bank, qs);
+        added += r.added; updated += r.updated;
       }
     }
-    if (added) {
+    if (added || updated) {
       qbankSave();
-      console.log("[quiz] merged " + added + " new question(s) from the bundled seed bank");
+      console.log("[quiz] bundled seed bank: " + added + " new question(s) merged, " + updated + " revised in place");
     }
   }
 } catch (e) { console.log("[quiz] seed bank merge skipped: " + e.message); }
@@ -2529,7 +2571,33 @@ function quizSession(bank) {
     const used = qs.filter(q => q.usedAt).sort((a, b) => a.usedAt - b.usedAt);
     out.push(...fresh.concat(used).slice(0, QUIZ_SESSION_PER_LEVEL));
   }
-  return out.map(q => ({ qid: q.qid, level: q.level, question: q.question, options: q.options, answerIndex: q.answerIndex, explain: q.explain }));
+  // visual：题图（契约 v3 questionVisual），读图题的数据在图上；没有就不带这个键。tags 不下发（ok 的位置就是答案）
+  return out.map(q => Object.assign({ qid: q.qid, level: q.level, question: q.question, options: q.options, answerIndex: q.answerIndex, explain: q.explain },
+    q.visual ? { visual: q.visual } : {}));
+}
+
+/* 闯关场次（内存）：/api/quiz/session 发一张「场次票」，/api/quiz/finish 凭票结算，结算即作废。
+ * 以前结算只认客户端报上来的 correct:true，随便报两道 L3 就 solid（2026-09-05 审出）；
+ * 现在对错由服务端拿题库答案判，题目也只认这一场发出去的，同一场不能重复结算。
+ * 重启会丢正在进行的场次——那一场结算时 400，前端提示「成绩没存上」，仅此而已。 */
+const QUIZ_OPEN_TTL = 6 * 3600 * 1000;
+const QUIZ_OPEN_MAX = 500;
+const quizOpen = new Map();   // sid -> { userId, cid, lang, qids:Set, at }
+function quizOpenCreate(userId, cid, lang, questions) {
+  const now = Date.now();
+  for (const [k, v] of quizOpen) if (now - v.at > QUIZ_OPEN_TTL) quizOpen.delete(k);
+  while (quizOpen.size >= QUIZ_OPEN_MAX) quizOpen.delete(quizOpen.keys().next().value);   // Map 按插入序，先丢最老的
+  const sid = crypto.randomBytes(16).toString("hex");
+  quizOpen.set(sid, { userId, cid, lang, qids: new Set(questions.map(q => q.qid)), at: now });
+  return sid;
+}
+/* 凭票取场次：票不对 / 不是这个人的 / 不是这一节的 / 已结算 → null。取到即作废（一场只结一次） */
+function quizOpenTake(sid, userId, cid) {
+  const key = String(sid || "");
+  const s = quizOpen.get(key);
+  if (!s || s.userId !== userId || s.cid !== cid) return null;
+  quizOpen.delete(key);
+  return s;
 }
 
 /* ---------------- 账号与会话 ----------------
@@ -2579,6 +2647,7 @@ function usersCommit(mutate) {
 }
 function sessionsSave() {
   try {
+    for (const v of Object.values(sessions)) v.savedExpiresAt = v.expiresAt;   // auth() 的落盘节流以此为准
     fs.mkdirSync(path.dirname(SESSIONS_FILE), { recursive: true });
     const tmp = SESSIONS_FILE + ".tmp";
     fs.writeFileSync(tmp, JSON.stringify(sessions), "utf8");
@@ -2625,7 +2694,11 @@ function auth(req) {
   const u = userById(s.userId);
   if (!u) return null;
   const exp = Date.now() + SESSION_TTL;
-  if (exp - s.expiresAt > 24 * 3600 * 1000) { s.expiresAt = exp; sessionsSave(); } else s.expiresAt = exp;
+  s.expiresAt = exp;
+  /* 节流落盘要和「上次真正写进磁盘的到期时间」比。以前拿 exp 减刚被上一个请求改过的 s.expiresAt，
+   * 只要访问间隔不到一天差值就永远攒不满，磁盘上的到期时间停在登录那天，
+   * 天天用的人反而会在重启后被当过期踢掉（2026-09-05 审出） */
+  if (exp - (s.savedExpiresAt || 0) > 24 * 3600 * 1000) sessionsSave();
   return { user: u, role: u.role === "parent" ? "parent" : "student" };
 }
 
@@ -2752,13 +2825,15 @@ function buildReportDigest(kidId, gradeKey) {
   const progress = bucket.progress;
   const now = Date.now(), win = 14 * 24 * 3600 * 1000;
   const levels = { emerging: 0, developing: 0, proficient: 0, extending: 0 };
+  /* 级别和计数走 standardEvidence：标准自己的 progress + 挂靠技能的 progress 一起算，和实时报告同一套口径。
+   * 以前只看标准 id 自己那条，孩子在技能视图学的全被漏掉（2026-09-05 审出） */
   const strands = strandGroups(d, it => {
-    const e = progress[it.id];
-    const lv = progressLevel(kidId, it.id);
-    levels[lv]++;
+    const ev = standardEvidence(kidId, it.id);
+    levels[ev.level]++;
     return {
-      id: it.id, en: it.en, zh: it.zh, level: lv,
-      taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0, lastAt: e ? e.lastAt : 0
+      id: it.id, en: it.en, zh: it.zh, level: ev.level, manualSolid: ev.manualSolid,
+      taught: ev.taught, right: ev.right, wrong: ev.wrong, lastAt: ev.lastAt,
+      ids: ev.ids   // 标准 + 挂靠技能的 progress key，近 14 天统计用；不进报告
     };
   }).map(sg => ({
     strand: sg.strand, zhName: sg.zhName, enName: sg.enName,
@@ -2776,19 +2851,24 @@ function buildReportDigest(kidId, gradeKey) {
     .slice(0, 5)
     .map(it => ({ id: it.id, en: it.en, zh: it.zh, right: it.right, wrong: it.wrong, level: it.level }));
   const notYet = allItems.filter(it => it.level === "emerging").slice(0, 8).map(it => ({ id: it.id, en: it.en, zh: it.zh }));
-  const idSet = new Set(allItems.map(it => it.id));
+  const idSet = new Set(allItems.flatMap(it => it.ids));   // 标准 + 挂靠技能：近期统计得把技能视图里的学习算进来
   const recentLessons = bucket.history.filter(h => now - h.time < win);
   const fsaRecent = [];
   for (const s of bucket.fsaSets) for (const at of (s.attempts || []))
     fsaRecent.push({ time: at.time, right: at.right, total: at.total, title: s.title || "FSA" });
   fsaRecent.sort((a, b) => b.time - a.time);
-  // 单元测试成绩：只算当前课程源的（换年级/换书不串数据），按单元报给报告
+  // 单元测试成绩：只算当前课程源的（换年级/换书不串数据），按单元报给报告。
+  // 数字年级的卷子存在两个 key 下：老的主线卷 grade="5"，技能视图的主题卷 grade="skills-g5"（和 /api/unit-test/sets 同一规则）
+  const unitKeys = new Set([String(gradeKey)]);
+  if (/^\d+$/.test(String(gradeKey))) unitKeys.add("skills-g" + gradeKey);
   const unitRecent = [];
   for (const s of bucket.unitTests) {
-    if (String(s.grade) !== String(gradeKey)) continue;
+    if (!unitKeys.has(String(s.grade))) continue;
     const un = s.unitName || {};
-    for (const at of (s.attempts || []))
+    for (const at of (s.attempts || [])) {
+      if (at.done === false) continue;   // 中途退出的那次不是成绩单（每题对错已记进度）；老存档没有 done 字段 = 做完了
       unitRecent.push({ time: at.time, right: at.right, total: at.total, unit: un.zh || un.en || s.strand || "" });
+    }
   }
   unitRecent.sort((a, b) => b.time - a.time);
   const activeDays = new Set();
@@ -3109,7 +3189,10 @@ const server = http.createServer(async (req, res) => {
     /* 配图契约：前端 renderVisual 开机拉一次，违约的图就不画。
      * 纯 schema 元数据，不含任何孩子的数据，所以不走 allow()。 */
     if (url.pathname === "/api/visual-contract" && req.method === "GET") {
-      return send(res, 200, VISUAL_CONTRACT || { types: {} });
+      /* 读不到契约文件要明说（503），不能回一个空 types 冒充契约：空白名单在校验器眼里是「所有图型都非法」，
+       * 整站的课全部无图（2026-09-05 审出，安装包曾漏拷这个文件）。拿不到契约时前端放行、按老样子画。 */
+      if (!VISUAL_CONTRACT) return send(res, 503, { error: "配图契约文件缺失，本次不做图型校验 / visual-contract.json is missing; visuals are not validated", missing: true });
+      return send(res, 200, VISUAL_CONTRACT);
     }
 
     if (url.pathname === "/api/curriculum" && req.method === "GET") {
@@ -3156,25 +3239,18 @@ const server = http.createServer(async (req, res) => {
       const g = curriculumKey(url.searchParams.get("grade") || 0);
       const d = curriculum.get(g);
       if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
-      const progress = kd(kidId).progress;
       const strands = strandGroups(d, it => {
-        const e = progress[it.id];
-        /* 这条 BC 标准下面已经有技能了，就顺带把技能汇总带上（设计文档 §6）：
-         * status/level 仍按老规则算，前端可以并排显示「按技能看：3/7 站稳」。
-         * 没有技能挂靠（G8/G9、高中、书籍）时 roll 是 null，报告和以前一模一样。 */
-        const roll = standardRollup(kidId, it.id);
-        /* 有技能挂靠的标准，级别由技能汇总决定（孩子现在学的是技能，标准 id 上不再有新事件）；
-         * 家长星标仍是最高优先级的 override。老口径的那条记录放在 legacy 里，前端分开显示 */
-        const manual = !!(e && e.solid);
-        const level = manual ? "proficient" : roll ? roll.level : progressLevel(kidId, it.id);
-        const status = level === "emerging" ? "new" : level === "developing" ? "seen" : "solid";
+        /* 级别 / 计数 / 技能汇总全从 standardEvidence 拿，和 AI 完整报告同一套口径（设计文档 §6）：
+         * 有技能挂靠的标准，级别由技能汇总决定，家长星标仍是最高优先级；老口径那条记录在 skills.legacy 里，前端分开显示。
+         * 没有技能挂靠（高中、书籍）时 skills 是 null，报告和以前一模一样。 */
+        const ev = standardEvidence(kidId, it.id);
+        const status = ev.level === "emerging" ? "new" : ev.level === "developing" ? "seen" : "solid";
         return {
           id: it.id, en: it.en, zh: it.zh,
-          status, level,
-          manualSolid: manual,   // 家长手动标记的「扎实」，前端星标可切换
-          taught: e ? e.taught : 0, right: e ? e.right : 0, wrong: e ? e.wrong : 0,
-          lastAt: e ? e.lastAt : 0,
-          ...(roll ? { skills: roll } : {})
+          status, level: ev.level,
+          manualSolid: ev.manualSolid,   // 家长手动标记的「扎实」，前端星标可切换
+          taught: ev.taught, right: ev.right, wrong: ev.wrong, lastAt: ev.lastAt,
+          ...(ev.skills ? { skills: ev.skills } : {})
         };
       }).map(sg => Object.assign(sg, {
         total: sg.items.length,
@@ -3485,8 +3561,10 @@ const server = http.createServer(async (req, res) => {
       let bank;
       if (id) bank = await ensureQuizBank(found.item, found.data, lang, id);
       else { ledgerAdd({ task: "quiz", provider: "bank", lang, ms: 0, ok: true }); bank = ready; }   // 没引擎、纯吃随包题库
+      const questions = quizSession(bank);
       return send(res, 200, {
-        questions: quizSession(bank),
+        questions,
+        session: quizOpenCreate(a.user.id, found.item.id, lang, questions),   // 结算凭这张票（见 quizOpenCreate）
         rules: { maxQuestions: QUIZ_MAX_QUESTIONS, passNeed: QUIZ_PASS_NEED, topLevel: QUIZ_TOP_LEVEL }
       });
     }
@@ -3498,25 +3576,32 @@ const server = http.createServer(async (req, res) => {
       const kidId = resolveKid(a, body.kid);
       if (!kidId) return send(res, 400, NEED_KID_MSG);
       const cid = String(body.curriculumId || "");
-      if (!findCurriculumItem(cid)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const bank = qbank[qbankKey(cid, normLang(body.lang))];
+      const found = findCurriculumItem(cid);
+      if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
+      /* 凭 /api/quiz/session 发的票结算：题目只认这一场发出去的，一场只结一次 */
+      const open = quizOpenTake(body.session, a.user.id, found.item.id);
+      if (!open) return send(res, 400, { error: "这场闯关的场次票无效或已经结算过 / Quiz session is invalid or already settled", staleSession: true });
+      const bank = qbank[qbankKey(cid, open.lang)];
       const now = Date.now();
       const counted = new Set();
       let topRight = 0;
       for (const r of (Array.isArray(body.results) ? body.results : []).slice(0, QUIZ_MAX_QUESTIONS + 4)) {
         const qid = String((r && r.qid) || "");
-        const q = bank && bank.questions.find(x => x.qid === qid);
-        if (!q || counted.has(qid)) continue;   // 不认识 / 重复的 qid 不记
+        const q = (bank && open.qids.has(qid)) ? bank.questions.find(x => x.qid === qid) : null;
+        if (!q || counted.has(qid)) continue;   // 不是这一场的 / 不认识 / 重复的 qid 不记
+        /* 对错由服务端判：只认「选了第几个」，客户端报的 correct 一律不信。
+         * 下标不是合法整数就当没答（不记对也不记错），别让坏客户端刷出一堆错题。 */
+        const picked = (r && Number.isInteger(r.picked)) ? r.picked : -1;
+        if (picked < 0 || picked >= (q.options || []).length) continue;
         counted.add(qid);
         q.usedAt = now;
-        const ok = !!(r && r.correct);
+        const ok = picked === q.answerIndex;
         progressRecord(kidId, cid, ok ? "quiz-right" : "quiz-wrong");
         if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
         /* 答错且这道题挂了误区标签：记一笔，攒够 2 次就建议回补（技能图谱 §6）。
          * 老题库没有 tags，这里什么都不做，行为和以前一样。 */
         if (!ok && Array.isArray(q.tags)) {
-          const picked = Math.round(Number(r && r.picked));
-          const tag = (picked >= 0 && picked <= 3) ? q.tags[picked] : "";
+          const tag = picked <= 3 ? q.tags[picked] : "";
           if (tag && tag !== "ok" && tag !== "other") missRecord(kidId, cid, tag);
         }
       }

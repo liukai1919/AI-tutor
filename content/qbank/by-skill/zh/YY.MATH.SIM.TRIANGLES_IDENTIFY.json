@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtn84omki7hap3",
+   "level": 1,
+   "question": "三角形 ABC 的三个内角是 40°、60°、80°；三角形 DEF 的三个内角也是 40°、60°、80°。题目没有告诉你任何一条边的长度。这两个三角形相似（similar）吗？",
+   "options": [
+    "相似，三组对应角分别相等，形状就一样",
+    "不相似，边长没有给出，缺少条件没法判断",
+    "不相似，除非两个三角形的大小也完全一样",
+    "不相似，必须先量出最长边对最短边的比才行"
+   ],
+   "answerIndex": 0,
+   "explain": "三组对应角分别相等，两个三角形就一定相似（similar），和边长知不知道无关。说要大小一样的那个说法，是把相似当成了全等；说要拿最长边配最短边的，则把对应边配错了。",
+   "tags": [
+    "ok",
+    "other",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn84omkoh0tc0",
+   "level": 1,
+   "question": "三角形 PQR 的三条边是 3 cm、4 cm、5 cm；三角形 STU 的三条边是 6 cm、8 cm、10 cm（短边对短边、长边对长边）。这两个三角形相似吗？",
+   "options": [
+    "不相似，6−3=3、8−4=4，增加得不一样多",
+    "相似，6÷3、8÷4、10÷5 都等于 2",
+    "不相似，3 配 10 得 0.3，4 配 8 得 0.5",
+    "不相似，STU 的每条边都比 PQR 长一截"
+   ],
+   "answerIndex": 1,
+   "explain": "6÷3=2、8÷4=2、10÷5=2，三组对应边（corresponding sides）共用同一个比 2，所以相似。坑在于用减法看「差多少」，或者把 3 配到 10 上去算——对应边必须短配短、长配长。",
+   "tags": [
+    "other",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn84omky9xp92",
+   "level": 1,
+   "question": "一个三角形的三条边是 5 cm、7 cm、9 cm；另一个三角形的三条边是 10 cm、14 cm、20 cm（短边对短边、长边对长边）。这两个三角形相似吗？",
+   "options": [
+    "相似，20÷10=2、14÷7=2、10÷5=2 都相同",
+    "相似，比例系数是 2，因为 10÷5=2、14÷7=2",
+    "不相似，10÷5=2、14÷7=2，但 20÷9 不是 2",
+    "不相似，大三角形整整大了一圈，大小不同"
+   ],
+   "answerIndex": 2,
+   "explain": "前两组的比都是 2，但最长边 20÷9 约等于 2.2，只要有一组比不同就不相似。坑一是只验两组就下结论；坑二是把 20 配到 10 上算，20 该配 9。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "other",
+    "ok",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn84omk2y0f7u",
+   "level": 1,
+   "question": "三角形 ABC 中 ∠A=85°、∠B=45°；三角形 DEF 中 ∠D=85°、∠F=50°。这两个三角形相似吗？",
+   "options": [
+    "不相似，∠B=45° 和 ∠F=50° 对不上号",
+    "不相似，两个三角形只有 85° 这一个角相等",
+    "相似，不过要两个三角形一样大才算数",
+    "相似，算出 ∠C=50°、∠E=45°，三组角都相等"
+   ],
+   "answerIndex": 3,
+   "explain": "先补第三个角：∠C=180−85−45=50°，∠E=180−85−50=45°。两个三角形的角都是 85°、50°、45°，所以相似。坑是按字母顺序硬配 ∠B 和 ∠F，对应角要按角度相等来配，不是按写的顺序。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "other",
+    "sim.similar_means_congruent",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn84omk8zd11b",
+   "level": 2,
+   "question": "已知三角形 ABC 与三角形 DEF 中，∠A=∠D=90°，∠B=∠E=35°，两个三角形的边长一条都没给。下面哪句判断是对的？",
+   "options": [
+    "相似，第三组角也都是 55°，三组角全相等",
+    "不相似，除非两个三角形的斜边一样长",
+    "相似，但前提是最长边配最短边的比相同",
+    "无法判断，至少要知道一组对应边的比"
+   ],
+   "answerIndex": 0,
+   "explain": "两组角相等时，第三组角自动相等（180−90−35=55°），三组对应角相等就足以判定相似，完全不需要边长。说要斜边一样长的，是把相似当成了全等。",
+   "tags": [
+    "ok",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn84omkczkmcv",
+   "level": 2,
+   "question": "三角形 ABC 的三条边是 5 cm、6 cm、8 cm；三角形 DEF 的三条边是 15 cm、18 cm、24 cm（短边对短边、长边对长边）。判断是否相似，并说出比例系数（scale factor）。",
+   "options": [
+    "相似，比例系数是 1/3，属于缩小的图形",
+    "相似，三组对应边的比都是 3，是放大",
+    "不相似，24÷5 和 18÷6 的结果并不相等",
+    "不相似，两个三角形的边长各不相同"
+   ],
+   "answerIndex": 1,
+   "explain": "15÷5=3、18÷6=3、24÷8=3，三组比相同所以相似，比例系数 3 大于 1，是放大（enlargement）。写成 1/3 的那个把「像÷原」算反了；拿 24 去除 5 的那个把对应边配错了。",
+   "tags": [
+    "other",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn84omkhwlk91",
+   "level": 2,
+   "question": "三角形 ABC 的三条边是 6 cm、8 cm、10 cm。三角形 DEF 与它相似，DEF 的两条边分别是 9 cm（对应 6 cm）和 12 cm（对应 8 cm）。DEF 的第三条边是多长？",
+   "options": [
+    "14 cm，因为每条边都比原来多了 4 cm",
+    "10 cm，相似三角形的最长边保持不变",
+    "15 cm，因为比例系数是 9÷6=1.5",
+    "7.5 cm，把 10 乘上 9÷12 得到的比"
+   ],
+   "answerIndex": 2,
+   "explain": "比例系数 9÷6=1.5（12÷8 也是 1.5），所以第三边是 10×1.5=15 cm。坑一是看成每边加 4；坑二是把 10 配到 9 与 12 这组比上，对应边要 10 配第三边。",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "ok",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn84omk52a8ut",
+   "level": 2,
+   "question": "三角形 ABC 的三条边是 5 cm、12 cm、13 cm；三角形 DEF 的三条边是 10 cm、24 cm、26 cm。小明说：DEF 比 ABC 大一圈，所以它们不相似。他的说法对吗？",
+   "options": [
+    "对，因为大小不同的两个三角形不可能相似",
+    "对，因为 24−12=12 而 26−13=13，差不一样",
+    "不对，但要用 26÷5 这一组比来说明相似",
+    "不对，三组对应边的比都是 2，两者相似"
+   ],
+   "answerIndex": 3,
+   "explain": "10÷5=2、24÷12=2、26÷13=2，三组比一致所以相似。相似只要求形状相同、大小可以不同，「大一圈就不相似」是把相似当成全等；比也不能拿 26 去配 5。",
+   "tags": [
+    "sim.similar_means_congruent",
+    "other",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn84omkvpul0p",
+   "level": 3,
+   "question": "在 Cultus Lake 露营，A 帐篷的侧面是等腰三角形，顶角 44°，两个底角相等；B 帐篷的侧面三角形量出一个 68° 角和一个 44° 角。这两个侧面三角形相似吗？",
+   "options": [
+    "相似，A 的角是 44°、68°、68°，B 也一样",
+    "不相似，两顶帐篷大小不同，形状也就不同",
+    "不相似，B 的第三个角是 78°，和 A 对不上",
+    "不能判断，还要知道最长边与最短边的比"
+   ],
+   "answerIndex": 0,
+   "explain": "A 的底角是 (180−44)÷2=68°，角为 44°、68°、68°；B 的第三个角是 180−68−44=68°，同样是 44°、68°、68°，三组角相等所以相似。坑是第三个角算错，或以为大小不同就不相似。",
+   "tags": [
+    "ok",
+    "sim.similar_means_congruent",
+    "other",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn84omkjvef6f",
+   "level": 3,
+   "question": "学校一块三角形花坛的三条边实际长 12 m、16 m、20 m。设计图上把它画成 3 cm、4 cm、5 cm，图纸上标的比例尺（scale）是 1 : 400。图上的三角形和真实花坛相似吗？比例尺标对了吗？",
+   "options": [
+    "相似，但比例尺该写成 1 : 4，因为 12÷3=4",
+    "相似，三组比都是 400，比例尺 1 : 400 对",
+    "不相似，实物的 20 m 对应的是图上的 3 cm",
+    "不相似，图上的花坛比真花坛小得多"
+   ],
+   "answerIndex": 1,
+   "explain": "先统一单位：12 m=1200 cm，1200÷3=400；1600÷4=400；2000÷5=400，三组比相同所以相似，比例尺 1 : 400 没标错。坑是不换单位就直接 12÷3 得出 1 : 4。",
+   "tags": [
+    "other",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn84omkjacbx4",
+   "level": 3,
+   "question": "Whistler 一条滑道的横截面和学校无障碍坡道的横截面都是直角三角形。小美说：它们都有一个 90° 的角，所以一定相似。她的说法对吗？",
+   "options": [
+    "对，只要有一个角相等，两个三角形形状就一样",
+    "不对，除非两个直角三角形的斜边长度相等",
+    "不对，还需要再有一组角相等，或三边同比",
+    "不对，因为坡道的最长边配的是滑道的最短边"
+   ],
+   "answerIndex": 2,
+   "explain": "只有一个角相等远远不够：45°−45°−90° 和 30°−60°−90° 都是直角三角形却不相似。要再有一组角相等（第三组就自动相等），或三组对应边共用同一个比。斜边等长是全等的要求，不是相似的要求。",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "ok",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn84omkfxkzwx",
+   "level": 3,
+   "question": "在 Okanagan 湖上，一艘帆船的大帆是三角形，三条边为 4.5 m、6 m、7.5 m；小帆的三条边为 3 m、4 m、5 m（短边对短边、长边对长边）。小帆是大帆按比例缩小（reduction）来的吗？",
+   "options": [
+    "是缩小，比例系数是 1.5，因为 4.5÷3=1.5",
+    "不是，两张帆大小不同就谈不上形状相似",
+    "不是，5 与 4.5 的比和 4 与 6 的比不相同",
+    "是缩小，三组对应边的比都是 2/3，小于 1"
+   ],
+   "answerIndex": 3,
+   "explain": "3÷4.5=4÷6=5÷7.5=2/3，三组比相同所以相似，比例系数 2/3 在 0 和 1 之间，是缩小。写 1.5 的那个算成了大帆÷小帆；把 5 配到 4.5 上的那个把对应边配错了，5 该配 7.5。",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  }
+ ]
+}

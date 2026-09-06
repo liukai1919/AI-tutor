@@ -1,0 +1,130 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.GRAPH_TABLE",
+ "lang": "en",
+ "title": "Make a table of values with rational inputs and graph the line, choosing axis scales that fit rational coordinates",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Half-Hour Inputs, Smart Scales: Graphing y = 12x + 3",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a table from a rule like y equals three x minus four using whole-number inputs, and how to plot points on axes where one square stands for five. Today we do the same thing, but the inputs are halves, like half an hour or one and a half hours. Here is the situation: you tutor a younger kid for twelve dollars an hour, plus three dollars bus money each session. So pay y equals twelve x plus three, where x is the hours you work. The question is: how do we table and graph this when x is not a nice whole number?",
+    "math": "y = 12x + 3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Step one: the table. Pick inputs that match real life: half an hour, one hour, one and a half, two, and two and a half hours. Plug each one in. Twelve times zero point five is six, plus three is nine dollars. Twelve times one is twelve, plus three is fifteen. Twelve times one point five is eighteen, plus three is twenty-one. Twelve times two is twenty-four, plus three is twenty-seven. Twelve times two point five is thirty, plus three is thirty-three. Notice the pattern: x goes up by half each time, and y goes up by six each time. Constant change, so this is a linear relation.",
+    "math": "y = 12(0.5)+3 = 9,\\quad y = 12(1.5)+3 = 21,\\quad y = 12(2.5)+3 = 33",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      9,
+      15,
+      21,
+      27,
+      33
+     ],
+     "labels": [
+      "0.5 h",
+      "1 h",
+      "1.5 h",
+      "2 h",
+      "2.5 h",
+      "x hours",
+      "y pay in dollars"
+     ],
+     "caption": "Table of values for y = 12x + 3 with half-hour inputs"
+    }
+   },
+   {
+    "say": "Step two, and this is the new trick: choose the scale before you plot. Look at the x values. They are all multiples of zero point five, so let each square across stand for half an hour. Now look at the y values: nine, fifteen, twenty-one, twenty-seven, thirty-three. They are all multiples of three, and the biggest is thirty-three, so let each square up stand for three dollars. Now every point lands right on a grid corner. The point zero point five comma nine is one square across and three squares up. One comma fifteen is two across, five up. Two and a half comma thirty-three is five across, eleven up. Write the scale on both axes so nobody has to guess.",
+    "math": "\\text{x-axis: 1 square} = 0.5\\text{ h},\\qquad \\text{y-axis: 1 square} = \\$3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      5,
+      3,
+      7,
+      4,
+      9,
+      5,
+      11
+     ],
+     "labels": [
+      "(0.5, 9)",
+      "(1, 15)",
+      "(1.5, 21)",
+      "(2, 27)",
+      "(2.5, 33)"
+     ],
+     "caption": "Each square across = 0.5 h, each square up = $3. Point (0.5, 9) sits 1 square across and 3 squares up."
+    }
+   },
+   {
+    "say": "Step three: join the points with a ruler. All five points sit on one straight line, which is exactly what the constant change in the table promised. Here is the same line drawn with the real values on the axes, hours across and dollars up. You can see it crosses the y axis at three dollars, the bus money you get even for zero hours, and it climbs steadily: every extra half hour lifts the pay by six dollars.",
+    "math": "y = 12x + 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      3,
+      0,
+      36
+     ],
+     "labels": [
+      "12*x+3"
+     ],
+     "caption": "The line y = 12x + 3 for hours 0 to 3; pay rises 6 dollars for every half hour"
+    }
+   },
+   {
+    "say": "Now three traps to watch for. Trap one: misreading the scale. If you forget that one square up means three dollars and plot nine dollars as nine squares up, your point lands at twenty-seven dollars on this grid, way too high. Always count in threes. Trap two: swapping x and y. The point two comma twenty-seven means two hours across and twenty-seven dollars up. If you go twenty-seven across and two up, you have fallen off the grid and the meaning is nonsense: twenty-seven hours for two dollars. Hours always first. Trap three: ignoring the x step. The table shows y going up by six each row, and it is tempting to say twelve dollars an hour must be wrong because it looks like six. But each row is only half an hour. Six dollars per half hour is twelve dollars per hour, which matches the coefficient twelve. Always check how big the x step is before you name the rate.",
+    "math": "\\frac{\\$6}{0.5\\text{ h}} = \\$12\\text{ per hour}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      1,
+      9
+     ],
+     "labels": [
+      "correct (0.5, 9)",
+      "wrong: read $3 squares as $1"
+     ],
+     "caption": "Same point, two plots: the correct one counts each square as $3; the wrong one counted each square as $1 and landed at $27"
+    }
+   },
+   {
+    "say": "Here is the takeaway. A rational input like one and a half is not scary: plug it into the rule just like a whole number. Then let the numbers choose your scale: make one square match the step in your inputs, and one square match a number that divides all your outputs. Do that, and every point drops neatly onto a grid corner, and your ruler line tells the true story.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Match the scale to the table: one square = the x step (0.5), one square = a number that divides every y (3). Then rational points land right on grid corners.",
+  "practice": {
+   "question": "A pay-as-you-go phone plan in Kelowna charges four dollars per gigabyte of data plus a two dollar monthly fee, so the cost is y equals four x plus two, where x is gigabytes used. Make a table of values for x equals zero point five, one, one point five, and two gigabytes. Then decide: what should one square stand for on the x axis, what should one square stand for on the y axis, and how many squares across and up is the point for one point five gigabytes? Finally, y goes up by the same amount each row. Is the rate two dollars per gigabyte or four dollars per gigabyte, and why?",
+   "answer": "Table: 0.5 GB costs 4 dollars, 1 GB costs 6 dollars, 1.5 GB costs 8 dollars, 2 GB costs 10 dollars. Choose one square across = 0.5 GB and one square up = 2 dollars (every cost is a multiple of 2). The point (1.5, 8) is 3 squares across and 4 squares up. The cost rises 2 dollars each row, but each row is only half a gigabyte, so the rate is 4 dollars per gigabyte, matching the coefficient 4."
+  }
+ }
+}

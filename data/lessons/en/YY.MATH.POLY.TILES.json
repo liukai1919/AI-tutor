@@ -1,0 +1,106 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.TILES",
+ "lang": "en",
+ "title": "Model polynomials with algebra tiles (x², x and unit tiles, positive and negative) and read the expression from a tile picture",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading Polynomials from Algebra Tiles",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to name a polynomial by its terms and coefficients, and you have pushed algebra tiles around to solve equations like three x minus four equals negative thirteen. Today we do one small thing: build a polynomial out of tiles, and read a polynomial straight off a tile picture.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "There are only three tile sizes, and each one is an area. The big square is x long and x wide, so its area is x times x, which is x squared. The long strip is x long and one wide, so its area is x. The small square is one by one, so it is worth one. Colour tells you the sign: shaded means positive, white means negative.",
+    "math": "x\\cdot x = x^2,\\quad x\\cdot 1 = x,\\quad 1\\cdot 1 = 1",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      1
+     ],
+     "labels": [],
+     "caption": "Imagine the side is x (not 3): the whole square is like an x² tile, the shaded strip is like an x tile, one cell is like a unit tile."
+    }
+   },
+   {
+    "say": "Let us read a tile picture. Say you see two shaded big squares, three shaded strips, and four white small squares. Count each size on its own. Two x squared tiles give two x squared. Three x tiles give three x. Four white unit tiles are negative, so they give minus four. Put it together: two x squared plus three x minus four. That is a trinomial with coefficients two and three and a constant term of negative four.",
+    "math": "2x^2 + 3x - 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      3,
+      4
+     ],
+     "labels": [
+      "shaded x² tiles",
+      "shaded x tiles",
+      "white unit tiles"
+     ],
+     "caption": "2 big squares, 3 strips, 4 white units → 2x² + 3x − 4"
+    }
+   },
+   {
+    "say": "Here is a mistake I see a lot: reading one big square as two x. It looks tempting because there is a two in x squared. But the exponent two means x times x, the area of a square, while two x means two strips side by side. Test it with a number. If x were three, the big square has area nine, but two strips only cover six. Different sizes, different meaning. One big square is always x squared.",
+    "math": "x^2 = x\\cdot x \\neq 2x",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      9,
+      6
+     ],
+     "labels": [
+      "one x² tile (x = 3)",
+      "two x tiles (x = 3)"
+     ],
+     "caption": "With x = 3: the square covers 9, two strips cover only 6"
+    }
+   },
+   {
+    "say": "Second mistake: leaving a zero pair in the answer. Picture one shaded big square, four shaded strips, two white strips, and three white units. A shaded strip and a white strip are plus x and minus x, and together they cancel to zero. Two white strips cancel two of the shaded ones, leaving two shaded strips. So the polynomial is x squared plus two x minus three, not x squared plus four x minus two x minus three. Always cancel zero pairs before you write the expression.",
+    "math": "x^2 + 4x - 2x - 3 \\;\\rightarrow\\; x^2 + 2x - 3",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      2,
+      2
+     ],
+     "labels": [
+      "shaded x tiles",
+      "white x tiles",
+      "x tiles left"
+     ],
+     "caption": "4 positive x tiles, 2 negative x tiles → 2 zero pairs cancel → 2x left"
+    }
+   },
+   {
+    "say": "So here is the whole step in one line. Big square is x squared, strip is x, small square is one. Shaded is positive, white is negative. Count each size, cancel zero pairs, and write the terms from biggest tile to smallest.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Big square = x², strip = x, small square = 1; shaded is positive, white is negative. Count each size, cancel zero pairs, write the polynomial.",
+  "practice": {
+   "question": "Draw this tile picture yourself: two shaded x squared tiles, five shaded x tiles, two white x tiles, and three white unit tiles. Cancel any zero pairs, then write the polynomial the picture shows.",
+   "answer": "The two white x tiles cancel two of the shaded x tiles, leaving three x tiles. The polynomial is 2x² + 3x − 3."
+  }
+ }
+}

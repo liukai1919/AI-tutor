@@ -2087,6 +2087,300 @@
       "en": "Judges fairness by the number of sectors instead of their size",
       "pattern": "3 块就公平",
       "remedy": "YY.MATH.PROB.INDEP.COMPARE_FAIR"
+    },
+    {
+      "id": "rat.negative_fraction_sign_position",
+      "zh": "以为 −3/4、(−3)/4、3/(−4) 是三个不同的数",
+      "en": "Treats −3/4, (−3)/4 and 3/(−4) as different numbers",
+      "pattern": "−3/4 ≠ 3/(−4)",
+      "remedy": "YY.MATH.RAT.CONCEPT"
+    },
+    {
+      "id": "rat.negative_base_bracket",
+      "zh": "(−3)² 和 −3² 混淆（(−3)² = −9 或 −3² = 9）",
+      "en": "Confuses (−3)² with −3²",
+      "pattern": "−3² = 9",
+      "remedy": "YY.MATH.RAT.POWERS"
+    },
+    {
+      "id": "rat.fraction_power_one_part",
+      "zh": "分数乘方只乘方分子或只乘方分母（(4/5)² = 16/5）",
+      "en": "Squares only the numerator or only the denominator",
+      "pattern": "(4/5)² = 16/5",
+      "remedy": "YY.MATH.RAT.POWERS"
+    },
+    {
+      "id": "rat.exponent_after_multiply",
+      "zh": "先乘再乘方（2 × (4/5)² 算成 (8/5)²）",
+      "en": "Multiplies before applying the exponent",
+      "pattern": "2 × (4/5)² = (8/5)²",
+      "remedy": "YY.MATH.RAT.ORDER_OPS"
+    },
+    {
+      "id": "exp.multiply_base_by_exponent",
+      "zh": "把幂当成底数乘指数（2⁷ = 14）",
+      "en": "Multiplies the base by the exponent",
+      "pattern": "2⁷ = 14",
+      "remedy": "YY.MATH.EXP.MEANING"
+    },
+    {
+      "id": "exp.multiply_exponents_for_product",
+      "zh": "同底数幂相乘把指数相乘（n⁵ × n³ = n¹⁵）",
+      "en": "Multiplies the exponents when multiplying powers",
+      "pattern": "n⁵ × n³ = n¹⁵",
+      "remedy": "YY.MATH.EXP.PRODUCT_QUOTIENT"
+    },
+    {
+      "id": "exp.add_bases",
+      "zh": "同底数幂相乘把底数也相加（2³ × 2⁴ = 4⁷）",
+      "en": "Adds the bases as well as the exponents",
+      "pattern": "2³ × 2⁴ = 4⁷",
+      "remedy": "YY.MATH.EXP.PRODUCT_QUOTIENT"
+    },
+    {
+      "id": "exp.power_of_power_add",
+      "zh": "幂的乘方把指数相加（(3²)⁴ = 3⁶）",
+      "en": "Adds the exponents in a power of a power",
+      "pattern": "(3²)⁴ = 3⁶",
+      "remedy": "YY.MATH.EXP.POWER_OF_POWER"
+    },
+    {
+      "id": "exp.coefficient_not_raised",
+      "zh": "积的乘方漏掉系数（(5n)³ = 5n³）",
+      "en": "Leaves the coefficient out of a power of a product",
+      "pattern": "(5n)³ = 5n³",
+      "remedy": "YY.MATH.EXP.POWER_OF_POWER"
+    },
+    {
+      "id": "exp.zero_exponent_zero",
+      "zh": "零指数当成 0（6⁰ = 0）",
+      "en": "Thinks a zero exponent gives 0",
+      "pattern": "6⁰ = 0",
+      "remedy": "YY.MATH.EXP.ZERO_ONE"
+    },
+    {
+      "id": "exp.one_exponent_one",
+      "zh": "一次幂当成 1（m¹ = 1）",
+      "en": "Thinks an exponent of 1 gives 1",
+      "pattern": "m¹ = 1",
+      "remedy": "YY.MATH.EXP.ZERO_ONE"
+    },
+    {
+      "id": "exp.odd_power_negative_positive",
+      "zh": "负数的奇次幂算成正（(−2)³ = 8）",
+      "en": "Makes an odd power of a negative positive",
+      "pattern": "(−2)³ = 8",
+      "remedy": "YY.MATH.EXP.SIGNS"
+    },
+    {
+      "id": "poly.degree_is_term_count",
+      "zh": "把项数当次数（三项式说成三次）",
+      "en": "Confuses the number of terms with the degree",
+      "pattern": "三项 = 三次",
+      "remedy": "YY.MATH.POLY.PARTS"
+    },
+    {
+      "id": "poly.tile_x2_as_2x",
+      "zh": "把 x² 砖读成 2x",
+      "en": "Reads an x² tile as 2x",
+      "pattern": "x² 砖 = 2x",
+      "remedy": "YY.MATH.POLY.TILES"
+    },
+    {
+      "id": "poly.zero_pair_missed",
+      "zh": "正负一对砖（零对）没抵消",
+      "en": "Fails to cancel a zero pair",
+      "pattern": "+x 和 −x 都留着",
+      "remedy": "YY.MATH.POLY.TILES"
+    },
+    {
+      "id": "poly.add_exponents_when_adding",
+      "zh": "同类项相加把指数也加（x² + x² = x⁴）",
+      "en": "Adds exponents when adding like terms",
+      "pattern": "x² + x² = x⁴",
+      "remedy": "YY.MATH.POLY.ADD"
+    },
+    {
+      "id": "poly.subtract_first_term_only",
+      "zh": "减多项式只减第一项，后面的项变成加（(5x − 7) − (2x + 3) = 3x − 4）",
+      "en": "Subtracts only the first term of the second polynomial",
+      "pattern": "(5x − 7) − (2x + 3) = 3x − 4",
+      "remedy": "YY.MATH.POLY.SUBTRACT"
+    },
+    {
+      "id": "poly.mult_monomial_exponent_wrong",
+      "zh": "变量相乘当成系数相加或漏乘方（n × n = 2n）",
+      "en": "Turns n × n into 2n",
+      "pattern": "n × n = 2n",
+      "remedy": "YY.MATH.POLY.MULT_MONOMIAL"
+    },
+    {
+      "id": "poly.divide_first_term_only",
+      "zh": "多项式除以单项式只除第一项",
+      "en": "Divides only the first term by the monomial",
+      "pattern": "(15k² − 10k) ÷ 5k = 3k − 10k",
+      "remedy": "YY.MATH.POLY.DIV_MONOMIAL"
+    },
+    {
+      "id": "poly.div_cancel_to_zero",
+      "zh": "同项相除写成 0 或漏掉（10k ÷ 5k = 0）",
+      "en": "Cancels a term to 0 instead of 2",
+      "pattern": "10k ÷ 5k = 0",
+      "remedy": "YY.MATH.POLY.DIV_MONOMIAL"
+    },
+    {
+      "id": "eq.move_term_keep_sign",
+      "zh": "移项不变号（5x − 2 = 2x + 7 → 5x + 2x = 7 − 2）",
+      "en": "Moves a term across the equals sign without changing its sign",
+      "pattern": "5x + 2x = 7 − 2",
+      "remedy": "YY.MATH.LINEQ.BOTH_SIDES"
+    },
+    {
+      "id": "lin.continuous_left_as_dots",
+      "zh": "连续关系只画孤立的点、不连线",
+      "en": "Leaves a continuous relation as isolated dots",
+      "pattern": "时间图不连线",
+      "remedy": "YY.MATH.LIN.CONTINUOUS"
+    },
+    {
+      "id": "lin.horizontal_vertical_swap",
+      "zh": "y = 3 画成竖直线、x = −2 画成水平线",
+      "en": "Graphs y = 3 as a vertical line and x = −2 as a horizontal line",
+      "pattern": "y = 3 竖直",
+      "remedy": "YY.MATH.LIN.HORIZ_VERT"
+    },
+    {
+      "id": "lin.read_wrong_axis",
+      "zh": "从图上读值时横纵轴读反",
+      "en": "Reads the value off the wrong axis",
+      "pattern": "x 当 y",
+      "remedy": "YY.MATH.LIN.INTERPOLATE"
+    },
+    {
+      "id": "lin.extrapolate_beyond_sense",
+      "zh": "外推到情境之外仍当准确（预测出负的路程）",
+      "en": "Extrapolates past where the situation makes sense",
+      "pattern": "预测负的路程",
+      "remedy": "YY.MATH.LIN.EXTRAPOLATE"
+    },
+    {
+      "id": "lin.slope_rise_run_swap",
+      "zh": "斜率算成 run ÷ rise",
+      "en": "Computes slope as run over rise",
+      "pattern": "run/rise",
+      "remedy": "YY.MATH.LIN.ANALYZE"
+    },
+    {
+      "id": "unit.metric_factor_wrong",
+      "zh": "公制换算倍数错（1 km = 100 m，1 m = 10 cm）",
+      "en": "Uses the wrong metric conversion factor",
+      "pattern": "1 km = 100 m",
+      "remedy": "YY.MATH.SIM.UNIT_CONVERT"
+    },
+    {
+      "id": "sim.scale_factor_inverted",
+      "zh": "比例系数算成原 ÷ 像（放大却得到小于 1）",
+      "en": "Inverts the scale factor (original ÷ image)",
+      "pattern": "放大得 0.5",
+      "remedy": "YY.MATH.SIM.SCALE_FACTOR"
+    },
+    {
+      "id": "sim.scale_add_not_multiply",
+      "zh": "放大缩小用加减长度而不是乘比例系数",
+      "en": "Adds a length instead of multiplying by the scale factor",
+      "pattern": "每边 +3",
+      "remedy": "YY.MATH.SIM.SCALE_FACTOR"
+    },
+    {
+      "id": "sim.corresponding_sides_mismatched",
+      "zh": "相似三角形对应边配错",
+      "en": "Pairs non-corresponding sides",
+      "pattern": "短边对长边",
+      "remedy": "YY.MATH.SIM.TRIANGLES_IDENTIFY"
+    },
+    {
+      "id": "sim.similar_means_congruent",
+      "zh": "以为相似就是一样大（全等）",
+      "en": "Thinks similar means the same size",
+      "pattern": "相似 = 全等",
+      "remedy": "YY.MATH.SIM.TRIANGLES_IDENTIFY"
+    },
+    {
+      "id": "stat.sample_is_population",
+      "zh": "把样本的结论直接当总体的事实",
+      "en": "Treats a sample result as a fact about the population",
+      "pattern": "30 人 = 全校",
+      "remedy": "YY.MATH.STAT.POP_SAMPLE"
+    },
+    {
+      "id": "stat.census_always_possible",
+      "zh": "以为总能把总体全部查一遍",
+      "en": "Assumes a census is always possible",
+      "pattern": "全查",
+      "remedy": "YY.MATH.STAT.POP_SAMPLE"
+    },
+    {
+      "id": "stat.convenience_as_random",
+      "zh": "在门口随便问几个人当成随机抽样",
+      "en": "Calls a convenience sample random",
+      "pattern": "门口问 10 人 = 随机",
+      "remedy": "YY.MATH.STAT.SAMPLING_METHODS"
+    },
+    {
+      "id": "stat.volunteer_unbiased",
+      "zh": "以为自愿回答的样本没有偏差",
+      "en": "Thinks a voluntary-response sample is unbiased",
+      "pattern": "自愿 = 无偏",
+      "remedy": "YY.MATH.STAT.SAMPLING_METHODS"
+    },
+    {
+      "id": "stat.leading_question_fine",
+      "zh": "看不出诱导性提问有问题",
+      "en": "Sees nothing wrong with a leading question",
+      "pattern": "「你是否同意……」",
+      "remedy": "YY.MATH.STAT.BIAS"
+    },
+    {
+      "id": "stat.large_sample_removes_bias",
+      "zh": "以为样本够大偏差就消失",
+      "en": "Believes a large enough sample removes bias",
+      "pattern": "1000 人就没偏差",
+      "remedy": "YY.MATH.STAT.BIAS"
+    },
+    {
+      "id": "stat.percent_without_base",
+      "zh": "百分比不问基数（增长 200%，基数是 1）",
+      "en": "Accepts a percent without asking what it is a percent of",
+      "pattern": "+200%（1→3）",
+      "remedy": "YY.MATH.STAT.MISLEADING_GRAPHS"
+    },
+    {
+      "id": "fin.fee_ignored",
+      "zh": "算余额漏掉手续费",
+      "en": "Leaves fees out of the running balance",
+      "pattern": "漏 $2.50 手续费",
+      "remedy": "YY.MATH.FIN.BANKING"
+    },
+    {
+      "id": "fin.interest_rate_not_decimal",
+      "zh": "利率没化成小数（3% 当 3）",
+      "en": "Uses the percent rate without converting to a decimal",
+      "pattern": "500 × 3 × 2",
+      "remedy": "YY.MATH.FIN.SIMPLE_INTEREST"
+    },
+    {
+      "id": "fin.months_as_years",
+      "zh": "月数直接当年数（6 个月当 t = 6）",
+      "en": "Uses months as years in I = Prt",
+      "pattern": "t = 6",
+      "remedy": "YY.MATH.FIN.SIMPLE_INTEREST"
+    },
+    {
+      "id": "fin.interest_as_total",
+      "zh": "把利息当成到期总额",
+      "en": "Reports the interest as the final amount",
+      "pattern": "答 $30 而不是 $530",
+      "remedy": "YY.MATH.FIN.SAVINGS_GROWTH"
     }
   ]
 }

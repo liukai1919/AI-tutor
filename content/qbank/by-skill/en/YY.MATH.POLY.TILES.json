@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.TILES",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlyewq9iaa06q",
+   "level": 1,
+   "question": "In algebra tiles, each tile is worth its area: a shaded tile is positive and a white tile is negative. A picture shows 2 shaded squares that are x by x, 2 shaded strips that are x by 1, 1 white strip that is x by 1, and 3 white small squares that are 1 by 1. There are no other tiles. Which polynomial does the picture show?",
+   "options": [
+    "2x² + x − 3",
+    "2x² + 3x − 3",
+    "5x − 3",
+    "2x² − x − 3"
+   ],
+   "answerIndex": 0,
+   "explain": "Each x by x square is one x² tile, so 2 squares give 2x²; one shaded strip and one white strip are a zero pair and cancel, leaving x, and the 3 white units give −3. Reading an x² square as 2x, or counting both strips of a zero pair, are the usual traps.",
+   "tags": [
+    "ok",
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9eafqth",
+   "level": 1,
+   "question": "Algebra tiles are worth their area: an x by x square is x², an x by 1 strip is x, and a 1 by 1 square is 1. Shaded means positive and white means negative. Which set of tiles models x² − 4x + 2?",
+   "options": [
+    "2 shaded x by 1 strips, 4 white strips, 2 shaded unit squares",
+    "1 shaded x by x square, 4 white strips, 2 shaded unit squares",
+    "1 shaded x by x square, 4 shaded strips, 2 white unit squares",
+    "1 white x by x square, 4 white strips, 2 shaded unit squares"
+   ],
+   "answerIndex": 1,
+   "explain": "x² is one shaded x by x square, −4x is 4 white x strips, and +2 is 2 shaded unit squares. An x² square is not the same as two x strips, and white tiles stand for the negative terms.",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9ugafxe",
+   "level": 1,
+   "question": "Algebra tiles are worth their area; shaded is positive and white is negative. A picture shows 1 shaded x by x square, 3 white x by 1 strips, 4 shaded 1 by 1 squares and 1 white 1 by 1 square. In simplest form, which polynomial does the picture show?",
+   "options": [
+    "x² − 3x + 5",
+    "−x + 3",
+    "x² − 3x + 3",
+    "x² + 3x − 3"
+   ],
+   "answerIndex": 2,
+   "explain": "The square gives x², the 3 white strips give −3x, and one shaded unit cancels the one white unit, so 4 − 1 = 3 units remain: x² − 3x + 3. Do not add units of different colours together, and remember the x by x square is x², not 2x.",
+   "tags": [
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9kzus33",
+   "level": 1,
+   "question": "One algebra tile is a shaded square with side length x, and its value is its area. Which term does this single tile represent?",
+   "options": [
+    "2x",
+    "x",
+    "4x",
+    "x²"
+   ],
+   "answerIndex": 3,
+   "explain": "A square with side x has area x times x, which is x². Adding the two sides gives 2x and adding all four gives 4x, but a tile's value is its area, not its perimeter.",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyewq98ahw0i",
+   "level": 2,
+   "question": "Marcus lays out algebra tiles on his desk: 1 positive x² tile, 5 positive x tiles, 2 negative x tiles and 3 negative unit tiles. After he removes every zero pair, which polynomial does his model show?",
+   "options": [
+    "x² + 3x − 3",
+    "x² + 7x − 3",
+    "5x − 3",
+    "x² − 3x − 3"
+   ],
+   "answerIndex": 0,
+   "explain": "Two positive x tiles pair with the two negative x tiles and cancel, so 5 − 2 = 3 x tiles are left: x² + 3x − 3. Counting all 7 x tiles ignores the zero pairs, and an x² tile is not worth 2x.",
+   "tags": [
+    "ok",
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9ber5ly",
+   "level": 2,
+   "question": "Ms. Chen asks her class to model 2x² − 3x + 4 using the fewest algebra tiles possible. How many tiles are needed?",
+   "options": [
+    "3",
+    "9",
+    "6",
+    "11"
+   ],
+   "answerIndex": 1,
+   "explain": "Each term needs one tile for every unit of its coefficient: 2 x² squares, 3 negative x strips and 4 unit squares, so 2 + 3 + 4 = 9. Counting 11 means an x² square was swapped for two x strips, and the constant 4 needs 4 unit tiles, not one.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "poly.tile_x2_as_2x"
+   ]
+  },
+  {
+   "qid": "qmtlyewq99j0g0s",
+   "level": 2,
+   "question": "Leah models a polynomial with 12 tiles: 1 positive x² tile, 5 positive x tiles, 2 negative x tiles, 1 positive unit tile and 3 negative unit tiles. She removes every zero pair. How many tiles are left on the table?",
+   "options": [
+    "7",
+    "12",
+    "6",
+    "9"
+   ],
+   "answerIndex": 2,
+   "explain": "Two negative x tiles cancel two positive x tiles, removing 4 tiles, and one negative unit cancels the positive unit, removing 2 more, so 12 − 6 = 6 tiles remain and show x² + 3x − 2. Both tiles in a zero pair leave the table, not just one.",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "poly.zero_pair_missed",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq99idxxv",
+   "level": 2,
+   "question": "Shaded algebra tiles are positive and white tiles are negative. Which set of tiles models −x² + 3x − 2?",
+   "options": [
+    "1 shaded x² tile, 3 white x tiles, 2 shaded unit tiles",
+    "2 white x tiles, 3 shaded x tiles, 2 white unit tiles",
+    "1 white x² tile, 3 shaded x tiles, 2 shaded unit tiles",
+    "1 white x² tile, 3 shaded x tiles, 2 white unit tiles"
+   ],
+   "answerIndex": 3,
+   "explain": "A negative x² term is one white x² tile, +3x is 3 shaded x tiles and −2 is 2 white unit tiles. Two white x tiles are worth −2x, not −x², and they would even cancel with two of the shaded x tiles.",
+   "tags": [
+    "other",
+    "poly.tile_x2_as_2x",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9nmkc0y",
+   "level": 3,
+   "question": "Rina sketches a backyard plan. A square lawn is x m by x m. She will dig two garden strips out of the lawn, each x m by 1 m, and she will add 3 paving stones, each 1 m by 1 m, beside the lawn. Using algebra tiles where shaded tiles are area added and white tiles are area removed, which set of tiles models the total area of lawn and paving?",
+   "options": [
+    "1 shaded x² tile, 2 white x tiles, 3 shaded unit tiles",
+    "2 shaded x tiles, 2 white x tiles, 3 shaded unit tiles",
+    "1 shaded x² tile, 2 white x tiles, 3 white unit tiles",
+    "1 shaded x² tile, 2 shaded x tiles, 3 shaded unit tiles"
+   ],
+   "answerIndex": 0,
+   "explain": "The lawn is one x² tile, each dug-out strip is a white x tile because that area is removed, and each paving stone is a shaded unit tile: x² − 2x + 3. The lawn is x by x, so it is an x² square, not two x strips.",
+   "tags": [
+    "ok",
+    "poly.tile_x2_as_2x",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9anfr7g",
+   "level": 3,
+   "question": "Kai models 3x² − x + 2 with 6 shaded x strips, 1 white x strip and 2 shaded unit tiles. His teacher marks the model wrong. Which statement is correct?",
+   "options": [
+    "Right, because one x² square is worth 2 x strips",
+    "Wrong: 3x² needs 3 x² squares, not 6 x strips",
+    "Right, once the white strip cancels one shaded strip",
+    "Wrong: the 2 unit tiles should be white, not shaded"
+   ],
+   "answerIndex": 1,
+   "explain": "An x² tile is a square x by x, so 3x² needs 3 of them. Six x strips are worth 6x, not 3x², so Kai's model really shows 5x + 2 after the zero pair cancels; the trap is treating an x² square as two x strips.",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9ysf240",
+   "level": 3,
+   "question": "Priya's tile model has 1 shaded x² tile, 3 shaded x tiles, 3 white x tiles and 4 white unit tiles. She reads it as x² + 6x − 4. What went wrong?",
+   "options": [
+    "Nothing, because 3 x tiles plus 3 x tiles make 6x",
+    "The x² tile should be read as 2x, so it is 8x − 4",
+    "Shaded and white x tiles cancel, so there is no x term",
+    "Only the last sign is wrong; it should read x² + 6x + 4"
+   ],
+   "answerIndex": 2,
+   "explain": "Three shaded x tiles and three white x tiles form three zero pairs, so they cancel and the model shows x² − 4. Adding tiles of opposite colours together is the classic zero-pair mistake.",
+   "tags": [
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyewq9snioak",
+   "level": 3,
+   "question": "Three students build tile models, with shaded tiles positive and white tiles negative. Ava uses 1 shaded x² tile, 3 shaded x tiles, 1 white x tile and 1 white unit tile. Ben uses 1 shaded x² tile, 2 shaded x tiles and 1 white unit tile. Cal uses 4 shaded x tiles and 1 white unit tile. Which models show the same polynomial?",
+   "options": [
+    "All three, since each one shows 4x − 1",
+    "Ava and Cal only, since both have 4 x tiles",
+    "Ben and Cal only, since neither has a zero pair",
+    "Ava and Ben only, both show x² + 2x − 1"
+   ],
+   "answerIndex": 3,
+   "explain": "Ava's shaded and white x tiles form a zero pair, leaving x² + 2x − 1, the same as Ben. Cal has no x² tile, so his model is 4x − 1: four x strips are not an x² square, and a zero pair changes the tile count but not the polynomial.",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "poly.zero_pair_missed",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

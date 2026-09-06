@@ -15,11 +15,11 @@
 
 | | 现状 | v2 草稿 |
 |---|---|---|
-| G4–G7 可学的「点」 | 69 条 BC 条目 | **245 个技能**，归入 **54 个主题**（2026-09-02 加 G8：全图 **320 技能 / 69 主题**，见 §4） |
+| G4–G7 可学的「点」 | 69 条 BC 条目 | **245 个技能**，归入 **54 个主题**（2026-09-02 加 G8、2026-09-03 加 G9：全图 **369 技能 / 77 主题**，见 §4） |
 | 每条 BC 条目 | = 1 个点 | 对应 1–8 个技能（均值 3.6） |
 | 导航分组 | 五大主线（固定） | 主题（每年级 11–17 个，按教学顺序） |
-| 先修关系 | 无 | 365 条边（120 条跨年级）；含 G8 后 515 条（192 条跨年级） |
-| 误区 | 藏在题目 `explain` 文本里 | 228 条登记在册（2026-09-01 补 108 条，245 技能全部 ≥1 条；2026-09-02 加 G8 的 60 条 → 298 条），技能引用、干扰项逐个打标签 |
+| 先修关系 | 无 | 365 条边（120 条跨年级）；含 G8/G9 后 600 条（228 条跨年级） |
+| 误区 | 藏在题目 `explain` 文本里 | 228 条登记在册（2026-09-01 补 108 条，245 技能全部 ≥1 条；2026-09-02 加 G8 的 60 条 → 298 条；2026-09-03 加 G9 的 42 条 → 340 条），技能引用、干扰项逐个打标签 |
 | 诊断 | 无 | 23 条试点技能带 `diag`（入口题 + 误区→回补分支） |
 
 颗粒度定在哪：**每年级 50–70 个技能、每条标准 3–4 个**。一个圆圆技能 ≈ IXL 的一条「表示阶梯」（模型 → 数轴 → 符号 → 应用，IXL 切成 2–3 个 skill），阶梯放在技能内部由现有的 L1/L2/L3 三级难度承担（§3.3）。这样既比现状细 3.5 倍，又不把内容生成成本乘到 IXL 那个量级（IXL 每年级 358–458 个 skill）。
@@ -168,7 +168,7 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 
 ---
 
-## 4. 完整目录（G4–G8，69 个主题 · 320 个技能）
+## 4. 完整目录（G4–G9，77 个主题 · 369 个技能）
 
 由 `node tools/curriculum/skills_check.mjs --md` 生成；改了 JSON 重新生成贴回来即可。标注：〔类型〕，拓展 = `core:false`，诊断 = 带 `diag`，↻ = 复习低年级技能。
 
@@ -709,6 +709,81 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 - `PROB.INDEP.COMPARE_FAIR` 比较每个玩家获胜的理论可能性，判断游戏或转盘是否公平 / Decide whether a game or spinner is fair by comparing each player's theoretical probability of winning 〔推理〕
 - `PROB.INDEP.APPLY` 两个独立事件的应用题（天气和公交、密码、游戏） / Solve probability problems with two independent events in context (weather and the bus, passcodes, games) 〔应用〕
 
+### G9（8 个主题 · 49 个技能）
+
+**有理数的四则运算 · Operations with rational numbers**　`G9.FLU.01`
+
+- `RAT.CONCEPT` 认识有理数（分数、小数、整数，正负都有）并在数轴上定位 / Recognize rational numbers (fractions, decimals, integers, positive and negative) and place them on a number line 〔概念〕
+- `RAT.COMPARE_ORDER` 比较和排序不同形式的有理数（−0.75、−2/3、−1/2、0.6） / Compare and order rational numbers written in mixed forms (−0.75, −2/3, −1/2, 0.6) 〔步骤〕
+- `RAT.ADDSUB` 有理数加减：整数的符号规则加上分数、小数的功夫（−3/4 + 1/6） / Add and subtract rational numbers, combining the integer sign rules with fraction and decimal skills (−3/4 + 1/6) 〔步骤〕
+- `RAT.MULTDIV` 有理数乘除，含负分数（(−3/4) ÷ 1/5 = −15/4） / Multiply and divide rational numbers, including negative fractions ((−3/4) ÷ 1/5 = −15/4) 〔步骤〕
+- `RAT.POWERS` 有理数的乘方：分清 (−3)² 和 −3²、(4/5)² 和 4/5² / Evaluate powers of rational numbers and tell (−3)² from −3² and (4/5)² from 4/5² 〔步骤〕
+- `RAT.ORDER_OPS` 有理数的混合运算，含括号和乘方（1 − 2 × (4/5)²） / Use the order of operations with rational numbers, brackets and exponents (1 − 2 × (4/5)²) 〔步骤〕
+- `RAT.WORD` 有理数应用题（平均气温、账户余额、海拔变化、划桨尺寸） / Solve problems with rational numbers in context (average temperatures, account balances, elevation changes, paddle dimensions) 〔应用〕
+
+**指数与指数运算律 · Exponents & exponent laws**　`G9.NUM.01`
+
+- `EXP.MEANING` 认识非负整数指数的幂，底数可以是字母（2⁷ = 128，n⁴ = n × n × n × n） / Read and expand powers with whole-number exponents, including variable bases (2⁷ = 128, n⁴ = n × n × n × n) 〔概念〕
+- `EXP.PRODUCT_QUOTIENT` 同底数幂的乘除：指数相加、相减（n⁵ × n³ = n⁸，y⁷ ÷ y³ = y⁴） / Multiply and divide powers with the same base by adding or subtracting the exponents (n⁵ × n³ = n⁸, y⁷ ÷ y³ = y⁴) 〔步骤〕
+- `EXP.POWER_OF_POWER` 幂的乘方、积的乘方、商的乘方（(3²)⁴ = 3⁸，(5n)³ = 125n³，(m/n)⁵ = m⁵/n⁵） / Simplify a power of a power, of a product and of a quotient ((3²)⁴ = 3⁸, (5n)³ = 125n³, (m/n)⁵ = m⁵/n⁵) 〔步骤〕
+- `EXP.ZERO_ONE` 用「每次除以底数」的规律说明为什么 6⁰ = 1、m¹ = m / Explain with the divide-by-the-base pattern why any nonzero base to the exponent 0 is 1 and to the exponent 1 is itself (6⁰ = 1, m¹ = m) 〔概念〕
+- `EXP.SIGNS` 负底数的幂：说清为什么 (−3)² ≠ −3²、(−2)³ 是负的 / Evaluate powers with negative bases and explain why (−3)² ≠ −3² and (−2)³ is negative 〔推理〕
+- `EXP.SIMPLIFY_MIXED` 综合运用几条指数律化简，指数保持非负整数（2³ × 2⁵ ÷ 2⁴；(x²y)³ × x） / Simplify expressions that combine several exponent laws, keeping exponents whole numbers (2³ × 2⁵ ÷ 2⁴; (x²y)³ × x) 〔步骤〕
+
+**多项式 · Polynomials**　`G9.PAT.01`
+
+- `POLY.PARTS` 说出多项式的变量、次数、项数、系数和常数项；认识单项式、二项式、三项式 / Describe a polynomial by its variables, degree, number of terms, coefficients and constant term; name monomials, binomials and trinomials 〔概念〕
+- `POLY.TILES` 用代数砖表示多项式（x² 砖、x 砖、单位砖，分正负），能从砖图读出式子 / Model polynomials with algebra tiles (x², x and unit tiles, positive and negative) and read the expression from a tile picture 〔表示〕
+- `POLY.ADD` 多项式加法：合并同类项（(x² + 2x − 4) + (2x² − 3x − 4) = 3x² − x − 8） / Add polynomials by collecting like terms ((x² + 2x − 4) + (2x² − 3x − 4) = 3x² − x − 8) 〔步骤〕
+- `POLY.SUBTRACT` 多项式减法：把后面每一项都变号再加（(5x − 7) − (2x + 3) = 3x − 10） / Subtract polynomials by adding the opposite of every term ((5x − 7) − (2x + 3) = 3x − 10) 〔步骤〕
+- `POLY.MULT_MONOMIAL` 单项式乘多项式：面积模型和分配律（2n(n + 7) = 2n² + 14n） / Multiply a polynomial by a monomial with an area model and the distributive property (2n(n + 7) = 2n² + 14n) 〔步骤〕
+- `POLY.DIV_MONOMIAL` 多项式除以单项式：逐项除（(15k² − 10k) ÷ 5k = 3k − 2） / Divide a polynomial by a monomial term by term ((15k² − 10k) ÷ 5k = 3k − 2) 〔步骤〕
+- `POLY.APPLY` 用多项式描述周长、面积、费用情境并化简（边长 2x + 3 和 x − 1 的长方形周长） / Use polynomials to model perimeter, area and cost situations, then simplify (perimeter of a rectangle with sides 2x + 3 and x − 1) 〔应用〕
+
+**多步一元一次方程 · Multi-step linear equations**　`G9.PAT.03`
+
+- `LINEQ.DISTRIBUTE` 先去括号再解方程（3(x − 4) = 2x + 1） / Solve equations that need the distributive property first (3(x − 4) = 2x + 1) 〔步骤〕
+- `LINEQ.BOTH_SIDES` 等号两边都有未知数：把未知数集中到一边（5x − 2 = 2x + 7） / Solve equations with the variable on both sides by collecting variable terms on one side (5x − 2 = 2x + 7) 〔步骤〕
+- `LINEQ.RATIONAL` 系数是分数或小数的方程：先去分母（1 + 2x = 3 − 2/3(x + 6)） / Solve equations with fraction or decimal coefficients by clearing denominators first (1 + 2x = 3 − 2/3(x + 6)) 〔步骤〕
+- `LINEQ.PICTORIAL` 用天平或代数砖画出多步解方程的过程，每一步两边都保持相等 / Show a multi-step solution with a balance or algebra-tile picture, keeping both sides equal at every step 〔表示〕
+- `LINEQ.VERIFY` 把有理数解代回方程两边验算，并找出错解错在哪一步 / Verify a rational solution by substituting into both sides, and find the step where a wrong solution went off track 〔推理〕
+- `LINEQ.WORD` 从情境列多步方程并求解（两种手机套餐何时一样贵、连续整数、周长用式子给出） / Write and solve multi-step equations from situations (when two phone plans cost the same, consecutive numbers, a perimeter given as an expression) 〔应用〕
+
+**二元线性关系 · Two-variable linear relations**　`G9.PAT.02`
+
+- `LIN.CONTINUOUS` 区分连续和离散的线性关系，判断什么时候该把点连成线（时间 vs 票数） / Tell continuous from discrete linear relations and decide when the points should be joined (time vs. tickets) 〔概念〕
+- `LIN.GRAPH_TABLE` 用有理数输入列数值表并画出直线，坐标轴刻度按有理数坐标来选 / Make a table of values with rational inputs and graph the line, choosing axis scales that fit rational coordinates 〔步骤〕
+- `LIN.HORIZ_VERT` 认识并画出水平线和竖直线（y = 3、x = −2），说明为什么它们的方程只有一个变量 / Recognize and graph horizontal and vertical lines (y = 3, x = −2) and explain why their equations have only one variable 〔概念〕
+- `LIN.INTERPOLATE` 内插：在已知点之间从图上读出近似值 / Interpolate: read an approximate value between known points on a line graph 〔步骤〕
+- `LIN.EXTRAPOLATE` 外推：延长直线预测数据以外的值，并判断预测合不合理（独木舟行程的每日核对） / Extrapolate beyond the data by extending the line, and judge whether the prediction makes sense (canoe journey daily checks) 〔推理〕
+- `LIN.ANALYZE` 分析线性图象：变化率就是斜率、y 截距的含义、方程怎么同时体现两者（y = 2.5x + 10） / Analyze a linear graph: the rate of change as slope, what the y-intercept means, and how the equation shows both (y = 2.5x + 10) 〔推理〕
+- `LIN.APPLY` 用二元线性关系描述真实情境，用图回答问题（路程–时间、费用–用量） / Model a real situation with a two-variable linear relation and use the graph to answer questions (distance–time, cost–usage) 〔应用〕
+
+**比例尺图与相似形 · Scale diagrams & similar shapes**　`G9.GEO.01`
+
+- `SIM.UNIT_CONVERT` 公制长度单位换算（mm、cm、m、km，含小数），为比例尺做准备 / Convert between metric length units (mm, cm, m, km) including decimals, as needed for scale work 〔步骤〕
+- `SIM.SCALE_FACTOR` 认识比例系数 = 像 ÷ 原：大于 1 放大、0 到 1 之间缩小；读懂 1 : 50 这样的比例尺 / Understand scale factor as image ÷ original: greater than 1 enlarges, between 0 and 1 reduces; read scales such as 1 : 50 〔概念〕
+- `SIM.SCALE_DRAW` 在方格纸上按给定比例尺放大或缩小平面图形；从比例尺图求真实长度 / Draw an enlargement or reduction of a 2D shape to a given scale on grid paper, and find real lengths from a scale diagram 〔步骤〕
+- `SIM.TRIANGLES_IDENTIFY` 判断两个三角形是否相似：对应角相等、对应边的比相同 / Decide whether two triangles are similar by matching equal angles and checking that corresponding sides share one ratio 〔推理〕
+- `SIM.MISSING_SIDE` 用比例或比例系数求相似三角形、相似多边形的未知边 / Find a missing side in similar triangles or polygons using a proportion or the scale factor 〔步骤〕
+- `SIM.INDIRECT_MEASURE` 用相似三角形间接测量：用影子求高度、河宽、长屋模型、壁画放大 / Use similar triangles to measure indirectly: heights from shadows, river widths, longhouse models, mural enlargements 〔应用〕
+
+**社会中的统计 · Statistics in society**　`G9.DAT.01`
+
+- `STAT.POP_SAMPLE` 区分总体与样本，说明什么时候该抽样（成本、时间、破坏性检测） / Tell a population from a sample and explain when sampling is the sensible choice (cost, time, destructive tests) 〔概念〕
+- `STAT.SAMPLING_METHODS` 比较抽样方法（随机、系统、分层、方便、自愿），选一种能避免偏差的 / Compare sampling techniques (random, systematic, stratified, convenience, voluntary) and pick one that avoids bias 〔概念〕
+- `STAT.BIAS` 找出调查里的偏差：诱导性提问、带倾向的用语、问了谁、时机、隐私与文化敏感性 / Spot bias in a survey: leading questions, loaded language, who was asked, timing, privacy and cultural sensitivity 〔推理〕
+- `STAT.MISLEADING_GRAPHS` 识破误导性图表和统计：截断的坐标轴、不均匀的刻度、挑着选的区间、没说基数的百分比 / Detect misleading graphs and statistics: truncated axes, uneven scales, cherry-picked ranges, percents without a base 〔推理〕
+- `STAT.CRITIQUE` 评析一组真实数据或新闻结论（加拿大统计局、原住民社区水质），提出更公平的收集或呈现方式 / Critique a real data set or news claim (Statistics Canada, First Peoples water quality) and propose a fairer way to collect or display it 〔应用〕
+
+**理财：预算与收支 · Financial literacy: budgets & transactions**　`G9.NUM.02`
+
+- `FIN.BANKING` 看懂银行对账单（存款、取款、借记、手续费、余额），根据一串交易算出余额 / Read a bank statement (deposits, withdrawals, debit, fees, running balance) and keep a balance from a list of transactions 〔概念〕
+- `FIN.SIMPLE_INTEREST` 用 I = P × r × t 算单利：利率化成小数、时间按年算（月份换成年的分数） / Compute simple interest I = P × r × t with the rate as a decimal and time in years (months as a fraction of a year) 〔步骤〕
+- `FIN.SAVINGS_GROWTH` 比较储蓄方案：本金、利率、时间各自怎么影响利息；到期总额 = 本金 + 利息 / Compare savings options: how principal, rate and time each change the interest, and total = principal + interest 〔推理〕
+- `FIN.BUDGET_PLAN` 做一份月度预算：收入、固定支出、变动支出、储蓄，核对是否平衡 / Build a monthly budget with income, fixed and variable expenses and savings, and check that it balances 〔步骤〕
+- `FIN.PLANNED_PURCHASE` 为一次购买或活动做计划（举办原住民聚会、买手机）：比较攒够再买和分期付，并调整预算 / Plan a purchase or event (hosting a First Peoples gathering, buying a phone): compare saving up with paying over time, and adjust the budget 〔应用〕
+
 <!-- TREE:END -->
 
 ---
@@ -799,13 +874,14 @@ G5 等值分数的诊断分支长这样（`diag.branch` 展开）：
 - **老 BC 题库已全量送审**（2026-08-23，`tools/audit_qbank.mjs`）：234 份审 35 份不过，剔 42 题（1.5%）；错误类型：解析算错 20、跑题 10、标答错/两个正确 6、题干矛盾 2。剔后用 `pregen --only quiz --force --provider claude --judge` 补齐（41 次生成，0 失败）。删掉的题在 `audit-report.jsonl`。
 - **技能视图已成为 G4–G7 的默认清单**（`learnView()`）：选年级即「主题 → 技能」，老主线清单 `view=standards` 仍可取但界面不露出；单元测试按主题（存档 key `skills-g<N>`）；FSA 仍按主线（`fsaStrands`）；家长报告按技能汇总定级。主题级单元卷尚无预生成包（108 份），点 📝 现场出。微课只烤了 2 节示例（`pregen --skills --only lessons`，490 节待决定）。
 
-### 阶段 3 · G8–G9、高中、书籍（G8 已做，2026-09-02）
+### 阶段 3 · G8–G9、高中、书籍（G8 2026-09-02、G9 2026-09-03 已做）
 
 **G8 已落地**：`data/curriculum/skills/g8.json`——14 个主题（一条 BC 标准一个主题，教学顺序：平方立方 → 根 → 分数运算 → 百分数 → 比与比例 → 比价理财 → 代数式 → 线性关系 → 两步方程 → 勾股 → 三视图展开图 → 表面积体积 → 集中趋势 → 独立事件）、71 个技能（69 核心；拓展 2 条：合并同类项、x/3 + 5 = 2 型方程），每标准 5.1 条（G8 一条标准的跨度比小学大，拆细是对的）。
 先修 122 条边（大半接到 G6/G7 技能：G7 的整数、两步方程、线性关系、圆和体积，G6 的比、百分数、质因数），误区新登记 60 条（前缀 cube / root / pyth / views / nets / sa / mean / median / rate / prop / expr 等），`sq.*` 四条沿用 G7 平方数主题。
 平方数主题（G7，`core:false`，supporting G8.NUM.01/02）以 `topic.review` 借进 G8 前两个主题末尾复习，不复制定义。
 内容：`pregen --grades skills-g8 --provider claude --judge claude`（142 微课 + 142 题库 + 28 主题卷；语气走 `seniorTone(8)` 初中腔，干扰项提示按 ≥8 年级那组）。语音按 2026-09-02 的决定不烘，走系统 TTS 兜底。
-**G9、高中、书籍仍未做。** 同一 schema，加载器已经泛化（读任意 `skills/g<N>.json`），缺的是数据文件本身。高中 `course-*.json` 的 `strandDefs` 本来就是单元、只缺技能层；书籍小节已经够细（AoPS 预备代数 68 节），可以直接当技能用、只补 `primary` 和先修边。
+**G9 已落地（2026-09-03）**：`skills/g9.json`——8 个主题（一条标准一个主题：有理数运算 → 指数律 → 多项式 → 多步方程 → 二元线性关系 → 比例尺与相似 → 社会统计 → 预算与收支）、49 个技能（全部核心），每标准 6.1 条；先修接 G8（分数运算、两步方程、线性关系、比例、百分数）和 G6/G7；误区新登记 42 条（exp / poly / lin / sim / stat 等）。内容由 **Claude Fable 5.1**（`config.claude.model = claude-fable-5-1`，effort high）生成 + 审稿：`pregen --grades skills-g9 --provider claude --judge claude`。语音同样不烘。
+**高中、书籍仍未做。** 同一 schema，加载器已经泛化（读任意 `skills/g<N>.json`），缺的是数据文件本身。高中 `course-*.json` 的 `strandDefs` 本来就是单元、只缺技能层；书籍小节已经够细（AoPS 预备代数 68 节），可以直接当技能用、只补 `primary` 和先修边。
 
 ### 不做的事
 

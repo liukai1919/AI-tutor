@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.BANKING",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn8thkbg4imkf",
+   "level": 1,
+   "question": "Leo's bank statement for one week has four rows, all listed in words: Row 1, a deposit of $30.00; Row 2, a debit card purchase of $18.00; Row 3, a monthly account fee of $4.00; Row 4, a deposit of $5.00. Which rows make the running balance go down?",
+   "options": [
+    "the $18.00 debit purchase and the $4.00 account fee",
+    "all four rows, because every row moves money around",
+    "only the $18.00 purchase, since a fee is not spending",
+    "the two deposits, since that money leaves the bank"
+   ],
+   "answerIndex": 0,
+   "explain": "On a statement, money out lowers the running balance, so both the debit purchase and the fee pull it down. The usual trap is thinking a fee does not count as spending, but a fee leaves the account just like a purchase does.",
+   "tags": [
+    "ok",
+    "fin.income_expense_mixed",
+    "fin.fee_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbue8bra",
+   "level": 1,
+   "question": "Ava's bank statement table has three columns - Deposits, Withdrawals, Balance - and two rows, all given in words: Row 1 is a deposit of $50.00 with a balance of $210.00; Row 2 is a withdrawal of $18.00 with a balance of $192.00. What does the $192.00 in the Balance column mean?",
+   "options": [
+    "the total of all deposits and withdrawals",
+    "the money left in the account after that row",
+    "the balance before any account fee is taken off",
+    "the amount of money that single row moved"
+   ],
+   "answerIndex": 1,
+   "explain": "The Balance column is a running total: it shows what is still in the account right after that transaction, not the size of the transaction. Adding deposits and withdrawals together instead gives a number that means nothing.",
+   "tags": [
+    "fin.income_expense_mixed",
+    "ok",
+    "fin.fee_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8thkb2mwqvj",
+   "level": 1,
+   "question": "A statement table is read out in words. The starting balance is $46.00. Row 1: a deposit of $20.00. Row 2: a debit card purchase of $12.75. Row 3: an e-transfer fee of $1.50. What is the running balance after Row 3?",
+   "options": [
+    "$54.75",
+    "$53.25",
+    "$51.75",
+    "$80.25"
+   ],
+   "answerIndex": 2,
+   "explain": "Work down the rows one at a time: 46.00 + 20.00 = 66.00, then - 12.75 = 53.25, then - 1.50 = 51.75. The common slip is stopping at $53.25 because the small fee was left out of the running balance.",
+   "tags": [
+    "int.subtract_negative",
+    "fin.fee_ignored",
+    "ok",
+    "fin.income_expense_mixed"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbl8td84",
+   "level": 1,
+   "question": "A statement table is described in words. The starting balance is $120.00. Row 1: a deposit of $40.00, and the balance becomes $160.00. Row 2: a debit card purchase together with a $2.50 fee, and the balance becomes $141.00. How much was the purchase?",
+   "options": [
+    "$21.50",
+    "$56.50",
+    "$19.00",
+    "$16.50"
+   ],
+   "answerIndex": 3,
+   "explain": "The balance dropped 160.00 - 141.00 = 19.00, and $2.50 of that drop was the fee, so the purchase was 19.00 - 2.50 = 16.50. The trap is answering $19.00 by forgetting that part of the drop was the fee, not the purchase.",
+   "tags": [
+    "int.subtract_negative",
+    "fin.income_expense_mixed",
+    "fin.fee_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbb2mdmv",
+   "level": 2,
+   "question": "Nadia's balance is $58.20. The next statement line is an e-transfer fee of $2.50. The line after that is the bank reversing that fee because it was charged by mistake, shown as a withdrawal of -$2.50. What is her balance after both lines?",
+   "options": [
+    "$58.20",
+    "$55.70",
+    "$53.20",
+    "$60.70"
+   ],
+   "answerIndex": 0,
+   "explain": "A withdrawal of -$2.50 undoes a $2.50 withdrawal, so 58.20 - 2.50 - (-2.50) = 58.20 and she ends where she started. The classic error is treating - (-2.50) as another subtraction and landing at $53.20.",
+   "tags": [
+    "ok",
+    "other",
+    "int.subtract_negative",
+    "fin.fee_ignored"
+   ]
+  },
+  {
+   "qid": "qmtn8thkb4j9kug",
+   "level": 2,
+   "question": "Sam's chequing statement for one week shows: opening balance $214.60; a paycheque deposit of $85.00; a debit purchase of $32.40; a cash withdrawal of $60.00; and two e-transfer fees of $1.25 each. What is his closing balance?",
+   "options": [
+    "$207.20",
+    "$204.70",
+    "$394.50",
+    "$209.70"
+   ],
+   "answerIndex": 1,
+   "explain": "Add money in and subtract money out in order: 214.60 + 85.00 = 299.60, - 32.40 = 267.20, - 60.00 = 207.20, - 2.50 in fees = 204.70. Two small fees are easy to skip, which is exactly how people land on $207.20.",
+   "tags": [
+    "fin.fee_ignored",
+    "ok",
+    "fin.income_expense_mixed",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbjmv1f3",
+   "level": 2,
+   "question": "A statement line shows a deposit of $60.00, and the very next line shows an ATM fee of $3.00. If the balance before those two lines is B, which description gives the balance after both lines?",
+   "options": [
+    "add 60.00 to B, then add 3.00 more",
+    "add 60.00 to B and change nothing else",
+    "add 60.00 to B, then take off 3.00",
+    "subtract both 60.00 and 3.00 from B"
+   ],
+   "answerIndex": 2,
+   "explain": "Deposits raise the running balance and fees lower it, so the balance becomes B + 60.00 - 3.00. Adding both amounts treats a fee like income, which is the most common mix-up on a statement.",
+   "tags": [
+    "fin.income_expense_mixed",
+    "fin.fee_ignored",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbvd4ikd",
+   "level": 2,
+   "question": "Kiran's account balance is $12.40. A debit purchase of $28.00 goes through anyway, and the bank then posts a $5.00 overdraft fee. What balance does the statement show after both lines?",
+   "options": [
+    "-$15.60",
+    "$45.40",
+    "-$10.60",
+    "-$20.60"
+   ],
+   "answerIndex": 3,
+   "explain": "12.40 - 28.00 = -15.60, and the fee takes off $5.00 more: -15.60 - 5.00 = -20.60. A negative balance means money is owed, so the fee makes it further below zero, not closer to zero.",
+   "tags": [
+    "fin.fee_ignored",
+    "fin.income_expense_mixed",
+    "int.subtract_negative",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8thkb2bzk0q",
+   "level": 3,
+   "question": "Maya's statement for one week: opening balance $150.00; an e-transfer in from her grandma of $40.00; two bus-pass debits of $22.50 each; an e-transfer fee of $1.50; and a final line reversing one bus pass that was charged twice, shown as a withdrawal of -$22.50. What is her closing balance?",
+   "options": [
+    "$166.00",
+    "$259.00",
+    "$167.50",
+    "$121.00"
+   ],
+   "answerIndex": 0,
+   "explain": "Run the rows in order: 150.00 + 40.00 = 190.00, - 22.50 - 22.50 = 145.00, - 1.50 = 143.50, then the reversal gives back 22.50 for 166.00. The trap is subtracting the -$22.50 instead of adding it back.",
+   "tags": [
+    "ok",
+    "fin.income_expense_mixed",
+    "fin.fee_ignored",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtn8thkberlwsp",
+   "level": 3,
+   "question": "Jonah tracks his own balance beside his statement. The rows are: starting balance $95.00; a deposit of $30.00; a debit purchase of $18.60; a monthly account fee of $4.00. He writes down a closing balance of $106.40. What went wrong?",
+   "options": [
+    "He added the $18.60 debit, because every row gets added",
+    "He left out the $4.00 fee, which also lowers the balance",
+    "He subtracted the fee twice, since it shows as a negative",
+    "He subtracted the $30.00 deposit, since cash left the bank"
+   ],
+   "answerIndex": 1,
+   "explain": "The correct run is 95.00 + 30.00 - 18.60 - 4.00 = 102.40, and $106.40 is exactly $4.00 too high, so the fee was never taken off. Fees are small and easy to skip, but they belong in the running balance like any withdrawal.",
+   "tags": [
+    "fin.income_expense_mixed",
+    "ok",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbj0lbhi",
+   "level": 3,
+   "question": "Priya's savings account statement for August shows: opening balance $312.75; three babysitting deposits of $45.00 each; one withdrawal of $120.00 for a bike part; a monthly fee of $2.50; and $1.30 of interest paid into the account. What is her closing balance?",
+   "options": [
+    "$323.95",
+    "$329.05",
+    "$326.55",
+    "$571.55"
+   ],
+   "answerIndex": 2,
+   "explain": "Deposits and interest go in, the withdrawal and fee come out: 312.75 + 135.00 = 447.75, - 120.00 = 327.75, - 2.50 = 325.25, + 1.30 = 326.55. Interest paid in is money in, and the fee must still come off, so neither can be dropped.",
+   "tags": [
+    "other",
+    "fin.fee_ignored",
+    "ok",
+    "fin.income_expense_mixed"
+   ]
+  },
+  {
+   "qid": "qmtn8thkbmq50k5",
+   "level": 3,
+   "question": "Marcus's balance is $47.25. The next statement line reads Correction: withdrawal -$9.00, which means a $9.00 withdrawal is being cancelled. The line after it is the $2.50 monthly account fee. What is his balance after both lines, and why?",
+   "options": [
+    "$56.25, since only the correction changes the balance",
+    "$58.75, since every amount on a statement gets added",
+    "$35.75, since a withdrawal line always subtracts $9.00",
+    "$53.75, since the cancelled $9.00 comes back in"
+   ],
+   "answerIndex": 3,
+   "explain": "Cancelling a $9.00 withdrawal is 47.25 - (-9.00) = 56.25, and the fee then takes off $2.50, giving 53.75. Subtracting the negative as if it were a plain $9.00 withdrawal is the mistake to watch for.",
+   "tags": [
+    "fin.fee_ignored",
+    "fin.income_expense_mixed",
+    "int.subtract_negative",
+    "ok"
+   ]
+  }
+ ]
+}

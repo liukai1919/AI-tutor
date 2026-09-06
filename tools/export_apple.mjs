@@ -7,7 +7,7 @@
  *   apple-export/
  *   ├── manifest.json                         数量、引擎、语音哈希公式、注意事项
  *   ├── curriculum/bc/*.json                  BC 大纲（G4-G9 + 高中三门），原样
- *   ├── curriculum/skills/*.json              技能图谱（g4-g8 + misconceptions），原样
+ *   ├── curriculum/skills/*.json              技能图谱（g4-g9 + misconceptions），原样
  *   ├── lessons/standards/<lang>/<条目id>.json  老的大纲条目课（现在是主题总览课）
  *   ├── lessons/skills/<lang>/<技能id>.json     技能微课
  *   ├── qbank/legacy-by-standard/<lang>/<id>.json

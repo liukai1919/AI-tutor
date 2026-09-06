@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.RAT.POWERS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlsayodrxmvpy",
+   "level": 1,
+   "question": "计算 (−3)² 的值。这里括号（brackets）把负号一起括住了，底数是 −3，指数（exponent）是 2。",
+   "options": [
+    "9",
+    "−9",
+    "−6",
+    "6"
+   ],
+   "answerIndex": 0,
+   "explain": "括号把负号括进去，底数是 −3：(−3)² = (−3)×(−3) = 9。平方是自己乘自己，不是乘 2；忽略括号的作用才会得到 −9。",
+   "tags": [
+    "ok",
+    "rat.negative_base_bracket",
+    "sq.square_as_double",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtlsayodvlhezq",
+   "level": 1,
+   "question": "计算 −4² 的值。注意这里没有括号，负号写在 4² 的前面。",
+   "options": [
+    "16",
+    "−16",
+    "−8",
+    "1/16"
+   ],
+   "answerIndex": 1,
+   "explain": "没有括号时，指数只作用在 4 上：−4² = −(4×4) = −16。把它当成 (−4)² 才会得到 16。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsayoddk9sz5",
+   "level": 1,
+   "question": "计算 (2/3)² 的值。括号里是分数（fraction）2/3，分子是 2，分母是 3，整个分数要平方。",
+   "options": [
+    "4/3",
+    "2/9",
+    "4/9",
+    "4/6"
+   ],
+   "answerIndex": 2,
+   "explain": "分数的平方要分子、分母各自平方：(2/3)² = (2×2)/(3×3) = 4/9。只平方分子得 4/3、只平方分母得 2/9，都是常见错误。",
+   "tags": [
+    "rat.fraction_power_one_part",
+    "rat.fraction_power_one_part",
+    "ok",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtlsayodaqdx5h",
+   "level": 1,
+   "question": "计算 5/3² 的值。这个式子的分子（numerator）是 5，分母（denominator）是 3²，指数只写在 3 上。",
+   "options": [
+    "25/9",
+    "25/3",
+    "5/6",
+    "5/9"
+   ],
+   "answerIndex": 3,
+   "explain": "指数 2 只在分母 3 上，先算 3² = 9，再写成 5/9。写成 25/9 的那个是把分子也平方了，那是 (5/3)² 的结果。",
+   "tags": [
+    "other",
+    "rat.fraction_power_one_part",
+    "sq.square_as_double",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsayodxdy6oa",
+   "level": 2,
+   "question": "按运算顺序（order of operations）计算：(−5)² − (−5²)。",
+   "options": [
+    "50",
+    "0",
+    "−50",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "(−5)² = 25，−5² = −25，所以 25 − (−25) = 25 + 25 = 50。把两个都当成 25 或都当成 −25，会错得 0。",
+   "tags": [
+    "ok",
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtlsayodflrcpa",
+   "level": 2,
+   "question": "装修店里一块正方形（square）瓷砖的边长是 3/4 m。这块瓷砖的面积是多少平方米？",
+   "options": [
+    "9/4",
+    "9/16",
+    "3/2",
+    "3/16"
+   ],
+   "answerIndex": 1,
+   "explain": "面积 = 边长²，(3/4)² = 9/16 m²。分子、分母都要平方，只平方分子会得到 9/4，那比原来的边长还大，显然不对。",
+   "tags": [
+    "rat.fraction_power_one_part",
+    "ok",
+    "sq.square_as_double",
+    "rat.fraction_power_one_part"
+   ]
+  },
+  {
+   "qid": "qmtlsayodwd4bkg",
+   "level": 2,
+   "question": "化简（simplify）：(−2/3)³。",
+   "options": [
+    "−8/3",
+    "8/27",
+    "−8/27",
+    "−2"
+   ],
+   "answerIndex": 2,
+   "explain": "三个 −2/3 相乘：(−2/3)³ = (−8)/27 = −8/27。负数的奇数次幂（odd power）还是负数；分子、分母都要立方，不是只立方分子，也不是乘 3。",
+   "tags": [
+    "rat.fraction_power_one_part",
+    "rat.negative_base_bracket",
+    "ok",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtlsayodbte2s1",
+   "level": 2,
+   "question": "一块正方形菜地边长 5 m，均匀撒了 4 kg 肥料。每平方米的肥料量写成算式是 4/5² kg（分子是 4，分母是 5²）。它等于多少 kg？",
+   "options": [
+    "16/25",
+    "4/10",
+    "16/5",
+    "4/25"
+   ],
+   "answerIndex": 3,
+   "explain": "4/5² 表示分子是 4、分母是 5²：面积 5² = 25 m²，每平方米 4/25 kg。写成 16/25 的那个是把分子也平方了，那是 (4/5)² 的结果。",
+   "tags": [
+    "other",
+    "sq.square_as_double",
+    "rat.fraction_power_one_part",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsayodlwbt5j",
+   "level": 3,
+   "question": "小雅算 −6² 时写下 36，理由是「负负得正」。她的做法对吗？如果不对，错在哪里？",
+   "options": [
+    "应得 −36，因为没括号时指数只管 6，负号要最后再加上",
+    "她是对的，因为 −6 乘 −6 两个负号相乘，结果就是正 36",
+    "应得 −12，因为平方就是把 −6 乘以 2，负号原样保留下来",
+    "应得 1/36，因为前面的负号会把指数 2 变成负指数 −2"
+   ],
+   "answerIndex": 0,
+   "explain": "没有括号时，指数 2 只作用在 6 上，−6² = −(6²) = −36。她把 −6² 当成了 (−6)²，只有写了括号，负号才会被平方掉。",
+   "tags": [
+    "ok",
+    "rat.negative_base_bracket",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsayodgebfmo",
+   "level": 3,
+   "question": "下面哪一组里的两个算式（expression）的值相等？（像 3/4² 这样的写法表示分子是 3，分母是 4²。）",
+   "options": [
+    "(−2)² 和 −2²",
+    "(−2)³ 和 −2³",
+    "(1/2)² 和 1/2 × 2",
+    "(3/4)² 和 3/4²"
+   ],
+   "answerIndex": 1,
+   "explain": "(−2)³ = −8，−2³ = −(2³) = −8，奇数次幂不会改变负号，所以相等。而 (−2)² = 4 但 −2² = −4；(3/4)² = 9/16 但 3/4² = 3/16；(1/2)² = 1/4 而 1/2 × 2 = 1，平方不是乘 2。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "sq.square_as_double",
+    "rat.fraction_power_one_part"
+   ]
+  },
+  {
+   "qid": "qmtlsayodtcz29b",
+   "level": 3,
+   "question": "科学展上，小杰用公式 h = 10 − x² 描述一道喷泉水柱的高度（单位 m），x 是离喷口中线的水平距离（单位 m），中线左侧 x 为负数。当 x = −3 时，水柱高度 h 是多少 m？",
+   "options": [
+    "19",
+    "16",
+    "1",
+    "−1"
+   ],
+   "answerIndex": 2,
+   "explain": "先算 (−3)² = 9，再算 10 − 9 = 1 m。把 x = −3 代入 x² 时，整个 −3 要平方，结果是正 9；算成 −9 会得到 19，把平方当成乘 2 会得到 16。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "sq.square_as_double",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsayod8rs4pg",
+   "level": 3,
+   "question": "一个正方体（cube）储物箱的边长是 4/5 m，容积等于边长的立方（power of 3）。现在往箱子里装了刚好一半的水，水的体积是多少立方米？",
+   "options": [
+    "32/5",
+    "6/5",
+    "2/125",
+    "32/125"
+   ],
+   "answerIndex": 3,
+   "explain": "容积 (4/5)³ = 64/125 m³，一半是 32/125 m³。分子和分母都要立方；只立方分子会得到 64/5，比 1 m³ 还大，明显不合理。",
+   "tags": [
+    "rat.fraction_power_one_part",
+    "sq.square_as_double",
+    "rat.fraction_power_one_part",
+    "ok"
+   ]
+  }
+ ]
+}

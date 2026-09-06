@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.SIMPLIFY_MIXED",
+ "lang": "en",
+ "title": "Simplify expressions that combine several exponent laws, keeping exponents whole numbers (2³ × 2⁵ ÷ 2⁴; (x²y)³ × x)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Mixing Exponent Laws in One Expression",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the three big exponent moves: multiplying same-base powers adds the exponents, dividing subtracts them, and a power of a power multiplies them. Today's one new step is using two or three of those moves in the same expression, in order, without mixing them up. Think of it like a combo move in a game: each move is one you already know, we just chain them.",
+    "math": "a^{m}\\times a^{n}=a^{m+n}\\qquad a^{m}\\div a^{n}=a^{m-n}\\qquad (a^{m})^{n}=a^{mn}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's do two to the third, times two to the fifth, divided by two to the fourth. Work left to right. First move: multiplying same bases, so add the exponents. Three plus five is eight, giving two to the eighth. Second move: dividing same bases, so subtract. Eight minus four is four. The answer is two to the fourth, which is sixteen. The picture checks the first move with real numbers: eight times thirty-two really is two hundred fifty-six, which is two to the eighth.",
+    "math": "2^{3}\\times 2^{5}\\div 2^{4}=2^{3+5}\\div 2^{4}=2^{8}\\div 2^{4}=2^{8-4}=2^{4}=16",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      8,
+      32
+     ],
+     "labels": [],
+     "caption": "2 to the 3 is 8, 2 to the 5 is 32, and 8 × 32 = 256 = 2 to the 8"
+    }
+   },
+   {
+    "say": "Now one with letters: open bracket x squared y close bracket, all cubed, times x. First move: the cube applies to every factor inside, so x squared cubed is x to the sixth, and y cubed is y to the third. Second move: times x means times x to the first, same base as x to the sixth, so add: six plus one is seven. Final answer: x to the seventh, y cubed. The table tracks each exponent after each move.",
+    "math": "(x^{2}y)^{3}\\times x=x^{6}y^{3}\\times x^{1}=x^{7}y^{3}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      6,
+      7,
+      1,
+      3,
+      3
+     ],
+     "labels": [
+      "start",
+      "after cubing",
+      "after times x",
+      "exponent of x",
+      "exponent of y"
+     ],
+     "caption": "Exponent of x: 2 → 6 → 7. Exponent of y: 1 → 3 → 3."
+    }
+   },
+   {
+    "say": "Here are the traps. Trap one: writing two to the third times two to the fourth as four to the seventh. The base never changes; eight times sixteen is one hundred twenty-eight, which is two to the seventh, not four to the seventh, which is over sixteen thousand. Trap two: multiplying the exponents when you multiply powers, like n to the fifth times n cubed equals n to the fifteenth. Test it with n equals two: thirty-two times eight is two hundred fifty-six, which is two to the eighth, so you add. Multiplying exponents is only for a power of a power, like three squared to the fourth equals three to the eighth, never three to the sixth.",
+    "math": "2^{3}\\times 2^{4}=2^{7}\\ (\\text{not }4^{7})\\qquad n^{5}\\times n^{3}=n^{8}\\ (\\text{not }n^{15})",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      128,
+      16384
+     ],
+     "labels": [
+      "2 to the 7 (correct)",
+      "4 to the 7 (wrong)"
+     ],
+     "caption": "2 to the 3 times 2 to the 4 is 128, nowhere near 16384"
+    }
+   },
+   {
+    "say": "So the takeaway: go one law at a time, left to right, and ask at each step which move this is. Multiply same bases, add. Divide same bases, subtract. Power of a power, multiply. The base itself just rides along unchanged.",
+    "math": "2^{3}\\times 2^{5}\\div 2^{4}=2^{4}\\qquad (x^{2}y)^{3}\\times x=x^{7}y^{3}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "One law at a time: multiply → add, divide → subtract, power of a power → multiply. The base stays put.",
+  "practice": {
+   "question": "A Surrey warehouse counts boxes with the expression three squared, times three to the fourth, divided by three cubed. Part A: write it as a single power of three and evaluate it. Part B: simplify open bracket m squared n close bracket to the fourth, times m, using only whole-number exponents.",
+   "answer": "Part A: 3 to the 2 plus 4 minus 3 = 3 to the 3 = 27 boxes. Part B: (m²n)⁴ = m⁸n⁴, then times m gives m⁹n⁴."
+  }
+ }
+}

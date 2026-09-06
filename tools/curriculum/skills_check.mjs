@@ -10,7 +10,7 @@
  *   - 每条技能的 primary 标准必须存在于 data/curriculum/bc/grade-N.json，且属于它所在 topic 的 standards
  *   - prereq / topic.review / diag.branch 目标都必须是存在的技能；先修图无环；不允许先修指向更高年级
  *   - misc[] 与 diag.branch 的 key 必须在 misconceptions.json 登记；登记表的 remedy 必须是存在的技能
- *   - 覆盖率：有技能文件的年级（G4–G8）每条 BC 标准至少有 1 条 primary 技能
+ *   - 覆盖率：有技能文件的年级（G4–G9）每条 BC 标准至少有 1 条 primary 技能
  * 零依赖，只用 node 内置模块。 */
 import fs from "node:fs";
 import path from "node:path";

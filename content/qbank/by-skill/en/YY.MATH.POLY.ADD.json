@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.ADD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlya47v91q64s",
+   "level": 1,
+   "question": "Ben builds two piles of area tiles. Each large square tile has area x², each strip tile has area x, and each small square tile has area 1. Pile 1 has 2 large squares, 3 strips and 1 small square. Pile 2 has 1 large square, 2 strips and 4 small squares. Ben pushes both piles together and sorts the tiles by shape. Which polynomial gives the total area?",
+   "options": [
+    "3x² + 5x + 5",
+    "3x² + 10x",
+    "3x⁴ + 5x + 5",
+    "8x² + 5"
+   ],
+   "answerIndex": 0,
+   "explain": "Sort by shape and count each kind: 2 + 1 large squares give 3x², 3 + 2 strips give 5x, 1 + 4 small squares give 5, so the total is 3x² + 5x + 5. Only tiles of the same shape can be counted together, and counting tiles never changes the exponent.",
+   "tags": [
+    "ok",
+    "expr.combine_unlike_terms",
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlya47v27d73c",
+   "level": 1,
+   "question": "In an area-tile model, red tiles count as negative. Group 1 has 1 large square (area x²), 4 strips (area x each) and 2 red small squares (area −1 each). Group 2 has 2 large squares (area x² each), 1 red strip (area −x) and 3 small squares (area 1 each). When the two groups are combined and zero pairs are removed, which polynomial is left?",
+   "options": [
+    "3x⁴ + 3x + 1",
+    "3x² + 3x + 1",
+    "3x² + 4x",
+    "3x² + 5x + 1"
+   ],
+   "answerIndex": 1,
+   "explain": "Combine each shape separately: 1 + 2 large squares make 3x², 4 strips with 1 red strip make 3x, and 3 units with 2 red units make 1, giving 3x² + 3x + 1. A red strip cancels a strip, so 4x + (−x) is 3x, not 5x.",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "ok",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlya47vkz71v1",
+   "level": 1,
+   "question": "Maya lays out area tiles for 2x² + 2x + 3: that is 2 large squares of area x², 2 strips of area x and 3 small unit squares. Beside them she lays out tiles for 2x² + 3x + 1: 2 large squares, 3 strips and 1 unit square. She slides all the tiles together and groups them by shape. Which polynomial matches the combined tiles?",
+   "options": [
+    "4x⁴ + 5x + 4",
+    "4x² + 9x",
+    "4x² + 5x + 4",
+    "9x² + 4"
+   ],
+   "answerIndex": 2,
+   "explain": "Count each shape on its own: 4 large squares give 4x², 5 strips give 5x, 4 unit squares give 4, so the sum is 4x² + 5x + 4. Strips and unit squares are different shapes, so 5x and 4 cannot be merged into 9x.",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlya47v9s6myz",
+   "level": 1,
+   "question": "Area tiles are used to add two polynomials. Set A has 3 large squares (area x² each), 2 strips (area x each) and 5 red unit squares (area −1 each). Set B has 1 red large square (area −x²), 3 strips and 2 unit squares (area 1 each). After the sets are joined and every zero pair is removed, which polynomial do the remaining tiles show?",
+   "options": [
+    "2x⁴ + 5x − 3",
+    "2x² + 2x",
+    "4x² + 5x − 3",
+    "2x² + 5x − 3"
+   ],
+   "answerIndex": 3,
+   "explain": "Match shapes: the red large square cancels one of the 3 large squares, leaving 2x²; the strips total 5x; 5 red units and 2 units leave −3, so the answer is 2x² + 5x − 3. A red x² tile subtracts from the x² count, so 3x² + (−x²) is 2x², not 4x².",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlya47vg1c6n0",
+   "level": 2,
+   "question": "Simplify: (4x² − 3x + 7) + (−2x² + 5x − 9).",
+   "options": [
+    "2x² + 2x − 2",
+    "2x⁴ + 2x − 2",
+    "4x² − 2",
+    "2x² + 2x + 16"
+   ],
+   "answerIndex": 0,
+   "explain": "Collect like terms with their signs: 4x² + (−2x²) = 2x², −3x + 5x = 2x, and 7 + (−9) = −2, giving 2x² + 2x − 2. Keep the negative on 9; adding 7 and 9 to get 16 ignores the sign.",
+   "tags": [
+    "ok",
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlya47v03iol4",
+   "level": 2,
+   "question": "At a Surrey community garden, bed A has an area of (3x² + 2x − 5) square metres and bed B has an area of (x² − 6x + 8) square metres. Which polynomial gives the total area of the two beds?",
+   "options": [
+    "4x⁴ − 4x + 3",
+    "4x² − 4x + 3",
+    "4x² − x",
+    "4x² + 8x + 3"
+   ],
+   "answerIndex": 1,
+   "explain": "Add the x² terms, then the x terms, then the constants: 3x² + x² = 4x², 2x + (−6x) = −4x, −5 + 8 = 3, so the total is 4x² − 4x + 3. The x term and the constant are unlike terms, so −4x + 3 must stay as two terms.",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "ok",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlya47vmer9ug",
+   "level": 2,
+   "question": "The terms in these polynomials are out of order. Find the sum and write it with the highest power first: (5x − 2 + x²) + (3 − 4x² + x).",
+   "options": [
+    "5x² + 6x + 1",
+    "−3x⁴ + 6x + 1",
+    "−3x² + 6x + 1",
+    "−3x² + 7x"
+   ],
+   "answerIndex": 2,
+   "explain": "Pick out the like terms wherever they sit: x² + (−4x²) = −3x², 5x + x = 6x, −2 + 3 = 1, giving −3x² + 6x + 1. Watch the sign in front of 4x²; it is negative, so the x² total is −3x², not 5x².",
+   "tags": [
+    "other",
+    "poly.add_exponents_when_adding",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlya47vu5bz4a",
+   "level": 2,
+   "question": "A coding club in Burnaby splits its project into two parts. Part 1 takes (n² + 4n + 2) minutes and Part 2 takes (2n² − n + 7) minutes, where n is the number of team members. Which polynomial gives the total time in minutes?",
+   "options": [
+    "3n⁴ + 3n + 9",
+    "3n² + 12n",
+    "3n² + 5n + 9",
+    "3n² + 3n + 9"
+   ],
+   "answerIndex": 3,
+   "explain": "Combine like terms: n² + 2n² = 3n², 4n + (−n) = 3n, 2 + 7 = 9, so the total is 3n² + 3n + 9. The exponent stays as 2 when you add n² terms; only the coefficients are added.",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlya47vpx1ond",
+   "level": 3,
+   "question": "Priya runs a snack stand at a Kelowna lacrosse game. Her profit from drinks is (2d² − 3d + 5) dollars and her profit from popcorn is (d² + 7d − 12) dollars, where d is the number of hours the stand is open. Write the total profit polynomial, then find the total profit if the stand is open for 3 hours.",
+   "options": [
+    "3d² + 4d − 7, so $32",
+    "3d⁴ + 4d − 7, so $248",
+    "3d² − 3d, so $18",
+    "3d² + 10d − 7, so $50"
+   ],
+   "answerIndex": 0,
+   "explain": "First add like terms: 2d² + d² = 3d², −3d + 7d = 4d, 5 + (−12) = −7, so the total is 3d² + 4d − 7; then substitute d = 3 to get 27 + 12 − 7 = 32. The most common slip is merging 4d and −7 into −3d, but a d term and a constant are not like terms.",
+   "tags": [
+    "ok",
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlya47vhl5jii",
+   "level": 3,
+   "question": "Liam adds (x² + 3x) + (x² − 3x). He says the x terms cancel and x² + x² = x⁴, so his answer is x⁴. What went wrong?",
+   "options": [
+    "Nothing; x² + x² doubles the exponent, so x⁴ is right and the x terms cancel",
+    "He added the exponents; like terms keep x² and add coefficients, so 2x²",
+    "The x terms do not cancel; 3x + (−3x) is 6x, so the answer is 2x² + 6x",
+    "He should have merged all four terms into one, 1 + 3 + 1 − 3 = 2, so 2x"
+   ],
+   "answerIndex": 1,
+   "explain": "Adding like terms adds the coefficients only: one x² plus one x² is 2x², and the exponent stays 2. The x terms really do cancel, since 3x + (−3x) = 0, so the sum is 2x².",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "ok",
+    "other",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlya47vi1izab",
+   "level": 3,
+   "question": "A park in Nanaimo has three sections. The play area has an area of (2w² + 5w − 3) square metres, the picnic area has (w² − 2w + 8) square metres, and the pond has (3w + 1) square metres. Which polynomial gives the total area of the park?",
+   "options": [
+    "3w⁴ + 6w + 6",
+    "3w² + 12w",
+    "3w² + 6w + 6",
+    "3w² + 10w + 6"
+   ],
+   "answerIndex": 2,
+   "explain": "Collect each kind of term across all three polynomials: 2w² + w² = 3w², 5w + (−2w) + 3w = 6w, −3 + 8 + 1 = 6, so the total is 3w² + 6w + 6. Keep the sign on −2w; ignoring it gives 10w instead of 6w.",
+   "tags": [
+    "poly.add_exponents_when_adding",
+    "expr.combine_unlike_terms",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlya47vrsdex0",
+   "level": 3,
+   "question": "Sofia adds (4x² + 3) + (2x + 5). She writes 4x² + 2x = 6x² and 3 + 5 = 8, so her answer is 6x² + 8. What went wrong?",
+   "options": [
+    "She stopped too early; all four terms merge, 4 + 2 + 3 + 5 = 14, so 14x²",
+    "Nothing; 4 + 2 = 6 and x² is the higher power, so 6x² + 8 is right",
+    "4x² + 2x should be 6x³ because adding terms adds the exponents: 6x³ + 8",
+    "4x² and 2x are unlike terms, so they stay apart: 4x² + 2x + 8"
+   ],
+   "answerIndex": 3,
+   "explain": "Like terms must have the same variable with the same exponent, so 4x² and 2x cannot be combined; only 3 and 5 are like terms here, giving 4x² + 2x + 8. Adding never changes an exponent, so 6x² and 6x³ are both wrong.",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "expr.combine_unlike_terms",
+    "poly.add_exponents_when_adding",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -41,7 +41,7 @@ const opt = (n, d) => {
 const VERSION = String(opt("version", "0.1.0"));
 const PLATFORMS = String(opt("platforms", "win,mac")).split(",").map(s => s.trim()).filter(Boolean);
 const WITH_BOOKS = flag("books");
-const WITH_SKILLS = !flag("no-skills");   // 技能图谱（G4–G8 默认清单）：2026-09-02 起默认进包，--no-skills 才不带（--skills 仍认）
+const WITH_SKILLS = !flag("no-skills");   // 技能图谱（G4–G9 默认清单）：2026-09-02 起默认进包，--no-skills 才不带（--skills 仍认）
 const SKIP_INSTALLER = flag("skip-installer");
 const APP_ZH = "圆圆数学";
 const APP_EN = "YuanyuanMath";
@@ -231,12 +231,16 @@ function stageApp(dst) {
   const cur = path.join(dst, "data", "curriculum");
   mkdirp(cur);
   copyInto(path.join(ROOT, "data", "curriculum", "bc"), cur);
+  // 配图契约：唯一事实源，服务端 schema / 前端校验器都读它。漏了它安装版就没有图型校验
+  // （2026-09-05 前更糟：接口回空契约、全课无图），所以缺文件直接打包失败
+  if (!copyInto(path.join(ROOT, "data", "curriculum", "visual-contract.json"), cur))
+    throw new Error("data/curriculum/visual-contract.json 不在，安装包不能没有配图契约");
   if (WITH_BOOKS) {
     copyInto(path.join(ROOT, "data", "curriculum", "books"), cur, {
       filter: src => !src.split(/[\\/]/).includes("text")   // 原书正文一律不进包
     });
   }
-  // 技能图谱（docs/skill-graph-plan.md）：G4–G8 的默认清单，默认进包（--no-skills 才不带）
+  // 技能图谱（docs/skill-graph-plan.md）：G4–G9 的默认清单，默认进包（--no-skills 才不带）
   if (WITH_SKILLS) copyInto(path.join(ROOT, "data", "curriculum", "skills"), cur, { optional: true });
   // 预生成的课程包、单元测试卷、语音包
   copyInto(path.join(ROOT, "data", "lessons"), path.join(dst, "data"), { optional: true });

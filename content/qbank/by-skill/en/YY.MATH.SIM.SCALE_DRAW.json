@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.SCALE_DRAW",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn7znixskyrtq",
+   "level": 1,
+   "question": "On grid paper a rectangle covers a block of squares that is 6 squares long and 4 squares wide. You draw an enlargement of it on the same grid using scale factor 3. How many squares long is the enlarged rectangle?",
+   "options": [
+    "18 squares",
+    "9 squares",
+    "2 squares",
+    "12 squares"
+   ],
+   "answerIndex": 0,
+   "explain": "Every side of an enlargement is multiplied by the scale factor, so the length becomes 6 × 3 = 18 squares. The usual trap is adding 3 to get 9 instead of multiplying.",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "sim.scale_factor_inverted",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn7znixonzgp7",
+   "level": 1,
+   "question": "On grid paper a triangle has a base that spans 10 squares and a height that spans 8 squares. You draw a reduction of it with scale factor 0.5. How many squares tall is the reduced triangle?",
+   "options": [
+    "16 squares",
+    "4 squares",
+    "7.5 squares",
+    "5 squares"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply the height by the scale factor: 8 × 0.5 = 4 squares, which is half as tall. Dividing by 0.5 gives 16 and would make the shape bigger, so it cannot be a reduction.",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn7znix7uob25",
+   "level": 1,
+   "question": "A scale diagram is drawn on grid paper where each small square stands for 20 cm of real length. A garden path is drawn 7 squares long. What is the real length of the path, in metres?",
+   "options": [
+    "14 m",
+    "0.35 m",
+    "1.4 m",
+    "0.27 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Each square is 20 cm, so 7 squares mean 7 × 20 = 140 cm, and 140 ÷ 100 = 1.4 m. Going from cm to the bigger unit m means dividing by 100, not by 10.",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "sim.scale_factor_inverted",
+    "ok",
+    "sim.scale_add_not_multiply"
+   ]
+  },
+  {
+   "qid": "qmtn7znix0dy0pc",
+   "level": 1,
+   "question": "On grid paper a square covers 3 squares along each side. You draw an enlargement of it using the scale factor 2.5. How many squares long is each side of the new square?",
+   "options": [
+    "5.5 squares",
+    "6 squares",
+    "1.2 squares",
+    "7.5 squares"
+   ],
+   "answerIndex": 3,
+   "explain": "A decimal scale factor still means multiply: 3 × 2.5 = 7.5 squares per side. Adding 2.5 to give 5.5 is the common slip, and rounding 2.5 down to 2 gives 6.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "other",
+    "sim.scale_factor_inverted",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn7znixfpfve3",
+   "level": 2,
+   "question": "A scale diagram of a classroom uses the scale 1 : 50. On the diagram one wall is 8.4 cm long. What is the real length of that wall, in metres?",
+   "options": [
+    "4.2 m",
+    "58.4 cm",
+    "0.168 cm",
+    "42 m"
+   ],
+   "answerIndex": 0,
+   "explain": "A scale of 1 : 50 means the real wall is 50 times the diagram: 8.4 × 50 = 420 cm, then 420 ÷ 100 = 4.2 m. Dividing 8.4 by 50 inverts the scale and shrinks a real wall down to a tiny number.",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "sim.scale_factor_inverted",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtn7znixi5sw9l",
+   "level": 2,
+   "question": "Triangle ABC is enlarged to the similar triangle DEF. Side AB = 6 cm corresponds to side DE = 15 cm, and side BC = 4 cm. How long is side EF?",
+   "options": [
+    "13 cm",
+    "10 cm",
+    "1.6 cm",
+    "2.4 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Corresponding sides give the scale factor 15 ÷ 6 = 2.5, so EF = 4 × 2.5 = 10 cm. Adding the difference 15 − 6 = 9 onto 4 is the classic trap; similar shapes scale by multiplying, not by adding.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "ok",
+    "sim.scale_factor_inverted",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn7znixfg1ha7",
+   "level": 2,
+   "question": "A design that is 12 cm long is redrawn so that the same side measures 3 cm. Which scale factor was used, and why?",
+   "options": [
+    "4, because 12 ÷ 3 = 4",
+    "9, because 12 − 3 = 9",
+    "0.25, because 3 ÷ 12 = 0.25",
+    "0.75, because 9 ÷ 12 = 0.75"
+   ],
+   "answerIndex": 2,
+   "explain": "Scale factor is image ÷ original = 3 ÷ 12 = 0.25, and a factor between 0 and 1 means a reduction. Working out 12 ÷ 3 = 4 inverts the factor and would describe an enlargement instead.",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn7znixpyb0kf",
+   "level": 2,
+   "question": "A scale diagram of a phone uses the scale 1 : 4. On the diagram the phone measures 35 mm long. How long is the real phone, in centimetres?",
+   "options": [
+    "8.75 mm",
+    "1400 cm",
+    "3.9 cm",
+    "14 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply by the scale factor first: 35 × 4 = 140 mm, then divide by 10 to change mm to cm, giving 14 cm. Multiplying by 10 to reach the bigger unit is the trap and turns a phone into a 14 m object.",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "unit.convert_wrong_direction",
+    "sim.scale_add_not_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn7znix1w74nl",
+   "level": 3,
+   "question": "On a scale drawing of a skate park the scale is 1 cm : 3 m. A rectangular ramp measures 2.5 cm by 4 cm on the drawing. What is the real perimeter of the ramp?",
+   "options": [
+    "39 m",
+    "4.3 m",
+    "25 m",
+    "19.5 m"
+   ],
+   "answerIndex": 0,
+   "explain": "First scale each side: 2.5 × 3 = 7.5 m and 4 × 3 = 12 m; then the perimeter is 2 × (7.5 + 12) = 39 m. Adding 3 to each drawing measurement, or forgetting to double the two side lengths, are the usual errors.",
+   "tags": [
+    "ok",
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn7znix7v78nx",
+   "level": 3,
+   "question": "Noor builds a model canoe using the scale 1 : 20. Her model is 18.5 cm long. How long is the real canoe, in metres?",
+   "options": [
+    "37 m",
+    "3.7 m",
+    "38.5 cm",
+    "0.925 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply by the scale factor, then convert: 18.5 × 20 = 370 cm, and 370 ÷ 100 = 3.7 m. Only dividing by 10 gives 37 m, a canoe longer than a school bus, so check the conversion direction.",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "sim.scale_factor_inverted"
+   ]
+  },
+  {
+   "qid": "qmtn7znixhdo8ex",
+   "level": 3,
+   "question": "Emma is drawing a scale diagram of a wall that is really 3.5 m long, using the scale 1 cm : 50 cm. She calculates 3.5 ÷ 50 = 0.07 and writes that the drawing should be 0.07 cm long. What went wrong?",
+   "options": [
+    "She should multiply, not divide, so the drawing is 175 cm long",
+    "She should add 50 to 3.5, so the drawing is 53.5 cm long",
+    "She should change 3.5 m into 350 cm first, so the drawing is 7 cm",
+    "She should change 3.5 m into 35 cm first, so the drawing is 0.7 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Both numbers must be in the same unit before dividing: 3.5 m = 350 cm, so the drawing is 350 ÷ 50 = 7 cm. Changing metres to centimetres means multiplying by 100, so 35 cm is the wrong direction.",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtn7znixir3dk7",
+   "level": 3,
+   "question": "On a scale drawing of Ava's vegetable bed the scale is 1 cm : 1.5 m, and the long side is 4 cm on the drawing. Fencing costs $8 per metre. What does fencing that one long side cost?",
+   "options": [
+    "$44",
+    "$32",
+    "$21.33",
+    "$48"
+   ],
+   "answerIndex": 3,
+   "explain": "Find the real length first: 4 × 1.5 = 6 m, then 6 × $8 = $48. Adding 1.5 to 4, or costing the 4 cm drawing length itself, both skip the multiplying step that a scale factor requires.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "other",
+    "sim.scale_factor_inverted",
+    "ok"
+   ]
+  }
+ ]
+}

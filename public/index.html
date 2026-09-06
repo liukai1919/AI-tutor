@@ -216,6 +216,7 @@
   .judgeMsg{font-weight:700;color:var(--good)}
   .fsaQ{background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.7;margin-top:12px;white-space:pre-line}  /* pre-line：方程组等多行题干按换行显示 */
   .fsaOpts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .qVisual{margin-top:12px}   /* 题图：放在题干上方，和课文配图同一个框 */
   .fsaOpt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);background:#fff;border-radius:14px;padding:11px 14px;font-size:15.5px;cursor:pointer;text-align:left;line-height:1.5;font-family:inherit;color:var(--ink)}
   .fsaOpt:hover{border-color:var(--brand)}
   .fsaOpt.sel{border-color:var(--brand2);background:#eef2ff}
@@ -858,6 +859,7 @@ const I18N = {
     voiceHint:"🎙 正在准备圆圆老师的声音…",
     colsRowsFmt:(c,r)=>`${c} 列 × ${r} 行`, barItemFmt:(i)=>`第${i}项`,
     groupsFmt:(g,per,rem)=>`${g} 组 × 每组 ${per} 个${rem?`，另剩 ${rem} 个`:""}，一共 ${g*per+rem} 个`,
+    pictoKeyFmt:(v)=>`= ${v}`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`经过 ${h} 小时 ${m} 分钟`:`经过 ${h} 小时`):`经过 ${m} 分钟`;},
     placeInt:["个位","十位","百位","千位","万位","十万位","百万位","千万位","亿位","十亿位"],
     placeDec:["十分位","百分位","千分位"],
@@ -1062,6 +1064,7 @@ const I18N = {
     voiceHint:"🎙 Warming up Ms. Yuanyuan’s voice…",
     colsRowsFmt:(c,r)=>`${c} × ${r}`, barItemFmt:(i)=>`Item ${i}`,
     groupsFmt:(g,per,rem)=>`${g} groups × ${per} each${rem?`, ${rem} left over`:""} — ${g*per+rem} in total`,
+    pictoKeyFmt:(v)=>`= ${v}`,
     elapsedFmt:(mins)=>{const h=Math.floor(mins/60),m=mins%60;return h?(m?`${h} h ${m} min later`:`${h} h later`):`${m} min later`;},
     placeInt:["Ones","Tens","Hundreds","Thousands","Ten-thousands","Hundred-thousands","Millions","Ten-millions","Hundred-millions","Billions"],
     placeDec:["Tenths","Hundredths","Thousandths"],
@@ -1190,7 +1193,7 @@ function applyLang(){
   if(quiz && !quiz.done && quiz.lang!==cfg.lang){
     if(quiz.results.length){
       api("/api/quiz/finish",{method:"POST",
-        body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())}).catch(()=>{});
+        body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, session:quiz.sid, results:quiz.results }, kidBody())}).catch(()=>{});
       quiz.results=[];   // 新会话到达前又切一次语言也不会重复上报
     }
     startQuiz(quiz.cid);
@@ -1729,12 +1732,15 @@ async function playStep(i,text,onend){
  * 拉不到契约时放行——宁可退回老行为，也不能让全站没图。 */
 let VISUAL_CONTRACT=null;
 async function loadVisualContract(){
-  try{ VISUAL_CONTRACT=await (await fetch("/api/visual-contract")).json(); }
-  catch(_){ VISUAL_CONTRACT=null; }
+  try{
+    const r=await fetch("/api/visual-contract");
+    VISUAL_CONTRACT=r.ok?await r.json():null;   // 服务端读不到契约文件回 503：放行、按老样子画，别把整站的图全拦掉
+    if(!r.ok) console.warn("[visual] contract unavailable ("+r.status+"), visuals are not validated");
+  }catch(_){ VISUAL_CONTRACT=null; }
 }
 function visualOk(v){
   if(!VISUAL_CONTRACT||!self.YYVisualCheck) return true;
-  return self.YYVisualCheck.checkVisual(VISUAL_CONTRACT,v.type,v.nums,v.labels).ok;
+  return self.YYVisualCheck.checkVisual(VISUAL_CONTRACT,v.type,v.nums,v.labels,{step:v.step}).ok;
 }
 const COL={fill:"#ff8a5b",fill2:"#6c8cff",good:"#3fbf7f",light:"#ffe0cc",line:"#c9b8a8",ink:"#3a2f2a"};
 const PAL=["#ff8a5b","#6c8cff","#3fbf7f","#d99b18","#b07cf7","#ff6b9d"]; // 经色觉安全校验（deutan/protan/tritan ΔE≥7.7，配 2px 白缝+直接标注）
@@ -1775,7 +1781,7 @@ function dimArrow(x1,y1,x2,y2,label){
 }
 
 /* 分数条：nums=[份数,涂色] 或 [份数1,涂色1,份数2,涂色2]（两条对齐，比较/通分） */
-function vFractionBar(nums){
+function vFractionBar(nums,opts){
   nums=(nums||[]).map(Number).filter(isFinite);
   /* 分子 > 分母 = 假分数：画成几个整体连排、同一个颜色、右边只标一次 n/d（契约 v2）。
    * 两条一起画时整体宽度按最多的那条取齐——不然「同一个整体」在图上就成了假话。
@@ -1797,7 +1803,7 @@ function vFractionBar(nums){
       for(let i=0;i<d;i++,k++)
         r+=`<rect x="${(x0+i*cw).toFixed(1)}" y="${y}" width="${cw.toFixed(1)}" height="${bh}" rx="7" fill="${k<n?c:'#fff'}" stroke="${COL.line}" stroke-width="2"/>`;
     }
-    r+=`<text x="${pad+bw+12}" y="${y+bh/2+6}" font-size="17" font-weight="800" fill="${c}">${n}/${d}</text>`;
+    if(!(opts&&opts.quiz)) r+=`<text x="${pad+bw+12}" y="${y+bh/2+6}" font-size="17" font-weight="800" fill="${c}">${n}/${d}</text>`;   // 题图不标 n/d：涂了几格正是要孩子数的
   });
   return svg(W,H,r);
 }
@@ -1817,7 +1823,7 @@ function onePie(cx,cy,R,d,n,color,label){
   if(lab) s+=`<text x="${cx}" y="${cy+R+22}" text-anchor="middle" font-size="16" font-weight="800" fill="${color}">${lab}</text>`;
   return s;
 }
-function vPie(nums){
+function vPie(nums,opts){
   nums=(nums||[]).map(Number).filter(isFinite);
   /* 涂色份数 > 份数 = 假分数：画成几个整圆连排、同色、只在最后一个圆下面标一次 n/d（契约 v2）。
    * 同一个量的圆挨得近、两个量之间隔开，孩子才不会读成四个互不相干的数。 */
@@ -1836,12 +1842,12 @@ function vPie(nums){
   const W=Math.max(220,x+220), ox=(W-x)/2;
   let s="";
   cols.forEach((c,i)=>{ s+=onePie(ox+xs[i],R+7,R,c.d,c.n,c.ei?COL.fill2:COL.fill,""); });
-  ent.forEach(([d,n],ei)=>{
+  if(!(opts&&opts.quiz)) ent.forEach(([d,n],ei)=>{   // 题图不标 n/d（同 fractionBar）
     const mine=xs.filter((_,i)=>cols[i].ei===ei);
     const cx=ox+(mine[0]+mine[mine.length-1])/2;
     s+=`<text x="${cx}" y="${2*R+29}" text-anchor="middle" font-size="16" font-weight="800" fill="${ei?COL.fill2:COL.fill}">${n}/${d}</text>`;
   });
-  return svg(W,H,s);
+  return svg(W,(opts&&opts.quiz)?2*R+18:H,s);
 }
 
 /* 数轴：nums=[min,max,点,(可选)第二个点]；两个点时画跳跃箭头 */
@@ -2119,29 +2125,33 @@ function vBalance(nums,labels){
 }
 
 /* 扇形统计图：nums=[各部分数值...]，labels=[名称...]，最多 6 份 */
-function vPieChart(nums,labels){
+function vPieChart(nums,labels,opts){
   const vals=(nums||[]).map(Number).filter(v=>isFinite(v)&&v>0).slice(0,6);
   if(!vals.length) return "";
   const sum=vals.reduce((x,y)=>x+y,0);
+  /* 题图模式（契约 v3 questionVisual）：扇区标 nums 原值——合计恰为 100 就是百分数、带 % 号；
+   * 否则就是原始计数，百分比要孩子自己算。图例只写名字。课文模式照旧标算出来的百分比。 */
+  const quiz=!!(opts&&opts.quiz), asPct=Math.abs(sum-100)<1e-9;
+  const secTxt=v=>quiz?(asPct?Math.round(v)+"%":fmtNum(v)):Math.round(v/sum*100)+"%";
   const cx=100,cy=95,R=78;
   let a0=-Math.PI/2, r="";
   if(vals.length===1){
     r+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${PAL[0]}"/>`;
-    r+=`<text x="${cx}" y="${cy+5}" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">100%</text>`;
+    r+=`<text x="${cx}" y="${cy+5}" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">${secTxt(vals[0])}</text>`;
   }else vals.forEach((v,i)=>{
     const a1=a0+v/sum*2*Math.PI;
     r+=`<path d="${sectorPath(cx,cy,R,a0,a1)}" fill="${PAL[i%6]}" stroke="#fff" stroke-width="2"/>`;
     if(v/sum>=0.09){
       const am=(a0+a1)/2;
-      r+=`<text x="${(cx+R*0.62*Math.cos(am)).toFixed(1)}" y="${(cy+R*0.62*Math.sin(am)+4).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">${Math.round(v/sum*100)}%</text>`;
+      r+=`<text x="${(cx+R*0.62*Math.cos(am)).toFixed(1)}" y="${(cy+R*0.62*Math.sin(am)+4).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">${secTxt(v)}</text>`;
     }
     a0=a1;
   });
   vals.forEach((v,i)=>{
     const y=cy-((vals.length-1)*24)/2+i*24;
-    const lab=(labels&&labels[i])?String(labels[i]).slice(0,10):t("barItemFmt")(i+1);
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,quiz?16:10):t("barItemFmt")(i+1);
     r+=`<rect x="205" y="${y-12}" width="14" height="14" rx="4" fill="${PAL[i%6]}"/>`;
-    r+=`<text x="227" y="${y}" font-size="14" fill="${COL.ink}">${escapeHtml(lab)} · ${fmtNum(v)} (${Math.round(v/sum*100)}%)</text>`;
+    r+=`<text x="227" y="${y}" font-size="14" fill="${COL.ink}">${escapeHtml(lab)}${quiz?"":` · ${fmtNum(v)} (${Math.round(v/sum*100)}%)`}</text>`;
   });
   return svg(460,190,r);
 }
@@ -2296,16 +2306,25 @@ function niceScale(maxV){
   const step=(q<=1?1:q<=2?2:q<=5?5:10)*pow;
   return {max:Math.ceil(maxV/step-1e-9)*step, step};
 }
+/* 纵轴怎么打格：没给 step 就 niceScale 自动挑、每根线都标数；题图给了 step（一格代表多少，契约 v3）
+ * 就严格按它打细格，刻度标签只落在「好看」的整倍数上（最多 6 段），中间的格子孩子要自己数——
+ * 「每格 5 本、涂了 6 格」考的就是这个动作，全标上数就没得考了。顶端补齐到标签的整倍数。 */
+function gridScale(maxV,step){
+  if(!(step>0)){ const sc=niceScale(maxV); return {max:sc.max, minor:sc.step, major:sc.step}; }
+  const n=Math.max(1,Math.ceil(maxV/step-1e-9));
+  const k=[1,2,4,5,10,20,25,50].find(k=>n/k<=6)||Math.ceil(n/6);
+  return {max:Math.ceil(n/k)*k*step, minor:step, major:step*k};
+}
 /* 网格 + 纵轴刻度；返回取纵坐标的函数 */
-function statFrame(maxV,padT,padL,padR,plotH){
-  const sc=niceScale(maxV);
+function statFrame(maxV,padT,padL,padR,plotH,step){
+  const sc=gridScale(maxV,step);
   const y=v=>padT+plotH-(v/sc.max)*plotH;
   let g="";
-  const n=Math.round(sc.max/sc.step);
+  const n=Math.round(sc.max/sc.minor);
   for(let i=0;i<=n;i++){
-    const v=i*sc.step, py=y(v);
-    g+=`<line x1="${padL}" y1="${py.toFixed(1)}" x2="${460-padR}" y2="${py.toFixed(1)}" stroke="${i===0?COL.line:'#efe4d7'}" stroke-width="${i===0?2:1}"/>`;
-    g+=`<text x="${padL-7}" y="${(py+4).toFixed(1)}" text-anchor="end" font-size="11" fill="#8a7d74">${fmtNum(v)}</text>`;
+    const v=i*sc.minor, py=y(v), major=Math.abs(v/sc.major-Math.round(v/sc.major))<1e-9;
+    g+=`<line x1="${padL}" y1="${py.toFixed(1)}" x2="${460-padR}" y2="${py.toFixed(1)}" stroke="${i===0?COL.line:(major?'#e6d9cb':'#f2e9de')}" stroke-width="${i===0?2:1}"/>`;
+    if(major) g+=`<text x="${padL-7}" y="${(py+4).toFixed(1)}" text-anchor="end" font-size="11" fill="#8a7d74">${fmtNum(v)}</text>`;
   }
   return {y,g};
 }
@@ -2337,22 +2356,25 @@ function statLegend(names,padL){
   if(!names) return "";
   let g="";
   [COL.fill,COL.fill2].forEach((c,i)=>{
-    const x=padL+4+i*118;
+    const x=padL+4+i*150;   // 系列名留到 14 个字（"Division 5" 别截成 "Divisi"）
     g+=`<rect x="${x}" y="6" width="12" height="12" rx="3" fill="${c}"/>`;
-    g+=`<text x="${x+18}" y="16" font-size="12" fill="${COL.ink}">${escapeHtml(String(names[i]||"").slice(0,6))}</text>`;
+    g+=`<text x="${x+18}" y="16" font-size="12" fill="${COL.ink}">${escapeHtml(String(names[i]||"").slice(0,14))}</text>`;
   });
   return g;
 }
-function statCatLabel(cx,baseY,txt){
-  return `<text x="${cx.toFixed(1)}" y="${baseY+17}" text-anchor="middle" font-size="11.5" fill="${COL.ink}">${escapeHtml(txt.slice(0,5))}</text>`;
+/* maxLen：类目少时格子宽，标签就多留几个字（"Saturday" 别截成 "Satur"）；不给就是老的 5 个字 */
+function statCatLabel(cx,baseY,txt,maxLen){
+  return `<text x="${cx.toFixed(1)}" y="${baseY+17}" text-anchor="middle" font-size="11.5" fill="${COL.ink}">${escapeHtml(txt.slice(0,maxLen||5))}</text>`;
 }
 
 /* 条形统计图：labels=[类别...]，nums=[数值...]；数值给 2 倍长度 = 复式 */
-function vStatBar(nums,labels){
+/* 题图模式（opts.quiz）：不在柱顶 / 点上印数值，网格按 step 打——读数是题目本身；课文模式照旧全标 */
+function vStatBar(nums,labels,step,opts){
   const {s1,s2,cats,names}=parseStatSeries(nums,labels);
   if(!s1.length) return "";
-  const padL=46,padR=12,padT=names?26:16,padB=32,plotH=150;
-  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH);
+  const quiz=!!(opts&&opts.quiz);
+  const padL=46,padR=12,padT=names?26:16,padB=32,plotH=quiz?190:150;
+  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH,step);
   const slot=(460-padL-padR)/s1.length, baseY=padT+plotH;
   let r=g+statLegend(names,padL);
   s1.forEach((v,i)=>{
@@ -2361,24 +2383,25 @@ function vStatBar(nums,labels){
       const bw=Math.min(24,slot*0.34), v2=s2[i];
       r+=barTop(cx-bw-1,y(v),bw,baseY,COL.fill);
       r+=barTop(cx+1,y(v2),bw,baseY,COL.fill2);
-      r+=`<text x="${(cx-bw/2-1).toFixed(1)}" y="${(y(v)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
-      r+=`<text x="${(cx+bw/2+1).toFixed(1)}" y="${(y(v2)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v2)}</text>`;
+      if(!quiz) r+=`<text x="${(cx-bw/2-1).toFixed(1)}" y="${(y(v)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+      if(!quiz) r+=`<text x="${(cx+bw/2+1).toFixed(1)}" y="${(y(v2)-4).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${COL.ink}">${fmtNum(v2)}</text>`;
     }else{
       const bw=Math.min(44,slot*0.55);
       r+=barTop(cx-bw/2,y(v),bw,baseY,COL.fill);
-      r+=`<text x="${cx.toFixed(1)}" y="${(y(v)-5).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
+      if(!quiz) r+=`<text x="${cx.toFixed(1)}" y="${(y(v)-5).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
     }
-    r+=statCatLabel(cx,baseY,cats[i]||t("barItemFmt")(i+1));
+    r+=statCatLabel(cx,baseY,cats[i]||t("barItemFmt")(i+1),Math.max(5,Math.floor(slot/7.5)));
   });
   return svg(460,padT+plotH+padB,r);
 }
 
 /* 折线统计图：讲变化趋势；同样支持复式 */
-function vStatLine(nums,labels){
+function vStatLine(nums,labels,step,opts){
   const {s1,s2,cats,names}=parseStatSeries(nums,labels);
   if(s1.length<2) return "";
-  const padL=46,padR=16,padT=names?26:18,padB=32,plotH=150;
-  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH);
+  const quiz=!!(opts&&opts.quiz);
+  const padL=46,padR=16,padT=names?26:18,padB=32,plotH=quiz?190:150;
+  const {y,g}=statFrame(Math.max(...s1,...(s2||[0]),1),padT,padL,padR,plotH,step);
   const slot=(460-padL-padR)/s1.length, baseY=padT+plotH;
   const px=i=>padL+slot*(i+0.5);
   let r=g+statLegend(names,padL);
@@ -2387,15 +2410,48 @@ function vStatLine(nums,labels){
   const drawSeries=(s,color,aboveArr)=>{
     r+=`<polyline points="${s.map((v,i)=>px(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>`;
     s.forEach((v,i)=>{
-      r+=`<circle cx="${px(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="4" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+      r+=`<circle cx="${px(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="${quiz?4.5:4}" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+      if(quiz) return;
       const ly=aboveArr[i]?y(v)-9:Math.min(y(v)+17,baseY-4);
       r+=`<text x="${px(i).toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="${COL.ink}">${fmtNum(v)}</text>`;
     });
   };
   drawSeries(s1,COL.fill,s1Above);
   if(s2) drawSeries(s2,COL.fill2,s1Above.map(a=>!a));
-  s1.forEach((_,i)=>{ r+=statCatLabel(px(i),baseY,cats[i]||t("barItemFmt")(i+1)); });
+  s1.forEach((_,i)=>{ r+=statCatLabel(px(i),baseY,cats[i]||t("barItemFmt")(i+1),Math.max(5,Math.floor(slot/7.5))); });
   return svg(460,padT+plotH+padB,r);
+}
+
+/* 象形图（契约 v3）：nums=[各行数值]，labels=[各行名字]，step=一个符号代表多少（不给取最大公约数）。
+ * 每行画 值/step 个星，允许半颗；底下是图例「★ = step」，单位由 caption 交代。给读图题用：
+ * 「1 颗星 = 5 本书，Priya 那行几颗星」以前只能写成散文。 */
+let pictoClipSeq=0;
+function vPictograph(nums,labels,step){
+  const vals=(nums||[]).map(Number).filter(v=>isFinite(v)&&v>=0).slice(0,8);
+  if(!vals.length) return "";
+  let st=Number(step);
+  if(!(st>0)) st=(self.YYVisualCheck&&self.YYVisualCheck.pictoAutoStep)?self.YYVisualCheck.pictoAutoStep(vals):1;
+  const W=460,padL=118,rowH=34,sym=26,top=8,R=11;
+  const star=(cx,cy,r,fill,extra)=>{
+    const pts=[]; for(let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r*0.45:r; pts.push((cx+rr*Math.cos(a)).toFixed(1)+","+(cy+rr*Math.sin(a)).toFixed(1)); }
+    return `<polygon points="${pts.join(" ")}" fill="${fill}" stroke="${COL.ink}" stroke-width="1"${extra||""}/>`;
+  };
+  let r="", defs="";
+  vals.forEach((v,i)=>{
+    const y=top+i*rowH+rowH/2, cnt=v/st, full=Math.floor(cnt+1e-9), half=cnt-full>=0.5-1e-6;
+    const lab=(labels&&labels[i])?String(labels[i]).slice(0,14):t("barItemFmt")(i+1);
+    r+=`<text x="${padL-10}" y="${(y+5).toFixed(1)}" text-anchor="end" font-size="13" font-weight="700" fill="${COL.ink}">${escapeHtml(lab)}</text>`;
+    for(let k=0;k<full;k++) r+=star(padL+k*sym+sym/2,y,R,COL.fill);
+    if(half){   // 半颗：淡色整星打底，左半用 clipPath 盖上实色
+      const cx=padL+full*sym+sym/2, id="pc"+(++pictoClipSeq);
+      defs+=`<clipPath id="${id}"><rect x="${(cx-R-2).toFixed(1)}" y="${(y-R-2).toFixed(1)}" width="${R+2}" height="${2*R+4}"/></clipPath>`;
+      r+=star(cx,y,R,COL.light)+star(cx,y,R,COL.fill,` clip-path="url(#${id})"`);
+    }
+  });
+  const ky=top+vals.length*rowH+16;
+  r+=`<line x1="${padL-8}" y1="${ky-13}" x2="${W-14}" y2="${ky-13}" stroke="${COL.line}" stroke-width="1"/>`;
+  r+=star(padL+sym/2,ky+4,R,COL.fill)+`<text x="${padL+sym+8}" y="${ky+9}" font-size="13" font-weight="700" fill="${COL.ink}">${escapeHtml(t("pictoKeyFmt")(fmtNum(st)))}</text>`;
+  return svg(W,ky+22,(defs?`<defs>${defs}</defs>`:"")+r);
 }
 
 /* 平均数（移多补少）：条形 + 红色平均虚线，高出部分变绿、不足画虚线框 */
@@ -2992,15 +3048,17 @@ function vUnitCircle(nums,labels){
   return svg(400,300,r);
 }
 
-function renderVisual(v){
+/* opts.quiz = 题图模式（闯关 / 单元卷里 Question.visual，契约 v3）：统计图不印数值、扇形图标原值、分数图不标 n/d */
+function renderVisual(v,opts){
   if(!v||!v.type||v.type==="none") return "";
   if(!visualOk(v)) return "";                      // 违约降级成无图，别画一张看着对、数字错的图
   const nums=v.nums||[], labels=v.labels||[];
   let s="";
   try{
     switch(v.type){
-      case "fractionBar":   s=vFractionBar(nums); break;
-      case "pie":           s=vPie(nums); break;
+      case "fractionBar":   s=vFractionBar(nums,opts); break;
+      case "pie":           s=vPie(nums,opts); break;
+      case "pictograph":    s=vPictograph(nums,labels,v.step); break;
       case "numberLine":    s=vNumberLine(nums); break;
       case "areaGrid":      s=vAreaGrid(nums); break;
       case "barModel":      s=vBarModel(nums,labels); break;
@@ -3011,7 +3069,7 @@ function renderVisual(v){
       case "clock":         s=vClock(nums); break;
       case "placeValue":    s=vPlaceValue(nums); break;
       case "balance":       s=vBalance(nums,labels); break;
-      case "pieChart":      s=vPieChart(nums,labels); break;
+      case "pieChart":      s=vPieChart(nums,labels,opts); break;
       case "solidCuboid":   s=vSolidCuboid(nums,labels,false); break;
       case "solidCube":     s=vSolidCuboid(nums,labels,true); break;
       case "solidCylinder": s=vSolidCylinder(nums,labels); break;
@@ -3019,8 +3077,8 @@ function renderVisual(v){
       case "solidSphere":   s=vSolidSphere(nums,labels); break;
       case "netCuboid":     s=vNetCuboid(nums,labels); break;
       case "netCylinder":   s=vNetCylinder(nums,labels); break;
-      case "statBar":       s=vStatBar(nums,labels); break;
-      case "statLine":      s=vStatLine(nums,labels); break;
+      case "statBar":       s=vStatBar(nums,labels,v.step,opts); break;
+      case "statLine":      s=vStatLine(nums,labels,v.step,opts); break;
       case "average":       s=vAverage(nums,labels); break;
       case "spinner":       s=vSpinner(nums,labels); break;
       case "balls":         s=vBalls(nums,labels); break;
@@ -3494,7 +3552,9 @@ function renderFsaQ(){
   // 单元测试的题按难度排过序，标出「基础/应用/挑战」让孩子知道压轴题来了
   const meta=[t("fsaOf")(fsa.idx+1,fsa.set.questions.length)];
   if(fsa.kind==="unit"&&q.level) meta.push(t("unitLevel")(q.level));
+  const vHtml=q.visual?renderVisual(q.visual,{quiz:true}):"";   // 单元卷的题目也可能带题图
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
+    +(vHtml?`<div class="visualBox qVisual">${vHtml}</div>`:"")
     +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
@@ -3669,7 +3729,7 @@ async function deleteUnitTest(id){
  * 从 L1 起步：对升一级、错降一级；★★★ 答对 2 题通关，8 题内没通关下次再来。
  * 题包由服务器给（没做过的优先，不够自动补题）；结算判定以服务器为准。
  * 规则常量和出题标准见 docs/qbank-standard.md。 */
-let quiz=null;   // { cid, lang, byLevel:{1:[],2:[],3:[]}, level, n, cur, answered, results[], topRight, rules, done }
+let quiz=null;   // { cid, lang, sid, byLevel:{1:[],2:[],3:[]}, level, n, cur, answered, results[], topRight, rules, done }
 
 async function startQuiz(cid){
   showLoading();
@@ -3687,7 +3747,8 @@ function enterQuiz(cid, data){
   closeLesson();   // 课末进闯关是收尾；分栏下从清单直接进也可能正上着课，一律收干净
   const byLevel={1:[],2:[],3:[]};
   (data.questions||[]).forEach(q=>{ if(byLevel[q.level]) byLevel[q.level].push(q); });
-  quiz={ cid, lang:cfg.lang, byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
+  // sid：服务端发的场次票，结算时凭它对题、判对错、防重复结算（没票的结算服务端 400）
+  quiz={ cid, lang:cfg.lang, sid:data.session||"", byLevel, level:1, n:0, cur:null, answered:false, results:[], topRight:0,
          rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), done:false };
   setFocus(true);          // 闯关全宽，收起左栏
   $("learnCard").classList.add("hidden");
@@ -3716,7 +3777,9 @@ function renderQuizQ(){
   const meta=[t("quizOf")(quiz.n), quizStars()];
   if(quiz.level===quiz.rules.topLevel) meta.push(t("quizToPass")(quiz.rules.passNeed-quiz.topRight));
   const box=$("quizBody");
+  const vHtml=q.visual?renderVisual(q.visual,{quiz:true}):"";   // 题图（契约 v3）：读图题的数据在图上，题干只剩问题
   box.innerHTML=`<div class="help" style="margin-top:10px">${escapeHtml(meta.join(" · "))}</div>`
+    +(vHtml?`<div class="visualBox qVisual">${vHtml}</div>`:"")
     +`<div class="fsaQ">${mathText(q.question)}</div><div class="fsaOpts"></div><div id="quizFb"></div>`;
   const opts=box.querySelector(".fsaOpts");
   q.options.forEach((op,i)=>{
@@ -3732,7 +3795,7 @@ function answerQuiz(i){
   if(!quiz||quiz.answered) return;
   quiz.answered=true;
   const q=quiz.cur, ok=i===q.answerIndex;
-  // picked：选了第几个。答错时服务端靠它查这道题的误区标签，攒够两次就提示回补（技能图谱 §6）
+  // picked：选了第几个。对错由服务端按题库答案判（correct 只给本地界面用）；答错时服务端靠它查误区标签，攒够两次就提示回补（技能图谱 §6）
   quiz.results.push({ qid:q.qid, correct:ok, picked:i });
   if(ok&&q.level===quiz.rules.topLevel) quiz.topRight++;
   [...$("quizBody").querySelectorAll(".fsaOpt")].forEach((b,bi)=>{
@@ -3763,7 +3826,7 @@ async function finishQuiz(){
   let passed=quiz.topRight>=quiz.rules.passNeed, saveFail=false;
   try{
     const d=await api("/api/quiz/finish",{method:"POST",
-      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())});
+      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, session:quiz.sid, results:quiz.results }, kidBody())});
     passed=!!d.passed;   // 通关判定以服务器为准（按题库里的真实难度算）
   }catch(_){ saveFail=true; }
   if(!quiz) return;      // 结算等待期间被退出
@@ -3804,7 +3867,7 @@ $("quizQuit").onclick=()=>{
     // 中途退出：已答的照记对错（服务器按题库难度判，不会误判通关）
     // lang 用开局时的：qid 在语言分桶的题库里，切过界面语言后 cfg.lang 会对不上号
     api("/api/quiz/finish",{method:"POST",
-      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, results:quiz.results }, kidBody())}).catch(()=>{});
+      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, session:quiz.sid, results:quiz.results }, kidBody())}).catch(()=>{});
   }
   quizExit();
 };

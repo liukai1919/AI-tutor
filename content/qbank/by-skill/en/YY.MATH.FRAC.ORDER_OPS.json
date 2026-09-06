@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FRAC.ORDER_OPS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkkpqqe869epm",
+   "level": 1,
+   "question": "Three same-size paper strips are on Ana's desk. The first is cut into 4 equal parts with 3 parts shaded, showing 3/4 of one whole strip; the second is cut into 4 equal parts with 1 part shaded, showing 1/4; the third is cut into 2 equal parts with 1 part shaded, showing 1/2. Ana uses those values to evaluate 3/4 - 1/4 + 1/2 x 1/2. What is the correct value?",
+   "options": [
+    "3/4",
+    "1/2",
+    "1/4",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiplication outranks + and -, so 1/2 x 1/2 = 1/4 first; then work left to right: 3/4 - 1/4 = 1/2 and 1/2 + 1/4 = 3/4. Going straight left to right and multiplying last is the usual slip and gives 1/2.",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqejbmphf",
+   "level": 1,
+   "question": "Three same-size ribbons are each cut into 8 equal parts. The first has 7 parts shaded, showing 7/8 of one whole ribbon; the second has 1 part shaded, showing 1/8; the third has 2 parts shaded, which is 1/4 in lowest terms. Using those values, evaluate 7/8 - (1/8 + 1/4) x 2.",
+   "options": [
+    "1 1/4",
+    "1/8",
+    "1",
+    "3/4"
+   ],
+   "answerIndex": 1,
+   "explain": "Brackets first: 1/8 + 1/4 = 3/8, then multiply by 2 to get 3/4, then subtract: 7/8 - 3/4 = 1/8. Dropping the brackets so that only the 1/4 gets doubled gives 1 1/4.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "order.left_to_right",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqe1fcz7x",
+   "level": 1,
+   "question": "A fraction bar is cut into 6 equal parts with 5 shaded, showing 5/6 of one whole; a second bar of the same size has 1 of its 6 parts shaded, showing 1/6; a third bar is cut into 3 equal parts with 1 shaded, showing 1/3. Devon must evaluate 1/2 ÷ 3/4 x (5/6 - 1/6 + 1/3). Which step must be done first?",
+   "options": [
+    "Divide 1/2 by 3/4, since it is the operation furthest left",
+    "Add 1/6 and 1/3, since addition is done before subtraction",
+    "Subtract 1/6 from 5/6, since brackets are done first",
+    "Multiply 3/4 by 5/6, since the brackets can be cleared later"
+   ],
+   "answerIndex": 2,
+   "explain": "Brackets come first, and inside them addition and subtraction run left to right, so 5/6 - 1/6 is the opening step. Starting with the leftmost division, or adding 1/6 + 1/3 first, are the two common traps.",
+   "tags": [
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqejvsm3w",
+   "level": 1,
+   "question": "Ravi describes four same-size bars: one cut into 8 equal parts with 7 shaded, showing 7/8 of one whole; one cut into 8 equal parts with 3 shaded, showing 3/8; one cut into 4 equal parts with 1 shaded, showing 1/4; and one cut into 2 equal parts with 1 shaded, showing 1/2. Evaluate 1/4 + 1/2 x (7/8 - 3/8).",
+   "options": [
+    "1/4",
+    "3/8",
+    "5/16",
+    "1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "Do the brackets first: 7/8 - 3/8 = 1/2, then 1/2 x 1/2 = 1/4, then 1/4 + 1/4 = 1/2. Adding 1/4 + 1/2 before multiplying gives 3/8, which is the most common error here.",
+   "tags": [
+    "other",
+    "order.left_to_right",
+    "order.ignore_brackets",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqeabmt6s",
+   "level": 2,
+   "question": "Jasleen is refilling her jug before a hike near Squamish. The number of litres in the jug at the end is given by 7/8 - 1/8 + 1/2 x (3/4 - 1/4). How much water is in the jug?",
+   "options": [
+    "1 L",
+    "1/2 L",
+    "5/8 L",
+    "7/8 L"
+   ],
+   "answerIndex": 0,
+   "explain": "Brackets first: 3/4 - 1/4 = 1/2, then 1/2 x 1/2 = 1/4; now go left to right: 7/8 - 1/8 = 3/4 and 3/4 + 1/4 = 1 L. Adding 1/8 + 1/4 before subtracting gives 1/2 L.",
+   "tags": [
+    "ok",
+    "order.add_before_sub_always",
+    "order.left_to_right",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqemv76rv",
+   "level": 2,
+   "question": "Priya starts with a 1 m ribbon for a craft table in Nanaimo. The length of ribbon she still has, in metres, is given by 1 - (1/4 + 1/8) x 2 + 1/4. How much ribbon is left?",
+   "options": [
+    "1 1/2 m",
+    "1/2 m",
+    "1 1/4 m",
+    "0 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Brackets first: 1/4 + 1/8 = 3/8, doubled is 3/4; then left to right: 1 - 3/4 = 1/4 and 1/4 + 1/4 = 1/2 m. Doing the + 1/4 before the subtraction gives 0 m.",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "order.ignore_brackets",
+    "order.add_before_sub_always"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqe2pbdn6",
+   "level": 2,
+   "question": "In a science lab in Kelowna, Kai finds a mass in kilograms by evaluating 5/6 ÷ (1/2 - 1/6) - 1/2 + 1/4. What mass should he record?",
+   "options": [
+    "1 3/4 kg",
+    "1 1/4 kg",
+    "2 1/4 kg",
+    "2 1/2 kg"
+   ],
+   "answerIndex": 2,
+   "explain": "Brackets first: 1/2 - 1/6 = 1/3, and 5/6 ÷ 1/3 = 5/6 x 3 = 2 1/2; then left to right: 2 1/2 - 1/2 = 2 and 2 + 1/4 = 2 1/4 kg. Adding 1/2 + 1/4 first gives 1 3/4 kg.",
+   "tags": [
+    "order.add_before_sub_always",
+    "order.ignore_brackets",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqee26duw",
+   "level": 2,
+   "question": "Sofia is mixing a smoothie in Kamloops. Her recipe card says the number of servings equals 1/2 + 3/4 ÷ (1 1/2 - 3/4). How many servings does the card give?",
+   "options": [
+    "1",
+    "1 2/3",
+    "1/4",
+    "1 1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "Brackets first: 1 1/2 - 3/4 = 3/4, then 3/4 ÷ 3/4 = 3/4 x 4/3 = 1, and finally 1/2 + 1 = 1 1/2. Adding 1/2 + 3/4 before dividing gives 1 2/3.",
+   "tags": [
+    "other",
+    "order.left_to_right",
+    "order.ignore_brackets",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqe6ixw3e",
+   "level": 3,
+   "question": "Ben evaluated 7/8 - 3/8 + 1/4 x 2 and wrote 0 as his answer. Which statement correctly identifies his mistake?",
+   "options": [
+    "He added 3/8 and 1/2 first; + and - go left to right, giving 1",
+    "He multiplied 1/4 by 2 too early, before doing any subtracting",
+    "He changed 7/8 - 3/8 into 7/8 + 3/8, so his first step was wrong",
+    "He worked strictly left to right, multiplying by 2 only at the end"
+   ],
+   "answerIndex": 0,
+   "explain": "Addition and subtraction have equal rank, so after 1/4 x 2 = 1/2 you go left to right: 7/8 - 3/8 = 1/2, then 1/2 + 1/2 = 1. Treating addition as if it always comes first makes the subtraction remove everything and gives 0.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "order.left_to_right"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqe5zzl73",
+   "level": 3,
+   "question": "Mateo brings 3/4 kg of trail mix to a field trip in Abbotsford. He gives 1/8 kg to his sister, then shares the rest equally into 2 bags. How much trail mix is in each bag?",
+   "options": [
+    "11/16 kg",
+    "5/16 kg",
+    "1 1/4 kg",
+    "5/8 kg"
+   ],
+   "answerIndex": 1,
+   "explain": "Subtract before sharing, as if the subtraction were in brackets: 3/4 - 1/8 = 5/8, then 5/8 ÷ 2 = 5/16 kg. Halving the 1/8 first and then subtracting gives 11/16 kg.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqeoxqds7",
+   "level": 3,
+   "question": "At a soccer game in Richmond, three players each drink 1/4 L from a 1 1/2 L bottle of water. The rest is poured equally into 2 small bottles. How much water is in each small bottle?",
+   "options": [
+    "1 1/8 L",
+    "3/4 L",
+    "3/8 L",
+    "1 1/2 L"
+   ],
+   "answerIndex": 2,
+   "explain": "Multiply first: 3 x 1/4 = 3/4 L is drunk, so 1 1/2 - 3/4 = 3/4 L is left, and 3/4 ÷ 2 = 3/8 L per bottle. Dividing by 2 before subtracting gives 1 1/8 L.",
+   "tags": [
+    "order.ignore_brackets",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkpqqe5h0340",
+   "level": 3,
+   "question": "Ivy evaluated 1 - (1/6 + 1/12) x 2 for a bake sale poster and got 1. Which statement correctly identifies her error?",
+   "options": [
+    "She multiplied 1/6 by 2 first, since multiplying always comes first",
+    "She worked left to right, subtracting 1/6 from 1 before doubling",
+    "She added 1/6 and 1/12 before subtracting, but subtraction comes first",
+    "She dropped the brackets, so only 1/12 got doubled; it is 1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "Clear the brackets first: 1/6 + 1/12 = 1/4, then 1/4 x 2 = 1/2, so 1 - 1/2 = 1/2. Ivy doubled only the 1/12 because she ignored the brackets, which is why she landed on 1.",
+   "tags": [
+    "order.ignore_brackets",
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok"
+   ]
+  }
+ ]
+}

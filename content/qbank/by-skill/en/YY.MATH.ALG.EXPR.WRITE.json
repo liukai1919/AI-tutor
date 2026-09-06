@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EXPR.WRITE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtko35k653creo",
+   "level": 1,
+   "question": "A skating session at a Burnaby rink costs $9 for each person who skates. The group also pays one $4 fee for skate rentals, no matter how many people go. Let n be the number of people. Which expression gives the total cost in dollars?",
+   "options": [
+    "9n + 4",
+    "n + 9 + 4",
+    "9n + 4n",
+    "9n"
+   ],
+   "answerIndex": 0,
+   "explain": "Each person costs $9, so that part is 9 × n = 9n, and the single $4 rental fee is added once, giving 9n + 4. A common trap is 9n + 4n, which charges the $4 rental to every person instead of once.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k6j2nkui",
+   "level": 1,
+   "question": "Maya already has $30 saved in her jar. Every week she adds another $6 from her allowance. Let w be the number of weeks she saves. Which expression gives the amount of money in the jar in dollars?",
+   "options": [
+    "6w + 30w",
+    "6w + 30",
+    "6 + w + 30",
+    "6w"
+   ],
+   "answerIndex": 1,
+   "explain": "The $6 repeats every week, so it is 6w, and the $30 she started with is added once: 6w + 30. Many students answer 6w and forget the starting amount, but money already in the jar never disappears.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k6bmad7m",
+   "level": 1,
+   "question": "Liam begins with 48 stickers in his album. He gives away 3 stickers each day at school. Let d be the number of days. Which expression gives the number of stickers he has left?",
+   "options": [
+    "48d − 3d",
+    "48 − 3 − d",
+    "48 − 3d",
+    "3d"
+   ],
+   "answerIndex": 2,
+   "explain": "Start at 48 and take away 3 for every day, so the amount taken away is 3d and the expression is 48 − 3d. The trap is 48 − 3 − d, which removes 3 stickers only once instead of 3 each day.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k664qdne",
+   "level": 1,
+   "question": "A babysitting fee in dollars is given by the expression 5n + 20, where n is the number of hours worked. Which situation matches this expression?",
+   "options": [
+    "A babysitter charges $5 for each hour plus $20 for each hour.",
+    "A babysitter charges $5 for each hour and nothing more at all.",
+    "A babysitter adds $5 to the number of hours, then adds $20 more.",
+    "A babysitter charges $5 for each hour plus a one-time $20 fee."
+   ],
+   "answerIndex": 3,
+   "explain": "In 5n + 20 the 5 is multiplied by n, so $5 is charged for every hour, while the 20 stands alone as a single fee. If the $20 were also charged hourly, the expression would have to be 5n + 20n.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtko35k6i4ukhe",
+   "level": 2,
+   "question": "Ava babysits for a neighbour. She earns $14 for each hour she works, and she pays $6 for the bus one time on her way there. Let h be the number of hours. Which expression gives the money she has left after the job?",
+   "options": [
+    "14h − 6",
+    "14 + h − 6",
+    "14h − 6h",
+    "14h"
+   ],
+   "answerIndex": 0,
+   "explain": "Her pay is $14 for each hour, which is 14h, and the $6 bus fare is taken off just once, giving 14h − 6. Writing 14h − 6h would take $6 away for every hour worked instead of a single time.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k6dyq506",
+   "level": 2,
+   "question": "Kai's phone data balance in gigabytes is given by 25 − 4d, where d is the number of days since the plan started. Which description matches this expression?",
+   "options": [
+    "Start at 25 GB, use 4 GB once, then use up d GB more.",
+    "Start at 25 GB and use up 4 GB for each day that passes.",
+    "Use up 4 GB for each day, starting from a balance of 0.",
+    "Start at 25 GB each day and use up 4 GB every day too."
+   ],
+   "answerIndex": 1,
+   "explain": "The 4 is attached to d, so 4 GB is used every single day, and the 25 is the starting balance that appears once. The version that uses 4 GB only once misreads 4d as 4 + d.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtko35k6q3wlk1",
+   "level": 2,
+   "question": "At the Cloverdale fair, the total cost in dollars for one family is 14n + 6, where n is the number of people in the family. Which statement about this expression is true?",
+   "options": [
+    "The 6 is charged for every person, just as the 14 is.",
+    "The 14 and n are added first, then the 6 is added on.",
+    "The 14 is one person's price and 6 is a single fee.",
+    "The 6 is a leftover number and can be left out of the cost."
+   ],
+   "answerIndex": 2,
+   "explain": "The coefficient 14 is multiplied by n, so it is the price for each person, while the constant term 6 is paid once for the whole family. The 6 must not be dropped, and it must not be charged to every person.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k6o6jjl2",
+   "level": 2,
+   "question": "A soccer team orders one water bottle at $6 and one jersey at $18 for each player. The whole order also has a single $25 printing charge. Let n be the number of players. Which expression gives the total cost in dollars?",
+   "options": [
+    "24n",
+    "6 + 18 + n + 25",
+    "24n + 25n",
+    "24n + 25"
+   ],
+   "answerIndex": 3,
+   "explain": "Each player's bottle and jersey cost 6 + 18 = $24, so that part is 24n, and the one $25 printing charge is added once: 24n + 25. The trap is 24n + 25n, which pays a printing charge for every player.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtko35k69v41jk",
+   "level": 3,
+   "question": "Jordan spends $32 on ingredients before her bake sale starts. She sells each cupcake for $3, but the school keeps $1 from every cupcake sold. Let c be the number of cupcakes sold. Which expression gives the money Jordan is left with?",
+   "options": [
+    "2c − 32",
+    "2 + c − 32",
+    "2c",
+    "2c − 32c"
+   ],
+   "answerIndex": 0,
+   "explain": "Jordan keeps 3 − 1 = $2 from each cupcake, which is 2c, and the $32 she spent first is subtracted only once: 2c − 32. Leaving off the − 32 forgets the money she paid before selling anything.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtko35k6xip2ny",
+   "level": 3,
+   "question": "A community garden tank holds 240 L of water. Each day, 15 L is used for watering and another 5 L evaporates. Let d be the number of days. Which expression gives the number of litres still in the tank?",
+   "options": [
+    "240 − 20 − d",
+    "240 − 20d",
+    "240d − 20d",
+    "20d"
+   ],
+   "answerIndex": 1,
+   "explain": "The tank loses 15 + 5 = 20 L every day, so the loss is 20d, taken away from the 240 L start: 240 − 20d. Writing 240 − 20 − d subtracts 20 L only once instead of once per day.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko35k6ioygbc",
+   "level": 3,
+   "question": "A climbing gym charges a $45 yearly pass plus $7 for each visit. Noah writes the expression 45 + 7 + v for the total cost, where v is the number of visits. Which choice fixes his work?",
+   "options": [
+    "It should be 7v, since the $45 pass is not part of a total.",
+    "It is correct, because 7 and v are added for each visit.",
+    "It should be 45 + 7v, as the $7 repeats on every visit.",
+    "It should be 45v + 7v, since both amounts grow each visit."
+   ],
+   "answerIndex": 2,
+   "explain": "The $7 happens once for every visit, so it must be multiplied: 45 + 7v, with the $45 pass added a single time. Writing 7 + v treats a coefficient as something added on, which charges the $7 only once no matter how many visits.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtko35k6hnziuv",
+   "level": 3,
+   "question": "A class account starts with $180 in it. Each of the s students in the class brings in $12 for a field trip, and the class then pays a single $60 permit fee. Which expression gives the money in the account?",
+   "options": [
+    "12s",
+    "12 + s + 120",
+    "12s + 120s",
+    "12s + 120"
+   ],
+   "answerIndex": 3,
+   "explain": "First combine the fixed amounts: 180 − 60 = 120, then add $12 for each student, giving 12s + 120. Dropping the 120 forgets the money the class already had before anyone paid.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  }
+ ]
+}

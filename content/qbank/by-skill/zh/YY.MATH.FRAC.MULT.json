@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FRAC.MULT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkk7oytg7so68",
+   "level": 1,
+   "question": "一张长方形海报，先横向平均分成 4 行，其中 3 行涂成蓝色；再纵向平均分成 5 列，其中 2 列贴了星星贴纸。这样整张海报被分成 4×5＝20 个同样大的小格。既涂了蓝色又贴了星星的部分，占整张海报的几分之几（也就是 3/4 × 2/5 等于多少）？",
+   "options": [
+    "3/10",
+    "120/20",
+    "23/20",
+    "1/4"
+   ],
+   "answerIndex": 0,
+   "explain": "面积模型里重叠的小格是 3×2＝6 个，总共 4×5＝20 个，所以是 6/20＝3/10，正好是分子乘分子、分母乘分母。写成 1/4 的那个是把 3 行和 2 列相加当成了 5 个重叠格，重叠格要用行数乘列数。",
+   "tags": [
+    "ok",
+    "frac.mult_common_denominator",
+    "dec.mult_always_bigger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkk7oyto8cjsj",
+   "level": 1,
+   "question": "一块长方形巧克力，横向平均分成 3 条、纵向平均分成 4 条，一共 12 小块。小林先拿走其中 1 条横条（整块的 1/3），又把这条横条的 3/4 吃掉。他吃掉的巧克力占整块的几分之几？",
+   "options": [
+    "36/12",
+    "1/4",
+    "1 1/12",
+    "1/3"
+   ],
+   "answerIndex": 1,
+   "explain": "整块 12 小块，一条横条是 4 块，它的 3/4 就是 3 块，3/12＝1/4；用算式就是 1×3 做分子、3×4 做分母。写成 1/3 的那个只说出了整条横条，忘了再取它的 3/4。",
+   "tags": [
+    "frac.mult_common_denominator",
+    "ok",
+    "dec.mult_always_bigger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytlf5qhb",
+   "level": 1,
+   "question": "一个长方形被横向平均分成 5 行、纵向平均分成 2 列，共 10 个同样大的小格。把其中 4 行整行涂红，再把其中 1 列整列涂黄。既红又黄的部分占整个长方形的几分之几（也就是 4/5 × 1/2 等于多少）？",
+   "options": [
+    "1 3/10",
+    "40/10",
+    "2/5",
+    "4/5"
+   ],
+   "answerIndex": 2,
+   "explain": "红黄重叠的小格是 4×1＝4 个，总共 5×2＝10 个，4/10 化成最简分数（lowest terms）是 2/5。写成 4/5 的那个只数了涂红的行，还要再取其中的 1/2 才是重叠部分。",
+   "tags": [
+    "dec.mult_always_bigger",
+    "frac.mult_common_denominator",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytvgp5a5",
+   "level": 1,
+   "question": "一块长方形菜地，长 3 米、宽 2 1/2 米。按每格 1 米 × 1 米画成方格来数，它的面积（area）是多少平方米？",
+   "options": [
+    "6 1/2 平方米",
+    "15 平方米",
+    "4 1/2 平方米",
+    "7 1/2 平方米"
+   ],
+   "answerIndex": 3,
+   "explain": "先把 2 1/2 化成假分数 5/2，面积＝3/1 × 5/2＝15/2＝7 1/2 平方米；方格上是 6 个整格再加 3 个半格。写成 6 1/2 的那个把整数和分数分开乘（3×2 后直接拼上 1/2），漏掉了那 3 个半格。",
+   "tags": [
+    "frac.mult_mixed_parts_separately",
+    "frac.mult_common_denominator",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytuh5j2c",
+   "level": 2,
+   "question": "计算 3/5 × 4/5，结果写成最简分数（lowest terms）。",
+   "options": [
+    "12/25",
+    "1 2/5",
+    "12/10",
+    "12/5"
+   ],
+   "answerIndex": 0,
+   "explain": "分数乘法直接分子乘分子、分母乘分母：3×4＝12，5×5＝25，得 12/25，不需要找公分母（common denominator）。写成 12/5 的那个只乘了分子、分母照抄，那是同分母加减法的做法。",
+   "tags": [
+    "ok",
+    "dec.mult_always_bigger",
+    "other",
+    "frac.mult_common_denominator"
+   ]
+  },
+  {
+   "qid": "qmtkk7oyt018676",
+   "level": 2,
+   "question": "计算 1 2/3 × 5，结果写成带分数（mixed number）。",
+   "options": [
+    "75/3",
+    "8 1/3",
+    "1 2/3",
+    "5 2/3"
+   ],
+   "answerIndex": 1,
+   "explain": "带分数要先化成假分数（improper fraction）：1 2/3＝5/3，再 5/3 × 5/1＝25/3＝8 1/3。写成 5 2/3 的那个把整数和分数分开乘（1×5 再拼上 2/3），漏掉了 2/3 × 5＝3 1/3。",
+   "tags": [
+    "frac.mult_common_denominator",
+    "ok",
+    "other",
+    "frac.mult_mixed_parts_separately"
+   ]
+  },
+  {
+   "qid": "qmtkk7oyto46fj5",
+   "level": 2,
+   "question": "手工课上有一条 3/4 米长的丝带，小雅用掉了这条丝带的 5/8。她用掉了多少米？",
+   "options": [
+    "30/8 米",
+    "1 3/8 米",
+    "15/32 米",
+    "15/12 米"
+   ],
+   "answerIndex": 2,
+   "explain": "求一段长度的几分之几用乘法：3/4 × 5/8＝15/32 米。乘以小于 1 的分数结果一定变小，写成 1 3/8 米的那个比整条丝带还长，一看就不对。",
+   "tags": [
+    "frac.mult_common_denominator",
+    "dec.mult_always_bigger",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytnd83up",
+   "level": 2,
+   "question": "一份枫糖饼干的食谱要用 2/3 杯枫糖浆。小舟只做半份（1/2 份），他需要多少杯枫糖浆？",
+   "options": [
+    "1 1/6 杯",
+    "1 1/3 杯",
+    "12/6 杯",
+    "1/3 杯"
+   ],
+   "answerIndex": 3,
+   "explain": "做半份就是取原来的 1/2：2/3 × 1/2＝2/6＝1/3 杯。写成 12/6 杯的那个先通分再只乘分子，分数乘法不用通分；取一半的结果必须比 2/3 杯少。",
+   "tags": [
+    "dec.mult_always_bigger",
+    "other",
+    "frac.mult_common_denominator",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkk7oyt93c5jf",
+   "level": 3,
+   "question": "社区义卖上，第一天卖出了全部纸杯蛋糕的 3/5；第二天卖出了剩下的 1/2。第二天卖出的纸杯蛋糕占全部的几分之几？",
+   "options": [
+    "1/5",
+    "20/10",
+    "3/10",
+    "9/10"
+   ],
+   "answerIndex": 0,
+   "explain": "两步：先算剩下的 1 − 3/5＝2/5，再取剩下的一半 2/5 × 1/2＝2/10＝1/5。写成 3/10 的那个把 1/2 乘在了第一天的 3/5 上，「剩下的一半」要乘在剩下的部分上。",
+   "tags": [
+    "ok",
+    "frac.mult_common_denominator",
+    "other",
+    "dec.mult_always_bigger"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytocufyw",
+   "level": 3,
+   "question": "社区花园里有一块长方形苗床，长 3 1/2 米、宽 4/5 米。种子袋上说每平方米要撒 1/2 包种子。这块苗床一共要用多少包种子？",
+   "options": [
+    "5 3/5 包",
+    "1 2/5 包",
+    "14 包",
+    "1 1/5 包"
+   ],
+   "answerIndex": 1,
+   "explain": "先求面积（area）：7/2 × 4/5＝28/10＝2 4/5 平方米；再乘每平方米 1/2 包：14/5 × 1/2＝14/10＝1 2/5 包。写成 5 3/5 包的那个把结果算大了，乘 1/2 是取一半，答案必须比 2 4/5 小。",
+   "tags": [
+    "dec.mult_always_bigger",
+    "ok",
+    "frac.mult_common_denominator",
+    "frac.mult_mixed_parts_separately"
+   ]
+  },
+  {
+   "qid": "qmtkk7oytkn4ucy",
+   "level": 3,
+   "question": "小舟计算 2 1/3 × 6，他写成 2 × 6＝12，再把 1/3 接在后面，得到 12 1/3。下面哪句说得对？",
+   "options": [
+    "他做对了：整数乘整数、分数照抄，就是 12 1/3",
+    "他错了：先通分成 7/3 × 18/3，只乘分子得 42",
+    "他错了：2 1/3 化成 7/3，7/3 × 6＝14",
+    "他错了：2 1/3 就是 3/3，3/3 × 6＝6，答案是 6"
+   ],
+   "answerIndex": 2,
+   "explain": "带分数要先化成假分数（improper fraction）7/3，再 7/3 × 6/1＝42/3＝14。把整数和分数分开乘、直接拼成 12 1/3，漏掉了 1/3 × 6＝2；另外 2 1/3 是 2×3+1＝7 份，不是 3/3。",
+   "tags": [
+    "frac.mult_mixed_parts_separately",
+    "frac.mult_common_denominator",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkk7oyt076jy3",
+   "level": 3,
+   "question": "小雅说：一根 8 米长的绳子，剪成原来的 3/4，剩下的一定比 8 米长，因为乘法让数变大。下面哪句说得对？",
+   "options": [
+    "她错了：8 × 3/4 就是 8 再带上 3/4，得 8 3/4 米",
+    "她说得对：乘法一定变大，答案是 10 2/3 米",
+    "她错了：8 通分成 32/4，只乘分子得 96/4＝24 米",
+    "她错了：乘数 3/4 小于 1，8 × 3/4＝6 米"
+   ],
+   "answerIndex": 3,
+   "explain": "8 × 3/4＝24/4＝6 米，乘以小于 1 的分数结果会变小，只有乘数大于 1 才变大。算成 10 2/3 米的那个其实是把 3/4 换成了倒数（reciprocal）4/3，那是除法不是乘法。",
+   "tags": [
+    "frac.mult_mixed_parts_separately",
+    "dec.mult_always_bigger",
+    "frac.mult_common_denominator",
+    "ok"
+   ]
+  }
+ ]
+}

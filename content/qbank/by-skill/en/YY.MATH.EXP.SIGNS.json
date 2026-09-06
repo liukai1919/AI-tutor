@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.SIGNS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlspofqcyngz9",
+   "level": 1,
+   "question": "A power has base −4 and exponent 2. Written out as repeated multiplication it is (−4) × (−4), with the whole base, including its negative sign, used as a factor 2 times. What is the value of this power?",
+   "options": [
+    "16",
+    "8",
+    "−16",
+    "−8"
+   ],
+   "answerIndex": 0,
+   "explain": "The base is −4, so multiply (−4) × (−4); a negative times a negative is positive, giving 16. The trap is treating (−4)² like −4², where only the 4 is squared and the answer would be −16.",
+   "tags": [
+    "ok",
+    "other",
+    "rat.negative_base_bracket",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofq3bl2t2",
+   "level": 1,
+   "question": "Consider the expression −5². There are no brackets, so the exponent 2 belongs only to the base 5, and the negative sign in front is applied afterwards. In words it means 'the opposite of 5 × 5'. What is its value?",
+   "options": [
+    "25",
+    "−25",
+    "−10",
+    "10"
+   ],
+   "answerIndex": 1,
+   "explain": "Square first: 5 × 5 = 25, then apply the negative sign in front to get −25. The trap is reading −5² as (−5)², which would give 25; without brackets the negative is not part of the base.",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofq4fsr8x",
+   "level": 1,
+   "question": "A power has base −2 and exponent 3. Written out it is (−2) × (−2) × (−2), so the base −2 appears as a factor 3 times. What is the value of this power?",
+   "options": [
+    "8",
+    "−6",
+    "−8",
+    "6"
+   ],
+   "answerIndex": 2,
+   "explain": "Multiply in pairs: (−2) × (−2) = 4, then 4 × (−2) = −8. With an odd exponent one negative factor is left unpaired, so the answer is negative; the trap is assuming the negatives all cancel to give 8.",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofq572joj",
+   "level": 1,
+   "question": "Which statement correctly explains why (−3)² and −3² have different values?",
+   "options": [
+    "In (−3)² the brackets make the answer −9, while in −3² the missing brackets make the answer 9.",
+    "They actually have the same value, −9, because the negative sign in front survives the squaring.",
+    "They actually have the same value, 9, because squaring any number always gives a positive result.",
+    "In (−3)² the base is −3, so (−3)(−3) = 9; in −3² only 3 is squared and then made negative, −9."
+   ],
+   "answerIndex": 3,
+   "explain": "Brackets tell you the base: (−3)² uses base −3 and equals 9, while −3² squares only the 3 and then takes the opposite, −9. The trap is thinking the two forms are the same expression.",
+   "tags": [
+    "other",
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlspofqbac7ua",
+   "level": 2,
+   "question": "Evaluate (−2)⁴ − (−2)³.",
+   "options": [
+    "24",
+    "−8",
+    "−24",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "(−2)⁴ = 16 because four negatives pair up, and (−2)³ = −8 because one negative is left over, so 16 − (−8) = 24. The trap is calling (−2)³ positive 8 and getting 16 − 8 = 8.",
+   "tags": [
+    "ok",
+    "rat.negative_base_bracket",
+    "other",
+    "exp.odd_power_negative_positive"
+   ]
+  },
+  {
+   "qid": "qmtlspofqgmh27h",
+   "level": 2,
+   "question": "Exactly one of these equations is true. Which one?",
+   "options": [
+    "(−5)² = −5²",
+    "(−5)² = 5²",
+    "(−2)³ = 2³",
+    "−4² = (−2)⁴"
+   ],
+   "answerIndex": 1,
+   "explain": "(−5)² = 25 and 5² = 25, so they are equal: an even power of a negative base is positive. The traps are treating (−5)² and −5² as the same thing, or making the odd power (−2)³ positive when it is really −8.",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtlspofqslxva1",
+   "level": 2,
+   "question": "What is the value of −3² + (−3)²?",
+   "options": [
+    "−18",
+    "18",
+    "0",
+    "−12"
+   ],
+   "answerIndex": 2,
+   "explain": "−3² means the opposite of 3², which is −9, and (−3)² means (−3)(−3), which is 9, so the sum is −9 + 9 = 0. The trap is treating both terms as 9 (giving 18) or both as −9 (giving −18).",
+   "tags": [
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofqo3xew4",
+   "level": 2,
+   "question": "If n = −2, what is the value of n³ − n²?",
+   "options": [
+    "4",
+    "12",
+    "−4",
+    "−12"
+   ],
+   "answerIndex": 3,
+   "explain": "Substitute with brackets: (−2)³ = −8 and (−2)² = 4, so −8 − 4 = −12. The traps are writing −2² = −4 instead of (−2)² = 4, or making (−2)³ a positive 8.",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "other",
+    "rat.negative_base_bracket",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlspofqc06a5v",
+   "level": 3,
+   "question": "In a card game, drawing a penalty card multiplies your score by −2. Kenji has a score of 1 and then draws three penalty cards in a row. His friend says the score is now 8 because 'two negatives make a positive'. What is Kenji's score, and why?",
+   "options": [
+    "−8, because three factors of −2 leave one negative sign unpaired",
+    "8, because the three negative signs cancel out to give a positive",
+    "−6, because each of the three penalty cards takes away 2 points",
+    "−4, because the first card flips the sign and the next two double it"
+   ],
+   "answerIndex": 0,
+   "explain": "Three penalty cards give 1 × (−2)³ = (−2)(−2)(−2) = −8: the first two negatives pair to make 4, and the third negative makes the result −8. The trap is thinking all three negatives cancel to leave a positive 8.",
+   "tags": [
+    "ok",
+    "exp.odd_power_negative_positive",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofq70lizp",
+   "level": 3,
+   "question": "In a board game, Priya starts with 1 point and lands on a red square twice; each red square multiplies her points by −3, so she writes her score as (−3)². Liam starts with 1 point, lands twice on a blue square that multiplies his points by 3, and then draws a card that changes his score to its opposite, so he writes his score as −3². Who has more points, and by how much?",
+   "options": [
+    "They are tied at 9 points",
+    "Priya has 18 more points",
+    "Liam has 18 more points",
+    "They are tied at −9 points"
+   ],
+   "answerIndex": 1,
+   "explain": "Priya's score is (−3)² = (−3)(−3) = 9, while Liam's is −3² = −(3 × 3) = −9, so Priya is ahead by 9 − (−9) = 18 points. The trap is treating (−3)² and −3² as the same number.",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "other",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtlspofq14f9d6",
+   "level": 3,
+   "question": "Devon evaluates (−5)³ and writes: (−5)³ = (−5)(−5)(−5) = 25 × (−5) = 125. Where is his mistake?",
+   "options": [
+    "There is no mistake, because an odd power of a negative number is positive",
+    "The first step: (−5)(−5) should be −25, although the final 125 is still right",
+    "The last step: 25 × (−5) is −125, since positive times negative is negative",
+    "The whole setup: a power means base times exponent, so (−5) × 3 = −15"
+   ],
+   "answerIndex": 2,
+   "explain": "Devon expanded correctly and got 25 for the first pair, but 25 × (−5) = −125, not 125. An odd power of a negative base is always negative because one negative factor is left unpaired.",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspofq5drwuy",
+   "level": 3,
+   "question": "Kai's older brother sets an odd chore rule: in week n, Kai's account changes by (−2)ⁿ dollars, where a negative result means Kai pays. After weeks 1, 2, 3 and 4, what is the total change to Kai's account?",
+   "options": [
+    "$30 gained",
+    "$10 paid",
+    "$30 paid",
+    "$10 gained"
+   ],
+   "answerIndex": 3,
+   "explain": "Work out each week: (−2)¹ = −2, (−2)² = 4, (−2)³ = −8, (−2)⁴ = 16, and the total is −2 + 4 − 8 + 16 = 10, a gain of $10. The trap is making every power positive (total 30) or every power negative (total −30); odd exponents give negatives and even exponents give positives.",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "other",
+    "rat.negative_base_bracket",
+    "ok"
+   ]
+  }
+ ]
+}

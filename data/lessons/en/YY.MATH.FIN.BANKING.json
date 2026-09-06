@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.BANKING",
+ "lang": "en",
+ "title": "Read a bank statement (deposits, withdrawals, debit, fees, running balance) and keep a balance from a list of transactions",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading a Bank Statement: Keeping the Running Balance",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a budget with money in and money out. A bank statement is that same idea, but it is real and it happens in order, one transaction at a time. The running balance is the column that answers the question you actually care about: how much money do I have right now?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here are the words you will see on a statement. A deposit is money coming in, like your part time pay or allowance. A withdrawal is cash you take out at an A T M. A debit is when you tap your card at a store. A fee is what the bank charges you, like a monthly account fee. Only the deposit adds to your balance. The other three all take money out, even the tiny fee.",
+    "math": "\\text{balance after} = \\text{balance before} + \\text{deposits} - \\text{money out}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      45,
+      40,
+      18.75,
+      2.5
+     ],
+     "labels": [
+      "Deposit +",
+      "Withdrawal −",
+      "Debit −",
+      "Fee −"
+     ],
+     "caption": "Four kinds of lines on a statement. Only the deposit column puts money in."
+    }
+   },
+   {
+    "say": "Let us walk through a real week. You start with one hundred twenty dollars. Friday your part time pay of forty-five dollars goes in, so the balance becomes one hundred sixty-five. Saturday you tap your card for eighteen seventy-five on bubble tea with friends, and the balance drops to one hundred forty-six twenty-five. Then the bank takes its two fifty monthly fee, leaving one hundred forty-three seventy-five. Finally you pull forty dollars from an A T M, and you end at one hundred three seventy-five. Notice each new balance is built from the balance right before it.",
+    "math": "120.00+45.00=165.00,\\quad 165.00-18.75=146.25,\\quad 146.25-2.50=143.75,\\quad 143.75-40.00=103.75",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      120,
+      45,
+      18.75,
+      2.5,
+      40,
+      120,
+      165,
+      146.25,
+      143.75,
+      103.75
+     ],
+     "labels": [
+      "Start",
+      "Pay +45",
+      "Bubble tea −18.75",
+      "Fee −2.50",
+      "ATM −40"
+     ],
+     "caption": "Top row: the amount on each line. Bottom row: the running balance right after it."
+    }
+   },
+   {
+    "say": "Two mistakes show up all the time. First, some people just add every number in the table together and get two hundred twenty-six twenty-five. That cannot be right, because money you spent does not make you richer. Second, some people skip the fee because it looks small, and they get one hundred six twenty-five. But the bank really did take that two fifty, so your true balance is one hundred three seventy-five. Every single line changes the balance, and money out always subtracts.",
+    "math": "120+45+18.75+2.50+40=226.25 \\text{ (wrong)},\\qquad 120+45-18.75-40=106.25 \\text{ (fee missing)}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      226.25,
+      106.25,
+      103.75
+     ],
+     "labels": [
+      "Added everything",
+      "Skipped the fee",
+      "Correct balance"
+     ],
+     "caption": "Only the last column matches what the bank actually holds for you."
+    }
+   },
+   {
+    "say": "Many apps show money out as negative numbers, like minus eighteen seventy-five. Adding a negative is the same as subtracting, so the balances come out exactly the same as before. Here is the one that trips people up. Suppose the bank reverses a wrong twelve dollar charge. That means it removes a minus twelve from your account. Removing a negative puts the money back, so your balance goes up from one hundred three seventy-five to one hundred fifteen seventy-five. It does not go down to ninety-one seventy-five.",
+    "math": "103.75-(-12.00)=103.75+12.00=115.75",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      165,
+      146.25,
+      143.75,
+      103.75,
+      115.75
+     ],
+     "labels": [
+      "+45.00",
+      "−18.75",
+      "−2.50",
+      "−40.00",
+      "Reverse −12.00"
+     ],
+     "caption": "Running balance with signed amounts. The reversal removes a negative, so the balance rises."
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Read a statement top to bottom, and for every line ask: money in or money out? Deposits add, everything else subtracts, and your new balance always grows out of the one just above it.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Money in adds, money out subtracts, and every line, even a tiny fee, updates the running balance.",
+  "practice": {
+   "question": "Maya's bank statement starts with an opening balance of eighty-five dollars. Then, in order: a deposit of sixty dollars from her part time job, a debit of twenty-three dollars and forty cents at the movies, a monthly account fee of three dollars and ninety-five cents, and an e-transfer out of thirty dollars to a friend. Draw a table with two rows: the amount on each line, and the running balance after it. What is the balance after each line, and what is Maya's final balance?",
+   "answer": "After the deposit: 145.00. After the movies: 121.60. After the fee: 117.65. After the e-transfer: 87.65. Final balance: 87.65 dollars."
+  }
+ }
+}

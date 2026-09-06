@@ -1,0 +1,120 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.ADD",
+ "lang": "en",
+ "title": "Add polynomials by collecting like terms ((x² + 2x − 4) + (2x² − 3x − 4) = 3x² − x − 8)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Adding Polynomials: Team Up the Like Terms",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to combine like terms, like turning zero point five n minus three n plus twenty five into negative two point five n plus twenty five. Today we use that same move to add two whole polynomials together. The trick is simple: like terms team up, unlike terms stay apart.",
+    "math": "(x^2+2x-4)+(2x^2-3x-4)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of each polynomial as a pile of algebra tiles. The first pile has one x squared tile, two x tiles, and four negative unit tiles. The second pile has two x squared tiles, three negative x tiles, and four negative unit tiles. Adding means pushing both piles together into one big pile. Nothing disappears, nothing gets multiplied, we just have more tiles.",
+    "math": "x^2+2x-4 \\quad \\text{and} \\quad 2x^2-3x-4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      2,
+      4,
+      2,
+      3,
+      4
+     ],
+     "labels": [
+      "x² tiles (pile 1)",
+      "x tiles (pile 1)",
+      "−1 tiles (pile 1)",
+      "x² tiles (pile 2)",
+      "−x tiles (pile 2)",
+      "−1 tiles (pile 2)"
+     ],
+     "caption": "Tile counts in each pile: 1, 2, 4 and 2, 3, 4"
+    }
+   },
+   {
+    "say": "Now sort the big pile by tile type. Put the x squared tiles together: one plus two makes three x squared. Put the x tiles together: two positive x tiles and three negative x tiles. Two of them cancel in zero pairs, leaving one negative x. Put the unit tiles together: negative four plus negative four makes negative eight. Sorting by type is exactly collecting like terms.",
+    "math": "(x^2+2x^2)+(2x-3x)+(-4-4)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      1,
+      8
+     ],
+     "labels": [
+      "x² tiles",
+      "−x tiles",
+      "−1 tiles"
+     ],
+     "caption": "After sorting: three x², one negative x, eight negative units"
+    }
+   },
+   {
+    "say": "Write down what each group became. Three x squared, then negative one x, which we just write as minus x, then minus eight. Let us double check the coefficients: one plus two is three, two minus three is negative one, negative four minus four is negative eight. So the sum is three x squared minus x minus eight.",
+    "math": "3x^2-x-8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      -4,
+      2,
+      -3,
+      -4
+     ],
+     "labels": [
+      "x² coefficient",
+      "x coefficient",
+      "constant"
+     ],
+     "caption": "Row 1 is the first polynomial, row 2 the second. Add each column: 3, −1, −8."
+    }
+   },
+   {
+    "say": "Two traps to avoid. Trap one: adding the exponents. Some people see x squared plus two x squared and write three x to the power of four. No! Adding tiles never changes the tile's shape. Three x squared tiles are still x squared tiles, so the exponent stays two. Trap two: mixing unlike terms. You cannot squash negative x and negative eight into negative nine x. An x tile and a unit tile are different shapes, so they stay as separate terms.",
+    "math": "x^2+2x^2=3x^2 \\ (\\text{not } 3x^4), \\quad -x-8 \\neq -9x",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      1,
+      8
+     ],
+     "labels": [
+      "x² tiles stay x²",
+      "x tile stays x",
+      "unit tiles stay units"
+     ],
+     "caption": "Three separate groups means three separate terms in the answer"
+    }
+   },
+   {
+    "say": "Here is the whole thing in one line. Adding polynomials means stacking up the like terms, adding their coefficients, and leaving the exponents exactly as they are.",
+    "math": "(x^2+2x-4)+(2x^2-3x-4)=3x^2-x-8",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Add like terms by adding their coefficients. The exponent stays the same, and unlike terms stay separate.",
+  "practice": {
+   "question": "Two rectangular garden beds at a community garden in Surrey have areas given by polynomials in square metres. The first bed has area two x squared plus five x plus three, and the second has area x squared minus two x plus six. Sketch each area as an area model split into an x squared part, an x part, and a unit part, then add the two polynomials to find the total area in square metres.",
+   "answer": "3x² + 3x + 9 square metres (x² terms: 2 + 1 = 3; x terms: 5 − 2 = 3; constants: 3 + 6 = 9)"
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.APPLY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrx6b4galntu",
+   "level": 1,
+   "question": "At a Coquitlam fun fair a spinner is split into 5 equal sections, and 2 of those sections are shaded green. A fair coin is flipped at the same time as the spinner is spun. What is the theoretical probability of landing on green and getting heads?",
+   "options": [
+    "1/5",
+    "9/10",
+    "1/3",
+    "2/5"
+   ],
+   "answerIndex": 0,
+   "explain": "For two independent events, multiply: P(green) = 2/5 and P(heads) = 1/2, so 2/5 × 1/2 = 2/10 = 1/5. The common trap is adding the two probabilities, which gives 9/10 and would make the pair more likely than either event alone.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4ud4sp4",
+   "level": 1,
+   "question": "Devin rolls a fair six-sided number cube labelled 1 to 6 and spins a spinner with 4 equal sections, exactly 1 of which says Bus. What is the probability that he rolls a 5 and the spinner lands on Bus?",
+   "options": [
+    "5/12",
+    "1/24",
+    "1/18",
+    "1/10"
+   ],
+   "answerIndex": 1,
+   "explain": "The roll and the spin are independent, so multiply: 1/6 × 1/4 = 1/24. Watch out for writing the spinner as 1 Bus to 3 others (1/3); the probability compares the Bus section to all 4 sections, not to the rest.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4hwrgm8",
+   "level": 1,
+   "question": "A gym locker has two dials. Each dial has 5 equal positions numbered 1 to 5, and only one position on each dial is correct. Priya spins both dials at random without looking. What is the probability that both dials land on the correct number?",
+   "options": [
+    "2/5",
+    "1/16",
+    "1/25",
+    "1/10"
+   ],
+   "answerIndex": 2,
+   "explain": "Each dial is independent with probability 1/5, so 1/5 × 1/5 = 1/25. The trap is adding to get 2/5; adding would say two dials are easier than one, when a second dial should make success less likely.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4vgy15g",
+   "level": 1,
+   "question": "A weather spinner has 10 equal sections and 3 of them are shaded Rain. A second spinner has 2 equal sections, 1 of which says Late Bus. Both spinners are spun once. What is the probability of Rain and Late Bus?",
+   "options": [
+    "4/5",
+    "3/14",
+    "3/10",
+    "3/20"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the two independent probabilities: 3/10 × 1/2 = 3/20. A common error is writing the rain spinner part-to-part as 3/7 (3 shaded to 7 unshaded) instead of 3 shaded out of all 10 sections.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4tr131m",
+   "level": 2,
+   "question": "Events A and B are independent, with P(A) = 1/3 and P(B) = 2/5. What is P(A and B)?",
+   "options": [
+    "2/15",
+    "11/15",
+    "3/8",
+    "2/5"
+   ],
+   "answerIndex": 0,
+   "explain": "For independent events, P(A and B) = P(A) × P(B) = 1/3 × 2/5 = 2/15. The usual trap is adding to get 11/15; the chance of both happening must be smaller than either 1/3 or 2/5.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4hnwytp",
+   "level": 2,
+   "question": "Maya's bike lock has two dials. The first dial has the 4 letters A, B, C, D and the second has the 5 digits 1 to 5, and only one letter and one digit open the lock. A stranger sets both dials at random. What is the probability the lock opens?",
+   "options": [
+    "9/20",
+    "1/20",
+    "1/12",
+    "1/9"
+   ],
+   "answerIndex": 1,
+   "explain": "The two dials are independent, so 1/4 × 1/5 = 1/20. Do not use 1 correct to 3 wrong (1/3) for the letters; the probability is 1 correct letter out of the 4 letters on the dial.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4hu01zt",
+   "level": 2,
+   "question": "In Abbotsford the theoretical probability of rain on a spring morning is modelled as 1/4, and the probability that Sam's bus is late is 1/3. The two are independent. What is the probability that it does not rain and the bus is on time?",
+   "options": [
+    "7/12",
+    "1/12",
+    "1/2",
+    "1/6"
+   ],
+   "answerIndex": 2,
+   "explain": "First find each complement: no rain is 3/4 and on time is 2/3, then multiply: 3/4 × 2/3 = 6/12 = 1/2. The trap is multiplying 1/4 × 1/3, which answers the opposite question (rain and late).",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4l8jauy",
+   "level": 2,
+   "question": "A fair coin is flipped and a spinner with 8 equal sections is spun; 3 of the sections are purple. Which calculation gives the probability of heads and purple?",
+   "options": [
+    "1/2 + 3/8",
+    "1/2 × 3/5",
+    "1/2 × 8/3",
+    "1/2 × 3/8"
+   ],
+   "answerIndex": 3,
+   "explain": "Independent events are combined by multiplying, and purple is 3 sections out of all 8, so the calculation is 1/2 × 3/8. Adding, or writing purple as 3 to 5, both come from comparing the wrong amounts.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4frbjse",
+   "level": 3,
+   "question": "At a Kelowna carnival a game uses two spinners. Spinner A has 5 equal sections with 2 marked Win, and spinner B has 3 equal sections with 1 marked Win. A player wins a prize only if both spinners land on Win. If 90 students each play once, about how many should win a prize?",
+   "options": [
+    "12 students",
+    "66 students",
+    "30 students",
+    "6 students"
+   ],
+   "answerIndex": 0,
+   "explain": "P(both Win) = 2/5 × 1/3 = 2/15, and 90 × 2/15 = 12 students. Adding the probabilities first gives 11/15 and a far too large answer of 66, since both spinners must cooperate.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4abgqim",
+   "level": 3,
+   "question": "Jordan says: the probability of rain in Nanaimo tomorrow is 2/5 and the probability my bus is late is 1/4, so the probability that both happen is 2/5 + 1/4 = 13/20. What went wrong in his reasoning?",
+   "options": [
+    "Nothing is wrong, because independent events are combined by adding their probabilities.",
+    "Both events must happen together, so he should multiply: 2/5 × 1/4 = 2/20 = 1/10.",
+    "He should keep only the larger chance, because 2/5 already includes the late bus outcome.",
+    "The rain chance should be 2 to 3, because 2 sections rain and 3 do not, giving 2/3 × 1/4."
+   ],
+   "answerIndex": 1,
+   "explain": "And means both events happen, so independent probabilities are multiplied: 2/5 × 1/4 = 1/10. Adding gives 13/20, which is larger than each event on its own and cannot be right for both happening.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other",
+    "prob.part_to_part"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b43o7hvo",
+   "level": 3,
+   "question": "Ava's phone unlocks with one letter chosen from A, B, C, D and one digit chosen from 1 to 6. Her little brother picks one letter and one digit completely at random and tries once. What is the probability that the phone does not unlock?",
+   "options": [
+    "14/15",
+    "7/12",
+    "23/24",
+    "1/24"
+   ],
+   "answerIndex": 2,
+   "explain": "P(unlock) = 1/4 × 1/6 = 1/24, so P(does not unlock) = 1 − 1/24 = 23/24. Two traps hide here: adding 1/4 and 1/6, and stopping at 1/24 without subtracting from 1.",
+   "tags": [
+    "prob.part_to_part",
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrx6b4k8kwyj",
+   "level": 3,
+   "question": "Tara spins a spinner with 5 equal sections, exactly 1 of which says Bonus, and rolls a fair six-sided number cube labelled 1 to 6. She wins a free hot lunch if the spinner says Bonus and the cube shows an even number. What is the probability she wins?",
+   "options": [
+    "7/10",
+    "1/30",
+    "1/8",
+    "1/10"
+   ],
+   "answerIndex": 3,
+   "explain": "First get P(even) = 3/6 = 1/2, then multiply the independent events: 1/5 × 1/2 = 1/10. The trap is using 1/6 as if one exact number were needed, since three of the six faces are even.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "other",
+    "prob.part_to_part",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.PLANNED_PURCHASE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtn98fo6blmtbz",
+   "level": 1,
+   "question": "Squamish 的 Nia 想买一部 $225 的手机。她的储蓄账户（savings account）里已经存了 $45，从这周起她每周再存 $15。她还要存多少周才攒够买手机的钱？",
+   "options": [
+    "12 周",
+    "18 周",
+    "15 周",
+    "3 周"
+   ],
+   "answerIndex": 0,
+   "explain": "先算还差多少：225 − 45 = 180，再用 180 ÷ 15 = 12 周。最常见的坑是直接拿全价算 225 ÷ 15 得 15 周，忘了已经存下的 $45 要先从目标里减掉；把 $45 加到目标上得 18 周也是同一个错。",
+   "tags": [
+    "ok",
+    "fin.save_ignore_existing",
+    "fin.save_ignore_existing",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo6tdaxff",
+   "level": 1,
+   "question": "Kelowna 的 Theo 看中一副耳机，现在一次付清是 $180。店里也可以分期付（pay over time）：不用首付，每月付 $17，一共付 12 个月。分期买比一次付清一共多花多少钱？",
+   "options": [
+    "$204",
+    "$24",
+    "$180",
+    "$2"
+   ],
+   "answerIndex": 1,
+   "explain": "分期总付出是 17 × 12 = $204，再减去现价：204 − 180 = $24。$204 是分期的总额不是多花的钱，$2 只是每月多付的差额（180 ÷ 12 = 15，17 − 15 = 2），都还没算完。",
+   "tags": [
+    "fin.interest_as_total",
+    "ok",
+    "word.stop_early",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo63setpr",
+   "level": 1,
+   "question": "Prince George 的 Amara 打算攒够再买滑雪板。她把 $400 本金（principal）存进储蓄账户，按单利（simple interest）计息，年利率 5%，存满 2 年。2 年到期时她一共能取出多少钱？",
+   "options": [
+    "$40",
+    "$420",
+    "$440",
+    "$20"
+   ],
+   "answerIndex": 2,
+   "explain": "利息 = 400 × 5% × 2 = $40，到期总额 = 本金 + 利息 = 400 + 40 = $440。写 $40 的那个把利息当成了到期总额；$420 只加了第一年的 $20 利息就停了。",
+   "tags": [
+    "fin.interest_as_total",
+    "word.stop_early",
+    "ok",
+    "fin.interest_as_total"
+   ]
+  },
+  {
+   "qid": "qmtn98fo6a7wyal",
+   "level": 1,
+   "question": "Fort St. John 的 Ivy 在攒钱办一次家庭聚会，预算（budget）总共要 $360。她已经存了 $120，想在接下来的 4 个月里把剩下的攒齐。她每月至少要存多少钱？",
+   "options": [
+    "$90",
+    "$240",
+    "$120",
+    "$60"
+   ],
+   "answerIndex": 3,
+   "explain": "先减掉已存的钱：360 − 120 = 240，再平均分到 4 个月：240 ÷ 4 = $60。$90 是没减已存直接用 360 ÷ 4；$240 只是还差的总数，还没除以月数。",
+   "tags": [
+    "fin.save_ignore_existing",
+    "word.stop_early",
+    "fin.save_ignore_existing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn98fo6g54ovo",
+   "level": 2,
+   "question": "用变量（variable）写买手机的攒钱计划：手机价 P 元，已经存下 S 元，从现在起每周存 w 元。哪个式子算出还需要存的周数？",
+   "options": [
+    "(P − S) ÷ w",
+    "(P + S) ÷ w",
+    "P ÷ w",
+    "P ÷ w − S"
+   ],
+   "answerIndex": 0,
+   "explain": "还要攒的钱是 P − S，除以每周存的 w，所以写成 (P − S) ÷ w 的那个对。P ÷ w 完全没用上已存的钱；(P + S) ÷ w 反而把已存的加到目标上；P ÷ w − S 是拿钱数去减周数，单位就不对了。",
+   "tags": [
+    "ok",
+    "fin.save_ignore_existing",
+    "fin.save_ignore_existing",
+    "fin.save_ignore_existing"
+   ]
+  },
+  {
+   "qid": "qmtn98fo7czzejl",
+   "level": 2,
+   "question": "一部手机现价 C 元。店里的分期计划是：先付首付 d 元，之后每月付 m 元，一共付 n 个月。用这些变量（variable）表示，分期买下来一共付出多少钱？",
+   "options": [
+    "m × n",
+    "d + m × n",
+    "d + m × n − C",
+    "d + m"
+   ],
+   "answerIndex": 1,
+   "explain": "总付出 = 首付 + 每月付款 × 月数，即 d + m × n。m × n 漏掉了首付；d + m × n − C 算的是比现价多花的钱，不是总付出。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "fin.interest_as_total",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo7toxaoc",
+   "level": 2,
+   "question": "Kamloops 的 Dana 要买一台 $480 的电子琴。她可以每月存 $80 攒够再买，也可以现在就拿走：先付首付 $80，之后每月付 $45，付 10 个月。选分期这条路，她一共要付出多少钱？",
+   "options": [
+    "$450",
+    "$50",
+    "$530",
+    "$480"
+   ],
+   "answerIndex": 2,
+   "explain": "月供合计 45 × 10 = $450，再加上首付 $80，一共 $530。$450 漏了首付；$50 只是比现价多花的部分，不是总付出。",
+   "tags": [
+    "word.stop_early",
+    "fin.interest_as_total",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo76c8eqq",
+   "level": 2,
+   "question": "Chilliwack 的 Owen 想在 5 个月后买一台 $500 的相机。他已经存了 $150，目前的预算（budget）里每月能存 $60。要想 5 个月正好攒够，他每月还得比现在多存多少钱？",
+   "options": [
+    "$70",
+    "$50",
+    "$40",
+    "$10"
+   ],
+   "answerIndex": 3,
+   "explain": "还差 500 − 150 = $350，5 个月每月要存 350 ÷ 5 = $70，比现在的 $60 多存 $10。$70 是每月要存的总额，还没和现在的 $60 比；$40 来自没减已存的 500 ÷ 5 − 60。",
+   "tags": [
+    "word.stop_early",
+    "word.stop_early",
+    "fin.save_ignore_existing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn98fo7x8exg4",
+   "level": 3,
+   "question": "Haida Gwaii 一所中学的学生会要办一次原住民聚会（First Peoples gathering）。预算里有：场地 $150、食材每份 $18 共 25 份、送给长者的礼物 $120。他们已经筹到 $300，剩下的由 20 名学生平摊。每名学生要出多少钱？",
+   "options": [
+    "$21",
+    "$36",
+    "$51",
+    "$420"
+   ],
+   "answerIndex": 0,
+   "explain": "总花费 = 150 + 18 × 25 + 120 = $720，减去已筹的 $300 还差 $420，再 420 ÷ 20 = $21。$36 是没减已筹款的 720 ÷ 20；$420 只是还差的总数，还没分给 20 个人。",
+   "tags": [
+    "ok",
+    "fin.save_ignore_existing",
+    "fin.save_ignore_existing",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo7ld7qun",
+   "level": 3,
+   "question": "Squamish 的 Mateo 想买一部现价 $720 的手机。店里的分期计划是：首付 $120，之后 12 个月每月付 $55，另外这 12 个月每月还要交 $8 的保护计划费。按这个计划买，他一共比现价多付多少钱？",
+   "options": [
+    "$876",
+    "$156",
+    "$60",
+    "$36"
+   ],
+   "answerIndex": 1,
+   "explain": "每月实付 55 + 8 = $63，12 个月是 $756，加首付 $120 共 $876，再减现价：876 − 720 = $156。$876 是总付出不是多付的钱；$36 漏了首付，$60 漏了保护计划费。",
+   "tags": [
+    "fin.interest_as_total",
+    "ok",
+    "word.stop_early",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo7y8aol8",
+   "level": 3,
+   "question": "Jayla 说：我想买 $340 的手机，我已经存了 $100，以后每周能存 $20，所以 340 ÷ 20 = 17，我还要存 17 周。下面哪句话正确指出了她的问题？",
+   "options": [
+    "她算得对：每周 $20 存 17 周正好 $340，够买手机了。",
+    "她该把已存的 $100 加到目标上，440 ÷ 20 = 22 周才对。",
+    "她要先减掉已存的 $100，只差 $240，所以是 12 周。",
+    "她只要算到还差 $240 就行了，$240 就是她要的答案。"
+   ],
+   "answerIndex": 2,
+   "explain": "已经存下的钱要先从目标里减掉：340 − 100 = 240，240 ÷ 20 = 12 周。说 17 周的做法用了全价，等于把已存的 $100 白白丢掉；把 $100 加到目标上得 22 周方向正好反了。",
+   "tags": [
+    "fin.save_ignore_existing",
+    "fin.save_ignore_existing",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn98fo78ayshd",
+   "level": 3,
+   "question": "Kimberley 的 Noah 想买一套 $840 的雪板装备，他决定攒够再买而不是分期。他把手上的 $600 本金（principal）存进储蓄账户，按单利计息，年利率 4%，存满 2 年后取出来买。到期那天，除了账户里的钱，他还要另外补上多少？",
+   "options": [
+    "$648",
+    "$216",
+    "$48",
+    "$192"
+   ],
+   "answerIndex": 3,
+   "explain": "利息 = 600 × 4% × 2 = $48，到期总额 = 600 + 48 = $648，还差 840 − 648 = $192。$648 只是账户到期的钱，还没和 $840 比；$48 是利息不是到期总额。",
+   "tags": [
+    "word.stop_early",
+    "word.stop_early",
+    "fin.interest_as_total",
+    "ok"
+   ]
+  }
+ ]
+}

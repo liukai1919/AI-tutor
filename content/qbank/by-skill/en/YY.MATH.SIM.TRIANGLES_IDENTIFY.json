@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn83gou8onysa",
+   "level": 1,
+   "question": "Triangle ABC has angles 40°, 60° and 80°. Triangle DEF also has angles 40°, 60° and 80°, and every side of DEF is exactly 2 times the length of the side it matches in ABC. Are the two triangles similar?",
+   "options": [
+    "Yes — angles match and every side ratio is 2",
+    "No — DEF's longest side pairs with ABC's shortest",
+    "No — DEF is bigger, so it cannot be similar to ABC",
+    "No — a ratio of 2 works only for the shortest sides"
+   ],
+   "answerIndex": 0,
+   "explain": "Similar triangles need equal matching angles AND one single ratio for every pair of matching sides — here all three angles match and every ratio is 2. The trap is thinking a bigger copy cannot be similar: similar means same shape, not same size.",
+   "tags": [
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn83goubkhw3w",
+   "level": 1,
+   "question": "Triangle PQR has sides 3 cm, 4 cm and 5 cm. Triangle STU has sides 9 cm, 12 cm and 15 cm, where the 9 cm side matches the 3 cm side, the 12 cm side matches the 4 cm side, and the 15 cm side matches the 5 cm side. Is STU similar to PQR?",
+   "options": [
+    "No — 3 cm and 15 cm do not give the ratio 3",
+    "Yes — each side of STU is 3 times its partner",
+    "No — matching sides must be the same length",
+    "Yes, but only after STU shrinks back to 3, 4, 5"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide each side by the side it matches: 9÷3 = 3, 12÷4 = 3, 15÷5 = 3, one shared ratio, so the triangles are similar. The trap is dividing sides that are not partners, like 15÷3, which gives 5 and makes the ratios look unequal.",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "sim.similar_means_congruent",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn83gouenaika",
+   "level": 1,
+   "question": "Triangle JKL has two angles measuring 55° and 65°. Triangle MNP has two angles measuring 65° and 60°. Remember that the three angles of any triangle add to 180°. Are the two triangles similar?",
+   "options": [
+    "No — the second triangle has no 55° angle listed",
+    "No — they must be the same size to be similar",
+    "Yes — both have angles of 55°, 60° and 65°",
+    "No — you cannot decide without any side lengths"
+   ],
+   "answerIndex": 2,
+   "explain": "Find the missing angle first: JKL is 180 − 55 − 65 = 60°, and MNP is 180 − 65 − 60 = 55°, so both triangles have 55°, 60° and 65°. The trap is judging only the two angles that are written down instead of working out the third.",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn83gouqksfgz",
+   "level": 1,
+   "question": "Triangle ABC has sides 6 cm, 8 cm and 10 cm. Triangle XYZ has sides 12 cm, 16 cm and 18 cm, where 12 cm matches 6 cm, 16 cm matches 8 cm, and 18 cm matches 10 cm. Are the triangles similar?",
+   "options": [
+    "Yes — each side of XYZ is bigger, so shapes match",
+    "No — similar triangles need identical side lengths",
+    "No — 12 cm should be paired with the 10 cm side",
+    "No — the ratios 2, 2 and 1.8 are not all equal"
+   ],
+   "answerIndex": 3,
+   "explain": "Check every matching pair: 12÷6 = 2, 16÷8 = 2, but 18÷10 = 1.8, so there is no single scale factor and the triangles are not similar. The trap is stopping after two pairs work — one bad ratio is enough to break similarity.",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn83gou3tos84",
+   "level": 2,
+   "question": "In triangle ABC, ∠A = 70° and ∠B = 50°. In triangle DEF, ∠D = 70° and ∠F = 60°. Kiran says the two triangles are similar. Is Kiran right?",
+   "options": [
+    "Yes — ∠E must be 50°, so all three angles match",
+    "No — ∠B = 50° has no partner in triangle DEF",
+    "No — you also need one pair of side lengths",
+    "No — similar triangles must be the same size too"
+   ],
+   "answerIndex": 0,
+   "explain": "Fill in the missing angles: ∠C = 180 − 70 − 50 = 60° and ∠E = 180 − 70 − 60 = 50°, so both triangles are 50°, 60°, 70° and are similar. The trap is deciding from the listed angles only; once all three angles match, no side lengths are needed.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "sim.similar_means_congruent"
+   ]
+  },
+  {
+   "qid": "qmtn83gouh5nmf2",
+   "level": 2,
+   "question": "A model boat's sail is a triangle with sides 5 cm, 12 cm and 13 cm. The real sail on the boat is a triangle with sides 2 m, 4.8 m and 5.2 m, matched in that order. Which statement is correct?",
+   "options": [
+    "Not similar — one is in cm and the other in metres",
+    "Similar — each real side is 40 times the model",
+    "Not similar — the sail is far larger than the model",
+    "Not similar — 13 cm should pair with the 2 m side"
+   ],
+   "answerIndex": 1,
+   "explain": "Change to one unit first: 2 m, 4.8 m, 5.2 m become 200 cm, 480 cm, 520 cm, and 200÷5 = 480÷12 = 520÷13 = 40, one shared ratio. The trap is comparing numbers before the units match, or pairing the longest side of one sail with the shortest of the other.",
+   "tags": [
+    "other",
+    "ok",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn83goueziftu",
+   "level": 2,
+   "question": "Triangle ABC has ∠B = 90°, with AB = 9 cm and BC = 12 cm. Triangle DEF has ∠E = 90°, with DE = 12 cm and EF = 16 cm. Are the two triangles similar?",
+   "options": [
+    "No — 9 cm must be compared with the 16 cm side",
+    "No — AB = 9 cm and DE = 12 cm are different lengths",
+    "Yes — right angles match and both ratios equal 4/3",
+    "Yes — but only because 12 cm appears in both lists"
+   ],
+   "answerIndex": 2,
+   "explain": "Match the equal right angles, then check the sides around them: 12÷9 = 4/3 and 16÷12 = 4/3, one shared ratio, so the triangles are similar. The trap is pairing 9 cm with 16 cm, which are not partners, or expecting matching sides to be equal.",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn83gou5gt8bt",
+   "level": 2,
+   "question": "Ravi wants to decide whether two triangles are similar. He is given all three side lengths of each triangle, but none of the angles. Which check should he use?",
+   "options": [
+    "Subtract each pair of sides and check the gaps match",
+    "Pair the longest side with the other's shortest side",
+    "Check the three pairs of sides are equal in length",
+    "Order both lists, then check all three ratios match"
+   ],
+   "answerIndex": 3,
+   "explain": "With only side lengths, sort each triangle from shortest to longest so partners line up, then divide each pair and see whether all three give the same ratio. The trap is subtracting instead of dividing — similarity is about one shared ratio, not one shared difference.",
+   "tags": [
+    "other",
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn83gougz5f6d",
+   "level": 3,
+   "question": "At a Vancouver school, a flagpole casts a shadow 12 m long. At the same moment a fence post 1.5 m tall casts a shadow 2 m long. Both make a right angle with the ground and the sun's angle is the same, so the two triangles are similar. How tall is the flagpole?",
+   "options": [
+    "9 m, since the factor is 12 ÷ 2 = 6 and 1.5 × 6",
+    "11.5 m, adding the 10 m difference to 1.5 m",
+    "1.5 m, since similar triangles keep the same size",
+    "16 m, pairing the 12 m shadow with the 1.5 m post"
+   ],
+   "answerIndex": 0,
+   "explain": "Shadow pairs with shadow: 12÷2 = 6 is the scale factor, so the flagpole is 1.5 × 6 = 9 m. The trap is dividing a shadow by a height (12÷1.5), or adding the 10 m difference instead of multiplying by the ratio.",
+   "tags": [
+    "ok",
+    "other",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn83goudaxpvj",
+   "level": 3,
+   "question": "Mei has triangle LMN with sides 4 cm, 6 cm and 7 cm, and triangle RST with sides 8 cm, 12 cm and 14 cm, matched in that order. She says they are not similar because none of the sides are equal. What is wrong with Mei's reasoning?",
+   "options": [
+    "Nothing — different lengths do mean not similar",
+    "Similar needs equal ratios; every ratio here is 2",
+    "She should have compared 4 cm with the 14 cm side",
+    "She forgot that angles alone decide, sides never do"
+   ],
+   "answerIndex": 1,
+   "explain": "Similar triangles need one shared ratio, not equal lengths: 8÷4 = 12÷6 = 14÷7 = 2, so RST is an enlargement of LMN with factor 2. The trap is treating similar as congruent — congruent means identical, similar only means the same shape.",
+   "tags": [
+    "sim.similar_means_congruent",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn83gouwne1gm",
+   "level": 3,
+   "question": "On a map, a park is drawn as a triangle with sides 4 cm, 6 cm and 8 cm. For a poster, Ana redraws the park as a triangle with sides 6 cm, 9 cm and 12 cm, matched in that order. Is Ana's poster triangle similar to the map triangle, and what is the scale factor from map to poster?",
+   "options": [
+    "Similar, factor 2, since 12 cm doubles the 6 cm side",
+    "Not similar, as a poster and a map must be identical",
+    "Similar, factor 1.5, an enlargement of the map",
+    "Not similar, since the sides grew by 2, 3 and 4 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Divide each poster side by its map partner: 6÷4 = 9÷6 = 12÷8 = 1.5, one shared ratio, so it is a similar enlargement with factor 1.5. The trap is pairing 12 cm with 6 cm, which are not partners, or looking at the differences 2, 3, 4 instead of the ratios.",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "sim.similar_means_congruent",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn83gouq5geyq",
+   "level": 3,
+   "question": "A ramp at a skate park is a right triangle 40 cm high with a base of 96 cm. A smaller practice ramp is a right triangle 30 cm high with a base of 72 cm. Are the ramps similar, and what is the scale factor from the big ramp to the small one?",
+   "options": [
+    "Not similar, since 40 − 30 = 10 but 96 − 72 = 24",
+    "Not similar, because the ramps are different sizes",
+    "Similar, factor 0.31, pairing 30 cm with 96 cm",
+    "Similar, factor 0.75, a reduction of the ramp"
+   ],
+   "answerIndex": 3,
+   "explain": "Height pairs with height and base with base: 30÷40 = 0.75 and 72÷96 = 0.75, one shared ratio between 0 and 1, so it is a similar reduction. The trap is dividing a height by a base, or comparing differences instead of ratios.",
+   "tags": [
+    "other",
+    "sim.similar_means_congruent",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  }
+ ]
+}

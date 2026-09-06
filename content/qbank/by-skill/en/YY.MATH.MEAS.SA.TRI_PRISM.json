@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.MEAS.SA.TRI_PRISM",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkqzpj1a2zybr",
+   "level": 1,
+   "question": "A net for a right triangular prism is laid out flat. It has 5 pieces in all: two matching triangles, each with base 6 cm and height 4 cm, and three rectangles that are all 10 cm long — one 6 cm wide, one 5 cm wide, and one 5 cm wide. What is the surface area of the prism?",
+   "options": [
+    "184 cm²",
+    "208 cm²",
+    "204 cm²",
+    "190 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the two triangles (6 × 4 ÷ 2 = 12, twice, so 24) to the three different rectangles (60 + 50 + 50 = 160), giving 184 cm². The usual trap is treating all three rectangles as 6 by 10; each rectangle takes its width from a different side of the triangle.",
+   "tags": [
+    "ok",
+    "area.tri_forget_half",
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1o7n5jd",
+   "level": 1,
+   "question": "Flattened out, a right triangular prism becomes 5 flat pieces: two matching triangles with base 10 cm and height 12 cm, plus three rectangles that are each 7 cm long, with widths of 10 cm, 13 cm, and 13 cm. What is the total surface area?",
+   "options": [
+    "330 cm²",
+    "372 cm²",
+    "492 cm²",
+    "382 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "Two triangles give 2 × (10 × 12 ÷ 2) = 120 cm², and the rectangles give 70 + 91 + 91 = 252 cm², so the total is 372 cm². Forgetting the ÷ 2 on the triangles is the most common slip, and it adds 120 cm² too much.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "area.tri_forget_half",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1yrk62a",
+   "level": 1,
+   "question": "A net of a right triangular prism is made of two matching triangles and three rectangles. Each triangle has a base of 12 cm and a height of 8 cm, and its two slanted sides are 10 cm each. The three rectangles are all 9 cm long. What is the combined area of just the two triangles?",
+   "options": [
+    "192 cm²",
+    "120 cm²",
+    "96 cm²",
+    "48 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "One triangle is 12 × 8 ÷ 2 = 48 cm², and a prism has two matching ends, so 96 cm². Watch two traps: skipping the ÷ 2, and using the 10 cm slanted side instead of the true height of 8 cm.",
+   "tags": [
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1c2jel8",
+   "level": 1,
+   "question": "A net is cut for a right triangular prism that is 10 cm long. Each triangular end has sides of 5 cm, 5 cm, and 6 cm, and a height of 4 cm measured to the 6 cm side. Which set of five flat pieces is the correct net?",
+   "options": [
+    "Rectangles 6 by 10, 6 by 10 and 6 by 10, plus two triangles",
+    "Rectangles 4 by 10, 4 by 10 and 6 by 10, plus two triangles",
+    "Rectangles 5 by 10, 5 by 10 and 6 by 10, plus four triangles",
+    "Rectangles 5 by 10, 5 by 10 and 6 by 10, plus two triangles"
+   ],
+   "answerIndex": 3,
+   "explain": "Each rectangle wraps one side of the triangle, so its width is that side (5, 5, and 6) and its length is the prism length of 10; two triangular ends complete the net. The 4 cm height is inside the triangle, not a side, so it is never a rectangle width.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1yzw7p0",
+   "level": 2,
+   "question": "A right triangular prism has triangular ends that are right triangles with legs of 5 cm and 12 cm and a longest side of 13 cm. The prism is 8 cm long. What is its surface area?",
+   "options": [
+    "300 cm²",
+    "348 cm²",
+    "360 cm²",
+    "396 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "The two ends give 2 × (12 × 5 ÷ 2) = 60 cm², and the three rectangles are 12 × 8, 5 × 8, and 13 × 8 = 240 cm², for 300 cm². The trap is using 13 cm as the triangle height; here the height is the 5 cm leg, and 13 cm is only a rectangle width.",
+   "tags": [
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj16z1dgz",
+   "level": 2,
+   "question": "A right triangular prism has triangular ends with base b, height h, and three side lengths a, b, and c. The prism is L long. Which expression gives its surface area?",
+   "options": [
+    "b × h + (b + b + b) × L",
+    "b × h + (a + b + c) × L",
+    "2 × b × h + (a + b + c) × L",
+    "b × c + (a + b + c) × L"
+   ],
+   "answerIndex": 1,
+   "explain": "Two triangles are 2 × (b × h ÷ 2), which simplifies to b × h, and the three rectangles are a × L, b × L, and c × L, giving (a + b + c) × L. Using 3 × b × L assumes the three rectangles are identical, which is only true if the triangle is equilateral.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "area.tri_forget_half",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj10703sj",
+   "level": 2,
+   "question": "Nima's camping tent is a right triangular prism. Each triangular end has a base of 3 m and a height of 2 m, and the two sloped sides are 2.5 m each. The tent is 4 m long. Fabric covers the floor, both sloped sides, and both triangular ends. How much fabric is that?",
+   "options": [
+    "42 m²",
+    "44 m²",
+    "38 m²",
+    "39.5 m²"
+   ],
+   "answerIndex": 2,
+   "explain": "The two ends are 2 × (3 × 2 ÷ 2) = 6 m², and the three rectangles are 3 × 4, 2.5 × 4, and 2.5 × 4 = 32 m², so 38 m² in all. The 2.5 m sloped side is a rectangle width, not the triangle height, which is 2 m.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "ok",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1qmr31m",
+   "level": 2,
+   "question": "A chocolate bar box is a right triangular prism 20 cm long. Each triangular end has a base of 8 cm, a height of 3 cm, and two equal slanted sides of 5 cm. Foil covers every face of the box. What is the surface area?",
+   "options": [
+    "504 cm²",
+    "408 cm²",
+    "400 cm²",
+    "384 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "Ends: 2 × (8 × 3 ÷ 2) = 24 cm². Rectangles: 8 × 20, 5 × 20, and 5 × 20 = 360 cm². Total 384 cm². Treating all three rectangles as 8 by 20 is the classic error, since only the base side is 8 cm wide.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1k3c4wq",
+   "level": 3,
+   "question": "A concrete ramp at a Burnaby skate park is a right triangular prism 6 m long. Its triangular ends are right triangles with legs of 4 m and 3 m and a longest side of 5 m. Every face, including the bottom, is coated with sealant costing $0.50 per square metre. What does the sealant cost?",
+   "options": [
+    "$42.00",
+    "$51.00",
+    "$48.00",
+    "$46.00"
+   ],
+   "answerIndex": 0,
+   "explain": "First find the surface area: 2 × (4 × 3 ÷ 2) = 12 m² for the ends, plus 4 × 6, 3 × 6, and 5 × 6 = 72 m² for the rectangles, so 84 m²; then 84 × $0.50 = $42.00. The trap is using the 5 m slanted side as a triangle height instead of the 3 m leg.",
+   "tags": [
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj196tuo7",
+   "level": 3,
+   "question": "For a school craft fair, students cover 3 identical gift boxes with felt on every face. Each box is a right triangular prism 20 cm long, and each triangular end is a right triangle with legs of 15 cm and 8 cm and a longest side of 17 cm. How much felt is needed altogether?",
+   "options": [
+    "3120 cm²",
+    "2760 cm²",
+    "3420 cm²",
+    "3165 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "One box: 2 × (15 × 8 ÷ 2) = 120 cm² for the ends, plus 15 × 20, 8 × 20, and 17 × 20 = 800 cm², so 920 cm²; three boxes give 2760 cm². Multiply only after the full surface area of one box is correct, and keep 17 cm as a rectangle width, not the height.",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqzpj1zqa7u3",
+   "level": 3,
+   "question": "Ella works out the surface area of a right triangular prism 5 cm long. Its triangular ends have base 16 cm, height 6 cm, and two slanted sides of 10 cm. She writes: two ends = 2 × (16 × 6) = 192 cm², rectangles = 80 + 50 + 50 = 180 cm², total 372 cm². What is her mistake?",
+   "options": [
+    "Nothing is wrong, since two triangles fill a 16 by 6 rectangle",
+    "All three rectangles must be 16 by 5, since the base wraps around",
+    "The two ends together give 16 times 6, which is 96, not 192",
+    "The triangle height must be 10 cm, since that side is longer"
+   ],
+   "answerIndex": 2,
+   "explain": "One triangle is 16 × 6 ÷ 2 = 48 cm², so the two ends together are exactly 16 × 6 = 96 cm², making the true total 276 cm². Two triangles do fill one 16 by 6 rectangle — that whole rectangle is 96, not 192.",
+   "tags": [
+    "area.tri_forget_half",
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkth6ykxy1l8p",
+   "level": 3,
+   "question": "Owen wraps a gift box shaped like a right triangular prism for his cousin. Each triangular end is a right triangle with legs of 9 cm and 12 cm and a longest side of 15 cm, and the box is 8 cm long. He covers every face exactly once, cutting the paper from one sheet with an area of 600 cm². How much paper is left over?",
+   "options": [
+    "276 cm² of paper is left over",
+    "132 cm² of paper is left over",
+    "96 cm² of paper is left over",
+    "204 cm² of paper is left over"
+   ],
+   "answerIndex": 3,
+   "explain": "Two ends = 2 × (9 × 12 ÷ 2) = 108 cm², and the three rectangles are all 8 cm long but different widths: 8×9 + 8×12 + 8×15 = 288 cm², so 396 cm² is used and 600 − 396 = 204 cm² is left. The usual trap is tripling one rectangle instead of using the three different widths 9, 12 and 15.",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height",
+    "area.tri_forget_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkth6yktlu8dc",
+   "level": 3,
+   "question": "The drama club paints a wedge-shaped wooden block used as a stage prop. It is a right triangular prism 10 cm thick, and each triangular end has a base of 24 cm, a height of 5 cm, and two equal slanted sides of 13 cm. Every face is painted except the 24 cm by 10 cm bottom that rests on the stage. How much area gets paint?",
+   "options": [
+    "380 cm² gets paint",
+    "600 cm² gets paint",
+    "572 cm² gets paint",
+    "500 cm² gets paint"
+   ],
+   "answerIndex": 0,
+   "explain": "Two ends = 2 × (24 × 5 ÷ 2) = 120 cm², and the only painted rectangles are the two slanted ones, 10 × 13 = 130 cm² each, so 120 + 260 = 380 cm². The trap is using the 13 cm slanted side as the triangle's height — the height is the 5 cm measured straight up from the 24 cm base.",
+   "tags": [
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmtkth6ykws5e7t",
+   "level": 3,
+   "question": "Priya finds the surface area of a right triangular prism that is 7 cm long. Each triangular end has a base of 18 cm, a height of 12 cm, and two equal slanted sides of 15 cm. She writes: two ends = 2 × (18 × 12 ÷ 2) = 216 cm², rectangles = 3 × (7 × 18) = 378 cm², total 594 cm². What went wrong?",
+   "options": [
+    "She should not have halved the ends; each triangle is 18 × 12 = 216 cm², so the ends give 432 cm².",
+    "The three rectangles differ: widths 18, 15 and 15 give 126 + 105 + 105 = 336 cm², not 378 cm².",
+    "She used 7 cm as the rectangle length; every rectangle should be 15 cm long, the slanted side.",
+    "She used 12 cm as the height; the height should be the 15 cm slanted side, giving 135 cm² per end."
+   ],
+   "answerIndex": 1,
+   "explain": "Each rectangle in a triangular prism is as long as the prism and as wide as one side of the triangle, so the widths 18, 15 and 15 cm give 336 cm² and a total of 216 + 336 = 552 cm². The common trap is assuming the three rectangles are identical and multiplying one of them by 3.",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "other",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkth6yknfxtxl",
+   "level": 3,
+   "question": "A wedge-shaped display stand at a Richmond craft fair is a right triangular prism 20 cm long. Each triangular end is a right triangle with legs of 6 cm and 8 cm and a longest side of 10 cm. The two triangular ends are covered with felt costing $0.02 per square centimetre, and the three rectangles with vinyl costing $0.05 per square centimetre. What is the total cost?",
+   "options": [
+    "$18.96",
+    "$25.92",
+    "$24.96",
+    "$25.60"
+   ],
+   "answerIndex": 2,
+   "explain": "Ends = 2 × (6 × 8 ÷ 2) = 48 cm² at $0.02 = $0.96, and rectangles = 20×6 + 20×8 + 20×10 = 480 cm² at $0.05 = $24.00, so $24.96 in all. The most common slip is forgetting to halve for the triangles, which doubles the felt area to 96 cm².",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "ok",
+    "area.use_side_not_height"
+   ]
+  }
+ ]
+}

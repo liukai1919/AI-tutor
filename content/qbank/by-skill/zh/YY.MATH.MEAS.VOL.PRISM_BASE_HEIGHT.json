@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkr7bdesn0hq5",
+   "level": 1,
+   "question": "一个长方体（rectangular prism）纸盒，底面是长 6 cm、宽 4 cm 的长方形，盒子的高是 5 cm。它的体积（volume）是多少？",
+   "options": [
+    "120 cm³",
+    "150 cm³",
+    "148 cm²",
+    "60 cm³"
+   ],
+   "answerIndex": 0,
+   "explain": "底面积 = 6 × 4 = 24 cm²，体积 = 底面积 × 高 = 24 × 5 = 120 cm³。常见坑是把侧面 6 × 5 = 30 当成底面再乘高（得 150），或者答成 148 cm² 那个——那是表面积，体积的单位必须是 cm³。",
+   "tags": [
+    "ok",
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdezl4ztx",
+   "level": 1,
+   "question": "一块长方体木块，底面是长 8 cm、宽 5 cm 的长方形，木块的高是 10 cm。把它沿着底面长方形的对角线竖直切开，得到两个完全一样的三棱柱（triangular prism）。其中一个三棱柱的体积是多少？",
+   "options": [
+    "500 cm³",
+    "200 cm³",
+    "340 cm²",
+    "400 cm³"
+   ],
+   "answerIndex": 1,
+   "explain": "切开后底面是底 8 cm、高 5 cm 的三角形，底面积 = 8 × 5 ÷ 2 = 20 cm²，体积 = 20 × 10 = 200 cm³。写成 400 cm³ 的那个正好是忘了除以 2，那其实是整块木块的体积。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "ok",
+    "vol.surface_confuse",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmtkr7bde9skg8y",
+   "level": 1,
+   "question": "一个长方体牛奶盒，底面是边长 6 cm 的正方形，盒子的高是 20 cm。这个牛奶盒的体积是多少？",
+   "options": [
+    "2400 cm³",
+    "552 cm²",
+    "720 cm³",
+    "480 cm³"
+   ],
+   "answerIndex": 2,
+   "explain": "底面积 = 6 × 6 = 36 cm²，体积 = 36 × 20 = 720 cm³。坑一是把底面周长（perimeter）24 cm 当成底面积，得 480；坑二是把侧面 6 × 20 = 120 当底面积再乘 20，得 2400。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr7bde4x4pu6",
+   "level": 1,
+   "question": "一个长方体鱼缸，底面是长 30 cm、宽 20 cm 的长方形。缸里的水深 15 cm，水面是平的。缸里水的体积是多少？",
+   "options": [
+    "6750 cm³",
+    "2700 cm²",
+    "600 cm²",
+    "9000 cm³"
+   ],
+   "answerIndex": 3,
+   "explain": "水本身也是长方体：底面积 = 30 × 20 = 600 cm²，体积 = 600 × 15 = 9000 cm³。只写 600 cm² 是停在底面积、忘了乘高；2700 cm² 是鱼缸的表面积（surface area），不是体积。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdejfyn51",
+   "level": 2,
+   "question": "一个三棱柱，底面三角形的一条底边长 6 cm，这条底边上的高是 4 cm；棱柱的高是 10 cm。这个三棱柱的体积是多少？",
+   "options": [
+    "120 cm³",
+    "240 cm³",
+    "600 cm³",
+    "24 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "底面三角形面积 = 6 × 4 ÷ 2 = 12 cm²，体积 = 12 × 10 = 120 cm³。得 240 的是三角形面积忘了除以 2；24 cm² 是把两个底面的面积加起来，那是面积不是体积。",
+   "tags": [
+    "ok",
+    "area.tri_forget_half",
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdeo6oaw5",
+   "level": 2,
+   "question": "一个圆柱（cylinder）的底面半径是 5 cm，高是 8 cm。取 π ≈ 3.14，它的体积是多少？",
+   "options": [
+    "2009.6 cm³",
+    "628 cm³",
+    "408.2 cm²",
+    "125.6 cm³"
+   ],
+   "answerIndex": 1,
+   "explain": "底面积 = π r² ≈ 3.14 × 25 = 78.5 cm²，体积 = 78.5 × 8 = 628 cm³。最常见的坑是半径忘了平方（3.14 × 5 × 8 = 125.6），或者把表面积 408.2 cm² 当成体积交上去。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "ok",
+    "vol.surface_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdeherlfl",
+   "level": 2,
+   "question": "一个直棱柱（right prism）的底面是梯形，梯形的两条平行边分别是 4 cm 和 10 cm，梯形的高是 6 cm；棱柱的高是 9 cm。它的体积是多少？",
+   "options": [
+    "810 cm³",
+    "84 cm²",
+    "378 cm³",
+    "756 cm³"
+   ],
+   "answerIndex": 2,
+   "explain": "梯形底面积 = (4 + 10) ÷ 2 × 6 = 42 cm²，体积 = 42 × 9 = 378 cm³。梯形面积一定要除以 2，否则底面积算成 84 cm²、体积就变成 756 cm³ 那个错答案。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse",
+    "ok",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdeyqbjuy",
+   "level": 2,
+   "question": "一个圆柱的底面直径是 10 cm，高是 12 cm。取 π ≈ 3.14，它的体积是多少？",
+   "options": [
+    "4521.6 cm³",
+    "533.8 cm²",
+    "3768 cm³",
+    "942 cm³"
+   ],
+   "answerIndex": 3,
+   "explain": "直径 10 cm 说明半径是 5 cm：底面积 ≈ 3.14 × 25 = 78.5 cm²，体积 = 78.5 × 12 = 942 cm³。最大的坑是把 10 直接当半径（得 3768），或者把侧面的面积 376.8 cm² 误当底面积再乘高。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "vol.surface_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdef7ajda",
+   "level": 3,
+   "question": "学校屋檐下装了一条直棱柱形的雨水槽，它的横截面（也就是底面）是一个梯形：上边 40 cm、下边 24 cm、梯形的高 30 cm；水槽长 2 m。水槽装满水时能装多少升？（1 L = 1000 cm³）",
+   "options": [
+    "192 L",
+    "384 L",
+    "1.92 L",
+    "1600 L"
+   ],
+   "answerIndex": 0,
+   "explain": "底面积 = (40 + 24) ÷ 2 × 30 = 960 cm²；先把 2 m 换成 200 cm，体积 = 960 × 200 = 192000 cm³ = 192 L。两个坑：梯形面积忘了除以 2 得 384 L，以及长度单位没统一、直接乘 2 得 1.92 L。",
+   "tags": [
+    "ok",
+    "area.tri_forget_half",
+    "other",
+    "vol.base_area_wrong_face"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdesxvfsx",
+   "level": 3,
+   "question": "小美家在 Surrey 用一个圆柱形雨水桶收集雨水，桶的底面半径是 40 cm，桶高 100 cm。一场雨后桶里的水深 50 cm。桶里的水有多少？取 π ≈ 3.14，1000 cm³ = 1 L。",
+   "options": [
+    "628 L",
+    "251.2 L",
+    "502.4 L",
+    "22608 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "底面积 ≈ 3.14 × 40² = 5024 cm²，高要用水深 50 cm 而不是桶高：体积 = 5024 × 50 = 251200 cm³ = 251.2 L。用桶高 100 cm 会算成 502.4 L；22608 cm² 是表面积，不是水的体积。",
+   "tags": [
+    "vol.base_area_wrong_face",
+    "ok",
+    "other",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr7bdekqcn02",
+   "level": 3,
+   "question": "小宇要算一个圆柱形水杯能装多少水。杯子的底面半径是 4 cm，高是 10 cm。他写下 2 × 3.14 × 4 × 10 = 251.2，说体积是 251.2 cm³。下面哪种说法是对的？",
+   "options": [
+    "他只是漏了两个底面，再加上 2 × 50.24 就对了，体积是 351.68 cm³。",
+    "他的算式没错，只是最后忘了除以 2，体积应该是 125.6 cm³。",
+    "他算出的是侧面积；底面积 π r² = 50.24 cm²，体积是 502.4 cm³。",
+    "他把 251.2 cm² 当底面积，只要再乘高 10，体积就是 2512 cm³。"
+   ],
+   "answerIndex": 2,
+   "explain": "2 × 3.14 × 4 × 10 是底面周长 × 高，算出来的是侧面积。底面积要用 π r² = 3.14 × 16 = 50.24 cm²，体积 = 50.24 × 10 = 502.4 cm³。记住：体积永远是底面积 × 高，不是把各个面的面积加起来。",
+   "tags": [
+    "vol.surface_confuse",
+    "area.tri_forget_half",
+    "ok",
+    "vol.base_area_wrong_face"
+   ]
+  },
+  {
+   "qid": "qmtkr7bde7kq5c3",
+   "level": 3,
+   "question": "一顶三棱柱形的帐篷（tent），两端的三角形底边宽 2.4 m、这条底边上的高是 1.8 m，帐篷长 3 m。露营规定每人至少要有 1.5 m³ 的空气。这顶帐篷最多能住几人？",
+   "options": [
+    "5 人",
+    "8 人",
+    "14 人",
+    "4 人"
+   ],
+   "answerIndex": 3,
+   "explain": "底面三角形面积 = 2.4 × 1.8 ÷ 2 = 2.16 m²，体积 = 2.16 × 3 = 6.48 m³；6.48 ÷ 1.5 = 4.32，人数要向下取整，所以最多 4 人。忘了除以 2 会得 8 人；把 4.32 四舍五入成 5 人，空气就不够了。",
+   "tags": [
+    "other",
+    "area.tri_forget_half",
+    "vol.base_area_wrong_face",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "polynomials",
+ "lang": "zh",
+ "unitName": {
+  "zh": "多项式",
+  "en": "Polynomials"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "多项式 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.POLY.PARTS",
+    "level": 1,
+    "question": "关于多项式 3x² − 7x + 12，下面哪一句描述完全正确？（注意次数、项数和常数项 constant term）",
+    "options": [
+     "三次三项式，常数项是 12",
+     "二次三项式，常数项是 −7",
+     "二次三项式，常数项是 12",
+     "三次二项式，常数项是 12"
+    ],
+    "answerIndex": 2,
+    "explain": "次数看最高次幂的指数，这里是 2，所以是二次；有 3 个用加减号隔开的项，是三项式；不带字母的 12 才是常数项。最常见的坑是把「三项」说成「三次」，或者把系数 −7 当成常数项。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.TILES",
+    "level": 1,
+    "question": "一张代数砖（algebra tiles）图里摆着：2 块 x² 砖、3 块正 x 砖、1 块负 x 砖、4 块负单位砖。这堆砖表示的多项式是？",
+    "options": [
+     "2x² + 2x − 4",
+     "2x² + 4x − 4",
+     "2x² − 2x − 4",
+     "4x + 2x − 4"
+    ],
+    "answerIndex": 0,
+    "explain": "一块 x² 砖就是 x²（不是 2x），正 x 砖和负 x 砖会组成零对互相抵消：3x − x = 2x，再加 4 块负单位砖，得 2x² + 2x − 4。坑就在于忘了抵消零对，或把 x² 砖读成 2x。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.ADD",
+    "level": 1,
+    "question": "计算 (3x² − 5x + 2) + (x² + 8x − 7)，结果是？",
+    "options": [
+     "4x⁴ + 3x − 5",
+     "4x² + 13x − 5",
+     "4x² + 3x + 9",
+     "4x² + 3x − 5"
+    ],
+    "answerIndex": 3,
+    "explain": "只把同类项（like terms）相加，系数相加而指数不变：3x² + x² = 4x²，−5x + 8x = 3x，2 + (−7) = −5。两个大坑是把指数也加成 x⁴，以及把 −5x + 8x 算成 13x。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.SUBTRACT",
+    "level": 2,
+    "question": "Kelowna 一所学校义卖热巧克力，卖出 x 杯的收入是 (8x + 40) 加元（40 加元是提前收到的捐款），成本是 (3x + 52) 加元。利润 = 收入 − 成本，化简后利润是多少？",
+    "options": [
+     "(5x + 92) 加元",
+     "(5x − 12) 加元",
+     "(11x + 92) 加元",
+     "(5x + 12) 加元"
+    ],
+    "answerIndex": 1,
+    "explain": "减去一个多项式，要把括号里每一项都变号：8x + 40 − 3x − 52 = 5x − 12。最常见的错是只给 3x 变号、把 +52 照抄下来，得到 5x + 92。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.MULT_MONOMIAL",
+    "level": 2,
+    "question": "温哥华一块长方形社区菜地，宽是 4x 米，长是 (x + 12) 米。它的面积（area）是多少平方米？",
+    "options": [
+     "(4x² + 12) 平方米",
+     "(4x² + 12x) 平方米",
+     "(10x + 24) 平方米",
+     "(4x² + 48x) 平方米"
+    ],
+    "answerIndex": 3,
+    "explain": "面积 = 长 × 宽，用分配律把 4x 分给括号里的每一项：4x·x + 4x·12 = 4x² + 48x。坑有三个：只乘第一项、乘 12 时忘了乘系数 4、以及把长加宽（那算的是周长）当成面积。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.DIV_MONOMIAL",
+    "level": 2,
+    "question": "Surrey 一块长方形滑板场地的面积是 (24k² − 18k) 平方米，宽是 6k 米。这块场地的长是多少米？",
+    "options": [
+     "4k − 3",
+     "4k − 18k",
+     "4k² − 3",
+     "4k + 3"
+    ],
+    "answerIndex": 0,
+    "explain": "长 = 面积 ÷ 宽，逐项去除：24k² ÷ 6k = 4k，−18k ÷ 6k = −3，所以长是 4k − 3 米。坑是只除第一项（写成 4k − 18k），或以为同类项相除得 0。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.APPLY",
+    "level": 3,
+    "question": "一个长方形社区菜园要围一圈栅栏。它的长是 (3x + 4) 米，宽比长短 5 米。栅栏每米 8 加元，围满一圈（周长 perimeter）一共要多少钱？",
+    "options": [
+     "(48x + 24) 加元",
+     "(96x + 6) 加元",
+     "(96x + 48) 加元",
+     "(96x + 144) 加元"
+    ],
+    "answerIndex": 2,
+    "explain": "先求宽：(3x + 4) − 5 = 3x − 1；再求周长：2(3x + 4) + 2(3x − 1) = 12x + 6；最后乘单价：8(12x + 6) = 96x + 48。坑是忘了乘 2 只算一组长宽，或者乘 8 时只乘了括号第一项。"
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.SUBTRACT",
+    "level": 3,
+    "question": "Sam 计算 (6x² − 3x + 5) − (2x² + 7x − 9)，写出的答案是 4x² + 4x − 4。下面哪一句判断是对的？",
+    "options": [
+     "对的，去括号后直接合并，结果就是 4x² + 4x − 4",
+     "错了，减号后每项都要变号，应得 4x² − 10x + 14",
+     "错了，x² 项不能合并，应保留 6x² − 2x² + 4x − 4",
+     "错了，两个括号都要变号，应得 −4x² + 10x − 14"
+    ],
+    "answerIndex": 1,
+    "explain": "减去一个多项式等于加上它每一项的相反数：6x² − 3x + 5 − 2x² − 7x + 9 = 4x² − 10x + 14。Sam 只给 2x² 变了号，后面的 +7x 和 −9 原样抄下来，这正是这一单元最常踩的坑。"
+   }
+  ]
+ }
+}

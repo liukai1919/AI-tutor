@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.UNIT_CONVERT",
+ "lang": "en",
+ "title": "Convert between metric length units (mm, cm, m, km) including decimals, as needed for scale work",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Sliding the Decimal: mm, cm, m, km",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to multiply and divide decimals, and you know one cubic centimetre is one millilitre. Today we use that same power-of-ten idea for length. When you read a scale diagram, a length on paper might be in millimetres while the real thing is in metres or kilometres, so we need to switch units without breaking a sweat.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole map. Ten millimetres make one centimetre. One hundred centimetres make one metre. One thousand metres make one kilometre. Notice the last one: it is one thousand, not one hundred. That is the factor people mix up most, so say it out loud: one kilometre is one thousand metres.",
+    "math": "10\\text{ mm}=1\\text{ cm},\\quad 100\\text{ cm}=1\\text{ m},\\quad 1000\\text{ m}=1\\text{ km}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      100,
+      1000,
+      1000
+     ],
+     "labels": [
+      "1 cm = ? mm",
+      "1 m = ? cm",
+      "1 km = ? m",
+      "1 m = ? mm"
+     ],
+     "caption": "Metric length: the three multipliers are 10, 100 and 1000. Chain them: 1 m = 1000 mm, 1 km = 100 000 cm."
+    }
+   },
+   {
+    "say": "The rule: going to a bigger unit, you divide, because bigger units mean fewer of them. Going to a smaller unit, you multiply, because you need more of the small ones to cover the same length. Quick sanity check: two point five kilometres to metres. Metres are smaller, so I expect a bigger number. Two point five times one thousand is two thousand five hundred metres. Bigger number, smaller unit. That checks out.",
+    "math": "2.5\\text{ km}\\times 1000=2500\\text{ m}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      2.5,
+      1000,
+      2000,
+      2500
+     ],
+     "labels": [
+      "Kilometres",
+      "Metres"
+     ],
+     "caption": "Each km row times 1000 gives the m row. Smaller unit, bigger number."
+    }
+   },
+   {
+    "say": "Now a real scale-diagram situation. On a map of Stanley Park, a trail measures thirty-two millimetres. You want that in centimetres to compare with the scale bar. Centimetres are bigger, so divide by ten: thirty-two divided by ten is three point two centimetres. Then suppose the real trail is four hundred eighty metres and you want kilometres. Kilometres are bigger, so divide by one thousand: four hundred eighty divided by one thousand is zero point four eight kilometres. Both times the number got smaller because the unit got bigger.",
+    "math": "32\\text{ mm}\\div 10=3.2\\text{ cm},\\qquad 480\\text{ m}\\div 1000=0.48\\text{ km}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      32,
+      150,
+      1,
+      3.2,
+      15
+     ],
+     "labels": [
+      "Millimetres",
+      "Centimetres"
+     ],
+     "caption": "Divide each mm value by 10 to get cm. The decimal slides one place left."
+    }
+   },
+   {
+    "say": "Watch the classic mistake. Someone takes those four hundred eighty metres and multiplies by one thousand, getting four hundred eighty thousand kilometres. That is more than the distance to the Moon, for a walking trail! The number got huge because they multiplied while moving to a bigger unit. The other trap is using one hundred instead of one thousand for kilometres, giving four point eight kilometres, which is ten times too far. Always ask: is my new unit bigger or smaller, and is the factor ten, one hundred, or one thousand?",
+    "math": "480\\text{ m}\\times 1000=480\\,000\\text{ km}\\ (\\text{wrong}),\\quad 480\\text{ m}\\div 100=4.8\\text{ km}\\ (\\text{wrong})",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      480,
+      480000,
+      4.8,
+      0.48
+     ],
+     "labels": [
+      "Metres",
+      "Wrong: times 1000",
+      "Wrong: divide by 100",
+      "Right: divide by 1000"
+     ],
+     "caption": "Only the last column makes sense for a park trail."
+    }
+   },
+   {
+    "say": "So here is the takeaway. Picture the ladder: millimetre, centimetre, metre, kilometre, with factors ten, one hundred, one thousand. Climbing to a bigger unit, divide. Stepping down to a smaller unit, multiply. Then check that the size of your answer makes sense in real life.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Bigger unit? Divide. Smaller unit? Multiply. Use 10 (mm to cm), 100 (cm to m), 1000 (m to km).",
+  "practice": {
+   "question": "Make a two-row table in your notebook. Row one, headed 'Centimetres', has the values fifty, two hundred fifty, and seven point five. Row two, headed 'Metres', is blank. Fill in row two by converting each value, then write a third answer: a SkyTrain ride of three point six kilometres in metres.",
+   "answer": "Divide each cm value by 100: 0.5 m, 2.5 m, 0.075 m. Then 3.6 km times 1000 = 3600 m."
+  }
+ }
+}

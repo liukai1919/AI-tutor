@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA.TRI_PRISM",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqz7w9anqpxi",
+   "level": 1,
+   "question": "一个三棱柱（triangular prism）的展开图（net）里有 2 个完全一样的三角形。每个三角形的底是 5 cm，这条底对应的高是 4 cm，另外一条斜边是 6 cm。这 2 个三角形的面积（area）一共是多少？",
+   "options": [
+    "20 cm²",
+    "30 cm²",
+    "40 cm²",
+    "10 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "三角形面积 = 底 × 高 ÷ 2 = 5 × 4 ÷ 2 = 10 cm²，两个就是 20 cm²。最常见的坑是忘了除以 2（算成 40），或者把 6 cm 的斜边当成高（算成 30）。",
+   "tags": [
+    "ok",
+    "area.use_side_not_height",
+    "area.tri_forget_half",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9gzvzdi",
+   "level": 1,
+   "question": "一个三棱柱的展开图里有 3 个长方形，它们的长都等于棱柱的长度 10 cm，宽分别等于底面三角形的三条边 3 cm、4 cm、5 cm。这 3 个长方形的面积一共是多少？",
+   "options": [
+    "150 cm²",
+    "120 cm²",
+    "90 cm²",
+    "60 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "三个长方形要分别算：10 × 3 + 10 × 4 + 10 × 5 = 10 × 12 = 120 cm²。坑在于以为三个长方形一样大，抓一个乘 3（比如 3 × 50 = 150）。",
+   "tags": [
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9mn1ch8",
+   "level": 1,
+   "question": "一个直棱柱（right prism）的底面是三角形，三条边是 5 cm、5 cm、8 cm，以 8 cm 为底时对应的高是 3 cm，棱柱长 10 cm。它的表面积（surface area）是多少？",
+   "options": [
+    "228 cm²",
+    "264 cm²",
+    "204 cm²",
+    "220 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "两个三角形：2 × (8 × 3 ÷ 2) = 24；三个长方形：10 × (5 + 5 + 8) = 180；合计 204 cm²。坑是三角形忘了除以 2（多出 24），或把 5 cm 的边当成高。",
+   "tags": [
+    "area.tri_forget_half",
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9ripqdl",
+   "level": 1,
+   "question": "把一个三棱柱沿棱剪开铺平，得到它的展开图。一般情况下，这张展开图由哪些图形组成？",
+   "options": [
+    "3 个三角形和 2 个长方形，一共 5 个面",
+    "2 个三角形和 2 个长方形，一共 4 个面",
+    "2 个三角形和 3 个大小相同的长方形",
+    "2 个三角形和 3 个长方形，一共 5 个面"
+   ],
+   "answerIndex": 3,
+   "explain": "三棱柱有 2 个三角形底面和 3 个长方形侧面，共 5 个面。坑是以为三个长方形一样大——只有底面三角形三条边相等时才会相等，一般三条边不同，长方形也就不同。",
+   "tags": [
+    "other",
+    "other",
+    "sa.tri_prism_rects_same_size",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9rnpulm",
+   "level": 2,
+   "question": "一个三棱柱的底面三角形三条边是 13 cm、13 cm、10 cm，以 10 cm 为底时对应的高是 12 cm，棱柱长 20 cm。求它的表面积。",
+   "options": [
+    "840 cm²",
+    "900 cm²",
+    "960 cm²",
+    "850 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "两个三角形：2 × (10 × 12 ÷ 2) = 120；三个长方形：20 × (13 + 13 + 10) = 720；合计 840 cm²。坑是用 13 cm 的斜边当高（得 850），或忘记除以 2（得 960）。",
+   "tags": [
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.tri_forget_half",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9rkbmux",
+   "level": 2,
+   "question": "一个三棱柱的底面三角形三条边长是 a、b、c，以 b 为底时对应的高是 h，棱柱的长度是 L。下面哪个式子表示它的表面积？",
+   "options": [
+    "2 × b × h + L × (a + b + c)",
+    "b × h + L × (a + b + c)",
+    "b × h + 3 × L × a",
+    "b × c + L × (a + b + c)"
+   ],
+   "answerIndex": 1,
+   "explain": "两个三角形合起来是 2 × (b × h ÷ 2) = b × h；三个长方形宽分别是 a、b、c，长都是 L，合起来是 L × (a + b + c)。坑是写成 2bh（忘了除以 2），或把三个长方形都当成 L × a。",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9z7yptc",
+   "level": 2,
+   "question": "一个三棱柱的底面是直角三角形，三条边是 9 cm、12 cm、15 cm，棱柱长 7 cm。题目没有直接给三角形的高，你要自己判断用哪两条边。它的表面积是多少？",
+   "options": [
+    "432 cm²",
+    "468 cm²",
+    "360 cm²",
+    "423 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "直角三角形的两条直角边就是底和高：2 × (9 × 12 ÷ 2) = 108；三个长方形：7 × (9 + 12 + 15) = 252；合计 360 cm²。坑是拿 15 cm 的斜边当高（得 432）。",
+   "tags": [
+    "area.use_side_not_height",
+    "area.tri_forget_half",
+    "ok",
+    "sa.tri_prism_rects_same_size"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9skt98i",
+   "level": 2,
+   "question": "列治文一家糖果店做三棱柱形的巧克力盒，底面三角形三条边是 10 cm、10 cm、16 cm，以 16 cm 为底时对应的高是 6 cm，盒子长 25 cm。做一个盒子要用多少纸板（按表面积算）？",
+   "options": [
+    "1092 cm²",
+    "1060 cm²",
+    "1296 cm²",
+    "996 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "两个三角形：2 × (16 × 6 ÷ 2) = 96；三个长方形：25 × (10 + 10 + 16) = 900；合计 996 cm²。坑是把三个长方形都当成 25 × 16（得 1296）。",
+   "tags": [
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "sa.tri_prism_rects_same_size",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9mc9o5q",
+   "level": 3,
+   "question": "在惠斯勒露营用的帐篷是三棱柱形：两端是等腰三角形，底边 2.4 m，对应的高 1.6 m，两条斜边各 2 m；帐篷长 3 m。帐篷的两端三角形和两块斜面都要用布，地面那块长方形直接铺在草地上不用布。一共需要多少平方米的布？",
+   "options": [
+    "15.84 m²",
+    "21.84 m²",
+    "23.04 m²",
+    "19.68 m²"
+   ],
+   "answerIndex": 0,
+   "explain": "先算两端：2 × (2.4 × 1.6 ÷ 2) = 3.84；再算两块斜面：2 × (3 × 2) = 12；共 15.84 m²。坑是把地面那块 3 × 2.4 = 7.2 也算进去，变成整个表面积 23.04。",
+   "tags": [
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "other",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w98cr940",
+   "level": 3,
+   "question": "木工课上做了一个三棱柱形的木块，底面是直角三角形，两条直角边 0.3 m 和 0.4 m，斜边 0.5 m，木块长 1.2 m。所有面都要刷防水漆，油漆每平方米 5 加元。刷完这一个木块要花多少钱？",
+   "options": [
+    "8.40 加元",
+    "7.80 加元",
+    "9.60 加元",
+    "8.20 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "表面积 = 2 × (0.3 × 0.4 ÷ 2) + 1.2 × (0.3 + 0.4 + 0.5) = 0.12 + 1.44 = 1.56 m²，再 × 5 = 7.80 加元。坑是三角形忘了除以 2，面积多算 0.12 m²，钱就变成 8.40。",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "sa.tri_prism_rects_same_size",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w95dhdx7",
+   "level": 3,
+   "question": "小雅算一个三棱柱的表面积。底面三角形三条边是 10 cm、10 cm、12 cm，以 12 cm 为底时对应的高是 8 cm，棱柱长 20 cm。她写：两个三角形 = 2 × (12 × 8) = 192，三个长方形 = 20 × 32 = 640，表面积 = 832 cm²。她错在哪里？",
+   "options": [
+    "她把 10 cm 的斜边当成三角形的高；正确表面积是 760 cm²",
+    "她把三个长方形都当成同样大小；正确表面积是 816 cm²",
+    "她算三角形面积时忘了除以 2；正确表面积是 736 cm²",
+    "她漏掉了贴在底面的那个长方形；正确表面积是 496 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "三角形面积要除以 2：2 × (12 × 8 ÷ 2) = 96，加上 20 × (10 + 10 + 12) = 640，得 736 cm²。她的长方形部分其实算对了，问题只出在三角形少除了一个 2。",
+   "tags": [
+    "area.use_side_not_height",
+    "sa.tri_prism_rects_same_size",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqz7w9v64slr",
+   "level": 3,
+   "question": "一个三棱柱形的礼品盒，底面是直角三角形，两条直角边 6 cm 和 8 cm，斜边 10 cm。整个盒子的表面积是 528 cm²。这个盒子有多长？",
+   "options": [
+    "18 cm",
+    "19 cm",
+    "16 cm",
+    "20 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "先算两个三角形：2 × (6 × 8 ÷ 2) = 48 cm²，剩下 528 − 48 = 480 是三个长方形；它们的宽合起来是周长 6 + 8 + 10 = 24，所以长度 = 480 ÷ 24 = 20 cm。坑是三角形忘除以 2，减掉 96 就会得到 18。",
+   "tags": [
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "sa.tri_prism_rects_same_size",
+    "ok"
+   ]
+  }
+ ]
+}

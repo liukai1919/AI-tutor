@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.ADDSUB",
+ "lang": "en",
+ "title": "Add and subtract rational numbers, combining the integer sign rules with fraction and decimal skills (−3/4 + 1/6)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Adding Rational Numbers: Signs Plus Fractions",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know two things really well. Sign rules with integers, like nine minus negative four equals thirteen. And adding fractions with a common denominator, like two thirds plus one quarter equals eleven twelfths. Today we glue those two skills together to solve negative three quarters plus one sixth.",
+    "math": "-\\frac{3}{4}+\\frac{1}{6}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Deal with the sign story first, before touching any fractions. Picture a number line. Negative three quarters sits to the left of zero. Adding a positive one sixth means jumping to the right. But one sixth is a smaller jump than three quarters, so we do not make it back to zero. That tells us right away that the answer will be negative.",
+    "math": "-\\frac{3}{4}+\\frac{1}{6}\\ \\text{is negative}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -1,
+      0,
+      -0.75,
+      -0.5833333333333333,
+      12
+     ],
+     "labels": [],
+     "caption": "Start at negative three quarters, jump right by one sixth. Still left of zero."
+    }
+   },
+   {
+    "say": "Now the fraction skill. Quarters and sixths are different sized pieces, so we need a common denominator. Twelve works, because both four and six divide into twelve. Three quarters becomes nine twelfths, keeping its negative sign. One sixth becomes two twelfths. Notice the bars: nine shaded twelfths is exactly the same amount as three quarters, we just cut it finer.",
+    "math": "-\\frac{3}{4}+\\frac{1}{6}=-\\frac{9}{12}+\\frac{2}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      9,
+      12,
+      2
+     ],
+     "labels": [],
+     "caption": "Nine twelfths (that is three quarters) and two twelfths (that is one sixth)"
+    }
+   },
+   {
+    "say": "Now it is just an integer problem with twelfths attached. Negative nine plus two. Different signs, so subtract the sizes: nine minus two is seven. The bigger size was the negative one, so the answer is negative seven twelfths. Quick decimal check: negative zero point seven five plus zero point one six seven is about negative zero point five eight, and seven divided by twelve is about zero point five eight. It matches.",
+    "math": "-\\frac{9}{12}+\\frac{2}{12}=-\\frac{7}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      7
+     ],
+     "labels": [],
+     "caption": "The answer, seven twelfths, with a negative sign in front"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone sees nine twelfths and two twelfths, adds them to get eleven twelfths, and forgets the negative sign completely. But look back at the number line. We started left of zero and only jumped a little to the right, so a positive answer near one is impossible. And one more trap: never add the denominators. Twelve plus twelve does not happen. The pieces stay twelfths.",
+    "math": "-\\frac{9}{12}+\\frac{2}{12}\\neq\\frac{11}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      11,
+      12,
+      7
+     ],
+     "labels": [],
+     "caption": "Top: the wrong eleven twelfths. Bottom: the correct seven twelfths, and it is negative."
+    }
+   },
+   {
+    "say": "So the whole method fits in one line. Handle the signs like integers, handle the pieces like fractions. Get a common denominator, then subtract the smaller size from the bigger one and keep the sign of the bigger one.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Common denominator first, then use integer sign rules: −3/4 + 1/6 = −9/12 + 2/12 = −7/12",
+  "practice": {
+   "question": "Your phone plan is over its data limit by five eighths of a gigabyte, so your balance is negative five eighths. A friend shares one quarter of a gigabyte with you. Draw a number line from negative one to zero cut into eighths, start at negative five eighths, and jump right by one quarter. What is your new balance?",
+   "answer": "−5/8 + 1/4 = −5/8 + 2/8 = −3/8. You are still under by three eighths of a gigabyte."
+  }
+ }
+}

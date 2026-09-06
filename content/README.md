@@ -4,6 +4,7 @@
 排除了 AoPS 键。布局按 Apple 版规划：
 
 - `qbank/by-skill/<lang>/<技能id>.json` — 技能题库（每题带误区 tags，2026-09-02 起 en/zh 各 249 份全覆盖；tags 与选项位置对齐，正确项 "ok"，**不能下发客户端**）
+- 2026-09-05 起读图题带可选 `visual`（题图，含可选 `step`），结构同课文 `steps[].visual`，约定见 `docs/qbank-standard.md §7`；`node tools/curriculum/visual_check.mjs --qbank` 校验
 - `qbank/legacy-by-standard/<lang>/<条目id>.json` — 老的大纲条目题库（已全量审稿：剔错 42 题并补齐）
 - `manifest.json` — 数量、引擎、注意事项
 

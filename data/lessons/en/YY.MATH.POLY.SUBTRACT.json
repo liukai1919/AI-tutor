@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.SUBTRACT",
+ "lang": "en",
+ "title": "Subtract polynomials by adding the opposite of every term ((5x − 7) − (2x + 3) = 3x − 10)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Subtracting Polynomials: Flip Every Sign",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add polynomials by collecting like terms, like x squared terms with x squared terms and plain numbers with plain numbers. Today we take one small step further: subtracting a whole polynomial. The trick is that subtracting is the same as adding the opposite, and the opposite of a polynomial means flipping the sign of every single term inside the bracket.",
+    "math": "(5x-7)-(2x+3)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the rule in action. The minus sign in front of the second bracket reaches every term inside it. Positive two x becomes negative two x, and positive three becomes negative three. Now the brackets are gone and it is just an adding problem you already know how to do. Look at the x terms first: five x take away two x leaves three x.",
+    "math": "(5x-7)-(2x+3)=5x-7-2x-3",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5,
+      2,
+      3
+     ],
+     "labels": [
+      "5x",
+      "2x",
+      "3x left"
+     ],
+     "caption": "Five x-tiles take away two x-tiles leaves three x-tiles."
+    }
+   },
+   {
+    "say": "Now the plain numbers, the constant terms. We have negative seven and negative three. Think of it like owing a friend seven dollars and then owing them three more. You are now ten dollars down, so negative seven minus three is negative ten. Put the two parts together and the answer is three x minus ten.",
+    "math": "5x-2x=3x,\\quad -7-3=-10,\\quad \\text{so } 3x-10",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -12,
+      2,
+      -7,
+      -10
+     ],
+     "labels": [],
+     "caption": "Start at negative 7, take away 3 more, land on negative 10."
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone flips the sign on the two x but forgets to flip the plus three, and gets three x minus four. Let us test both answers by plugging in x equals one. The original problem gives five minus seven, which is negative two, minus two plus three, which is five, so negative two minus five equals negative seven. Three x minus ten also gives negative seven, so it matches. Three x minus four gives negative one, so it is wrong. Every term inside the bracket gets flipped, not just the first one.",
+    "math": "(5x-7)-(2x+3)\\neq 3x-4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -7,
+      -7,
+      -1
+     ],
+     "labels": [
+      "Original at x=1",
+      "3x-10 at x=1",
+      "3x-4 at x=1"
+     ],
+     "caption": "Plugging in x equals 1 shows 3x minus 10 matches and 3x minus 4 does not."
+    }
+   },
+   {
+    "say": "One more trap: subtracting a negative. Try four x plus nine, minus the bracket x minus four. Flipping every sign gives four x plus nine minus x plus four. Notice the minus four became plus four. Subtracting a negative is like erasing a four dollar debt, which makes you four dollars richer. So nine minus negative four is thirteen, not five. The answer is three x plus thirteen.",
+    "math": "(4x+9)-(x-4)=4x+9-x+4=3x+13",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -5,
+      15,
+      9,
+      13
+     ],
+     "labels": [],
+     "caption": "Taking away negative 4 jumps from 9 up to 13."
+    }
+   },
+   {
+    "say": "So here is the whole step in one line. To subtract a polynomial, flip the sign of every term in the second bracket, then collect like terms just like adding. Do that, and five x minus seven, minus two x plus three, always comes out to three x minus ten.",
+    "math": "(5x-7)-(2x+3)=3x-10",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To subtract a polynomial, flip the sign of every term in the second bracket, then collect like terms.",
+  "practice": {
+   "question": "Maya earns 7x plus 2 dollars a week from her part-time job, and her brother earns 4x minus 6 dollars. Draw an area model for each: for Maya, a row of seven x-tiles next to two unit tiles; for her brother, a row of four x-tiles with six negative unit tiles. Subtract to find how much more Maya earns: work out the bracket 7x plus 2, minus the bracket 4x minus 6.",
+   "answer": "Flip every sign in the second bracket: 7x plus 2 minus 4x plus 6. Collect like terms: 7x minus 4x is 3x, and 2 plus 6 is 8. Maya earns 3x plus 8 dollars more."
+  }
+ }
+}

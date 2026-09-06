@@ -112,6 +112,22 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 
 `tags` 和 `options` 位置对齐：正确项 `ok`，干扰项是误区 id（或 `other`）。**tags 不能下发给客户端**——`ok` 的位置就是答案。判分不看 tags，只有回补逻辑用。
 
+**`visual`（2026-09-05 起，回应 issue #5）**：读图题多一个可选题图，结构和 `steps[].visual` 一样，外加可选 `step`（一格 / 一个符号代表多少）：
+
+```jsonc
+{
+  "qid": "qmt5r32bluscvl3",
+  "question": "Jayden graphs the rain collected in the class rain gauge each week. Each grid square stands for 6 mm. If the pattern keeps going, what should the point for week 5 be?",
+  "visual": { "type": "statLine", "nums": [12, 18, 24, 30], "labels": ["Week 1", "Week 2", "Week 3", "Week 4"], "step": 6,
+              "caption": "Rain collected in the class rain gauge each week (mm)" }
+}
+```
+
+en 题库 123 道带图（statBar 40 / statLine 28 / pieChart 16 / fractionBar 11 / pie 10 / pictograph 18 —— `pictograph` 是契约 v3 新增图型，不认识就降级成无图）。
+题图的画法和红线见 `visual-contract.json` 的 `capabilities.questionVisual` 与 [qbank-standard.md §7](qbank-standard.md)：
+统计图**不印数值**、只画按 `step` 打的网格 + 整倍数刻度标签；`pieChart` 扇区标 `nums` 原值（合计 100 才带 %）；`fractionBar` / `pie` 不标 n/d。
+`balance` 的 `nums` 也可以是 `[倾斜, 左盘值, 右盘值]`（回应 issue #4，en 171 步里 153 步已补，余下 18 步两边是纯式子或占位词，只留倾斜）。
+
 数据说明：难度 1862/1846/1848，答案位置 1415/1405/1392/1344（入库时强制打散），有误区的 360 份题库 tags 覆盖 100%，坏标签 0，每题都经 Opus 审稿。没登记误区的 108 份题库没有 tags，这是设计使然。
 
 微课已全部烤完：`lessons/skills/{zh,en}/` 共 **490 节**（245 技能 × 中英，4–6 步、接先修、专门演一步误区，全部经审稿）。

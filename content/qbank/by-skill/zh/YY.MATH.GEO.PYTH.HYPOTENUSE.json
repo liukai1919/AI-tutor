@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkq2ytowt07wr",
+   "level": 1,
+   "question": "一个直角三角形（right triangle）的两条直角边（legs）分别是 3 cm 和 4 cm，剩下的那条边是斜边（hypotenuse）。斜边有多长？",
+   "options": [
+    "5 cm",
+    "25 cm",
+    "7 cm",
+    "12.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "用 a²+b²=c²：3²+4²=9+16=25，这是 c²，还要开平方（square root）才是斜边，√25=5 cm。最容易踩的坑是算出 25 就交卷，那只是斜边的平方，不是斜边。",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytox30gps",
+   "level": 1,
+   "question": "一个直角三角形的直角由两条边夹成，这两条直角边分别长 6 cm 和 8 cm。与直角相对的那条边就是斜边。斜边有多长？",
+   "options": [
+    "14 cm",
+    "10 cm",
+    "50 cm",
+    "100 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "6²+8²=36+64=100，再开平方得 √100=10 cm。注意斜边不是两条直角边相加，写成 14 的那个就是把 6+8 当成了答案，那样算出来的边比真正的斜边长得多。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "sq.root_as_half",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytoa5ptmy",
+   "level": 1,
+   "question": "一个直角三角形，夹着直角的两条边分别是 8 m 和 15 m。求斜边的长度。",
+   "options": [
+    "23 m",
+    "289 m",
+    "17 m",
+    "144.5 m"
+   ],
+   "answerIndex": 2,
+   "explain": "8²+15²=64+225=289，c=√289=17 m。写成 289 的那个是忘了最后一步开平方；开平方也不是除以 2，写成 144.5 的那个就是把 √289 当成了 289÷2。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytowq2s36",
+   "level": 1,
+   "question": "一个直角三角形的两条直角边分别是 2 cm 和 3 cm。求斜边的长度，结果保留一位小数（decimal）。",
+   "options": [
+    "13 cm",
+    "5 cm",
+    "6.5 cm",
+    "3.6 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "2²+3²=4+9=13，c=√13。13 不是完全平方数（perfect square），但它在 9 和 16 之间且靠近 13，√13≈3.6 cm。坑在于停在 13 不开方，或者把 √13 误当成 13÷2。",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytohkbhnf",
+   "level": 2,
+   "question": "在直角三角形中，a=7，b=24，c 是斜边。求 c。",
+   "options": [
+    "c = 25",
+    "c = 312.5",
+    "c = 31",
+    "c = 625"
+   ],
+   "answerIndex": 0,
+   "explain": "a²+b²=49+576=625，所以 c=√625=25。625 是 c² 不是 c；开平方要找哪个数自乘等于 625（25×25=625），而不是把 625 折半。",
+   "tags": [
+    "ok",
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkq2yto5i6hfb",
+   "level": 2,
+   "question": "直角三角形的两条直角边 a=5，b=9。求斜边 c，保留一位小数。",
+   "options": [
+    "c = 106",
+    "c ≈ 10.3",
+    "c = 14",
+    "c = 53"
+   ],
+   "answerIndex": 1,
+   "explain": "5²+9²=25+81=106，c=√106。106 夹在 100 和 121 之间且很接近 100，试 10.3²=106.09，所以 c≈10.3。写成 106 的那个漏了开平方这一步。",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2yto4a2q2k",
+   "level": 2,
+   "question": "直角三角形的两条直角边分别是 0.9 和 1.2（单位：m）。求斜边 c。",
+   "options": [
+    "c = 2.25",
+    "c = 2.1",
+    "c = 1.5",
+    "c = 1.125"
+   ],
+   "answerIndex": 2,
+   "explain": "0.9²=0.81，1.2²=1.44，相加得 2.25，c=√2.25=1.5 m。小数照样要先平方再开方：写成 2.1 的那个是直接把 0.9+1.2 当答案，写成 2.25 的那个停在了 c²。",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2yto4dk3xr",
+   "level": 2,
+   "question": "一个直角三角形的两条直角边一样长，都是 6 cm。求斜边 c，保留一位小数。",
+   "options": [
+    "c = 72",
+    "c = 36",
+    "c = 12",
+    "c ≈ 8.5"
+   ],
+   "answerIndex": 3,
+   "explain": "6²+6²=36+36=72，c=√72。72 在 64 和 81 之间，8.5²=72.25 很接近，所以 c≈8.5 cm。两边相等不代表斜边等于 6+6=12，那样三角形就不存在了。",
+   "tags": [
+    "pyth.forget_square_root",
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytovtorgm",
+   "level": 3,
+   "question": "维多利亚一个长方形的冰球更衣室，长 12 m，周长（perimeter）是 34 m。教练从一个墙角沿对角线走到正对面的墙角，这条对角线把长方形分成两个直角三角形。他要走多远？",
+   "options": [
+    "13 m",
+    "17 m",
+    "169 m",
+    "84.5 m"
+   ],
+   "answerIndex": 0,
+   "explain": "先求宽：周长的一半 34÷2=17，宽=17−12=5 m；再用勾股定理：12²+5²=144+25=169，对角线=√169=13 m。这里 17 是长加宽，不是斜边；169 是 c²，都要再走一步。",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2yto3ssrcc",
+   "level": 3,
+   "question": "本拿比（Burnaby）社区花园要围一块直角三角形的菜地。一条直角边长 9 m，另一条直角边的长度是它的三分之二。围栏中最长的那条边有多长？保留一位小数。",
+   "options": [
+    "117 m",
+    "10.8 m",
+    "15 m",
+    "58.5 m"
+   ],
+   "answerIndex": 1,
+   "explain": "先求第二条直角边：9×2/3=6 m；再算 9²+6²=81+36=117，最长边就是斜边=√117。117 在 100 和 121 之间，10.8²=116.64，所以约 10.8 m。别停在 117，那是斜边的平方。",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2ytopenmxr",
+   "level": 3,
+   "question": "杰森量出一个直角三角形的两条直角边是 5 cm 和 12 cm，他写道：5²+12²=25+144=169，所以斜边是 169 cm。下面哪句话说得对？",
+   "options": [
+    "他多此一举，斜边把两条直角边相加就行，是 17 cm",
+    "他没算错，因为 5²+12²=169 得到的就是斜边长 169 cm",
+    "他算到 c²=169 就停了，还要开平方，斜边是 13 cm",
+    "他少了一步，开平方就是除以 2，斜边是 84.5 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "a²+b²=c² 求出的是 c² 而不是 c，169 必须再开平方：13×13=169，所以斜边 13 cm。开平方是找自乘得 169 的数，不是把 169 折半；直角边相加也永远得不到斜边。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq2yton1is20",
+   "level": 3,
+   "question": "素里一个滑板场的护栏做成直角三角形，两条直角边是 6 m 和 5 m。四个同学给出斜边长度和理由，哪一个是对的？",
+   "options": [
+    "61 m，因为 6²+5²=61 算出来的就是斜边",
+    "30.5 m，因为 √61 就是把 61 直接除以 2",
+    "11 m，因为斜边就等于 6+5 两条直角边相加",
+    "7.8 m，因为 36+25=61，斜边就是 √61"
+   ],
+   "answerIndex": 3,
+   "explain": "6²+5²=36+25=61，斜边=√61；61 在 49 和 64 之间且靠近 64，7.8²=60.84，所以约 7.8 m。写成 61 的那个把 c² 当成了 c，写成 30.5 的那个把开平方错当成了除以 2。",
+   "tags": [
+    "pyth.forget_square_root",
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  }
+ ]
+}

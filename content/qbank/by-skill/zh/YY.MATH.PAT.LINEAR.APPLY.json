@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkpddtqil8pyz",
+   "level": 1,
+   "question": "温哥华一个手机套餐：每月基本费 $20，另外每用 1 GB 流量加 $5。小安这个月用了 7 GB，这个月一共要付多少钱？",
+   "options": [
+    "$55",
+    "$175",
+    "$35",
+    "$145"
+   ],
+   "answerIndex": 0,
+   "explain": "固定的 $20 每月只付一次，只有每 GB 的 $5 要乘上 7：20 + 5×7 = 55。最常见的坑是把 $20 也乘 7（写成 25×7 = 175），或者干脆漏掉 $20 只算 5×7 = 35。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqhnwpr7",
+   "level": 1,
+   "question": "惠斯勒一家店租雪板：先收基本费 $15，然后每租 1 小时加 $8。小杰租了 3 小时，一共要付多少钱？",
+   "options": [
+    "$24",
+    "$39",
+    "$69",
+    "$53"
+   ],
+   "answerIndex": 1,
+   "explain": "基本费 $15 只收一次，按小时的 $8 才乘 3：15 + 8×3 = 39。写成 (15+8)×3 = 69 就等于把基本费收了 3 遍，只算 8×3 = 24 又漏掉了基本费。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqbw62ln",
+   "level": 1,
+   "question": "某手机套餐的数值表（table of values）是这样的：用 0 GB 时收 $20，用 1 GB 时收 $25，用 2 GB 时收 $30。照这个关系，用 5 GB 时收多少钱？",
+   "options": [
+    "$125",
+    "$25",
+    "$45",
+    "$105"
+   ],
+   "answerIndex": 2,
+   "explain": "表里每多 1 GB，钱数的差（difference）是 $5，而 0 GB 时已经有 $20，所以 20 + 5×5 = 45。坑是把 1 GB 时的 $25 当成每 GB 的单价去乘 5，或者忘了那笔一开始就有的 $20。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqrga6zf",
+   "level": 1,
+   "question": "列治文一家店租自行车：进门先付 $6，然后每骑 1 小时再加 $4。如果骑 h 小时，下面哪个式子（expression）表示总费用？",
+   "options": [
+    "6h + 4",
+    "4h",
+    "10h",
+    "4h + 6"
+   ],
+   "answerIndex": 3,
+   "explain": "跟着变量 h 一起变的是每小时的 $4，所以 $4 当变化率写成 4h；$6 只付一次，单独加在后面，得 4h + 6。写成 6h + 4 是把变化率和起始值弄反了，写成 10h 则是把只付一次的 $6 也按小时收。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqkpubmf",
+   "level": 2,
+   "question": "温哥华一个游泳池的花费可以写成 C = 7n + 25，其中 C 是总花费（加元），n 是去游泳的次数。下面哪句话正确说出了这个式子的意思？",
+   "options": [
+    "一次性注册费 $25，之后每去一次 $7。",
+    "一次性注册费 $7，之后每去一次 $25。",
+    "没有一次性费用，每去一次都收 $7。",
+    "每去一次都要付 $25 再加 $7，共 $32。"
+   ],
+   "answerIndex": 0,
+   "explain": "和 n 相乘的数是每次的费用，所以每次 $7；不带 n 的 25 是 n = 0 时就有的一次性起始费 $25。把两个数说反（$7 起始、每次 $25）是最常见的错，把 $25 说成每次都收也不对。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqnpuiac",
+   "level": 2,
+   "question": "某手机套餐：每月 $20 基本费，另加每 GB $5。妈妈这个月的账单是 $65。这个月用了多少流量？",
+   "options": [
+    "13 GB",
+    "9 GB",
+    "3 GB",
+    "45 GB"
+   ],
+   "answerIndex": 1,
+   "explain": "先把只收一次的 $20 减掉：65 − 20 = 45，再除以每 GB 的 $5，得 9 GB。直接 65÷5 = 13 是漏减了基本费；算出 45 就停下来，那只是流量费，不是 GB 数。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "linear.slope_intercept_swap",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkpddtq7w463p",
+   "level": 2,
+   "question": "本拿比一家健身房：一次性注册费 $35，之后每上一次课 $12。设上 n 次课的总花费是 C，下面哪一项的式子和计算都正确？",
+   "options": [
+    "C = 47n，8 次时 C = $376",
+    "C = 12n，8 次时 C = $96",
+    "C = 12n + 35，8 次时 C = $131",
+    "C = 35n + 12，8 次时 C = $292"
+   ],
+   "answerIndex": 2,
+   "explain": "每次课的 $12 跟着次数变，写成 12n；注册费 $35 只交一次，加在后面，8 次是 12×8 + 35 = 131。写成 47n 等于每次课都再交一遍注册费，写成 35n + 12 则是把变化率和起始值弄反了。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqdj06nn",
+   "level": 2,
+   "question": "一个离散的（discrete）线性关系写成 y = 9x + 18，x 只能取整数。当 y = 108 时，x 是多少？",
+   "options": [
+    "x = 12",
+    "x = 90",
+    "x = 6",
+    "x = 10"
+   ],
+   "answerIndex": 3,
+   "explain": "先减掉不随 x 变的 18：108 − 18 = 90，再除以变化率 9，得 x = 10。直接 108÷9 = 12 是漏减了固定的 18；减出 90 就停下来，那还只是中间结果。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqmxqqlv",
+   "level": 3,
+   "question": "送桶装水到家：每次上门收一笔固定服务费，另外每桶水价钱一样。送 3 桶收 $41，送 5 桶收 $59。照同样的关系，送 8 桶要收多少钱？",
+   "options": [
+    "$86",
+    "$72",
+    "$121",
+    "$144"
+   ],
+   "answerIndex": 0,
+   "explain": "多送 2 桶多收 59 − 41 = $18，所以每桶 18÷2 = $9；再回头算固定费：41 − 9×3 = $14。送 8 桶就是 9×8 + 14 = 86。算出 $18 就当每桶价是漏了除以 2，只算 9×8 = 72 又丢了服务费。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.slope_intercept_swap",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkpddtq3l7gfp",
+   "level": 3,
+   "question": "某手机套餐：每月 $20，另加每 GB $5，只按整数 GB 计费。哥哥这个月最多只能花 $68。在不超预算的前提下，他这个月最多能用多少流量？",
+   "options": [
+    "13 GB",
+    "9 GB",
+    "48 GB",
+    "3 GB"
+   ],
+   "answerIndex": 1,
+   "explain": "先扣掉必付的 $20：68 − 20 = 48 元留给流量，48÷5 = 9.6，因为只按整数 GB 算，最多 9 GB（20 + 45 = $65，用 10 GB 就要 $70 超了）。直接 68÷5 是漏了基本费，答 48 则是把剩下的钱数当成了 GB 数。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtqowulk6",
+   "level": 3,
+   "question": "小美带 $100 去营业厅交手机费。套餐是 $20 基本费加每 GB $5，她这个月用了 4 GB。她算出 20 + 5×4 = 40，就把 $40 写成了应找回的钱。她错在哪里？",
+   "options": [
+    "她把 $20 也乘了 4，总费用是 (20+5)×4 = $100，找回 $0。",
+    "她漏了固定费 $20，总费用只有 $20，应找回 $80。",
+    "她把总费用 $40 当成了找零，还要再算 100 − 40 = $60。",
+    "她把 $20 当成每 GB 的钱，总费用是 5 + 20×4 = $85。"
+   ],
+   "answerIndex": 2,
+   "explain": "20 + 5×4 = 40 算的是这个月的总费用，是中间结果；题目问找零，还要用 100 − 40 = $60。多步题最容易在算出总价那一步就停下来交卷。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpddtq16xyhw",
+   "level": 3,
+   "question": "素里一个滑冰场：办会员卡要一次性交 $60，会员每次滑冰 $4；不办卡的人每次滑冰 $10。这个冬天至少要滑多少次，办会员卡才比不办卡花得更少？",
+   "options": [
+    "6 次",
+    "10 次",
+    "15 次",
+    "11 次"
+   ],
+   "answerIndex": 3,
+   "explain": "滑 n 次时，会员是 60 + 4n，非会员是 10n；n = 10 时两边都是 $100，只是持平，要更便宜得再多一次：n = 11 时 104 < 110。算到两者相等就停下来答 10 次，是最常踩的坑。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  }
+ ]
+}

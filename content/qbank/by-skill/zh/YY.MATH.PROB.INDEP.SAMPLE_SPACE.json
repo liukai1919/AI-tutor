@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkrooiac5gubn",
+   "level": 1,
+   "question": "抛一枚公平的（fair）硬币，同时转一个分成 4 个相等区域（分别标 1、2、3、4）的转盘（spinner）。用表格（table）列出样本空间：行写硬币的正面、反面两种结果，列写转盘的 4 个数字。这张表格里一共有多少种结果（outcome）？",
+   "options": [
+    "8 种结果",
+    "6 种结果",
+    "4 种结果",
+    "2 种结果"
+   ],
+   "answerIndex": 0,
+   "explain": "表格有 2 行 4 列，每一行都要配满 4 列，所以格子数是 2 × 4 = 8 种。最容易踩的坑是把 2 + 4 = 6 当答案：行数和列数要相乘，不是相加。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooiadumggn",
+   "level": 1,
+   "question": "抛一枚公平硬币，同时掷一个公平的 6 面骰子。用表格列出样本空间（sample space）：行写正面、反面，列写骰子的 1、2、3、4、5、6。表格里一共有多少种结果？",
+   "options": [
+    "8 种结果",
+    "12 种结果",
+    "2 种结果",
+    "4 种结果"
+   ],
+   "answerIndex": 1,
+   "explain": "2 行 × 6 列 = 12 个格子，每个格子是一种结果，例如正面配 3。答成 8 种的是把 2 + 6 加起来了；答成 4 种的是把骰子挤成「奇数、偶数」两类，样本空间要列出每一个具体数字。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooiabdija0",
+   "level": 1,
+   "question": "掷两个公平的 6 面骰子，一个红色一个蓝色。做一张表格：行写红骰子的 1 到 6，列写蓝骰子的 1 到 6。这张表格里一共有多少种结果？",
+   "options": [
+    "4 种结果",
+    "12 种结果",
+    "36 种结果",
+    "2 种结果"
+   ],
+   "answerIndex": 2,
+   "explain": "6 行 × 6 列 = 36 个格子，红 2 配蓝 5 和红 5 配蓝 2 算两种不同结果。写成 12 种的是把 6 + 6 加起来了；写成 4 种的是只按奇数、偶数分组，那是把结果归类，不是列样本空间。",
+   "tags": [
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooia65pqwn",
+   "level": 1,
+   "question": "抛一枚公平硬币，再转一个分成红、黄、蓝 3 个相等区域的转盘。有人把 2 行 3 列的表格改写成一行文字列表。下面哪一种写法，才是完整的样本空间？",
+   "options": [
+    "「正面、反面、红色、黄色、蓝色」——共 5 个结果",
+    "「正面配一种颜色、反面配一种颜色」——共 2 个结果",
+    "「正面配红色、其余情况算一类」——共 2 个结果",
+    "「正红、正黄、正蓝、反红、反黄、反蓝」——共 6 个结果"
+   ],
+   "answerIndex": 3,
+   "explain": "表格 2 行 3 列共 6 格，改成列表就要把 6 个配对一个不漏地写出来：正红、正黄、正蓝、反红、反黄、反蓝。把硬币的 2 种和颜色的 3 种排成 5 项是把两个事件加起来了；把几种颜色缩成「一种颜色」或「其余情况」则是把结果打包成组，样本空间要求每一种搭配单列。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrooia6jznf5",
+   "level": 2,
+   "question": "两个独立事件（independent events）：第一个有 5 种等可能结果，第二个有 4 种等可能结果。把它们排成表格，样本空间一共有多少种结果？",
+   "options": [
+    "共 20 种",
+    "共 10 种",
+    "共 8 种",
+    "共 9 种"
+   ],
+   "answerIndex": 0,
+   "explain": "表格 5 行 4 列，5 × 4 = 20 种结果。写成 9 的是把 5 + 4 加起来；写成 10 或 8 的是把其中一个事件压成两大类再乘，样本空间必须保留每个事件全部的具体结果。",
+   "tags": [
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrooiaiwje2c",
+   "level": 2,
+   "question": "一张表格有 2 行 6 列，每个格子是一种结果。下面哪一种树状图（tree diagram）列出的样本空间和这张表格完全一样？",
+   "options": [
+    "第一层 2 条分支，第二层 6 条分支，末端一共 8 条",
+    "第一层 2 条分支，每条下面再分 6 条，末端共 12 条",
+    "第一层 2 条分支，每条下面分奇数、偶数 2 条",
+    "第一层 2 条分支，第二层只分大数、小数两类"
+   ],
+   "answerIndex": 1,
+   "explain": "表格的 2 行 6 列，对应树状图第一层的 2 条分支，每条再各长出 6 条，末端路径 2 × 6 = 12 条，和 12 个格子一一对应。末端只有 8 条的是把 2 + 6 加了；把第二层压成奇偶或大小两类的，丢掉了 6 个具体结果。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooia4pwxod",
+   "level": 2,
+   "question": "盒子里有 3 张卡片，分别写着 P、Q、R；另有一个分成 4 个相等区域的转盘，标着 1、2、3、4。抽一张卡片再转一次转盘，用表格列出样本空间。一共有多少种结果？其中卡片是 Q 的有多少种？",
+   "options": [
+    "共 7 种；卡片是 Q 的有 1 种",
+    "共 6 种；卡片是 Q 的有 2 种",
+    "共 12 种；卡片是 Q 的有 4 种",
+    "共 8 种；卡片是 Q 的有 4 种"
+   ],
+   "answerIndex": 2,
+   "explain": "表格 3 行 4 列 = 12 种结果；Q 那一整行有 4 格（Q1、Q2、Q3、Q4），所以是 4 种。总数写 7 的是 3 + 4；总数写 6 或 8 的是把转盘压成大小两类、或把卡片压成「是 Q / 不是 Q」两类，这样就不是完整样本空间了。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "ok",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooia4pj8in",
+   "level": 2,
+   "question": "一个树状图的第一层画了 6 条分支，每条分支下面又各画了 5 条分支。这个树状图末端一共有多少条路径（每条路径是一种结果）？",
+   "options": [
+    "共 11 条路径",
+    "共 10 条路径",
+    "共 12 条路径",
+    "共 30 条路径"
+   ],
+   "answerIndex": 3,
+   "explain": "每一条第一层分支下面都挂着完整的 5 条，所以路径数是 6 × 5 = 30 条。写 11 的是把 6 + 5 加起来；写 12 或 10 的是把其中一层缩成两类再乘，末端路径必须一条不漏地数。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrooiazfqyzt",
+   "level": 3,
+   "question": "Burnaby 社区中心的游戏摊：转一个分成 5 个相等区域（标 1 到 5）的转盘，同时抛一枚公平硬币。Mei 先用表格列出全部样本空间，再数出「硬币正面并且转盘数字大于 3」的结果。表格里一共有多少种结果？符合她要求的有几种？",
+   "options": [
+    "共 10 种结果；符合的有 2 种",
+    "共 7 种结果；符合的有 1 种",
+    "共 4 种结果；符合的有 1 种",
+    "共 2 种结果；符合的有 1 种"
+   ],
+   "answerIndex": 0,
+   "explain": "表格 2 行 5 列 = 10 种结果；正面那一行里数字大于 3 的是正面配 4 和正面配 5，共 2 种。总数写 7 的是 2 + 5；写 4 或 2 的是先把转盘或整个游戏压成两大类，一压就数不出「正面配 4」和「正面配 5」是两种不同结果。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooiagonapt",
+   "level": 3,
+   "question": "Squamish 露营，早餐是 2 种麦片里选 1 种、4 种饮料里选 1 种。Dev 用树状图列出了全部样本空间。第二天爸爸又多带了 1 种饮料（变成 5 种饮料）。样本空间的结果数从几种变成几种，多了几种？",
+   "options": [
+    "从 6 种变成 7 种，多了 1 种（2 + 4 变成 2 + 5）",
+    "从 8 种变成 10 种，多了 2 种（2 × 5）",
+    "从 2 种变成 2 种，只分喝到最爱的和没喝到",
+    "从 4 种变成 4 种，因为饮料只分冷的、热的两类"
+   ],
+   "answerIndex": 1,
+   "explain": "原来 2 × 4 = 8 种，现在 2 × 5 = 10 种，多出的 2 种是新饮料分别配两种麦片。用加法算成 6 变 7 的，会以为多一种饮料只多一种结果；把饮料压成冷热两类的，等于把好几个结果并成一个，树状图末端要一条路径一个结果。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooiaiw09e7",
+   "level": 3,
+   "question": "Jasmine 说：抛一枚公平硬币，再转一个分成 4 个相等区域的转盘，样本空间有 6 种结果，因为 2 + 4 = 6。下面哪种说法最准确？",
+   "options": [
+    "她错了，应是 4 种：正反各配转盘的奇数、偶数两类",
+    "她没错，硬币 2 种加转盘 4 种，一共就是 6 种结果",
+    "她错了，应是 8 种：2 行 4 列，每行都要配满 4 列",
+    "她错了，应是 2 种：结果只分中奖和不中奖两大类"
+   ],
+   "answerIndex": 2,
+   "explain": "正面下面挂着转盘的 4 个结果，反面下面也挂着 4 个，所以是 2 × 4 = 8 种，加法只会数一层。把转盘说成奇数、偶数两类，或把结果说成中奖、不中奖，都是把结果分组，样本空间要列的是每一个具体搭配。",
+   "tags": [
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrooia6tr6dl",
+   "level": 3,
+   "question": "课堂上列硬币 + 6 面骰子的样本空间：Owen 画树状图，先画正面、反面两条分支，每条下面再画 1 到 6 六条分支；Priya 画表格，2 行 6 列。老师问谁列对了。下面哪种说法最准确？",
+   "options": [
+    "两人都错了，正确的样本空间只有 8 种，因为 2 + 6 = 8",
+    "Priya 对，正确是 4 种：正反各配骰子的奇数、偶数",
+    "Owen 对，正确是 2 种：只分正面一类和反面一类",
+    "两人都对，都列出了 12 种结果，只是表示方法不同"
+   ],
+   "answerIndex": 3,
+   "explain": "树状图末端 2 × 6 = 12 条路径，表格 2 行 6 列 = 12 个格子，两种画法是同一个样本空间的两种表示。说成 8 种的是把 2 + 6 加起来；说成 4 种或 2 种的是把骰子或硬币压成大类，那样就漏掉了像正面配 3 这样的具体结果。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "prob.outcomes_lumped",
+    "ok"
+   ]
+  }
+ ]
+}

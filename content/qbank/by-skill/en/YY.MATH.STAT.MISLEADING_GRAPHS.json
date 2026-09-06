@@ -1,0 +1,315 @@
+{
+ "id": "YY.MATH.STAT.MISLEADING_GRAPHS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn8nbtsts1ace",
+   "level": 1,
+   "question": "In this pictograph, each symbol in a row stands for 5 students. How many students does Ravi's row stand for?",
+   "options": [
+    "30 students, from 6 times 5",
+    "11 students, from 5 plus 6",
+    "6 students, one for each shaded square",
+    "1 student, since 5 squares make one"
+   ],
+   "answerIndex": 0,
+   "explain": "Each square stands for 5 students, so multiply: 6 × 5 = 30. The common trap is counting the squares themselves and answering 6, which ignores the many-to-one scale.",
+   "tags": [
+    "ok",
+    "other",
+    "graph.scale_misread",
+    "graph.scale_misread"
+   ],
+   "visual": {
+    "type": "pictograph",
+    "nums": [
+     30
+    ],
+    "labels": [
+     "Ravi"
+    ],
+    "step": 5,
+    "caption": "Students in each row (key: 1 ★ = 5 students)"
+   }
+  },
+  {
+   "qid": "qmtn8nbts4pck9y",
+   "level": 1,
+   "question": "Two food-drive bar graphs each use a strip of 10 equal parts. On Room A's graph each part stands for 2 cans and 6 parts are shaded. On Room B's graph each part stands for 5 cans and 4 parts are shaded. Which room collected more cans?",
+   "options": [
+    "Room A, because 6 shaded parts beat 4 shaded parts",
+    "Room B, because 4 × 5 = 20 beats 6 × 2 = 12",
+    "Room A, because 6 cans is more than 4 cans",
+    "Room A, because 60% shaded beats 40% shaded"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply the shaded parts by what one part is worth: Room B has 4 × 5 = 20 cans and Room A has 6 × 2 = 12. The trap is comparing shaded lengths or percents when the two bars use different scales.",
+   "tags": [
+    "graph.compare_bars_ignore_scale",
+    "ok",
+    "graph.scale_misread",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbtsoy9h9p",
+   "level": 1,
+   "question": "A bar graph of quiz scores starts its scale at 90 instead of 0. Team A's bar tops out at 92 and Team B's bar tops out at 96, so B's bar looks about three times as tall. Which statement is true?",
+   "options": [
+    "Team B scored about three times as much as Team A",
+    "Team B scored 6 points and Team A scored 2 points",
+    "Team B is 4 points ahead; the scale starts at 90, not 0",
+    "Team B scored 200% more than Team A, as the bars show"
+   ],
+   "answerIndex": 2,
+   "explain": "Read the printed numbers, not the bar heights: 96 − 92 = 4 points. A scale that starts at 90 chops off most of both bars, so a tiny gap looks enormous.",
+   "tags": [
+    "graph.compare_bars_ignore_scale",
+    "graph.scale_misread",
+    "ok",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbtsrz1t3n",
+   "level": 1,
+   "question": "A poster shows this chess-club pictograph, where each symbol stands for 1 member. The headline reads 'Membership up 200%!' Which statement is true?",
+   "options": [
+    "Two hundred new members joined the club this year",
+    "Each square stands for 200 members, so 600 belong now",
+    "The club has 200 members, since the rise was 200%",
+    "The club grew from 1 member to 3 — a tiny base"
+   ],
+   "answerIndex": 3,
+   "explain": "A percent means nothing until you know what it is a percent of: 1 member growing to 3 really is +200%, but that is only 2 people. The trap is hearing 200% and picturing 200 members.",
+   "tags": [
+    "stat.percent_without_base",
+    "graph.scale_misread",
+    "stat.percent_without_base",
+    "ok"
+   ],
+   "visual": {
+    "type": "pictograph",
+    "nums": [
+     1,
+     3
+    ],
+    "labels": [
+     "Last year",
+     "This year"
+    ],
+    "step": 1,
+    "caption": "Chess club members (key: 1 ★ = 1 member)"
+   }
+  },
+  {
+   "qid": "qmtn8nbts1nqm0p",
+   "level": 2,
+   "question": "A line graph of a town's population is labelled 2015, 2016, 2017, 2022, 2023 along the bottom, with every label the same distance apart. Why is this misleading?",
+   "options": [
+    "Equal spaces stand for unequal gaps, so growth looks steady",
+    "Each space is one year, so 2017 to 2022 is one year of growth",
+    "Nothing is wrong; evenly spaced points are always fair to compare",
+    "Nothing is wrong, because the graph also prints a 40% rise"
+   ],
+   "answerIndex": 0,
+   "explain": "On a time axis, equal spaces must stand for equal amounts of time, but here one space hides five years, so a fast jump looks like slow steady growth. The trap is assuming evenly spaced labels are always fair.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "graph.compare_bars_ignore_scale",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbts9zky4a",
+   "level": 2,
+   "question": "Two clubs report reading progress. Maple Club says 'Our scores improved 50%!' and Cedar Club says 'Ours improved 10%.' What should you ask before deciding Maple did better?",
+   "options": [
+    "Nothing — 50% is five times 10%, so Maple clearly did better",
+    "How many students each percent is of, since bases can differ",
+    "Only which club's bar is drawn taller on the report",
+    "Nothing — the two percents add to a 60% district improvement"
+   ],
+   "answerIndex": 1,
+   "explain": "A percent only has meaning with its base: 50% of 8 students is 4 people, while 10% of 300 students is 30. The trap is ranking groups by percent when the groups are very different sizes.",
+   "tags": [
+    "stat.percent_without_base",
+    "ok",
+    "graph.compare_bars_ignore_scale",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbts7axou8",
+   "level": 2,
+   "question": "A Whistler ski shop keeps 12 months of sales records, but its ad graphs only December, January and February, then claims 'Our sales climb all year long.' Which response is best?",
+   "options": [
+    "The claim holds, since those three bars are the tallest on record",
+    "The claim holds, since the ad also reports a 300% rise in sales",
+    "Those months are peak ski season, so show all 12 months",
+    "The claim is fine, as a shop may graph any months it chooses"
+   ],
+   "answerIndex": 2,
+   "explain": "Cherry-picking the three busiest months hides the other nine, so the full year is needed to judge the claim. The trap is accepting a statement about the whole year from a range the seller chose.",
+   "tags": [
+    "graph.compare_bars_ignore_scale",
+    "stat.percent_without_base",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8nbtsi5j52s",
+   "level": 3,
+   "question": "Two schools graph their paper recycling on separate posters. On Riverside's graph each grid line stands for 20 kg and its bar reaches 6 grid lines. On Hillcrest's graph each grid line stands for 50 kg and its bar reaches 4 grid lines. Which school recycled more, and by how much?",
+   "options": [
+    "Hillcrest, because its poster claims a 50% bigger total",
+    "Riverside, because its bar reaches 6 lines to Hillcrest's 4",
+    "Riverside, by 2 kg: it shows 6 kg and Hillcrest shows 4 kg",
+    "Hillcrest, by 80 kg: 200 kg against Riverside's 120 kg"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply each bar by its own grid value first: 6 × 20 = 120 kg and 4 × 50 = 200 kg, a gap of 80 kg. The trap is comparing bar heights across two graphs that do not share a scale.",
+   "tags": [
+    "stat.percent_without_base",
+    "graph.compare_bars_ignore_scale",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8nbts9zd5vv",
+   "level": 3,
+   "question": "A transit ad graphs on-time buses: 91% in September and 93% in October, on a scale running from 90% to 95%. The October bar looks three times as tall, and the ad says 'On-time performance up 300%.' What is actually true?",
+   "options": [
+    "On-time rose 2 points, 91% to 93%; the scale starts at 90%",
+    "Performance really did triple, as the bar is three times as tall",
+    "Each grid line is 1%, so the rate rose from 1% to 3%",
+    "The 300% is fair to print without saying 300% of what"
+   ],
+   "answerIndex": 0,
+   "explain": "Work from the numbers: 93% − 91% = 2 percentage points, a rise of about 2%, nowhere near 300%. The trap is a scale starting at 90% that stretches a 2-point gap into a bar three times as tall.",
+   "tags": [
+    "ok",
+    "graph.compare_bars_ignore_scale",
+    "graph.scale_misread",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbtsytrq3x",
+   "level": 3,
+   "question": "A science-fair graph plots a bean plant at weeks 0, 1, 2, 4 and 8, with the five labels spaced equally apart. The heights are 2, 4, 6, 8 and 10 cm, so the line looks straight. The student writes 'The plant grew 2 cm every week.' Is that right?",
+   "options": [
+    "Yes — each equal space is one week, so 2 cm per week is right",
+    "No — from week 4 to week 8 it grew 2 cm, or 0.5 cm a week",
+    "Yes — a straight line always means a steady rate of growth",
+    "Yes — the plant grew 400%, which proves it grew steadily"
+   ],
+   "answerIndex": 1,
+   "explain": "Check the time axis before trusting the shape: the last space covers 4 weeks, so 8 cm to 10 cm is 2 cm over 4 weeks, only 0.5 cm a week. The trap is a straight-looking line drawn on unevenly spaced times.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "graph.compare_bars_ignore_scale",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8nbtsomeg3n",
+   "level": 3,
+   "question": "North Ridge's drama club grew from 5 members to 15, while South Ridge's grew from 80 to 100. A school poster prints '+200%' for North Ridge and '+25%' for South Ridge and says North Ridge added the most members. What went wrong?",
+   "options": [
+    "Nothing — 200% is eight times 25%, so North Ridge added most",
+    "Nothing — North Ridge added 200 members and South Ridge 25",
+    "South Ridge added 20 members and North Ridge only 10",
+    "Nothing — North Ridge's percent bar is drawn much taller"
+   ],
+   "answerIndex": 2,
+   "explain": "Turn each percent back into a count: North Ridge gained 10 people and South Ridge gained 20, so the huge percent came from a tiny starting base. The trap is ranking groups by percent without checking the base.",
+   "tags": [
+    "stat.percent_without_base",
+    "stat.percent_without_base",
+    "ok",
+    "graph.compare_bars_ignore_scale"
+   ]
+  },
+  {
+   "qid": "qmtn9rzcvfflh3a",
+   "level": 2,
+   "question": "Two Kamloops classes graph how far they biked during Bike-to-School Week, each on its own poster. On Ms. Chan's poster every grid square stands for 10 km, and her class's bar reaches 6 squares. On Mr. Patel's poster every grid square stands for 40 km, and his class's bar reaches 2 squares. Which class biked farther, and by how much?",
+   "options": [
+    "Ms. Chan's class, because her bar is 6 squares and his is only 2",
+    "Ms. Chan's class, because 2 squares growing to 6 is a 200% jump",
+    "Ms. Chan's class, by 4 km, because 6 squares beats 2 squares",
+    "Mr. Patel's class, by 20 km, because 2 × 40 km beats 6 × 10 km"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply each bar by its own poster's key before comparing: 6 × 10 = 60 km and 2 × 40 = 80 km, so Mr. Patel's class biked 20 km more. The trap is counting squares across two posters that use different scales.",
+   "tags": [
+    "graph.compare_bars_ignore_scale",
+    "stat.percent_without_base",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn9rzcv5e6htk",
+   "level": 2,
+   "question": "A Vancouver juice bar graphs the vitamin C in two smoothies. The vertical scale starts at 40 mg, and each grid line above that stands for 2 mg. The Berry bar reaches 44 mg and the Mango bar reaches 48 mg, so on the poster Mango's bar looks twice as tall as Berry's. Which statement is true?",
+   "options": [
+    "Mango has 4 mg more; the scale starts at 40 mg, not 0 mg",
+    "Mango has twice as much, because its bar is twice as tall",
+    "Mango has 2 mg more, because its bar is 2 lines higher",
+    "Mango has 100% more, because 2 grid lines became 4"
+   ],
+   "answerIndex": 0,
+   "explain": "Read the labelled numbers, not the bar heights: 48 − 44 = 4 mg. Because the axis is cut off at 40 mg instead of starting at 0, a small 4 mg gap gets stretched until one bar looks double the other.",
+   "tags": [
+    "ok",
+    "graph.compare_bars_ignore_scale",
+    "graph.scale_misread",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn9rzcvkb2wm2",
+   "level": 2,
+   "question": "A Victoria community centre shows swim-lesson signups on two posters. The spring poster uses one swimmer symbol for every 50 signups and gives May 2 symbols. The summer poster uses one swimmer symbol for every 20 signups and gives June 5 symbols. The newsletter headline reads 'Signups up 150% in June!' Which statement is true?",
+   "options": [
+    "Correct — June's row has 5 symbols and May's has only 2",
+    "Both months are 100 signups, so signups did not rise",
+    "June is 3 signups higher, since 5 symbols minus 2 symbols",
+    "Correct — going from 2 symbols to 5 is a rise of 150%"
+   ],
+   "answerIndex": 1,
+   "explain": "Use each poster's own key first: May is 2 × 50 = 100 and June is 5 × 20 = 100, so nothing changed. The trap is turning symbol counts into a percent when one symbol is worth 50 people on one poster and 20 on the other.",
+   "tags": [
+    "graph.compare_bars_ignore_scale",
+    "ok",
+    "graph.scale_misread",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn9rzcvxpmo9m",
+   "level": 2,
+   "question": "Nadia graphs her savings for a Whistler ski pass: Month 1 is $50, Month 2 is $100, Month 6 is $150 and Month 12 is $200. She spaces the four labels equally along the bottom, so the points form a straight line, and writes 'I save at the same rate all year.' Which statement is true?",
+   "options": [
+    "True — $50 grew to $200, a 300% rise, so the rate held steady",
+    "True — each gap stands for one month, so she adds $50 a month",
+    "False — $50 came in one month early, then $50 took six months",
+    "True — the four points sit on a straight line on her graph"
+   ],
+   "answerIndex": 2,
+   "explain": "Check what the equally spaced labels really stand for: the gaps are 1 month, 4 months and 6 months, yet each adds only $50, so her saving slowed right down. The trap is trusting a straight-looking line when the time labels are unevenly spaced.",
+   "tags": [
+    "stat.percent_without_base",
+    "graph.scale_misread",
+    "ok",
+    "graph.compare_bars_ignore_scale"
+   ]
+  }
+ ]
+}

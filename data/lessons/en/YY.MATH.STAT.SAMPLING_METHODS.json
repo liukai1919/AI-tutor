@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.STAT.SAMPLING_METHODS",
+ "lang": "en",
+ "title": "Compare sampling techniques (random, systematic, stratified, convenience, voluntary) and pick one that avoids bias",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Picking a Sample That Doesn't Cheat",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that a sample is a small group we ask instead of the whole population, and why that saves time and money. Today's step is choosing HOW to pick that small group, because some ways of picking quietly favour certain people, and that is called bias. Let's say your school has one thousand two hundred students and you want to find out how many hours a week they play video games. You can only ask one hundred of them. Who do you ask?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here are the five ways people pick samples. Random means every student has the same chance, like pulling one hundred names out of a hat of all twelve hundred. Systematic means you use a rule, like every twelfth name on the school list. Stratified means you split the school into groups first, say grade eight, nine, ten, eleven, twelve, and take a fair share from each group. Convenience means you ask whoever is easiest to reach. Voluntary means you post a survey and whoever feels like answering, answers.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "labels": [
+      "Random (names from a hat)",
+      "Systematic (every 12th name)",
+      "Stratified (fair share per grade)",
+      "Convenience (whoever is nearby)",
+      "Voluntary (whoever chooses to answer)"
+     ],
+     "caption": "The five sampling techniques, numbered one to five"
+    }
+   },
+   {
+    "say": "Now the key question for each one: does it give every student a fair chance? Random, systematic and stratified all say yes, because the picking is done by chance or by a rule that covers the whole list, not by who is easy or who is keen. Convenience and voluntary say no. If you ask at the esports club door, you get gamers. If you post a survey online, the people who love talking about games rush to answer and the busy ones ignore it. Those two methods let the sample choose itself, and that is where bias sneaks in.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "labels": [
+      "Random",
+      "Systematic",
+      "Stratified",
+      "Convenience",
+      "Voluntary"
+     ],
+     "caption": "One means every student has a fair chance, zero means the sample picks itself"
+    }
+   },
+   {
+    "say": "Let's see the damage with numbers. Suppose the true school average is eight hours a week. You try three samples of one hundred students each. Names from a hat gives an average of about eight point two hours, very close. Every twelfth name on the school list gives about seven point nine, also close. But asking one hundred students at the esports club gives about nineteen hours, more than double the truth. Same school, same question, wildly different answer, purely because of who got asked.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8,
+      8.2,
+      7.9,
+      19
+     ],
+     "labels": [
+      "True average",
+      "Random (hat)",
+      "Systematic (every 12th)",
+      "Convenience (esports club)"
+     ],
+     "caption": "Estimated hours per week from each sample, true value is 8"
+    }
+   },
+   {
+    "say": "Here are the two mistakes I see most often. Mistake one: standing at the front door and asking the first ten students who walk in, then calling it random. It is not random, it is convenience. Random means the twelve hundred names all had an equal chance, and the kids who arrive early or take the bus are not everyone. Mistake two: thinking that if people volunteer, the result must be fair because nobody was forced. It is the opposite. Volunteers are the people with strong feelings, so a voluntary sample leans toward whoever cares most. Fair chance for everyone is the test, not how easy or how willing.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      0,
+      0,
+      0
+     ],
+     "labels": [
+      "First 10 at the door",
+      "Bus riders who arrive late",
+      "Students at early practice",
+      "Students who skipped that day"
+     ],
+     "caption": "Only the door group gets counted, everyone else has zero chance"
+    }
+   },
+   {
+    "say": "So the takeaway. When you need a sample that avoids bias, pick a method where everyone in the population has a fair chance of being chosen: random, systematic, or stratified. Skip convenience and voluntary unless you just want a quick rough guess and you say so honestly.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A sample avoids bias when every member of the population has a fair chance of being picked: use random, systematic, or stratified, not convenience or voluntary.",
+  "practice": {
+   "question": "A Surrey rec centre with eight hundred members wants to know how many members would pay ten dollars more per month for a new climbing wall. Three staff suggest plans. Plan A: ask the fifty people using the climbing gym on Saturday morning. Plan B: put a poster up saying 'Tell us your opinion online' and count whoever replies. Plan C: number all eight hundred members and use a computer to pick fifty numbers at random. Name the sampling technique for each plan, say which one avoids bias, and explain in one sentence why the other two would probably make the climbing wall look more popular than it really is.",
+   "answer": "Plan A is a convenience sample, Plan B is a voluntary sample, Plan C is a random sample. Plan C avoids bias because all eight hundred members have an equal chance of being picked. Plan A only reaches people who already climb, and Plan B mostly attracts people with strong feelings, often the keen climbers, so both would overestimate support for the wall."
+  }
+ }
+}

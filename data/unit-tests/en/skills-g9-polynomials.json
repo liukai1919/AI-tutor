@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "polynomials",
+ "lang": "en",
+ "unitName": {
+  "zh": "多项式",
+  "en": "Polynomials"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Polynomials · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.POLY.PARTS",
+    "level": 1,
+    "question": "Look at the polynomial 5x² − x + 8. Which statement describes it correctly?",
+    "options": [
+     "A trinomial of degree 2 with constant term 8",
+     "A trinomial of degree 2 with constant term −1",
+     "A binomial of degree 2 with constant term 8",
+     "A trinomial of degree 5 with constant term 8"
+    ],
+    "answerIndex": 0,
+    "explain": "Count the terms (3, so trinomial), take the highest exponent as the degree (2), and the constant term is the number with no variable (8). A common trap is calling −1 the constant term — that is the coefficient of x, not the constant."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.TILES",
+    "level": 1,
+    "question": "Tia builds a polynomial with algebra tiles: 2 positive x² tiles, 3 negative x tiles and 4 positive unit tiles. Which expression matches her tile picture?",
+    "options": [
+     "2x² + 3x + 4",
+     "3x² − 2x + 4",
+     "2x² − 3x + 4",
+     "2x² − 3x − 4"
+    ],
+    "answerIndex": 2,
+    "explain": "Each tile type gives one term: the number of tiles is the coefficient and negative (shaded) tiles make that coefficient negative, so 2 x² tiles, 3 negative x tiles and 4 units give 2x² − 3x + 4. The usual trap is dropping the negative on the x tiles and writing +3x."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.ADD",
+    "level": 1,
+    "question": "Simplify (4x² + 3x − 6) + (x² − 7x + 2).",
+    "options": [
+     "5x² + 10x − 4",
+     "5x² − 4x − 4",
+     "5x² − 4x − 8",
+     "3x² − 4x − 4"
+    ],
+    "answerIndex": 1,
+    "explain": "Collect like terms with their own signs: 4x² + x² = 5x², 3x + (−7x) = −4x, and −6 + 2 = −4. The most common trap is treating −7x as +7x, which turns the middle term into +10x."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.SUBTRACT",
+    "level": 2,
+    "question": "At a school fair in Surrey, Sofia's hot-chocolate booth takes in (8h + 25) dollars after h hours, and her supplies cost (3h + 14) dollars. Which expression gives her profit?",
+    "options": [
+     "5h + 39",
+     "11h + 11",
+     "5h − 11",
+     "5h + 11"
+    ],
+    "answerIndex": 3,
+    "explain": "Profit is income minus cost, so add the opposite of every term: (8h + 25) − (3h + 14) = 8h + 25 − 3h − 14 = 5h + 11. The classic trap is subtracting only the first term and leaving +14 alone, which gives 5h + 39."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.MULT_MONOMIAL",
+    "level": 2,
+    "question": "A rectangular garden bed at a Victoria community garden is 3n metres wide and (2n + 5) metres long. Which expression gives its area in square metres?",
+    "options": [
+     "6n² + 5n",
+     "6n² + 15n",
+     "5n² + 15n",
+     "6n² + 15"
+    ],
+    "answerIndex": 1,
+    "explain": "Use the area model or distributive property: 3n(2n + 5) = 3n·2n + 3n·5 = 6n² + 15n. The trap is multiplying only the first term and copying the 5 across, giving 6n² + 15 or 6n² + 5n."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.DIV_MONOMIAL",
+    "level": 2,
+    "question": "A rectangle drawn on grid paper has area (24k² − 18k) square centimetres and width 6k centimetres. Which expression gives its length?",
+    "options": [
+     "4k − 3",
+     "4k − 3k",
+     "4k + 3",
+     "4k² − 3"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide term by term: 24k² ÷ 6k = 4k and −18k ÷ 6k = −3, so the length is 4k − 3. The common trap is dividing only the numbers and keeping the k, which leaves 4k − 3k."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.APPLY",
+    "level": 3,
+    "question": "Malik is fencing a rectangular dog run in his Nanaimo backyard. Its length is (3x + 4) metres and its width is (x − 1) metres. If x = 5, how much fencing does he need to go all the way around?",
+    "options": [
+     "23 m",
+     "42 m",
+     "50 m",
+     "46 m"
+    ],
+    "answerIndex": 3,
+    "explain": "First build the perimeter: 2(3x + 4) + 2(x − 1) = 8x + 6, then substitute x = 5 to get 46 m. Two traps here are doubling only the length (giving 42 m) and adding just one length and one width (giving 23 m)."
+   },
+   {
+    "curriculumId": "YY.MATH.POLY.SUBTRACT",
+    "level": 3,
+    "question": "Emma writes (6y² − 3y + 5) − (2y² + 4y − 8) = 4y² − 7y − 3, but the correct answer is 4y² − 7y + 13. What mistake did she make?",
+    "options": [
+     "The y² terms were subtracted in the wrong order",
+     "The two middle terms should have been added instead",
+     "The last term −8 kept its sign instead of flipping",
+     "The 6y² should have become −6y² in the first step"
+    ],
+    "answerIndex": 2,
+    "explain": "Subtracting means adding the opposite of every term in the second bracket, so −(−8) becomes +8 and 5 + 8 = 13. Emma flipped the first two signs but left −8 alone, the most common slip in polynomial subtraction."
+   }
+  ]
+ }
+}

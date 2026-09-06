@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.NUM.ROOT.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkjdouqpqgwxo",
+   "level": 1,
+   "question": "本拿比一户人家在后院铺了一块正方形草坪，面积（area）是 64 平方米。这块草坪的边长是多少米？",
+   "options": [
+    "8 米",
+    "16 米",
+    "32 米",
+    "4 米"
+   ],
+   "answerIndex": 0,
+   "explain": "正方形的面积 = 边长×边长，所以边长要对面积开平方（square root）：√64 = 8，因为 8×8 = 64。最常见的坑是把 64 除以 4 得 16——除以 4 是分周长用的，不是求边长。",
+   "tags": [
+    "ok",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqecjsh5",
+   "level": 1,
+   "question": "哥哥的鱼缸是一个正方体，装满水时体积是 216 立方分米。这个鱼缸的棱长是多少分米？",
+   "options": [
+    "约 14.7 分米",
+    "6 分米",
+    "54 分米",
+    "108 分米"
+   ],
+   "answerIndex": 1,
+   "explain": "正方体体积 = 棱长×棱长×棱长，所以棱长要开立方（cube root）：∛216 = 6，因为 6×6×6 = 216。最容易踩的坑是对 216 开平方得约 14.7，那只用了两个相同因数，少乘了一次。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "ok",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqrv7eui",
+   "level": 1,
+   "question": "妹妹的积木收纳盒是正方体形状，容积是 1000 立方厘米。这个收纳盒的棱长是多少厘米？",
+   "options": [
+    "500 厘米",
+    "250 厘米",
+    "10 厘米",
+    "约 31.6 厘米"
+   ],
+   "answerIndex": 2,
+   "explain": "棱长 = ∛1000 = 10 厘米，因为 10×10×10 = 1000。写成约 31.6 的那个是把开立方做成了开平方（√1000 ≈ 31.6），体积必须拆成三个相同的因数。",
+   "tags": [
+    "sq.root_as_half",
+    "root.area_to_side_divide_by_4",
+    "ok",
+    "root.cube_root_as_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqecle9w",
+   "level": 1,
+   "question": "学校门口有一块正方形草地，面积是 144 平方米。要求出它的边长，下面哪个算式是对的？",
+   "options": [
+    "∛144",
+    "144 ÷ 4",
+    "144 ÷ 2",
+    "√144"
+   ],
+   "answerIndex": 3,
+   "explain": "边长 s 满足 s×s = 144，求 s 就要用平方根（square root），所以写成 √144 的那个正确，结果是 12 米。除以 4、除以 2 都不是平方的逆运算；开立方是求正方体棱长时才用。",
+   "tags": [
+    "other",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjdouq4hvkyx",
+   "level": 2,
+   "question": "一个正方形的面积 A = 400 平方厘米，它的边长 s 满足 s × s = 400。s 等于多少？",
+   "options": [
+    "20 厘米",
+    "100 厘米",
+    "200 厘米",
+    "约 7.4 厘米"
+   ],
+   "answerIndex": 0,
+   "explain": "s = √400 = 20 厘米，验算 20×20 = 400。写成 200 的那个是把开平方当成了除以 2，这两件事完全不同：20 的平方才是 400，200 的平方是 40000。",
+   "tags": [
+    "ok",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqtvzfxk",
+   "level": 2,
+   "question": "一个正方体纸盒的体积 V = 512 立方厘米。它的棱长是多少厘米？",
+   "options": [
+    "约 22.6 厘米",
+    "8 厘米",
+    "128 厘米",
+    "256 厘米"
+   ],
+   "answerIndex": 1,
+   "explain": "棱长 = ∛512 = 8 厘米，因为 8×8×8 = 512。写成约 22.6 的那个是把立方根按平方根算了；除以 4、除以 2 更是与立方无关的运算。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "ok",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqn48tsx",
+   "level": 2,
+   "question": "学校一块正方形操场的面积是 225 平方米。沿着操场边缘跑一整圈（周长 perimeter），要跑多少米？",
+   "options": [
+    "15 米",
+    "225 米",
+    "60 米",
+    "450 米"
+   ],
+   "answerIndex": 2,
+   "explain": "先开平方求边长：√225 = 15 米，再乘 4 得周长 15×4 = 60 米。写成 15 的那个只做了第一步就停下了；写成 225 的那个是把面积除以 4 当边长，又把面积当成了一圈的长度。",
+   "tags": [
+    "other",
+    "root.area_to_side_divide_by_4",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkjdouqkewxtl",
+   "level": 3,
+   "question": "某农场有一个正方体的储水箱，装满时正好装 1000 升水。已知 1 升 = 1 立方分米，1 米 = 10 分米。这个水箱的高（也就是棱长）是多少米？",
+   "options": [
+    "50 米",
+    "25 米",
+    "约 3.2 米",
+    "1 米"
+   ],
+   "answerIndex": 3,
+   "explain": "1000 升 = 1000 立方分米，棱长 = ∛1000 = 10 分米 = 1 米。写成约 3.2 的那个是对 1000 开了平方而不是开立方；这类题一定要先统一单位，再判断该开平方还是开立方。",
+   "tags": [
+    "sq.root_as_half",
+    "root.area_to_side_divide_by_4",
+    "root.cube_root_as_square_root",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjdour73t9j9",
+   "level": 3,
+   "question": "一块正方形停车场的面积是 2500 平方米，社区要沿四条边装一圈围栏，每米围栏 12 加元。装完这一圈一共要花多少加元？",
+   "options": [
+    "2400 加元",
+    "60000 加元",
+    "600 加元",
+    "30000 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "边长 = √2500 = 50 米，周长 = 50×4 = 200 米，费用 = 200×12 = 2400 加元。写成 600 的那个只算了一条边的围栏；把 2500 除以 4 或除以 2 当边长会得到大得离谱的答案。",
+   "tags": [
+    "ok",
+    "sq.root_as_half",
+    "other",
+    "root.area_to_side_divide_by_4"
+   ]
+  },
+  {
+   "qid": "qmtkjdourfxvmti",
+   "level": 3,
+   "question": "美琳的正方体储物箱体积是 64 立方分米，她说：棱长就是 8 分米。她的说法对吗？错在哪里？",
+   "options": [
+    "体积 64 应除以 4，棱长是 16 分米，她漏了这步除法。",
+    "体积 64 应开立方，棱长是 4 分米，她按平方根算了。",
+    "她没算错，因为 64 的平方根是 8，棱长就是 8 分米。",
+    "体积 64 应除以 2，棱长是 32 分米，她把它当成了开方。"
+   ],
+   "answerIndex": 1,
+   "explain": "体积是三个相同棱长相乘，所以要开立方：∛64 = 4，验算 4×4×4 = 64；8×8×8 = 512 太大了。说她没错的那个正是最常见的误区——把立方根当成了平方根。",
+   "tags": [
+    "root.area_to_side_divide_by_4",
+    "ok",
+    "other",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkjdour027yar",
+   "level": 3,
+   "question": "素里一所学校要给一块面积 900 平方米的正方形草地围上一圈护栏，学校仓库里已经有 100 米护栏。还需要再买多少米护栏？",
+   "options": [
+    "800 米",
+    "1700 米",
+    "20 米",
+    "120 米"
+   ],
+   "answerIndex": 2,
+   "explain": "边长 = √900 = 30 米，一圈是 30×4 = 120 米，再减去已有的 100 米，还差 20 米。写成 120 的那个忘了减去仓库里已有的部分；把 900 除以 4 当边长会算出 800 米这种完全不合理的结果。",
+   "tags": [
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkob3ah8ig03i",
+   "level": 2,
+   "question": "列治文一家甜品店有一个正方体的保鲜盒，装满时容积（volume）是 4096 立方厘米。这个保鲜盒的棱长是多少厘米？",
+   "options": [
+    "64 厘米",
+    "2048 厘米",
+    "1024 厘米",
+    "16 厘米"
+   ],
+   "answerIndex": 3,
+   "explain": "正方体的棱长 × 棱长 × 棱长 = 体积，所以要开立方根（cube root）：16 × 16 × 16 = 4096，棱长是 16 厘米。最常见的坑是按平方根来算，得到 64（那其实是 64 × 64 = 4096），或者直接把体积除以 2、除以 4。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "sq.root_as_half",
+    "root.area_to_side_divide_by_4",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkob3ahcpvp2y",
+   "level": 2,
+   "question": "高贵林社区新建了一块正方形滑板场地，面积（area）是 576 平方米。这块场地的边长是多少米？",
+   "options": [
+    "24 米",
+    "144 米",
+    "288 米",
+    "26 米"
+   ],
+   "answerIndex": 0,
+   "explain": "正方形的边长 × 边长 = 面积，所以求 576 的平方根（square root）：24 × 24 = 576，边长是 24 米。写 144 的是把面积除以 4，写 288 的是把开平方当成除以 2，都还原不了边长；26 × 26 = 676，也不是 576。",
+   "tags": [
+    "ok",
+    "root.area_to_side_divide_by_4",
+    "sq.root_as_half",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkob3ah1g4rhk",
+   "level": 2,
+   "question": "三角洲一户人家有一块正方形菜园，面积是 484 平方米。爸爸打算把它改建成一块新的正方形苗圃，新苗圃的边长比原来的边长多 3 米。新苗圃的边长是多少米？",
+   "options": [
+    "124 米",
+    "25 米",
+    "22 米",
+    "245 米"
+   ],
+   "answerIndex": 1,
+   "explain": "先由面积开平方求原来的边长：22 × 22 = 484，边长 22 米；再加 3，新边长是 25 米。一个坑是求出 22 就停下、忘了加 3，另一个坑是用 484 ÷ 4 或 484 ÷ 2 当成边长。",
+   "tags": [
+    "root.area_to_side_divide_by_4",
+    "ok",
+    "other",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkob3ahip3tv4",
+   "level": 2,
+   "question": "素里一所小学的操场上有一个正方体沙箱，装满沙子时体积是 1331 立方分米。要求出它的棱长，下面哪种做法是对的？",
+   "options": [
+    "求 1331 的平方根，因为两个相同的边相乘就得到体积",
+    "算 1331 ÷ 2，因为开方（根号 √）就是把数除以 2",
+    "求 1331 的立方根，因为三个相同的棱长相乘等于体积",
+    "算 1331 ÷ 4，因为正方体的每个面都有 4 条棱"
+   ],
+   "answerIndex": 2,
+   "explain": "正方体体积 = 棱长 × 棱长 × 棱长，所以要开立方根（cube root）：11 × 11 × 11 = 1331，棱长 11 分米。说用平方根的那种做法把立方根当成了平方根，除以 2、除以 4 更不是开方，都还原不出棱长。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "sq.root_as_half",
+    "ok",
+    "root.area_to_side_divide_by_4"
+   ]
+  }
+ ]
+}

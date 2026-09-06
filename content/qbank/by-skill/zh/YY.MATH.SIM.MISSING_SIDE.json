@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.SIM.MISSING_SIDE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtn89rafy8qyr4",
+   "level": 1,
+   "question": "一个三角形的三边是 4 cm、6 cm、8 cm。另一个与它相似的三角形（similar triangles）中，与 4 cm 对应的边是 6 cm。那么与 8 cm 对应的边是多少？",
+   "options": [
+    "12 cm",
+    "10 cm",
+    "3 cm",
+    "6 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "先求比例系数（scale factor）：6÷4 = 1.5，再乘上去：8×1.5 = 12 cm。最容易踩的坑是看到 6−4 = 2 就给每条边都加 2 得到 10 cm，放大是乘不是加。",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn89rafg04lby",
+   "level": 1,
+   "question": "三角形 PQR 放大（enlargement）成三角形 STU，比例系数（scale factor）是 3，其中 PQ 与 ST 对应，QR 与 TU 对应。已知 PQ = 6 cm、QR = 8 cm，求 ST 的长度。",
+   "options": [
+    "24 cm",
+    "18 cm",
+    "9 cm",
+    "2 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "ST 与 PQ 对应，所以 ST = 6×3 = 18 cm。坑有三个：拿 QR = 8 去乘得 24 的是对应边配错，写成 6+3 的是把放大当加法，写成 6÷3 的是把比例系数用反了。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn89rafrvwihi",
+   "level": 1,
+   "question": "三角形 DEF 与三角形 XYZ 相似，DE 与 XY 对应，EF 与 YZ 对应，DF 与 XZ 对应。已知 DE = 8 cm、EF = 6 cm、DF = 10 cm、XY = 20 cm，求 YZ 的长度。",
+   "options": [
+    "12 cm",
+    "2.4 cm",
+    "15 cm",
+    "18 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "XY 与 DE 是一对对应边，比例系数 20÷8 = 2.5，所以 YZ = 6×2.5 = 15 cm。坑是拿 DF = 10 去配 XY = 20 得到 12（对应边配错），或把 20−8 = 12 加到 6 上。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair",
+    "ok",
+    "sim.scale_add_not_multiply"
+   ]
+  },
+  {
+   "qid": "qmtn89raff1cn2x",
+   "level": 2,
+   "question": "五边形（polygon）ABCDE 与五边形 FGHIJ 相似，顶点按字母顺序一一对应。已知 AB = 6 cm、BC = 12 cm、CD = 4 cm，FG = 15 cm，求 HI 的长度。",
+   "options": [
+    "1.6 cm",
+    "13 cm",
+    "5 cm",
+    "10 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "AB 与 FG 对应，比例系数 15÷6 = 2.5；HI 与 CD 对应，所以 HI = 4×2.5 = 10 cm。坑是按字母顺序数错、拿 BC = 12 去配 FG，或把 15−6 = 9 直接加到 4 上。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn89rafajmswf",
+   "level": 2,
+   "question": "一个大三角形是由一个小三角形放大 2.5 倍得到的。大三角形的三边是 45 cm、60 cm、75 cm，求小三角形最短的一边。",
+   "options": [
+    "18 cm",
+    "42.5 cm",
+    "24 cm",
+    "112.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "从大边回到小边要除：最短对最短，45÷2.5 = 18 cm。坑是方向搞反又乘一次得 112.5，或者拿 60 这条中等长度的边去算。",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn89raf9hih9z",
+   "level": 2,
+   "question": "一块三角形草地的比例尺图（scale diagram）上，三边量得 4 cm、6 cm、8 cm。已知这块草地实际最短的一边是 10 m，求它实际最长的一边。",
+   "options": [
+    "3.2 m",
+    "20 m",
+    "14 m",
+    "13.3 m"
+   ],
+   "answerIndex": 1,
+   "explain": "图上 4 cm 对应实际 10 m，比例系数 10÷4 = 2.5（每 1 cm 代表 2.5 m），最长边 8×2.5 = 20 m。坑是把 10 m 配到 6 cm 上，或用 10−4 = 6 给每边加 6。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn89rafzor3y8",
+   "level": 2,
+   "question": "三角形 ABC 与三角形 DEF 相似，A、B、C 依次对应 D、E、F。已知 AB = x、BC = 12 cm、DE = 15 cm、EF = 20 cm，求 x 的值。",
+   "options": [
+    "7 cm",
+    "16 cm",
+    "9 cm",
+    "25 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "对应边成比例：x/15 = 12/20，交叉相乘得 20x = 180，x = 9 cm。坑是配成 x/20 = 12/15 得 16（对应边配错），或用 20−12 = 8 从 15 里减掉。",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn89rafwfajxm",
+   "level": 3,
+   "question": "傍晚，学校操场上一名身高 1.6 m 的学生影子长 1.2 m。同一时刻，旗杆的影子长 9 m，旁边一棵树的影子长 4.5 m。人和影子、旗杆和影子组成相似三角形，求旗杆的高度。",
+   "options": [
+    "9.4 m",
+    "6 m",
+    "6.75 m",
+    "12 m"
+   ],
+   "answerIndex": 3,
+   "explain": "先用同一时刻的影子求比例系数：9÷1.2 = 7.5，再算高度 1.6×7.5 = 12 m。坑是拿旗杆去配树的影子 4.5 m（对应边配错），或把比写反算成 1.2×9÷1.6。",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn89raf426gxr",
+   "level": 3,
+   "question": "一面三角形队旗的实际三边是 0.45 m、0.6 m、0.75 m。要画一张比例尺图（scale diagram），图上与 0.6 m 对应的边画成 8 cm。图上最长的一边应该画多少厘米？",
+   "options": [
+    "10 cm",
+    "6.4 cm",
+    "23 cm",
+    "13.3 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "先统一单位：0.6 m = 60 cm、0.75 m = 75 cm；比例系数 8÷60 = 2/15，最长边 75 × 2/15 = 10 cm。坑是米和厘米没对齐就列比例，或用 60−8 = 52 去减。",
+   "tags": [
+    "ok",
+    "prop.cross_multiply_wrong_pair",
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn89rafyo4nac",
+   "level": 3,
+   "question": "阿俊有两个相似三角形：小的三边是 6 cm、8 cm、10 cm，大三角形中与 6 cm 对应的边是 9 cm。他说大三角形另外两边是 11 cm 和 13 cm，因为每条边都加了 3 cm。下面哪一句正确指出了他的问题？",
+   "options": [
+    "他把 9 和 10 当成对应边了，比例系数应是 0.9，另外两边是 5.4 cm 和 7.2 cm",
+    "放大要乘比例系数，不是加：9÷6 = 1.5，另外两边是 12 cm 和 15 cm",
+    "比例系数应该是 9−6 = 3，另外两边是 8×3 = 24 cm 和 10×3 = 30 cm",
+    "他该列 6/9 = x/8 再交叉相乘，另外两边是 5.3 cm 和 6.7 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "相似图形是每条边乘同一个比例系数：9÷6 = 1.5，所以 8×1.5 = 12 cm、10×1.5 = 15 cm。写成每边加 3 cm 的那种做法会改变形状，比例系数也不是 9−6 = 3。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn89rafivwlpz",
+   "level": 3,
+   "question": "学校的三角形菜地三边是 5 m、8 m、10 m。旁边要新建一块与它相似的菜地，新菜地中与 8 m 对应的那条边是 20 m。求新菜地最短的一边。",
+   "options": [
+    "17 m",
+    "2 m",
+    "12.5 m",
+    "10 m"
+   ],
+   "answerIndex": 2,
+   "explain": "用给出的那一对对应边求比例系数：20÷8 = 2.5，再最短对最短：5×2.5 = 12.5 m。坑是把 20 m 配到 10 m 那条边上得 10 m，或用 20−8 = 12 加到 5 上。",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair",
+    "ok",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn9qlq5wpkpda",
+   "level": 1,
+   "question": "三角形 ABC 与三角形 KLM 相似（similar triangles），AB 与 KL 对应，BC 与 LM 对应。已知 AB = 6 cm、BC = 12 cm、KL = 18 cm，求 LM 的长度。",
+   "options": [
+    "9 cm",
+    "4 cm",
+    "24 cm",
+    "36 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "AB 与 KL 是对应边（corresponding sides），比例系数（scale factor）= 18 ÷ 6 = 3，所以 LM = 12 × 3 = 36 cm。常见坑：把 18 和 12 当成一对算出 9 cm，那是对应边配错了。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair",
+    "sim.scale_add_not_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn9qlq5himpfz",
+   "level": 1,
+   "question": "三角形 RST 按比例系数（scale factor）0.5 缩小（reduction）成三角形 XYZ，RS 与 XY 对应，ST 与 YZ 对应。已知 RS = 14 cm、ST = 22 cm，求 YZ 的长度。",
+   "options": [
+    "11 cm",
+    "7 cm",
+    "15 cm",
+    "44 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "比例系数 0.5 表示每条边都乘 0.5，YZ 对应 ST，所以 YZ = 22 × 0.5 = 11 cm。常见坑：写成 22 ÷ 0.5 = 44 cm 的那个把方向弄反了，缩小是乘 0.5 不是除。",
+   "tags": [
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn9qlq57skbu4",
+   "level": 1,
+   "question": "三角形 ABC 与三角形 DEF 相似，A、B、C 依次对应 D、E、F。已知 AB = 10 cm、BC = 16 cm、CA = 14 cm，DE = 20 cm，求 FD 的长度。",
+   "options": [
+    "24 cm",
+    "28 cm",
+    "32 cm",
+    "7 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "DE 对应 AB，比例系数 = 20 ÷ 10 = 2；FD 对应 CA = 14 cm，所以 FD = 14 × 2 = 28 cm。常见坑：写成 14 + 10 = 24 cm 的那个是把放大当成每边加同一个长度，相似形要乘比例系数。",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn9qlq5vbx5mp",
+   "level": 1,
+   "question": "一张三角形贴纸的两条边分别是 8 cm 和 6 cm。把它放大（enlargement）成一个相似三角形后，原来 8 cm 的那条边变成了 12 cm。原来 6 cm 的那条边放大后是多少？",
+   "options": [
+    "16 cm",
+    "10 cm",
+    "9 cm",
+    "4 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "先求比例系数：12 ÷ 8 = 1.5，再把它乘到另一条对应边上，6 × 1.5 = 9 cm。常见坑：写成 6 + 4 = 10 cm 的那个是每条边加同一个长度，放大必须乘比例系数（是积不是和）。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  }
+ ]
+}

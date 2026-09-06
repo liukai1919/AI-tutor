@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LINEQ.WORD",
+ "lang": "en",
+ "title": "Write and solve multi-step equations from situations (when two phone plans cost the same, consecutive numbers, a perimeter given as an expression)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "When Two Plans Cost the Same: Multi-Step Equations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a story into a two-step equation, like a temperature of five degrees falling three degrees each hour to reach minus thirteen. Today we go one step further: situations where the variable shows up on both sides, like asking when two phone plans cost exactly the same.",
+    "math": "",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "Plan A cost",
+      "Plan B cost"
+     ],
+     "caption": "Same cost means the two sides balance"
+    }
+   },
+   {
+    "say": "Here is the situation. Plan A costs twenty five dollars a month plus five dollars for every gigabyte of data. Plan B costs forty dollars a month plus two dollars per gigabyte. Every plan has a fixed part that never changes, and a rate part that gets multiplied by the variable. Let g be the gigabytes. Plan A is twenty five plus five g. Plan B is forty plus two g. The words 'cost the same' are the equals sign.",
+    "math": "25 + 5g = 40 + 2g",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      50,
+      50
+     ],
+     "labels": [
+      "25 + 5g",
+      "40 + 2g"
+     ],
+     "caption": "Left pan is Plan A, right pan is Plan B, perfectly balanced"
+    }
+   },
+   {
+    "say": "Now solve it. Get the g terms together first: subtract two g from both sides, leaving twenty five plus three g equals forty. Subtract twenty five from both sides: three g equals fifteen. Divide both sides by three: g equals five. Check it like you learned: Plan A is twenty five plus five times five, which is fifty dollars. Plan B is forty plus two times five, also fifty dollars. Both sides match, so at five gigabytes the plans cost the same.",
+    "math": "25 + 5g = 40 + 2g \\;\\Rightarrow\\; 3g = 15 \\;\\Rightarrow\\; g = 5",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      50,
+      50
+     ],
+     "labels": [
+      "Plan A at 5 GB",
+      "Plan B at 5 GB"
+     ],
+     "caption": "Both plans cost 50 dollars when g equals 5"
+    }
+   },
+   {
+    "say": "Here is a mistake I see a lot. Someone reads five g as five plus g, so they write twenty five plus five plus g equals forty plus two plus g. That simplifies to thirty plus g equals forty two plus g, and the g cancels, leaving thirty equals forty two, which is impossible. The problem is the coefficient. The five in five g is a multiplier: five dollars for EACH gigabyte, so it must be five times g, not five plus g. Also watch that you do not scale the fixed part. The twenty five is paid once, not once per gigabyte.",
+    "math": "5g \\neq 5 + g",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      35,
+      47
+     ],
+     "labels": [
+      "30 + g",
+      "42 + g"
+     ],
+     "caption": "The wrong setup never balances, a clue the equation is off"
+    }
+   },
+   {
+    "say": "Same idea with a shape. A rectangle has width w metres and its length is two w plus three. Its perimeter is thirty six metres. Perimeter is two lengths plus two widths, so two times the quantity two w plus three, plus two w, equals thirty six. Expand: four w plus six plus two w is six w plus six. Subtract six: six w equals thirty. Divide: w equals five. Now here is the trap. If the question asked for the LENGTH, do not stop at w equals five. Length is two times five plus three, which is thirteen metres. Check: two times thirteen plus two times five is twenty six plus ten, thirty six. It works.",
+    "math": "2(2w+3) + 2w = 36 \\;\\Rightarrow\\; 6w + 6 = 36 \\;\\Rightarrow\\; w = 5",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      13,
+      5
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Width 5 m and length 2(5)+3 = 13 m give perimeter 36 m"
+    }
+   },
+   {
+    "say": "So the recipe is: name the variable, write each side as fixed part plus rate times variable, put an equals sign where the story says 'same', solve step by step, check both sides, and then make sure your final number answers the question that was actually asked.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Fixed part + rate × variable on each side, set them equal, solve, then answer the real question.",
+  "practice": {
+   "question": "Two kayak rental shops on Okanagan Lake: Shop A charges a fifteen dollar flat fee plus eight dollars per hour. Shop B charges a twenty seven dollar flat fee plus five dollars per hour. After how many hours do the two shops cost the same, and what is that cost?",
+   "answer": "15 + 8h = 27 + 5h, so 3h = 12 and h = 4 hours. The cost is 15 + 8(4) = 47 dollars, and 27 + 5(4) = 47 dollars too."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DATA.MEAN",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkr8wmsuudk61",
+   "level": 1,
+   "question": "三个玻璃罐里分别装着 5 颗、8 颗、11 颗弹珠。把它们全部倒在一起，再平均分回这三个罐子里（匀一匀），每个罐子里有多少颗弹珠？",
+   "options": [
+    "每罐 8 颗",
+    "每罐 24 颗",
+    "每罐 12 颗",
+    "每罐 6 颗"
+   ],
+   "answerIndex": 0,
+   "explain": "平均数（mean）就是把总数匀开：先求总和 5+8+11=24，再除以罐子个数 3，24 ÷ 3 = 8。最容易踩的坑是把总和 24 直接当成答案，总和还要再除以份数才是每份的量。",
+   "tags": [
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wms1ho7ms",
+   "level": 1,
+   "question": "四位同学收集贴纸，张数分别是 8、9、10、9。平均每人有多少张贴纸？",
+   "options": [
+    "12 张",
+    "9 张",
+    "36 张",
+    "7.2 张"
+   ],
+   "answerIndex": 1,
+   "explain": "总和 8+9+10+9=36，人数是 4 人，36 ÷ 4 = 9 张。写 36 的那个是把总和当成了平均数；除以 3 或除以 5 都是把人数数错了，几个数据就除以几。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmslwkz5g",
+   "level": 1,
+   "question": "四个盘子上分别放着 3 块、4 块、4 块、7 块饼干。把饼干全部收起来，再平均分回这 4 个盘子，每个盘子上有多少块？",
+   "options": [
+    "每盘 6 块",
+    "每盘 18 块",
+    "每盘 4.5 块",
+    "每盘 3.6 块"
+   ],
+   "answerIndex": 2,
+   "explain": "总和 3+4+4+7=18，盘子有 4 个，18 ÷ 4 = 4.5 块。平均数可以是小数（decimal），不用凑成整数；写 18 的那个只算了总和，还没有匀开。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.total_as_mean",
+    "ok",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmso0a9ea",
+   "level": 1,
+   "question": "小杰连续 5 天读书，每天读的页数是 12、15、18、20、25。平均每天读多少页？",
+   "options": [
+    "22.5 页",
+    "15 页",
+    "90 页",
+    "18 页"
+   ],
+   "answerIndex": 3,
+   "explain": "总和 12+15+18+20+25=90，天数是 5 天，90 ÷ 5 = 18 页。算成 22.5 的那个是只除以 4，漏数了一天；数据有几个就必须除以几。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "mean.total_as_mean",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmssp8i3w",
+   "level": 2,
+   "question": "Kelowna 连续 5 天的最高气温是 18 °C、21 °C、19 °C、24 °C、23 °C。这 5 天最高气温的平均数是多少？",
+   "options": [
+    "21 °C",
+    "105 °C",
+    "17.5 °C",
+    "26.25 °C"
+   ],
+   "answerIndex": 0,
+   "explain": "先加：18+21+19+24+23=105，再除以天数 5，105 ÷ 5 = 21 °C。写 105 的那个把总和当成了平均气温；平均数一定落在最小值和最大值之间，105 明显不合理。",
+   "tags": [
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmsidm62w",
+   "level": 2,
+   "question": "周末摆柠檬水摊，4 天的收入分别是 12.50 加元、9.75 加元、14.25 加元、11.50 加元。平均每天收入多少加元？",
+   "options": [
+    "16.00 加元",
+    "12.00 加元",
+    "48.00 加元",
+    "9.60 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "总收入 12.50+9.75+14.25+11.50=48.00 加元，摆了 4 天，48.00 ÷ 4 = 12.00 加元。算成 16.00 的那个只除以 3，把天数数少了一天。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wms6n6owf",
+   "level": 2,
+   "question": "一组数据是 5.5、6.5、7.0、8.0、7.5、7.5。求这组数据的平均数。",
+   "options": [
+    "8.4",
+    "42",
+    "7",
+    "6"
+   ],
+   "answerIndex": 2,
+   "explain": "总和 5.5+6.5+7.0+8.0+7.5+7.5=42，一共有 6 个数，42 ÷ 6 = 7。写 42 的那个停在了总和这一步；8.4 是除以 5、6 是除以 7，都把数据个数数错了。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.total_as_mean",
+    "ok",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmsyelorp",
+   "level": 2,
+   "question": "小美在 Stanley Park 连续跑了 4 天，路程分别是 2.4 km、3.6 km、3.0 km、4.2 km。平均每天跑多少 km？",
+   "options": [
+    "4.4 km",
+    "2.64 km",
+    "13.2 km",
+    "3.3 km"
+   ],
+   "answerIndex": 3,
+   "explain": "总路程 2.4+3.6+3.0+4.2=13.2 km，跑了 4 天，13.2 ÷ 4 = 3.3 km。写 13.2 的那个是把总路程当成了每天的平均路程，总数还要再除以天数。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "mean.total_as_mean",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmsxjmyvo",
+   "level": 3,
+   "question": "学校旧纸回收活动有 5 个班级参加：其中 3 个班各回收了 14 kg 纸，另外 2 个班各回收了 12 kg 纸。平均每个班回收多少 kg 纸？",
+   "options": [
+    "13.2 kg",
+    "66 kg",
+    "11 kg",
+    "16.5 kg"
+   ],
+   "answerIndex": 0,
+   "explain": "先求总量：3 × 14 = 42，2 × 12 = 24，一共 66 kg；再除以班级数 5，66 ÷ 5 = 13.2 kg。算成 16.5 的那个只除以 4，班级数要数全部 5 个班。",
+   "tags": [
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmsftbagq",
+   "level": 3,
+   "question": "社区中心搞冬衣捐赠：周一到周四一共收到 66 件衣服，周五当天又收到 24 件。周一到周五这 5 天，平均每天收到多少件衣服？",
+   "options": [
+    "22.5 件",
+    "18 件",
+    "90 件",
+    "15 件"
+   ],
+   "answerIndex": 1,
+   "explain": "先把总数补齐：66 + 24 = 90 件，再除以天数 5，90 ÷ 5 = 18 件。算成 22.5 的那个只除以 4，忘了周五也是一天；先确定天数再除，是这类题最关键的一步。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.total_as_mean",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmscke6u0",
+   "level": 3,
+   "question": "球队本学期打了 7 场比赛，小雨上场了其中 6 场，得分依次是 18、0、22、14、12、18，合计 84 分。她说：我平均每场 16.8 分，因为得 0 分那场不能算。她的算法对吗？正确结果应该是多少？",
+   "options": [
+    "12 分，因为球队全部 7 场都该算进去：84 ÷ 7",
+    "16.8 分，因为 0 分那场不算成绩，只用 5 场：84 ÷ 5",
+    "14 分，因为 0 分那场也是一场成绩，场数算 6：84 ÷ 6",
+    "84 分，因为 6 场得分加起来就是她的平均分"
+   ],
+   "answerIndex": 2,
+   "explain": "得 0 分也是一场真实成绩，必须算进场数：84 ÷ 6 = 14 分。写 16.8 的那个把 0 从场数里删掉了，写 12 的那个把她没上场的比赛也算了进去——数据有几个就除以几。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.total_as_mean"
+   ]
+  },
+  {
+   "qid": "qmtkr8wmspuygbw",
+   "level": 3,
+   "question": "一家人去 Manning Park 露营徒步 4 天：前 3 天每天走 5.4 km，第 4 天走了 9.0 km。这 4 天平均每天走多少 km？",
+   "options": [
+    "8.4 km",
+    "5.04 km",
+    "25.2 km",
+    "6.3 km"
+   ],
+   "answerIndex": 3,
+   "explain": "先算总路程：3 × 5.4 = 16.2，16.2 + 9.0 = 25.2 km；再除以 4 天，25.2 ÷ 4 = 6.3 km。算成 8.4 的那个只除以 3，把第 4 天漏掉了；写 25.2 的那个停在总路程没有匀开。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "mean.total_as_mean",
+    "ok"
+   ]
+  }
+ ]
+}

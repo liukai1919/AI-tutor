@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkq4b3x8wiqcf",
+   "level": 1,
+   "question": "Picture a right triangle in your head: it has one square corner, and the two sides that meet at that square corner are called the legs. Here one leg is 3 cm long and the other leg is 4 cm long. The hypotenuse is the side directly across from the square corner. How long is the hypotenuse?",
+   "options": [
+    "5 cm",
+    "25 cm",
+    "7 cm",
+    "12.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Square both legs and add: 3² + 4² = 9 + 16 = 25, then take the square root, so the hypotenuse is 5 cm. The usual trap is stopping at 25 — that is c², not c.",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xfyt4ee",
+   "level": 1,
+   "question": "A right triangle is made of three sides: two legs that meet at the square corner, and the hypotenuse across from it. In this triangle one leg measures 6 m and the other leg measures 8 m. Find the length of the hypotenuse.",
+   "options": [
+    "100 m",
+    "10 m",
+    "14 m",
+    "50 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Use a² + b² = c²: 6² + 8² = 36 + 64 = 100, and √100 = 10 m. Adding the legs to get 14 is wrong — the theorem adds the squares, not the sides.",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xjoyuvd",
+   "level": 1,
+   "question": "In a right triangle the square corner is formed by the two legs. One of these legs is 9 mm long and the other leg is 12 mm long. The third side, the hypotenuse, is the longest side and sits opposite the square corner. What is its length?",
+   "options": [
+    "225 mm",
+    "21 mm",
+    "15 mm",
+    "112.5 mm"
+   ],
+   "answerIndex": 2,
+   "explain": "9² + 12² = 81 + 144 = 225, and √225 = 15 mm, which is a Pythagorean triple (9, 12, 15). A square root is not a halving — √225 is 15, not 112.5.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xg9l932",
+   "level": 1,
+   "question": "A right triangle has its square corner where the two legs meet. One leg is 2 cm and the other leg is 6 cm. The hypotenuse lies opposite the square corner. How long is the hypotenuse, rounded to one decimal place?",
+   "options": [
+    "40 cm",
+    "8 cm",
+    "20 cm",
+    "6.3 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "2² + 6² = 4 + 36 = 40, so c = √40, which sits between √36 = 6 and √49 = 7 and works out to 6.3 cm. Remember that 40 is only c² — you still owe the square root.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xvabqlx",
+   "level": 2,
+   "question": "In a right triangle the two legs are a = 7 and b = 24. Find the hypotenuse c.",
+   "options": [
+    "c = 25",
+    "c = 31",
+    "c = 625",
+    "c = 312.5"
+   ],
+   "answerIndex": 0,
+   "explain": "c² = 7² + 24² = 49 + 576 = 625, so c = √625 = 25 (the triple 7, 24, 25). Writing c = 625 forgets the final square-root step.",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xedtzou",
+   "level": 2,
+   "question": "During PE at a Burnaby school, Jayden runs 16 m straight along the sideline, then turns a square corner and runs 12 m straight to the goal post. How far is the goal post from his starting spot in a straight line?",
+   "options": [
+    "28 m",
+    "20 m",
+    "400 m",
+    "200 m"
+   ],
+   "answerIndex": 1,
+   "explain": "His two runs are the legs, so c² = 16² + 12² = 256 + 144 = 400 and c = √400 = 20 m. Running 16 + 12 = 28 m is the distance he ran, not the straight-line distance.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.forget_square_root",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xwnmfpc",
+   "level": 2,
+   "question": "A right triangle has legs of 5 cm and 9 cm. What is the length of the hypotenuse, to one decimal place?",
+   "options": [
+    "106 cm",
+    "14 cm",
+    "10.3 cm",
+    "53 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "5² + 9² = 25 + 81 = 106, so c = √106; since 10² = 100 and 10.3² ≈ 106.09, the answer is 10.3 cm. The trap is answering 106, which is c² rather than c.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xcj087t",
+   "level": 2,
+   "question": "A right triangle has legs of 10 cm and 24 cm. Which calculation correctly gives the length of the hypotenuse?",
+   "options": [
+    "10² + 24², with no root taken",
+    "(10² + 24²) ÷ 2, then halved",
+    "10 + 24, the two legs added",
+    "√(10² + 24²), then rounded"
+   ],
+   "answerIndex": 3,
+   "explain": "The theorem gives c² = a² + b², so c itself is √(10² + 24²) = √676 = 26 cm. Stopping at 10² + 24² leaves you with c², and halving is not the same as square-rooting.",
+   "tags": [
+    "pyth.forget_square_root",
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xwchn1a",
+   "level": 3,
+   "question": "A rectangular tarp covers a woodpile in a Prince George backyard. Its long side measures 24 m and its short side is half as long as the long side. A rope is pulled tight from one corner of the tarp straight across to the opposite corner. How long is that rope, to one decimal place?",
+   "options": [
+    "26.8 m",
+    "720 m",
+    "36 m",
+    "360 m"
+   ],
+   "answerIndex": 0,
+   "explain": "First halve 24 to get the short side, 12 m; then c² = 12² + 24² = 144 + 576 = 720, so c = √720 ≈ 26.8 m. Answering 720 stops at c² instead of taking the square root.",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_sides_not_squares",
+    "sq.root_as_half"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3xo7vh9b",
+   "level": 3,
+   "question": "Amara leaves the school door and walks 8 m east to the bench, then 12 m further east to the flagpole. From the flagpole she turns a square corner and walks 15 m due north to the bike rack. How far is the bike rack from the school door in a straight line?",
+   "options": [
+    "625 m",
+    "25 m",
+    "312.5 m",
+    "35 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Combine the eastward walks first: 8 + 12 = 20 m, so the legs are 20 m and 15 m, giving c² = 400 + 225 = 625 and c = 25 m. Adding 20 + 15 = 35 mixes up adding the sides with adding their squares.",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3x8rb56r",
+   "level": 3,
+   "question": "Noah needs the hypotenuse of a right triangle whose legs are 9 cm and 40 cm. He writes c² = 81 + 1600 = 1681, and then answers that the hypotenuse is 1681 cm. What went wrong?",
+   "options": [
+    "Nothing; c² is the hypotenuse, so 1681 cm is right.",
+    "He forgot the root; √1681 means 1681 ÷ 2 = 840.5 cm.",
+    "He forgot the square root; it should be 41 cm.",
+    "He squared when he should add: 9 + 40 = 49 cm."
+   ],
+   "answerIndex": 2,
+   "explain": "His squaring and adding are correct, but 1681 is c², so he still has to take the square root: √1681 = 41 cm. A square root is not a halving, and the legs themselves are never simply added.",
+   "tags": [
+    "pyth.forget_square_root",
+    "sq.root_as_half",
+    "ok",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq4b3x0s9zup",
+   "level": 3,
+   "question": "A rectangular garden bed at a Surrey school measures 3 m by 5 m. A hose is laid along one whole 3 m side, and then pulled straight across the bed from that corner to the far opposite corner. How much hose is used altogether, to one decimal place?",
+   "options": [
+    "20 m",
+    "11 m",
+    "37 m",
+    "8.8 m"
+   ],
+   "answerIndex": 3,
+   "explain": "The straight run across the bed is the hypotenuse: √(3² + 5²) = √34 ≈ 5.8 m, and adding the 3 m side gives 8.8 m. Stopping at 34 uses c² instead of c, which makes the hose far too long.",
+   "tags": [
+    "sq.root_as_half",
+    "pyth.add_sides_not_squares",
+    "pyth.forget_square_root",
+    "ok"
+   ]
+  }
+ ]
+}

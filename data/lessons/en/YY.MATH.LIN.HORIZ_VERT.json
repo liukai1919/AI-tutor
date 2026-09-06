@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.HORIZ_VERT",
+ "lang": "en",
+ "title": "Recognize and graph horizontal and vertical lines (y = 3, x = −2) and explain why their equations have only one variable",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Flat Lines and Straight-Up Lines: y = 3 and x = −2",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a two-variable equation like y equals two x plus one, build a table of values, and graph the line. Today we look at two special equations that seem to be missing a variable: y equals three, and x equals negative two. They still make lines, and once you see why, you will never mix them up.",
+    "math": "y=3 \\quad\\text{and}\\quad x=-2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think about y equals three like this: the rule says 'the y value is three, no matter what.' So x is free to be anything. Let's make a quick table. If x is negative four, y is three. If x is zero, y is three. If x is two, y is three. If x is five, y is three. Plot those four points: negative four comma three, zero comma three, two comma three, and five comma three. They all sit at height three, so the line is flat, going left to right. That is a horizontal line.",
+    "math": "(-4,3),\\ (0,3),\\ (2,3),\\ (5,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      3,
+      0,
+      3,
+      2,
+      3,
+      5,
+      3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "caption": "Every point has y = 3, so they line up flat at height 3"
+    }
+   },
+   {
+    "say": "Now x equals negative two. This rule says 'the x value is negative two, no matter what,' so y is free. Table time: x is negative two and y is negative three. x is negative two and y is zero. x is negative two and y is two. x is negative two and y is four. Plot negative two comma negative three, negative two comma zero, negative two comma two, and negative two comma four. They all sit two steps left of the origin, stacked straight up and down. That is a vertical line.",
+    "math": "(-2,-3),\\ (-2,0),\\ (-2,2),\\ (-2,4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -2,
+      -3,
+      -2,
+      0,
+      -2,
+      2,
+      -2,
+      4
+     ],
+     "labels": [
+      "P",
+      "Q",
+      "R",
+      "S"
+     ],
+     "caption": "Every point has x = −2, so they stack straight up and down"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes once: drawing y equals three as a vertical line. It feels like the y axis goes up and down, so y equals three should go up and down too. But test one point. A vertical line through three on the x axis contains the point three comma zero, and three comma five. Those points have x equals three, not y equals three. The point with y equals three on that line? Only three comma three. So a vertical line is wrong. The same trap works in reverse: x equals negative two is not a flat line at height negative two. Here is the memory trick. Ask 'which coordinate is locked?' If y is locked, you move sideways, so it is horizontal. If x is locked, you move up and down, so it is vertical.",
+    "math": "y=3:\\ y\\text{ locked} \\Rightarrow \\text{horizontal}\\qquad x=-2:\\ x\\text{ locked} \\Rightarrow \\text{vertical}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      0,
+      3,
+      5,
+      3,
+      3
+     ],
+     "labels": [
+      "(3,0)",
+      "(3,5)",
+      "(3,3)"
+     ],
+     "caption": "A vertical line through x = 3: only ONE of these points has y = 3, so it is not the line y = 3"
+    }
+   },
+   {
+    "say": "So why does the equation have only one variable? Picture a Skytrain at the Waterfront platform. Its height above sea level is fixed, like y equals three, while it rolls left and right along the track. Height is locked, position along the track is free, so we only need to write down the locked thing. The other variable is still there, hiding, because it can be any value at all. A quick way to see it: y equals three is really zero times x plus three. The coefficient of x is zero, so x does not change y, and we just do not bother writing it.",
+    "math": "y = 0\\cdot x + 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -6,
+      6,
+      -6,
+      6
+     ],
+     "labels": [
+      "3"
+     ],
+     "caption": "y = 0x + 3: the slope is zero, so the line stays flat at height 3"
+    }
+   },
+   {
+    "say": "Takeaway. The variable in the equation is the one that is locked. y equals a number is a horizontal line at that height. x equals a number is a vertical line at that spot on the x axis. When in doubt, plot two points from a tiny table and let the dots tell you.",
+    "math": "y=k \\ \\text{horizontal},\\qquad x=k \\ \\text{vertical}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "y = a number is a horizontal line; x = a number is a vertical line. The variable written is the one that is locked.",
+  "practice": {
+   "question": "Your phone plan charges a flat five dollars per week no matter how many gigabytes you use, so the graph of cost y against data x is the line y equals five. On grid paper, plot three points on this line: use x values of zero, two, and six. Is the line horizontal or vertical? Then draw x equals four on the same grid, and name the single point where the two lines cross.",
+   "answer": "The points are (0, 5), (2, 5), and (6, 5), so y = 5 is a horizontal line at height 5. The line x = 4 is vertical, and the two lines cross at (4, 5)."
+  }
+ }
+}

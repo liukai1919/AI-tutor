@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.STAT.CRITIQUE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn8oxygcf1k98",
+   "level": 1,
+   "question": "A Surrey school has 900 students. The student council asks 30 students, all from the hockey team, whether the school should build a new rink. 28 of the 30 say yes, and the council reports that 93% of students want a rink. What is the fairest critique of this claim?",
+   "options": [
+    "Only hockey players answered, not the wider student body.",
+    "The 93% is trustworthy, since a percent cannot mislead.",
+    "Asking 300 hockey players instead of 30 would remove bias.",
+    "The mean number of yes votes is high, so the claim holds."
+   ],
+   "answerIndex": 0,
+   "explain": "A sample has to look like the whole population; 30 hockey players cannot speak for 900 students, so the claim is biased. The common trap is thinking a bigger biased sample fixes it — 300 hockey players are still all hockey players.",
+   "tags": [
+    "ok",
+    "stat.percent_without_base",
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygk5o282",
+   "level": 1,
+   "question": "A town near Kelowna has 4 800 households. A health worker tests the tap water in 60 of those households and records the lead level in each one. In this study, which group is the sample?",
+   "options": [
+    "The 4 800 households, since a bigger group has no bias.",
+    "The 60 households that had their tap water tested.",
+    "The mean lead level found across the tested homes.",
+    "The percent of tests that passed, with no total given."
+   ],
+   "answerIndex": 1,
+   "explain": "The population is everyone you want to know about (all 4 800 households); the sample is the smaller group actually measured, here the 60 tested homes. Students often name the biggest group as the sample because they think bigger always means better data.",
+   "tags": [
+    "stat.large_sample_removes_bias",
+    "ok",
+    "central.mean_always_best",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygdxnvu3",
+   "level": 1,
+   "question": "A First Nations community tests the lead level in 7 homes and gets these readings in micrograms per litre: 1, 1, 2, 2, 3, 3, and 40. The 40 comes from one home with very old pipes. Which number best describes a typical home?",
+   "options": [
+    "The mean, about 7.4, since the mean is always best.",
+    "Testing 700 homes, since a big sample cancels the 40.",
+    "The median, 2, because one reading of 40 is extreme.",
+    "The percent of homes under 5, with no total reported."
+   ],
+   "answerIndex": 2,
+   "explain": "One extreme value drags the mean far above most of the data (52 ÷ 7 ≈ 7.4, higher than six of the seven homes), so the median of 2 describes a typical home better. The trap is reaching for the mean by habit whenever an outlier is present.",
+   "tags": [
+    "central.mean_always_best",
+    "stat.large_sample_removes_bias",
+    "ok",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygfanyf9",
+   "level": 1,
+   "question": "A news post about a small BC town says: Boil-water advisories are up 200% this year! Records show the town had 1 advisory last year and 3 advisories this year. What would make the post fairer?",
+   "options": [
+    "The 200% is fine, because a percent shows the real size.",
+    "Asking 1 000 residents instead would remove all the bias.",
+    "The mean of the two years, 2 advisories, is best here.",
+    "The counts belong in the post: 1 advisory rose to 3."
+   ],
+   "answerIndex": 3,
+   "explain": "A percent means nothing until you know what it is a percent of: going from 1 to 3 really is +200%, but it is only 2 more advisories. Always ask for the base counts behind a big-sounding percent.",
+   "tags": [
+    "stat.percent_without_base",
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygw08h1f",
+   "level": 2,
+   "question": "A national survey about household water costs can only be filled in online. In the region being studied, about 1 in 5 homes has no home internet. Which change would make the sample fairer?",
+   "options": [
+    "Add phone and door-to-door surveys so offline homes count.",
+    "Keep the online form but collect 5 000 replies, not 500.",
+    "Report the mean age of the people who replied online.",
+    "Report the share who replied as a percent, with no total."
+   ],
+   "answerIndex": 0,
+   "explain": "When one part of the population cannot even reach the survey, the sample is biased no matter how many replies come in — the fix is to open other ways to answer. Collecting ten times more online replies just collects more of the same missing group.",
+   "tags": [
+    "ok",
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygfy96lq",
+   "level": 2,
+   "question": "A school of 800 students wants to know if students would use a new water-bottle filling station. Which plan collects the fairest sample?",
+   "options": [
+    "Ask the 40 swim-team members and report their mean rating.",
+    "Ask every 10th student on the school's list of all 800.",
+    "Ask 400 students standing in the cafeteria line at lunch.",
+    "Ask 40 students, then report that 75% agree, with no total."
+   ],
+   "answerIndex": 1,
+   "explain": "Choosing every 10th name from a list of all 800 gives every student the same chance of being picked, so the sample mirrors the population. Grabbing whoever is standing in one place is convenient but biased, even when the group is large.",
+   "tags": [
+    "central.mean_always_best",
+    "ok",
+    "stat.large_sample_removes_bias",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygwsv9t0",
+   "level": 2,
+   "question": "A headline reads: Long-term drinking water advisories in Canada are down 60% since 2015. A student checks the source and finds there were 105 advisories in 2015 and 42 now. Which follow-up question most improves the report?",
+   "options": [
+    "The 60% alone tells the whole story, so nothing is missing.",
+    "Whether 1 000 communities were counted, which removes bias.",
+    "How many communities still have an advisory right now?",
+    "The mean of the two totals, 105 and 42, is the key number."
+   ],
+   "answerIndex": 2,
+   "explain": "The 60% is correctly calculated (105 down to 42), but a percent change hides the size of the problem that is left — 42 communities still have no safe tap water. Always pair a percent with the counts it came from.",
+   "tags": [
+    "stat.percent_without_base",
+    "stat.large_sample_removes_bias",
+    "ok",
+    "central.mean_always_best"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygn9cimf",
+   "level": 2,
+   "question": "Outside one Vancouver store, a reporter asks 12 shoppers which water bottle they prefer, and 9 choose the new one. The article says: 75% prefer the new bottle — a huge majority of Vancouver. What is the fairest way to report this?",
+   "options": [
+    "Keep the 75% and drop the 9 of 12, since a percent is clearer.",
+    "Report the mean number of bottles the 12 shoppers bought.",
+    "Keep the single store but poll 1 200 shoppers to end bias.",
+    "Say 9 of 12 shoppers at one store, not all of Vancouver."
+   ],
+   "answerIndex": 3,
+   "explain": "9 out of 12 really is 75%, but the base is tiny and comes from one location, so the sample cannot describe a whole city — report the raw counts and where they came from. A percent with a hidden base makes 12 people sound like a city.",
+   "tags": [
+    "stat.percent_without_base",
+    "central.mean_always_best",
+    "stat.large_sample_removes_bias",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8oxyg6od6nh",
+   "level": 3,
+   "question": "A community has 120 homes. A pamphlet reports that 20 homes were tested for water quality, 4 failed, and therefore 80% of homes are safe. A student finds that the 20 tested homes are the 20 newest ones, all built on the new water line. What is the strongest critique?",
+   "options": [
+    "The 80% comes only from the 20 newest homes, not all 120.",
+    "Testing 1 000 homes nearby would make the 80% unbiased.",
+    "The mean number of failures per home is the better report.",
+    "The 80% is a percent, so it already tells the full story."
+   ],
+   "answerIndex": 0,
+   "explain": "16 of 20 passing does give 80%, but the 20 homes were chosen in a way that favours good results, so that percent cannot be stretched to all 120 homes. Correct arithmetic on a biased sample still gives a biased conclusion.",
+   "tags": [
+    "ok",
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygfnkmci",
+   "level": 3,
+   "question": "Priya measures the depth of 5 test wells in metres: 6, 7, 8, 9, and 30. The 30 m well was drilled through rock on a hillside. She says: The mean is 12 m, so a new well here should be about 12 m deep. What is wrong with her reasoning?",
+   "options": [
+    "Nothing is wrong, because the mean always describes typical data.",
+    "The 30 m well pulls the mean up, so the median 8 m fits better.",
+    "She should give a percent, because percents describe data best.",
+    "She should test 50 wells, because a big sample fixes the 30 m well."
+   ],
+   "answerIndex": 1,
+   "explain": "The mean of 12 m is deeper than four of the five wells because the 30 m hillside well drags it up; the median of 8 m sits in the middle of the real data. Check for an extreme value before trusting a mean.",
+   "tags": [
+    "central.mean_always_best",
+    "ok",
+    "stat.percent_without_base",
+    "stat.large_sample_removes_bias"
+   ]
+  },
+  {
+   "qid": "qmtn8oxygz2m4y0",
+   "level": 3,
+   "question": "A student wants to know how many people in her Nanaimo neighbourhood of 600 residents drink tap water. She stands outside a bottled-water store on Saturday, asks 150 customers, and reports that 30% drink tap water. Which plan best fixes the problem with her data?",
+   "options": [
+    "Ask 500 people at that same store, since size removes bias.",
+    "Report the mean number of bottles each person buys weekly.",
+    "Knock on a randomly chosen 60 homes in the neighbourhood.",
+    "Report that 30% say tap and leave out how many were asked."
+   ],
+   "answerIndex": 2,
+   "explain": "People leaving a bottled-water store are more likely than average to avoid tap water, so the location itself biases the result; randomly chosen homes give every resident a fair chance of being picked. A larger sample from the same doorway only repeats the same bias.",
+   "tags": [
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best",
+    "ok",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn9t4e7b1nqib",
+   "level": 3,
+   "question": "A First Nations community of 240 homes offers free lead testing for tap water. 80 homes sign up — mostly homes where the water has tasted odd — and 24 of those 80 fail the test. The band office is writing a newsletter about the results. Which is the fairest way to report them?",
+   "options": [
+    "Report that 30% of all 240 homes fail, since 80 homes is a big enough sample",
+    "Report the mean lead level of the 80 homes, because an average is the fairest number",
+    "Report just the 30% figure on its own, since a percent already tells readers enough",
+    "Report that 24 of the 80 homes that signed up failed, and note they were volunteers"
+   ],
+   "answerIndex": 3,
+   "explain": "Only homes that signed up were tested, so 24 out of 80 (30%) describes those volunteers, not all 240 homes — give the counts and say who was tested. The common trap is thinking 80 homes is a big enough sample to speak for everyone.",
+   "tags": [
+    "stat.large_sample_removes_bias",
+    "central.mean_always_best",
+    "stat.percent_without_base",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn9t4e7s0hbls",
+   "level": 3,
+   "question": "Nine classes at a Kelowna school raised money for a clean-water project: $40, $45, $50, $50, $55, $60, $60, $60, and $480. The $480 came from one class whose parent's company gave a single large donation. The newsletter must show how much a class raised. Which choice is fairest?",
+   "options": [
+    "Report the median of $55, and show the $480 class in a separate note",
+    "Keep the $100 mean, because the mean is fairest and uses every class's amount",
+    "Add three more classes to the list, since a bigger set cancels the $480 out",
+    "Replace the dollar amounts with 'donations up 200% this year' in the headline"
+   ],
+   "answerIndex": 0,
+   "explain": "The $480 donation pulls the mean up to $100, far above what a class actually raised, so the median of $55 describes a typical class better. Choosing the mean just because it uses every number is the usual trap when one value is extreme.",
+   "tags": [
+    "ok",
+    "central.mean_always_best",
+    "stat.large_sample_removes_bias",
+    "stat.percent_without_base"
+   ]
+  },
+  {
+   "qid": "qmtn9t4e7qr05ak",
+   "level": 3,
+   "question": "Statistics Canada data for one BC region shows that in 2015, 24 of the region's 40 communities had a drinking water advisory, and in 2025, 9 of its 60 communities had one. A news article reports: 'Advisories dropped by 15 communities.' Which statement compares the two years most fairly?",
+   "options": [
+    "The mean of 24 and 9 is about 17 advisories per year, so report that number",
+    "The share of communities with an advisory fell from 60% in 2015 to 15% in 2025",
+    "Just say advisories fell about 62%, because that percent already tells the whole story",
+    "Use the 2025 count alone, since 60 communities is a large enough sample for both"
+   ],
+   "answerIndex": 1,
+   "explain": "The number of communities changed from 40 to 60, so compare shares: 24 out of 40 is 60% and 9 out of 60 is 15%. A raw drop of 15, or a 62% decrease with no base, hides that the two years counted different numbers of communities.",
+   "tags": [
+    "central.mean_always_best",
+    "ok",
+    "stat.percent_without_base",
+    "stat.large_sample_removes_bias"
+   ]
+  },
+  {
+   "qid": "qmtn9t4e7wthabd",
+   "level": 3,
+   "question": "The village of Telkwa has 500 households. The council wants to know how many households boil their tap water before drinking it. A volunteer plans to hand out surveys at the Saturday market, where about 300 adults walk past the booth. Which plan collects the fairest data?",
+   "options": [
+    "Collect 300 surveys at the market, since that many answers cancels out any bias",
+    "Use the market answers and report only the percent who boil, not how many replied",
+    "Number the 500 households, survey 50 picked at random, and report '50 households surveyed'",
+    "Ask the 60 people at the booth and report the mean litres of water boiled daily"
+   ],
+   "answerIndex": 2,
+   "explain": "A market booth only reaches people who happen to shop there, so choosing households at random from all 500 gives every home a chance, and the report should say how many were asked. Collecting more surveys at the same booth just repeats the same bias on a larger scale.",
+   "tags": [
+    "stat.large_sample_removes_bias",
+    "stat.percent_without_base",
+    "ok",
+    "central.mean_always_best"
+   ]
+  }
+ ]
+}

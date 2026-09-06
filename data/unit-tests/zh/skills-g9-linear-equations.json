@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "linear-equations",
+ "lang": "zh",
+ "unitName": {
+  "zh": "多步一元一次方程",
+  "en": "Multi-step linear equations"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "多步一元一次方程 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.LINEQ.DISTRIBUTE",
+    "level": 1,
+    "question": "用分配律（distributive property）先去括号，解方程 2(x + 5) = 18。x 等于多少？",
+    "options": [
+     "x = 6.5",
+     "x = 4",
+     "x = 11",
+     "x = 13"
+    ],
+    "answerIndex": 1,
+    "explain": "去括号时 2 要乘括号里的每一项：2x + 10 = 18，两边减 10 得 2x = 8，所以 x = 4。最常见的坑是只乘第一项写成 2x + 5 = 18（得 6.5），或直接把 18 减去 5。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.BOTH_SIDES",
+    "level": 1,
+    "question": "解方程 6x − 5 = 2x + 15。x 等于多少？",
+    "options": [
+     "x = 2.5",
+     "x = 20",
+     "x = 1.25",
+     "x = 5"
+    ],
+    "answerIndex": 3,
+    "explain": "把未知数集中到左边、常数集中到右边：6x − 2x = 15 + 5，即 4x = 20，x = 5。坑在移项必须变号——把 −5 移过去要写成 +5，写成 15 − 5 就会错成 2.5。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.PICTORIAL",
+    "level": 1,
+    "question": "用天平表示方程 3x + 5 = 14：左盘放 3 个 x 砖和 5 个 1 砖，右盘放 14 个 1 砖。要让天平一直平衡，同时朝求出 x 前进，下一步应该怎么做？",
+    "options": [
+     "只把左盘的 5 个 1 砖拿走",
+     "两边各拿走 3 个 x 砖",
+     "两边各拿走 5 个 1 砖",
+     "两边直接都除以 3"
+    ],
+    "answerIndex": 2,
+    "explain": "天平两边必须做同样的事，先两边各拿走 5 个 1 砖得到 3x = 9，再两边平分成 3 份得 x = 3。坑是只动一边（左边拿走 5 右边不动），天平就不平了，等式也不再成立。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.DISTRIBUTE",
+    "level": 2,
+    "question": "解方程 4(x − 2) = 2(x + 5)。x 等于多少？",
+    "options": [
+     "x = 9",
+     "x = 1",
+     "x = 3.5",
+     "x = 18"
+    ],
+    "answerIndex": 0,
+    "explain": "两边都去括号：4x − 8 = 2x + 10，移项得 2x = 18，再两边除以 2 得 x = 9。坑一是只乘第一项（写成 4x − 2 = 2x + 5），坑二是移项时把 −8 又减一次得到 2x = 2。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.RATIONAL",
+    "level": 2,
+    "question": "解方程 x/2 + 4 = x/6 + 8。x 等于多少？",
+    "options": [
+     "x = 2",
+     "x = 18",
+     "x = 24",
+     "x = 12"
+    ],
+    "answerIndex": 3,
+    "explain": "两边同乘分母的最小公倍数 6，每一项都要乘：3x + 24 = x + 48，得 2x = 24，x = 12（代回两边都等于 10）。坑是乘 6 时只乘含 x 的项，把 +4 和 +8 漏掉。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.WORD",
+    "level": 2,
+    "question": "温哥华社区中心游泳有两种付费方式：办一张 $24 的会员卡，之后每次游泳只要 $2；不办卡则每次 $6。游多少次时，两种方式花的钱正好一样多？",
+    "options": [
+     "3 次",
+     "4 次",
+     "6 次",
+     "12 次"
+    ],
+    "answerIndex": 2,
+    "explain": "设游 n 次，列方程 24 + 2n = 6n，得 4n = 24，n = 6（两种方式都花 $36）。坑是把只交一次的 $24 会员卡费也乘上次数，或者用 24 ÷ (6 + 2) 把该相减的差算成了和。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.VERIFY",
+    "level": 3,
+    "question": "下面是同学解 3(x − 2) = x + 8 的过程：①  3x − 6 = x + 8；②  3x − x = 8 − 6；③  2x = 2；④  x = 1。这份解答哪里出了问题？",
+    "options": [
+     "第 ① 步：分配律应写成 3x − 2",
+     "第 ② 步：常数移过去要变成 8 + 6",
+     "第 ③ 步：3x − x 应该等于 3",
+     "四步都对，代入 x = 1 两边都是 9"
+    ],
+    "answerIndex": 1,
+    "explain": "把 x = 1 代回验算：左边 3(1 − 2) = −3，右边 1 + 8 = 9，两边不等，说明中间有错。错在第 ② 步——−6 移到右边必须变号成 8 + 6 = 14，于是 2x = 14，x = 7（左右都等于 15）。"
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.WORD",
+    "level": 3,
+    "question": "Priya 在温哥华用彩带围一块长方形海报板，它的长（length）比宽（width）的 2 倍少 3 cm，围一圈的周长（perimeter）正好是 48 cm。这块板的长是多少？",
+    "options": [
+     "15 cm",
+     "9 cm",
+     "17 cm",
+     "31 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "设宽为 w，则长为 2w − 3，周长方程是 2[(2w − 3) + w] = 48，化简得 3w − 3 = 24，w = 9，所以长 = 2(9) − 3 = 15 cm。坑一是求出宽就交卷（9 cm），坑二是忘了周长要算两组长和宽。"
+   }
+  ]
+ }
+}
