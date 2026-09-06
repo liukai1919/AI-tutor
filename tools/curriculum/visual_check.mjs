@@ -7,6 +7,8 @@
  *   node tools/curriculum/visual_check.mjs --no-caption        # 只查图形合法性，不查空 caption
  *   node tools/curriculum/visual_check.mjs --qbank             # 改扫题库 qbank.json 里的 Question.visual（题图，契约 v3）
  *   node tools/curriculum/visual_check.mjs --qbank content/qbank/by-skill/en/X.json   # 或指定一份导出文件
+ *   node tools/curriculum/visual_check.mjs --unit-tests        # 改扫单元卷 data/unit-tests/{zh,en} 里的 Question.visual（issue #6）
+ *   node tools/curriculum/visual_check.mjs --unit-tests content/unit-tests             # 或指定导出目录
  *
  * 违约退出码 1，逐条打印「哪节课 哪一步 哪条规则」。
  * 契约本体：data/curriculum/visual-contract.json（唯一事实源）
@@ -31,6 +33,26 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const dir = path.resolve(ROOT, opt("dir", path.join("data", "lessons")));
   const contract = loadContract(opt("contract"));
 
+  /* 题图（Question.visual，契约 v3）的逐题规则：闯关题库和单元卷共用。返回 true = 这道题有图 */
+  const checkQuestion = (q, add) => {
+    const v = q.visual; if (!v || !v.type || v.type === "none") return false;
+    const r = checkVisual(contract, v.type, v.nums, v.labels, { step: v.step });
+    if (!r.ok) add(v, r.why);
+    else if (!skipCap && !String(v.caption || "").trim()) add(v, "题图没有 caption——屏幕上这张图叫什么都不知道");
+    // 题图红线：数据搬进图里之后题干不该再念图；这里只抓最明显的「散文里还留着整张表」
+    else if (/table of values (is|was):|The plotted points are:/i.test(q.question || "")) add(v, "题干还在念图（table of values / plotted points）");
+    return true;
+  };
+  const reportQuestions = (scope, questions, withVisual, findings) => {
+    if (asJson) console.log(JSON.stringify({ contract: contract.version, ...scope, questions, withVisual, findings }, null, 1));
+    else {
+      console.log(`契约 v${contract.version} · 扫了 ${questions} 道题（其中 ${withVisual} 道有题图）`);
+      if (!findings.length) console.log("✓ 零违约");
+      else { console.log(`✗ ${findings.length} 处违约：`); for (const f of findings) console.log(`  ${f.key} ${f.qid} ${f.type} [${f.nums.join(",")}] —— ${f.why}`); }
+    }
+    process.exit(findings.length ? 1 : 0);
+  };
+
   /* --qbank：题图。qbank.json 是 { "id|lang": { questions } }，导出文件是 { id, lang, questions }，两种都认 */
   if (argv.includes("--qbank")) {
     const qf = path.resolve(ROOT, opt("qbank", null) || "qbank.json");
@@ -40,23 +62,29 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     for (const [key, b] of Object.entries(banks)) {
       for (const q of (b.questions || [])) {
         questions++;
-        const v = q.visual; if (!v || !v.type || v.type === "none") continue;
-        withVisual++;
-        const add = why => findings.push({ key, qid: q.qid, type: v.type, nums: v.nums || [], why });
-        const r = checkVisual(contract, v.type, v.nums, v.labels, { step: v.step });
-        if (!r.ok) add(r.why);
-        else if (!skipCap && !String(v.caption || "").trim()) add("题图没有 caption——屏幕上这张图叫什么都不知道");
-        // 题图红线：数据搬进图里之后题干不该再念图；这里只抓最明显的「散文里还留着整张表」
-        else if (/table of values is:|The plotted points are:/i.test(q.question || "")) add("题干还在念图（table of values / plotted points）");
+        if (checkQuestion(q, (v, why) => findings.push({ key, qid: q.qid, type: v.type, nums: v.nums || [], why }))) withVisual++;
       }
     }
-    if (asJson) console.log(JSON.stringify({ contract: contract.version, file: qf, questions, withVisual, findings }, null, 1));
-    else {
-      console.log(`契约 v${contract.version} · 扫了 ${questions} 道题（其中 ${withVisual} 道有题图）`);
-      if (!findings.length) console.log("✓ 零违约");
-      else { console.log(`✗ ${findings.length} 处违约：`); for (const f of findings) console.log(`  ${f.key} ${f.qid} ${f.type} [${f.nums.join(",")}] —— ${f.why}`); }
+    reportQuestions({ file: qf }, questions, withVisual, findings);
+  }
+
+  /* --unit-tests：单元卷的题图（issue #6）。data/unit-tests/<lang>/<卷>.json 的 set.questions[] 和闯关题同构；
+   * 卷里的题没有 qid，用 <卷>#<从 1 数的位置> 指认，和 issue 里的写法一致 */
+  if (argv.includes("--unit-tests")) {
+    const udir = path.resolve(ROOT, opt("unit-tests", null) || path.join("data", "unit-tests"));
+    const findings = []; let questions = 0, withVisual = 0, files = 0;
+    for (const lang of fs.readdirSync(udir).filter(d => fs.statSync(path.join(udir, d)).isDirectory())) {
+      for (const f of fs.readdirSync(path.join(udir, lang)).filter(x => x.endsWith(".json"))) {
+        files++;
+        const j = JSON.parse(fs.readFileSync(path.join(udir, lang, f), "utf8"));
+        const stem = f.replace(/\.json$/, "");
+        ((j.set && j.set.questions) || j.questions || []).forEach((q, i) => {
+          questions++;
+          if (checkQuestion(q, (v, why) => findings.push({ key: lang, qid: stem + "#" + (i + 1), type: v.type, nums: v.nums || [], why }))) withVisual++;
+        });
+      }
     }
-    process.exit(findings.length ? 1 : 0);
+    reportQuestions({ dir: udir, files }, questions, withVisual, findings);
   }
 
   const findings = [];

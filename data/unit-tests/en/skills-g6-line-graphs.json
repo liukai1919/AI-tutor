@@ -15,7 +15,7 @@
    {
     "curriculumId": "YY.MATH.DATA.LINE.READ",
     "level": 1,
-    "question": "Maya checks the snow depth at Cypress Mountain every Monday and shows it on a line graph. The vertical axis is labelled 0, 10, 20, 30, 40, 50, 60 cm, and there is one small gridline exactly halfway between each pair of labels. The Week 4 point sits on the small gridline between 40 and 50. How deep was the snow in Week 4?",
+    "question": "Maya checks the snow depth at Cypress Mountain every Monday and shows it on a line graph. Each small grid square on the vertical axis stands for 5 cm. How deep was the snow in Week 4?",
     "options": [
      "40 cm",
      "45 cm",
@@ -23,7 +23,24 @@
      "49 cm"
     ],
     "answerIndex": 1,
-    "explain": "First work out what one small gridline is worth: the labels jump by 10 cm and there is one gridline halfway, so each gridline is 5 cm, giving 40 + 5 = 45 cm. The usual trap is to snap the point to the nearest label (40 or 50) or to assume every gridline means 1."
+    "explain": "First work out what one small gridline is worth: the labels jump by 10 cm and there is one gridline halfway, so each gridline is 5 cm, giving 40 + 5 = 45 cm. The usual trap is to snap the point to the nearest label (40 or 50) or to assume every gridline means 1.",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      30,
+      35,
+      55,
+      45
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4"
+     ],
+     "step": 5,
+     "caption": "Snow depth at Cypress Mountain each Monday (cm)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.LINE.CREATE",
@@ -41,7 +58,7 @@
    {
     "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
     "level": 1,
-    "question": "A rain barrel in a Victoria backyard is measured every hour. The line graph shows 10 L at 8 a.m., 18 L at 9 a.m., 18 L at 10 a.m., 12 L at 11 a.m., and 6 L at 12 noon. Between which two times did the amount of water stay the same?",
+    "question": "A rain barrel in a Victoria backyard is measured every hour, and the line graph shows the results. Between which two times did the amount of water stay the same?",
     "options": [
      "Between 9 a.m. and 10 a.m.",
      "Between 8 a.m. and 9 a.m.",
@@ -49,12 +66,31 @@
      "Between 11 a.m. and 12 noon"
     ],
     "answerIndex": 0,
-    "explain": "Staying the same means the line is flat, and the only equal pair of values is 18 L at 9 a.m. and 18 L at 10 a.m. A flat line does not mean the barrel is empty, and a line going down (10 a.m. to 12 noon) means water is being lost, not staying the same."
+    "explain": "Staying the same means the line is flat, and the only equal pair of values is 18 L at 9 a.m. and 18 L at 10 a.m. A flat line does not mean the barrel is empty, and a line going down (10 a.m. to 12 noon) means water is being lost, not staying the same.",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      18,
+      18,
+      12,
+      6
+     ],
+     "labels": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "12 noon"
+     ],
+     "step": 2,
+     "caption": "Water in the rain barrel (L)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.LINE.READ",
     "level": 2,
-    "question": "A line graph shows the temperature in Kamloops through the morning. On the vertical axis each square stands for 2 °C. The line is at 10 °C at 9 a.m. and climbs steadily to 18 °C at noon. How much did the temperature rise from 9 a.m. to noon?",
+    "question": "The line graph shows the temperature in Kamloops through the morning. On the vertical axis each square stands for 2 °C. How much did the temperature rise from 8 a.m. to noon?",
     "options": [
      "4 °C",
      "18 °C",
@@ -62,7 +98,26 @@
      "28 °C"
     ],
     "answerIndex": 2,
-    "explain": "A rise is a subtraction between the two readings: 18 - 10 = 8 °C. The most common trap is counting the 4 squares the line climbed and forgetting that each square is worth 2 °C; reading only the end point (18) or adding the two values (28) also misses what rise means."
+    "explain": "A rise is a subtraction between the two readings: 18 - 10 = 8 °C. The most common trap is counting the 4 squares the line climbed from 8 a.m. to noon and forgetting that each square is worth 2 °C; reading only the end point (18) or adding the two values (28) also misses what rise means.",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      12,
+      14,
+      16,
+      18
+     ],
+     "labels": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+     ],
+     "step": 2,
+     "caption": "Temperature in Kamloops through the morning (°C)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.LINE.CREATE",
@@ -93,7 +148,7 @@
    {
     "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
     "level": 3,
-    "question": "Noah is saving for soccer cleats that cost $95. His line graph shows his total savings at the end of each week: Week 1 $15, Week 2 $27, Week 3 $39, Week 4 $51. He keeps saving the same amount each week. Counting from the end of Week 4, how many more weeks until he can buy the cleats?",
+    "question": "Noah is saving for soccer cleats that cost $95. The line graph shows his total savings at the end of each week, and he keeps saving the same amount each week. Counting from the end of Week 4, how many more weeks until he can buy the cleats?",
     "options": [
      "3 more weeks",
      "8 more weeks",
@@ -101,7 +156,24 @@
      "5 more weeks"
     ],
     "answerIndex": 2,
-    "explain": "Step 1: the graph rises $12 each week. Step 2: he still needs 95 - 51 = $44, and 12 + 12 + 12 = 36 is not enough while 4 weeks gives $48, so his total reaches $99 after 4 more weeks. Stopping at 3 weeks ($87) leaves him short, and answering 8 counts the 4 weeks he has already saved."
+    "explain": "Step 1: the graph rises $12 each week. Step 2: he still needs 95 - 51 = $44, and 12 + 12 + 12 = 36 is not enough while 4 weeks gives $48, so his total reaches $99 after 4 more weeks. Stopping at 3 weeks ($87) leaves him short, and answering 8 counts the 4 weeks he has already saved.",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      15,
+      27,
+      39,
+      51
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4"
+     ],
+     "step": 3,
+     "caption": "Noah's total savings at the end of each week ($)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.LINE.READ",

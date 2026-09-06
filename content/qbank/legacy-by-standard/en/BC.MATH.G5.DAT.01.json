@@ -29,7 +29,7 @@
   {
    "qid": "qmsy07267h5g30a",
    "level": 1,
-   "question": "The scale on a bar graph is marked 0, 10, 20, 30, 40. One bar ends exactly halfway between 30 and 40. What number does that bar show?",
+   "question": "The bar graph shows cans collected on three days. Each grid square stands for 10 cans. How many cans does the Tuesday bar show?",
    "options": [
     "30",
     "45",
@@ -37,7 +37,22 @@
     "35"
    ],
    "answerIndex": 3,
-   "explain": "Each space on the scale is worth 10, so halfway up a space is worth 5: 30 + 5 = 35. The trap is rounding down to the line below (30) or up to the line above (40) instead of using half of the scale value."
+   "explain": "Each space on the scale is worth 10, so halfway up a space is worth 5: 30 + 5 = 35. The trap is rounding down to the line below (30) or up to the line above (40) instead of using half of the scale value.",
+   "visual": {
+    "type": "statBar",
+    "nums": [
+     20,
+     35,
+     10
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday"
+    ],
+    "step": 10,
+    "caption": "Cans collected (each grid square = 10 cans)"
+   }
   },
   {
    "qid": "qmsy07267ix2rcv",
@@ -146,7 +161,7 @@
   {
    "qid": "qmsy07267hxieb8",
    "level": 3,
-   "question": "Ravi made a bar graph of passengers on the Horseshoe Bay ferry, using a scale of one square = 10 passengers; his Tuesday bar is 8 squares tall. Mei made a bar graph of passengers on the Departure Bay ferry, using a scale of one square = 25 passengers; her Tuesday bar is 4 squares tall. Which ferry carried more passengers on Tuesday, and by how many?",
+   "question": "Ravi made a bar graph of passengers on the Horseshoe Bay ferry, where one square stands for 10 passengers. Mei made a bar graph of passengers on the Departure Bay ferry using a different scale: one square = 25 passengers, and her Tuesday bar is 4 squares tall. Which ferry carried more passengers on Tuesday, and by how many?",
    "options": [
     "Ravi's ferry, by 4 passengers, because its bar is taller",
     "Mei's ferry, by 20 passengers",
@@ -154,7 +169,22 @@
     "Mei's ferry, by 15 passengers"
    ],
    "answerIndex": 1,
-   "explain": "Always change squares into real amounts before comparing: 8 × 10 = 80 and 4 × 25 = 100, so Mei's ferry carried 100 − 80 = 20 more. The biggest trap is thinking the taller bar always means more — a shorter bar can win when its scale is larger."
+   "explain": "Always change squares into real amounts before comparing: 8 × 10 = 80 and 4 × 25 = 100, so Mei's ferry carried 100 − 80 = 20 more. The biggest trap is thinking the taller bar always means more — a shorter bar can win when its scale is larger.",
+   "visual": {
+    "type": "statBar",
+    "nums": [
+     60,
+     80,
+     50
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday"
+    ],
+    "step": 10,
+    "caption": "Passengers on the Horseshoe Bay ferry, from Ravi's graph (each square = 10 passengers)"
+   }
   },
   {
    "qid": "qmsy07267wejgpw",

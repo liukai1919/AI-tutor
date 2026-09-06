@@ -216,7 +216,7 @@
   {
    "qid": "qmt5dy3o1orl5n5",
    "level": 2,
-   "question": "On a bar graph of favourite winter sports, the numbers up the side are labelled 0, 5, 10, 15, 20 and so on, so every mark is worth the same amount. The hockey bar ends exactly 7 marks above 0. How many students chose hockey?",
+   "question": "The bar graph shows favourite winter sports. Each grid square stands for 5 students. How many students chose hockey?",
    "options": [
     "7 students",
     "12 students",
@@ -224,13 +224,30 @@
     "35 students"
    ],
    "answerIndex": 3,
-   "explain": "Each mark on the side stands for 5 students, so 7 marks mean 7 x 5 = 35 students. Reading the bar as 7 treats a scale of 5 like a scale of 1.",
+   "explain": "Each grid square stands for 5 students, so the hockey bar's 7 squares mean 7 x 5 = 35 students. Reading the bar as 7 treats a scale of 5 like a scale of 1.",
    "tags": [
     "graph.scale_misread",
     "other",
     "other",
     "ok"
-   ]
+   ],
+   "visual": {
+    "type": "statBar",
+    "nums": [
+     35,
+     20,
+     15,
+     25
+    ],
+    "labels": [
+     "Hockey",
+     "Skating",
+     "Skiing",
+     "Sledding"
+    ],
+    "step": 5,
+    "caption": "Favourite winter sports (each grid square = 5 students)"
+   }
   },
   {
    "qid": "qmt5dy3o1yq1c7h",
@@ -288,7 +305,7 @@
   {
    "qid": "qmt5dy3o1rskrp0",
    "level": 3,
-   "question": "Two classes made pictographs of the cans they collected. The Grade 4 graph uses one can symbol for 5 cans and shows 5 symbols. The Grade 5 graph uses one can symbol for 1 can and shows 20 symbols. Which class collected more cans, and why?",
+   "question": "Two classes made pictographs of the cans they collected. The pictograph shows the Grade 4 class's row, with its key. The Grade 5 graph uses a different key: one can symbol stands for 1 can, and it shows 20 symbols. Which class collected more cans, and why?",
    "options": [
     "Grade 5, because 20 symbols is more than 5 symbols.",
     "They collected the same number, because graphs with different scales cannot be compared.",
@@ -302,7 +319,18 @@
     "other",
     "ok",
     "graph.scale_misread"
-   ]
+   ],
+   "visual": {
+    "type": "pictograph",
+    "nums": [
+     25
+    ],
+    "labels": [
+     "Grade 4"
+    ],
+    "step": 5,
+    "caption": "Cans collected by the Grade 4 class (key: 1 can symbol = 5 cans)"
+   }
   },
   {
    "qid": "qmt7hvb6w0xpa2e",

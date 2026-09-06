@@ -15,7 +15,7 @@
    {
     "curriculumId": "YY.MATH.DATA.DBAR.READ",
     "level": 1,
-    "question": "A double bar graph at Brentwood Elementary shows how Grade 5 and Grade 6 students get to school. The graph's key says: each square stands for 5 students. The Grade 5 bar for 'walk' is 7 squares tall. How many Grade 5 students walk to school?",
+    "question": "The double bar graph shows how Grade 5 and Grade 6 students at Brentwood Elementary get to school. Each square stands for 5 students. How many Grade 5 students walk to school?",
     "options": [
      "7 students",
      "12 students",
@@ -23,12 +23,32 @@
      "70 students"
     ],
     "answerIndex": 2,
-    "explain": "With a many-to-one scale you multiply: 7 squares × 5 students per square = 35 students. The most common trap is answering 7 — reading the number of squares instead of what each square stands for."
+    "explain": "With a many-to-one scale you multiply: 7 squares × 5 students per square = 35 students. The most common trap is answering 7 — reading the number of squares instead of what each square stands for.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      35,
+      20,
+      15,
+      25,
+      30,
+      10
+     ],
+     "labels": [
+      "Walk",
+      "Bus",
+      "Bike",
+      "Grade 5",
+      "Grade 6"
+     ],
+     "step": 5,
+     "caption": "How students get to school (each square = 5 students)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
     "level": 1,
-    "question": "A double bar graph shows books read in March by Grade 5 (dark bars) and Grade 6 (light bars): Mystery 20 and 25, Sports 30 and 15, Fantasy 25 and 25, Comics 15 and 35. For which kind of book did the two grades read the same number of books?",
+    "question": "The double bar graph shows books read in March by Grade 5 and Grade 6. For which kind of book did the two grades read the same number of books?",
     "options": [
      "Mystery",
      "Sports",
@@ -36,7 +56,30 @@
      "Fantasy"
     ],
     "answerIndex": 3,
-    "explain": "Look for the one place where the pair of bars is exactly the same height — Fantasy, 25 and 25. The trap is picking Sports or Comics because those pairs stand out the most; those are the biggest differences, not a match."
+    "explain": "Look for the one place where the pair of bars is exactly the same height — Fantasy, 25 and 25. The trap is picking Sports or Comics because those pairs stand out the most; those are the biggest differences, not a match.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      20,
+      30,
+      25,
+      15,
+      25,
+      15,
+      25,
+      35
+     ],
+     "labels": [
+      "Mystery",
+      "Sports",
+      "Fantasy",
+      "Comics",
+      "Grade 5",
+      "Grade 6"
+     ],
+     "step": 5,
+     "caption": "Books read in March (each square = 5 books)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
@@ -54,7 +97,7 @@
    {
     "curriculumId": "YY.MATH.DATA.DBAR.READ",
     "level": 2,
-    "question": "At the Burnaby rink, a double bar graph shows skating time last Saturday. Each square stands for 10 minutes. Leo's bar stops exactly halfway between the 30 and 40 gridlines, and Maya's bar stops right on the 20 gridline. How many more minutes did Leo skate than Maya?",
+    "question": "The bar graph shows skating time at the Burnaby rink last Saturday. Each square stands for 10 minutes. How many more minutes did Leo skate than Maya?",
     "options": [
      "15 minutes",
      "10 minutes",
@@ -62,7 +105,20 @@
      "1.5 minutes"
     ],
     "answerIndex": 0,
-    "explain": "Half a square is half of 10, so Leo's bar is 35 minutes; then 35 − 20 = 15 minutes. The trap is rounding Leo's bar down to the 30 gridline (giving 10) instead of reading the half-square."
+    "explain": "Half a square is half of 10, so Leo's bar is 35 minutes; then 35 − 20 = 15 minutes. The trap is rounding Leo's bar down to the 30 gridline (giving 10) instead of reading the half-square.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      35,
+      20
+     ],
+     "labels": [
+      "Leo",
+      "Maya"
+     ],
+     "step": 10,
+     "caption": "Skating time at the Burnaby rink last Saturday (each square = 10 minutes)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
@@ -80,7 +136,7 @@
    {
     "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
     "level": 2,
-    "question": "A double bar graph shows bottles collected for the school bottle drive by Division 5 (dark bars) and Division 6 (light bars). Week 1: 40 and 25. Week 2: 35 and 35. Week 3: 30 and 20. Week 4: 20 and 45. In which week did the two divisions collect the most bottles altogether?",
+    "question": "The double bar graph shows the bottles Division 5 and Division 6 collected for the school bottle drive. In which week did the two divisions collect the most bottles altogether?",
     "options": [
      "Week 1",
      "Week 2",
@@ -88,7 +144,30 @@
      "Week 4"
     ],
     "answerIndex": 1,
-    "explain": "Altogether means add each pair: 65, 70, 50, 65 — so Week 2 is the most. The trap is hunting for the single tallest bar (Week 1's 40 or Week 4's 45) instead of adding the two bars in each pair."
+    "explain": "Altogether means add each pair: 65, 70, 50, 65 — so Week 2 is the most. The trap is hunting for the single tallest bar (Week 1's 40 or Week 4's 45) instead of adding the two bars in each pair.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      40,
+      35,
+      30,
+      20,
+      25,
+      35,
+      20,
+      45
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Division 5",
+      "Division 6"
+     ],
+     "step": 5,
+     "caption": "Bottles collected in the school bottle drive (each square = 5 bottles)"
+    }
    },
    {
     "curriculumId": "YY.MATH.DATA.DBAR.INTERPRET",
