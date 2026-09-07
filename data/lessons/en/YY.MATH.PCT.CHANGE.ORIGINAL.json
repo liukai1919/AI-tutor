@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.CHANGE.ORIGINAL",
+ "lang": "en",
+ "title": "Find the original amount before a percent change (a salary is $93 940 after a 122% increase — what was it?)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Working Backwards From a Big Percent Jump",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to go forwards: if something grows by three point two five percent, you multiply by one point zero three two five. Today we flip that around. Someone tells you the salary AFTER a one hundred twenty-two percent raise, and you have to figure out what it was BEFORE.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea in one picture. The original salary is one full bar, one hundred percent. A one hundred twenty-two percent increase adds another chunk that is even bigger than the original, one hundred twenty-two percent. Stack them and the new salary is two hundred twenty-two percent of the original. So new equals two point two two times original.",
+    "math": "x + 1.22x = 2.22x",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      100,
+      122,
+      222
+     ],
+     "labels": [
+      "Original 100%",
+      "Raise +122%",
+      "New salary 222%"
+     ],
+     "caption": "The raise is bigger than the original amount"
+    }
+   },
+   {
+    "say": "Now put the real number in. Two point two two times the original equals ninety-three thousand nine hundred forty dollars. To find the original I undo the multiplying, so I divide. Ninety-three thousand nine hundred forty divided by two point two two is about forty-two thousand three hundred fifteen dollars and thirty-two cents. That is the salary before the raise.",
+    "math": "x=\\frac{93\\,940}{2.22}\\approx 42\\,315.32",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      42315,
+      51625,
+      93940
+     ],
+     "labels": [
+      "Original pay",
+      "The raise",
+      "New salary"
+     ],
+     "caption": "42 315 plus the 51 625 raise gives 93 940"
+    }
+   },
+   {
+    "say": "Watch the trap. Lots of people divide by one point two two instead, and they get exactly seventy-seven thousand dollars, which looks beautifully clean. But test it: seventy-seven thousand with a one hundred twenty-two percent raise becomes seventy-seven thousand times two point two two, which is one hundred seventy thousand nine hundred forty dollars. Way too big. A clean-looking answer is not a correct answer. And never try subtracting one point two two from one, because that gives you a negative salary, and nobody gets paid minus twenty thousand dollars.",
+    "math": "77\\,000\\times 2.22=170\\,940\\neq 93\\,940",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      170940,
+      93940
+     ],
+     "labels": [
+      "What 77 000 would grow to",
+      "Actual salary"
+     ],
+     "caption": "Dividing by 1.22 overshoots by a lot"
+    }
+   },
+   {
+    "say": "So the rule to carry with you: to undo a percent increase, divide by one plus the percent as a decimal. For a one hundred twenty-two percent raise that is two point two two, not one point two two. Then always grow your answer forwards to check it lands back where you started.",
+    "math": "\\text{original}=\\frac{\\text{new}}{1+\\text{percent}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To undo a percent increase, divide the new amount by 1 plus the percent — a 122% raise means dividing by 2.22.",
+  "practice": {
+   "question": "A rare hockey card sold on a Vancouver trading site for $310 after its value went up 150%. Draw yourself a bar model: one bar for the original value at 100 percent, and a second bar on top of it for the 150 percent increase. What total percent do the two bars make together, and what was the card worth before the increase?",
+   "answer": "The two bars make 250 percent, so the selling price is 2.5 times the original value. That gives 310 divided by 2.5, which is $124. Check it: 124 times 2.5 equals 310. Correct. (Dividing by 1.5 would give about $206.67, and 206.67 grown by 150 percent is about $516.67 — far too big.)"
+  }
+ }
+}

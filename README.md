@@ -46,9 +46,10 @@ launch takes over the old data automatically.
 
 **What's already in the box** (none of it needs an AI engine):
 
-- **Every lesson** in the BC Grade 4-7 math curriculum, in both Chinese and English — instant, works offline
+- **Every lesson** in the BC Grade 4–9 math curriculum plus the high-school trunk (**Foundations of Mathematics and
+  Pre-calculus 10 → Pre-calculus 11 → Pre-calculus 12**), in both Chinese and English — instant, works offline
 - The matching **quiz bank** for each topic
-- A **unit test** for every unit (5 per grade, in both languages)
+- A **unit test** for every strand / unit (in both languages)
 - **Natural-sounding voice** in both languages, pre-synthesized with CosyVoice — not the robotic browser voice
 
 **What still needs an AI engine** (next section; Ollama is free and offline):
@@ -92,11 +93,16 @@ browser (default http://localhost:8434). To use it on a phone or tablet on the s
   "port": 8434,
   "registrationCode": "",    // registration closes itself once the first parent exists; set an invite code to open it for another family
   "provider": "auto",        // pin a specific engine: ollama | grok | claude | gemini | codex | anthropic | openai
+  "providerByTask": {        // route engines per task (optional). Task names match the usage ledger:
+    "quiz": "ollama",        //   teach / ask (photo questions) / quiz / unit / fsa / report /
+    "ask": "claude"          //   pregen:teach|quiz|unit (build-time batches) / judge:teach|quiz|unit (build-time review)
+  },                         // if a routed engine is down, falls back to provider / auto — never blocks a lesson
   "ollama": {
     "url": "http://localhost:11434",
     "model": "",             // leave blank to auto-pick; the qwen family is recommended (good at math, supports Chinese and vision)
-    "think": true            // turning this off speeds things up but hurts math accuracy — not recommended
-  },
+    "think": true,           // turning this off speeds things up but hurts math accuracy — not recommended
+    "structured": false      // true = Ollama's JSON-schema constrained decoding. Off by default: with qwen3.8 it
+  },                         //   randomly truncated Chinese strings; the prompt + validation path is more reliable
   "anthropic": { "apiKey": "", "model": "claude-opus-5" },
   "openai": { "baseUrl": "", "apiKey": "", "model": "" },  // for OpenAI-compatible services like OpenRouter/xAI
   "tts": { ... }               // natural voice (optional), see the "Natural Voice" section below
@@ -288,10 +294,14 @@ guess at your parent password and kid PINs, so avoid it if you can.)
 ## Learn Along the Curriculum (BC Math Curriculum)
 
 Not just "one problem at a time" — the **"Learn"** tab on the home page teaches systematically, following
-the official British Columbia math curriculum (June 2016):
+the official British Columbia math curriculum (June 2016 for K–9; June 2018 for the Grade 10–12 courses):
 
-- Pick a grade (**Grades 4–7** are built in) to see every topic in this term's five strands, shown
-  bilingually (English is the official wording; Chinese titles are for the child and parent).
+- Pick a grade (**Grades 4–9** are built in) to see every topic in this term's five strands, shown
+  bilingually (English is the official wording; Chinese titles are for the child and parent). For high
+  school, pick a course instead — **FMP 10, Pre-calculus 11, Pre-calculus 12** (the academic trunk that
+  leads to university math) — and the topics are grouped by unit. Lessons for Grade 8 and up switch to a
+  teen / high-school tone and get function graphs, right triangles, general triangles and the unit circle
+  as extra picture types.
 - Tap any topic and Ms. Yuanyuan teaches it: a real-life example to introduce it → the core method with
   pictures → 1–2 worked examples → a one-line takeaway. Chinese lessons naturally weave in the English
   term ("小数, called *decimal* in English class") so the child can connect it with what they hear at school.
@@ -343,6 +353,33 @@ action (sign in as a parent to delete). Photographed problems don't save the pho
 marker. History follows the server — a problem the child worked through on a tablet shows up when a parent
 signs in on a computer and selects that child.
 
+## Usage ledger (usage.jsonl)
+
+Every AI call gets one line of accounting in the data folder (`usage.jsonl`, next to
+`config.json`): which task (lesson / photo question / quiz bank / test paper / report /
+build-time `pregen:*`), which engine, which model, seconds spent, tokens, and dollars —
+whatever the engine reports (the claude CLI, Ollama and the API adapters all do). Failed
+calls are logged too — the tokens were already spent, so a retry shows up as two lines.
+Lesson-pack / quiz-bank hits are logged as zero-cost lines, so you can see exactly how
+many calls the bundled content saved this machine.
+
+Signed in as a parent, open **⚙️ Settings → AI engine → 📒 Usage ledger**: totals, a breakdown
+by task and by engine, and the last 20 calls, over all time / the last 30 / the last 7 days.
+
+The same summary is available over HTTP, but note it is parent-only and the session token
+travels in a header — typing the URL into the address bar gets you a 401, so use the panel
+or a client that can set `x-session`:
+
+```
+GET /api/usage            # everything
+GET /api/usage?days=30    # last 30 days only
+```
+
+This ledger is the foundation for per-task engine routing (`providerByTask` in the
+configuration section): first see on paper what each kind of task really costs and how
+often it succeeds, then decide who does what — e.g. quiz-bank batches go to a free local
+Ollama model while photo questions stay with Claude.
+
 ## Notes
 
 - See "Build your own release" below if you want to produce the installers yourself.
@@ -370,8 +407,8 @@ child answers a question.
 
 | Thing | In the repo? | Notes |
 |---|---|---|
-| Lesson pack `data/lessons/` (138) | ✅ yes | 1.2 MB of text — works straight after a clone |
-| Unit tests `data/unit-tests/` (40) | ✅ yes | 328 KB of text |
+| Lesson pack `data/lessons/` (234) | ✅ yes | ~2 MB of text — works straight after a clone |
+| Unit tests `data/unit-tests/` (88) | ✅ yes | text only |
 | BC curriculum `data/curriculum/bc/` | ✅ yes | public government material |
 | **Quiz bank `qbank.json` (1656 questions)** | ❌ **no** | every answered question writes `usedAt` — it is live state, and committing it would dirty the tree daily |
 | **Voice pack `data/voice/` (1075 clips)** | ❌ **no** | 158 MB of binaries; once in git history it can never really be removed |
@@ -399,9 +436,16 @@ resumable (Ctrl-C, run it again, finished work is skipped).
 
 ```bash
 # 1. Lessons + quiz banks + unit tests
-#    138 lessons, 138 quiz banks, 40 test papers. Needs an AI engine.
-#    Takes three or four hours — run it overnight.
+#    234 lessons, 234 quiz banks, 88 test papers (Grades 4-9 + FMP 10 / Pre-calc 11 / Pre-calc 12).
+#    Needs an AI engine. Takes most of a day on a local model — run it overnight.
+#    (--grades 8,9,fmp10,pc11,pc12 limits the run; course ids work like grade numbers.)
 node tools/pregen.mjs --concurrency 3
+
+#    Got a local GPU and want to save subscription quota? Cheap engine generates,
+#    strong engine reviews: Ollama writes, Claude checks the math (one review pass
+#    costs far less than writing it), rejects regenerate once, still-failing items
+#    wait for the next run. Compare the total bill in /api/usage.
+node tools/pregen.mjs --provider ollama --judge claude
 
 # 2. Pre-bake the voice (~540 clips per language, three or four hours, ~160 MB)
 #    Needs the CosyVoice daemon running plus ffmpeg.

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.EXTRAPOLATE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlzjy8pli0niw",
+   "level": 1,
+   "question": "坐标格（grid）上，横轴表示独木舟行程的天数，纵轴表示累计划过的总路程（km）。已画出三个点：第 1 天 12 km、第 2 天 24 km、第 3 天 36 km，三点在同一条直线上。把这条直线向右延长（extrapolation，外推），预测第 5 天的总路程是多少？",
+   "options": [
+    "60 km",
+    "48 km",
+    "72 km",
+    "84 km"
+   ],
+   "answerIndex": 0,
+   "explain": "每天多 12 km，从第 3 天的 36 km 再往右走两格：36+12+12=60 km。最容易错的是只往右走一格，得到第 4 天的 48 km 就停了，或者走过头读成第 6 天、第 7 天的值。",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8pop1ne7",
+   "level": 1,
+   "question": "坐标格上，横轴是天数，纵轴是离终点还剩的路程（remaining distance，km）。已画出的点：第 1 天 90 km、第 2 天 70 km、第 3 天 50 km，三点在一条直线上。把直线向右延长到第 6 天，读出 −10 km。对这个预测，下面哪个判断正确？",
+   "options": [
+    "合理，直线延长后读到的数就是预测值，是负数也照样成立",
+    "不合理，剩余路程最少是 0，第 6 天到达终点后就是 0 km",
+    "不合理，第 6 天应该还剩 10 km，直线往右多延长了一格",
+    "合理，−10 km 表示第 6 天已经划过了终点 10 km，完全正常"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少 20 km，第 5 天剩 10 km，第 6 天划完这 10 km 就到终点，剩余是 0 而不是 −10。延长直线读出的负数在情境里没有意义，要判断为不合理，而不是照单全收。",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "ok",
+    "graph.extrapolate_step_count",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8pk4h8uk",
+   "level": 1,
+   "question": "坐标格上，横轴是天数，纵轴是累计总路程（km）。已画出的点：第 2 天 20 km、第 3 天 30 km、第 4 天 40 km，三点在一条直线上。把直线向左延长到第 0 天，读出 0 km。这个预测合理吗？",
+   "options": [
+    "合理，再往左延长到第 −1 天读到 −10 km 也是真实路程",
+    "不合理，往左退一格应读到 10 km，第 0 天不会是 0 km",
+    "合理，第 0 天是出发前，总路程 0 km 正好就是起点",
+    "不合理，第 0 天不在已知数据里，直线不能向左边延长"
+   ],
+   "answerIndex": 2,
+   "explain": "每天多 10 km，从第 2 天的 20 km 往左退两格：20−10−10=0 km，正好对应出发前的起点，合理。直线可以向两边延长，但第 −1 天的 −10 km 就没有意义了，因为出发前不可能有路程。",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8psilq2j",
+   "level": 1,
+   "question": "坐标格上，横轴是天数，纵轴是累计总路程（km）。已画出的点：第 2 天 30 km、第 4 天 60 km、第 6 天 90 km，三点在一条直线上。把直线延长，预测第 8 天的总路程是多少？",
+   "options": [
+    "105 km",
+    "150 km",
+    "135 km",
+    "120 km"
+   ],
+   "answerIndex": 3,
+   "explain": "横轴每格是两天，每格多 30 km（每天 15 km）。从第 6 天的 90 km 往右一格就是第 8 天：90+30=120 km。常见错误是只加一天的 15 km 得 105，或者把 6、7、8 三天都算进去加了 45，或者多延长一格读到第 10 天的 150 km。",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8p0erifq",
+   "level": 2,
+   "question": "一个线性关系（linear relation）用表格给出：x=1 时 y=7，x=2 时 y=11，x=3 时 y=15，x=4 时 y=19。把这些点连成直线并延长，x=7 时 y 的预测值是多少？",
+   "options": [
+    "31",
+    "27",
+    "35",
+    "28"
+   ],
+   "answerIndex": 0,
+   "explain": "x 每增加 1，y 增加 4。从 x=4 的 19 往后走三步：19+4+4+4=31（也可以写成 y=4x+3）。容易错在只走两步得到 27，或者直接算 7×4=28 而漏掉这条直线并不经过原点。",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8pqswa3y",
+   "level": 2,
+   "question": "表格记录独木舟离当天营地还剩的路程：x=0 小时 y=20 km，x=1 小时 y=16 km，x=2 小时 y=12 km，x=3 小时 y=8 km。把直线延长到 x=6，读出 y=−4。下面哪句话说得对？",
+   "options": [
+    "y=−4 合理，因为直线上每个点都是这个关系的正确预测",
+    "y=−4 不合理，剩余路程到 0 就停了，第 5 小时已到营地",
+    "y=−4 合理，负数表示划过营地之后又往前多划了 4 km",
+    "y=−4 不合理，应是 y=0，直线往右多延长了一格才变负"
+   ],
+   "answerIndex": 1,
+   "explain": "每小时少 4 km，x=5 时剩 0 km，就已经到营地了。再往右延长读到 −4 km 没有实际意义。外推（extrapolation）之后一定要检查预测值在情境里说不说得通，剩余路程不可能是负数。",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "ok",
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8pn8gnat",
+   "level": 2,
+   "question": "小凯一家划独木舟走 Bowron Lake 环线，全程 116 km。每天晚上核对累计路程：第 1 天 16 km，第 2 天 32 km，第 3 天 48 km，三点在一条直线上。爸爸把直线延长到第 8 天，读出 128 km。这个预测怎么样？",
+   "options": [
+    "合理，直线延长到第 8 天就是 128 km，数据支持这个结果",
+    "不合理，第 8 天应该读出 112 km，爸爸把直线多延长了一格",
+    "不合理，累计最多 116 km，第 8 天划完全程后就不再增加",
+    "合理，多出的 12 km 说明第 8 天他们已经绕回起点再往前划"
+   ],
+   "answerIndex": 2,
+   "explain": "每天 16 km，第 7 天 112 km，第 8 天再划 4 km 就到 116 km 的全程，累计不可能变成 128 km。延长直线得到的数必须放回情境检查，超过全程就说明预测已经没有意义了。",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "ok",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8paqgndd",
+   "level": 2,
+   "question": "小雨记录独木舟每天的累计总路程：第 2 天 30 km，第 3 天 42 km，第 4 天 54 km，三点在同一条直线上。全程共 100 km。用延长直线的方法预测，第 7 天的累计路程大约是多少？（第 7 天还没划完全程）",
+   "options": [
+    "78 km",
+    "84 km",
+    "102 km",
+    "90 km"
+   ],
+   "answerIndex": 3,
+   "explain": "每天多 12 km，从第 4 天的 54 km 往右走三格：54+36=90 km，没超过全程 100 km，预测说得通。容易错在少走一格得到 78，多走一格得到 102，或者直接算 12×7=84 而没有沿着这条直线走。",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "other",
+    "graph.extrapolate_step_count",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8plj03qc",
+   "level": 3,
+   "question": "一支独木舟队沿 Fraser 河的一条支流划行，全程 96 km。每天傍晚核对累计路程：第 1 天 18 km，第 2 天 34 km，第 3 天 50 km，第 4 天 66 km，四点在一条直线上。若按这条直线延长，他们最早会在第几天傍晚的核对中发现已划完全程？下面哪个说法完全正确？",
+   "options": [
+    "第 6 天：66+16×2=98 km，首次超过 96 km 的全程",
+    "第 7 天：要到 66+16×3=114 km 才算越过全程线",
+    "第 5 天：66+16=82 km，直线这时已经到达全程线",
+    "第 6 天：而且第 7 天直线读出的 114 km 也是真实累计"
+   ],
+   "answerIndex": 0,
+   "explain": "每天 16 km，第 5 天 82 km 还不够，第 6 天 98 km 首次超过 96 km，所以第 6 天傍晚就会发现划完了。之后直线再往右延长读到 114 km 已经超出情境，累计路程最多只能停在 96 km。",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8pgugz0u",
+   "level": 3,
+   "question": "独木舟营队每天傍晚核对离终点还剩的路程：第 2 天剩 84 km，第 3 天剩 70 km，第 4 天剩 56 km，三点在一条直线上。把这条直线向两边延长：全程一共是多少 km？预测第几天剩余路程刚好为 0？",
+   "options": [
+    "全程 98 km，第 7 天剩余路程刚好为 0",
+    "全程 112 km，第 8 天剩余路程刚好为 0",
+    "全程 112 km，第 9 天剩余 −14 km 也算准",
+    "全程 126 km，第 9 天剩余路程刚好为 0"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少 14 km。向左延长到第 0 天（出发前）：56+14×4=112 km 就是全程；向右延长到第 8 天：56−14×4=0，正好到终点。两边都要数对格数，再往右读到负数就超出情境了，剩余路程不能小于 0。",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "ok",
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8p58kteq",
+   "level": 3,
+   "question": "小杰每天核对独木舟离终点还剩的路程：第 1 天剩 75 km，第 2 天剩 60 km，第 3 天剩 45 km，三点在一条直线上。老师问「第 7 天还剩多少？」小杰把直线延长后回答「−15 km」。他错在哪？",
+   "options": [
+    "他没错，直线延长到第 7 天确实读到 −15 km，这就是预测值",
+    "他错在延长得太多，第 7 天应读到 0 km，−15 km 是第 8 天",
+    "他错在第 6 天已经剩 0 km 到达终点，第 7 天不可能是负数",
+    "他没错，−15 km 表示到终点后又多划了 15 km，很合理"
+   ],
+   "answerIndex": 2,
+   "explain": "每天少 15 km，第 6 天剩 45−15×3=0 km，已经到终点。直线再延长到第 7 天读出 −15 km，但剩余路程不可能是负数，这个预测已超出情境，第 7 天应答「已到达，剩 0 km」。数格子时也别数错，第 7 天确实对应 −15，问题在于它没有意义。",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "ok",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzjy8p6ub7x1",
+   "level": 3,
+   "question": "小美隔一天核对一次独木舟的累计路程：第 2 天 26 km，第 4 天 50 km，第 6 天 74 km，三点在一条直线上，全程 110 km。她说：「每次核对多 24 km，所以第 7 天累计是 74+24=98 km，还没划完。」她的说法错在哪？",
+   "options": [
+    "她没错，直线每往右一格就多 24 km，第 7 天累计就是 98 km",
+    "她没错，而且第 8 天直线读出 122 km，也是准确的累计路程",
+    "她错在应从第 6 天再往右延长两格，第 7 天应是 122 km",
+    "她错在核对隔一天一次，第 7 天只过了一天，应是 86 km"
+   ],
+   "answerIndex": 3,
+   "explain": "核对是隔一天一次，每格 24 km 相当于每天 12 km。第 6 天到第 7 天只过了一天，所以是 74+12=86 km，还没到 110 km 的全程。外推时要看清横轴一格代表几天，别把两天的增量当成一天的，也别把超过全程的 122 km 当成真实数据。",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "ok"
+   ]
+  }
+ ]
+}

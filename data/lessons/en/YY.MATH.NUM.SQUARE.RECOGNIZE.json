@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+ "lang": "en",
+ "title": "Recognize perfect squares to 144 as numbers that make a square array (n × n)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Perfect Squares: Numbers That Build a Square",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know your times tables really well, like four times four is sixteen. Today we use that in a new way: to spot the special numbers, called perfect squares, that can build a perfect square array of tiles.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Imagine you are laying square patio stones in your backyard. If you take sixteen stones, you can lay them four across and four down. Same number of rows as columns, so the shape comes out as a perfect square. That is why we call sixteen a perfect square, and we write it as four squared.",
+    "math": "4\\times 4 = 4^2 = 16",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "16 stones laid out 4 across and 4 down"
+    }
+   },
+   {
+    "say": "Now try ten stones. Ten sounds like a nice round number, but watch what happens. Three rows of three only uses nine stones, and four rows of four needs sixteen. Ten is stuck in between, so the best you can do is a two by five rectangle. Long and skinny, not a square. Ten is not a perfect square. Being round has nothing to do with it.",
+    "math": "3^2 = 9 < 10 < 16 = 4^2",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      5
+     ],
+     "labels": [],
+     "caption": "10 stones only make a 2 by 5 rectangle"
+    }
+   },
+   {
+    "say": "Here is the other slip to watch for. Three squared does not mean three plus three. Squaring is not doubling. Three squared means three rows of three stones, which is nine, not six. Doubling gives you one long line of six; squaring gives you a square of nine.",
+    "math": "3^2 = 3\\times 3 = 9 \\ne 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "3 squared is a 3 by 3 square: 9 stones"
+    }
+   },
+   {
+    "say": "Let us finish with the biggest one in our list. Twelve rows of twelve stones is one hundred forty four, so one hundred forty four is a perfect square. If you count up all the perfect squares from one to one hundred forty four, you get one, four, nine, sixteen, twenty five, thirty six, forty nine, sixty four, eighty one, one hundred, one hundred twenty one, and one hundred forty four. Twelve squares in all, and each one is just a times table fact wearing a square shape.",
+    "math": "12\\times 12 = 12^2 = 144",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      12,
+      12,
+      12,
+      12
+     ],
+     "labels": [],
+     "caption": "144 stones laid out 12 across and 12 down"
+    }
+   },
+   {
+    "say": "So the test is simple. Ask yourself: can these stones make a square with the same number of rows as columns? If yes, it is a perfect square. If not, it is not, no matter how round the number looks.",
+    "math": "n\\times n = n^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A perfect square is a number that lays out as a square array: same rows as columns, like 12 times 12 equals 144.",
+  "practice": {
+   "question": "You are helping build a patio in Surrey with square paving stones, each one metre by one metre. Picture laying them in rows and columns, or sketch the grid yourself. If you have one hundred twenty one stones, can you lay them all in a square with the same number of rows as columns? How many rows? Now try ninety stones. Can those make a square?",
+   "answer": "Yes for 121 stones: eleven rows of eleven, because eleven times eleven is one hundred twenty one. No for 90 stones: nine rows of nine is only eighty one, and ten rows of ten needs one hundred, so ninety lands in between and cannot make a square."
+  }
+ }
+}

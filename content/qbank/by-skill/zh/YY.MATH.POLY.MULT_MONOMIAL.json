@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.MULT_MONOMIAL",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlygkwq9xh3mk",
+   "level": 1,
+   "question": "一个长方形的宽是 n。它的长被分成两段：左边一段长 n，右边一段长 4，所以整个长方形的面积（area）是 n(n + 4)。沿着分段处把它切成左右两个小长方形，这两块的面积分别是多少？",
+   "options": [
+    "n² 和 4n",
+    "n² 和 4",
+    "2n 和 4n",
+    "n 和 4n"
+   ],
+   "answerIndex": 0,
+   "explain": "每块小长方形的面积都是「宽 × 这一段的长」：n × n = n²，n × 4 = 4n。n × n 是指数相加得 n²，不是 2n 也不是 n；两段都要乘，不能只乘第一段。",
+   "tags": [
+    "ok",
+    "eq.brackets_distribute_partially",
+    "poly.mult_monomial_exponent_wrong",
+    "exp.multiply_exponents_for_product"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqm3lnrl",
+   "level": 1,
+   "question": "一个长方形的宽是 2x，长被分成两段：一段是 x，另一段是 10。整个长方形的面积写成 2x(x + 10)。把两个小长方形的面积加起来，得到的展开式是？",
+   "options": [
+    "2x² + 10",
+    "2x² + 20x",
+    "4x + 20x",
+    "2x + 20x"
+   ],
+   "answerIndex": 1,
+   "explain": "两块面积分别是 2x × x = 2x² 和 2x × 10 = 20x，合起来 2x² + 20x。别忘了 10 那一段也要乘 2x，写成 2x² + 10 就是漏乘了；2x × x 的变量部分是 x²，不是 2x。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "ok",
+    "poly.mult_monomial_exponent_wrong",
+    "exp.multiply_exponents_for_product"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqems9k2",
+   "level": 1,
+   "question": "一个长方形的宽是 3y，长被分成两段，分别是 y 和 12。用面积模型（area model）把 3y(y + 12) 展开，整个长方形的面积是？",
+   "options": [
+    "3y + 36y",
+    "3y² + 12",
+    "3y² + 36y",
+    "6y + 36y"
+   ],
+   "answerIndex": 2,
+   "explain": "左块 3y × y = 3y²，右块 3y × 12 = 36y，总面积 3y² + 36y。y × y 要把指数相加得 y²；把它算成 2y 或者 y，左块面积就错了，12 那一段也必须乘 3y。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "eq.brackets_distribute_partially",
+    "ok",
+    "poly.mult_monomial_exponent_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqxfhtsv",
+   "level": 1,
+   "question": "一个长方形的宽是 n，长分成两段：2n 和 12。整个长方形的面积是 n(2n + 12)。把两块小长方形的面积相加，结果是？",
+   "options": [
+    "2n + 12n",
+    "2n² + 12",
+    "4n + 12n",
+    "2n² + 12n"
+   ],
+   "answerIndex": 3,
+   "explain": "n × 2n = 2n²，n × 12 = 12n，所以面积是 2n² + 12n。n × 2n 里 n × n 得 n²（指数 1 + 1 = 2），系数（coefficient）只有 2；12 这一段同样要乘 n，不能照抄。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "eq.brackets_distribute_partially",
+    "poly.mult_monomial_exponent_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqr3uco6",
+   "level": 2,
+   "question": "展开 4x(3x − 10)。",
+   "options": [
+    "12x² − 40x",
+    "24x − 40x",
+    "12x − 40x",
+    "12x² − 10"
+   ],
+   "answerIndex": 0,
+   "explain": "用分配律（distributive property）把 4x 分别乘两项：4x × 3x = 12x²，4x × (−10) = −40x，得 12x² − 40x。常见错误是 −10 忘了乘 4x，或者把 x × x 写成 2x 或 x。",
+   "tags": [
+    "ok",
+    "poly.mult_monomial_exponent_wrong",
+    "exp.multiply_exponents_for_product",
+    "eq.brackets_distribute_partially"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqrkzi9b",
+   "level": 2,
+   "question": "展开 −2a(a + 12)。",
+   "options": [
+    "−2a² + 12",
+    "−2a² − 24a",
+    "−4a − 24a",
+    "−2a − 24a"
+   ],
+   "answerIndex": 1,
+   "explain": "−2a 要乘括号里的每一项：−2a × a = −2a²，−2a × 12 = −24a，结果 −2a² − 24a。负号会跟着 −2a 乘进两项；只乘第一项而把 +12 照抄下来是最常见的错。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "ok",
+    "poly.mult_monomial_exponent_wrong",
+    "exp.multiply_exponents_for_product"
+   ]
+  },
+  {
+   "qid": "qmtlygkwq0ub7ph",
+   "level": 2,
+   "question": "展开 5k(3 − 2k)。",
+   "options": [
+    "15k − 20k",
+    "15k − 2k",
+    "15k − 10k²",
+    "15k − 10k"
+   ],
+   "answerIndex": 2,
+   "explain": "5k × 3 = 15k，5k × (−2k) = −10k²，所以是 15k − 10k²。括号里第二项是 −2k，它也得乘 5k；k × k 是 k²，不是 2k 或 k。",
+   "tags": [
+    "poly.mult_monomial_exponent_wrong",
+    "eq.brackets_distribute_partially",
+    "ok",
+    "exp.multiply_exponents_for_product"
+   ]
+  },
+  {
+   "qid": "qmtlygkwq5hbxmi",
+   "level": 2,
+   "question": "下面哪个式子和 (4y + 10)(2y) 相等？",
+   "options": [
+    "8y + 20y",
+    "8y² + 10",
+    "16y + 20y",
+    "8y² + 20y"
+   ],
+   "answerIndex": 3,
+   "explain": "单项式写在右边也一样，2y 要乘括号里的每一项：4y × 2y = 8y²，10 × 2y = 20y，得 8y² + 20y。y × y 指数相加得 y²，不能写成 y 或 2y；10 也不能漏乘。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "eq.brackets_distribute_partially",
+    "poly.mult_monomial_exponent_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlygkwq39od1v",
+   "level": 3,
+   "question": "素里（Surrey）一户人家想在后院铺一块长方形草坪，宽是 2x 米，长比宽多 10 米。草坪面积（area）用展开后的多项式表示是多少平方米？",
+   "options": [
+    "4x² + 20x",
+    "4x + 20x",
+    "8x + 20x",
+    "4x² + 10"
+   ],
+   "answerIndex": 0,
+   "explain": "先写出长：2x + 10，再算面积 2x(2x + 10) = 4x² + 20x。2x × 2x 是 4x²（x × x = x²）；10 那一项也要乘 2x，不能只乘第一项。",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "poly.mult_monomial_exponent_wrong",
+    "eq.brackets_distribute_partially"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqeja3rf",
+   "level": 3,
+   "question": "温哥华 SkyTrain 的单程普通票价是 n 加元，用 Compass 卡每次便宜 2 加元。Liam 这个月用 Compass 卡坐了 5n 次，他这个月的车费总额用展开后的多项式表示是多少加元？",
+   "options": [
+    "5n − 10n",
+    "5n² − 10n",
+    "10n − 10n",
+    "5n² − 2"
+   ],
+   "answerIndex": 1,
+   "explain": "每次票价是 n − 2，总车费 5n(n − 2) = 5n² − 10n。−2 也要乘 5n 得 −10n；5n × n 里 n × n = n²，所以是 5n²，不是 10n 或 5n。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "poly.mult_monomial_exponent_wrong",
+    "eq.brackets_distribute_partially"
+   ]
+  },
+  {
+   "qid": "qmtlygkwq0taqin",
+   "level": 3,
+   "question": "Ethan 计算 5n(n + 3)，写出的结果是 5n² + 3。下面哪个说法正确指出了他的问题？",
+   "options": [
+    "他把指数加错了，n × n 应该是 n，结果应是 5n + 15n",
+    "他把 n × n 算成了 n²，其实应是 2n，结果应是 10n + 15n",
+    "他漏乘了第二项，5n 也要乘 3，结果应是 5n² + 15n",
+    "他没有错，单项式只需要乘括号里的第一项，结果就是 5n² + 3"
+   ],
+   "answerIndex": 2,
+   "explain": "分配律要求 5n 乘括号里的每一项：5n × n = 5n²，5n × 3 = 15n，正确结果是 5n² + 15n。Ethan 的 5n² 是对的，错在 +3 没有乘 5n；n × n 就是 n²，不是 2n 或 n。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "poly.mult_monomial_exponent_wrong",
+    "ok",
+    "eq.brackets_distribute_partially"
+   ]
+  },
+  {
+   "qid": "qmtlygkwqglcedg",
+   "level": 3,
+   "question": "一块正方形地毯的边长是 3x 米。Ava 在它旁边紧挨着又拼了一块长方形地毯，宽也是 3x 米，长是 12 米，拼成一个更大的长方形。这个大长方形的总面积用展开后的多项式表示是多少平方米？",
+   "options": [
+    "9x + 36x",
+    "9x² + 12",
+    "18x + 36x",
+    "9x² + 36x"
+   ],
+   "answerIndex": 3,
+   "explain": "拼起来后宽是 3x，长是 3x + 12，面积 3x(3x + 12) = 9x² + 36x。也可以分开算：正方形 3x × 3x = 9x²，长方形 3x × 12 = 36x，再相加。x × x 是 x²，别写成 2x 或 x。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "eq.brackets_distribute_partially",
+    "poly.mult_monomial_exponent_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

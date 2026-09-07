@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.ANALYZE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlzmw938k970m",
+   "level": 1,
+   "question": "坐标格（grid）上有一条直线，它经过 (0, 4)、(1, 6)、(2, 8) 三个点。这条直线的方程（equation）是哪一个？",
+   "options": [
+    "y = 2x + 4",
+    "y = 2x + 6",
+    "y = 4x + 2",
+    "y = 0.5x + 4"
+   ],
+   "answerIndex": 0,
+   "explain": "斜率看「每向右 1 格上升多少」：4→6→8 每次加 2，所以变化率是 2；y 截距看 x = 0 时的 y，是 4，方程是 y = 2x + 4。别把 x = 1 时的 6 当成截距，也别把 2 和 4 的位置写反。",
+   "tags": [
+    "ok",
+    "linear.intercept_misread",
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw934qp85j",
+   "level": 1,
+   "question": "把方程 y = 2.5x + 10 的图象画在坐标格上。方程里的「10」在图上表示什么？",
+   "options": [
+    "直线每向右走 1 格就上升 10",
+    "直线与 y 轴交于点 (0, 10)",
+    "直线在 x = 1 时的 y 值是 10",
+    "直线每上升 1 格就向右走 10"
+   ],
+   "answerIndex": 1,
+   "explain": "y = 2.5x + 10 里，x 的系数 2.5 是斜率（每向右 1 上升 2.5），常数项 10 是 y 截距（y-intercept），也就是 x = 0 时 y = 10，直线在 (0, 10) 穿过 y 轴。x = 1 时 y 其实是 12.5，不是 10。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw932bfxdp",
+   "level": 1,
+   "question": "坐标格上一条直线经过 (0, −2) 和 (4, 6) 两点。它的斜率（slope）和 y 截距（y-intercept）分别是多少？",
+   "options": [
+    "斜率 −2，y 截距 2",
+    "斜率 0.5，y 截距 −2",
+    "斜率 2，y 截距 −2",
+    "斜率 2，y 截距 6"
+   ],
+   "answerIndex": 2,
+   "explain": "斜率 = rise ÷ run = (6 − (−2)) ÷ (4 − 0) = 8 ÷ 4 = 2；y 截距是 x = 0 时的 y，即 −2。别算成 run ÷ rise = 0.5，也别把 x = 4 时的 6 当成截距。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap",
+    "ok",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzmw933wjxvu",
+   "level": 1,
+   "question": "把方程 y = −3x + 6 画在坐标格上。下面哪句话正确描述了这条直线？",
+   "options": [
+    "每向右 3 格才下降 1，与 y 轴交于 (0, 6)",
+    "每向右 1 格就下降 3，与 y 轴交于 (0, 3)",
+    "每向右 1 格就上升 6，与 y 轴交于 (0, −3)",
+    "每向右 1 格就下降 3，与 y 轴交于 (0, 6)"
+   ],
+   "answerIndex": 3,
+   "explain": "斜率 −3 表示 x 每增加 1，y 就减少 3；常数项 6 是 y 截距，直线过 (0, 6)。「每向右 3 格下降 1」是把 run 和 rise 算反了；而 y = 3 出现在 x = 1 的点 (1, 3)，它不在 y 轴上。",
+   "tags": [
+    "lin.slope_rise_run_swap",
+    "linear.intercept_misread",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzmw936zokqj",
+   "level": 2,
+   "question": "一个数值表（table）：x = 1 时 y = 7，x = 2 时 y = 9，x = 3 时 y = 11。这些点都在同一条直线上，这条直线的方程是？",
+   "options": [
+    "y = 2x + 5",
+    "y = 2x + 7",
+    "y = 0.5x + 5",
+    "y = 5x + 2"
+   ],
+   "answerIndex": 0,
+   "explain": "x 每加 1，y 就加 2，斜率是 2；表格里没有 x = 0 那一行，要从 (1, 7) 往回退一步：7 − 2 = 5，所以 y 截距是 5。表格第一行的 7 是 x = 1 时的值，不是截距。",
+   "tags": [
+    "ok",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw93wn817i",
+   "level": 2,
+   "question": "温哥华一家出租车公司的车费图象是一条直线，方程是 C = 2d + 5，其中 d 是行驶的公里数，C 是车费（加元）。图上的斜率和 y 截距各表示什么？",
+   "options": [
+    "每多开 1 km 车费多 $5；上车还没开动就要付 $2",
+    "每多开 1 km 车费多 $2；上车还没开动就要付 $5",
+    "每多开 1 km 车费多 $2；上车还没开动时要付 $7",
+    "每多开 1 km 车费多 $0.50；上车还没开动就要付 $5"
+   ],
+   "answerIndex": 1,
+   "explain": "C = 2d + 5 里 d 的系数 2 是斜率，表示每公里多 $2；常数 5 是 y 截距，即 d = 0（还没开动）时的车费 $5。$7 是已经开了 1 km 之后的费用，不是起步价。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw93kfwg57",
+   "level": 2,
+   "question": "坐标格上一条直线经过 (2, 11) 和 (6, 19)，图上没有标出 x = 0 的点。这条直线的方程是？",
+   "options": [
+    "y = 7x + 2",
+    "y = 2x + 11",
+    "y = 2x + 7",
+    "y = 0.5x + 10"
+   ],
+   "answerIndex": 2,
+   "explain": "斜率 = (19 − 11) ÷ (6 − 2) = 8 ÷ 4 = 2；再从 (2, 11) 往回退 2 格：11 − 2×2 = 7，y 截距是 7。不能直接拿第一个点的 11 当截距，它是 x = 2 时的值，不是 x = 0 时的值。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "ok",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw93dc51gr",
+   "level": 2,
+   "question": "本拿比一所学校的雨水桶正在放水。水量图象是一条直线：与竖轴交于 (0, 60)，并经过 (5, 40)。横轴是时间 t（分钟），竖轴是水量 V（升）。哪个方程与这条直线一致？",
+   "options": [
+    "V = 60t − 4",
+    "V = −4t + 40",
+    "V = −0.25t + 60",
+    "V = −4t + 60"
+   ],
+   "answerIndex": 3,
+   "explain": "5 分钟少了 20 L，斜率 = −20 ÷ 5 = −4，即每分钟少 4 L；直线与竖轴的交点 (0, 60) 给出 y 截距 60，表示一开始桶里有 60 L。40 是 t = 5 时的水量，不是起始量；−0.25 是把 run ÷ rise 算反了。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzmw937yni01",
+   "level": 3,
+   "question": "深湾（Deep Cove）一家独木舟出租店的收费图象是一条直线：租 2 小时付 $40，租 4 小时付 $60。设 h 是小时数，C 是费用（加元）。方程是什么？h = 0 时的费用又表示什么？",
+   "options": [
+    "C = 10h + 20，先付 $20 才能下水",
+    "C = 0.1h + 39.8，先付 $39.80 才能下水",
+    "C = 20h + 10，先付 $10 才能下水",
+    "C = 10h + 40，先付 $40 才能下水"
+   ],
+   "answerIndex": 0,
+   "explain": "斜率 = (60 − 40) ÷ (4 − 2) = 10，每小时 $10；从 (2, 40) 往回退 2 小时：40 − 2×10 = 20，所以 h = 0 时是 $20，这是还没划就要付的基本费。第一个数据点的 $40 是租了 2 小时的钱，不是起始费。",
+   "tags": [
+    "ok",
+    "lin.slope_rise_run_swap",
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzmw9316k43f",
+   "level": 3,
+   "question": "素里一家自行车租赁店的收费图象是一条直线，经过 (2, 30) 和 (4, 34)，横轴是小时 h，纵轴是费用 C（加元）。Ethan 说：「h = 0 的时候当然是 $0，因为一分钟都没租。」他说得对吗？",
+   "options": [
+    "对，h = 0 的点就是原点 (0, 0)，没租车就不用付钱",
+    "不对，把直线延长到 h = 0 得 $26，那是先收的基本费",
+    "不对，应该是 $2，因为方程里的起始值就是每小时的 2",
+    "不对，应该是 $29，因为斜率 2 ÷ 4 = 0.5，从 (2, 30) 退回去"
+   ],
+   "answerIndex": 1,
+   "explain": "斜率 = (34 − 30) ÷ (4 − 2) = 2，每小时 $2；从 (2, 30) 往回退 2 小时：30 − 2×2 = 26，所以 h = 0 时是 $26，直线并不经过原点。x = 0 时的值不一定是 0，要看直线实际穿过 y 轴的位置。",
+   "tags": [
+    "linear.intercept_misread",
+    "ok",
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmw933qr70b",
+   "level": 3,
+   "question": "Lily 在科学课记录向日葵苗的高度，图象是一条直线，方程 h = 2d + 12，其中 d 是天数，h 是高度（cm）。直线穿过纵轴的点是哪一点？用方程预测第 8 天的高度是多少？",
+   "options": [
+    "穿过 (0, 2)，第 8 天高 98 cm",
+    "穿过 (0, 12)，第 8 天高 16 cm",
+    "穿过 (0, 12)，第 8 天高 28 cm",
+    "穿过 (0, 14)，第 8 天高 28 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "常数 12 是 y 截距，直线过 (0, 12)，表示开始记录时苗已经 12 cm；斜率 2 表示每天长 2 cm，第 8 天高度 = 2×8 + 12 = 28 cm。d = 1 时的 14 cm 是第 1 天的高度，不是起点；8 ÷ 2 + 12 = 16 是把斜率当成 run ÷ rise 用了。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap",
+    "ok",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzmw935yylgi",
+   "level": 3,
+   "question": "列治文一家打印店印海报的价格图象是一条直线，方程 C = 3n + 2，其中 n 是张数，C 是价钱（加元）。Mia 说：「起始费是 $3，之后每张再加 $2。」她说得对吗？",
+   "options": [
+    "不对，起始费应该是 $5，因为印 1 张就是 3 + 2 = 5",
+    "对，方程里先写的 3 就是起始值，后面的 2 才是每张加的钱",
+    "不对，每张只加约 $0.33，因为斜率是 run ÷ rise = 1 ÷ 3",
+    "不对，3 是每张的价钱，常数 2 才是一张不印也要付的起始费"
+   ],
+   "answerIndex": 3,
+   "explain": "C = 3n + 2 里，n 的系数 3 是斜率（每张 $3），常数 2 是 y 截距（n = 0 时的 $2 起始费），方程里写在前面的数不一定是起始值。3 + 2 = 5 是印 1 张的价钱，不是 n = 0 时的费用。",
+   "tags": [
+    "linear.intercept_misread",
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap",
+    "ok"
+   ]
+  }
+ ]
+}

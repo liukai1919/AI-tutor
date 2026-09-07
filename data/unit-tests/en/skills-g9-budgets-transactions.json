@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "budgets-transactions",
+ "lang": "en",
+ "unitName": {
+  "zh": "理财：预算与收支",
+  "en": "Financial literacy: budgets & transactions"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Financial literacy: budgets & transactions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FIN.BANKING",
+    "level": 1,
+    "question": "Jayden's chequing account in Kelowna shows a running balance of $142.60. He taps his debit card to pay $38.75 for a bus pass. What is his new running balance?",
+    "options": [
+     "$104.85",
+     "$113.85",
+     "$103.85",
+     "$181.35"
+    ],
+    "answerIndex": 2,
+    "explain": "A debit-card purchase takes money out, so subtract: $142.60 − $38.75 = $103.85. The classic trap is adding the transaction (giving $181.35) — always ask first whether money went in or out."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.SIMPLE_INTEREST",
+    "level": 1,
+    "question": "Nadia puts $600 into a savings account that pays 4% simple interest per year. She leaves it there for 2 years. How much interest does she earn?",
+    "options": [
+     "$24.00",
+     "$48.00",
+     "$480.00",
+     "$648.00"
+    ],
+    "answerIndex": 1,
+    "explain": "Use I = P × r × t with the rate as a decimal: 600 × 0.04 × 2 = $48.00. Two common traps are writing 4% as 0.4 (which gives $480) and answering with the total $648 instead of the interest."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.BUDGET_PLAN",
+    "level": 1,
+    "question": "Priya's monthly income is $340. Her expenses for the month are: bus pass $52, phone plan $35, snacks $48, movies $65. If she spends nothing else, how much is left for savings?",
+    "options": [
+     "$140",
+     "$188",
+     "$200",
+     "$205"
+    ],
+    "answerIndex": 0,
+    "explain": "Add all expenses first (52 + 35 + 48 + 65 = $200), then subtract from income: 340 − 200 = $140. The trap is stopping at the expense total, or missing one line of the list when adding."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.SAVINGS_GROWTH",
+    "level": 2,
+    "question": "Two friends open savings accounts. Amir deposits $600 at 2.5% simple interest for 3 years. Bella deposits $900 at 2% simple interest for 2 years. Who earns more interest, and by how much?",
+    "options": [
+     "Bella, by $9.00",
+     "Amir, by $18.00",
+     "Amir, by $9.00",
+     "Bella, by $36.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Compute each: Amir 600 × 0.025 × 3 = $45; Bella 900 × 0.02 × 2 = $36; so Amir earns $9 more. The trap is assuming the bigger principal always wins — rate and time matter just as much."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PLANNED_PURCHASE",
+    "level": 2,
+    "question": "A phone Marcus wants costs $480 if he saves up and pays cash. The store also offers a plan of $45 per month for 12 months. How much MORE does the payment plan cost in total?",
+    "options": [
+     "$45",
+     "$120",
+     "$540",
+     "$60"
+    ],
+    "answerIndex": 3,
+    "explain": "Find the plan's total first (45 × 12 = $540), then subtract the cash price: 540 − 480 = $60 extra. The trap is answering with the plan total $540 instead of the difference."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.BANKING",
+    "level": 2,
+    "question": "Léa's bank statement for March lists, in order: opening balance $210.00; deposit $75.50; debit purchase $42.30; monthly account fee $4.25; ATM withdrawal $60.00. What is her closing balance?",
+    "options": [
+     "$178.95",
+     "$183.20",
+     "$187.45",
+     "$174.70"
+    ],
+    "answerIndex": 0,
+    "explain": "Work down the list one line at a time: 210.00 + 75.50 − 42.30 − 4.25 − 60.00 = $178.95. The trap is treating the account fee as money coming in, or skipping it because it is small — a fee is always a withdrawal."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.BUDGET_PLAN",
+    "level": 3,
+    "question": "Sana's monthly income is $240 ($180 babysitting, $60 allowance). Her fixed expenses are phone $25 and bus pass $52. Her variable expenses are snacks $38, gaming $30 and gifts $22. She wants to save $90 each month. How much must she cut from variable spending so the budget balances exactly?",
+    "options": [
+     "$7",
+     "$17",
+     "$73",
+     "$90"
+    ],
+    "answerIndex": 1,
+    "explain": "Expenses total $167, so only 240 − 167 = $73 is left, but the savings goal is $90, a shortfall of 90 − 73 = $17. The trap is answering $73 (what she can actually save) instead of the cut needed to reach the goal."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.SAVINGS_GROWTH",
+    "level": 3,
+    "question": "Tam has $1,200 from a summer job on Vancouver Island. Account A pays 3% simple interest per year and he would leave the money for 8 months. Account B pays 2% per year and he would leave it for 18 months. Which account gives the greater total, and what is that total?",
+    "options": [
+     "Account A, since its total is $1,224",
+     "Account A, since its total is $1,488",
+     "Account B, since its total is $1,632",
+     "Account B, since its total is $1,236"
+    ],
+    "answerIndex": 3,
+    "explain": "Change months to years first: A gives 1200 × 0.03 × (8/12) = $24, and B gives 1200 × 0.02 × 1.5 = $36, so B's total is 1200 + 36 = $1,236. The big trap is putting 8 or 18 straight into the formula as years; the second trap is assuming the higher rate always wins."
+   }
+  ]
+ }
+}

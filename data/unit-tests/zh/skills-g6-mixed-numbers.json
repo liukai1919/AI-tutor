@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "mixed-numbers",
+ "lang": "zh",
+ "unitName": {
+  "zh": "假分数与带分数",
+  "en": "Improper fractions & mixed numbers"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "假分数与带分数 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.MODEL",
+    "level": 1,
+    "question": "美术课上老师画了 3 个一样大的圆形分数图，每个圆都平均分成 4 份。前两个圆全部涂满，第三个圆涂了其中 3 份。涂色部分一共是多少？（用假分数 improper fraction 表示）",
+    "options": [
+     "11/12",
+     "3/4",
+     "11/4",
+     "8/4"
+    ],
+    "answerIndex": 2,
+    "explain": "每份都是 1/4，涂色的份数是 4+4+3=11 份，所以是 11/4。坑：分母表示「一个整体被平均分成几份」，三个圆的分母不能相加变成 12；也别只看没涂满的那个圆。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.TO_IMPROPER",
+    "level": 1,
+    "question": "把带分数 3 又 2/5 化成假分数，结果是多少？",
+    "options": [
+     "15/5",
+     "17/5",
+     "6/5",
+     "17/15"
+    ],
+    "answerIndex": 1,
+    "explain": "3 个整体 = 3×5 = 15 个 1/5，再加上原来的 2 个 1/5，一共 17 个 1/5，所以是 17/5。坑：很多同学「只乘不加」写成 15/5，或者把分母也乘一遍写成 17/15——分母代表每份的大小，全程不变。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.IMPROPER.TO_MIXED",
+    "level": 1,
+    "question": "把假分数 19/4 化成带分数，结果是多少？",
+    "options": [
+     "3 又 4/4",
+     "4 又 3/19",
+     "4 又 1/4",
+     "4 又 3/4"
+    ],
+    "answerIndex": 3,
+    "explain": "19÷4 = 4 余 3：商 4 是凑满的整体个数，余 3 是剩下的 3 个 1/4，所以是 4 又 3/4。坑：商和余数写反成 3 又 4/4（而且 4/4 已经等于 1，说明肯定错了）。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.NUMBERLINE",
+    "level": 2,
+    "question": "数学课上画了一条从 0 到 3 的数轴 (number line)，每两个整数之间都平均分成 4 小段。从 0 往右数（0 那根线不算），第 7 根刻度线上的点表示哪个数？",
+    "options": [
+     "1 又 3/4",
+     "1 又 2/4",
+     "3/4",
+     "2 又 3/4"
+    ],
+    "answerIndex": 0,
+    "explain": "每小段是 1/4，往右走了 7 段就是 7/4 = 1 又 3/4（刚好在 1 和 2 之间、离 2 还差一小格）。坑：把 0 那根线也数进去，就会少走一格得到 1 又 2/4——数轴上要数「间隔」，不是数「线」。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.COMPARE_ORDER",
+    "level": 2,
+    "question": "三位同学量了自己每天走路上学的距离：Noah 走 7/4 km，Ava 走 1 又 1/2 km，Liam 走 2 km。按从近到远排序，正确的是哪一个？",
+    "options": [
+     "Noah、Ava、Liam",
+     "Liam、Ava、Noah",
+     "Ava、Noah、Liam",
+     "Ava、Liam、Noah"
+    ],
+    "answerIndex": 2,
+    "explain": "先统一成四分之几：7/4 = 1 又 3/4，1 又 1/2 = 1 又 2/4，2 = 2 又 0/4，所以 1又2/4 < 1又3/4 < 2，顺序是 Ava、Noah、Liam。坑：看到 7/4 分子大就以为最远，其实要先化成带分数看它到底比 1 大多少。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.TO_IMPROPER",
+    "level": 2,
+    "question": "手工课上 Chloe 有 4 又 2/3 米彩带，要全部剪成每段 1/3 米的小段做许愿绳。她一共能剪出多少段？",
+    "options": [
+     "12",
+     "14",
+     "6",
+     "15"
+    ],
+    "answerIndex": 1,
+    "explain": "先把 4 又 2/3 化成假分数：4×3+2 = 14，即 14/3 米，正好是 14 个 1/3 米，所以剪出 14 段。坑：只乘不加得 12 段（把剩下的 2/3 米漏掉了），或者把 4 和 2 直接相加得 6。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MIXED.COMPARE_ORDER",
+    "level": 3,
+    "question": "社区花园浇水日，Mia 的水壶装满是 11/4 L，Jayden 的水壶装满是 2 又 3/8 L。两人各装满一壶水，谁的水壶装得多？多多少升？",
+    "options": [
+     "Jayden 的大，大 3/8 L",
+     "Mia 的大，大 3/4 L",
+     "Jayden 的大，大 1/8 L",
+     "Mia 的大，大 3/8 L"
+    ],
+    "answerIndex": 3,
+    "explain": "11/4 = 2 又 3/4 = 2 又 6/8，和 2 又 3/8 比：整数部分相同，6/8 > 3/8，所以 Mia 的多，多 6/8 − 3/8 = 3/8 L。坑：看到 Jayden 的分母 8 更大就以为他的多——分母越大每份反而越小，必须先通分再比。"
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.IMPROPER.TO_MIXED",
+    "level": 3,
+    "question": "Ethan 把 23/6 化成带分数，写成了 5 又 3/6。下面哪句话说得对？",
+    "options": [
+     "Ethan 写反了：23 ÷ 6 = 3 余 5，正确答案是 3 又 5/6",
+     "Ethan 是对的，商 5 余 3 正好写成 5 又 3/6",
+     "Ethan 只写错了分母，正确答案是 5 又 3/23",
+     "Ethan 算错了余数，正确答案是 4 又 1/6"
+    ],
+    "answerIndex": 0,
+    "explain": "23÷6 的商是 3、余数是 5，商当整数部分、余数当分子，所以是 3 又 5/6（验算：3×6+5 = 23 ✓）。坑：把商和余数写反成 5 又 3/6；一个快速自查办法是估一下——6×5 = 30 已经超过 23，整数部分不可能是 5。"
+   }
+  ]
+ }
+}

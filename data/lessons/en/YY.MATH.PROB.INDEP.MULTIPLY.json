@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.INDEP.MULTIPLY",
+ "lang": "en",
+ "title": "Find the probability that two independent events both happen by multiplying (P(5 and heads) = 1/6 × 1/2 = 1/12)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Both Things Happening: Just Multiply",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make a table for a coin and a die and count all twelve outcomes. Today we get that same answer without drawing every single outcome — we just multiply the two probabilities.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think about why the table has twelve boxes in the first place. The die has six outcomes and the coin has two, and every die outcome pairs up with both coin outcomes, so six times two gives twelve pairs. Only one of those pairs is a five with heads, so the probability is one twelfth.",
+    "math": "6\\times 2=12",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      2,
+      12
+     ],
+     "labels": [
+      "Die outcomes",
+      "Coin outcomes",
+      "Total pairs"
+     ],
+     "caption": "The outcomes multiply: 6 times 2 equals 12 possible pairs"
+    }
+   },
+   {
+    "say": "Here is the rule in symbols. When two events are independent, the probability that both happen is the first probability times the second. So the probability of a five is one sixth, the probability of heads is one half, and one sixth times one half is one over twelve. Notice the top numbers multiply to one, and the bottom numbers multiply to twelve — exactly the twelve boxes from the table.",
+    "math": "P(5\\text{ and heads})=\\frac{1}{6}\\times\\frac{1}{2}=\\frac{1}{12}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      2,
+      1,
+      1
+     ],
+     "labels": [],
+     "caption": "Six rows for the die, two columns for the coin: the one shaded overlap square is 1 out of 12"
+    }
+   },
+   {
+    "say": "Now the trap almost everyone falls into. Some people add and write one sixth plus one half, which is two thirds. But stop and think — two thirds is bigger than one half. Asking for two things to both happen makes it harder, not easier, so the answer has to be smaller than each piece. One twelfth is smaller than both one sixth and one half, so multiplying is the one that makes sense. Same warning for the counts: six plus two is eight, but that is not the number of pairs — you multiply to get twelve.",
+    "math": "\\frac{1}{6}+\\frac{1}{2}=\\frac{2}{3}\\;\\text{✗}\\qquad \\frac{1}{6}\\times\\frac{1}{2}=\\frac{1}{12}\\;\\text{✓}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.0833,
+      0.6667
+     ],
+     "labels": [
+      "1 over 12 correct",
+      "2 over 3 added wrong"
+     ],
+     "caption": "Both events together must sit closer to impossible, not further away"
+    }
+   },
+   {
+    "say": "So whenever one event does not change the other, write each probability as a fraction, multiply the tops, multiply the bottoms, and you are done.",
+    "math": "P(A\\text{ and }B)=P(A)\\times P(B)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "For two independent events, multiply their probabilities: one sixth times one half equals one twelfth.",
+  "practice": {
+   "question": "At a school fun fair in Surrey there is a prize spinner with 4 equal sections, and exactly one section is green. You spin it once and roll a fair six-sided die once. The spinner result does not change the die result. What is the probability you get green on the spinner and a 6 on the die? Write each probability as a fraction first, then multiply.",
+   "answer": "One quarter times one sixth equals one twenty-fourth. P(green and 6) = 1/4 × 1/6 = 1/24."
+  }
+ }
+}

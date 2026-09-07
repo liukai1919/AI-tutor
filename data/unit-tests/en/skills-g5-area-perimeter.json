@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "area-perimeter",
+ "lang": "en",
+ "unitName": {
+  "zh": "面积与周长",
+  "en": "Area & perimeter"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Area & perimeter · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.COUNT_UNITS",
+    "level": 1,
+    "question": "Nadia draws a rectangle on centimetre grid paper. It covers 3 rows of squares with 4 squares in each row, with no gaps and no overlaps. What is the area of her rectangle?",
+    "options": [
+     "7 cm²",
+     "12 cm",
+     "12 cm²",
+     "14 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "Area is the number of square units that cover the shape: 3 rows of 4 squares = 12 squares, so 12 cm². The usual trap is counting the units around the outside (that gives 14, which is the perimeter) or writing cm instead of cm² — area is always measured in square units."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.RECT_FORMULA",
+    "level": 1,
+    "question": "A rectangular library poster is 8 cm long and 5 cm wide. What is its area?",
+    "options": [
+     "40 cm²",
+     "13 cm²",
+     "26 cm²",
+     "80 cm²"
+    ],
+    "answerIndex": 0,
+    "explain": "For a rectangle, area = length × width, because the length tells you how many squares are in each row and the width tells you how many rows: 8 × 5 = 40 cm². Watch out — adding the sides (8 + 5 = 13) or going all the way around (26 cm) gives perimeter ideas, not area."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.MISSING_SIDE",
+    "level": 1,
+    "question": "A rectangular sticker has an area of 24 cm². One side is 6 cm long. How long is the other side?",
+    "options": [
+     "12 cm",
+     "4 cm",
+     "18 cm",
+     "144 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Since length × width = area, you undo the multiplication with division: 24 ÷ 6 = 4 cm, and you can check with 6 × 4 = 24 cm². The common trap is subtracting (24 − 6 = 18) or multiplying again (24 × 6), but the missing side must make the two sides multiply back to the area."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.WORD",
+    "level": 2,
+    "question": "Mr. Chan is building a fence right around his rectangular vegetable garden. The garden is 9 m long and 6 m wide. Fencing costs $4 for each metre. How much will the fencing cost?",
+    "options": [
+     "$216",
+     "$60",
+     "$96",
+     "$120"
+    ],
+    "answerIndex": 3,
+    "explain": "A fence goes around the edge, so you need perimeter first: 9 + 6 + 9 + 6 = 30 m, then 30 × $4 = $120. The biggest trap is using area (9 × 6 = 54) for a fence question, and the second is forgetting that there are two long sides and two short sides."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+    "level": 2,
+    "question": "Four rectangular dog runs all use exactly 16 m of fencing, so they all have a perimeter of 16 m. Which run gives the dog the most space (the greatest area)?",
+    "options": [
+     "3 m by 5 m",
+     "4 m by 4 m",
+     "2 m by 6 m",
+     "1 m by 7 m"
+    ],
+    "answerIndex": 1,
+    "explain": "Check each one: 3 × 5 = 15 m², 4 × 4 = 16 m², 2 × 6 = 12 m², 1 × 7 = 7 m², so the square 4 m by 4 m holds the most even though every run uses the same fencing. The trap is thinking the longest, stretchiest rectangle must have the most area — same perimeter does not mean same area, and the closer to a square, the bigger the area."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.COUNT_UNITS",
+    "level": 2,
+    "question": "On centimetre grid paper, Priya traces the leaf she found at the park. Her tracing covers 9 full squares, and 4 more squares are each covered exactly half way. What is the best estimate of the area of the leaf?",
+    "options": [
+     "11 cm²",
+     "13 cm²",
+     "9 cm²",
+     "10 cm²"
+    ],
+    "answerIndex": 0,
+    "explain": "Count the full squares, then join the half squares in pairs: 4 halves make 2 whole squares, so 9 + 2 = 11 cm². The two traps are counting every part-covered square as a whole one (13 cm²) or throwing the halves away (9 cm²) — half squares still cover real space."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.WORD",
+    "level": 3,
+    "question": "The Grade 5 class is planting a rectangular garden bed beside the school. The bed has an area of 48 m² and its length is 8 m. The class wants to put wooden edging all the way around the bed. How many metres of edging do they need?",
+    "options": [
+     "14 m",
+     "48 m",
+     "22 m",
+     "28 m"
+    ],
+    "answerIndex": 3,
+    "explain": "First find the missing width from the area: 48 ÷ 8 = 6 m; then go around the whole bed: 8 + 6 + 8 + 6 = 28 m. Students often stop after one step and answer 14 m (just one long side plus one short side) or reuse the area number 48 — edging follows the perimeter, so every one of the four sides has to be counted."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+    "level": 3,
+    "question": "Jayden says, ‘If two gardens have the same area, they must need the same amount of fencing.’ Which example shows that Jayden is wrong?",
+    "options": [
+     "A 6 m by 6 m garden and a 4 m by 9 m garden both have an area of 36 m², so both need 24 m of fencing.",
+     "A 5 m by 5 m garden has more area than a 2 m by 8 m garden, so it must need more fencing.",
+     "A 6 m by 6 m garden and a 4 m by 9 m garden both have an area of 36 m², but one needs 24 m of fencing and the other needs 26 m.",
+     "A 3 m by 6 m garden has an area of 18 m² and a perimeter of 18 m, so area and perimeter are really the same thing."
+    ],
+    "answerIndex": 2,
+    "explain": "To disprove a claim you need one true example that breaks it: 6 × 6 = 36 m² with perimeter 24 m, and 4 × 9 = 36 m² with perimeter 26 m — same area, different fencing. The trap is believing area and perimeter always grow together; they measure different things (space covered versus distance around), so a 5 m by 5 m and a 2 m by 8 m garden can even have the same perimeter of 20 m with very different areas."
+   }
+  ]
+ }
+}

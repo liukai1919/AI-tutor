@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.GRAPH.TO_RULE",
+ "lang": "en",
+ "title": "Read a rule from a graph or table and explain the functional relationship",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Reading the Rule Hiding in a Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to plot a table of points and how to write an expression like two n plus one for a pattern. Today we go the other way around: we look at a table or a graph that someone else made, and we figure out the rule and say what it actually means.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Noah is saving for a soccer ball. Here is his money jar table. Look across the bottom row: five, seven, nine, eleven. Each week the jar goes up by two dollars, every single time. That steady jump of two is the first half of the rule. Now here is the clever part. Week one already has five dollars in it, so back up one step before week one: five take away two is three. Noah had three dollars in the jar before he started.",
+    "math": "5,\\;7,\\;9,\\;11\\;\\rightarrow\\;+2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week",
+      "Dollars in jar"
+     ],
+     "caption": "Every week the jar grows by 2 dollars"
+    }
+   },
+   {
+    "say": "Now the same numbers as a graph. See how the points march up in a straight line, each one two squares higher than the last? Every point tells the same story: dollars equals two times the week number, plus the three dollars he started with. So the rule is two n plus three, where n is the week.",
+    "math": "d = 2n + 3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      5,
+      2,
+      7,
+      3,
+      9,
+      4,
+      11
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4"
+     ],
+     "caption": "Weeks across, dollars up — the points climb by 2 each time"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes. Lots of kids see the jump of two and write just two n. Let us test it, because a rule has to work for every point, not only one. Week three: two times three is six, but Noah really has nine dollars. It is out by three every single time — look at the top row against the bottom row. That missing three is the money that was already in the jar before week one, and a good rule has to include it. Two n plus three: two times three is six, plus three is nine. That matches perfectly.",
+    "math": "2\\times 3+3=9\\;\\checkmark",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      4,
+      6,
+      8,
+      5,
+      7,
+      9,
+      11
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Rule 2n only",
+      "Real jar"
+     ],
+     "caption": "The rule 2n is short by 3 at every week"
+    }
+   },
+   {
+    "say": "So when you read a rule from a graph or a table, ask yourself two questions. How big is the step each time? And where did it start, before step one? Then say it in real words: Noah started with three dollars and adds two dollars every week.",
+    "math": "d=2n+3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      5,
+      2,
+      7,
+      3,
+      9,
+      4,
+      11
+     ],
+     "labels": [
+      "5",
+      "7",
+      "9",
+      "11"
+     ],
+     "caption": "Start at 3, climb by 2 — that is the whole story"
+    }
+   }
+  ],
+  "answer": "Find the step, back up to the start, then say it in words: dollars equals two times the week plus three.",
+  "practice": {
+   "question": "Amira makes a table of what a bike rental costs at a Vancouver seawall shop. For one hour it is six dollars, for two hours it is nine dollars, for three hours it is twelve dollars, and for four hours it is fifteen dollars. Draw these four points on a coordinate grid with hours across the bottom and dollars going up. What is the rule, and what does each part of it mean in real life?",
+   "answer": "The rule is three n plus three, where n is the number of hours. The cost goes up by three dollars for each extra hour, and the extra three dollars is a fixed starting fee you pay before any riding — back up from one hour, six take away three is three."
+  }
+ }
+}

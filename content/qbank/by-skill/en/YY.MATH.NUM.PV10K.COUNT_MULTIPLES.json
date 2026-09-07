@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtjmp85v0yep45",
+   "level": 1,
+   "question": "A skip-counting pattern is written with numerals only (no picture is needed — every number is given here). It starts at 150 and each jump adds 25: 150, 175, 200, 225, then one more number. What number comes next?",
+   "options": [
+    "250",
+    "235",
+    "240",
+    "275"
+   ],
+   "answerIndex": 0,
+   "explain": "Counting on by 25s lands on the quarter benchmarks 00, 25, 50, 75, so after 225 comes 250. The common trap is adding the tens and forgetting to regroup, which gives a number 10 too small like 240.",
+   "tags": [
+    "ok",
+    "other",
+    "ops.regroup_forget",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vxgek7o",
+   "level": 1,
+   "question": "A skip-counting pattern by 100s is written out in full: 3 600, 3 700, 3 800, 3 900, then one more number. What number comes next?",
+   "options": [
+    "3 910",
+    "4 000",
+    "3 000",
+    "4 900"
+   ],
+   "answerIndex": 1,
+   "explain": "9 hundreds plus 1 more hundred makes 10 hundreds, which regroups into 1 new thousand, so 3 900 goes to 4 000. The trap is writing 3 000 — the ten hundreds were turned into a 0 but the new thousand was never carried.",
+   "tags": [
+    "other",
+    "ok",
+    "ops.regroup_forget",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vp3an8q",
+   "level": 1,
+   "question": "A pattern counts backward by 25s. The numbers so far are 1 050, 1 025, 1 000, and one more number follows. What number comes next?",
+   "options": [
+    "985",
+    "1 025",
+    "975",
+    "950"
+   ],
+   "answerIndex": 2,
+   "explain": "Take 25 back from 1 000 by thinking 1 000 is 40 quarters: one quarter less is 975. The trap is borrowing across the zeros and getting 985, which is 10 too big.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vhocym1",
+   "level": 1,
+   "question": "A skip-counting pattern by 1 000s is written with numerals only: 3 250, 4 250, 5 250, then one more number. What number comes next?",
+   "options": [
+    "5 350",
+    "7 250",
+    "6 150",
+    "6 250"
+   ],
+   "answerIndex": 3,
+   "explain": "Counting by 1 000s changes only the thousands digit, so 5 250 becomes 6 250 and the 250 part stays the same. Watch for 6 150, which comes from losing a hundred while regrouping.",
+   "tags": [
+    "other",
+    "other",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vt0xg7c",
+   "level": 2,
+   "question": "Maya has $175 saved. She adds exactly $25 every week. How much will she have after 3 more weeks?",
+   "options": [
+    "$250",
+    "$225",
+    "$200",
+    "$240"
+   ],
+   "answerIndex": 0,
+   "explain": "Skip count by 25s three times: 175, 200, 225, 250. The trap is stopping one jump early at 225, or forgetting to regroup and landing on 240.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmtjmp85v6ks6fn",
+   "level": 2,
+   "question": "A Surrey school food drive already has 4 700 cans. On each of the next 4 days the students collect exactly 100 more cans. How many cans will they have then?",
+   "options": [
+    "4 100",
+    "5 100",
+    "5 000",
+    "4 710"
+   ],
+   "answerIndex": 1,
+   "explain": "Skip count by 100s: 4 800, 4 900, 5 000, 5 100. The trap is 4 100 — when 10 hundreds became a new thousand, the extra thousand was not carried.",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vb322ne",
+   "level": 2,
+   "question": "A water tank in Kamloops holds 8 500 L. The campground uses exactly 1 000 L each day for 3 days. How much water is left?",
+   "options": [
+    "6 500 L",
+    "5 400 L",
+    "5 500 L",
+    "4 500 L"
+   ],
+   "answerIndex": 2,
+   "explain": "Counting back by 1 000s only lowers the thousands digit: 7 500, 6 500, 5 500. The trap is 5 400, which happens when a hundred is lost during regrouping.",
+   "tags": [
+    "other",
+    "ops.regroup_forget",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vsjt1ph",
+   "level": 2,
+   "question": "Ravi starts at 0 and skip counts forward by 25s. Which of these numbers will he say?",
+   "options": [
+    "545",
+    "565",
+    "630",
+    "575"
+   ],
+   "answerIndex": 3,
+   "explain": "Every multiple of 25 ends in 00, 25, 50 or 75, so 575 is the only one he says. The trap is thinking any number ending in 5 works, like 565, which is 10 off a real count.",
+   "tags": [
+    "other",
+    "ops.regroup_forget",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vojqfm2",
+   "level": 3,
+   "question": "A Nanaimo school library has 3 000 books. It gives away exactly 25 old books in each of 3 months, and then buys 100 new books. How many books does the library have now?",
+   "options": [
+    "3 025",
+    "3 085",
+    "2 925",
+    "3 075"
+   ],
+   "answerIndex": 0,
+   "explain": "Count back by 25s three times: 2 975, 2 950, 2 925, then add 100 to get 3 025. The trap is borrowing wrongly across the zeros in 3 000, or forgetting the 100 new books.",
+   "tags": [
+    "ok",
+    "ops.borrow_across_zero",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85v6fnc9h",
+   "level": 3,
+   "question": "Tomas has $150 and saves exactly $25 each week for a $300 bike. How much will he have after 5 weeks, and how much more will he still need?",
+   "options": [
+    "$265 — he needs $35 more",
+    "$275 — he needs $25 more",
+    "$300 — he has just enough",
+    "$250 — he needs $50 more"
+   ],
+   "answerIndex": 1,
+   "explain": "Skip count by 25s from 150: 175, 200, 225, 250, 275, so he has $275 and is one more jump of $25 short. The trap is $265, which is 10 too small because a regroup was missed.",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85vz8e654",
+   "level": 3,
+   "question": "Nolan counts backward by 25s starting at 500 and writes: 500, 475, 450, 425, 400, 385. What went wrong?",
+   "options": [
+    "500 − 25 is wrong — it should be 485, not 475.",
+    "450 − 25 is wrong — it should be 435, not 425.",
+    "400 − 25 is wrong — it should be 375, not 385.",
+    "The list is correct — every jump goes down 25."
+   ],
+   "answerIndex": 2,
+   "explain": "Check each jump against the benchmarks 00, 75, 50, 25: after 400 the next one down is 375, so 385 breaks the pattern. Crossing a hundred is where counters slip and land 10 too high.",
+   "tags": [
+    "ops.borrow_across_zero",
+    "ops.regroup_forget",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmp85v824wvx",
+   "level": 3,
+   "question": "A Kelowna charity walk has raised $6 900. It raises $1 000 more on Saturday and $1 000 more on Sunday, and then a local store adds $100. How much has been raised in total?",
+   "options": [
+    "$8 900",
+    "$9 900",
+    "$8 000",
+    "$9 000"
+   ],
+   "answerIndex": 3,
+   "explain": "Count by 1 000s first: 7 900 then 8 900, and adding the last $100 regroups 9 hundreds plus 1 hundred into a new thousand, giving $9 000. The trap is $8 000, where the new thousand was never carried.",
+   "tags": [
+    "other",
+    "other",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  }
+ ]
+}

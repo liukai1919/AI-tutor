@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.ADDSUB.UNLIKE",
+ "lang": "en",
+ "title": "Add and subtract fractions with unlike denominators using a common denominator (2/3 + 1/4 = 11/12)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Making the Pieces Match: 2/3 + 1/4",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add fractions when the bottom numbers match, like five eighths plus seven eighths. Today we fix the case where they do not match, like two thirds of an hour on the bus plus a quarter of an hour walking.",
+    "math": "\\frac{2}{3}+\\frac{1}{4}=?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the problem in pictures. Thirds and quarters are different sized pieces, so you cannot just count them together. We need one shared piece size, and the smallest number both three and four divide into is twelve. So twelfths is our common denominator.",
+    "math": "\\text{LCM}(3,4)=12",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      3,
+      2,
+      4,
+      1
+     ],
+     "labels": [],
+     "caption": "Two thirds and one quarter — pieces are different sizes"
+    }
+   },
+   {
+    "say": "Now rebuild each fraction in twelfths, using equivalent fractions. Three times four is twelve, so multiply the top and the bottom of two thirds by four, and you get eight twelfths. Four times three is twelve, so multiply the top and bottom of one quarter by three, and you get three twelfths. Notice the shaded amount did not change at all — only the size of the pieces changed.",
+    "math": "\\frac{2}{3}=\\frac{8}{12}\\qquad \\frac{1}{4}=\\frac{3}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      8,
+      12,
+      3
+     ],
+     "labels": [],
+     "caption": "Same amounts, now both cut into twelfths"
+    }
+   },
+   {
+    "say": "Now the pieces match, so it works exactly like the adding you already know. Eight twelfths plus three twelfths is eleven twelfths. The bottom stays twelve because the piece size never changes when you add. Last check: eleven and twelve share no common factor besides one, so eleven twelfths is already in lowest terms.",
+    "math": "\\frac{8}{12}+\\frac{3}{12}=\\frac{11}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      11
+     ],
+     "labels": [],
+     "caption": "Eleven twelfths — almost a full hour"
+    }
+   },
+   {
+    "say": "Two traps to dodge here. First, never add the bottoms: two thirds plus one quarter is not three sevenths. Look how tiny three sevenths is compared to the real answer. Second, do not just swap the bottom to twelve and leave the top alone, writing two twelfths plus one twelfths. If you scale the denominator, you must scale the numerator by the same amount, or you have secretly shrunk the fraction.",
+    "math": "\\frac{2}{3}+\\frac{1}{4}\\neq\\frac{3}{7}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      7,
+      3,
+      12,
+      11
+     ],
+     "labels": [],
+     "caption": "Wrong answer three sevenths versus the true eleven twelfths"
+    }
+   },
+   {
+    "say": "So the whole move is this: find a common denominator, rebuild both fractions by scaling the top and the bottom together, then add or subtract the numerators only and check for lowest terms.",
+    "math": "\\frac{2}{3}+\\frac{1}{4}=\\frac{8}{12}+\\frac{3}{12}=\\frac{11}{12}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Make the pieces the same size first — then add only the numerators.",
+  "practice": {
+   "question": "On your way to school you bike one half of a kilometre to the SkyTrain station, then walk one third of a kilometre from the station to the door. Draw two fraction bars of the same length, cut one into halves and shade one part, cut the other into thirds and shade one part. Then cut both bars into sixths to find the total distance.",
+   "answer": "Five sixths of a kilometre. One half becomes three sixths, one third becomes two sixths, and three sixths plus two sixths is five sixths, which is already in lowest terms."
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "area-perimeter",
+ "lang": "zh",
+ "unitName": {
+  "zh": "面积与周长",
+  "en": "Area & perimeter"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "面积与周长 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.COUNT_UNITS",
+    "level": 1,
+    "question": "在 1 cm 的方格纸上画了一个长方形，它横着占 5 个小方格，竖着占 3 个小方格，每个小方格的面积是 1 cm²。这个长方形的面积（area）是多少？",
+    "options": [
+     "8 cm²",
+     "15 cm²",
+     "16 cm²",
+     "15 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "数方格：每行 5 个方格，一共 3 行，5 × 3 = 15 个方格，所以面积是 15 cm²。最容易踩的坑：16 是绕一圈的周长（perimeter），8 是长加宽；另外面积的单位一定要写 cm²，写成 15 cm 就变成长度了。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.RECT_FORMULA",
+    "level": 1,
+    "question": "Léa 用彩纸剪了一张正方形贴纸，边长是 9 cm。这张贴纸的面积（area）是多少？",
+    "options": [
+     "18 cm²",
+     "36 cm²",
+     "72 cm²",
+     "81 cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "正方形面积 = 边长 × 边长 = 9 × 9 = 81 cm²。最容易踩的坑：18 是 9 + 9，面积不能用加法；36 是四条边加起来的周长；72 是把 9 × 9 算成了 9 × 8，乘法口诀要看准。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.MISSING_SIDE",
+    "level": 1,
+    "question": "一个长方形便当盒盖的面积是 24 cm²，长是 6 cm。它的宽是多少？哪个理由说得对？",
+    "options": [
+     "4 cm，因为 6 × 4 = 24",
+     "18 cm，因为 24 − 6 = 18",
+     "12 cm，因为 24 ÷ 2 = 12",
+     "30 cm，因为 24 + 6 = 30"
+    ],
+    "answerIndex": 0,
+    "explain": "面积 = 长 × 宽，所以宽 = 24 ÷ 6 = 4 cm，可以用乘法倒推检查：6 × 4 = 24 ✓。最容易踩的坑：面积是乘出来的，不是加出来的，所以不能用 24 − 6 或 24 + 6；24 ÷ 2 = 12 是周长里「长 + 宽」的算法，和面积没关系。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.WORD",
+    "level": 2,
+    "question": "Surrey 的 Noah 家后院有一块长方形菜园，长 9 m、宽 6 m。他想沿着菜园四周围一圈栅栏，需要多少米栅栏？",
+    "options": [
+     "15 m",
+     "24 m",
+     "30 m",
+     "54 m"
+    ],
+    "answerIndex": 2,
+    "explain": "围一圈求的是周长（perimeter）：(9 + 6) × 2 = 30 m。最容易踩的坑：54 m 是面积 9 × 6，那是地有多大，不是围一圈有多长；15 m 只算了一条长加一条宽，还差对面的两条边。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.RECT_FORMULA",
+    "level": 2,
+    "question": "一张长方形课桌的桌面长 2 m、宽 80 cm。这个桌面的面积是多少 cm²？（提示：1 m = 100 cm）",
+    "options": [
+     "160 cm²",
+     "560 cm²",
+     "1600 cm²",
+     "16000 cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "两个边的单位不一样，要先统一：2 m = 200 cm，再算 200 × 80 = 16000 cm²。最容易踩的坑：直接用 2 × 80 = 160 是忘了换算单位；560 是把周长 (200 + 80) × 2 算出来的数，不是面积。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+    "level": 2,
+    "question": "方格纸上有两个长方形（每格 1 cm²）：A 是 6 格 × 2 格，B 是 4 格 × 4 格。下面哪句话是对的？",
+    "options": [
+     "两个长方形周长相同，但 B 的面积更大",
+     "两个长方形面积相同，但 B 的周长更大",
+     "B 的周长更大，所以 B 的面积也更大",
+     "两个长方形周长和面积都相同"
+    ],
+    "answerIndex": 0,
+    "explain": "A 的周长 (6 + 2) × 2 = 16 cm，面积 6 × 2 = 12 cm²；B 的周长 (4 + 4) × 2 = 16 cm，面积 4 × 4 = 16 cm²。周长一样，面积却不一样。最容易踩的坑：以为周长大面积就大——这两个图形周长根本一样大，还是 B 更宽敞。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+    "level": 3,
+    "question": "Maya 用一根 24 cm 长的绳子围成一个长方形（每条边都是整厘米数，绳子刚好用完）。下面哪种围法围出来的面积最大？",
+    "options": [
+     "长 8 cm、宽 4 cm",
+     "长 6 cm、宽 6 cm",
+     "长 9 cm、宽 3 cm",
+     "长 11 cm、宽 1 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "四种围法的周长都是 24 cm，但面积分别是 32、36、27、11 cm²，最大的是 6 × 6 = 36 cm²。最容易踩的坑：周长相同不代表面积相同——长和宽越接近（越像正方形），围出来的地方越大；拉得又长又扁的 11 × 1 面积反而最小。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA_PERIM.WORD",
+    "level": 3,
+    "question": "Kelowna 一间长方形活动室的地板长 8 m、宽 5 m。房间正中间要放一块 4 m × 3 m 的地毯，地毯下面不铺地砖，其余地方全部铺地砖。地砖每平方米 12 加元，铺地砖一共要花多少钱？",
+    "options": [
+     "144 加元",
+     "312 加元",
+     "336 加元",
+     "480 加元"
+    ],
+    "answerIndex": 2,
+    "explain": "先求要铺砖的面积：整间房 8 × 5 = 40 m²，减去地毯 4 × 3 = 12 m²，还剩 28 m²；再算钱：28 × 12 = 336 加元。最容易踩的坑：480 加元是忘了把地毯的位置扣掉；312 加元是把地毯算成了周长 (4 + 3) × 2 = 14 去减，地毯占的是面积 12 m²，不是周长。"
+   }
+  ]
+ }
+}

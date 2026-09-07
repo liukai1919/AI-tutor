@@ -1,0 +1,117 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.RATE_INTERCEPT",
+ "lang": "en",
+ "title": "Explain the rate of change and the starting value (y-intercept) in context",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "What the Numbers Really Mean",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a table or a graph and build the relation, like three n plus two. Today we do the next small thing: say out loud what each of those two numbers means in real life.",
+    "math": "3n+2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the story. Maya has two dollars saved right now, and every week she adds three more dollars from her allowance. Week zero is today, before any new money comes in.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      5,
+      8,
+      11
+     ],
+     "labels": [
+      "Week 0",
+      "Week 1",
+      "Week 2",
+      "Week 3"
+     ],
+     "caption": "Maya's savings in dollars"
+    }
+   },
+   {
+    "say": "Now watch the same numbers on the grid. The very first dot sits at a height of two, before Maya adds anything. That height is the starting value. Then every time you step one week to the right, the dots climb three dollars. That climb is the rate of change.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      2,
+      1,
+      5,
+      2,
+      8,
+      3,
+      11
+     ],
+     "labels": [
+      "start",
+      "week 1",
+      "week 2",
+      "week 3"
+     ],
+     "caption": "x is weeks, y is dollars saved"
+    }
+   },
+   {
+    "say": "So in three n plus two, the three is the rate of change, three dollars added every week, and the two is the starting value, the two dollars Maya already had. The number stuck to the n is always the per week amount, because it is the one that gets multiplied by how many weeks went by.",
+    "math": "3n+2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes. Someone says Maya started with three dollars and adds two each week. That story is really two n plus three, and look how different it is. It starts at a height of three, not two, and it only climbs two each week. Both lines happen to meet at week one, five dollars, but after that they split apart. By week three the swapped story says nine dollars, when the true one says eleven.",
+    "math": "2n+3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      3,
+      1,
+      5,
+      2,
+      7,
+      3,
+      9
+     ],
+     "labels": [
+      "start",
+      "week 1",
+      "week 2",
+      "week 3"
+     ],
+     "caption": "The swapped story: starts at 3, climbs 2 each week"
+    }
+   },
+   {
+    "say": "So always ask yourself two questions. What did I have before anything happened, and what happens each and every time. The first answer is the starting value, the second is the rate of change.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The number multiplied by n is the change each time; the number by itself is what you started with.",
+  "practice": {
+   "question": "Nadia is filling a water bottle at the school fountain. On a coordinate grid, x is the number of seconds and y is the millilitres of water in the bottle. Her points are: zero seconds and one hundred millilitres, one second and one hundred fifty millilitres, two seconds and two hundred millilitres, three seconds and two hundred fifty millilitres. Draw or picture those four points. What is the starting value and what is the rate of change, and what does each one mean about Nadia's bottle?",
+   "answer": "Starting value is 100 millilitres, meaning the bottle already had 100 millilitres in it before she started filling. Rate of change is 50 millilitres per second, meaning the fountain adds 50 millilitres every second. The relation is 50n + 100."
+  }
+ }
+}

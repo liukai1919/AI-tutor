@@ -1,0 +1,170 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.DAT.01",
+ "lang": "en",
+ "title": "central tendency",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Mean, Median & Mode: Finding the \"Typical\" Number",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, so picture this. You and four friends decided to track how many hours of phone screen time you each got last week. You've got three hours, your best friend got five, another friend also got five, one got seven, and then Jake... Jake got ten hours. Ten! Now, your little group-chat is arguing: \"So what's a NORMAL week for us?\" You can't just point at one person. You need a single number that captures the whole group in a fair way. That's exactly what central tendency does — it gives you a summary, a \"typical\" snapshot of a data set. And there are three main tools: the mean, the median, and the mode. Let's meet all three.",
+    "math": "",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      3,
+      5,
+      5,
+      7,
+      10
+     ],
+     "labels": [
+      "You",
+      "Bestie",
+      "Friend A",
+      "Friend B",
+      "Jake"
+     ],
+     "caption": "Five friends' weekly phone screen time (hours)"
+    }
+   },
+   {
+    "say": "Let's start with the mean, which is the average most people think of. Here's the trick: imagine everyone's hours as little stacks of blocks. You can literally \"level them off\" — take blocks from the tall stacks and pile them on the short ones until everyone is the same height. Mathematically, you just add all the values up and divide by how many values there are. So for our five friends: three plus five plus five plus seven plus ten equals thirty. Divide thirty by five, and you get six. The mean is six hours. It's like everyone's pretending to have exactly six hours so the total stays the same.",
+    "math": "\\text{Mean} = \\frac{3+5+5+7+10}{5} = \\frac{30}{5} = 6",
+    "visual": {
+     "type": "average",
+     "nums": [
+      3,
+      5,
+      5,
+      7,
+      10
+     ],
+     "labels": [
+      "You",
+      "Bestie",
+      "Friend A",
+      "Friend B",
+      "Jake"
+     ],
+     "caption": "Leveling off to the mean of 6 hours"
+    }
+   },
+   {
+    "say": "Now the median. Forget the order the data came in. Line everyone up from smallest to biggest. Three, five, five, seven, ten. The median is the dead-middle value. Since we have five numbers, the third one in line is the middle. Count: one, two, three — that's the second five. So the median is five hours. The median is basically the \"middle kid\" of your data. It doesn't care about the really big or really small values; it just sits right in the centre. If you had an even number of values, say six, you'd take the two middle ones and average them.",
+    "math": "\\text{Sorted: } 3,\\;5,\\;5,\\;7,\\;10 \\quad \\Rightarrow \\quad \\text{Median} = 5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3,
+      10,
+      5,
+      6
+     ],
+     "labels": [],
+     "caption": "Median (5) and Mean (6) on the number line"
+    }
+   },
+   {
+    "say": "Last one: the mode. This is the value that shows up the most often — the most popular number. Look at our data: three appears once, five appears twice, seven appears once, ten appears once. Five is the only number that repeats, so five is the mode. It's super simple — just count how many times each number shows up and pick the winner. And a fun fact: a data set can have more than one mode, or even no mode at all if every value appears the same number of times.",
+    "math": "\\text{Mode} = 5 \\quad (\\text{appears twice, all others once})",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      1,
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "3 hrs",
+      "5 hrs",
+      "7 hrs",
+      "10 hrs"
+     ],
+     "caption": "Frequency of each screen-time value — 5 hrs wins with 2 friends"
+    }
+   },
+   {
+    "say": "Alright, let's do a full worked example so you see all three together. Say you recorded how many kilometres you biked to school each day this week. The numbers are: four, six, six, eight, and twelve kilometres. Mean: add them up — four plus six plus six plus eight plus twelve equals thirty-six. Divide by five days: thirty-six divided by five is seven point two. Median: sort them — four, six, six, eight, twelve. Middle value is the third one: six. Mode: six appears twice, everything else appears once, so the mode is six. So the \"typical\" week is around six to seven kilometres.",
+    "math": "\\text{Mean}=\\frac{4+6+6+8+12}{5}=7.2 \\qquad \\text{Median}=6 \\qquad \\text{Mode}=6",
+    "visual": {
+     "type": "average",
+     "nums": [
+      4,
+      6,
+      6,
+      8,
+      12
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Weekly biking distances — mean line at 7.2 km"
+    }
+   },
+   {
+    "say": "Now here's where it gets interesting, and why we need all three tools. You, your friends, and your cousin are comparing part-time earnings for the month in dollars. The numbers are: twenty, twenty-five, twenty-five, thirty, and one hundred twenty. One hundred twenty is your cousin who got a big weekend job. Mean: twenty plus twenty-five plus twenty-five plus thirty plus one hundred twenty equals two hundred twenty. Divide by five: forty-four dollars. But wait — nobody except the cousin is even close to forty-four. The median? Sort them: twenty, twenty-five, twenty-five, thirty, one hundred twenty. Middle is twenty-five. That feels way more like \"the group.\" The mode is also twenty-five. So when a big outlier is hanging out with your data, the median and mode often tell a truer story than the mean.",
+    "math": "\\text{Mean}=\\frac{20+25+25+30+120}{5}=44 \\qquad \\text{Median}=25 \\qquad \\text{Mode}=25",
+    "visual": {
+     "type": "average",
+     "nums": [
+      20,
+      25,
+      25,
+      30,
+      120
+     ],
+     "labels": [
+      "You",
+      "Friend A",
+      "Friend B",
+      "Friend C",
+      "Cousin"
+     ],
+     "caption": "Part-time earnings — the outlier (120) pulls the mean way up!"
+    }
+   },
+   {
+    "say": "So here's the cheat sheet. The mean is great when your data is nicely balanced and you want to use every single number. The median is your best friend when there's a weird outlier or the data is skewed — it just doesn't get pulled around. The mode tells you what's most common, and it's the only one that works with categories like \"favourite flavour of ice cream.\" And the real skill? Looking at all three and asking, \"Which one actually answers the question I have?\" That's central tendency in a nutshell: pick the right lens to see the middle of your data clearly.",
+    "math": "\\begin{array}{c|c} \\text{Measure} & \\text{Best when...} \\\\ \\hline \\text{Mean} & \\text{data is balanced, no outliers} \\\\ \\text{Median} & \\text{data is skewed or has outliers} \\\\ \\text{Mode} & \\text{you want the most common value} \\end{array}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      7.2,
+      44,
+      5,
+      6,
+      25
+     ],
+     "labels": [
+      "Phone",
+      "Bike",
+      "Pay",
+      "Mean",
+      "Med"
+     ],
+     "caption": "Mean vs median for our three examples (the modes were 5, 6 and 25)"
+    }
+   }
+  ],
+  "answer": "Mean levels everything off, median picks the middle, mode picks the most common — and the best one depends on what your data looks like.",
+  "practice": {
+   "question": "You and four friends logged your weekly grocery spending in dollars: 18, 22, 22, 35, and 95 (the 95 was your cousin who stocked up for the whole family). Find the mean, median, and mode, and explain which measure best represents what a \"typical\" week costs for the group of five.",
+   "answer": "Mean: (18+22+22+35+95)/5 = 192/5 = 38.40 dollars. Median: sorted 18, 22, 22, 35, 95 → middle is 22 dollars. Mode: 22 dollars (appears twice). The median of 22 dollars best represents a typical week because the 95-dollar outlier pulls the mean up to 38.40, which no one in the group actually spent."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

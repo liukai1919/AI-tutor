@@ -1,0 +1,118 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+ "lang": "en",
+ "title": "List the sample space of two independent events with a tree diagram or table (coin + die = 12 outcomes)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Coin + Die: Counting Every Outcome",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make a table or a tree to list outcomes. Today we take that one step further and answer a question people get wrong all the time: when you flip a coin and roll a die at the same time, exactly how many different results are possible?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Every single result is a pair: one thing from the coin, and one thing from the die. So put the coin's two results down the side, and the die's six results across the top. That gives you two rows of six boxes, and every box is one possible outcome.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "Heads",
+      "Tails"
+     ],
+     "caption": "Top row: heads with each die number. Bottom row: tails with each die number."
+    }
+   },
+   {
+    "say": "Now let's count the boxes for real. The top row is heads one, heads two, heads three, heads four, heads five, heads six. That is six outcomes. The bottom row is tails one through tails six, another six. Six plus six is twelve. And notice the shortcut hiding in the picture: two rows of six is two times six, which is twelve.",
+    "math": "2 \\times 6 = 12",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      6
+     ],
+     "labels": [],
+     "caption": "Two groups of six: one group for heads, one for tails, twelve dots in all."
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone says, the coin has two results and the die has six, so two plus six is eight. But adding is wrong, because you are not choosing the coin or the die — you get both, every single time. The other slip is answering with just two words, like heads or tails, or win or lose. That squishes six different die results into one lump. Every box in the table is its own separate outcome, so heads three and heads five must be counted apart.",
+    "math": "2 + 6 = 8 \\;\\text{(wrong)} \\quad 2 \\times 6 = 12 \\;\\text{(right)}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8,
+      12
+     ],
+     "labels": [
+      "Adding 2 + 6",
+      "Multiplying 2 x 6"
+     ],
+     "caption": "Adding gives eight, but the table clearly holds twelve boxes."
+    }
+   },
+   {
+    "say": "Let's try it with a spinner instead of a coin, so you can see the idea travels. Say at a school fair in Burnaby there is a spinner with three equal sections, red, blue, and yellow, and you also roll a die. Three sections times six die numbers gives you three rows of six boxes, which is eighteen outcomes. Same move every time: count the results of the first event, count the results of the second, then multiply.",
+    "math": "3 \\times 6 = 18",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "yellow"
+     ],
+     "caption": "Three equal sections, so three rows in the table, each with six die numbers."
+    }
+   },
+   {
+    "say": "So remember: build the table with one event down the side and the other across the top, and the number of boxes is the two counts multiplied, never added.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Two events together: multiply the counts, do not add. Coin times die is two times six, which is twelve outcomes.",
+  "practice": {
+   "question": "At a Vancouver food truck you pick one drink and one snack. The drinks are water, juice, and iced tea. The snacks are a granola bar, an apple, an orange, and a muffin. Draw a table with the three drinks down the side and the four snacks across the top. How many different drink and snack combinations are possible?",
+   "answer": "Twelve. Three drinks times four snacks is three times four, which equals twelve boxes in the table. Adding three plus four to get seven would be wrong, because you take both a drink and a snack every time."
+  }
+ }
+}

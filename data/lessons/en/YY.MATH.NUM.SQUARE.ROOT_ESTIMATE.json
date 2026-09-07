@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+ "lang": "en",
+ "title": "Estimate the square root of a non-square number between two whole numbers (√20 is between 4 and 5)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Squeezing √20 Between Two Whole Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to undo squaring when the number is perfect, like the square root of eighty one is nine. But what if someone hands you twenty? There is no whole number that squares to twenty, so today we learn how to trap it between two whole numbers you do know.",
+    "math": "\\sqrt{81}=9 \\quad \\text{but} \\quad \\sqrt{20}=?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Start with twenty and look at your square numbers. Four squared is sixteen, and five squared is twenty five. Twenty sits right in between sixteen and twenty five, so twenty is stuck in that gap.",
+    "math": "16 < 20 < 25",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      16,
+      25,
+      20
+     ],
+     "labels": [],
+     "caption": "Twenty lands between the square numbers 16 and 25"
+    }
+   },
+   {
+    "say": "Now take the square root of all three numbers. The square root of sixteen is four, the square root of twenty five is five, and twenty is in the middle, so its square root has to be in the middle too. That means the square root of twenty is somewhere between four and five.",
+    "math": "\\sqrt{16}=4 \\;<\\; \\sqrt{20} \\;<\\; \\sqrt{25}=5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      6,
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "The square root of 20 hides somewhere inside this jump from 4 to 5"
+    }
+   },
+   {
+    "say": "We can be even smarter. From sixteen up to twenty is a jump of four, but from twenty up to twenty five is a jump of five. Twenty is a bit closer to sixteen, so the answer leans toward four. A good guess is about four point four or four point five. Check it: four point five times four point five is twenty point two five, just a whisker over twenty. Nice.",
+    "math": "20-16=4,\\quad 25-20=5 \\;\\Rightarrow\\; \\sqrt{20}\\approx 4.5",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [
+      "16 up to 20",
+      "20 up to 25"
+     ],
+     "caption": "The shorter jump is on the 16 side, so lean toward 4"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, the square root is not halving. Some people say the square root of sixteen is eight, but eight times eight is sixty four, nowhere near sixteen. It is four, because four times four is sixteen. Second, a round looking number is not automatically a square number. Twenty looks tidy, but no whole number times itself gives twenty, so its root is a messy in between number, and that is completely fine.",
+    "math": "8\\times 8=64 \\neq 16,\\quad 4\\times 4=16",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      10,
+      4,
+      8
+     ],
+     "labels": [],
+     "caption": "Halving sends you to 8, but 8 squared is 64, way too big"
+    }
+   },
+   {
+    "say": "So the whole move is this. Find the square number just below and the square number just above, take their roots, and you have your two whole numbers.",
+    "math": "\\sqrt{16}<\\sqrt{20}<\\sqrt{25}\\;\\Rightarrow\\;4<\\sqrt{20}<5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To estimate a square root, trap the number between the two nearest perfect squares: since 16 is less than 20 is less than 25, the square root of 20 is between 4 and 5, and closer to 4.",
+  "practice": {
+   "question": "A square patch of turf at your local community centre in Burnaby covers forty square metres. Picture a number line with whole number ticks from zero to ten, and mark where the side length must sit. Between which two whole numbers of metres is the side length, and which one is it closer to?",
+   "answer": "Between six and seven metres. Six squared is thirty six and seven squared is forty nine, so forty sits between them. Forty is only four away from thirty six but nine away from forty nine, so the side length is closer to six, about six point three metres."
+  }
+ }
+}

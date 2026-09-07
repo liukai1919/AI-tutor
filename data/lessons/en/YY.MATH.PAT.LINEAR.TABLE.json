@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.TABLE",
+ "lang": "en",
+ "title": "Recognize a discrete linear relation in a table (constant change)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Spotting the Same Jump Every Time",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a table and describe the rule hiding inside it. Today we are doing one small thing on top of that: deciding whether a table is a linear relation, just by watching how much the numbers jump each step.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the price list at a climbing gym here in BC. One hour costs 14 dollars, two hours cost 20 dollars, three hours cost 26 dollars, and four hours cost 32 dollars. Instead of staring at the whole table, walk down it one step at a time and ask: how much does the total go up each time I add one more hour?",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      14,
+      20,
+      26,
+      32
+     ],
+     "labels": [
+      "1 hour",
+      "2 hours",
+      "3 hours",
+      "4 hours"
+     ],
+     "caption": "Climbing gym: total cost in dollars"
+    }
+   },
+   {
+    "say": "Let us check the jumps. From 14 to 20 is 6 dollars. From 20 to 26 is 6 dollars. From 26 to 32 is 6 dollars. Same jump, every single step — and the hours went up by 1 each time too. That steady jump is called the constant change, and it is exactly what makes this a linear relation.",
+    "math": "20-14=6,\\quad 26-20=6,\\quad 32-26=6",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      6,
+      6
+     ],
+     "labels": [
+      "1 to 2 hours",
+      "2 to 3 hours",
+      "3 to 4 hours"
+     ],
+     "caption": "The jump is 6 dollars every time"
+    }
+   },
+   {
+    "say": "Now here is the trap. A gym down the road charges 14, then 20, then 28, then 38 dollars. The very first jump is 6, so it is tempting to shout 'linear!' and stop. But keep going: 20 to 28 is a jump of 8, and 28 to 38 is a jump of 10. The jumps are growing, so the change is not constant, and this table is not a linear relation. You have to check every gap, not just the first one.",
+    "math": "20-14=6,\\quad 28-20=8,\\quad 38-28=10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      14,
+      20,
+      28,
+      38
+     ],
+     "labels": [
+      "1 hour",
+      "2 hours",
+      "3 hours",
+      "4 hours"
+     ],
+     "caption": "Jumps of 6, then 8, then 10 — not linear"
+    }
+   },
+   {
+    "say": "So whenever a table lands in front of you, do the same little walk: equal steps across the top, and check whether the totals climb by the same amount every time. If they do, you are looking at a linear relation.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Same-size steps in, same-size jump out every time — that constant change means the table is a linear relation.",
+  "practice": {
+   "question": "At a Vancouver skating rink you pay a skate rental fee plus a fee for each hour. Draw yourself a small two-row table: 1 hour costs 9 dollars, 2 hours cost 13 dollars, 3 hours cost 17 dollars, and 4 hours cost 21 dollars. Is this a linear relation, and what is the constant change?",
+   "answer": "Yes, it is linear. The jumps are 13 minus 9 equals 4, then 17 minus 13 equals 4, then 21 minus 17 equals 4 — a constant change of 4 dollars for each extra hour."
+  }
+ }
+}

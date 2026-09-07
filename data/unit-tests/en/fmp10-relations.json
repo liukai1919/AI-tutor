@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "relations",
+ "lang": "en",
+ "unitName": {
+  "zh": "函数与线性关系",
+  "en": "Functions & Linear Relations"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Functions & Linear Relations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.01",
+    "level": 1,
+    "question": "A student records her quiz scores in a table.\nInput (x): 1, 2, 2, 4.\nOutput (y): 7, 8, 5, 6.\nIs this relation a function? Explain by identifying the specific issue.",
+    "options": [
+     "Yes, because no output value is repeated",
+     "Yes, because each output is paired with exactly one input",
+     "No, because the input 2 is paired with two different outputs, 8 and 5",
+     "No, because the input set and output set have different sizes"
+    ],
+    "answerIndex": 2,
+    "explain": "A relation is a function only when every input maps to exactly ONE output. Here the input 2 gives both 8 and 5, so it fails. The common trap is thinking repeated outputs (or different set sizes) disqualify a function — only repeated inputs with different outputs do."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 1,
+    "question": "A skateboarder's ramp is modelled by the line through the points (2, 5) and (6, 1), where x is metres along the ground and y is height in metres. What is the slope of this line?",
+    "options": [
+     "1",
+     "-1",
+     "-4",
+     "4"
+    ],
+    "answerIndex": 1,
+    "explain": "Slope = (y₂ − y₁)/(x₂ − x₁) = (1 − 5)/(6 − 2) = −4/4 = −1. The most common error is subtracting the y-values in the wrong order (getting +4/4 = 1) or simply reporting the raw difference in y (−4)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.03",
+    "level": 1,
+    "question": "A group chat countdown to a band's Vancouver show shows: 50, 44, 38, 32, …  What is the common difference d, and what is the next number in the sequence?",
+    "options": [
+     "d = 6, next term = 38",
+     "d = −6, next term = 38",
+     "d = −6, next term = 44",
+     "d = −6, next term = 26"
+    ],
+    "answerIndex": 3,
+    "explain": "Each term decreases by 6, so d = −6 and the next term is 32 + (−6) = 26. Watch the sign: a decreasing sequence has a NEGATIVE common difference, and you add d to the last term (not subtract the positive value from the first term)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.01",
+    "level": 2,
+    "question": "A Grade 10 student tracks her daily phone screen time using the function s(d), where d is the day number (1 = Monday, 2 = Tuesday, …) and s(d) is hours. She notes s(3) = 4.5 and s(5) = 2.0.\nWhat does s(5) = 2.0 tell us?",
+    "options": [
+     "She had 2.0 hours of screen time on day 5 (Friday)",
+     "On day 3 she had 2.0 hours of screen time",
+     "After 2.0 days she had accumulated 5 hours of screen time",
+     "On day 2.0 she had 5 hours of screen time"
+    ],
+    "answerIndex": 0,
+    "explain": "In f(x) = y, the input x is the argument and y is the output. s(5) = 2.0 means the input is 5 (Friday) and the output is 2.0 hours. The trap is swapping input and output, or reading the number outside the parentheses as the output."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 2,
+    "question": "A BMX rider's height h (metres) above the ground during a jump is modelled by h = −0.5t + 3, where t is seconds since take-off.\nWhat is the slope, and what does it represent in this situation?",
+    "options": [
+     "The slope is 3, meaning she rises 3 m each second",
+     "The slope is 0.5, meaning she drops 3 m each second",
+     "The slope is −0.5, meaning her height decreases by 0.5 m every second",
+     "The slope is −0.5, meaning she starts 0.5 m above the ground"
+    ],
+    "answerIndex": 2,
+    "explain": "In the slope-intercept form y = mx + b, m is the slope and b is the y-intercept. Here m = −0.5 (rate of change: −0.5 m/s) and b = 3 (starting height). The common mix-up is assigning the intercept value (3) to the slope or the slope value (0.5) to the intercept."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.03",
+    "level": 2,
+    "question": "A student starts a 30-day reading challenge: she reads 12 pages on Day 1, 18 pages on Day 2, 24 pages on Day 3, and keeps increasing by the same amount each day.\nWrite the general term a(n) and use it to find how many pages she reads on Day 10.",
+    "options": [
+     "a(n) = 6n + 12, so a(10) = 72",
+     "a(n) = 6n + 6, so a(10) = 66",
+     "a(n) = 12n + 6, so a(10) = 126",
+     "a(n) = 6n + 6, so a(10) = 60"
+    ],
+    "answerIndex": 1,
+    "explain": "a(1) = 12, d = 6, so a(n) = 12 + (n − 1)(6) = 6n + 6. Check: a(1) = 12 ✓, a(2) = 18 ✓. Then a(10) = 66. The most frequent error is using a(n) = a(1) + nd (giving 6n + 12), which forgets that you count (n − 1) steps, not n."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.04",
+    "level": 3,
+    "question": "A Grade 10 student is choosing a phone plan for her group-chat usage.\nTelus: $30 base fee plus $0.15 per text, so the monthly cost is C = 0.15t + 30.\nRogers: $20 base fee plus $0.25 per text, so the monthly cost is C = 0.25t + 20.\n(t = number of texts per month.)\nHow many texts per month make the two plans cost the same, and what is that monthly cost?",
+    "options": [
+     "100 texts, costing $45",
+     "200 texts, costing $60",
+     "50 texts, costing $37.50",
+     "100 texts, costing $55"
+    ],
+    "answerIndex": 0,
+    "explain": "Set the equations equal: 0.15t + 30 = 0.25t + 20 → 10 = 0.10t → t = 100. Substitute back: 0.15(100) + 30 = $45 (verify with the other plan: 0.25(100) + 20 = $45 ✓). Common traps: subtracting the coefficients in the wrong direction (getting t = 200 or 50) or plugging t into the wrong formula (e.g. 0.25 × 100 + 30 = $55)."
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 3,
+    "question": "A student draws a line with equation y = 3x − 7 on a grid and claims that y = 3x + 2 is a line PERPENDICULAR to it, because the two lines have different y-intercepts.\nIs the student correct? Justify your answer.",
+    "options": [
+     "Yes — perpendicular lines must have the same slope but different intercepts",
+     "Yes — the different y-intercepts are enough to make two lines perpendicular",
+     "No — the y-intercepts of two perpendicular lines must be equal",
+     "No — perpendicular lines require slopes that are negative reciprocals; a true perpendicular line would have slope −1/3, not 3"
+    ],
+    "answerIndex": 3,
+    "explain": "Perpendicular lines have slopes that multiply to −1 (negative reciprocals): the perpendicular to slope 3 is −1/3, so y = 3x + 2 is actually PARALLEL. The student confused the parallel condition (same slope) with the perpendicular one. Always check m₁ × m₂ = −1 before calling lines perpendicular."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 6
+ }
+}

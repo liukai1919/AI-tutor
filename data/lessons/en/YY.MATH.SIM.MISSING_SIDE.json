@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.MISSING_SIDE",
+ "lang": "en",
+ "title": "Find a missing side in similar triangles or polygons using a proportion or the scale factor",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Scale It Up: Finding a Missing Side in Similar Triangles",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to check whether two triangles are similar, and you know how to solve a proportion like three eighths equals x over fifty six. Today we put those two skills together to answer one question: if two triangles are similar and one side is missing, how long is it? The trick is the scale factor, the one number that stretches every side of the small triangle into the big one.",
+    "math": "\\text{scale factor} = \\frac{\\text{new side}}{\\text{matching old side}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the plan in three moves. Move one: pair up corresponding sides, shortest with shortest, longest with longest. Move two: pick one pair where you know both lengths and divide new by old. That gives the scale factor. Move three: multiply the known side by the scale factor to get the missing side. Say we have a small triangular sticker for a skateboard with sides six centimetres, eight centimetres and ten centimetres, and a print shop makes a similar bigger version for a poster.",
+    "math": "\\text{missing side} = \\text{known side} \\times \\text{scale factor}",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      6,
+      8,
+      10
+     ],
+     "labels": [
+      "6 cm",
+      "8 cm",
+      "10 cm",
+      "",
+      "",
+      ""
+     ],
+     "caption": "The small sticker triangle: sides 6 cm, 8 cm and 10 cm"
+    }
+   },
+   {
+    "say": "On the poster, the shortest side is nine centimetres. We want the side that matches the eight centimetre side. Shortest pairs with shortest, so the scale factor is nine divided by six, which is one point five. Now multiply: eight times one point five equals twelve. The missing side is twelve centimetres. If you prefer proportions, write six over nine equals eight over x, cross multiply to get six x equals seventy two, and x is still twelve. Quick check: the longest side should be ten times one point five, which is fifteen, and fifteen is bigger than twelve, just like ten is bigger than eight. It all fits.",
+    "math": "k = \\frac{9}{6} = 1.5 \\qquad x = 8 \\times 1.5 = 12",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      9,
+      12,
+      15
+     ],
+     "labels": [
+      "9 cm",
+      "x = 12 cm",
+      "15 cm",
+      "",
+      "",
+      ""
+     ],
+     "caption": "The poster triangle: every side is the sticker side times 1.5"
+    }
+   },
+   {
+    "say": "Two traps to avoid. Trap one: adding instead of multiplying. Someone sees six became nine and thinks, oh, every side goes up by three, so eight becomes eleven. But eleven divided by eight is one point three seven five, not one point five, so the sides no longer share one ratio and the triangles are not similar anymore. Similar shapes grow by multiplying, never by adding. Trap two: pairing the wrong sides or flipping the proportion. If you wrote x equals six times eight divided by nine, you would get about five point three, a side that is shorter than eight. That cannot be right, because the poster is bigger than the sticker. Always ask: does my answer make the bigger triangle bigger?",
+    "math": "8 + 3 = 11 \\;\\text{(wrong)} \\qquad 8 \\times 1.5 = 12 \\;\\text{(right)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      12,
+      11
+     ],
+     "labels": [
+      "sticker side",
+      "times 1.5 (right)",
+      "plus 3 (wrong)"
+     ],
+     "caption": "Multiplying gives 12 cm; adding 3 gives 11 cm, which breaks the ratio"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Match the corresponding sides, divide new by old to get the scale factor, then multiply the known side by that factor. Finish with a sanity check: bigger triangle, bigger sides, and every pair should give the same ratio.",
+    "math": "\\frac{\\text{new}}{\\text{old}} = k, \\quad \\text{missing} = \\text{known} \\times k",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Match corresponding sides, find the scale factor by dividing new by old, then multiply to get the missing side.",
+  "practice": {
+   "question": "A triangular garden bed in Kelowna has sides of five metres, seven metres and nine metres. A similar, larger bed at a community garden has its shortest side equal to fifteen metres. Draw both triangles, label the sides, and find the length of the side in the larger bed that corresponds to the seven metre side.",
+   "answer": "Scale factor is fifteen divided by five, which is three. Seven metres times three gives twenty one metres. Check: the longest side would be nine times three, which is twenty seven metres, and twenty seven is bigger than twenty one, just as nine is bigger than seven."
+  }
+ }
+}

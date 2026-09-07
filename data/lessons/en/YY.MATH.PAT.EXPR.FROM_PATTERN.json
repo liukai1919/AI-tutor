@@ -1,0 +1,156 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.EXPR.FROM_PATTERN",
+ "lang": "en",
+ "title": "Write an expression for a pattern (3, 5, 7, … is 2n + 1)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Rule: 3, 5, 7, … Becomes 2n + 1",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make a table of values and how to write a rule with a letter, like n plus three. Today we do one small new thing: turn a pattern like three, five, seven into a single expression that can jump straight to any term you want, without counting up one at a time.",
+    "math": "3,\\ 5,\\ 7,\\ \\ldots",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      3,
+      5,
+      7,
+      9
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "n",
+      "Number"
+     ],
+     "caption": "Term number n on top, the number in the pattern underneath"
+    }
+   },
+   {
+    "say": "Look at the bottom row. Three, five, seven, nine. Each time we step to the next term, the number goes up by two. That word two is our first clue: whenever a pattern goes up by two every step, the expression will have two times n in it.",
+    "math": "3\\ \\xrightarrow{+2}\\ 5\\ \\xrightarrow{+2}\\ 7\\ \\xrightarrow{+2}\\ 9",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      2,
+      4,
+      6,
+      8
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "n",
+      "2 times n"
+     ],
+     "caption": "Two times n gives 2, 4, 6, 8"
+    }
+   },
+   {
+    "say": "Now compare the two bottom rows. Two times n gives two, four, six, eight. Our real pattern is three, five, seven, nine. Every single one of ours is exactly one bigger. So we add one on the end, and the expression is two n plus one.",
+    "math": "2n+1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      4,
+      6,
+      8,
+      3,
+      5,
+      7,
+      9
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "2 times n",
+      "2n plus 1"
+     ],
+     "caption": "Every number in our pattern is 1 more than 2 times n"
+    }
+   },
+   {
+    "say": "Let us test it, because a rule has to work for every term, not just the first one. When n is one, two times one is two, plus one is three. When n is two, two times two is four, plus one is five. When n is three, two times three is six, plus one is seven. All three match, so the expression is correct.",
+    "math": "n=1:\\ 2(1)+1=3\\quad n=2:\\ 2(2)+1=5\\quad n=3:\\ 2(3)+1=7",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      3,
+      5,
+      7
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "n",
+      "2n plus 1"
+     ],
+     "caption": "The rule matches every term"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone is asked for the fiftieth term and they say, easy, I just keep adding two. Then they write three, five, seven, nine, eleven, and forty-five steps later their pencil is tired and they have probably made a slip. That way only tells you the next number, never a faraway one. With the expression you go straight there: two times fifty is one hundred, plus one is one hundred and one. One line instead of fifty.",
+    "math": "2(50)+1=100+1=101",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      50,
+      3,
+      5,
+      7,
+      101
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "50",
+      "n",
+      "2n plus 1"
+     ],
+     "caption": "The expression jumps straight to term 50 with no counting"
+    }
+   },
+   {
+    "say": "So remember: the amount it goes up by each step becomes the number in front of n, and then you adjust with plus or minus so that the first term comes out right.",
+    "math": "2n+1",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The step size goes in front of n, then add or subtract to fix the first term — so 3, 5, 7, … is 2n + 1.",
+  "practice": {
+   "question": "Nadia is saving loonies in a jar in Kelowna. At the end of week one she has four dollars, at the end of week two she has seven dollars, and at the end of week three she has ten dollars. Write an expression using n for how many dollars she has at the end of week n, then use it to find how much she has at the end of week twenty. Try drawing your own little two-row table first.",
+   "answer": "The amount goes up by three dollars each week, so the expression starts with three times n. Three times one is three, but week one is four dollars, so we add one: the expression is three n plus one. Check: week two gives three times two plus one, which is seven, and week three gives three times three plus one, which is ten. For week twenty, three times twenty is sixty, plus one is sixty-one dollars."
+  }
+ }
+}

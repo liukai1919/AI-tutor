@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "add-sub-to-1m",
+ "lang": "en",
+ "unitName": {
+  "zh": "百万以内的加减法",
+  "en": "Addition & subtraction to 1 000 000"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Addition & subtraction to 1 000 000 · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.FACTS20.EXTEND",
+    "level": 1,
+    "question": "Use a fact you already know to solve this: 600 + 900 = ?",
+    "options": [
+     "150",
+     "1 400",
+     "1 500",
+     "15 000"
+    ],
+    "answerIndex": 2,
+    "explain": "Think 6 + 9 = 15, so 6 hundreds + 9 hundreds = 15 hundreds = 1 500. The usual traps are getting the fact wrong (6 + 8) or losing track of the place value and writing 150 or 15 000."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ALGORITHM",
+    "level": 1,
+    "question": "Add using the column method: 45 682 + 37 549 = ?",
+    "options": [
+     "72 121",
+     "82 231",
+     "83 221",
+     "83 231"
+    ],
+    "answerIndex": 3,
+    "explain": "Line up the places and regroup every time a column makes 10 or more: 2 + 9 = 11, 8 + 4 + 1 = 13, 6 + 5 + 1 = 12, 5 + 7 + 1 = 13, 4 + 3 + 1 = 8, giving 83 231. The most common mistake is writing the whole two-digit sum in a column or forgetting to carry the 1 into the next place."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ESTIMATE",
+    "level": 1,
+    "question": "Estimate 48 700 + 31 500 by rounding each number to the nearest ten thousand. Which is the best estimate?",
+    "options": [
+     "70 000",
+     "80 000",
+     "90 000",
+     "81 000"
+    ],
+    "answerIndex": 1,
+    "explain": "48 700 rounds up to 50 000 and 31 500 rounds down to 30 000, so the estimate is 80 000. Watch out for rounding to the wrong place (nearest thousand gives 81 000) or just chopping both numbers down to 40 000 + 30 000."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.MENTAL",
+    "level": 2,
+    "question": "Léa wants to work out 3 470 + 2 990 in her head by using a friendly number. Which expression shows the correct way to do it?",
+    "options": [
+     "3 470 + 3 000 + 10",
+     "3 470 + 2 000 + 900",
+     "3 470 + 3 000 - 10",
+     "3 470 + 3 000 - 100"
+    ],
+    "answerIndex": 2,
+    "explain": "2 990 is 10 less than the friendly number 3 000, so add 3 000 and then take the extra 10 back off: 6 470 - 10 = 6 460. The classic trap is compensating the wrong way and adding the 10 instead of subtracting it."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.WORD",
+    "level": 2,
+    "question": "The Coquitlam library had 24 350 books on the shelves. In September the library added 3 480 new books and removed 1 260 worn-out books. How many books are on the shelves now?",
+    "options": [
+     "26 570",
+     "27 830",
+     "29 090",
+     "19 610"
+    ],
+    "answerIndex": 0,
+    "explain": "Two steps: 24 350 + 3 480 = 27 830 books after the new ones arrive, then 27 830 - 1 260 = 26 570 after the worn-out ones leave. The common traps are stopping after step one (27 830) or adding the removed books instead of subtracting them."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ESTIMATE",
+    "level": 2,
+    "question": "Sam added 38 600 + 45 700 on paper and got 74 300. Without redoing the whole calculation, what should he decide?",
+    "options": [
+     "Not reasonable - the estimate is about 85 000, so his answer is roughly 10 000 too small and he probably missed a regrouping.",
+     "Reasonable - 74 300 is close enough to the estimate of about 85 000.",
+     "Not reasonable - the estimate is about 65 000, so his answer is too big.",
+     "You cannot judge an answer at all unless you redo the exact calculation."
+    ],
+    "answerIndex": 0,
+    "explain": "Round first: 39 000 + 46 000 is about 85 000, and 74 300 is about 10 000 below that, which points to a lost carry in the ten thousands (the true sum is 84 300). The trap is thinking that any answer in the same ballpark of digits is close enough - an estimate is exactly what tells you a regrouping went missing."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.WORD",
+    "level": 3,
+    "question": "Ravi's family is buying a used car for $18 500. They have already saved $12 750, and Ravi's mom will add a $3 400 bonus from work. How much more money will the family still need after the bonus is added?",
+    "options": [
+     "$3 350",
+     "$5 750",
+     "$34 650",
+     "$2 350"
+    ],
+    "answerIndex": 3,
+    "explain": "First combine what they will have: $12 750 + $3 400 = $16 150, then find the gap: $18 500 - $16 150 = $2 350. Common traps are forgetting the bonus ($5 750), adding all three amounts, or losing the carry when 750 + 400 makes 1 150."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ALGORITHM",
+    "level": 3,
+    "question": "A Vancouver aquarium hopes for 500 000 visitors this year. By the end of August 213 508 people had visited, and 46 795 more came in September. How many more visitors are needed to reach 500 000?",
+    "options": [
+     "286 492",
+     "239 697",
+     "240 697",
+     "360 303"
+    ],
+    "answerIndex": 1,
+    "explain": "Add the visitors so far, 213 508 + 46 795 = 260 303, then subtract from the goal: 500 000 - 260 303 = 239 697. Subtracting across all those zeros is the big trap - you must regroup from the hundred thousands right along the row instead of just taking the smaller digit from the larger one in each column."
+   }
+  ]
+ }
+}

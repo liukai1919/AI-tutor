@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "data-probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "数据与可能性",
+  "en": "Data & Probability"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Data & Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.DAT.01",
+    "level": 1,
+    "question": "Jade recorded her quiz scores for the week: 6, 9, 9, 7, 10. What is the mode of this data set?",
+    "options": [
+     "6",
+     "9",
+     "7",
+     "7.5"
+    ],
+    "answerIndex": 1,
+    "explain": "The mode is the value that appears most often; here 9 appears twice and every other value appears once. A common trap is picking a number like 7.5 that is not even in the data, or assuming the mode must be the smallest value."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.02",
+    "level": 1,
+    "question": "Sam rolls a fair 6-sided die and flips a fair coin. What is the probability of rolling a 5 AND getting tails?",
+    "options": [
+     "1/6",
+     "1/2",
+     "7/12",
+     "1/12"
+    ],
+    "answerIndex": 3,
+    "explain": "Because the two events are independent, multiply their probabilities: 1/6 × 1/2 = 1/12. The most frequent error is adding (1/6 + 1/2 = 7/12) instead of multiplying."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.01",
+    "level": 1,
+    "question": "Mia counted the number of push-ups she did on 5 consecutive days: 14, 9, 14, 6, 22. What is the median?",
+    "options": [
+     "14",
+     "9",
+     "14.5",
+     "6"
+    ],
+    "answerIndex": 0,
+    "explain": "Sort the data first: 6, 9, 14, 14, 22. The median is the middle (3rd) value, which is 14. A common mistake is to forget to reorder the numbers or to average the two 14s and write 14.5."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.01",
+    "level": 2,
+    "question": "Five students at a Vancouver school fundraiser donated $3, $8, $5, $7, and $7. What is the mean (average) donation?",
+    "options": [
+     "7",
+     "5",
+     "6",
+     "3"
+    ],
+    "answerIndex": 2,
+    "explain": "Add all values (3+8+5+7+7 = 30) and divide by the count (5): 30 ÷ 5 = 6. The most common trap is reporting the median or mode (both 7) instead of the mean."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.02",
+    "level": 2,
+    "question": "A classroom game uses a 4-colour spinner (Red, Blue, Green, Yellow) and a fair 4-sided die (1, 2, 3, 4). How many outcomes are in the sample space, and what is the probability of getting Red AND rolling a 3?",
+    "options": [
+     "16 outcomes; probability = 1/4",
+     "16 outcomes; probability = 1/16",
+     "4 outcomes; probability = 1/16",
+     "8 outcomes; probability = 1/8"
+    ],
+    "answerIndex": 1,
+    "explain": "The sample space has 4 × 4 = 16 outcomes. P(Red and 3) = 1/4 × 1/4 = 1/16. Students often add the two probabilities (getting 1/2) or count the sample space as 4 + 4 = 8."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.01",
+    "level": 2,
+    "question": "Five friends recorded how many kilometres they cycled this week: 4, 6, 5, 7, 30 (one friend biked all the way to Vancouver). Which measure of central tendency is MOST affected by the 30 km value?",
+    "options": [
+     "Median",
+     "Mode",
+     "None — all measures are equally affected",
+     "Mean"
+    ],
+    "answerIndex": 3,
+    "explain": "The mean shifts dramatically (from 5.5 without the 30 to 10.4 with it), while the median (6) and mode (none) barely change. A common misconception is that an outlier affects every measure equally."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.02",
+    "level": 3,
+    "question": "At a school fair, you spin a 4-section spinner (Red, Blue, Green, Yellow) and roll a fair 6-sided die. You win a prize if you get Red AND an even number. Your friend Priya says, 'The chance is 1/4 + 1/2 = 3/4, so it is really easy to win!' What is the correct probability, and is Priya right?",
+    "options": [
+     "1/8 — Priya is wrong; she added the probabilities instead of multiplying them",
+     "3/4 — Priya is correct because both events can happen at the same time",
+     "1/4 — only the spinner result determines the prize",
+     "1/2 — only the die result determines the prize"
+    ],
+    "answerIndex": 0,
+    "explain": "P(Red) = 1/4 and P(even) = 3/6 = 1/2. For two independent events you multiply: 1/4 × 1/2 = 1/8. Priya's mistake — adding instead of multiplying — is the single most common error with compound probability."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.DAT.01",
+    "level": 3,
+    "question": "A data set of 7 test scores is: 3, 5, 5, 7, 7, 7, 9. A student writes: 'The mode is 5 because it appears first among the repeated values.' Which statement correctly identifies the mode and why?",
+    "options": [
+     "The mode is 5 because it is the smallest value that repeats",
+     "The mode does not exist because no value appears exactly once",
+     "The mode is 7 because it appears more often than any other value",
+     "The mode is 6 because it is the midpoint between 5 and 7"
+    ],
+    "answerIndex": 2,
+    "explain": "Count frequencies: 7 appears 3 times, 5 appears 2 times, the rest appear once — so the mode is 7. The trap is to pick the first repeated value (5) or to confuse the mode with a midpoint/mean."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

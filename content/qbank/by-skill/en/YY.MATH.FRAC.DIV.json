@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FRAC.DIV",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkkg1lwvzbp8u",
+   "level": 1,
+   "question": "A fraction bar shows one whole cut into 8 equal parts, and 6 of those parts are shaded, so 6/8 of the bar is shaded. Each single part is 1/8 of the whole. How many 1/8 pieces fit inside the shaded 6/8?",
+   "options": [
+    "6",
+    "1/6",
+    "3/32",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "Asking how many 1/8 pieces fit inside 6/8 is 6/8 ÷ 1/8 = 6/8 × 8/1 = 6. Multiplying without flipping gives 3/32, which is smaller than what you started with — a sure sign the divisor was never flipped.",
+   "tags": [
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "frac.div_no_flip",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lw90rnpf",
+   "level": 1,
+   "question": "A fraction bar shows one whole cut into 6 equal parts, and 4 of them are shaded, so 4/6 of the bar is shaded. Two of these small parts side by side make 1/3 of the whole. How many 1/3 pieces fit inside the shaded part?",
+   "options": [
+    "2/9",
+    "2",
+    "1/2",
+    "4"
+   ],
+   "answerIndex": 1,
+   "explain": "The shaded 4/6 is 2/3, and 2/3 ÷ 1/3 = 2/3 × 3/1 = 2 pieces. Flipping the wrong fraction and using 3/2 × 1/3 gives 1/2; only the divisor, the piece you are counting with, gets flipped.",
+   "tags": [
+    "frac.div_no_flip",
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwo7kb02",
+   "level": 1,
+   "question": "A fraction bar shows one whole cut into 4 equal parts with 3 of them shaded, so 3/4 is shaded. A second bar of the same whole is cut into 8 equal parts, so each of its parts is 1/8. Which multiplication tells how many 1/8 pieces fit in the shaded 3/4?",
+   "options": [
+    "3/4 × 1/8, multiplying both fractions",
+    "4/3 × 1/8, flipping the 3/4 instead",
+    "3/4 × 8/1, flipping the divisor 1/8",
+    "4/3 × 8/1, flipping both fractions"
+   ],
+   "answerIndex": 2,
+   "explain": "Dividing by 1/8 means multiplying by its reciprocal 8/1, so 3/4 × 8/1 = 6 pieces. The common trap is flipping 3/4, because in a division only the divisor is turned upside down.",
+   "tags": [
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwkslmjt",
+   "level": 1,
+   "question": "Two identical fraction bars each show one whole cut into 3 equal parts, so each part is 1/3. All 3 parts of the first bar are shaded and 2 parts of the second bar are shaded, so 1 2/3 is shaded altogether. How many 1/3 pieces fit in the shaded amount?",
+   "options": [
+    "5/9",
+    "3",
+    "1/5",
+    "5"
+   ],
+   "answerIndex": 3,
+   "explain": "Write 1 2/3 as the improper fraction 5/3, then 5/3 ÷ 1/3 = 5/3 × 3/1 = 5 pieces. Division cannot be reversed: 1/3 ÷ 5/3 gives 1/5, which answers a completely different question.",
+   "tags": [
+    "frac.div_no_flip",
+    "other",
+    "div.commutative_flip",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwyfj30j",
+   "level": 2,
+   "question": "What is 5/6 ÷ 2/3, written in lowest terms?",
+   "options": [
+    "5/4",
+    "4/5",
+    "5/9",
+    "9/5"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply by the reciprocal of the divisor: 5/6 × 3/2 = 15/12 = 5/4. Multiplying straight across gives 5/9, and reversing the two fractions gives 4/5 — division only works in one order.",
+   "tags": [
+    "ok",
+    "div.commutative_flip",
+    "frac.div_no_flip",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwrinx0e",
+   "level": 2,
+   "question": "A 2 L jug at Ana's soccer practice is 3/4 full of water. She pours it into small bottles that each hold 1/8 L. How many bottles can she fill?",
+   "options": [
+    "3/16 bottles",
+    "12 bottles",
+    "1/12 bottles",
+    "6 bottles"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the water: 3/4 of 2 L is 1 1/2 L. Then 3/2 ÷ 1/8 = 3/2 × 8/1 = 12 bottles; forgetting the jug is 2 L and dividing only 3/4 by 1/8 gives 6.",
+   "tags": [
+    "frac.div_no_flip",
+    "ok",
+    "div.commutative_flip",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwktpmsw",
+   "level": 2,
+   "question": "Kai has 4/5 of a metre of copper wire and cuts it into pieces that are each 2/15 of a metre long. Which computation finds how many pieces he gets?",
+   "options": [
+    "4/5 × 2/15, multiplying the two lengths",
+    "5/4 × 2/15, flipping the total length",
+    "4/5 × 15/2, flipping the piece length",
+    "2/15 ÷ 4/5, since either order works"
+   ],
+   "answerIndex": 2,
+   "explain": "How many 2/15 m pieces fit in 4/5 m is 4/5 ÷ 2/15 = 4/5 × 15/2 = 6 pieces. Flipping the total 4/5, or swapping which fraction comes first, both answer a different question than the one asked.",
+   "tags": [
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction",
+    "ok",
+    "div.commutative_flip"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwecouar",
+   "level": 2,
+   "question": "Noah has 7/8 of a litre of lemonade and pours it into glasses that each hold 1/4 of a litre. How much does it fill?",
+   "options": [
+    "4 4/7 glasses",
+    "7/32 of a glass",
+    "2/7 of a glass",
+    "3 1/2 glasses"
+   ],
+   "answerIndex": 3,
+   "explain": "7/8 ÷ 1/4 = 7/8 × 4/1 = 28/8 = 3 1/2 glasses. If the answer comes out smaller than 7/8, you multiplied by 1/4 instead of by its reciprocal 4/1.",
+   "tags": [
+    "other",
+    "frac.div_no_flip",
+    "div.commutative_flip",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwrxb2iz",
+   "level": 3,
+   "question": "Ella has 5 cups of oats for granola bars, and each batch uses 3/4 of a cup. She makes as many complete batches as she can. How many full batches does she make, and how many oats are left?",
+   "options": [
+    "6 full batches, with 1/2 cup of oats left",
+    "6 full batches, with 2/3 of a cup left over",
+    "3 full batches, with 3/4 of a cup left over",
+    "7 full batches, since 6 2/3 rounds up to 7"
+   ],
+   "answerIndex": 0,
+   "explain": "5 ÷ 3/4 = 5 × 4/3 = 20/3 = 6 2/3, so 6 full batches use 4 1/2 cups and 1/2 cup remains. The 2/3 means two thirds of a batch, not 2/3 of a cup, and you cannot round up when the oats are not there.",
+   "tags": [
+    "ok",
+    "other",
+    "frac.div_no_flip",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lw4a6wqh",
+   "level": 3,
+   "question": "Nina's rain barrel holds 4 1/2 L of water. Each tomato plant needs 3/8 of a litre. She waters 8 plants in the morning. How many more plants can she water with the water that is left?",
+   "options": [
+    "12 more plants, since 4 1/2 ÷ 3/8 = 12 in all",
+    "4 more plants, since 12 in all and 8 are done",
+    "1 more plant, since 4 1/2 × 3/8 = 1 11/16",
+    "0 more plants, since 2/9 × 8/3 is under 1 plant"
+   ],
+   "answerIndex": 1,
+   "explain": "4 1/2 ÷ 3/8 = 9/2 × 8/3 = 12 plants in total, so 12 − 8 = 4 plants are still possible. The traps are stopping at 12 and forgetting the morning, or multiplying by 3/8 instead of by its reciprocal 8/3.",
+   "tags": [
+    "other",
+    "ok",
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lw6873pf",
+   "level": 3,
+   "question": "Devon writes 3/5 ÷ 1/10 = 3/50 and explains that he multiplied numerator by numerator and denominator by denominator. What is the best correction?",
+   "options": [
+    "He should flip 3/5 to 5/3, then multiply by 1/10, getting 1/6.",
+    "He should reverse it to 1/10 ÷ 3/5, since order does not matter.",
+    "He multiplied instead of flipping 1/10 to 10/1; it is 6.",
+    "He is right, since 3/50 is already written in lowest terms."
+   ],
+   "answerIndex": 2,
+   "explain": "3/5 ÷ 1/10 = 3/5 × 10/1 = 6, because many tiny 1/10 pieces fit inside 3/5. Cutting with a smaller piece must give more pieces, so an answer like 3/50 shows the divisor was multiplied rather than flipped.",
+   "tags": [
+    "frac.div_flip_wrong_fraction",
+    "div.commutative_flip",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkkg1lwzu1guk",
+   "level": 3,
+   "question": "Owen finds that 5/8 ÷ 1/4 = 2 1/2. He then says that because division can be done in either order, 1/4 ÷ 5/8 must also equal 2 1/2. Which statement is correct?",
+   "options": [
+    "Only 1/4 ÷ 5/8 is 2 1/2, if you flip the first one.",
+    "Both are 2 1/2, since division can go either way.",
+    "Both equal 5/32, since you multiply 5/8 by 1/4.",
+    "Only 5/8 ÷ 1/4 is 2 1/2; reversing it gives 2/5."
+   ],
+   "answerIndex": 3,
+   "explain": "5/8 ÷ 1/4 = 5/8 × 4/1 = 2 1/2, but 1/4 ÷ 5/8 = 1/4 × 8/5 = 2/5. Division is not commutative: asking how many 1/4 pieces fit in 5/8 is a different question from how many 5/8 pieces fit in 1/4.",
+   "tags": [
+    "frac.div_flip_wrong_fraction",
+    "div.commutative_flip",
+    "frac.div_no_flip",
+    "ok"
+   ]
+  }
+ ]
+}

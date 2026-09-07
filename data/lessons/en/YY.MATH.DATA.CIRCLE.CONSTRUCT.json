@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.CIRCLE.CONSTRUCT",
+ "lang": "en",
+ "title": "Construct and label a circle graph (quantity → percent → angle)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Numbers Into Pie Slices",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a circle graph and pull real numbers out of it. Today we flip it around and build one ourselves, starting from a survey. Ms. Kaur asked all forty students in our Grade Seven class what they do right after school. Sixteen said soccer, twelve said video games, eight said skateboarding, and four said reading. Our job is to turn those counts into slices.",
+    "math": "16+12+8+4=40",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      16,
+      12,
+      8,
+      4
+     ],
+     "labels": [
+      "Soccer",
+      "Video games",
+      "Skateboarding",
+      "Reading"
+     ],
+     "caption": "Our survey: 40 students in total"
+    }
+   },
+   {
+    "say": "Step one is quantity to percent. Each slice is a part of the whole class, so we write it as a fraction over forty and change it to a percent. Sixteen out of forty is zero point four, which is forty percent. Twelve out of forty is thirty percent, eight out of forty is twenty percent, and four out of forty is ten percent. Quick check: forty plus thirty plus twenty plus ten is one hundred percent. Perfect, nothing is missing.",
+    "math": "\\frac{16}{40}=0.4=40\\%",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      16,
+      12,
+      8,
+      4,
+      40,
+      30,
+      20,
+      10
+     ],
+     "labels": [
+      "Soccer",
+      "Video games",
+      "Skateboarding",
+      "Reading",
+      "Students",
+      "Percent"
+     ],
+     "caption": "Row 1: how many students. Row 2: what percent of the class"
+    }
+   },
+   {
+    "say": "Step two is percent to angle, and here is why it works. A full circle is three hundred sixty degrees, and one hundred percent of the class fills that whole circle. So a slice that is forty percent of the class takes forty percent of three hundred sixty degrees. Forty percent is zero point four, and zero point four times three hundred sixty is one hundred forty four. So the soccer slice opens up one hundred forty four degrees.",
+    "math": "0.4\\times360^\\circ=144^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      144
+     ],
+     "labels": [
+      "Soccer slice"
+     ],
+     "caption": "40% of the class = 144 degrees of the circle"
+    }
+   },
+   {
+    "say": "Now do the same multiplication for the rest. Zero point three times three hundred sixty is one hundred eight degrees for video games. Zero point two times three hundred sixty is seventy two degrees for skateboarding. And zero point one times three hundred sixty is thirty six degrees for reading. Add them up: one forty four plus one oh eight plus seventy two plus thirty six equals three hundred sixty. That total is your built in check — if your angles do not add to three sixty, something slipped.",
+    "math": "144^\\circ+108^\\circ+72^\\circ+36^\\circ=360^\\circ",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      16,
+      12,
+      8,
+      4
+     ],
+     "labels": [
+      "Soccer",
+      "Video games",
+      "Skateboarding",
+      "Reading"
+     ],
+     "caption": "Each slice labelled with its name and percent"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into once. Someone has a slice worth twenty five percent, so they measure twenty five degrees with the protractor. But percent and degrees are different units — twenty five degrees is a razor thin sliver, way too skinny to be a quarter of anything. Twenty five percent of a circle is really zero point two five times three hundred sixty, which is ninety degrees, a clean right angle corner. Always multiply by three sixty first; never let the percent sneak straight onto the protractor.",
+    "math": "25\\%\\rightarrow 0.25\\times360^\\circ=90^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [
+      "A true quarter"
+     ],
+     "caption": "25% is 90 degrees — not 25 degrees"
+    }
+   },
+   {
+    "say": "So the whole recipe is three moves: count over total gives the percent, percent times three hundred sixty gives the angle, then measure that angle from the centre and label every slice with its name and percent. Check that your angles add to three sixty and your graph is done.",
+    "math": "\\text{percent}\\times360^\\circ=\\text{angle}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count over total gives the percent, then percent times 360 degrees gives the angle — and all your angles must add to 360.",
+  "practice": {
+   "question": "Ravi tracks his sixty dollar monthly allowance. He spends twenty four dollars on snacks, twelve dollars on transit fare, eighteen dollars goes to savings, and six dollars on gifts. He wants to show this as a circle graph. Find the percent and the centre angle for each of the four slices, then check that the angles add up.",
+   "answer": "Snacks: 24 out of 60 is 40 percent, and 0.4 times 360 is 144 degrees. Transit: 12 out of 60 is 20 percent, and 0.2 times 360 is 72 degrees. Savings: 18 out of 60 is 30 percent, and 0.3 times 360 is 108 degrees. Gifts: 6 out of 60 is 10 percent, and 0.1 times 360 is 36 degrees. Check: 40 plus 20 plus 30 plus 10 is 100 percent, and 144 plus 72 plus 108 plus 36 is 360 degrees."
+  }
+ }
+}

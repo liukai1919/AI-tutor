@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "decimal-mult-div",
+ "lang": "en",
+ "unitName": {
+  "zh": "小数乘除法",
+  "en": "Decimal multiplication & division"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Decimal multiplication & division · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.DEC.MULT.BY_WHOLE",
+    "level": 1,
+    "question": "Each snack pack of dried blueberries has a mass of 0.24 kg. What is the total mass of 3 snack packs?",
+    "options": [
+     "0.62 kg",
+     "7.2 kg",
+     "0.72 kg",
+     "0.072 kg"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply as if it were 24 × 3 = 72, then place the decimal point so the answer has 2 decimal places, like 0.24: 0.72 kg. The most common trap is forgetting to regroup the 1 from 3 × 4 = 12, which gives 0.62."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.DIV.BY_WHOLE",
+    "level": 1,
+    "question": "Mia shares 9.6 L of apple juice equally among 8 jugs. How much juice is in each jug?",
+    "options": [
+     "12 L",
+     "1.2 L",
+     "1.02 L",
+     "0.12 L"
+    ],
+    "answerIndex": 1,
+    "explain": "Divide as usual and keep the decimal point in the quotient directly above the one in 9.6: 8 goes into 9 once with 1 left over, and 16 ÷ 8 = 2, so the answer is 1.2 L. The common trap is dropping the decimal point (12 L) or inserting an extra zero (1.02 L)."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.MULT.BY_DECIMAL",
+    "level": 1,
+    "question": "On a hundredths grid, 0.4 of a strip that is 0.6 of the whole is shaded. What is 0.4 × 0.6?",
+    "options": [
+     "2.4",
+     "0.024",
+     "1.0",
+     "0.24"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply 4 × 6 = 24, then count the decimal places in the question (1 + 1 = 2), so the product is 0.24 — which matches the 24 shaded squares out of 100 on the grid. The common trap is adding instead of multiplying (1.0) or counting only one decimal place (2.4)."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.DIV.BY_DECIMAL",
+    "level": 2,
+    "question": "Owen has a 7.5 m roll of ribbon and cuts it into bookmarks that are each 0.25 m long. How many bookmarks can he cut?",
+    "options": [
+     "30 pieces",
+     "3 pieces",
+     "300 pieces",
+     "0.3 pieces"
+    ],
+    "answerIndex": 0,
+    "explain": "Rewrite 7.5 ÷ 0.25 as a whole-number division by moving BOTH decimal points 2 places right: 750 ÷ 25 = 30. The common trap is shifting only the divisor (or only the dividend), which gives answers like 3 or 0.3."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.MULTDIV.WORD",
+    "level": 2,
+    "question": "A 4-pack of juice boxes costs $5.16 at the corner store. A single juice box costs $1.35. How much less does one juice box from the 4-pack cost?",
+    "options": [
+     "$0.24",
+     "$0.60",
+     "$0.06",
+     "$1.29"
+    ],
+    "answerIndex": 2,
+    "explain": "First find the unit price: $5.16 ÷ 4 = $1.29 per box, then subtract: $1.35 − $1.29 = $0.06. The common trap is answering the whole-pack saving ($0.24) or stopping at the unit price ($1.29) instead of the difference per box."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.MULT.BY_WHOLE",
+    "level": 2,
+    "question": "Ava picks 4 baskets of strawberries at a Fraser Valley farm. Each basket holds 1.45 kg of berries, and the empty carrying box has a mass of 0.3 kg. What is the total mass of the box with all 4 baskets of berries?",
+    "options": [
+     "1.75 kg",
+     "4.9 kg",
+     "5.8 kg",
+     "6.1 kg"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply first, then add: 1.45 × 4 = 5.8 kg of berries, and 5.8 + 0.3 = 6.1 kg. Common traps are forgetting to regroup while multiplying (giving 4.6, then 4.9) or forgetting to add the box at all (5.8 kg)."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.MULTDIV.WORD",
+    "level": 3,
+    "question": "At a bulk store in Kelowna, 1.8 kg of trail mix costs $12.60. Noah buys 750 g of the same trail mix. How much does Noah pay?",
+    "options": [
+     "$7.00",
+     "$5.25",
+     "$9.45",
+     "$52.50"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the unit price first — $12.60 ÷ 1.8 becomes 126 ÷ 18 = $7.00 per kg — then convert 750 g to 0.75 kg and multiply: 0.75 × 7.00 = $5.25. The biggest trap is skipping the g → kg conversion, or multiplying the total price by 0.75 ($9.45) instead of the unit price."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.MULT.BY_DECIMAL",
+    "level": 3,
+    "question": "Nadia is finding 6.4 × 0.8. She says the answer must be bigger than 6.4, because ‘multiplying always makes a number bigger’. Which statement is completely correct?",
+    "options": [
+     "6.4 × 0.8 = 5.12, and it is smaller than 6.4 because 0.8 is less than 1",
+     "6.4 × 0.8 = 51.2, because the answer must be bigger than 6.4",
+     "6.4 × 0.8 = 5.12, so Nadia is right that the answer is bigger than 6.4",
+     "6.4 × 0.8 = 0.512, because multiplying by a decimal always makes a number smaller"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply 64 × 8 = 512, then count 2 decimal places to get 5.12; taking 0.8 of something means taking only part of it, so the product is less than 6.4. The trap is the belief that multiplying always makes numbers bigger — it only does when the multiplier is greater than 1."
+   }
+  ]
+ }
+}

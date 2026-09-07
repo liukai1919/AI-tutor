@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.CIRCLE.READ",
+ "lang": "en",
+ "title": "Read a circle graph and convert its percentages into quantities",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Circle Graphs: Turning Percents into Real Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like twenty five percent of eighty. Today we use that skill to read a circle graph, because a circle graph only tells you percents, and we usually want to know how many people.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. The whole circle stands for the whole group. At a school in Burnaby, two hundred Grade seven students were asked how they get to school. The whole circle means all two hundred students. Each slice is a share of that group, written as a percent. Walking is forty percent, the bus is twenty five percent, a car is twenty percent, and biking is fifteen percent. Notice those four percents add up to one hundred percent, because together they are the whole circle.",
+    "math": "40\\% + 25\\% + 20\\% + 15\\% = 100\\%",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      40,
+      25,
+      20,
+      15
+     ],
+     "labels": [
+      "Walk",
+      "Bus",
+      "Car",
+      "Bike"
+     ],
+     "caption": "200 Grade 7 students in Burnaby — the whole circle is all 200"
+    }
+   },
+   {
+    "say": "So how many students actually walk? The slice says forty percent, and forty percent means forty out of every hundred. We take forty percent of the whole group. Forty percent of two hundred is zero point four times two hundred, which is eighty. So eighty students walk to school. The percent told us the share, and multiplying by the total turned that share into a real number of kids.",
+    "math": "40\\% \\times 200 = 0.4 \\times 200 = 80",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      40,
+      25,
+      20,
+      15
+     ],
+     "labels": [
+      "Walk 80",
+      "Bus",
+      "Car",
+      "Bike"
+     ],
+     "caption": "The 40% slice becomes 80 students"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everyone makes once. Looking at the bus slice, it is tempting to say twenty five, so twenty five students take the bus. But twenty five is not a count of students, it is twenty five out of every hundred. We have two hundred students, which is two hundreds, so it is twenty five plus twenty five, which is fifty students. Fifty, not twenty five. A percent is always a share, never a headcount, until you multiply it by the total.",
+    "math": "25\\% \\times 200 = 50 \\neq 25",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      25,
+      50
+     ],
+     "labels": [
+      "Wrong: 25",
+      "Right: 50"
+     ],
+     "caption": "25% of 200 is 50 students, not 25 students"
+    }
+   },
+   {
+    "say": "Let us turn every slice into students the same way. Twenty percent of two hundred is forty students in a car, and fifteen percent of two hundred is thirty students biking. Now check our work. Eighty plus fifty plus forty plus thirty is two hundred, exactly the whole group. When all your slice numbers add back to the total, you know you read the graph correctly.",
+    "math": "80 + 50 + 40 + 30 = 200",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      80,
+      50,
+      40,
+      30
+     ],
+     "labels": [
+      "Walk",
+      "Bus",
+      "Car",
+      "Bike"
+     ],
+     "caption": "All four slices add back to 200 students"
+    }
+   },
+   {
+    "say": "So remember, a slice on a circle graph gives you a share, not a count. Multiply that percent by the total, and the share becomes a real number.",
+    "math": "\\text{percent} \\times \\text{total} = \\text{amount}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A circle graph shows shares, not counts — multiply the percent by the total to get the real number.",
+  "practice": {
+   "question": "A community centre in Kelowna asked three hundred kids to name their favourite activity. Picture a circle graph split into four slices: soccer is thirty percent, swimming is twenty five percent, basketball is twenty percent, and skateboarding is twenty five percent. How many kids chose soccer, and how many chose swimming?",
+   "answer": "Soccer: thirty percent of three hundred is zero point three times three hundred, which is 90 kids. Swimming: twenty five percent of three hundred is 75 kids. (Careful — it is not 30 kids and 25 kids! Check: 90 plus 75 plus 60 plus 75 equals 300.)"
+  }
+ }
+}

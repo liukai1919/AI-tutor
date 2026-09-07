@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.DIV_MONOMIAL",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlyixsn7jjnmn",
+   "level": 1,
+   "question": "多项式（polynomial）12m² + 8m 有两项（term）。要把它除以单项式 4m，规则是「逐项除」：把 12m² 除以 4m，再把 8m 除以 4m，然后把两个结果加起来。商是多少？",
+   "options": [
+    "3m + 2",
+    "3m + 8m",
+    "3m + 0",
+    "3m² + 2"
+   ],
+   "answerIndex": 0,
+   "explain": "12m² ÷ 4m = 3m，8m ÷ 4m = 2，所以商是 3m + 2。最常见的坑是只除第一项、把 8m 直接抄下来；另一个坑是把 8m ÷ 4m 写成 0，其实 8 ÷ 4 = 2，m ÷ m = 1，结果是 2。",
+   "tags": [
+    "ok",
+    "poly.divide_first_term_only",
+    "poly.div_cancel_to_zero",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsn54i0wf",
+   "level": 1,
+   "question": "计算 (10a² − 5a) ÷ 5a。多项式里有两项：10a² 和 −5a，每一项都要分别除以 5a，然后把两个商合起来。结果是什么？",
+   "options": [
+    "2a − 5a",
+    "2a − 1",
+    "2a − 0",
+    "2a + 1"
+   ],
+   "answerIndex": 1,
+   "explain": "10a² ÷ 5a = 2a，−5a ÷ 5a = −1，商是 2a − 1。注意 −5a ÷ 5a 不是 0：系数（coefficient）−5 ÷ 5 = −1，a ÷ a = 1，所以得 −1，负号要保留。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "ok",
+    "poly.div_cancel_to_zero",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsnvy4l5w",
+   "level": 1,
+   "question": "把多项式 9x² + 6x 除以单项式 3x。先算 9x² ÷ 3x，再算 6x ÷ 3x，最后把两个结果相加。商是多少？",
+   "options": [
+    "3x + 0",
+    "3x + 6x",
+    "3x + 2",
+    "3x + 3"
+   ],
+   "answerIndex": 2,
+   "explain": "9x² ÷ 3x = 3x，6x ÷ 3x = 2，所以商是 3x + 2。6x ÷ 3x 里 x ÷ x = 1，剩下 6 ÷ 3 = 2，不是 0；也不能只除第一项就把 6x 原样抄下来。",
+   "tags": [
+    "poly.div_cancel_to_zero",
+    "poly.divide_first_term_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsnmdhfo2",
+   "level": 1,
+   "question": "计算 (8p² + 12p) ÷ 4p。这个多项式有两项，两项都要除以 4p。逐项除完后，商是什么？",
+   "options": [
+    "2p + 12p",
+    "2p + 0",
+    "2p + 4",
+    "2p + 3"
+   ],
+   "answerIndex": 3,
+   "explain": "8p² ÷ 4p = 2p，12p ÷ 4p = 3，商是 2p + 3。第二项要用 12 ÷ 4 = 3，p ÷ p = 1；如果只除了第一项，就会错写成 2p + 12p。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "poly.div_cancel_to_zero",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyixsntwfyzz",
+   "level": 2,
+   "question": "计算 (6x² + 9x − 3) ÷ 3，写出化简后的商。",
+   "options": [
+    "2x² + 3x − 1",
+    "2x² + 9x − 3",
+    "2x² + 3x",
+    "2x² + 3x + 1"
+   ],
+   "answerIndex": 0,
+   "explain": "三项都要除以 3：6x² ÷ 3 = 2x²，9x ÷ 3 = 3x，−3 ÷ 3 = −1，商是 2x² + 3x − 1。常数项（constant term）−3 ÷ 3 得 −1，不是 0，也不能漏掉。",
+   "tags": [
+    "ok",
+    "poly.divide_first_term_only",
+    "poly.div_cancel_to_zero",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsnyre759",
+   "level": 2,
+   "question": "温哥华一个社区花园里的长方形菜地，面积（area）是 (18w² + 12w) 平方米，宽是 6w 米。菜地的长是多少米？",
+   "options": [
+    "(3w + 12w) 米",
+    "(3w + 2) 米",
+    "(3w² + 2) 米",
+    "3w 米"
+   ],
+   "answerIndex": 1,
+   "explain": "长 = 面积 ÷ 宽，逐项除：18w² ÷ 6w = 3w，12w ÷ 6w = 2，长是 (3w + 2) 米。可以用乘法验算：6w(3w + 2) = 18w² + 12w。12w ÷ 6w 是 2，不是 0，也不能不除。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "ok",
+    "other",
+    "poly.div_cancel_to_zero"
+   ]
+  },
+  {
+   "qid": "qmtlyixsnxu82h7",
+   "level": 2,
+   "question": "计算 (−6m² + 3m) ÷ 3m，写出化简后的商。",
+   "options": [
+    "−2m",
+    "−2m + 3m",
+    "−2m + 1",
+    "−2m − 1"
+   ],
+   "answerIndex": 2,
+   "explain": "−6m² ÷ 3m = −2m，3m ÷ 3m = 1，商是 −2m + 1。第一项的负号要带着，第二项 3m ÷ 3m 是 1（系数 3 ÷ 3 = 1，m ÷ m = 1），不是 0。",
+   "tags": [
+    "poly.div_cancel_to_zero",
+    "poly.divide_first_term_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsntd8lkb",
+   "level": 2,
+   "question": "计算 (9c² − 6c) ÷ (−3c)，写出化简后的商。",
+   "options": [
+    "−3c − 6c",
+    "−3c − 2",
+    "−3c",
+    "−3c + 2"
+   ],
+   "answerIndex": 3,
+   "explain": "9c² ÷ (−3c) = −3c，−6c ÷ (−3c) = +2（负除以负得正），商是 −3c + 2。第二项一定也要除以 −3c，而且要单独算它的符号。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "other",
+    "poly.div_cancel_to_zero",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyixsn1bjyxz",
+   "level": 3,
+   "question": "本拿比一所学校要给一块长方形草坪铺新草皮，草坪面积是 (24x² + 16x) 平方米，宽是 8x 米。测量后发现 x = 3，草坪的长实际是多少米？",
+   "options": [
+    "11 米",
+    "9 米",
+    "57 米",
+    "29 米"
+   ],
+   "answerIndex": 0,
+   "explain": "先求长：(24x² + 16x) ÷ 8x = 3x + 2，再代入 x = 3 得 3 × 3 + 2 = 11 米。如果只除第一项得到 3x + 16x，代入会算出 57；把 16x ÷ 8x 当成 0 会算出 9。",
+   "tags": [
+    "ok",
+    "poly.div_cancel_to_zero",
+    "poly.divide_first_term_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsn70u95y",
+   "level": 3,
+   "question": "素里一所中学的九年级去维多利亚参加科学营，总费用是 (20n² + 30n) 加元，由 10n 名学生平均分摊。当 n = 5 时，每名学生要付多少加元？",
+   "options": [
+    "160 加元",
+    "13 加元",
+    "10 加元",
+    "25 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "每人费用 = (20n² + 30n) ÷ 10n = 2n + 3，代入 n = 5 得 13 加元。第二项 30n ÷ 10n = 3，既不能只把 30n 抄下来，也不能当成 0；30n 只除以 10 不除以 n 也是错的。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "ok",
+    "poly.div_cancel_to_zero",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsnqt2crn",
+   "level": 3,
+   "question": "小雅计算 (18y² − 12y) ÷ 6y，写出 18y² ÷ 6y − 12y = 3y − 12y = −9y。她的做法哪里出了问题？",
+   "options": [
+    "她没错：−12y 里没有 y²，不用再除，直接照抄下来",
+    "−12y 和 6y 是同类项，相除会消掉，商应该是 3y",
+    "第二项也要除：−12y ÷ 6y = −2，商是 3y − 2",
+    "她只是符号错了：−12y ÷ 6y 应得 +2，商是 3y + 2"
+   ],
+   "answerIndex": 2,
+   "explain": "多项式除以单项式要逐项除，每一项都得除以 6y：18y² ÷ 6y = 3y，−12y ÷ 6y = −2，商是 3y − 2。同类项（like terms）相除得到的是一个数，不是 0；−12 ÷ 6 = −2，负号保留。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "poly.div_cancel_to_zero",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyixsn1y385j",
+   "level": 3,
+   "question": "小杰计算 (8w² + 4w) ÷ 4w，写出 8w² ÷ 4w + 4w ÷ 4w = 2w + 0 = 2w，理由是「4w 和 4w 一模一样，相除就抵消了」。下面哪句话说得对？",
+   "options": [
+    "第二项 4w 本来就不用除，商应该是 2w + 4w = 6w",
+    "他错在第一项：8w² ÷ 4w 应得 2w²，商是 2w² + 0",
+    "他是对的：完全相同的项相除会互相抵消，只剩 2w",
+    "4w ÷ 4w 等于 1 不是 0，商应该是 2w + 1"
+   ],
+   "answerIndex": 3,
+   "explain": "一个数除以它自己得 1，不是 0，所以 4w ÷ 4w = 1，商是 2w + 1。「抵消成 0」是减法的事，除法里相同的项相除得 1。验算：4w(2w + 1) = 8w² + 4w。",
+   "tags": [
+    "poly.divide_first_term_only",
+    "other",
+    "poly.div_cancel_to_zero",
+    "ok"
+   ]
+  }
+ ]
+}

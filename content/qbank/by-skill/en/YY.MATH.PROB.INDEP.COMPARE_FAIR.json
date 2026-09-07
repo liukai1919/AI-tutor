@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.COMPARE_FAIR",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrz017t79gqb",
+   "level": 1,
+   "question": "A spinner has 4 equal parts: 2 are red, 1 is blue, 1 is green. Maya wins if the arrow stops on red. Owen wins if it stops on blue or green. Which statement about this game is true?",
+   "options": [
+    "Fair, because Maya has 2/4 and Owen has 1/4 + 1/4 = 2/4.",
+    "Not fair, because Owen has two colours and Maya has only one.",
+    "Not fair, because each colour is equally likely at 1/3 each.",
+    "Not fair, because red is 2/4 but blue and green are 1/4."
+   ],
+   "answerIndex": 0,
+   "explain": "Add up each player's share of the equal parts: Maya has 2/4 red and Owen has 1/4 + 1/4 = 2/4, so the two chances match and the game is fair. The usual trap is counting colours instead of adding up equal parts.",
+   "tags": [
+    "ok",
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017w080rj",
+   "level": 1,
+   "question": "A spinner is divided into 5 equal parts: 3 parts are yellow and 2 parts are blue. Leah wins when the arrow stops on yellow, and Sam wins when it stops on blue. Which statement about this game is true?",
+   "options": [
+    "Fair, because each player was given exactly one colour.",
+    "Not fair, because Leah wins 3/5 and Sam wins only 2/5.",
+    "Not fair, because Leah wins 3 spins for every 5 Sam wins.",
+    "Fair, because yellow and blue are equally likely to come up."
+   ],
+   "answerIndex": 1,
+   "explain": "Each of the 5 equal parts is one outcome, so Leah's theoretical probability is 3/5 and Sam's is 2/5 — different chances means the game is not fair. Getting one colour each does not make a game fair, and 3 out of 5 is not 3 wins for every 5 of Sam's.",
+   "tags": [
+    "prob.fair_means_equal_sectors",
+    "ok",
+    "other",
+    "prob.equal_outcomes_assumed"
+   ]
+  },
+  {
+   "qid": "qmtkrz017m7klp2",
+   "level": 1,
+   "question": "A spinner has 3 sectors that are not the same size: green covers half the spinner, red covers a quarter, and blue covers a quarter. Jo wins on green, and Amir wins on red or blue. Which statement about this game is true?",
+   "options": [
+    "Not fair, because each colour is equally likely at 1/3.",
+    "Not fair, because Amir has two sectors and Jo has one.",
+    "Fair, because Jo has 1/2 and Amir has 1/4 + 1/4 = 1/2.",
+    "Not fair, because green is the largest part of the spinner."
+   ],
+   "answerIndex": 2,
+   "explain": "Add Amir's two sectors: 1/4 + 1/4 = 1/2, exactly the same as Jo's green half, so the game is fair. How many sectors a player has does not decide fairness — the size of the shares does.",
+   "tags": [
+    "prob.equal_outcomes_assumed",
+    "prob.fair_means_equal_sectors",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017fz5xjp",
+   "level": 1,
+   "question": "A spinner has 4 equal parts: 2 red and 2 blue. Mina spins it twice. Mina wins only if both spins land on red; Jae wins on every other result. Which statement about this game is true?",
+   "options": [
+    "Fair, because the spinner has two red parts and two blue parts.",
+    "Fair, because winning and losing are equally likely for Mina.",
+    "Fair, because Mina gets two chances to land on a red part.",
+    "Not fair, because Mina wins 1/4 of the time and Jae wins 3/4."
+   ],
+   "answerIndex": 3,
+   "explain": "Red is 2/4 = 1/2 on one spin, and both spins must be red, so Mina's chance is 1/2 x 1/2 = 1/4 and Jae gets the other 3/4. Needing two things in a row is much less likely than needing just one.",
+   "tags": [
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrz017ac1td5",
+   "level": 2,
+   "question": "A game uses a fair coin and a spinner with 4 equal parts numbered 1, 2, 3, 4. Player A wins if the coin lands heads and the spinner lands on 4. Player B wins if the coin lands tails, whatever the spinner shows. Any other result is spun again. Is this game fair?",
+   "options": [
+    "Not fair: A wins 1/8 while B wins 1/2, so B is ahead.",
+    "Not fair: A wins 1/2 + 1/4 = 3/4, so A is well ahead.",
+    "Fair, because all coin-and-spinner results are as likely.",
+    "Fair, because the spinner is cut into 4 equal parts."
+   ],
+   "answerIndex": 0,
+   "explain": "Player A needs two independent things at once, so 1/2 x 1/4 = 1/8, while Player B needs only tails, 1/2 — very different chances, so it is not fair. Adding the two fractions instead of multiplying makes A look far stronger than A really is.",
+   "tags": [
+    "ok",
+    "other",
+    "prob.equal_outcomes_assumed",
+    "prob.fair_means_equal_sectors"
+   ]
+  },
+  {
+   "qid": "qmtkrz017676h1l",
+   "level": 2,
+   "question": "At a school fair in Burnaby, a booth uses a fair coin and a spinner where half is blue, one quarter is pink and one quarter is white. You win a $2 prize only if the coin lands heads and the spinner lands pink; otherwise the booth keeps your money. Is this game fair between you and the booth?",
+   "options": [
+    "Fair, because the spinner has three colours and the coin two.",
+    "Not fair: you win 1/8 of the games and the booth wins 7/8.",
+    "Not fair: you win 1/6, since pink is 1/3 and heads is 1/2.",
+    "Not fair: you win 1/2 + 1/4 = 3/4, so you have the edge."
+   ],
+   "answerIndex": 1,
+   "explain": "Pink is 1/4 of the spinner and heads is 1/2, so your chance is 1/4 x 1/2 = 1/8 and the booth wins 7/8 — heavily unfair. Do not treat the three colours as 1/3 each when one of them fills half the spinner.",
+   "tags": [
+    "prob.fair_means_equal_sectors",
+    "ok",
+    "prob.equal_outcomes_assumed",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017byeqku",
+   "level": 2,
+   "question": "A spinner is built so that sector A covers 1/2 of it, sector B covers 1/3 and sector C covers 1/6. The spinner is spun twice. Tessa wins if both spins land on A; Nico wins if both spins land on B. Is this game fair?",
+   "options": [
+    "Fair, because both players spin the same three-letter wheel.",
+    "Fair, because each letter has probability 1/3 on any spin.",
+    "Not fair: Tessa wins 1/4 of the games and Nico wins 1/9.",
+    "Not fair: Tessa wins 1/2 + 1/2 and Nico wins 1/3 + 1/3."
+   ],
+   "answerIndex": 2,
+   "explain": "Two spins of A give 1/2 x 1/2 = 1/4 and two spins of B give 1/3 x 1/3 = 1/9, and 1/4 is bigger than 1/9, so Tessa has the advantage. Letters that look alike are not equally likely when their sectors are different sizes.",
+   "tags": [
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017qhfz8a",
+   "level": 2,
+   "question": "A game uses a fair coin and a spinner with 3 equal parts numbered 1, 2, 3. Zara wins if the coin shows heads. Leo wins if the spinner lands on 1 or 2. Which is the right way to judge whether this game is fair?",
+   "options": [
+    "Multiply 1/2 x 2/3 = 1/3 and see whether that equals 1/2.",
+    "Heads, 1, 2 and 3 are all equally likely, so it is fair.",
+    "Count the parts: 2 coin sides against 3 spinner parts.",
+    "Compare 1/2 with 2/3: not equal, so it is not fair."
+   ],
+   "answerIndex": 3,
+   "explain": "To test fairness you work out each player's own theoretical probability and compare them: Zara has 1/2 and Leo has 2/3, so Leo wins more often. You only multiply when one player needs two independent things to happen together, which is not the case here.",
+   "tags": [
+    "other",
+    "prob.equal_outcomes_assumed",
+    "prob.fair_means_equal_sectors",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrz017xftkv3",
+   "level": 3,
+   "question": "Ella and Raj play at recess with a fair coin and a spinner of 6 equal parts numbered 1 to 6. Ella wins if the spinner lands on 3 or 6, whatever the coin shows. Raj wins if the spinner lands on 1 or 2 and the coin shows heads. Any other result is played again. Is this game fair?",
+   "options": [
+    "Not fair: Ella wins 1/3 of the games and Raj wins 1/6.",
+    "Fair, because each player has two winning numbers listed.",
+    "Fair, because every listed way of winning is equally likely.",
+    "Not fair: Raj wins 2/6 + 1/2, which beats Ella's 2/6."
+   ],
+   "answerIndex": 0,
+   "explain": "Ella wins on 2 of the 6 equal parts, 2/6 = 1/3, and the coin does not affect her; Raj needs 2/6 and heads, so 2/6 x 1/2 = 1/6. Having the same count of winning numbers does not make a game fair when only one player also depends on the coin.",
+   "tags": [
+    "ok",
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017v48gsf",
+   "level": 3,
+   "question": "Ivan and Cleo flip a fair coin twice to decide who carries the soccer net. Ivan carries it if both flips are heads, Cleo carries it if both are tails, and they flip twice again if the result is mixed. Ivan says the game is unfair because two heads is only 1 of the 4 results while 2 of the 4 results are mixed. What is wrong with his reasoning?",
+   "options": [
+    "Ivan is right, because the mixed results are Cleo's wins.",
+    "Ivan is wrong: HH is 1/4 and TT is 1/4, so they are even.",
+    "Ivan is wrong, because a coin with two equal sides is fair.",
+    "Ivan is right, because HH, TT and mixed each have 1/3."
+   ],
+   "answerIndex": 1,
+   "explain": "Only HH and TT decide anything, and each has probability 1/2 x 1/2 = 1/4, so the two players have equal chances. The mixed results belong to nobody, so they cannot push the game toward Cleo.",
+   "tags": [
+    "other",
+    "ok",
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed"
+   ]
+  },
+  {
+   "qid": "qmtkrz0178b4e1l",
+   "level": 3,
+   "question": "At a Kelowna school fun fair, a booth flips a fair coin and spins a spinner with 4 equal parts: 3 white and 1 gold. A player wins a $2 gift card only if the spinner lands gold and the coin shows heads, so the player wins 1/8 of the games. Which change would make the game fair, with the player and the booth each winning half the time?",
+   "options": [
+    "Repaint the spinner as 2 gold and 2 white and keep both rules.",
+    "No change is needed, since gold and heads are equally likely.",
+    "Let the player win on heads alone, whatever colour comes up.",
+    "Let the player win on gold with either heads or tails showing."
+   ],
+   "answerIndex": 2,
+   "explain": "Winning on heads alone gives the player 1/2, which matches the booth's 1/2, so the game becomes fair. Repainting to 2 gold parts still leaves 2/4 x 1/2 = 1/4 for the player, and dropping the coin rule leaves 1/4 as well.",
+   "tags": [
+    "prob.fair_means_equal_sectors",
+    "prob.equal_outcomes_assumed",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrz017tdfdpp",
+   "level": 3,
+   "question": "Sana and Wes decide who pays the $6 for two hot chocolates in Victoria using a spinner that is 1/2 orange, 1/4 lime and 1/4 grape. Sana pays if two spins give orange and then lime; Wes pays for any other pair of spins. Sana says the game is unfair to her because her chance is 1/2 + 1/4 = 3/4. What is wrong with her reasoning?",
+   "options": [
+    "Nothing is wrong, since all three colours are equally likely.",
+    "She should use 1/2 x 1/2 = 1/4, since orange is half the wheel.",
+    "She should count sectors: with 3 equal sectors it is fair.",
+    "Her chance is 1/2 x 1/4 = 1/8, so Wes pays far more often."
+   ],
+   "answerIndex": 3,
+   "explain": "Two independent spins in a row means multiplying: 1/2 x 1/4 = 1/8 for Sana, so Wes pays 7/8 of the time and the game is unfair to Wes, not to her. Adding probabilities makes an unlikely event look almost certain.",
+   "tags": [
+    "prob.equal_outcomes_assumed",
+    "other",
+    "prob.fair_means_equal_sectors",
+    "ok"
+   ]
+  }
+ ]
+}

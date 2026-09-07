@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.POWERS",
+ "lang": "en",
+ "title": "Evaluate powers of rational numbers and tell (−3)² from −3² and (4/5)² from 4/5²",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Squaring Negatives and Fractions: Where the Bracket Goes",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to multiply rational numbers, like negative three quarters times negative three quarters, and you have built cubes like four cubed equals four times four times four. Today we take one small step: squaring a negative number or a fraction, and reading the brackets correctly so you know exactly what is being squared.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Start with the picture. Three squared means a three by three square of unit tiles, which is nine tiles. It is not three doubled. Doubling three gives six, but squaring three gives nine. Exponent two means multiply the base by itself, so three squared is three times three, which is nine.",
+    "math": "3^{2}=3\\times 3=9",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "3 rows of 3 tiles: 3 squared = 9 tiles, not 6"
+    }
+   },
+   {
+    "say": "Now the key idea. Brackets tell you what the exponent is attached to. In bracket negative three, squared, the whole negative three is the base, so it is negative three times negative three, which is positive nine. In negative three squared with no brackets, the exponent only touches the three. So you square the three first to get nine, then apply the negative sign, giving negative nine. Same digits, opposite answers.",
+    "math": "(-3)^{2}=(-3)(-3)=9 \\qquad -3^{2}=-(3\\times 3)=-9",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      10,
+      -9,
+      9
+     ],
+     "labels": [],
+     "caption": "−3² lands at −9, (−3)² lands at +9"
+    }
+   },
+   {
+    "say": "Fractions work the same way. Bracket four fifths, squared, means four fifths times four fifths. Multiply the numerators, four times four is sixteen, and multiply the denominators, five times five is twenty five. So bracket four fifths squared equals sixteen twenty fifths. Picture a five by five grid where four rows out of five and four columns out of five are shaded. The overlap is sixteen cells out of twenty five.",
+    "math": "\\left(\\frac{4}{5}\\right)^{2}=\\frac{4}{5}\\times\\frac{4}{5}=\\frac{16}{25}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "4/5 of 4/5: the overlap is 16 of 25 cells"
+    }
+   },
+   {
+    "say": "Here are the two classic slip ups. First, some people write bracket four fifths squared equals sixteen over five. That squares only the numerator, but the denominator has to be squared too, so the answer is sixteen over twenty five. Second, without brackets, four over five squared means the exponent belongs only to the five. So four over five squared is four over twenty five, which is a much smaller number. Bracket, square both. No bracket, square only what the exponent is touching.",
+    "math": "\\left(\\frac{4}{5}\\right)^{2}=\\frac{16}{25} \\qquad \\frac{4}{5^{2}}=\\frac{4}{25} \\qquad \\text{not } \\frac{16}{5}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "(4/5)² = 16/25: a 4 by 4 block inside a 5 by 5 square. Without brackets, 4/5² is only 4 of the 25 small squares."
+    }
+   },
+   {
+    "say": "So here is the one line to remember. Squaring means times itself, and the bracket tells you exactly what gets squared. Bracket negative three squared is nine, negative three squared without a bracket is negative nine, and bracket four fifths squared is sixteen twenty fifths.",
+    "math": "(-3)^{2}=9,\\; -3^{2}=-9,\\; \\left(\\frac{4}{5}\\right)^{2}=\\frac{16}{25}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Squaring means times itself. Brackets decide the base: (−3)² = 9, −3² = −9, (4/5)² = 16/25.",
+  "practice": {
+   "question": "Your part-time pay was tracked in a spreadsheet with three formulas: bracket negative five squared, negative five squared with no bracket, and bracket two thirds squared. Evaluate each one. In each answer, state which part is the base being squared.",
+   "answer": "(−5)² = (−5)(−5) = 25, the base is −5. −5² = −(5 × 5) = −25, the base is only 5. (2/3)² = 2/3 × 2/3 = 4/9, the base is the whole fraction, so both top and bottom get squared."
+  }
+ }
+}

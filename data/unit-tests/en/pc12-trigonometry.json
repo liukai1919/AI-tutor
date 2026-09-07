@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "trigonometry",
+ "lang": "en",
+ "unitName": {
+  "zh": "三角函数",
+  "en": "Trigonometric Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "Trigonometric Functions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "Convert 135° to radians.",
+    "options": [
+     "5π/4",
+     "2π/3",
+     "3π/4",
+     "7π/6"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply by π/180: 135 × π/180 = 3π/4. The most common trap is using the wrong ratio (e.g. dividing by 90 instead of 180) or confusing 135° with 225°."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "What is the exact value of cos(π/3)?",
+    "options": [
+     "1/2",
+     "√3/2",
+     "√2/2",
+     "-1/2"
+    ],
+    "answerIndex": 0,
+    "explain": "On the unit circle, cos(60°) = 1/2. Watch out for swapping sin and cos (which gives √3/2) or applying a negative sign when the angle is in Quadrant I."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "Find the angle coterminal with 400° that lies between 0° and 360°.",
+    "options": [
+     "320°",
+     "440°",
+     "160°",
+     "40°"
+    ],
+    "answerIndex": 3,
+    "explain": "Subtract one full rotation: 400° − 360° = 40°. A frequent error is subtracting 80° (giving 320°) or adding 40° (giving 440°) instead of removing exactly 360°."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "For the function f(x) = 2 sin(3x − π/2) + 1, what is the period of the graph?",
+    "options": [
+     "3π/2",
+     "2π/3",
+     "π/3",
+     "2π"
+    ],
+    "answerIndex": 1,
+    "explain": "Period = 2π / |b| where b is the coefficient of x, so 2π/3. Students often divide by the wrong number (e.g. 6) or forget that the coefficient of x, not the amplitude, controls the period."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "Solve 2 cos(x) − 1 = 0 for 0° ≤ x ≤ 360°.",
+    "options": [
+     "x = 60° and x = 120°",
+     "x = 30° and x = 150°",
+     "x = 60° and x = 300°",
+     "x = 60° only"
+    ],
+    "answerIndex": 2,
+    "explain": "Isolate: cos(x) = 1/2, so x = 60° (QI) and x = 360° − 60° = 300° (QIV). The classic mistake is reporting 120° (which solves cos = −1/2) or listing only the Quadrant I answer."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "A neighbour in Whistler measures the water level in a small harbour. The height above the dock (in metres) is modelled by h(t) = 8 sin(πt/6) + 9, where t is the number of hours after midnight. What is the maximum water height?",
+    "options": [
+     "17 m",
+     "8 m",
+     "9 m",
+     "1 m"
+    ],
+    "answerIndex": 0,
+    "explain": "Maximum = amplitude × 1 + midline = 8 + 9 = 17 m. The trap is picking 9 m (the midline, i.e. the average) or 8 m (the amplitude alone) instead of adding them together."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 3,
+    "question": "Solve 2 sin²(x) − 3 sin(x) − 2 = 0 for 0° ≤ x < 360°.",
+    "options": [
+     "x = 30° and x = 150°",
+     "x = 210° only",
+     "x = 30°, 150°, 210°, 330°",
+     "x = 210° and x = 330°"
+    ],
+    "answerIndex": 3,
+    "explain": "Factor as (2 sin x + 1)(sin x − 2) = 0. Since sin x = 2 is impossible, we keep sin x = −1/2, giving x = 210° and 330°. The big trap is accepting sin x = 2 (extraneous root) or solving sin x = +1/2 by dropping the negative sign."
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 3,
+    "question": "A student is sketching y = 3 cos(2x + π/3) − 1 for a physics project. What is the phase shift of this graph?",
+    "options": [
+     "π/3 to the left",
+     "π/6 to the left",
+     "π/6 to the right",
+     "2π/3 to the left"
+    ],
+    "answerIndex": 1,
+    "explain": "Set the inside equal to zero: 2x + π/3 = 0 → x = −π/6, so the shift is π/6 to the left. The #1 misconception is reporting π/3 left without dividing by the coefficient 2 of x."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

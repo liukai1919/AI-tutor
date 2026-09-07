@@ -1,0 +1,138 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.ALG.01",
+ "lang": "en",
+ "title": "polynomial factoring",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Factoring Polynomials: From Messy Sums to Clean Products",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're selling phone cases at a school fundraiser. Your profit, in dollars, depends on how many cases you sell, and it's given by P of x equals three x squared minus twenty-seven x plus fifty-four, where x is the number of cases. The big question: at how many cases do you break even, meaning profit is exactly zero? You could plug in numbers and hope, but there's a smarter path. If you can rewrite that messy expression as a product of simpler pieces, then by the zero-product rule, you just set each piece to zero and solve. That is exactly what factoring gives you. Turn a hard sum into an easy product, and the zeros pop out instantly.",
+    "math": "P(x) = 3x^2 - 27x + 54 = 0",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      10,
+      -10,
+      90
+     ],
+     "labels": [
+      "3*x^2-27*x+54"
+     ],
+     "caption": "The parabola crosses the x-axis at x = 3 and x = 6 — those are the break-even points"
+    }
+   },
+   {
+    "say": "Step one of factoring is always the same, no matter how scary the polynomial looks: pull out the greatest common factor. Look at your three terms — three x squared, minus twenty-seven x, plus fifty-four. What is the biggest whole number that divides all three coefficients? Three goes into three, into twenty-seven, into fifty-four. So you pull out a three, just like peeling a common layer off a bundle of sticks. You are left with three times the quantity x squared minus nine x plus eighteen. Notice: the GCF step does not change the answer, it just makes the next step cleaner.",
+    "math": "3x^2 - 27x + 54 = 3\\bigl(x^2 - 9x + 18\\bigr)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      27,
+      54
+     ],
+     "labels": [
+      "3x²",
+      "−27x",
+      "+54"
+     ],
+     "caption": "The coefficient 3 is shared by all three terms — that is the GCF"
+    }
+   },
+   {
+    "say": "Now for the fun part: factor the trinomial x squared minus nine x plus eighteen. You are looking for two numbers, call them a and b, that multiply to the last term, eighteen, and add up to the middle coefficient, minus nine. Let's check the pairs: one times eighteen adds to nineteen, no good. Two times nine adds to eleven, nope. Three times six adds to nine — but we need minus nine. So try negative three and negative six: they multiply to positive eighteen, and they add to negative nine. Perfect. That means the trinomial splits into x minus three, times x minus six.",
+    "math": "x^2 - 9x + 18 = (x-3)(x-6)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -3,
+      -6,
+      18,
+      -9
+     ],
+     "labels": [
+      "a",
+      "b",
+      "a × b",
+      "a + b"
+     ],
+     "caption": "The pair (−3, −6) satisfies both conditions: product = 18, sum = −9"
+    }
+   },
+   {
+    "say": "Put it all together. Your profit expression is three, times x minus three, times x minus six. And here is the payoff: to find where profit equals zero, you set each factor to zero. Three is a constant, it never equals zero, so you skip it. x minus three equals zero gives x equals three. x minus six equals zero gives x equals six. In your fundraiser context, selling six cases covers all your costs. The root at three is a valid zero of the polynomial, but maybe below your minimum order. Either way, factoring turned a quadratic equation into two tiny one-step problems.",
+    "math": "3(x-3)(x-6)=0 \\;\\Longrightarrow\\; x=3 \\;\\text{or}\\; x=6",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      10,
+      -10,
+      90
+     ],
+     "labels": [
+      "3*(x-3)*(x-6)"
+     ],
+     "caption": "Same parabola, now written as a product — the zeros are obvious"
+    }
+   },
+   {
+    "say": "Let's meet a pattern you will use over and over: the difference of squares. If you have a perfect square minus another perfect square, like x squared minus twenty-five, that is x squared minus five squared. You can rewrite it as x minus five, times x plus five. Here is a way to see why: picture a big square with side length x, and cut out a smaller square of side five from one corner. The leftover L-shaped area can be sliced and rearranged into a single rectangle whose sides are x plus five and x minus five. Same area, different shape. That is the identity a squared minus b squared equals a minus b, times a plus b, and it works for any a and b, not just plain numbers.",
+    "math": "a^2 - b^2 = (a-b)(a+b)",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      12,
+      2
+     ],
+     "labels": [
+      ""
+     ],
+     "caption": "With x = 7: a 7×7 square minus a 5×5 square leaves 49 − 25 = 24, exactly the area of a 12 by 2 rectangle, (x+5)(x−5)"
+    }
+   },
+   {
+    "say": "Let's do a slightly harder example to lock in the difference of squares. Factor four x squared minus nine. First, check for a GCF: four and nine share no factor other than one, so nothing to pull out. Now spot the pattern: four x squared is the same as two x, all squared, and nine is three squared. So this is a squared minus b squared with a equal to two x and b equal to three. The factorization is two x minus three, times two x plus three. Let's verify by expanding: two x times two x gives four x squared, two x times three gives six x, minus three times two x gives minus six x, and minus three times three gives minus nine. The middle terms cancel, leaving four x squared minus nine. It checks out.",
+    "math": "4x^2 - 9 = (2x)^2 - 3^2 = (2x-3)(2x+3)",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      4,
+      -10,
+      50
+     ],
+     "labels": [
+      "4*x^2-9"
+     ],
+     "caption": "Zeros at x = +3/2 and x = −3/2"
+    }
+   },
+   {
+    "say": "Here is your one-line takeaway to carry into the next unit: factoring turns a hard 'sum equals zero' into an easy 'product equals zero,' and the zero-product rule does the rest. Always pull the GCF first, then look for the pattern — whether it is a trinomial you crack with two numbers, or a difference of squares you split with the a-minus-b, a-plus-b formula. Master those two moves and every polynomial in this course will feel like unpacking a gift you already know the answer to.",
+    "math": "\\text{Always: } \\underbrace{\\text{GCF}}_{\\text{step 1}} \\;\\longrightarrow\\; \\underbrace{\\text{trinomial or } a^2-b^2}_{\\text{step 2}} \\;\\longrightarrow\\; \\underbrace{\\text{set each factor } = 0}_{\\text{solve}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Factoring turns 'sum equals zero' into 'product equals zero' — pull the GCF, spot the pattern, set each factor to zero, done.",
+  "practice": {
+   "question": "You're running a lemonade stand at a neighbourhood block party. Your profit in dollars from selling x cups is P(x) = 2x² − 16x + 30. (a) Factor the profit expression completely. (b) At how many cups do you break even (profit = 0)?",
+   "answer": "(a) P(x) = 2(x² − 8x + 15) = 2(x − 3)(x − 5). (b) Setting each factor to zero: x = 3 or x = 5. You break even after selling 3 cups or 5 cups."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

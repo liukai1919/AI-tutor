@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.START_END",
+ "lang": "en",
+ "title": "Find a start or end time from the duration, including 24-hour times",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Missing Start and End Times",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to hop along a time line to find how long something lasts. Today we flip it around: we know how long it lasts, and we hunt for the missing start time or the missing end time.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick. If you know the start, hop forward by the duration. If you know the end, hop backward by the duration. And because one hour is sixty minutes, hop to the next whole hour first, then finish the rest. Watch this line of minutes: from twenty minutes past, it is forty more minutes to reach sixty, and sixty means the next hour begins.",
+    "math": "60\\text{ min} = 1\\text{ hour}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60,
+      20,
+      60
+     ],
+     "labels": [],
+     "caption": "Minutes past the hour: from 20 to 60 is a 40 minute hop, and 60 starts the next hour"
+    }
+   },
+   {
+    "say": "Let us try one. Soccer practice at the park starts at seventeen twenty, which is twenty past five in the afternoon, and it runs for fifty minutes. Hop from seventeen twenty up to eighteen o'clock, that is forty minutes. We still have ten minutes left of the fifty, so hop ten more. Practice ends at eighteen ten.",
+    "math": "17{:}20 \\xrightarrow{40} 18{:}00 \\xrightarrow{10} 18{:}10",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      5,
+      20,
+      6,
+      10
+     ],
+     "labels": [],
+     "caption": "5:20 p.m. to 6:10 p.m. — which we write as 17:20 to 18:10"
+    }
+   },
+   {
+    "say": "Now the mistake I want you to dodge. Some kids write seventeen twenty plus fifty equals seventeen seventy. But there is no such time as seventeen seventy! Clocks are not like dollars, where one hundred cents make a dollar. On a clock, sixty minutes make an hour, so once you pass sixty you must trade those sixty minutes for one whole hour. Seventeen seventy really means eighteen ten.",
+    "math": "17{:}70 = 18{:}10",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60,
+      20,
+      60
+     ],
+     "labels": [],
+     "caption": "The minute line stops at 60 — you can never write 70 minutes past the hour"
+    }
+   },
+   {
+    "say": "Let us hop backward too. Your swim lesson at the community centre ends at sixteen ten and it lasts forty five minutes. Step back ten minutes to reach sixteen o'clock. You have used ten of the forty five, so thirty five minutes are still left. Step back thirty five more and you land on fifteen twenty five. The lesson started at fifteen twenty five, which is twenty five past three in the afternoon.",
+    "math": "16{:}10 \\xleftarrow{10} 16{:}00 \\xleftarrow{35} 15{:}25",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60,
+      60,
+      25
+     ],
+     "labels": [],
+     "caption": "Backing up 35 minutes from 16:00 lands on 15:25"
+    }
+   },
+   {
+    "say": "So remember: hop forward from the start, hop backward from the end, and always stop at the whole hour on the way, because sixty minutes make one hour.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Know the start? Hop forward. Know the end? Hop backward. Always stop at the full hour, because 60 minutes make 1 hour — never 100.",
+  "practice": {
+   "question": "Your swimming lesson at the community centre ends at nineteen o five, and the lesson lasts forty minutes. What time did it start? Try drawing your own time line and hopping backward, stopping at the whole hour on the way.",
+   "answer": "18:25. Hop back 5 minutes from 19:05 to reach 19:00, then hop back the other 35 minutes to 18:25 — that is 6:25 in the evening."
+  }
+ }
+}

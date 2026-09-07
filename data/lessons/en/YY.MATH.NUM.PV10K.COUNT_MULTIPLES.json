@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
+ "lang": "en",
+ "title": "Skip-count forward and backward by 25s, 100s and 1000s",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Jumps: Counting by 25s, 100s and 1000s",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read and write big numbers like three thousand four hundred. Today we learn a speedy trick: instead of counting one at a time, we take big jumps of twenty five, one hundred, or one thousand.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's start with twenty fives, and think about quarters. A quarter is twenty five cents. One quarter, twenty five. Two quarters, fifty. Three quarters, seventy five. Four quarters, one hundred. So the twenty five pattern goes twenty five, fifty, seventy five, one hundred, and then it starts over: one hundred twenty five, one hundred fifty, one hundred seventy five, two hundred. Four jumps of twenty five always make one hundred.",
+    "math": "25 \\rightarrow 50 \\rightarrow 75 \\rightarrow 100",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      25,
+      50,
+      75,
+      100
+     ],
+     "labels": [],
+     "caption": "Four quarters make one dollar: 25, 50, 75, 100"
+    }
+   },
+   {
+    "say": "Jumping by one hundred or one thousand is even easier, because only one digit changes. Say your class has raised three thousand four hundred dollars for a field trip. Jump forward by one hundred each week: three thousand five hundred, three thousand six hundred, three thousand seven hundred. Look closely, only the hundreds digit is climbing, four, five, six, seven. Everything else stays asleep.",
+    "math": "3400 \\rightarrow 3500 \\rightarrow 3600 \\rightarrow 3700",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3800,
+      3400,
+      3500
+     ],
+     "labels": [],
+     "caption": "One jump of 100: from 3400 to 3500"
+    }
+   },
+   {
+    "say": "Here is the mistake lots of kids make. Starting at three thousand nine hundred, they say the next one is three thousand ten hundred. That is not a real number. When the hundreds digit is already nine, one more hundred fills up a whole new thousand. So three thousand nine hundred plus one hundred is four thousand. Nine hundreds plus one hundred equals ten hundreds, and ten hundreds is one thousand, so the thousands digit goes up by one.",
+    "math": "3900 + 100 = 4000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3600,
+      4100,
+      3900,
+      4000
+     ],
+     "labels": [],
+     "caption": "3900 plus 100 rolls over to 4000"
+    }
+   },
+   {
+    "say": "Backward works the same way, just going down. A snowy mountain trail marker says six thousand two hundred fifty metres. Count back by one thousand: five thousand two hundred fifty, four thousand two hundred fifty, three thousand two hundred fifty. Only the thousands digit drops, six, five, four, three. The two hundred fifty part never moves.",
+    "math": "6250 \\rightarrow 5250 \\rightarrow 4250 \\rightarrow 3250",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3000,
+      7000,
+      6250,
+      5250
+     ],
+     "labels": [],
+     "caption": "One jump backward of 1000: 6250 to 5250"
+    }
+   }
+  ],
+  "answer": "Skip counting is big jumps: by 100 or 1000 only one digit changes, and four jumps of 25 make 100.",
+  "practice": {
+   "question": "Your class has raised two thousand seven hundred fifty dollars for a trip to Victoria, and each week you raise one thousand dollars more. Say the total after each of the next three weeks. Then, starting at three hundred dollars, count backward by twenty five three times.",
+   "answer": "Forward by 1000: three thousand seven hundred fifty, four thousand seven hundred fifty, five thousand seven hundred fifty. Backward by 25: two hundred seventy five, two hundred fifty, two hundred twenty five."
+  }
+ }
+}

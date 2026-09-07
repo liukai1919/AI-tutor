@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PRIME_COMPOSITE",
+ "lang": "en",
+ "title": "Tell prime from composite numbers (and why 1 is neither)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Prime or Composite? Rectangles Tell the Story",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list all the factors of a number using factor pairs. Today we use those factor pairs to sort numbers into two clubs: prime numbers and composite numbers.",
+    "math": "12 = 1\\times 12 = 2\\times 6 = 3\\times 4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think about arranging twelve granola bars in a neat rectangle. Twelve lets you build a three by four rectangle, because three times four is twelve. A number that can make a rectangle with more than one row is called composite. Its factors are one, two, three, four, six and twelve — lots of factors.",
+    "math": "3\\times 4 = 12",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "12 granola bars in 3 rows of 4 — composite"
+    }
+   },
+   {
+    "say": "Now try seven granola bars. Two rows won't work, three rows won't work — the only rectangle you can build is one single row of seven. Seven has only two factors, one and seven. A number with exactly two factors, one and itself, is called prime.",
+    "math": "7 = 1\\times 7",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      1,
+      7,
+      1,
+      7
+     ],
+     "labels": [],
+     "caption": "7 can only be one row of 7 — prime"
+    }
+   },
+   {
+    "say": "Here is a trap lots of kids fall into. They think every odd number is prime, so they say twenty-one is prime. But watch: three times seven is twenty-one, so twenty-one makes a three by seven rectangle. That is four factors — one, three, seven and twenty-one — so twenty-one is composite. And the opposite trap: some kids say two is not prime because it is even. But two has exactly two factors, one and two, so two really is prime. It is the only even prime.",
+    "math": "21 = 3\\times 7",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      7,
+      3,
+      7
+     ],
+     "labels": [],
+     "caption": "21 = 3 rows of 7, so 21 is composite, not prime"
+    }
+   },
+   {
+    "say": "And what about one? One has only one factor — itself. It doesn't have two factors, so it can't be prime, and it doesn't have extra factors, so it can't be composite. One is neither. On this hundred chart I circled the primes below twenty: two, three, five, seven, eleven, thirteen, seventeen and nineteen. Notice one is not circled, but two is.",
+    "math": "1 = 1\\times 1",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19
+     ],
+     "labels": [],
+     "caption": "Primes under 20 circled — 1 is not one of them"
+    }
+   },
+   {
+    "say": "So before you call a number prime, count its factors. Exactly two means prime, more than two means composite, and only one factor means it is our special number, one.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count the factors: exactly two means prime, more than two means composite, and 1 has only one factor, so it is neither.",
+  "practice": {
+   "question": "Your class painted a big hundred chart on the gym wall in Victoria. Your teacher asks you to circle every prime number from twenty to thirty. Write down the numbers you would circle, and for two of the numbers you did not circle, name a factor pair that shows why.",
+   "answer": "Circle twenty-three and twenty-nine. They are the only numbers from twenty to thirty with exactly two factors. Numbers you skip include twenty-one, because three times seven is twenty-one, and twenty-five, because five times five is twenty-five. All the even numbers there, like twenty-two and twenty-four, have two as a factor, so they are composite too."
+  }
+ }
+}

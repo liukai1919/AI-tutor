@@ -1,0 +1,131 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.ALG.04",
+ "lang": "en",
+ "title": "polynomial factoring",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Polynomial Factoring: Pulling Out What's Shared",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're saving for a concert ticket in Vancouver, and your savings after x weeks follow the expression six x squared plus nine x. You stare at it and think, 'What do these two chunks actually have in common?' Both of them contain a three x inside. So you pull that out and write three x times (two x plus three). Suddenly the expression tells a story: three x is the shared piece, and two x plus three is what's left once you pull it out. Factoring is just that — pulling out the shared ingredient and showing what's left. Once you can do it, solving equations and understanding shapes gets a lot easier.",
+    "math": "6x^2 + 9x = 3x(2x + 3)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      9
+     ],
+     "labels": [
+      "6x²",
+      "9x"
+     ],
+     "caption": "Both bars share a common chunk of 3x — pull it out to reveal the structure"
+    }
+   },
+   {
+    "say": "Here's the method for greatest common factor factoring, in three quick moves. One: look at the plain numbers and find the biggest one that divides every coefficient. Two: look at the x's and grab the smallest power of x that shows up in every term. Three: write that common factor in front of a set of brackets, then divide each original term by it to fill in what goes inside. Think of it like a rectangle: the total area is six x squared plus nine x, the shared side is three x, and the other side must be two x plus three. The area hasn't changed; you've just described the sides.",
+    "math": "\\text{GCF of } 6x^2 + 9x:\\quad \\gcd(6,9)=3,\\;\\gcd(x^2,x)=x \\;\\Rightarrow\\; 3x",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      5,
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "A 3-by-5 rectangle split into 3 × 2 = 6 and 3 × 3 = 9: the shared side 3 is the common factor, just like 3x in 6x² + 9x"
+    }
+   },
+   {
+    "say": "Let's work one together. Factor six x squared plus nine x. Step one, the numbers: what's the biggest number that goes into both six and nine? Three. Three times two is six, three times three is nine. Check. Step two, the x's: you've got x squared and x. The smallest power of x in every term is just x. So the greatest common factor is three x. Now the division: six x squared divided by three x gives two x. Nine x divided by three x gives three. Put it all together: three x times (two x plus three). Let's verify — three x times two x is six x squared, three x times three is nine x. Matches the original. You've got it.",
+    "math": "6x^2 + 9x = 3x\\left(\\frac{6x^2}{3x} + \\frac{9x}{3x}\\right) = 3x(2x + 3)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now here's a different flavour. Say you have x squared plus seven x plus twelve. There's no single factor hiding in all three terms — one, seven, and twelve don't share anything. So we switch strategy. We're hunting for two numbers with two jobs: they must multiply to twelve, the last number, AND add up to seven, the middle coefficient. Let's just list the pairs of twelve: one and twelve, that adds to thirteen — nope. Two and six, adds to eight — still not it. Three and four, adds to seven — bingo. Those are our two numbers. That little search is all the 'hard work' in this case.",
+    "math": "x^2 + 7x + 12:\\quad \\text{need } a \\times b = 12 \\;\\text{and}\\; a + b = 7",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      12,
+      12,
+      13,
+      8,
+      7
+     ],
+     "labels": [
+      "1 × 12",
+      "2 × 6",
+      "3 × 4",
+      "Product",
+      "Sum"
+     ],
+     "caption": "Factor pairs of 12 — we need the pair that adds to 7"
+    }
+   },
+   {
+    "say": "So x squared plus seven x plus twelve factors into (x plus three) times (x plus four). The two numbers you found become the constants tucked inside the brackets. Let's expand it back to be sure: x times x is x squared, x times four is four x, three times x is three x, and three times four is twelve. The middle terms, four x plus three x, combine to seven x. Final: x squared plus seven x plus twelve. Checks out. The trick to remember: same sign in the brackets when the last number is positive.",
+    "math": "x^2 + 7x + 12 = (x+3)(x+4)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Last pattern, and honestly the prettiest one. If you have a square minus another square — like x squared minus twenty-five — it always factors as (x plus five) times (x minus five). Here's a geometric way to see why: imagine a big square with side length x, so its area is x squared. Now cut a smaller five-by-five square out of one corner. The area you've removed is twenty-five. The leftover L-shaped piece can be sliced and rearranged into a rectangle whose sides are (x plus five) and (x minus five). Same total area, different shape. That rearrangement is exactly what the factored form is telling you.",
+    "math": "a^2 - b^2 = (a+b)(a-b)",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      5
+     ],
+     "labels": [],
+     "caption": "The 5×5 square removed from the x×x square leaves an area of x² − 25"
+    }
+   },
+   {
+    "say": "Quick example. Factor x squared minus twenty-five. First spot the pattern: twenty-five is five squared, so this is a squared minus b squared. The rule says: (a plus b) times (a minus b). Here a is x and b is five, so we write (x plus five) times (x minus five). Let's expand to check: x times x is x squared, x times negative five is negative five x, five times x is five x, five times negative five is negative twenty-five. The middle terms, negative five x and positive five x, cancel out to zero. You're left with x squared minus twenty-five. Perfect match. The cross terms always cancel in a difference of squares — that's the signature.",
+    "math": "x^2 - 25 = x^2 - 5^2 = (x+5)(x-5)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway: factoring is the reverse of expanding. GCF means pull out what's shared. Trinomials with x squared mean find two numbers that multiply to the last term and add to the middle coefficient. Difference of squares is always (plus) times (minus). Nail those three moves and you've got the whole toolkit for this unit. You've got this.",
+    "math": "6x^2+9x=3x(2x+3),\\quad x^2+7x+12=(x+3)(x+4),\\quad x^2-25=(x+5)(x-5)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Factoring = un-expanding: pull out GCF, find two numbers for x²+bx+c, or use (a+b)(a−b) for a difference of squares.",
+  "practice": {
+   "question": "You're designing a rectangular herb garden on your Vancouver balcony. The area is x² + 5x + 6 square metres (x is a positive whole number). Factor the area expression so you can read off the two side-length factors.",
+   "answer": "x² + 5x + 6 = (x + 2)(x + 3). The two side lengths are (x + 2) metres and (x + 3) metres."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

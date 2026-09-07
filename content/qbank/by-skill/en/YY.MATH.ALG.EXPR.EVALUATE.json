@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.ALG.EXPR.EVALUATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkomvoilo0io5",
+   "level": 1,
+   "question": "The expression 0.5n + 12 is made of one variable term, 0.5n, whose coefficient is 0.5, and one constant term, 12. There is no picture — only these two terms. Evaluate the expression when the variable n has the value 8.",
+   "options": [
+    "16",
+    "10",
+    "20.5",
+    "28"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute 8 for n, then multiply before adding: 0.5 × 8 = 4, and 4 + 12 = 16. The usual trap is reading 0.5n as 0.5 plus n, which gives 20.5 — a coefficient always means multiply.",
+   "tags": [
+    "ok",
+    "eq.verify_combine_before_mult",
+    "eq.coeff_as_addend",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkomvoij5n5bp",
+   "level": 1,
+   "question": "The expression 3n − 7 has one variable term, 3n, with coefficient 3, and the constant 7 is subtracted from it. Evaluate this expression when the variable n has the value −2.",
+   "options": [
+    "13",
+    "−13",
+    "−6",
+    "−27"
+   ],
+   "answerIndex": 1,
+   "explain": "Put the negative in brackets: 3 × (−2) = −6, then −6 − 7 = −13. Two traps here — writing 3 − 2 loses the multiplication, and −6 − 7 is not +13, because 'two negatives make a positive' is a rule for multiplying, not for adding or subtracting.",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkomvoiwrf6e1",
+   "level": 1,
+   "question": "The expression 20 − 3n starts with the constant 20, and the variable term 3n (coefficient 3) is subtracted from it. Evaluate the expression when the variable n has the value 4.",
+   "options": [
+    "13",
+    "68",
+    "8",
+    "−8"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute first, then follow the order of operations: 3 × 4 = 12, and 20 − 12 = 8. The common trap is subtracting before multiplying, as in (20 − 3) × 4 = 68.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "eq.verify_combine_before_mult",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkomvoiz5g72a",
+   "level": 1,
+   "question": "The expression 0.2n + 5 has a decimal coefficient of 0.2 on the variable term 0.2n, plus the constant 5. Evaluate the expression when the variable n has the value 30.",
+   "options": [
+    "35.2",
+    "65",
+    "7",
+    "11"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the coefficient by the value first: 0.2 × 30 = 6, then 6 + 5 = 11. Two traps — turning 0.2n into 0.2 + n gives 35.2, and adding inside first gives 0.2 × 35 = 7.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "other",
+    "eq.verify_combine_before_mult",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkomvoi3jrydp",
+   "level": 2,
+   "question": "A bike shop in Victoria rents e-bikes. The cost in dollars is given by the expression 8h + 6, where h is the number of hours rented and 6 is a fixed helmet fee. Priya rents a bike for 3.5 hours. What is her cost?",
+   "options": [
+    "$34.00",
+    "$17.50",
+    "$76.00",
+    "$28.00"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute h = 3.5 and multiply first: 8 × 3.5 = 28, then add the $6 fee to get $34.00. The trap is adding the fee to the hours before multiplying, as in 8 × 9.5 = $76.00.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "eq.verify_combine_before_mult",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkomvoi37k5ic",
+   "level": 2,
+   "question": "A science class models the water temperature of a pond with the expression 0.6a + 3, where a is the air temperature in degrees Celsius. One January morning the air temperature is −15 °C. What is the pond temperature the model predicts?",
+   "options": [
+    "−11.4 °C",
+    "−6 °C",
+    "−12 °C",
+    "−7.2 °C"
+   ],
+   "answerIndex": 1,
+   "explain": "Substitute with brackets: 0.6 × (−15) = −9, then −9 + 3 = −6 °C. Two traps — writing 0.6 − 15 drops the multiplication, and −9 + 3 is −6, not −12, since adding 3 moves the value toward zero.",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "int.sign_rules_to_addition",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkomvoie4j0m4",
+   "level": 2,
+   "question": "Evaluate the expression 0.6n − 4n + 20 when n = 5. Work through the terms one at a time.",
+   "options": [
+    "14",
+    "−37",
+    "3",
+    "30"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute into every term, multiply, then go left to right: 0.6 × 5 = 3 and 4 × 5 = 20, so 3 − 20 + 20 = 3. The trap is reading 4n as 4 + n, which gives 3 − 9 + 20 = 14.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkomvoigr2dx9",
+   "level": 2,
+   "question": "A phone plan costs 0.25m + 15 dollars a month, where m is the number of long-distance minutes used and 15 is the base fee. Last month Noah used 48 long-distance minutes. What was his bill?",
+   "options": [
+    "$63.25",
+    "$16.20",
+    "$15.75",
+    "$27.00"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the rate by the minutes first: 0.25 × 48 = 12, then add the $15 base fee for $27.00. The trap is adding the fee to the minutes first, giving 0.25 × 63 = $15.75.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "other",
+    "eq.verify_combine_before_mult",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkomvois08rqs",
+   "level": 3,
+   "question": "Ella evaluates 5n + 12 when n = −4. She writes 5 − 4 + 12 = 13. Which statement correctly describes her work?",
+   "options": [
+    "She lost the multiplying, since 5 × (−4) = −20 and the value is −8.",
+    "Nothing went wrong, since 5n means 5 plus n, so 13 is correct.",
+    "Only her adding is wrong, since −4 + 12 is −16 when signs differ.",
+    "She should add first, since 5 × (−4 + 12) = 40 is the value."
+   ],
+   "answerIndex": 0,
+   "explain": "Substituting a negative needs brackets: 5(−4) = −20, so 5n + 12 becomes −20 + 12 = −8. Writing 5 − 4 quietly turns the coefficient into a subtraction and throws the sign away.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "int.sign_rules_to_addition",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkomvoi6plgo7",
+   "level": 3,
+   "question": "A pottery studio in Burnaby charges 6.5h + 18 dollars, where h is the number of hours of studio time and 18 is the clay fee. Maya and her sister book 4 hours and split the total cost equally between the two of them. How much does each of them pay?",
+   "options": [
+    "$14.25",
+    "$22.00",
+    "$71.50",
+    "$44.00"
+   ],
+   "answerIndex": 1,
+   "explain": "First evaluate: 6.5 × 4 = 26, then 26 + 18 = 44 dollars total; then split it, so each pays $22.00. Two traps — adding the clay fee to the hours before multiplying, and forgetting the second step of dividing by 2.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "eq.verify_combine_before_mult",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkomvoi2i6clw",
+   "level": 3,
+   "question": "Sam evaluates 0.5n − 3n + 25 when n = 14. He writes 0.5 × 14 − (3 + 14) + 25 = 15. Which statement correctly describes his work?",
+   "options": [
+    "He added before multiplying, since 0.5 × (14 − 3 + 25) = 18.",
+    "He got the signs wrong, since −35 + 25 is −60 when signs differ.",
+    "He read 3n as 3 + 14, but 3 × 14 = 42, so the value is −10.",
+    "He divided wrongly, since 0.5n means 14 ÷ 0.5 = 28 and gives 11."
+   ],
+   "answerIndex": 2,
+   "explain": "Every coefficient means multiply, so 0.5 × 14 = 7 and 3 × 14 = 42, giving 7 − 42 + 25 = −10. Turning 3n into 3 + 14 is the classic slip; a coefficient never becomes an addend.",
+   "tags": [
+    "eq.verify_combine_before_mult",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkt99yyr56m5b",
+   "level": 3,
+   "question": "A ski hill at Sun Peaks predicts the snow-surface temperature in degrees Celsius with the expression 1.5a − 5, where a is the air temperature in degrees Celsius. At 6 a.m. the air temperature is −8 °C. The wind then makes the snow feel 6 degrees colder than the value the expression gives. What does the snow feel like at 6 a.m.?",
+   "options": [
+    "−17.5 °C",
+    "11 °C",
+    "1 °C",
+    "−23 °C"
+   ],
+   "answerIndex": 3,
+   "explain": "Substitute with brackets: 1.5 × (−8) = −12, then −12 − 5 = −17, and 6 degrees colder gives −23 °C. Two traps to avoid: dropping the negative sign so the product comes out positive, and turning −12 − 5 into +17 by borrowing a multiplication sign rule.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "int.sign_rules_to_addition",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkt99yyb86sbv",
+   "level": 3,
+   "question": "A community pool in Chilliwack sells a summer swim pass. The cost in dollars is 0.75v + 14, where v is the number of visits and 14 is the one-time membership fee. Nora plans on 28 visits and has 50 dollars saved. How much money will she have left after she buys the pass?",
+   "options": [
+    "15 dollars",
+    "18.50 dollars",
+    "35 dollars",
+    "7.25 dollars"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply the variable term first: 0.75 × 28 = 21, then add the fee, 21 + 14 = 35, so 50 − 35 = 15 dollars left. The common trap is adding 28 + 14 first and multiplying that by 0.75 — the 14 is its own term, not part of the variable term.",
+   "tags": [
+    "ok",
+    "eq.verify_combine_before_mult",
+    "other",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtkt99yyy2ttzj",
+   "level": 3,
+   "question": "Ravi evaluates 4n − 9 when n = −5. He writes 4 × (−5) = −20, then −20 − 9 = 29. Which statement correctly describes his work?",
+   "options": [
+    "He is right: a negative and a negative make a positive, so −20 − 9 = 29.",
+    "He is wrong: adding two negatives stays negative, so −20 − 9 = −29.",
+    "He is wrong: 4n means 4 + (−5), so the value should be 4 − 5 − 9 = −10.",
+    "He is wrong: 4n with n = −5 is 20, so the value should be 20 − 9 = 11."
+   ],
+   "answerIndex": 1,
+   "explain": "His substitution is fine — 4 × (−5) = −20 — but subtracting 9 moves 9 further below zero, giving −29. The trap is borrowing the rule that two negatives make a positive; that rule is for multiplying, not for adding or subtracting.",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "eq.coeff_as_addend",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtkt99yzfwmyef",
+   "level": 3,
+   "question": "Owen evaluates 0.5n + 18 when n = −12. He writes 0.5 × (−12 + 18) = 3. Which statement correctly describes his work?",
+   "options": [
+    "He is wrong: 0.5 × 12 = 6, so the value should be 6 + 18 = 24 instead.",
+    "He is wrong: 0.5n means 0.5 + (−12), so the value is 0.5 − 12 + 18 = 6.5.",
+    "He is wrong: 0.5n means 0.5 × (−12) = −6, so the value is −6 + 18 = 12.",
+    "He is right: the n joins the 18 first, so 0.5 × 6 = 3 is the true value."
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute into the variable term only: 0.5 × (−12) = −6, then add the constant, −6 + 18 = 12. The trap is pulling the 18 inside the multiplication — it is a separate term that gets added after the coefficient multiplies the variable.",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.coeff_as_addend",
+    "ok",
+    "eq.verify_combine_before_mult"
+   ]
+  }
+ ]
+}

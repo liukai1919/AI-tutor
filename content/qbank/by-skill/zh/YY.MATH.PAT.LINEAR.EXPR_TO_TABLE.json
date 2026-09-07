@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkp1mbidv4lz0",
+   "level": 1,
+   "question": "用算式 y = 3x − 4 做一张数值表（table of values），x 这一列依次写 −2、−1、0、1、2、3。x = −2 那一行的 y 是多少？",
+   "options": [
+    "−10",
+    "−2",
+    "10",
+    "−7"
+   ],
+   "answerIndex": 0,
+   "explain": "代入 x = −2：3 × (−2) = −6，再减 4，得 −10。坑：−6 − 4 是往更小的方向走，写成 10 是把「负负得正」搬到了加减法上，写成 −2 是把 6 和 4 相减了。",
+   "tags": [
+    "ok",
+    "other",
+    "int.sign_rules_to_addition",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbibsd643",
+   "level": 1,
+   "question": "一张数值表的 x 列写着 −3、−2、−1、0，算式是 y = 2x − 7。x = −3 那一行的 y 是多少？",
+   "options": [
+    "13",
+    "−13",
+    "−9",
+    "−1"
+   ],
+   "answerIndex": 1,
+   "explain": "2 × (−3) = −6，−6 − 7 = −13。坑：两个负数相加要更小，不会得 13；从 x = 0 的 −7 往左退是退 3 格，每格减 2，不是只减一个 2。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "linear.x_step_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbicjrifr",
+   "level": 1,
+   "question": "用 y = 3x − 4 列表，x 列依次是 −2、0、2、4，算出来的 y 依次是 −10、−4、2、8。在这个线性关系（linear relation）里，x 每增加 1，y 怎么变？",
+   "options": [
+    "y 增加 6",
+    "y 增加 2",
+    "y 增加 3",
+    "y 增加 4"
+   ],
+   "answerIndex": 2,
+   "explain": "从 −10 到 −4，y 加了 6，但 x 一次走了 2 格，所以每走 1 格 y 只加 3，正好是算式里 3x 的 3。坑：只盯着 y 列的差 6，忘了看 x 每步走多少。",
+   "tags": [
+    "linear.x_step_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbiox7jf8",
+   "level": 1,
+   "question": "用 y = 5x − 8 列表，x 列依次是 −4、−2、0、2（每次加 2）。已知 x = −2 那行 y = −18，x = 0 那行 y = −8。x = −4 那一行的 y 是多少？",
+   "options": [
+    "−23",
+    "28",
+    "12",
+    "−28"
+   ],
+   "answerIndex": 3,
+   "explain": "直接代入：5 × (−4) − 8 = −20 − 8 = −28；也可以从 −18 再往左走 2 格，减掉 2 个 5。坑：只减一个 5 得 −23 是没看 x 的步长，把 −20 − 8 说成 28 是符号规则用错了。",
+   "tags": [
+    "linear.x_step_ignored",
+    "int.sign_rules_to_addition",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbicacxcw",
+   "level": 2,
+   "question": "在 y = 3x − 6 的数值表里，有一行的 y 等于 −12。这一行的 x 是多少？",
+   "options": [
+    "−2",
+    "6",
+    "2",
+    "−6"
+   ],
+   "answerIndex": 0,
+   "explain": "3x − 6 = −12，所以 3x = −6，x = −2；代回验证 3 × (−2) − 6 = −12。坑：y 比 −6 少了 6 不等于 x 少 6，x 每走 1 格 y 才变 3。",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "other",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbirovbdo",
+   "level": 2,
+   "question": "用 y = 2x − 5 列表，x 列依次是 −4、−2、0、2。下面哪一组是正确的 y 列？",
+   "options": [
+    "−9, −7, −5, −3",
+    "−13, −9, −5, −1",
+    "−8, −4, 0, 4",
+    "13, 9, −5, −1"
+   ],
+   "answerIndex": 1,
+   "explain": "逐行代入：x = −4 得 −13，x = −2 得 −9，x = 0 得 −5，x = 2 得 −1。坑：写成 −9, −7, −5, −3 的那组是把 x 每行走 2 格当成了走 1 格，y 每行只加了 2。",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "other",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbi1ovpwz",
+   "level": 2,
+   "question": "一张离散（discrete）数值表：x 列是 −4、−2、0、2，对应的 y 列是 −17、−11、−5、1。下面哪个算式能生成这张表？",
+   "options": [
+    "y = 6x − 5",
+    "y = 3x + 5",
+    "y = 3x − 5",
+    "y = −3x − 5"
+   ],
+   "answerIndex": 2,
+   "explain": "y 每行加 6，但 x 每行走 2 格，所以每格加 3；x = 0 那行给出常数 −5，式子是 y = 3x − 5。坑：把 y 列的差 6 直接当成 x 的系数。",
+   "tags": [
+    "linear.x_step_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbirknvtb",
+   "level": 2,
+   "question": "用 y = 3x − 4 列表，x 从 −2 一直取到 3（都是整数）。表里最大的 y 减去最小的 y 等于多少？",
+   "options": [
+    "9",
+    "18",
+    "5",
+    "15"
+   ],
+   "answerIndex": 3,
+   "explain": "x = 3 时 y = 5，x = −2 时 y = −10，5 − (−10) = 15。坑：x 从 −2 到 3 一共走 5 格（虽然有 6 行），另外 −6 − 4 = −10 而不是 10。",
+   "tags": [
+    "other",
+    "linear.x_step_ignored",
+    "int.sign_rules_to_addition",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbiezmfb4",
+   "level": 3,
+   "question": "Kelowna 某天记录气温：把中午 12:00 记作 h = 0，之前的时刻用负数（h = −1 就是 11:00）。当天气温用 T = 2h − 5 估计（T 的单位是 °C）。按这个算式列 h = −3 到 3 的数值表，早上 9:00 那一行的气温是多少？",
+   "options": [
+    "−11 °C",
+    "11 °C",
+    "1 °C",
+    "−7 °C"
+   ],
+   "answerIndex": 0,
+   "explain": "9:00 比 12:00 早 3 小时，所以 h = −3；2 × (−3) − 5 = −6 − 5 = −11 °C。坑：−6 − 5 不会变成 11；从 12:00 的 −5 要往回退 3 格，不是退 1 格。",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "other",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbiece36h",
+   "level": 3,
+   "question": "Maya 在 Surrey 打零工，把某一周记作 w = 0，之前的周用负数。她的余额可以用 y = 6w − 20 算（单位加元，负数表示还欠钱）。按这个算式列表，w = −2 那一行和 w = 3 那一行的余额相差多少？",
+   "options": [
+    "36 加元",
+    "30 加元",
+    "18 加元",
+    "34 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "w = 3 时 y = 18 − 20 = −2；w = −2 时 y = −12 − 20 = −32；相差 −2 − (−32) = 30 加元，也就是 5 格 × 每格 6。坑：从 −2 到 3 是 5 格不是 6 格，而且 −12 − 20 要更小，不是 32。",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "other",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbibzz0wa",
+   "level": 3,
+   "question": "Ryan 用 y = 3x − 4 列表，x 取 −2、−1、0、1，他写出的 y 依次是 10、7、−4、−1。他错在哪？",
+   "options": [
+    "他错在每格的变化量，x 每走一格 y 该变 6 而不是 3。",
+    "他错在 x = 0 那行，代入 0 之后 y 应该等于 4。",
+    "x = −2、−1 两行该是 −10 和 −7，负数减 4 只会更小。",
+    "他没错，负负得正，两个负数相加本来就得正数。"
+   ],
+   "answerIndex": 2,
+   "explain": "3 × (−2) − 4 = −6 − 4 = −10，3 × (−1) − 4 = −3 − 4 = −7，后两行 −4、−1 是对的。坑：把「负负得正」搬到加减法上，于是写成了 10 和 7。",
+   "tags": [
+    "linear.x_step_ignored",
+    "other",
+    "ok",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkp1mbi21bd0j",
+   "level": 3,
+   "question": "一张数值表：x 列是 −4、−2、0、2、4，y 列是 −14、−8、−2、4、10。Priya 说算式是 y = 6x − 2，理由是 y 每行都加 6。下面哪句话说对了？",
+   "options": [
+    "x 不是 1、2、3 连着走，这些点根本不成线性关系。",
+    "她没错，x = −4 时 −24 − 2 得 26，是表里的 −14 抄错了。",
+    "她常数写错了，该是 y = 6x + 10，x = −4 时正好 −14。",
+    "y 每加 6 是 x 走了 2 格，每格加 3，式子是 y = 3x − 2。"
+   ],
+   "answerIndex": 3,
+   "explain": "y 列每行加 6，但 x 每行走 2 格，所以每走 1 格只加 3；x = 0 时 y = −2 就是常数，得 y = 3x − 2（代 x = 4 验证：12 − 2 = 10）。坑：不看 x 的步长就把 6 当成系数。",
+   "tags": [
+    "linear.x_step_ignored",
+    "int.sign_rules_to_addition",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

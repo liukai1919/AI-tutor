@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.MEDIAN_MODE",
+ "lang": "en",
+ "title": "Find the median (order first; average the middle two) and the mode (there may be none or more than one)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Median and Mode: Finding the Middle and the Favourite",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to put numbers in order from smallest to largest, and today we are going to use that skill for something useful. Here are the points Maya scored in her last six basketball games in Surrey: nine, fourteen, seven, fourteen, ten, and six. If someone asks what a typical game looks like for her, we need a middle value, and that middle value is called the median.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      9,
+      14,
+      7,
+      14,
+      10,
+      6
+     ],
+     "labels": [
+      "Game 1",
+      "Game 2",
+      "Game 3",
+      "Game 4",
+      "Game 5",
+      "Game 6"
+     ],
+     "caption": "Maya's points, in the order the games happened"
+    }
+   },
+   {
+    "say": "Step one is always the same: put the numbers in order. Sorted, they go six, seven, nine, ten, fourteen, fourteen. Now count how many there are. Six numbers, which is an even amount, so there is no single number sitting in the middle. Instead, two numbers share the middle spot: the third one, nine, and the fourth one, ten. When two numbers tie for the middle, the median is the number exactly halfway between them, so we add them and divide by two. Nine plus ten is nineteen, and nineteen divided by two is nine point five. The median is nine point five points.",
+    "math": "\\text{Median}=\\frac{9+10}{2}=\\frac{19}{2}=9.5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      7,
+      9,
+      10,
+      14,
+      14
+     ],
+     "labels": [
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "5th",
+      "6th"
+     ],
+     "caption": "Sorted: the 3rd and 4th values, 9 and 10, share the middle"
+    }
+   },
+   {
+    "say": "The mode is a different idea. It is simply the value that shows up most often. Let me count how many times each score appears: six appears once, seven once, nine once, ten once, and fourteen appears twice. Fourteen wins, so the mode is fourteen points. Notice something important here: the mode is fourteen, not two. Two is just how many times it happened. The mode is always the score itself. And by the way, a data set can have no mode at all if every value appears once, or it can have two modes if there is a tie.",
+    "math": "\\text{Mode}=14\\ \\text{points}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      2
+     ],
+     "labels": [
+      "6 pts",
+      "7 pts",
+      "9 pts",
+      "10 pts",
+      "14 pts"
+     ],
+     "caption": "How many times each score appears: 14 appears the most"
+    }
+   },
+   {
+    "say": "Now here is the trap that catches almost everyone. If you forget to sort and just grab the two middle numbers from the original list, you would take seven and fourteen, which gives ten point five. That is wrong, because the median has to have half the data below it and half above it, and an unsorted list has no real middle. Two more things to watch: with an even amount of numbers, do not just pick nine or just pick ten, because you must average them. And never answer that the mode is two. Two was the count. The mode is fourteen.",
+    "math": "\\frac{7+14}{2}=10.5\\ \\text{(wrong)}\\quad\\text{vs}\\quad\\frac{9+10}{2}=9.5\\ \\text{(right)}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      9,
+      14,
+      7,
+      14,
+      10,
+      6
+     ],
+     "labels": [
+      "Game 1",
+      "Game 2",
+      "Game 3",
+      "Game 4",
+      "Game 5",
+      "Game 6"
+     ],
+     "caption": "Unsorted: the two middle cells here, 7 and 14, are not the true middle"
+    }
+   },
+   {
+    "say": "So the whole routine is short. Sort the numbers, find the middle. If the count is odd, take the one in the centre. If the count is even, add the two middle numbers and divide by two. Then, for the mode, look for the value that repeats the most, and say the value, not the count.",
+    "math": "\\text{Median}=9.5,\\quad \\text{Mode}=14",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Sort first, then take the middle value — average the two middles if there is an even count; the mode is the value that repeats most.",
+  "practice": {
+   "question": "Ava works part time at a cafe in Burnaby, and here are her tips from her last six shifts, in dollars: eighteen, twenty-two, fifteen, twenty-two, nineteen, and twenty-four. Make yourself a small table with these six amounts, put them in order, and find the median tip and the mode tip.",
+   "answer": "In order the tips are fifteen, eighteen, nineteen, twenty-two, twenty-two, twenty-four. There are six values, so the two middle ones are nineteen and twenty-two. Nineteen plus twenty-two is forty-one, and forty-one divided by two is twenty point five, so the median is twenty dollars and fifty cents. Twenty-two appears twice and everything else appears once, so the mode is twenty-two dollars (not two)."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.TIME.ELAPSED.START_END",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5j1ofptabtgd",
+   "level": 1,
+   "question": "Mia's swim lesson at the Kelowna pool starts at 3:40 p.m. and lasts 45 minutes. What time does the lesson end?",
+   "options": [
+    "4:25 p.m.",
+    "4:45 p.m.",
+    "3:85 p.m.",
+    "4:85 p.m."
+   ],
+   "answerIndex": 0,
+   "explain": "Jump 20 minutes from 3:40 to 4:00, then the other 25 minutes gives 4:25 p.m. The trap is adding 40 + 45 = 85 and writing 3:85 — a clock has only 60 minutes in an hour, never 85.",
+   "tags": [
+    "ok",
+    "other",
+    "time.base_100",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpqkjeux",
+   "level": 1,
+   "question": "The ferry to Bowen Island leaves the dock at 14:50 and the crossing takes 40 minutes. At what time does it arrive?",
+   "options": [
+    "14:90",
+    "15:30",
+    "15:40",
+    "15:00"
+   ],
+   "answerIndex": 1,
+   "explain": "From 14:50 it is 10 minutes to 15:00, and 30 minutes are left over, so the ferry arrives at 15:30. Watch out for 14:90: once the minutes pass 60 you must trade them for a new hour.",
+   "tags": [
+    "time.base_100",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofp8bx62l",
+   "level": 1,
+   "question": "Noah's hockey practice at the community rink ended at 6:10 p.m. The practice lasted 50 minutes. What time did it start?",
+   "options": [
+    "5:60 p.m.",
+    "7:00 p.m.",
+    "5:20 p.m.",
+    "5:10 p.m."
+   ],
+   "answerIndex": 2,
+   "explain": "Go backwards: 10 minutes back from 6:10 is 6:00, then 40 more minutes back is 5:20 p.m. The trap is doing 6:10 − 50 like plain numbers and writing 5:60; when you trade an hour you get 60 extra minutes, not 100.",
+   "tags": [
+    "time.base_100",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpsn6s6d",
+   "level": 1,
+   "question": "The school bus drops Emma at school at 08:05. The ride from her house takes 25 minutes. At what time did the bus leave her house?",
+   "options": [
+    "08:30",
+    "06:40",
+    "07:80",
+    "07:40"
+   ],
+   "answerIndex": 3,
+   "explain": "Count back 5 minutes to 08:00, then 20 more minutes to 07:40. The common slip is 8:05 − 25 = 7:80, but an hour traded back is worth 60 minutes, so 65 − 25 = 40.",
+   "tags": [
+    "other",
+    "other",
+    "time.base_100",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofp3rb25y",
+   "level": 2,
+   "question": "A movie at the Victoria theatre starts at 6:45 p.m. and runs for 1 hour 50 minutes. What time does it finish?",
+   "options": [
+    "8:35 p.m.",
+    "8:95 p.m.",
+    "8:45 p.m.",
+    "7:95 p.m."
+   ],
+   "answerIndex": 0,
+   "explain": "Add the hour first: 6:45 + 1 h = 7:45, then 15 minutes reaches 8:00 and 35 minutes are left, giving 8:35 p.m. Adding 45 + 50 = 95 and writing 7:95 is the mistake — 95 minutes is really 1 hour 35 minutes.",
+   "tags": [
+    "ok",
+    "time.base_100",
+    "other",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofplabdsu",
+   "level": 2,
+   "question": "A train leaves the station at 09:35 and the trip takes 2 hours 40 minutes. What time does it arrive?",
+   "options": [
+    "11:75",
+    "12:15",
+    "12:75",
+    "11:15"
+   ],
+   "answerIndex": 1,
+   "explain": "09:35 + 2 h = 11:35, then 25 minutes reaches 12:00 and 15 minutes remain, so the train arrives at 12:15. Writing 11:75 comes from adding 35 + 40 like ordinary numbers; 75 minutes must be traded for 1 hour 15 minutes.",
+   "tags": [
+    "time.base_100",
+    "ok",
+    "time.base_100",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpv7ivcl",
+   "level": 2,
+   "question": "A hockey game finished at 20:10. The game lasted 1 hour 25 minutes. At what time did it start?",
+   "options": [
+    "21:35",
+    "18:85",
+    "18:45",
+    "19:85"
+   ],
+   "answerIndex": 2,
+   "explain": "Take off the hour first: 20:10 − 1 h = 19:10, then count back 25 minutes to 18:45. If you get 18:85 you traded the hour for 100 minutes instead of 60.",
+   "tags": [
+    "other",
+    "time.base_100",
+    "ok",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpllk051",
+   "level": 2,
+   "question": "A chess club meeting lasts 55 minutes and must be finished by 4:20 p.m. What time does the meeting have to start?",
+   "options": [
+    "3:65 p.m.",
+    "5:15 p.m.",
+    "3:20 p.m.",
+    "3:25 p.m."
+   ],
+   "answerIndex": 3,
+   "explain": "Count back 20 minutes to 4:00, then 35 more minutes to 3:25 p.m. The 3:65 answer comes from treating the hour as 100 minutes; going back a whole hour to 3:20 treats 55 minutes as a full hour.",
+   "tags": [
+    "time.base_100",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofp06f3fq",
+   "level": 3,
+   "question": "Sofia's ferry leaves Tsawwassen at 13:25 and the sailing takes 1 hour 35 minutes. When she lands she rides a bus for 25 more minutes to reach her grandma's house. At what time does she get there?",
+   "options": [
+    "15:25",
+    "14:60",
+    "14:85",
+    "15:00"
+   ],
+   "answerIndex": 0,
+   "explain": "13:25 + 1 h 35 min lands the ferry at 15:00, then the 25-minute bus makes it 15:25. Two traps here: stopping at 15:00 forgets the bus, and 14:85 comes from adding the minutes as if 100 of them made an hour.",
+   "tags": [
+    "ok",
+    "time.base_100",
+    "time.base_100",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpzvm6o8",
+   "level": 3,
+   "question": "Liam's yoga class starts at 7:50 p.m. and lasts 25 minutes. He writes: 50 + 25 = 75, so the class ends at 7:75 p.m. Which statement fixes his work?",
+   "options": [
+    "He is already right, because 50 + 25 = 75 gives 7:75 p.m.",
+    "The end time is 8:15 p.m., because 75 minutes is the same as 1 hour 15 minutes.",
+    "The end time is 8:25 p.m., because you trade 50 minutes for 1 hour and 25 minutes are left over.",
+    "The end time is 7:15 p.m., because 75 minutes is 1 hour 15 minutes so you keep the 15 and leave the hour as 7."
+   ],
+   "answerIndex": 1,
+   "explain": "Only 60 minutes make an hour, so 75 minutes is 1 hour 15 minutes and 7:75 p.m. becomes 8:15 p.m. The usual traps are leaving the minutes above 60, or trading the extra hour but forgetting to move the hour from 7 to 8.",
+   "tags": [
+    "time.base_100",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofpck0tgq",
+   "level": 3,
+   "question": "The school concert must finish at 20:15. The choir sings first for 1 hour 10 minutes, then the band plays for 45 minutes with no break in between. At what time must the choir start?",
+   "options": [
+    "18:60",
+    "19:30",
+    "18:20",
+    "19:05"
+   ],
+   "answerIndex": 2,
+   "explain": "The two acts take 1 h 10 min + 45 min = 1 h 55 min, and counting back from 20:15 gives 18:20. Stopping at 19:30 only takes off the band's 45 minutes, and 18:60 comes from trading the hour for 100 minutes instead of 60.",
+   "tags": [
+    "time.base_100",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5j1ofp0s39dz",
+   "level": 3,
+   "question": "Ravi starts a hike on the North Shore at 11:40 a.m. The hike takes 2 hours 45 minutes, and then he rests for 30 minutes at the top before leaving. Written in 24-hour time, when does he leave?",
+   "options": [
+    "02:55",
+    "13:85",
+    "14:25",
+    "14:55"
+   ],
+   "answerIndex": 3,
+   "explain": "11:40 a.m. + 2 h 45 min = 14:25, and 30 minutes of rest makes it 14:55. Stopping at 14:25 forgets the rest, and 13:85 comes from adding 40 + 45 without trading 60 of those minutes for an hour.",
+   "tags": [
+    "other",
+    "time.base_100",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

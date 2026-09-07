@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.ADDSUB.100.MODEL",
+ "lang": "en",
+ "title": "Add and subtract decimals with grids, base-10 blocks and number lines",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Adding Decimals with Grids and Blocks",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to show tenths and hundredths on a hundred grid, where one whole grid is one, one column is one tenth, and one little square is one hundredth. Today we take the next tiny step: we put two decimal amounts together and read off the total.",
+    "math": "0.3 + 0.24",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      30
+     ],
+     "labels": [],
+     "caption": "Thirty little squares shaded. That is zero point three, three tenths."
+    }
+   },
+   {
+    "say": "Here is our story. At the corner store in Victoria, a pencil costs zero point three of a dollar, that is thirty cents, and a sticker costs zero point two four of a dollar, twenty four cents. Let us shade both on one grid. The blue part is the pencil, thirty squares, and the second colour is the sticker, twenty four more squares.",
+    "math": "0.3 = \\frac{30}{100},\\quad 0.24 = \\frac{24}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      30,
+      24
+     ],
+     "labels": [],
+     "caption": "Thirty squares in the first colour, twenty four more in the second colour."
+    }
+   },
+   {
+    "say": "Now we just count the shaded squares. Thirty squares plus twenty four squares makes fifty four squares out of one hundred. So the total is zero point five four, which is fifty four cents. Adding decimals is really just counting hundredths and putting them together.",
+    "math": "0.3 + 0.24 = 0.54",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      54
+     ],
+     "labels": [],
+     "caption": "Fifty four squares shaded altogether: zero point five four."
+    }
+   },
+   {
+    "say": "Watch out for one very common slip. Some kids look at zero point three and zero point two four and think three plus twenty four makes twenty seven, so they write zero point twenty seven. But the three in zero point three is not three little squares, it is three whole columns, and that is thirty little squares. Match the pieces to the same size first: thirty hundredths plus twenty four hundredths, and that is fifty four hundredths.",
+    "math": "0.3 + 0.24 \\neq 0.27",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      3,
+      24
+     ],
+     "labels": [],
+     "caption": "The wrong idea: only three tiny squares for zero point three. Far too small."
+    }
+   },
+   {
+    "say": "Let us check the same answer with base ten blocks, where a flat is one whole, a rod is one tenth, and a little cube is one hundredth. Thirty hundredths is three rods, and twenty four hundredths is two rods and four cubes. Altogether that is five rods and four cubes, five tenths and four hundredths, which is zero point five four. The blocks agree with the grid.",
+    "math": "0.54",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      54
+     ],
+     "labels": [],
+     "caption": "Five rods and four cubes: five tenths and four hundredths."
+    }
+   },
+   {
+    "say": "So whenever you add or subtract decimals, turn everything into little hundredth squares first, then count. Tenths with tenths, hundredths with hundredths.",
+    "math": "0.3 + 0.24 = 0.54",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.3,
+      0.54
+     ],
+     "labels": [],
+     "caption": "Start at zero point three and jump forward zero point two four to land on zero point five four."
+    }
+   }
+  ],
+  "answer": "Line up the same-size pieces: zero point three is thirty hundredths, so zero point three plus zero point two four equals zero point five four.",
+  "practice": {
+   "question": "At the school bake sale you buy a muffin for zero point four of a dollar and a juice box for zero point three five of a dollar. Draw a ten by ten grid where the whole grid is one dollar. Shade forty squares for the muffin in one colour, then thirty five more squares in another colour for the juice box. How many squares are shaded in total, and how much money is that?",
+   "answer": "Seventy five squares are shaded, so the total is zero point seven five of a dollar, which is seventy five cents. Zero point four plus zero point three five equals zero point seven five."
+  }
+ }
+}

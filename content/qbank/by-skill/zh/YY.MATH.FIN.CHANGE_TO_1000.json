@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.CHANGE_TO_1000",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ki92o95vpey",
+   "level": 1,
+   "question": "数轴（number line）上左端标着 $237.50，是滑板的价格；右端标着 $300，是妈妈付的钱。往上数的跳跃是：先跳到 $238，再跳到 $240，最后一跳到 $300。请问找零（making change）是多少？",
+   "options": [
+    "$62.50",
+    "$62.00",
+    "$63.50",
+    "$137.50"
+   ],
+   "answerIndex": 0,
+   "explain": "三跳分别是 $0.50、$2.00、$60.00，加起来 $62.50，验算 $237.50 + $62.50 = $300。最容易踩的坑是把零头那一跳漏掉或多数一元，记住每一跳都要写下来再相加。",
+   "tags": [
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92ogd2doq",
+   "level": 1,
+   "question": "数轴上左端是价格 $412.80，右端是付出的 $500。往上数：第一跳到 $413，第二跳到 $420，第三跳到 $500。找零是多少？",
+   "options": [
+    "$88.20",
+    "$87.20",
+    "$87.80",
+    "$97.20"
+   ],
+   "answerIndex": 1,
+   "explain": "$0.20 + $7.00 + $80.00 = $87.20，验算 $412.80 + $87.20 = $500。写成 $87.80 的那个是把 $0.80 当成了往上跳的距离，其实从 $412.80 到 $413 只要再走 $0.20。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92oer31ko",
+   "level": 1,
+   "question": "数轴上左端是账单 $658.45，右端是付出的 $700。往上数一共四跳：先跳到 $658.50，再跳到 $659，再跳到 $660，最后一跳到 $700。找零是多少？",
+   "options": [
+    "$41.65",
+    "$42.55",
+    "$41.55",
+    "$51.55"
+   ],
+   "answerIndex": 2,
+   "explain": "四跳是 $0.05、$0.50、$1.00、$40.00，合起来 $41.55，验算 $658.45 + $41.55 = $700。最常见的坑是把 $659 到 $660 那一元忘了，或把最后一跳数成 $41，请沿着数轴一个整数关口一个整数关口地数。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92ofh1mxs",
+   "level": 1,
+   "question": "一件外套价格 $325.75，收银员收了 $400。收银员在数轴上先跳到整元，再跳到整十元，最后一跳到 $400。下面哪一组跳跃是正确的？",
+   "options": [
+    "三跳分别是 $0.75、$4、$70，找零 $74.75",
+    "三跳分别是 $0.25、$5、$70，找零 $75.25",
+    "三跳分别是 $0.25、$4、$60，找零 $64.25",
+    "三跳分别是 $0.25、$4、$70，找零 $74.25"
+   ],
+   "answerIndex": 3,
+   "explain": "$325.75 到 $326 是 $0.25，到 $330 是 $4，到 $400 是 $70，共 $74.25，验算 $325.75 + $74.25 = $400。写成第一跳 $0.75 的那组把小数部分的数字直接当成了要走的距离，方向正好反了。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ki92o5ge0aj",
+   "level": 2,
+   "question": "付出 $500，商品价格 $283.65，找零是多少？",
+   "options": [
+    "$216.35",
+    "$216.45",
+    "$316.35",
+    "$217.35"
+   ],
+   "answerIndex": 0,
+   "explain": "$500 − $283.65：先补到 $284 用 $0.35，再从 $284 到 $500 是 $216，合计 $216.35，验算 $283.65 + $216.35 = $500。写成 $316.35 的那个是百位忘了退位（5 − 2 直接写成 3）。",
+   "tags": [
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92or7vwu2",
+   "level": 2,
+   "question": "用拆分的方法算 $1000 − $647.20，结果是多少？",
+   "options": [
+    "$353.80",
+    "$352.80",
+    "$352.20",
+    "$452.80"
+   ],
+   "answerIndex": 1,
+   "explain": "拆成 $647.20 → $648（$0.80）→ $650（$2）→ $1000（$350），共 $352.80，验算 $647.20 + $352.80 = $1000。写成 $352.20 的那个把小数点（decimal point）后面的 $0.20 当成了要补的钱，其实要补的是 $0.80。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92o2mna51",
+   "level": 2,
+   "question": "用往上数的方法，从 $178.90 数到 $400，一共要数多少钱？",
+   "options": [
+    "$221.90",
+    "$222.10",
+    "$221.10",
+    "$231.10"
+   ],
+   "answerIndex": 2,
+   "explain": "$178.90 → $179 是 $0.10，$179 → $180 是 $1，$180 → $400 是 $220，合计 $221.10，验算 $178.90 + $221.10 = $400。写成 $221.90 的那个是把 $0.90 当成了还要走的距离，方向反了。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92o7n4hc4",
+   "level": 2,
+   "question": "一台打印机 $698.05，顾客付了 $750。应该找零多少？",
+   "options": [
+    "$52.05",
+    "$61.95",
+    "$51.05",
+    "$51.95"
+   ],
+   "answerIndex": 3,
+   "explain": "$698.05 → $699（$0.95）→ $750（$51），共 $51.95，验算 $698.05 + $51.95 = $750。写成 $52.05 的那个把价格里的 $0.05 直接抄进了找零，其实分位要用 $1.00 − $0.05 = $0.95。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ki92oip7ul4",
+   "level": 3,
+   "question": "小雅在 Richmond 的车行买了一辆自行车 $429.99 和一顶头盔 $54.50，她付了 $500。店员应该找她多少钱？",
+   "options": [
+    "$15.51",
+    "$15.61",
+    "$16.51",
+    "$15.49"
+   ],
+   "answerIndex": 0,
+   "explain": "先合计支出（expense）：$429.99 + $54.50 = $484.49；再往上数 $484.49 → $485（$0.51）→ $500（$15），找零 $15.51，验算 $484.49 + $15.51 = $500。写成 $15.49 的那个把总价的 $0.49 当成了找零的分位，方向反了。",
+   "tags": [
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92oa5o6pi",
+   "level": 3,
+   "question": "露营社团买了一顶帐篷 $312.75 和一个睡袋 $86.40，老师用一张 $450 的礼品卡一次付清。礼品卡里还剩多少钱？",
+   "options": [
+    "$50.95",
+    "$50.85",
+    "$60.85",
+    "$51.85"
+   ],
+   "answerIndex": 1,
+   "explain": "两件合计 $312.75 + $86.40 = $399.15；再往上数 $399.15 → $400（$0.85）→ $450（$50），剩 $50.85，验算 $399.15 + $50.85 = $450。最容易踩的坑是分位补钱时算成 $0.95 或十位忘了退位，建议每次都用加法验算回原来的付款额。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92ouiqjo7",
+   "level": 3,
+   "question": "小天用 $200 买了一块 $86.35 的滑板，他说找零是 $114.65。下面哪句话说得对？",
+   "options": [
+    "正确找零是 $113.75，因为 $0.35 往上数到整元要走 $0.75，再加 $13 到 $100、$100 到 $200",
+    "小天算得对，$200 − $86.35 就是 $114.65，因为 $86.35 到 $100 要走 $14.65，再加 $100",
+    "正确找零是 $113.65；$86.35 到 $100 只差 $13.65，再到 $200 是 $100，小天多数了 $1",
+    "正确找零是 $213.65，因为要把付出去的 $200 和往上数出来的 $13.65 全部加在一起，才是找回的钱"
+   ],
+   "answerIndex": 2,
+   "explain": "往上数：$86.35 → $87（$0.65）→ $100（$13）→ $200（$100），共 $113.65，验算 $86.35 + $113.65 = $200。最常见的错就是从零头跳到整元时把整元那一格多算一元，写成 $114.65。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok",
+    "money.change_subtract_wrong"
+   ]
+  },
+  {
+   "qid": "qmt5ki92ozdgsjm",
+   "level": 3,
+   "question": "Lena 在 Kelowna 买了一台 $563.40 的平板电脑，店员找给她 $36.60。她当时付了多少钱？",
+   "options": [
+    "$599.00",
+    "$599.80",
+    "$526.80",
+    "$600.00"
+   ],
+   "answerIndex": 3,
+   "explain": "付款额 = 价格 + 找零 = $563.40 + $36.60 = $600.00（$0.40 + $0.60 正好满一元，要进位）。写成 $526.80 的那个用价格减找零，方向反了；写成 $599.00 或 $599.80 的是分位进位没处理好。",
+   "tags": [
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "money.change_subtract_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

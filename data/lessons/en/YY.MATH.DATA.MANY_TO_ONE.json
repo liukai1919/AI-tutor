@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.MANY_TO_ONE",
+ "lang": "en",
+ "title": "Use many-to-one correspondence (one symbol or square stands for 5)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "One Square Stands for Five",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a bar graph where one little square means one thing. But our class took bottles to the depot and raised thirty dollars — drawing thirty tiny squares would take forever! So today we learn a clever trick: let one square stand for five.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Before you read any graph, find the key. Our key says one square stands for five dollars. That means when you count the squares, you are really counting by fives. One square is five, two squares is ten, three squares is fifteen, four squares is twenty. Same squares, bigger jumps!",
+    "math": "\\text{1 square} = 5 \\text{ dollars}",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "4 squares, each one worth 5 dollars, makes 20 dollars"
+    }
+   },
+   {
+    "say": "Here is our bottle drive graph. Grade four's bar is four squares tall, grade five's bar is six squares tall, and grade six's bar is three squares tall. To find the real money, multiply the squares by five. Four times five is twenty dollars. Six times five is thirty dollars. Three times five is fifteen dollars.",
+    "math": "4\\times 5=20 \\qquad 6\\times 5=30 \\qquad 3\\times 5=15",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      20,
+      30,
+      15
+     ],
+     "labels": [
+      "Grade 4",
+      "Grade 5",
+      "Grade 6"
+     ],
+     "caption": "Bottle depot money — every square on a bar stands for 5 dollars"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everybody makes. Ben looked at grade five's bar, counted six squares, and shouted ‘six dollars!’ But six squares is not six dollars — it is six fives, which is thirty dollars. Squares are not the answer; squares times five is the answer. Always read the key first.",
+    "math": "6 \\text{ squares} = 6\\times 5 = 30",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      30
+     ],
+     "labels": [
+      "Ben says 6 dollars",
+      "Really 30 dollars"
+     ],
+     "caption": "Counting squares instead of counting fives makes the bar look way too small"
+    }
+   },
+   {
+    "say": "One more thing to watch for. Sometimes a bar stops halfway up a square. Grade three's bar is two whole squares and one half square. Two whole squares is ten dollars, and half a square is half of five, which is two dollars and fifty cents. Ten dollars plus two dollars and fifty cents is twelve dollars and fifty cents. Never pretend the half is not there!",
+    "math": "2\\times 5 + 2.50 = 12.50",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      12.5,
+      20
+     ],
+     "labels": [
+      "Grade 3",
+      "Grade 4"
+     ],
+     "caption": "Grade 3's bar: two squares and a half, so 12 dollars and 50 cents"
+    }
+   },
+   {
+    "say": "So remember, my friend: find the key, then count by fives instead of by ones — and give the half square its half.",
+    "math": "\\text{squares} \\times 5 = \\text{real amount}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Read the key first: if one square stands for 5, multiply the number of squares by 5 — and half a square is 2 and a half.",
+  "practice": {
+   "question": "At the Saturday bottle depot, Ms. Yuanyuan made a bar graph of the money each grade raised, and every square on the graph stands for 5 dollars. Grade five's bar is 7 squares tall, grade six's bar is 4 squares tall, and grade seven's bar is 5 and a half squares tall. How much money did each grade raise? (You can draw the three bars yourself on squared paper.)",
+   "answer": "Grade five: 7 times 5 equals 35 dollars. Grade six: 4 times 5 equals 20 dollars. Grade seven: 5 times 5 equals 25 dollars, plus half of 5 which is 2 dollars and 50 cents, so 27 dollars and 50 cents."
+  }
+ }
+}

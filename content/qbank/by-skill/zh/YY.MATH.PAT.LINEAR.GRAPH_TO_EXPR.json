@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkp87dmcvtlmt",
+   "level": 1,
+   "question": "在坐标格（grid）上画了三个分开的点，它们构成一个离散线性关系（discrete linear relation）。横轴每格代表 1，纵轴每格代表 2（这是刻度 scale）。x = 0 的点在原点上方 2 格；x = 1 的点在原点上方 3 格；x = 2 的点在原点上方 4 格。哪个式子（expression）能同时对上这三个点？",
+   "options": [
+    "y = 2x + 4",
+    "y = 6x",
+    "y = 4x + 2",
+    "y = x + 2"
+   ],
+   "answerIndex": 0,
+   "explain": "先按刻度把格数换成数：点是 (0, 4)、(1, 6)、(2, 8)。x 每加 1，y 加 2（变化率），x = 0 时 y = 4，所以 y = 2x + 4。最常踩的坑是把这两个数写反，得到 4x + 2：代进 x = 1 得 6 看着像对，但 x = 0 时算出 2，和图上的 4 对不上。",
+   "tags": [
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmg82cb2",
+   "level": 1,
+   "question": "坐标格上有三个分开的点。横轴每格代表 1，纵轴每格代表 5。x = 0 的点在原点上方 2 格；x = 1 的点在原点上方 1 格；x = 2 的点正好落在原点那条横线上。哪个式子对上这三个点？",
+   "options": [
+    "y = 10x - 5",
+    "y = -5x + 10",
+    "y = 5x",
+    "y = -x + 2"
+   ],
+   "answerIndex": 1,
+   "explain": "一格是 5，所以点是 (0, 10)、(1, 5)、(2, 0)：x 每加 1，y 减 5，x = 0 时是 10，写成 y = -5x + 10。常见错误是只数格子不乘刻度，写成 -x + 2；或者把 10 和 -5 的位置对调写成 10x - 5，这样 x = 0 时会变成 -5。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmpph447",
+   "level": 1,
+   "question": "坐标格上有四个分开的点，横轴每格代表 1，纵轴每格代表 3。x = 0 的点在原点下方 2 格；x = 1 的点在原点下方 1 格；x = 2 的点落在原点那条横线上；x = 3 的点在原点上方 1 格。下面哪个同学的说法是对的？",
+   "options": [
+    "因为 y 轴上的 -6 就是变化率、3 是起点，所以式子是 y = -6x + 3。",
+    "因为点 (1, -3) 一个点就够定下规律了，所以式子是 y = -3x。",
+    "因为 x 每加 1，y 就加 3，且 x = 0 时 y = -6，所以 y = 3x - 6。",
+    "因为一格就代表 1，点是 (0, -2)、(1, -1)、(2, 0)，所以 y = x - 2。"
+   ],
+   "answerIndex": 2,
+   "explain": "一格是 3，点是 (0, -6)、(1, -3)、(2, 0)、(3, 3)：变化率是每次 +3，x = 0 时的值是 -6，所以 y = 3x - 6。写成 -6x + 3 的那个把变化率和 x = 0 时的值弄反了，代进 x = 1 得 -3 碰巧对，但 x = 2 就变成 -9，和图上的 0 不符。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmql3sq0",
+   "level": 1,
+   "question": "坐标格上有四个分开的点。横轴每格代表 1，纵轴每格代表 2。x = 0 的点在原点上方 3 格；x = 1 的点在原点上方 1 格；x = 2 的点在原点下方 1 格；x = 3 的点在原点下方 3 格。哪个式子对？",
+   "options": [
+    "y = 6x - 4",
+    "y = -2x + 3",
+    "y = 2x",
+    "y = -4x + 6"
+   ],
+   "answerIndex": 3,
+   "explain": "一格是 2，点是 (0, 6)、(1, 2)、(2, -2)、(3, -6)：x 每加 1，y 减 4，x = 0 时是 6，所以 y = -4x + 6。只数格子不乘刻度会写成 -2x + 3；把两个数对调写成 6x - 4 时，x = 0 会算出 -4，明显对不上。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "graph.scale_misread",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp87dm5j4ep4",
+   "level": 2,
+   "question": "一个离散线性关系画在坐标格上。横轴每格代表 1，纵轴每格代表 10。x = 0 的点在原点上方 3 格；x = 1 的点在原点上方 7 格；x = 2 的点在原点上方 11 格。写出 y 关于 x 的式子。",
+   "options": [
+    "y = 40x + 30",
+    "y = 30x + 40",
+    "y = 70x",
+    "y = 4x + 3"
+   ],
+   "answerIndex": 0,
+   "explain": "格数乘 10 后点是 (0, 30)、(1, 70)、(2, 110)：每次增加 40，x = 0 时是 30，所以 y = 40x + 30。写成 4x + 3 的那个是把一格当成了 1；写成 30x + 40 的那个把变化率和起始值调了位置。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmy2njbd",
+   "level": 2,
+   "question": "下面是一个离散线性关系的数值表（table of values）：x = 0 时 y = -5；x = 1 时 y = -9；x = 2 时 y = -13；x = 3 时 y = -17。哪个式子能对上表里全部四行？",
+   "options": [
+    "y = -5x - 4",
+    "y = -4x - 5",
+    "y = 4x - 5",
+    "y = -9x"
+   ],
+   "answerIndex": 1,
+   "explain": "x 每加 1，y 就减 4，所以变化率是 -4；x = 0 时 y = -5，写成 y = -4x - 5。写成 -5x - 4 的那个把两个数弄反了；写成 4x - 5 的那个丢了负号，x = 1 会算出 -1 而不是 -9。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmky0i7q",
+   "level": 2,
+   "question": "坐标格上有四个分开的点。横轴每格代表 1，纵轴每格代表 5。x = 0 的点在原点下方 3 格；x = 1 的点在原点下方 2 格；x = 2 的点在原点下方 1 格；x = 3 的点落在原点那条横线上。写出式子。",
+   "options": [
+    "y = -15x + 5",
+    "y = -10x",
+    "y = 5x - 15",
+    "y = x - 3"
+   ],
+   "answerIndex": 2,
+   "explain": "一格是 5，点是 (0, -15)、(1, -10)、(2, -5)、(3, 0)：每次增加 5，x = 0 时是 -15，所以 y = 5x - 15。只数格子会得到 x - 3；把 -15 当成变化率写成 -15x + 5，x = 0 时就变成 5 了。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmj96zg4",
+   "level": 2,
+   "question": "坐标格上有四个分开的点。横轴每格代表 1，纵轴每格代表 6。x = 0 的点在原点上方 4 格；x = 1 的点在上方 3 格；x = 2 的点在上方 2 格；x = 3 的点在上方 1 格。哪个式子对？",
+   "options": [
+    "y = 24x - 6",
+    "y = 18x",
+    "y = -x + 4",
+    "y = -6x + 24"
+   ],
+   "answerIndex": 3,
+   "explain": "格数乘 6 得到 (0, 24)、(1, 18)、(2, 12)、(3, 6)：每次减 6，x = 0 时是 24，所以 y = -6x + 24。写成 -x + 4 的那个把一格当成 1 了；写成 18x 的那个只用了一个点，代进 x = 2 会得 36。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp87dm9hmp5d",
+   "level": 3,
+   "question": "小雅在 Burnaby 坐 SkyTrain，用 Compass Card 付钱。她把卡里余额画成离散点图：x 是坐过的趟数，y 是余额（加元）。横轴每格代表 2 趟，纵轴每格代表 6 元。坐 0 趟的点在原点上方 5 格；再往右 1 格的点（坐 2 趟）在上方 4 格；再往右 1 格的点（坐 4 趟）在上方 3 格。写出 y 关于 x 的式子。",
+   "options": [
+    "y = -3x + 30",
+    "y = -x + 5",
+    "y = 12x",
+    "y = 30x - 3"
+   ],
+   "answerIndex": 0,
+   "explain": "两个轴都要按刻度换算：点是 (0, 30)、(2, 24)、(4, 18)，每 2 趟少 6 元，所以每趟少 3 元，x = 0 时是 30 元，写成 y = -3x + 30。最大的坑是忘了横轴一格是 2 趟，把变化率当成 -6。",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkp87dml8nz2g",
+   "level": 3,
+   "question": "Kamloops 一所中学给食物银行（food bank）收罐头，把每天累计的总罐数画成离散点图。横轴每格代表 1 天，纵轴每格代表 25 罐。图上只画了三个点：第 1 天在原点上方 7 格；第 2 天在上方 10 格；第 3 天在上方 13 格。设 x 是天数、y 是总罐数，式子是哪个？",
+   "options": [
+    "y = 100x + 75",
+    "y = 75x + 100",
+    "y = 175x",
+    "y = 3x + 4"
+   ],
+   "answerIndex": 1,
+   "explain": "格数乘 25 得到 (1, 175)、(2, 250)、(3, 325)：每天增加 75 罐；x = 0 时要从 175 往回减一次 75，得 100，所以 y = 75x + 100。坑在于图上没画 x = 0 的点，必须自己回推一步，不能直接把 175 当成起始值。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dmuhbw0b",
+   "level": 3,
+   "question": "Ava 把自己每周剩下的午餐钱画成离散点图：横轴每格代表 1 周，纵轴每格代表 4 加元。x = 0 的点在原点上方 5 格；x = 1 的点在上方 4 格；x = 2 的点在上方 3 格。Ava 写出的式子是 y = 20x - 4。下面哪个判断是对的？",
+   "options": [
+    "因为 20 就是变化率、-4 就是 x = 0 时的值，她写的 y = 20x - 4 是对的。",
+    "因为只要用点 (1, 16) 一个点定下规律就行，应该写成 y = 16x。",
+    "因为 20 是 x = 0 时的值，每周减 4 才是变化率，应写成 y = -4x + 20。",
+    "因为一格代表 1 不是 4，点其实是 (0, 5)、(1, 4)，应写成 y = -x + 5。"
+   ],
+   "answerIndex": 2,
+   "explain": "按刻度换算，点是 (0, 20)、(1, 16)、(2, 12)：每周少 4 元是变化率，20 是 x = 0 时的值，正确式子是 y = -4x + 20。Ava 把这两个数的位置对调了，用她的式子算 x = 0 会得到 -4，可她图上第 0 周明明有 20 元。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkp87dm4niky6",
+   "level": 3,
+   "question": "小林家在 Prince George 过冬，把院子里剩下的柴火捆数画成离散点图：x 是天数，y 是剩下的捆数。横轴每格代表 1 天，纵轴每格代表 15 捆。图上只画了两个点：第 2 天的点在原点上方 6 格，第 5 天的点在原点上方 3 格。写出 y 关于 x 的式子。",
+   "options": [
+    "y = -x + 8",
+    "y = 120x - 15",
+    "y = 45x",
+    "y = -15x + 120"
+   ],
+   "answerIndex": 3,
+   "explain": "两点是 (2, 90) 和 (5, 45)：3 天少了 45 捆，所以每天少 15 捆；从第 2 天往回退 2 天，x = 0 时是 90 + 30 = 120，写成 y = -15x + 120。只数格子会得到 -x + 8，而且别忘了图上没有 x = 0 的点，得自己回推。",
+   "tags": [
+    "graph.scale_misread",
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
+  }
+ ]
+}

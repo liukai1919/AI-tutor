@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.ANALOG.MINUTE",
+ "lang": "en",
+ "title": "Read an analog clock to the nearest minute",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Reading a Clock Right to the Minute",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a clock when the long hand points right at a number, like three thirty or eight forty five. But sometimes the long hand stops in between two of those marks. Today we learn how to read that exactly, right down to the single minute.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      37
+     ],
+     "labels": [],
+     "caption": "The long hand is between the 7 and the 8 — what time is this?"
+    }
+   },
+   {
+    "say": "Here is the secret. Look closely at your clock and you will see tiny little marks between the big numbers. Between each pair of numbers there are five little spaces, because five minutes fit in there. So every tiny mark is worth just one single minute. The big numbers count by five, and the tiny marks count by one.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      12,
+      5
+     ],
+     "labels": [],
+     "caption": "From 12 to the number 1 there are 5 tiny one-minute spaces"
+    }
+   },
+   {
+    "say": "So here are our steps. Step one, read the short hand for the hour, and always say the number it has already passed. Step two, find the last big number the long hand has passed, and count by fives to get there. Step three, count the tiny marks forward one at a time, and add them on.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us try it. Imagine the school bell at recess. Step one, the short hand is past the 3, so the hour is three. Step two, the long hand has passed the 7, and five, ten, fifteen, twenty, twenty five, thirty, thirty five, that is thirty five minutes. Step three, the hand has moved two more tiny marks past the 7, so thirty five plus two is thirty seven. The time is three thirty seven.",
+    "math": "35 + 2 = 37",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      37
+     ],
+     "labels": [],
+     "caption": "Hour hand past 3; long hand 2 tiny marks past the 7 → 3:37"
+    }
+   },
+   {
+    "say": "Now watch out for one sneaky mistake. Some kids see the long hand a bit past the 7 and say the time is three oh seven, because they read the 7 as seven minutes. But the big numbers are worth five minutes each, not one. The 7 means thirty five minutes, and only the tiny marks are worth one each. So it is three thirty seven, not three oh seven.",
+    "math": "7 \\times 5 = 35",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      37
+     ],
+     "labels": [],
+     "caption": "The 7 means 35 minutes, not 7 minutes"
+    }
+   },
+   {
+    "say": "So remember, count the big numbers by fives, then step forward one minute for each tiny mark. That is all there is to it.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count the big numbers by fives, then add one minute for each tiny mark.",
+  "practice": {
+   "question": "The SkyTrain leaves at a certain time. On the station clock, the short hand is just past the 9, and the long hand has passed the big number 4 and moved three tiny marks farther. Try drawing this clock yourself. What time does the SkyTrain leave?",
+   "answer": "9:23 — the big number 4 means 20 minutes (five, ten, fifteen, twenty), then 3 more tiny marks makes 20 plus 3, which is 23 minutes, so the time is nine twenty three."
+  }
+ }
+}

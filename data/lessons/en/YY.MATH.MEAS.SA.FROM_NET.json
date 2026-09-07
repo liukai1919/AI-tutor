@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.SA.FROM_NET",
+ "lang": "en",
+ "title": "Understand surface area as the total area of every face, found from a net",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Surface Area: Add Up Every Face",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to draw a net for a rectangular prism with all the dimensions labelled, and how to find areas by splitting a shape into pieces. Today we use both of those for one idea: surface area. Think about wrapping a shoebox in wrapping paper — surface area is exactly how much paper covers the outside.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      20,
+      10,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A closed box, 20 cm by 10 cm by 5 cm"
+    }
+   },
+   {
+    "say": "Here is the big idea. Flatten that box out into its net and the outside becomes six flat rectangles lying side by side. Surface area is just the total area of all six of them added together. Notice they come in three matching pairs — opposite faces are identical twins, which is why the same colours show up twice.",
+    "math": "SA = 2(lw) + 2(lh) + 2(wh)",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      20,
+      10,
+      5
+     ],
+     "labels": [],
+     "caption": "The box unfolded: six faces in three matching pairs"
+    }
+   },
+   {
+    "say": "Let us put numbers on it. The box is twenty centimetres long, ten wide, five high. The big top and bottom are each twenty times ten, so two hundred square centimetres each. The front and back are each twenty times five, one hundred each. The two ends are ten times five, fifty each. So two hundred plus two hundred, plus one hundred plus one hundred, plus fifty plus fifty. That is four hundred plus two hundred plus one hundred, which gives seven hundred square centimetres of wrapping paper.",
+    "math": "2(200)+2(100)+2(50)=400+200+100=700\\ \\text{cm}^2",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      20,
+      10,
+      5
+     ],
+     "labels": [],
+     "caption": "200 + 200 + 100 + 100 + 50 + 50 = 700 square cm"
+    }
+   },
+   {
+    "say": "Two traps to dodge here. First, in the 3D drawing you can only see three faces, so it is tempting to add two hundred plus one hundred plus fifty and answer three hundred fifty. That is exactly half the real answer — the three hidden faces on the back still need wrapping paper. Second, do not grab twenty times ten times five, which is one thousand. That is volume, the space inside, measured in cubic centimetres. Surface area is the skin, in square centimetres. Skin is seven hundred, stuffing is one thousand.",
+    "math": "700\\ \\text{cm}^2 \\ne 1000\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      20,
+      10,
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Dashed edges = the 3 faces you cannot see but must still count"
+    }
+   },
+   {
+    "say": "So whenever surface area comes up, picture the net. Unfold it, find every rectangle, add them all — six faces, no exceptions.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Surface area = the total area of all six faces — unfold the net and add every one.",
+  "practice": {
+   "question": "You flatten a cardboard box from a Vancouver moving day into its net. The box is thirty centimetres long, twenty centimetres wide, and ten centimetres high, so the net is six rectangles in three matching pairs. Sketch the net yourself, label the faces, and find the total surface area in square centimetres.",
+   "answer": "2200 square centimetres. The two 30 by 20 faces are 600 each (1200), the two 30 by 10 faces are 300 each (600), and the two 20 by 10 faces are 200 each (400). 1200 + 600 + 400 = 2200 square centimetres."
+  }
+ }
+}

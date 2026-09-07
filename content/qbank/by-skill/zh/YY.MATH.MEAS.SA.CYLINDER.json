@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA.CYLINDER",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkr00at65n4hw",
+   "level": 1,
+   "question": "一个圆柱形的薯片罐，底面半径 5 cm，高 12 cm。把它的侧面剪开铺平，会得到一个长方形，这个长方形的长恰好绕底面圆一圈。这个长方形的长和宽各是多少？（π 取 3.14）",
+   "options": [
+    "长 31.4 cm，宽 12 cm",
+    "长 15.7 cm，宽 12 cm",
+    "长 10 cm，宽 12 cm",
+    "长 78.5 cm，宽 12 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "长方形的长等于底面圆的周长（circumference）C = 2 × π × r = 2 × 3.14 × 5 = 31.4 cm，宽等于圆柱的高 12 cm。最常踩的坑是把长写成直径 10 cm，但纸绕圆一圈走的是圆周，不是横穿圆的直径。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr00atng4sds",
+   "level": 1,
+   "question": "一个圆柱的展开图（net）由两个一样的圆和一个长方形组成。已知这两个圆的半径都是 6 cm，求两个圆的面积（area）合计是多少平方厘米？（π 取 3.14）",
+   "options": [
+    "75.36",
+    "226.08",
+    "113.04",
+    "904.32"
+   ],
+   "answerIndex": 1,
+   "explain": "一个圆的面积 A = π × r × r = 3.14 × 6 × 6 = 113.04，两个圆就是 113.04 × 2 = 226.08 cm²。写成 113.04 的那个只算了一个圆；写成 75.36 的那个把面积算成了 π × 2r，面积公式里 r 要自己乘自己，不是乘 2。",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "other",
+    "nets.cylinder_rect_width_is_diameter"
+   ]
+  },
+  {
+   "qid": "qmtkr00at9ubl2u",
+   "level": 1,
+   "question": "把一个圆柱的侧面剪开铺平得到一个长方形，长方形的长等于底面周长，宽等于圆柱的高。已知底面半径 10 cm，高 7 cm，这个长方形的面积是多少平方厘米？（π 取 3.14）",
+   "options": [
+    "140",
+    "219.8",
+    "439.6",
+    "62.8"
+   ],
+   "answerIndex": 2,
+   "explain": "长 = 2 × π × r = 2 × 3.14 × 10 = 62.8 cm，宽 = 7 cm，面积 = 62.8 × 7 = 439.6 cm²。写成 140 的那个把长当成了直径 20；写成 62.8 的那个只算出了周长，忘了再乘高。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr00atd3aluq",
+   "level": 1,
+   "question": "一个圆柱的展开图是两个半径 3 cm 的圆，加上一个长等于底面周长、宽等于 5 cm 的长方形。这个圆柱的表面积（surface area）是多少平方厘米？（π 取 3.14）",
+   "options": [
+    "86.52",
+    "131.88",
+    "103.62",
+    "150.72"
+   ],
+   "answerIndex": 3,
+   "explain": "两个圆：2 × 3.14 × 3 × 3 = 56.52；长方形：（2 × 3.14 × 3）× 5 = 94.2；合计 150.72 cm²。写成 86.52 的那个把长方形的长当成了直径 6；写成 103.62 的那个把周长算成了 π × r。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.area_2r",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr00atzpxqvd",
+   "level": 2,
+   "question": "一个圆柱的底面直径是 10 cm，高是 12 cm。求它的表面积，单位平方厘米。（π 取 3.14）",
+   "options": [
+    "533.8",
+    "345.4",
+    "439.6",
+    "277"
+   ],
+   "answerIndex": 0,
+   "explain": "先由直径求半径 r = 10 ÷ 2 = 5。两个圆：2 × 3.14 × 5 × 5 = 157；侧面长方形：（2 × 3.14 × 5）× 12 = 376.8；合计 533.8 cm²。写成 277 的那个把长方形的长直接用了直径 10，但长必须是绕一圈的周长 31.4。",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "nets.cylinder_rect_width_is_diameter"
+   ]
+  },
+  {
+   "qid": "qmtkr00atb5isp8",
+   "level": 2,
+   "question": "已知一个圆柱的底面周长是 25.12 cm，高是 10 cm。它的表面积是多少平方厘米？（π 取 3.14）",
+   "options": [
+    "653.12",
+    "351.68",
+    "301.44",
+    "251.2"
+   ],
+   "answerIndex": 1,
+   "explain": "由 2 × π × r = 25.12 得 r = 25.12 ÷ 6.28 = 4。两个圆：2 × 3.14 × 4 × 4 = 100.48；长方形：25.12 × 10 = 251.2；合计 351.68 cm²。写成 653.12 的那个用 25.12 ÷ 3.14 = 8 当半径，把半径和直径弄反了；写成 251.2 的那个只算了侧面长方形。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.area_2r",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr00attaiaha",
+   "level": 2,
+   "question": "一个圆柱的底面半径是 4 cm，高是 9 cm。用保留 π 的形式表示它的表面积（单位 cm²）。",
+   "options": [
+    "32π + 72",
+    "88π",
+    "104π",
+    "68π"
+   ],
+   "answerIndex": 2,
+   "explain": "两个圆：2 × π × 4 × 4 = 32π；侧面长方形：（2 × π × 4）× 9 = 72π；合计 104π cm²。写成 32π + 72 的那个把长方形的长当成了直径 8（8 × 9 = 72），漏掉了 π。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr00atoffzqx",
+   "level": 2,
+   "question": "用字母表示一个圆柱：底面半径 r，高 h。下面哪一句把它的展开图尺寸标对了？",
+   "options": [
+    "长方形的长 = π × r（周长），宽 = h，两个圆的半径都是 r",
+    "长方形的长 = 2 × r（直径），宽 = h，两个圆的半径都是 r",
+    "长方形的长 = 2 × π × r，宽 = h，两个圆的面积用 π × 2 × r",
+    "长方形的长 = 2 × π × r，宽 = h，两个圆的半径都是 r"
+   ],
+   "answerIndex": 3,
+   "explain": "长方形的长必须等于底面周长 2 × π × r，宽等于高 h，两个圆的半径仍是 r，面积用 π × r × r。把长写成 2 × r 的那句用的是直径；把面积写成 π × 2 × r 的那句混淆了周长与面积。",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.area_2r",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr00ataf35ip",
+   "level": 3,
+   "question": "温哥华一家咖啡店做圆柱形的纸筒装饰，底面直径 20 cm，高 30 cm，侧面和上下两个圆面都要贴一层贴纸。贴纸每平方厘米 0.05 加元，一个纸筒的贴纸要花多少钱？（π 取 3.14）",
+   "options": [
+    "125.60 加元",
+    "61.40 加元",
+    "78.50 加元",
+    "100.48 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "r = 10，两个圆：2 × 3.14 × 10 × 10 = 628；侧面：（2 × 3.14 × 10）× 30 = 1884；总面积 2512 cm²，2512 × 0.05 = 125.60 加元。算成 61.40 的那个把侧面长方形的长当成直径 20，其实要用周长 62.8。",
+   "tags": [
+    "ok",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmtkr00at4x3g0p",
+   "level": 3,
+   "question": "素里一所学校做一个圆柱形的雨水桶，半径 20 cm，高 40 cm，只有一个底面、没有盖子。桶的侧面外壁和底面外侧都要刷防锈漆，一共要刷多少平方厘米？（π 取 3.14）",
+   "options": [
+    "2856",
+    "6280",
+    "3768",
+    "5149.6"
+   ],
+   "answerIndex": 1,
+   "explain": "没有盖子只算一个圆：3.14 × 20 × 20 = 1256；侧面长方形：（2 × 3.14 × 20）× 40 = 5024；合计 6280 cm²。算成 2856 的那个把长方形的长当成直径 40，但长必须是绕底面一圈的周长 125.6。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmtkr00atabta46",
+   "level": 3,
+   "question": "小杰算一个半径 5 cm、高 8 cm 的圆柱的表面积，他写：2 × 3.14 × 5 × 5 + 10 × 8 = 237。下面哪句话说出了他真正的问题？",
+   "options": [
+    "他没算错，长方形的长就是直径 10 cm，因为圆最宽处是 10 cm",
+    "侧面长方形的长要用 π × r = 15.7 cm，因为绕一圈是 π 乘半径",
+    "侧面长方形的长要用周长 2 × π × r = 31.4 cm，不能用直径 10 cm",
+    "两个圆的面积要写成 2 × π × 2 × 5，因为圆面积是 π 乘 2r"
+   ],
+   "answerIndex": 2,
+   "explain": "侧面铺平后长方形的长是绕底面圆一圈的距离，即周长 2 × 3.14 × 5 = 31.4 cm，所以正确算式是 157 + 31.4 × 8 = 408.2 cm²。说长就是直径 10 的那句正是他犯的错；说周长是 π × r 的那句把半径当成了直径。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmtkr00atcyvjhm",
+   "level": 3,
+   "question": "基隆拿一个社区中心做两根圆柱形装饰柱，整个外表面（含上下两个圆面）都要包铝板。A 柱半径 4 cm、高 20 cm；B 柱半径 6 cm、高 12 cm。哪根柱子用的铝板多，多多少平方厘米？（π 取 3.14）",
+   "options": [
+    "A 柱多 25.12",
+    "B 柱多 109.6",
+    "B 柱多 100.48",
+    "B 柱多 75.36"
+   ],
+   "answerIndex": 3,
+   "explain": "A：2 × 3.14 × 16 = 100.48 加（2 × 3.14 × 4）× 20 = 502.4，共 602.88；B：2 × 3.14 × 36 = 226.08 加（2 × 3.14 × 6）× 12 = 452.16，共 678.24；678.24 − 602.88 = 75.36 cm²。得到 109.6 的那个把两根柱子的长方形长都当成了直径。",
+   "tags": [
+    "circle.area_2r",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

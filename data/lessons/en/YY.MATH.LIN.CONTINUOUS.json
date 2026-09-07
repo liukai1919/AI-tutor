@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.CONTINUOUS",
+ "lang": "en",
+ "title": "Tell continuous from discrete linear relations and decide when the points should be joined (time vs. tickets)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Join the Dots or Not? Continuous vs. Discrete",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to graph a linear relation as a set of points and why some graphs stay as separate dots. Today we answer one question: when should you join the points with a line, and when should you leave them as dots? The trick is to ask whether the value on the horizontal axis can be split into pieces.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the idea. If the input can take any value in between, like time, distance, or mass, the relation is continuous, and we join the points into a line. If the input can only be whole numbers, like tickets, people, or downloads, the relation is discrete, and we leave the points as dots. In between values would not make sense.",
+    "math": "\\text{continuous: join} \\quad \\text{discrete: dots only}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      3
+     ],
+     "labels": [
+      "Time or distance",
+      "People or tickets",
+      "Money in cents"
+     ],
+     "caption": "Can the input be split? Time yes, tickets no. Rows just mark examples in each column."
+    }
+   },
+   {
+    "say": "Worked example one. You walk home from school at four kilometres per hour. Distance equals four times the time in hours. At one hour you are at four kilometres, at two hours eight kilometres, at three hours twelve kilometres. But you can also walk for one and a half hours and be at six kilometres. Time flows through every value, so this is continuous. Join the dots into a solid line.",
+    "math": "d = 4t",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0,
+      1,
+      4,
+      2,
+      8,
+      3,
+      12
+     ],
+     "labels": [
+      "start",
+      "1 h",
+      "2 h",
+      "3 h"
+     ],
+     "caption": "Distance versus time. Every point in between is real, so draw a solid line through these."
+    }
+   },
+   {
+    "say": "Worked example two. Tickets for the school movie night cost three dollars each. Cost equals three times the number of tickets. One ticket is three dollars, two tickets are six, three tickets are nine, four tickets are twelve. Can you buy two and a half tickets? No. There is nothing real between two and three tickets, so this is discrete. Leave the dots alone.",
+    "math": "C = 3n",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      6,
+      3,
+      9,
+      4,
+      12
+     ],
+     "labels": [
+      "1 ticket",
+      "2",
+      "3",
+      "4"
+     ],
+     "caption": "Cost versus number of tickets. Only whole tickets exist, so these stay as dots."
+    }
+   },
+   {
+    "say": "Two common slip ups. Mistake one: drawing a line through the ticket points. A line would claim that two point five tickets costs seven dollars fifty, which is nonsense, so that line is wrong. Mistake two: leaving the walking graph as lonely dots. That would claim you were never at six kilometres after one and a half hours, which is also wrong, because you passed through every distance. The check is always the same: does an in between input actually exist?",
+    "math": "2.5 \\text{ tickets}?\\ \\text{No.} \\qquad 1.5 \\text{ hours}?\\ \\text{Yes.}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      6,
+      3,
+      9,
+      4,
+      12
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "caption": "If you joined these ticket points, the line would invent a point at two point five tickets. That point is fake."
+    }
+   },
+   {
+    "say": "Here is your takeaway. Before you draw, ask whether a half of the input makes sense. Half an hour, yes, so join the points. Half a ticket, no, so leave the dots.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "If half of the input makes sense (like time), join the points. If it does not (like tickets), leave them as dots.",
+  "practice": {
+   "question": "Two relations. A: A phone plan charges five dollars per gigabyte of data used. Cost equals five times the gigabytes, giving the points one and five, two and ten, three and fifteen. B: A bake sale sells cookies for two dollars each. Cost equals two times the number of cookies, giving the points one and two, two and four, three and six. Draw each on a coordinate grid. Which graph should have its points joined into a line, and why?",
+   "answer": "Join relation A: data used can be any amount, like one and a half gigabytes costing seven dollars fifty, so it is continuous. Leave relation B as dots: you cannot buy half a cookie, so it is discrete."
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "decimals-hundredths",
+ "lang": "en",
+ "unitName": {
+  "zh": "小数（到百分位）",
+  "en": "Decimals to hundredths"
+ },
+ "provider": "claude",
+ "at": "2026-08-23",
+ "set": {
+  "title": "Decimals to hundredths · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.DEC.PV100.MODEL",
+    "level": 1,
+    "question": "Marcus has a hundredths grid (100 small squares). He colours 3 full columns of 10 squares, and then 5 more single squares. Which decimal shows the part of the grid he coloured?",
+    "options": [
+     "0.53",
+     "3.5",
+     "0.35",
+     "0.305"
+    ],
+    "answerIndex": 2,
+    "explain": "Each full column is 1 tenth and each single square is 1 hundredth, so 3 columns and 5 squares is 3 tenths 5 hundredths = 35 hundredths = 0.35. The common trap is writing the two counts side by side as 0.305 (or flipping them to 0.53) instead of reading 3 tenths and 5 hundredths as one number."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV100.READ_WRITE",
+    "level": 1,
+    "question": "Ms. Chan reads a number out loud: 'four and five hundredths'. Which number is she saying?",
+    "options": [
+     "4.5",
+     "4.05",
+     "4.005",
+     "0.45"
+    ],
+    "answerIndex": 1,
+    "explain": "The word 'and' marks the decimal point, and 'hundredths' means the 5 must sit in the second place after the point, so you need a 0 to hold the tenths place: 4.05. The most common trap is writing 4.5, which reads as 'four and five tenths'."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV100.FRAC_LINK",
+    "level": 1,
+    "question": "Liam used 4/10 of his sticker sheet to decorate his water bottle. Which decimal shows the same amount?",
+    "options": [
+     "0.4",
+     "0.04",
+     "4.10",
+     "0.410"
+    ],
+    "answerIndex": 0,
+    "explain": "A denominator of 10 means tenths, and tenths go in the first place after the decimal point, so 4/10 = 0.4. Watch out for 0.04, which is 4 hundredths (ten times smaller), and for 4.10, which just copies the numerator and denominator around the point."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV100.COMPARE",
+    "level": 2,
+    "question": "At the school sports day, three students did the standing long jump. Maya jumped 2.35 m, Owen jumped 2.4 m, and Priya jumped 2.09 m. Which list puts the jumps in order from shortest to longest?",
+    "options": [
+     "2.09 m, 2.4 m, 2.35 m",
+     "2.4 m, 2.35 m, 2.09 m",
+     "2.35 m, 2.09 m, 2.4 m",
+     "2.09 m, 2.35 m, 2.4 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Give every number the same number of decimal places first (2.09, 2.35, 2.40), then compare tenths, then hundredths: 0 < 3 < 4 tenths. The big trap is thinking 2.35 beats 2.4 because 35 looks bigger than 4 — but 2.4 = 2.40, which is 40 hundredths."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.100.ALGORITHM",
+    "level": 2,
+    "question": "Ava has $5.20. At the corner store in Nanaimo she buys a pack of stickers for $2.85. How much money does she have left?",
+    "options": [
+     "$2.35",
+     "$2.45",
+     "$3.35",
+     "$3.65"
+    ],
+    "answerIndex": 0,
+    "explain": "Line up the decimal points and subtract: you cannot take 5 hundredths from 0, so regroup a tenth (10 − 5 = 5), then regroup a whole for the tenths (11 − 8 = 3), leaving 4 − 2 = 2, so $2.35. The classic trap is flipping a column to take the smaller digit from the larger one (0 − 5 becoming 5 − 0), which gives the too-big answer $3.65."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.100.MODEL",
+    "level": 2,
+    "question": "Nina builds decimals with base-10 blocks: a flat = 1 whole, a rod = 0.1, a small cube = 0.01. She lays out 1 flat, 8 rods and 5 small cubes, then puts down 7 more small cubes. What number do her blocks show now?",
+    "options": [
+     "1.812",
+     "1.82",
+     "1.92",
+     "2.82"
+    ],
+    "answerIndex": 2,
+    "explain": "She has 5 + 7 = 12 small cubes, so trade 10 of them for 1 rod: that leaves 2 cubes and makes 9 rods, giving 1.92. The two traps are writing the 12 cubes straight after the tenths (1.812), and trading the ten cubes but forgetting to add the new rod (1.82)."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.ADDSUB.100.ESTIMATE",
+    "level": 3,
+    "question": "Sofia has $20 to spend at the Richmond night market. She wants a bubble tea for $5.75, takoyaki for $7.40, and a bag of mini donuts for $6.25. Before she lines up, she estimates the total. Which estimate and decision are both correct?",
+    "options": [
+     "About $21 — no, she does not have enough.",
+     "About $19 — yes, she has enough.",
+     "About $18 — yes, she has enough.",
+     "About $19 — no, she needs more than $20."
+    ],
+    "answerIndex": 1,
+    "explain": "Round each price to the nearest dollar — $6 + $7 + $6 = about $19 — and compare with $20, so she has enough (the exact total is $19.40). The traps are rounding every price up ($6 + $8 + $7 = $21) or just dropping the cents ($5 + $7 + $6 = $18); rounding to the nearest dollar keeps the estimate close to the real total."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.PV100.COMPARE",
+    "level": 3,
+    "question": "A Grade 4 class checks four snow-depth markers on a Mount Seymour field trip. Marker A shows 0.85 m, Marker B shows 1.02 m, Marker C shows 0.88 m, and Marker D shows 0.9 m. Which marker has the second-deepest snow?",
+    "options": [
+     "Marker B — 1.02 m",
+     "Marker C — 0.88 m",
+     "Marker A — 0.85 m",
+     "Marker D — 0.9 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Rewrite them all with hundredths (1.02, 0.85, 0.88, 0.90) and order them: 1.02 > 0.90 > 0.88 > 0.85, so the deepest is Marker B and the second-deepest is Marker D. The most common mistake is thinking 0.88 is more than 0.9 because 88 is more than 9 — but 0.9 means 90 hundredths."
+   }
+  ]
+ }
+}

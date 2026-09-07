@@ -1,0 +1,214 @@
+{
+ "id": "BC.MATH.PC12.EXP.01",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3jv2ku0mxibz",
+   "level": 1,
+   "question": "In the function f(x) = 3(5^x), what is the base of the exponential?",
+   "options": [
+    "3",
+    "5",
+    "x",
+    "15"
+   ],
+   "answerIndex": 1,
+   "explain": "The base is the number raised to a variable power, which is 5. A common trap is to pick the coefficient 3, which is the initial value (the y-intercept), not the base."
+  },
+  {
+   "qid": "qmt3jv2kuvrevur",
+   "level": 1,
+   "question": "If f(x) = 4^x, what is f(−1)?",
+   "options": [
+    "−4",
+    "1",
+    "4",
+    "1/4"
+   ],
+   "answerIndex": 3,
+   "explain": "4^(−1) = 1/4. The negative exponent moves the base to the denominator; it does not make the answer negative."
+  },
+  {
+   "qid": "qmt3jv2ku3yrpvv",
+   "level": 1,
+   "question": "Solve for x:  7^x = 7^4",
+   "options": [
+    "x = 4",
+    "x = 7",
+    "x = 28",
+    "x = 1"
+   ],
+   "answerIndex": 0,
+   "explain": "When both sides share the same base, the exponents must be equal, so x = 4. Multiplying 7 × 4 = 28 confuses exponent rules with ordinary multiplication."
+  },
+  {
+   "qid": "qmt3jv2kucthlp9",
+   "level": 1,
+   "question": "Which of the following functions represents exponential decay?",
+   "options": [
+    "y = 2(3^x)",
+    "y = 3^2",
+    "y = 5(0.6^x)",
+    "y = 4x + 5"
+   ],
+   "answerIndex": 2,
+   "explain": "Exponential decay requires a base strictly between 0 and 1, which 0.6 satisfies. y = 3^2 is just the constant 9, and y = 4x + 5 is linear, not exponential."
+  },
+  {
+   "qid": "qmt3jv2kunart18",
+   "level": 2,
+   "question": "A bacterial culture starts with 200 cells and doubles every hour, modelled by f(t) = 200(2^t). How many cells are present after 3 hours?",
+   "options": [
+    "600 cells",
+    "1 600 cells",
+    "800 cells",
+    "2 000 cells"
+   ],
+   "answerIndex": 1,
+   "explain": "f(3) = 200(2^3) = 200 × 8 = 1 600. A common error is to multiply 200 by 3 (adding the rate) instead of applying the exponent."
+  },
+  {
+   "qid": "qmt3jv2ku691s4j",
+   "level": 2,
+   "question": "Solve for x:  5^x = 125",
+   "options": [
+    "x = 5",
+    "x = 15",
+    "x = 25",
+    "x = 3"
+   ],
+   "answerIndex": 3,
+   "explain": "Rewrite 125 as 5^3, then set the exponents equal: x = 3. Dividing 125 by 5 to get 25, or multiplying 5 × 125, are both wrong operations here."
+  },
+  {
+   "qid": "qmt3jv2ku8u86pd",
+   "level": 2,
+   "question": "The graph of f(x) = 2^x is shifted 3 units upward. What is the equation of the new graph?",
+   "options": [
+    "y = 2^x + 3",
+    "y = 2^(x+3)",
+    "y = 3(2^x)",
+    "y = 2^(x−3)"
+   ],
+   "answerIndex": 0,
+   "explain": "A vertical shift adds a constant outside the power: y = 2^x + 3. Placing the 3 inside the exponent (2^(x+3)) is a horizontal shift, and 3(2^x) is a vertical stretch."
+  },
+  {
+   "qid": "qmt3jv2kugkvejn",
+   "level": 2,
+   "question": "Solve for x:  e^x = e^5",
+   "options": [
+    "x = 1",
+    "x = e",
+    "x = 5",
+    "x = 5e"
+   ],
+   "answerIndex": 2,
+   "explain": "Both sides have base e, so the exponents must be equal: x = 5. A frequent slip is to answer x = e, confusing the base with the value of the exponent."
+  },
+  {
+   "qid": "qmt3jv2kucwxblw",
+   "level": 2,
+   "question": "A $2 000 laptop loses 20% of its value each year, so V(t) = 2000(0.8)^t. What is its value after 2 years?",
+   "options": [
+    "$1 600",
+    "$1 280",
+    "$1 024",
+    "$400"
+   ],
+   "answerIndex": 1,
+   "explain": "V(2) = 2000(0.8)² = 2000 × 0.64 = $1 280. The most common mistake is applying the 20% drop only once ($1 600) or subtracting a flat 40% from the original price."
+  },
+  {
+   "qid": "qmt3jv2kua4lmts",
+   "level": 3,
+   "question": "A city had a population of 50 000 in 2020 and grows at 3% per year. Which equation correctly models the population P(t) t years after 2020, and what is P(5) to the nearest hundred?",
+   "options": [
+    "P(t) = 50 000(1.03t);  P(5) ≈ 57 500",
+    "P(t) = 50 000(0.03)^t;  P(5) ≈ 35",
+    "P(t) = 50 000 + 1 500t;  P(5) = 57 500",
+    "P(t) = 50 000(1.03)^t;  P(5) ≈ 58 000"
+   ],
+   "answerIndex": 3,
+   "explain": "Growth at a fixed percentage uses base (1 + rate), so P(t) = 50 000(1.03)^t; P(5) ≈ 50 000 × 1.1593 ≈ 58 000. Using 0.03 as the base gives a near-zero population, and 50 000 + 1 500t treats the growth as linear."
+  },
+  {
+   "qid": "qmt3jv2kudiomw2",
+   "level": 3,
+   "question": "A student needs to solve 2^(x+1) = 3^x. Which is the correct first step?",
+   "options": [
+    "Take ln of both sides: ln(2^(x+1)) = ln(3^x)",
+    "Set the bases equal: 2 = 3",
+    "Subtract 1 from both sides: 2^x = 3^x − 1",
+    "Raise both sides to the x-th power"
+   ],
+   "answerIndex": 0,
+   "explain": "With different bases (2 and 3) you cannot equate exponents. Taking the natural log of both sides lets the power rule bring the exponents down. Setting 2 = 3 is impossible, and subtracting 1 from the base expression is not a valid algebraic step."
+  },
+  {
+   "qid": "qmt3jv2kuxwd70i",
+   "level": 3,
+   "question": "The graph of g(x) = 4(3^x) is reflected over the x-axis and then shifted 2 units to the left. What is the equation of the transformed graph?",
+   "options": [
+    "y = −4(3^(x−2))",
+    "y = 4(3^(x+2))",
+    "y = −4(3^(x+2))",
+    "y = −4(3^x) + 2"
+   ],
+   "answerIndex": 2,
+   "explain": "Reflecting over the x-axis negates the output (−4(3^x)); shifting 2 units left replaces x with (x + 2), giving y = −4(3^(x+2)). Using (x − 2) gives a right shift, and adding +2 at the end is a vertical shift."
+  },
+  {
+   "qid": "qmt6640yjr6rd81",
+   "level": 3,
+   "question": "On April 1 the snow at a Grouse Mountain measuring station is 240 cm deep. As it melts, the depth is modelled by D(t) = 240(1/2)^(t/6), where t is the number of days after April 1. After how many days is the snow 30 cm deep?",
+   "options": [
+    "18 days",
+    "12 days",
+    "3 days",
+    "24 days"
+   ],
+   "answerIndex": 0,
+   "explain": "Write 30/240 = 1/8 = (1/2)^3, so the exponent t/6 must equal 3, giving t = 18 days. The usual trap is stopping at 3 and forgetting that t/6 (not t) is the exponent, so the answer must be multiplied by 6."
+  },
+  {
+   "qid": "qmt6640yjpnam34",
+   "level": 3,
+   "question": "Solve for x:  9^(x+1) = 27^(x−1)",
+   "options": [
+    "No solution, because x + 1 can never equal x − 1",
+    "x = 5",
+    "x = 2",
+    "x = −5"
+   ],
+   "answerIndex": 1,
+   "explain": "Rewrite both sides with base 3: 3^(2x+2) = 3^(3x−3), then set the exponents equal, so 2x + 2 = 3x − 3 and x = 5. Two common traps: setting x + 1 = x − 1 without first matching the bases, and forgetting to distribute the 2 and the 3 over the brackets (which gives x = 2)."
+  },
+  {
+   "qid": "qmt6640yjwkrtl6",
+   "level": 3,
+   "question": "Maya in Kelowna puts $800 into an account that earns 5% per year compounded continuously, A(t) = 800e^(0.05t). Her brother puts $800 into an account earning 5% per year compounded annually, B(t) = 800(1.05)^t. After 10 years, which statement is true? (Use e^(0.5) ≈ 1.649 and 1.05^10 ≈ 1.629.)",
+   "options": [
+    "Both accounts hold the same amount, because both earn 5% per year",
+    "The annually compounded account holds about $16 more",
+    "The continuous account holds about $16 more",
+    "The continuous account holds about $160 more"
+   ],
+   "answerIndex": 2,
+   "explain": "Evaluate each model: 800(1.649) ≈ $1319.20 and 800(1.629) ≈ $1303.20, a difference of about $16. The common misconception is that the same rate means the same money — compounding continuously with e adds interest more often, so it always ends slightly ahead."
+  },
+  {
+   "qid": "qmt6640yj9jjr6t",
+   "level": 3,
+   "question": "A graph has equation h(x) = −2(3)^(x−1) + 5. What are its horizontal asymptote and its y-intercept?",
+   "options": [
+    "Asymptote y = −5, y-intercept 13/3",
+    "Asymptote y = 5, y-intercept 3",
+    "Asymptote y = 5, y-intercept 11",
+    "Asymptote y = 5, y-intercept 13/3"
+   ],
+   "answerIndex": 3,
+   "explain": "The +5 shifts the curve up, so the asymptote is y = 5; for the y-intercept substitute x = 0 to get −2(3^(−1)) + 5 = −2/3 + 5 = 13/3. The two traps are ignoring the −1 in the exponent (which wrongly gives 3) and treating 3^(−1) as −3 instead of 1/3 (which wrongly gives 11)."
+  }
+ ]
+}

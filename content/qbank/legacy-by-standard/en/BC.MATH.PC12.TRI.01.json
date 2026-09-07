@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC12.TRI.01",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3kdokaog6r22",
+   "level": 1,
+   "question": "Convert 270° to radians.",
+   "options": [
+    "3π/2",
+    "π/2",
+    "2π",
+    "5π/3"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply degrees by π/180: 270 × π/180 = 3π/2. A common trap is to divide by the wrong number or to confuse 270° with 180° (which is just π)."
+  },
+  {
+   "qid": "qmt3kdokafjhsd8",
+   "level": 1,
+   "question": "What is the reference angle for 240°?",
+   "options": [
+    "30°",
+    "120°",
+    "60°",
+    "150°"
+   ],
+   "answerIndex": 2,
+   "explain": "240° lies in Q3, so the reference angle is 240° − 180° = 60°. The most common mistake is to subtract from 360° (giving 120°), which is not the reference angle."
+  },
+  {
+   "qid": "qmt3kdokaltun64",
+   "level": 1,
+   "question": "What is the exact value of sin(π/6)?",
+   "options": [
+    "√3/2",
+    "1/2",
+    "√2/2",
+    "1"
+   ],
+   "answerIndex": 1,
+   "explain": "π/6 equals 30°, a special angle where sin = 1/2. The frequent error is swapping it with cos(π/6) = √3/2, so always recall which function pairs with which value."
+  },
+  {
+   "qid": "qmt3kdokaaumo4z",
+   "level": 1,
+   "question": "Which of the following angles is coterminal with 400°?",
+   "options": [
+    "20°",
+    "320°",
+    "200°",
+    "40°"
+   ],
+   "answerIndex": 3,
+   "explain": "Subtract 360° to bring the angle into [0°, 360°): 400° − 360° = 40°. A common slip is to subtract 360° twice or to subtract 180° instead, which gives a different angle."
+  },
+  {
+   "qid": "qmt3kdokanslh0d",
+   "level": 2,
+   "question": "A Ferris wheel at a BC amusement park has a radius of 8 m with its centre 8 m above the ground. A rider is at an angle of 150° (standard position measured from the centre). What is the rider's height above the ground?",
+   "options": [
+    "8 m",
+    "4 m",
+    "12 m",
+    "16 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Height = centre + r·sin(θ) = 8 + 8·sin(150°) = 8 + 8(½) = 12 m. The trap is to use cos for the vertical component, which would give a much lower (and wrong) height."
+  },
+  {
+   "qid": "qmt3kdokaxz5ej2",
+   "level": 2,
+   "question": "Solve 2sin(x) − 1 = 0 for 0° ≤ x < 360°.",
+   "options": [
+    "30° and 150°",
+    "30° only",
+    "150° and 210°",
+    "30° and 210°"
+   ],
+   "answerIndex": 0,
+   "explain": "sin(x) = ½ gives x = 30° (Q1) and x = 150° (Q2) because sine is positive in both quadrants. The most common error is to take only the reference angle (30°) or to place the second solution in Q4."
+  },
+  {
+   "qid": "qmt3kdokacalx6p",
+   "level": 2,
+   "question": "Simplify the expression (1 − cos²θ) / sinθ using a trigonometric identity.",
+   "options": [
+    "cosθ",
+    "sinθ",
+    "1/sinθ",
+    "cos²θ"
+   ],
+   "answerIndex": 1,
+   "explain": "Apply the Pythagorean identity sin²θ + cos²θ = 1, so 1 − cos²θ = sin²θ. Then sin²θ / sinθ = sinθ. The trap is to forget to cancel one factor of sinθ or to confuse the result with cosθ."
+  },
+  {
+   "qid": "qmt3kdokaalr0su",
+   "level": 2,
+   "question": "A sound wave from a speaker at a school dance is modelled by y = 3sin(2x + π/3) + 1. What are the amplitude and the period of this wave?",
+   "options": [
+    "amplitude 3, period 2π",
+    "amplitude 3, period π",
+    "amplitude 6, period π",
+    "amplitude 1, period π"
+   ],
+   "answerIndex": 1,
+   "explain": "The amplitude is the coefficient in front of sin (which is 3), and the period is 2π/b where b = 2, giving period = π. A common mistake is to treat the vertical shift (+1) as the amplitude or to forget to divide 2π by the coefficient of x."
+  },
+  {
+   "qid": "qmt3kdokab1yekf",
+   "level": 3,
+   "question": "A student solves 2cos²θ − 1 = 0 for 0° ≤ θ < 360°. They write cos²θ = 1/2 and conclude cosθ = 1/√2, giving θ = 45° and θ = 315°. What is the COMPLETE solution set?",
+   "options": [
+    "45° and 315°",
+    "45°, 135°, 225°",
+    "45°, 135°, 225°, 315°",
+    "45° and 135°"
+   ],
+   "answerIndex": 2,
+   "explain": "Taking the square root gives cosθ = ±1/√2, not just the positive value. The student dropped the negative case. All four angles where |cosθ| = 1/√2 (namely 45°, 135°, 225°, 315°) are solutions."
+  },
+  {
+   "qid": "qmt3kdoka6uey17",
+   "level": 3,
+   "question": "A BC student models the tide at a Nanaimo beach as h(t) = 2sin(πt/6 − π/2) + 5, where t is time in hours and h is height in metres. During the first 12 hours (0 ≤ t < 12), at what time does the water reach its maximum height?",
+   "options": [
+    "t = 2 h",
+    "t = 4 h",
+    "t = 8 h",
+    "t = 6 h"
+   ],
+   "answerIndex": 3,
+   "explain": "For the maximum, set the argument to π/2: πt/6 − π/2 = π/2, which gives πt/6 = π and t = 6. The trap is to set the argument to zero (giving t = 3) or to forget the phase shift of −π/2."
+  },
+  {
+   "qid": "qmt3kdokay2xiqz",
+   "level": 3,
+   "question": "A student verifies the double-angle identity sin(2θ) = 2sinθcosθ at θ = 60°: sin(120°) = √3/2 and 2·sin(60°)·cos(60°) = 2(√3/2)(1/2) = √3/2. A friend argues the identity must be wrong because 120° is in the second quadrant where sine should be negative. Who is correct?",
+   "options": [
+    "The student is correct; sine is positive in Q2, so sin(120°) = +√3/2",
+    "The friend is correct; sine is negative for any angle greater than 90°",
+    "The student is correct, but only because 60° is an acute angle",
+    "The friend is correct; the right identity is sin(2θ) = −2sinθcosθ"
+   ],
+   "answerIndex": 0,
+   "explain": "In Q2, sine is positive (recall the CAST rule: All, Sin, Tan, Cos). Since 120° is in Q2, sin(120°) = +√3/2. The friend confuses Q2 with Q3, where sine is actually negative."
+  },
+  {
+   "qid": "qmt3kdokaotv4h5",
+   "level": 3,
+   "question": "A student designing a small roller-coaster model uses the equation y = 4cos(2x) − 1 for 0 ≤ x ≤ 2π to describe the track height. How many points on the track are exactly at ground level (y = 0)?",
+   "options": [
+    "6",
+    "4",
+    "2",
+    "3"
+   ],
+   "answerIndex": 1,
+   "explain": "Set 4cos(2x) − 1 = 0, so cos(2x) = ¼. Since 2x ranges from 0 to 4π, that is two full periods, and cosine equals ¼ twice per period, giving 2 × 2 = 4 solutions. The common trap is to count only one period and answer 2."
+  }
+ ]
+}

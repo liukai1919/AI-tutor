@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "two-step-equations",
+ "lang": "en",
+ "unitName": {
+  "zh": "两步方程（含负数）",
+  "en": "Two-step equations with integers"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Two-step equations with integers · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.MODEL",
+    "level": 1,
+    "question": "On a balance, the left pan holds 3 identical x-bags together with 4 negative unit tiles, and the right pan holds 13 negative unit tiles. Which equation matches this balance?",
+    "options": [
+     "3x + 4 = −13",
+     "−3x − 4 = 13",
+     "3x − 4 = −13",
+     "−3x + 4 = −13"
+    ],
+    "answerIndex": 2,
+    "explain": "Read each pan as a sum: 3 x-bags and 4 negative tiles give 3x − 4, and 13 negative tiles give −13. The common trap is reading negative unit tiles as +4, or flipping the sign of the x-bags, which are still positive."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+    "level": 1,
+    "question": "Solve for x: 3x − 6 = −21",
+    "options": [
+     "x = 5",
+     "x = −5",
+     "x = −9",
+     "x = 9"
+    ],
+    "answerIndex": 1,
+    "explain": "Undo the subtraction first: add 6 to both sides to get 3x = −15, then divide both sides by 3 to get x = −5. The usual trap is subtracting 6 instead of adding it, which gives 3x = −27 and the wrong answer x = −9."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+    "level": 1,
+    "question": "Is x = −2 a solution of −5x + 3 = 13? Choose the correct check.",
+    "options": [
+     "Yes; −5(−2) + 3 = 10 + 3 = 13",
+     "No; −5(−2) + 3 = −10 + 3 = −7",
+     "No; −5(−2) + 3 = 10 − 3 = 7",
+     "No; (−5 − 2) + 3 = −4, not 13"
+    ],
+    "answerIndex": 0,
+    "explain": "Substitute carefully: a negative times a negative is positive, so −5(−2) = 10, and 10 + 3 = 13 matches the right side. The most common trap is writing −5(−2) as −10 and concluding the solution fails."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+    "level": 2,
+    "question": "Which value of x makes 2(x + 6) = −10 true?",
+    "options": [
+     "x = −16",
+     "x = −8",
+     "x = 1",
+     "x = −11"
+    ],
+    "answerIndex": 3,
+    "explain": "Divide both sides by 2 to get x + 6 = −5, then subtract 6 to get x = −11 (or distribute fully: 2x + 12 = −10). The classic trap is distributing to the x only, writing 2x + 6 = −10, which gives the wrong answer x = −8."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+    "level": 2,
+    "question": "At 5 p.m. the temperature at Sun Peaks is 4 °C, and it falls 3 °C every hour. Which equation finds the number of hours h until the temperature reaches −11 °C?",
+    "options": [
+     "4 + 3h = −11",
+     "3h − 4 = −11",
+     "4 − 3h = −11",
+     "3h + 4 = −11"
+    ],
+    "answerIndex": 2,
+    "explain": "Start at 4 °C and take away 3 degrees per hour, so the temperature after h hours is 4 − 3h, and it must equal −11. The trap is writing 4 + 3h because the numbers 4 and 3 both look positive, but a falling temperature must be subtracted."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+    "level": 2,
+    "question": "Which value of m makes m/3 − 4 = −9 true?",
+    "options": [
+     "m = −39",
+     "m = −15",
+     "m = −5",
+     "m = 15"
+    ],
+    "answerIndex": 1,
+    "explain": "Add 4 to both sides to get m/3 = −5, then multiply both sides by 3 to get m = −15. Two traps here: subtracting 4 instead of adding it (giving −39), and stopping at −5 without undoing the division by 3."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+    "level": 3,
+    "question": "Maya and Noah both solved 7 − 2x = −5. Maya says x = 6 and Noah says x = −6. Who is right, and why?",
+    "options": [
+     "Maya; 7 − 2(6) = 7 − 12 = −5 is true",
+     "Noah; −2x = −12, so x = −12 ÷ 2 = −6",
+     "Noah; 7 − 2(−6) = 7 − 12 = −5 is true",
+     "Both; the equation is true at 6 and −6"
+    ],
+    "answerIndex": 0,
+    "explain": "Subtract 7 from both sides to get −2x = −12, then divide by −2 (not 2), giving x = 6, and the check 7 − 12 = −5 confirms it. Noah kept the negative sign in the answer instead of cancelling it, and substituting −6 actually gives 7 + 12 = 19."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+    "level": 3,
+    "question": "On a winter evening in Kamloops the temperature is 6 °C at 6 p.m. It falls the same number of degrees each hour, and at 10 p.m. it is −6 °C. If it keeps falling at that rate, at what time will it reach −21 °C?",
+    "options": [
+     "11 p.m.",
+     "1 a.m.",
+     "2 a.m.",
+     "3 a.m."
+    ],
+    "answerIndex": 3,
+    "explain": "First find the rate: 6 − 4r = −6 gives 4r = 12, so r = 3 °C per hour; then 6 − 3h = −21 gives 3h = 27, so h = 9 hours after 6 p.m., which is 3 a.m. The big trap is a sign slip when moving the 6 across (using −21 + 6 = −15 instead of −21 − 6 = −27), or dividing 21 by 3 and forgetting the temperature started at 6 °C."
+   }
+  ]
+ }
+}

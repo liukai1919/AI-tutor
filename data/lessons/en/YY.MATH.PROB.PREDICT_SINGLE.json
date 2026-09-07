@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.PREDICT_SINGLE",
+ "lang": "en",
+ "title": "Predict the outcome of one spin, roll or draw from the make-up of the spinner, die or bag",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Guessing What the Spinner Will Land On",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to say if something is impossible, unlikely, likely, or certain. Today we take one small step further: looking at how a spinner or a bag is built, and predicting which colour one single spin or one single draw will most likely give us.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a spinner from a school fun fair. It is cut into six equal parts. Three parts are blue, two parts are red, and only one part is yellow. To predict one spin, I just count parts. Blue owns three of the six parts, which is the biggest chunk, so blue is the colour I would predict. The arrow spends more of its trip over blue than over anything else.",
+    "math": "\\frac{3}{6}\\ \\text{blue},\\ \\frac{2}{6}\\ \\text{red},\\ \\frac{1}{6}\\ \\text{yellow}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "blue",
+      "red",
+      "yellow"
+     ],
+     "caption": "Six equal parts: blue owns the most"
+    }
+   },
+   {
+    "say": "Let us try one together with a bag. At the gift shop you get to reach into a bag with ten bouncy balls without looking. Seven are green, two are white, and one is orange. Seven is much bigger than two or one, so I predict you will pull out a green ball. And orange is not impossible, it is just very unlikely, because only one ball out of the ten is orange.",
+    "math": "7 + 2 + 1 = 10",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      7,
+      2,
+      1
+     ],
+     "labels": [
+      "green",
+      "white",
+      "orange"
+     ],
+     "caption": "Ten balls in the bag: green is most likely"
+    }
+   },
+   {
+    "say": "Now here is the mistake I see most often. This spinner also has three colours: red, blue and green. So lots of kids say, three colours, so each one has the same chance, one third each. But look closely! Red takes up four of the six parts, while blue gets one part and green gets one part. The parts are not shared out evenly. Red is four out of six, so red is much more likely. Count the parts, not the colours.",
+    "math": "\\frac{4}{6}\\ \\text{red},\\ \\frac{1}{6}\\ \\text{blue},\\ \\frac{1}{6}\\ \\text{green}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      4,
+      1,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green"
+     ],
+     "caption": "Three colours, but NOT three equal chances"
+    }
+   },
+   {
+    "say": "So whenever someone asks what one spin or one draw will give, do the same two things every time. First, count how many equal parts or how many objects there are in total. Second, see which colour owns the most of them. That colour is your prediction, and now you can explain why, not just guess.",
+    "math": "",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.17,
+      0.17,
+      0.67
+     ],
+     "labels": [
+      "green",
+      "blue",
+      "red"
+     ],
+     "caption": "Red sits much closer to certain"
+    }
+   }
+  ],
+  "answer": "Count the parts, not the colours — the colour with the most parts is the one to predict.",
+  "practice": {
+   "question": "At a Burnaby school fun fair there is a prize spinner cut into eight equal parts. Five parts are purple, two parts are yellow, and one part is green. Draw this spinner yourself if it helps. If Maya spins it once, which colour should she predict, and why? Is it fair to say each of the three colours has the same chance?",
+   "answer": "Purple. Purple covers five of the eight equal parts, while yellow covers only two and green only one, so purple is the most likely. No, it is not fair to say each colour has the same chance — there are three colours, but the parts are not shared out evenly, so you must count parts, not colours."
+  }
+ }
+}

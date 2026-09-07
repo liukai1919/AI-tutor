@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlymxo3abokio",
+   "level": 1,
+   "question": "小文家在本拿比的后院里有一块长方形菜地，长是 (2x + 3) m，宽是 (x − 1) m。用化简后的多项式（polynomial）表示这块菜地的周长（perimeter），单位 m。",
+   "options": [
+    "6x + 4",
+    "10x",
+    "3x + 2",
+    "5x + 5"
+   ],
+   "answerIndex": 0,
+   "explain": "周长要把四条边都加上：2(2x + 3) + 2(x − 1) = 4x + 6 + 2x − 2，合并同类项得 6x + 4。最常见的坑是只加了题目给出的两条边得到 3x + 2，或者把 6x 和 4 这两个不同类项硬加成 10x。",
+   "tags": [
+    "ok",
+    "expr.combine_unlike_terms",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4eu7ajh",
+   "level": 1,
+   "question": "一张长方形餐垫，长是 (x + 6) cm，宽是 x cm。它的面积（area）用化简后的多项式表示是多少（单位 cm²）？",
+   "options": [
+    "2x + 6",
+    "x² + 6x",
+    "7x²",
+    "x² + 6"
+   ],
+   "answerIndex": 1,
+   "explain": "面积是长乘宽：x(x + 6) = x² + 6x，x 要乘到括号里的每一项。x² 和 6x 不是同类项，不能再合并成 7x²；把长和宽相加得到的 2x + 6 是在算长度，不是面积。",
+   "tags": [
+    "area.add_sides",
+    "ok",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4qqld69",
+   "level": 1,
+   "question": "维多利亚一个公园里有一个等边三角形花坛，每条边长都是 (3x − 2) m。用化简后的多项式表示它的周长（perimeter），单位 m。",
+   "options": [
+    "6x − 4",
+    "9x − 2",
+    "9x − 6",
+    "3x"
+   ],
+   "answerIndex": 2,
+   "explain": "三条边一样长，周长就是 3(3x − 2) = 9x − 6，注意 −2 也要乘 3。只算两条边会得到 6x − 4；把 3x − 2 先合并成 x 再乘 3 得到 3x，是把不同类项合并了。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "other",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlymxo40hg49q",
+   "level": 1,
+   "question": "小杰和朋友去温哥华的电影院：电影票每张 x 元，爆米花每桶 (x − 4) 元。他买了 3 张票和 2 桶爆米花，总费用（单位：加元）用化简后的多项式表示是多少？",
+   "options": [
+    "5x − 4",
+    "4x − 4",
+    "−3x",
+    "5x − 8"
+   ],
+   "answerIndex": 3,
+   "explain": "总费用 = 3x + 2(x − 4) = 3x + 2x − 8 = 5x − 8。分配律要把 2 乘到 −4 上得到 −8；5x 和 −8 是不同类项，不能再合并成 −3x。",
+   "tags": [
+    "other",
+    "other",
+    "expr.combine_unlike_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4wdimca",
+   "level": 2,
+   "question": "一个长方形的长是 (3x + 2)，宽是 (x + 4)。把它的周长（perimeter）写成化简后的多项式，这个多项式的常数项（constant term）是多少？",
+   "options": [
+    "12",
+    "6",
+    "8",
+    "0"
+   ],
+   "answerIndex": 0,
+   "explain": "周长 = 2(3x + 2) + 2(x + 4) = 6x + 4 + 2x + 8 = 8x + 12，常数项是 12。只加长和宽各一次会得到 4x + 6，常数项就错成 6；把 8x 和 12 合并成 20x 则会误以为没有常数项。",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4yp8dnj",
+   "level": 2,
+   "question": "一个长方形的宽是 2x，长是 (3x − 5)。它的面积（area）用化简后的多项式表示是多少？",
+   "options": [
+    "5x − 5",
+    "6x² − 10x",
+    "6x² + 10x",
+    "−4x²"
+   ],
+   "answerIndex": 1,
+   "explain": "面积是长乘宽：2x(3x − 5) = 6x² − 10x，注意 2x 乘 −5 得 −10x，负号别丢。把长和宽相加得到 5x − 5 是错的；6x² 和 −10x 不是同类项，不能合并成 −4x²。",
+   "tags": [
+    "area.add_sides",
+    "ok",
+    "other",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4k277dt",
+   "level": 2,
+   "question": "小玲家要给素里的长方形后院装围栏，后院长 (2x + 5) m，宽 x m，围栏每米 3 元。围一整圈的费用（单位：加元）用化简后的多项式表示是多少？",
+   "options": [
+    "48x",
+    "9x + 15",
+    "18x + 30",
+    "18x + 10"
+   ],
+   "answerIndex": 2,
+   "explain": "先算周长：2(2x + 5) + 2x = 6x + 10，再乘每米 3 元得 18x + 30，3 要乘到两项上。常见错误是只算长加宽一次就乘 3 得到 9x + 15，或者把 6x + 10 先合并成 16x。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "perim.forget_hidden_side",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4892zpg",
+   "level": 2,
+   "question": "小安家客厅铺了两块长方形地毯：第一块长 (x + 4) m、宽 x m；第二块长 (x + 2) m、宽 3 m。两块地毯的总面积（area）用化简后的多项式表示是多少（单位 m²）？",
+   "options": [
+    "x² + 3x + 10",
+    "3x + 9",
+    "x² + 13x",
+    "x² + 7x + 6"
+   ],
+   "answerIndex": 3,
+   "explain": "分别算面积再相加：x(x + 4) + 3(x + 2) = x² + 4x + 3x + 6 = x² + 7x + 6。只有 4x 和 3x 是同类项可以合并，7x 和 6 不能再加成 13x；把各边相加得到的 3x + 9 算的是长度不是面积。",
+   "tags": [
+    "other",
+    "area.add_sides",
+    "expr.combine_unlike_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlymxo46i5rsr",
+   "level": 3,
+   "question": "列治文一个 L 形花坛是这样得到的：先有一个长 (3x + 1) m、宽 2x m 的长方形，再从它的右上角切掉一个边长 x m 的正方形。切掉后剩下的 L 形花坛的周长（perimeter）用化简后的多项式表示是多少（单位 m）？",
+   "options": [
+    "10x + 2",
+    "8x + 2",
+    "12x",
+    "6x + 2"
+   ],
+   "answerIndex": 0,
+   "explain": "切掉角落的正方形后，缺口处多出两条长 x 的边，正好补回被切掉的两段，所以周长和原长方形一样：2(3x + 1) + 2(2x) = 10x + 2。漏掉缺口里那两条边会得到 8x + 2；周长也不会因为切掉一块而减少 4x。",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlymxo47gu56z",
+   "level": 3,
+   "question": "小凯家在高贵林的长方形后院长 (3x + 4) m、宽 (x + 2) m，要沿四周装围栏，每米 5 元。其中一条边上留了一个 2 m 宽的门不装围栏。装围栏的总费用（单位：加元）用化简后的多项式表示是多少？",
+   "options": [
+    "40x + 60",
+    "40x + 50",
+    "90x",
+    "20x + 20"
+   ],
+   "answerIndex": 1,
+   "explain": "先算周长 2(3x + 4) + 2(x + 2) = 8x + 12，减去 2 m 的门得 8x + 10，再乘每米 5 元得 40x + 50。忘记减门会多出 10 元；只加长和宽各一次是漏了两条边；8x 和 10 不是同类项，不能合并成 18x。",
+   "tags": [
+    "other",
+    "ok",
+    "expr.combine_unlike_terms",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4oreoxh",
+   "level": 3,
+   "question": "小雅要算一块长 (2x + 3) m、宽 x m 的长方形草坪的面积（area），她写下：面积 = 2x + 3 + x = 3x + 3。下面哪一句正确指出了她的问题？",
+   "options": [
+    "她的加法没做完：2x、3 和 x 三项应该合并成 6x，所以面积应该是 6x",
+    "她漏掉了另外两条边：要把四条边都加起来，面积应该是 6x + 6",
+    "面积要用长乘宽：x(2x + 3) = 2x² + 3x，把长和宽相加是不对的",
+    "她没有错：长方形的面积就是长加宽，3x + 3 已经是化简后的答案"
+   ],
+   "answerIndex": 2,
+   "explain": "面积是长乘宽，不是长加宽：x(2x + 3) = 2x² + 3x。把边长相加算出来的是长度，单位是 m 而不是 m²；另外 2x 和 3 不是同类项，也不能合并成 5x 或 6x。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "perim.forget_hidden_side",
+    "ok",
+    "area.add_sides"
+   ]
+  },
+  {
+   "qid": "qmtlymxo4miz6gg",
+   "level": 3,
+   "question": "北温一个社区公园里有一块长 (4x + 6) m、宽 3x m 的长方形草地，草地中间要挖一个长 (2x + 1) m、宽 x m 的长方形水池。挖完后剩下的草地面积（area）用化简后的多项式表示是多少（单位 m²）？",
+   "options": [
+    "27x³",
+    "4x + 5",
+    "10x² + 19x",
+    "10x² + 17x"
+   ],
+   "answerIndex": 3,
+   "explain": "剩下的面积 = 大长方形面积 − 水池面积 = 3x(4x + 6) − x(2x + 1) = 12x² + 18x − 2x² − x = 10x² + 17x。减法要把 2x² + x 的每一项都变号，只变第一项会得到 19x；10x² 和 17x 不是同类项，不能合并成 27x³。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "area.add_sides",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.ORDER_OPS",
+ "lang": "en",
+ "title": "Use the order of operations with rational numbers, brackets and exponents (1 − 2 × (4/5)²)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Exponents First: Brackets, Powers, then Multiply",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to square a fraction like four fifths, and you already handle brackets with multiplying and dividing in the right order. Today we put those two skills together in one expression: one minus two times four fifths squared. The only new thing is deciding where the exponent fits in the order.",
+    "math": "1-2\\times\\left(\\frac{4}{5}\\right)^{2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the rule. Brackets first, then exponents, then multiplying and dividing, then adding and subtracting. So the exponent gets done before the multiplication. Think of it like a balance scale: two times four fifths squared weighs exactly the same as two times sixteen twenty fifths, because we squared the fraction before we touched the two.",
+    "math": "\\text{B}\\;\\to\\;\\text{E}\\;\\to\\;\\text{D M}\\;\\to\\;\\text{A S}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      1.28,
+      1.28
+     ],
+     "labels": [
+      "2 × (4/5)²",
+      "2 × 16/25"
+     ],
+     "caption": "Squaring first keeps both sides equal: (4/5)² becomes 16/25 before the 2 gets involved."
+    }
+   },
+   {
+    "say": "Let's work it. Step one: the bracket just holds four fifths, nothing to simplify inside. Step two: the exponent. Four fifths squared means four fifths times four fifths, which is sixteen twenty fifths. The picture shows it: a five by five grid has twenty five little squares, and four rows by four columns shades sixteen of them.",
+    "math": "\\left(\\frac{4}{5}\\right)^{2}=\\frac{4}{5}\\times\\frac{4}{5}=\\frac{16}{25}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "4/5 of the rows and 4/5 of the columns overlap in 16 of 25 squares."
+    }
+   },
+   {
+    "say": "Step three: multiply. Two times sixteen twenty fifths is thirty two twenty fifths. Step four: subtract. One minus thirty two twenty fifths. Write one as twenty five twenty fifths, then twenty five minus thirty two is negative seven. The answer is negative seven twenty fifths, which is negative zero point two eight. A negative answer is totally fine here, we took away more than we had, like spending thirty two dollars when you only had twenty five.",
+    "math": "1-\\frac{32}{25}=\\frac{25}{25}-\\frac{32}{25}=-\\frac{7}{25}=-0.28",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -0.28,
+      -0.28
+     ],
+     "labels": [
+      "1 − 32/25",
+      "−7/25"
+     ],
+     "caption": "25/25 minus 32/25 leaves −7/25, so both sides of the scale match."
+    }
+   },
+   {
+    "say": "Now the trap. Lots of people see two times four fifths and multiply first, getting eight fifths, and then square that to get sixty four twenty fifths. Their final answer would be one minus sixty four twenty fifths, which is negative thirty nine twenty fifths. That is way off. Look at the scale: eight fifths squared is heavier than two times sixteen twenty fifths, so they are not equal. The exponent only belongs to the four fifths in the bracket, not to the two.",
+    "math": "2\\times\\left(\\frac{4}{5}\\right)^{2}\\neq\\left(\\frac{8}{5}\\right)^{2}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      1.28,
+      2.56
+     ],
+     "labels": [
+      "2 × (4/5)²  = 32/25",
+      "(8/5)²  = 64/25"
+     ],
+     "caption": "Multiplying first gives 64/25 instead of 32/25. The scale tips, so the order matters."
+    }
+   },
+   {
+    "say": "One line to remember: the exponent sticks to whatever is right beside it, so square the bracket first, then multiply, then subtract. Do that and one minus two times four fifths squared comes out to negative seven twenty fifths every time.",
+    "math": "1-2\\times\\left(\\frac{4}{5}\\right)^{2}=-\\frac{7}{25}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Exponent before multiplying: 1 − 2 × (4/5)² = 1 − 32/25 = −7/25",
+  "practice": {
+   "question": "In a board game at your friend's place in Surrey, your final score is two minus three times one half squared. Work out the score, being careful to square the one half before multiplying by three.",
+   "answer": "One half squared is one quarter. Three times one quarter is three quarters. Two minus three quarters is five quarters, so the score is 5/4, or 1.25 points."
+  }
+ }
+}

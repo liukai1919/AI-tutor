@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "可能性：理论与实验",
+  "en": "Theoretical & experimental probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Theoretical & experimental probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PROB.THEORETICAL",
+    "level": 1,
+    "question": "At Maple Ridge Elementary, the class prize spinner has 10 equal sections: 4 red, 3 blue, 2 green and 1 yellow. Nia spins it once. What is the theoretical probability that the spinner lands on green?",
+    "options": [
+     "\\frac{1}{10}",
+     "\\frac{1}{4}",
+     "\\frac{1}{5}",
+     "\\frac{4}{5}"
+    ],
+    "answerIndex": 2,
+    "explain": "List every equal section: there are 2 green out of 10 sections, so P(green) = \\frac{2}{10} = \\frac{1}{5}. A common trap is writing \\frac{1}{4} because there are 4 colours — the denominator must be the number of equal sections, not the number of colours."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.EXPERIMENTAL",
+    "level": 1,
+    "question": "Owen tossed a bottle cap 50 times and recorded the results. Lands up: 18 tosses. Lands down: 32 tosses. Based on this experiment, what is the experimental probability that the cap lands up?",
+    "options": [
+     "\\frac{9}{25}",
+     "\\frac{9}{16}",
+     "\\frac{16}{25}",
+     "\\frac{1}{2}"
+    ],
+    "answerIndex": 0,
+    "explain": "Experimental probability = (number of times it happened) ÷ (total number of trials) = \\frac{18}{50} = \\frac{9}{25}. The usual mistake is writing \\frac{18}{32}, comparing 'up' to 'down' instead of to the total of 50 tosses."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.COMPARE_TH_EXP",
+    "level": 1,
+    "question": "The theoretical probability of a coin landing heads is \\frac{1}{2}. Amara flipped a coin 20 times and got heads 12 times. Which statement is true?",
+    "options": [
+     "The experimental probability is \\frac{1}{2}, exactly the same as the theoretical probability.",
+     "The coin must be unfair, because 12 heads is not 10 heads.",
+     "The theoretical probability of heads is \\frac{12}{20} = \\frac{3}{5}.",
+     "The experimental probability is \\frac{12}{20} = \\frac{3}{5}, which is greater than the theoretical probability of \\frac{1}{2}."
+    ],
+    "answerIndex": 3,
+    "explain": "Theoretical probability comes from the equally likely outcomes (\\frac{1}{2}); experimental probability comes from the trials actually run (\\frac{12}{20} = \\frac{3}{5}), and \\frac{3}{5} > \\frac{1}{2}. The big trap is letting the results rewrite the theory — a result of 12 heads does not change the theoretical probability, and it is far too small a difference to prove the coin is unfair."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.THEORETICAL",
+    "level": 2,
+    "question": "The chore spinner on the Chen family fridge has 12 equal sections numbered 1 to 12. Whoever spins gets that day's chore number. What is the theoretical probability of spinning a number greater than 9?",
+    "options": [
+     "\\frac{1}{3}",
+     "\\frac{1}{4}",
+     "\\frac{1}{12}",
+     "\\frac{3}{4}"
+    ],
+    "answerIndex": 1,
+    "explain": "List the winning outcomes: greater than 9 means 10, 11 and 12 — that is 3 outcomes out of 12, so \\frac{3}{12} = \\frac{1}{4}. The most common error is including 9 itself and getting \\frac{4}{12} = \\frac{1}{3}; 'greater than 9' does not include 9."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.EXPERIMENTAL",
+    "level": 2,
+    "question": "Jasmin spun a four-colour spinner 60 times at the school fair and recorded her results. Red: 20 spins. Blue: 15 spins. Green: 15 spins. Yellow: 10 spins. Using her experimental probability, about how many blue spins should she expect in 240 spins?",
+    "options": [
+     "15 blue spins",
+     "45 blue spins",
+     "120 blue spins",
+     "60 blue spins"
+    ],
+    "answerIndex": 3,
+    "explain": "First find the experimental probability of blue: \\frac{15}{60} = \\frac{1}{4}. Then apply it to the new total: \\frac{1}{4} of 240 = 60 spins. A common trap is answering 15 — that is the count from the old experiment, so it must still be scaled up to 240 spins."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.COMPARE_TH_EXP",
+    "level": 2,
+    "question": "In PE class, Diego rolled a fair number cube (faces 1 to 6) thirty times. His tally shows a 3 came up 8 times. Which explanation best compares his result with the theoretical expectation?",
+    "options": [
+     "The theoretical probability of a 3 is \\frac{1}{6}, so about 5 threes were expected; getting 8 is a bit high, but small differences are normal in only 30 rolls, and with many more rolls the experimental probability usually gets closer to \\frac{1}{6}.",
+     "Getting 8 threes proves the number cube is weighted toward 3.",
+     "The theoretical probability of rolling a 3 is now \\frac{8}{30}, because that is what actually happened.",
+     "A 3 will have to come up less often in the next 30 rolls so the results balance out to \\frac{1}{6}."
+    ],
+    "answerIndex": 0,
+    "explain": "Compare the expected count (\\frac{1}{6} of 30 = 5) with the actual count (8): experimental results bounce around the theoretical value in a short experiment and settle closer to it as the number of trials grows. Two traps to avoid: results never change the theoretical probability, and the cube has no memory, so it cannot 'owe' you fewer threes later."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.THEORETICAL",
+    "level": 3,
+    "question": "A spinner at the Kelowna science fair has 12 equal sections coloured green, blue or white. The theoretical probability of landing on green is \\frac{1}{4}, and 5 sections are blue. All the remaining sections are white. What is the theoretical probability of landing on white?",
+    "options": [
+     "\\frac{1}{4}",
+     "\\frac{1}{3}",
+     "\\frac{5}{12}",
+     "\\frac{3}{4}"
+    ],
+    "answerIndex": 1,
+    "explain": "Work backwards: \\frac{1}{4} of 12 sections = 3 green sections, so white = 12 − 3 − 5 = 4 sections, giving P(white) = \\frac{4}{12} = \\frac{1}{3}. The trap is stopping after finding 3 green sections, or assuming white must have the same probability as green — you must subtract to find the missing count first."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.EXPERIMENTAL",
+    "level": 3,
+    "question": "Priya tested a spinner for her math project and recorded 75 spins. Red: 21. Blue: 9. Green: 30. Yellow: 15. Based on her experiment, about how many of the next 150 spins should land on a colour that is NOT green?",
+    "options": [
+     "45 spins",
+     "60 spins",
+     "90 spins",
+     "105 spins"
+    ],
+    "answerIndex": 2,
+    "explain": "Step 1: not green = 21 + 9 + 15 = 45 out of 75 spins, so the experimental probability is \\frac{45}{75} = \\frac{3}{5}. Step 2: \\frac{3}{5} of 150 = 90 spins. The common trap is using the green data (\\frac{30}{75} = \\frac{2}{5}, giving 60) instead of the 'not green' data — read carefully which outcome the question asks about."
+   }
+  ]
+ }
+}

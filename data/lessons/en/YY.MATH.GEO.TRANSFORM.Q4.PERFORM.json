@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+ "lang": "en",
+ "title": "Transform shapes in four quadrants and give the image coordinates",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Naming the Corners After a Move",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You can already slide, flip and turn a shape on a grid and draw where it lands. This little step is about the part right after that: writing down the coordinates of the new corners, with the signs correct. Think of it like moving your gear to a new spot at the skate park and then texting a friend the exact spot.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      1,
+      -2,
+      1,
+      -2,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Our starting triangle, sitting in Quadrant two"
+    }
+   },
+   {
+    "say": "Here is the whole move. Slide the triangle six squares right and three squares down. Right adds six to the x number, down takes three off the y number. So A at negative four, one becomes two, negative two. B at negative two, one becomes four, negative two. And C at negative two, four becomes four, one. Notice we did the exact same thing to every single corner — that is what makes it a slide.",
+    "math": "A(-4,1)\\to A'(2,-2),\\quad B(-2,1)\\to B'(4,-2),\\quad C(-2,4)\\to C'(4,1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      1,
+      -2,
+      1,
+      -2,
+      4,
+      2,
+      -2,
+      4,
+      -2,
+      4,
+      1
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Every corner slides six right and three down"
+    }
+   },
+   {
+    "say": "Now the safety check, because this is where marks get lost. Look where each new corner actually sits, then check its signs match. A prime and B prime are right of the middle and below it — that is Quadrant four, so x is positive and y is negative. Two, negative two and four, negative two. Perfect. C prime is right and above, Quadrant one, both positive: four, one. If you ever write a point as negative two, three but your pencil mark is in the bottom right, one of the two is lying to you.",
+    "math": "\\text{Q1}(+,+)\\quad \\text{Q2}(-,+)\\quad \\text{Q3}(-,-)\\quad \\text{Q4}(+,-)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      -2,
+      4,
+      -2,
+      4,
+      1
+     ],
+     "labels": [
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Two corners in Quadrant four, one in Quadrant one — signs must agree"
+    }
+   },
+   {
+    "say": "Turns need one more bit of care. Take the point P at negative three, two, and turn it a quarter turn clockwise around the origin — clockwise, like the hands on a clock. From the middle, P is three left and two up. In a clockwise quarter turn, left becomes up and up becomes right. So three left becomes three up, and two up becomes two right. The image is two right and three up: the point two, three.",
+    "math": "P(-3,2)\\ \\xrightarrow{\\ 90^\\circ\\ \\text{clockwise}\\ }\\ P'(2,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      2,
+      2,
+      3
+     ],
+     "labels": [
+      "P",
+      "P'"
+     ],
+     "caption": "A quarter turn clockwise: from Quadrant two into Quadrant one"
+    }
+   },
+   {
+    "say": "Here is the classic slip. If you turn the wrong way, counter clockwise, then left becomes down and up becomes left, and you land on negative two, negative three, way down in Quadrant three. Same numbers, totally different corner of the grid. So before you turn, put your finger on the origin and physically trace the direction — clockwise goes toward the right and down first. One quarter turn only, not two.",
+    "math": "P'(-2,-3)\\ \\text{wrong way}\\qquad P'(2,3)\\ \\text{correct}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      2,
+      2,
+      3,
+      -2,
+      -3
+     ],
+     "labels": [
+      "P",
+      "P' correct",
+      "wrong way"
+     ],
+     "caption": "Turning the wrong way sends the point to the opposite quadrant"
+    }
+   },
+   {
+    "say": "So: do the same move to every corner, then read the new coordinates off the grid and make sure the signs match the quadrant you can see them in.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Move every corner the same way, then check each image point's signs match the quadrant it actually lands in.",
+  "practice": {
+   "question": "On a map of a Burnaby skate park, one square is one metre. A triangular ramp has corners at the points negative six, four and negative two, four and negative two, one. The crew slides the whole ramp eight metres right and six metres down. Draw your own grid with all four quadrants if it helps. What are the three image coordinates, and which quadrant do they land in?",
+   "answer": "The image corners are two, negative two and six, negative two and six, negative five. All three land in Quadrant four, so every one has a positive x and a negative y."
+  }
+ }
+}

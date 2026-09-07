@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.APPLY",
+ "lang": "en",
+ "title": "Model a real situation with a two-variable linear relation and use the graph to answer questions (distance–time, cost–usage)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading a Real Deal off a Straight Line",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a phone plan, twenty dollars plus five dollars per gigabyte, into a linear relation. Today we do the same thing with a bike rental, but this time we let the graph do the answering. One picture, and it can handle any question about cost or hours.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the deal at a bike shop by the Stanley Park seawall: four dollars flat to rent, plus two dollars for every hour you keep the bike. The flat fee is the y-intercept, the two dollars per hour is the slope. So cost C equals two h plus four. Zero hours already costs four dollars, one hour is six, two hours is eight, three hours is ten. Notice the cost goes up by the same two dollars each hour, which is exactly what makes this linear.",
+    "math": "C = 2h + 4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      10
+     ],
+     "labels": [
+      "0 h",
+      "1 h",
+      "2 h",
+      "3 h",
+      "Hours",
+      "Cost ($)"
+     ],
+     "caption": "Start at $4, then add $2 for every hour"
+    }
+   },
+   {
+    "say": "Now plot those pairs: hours across on the x-axis, cost up on the y-axis. Zero and four, one and six, two and eight, three and ten. They line up perfectly, so join them with a straight line and keep it going. Every point on this line is a possible rental: hours across, cost up.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      4,
+      1,
+      6,
+      2,
+      8,
+      3,
+      10,
+      4,
+      12
+     ],
+     "labels": [
+      "(0,4)",
+      "(1,6)",
+      "(2,8)",
+      "(3,10)",
+      "(4,12)"
+     ],
+     "caption": "Hours on the x-axis, cost on the y-axis, all on one straight line"
+    }
+   },
+   {
+    "say": "Question one: what does four hours cost? Find four on the hours axis, go straight up to the line, then across to the cost axis: twelve dollars. Check with the equation: two times four is eight, plus four is twelve. Question two: you have ten dollars, how many hours can you ride? This time start on the cost axis at ten, go across to the line, then straight down: three hours. The question tells you which axis to start on. Given hours, start on the bottom. Given dollars, start on the side.",
+    "math": "C = 2(4) + 4 = 12 \\qquad 10 = 2h + 4 \\;\\Rightarrow\\; h = 3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      12,
+      3,
+      10
+     ],
+     "labels": [
+      "4 h costs $12",
+      "$10 buys 3 h"
+     ],
+     "caption": "Given hours: go up, then across. Given dollars: go across, then down"
+    }
+   },
+   {
+    "say": "Three traps on that four-hour question. Trap one: two times four is eight, done, eight dollars. That forgot the four-dollar flat fee, and eight is only the middle of the calculation, not the answer. Trap two: four hours, so the flat fee must be four times four, sixteen, plus eight, twenty-four dollars. No. The flat fee is paid once. It does not grow with the hours; only the two dollars per hour grows. Trap three, on the ten-dollar question: someone hunts for ten on the hours axis and reads off twenty-four dollars. Wrong axis. Ten was dollars, so it lives on the cost axis. Correct answers: twelve dollars and three hours.",
+    "math": "2(4) = 8 \\;\\text{(not finished)} \\qquad 4(4) + 2(4) = 24 \\;\\text{(wrong)} \\qquad 2(4) + 4 = 12 \\;\\text{(correct)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      8
+     ],
+     "labels": [
+      "Flat fee $4",
+      "4 hours at $2"
+     ],
+     "caption": "One fixed block of $4 plus the hourly part: $4 + $8 = $12"
+    }
+   },
+   {
+    "say": "One line, two directions. The fixed fee is where the line starts, the rate is how steep it climbs. Given hours, go up then across; given dollars, go across then down. And always finish with the number the question actually asked for, not a number from the middle of the work.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Fixed fee is the start, rate is the slope. Read the graph starting from the axis the question gives you.",
+  "practice": {
+   "question": "A paddleboard shop on Okanagan Lake charges a six dollar flat fee plus three dollars per hour. Write the linear relation for the cost C after h hours, and sketch its graph if you like. Then answer: (a) how much does a four-hour rental cost? (b) how many hours can you get for twenty-one dollars?",
+   "answer": "C = 3h + 6. (a) Three times four is twelve, plus the six dollar flat fee is eighteen dollars. (b) Twenty-one minus six is fifteen, and fifteen divided by three is five hours."
+  }
+ }
+}

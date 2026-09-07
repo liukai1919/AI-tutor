@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.OPS.WORD",
+ "lang": "en",
+ "title": "Solve multi-step decimal problems (shopping totals, unit rates, measurements)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which Operation Does the Story Want?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to work through a string of decimal calculations in the right order, brackets first and all that. The tricky part in real life is deciding which operations to write down in the first place. That is what we are practising today.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick: don't hunt for magic words. Picture what is actually happening. Same thing over and over means multiply. Different things joining together means add. Something being taken away or a difference means subtract. One amount being split into equal parts, or finding the cost of just one, means divide. Look at this: three protein bars at two dollars and forty-five cents each, plus one juice at three dollars and seventy-five cents. The three bars are the same thing repeated, so that is multiply. The juice is a different item joining in, so that is add.",
+    "math": "3 \\times 2.45 + 3.75",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2.45,
+      2.45,
+      2.45,
+      3.75
+     ],
+     "labels": [
+      "Bar",
+      "Bar",
+      "Bar",
+      "Juice"
+     ],
+     "caption": "Three equal bars (multiply) plus one different item (add)"
+    }
+   },
+   {
+    "say": "Let's finish it. Maya pays with a twenty dollar bill. Three times two dollars forty-five is seven dollars thirty-five. Add the juice, three seventy-five, and you get eleven dollars and ten cents. Now, change is what is left over from her twenty, and left over means subtract. Twenty minus eleven dollars ten is eight dollars and ninety cents. Notice how each step came from the story, not from a keyword.",
+    "math": "3 \\times 2.45 = 7.35 \\;\\rightarrow\\; 7.35 + 3.75 = 11.10 \\;\\rightarrow\\; 20 - 11.10 = 8.90",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7.35,
+      3.75,
+      8.9
+     ],
+     "labels": [
+      "Bars",
+      "Juice",
+      "Change"
+     ],
+     "caption": "The whole twenty dollars, split into what she spent and what came back"
+    }
+   },
+   {
+    "say": "Now the trap I want you to watch out for. Granola bars cost two dollars and forty-five cents each. Maya spent nine dollars and eighty cents on them altogether. How many did she buy? The word altogether makes lots of kids add, and adding here gives twelve dollars and twenty-five cents, which is not even a number of bars. Slow down and picture it. Nine dollars eighty is already the whole pile, and it is made of equal chunks of two forty-five. Finding how many equal chunks fit is division. Nine point eight zero divided by two point four five is four. Check it: two forty-five times four is nine dollars eighty. Perfect, four bars.",
+    "math": "9.80 \\div 2.45 = 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2.45,
+      2.45,
+      2.45,
+      2.45
+     ],
+     "labels": [
+      "$2.45",
+      "$2.45",
+      "$2.45",
+      "$2.45"
+     ],
+     "caption": "$9.80 total, cut into equal $2.45 chunks — that is division, not addition"
+    }
+   },
+   {
+    "say": "So before you calculate anything, say the story out loud to yourself: is this repeated, joined, taken away, or shared? Once you name it, the decimals are the easy part.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Pick the operation from what is happening in the story, not from the words — repeated means multiply, joined means add, taken away means subtract, shared into equal parts means divide.",
+  "practice": {
+   "question": "At the school fundraiser, Liam buys four hot chocolates that cost two dollars and seventy-five cents each, plus one muffin for two dollars and thirty cents. In total he pays with a twenty dollar bill. How much change does he get back? (Careful — decide each operation from the situation, not the words.)",
+   "answer": "$6.70. Four hot chocolates is the same thing repeated, so multiply: 4 × $2.75 = $11.00. The muffin is a different item joining in, so add: $11.00 + $2.30 = $13.30. Change is what is left from the twenty, so subtract: $20.00 − $13.30 = $6.70."
+  }
+ }
+}

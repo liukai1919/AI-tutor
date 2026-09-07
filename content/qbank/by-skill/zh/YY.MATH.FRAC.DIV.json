@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FRAC.DIV",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkke4y6dd7zja",
+   "level": 1,
+   "question": "一根分数条平均分成 3 份，涂了其中 2 份，涂色部分表示 2/3。另一根同样长的分数条平均分成 12 份，每一份表示 1/12。请问：2/3 里面正好能装下几个 1/12？",
+   "options": [
+    "8 个",
+    "1/8 个",
+    "1/18 个",
+    "12 个"
+   ],
+   "answerIndex": 0,
+   "explain": "「装几个」就是 2/3 ÷ 1/12，除以一个数等于乘它的倒数（reciprocal）：2/3 × 12/1 = 8。最容易踩的坑是直接乘 1/12 得到 1/18，那算的是「2/3 的十二分之一」，不是「能装几个」。",
+   "tags": [
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "frac.div_no_flip",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6ijzsy3",
+   "level": 1,
+   "question": "一根 1 米长的分数条平均分成 6 份，涂了其中 5 份，涂色部分是 5/6 米；每一份是 1/6 米。要算出 5/6 米里面能装下几个 1/6 米，下面哪个写法是对的？",
+   "options": [
+    "5/6 × 1/6",
+    "5/6 × 6/1",
+    "6/5 × 1/6",
+    "1/6 ÷ 5/6"
+   ],
+   "answerIndex": 1,
+   "explain": "「装几个」就是 5/6 ÷ 1/6，要把除数 1/6 翻成倒数，写成 5/6 × 6/1 = 5。坑在于把除数原样乘上去（5/6 × 1/6），或者把被除数 5/6 翻成 6/5 —— 翻的永远是除数。",
+   "tags": [
+    "frac.div_no_flip",
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "div.commutative_flip"
+   ]
+  },
+  {
+   "qid": "qmtkke4y63zkqti",
+   "level": 1,
+   "question": "一根分数条平均分成 4 份，涂了其中 2 份，涂色部分正好是 1/2。另一根同样长的分数条平均分成 10 份，每一份是 1/10。请问：1/2 里面有几个 1/10？",
+   "options": [
+    "1/20 个",
+    "1/5 个",
+    "5 个",
+    "10 个"
+   ],
+   "answerIndex": 2,
+   "explain": "1/2 ÷ 1/10 = 1/2 × 10/1 = 5，也就是半根条正好盖住 5 个 1/10。坑是把两个数前后调换成 1/10 ÷ 1/2，除法不像乘法那样可以交换，调换后得到的 1/5 完全不是一回事。",
+   "tags": [
+    "frac.div_no_flip",
+    "div.commutative_flip",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6orqhb8",
+   "level": 1,
+   "question": "一根分数条平均分成 9 份，涂了其中 8 份，涂色部分是 8/9；每 2 份合起来表示 2/9。请问：8/9 里面有几个 2/9？",
+   "options": [
+    "16/81 个",
+    "1/4 个",
+    "8 个",
+    "4 个"
+   ],
+   "answerIndex": 3,
+   "explain": "8/9 ÷ 2/9 = 8/9 × 9/2 = 72/18 = 4；也可以直接想：8 份按 2 份一组，正好 4 组。坑是把两个分数直接相乘得到 16/81，那样答案反而变得比 1 还小，明显不合理。",
+   "tags": [
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6s379l4",
+   "level": 2,
+   "question": "计算 5/8 ÷ 3/4，结果写成最简分数（lowest terms）。",
+   "options": [
+    "5/6",
+    "15/32",
+    "6/5",
+    "32/15"
+   ],
+   "answerIndex": 0,
+   "explain": "除以 3/4 就是乘它的倒数 4/3：5/8 × 4/3 = 20/24 = 5/6。坑是把被除数 5/8 翻成 8/5 再乘 3/4，翻错了分数就会得到 6/5；倒数只翻在除数上。",
+   "tags": [
+    "ok",
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6wrqvzr",
+   "level": 2,
+   "question": "计算 2 1/4 ÷ 3/8。",
+   "options": [
+    "27/32",
+    "6",
+    "1/6",
+    "5 1/3"
+   ],
+   "answerIndex": 1,
+   "explain": "先把带分数（mixed number）2 1/4 化成假分数 9/4，再乘除数的倒数 8/3：9/4 × 8/3 = 72/12 = 6。坑是忘了先化成假分数，或者把 9/4 翻成 4/9 —— 该翻的是 3/8。",
+   "tags": [
+    "frac.div_no_flip",
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6m03odl",
+   "level": 2,
+   "question": "下面哪个算式和 7/8 ÷ 1/4 的结果相等？",
+   "options": [
+    "7/8 × 1/4",
+    "1/4 ÷ 7/8",
+    "7/8 × 4/1",
+    "8/7 × 1/4"
+   ],
+   "answerIndex": 2,
+   "explain": "除以 1/4 等于乘 4/1，所以 7/8 ÷ 1/4 = 7/8 × 4 = 7/2。坑是把前后两个数调换（写成 1/4 ÷ 7/8），除法没有交换律，调换后答案会变成 2/7。",
+   "tags": [
+    "frac.div_no_flip",
+    "div.commutative_flip",
+    "ok",
+    "frac.div_flip_wrong_fraction"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6v9iax6",
+   "level": 2,
+   "question": "木工课上有一根 4 米长的木条，老师要把它锯成每段 2/3 米的小段，一共能锯出几段？",
+   "options": [
+    "2 2/3 段",
+    "1/6 段",
+    "12 段",
+    "6 段"
+   ],
+   "answerIndex": 3,
+   "explain": "问「4 米里有几个 2/3 米」，就是 4 ÷ 2/3 = 4 × 3/2 = 6 段。坑是只把分母翻上来算成 4 × 3 = 12，或者直接乘 2/3 得到 2 2/3 —— 每段比 1 米短，段数一定比 4 多。",
+   "tags": [
+    "frac.div_no_flip",
+    "frac.div_flip_wrong_fraction",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6ocquju",
+   "level": 3,
+   "question": "在惠斯勒露营时，一家人带了 3 1/2 杯燕麦。早上做松饼用掉了 1/2 杯，剩下的燕麦按每份 3/4 杯装进小袋，一共能装满几袋？",
+   "options": [
+    "4 袋",
+    "1/4 袋",
+    "4 2/3 袋",
+    "2 1/4 袋"
+   ],
+   "answerIndex": 0,
+   "explain": "先减：3 1/2 − 1/2 = 3 杯；再除：3 ÷ 3/4 = 3 × 4/3 = 4 袋。坑是忘了先减掉做松饼的 1/2 杯（那样会得到 4 2/3 袋），或者把 3 直接乘 3/4。",
+   "tags": [
+    "ok",
+    "frac.div_flip_wrong_fraction",
+    "other",
+    "frac.div_no_flip"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6yommuz",
+   "level": 3,
+   "question": "温哥华一家木工坊做书签：一块长方形薄木板的面积（area）是 5/6 平方米，长是 5/4 米。先算出它的宽，再把这个宽度按每条 1/6 米切成小条，一共能切出多少条？",
+   "options": [
+    "9 条",
+    "4 条",
+    "1/9 条",
+    "1/4 条"
+   ],
+   "answerIndex": 1,
+   "explain": "宽 = 面积 ÷ 长 = 5/6 × 4/5 = 2/3 米；再算 2/3 ÷ 1/6 = 2/3 × 6 = 4 条。坑是倒数翻错了对象：把 5/6 翻成 6/5 会算出宽 3/2 米、答成 9 条。",
+   "tags": [
+    "frac.div_flip_wrong_fraction",
+    "ok",
+    "frac.div_no_flip",
+    "div.commutative_flip"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6jftvq3",
+   "level": 3,
+   "question": "小杰在作业本上写：3/4 ÷ 1/8，我先把 3/4 翻成 4/3，再乘 1/8，得到 1/6。他错在哪里？正确的想法应该是什么？",
+   "options": [
+    "除法不用翻倒数，可以直接算 3/4 × 1/8 = 3/32",
+    "除法能像乘法那样交换，应该算 1/8 ÷ 3/4 = 1/6",
+    "倒数要翻在除数 1/8 上，应写成 3/4 × 8/1 = 6",
+    "两个分数都要翻倒数，应该算 4/3 × 8/1 = 32/3"
+   ],
+   "answerIndex": 2,
+   "explain": "3/4 ÷ 1/8 问的是「3/4 里面有几个 1/8」，答案是 6；倒数（reciprocal）只翻除数，写成 3/4 × 8/1。小杰翻了被除数，答案反而比 1 还小，一看就不合理。",
+   "tags": [
+    "frac.div_no_flip",
+    "div.commutative_flip",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkke4y6acf0wo",
+   "level": 3,
+   "question": "在农夫市集，妈妈买了 2 袋蓝莓，每袋 3/4 千克。她想把这些蓝莓全部装进小盒卖掉，每盒装 1/8 千克，一共能装满几盒？",
+   "options": [
+    "1/12 盒",
+    "6 盒",
+    "3/16 盒",
+    "12 盒"
+   ],
+   "answerIndex": 3,
+   "explain": "先算总量：2 × 3/4 = 3/2 千克；再算能装几盒：3/2 ÷ 1/8 = 3/2 × 8 = 12 盒。坑是只算了一袋就去除（得到 6 盒），或者把 3/2 直接乘 1/8。",
+   "tags": [
+    "frac.div_flip_wrong_fraction",
+    "other",
+    "frac.div_no_flip",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+ "lang": "en",
+ "title": "Decide whether two triangles are similar by matching equal angles and checking that corresponding sides share one ratio",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Are These Two Triangles Similar?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find missing angles in a triangle, and you know a scale factor is image divided by original. Today we put those two ideas together to answer one question: are two triangles similar? Similar means same shape, not same size. Think of a photo of a triangle on your phone and the same photo zoomed in. Two things must be true: matching angles are equal, and matching sides are all scaled by the same one number.",
+    "math": "\\text{Similar} \\iff \\text{equal angles} \\text{ and } \\text{one side ratio}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the first triangle. Its sides are four, six, and eight centimetres. Notice the angle across from the shortest side is the smallest angle, and the angle across from the longest side is the biggest. That is our matching rule: shortest side goes with shortest side, longest with longest. Never pair a short side with a long side.",
+    "math": "\\triangle ABC:\\ 4,\\ 6,\\ 8 \\text{ cm}",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      4,
+      6,
+      8
+     ],
+     "labels": [
+      "4 cm",
+      "6 cm",
+      "8 cm",
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Triangle ABC: sides 4 cm, 6 cm, 8 cm"
+    }
+   },
+   {
+    "say": "Now the second triangle has sides six, nine, and twelve centimetres, and someone tells us its angles match the first triangle: angle A equals angle D, angle B equals angle E, angle C equals angle F. So we line up the sides in size order and check the ratios. Six over four is one point five. Nine over six is one point five. Twelve over eight is one point five. All three ratios are the same number, so the triangles are similar, with a scale factor of one point five. It is bigger than one, so this is an enlargement.",
+    "math": "\\frac{6}{4}=\\frac{9}{6}=\\frac{12}{8}=1.5",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      6,
+      9,
+      12
+     ],
+     "labels": [
+      "6 cm",
+      "9 cm",
+      "12 cm",
+      "D",
+      "E",
+      "F"
+     ],
+     "caption": "Triangle DEF: sides 6 cm, 9 cm, 12 cm, scale factor 1.5"
+    }
+   },
+   {
+    "say": "Here is the mistake to avoid. Suppose you paired the sides in the wrong order and wrote twelve over four, which is three, then six over eight, which is zero point seven five. You would see different numbers and wrongly say 'not similar'. The triangles did not change, your matching did. Always sort both triangles' sides from shortest to longest before you divide, so corresponding sides are lined up.",
+    "math": "\\frac{12}{4}=3 \\neq \\frac{6}{8}=0.75 \\quad \\text{(wrong pairing)}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      6,
+      8,
+      6,
+      9,
+      12
+     ],
+     "labels": [
+      "shortest",
+      "middle",
+      "longest"
+     ],
+     "caption": "Sorted sides: row 1 is ABC, row 2 is DEF. Divide down each column."
+    }
+   },
+   {
+    "say": "One more thing. Similar does not mean the same size. A triangle with sides four, six, eight and another with sides eight, twelve, sixteen are similar even though one is exactly twice as big. Every ratio is two. And a triangle with sides four, six, eight compared to one with sides four, six, nine is not similar, because one over one is one but nine over eight is not one. Same shape means the same one ratio on every side, no matter how big or small.",
+    "math": "\\frac{8}{4}=\\frac{12}{6}=\\frac{16}{8}=2 \\quad \\checkmark",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      8,
+      12,
+      16
+     ],
+     "labels": [
+      "8 cm",
+      "12 cm",
+      "16 cm",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Sides 8, 12, 16 cm: twice ABC, still the same shape"
+    }
+   },
+   {
+    "say": "So here is your checklist. Step one, match the equal angles. Step two, sort each triangle's sides from shortest to longest. Step three, divide each corresponding pair. If every ratio is the same one number, the triangles are similar, and that number is the scale factor. If even one ratio is different, they are not.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Similar triangles: matching angles equal, and every pair of corresponding sides gives the same one ratio.",
+  "practice": {
+   "question": "A sign at a Vancouver skate park is a triangle with sides thirty centimetres, forty centimetres, and fifty centimetres. A smaller sticker version has sides twelve centimetres, sixteen centimetres, and twenty centimetres, and its angles match the big sign. Sort the sides, divide each corresponding pair, and decide: are the two triangles similar? If so, what is the scale factor from the sign to the sticker?",
+   "answer": "Yes. Twelve over thirty is 0.4, sixteen over forty is 0.4, and twenty over fifty is 0.4. All ratios equal, so they are similar with scale factor 0.4, a reduction."
+  }
+ }
+}

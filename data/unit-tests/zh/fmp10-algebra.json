@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "algebra",
+ "lang": "zh",
+ "unitName": {
+  "zh": "幂与多项式",
+  "en": "Powers & Polynomials"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "幂与多项式 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 1,
+    "question": "化简下列表达式：x^2 · x^3",
+    "options": [
+     "x^5",
+     "x^6",
+     "x^1",
+     "x^23"
+    ],
+    "answerIndex": 0,
+    "explain": "同底数幂相乘，指数相加：2 + 3 = 5，所以结果是 x^5。最常见的错误是把指数相乘，误得 x^6。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.02",
+    "level": 1,
+    "question": "将 72 写成质因数幂的形式（prime factorization），正确的是？",
+    "options": [
+     "2^2 × 3^3",
+     "2^3 × 3 × 4",
+     "2^3 × 3^2",
+     "2^4 × 3^2"
+    ],
+    "answerIndex": 2,
+    "explain": "72 = 2×2×2×3×3 = 2^3 × 3^2。注意 4 不是质数，不能出现在质因数分解中；而 2^2 × 3^3 = 108 ≠ 72，指数配对搞反了。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.03",
+    "level": 1,
+    "question": "展开并化简：(x + 2)(x + 5)",
+    "options": [
+     "x^2 + 10",
+     "x^2 + 7x",
+     "x^2 + 12x + 10",
+     "x^2 + 7x + 10"
+    ],
+    "answerIndex": 3,
+    "explain": "用分配律（distributive law / FOIL）：x^2 + 5x + 2x + 10 = x^2 + 7x + 10。常见错误是漏掉交叉项只写 x^2 + 10，或把 5 和 2 直接加成 12。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 2,
+    "question": "计算：4^3 ÷ 4^5",
+    "options": [
+     "16",
+     "1/16",
+     "−16",
+     "−1/16"
+    ],
+    "answerIndex": 1,
+    "explain": "同底数相除，指数相减：4^(3−5) = 4^(−2) = 1/16。负指数表示「取倒数」，不代表结果为负数，所以 −16 和 −1/16 都不对。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.04",
+    "level": 2,
+    "question": "对多项式 x^2 + 9x + 20 进行因式分解（factoring），正确的是？",
+    "options": [
+     "(x + 4)(x + 5)",
+     "(x + 2)(x + 10)",
+     "(x − 4)(x − 5)",
+     "(x + 20)(x + 1)"
+    ],
+    "answerIndex": 0,
+    "explain": "找两个数使乘积为 20、和为 9：4 和 5，所以 x^2 + 9x + 20 = (x+4)(x+5)。注意 (x−4)(x−5) 展开后一次项是 −9x，符号刚好反了。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.03",
+    "level": 2,
+    "question": "Victoria 一个矩形花园的长为 (x + 4) 米、宽为 (x + 2) 米。用多项式表示花园的面积（area）是？",
+    "options": [
+     "x^2 + 8x + 6",
+     "x^2 + 6x + 6",
+     "x^2 + 6x + 8",
+     "x^2 + 8"
+    ],
+    "answerIndex": 2,
+    "explain": "面积 = (x+4)(x+2) = x^2 + 2x + 4x + 8 = x^2 + 6x + 8。最容易把交叉项系数 6 和常数项 8 记混，写成 x^2 + 8x + 6。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.04",
+    "level": 3,
+    "question": "小宇把 x^2 − 16 因式分解为 (x − 4)^2。他错在哪里？",
+    "options": [
+     "他只是格式不同，(x−4)^2 展开后和 (x−4)(x−4) 一样，结果正确",
+     "x^2 − 16 是平方差（difference of squares），正确分解应为 (x + 4)(x − 4)",
+     "x^2 和 16 都是正数，不应该做因式分解",
+     "他忘了对 x 也开平方，应写成 (√x − 4)^2"
+    ],
+    "answerIndex": 1,
+    "explain": "x^2 − 16 = (x+4)(x−4)，用的是平方差公式 a^2 − b^2 = (a+b)(a−b)。而 (x−4)^2 = x^2 − 8x + 16，多出一个 −8x，两者根本不相等。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.ALG.01",
+    "level": 3,
+    "question": "计算：(3^2 · 3^(−1)) ÷ 3^(−2)",
+    "options": [
+     "1/27",
+     "1/3",
+     "3",
+     "27"
+    ],
+    "answerIndex": 3,
+    "explain": "先算括号内：3^(2+(−1)) = 3^1；再算除法：3^1 ÷ 3^(−2) = 3^(1−(−2)) = 3^3 = 27。最容易踩的坑在除法步：把 −(−2) 误算成 +（−2），就得到 3^(−1) = 1/3。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

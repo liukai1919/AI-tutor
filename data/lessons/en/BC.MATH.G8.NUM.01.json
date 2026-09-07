@@ -1,0 +1,150 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.NUM.01",
+ "lang": "en",
+ "title": "perfect squares and cubes",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Perfect Squares & Cubes: Building Shapes from Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You and your friend are planning a group chat photo dump for the team. You've got thirty-six photos, and you want to arrange them in a perfect square grid on the screen — same number of photos across the top as you do going down the side. Can you do that? Yeah — six across and six down. Six times six is thirty-six, and the grid is a perfect square with no gaps and no extras. That idea, a number that makes a perfect square when you lay it out, is what we call a perfect square. And it's not just about photos — it shows up in tiles, pixel grids, even the layout of a basketball court. Let's make it click.",
+    "math": "6 \\times 6 = 36",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [
+      "photos"
+     ],
+     "caption": "36 photos in a 6 × 6 perfect square grid"
+    }
+   },
+   {
+    "say": "So here's the rule in plain English: a perfect square is a number where, if you try to line it up as a rectangle with equal sides — a square — it fits exactly. No leftover tiles, no extra row. The first few are one, four, nine, sixteen, twenty-five, thirty-six, forty-nine, sixty-four, eighty-one, one-hundred. See the pattern? They go one, two, three, four, five, six, seven, eight, nine, ten — and you square each one. So five times five is twenty-five. That grid on the screen? Five rows, five columns, twenty-five squares. Perfect.",
+    "math": "5^2 = 5 \\times 5 = 25",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      5,
+      5
+     ],
+     "labels": [
+      "tiles"
+     ],
+     "caption": "5 × 5 = 25: a perfect square of tiles"
+    }
+   },
+   {
+    "say": "Now, go one dimension higher. Instead of a flat square, imagine you're stacking little unit cubes — the kind you might use in a board game or building a diorama — into a solid cube. Same length, same width, same height. Three across, three deep, three high: that's three times three times three, which is twenty-seven. A perfect cube is a number that stacks into a cube with no gaps. The first few are one, eight, twenty-seven, sixty-four, one hundred twenty-five, two hundred sixteen. Notice how they skip a lot more than the squares do? That's because you're multiplying three numbers instead of two, so they grow faster.",
+    "math": "3^3 = 3 \\times 3 \\times 3 = 27",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A 3 × 3 × 3 cube = 27 unit cubes"
+    }
+   },
+   {
+    "say": "Let's try one together. Is thirty-six a perfect square? Ask yourself: is there a whole number I can multiply by itself to get thirty-six? Six times six — yep, that's thirty-six. So yes, it's a perfect square. But is it a perfect cube too? That would mean some whole number times itself times itself equals thirty-six. Try three: three times three times three is twenty-seven. Try four: four times four times four is sixty-four. Nothing lands on thirty-six, so it's a perfect square but NOT a perfect cube. Quick rule of thumb: most numbers that are perfect squares aren't also perfect cubes. It takes a special number for that.",
+    "math": "6^2 = 36 \\quad \\checkmark\\ \\text{square} \\qquad \\text{no integer } n \\text{ with } n^3=36",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "6 × 6 = 36 ✓ perfect square (but not a cube)"
+    }
+   },
+   {
+    "say": "Now here's a cool one. Sixty-four. Is it a perfect square? Eight times eight is sixty-four — check, it's a perfect square. Is it a perfect cube too? Four times four times four is sixty-four — also a perfect cube! So sixty-four is both. In fact, it's the smallest number above one that does double duty. Think of it this way: in a flat grid you'd lay out eight by eight little squares. In 3-D, you'd stack a four-by-four-by-four cube. Same number, two different shapes. That's what makes sixty-four a little special, and it's the kind of 'aha' moment that shows how squares and cubes are connected.",
+    "math": "8^2 = 64 \\quad \\text{and} \\quad 4^3 = 64",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "4 × 4 × 4 = 64: a perfect cube (and also 8 × 8!)"
+    }
+   },
+   {
+    "say": "Here's a handy shortcut for bigger numbers without guessing. Write the number as a product of primes — that's prime factorization. For a number to be a perfect square, every prime in its factorization has to show up an even number of times. Take thirty-six: two times two times three times three. The twos appear twice, the threes appear twice — all even counts, so it's a perfect square. For a perfect cube, every prime has to appear a multiple of three times. Take twenty-seven: three times three times three. That's three threes, and three is a multiple of three, so it's a perfect cube. If you see a prime showing up just once or twice where you need an even count or a multiple-of-three count, it's not perfect. For example, forty-eight is two, two, two, two, three. The three only shows up once, so it's not a perfect square.",
+    "math": "36 = 2^2 \\times 3^2 \\;\\checkmark \\qquad 27 = 3^3 \\;\\checkmark \\qquad 48 = 2^4 \\times 3^1 \\;\\text{(not a square)}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      0,
+      4,
+      6,
+      2,
+      3,
+      1,
+      0
+     ],
+     "labels": [
+      "36",
+      "27",
+      "48",
+      "64",
+      "2s",
+      "3s"
+     ],
+     "caption": "How many 2s and 3s are in each prime factorization: 36 = 2²·3², 27 = 3³, 48 = 2⁴·3, 64 = 2⁶"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to lock in: a perfect square is a number that tiles a flat square with no gaps — like thirty-six in a six-by-six grid — and a perfect cube is one that stacks into a solid cube — like twenty-seven in a three-by-three-by-three block. And if a number does both, like sixty-four, it's a little mathematical superstar. Next time someone says 'seventy-two,' you'll immediately know: that's not a square, and it's not a cube. You'll know because the shape just doesn't close up clean. And that's the whole idea, beautifully simple.",
+    "math": "n^2 \\;\\text{(square)} \\qquad n^3 \\;\\text{(cube)} \\qquad 64 = 8^2 = 4^3",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      1,
+      4,
+      9,
+      16,
+      25,
+      36,
+      49,
+      64,
+      81,
+      100
+     ],
+     "labels": [],
+     "caption": "Perfect squares up to 100 (circled)"
+    }
+   }
+  ],
+  "answer": "A perfect square tiles a flat square (6 × 6 = 36); a perfect cube stacks a solid cube (4 × 4 × 4 = 64). Check with prime factorization: all exponents even → square; all exponents multiples of 3 → cube.",
+  "practice": {
+   "question": "You're designing a cube-shaped gift box for your friend's birthday. The box needs to hold exactly 125 unit-cube gift tags. (a) Is 125 a perfect cube? Show the side length. (b) Is 125 also a perfect square? Justify your answer using prime factorization.",
+   "answer": "(a) Yes — 5 × 5 × 5 = 125, so the cube is 5 tags along each edge. (b) No. 125 = 5 × 5 × 5 = 5³. The prime 5 appears 3 times, which is odd, so it is NOT a perfect square. (No whole number n satisfies n² = 125, since 11² = 121 and 12² = 144.)"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

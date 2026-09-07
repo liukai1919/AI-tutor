@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "numbers-to-10k",
+ "lang": "en",
+ "unitName": {
+  "zh": "万以内的数",
+  "en": "Numbers to 10 000"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
+ "set": {
+  "title": "Numbers to 10 000 · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.READ_WRITE",
+    "level": 1,
+    "question": "A sign at the PNE says that six thousand four hundred five people visited the fair on Saturday. Which number is that in standard form?",
+    "options": [
+     "645",
+     "6 045",
+     "6 405",
+     "6 450"
+    ],
+    "answerIndex": 2,
+    "explain": "Word form names the thousands, hundreds, tens and ones in order: 6 thousands, 4 hundreds, 0 tens, 5 ones gives 6 405. The trap is that no tens are said out loud, so you must still write a 0 in the tens place — leaving it out makes 645, and sliding the 5 over makes 6 450."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.DIGIT_VALUE",
+    "level": 1,
+    "question": "A ferry from Tsawwassen carried 4 738 passengers in one day. What is the value of the digit 7 in 4 738?",
+    "options": [
+     "7 000",
+     "700",
+     "70",
+     "7"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the place the digit sits in: in 4 738 the 7 is in the hundreds place, so its value is 7 hundreds, or 700. The common trap is reading the digit by itself and saying just 7 — a digit's value always depends on its place, not on the digit alone."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.COMPARE_ORDER",
+    "level": 1,
+    "question": "Four Surrey schools collected books for a book drive: 3 090 books, 3 909 books, 3 099 books, and 3 900 books. Which list puts them in order from least to greatest?",
+    "options": [
+     "3 090, 3 900, 3 099, 3 909",
+     "3 909, 3 900, 3 099, 3 090",
+     "3 099, 3 090, 3 909, 3 900",
+     "3 090, 3 099, 3 900, 3 909"
+    ],
+    "answerIndex": 3,
+    "explain": "Compare place by place from the left: all four have 3 thousands, so look at the hundreds (0, 0, 9, 9), then the tens and ones to break the ties. Two traps here are ordering from greatest to least by mistake, and thinking 3 099 is smaller than 3 090 just because it ends in bigger digits."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
+    "level": 2,
+    "question": "The scoreboard at a hockey arena counts down the remaining raffle tickets by 250s: 8 500, 8 250, 8 000, ___. What number comes next?",
+    "options": [
+     "7 750",
+     "7 850",
+     "8 250",
+     "7 500"
+    ],
+    "answerIndex": 0,
+    "explain": "Each step takes away 250, so the next number is 8 000 − 250 = 7 750. Crossing a thousand is the tricky part: take away 200 to reach 7 800, then 50 more to land on 7 750. Common slips are taking away only 150 (7 850), bouncing back up the pattern (8 250), or doubling the jump (7 500)."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE",
+    "level": 2,
+    "question": "A Whistler ski hill sold 4 862 lift tickets in one week. Rounded to the nearest hundred, about how many tickets is that?",
+    "options": [
+     "4 800",
+     "4 900",
+     "4 860",
+     "5 000"
+    ],
+    "answerIndex": 1,
+    "explain": "To round to the nearest hundred, look at the tens digit: 6 is 5 or more, so 4 862 moves up to 4 900. The usual traps are rounding to the wrong place — 4 860 is the nearest ten and 5 000 is the nearest thousand — so always name the place you are rounding to first."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.DIGIT_VALUE",
+    "level": 2,
+    "question": "Two salmon counts were recorded: 4 872 fish in one river and 7 248 fish in another. How much greater is the value of the digit 4 in 4 872 than the value of the digit 4 in 7 248?",
+    "options": [
+     "The values are equal, because it is the same digit 4",
+     "40",
+     "3 960",
+     "4 040"
+    ],
+    "answerIndex": 2,
+    "explain": "The 4 in 4 872 is in the thousands place (4 000) and the 4 in 7 248 is in the tens place (40), so the difference is 4 000 − 40 = 3 960. The biggest misconception is thinking the same digit always has the same value, and a second trap is adding the two values instead of subtracting."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE",
+    "level": 3,
+    "question": "A Victoria school collected bottles for three months: 1 480 in September, 2 610 in October, and 3 250 in November. If each month is rounded to the nearest thousand first, what is the estimated total?",
+    "options": [
+     "6 000",
+     "7 400",
+     "8 000",
+     "7 000"
+    ],
+    "answerIndex": 3,
+    "explain": "Round each month to the nearest thousand — 1 480 goes to 1 000 (480 is less than 500), 2 610 goes to 3 000, and 3 250 goes to 3 000 — then add: 1 000 + 3 000 + 3 000 = 7 000. Two traps are rounding every number up out of habit (8 000) and rounding to the nearest hundred instead of the nearest thousand (7 400)."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV10K.COUNT_MULTIPLES",
+    "level": 3,
+    "question": "Noah has $850 saved and adds $25 every week from his paper route. He needs $1 000 for a new bike. How many more weeks until he has enough?",
+    "options": [
+     "6",
+     "5",
+     "4",
+     "15"
+    ],
+    "answerIndex": 0,
+    "explain": "First find the gap, $1 000 − $850 = $150, then skip-count by 25s to cover it: 875, 900, 925, 950, 975, 1 000 — that is 6 weeks. Common traps are counting the starting $850 as one of the jumps and stopping a week early, or skip-counting by 10s instead of 25s and getting 15."
+   }
+  ]
+ }
+}

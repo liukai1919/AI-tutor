@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.NUM.PVBIG.CONTEXT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkb4gas5d48hw",
+   "level": 1,
+   "question": "温哥华一所小学的义卖报告上写着：今年一共筹到「四千零五」加元。这个数写成数字应该是多少？",
+   "options": [
+    "4005 加元",
+    "4050 加元",
+    "405 加元",
+    "40 005 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "四千零五里，千位是4，百位和十位都空着，必须各写一个0占位，个位是5，所以是4005。最容易踩的坑是把中间占位的0漏掉写成405，或者多写一个0变成40 005。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasa0g6a3",
+   "level": 1,
+   "question": "新闻里说，一条讲加拿大冰川的科普视频播放量达到了 1 000 000 000 次。这个数应该读作多少次？",
+   "options": [
+    "一百万次",
+    "十亿次",
+    "一亿次",
+    "一万亿次"
+   ],
+   "answerIndex": 1,
+   "explain": "1 后面有 9 个 0，就是 1 000 000 000，读作十亿（billion）。数位口诀：6 个 0 是一百万，8 个 0 是一亿，9 个 0 才是十亿；把十亿念成一百万是最常见的错误。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkb4gascxlyfv",
+   "level": 1,
+   "question": "一瓶儿童止咳药的说明书上写着：每次剂量 0.025 克。在 0.025 这个数里，数字 5 在哪一个数位上？",
+   "options": [
+    "十分位",
+    "百分位",
+    "千分位",
+    "万分位"
+   ],
+   "answerIndex": 2,
+   "explain": "小数点后面从左往右依次是十分位、百分位、千分位；0.025 的十分位是0、百分位是2、第三位才是5，所以5在千分位（thousandths）。坑在于把小数点后那个占位的0当作不存在，直接说5在百分位。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasp8638f",
+   "level": 1,
+   "question": "一则媒体报道说：某个照片网站上已经存了大约 30 亿张照片。「30 亿」写成数字是多少？",
+   "options": [
+    "3 000 000",
+    "30 000 000 000",
+    "300 000 000",
+    "3 000 000 000"
+   ],
+   "answerIndex": 3,
+   "explain": "1 亿是 1 后面 8 个 0，30 亿就是 3 后面 9 个 0，即 3 000 000 000（也就是 3 个十亿）。常见错误是把亿和百万、十亿的位数搞混，多写或少写整整三位。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasss7e2u",
+   "level": 2,
+   "question": "一篇科学文章估计：地球上的蚂蚁大约有「十亿零五百万」只。这个数写成数字是多少？",
+   "options": [
+    "1 005 000 000",
+    "1 000 005 000",
+    "105 000 000",
+    "1 050 000 000"
+   ],
+   "answerIndex": 0,
+   "explain": "十亿是 1 000 000 000（1 后面 9 个 0），五百万是 5 000 000，合起来就是 1 005 000 000。坑是把五百万摆错数位，写成一千零五万或十亿零五千万那样的数。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasqzztcc",
+   "level": 2,
+   "question": "一种维生素滴剂，每一滴含有效成分 0.004 克。医生说一次要滴 8 滴，这一次一共含多少克有效成分？",
+   "options": [
+    "0.32 克",
+    "0.032 克",
+    "0.0032 克",
+    "3.2 克"
+   ],
+   "answerIndex": 1,
+   "explain": "0.004 是 4 个千分之一，乘 8 就是 32 个千分之一，即 0.032 克。最容易踩的坑是算出32以后没把占位的0补回千分位，写成了0.32。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkb4gas983whp",
+   "level": 2,
+   "question": "一份天文报告说，某个星系大约有 2000 亿颗恒星。如果改用「十亿（billion）」作单位来说，这相当于多少个十亿？",
+   "options": [
+    "20 个十亿",
+    "2 个十亿",
+    "200 个十亿",
+    "2 000 个十亿"
+   ],
+   "answerIndex": 2,
+   "explain": "1 亿 = 100 000 000，2000 亿 = 200 000 000 000；十亿 = 1 000 000 000，用 200 000 000 000 除以 1 000 000 000 得 200。坑是把亿直接当成十亿，答案就会差十倍。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasmpivvf",
+   "level": 3,
+   "question": "素里一家医院给孩子用的一种药，剂量规定是每千克体重 0.006 克。一名学生体重 35 千克，医生按规定一次应该给他多少克这种药？",
+   "options": [
+    "0.021 克",
+    "2.1 克",
+    "0.0021 克",
+    "0.21 克"
+   ],
+   "answerIndex": 3,
+   "explain": "先看每千克 0.006 克是 6 个千分之一，再乘 35：6 × 35 = 210 个千分之一，也就是 0.210 克 = 0.21 克。坑是算完 210 后数位没对齐，把 0 的个数写错成 0.021 或 0.0021。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasklz01u",
+   "level": 3,
+   "question": "一则媒体报道说，某音乐 app 全球有 1 200 000 000 名用户，其中加拿大用户约占千分之五（0.005）。加拿大用户大约有多少人？",
+   "options": [
+    "6 000 000 人",
+    "60 000 人",
+    "600 000 人",
+    "60 000 000 人"
+   ],
+   "answerIndex": 0,
+   "explain": "先算千分之一：1 200 000 000 ÷ 1000 = 1 200 000，再乘 5 得 6 000 000 人。坑是把 1 200 000 000 误读成一千二百万（少了两位），结果只算出六万人。",
+   "tags": [
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasok0nx1",
+   "level": 3,
+   "question": "一条财经新闻写道：某手机游戏公司去年全球收入 1 000 000 000 加元。四位同学各自读出了这个数并说了理由，谁说得对？",
+   "options": [
+    "一百万加元，因为数到百万位就已经到头了。",
+    "十亿加元，因为1的后面正好有9个0。",
+    "一亿加元，因为1的后面能数出8个0。",
+    "一万亿加元，因为位数每多3位就升一级。"
+   ],
+   "answerIndex": 1,
+   "explain": "把0三位一分：1 000 000 000 有 9 个 0，正好是十亿（billion）；6 个 0 才是一百万，8 个 0 是一亿。说成一百万的那个人，是把百万和十亿的数位搞混了。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkb4gasckeed5",
+   "level": 3,
+   "question": "护士看到医生开的剂量是「零点零零七克」，要把它记进电子表格里。四位同学写出的数字和理由，哪一个是对的？",
+   "options": [
+    "0.7，因为小数点后面的0都可以省略不写。",
+    "0.07，因为读出来只有一个0，写一个就够了。",
+    "0.007，因为十分位和百分位都要写0占位。",
+    "0.0007，因为多写一个0才显得剂量更小些。"
+   ],
+   "answerIndex": 2,
+   "explain": "零点零零七的十分位和百分位都是空的，各要一个0占位，7落在千分位（thousandths），所以是 0.007。坑是把占位的0当成可有可无，少写一个就变成 0.07，剂量一下子大了十倍。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkc95j82cgt43",
+   "level": 2,
+   "question": "加拿大统计局的一份人口（population）报告写着：BC 省的总人口约为「五百万零九百」人。这个数写成数字是多少？",
+   "options": [
+    "500 900 人",
+    "50 000 900 人",
+    "5 000 000 900 人",
+    "5 000 900 人"
+   ],
+   "answerIndex": 3,
+   "explain": "五百万是 5 000 000，共 7 位；「零九百」表示最后三位是 900，中间空着的数位要用 0 占位，所以是 5 000 900。最容易踩的坑是把中间占位的 0 漏掉，写成 500 900。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkc95j8kzkbes",
+   "level": 2,
+   "question": "一则新闻说：全世界人口（population）已经超过 8 000 000 000 人。中文媒体习惯用「亿」来报道这个数，它相当于多少亿人？",
+   "options": [
+    "80 亿人",
+    "8 亿人",
+    "800 亿人",
+    "8000 万人"
+   ],
+   "answerIndex": 0,
+   "explain": "1 亿 = 100 000 000，用 8 000 000 000 数一数，里面有 80 个亿，也就是 8 个十亿（billion）。坑是把十亿（billion）看成百万，少数了三个数位，答成 8 亿或 8000 万。",
+   "tags": [
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkc95j8rmag8f",
+   "level": 2,
+   "question": "素里一家医院的药房里，一小瓶药水中一共含 0.5 克有效成分。护士把这一瓶平均分装成 100 小剂，每一小剂含多少克有效成分？",
+   "options": [
+    "0.05 克",
+    "0.005 克",
+    "0.0005 克",
+    "0.500 克"
+   ],
+   "answerIndex": 1,
+   "explain": "0.5 ÷ 100 = 0.005 克，除以 100 就是小数点向左移两位，5 落在千分位（thousandths）上。坑是只移一位得 0.05，或者以为在末尾添 0 写成 0.500 就变小了。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmtkc95j80caa0t",
+   "level": 2,
+   "question": "一篇科技报道说：A 公司的服务器上存了 4 000 000 000 条数据（data），B 公司存了 4 000 000 条。A 公司存的条数是 B 公司的多少倍？",
+   "options": [
+    "100 倍",
+    "10 000 倍",
+    "1000 倍",
+    "10 倍"
+   ],
+   "answerIndex": 2,
+   "explain": "4 000 000 000 ÷ 4 000 000 = 1000，十亿（billion）比百万高三个数位，所以正好差 1000 倍。坑是以为十亿只比百万大一级，答成 10 倍。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.million_billion_confuse"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.EQUIV.DIVIDE",
+ "lang": "en",
+ "title": "Simplify a fraction by dividing numerator and denominator by a common factor",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Making Fractions Simpler by Dividing",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that if you multiply the top and the bottom of a fraction by the same number, you get an equivalent fraction — three quarters times two on top and bottom becomes six eighths. Today we go the other way, using division, so a chunky fraction like six eighths can turn back into a neat little three quarters.",
+    "math": "\\frac{3}{4}=\\frac{3\\times 2}{4\\times 2}=\\frac{6}{8}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3,
+      8,
+      6
+     ],
+     "labels": [],
+     "caption": "Three quarters and six eighths shade the same amount"
+    }
+   },
+   {
+    "say": "Here is the one step. Find a number that divides evenly into both the top and the bottom — that is called a common factor — and divide both of them by it. Six eighths: two goes into six and two goes into eight, so six divided by two is three, and eight divided by two is four. We get three quarters. Look at the bars — the shaded part did not shrink at all. We only made the pieces bigger, so it takes fewer of them.",
+    "math": "\\frac{6}{8}=\\frac{6\\div 2}{8\\div 2}=\\frac{3}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      6,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "Six eighths becomes three quarters — same amount, bigger pieces"
+    }
+   },
+   {
+    "say": "Let us try one together. You and your friends cut a pizza into twelve slices and ate ten of them, so you ate ten twelfths. Both ten and twelve can be divided by two. Ten divided by two is five, and twelve divided by two is six. So ten twelfths is exactly the same as five sixths.",
+    "math": "\\frac{10}{12}=\\frac{10\\div 2}{12\\div 2}=\\frac{5}{6}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      10,
+      6,
+      5
+     ],
+     "labels": [],
+     "caption": "Ten twelfths of the pizza is the same as five sixths"
+    }
+   },
+   {
+    "say": "Now here is a mistake I see a lot. Someone divides only the top and writes six eighths equals three eighths. Look what happens — the second bar is much smaller! When you cut the top in half but leave the bottom alone, you really did make the amount smaller. Both numbers have to be divided by the same thing, always as a pair.",
+    "math": "\\frac{6}{8}\\neq\\frac{3}{8}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      6,
+      8,
+      3
+     ],
+     "labels": [],
+     "caption": "Dividing only the top changes the amount — not allowed"
+    }
+   },
+   {
+    "say": "One more thing to watch for — do not stop too soon. Take eight twelfths. Divide both by two and you get four sixths. But four and six can still both be divided by two, giving two thirds. Ask yourself each time, is there still a number that divides both? Keep going until the answer is no.",
+    "math": "\\frac{8}{12}=\\frac{4}{6}=\\frac{2}{3}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      8,
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Eight twelfths all the way down to two thirds"
+    }
+   },
+   {
+    "say": "So remember: divide the top and the bottom by the same number, and keep going until nothing divides both any more.",
+    "math": "\\frac{a\\div n}{b\\div n}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    },
+    "headline": "Divide top and bottom until nothing divides both"
+   }
+  ],
+  "answer": "Divide the top and the bottom by the same number — and keep going until no number divides both.",
+  "practice": {
+   "question": "At the store you spend six dollars out of the nine dollars in your pocket. That is six ninths of your money. Write six ninths in its simplest form. Hint: find a number that divides evenly into both six and nine.",
+   "answer": "Two thirds. Both six and nine can be divided by three: six divided by three is two, and nine divided by three is three, so six ninths equals two thirds. Nothing divides both two and three, so we are done."
+  }
+ }
+}

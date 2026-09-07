@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ify662sgrdu",
+   "level": 1,
+   "question": "在方格纸（grid paper）上，每个小方格的边长是 1 cm。图形甲是一个长 5 格、宽 1 格的长方形，图形乙是一个长 3 格、宽 3 格的长方形，它们的周长（perimeter）都是 12 cm。关于它们的面积（area），下面哪句话是对的？",
+   "options": [
+    "甲的面积是 5 cm²，乙的面积是 9 cm²，两者不相同",
+    "甲和乙的面积都是 12 cm²，因为周长都是 12 cm",
+    "甲和乙的面积一定相同，因为周长相同的图形面积也相同",
+    "甲的面积更大，因为甲有一条 5 格长的边，比乙的每条边都长"
+   ],
+   "answerIndex": 0,
+   "explain": "面积要数方格（长×宽）：5×1=5 cm²，3×3=9 cm²；周长都是 12 cm，面积却差了 4 cm²。最容易踩的坑是把 12 cm 这个周长的数直接当成面积，或者以为周长相同面积就一定相同。",
+   "tags": [
+    "ok",
+    "area_perim.confuse",
+    "area_perim.assume_dependent",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66wxodib",
+   "level": 1,
+   "question": "在方格纸上，每个小方格的边长是 1 cm。图形 A 是 4 格 × 3 格的长方形，图形 B 是 12 格 × 1 格的长方形，两个图形都正好盖住 12 个小方格。关于它们的周长（perimeter），下面哪句话是对的？",
+   "options": [
+    "两个图形的周长都是 12 cm，因为都盖住了 12 个方格",
+    "A 的周长是 14 cm，B 的周长是 26 cm，两者不相同",
+    "两个图形的周长一定相同，因为它们的面积相同",
+    "B 的周长比 A 小，因为面积相同时图形越长周长越小"
+   ],
+   "answerIndex": 1,
+   "explain": "沿着边走一圈相加：4+3+4+3=14 cm，12+1+12+1=26 cm。面积同样是 12 cm²，周长却差了 12 cm。坑在于把方格数（面积）当成周长，或者以为面积相同周长就一定相同。",
+   "tags": [
+    "area_perim.confuse",
+    "ok",
+    "area_perim.assume_dependent",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66m35jde",
+   "level": 1,
+   "question": "在方格纸上，每个小方格的边长是 1 cm。长方形 P 是 2 格 × 6 格，长方形 Q 是 4 格 × 4 格。下面哪句话说得对？",
+   "options": [
+    "两个图形的周长都是 16 cm，所以面积也都是 16 cm²",
+    "两个图形的面积都是 16 cm²，因为它们的周长是 16 cm",
+    "两个图形的周长都是 16 cm，但 Q 的面积（16 cm²）比 P 的面积（12 cm²）大",
+    "Q 的面积更大，所以 Q 的周长也一定更大"
+   ],
+   "answerIndex": 2,
+   "explain": "数方格得面积：2×6=12 cm²，4×4=16 cm²；走一圈得周长：2+6+2+6=16 cm，4+4+4+4=16 cm。周长相同时，长和宽越接近，面积越大。坑是把 16 cm 这个周长搬来当面积，或者以为面积大周长就一定大。",
+   "tags": [
+    "area_perim.assume_dependent",
+    "area_perim.confuse",
+    "ok",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66rimdgt",
+   "level": 1,
+   "question": "用 16 个边长 1 cm 的小方格在方格纸上拼长方形。第一种拼成 4 格 × 4 格，第二种拼成 1 格 × 16 格。下面哪句话是对的？",
+   "options": [
+    "两个图形的周长都是 16 cm，因为方格数没有变",
+    "两个图形的周长都是 16 cm²，因为一共有 16 个方格",
+    "1 格 × 16 格 那个的面积变成了 34 cm²，因为它的周长是 34 cm",
+    "两个图形的面积都是 16 cm²，但周长分别是 16 cm 和 34 cm，周长不同"
+   ],
+   "answerIndex": 3,
+   "explain": "方格数没变，所以面积都是 16 cm²；但走一圈：4+4+4+4=16 cm，1+16+1+16=34 cm。坑是以为面积不变周长就不变，或者把方格数直接当周长、把周长的数当面积（还带错单位）。",
+   "tags": [
+    "area_perim.assume_dependent",
+    "area_perim.confuse",
+    "area_perim.confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ify666tl89r",
+   "level": 2,
+   "question": "用一根 20 cm 长的细绳围成一个长方形，长和宽都是整厘米数。下面哪句话是对的？",
+   "options": [
+    "围成 5 cm × 5 cm 时面积最大，是 25 cm²",
+    "不管怎么围，面积都一样大，因为周长（perimeter）都是 20 cm",
+    "不管怎么围，围出的面积都是 20 cm²",
+    "围成 9 cm × 1 cm 时面积最大，因为这个长方形最长"
+   ],
+   "answerIndex": 0,
+   "explain": "周长 20 cm 表示长＋宽＝10 cm，可以是 1+9、2+8、3+7、4+6、5+5，面积依次是 9、16、21、24、25 cm²，长宽越接近面积越大。坑是把绳长 20 当成面积，或者以为绳子一样长围出的面积就一样。",
+   "tags": [
+    "ok",
+    "area_perim.assume_dependent",
+    "area_perim.confuse",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66qm82xb",
+   "level": 2,
+   "question": "两个长方形的面积（area）都是 24 cm²：一个是 6 cm × 4 cm，另一个是 8 cm × 3 cm。关于它们的周长（perimeter），哪句话对？",
+   "options": [
+    "两个长方形的周长相同，因为它们的面积都是 24 cm²",
+    "8 cm × 3 cm 的周长更大，是 22 cm；6 cm × 4 cm 的周长是 20 cm",
+    "两个长方形的周长都是 24 cm，和面积的数一样",
+    "8 cm × 3 cm 的周长更大，所以它的面积也比另一个大"
+   ],
+   "answerIndex": 1,
+   "explain": "周长要把四条边加起来：6+4+6+4=20 cm，8+3+8+3=22 cm；面积一样是 24 cm²，周长却不同。坑是把 24 直接当周长，或者以为周长大面积就一定大。",
+   "tags": [
+    "area_perim.assume_dependent",
+    "ok",
+    "area_perim.confuse",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66erl2t8",
+   "level": 2,
+   "question": "甲长方形长 7 cm、宽 2 cm；乙长方形长 5 cm、宽 4 cm。下面哪句话是对的？",
+   "options": [
+    "两个的周长都是 18 cm，所以它们的面积也相同",
+    "两个的面积都是 18 cm²，因为周长是 18 cm",
+    "两个的周长都是 18 cm，但面积不同：甲是 14 cm²，乙是 20 cm²",
+    "两个的周长都是 18 cm，但甲的面积更大，因为甲有一条 7 cm 的长边"
+   ],
+   "answerIndex": 2,
+   "explain": "长×宽算面积：7×2=14 cm²，5×4=20 cm²；周长 2×(7+2)=18 cm，2×(5+4)=18 cm。坑是把 18 当成面积，或以为有一条更长边的图形面积就更大——其实长宽越接近，面积越大。",
+   "tags": [
+    "area_perim.assume_dependent",
+    "area_perim.confuse",
+    "ok",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify661vkqch",
+   "level": 2,
+   "question": "一个正方形的边长是 6 cm，一个长方形长 9 cm、宽 3 cm。下面哪句话是对的？",
+   "options": [
+    "两个图形的周长都是 24 cm，面积也都是 24 cm²",
+    "两个图形的面积一定相同，因为它们的周长相同",
+    "长方形的面积更大，因为它有一条 9 cm 的边，比正方形的每条边都长",
+    "两个图形的周长都是 24 cm，但正方形的面积（36 cm²）比长方形的面积（27 cm²）大 9 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "周长：4×6=24 cm，2×(9+3)=24 cm；面积：6×6=36 cm²，9×3=27 cm²，相差 9 cm²。坑是把周长的 24 当成面积，或者以为周长相同面积就一定相同。",
+   "tags": [
+    "area_perim.confuse",
+    "area_perim.assume_dependent",
+    "area_perim.assume_dependent",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ify66njdu75",
+   "level": 3,
+   "question": "Sofia 家住 Kelowna，她要用 36 m 长的围栏在后院围出一块长方形菜地，四面都要围，长和宽都是整米数。她希望菜地的面积尽量大。下面哪句话是对的？",
+   "options": [
+    "围成 9 m × 9 m 时面积最大，是 81 m²",
+    "不管怎么围，菜地的面积都是 36 m²",
+    "不管怎么围，面积都一样大，因为围栏的长度固定是 36 m",
+    "围成 17 m × 1 m 时面积最大，因为这块地最长"
+   ],
+   "answerIndex": 0,
+   "explain": "周长（perimeter）36 m 说明长＋宽＝18 m：17+1 得 17 m²，12+6 得 72 m²，9+9 得 81 m²，长宽越接近面积越大。坑是把围栏长度 36 当成面积，或者以为围栏一样长围出的面积就一定一样。",
+   "tags": [
+    "ok",
+    "area_perim.confuse",
+    "area_perim.assume_dependent",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66l6fj45",
+   "level": 3,
+   "question": "Surrey 一所小学要做一个面积 36 m² 的长方形沙坑，长和宽都是整米数，四周要用木条围一圈。学校希望用的木条最少。下面哪句话是对的？",
+   "options": [
+    "做成 1 m × 36 m，因为面积一样时越长的形状越省木条",
+    "做成 6 m × 6 m，只要 24 m 木条，是最省的",
+    "面积一样，周长（perimeter）也一定一样，做成哪种都要 26 m 木条",
+    "不管做成什么形状都要 36 m 木条，因为面积是 36 m²"
+   ],
+   "answerIndex": 1,
+   "explain": "面积 36 m² 的整数长宽有 1×36（周长 74 m）、2×18（40 m）、3×12（30 m）、4×9（26 m）、6×6（24 m），越接近正方形越省木条。坑是把面积 36 当成需要的木条长度，或者以为面积相同周长就一定相同。",
+   "tags": [
+    "area_perim.assume_dependent",
+    "ok",
+    "area_perim.assume_dependent",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ify66sreqvv",
+   "level": 3,
+   "question": "班上的 Liam 说：「两块菜地的周长（perimeter）一样，面积（area）就一定一样。」温哥华社区花园里正好有两块长方形菜地：一块 5 m × 2 m，一块 4 m × 3 m，周长都是 14 m。下面哪种回答最能说清楚 Liam 错在哪里？",
+   "options": [
+    "两块地的面积都是 14 m²，因为 5+2+5+2 和 4+3+4+3 算出来都等于 14，一样大，所以 Liam 说得对",
+    "Liam 说得对：周长相同的图形面积一定相同，因为围菜地用的篱笆一样长，圈进去的地当然也一样多，只是形状看起来不太一样",
+    "举反例：周长同为 14 m，面积却是 5×2=10 m² 和 4×3=12 m²，两块地差 2 m²，可见周长相同面积不一定相同",
+    "5 m × 2 m 那块面积更大，因为它有一条 5 m 的长边，最长的边决定面积，边越长圈进去的地就越多，Liam 错在这里"
+   ],
+   "answerIndex": 2,
+   "explain": "要反驳就得给出具体反例：周长同为 14 m，面积却是 5×2=10 m² 和 4×3=12 m²。坑是把周长 14 直接当成面积，或者以为最长边越长面积越大——其实长宽越接近，面积反而越大。",
+   "tags": [
+    "area_perim.confuse",
+    "area_perim.assume_dependent",
+    "ok",
+    "area_perim.assume_dependent"
+   ]
+  },
+  {
+   "qid": "qmt5ify66u5m1s3",
+   "level": 3,
+   "question": "Victoria 的一节数学课上，四个小组各用一根 20 cm 长的毛线围出一个长方形（长和宽都是整厘米数），量出的面积分别是 9 cm²、16 cm²、21 cm² 和 24 cm²，四个面积的平均数（mean）是 17.5 cm²。下面哪句话是对的？",
+   "options": [
+    "四个小组的面积应该都是 20 cm²，因为毛线是 20 cm，一定是大家量错了",
+    "毛线一样长，面积就该一样，这四个数里最多只有一个是对的，其他三组都量错了",
+    "面积最大的那一组，用的毛线一定比别的组长，因为围的地方大，绕一圈就要更多线",
+    "四个小组的周长都是 20 cm，但面积可以不同：长和宽越接近，围出的面积越大"
+   ],
+   "answerIndex": 3,
+   "explain": "周长都是 20 cm 就是长＋宽＝10 cm：1+9 得 9 cm²、2+8 得 16 cm²、3+7 得 21 cm²、4+6 得 24 cm²，四个数据全都合理。坑是以为毛线一样长面积就一样，或者反过来以为面积大毛线（周长）就一定更长。",
+   "tags": [
+    "area_perim.confuse",
+    "area_perim.assume_dependent",
+    "area_perim.assume_dependent",
+    "ok"
+   ]
+  }
+ ]
+}

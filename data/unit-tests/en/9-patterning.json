@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "patterning",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ },
+ "set": {
+  "title": "Patterning · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 1,
+    "question": "Simplify by combining like terms: (3x² + 2x – 5) + (x² + 4x + 1)",
+    "options": [
+     "4x² + 6x – 4",
+     "4x² + 6x – 6",
+     "2x² + 6x – 4",
+     "4x² + 2x – 4"
+    ],
+    "answerIndex": 0,
+    "explain": "Add coefficients of like terms: (3+1)x² + (2+4)x + (–5+1) = 4x² + 6x – 4. The most common trap is adding the x² terms but forgetting to combine the x terms, or mis-adding the constants."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.02",
+    "level": 1,
+    "question": "A kayak rental in Tofino charges a flat fee plus a fixed hourly rate, so the cost is a linear relation. Renting for 2 hours costs $26 and renting for 4 hours costs $42. Use interpolation to estimate the cost of renting for 3 hours.",
+    "options": [
+     "$34",
+     "$36",
+     "$30",
+     "$39"
+    ],
+    "answerIndex": 0,
+    "explain": "The cost rises $42 − $26 = $16 over 2 hours, so the rate is $8 per hour. Three hours is halfway between 2 and 4 hours, so the cost is halfway between $26 and $42: $26 + $8 = $34. A common error is multiplying $26 by 1.5 to get $39, or adding only half the hourly rate to get $30."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.03",
+    "level": 1,
+    "question": "Solve for x:  5x + 3 = 2x + 12",
+    "options": [
+     "x = 5",
+     "x = 3",
+     "x = 9",
+     "x = –3"
+    ],
+    "answerIndex": 1,
+    "explain": "Subtract 2x from both sides and 3 from both sides: 3x = 9, so x = 3. The classic error is stopping at 3x = 9 and writing x = 9, or moving 2x to the wrong side to get 7x = 9."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 2,
+    "question": "A student is comparing two cell-phone plans. Plan A costs (4n² + 3n – 2) dollars per month and Plan B costs (2n² + 5n + 1) dollars per month, where n is the number of GB used. Which expression gives how much MORE Plan A costs than Plan B?",
+    "options": [
+     "2n² – 2n – 3",
+     "2n² + 8n – 1",
+     "–2n² + 2n + 3",
+     "2n² – 2n – 1"
+    ],
+    "answerIndex": 0,
+    "explain": "Compute A – B: (4n²+3n–2) – (2n²+5n+1). Distribute the negative to EVERY term in the second polynomial: 4n²+3n–2 –2n² –5n –1 = 2n² – 2n – 3. The most common mistake is forgetting to distribute the minus sign, giving 2n² + 8n – 1."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.02",
+    "level": 2,
+    "question": "During a spirit canoe journey along the BC coast, the crew is 4 km from camp at 9:00 AM and 16 km from camp at 12:00 PM, travelling at a steady pace. If they keep going at the same rate, how far from camp will they be at 2:30 PM?",
+    "options": [
+     "24 km",
+     "20 km",
+     "32 km",
+     "26 km"
+    ],
+    "answerIndex": 3,
+    "explain": "Rate = (16 – 4) ÷ 3 h = 4 km/h. From 9:00 to 14:30 is 5.5 h, so distance = 4 + 4(5.5) = 26 km. A common error is ignoring the extra half hour and adding only 2 hours of travel after noon (16 + 8 = 24 km), or doubling the noon distance to get 32 km."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.03",
+    "level": 2,
+    "question": "Two friends split a dinner bill of $63. The larger payer paid $9 less than double the smaller payer's share. If x is the smaller share, which value of x satisfies the equation  x + (2x – 9) = 63?",
+    "options": [
+     "x = 21",
+     "x = 24",
+     "x = 18",
+     "x = 15"
+    ],
+    "answerIndex": 1,
+    "explain": "Combine: 3x – 9 = 63, add 9: 3x = 72, divide: x = 24. Verify: 24 + (48 – 9) = 24 + 39 = 63. The most common trap is writing 3x = 63 (forgetting to add 9 first) and getting x = 21."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 3,
+    "question": "A Grade 9 student is asked to describe the polynomial 5x² + 2x – 8. Which description is CORRECT?",
+    "options": [
+     "A trinomial of degree 2 with leading coefficient –8",
+     "A binomial of degree 3 with leading coefficient 5",
+     "A trinomial of degree 2 with leading coefficient 5",
+     "A trinomial of degree 1 with leading coefficient 2"
+    ],
+    "answerIndex": 2,
+    "explain": "Count the terms: 5x², 2x, –8 → three terms = trinomial. Degree = highest exponent = 2. Leading coefficient = coefficient of the highest-power term = 5. Students often confuse the leading coefficient with the constant term (–8) or with the middle coefficient (2)."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.03",
+    "level": 3,
+    "question": "Two friends are saving for a trip to Vancouver Island. Friend 1 already has $12 and adds $8 per week. Friend 2 already has $25 but spends $4 per week on transit, so only adds $6 per week. After how many weeks will they have the SAME total savings? (Solve 8x + 12 = 6x + 25.)",
+    "options": [
+     "13 weeks",
+     "–6.5 weeks",
+     "18.5 weeks",
+     "6.5 weeks"
+    ],
+    "answerIndex": 3,
+    "explain": "Subtract 6x from both sides: 2x + 12 = 25; subtract 12: 2x = 13; divide: x = 6.5 weeks. The two most common errors are (a) moving the 12 to the wrong side to get 2x = 37 → 18.5, and (b) stopping at 2x = 13 and writing x = 13."
+   }
+  ]
+ }
+}

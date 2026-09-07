@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.DIVISIBILITY",
+ "lang": "en",
+ "title": "Use divisibility rules for 2, 3, 4, 5, 6, 9 and 10",
+ "provider": "claude",
+ "at": "2026-08-24",
+ "lesson": {
+  "title": "Quick Number Detective: Divisibility Rules",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find factors by trying factor pairs, like one times twelve, two times six, three times four. But that takes a while for big numbers. Today I will show you some super quick checks that tell you if a number divides evenly, without doing the division at all.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "First, the ending rules. Just peek at the end of the number. If it ends in zero, two, four, six or eight, it divides by two. If it ends in zero or five, it divides by five. If it ends in zero, it divides by ten. And for four, look at just the last two digits: if that little two digit number divides by four, the whole number does too.",
+    "math": "2:\\ 0,2,4,6,8 \\qquad 5:\\ 0,5 \\qquad 10:\\ 0",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+     ],
+     "labels": [],
+     "caption": "Every number that divides by ten ends in zero"
+    }
+   },
+   {
+    "say": "Next, the adding rules. For three and for nine, you add up all the digits. If the digit sum divides by three, the number divides by three. If the digit sum divides by nine, the number divides by nine. And six is just a team: a number divides by six when it passes the two check and the three check together.",
+    "math": "3:\\ \\text{digit sum} \\div 3 \\qquad 9:\\ \\text{digit sum} \\div 9 \\qquad 6 = 2\\ \\text{and}\\ 3",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      9,
+      18,
+      27,
+      36,
+      45,
+      54,
+      63,
+      72,
+      81,
+      90,
+      99
+     ],
+     "labels": [],
+     "caption": "Circled: numbers that divide by nine. Try adding their digits!"
+    }
+   },
+   {
+    "say": "Let us test one hundred thirty-two dollars raised at a bake sale. It ends in two, so it divides by two. Its digits add to one plus three plus two, which is six, and six divides by three, so yes to three. Six does not divide by nine, so no to nine. The last two digits are thirty-two, and thirty-two divided by four is eight, so yes to four. It passes two and three, so yes to six. It does not end in zero or five, so no to five and no to ten.",
+    "math": "132:\\ 1+3+2=6 \\Rightarrow \\div 3 \\ ;\\ 32 \\div 4 = 8 \\Rightarrow \\div 4",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      132
+     ],
+     "labels": [],
+     "caption": "Ending tells you 2, 4, 5, 10 — digit sum tells you 3, 9"
+    }
+   },
+   {
+    "say": "Here is the trap I want you to dodge. Some kids see twenty-three, spot the three at the end, and say it divides by three. But twenty-three divided by three is not a whole number. The three rule is never about the last digit, it is about the digit sum: two plus three is five, and five does not divide by three. Now look at fifty-one. It does not end in three at all, but five plus one is six, so fifty-one really does divide by three. And sure enough, three times seventeen is fifty-one.",
+    "math": "23:\\ 2+3=5 \\Rightarrow \\text{no} \\qquad 51:\\ 5+1=6 \\Rightarrow \\text{yes}",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30
+     ],
+     "labels": [],
+     "caption": "Numbers that divide by 3 — notice 13 and 23 are NOT circled"
+    }
+   },
+   {
+    "say": "So remember: for two, four, five and ten, look at how the number ends. For three, nine and six, add the digits up. Match the right rule to the right number and you can check a number in about two seconds.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Ends with 2, 4, 5, 10 — add the digits for 3, 9 and 6.",
+  "practice": {
+   "question": "A class in Kelowna raised two hundred thirty-four dollars washing cars. Using the divisibility rules, decide: can two hundred thirty-four be shared evenly by 2? By 3? By 5? By 9?",
+   "answer": "By 2: yes, it ends in four. By 3: yes, because two plus three plus four is nine, and nine divides by three. By 5: no, it does not end in zero or five. By 9: yes, because the digit sum nine divides by nine — and indeed two hundred thirty-four divided by nine is twenty-six."
+  }
+ }
+}

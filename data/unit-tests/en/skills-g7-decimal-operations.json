@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "decimal-operations",
+ "lang": "en",
+ "unitName": {
+  "zh": "小数的四则运算",
+  "en": "Decimal operations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Decimal operations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FLU.MULT.FACTS.EXTENDING",
+    "level": 1,
+    "question": "Work this out mentally: 248 × 5 = ?",
+    "options": [
+     "2480",
+     "1250",
+     "1204",
+     "1240"
+    ],
+    "answerIndex": 3,
+    "explain": "Use ×5 = ×10 then ÷2: 248 × 10 = 2480, and half of 2480 is 1240. The usual trap is stopping at 2480 and forgetting the halving step."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.MIXED",
+    "level": 1,
+    "question": "6.4 − 2.85 = ?",
+    "options": [
+     "4.45",
+     "3.55",
+     "4.55",
+     "3.65"
+    ],
+    "answerIndex": 1,
+    "explain": "Line up the decimal points and write 6.4 as 6.40, then regroup: 6.40 − 2.85 = 3.55. The classic error is 'taking the smaller digit from the bigger one' (0 − 5 becomes 5) instead of regrouping, which gives 4.45."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.ORDER_OPS",
+    "level": 1,
+    "question": "3.2 + 0.5 × 4 = ?",
+    "options": [
+     "3.4",
+     "7.2",
+     "14.8",
+     "5.2"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiplication comes before addition: 0.5 × 4 = 2, then 3.2 + 2 = 5.2. Working left to right (3.2 + 0.5 = 3.7, then × 4) gives 14.8 and is the most common slip."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.WORD",
+    "level": 2,
+    "question": "At the grocery store on the way home from school, Ava buys 2 boxes of granola bars at $4.29 each and one carton of milk for $3.15. She pays with a $20 bill. How much change does she get?",
+    "options": [
+     "$12.56",
+     "$11.73",
+     "$8.27",
+     "$8.37"
+    ],
+    "answerIndex": 2,
+    "explain": "First the total: 2 × $4.29 = $8.58, plus $3.15 = $11.73; then the change: $20.00 − $11.73 = $8.27. Two traps here — pricing only one box of granola bars, and answering with the total instead of the change."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.MIXED",
+    "level": 2,
+    "question": "Noah has a 4.8 m roll of ribbon for a science-fair display. He cuts it into pieces that are each 0.6 m long, with none left over. How many pieces does he get?",
+    "options": [
+     "8",
+     "0.8",
+     "80",
+     "2.88"
+    ],
+    "answerIndex": 0,
+    "explain": "Rewrite the division so the divisor is a whole number: 4.8 ÷ 0.6 = 48 ÷ 6 = 8 pieces. Many students multiply instead (4.8 × 0.6 = 2.88) — check by asking whether the answer should be bigger or smaller than 4.8."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.MULT.FACTS.EXTENDING",
+    "level": 2,
+    "question": "A school fundraiser raised $1460, and it will be shared equally among 5 clubs. Using a mental strategy, how much does each club get?",
+    "options": [
+     "$730",
+     "$292",
+     "$2920",
+     "$29.20"
+    ],
+    "answerIndex": 1,
+    "explain": "Dividing by 5 is the same as dividing by 10 then doubling: 1460 ÷ 10 = 146, and 146 × 2 = 292, so each club gets $292. Halving instead of dividing by 5 gives $730, a very common mix-up."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.WORD",
+    "level": 3,
+    "question": "At the corner store, a 1.5 L carton of milk costs $3.60 and a 2 L jug costs $4.60. Which is the better buy, and by how much per litre?",
+    "options": [
+     "The 2 L jug, by $0.10 per litre",
+     "The 1.5 L carton, by $0.10 per litre",
+     "The 2 L jug, by $1.00 per litre",
+     "They cost the same per litre"
+    ],
+    "answerIndex": 0,
+    "explain": "Find each unit rate: $3.60 ÷ 1.5 = $2.40 per litre and $4.60 ÷ 2 = $2.30 per litre, so the jug is cheaper by $0.10 per litre. Comparing the sticker prices instead ($4.60 − $3.60 = $1.00) ignores the different sizes and is the main trap."
+   },
+   {
+    "curriculumId": "YY.MATH.DEC.OPS.ORDER_OPS",
+    "level": 3,
+    "question": "Evaluate: (8.4 − 3.4) ÷ 0.5 + 1.2 × 3",
+    "options": [
+     "33.6",
+     "6.1",
+     "13.6",
+     "5.2"
+    ],
+    "answerIndex": 2,
+    "explain": "Brackets first: 8.4 − 3.4 = 5; then divide and multiply left to right: 5 ÷ 0.5 = 10 and 1.2 × 3 = 3.6; finally add: 10 + 3.6 = 13.6. Two traps — working straight left to right (giving 33.6), and treating ÷ 0.5 as 'halving' instead of 'how many halves', which makes the answer too small."
+   }
+  ]
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.DIV.BY_DECIMAL",
+ "lang": "en",
+ "title": "Divide by a decimal by rewriting as a whole-number division",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Divide by a Decimal: Make It Whole First",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to divide a decimal by a whole number, like seven point two divided by nine. Today we handle the trickier one: what if the number you are dividing BY is a decimal, like three point six divided by zero point four? Here is the trick that makes it easy.",
+    "math": "3.6 \\div 0.4 = \\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Zero point four is four tenths. If we slide it one place to the left in the place value chart, it becomes four — a nice whole number. That is the same as multiplying by ten. But here is the fair part: whatever we do to one number, we must do to the other one too. So three point six also slides one place and becomes thirty six.",
+    "math": "0.4 \\times 10 = 4",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.4
+     ],
+     "labels": [],
+     "caption": "Zero point four is 4 tenths — slide it one place and it becomes 4"
+    }
+   },
+   {
+    "say": "Why is that allowed? Think about money. Six dollars shared into fifty cent pieces gives the same answer as six hundred cents shared into fifty cent pieces — you just changed the units, not the amount. Making both numbers ten times bigger keeps the answer exactly the same.",
+    "math": "\\frac{3.6}{0.4} = \\frac{3.6 \\times 10}{0.4 \\times 10} = \\frac{36}{4}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.6,
+      36,
+      0.4,
+      4
+     ],
+     "labels": [
+      "3.6",
+      "36",
+      "0.4",
+      "4"
+     ],
+     "caption": "Both numbers grow 10 times — the division stays the same"
+    }
+   },
+   {
+    "say": "Now finish it. Thirty six divided by four is nine. So three point six divided by zero point four equals nine. Let us check: nine groups of zero point four is three point six. It works!",
+    "math": "36 \\div 4 = 9 \\quad\\Rightarrow\\quad 3.6 \\div 0.4 = 9",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      9,
+      4
+     ],
+     "labels": [],
+     "caption": "9 groups of 4 make 36, so 36 divided by 4 is 9"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. For four point eight divided by zero point six, some kids move the decimal point in zero point six only, and write zero point eight. That is not fair — you changed one number but not the other! Move BOTH: forty eight divided by six equals eight. And eight makes sense, because zero point six is smaller than one, so it fits into four point eight lots of times. Check it: eight times zero point six is four point eight.",
+    "math": "4.8 \\div 0.6 = 48 \\div 6 = 8",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      0.8,
+      8
+     ],
+     "labels": [
+      "Wrong: 0.8",
+      "Right: 8"
+     ],
+     "caption": "Moving only one decimal point gives a far too small answer"
+    }
+   },
+   {
+    "say": "So remember: slide both decimal points the same number of places until the number you are dividing by is whole, then just divide like normal.",
+    "math": "\\frac{\\text{decimal}}{\\text{decimal}} \\rightarrow \\frac{\\text{whole}}{\\text{whole}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Move BOTH decimal points the same number of places until the divisor is a whole number — then divide as usual.",
+  "practice": {
+   "question": "You have a ribbon five point six metres long, and you are cutting it into pieces that are each zero point eight metres long. Rewrite five point six divided by zero point eight as a whole number division, then solve it. How many pieces do you get?",
+   "answer": "Move both decimal points one place: fifty six divided by eight equals seven. You get 7 pieces. (Check: 7 times 0.8 equals 5.6.)"
+  }
+ }
+}

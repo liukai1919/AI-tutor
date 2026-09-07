@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.PERIM.CALC",
+ "lang": "en",
+ "title": "Calculate the perimeter of regular and irregular polygons from side lengths",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Walk All the Way Around: Finding Perimeter",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find perimeter by counting little squares around a shape on a grid. Today the shape does not sit on a grid anymore — instead, each side has a number written on it, like a real garden bed at a Vancouver community garden. So how do we find the distance all the way around? We add the sides.",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      3
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A garden bed, 8 metres long and 3 metres wide"
+    }
+   },
+   {
+    "say": "Here is the whole idea: put your finger on one corner and walk all the way around the shape until you come back to where you started. Every side you walk on, you add. On this garden bed, I walk eight, then three, then eight, then three. Eight plus three is eleven, and the other two sides make another eleven. Eleven plus eleven is twenty-two. So the perimeter is twenty-two metres. That is exactly how much fencing we would need.",
+    "math": "8+3+8+3=22",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      3
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Walk around: 8 + 3 + 8 + 3 = 22 m"
+    }
+   },
+   {
+    "say": "Now a regular shape — that just means all the sides are the same length. Here is a square sandbox at the park, seven metres on every single side. I still walk all the way around and add: seven plus seven is fourteen, and the other two sides are fourteen more. Fourteen plus fourteen is twenty-eight. The perimeter is twenty-eight metres. Same rule as before, just with easier numbers because the sides match.",
+    "math": "7+7+7+7=28",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      7,
+      7
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A square sandbox, 7 m on each side"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often, so watch closely. Picture an L-shaped deck. It started as a rectangle six metres by four metres, but a piece three metres by two metres was cut out of the top right corner. Now the deck has six sides, but the drawing only labels four of them: six, four, three, and two. Lots of kids just add those four numbers and say fifteen metres. But that is wrong — their finger never walked the two sides with no number on them! When I walk all six sides, I go six, two, three, two, three, four. Six plus four is ten, three plus three is six, two plus two is four. Ten plus six is sixteen, plus four is twenty metres. The real perimeter is twenty metres, not fifteen.",
+    "math": "6+2+3+2+3+4=20",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "The L-deck starts as this 6 m by 4 m rectangle, with a 3 m by 2 m corner cut out — all 6 sides still count"
+    }
+   },
+   {
+    "say": "So before you add, always trace around the shape with your finger and count how many sides you touched. If you touched six sides, your adding should have six numbers in it. A side with no label is still a side, and it still needs fence!",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Perimeter means walk all the way around — add every side you touch, even the ones with no number written on them.",
+  "practice": {
+   "question": "Draw a rectangle for a vegetable garden in your backyard. The long sides are 9 metres each and the short sides are 5 metres each. Grandma wants to put a small fence all the way around it. How many metres of fence does she need?",
+   "answer": "28 metres, because 9 plus 5 plus 9 plus 5 equals 28."
+  }
+ }
+}

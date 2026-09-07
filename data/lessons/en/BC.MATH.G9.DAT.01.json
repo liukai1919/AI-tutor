@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.DAT.01",
+ "lang": "en",
+ "title": "statistics in society",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Why That Headline Is Lying to You (And How to Spot It)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. Your friend Maya posts on the school group chat: 'I asked five parents at the hockey game and 80 percent of them said homework causes stress. So basically EVERYONE at our school is stressed by homework.' You look at her and go, 'Wait, Maya, you asked FIVE people at ONE hockey game.' And that tiny moment where you catch her? That is exactly the skill we are building today. In a world full of polls, headlines, and '9 out of 10 dentists say...', you need to be the kid who goes, 'Hmm, but WHO did you ask, and HOW did you ask them?' That is statistics in society, and it is honestly one of the most useful superpowers you can have by the time you leave Grade 9.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us name the two big ideas first. The population is the ENTIRE group you are curious about. If your school has 1,240 students, the population is all 1,240. The sample is the smaller, manageable chunk you actually survey. Maybe you ask the 60 students in one homeroom. Now here is the golden rule: your sample has to be a fair, representative slice of the population. If you only survey the hockey team, your 60 out of 1,240 is NOT a fair slice. You have accidentally sampled 'athletes who play hockey' instead of 'all students.' Think of it like taking a spoonful of soup. If you only scoop from the top where the cream is, you will say the whole pot is creamy, but the bottom is still broth. Your sample is that spoonful. Make sure you stir the pot first.",
+    "math": "\\text{Population} = \\text{all 1,240 students}, \\quad \\text{Sample} = \\text{the 60 you actually ask}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1240,
+      60
+     ],
+     "labels": [
+      "Population",
+      "Sample"
+     ],
+     "caption": "Population vs. sample: your spoonful has to represent the whole pot"
+    }
+   },
+   {
+    "say": "Now let us talk about the sneaky word: bias. Bias is not just 'I like Team A more.' In statistics, bias means your method quietly pushes the answer one way. Here are three sneaky flavours you will see everywhere. First, selection bias: you only ask people who are easy to reach, like a survey posted on Instagram (you miss every person who is not on Instagram). Second, leading-question bias: you ask 'Do you agree that the new eight-dollar latte is a steal?' instead of the neutral 'How do you feel about the new price?' Third, timing bias: you survey everyone on Monday morning before the bus they already hate, or right before a deadline when everyone is cranky. Look at this bar chart. Same question, three different sampling methods, three very different answers. Which one is 'true'? None of them are the whole truth, but the random sample is closest.",
+    "math": "\\text{Bias} = \\text{a systematic error in how data is collected}",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      80,
+      55,
+      62
+     ],
+     "labels": [
+      "IG",
+      "Phone",
+      "Hall"
+     ],
+     "caption": "Same question, three sampling methods — Instagram-only poll (IG), random phone calls, in-person hallway survey — three different results"
+    }
+   },
+   {
+    "say": "Let us work through a real example together, nice and simple. A little coffee shop in Coquitlam just bumped the price of their latte from five dollars to eight dollars. The owner wants to know if regulars are happy, so she asks the first 40 people who walk in on a Saturday morning. Her question is: 'Don't you think our new eight-dollar latte is a great deal for the quality?' Thirty-five out of 40 nod and say yes. She is thrilled and puts up a sign: '87.5 percent of our customers LOVE the new price!' Okay, let us be the critical friend. First, 35 out of 40 is 87.5 percent, that math checks out. But the QUESTION is leading. You basically told people what answer to give. Second, she only surveyed people who STILL walked in. The people who saw the new price on the window and walked to the other shop? They are invisible. That is selection bias. Third, 40 people on ONE Saturday morning is a tiny sample of maybe 800 regulars. The sign is not lying about the number, but the number is misleading because of HOW it was collected.",
+    "math": "\\frac{35}{40} = 0.875 = 87.5\\%",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      40,
+      35,
+      5,
+      87.5
+     ],
+     "labels": [
+      "Asked",
+      "Yes",
+      "No",
+      "Yes %"
+     ],
+     "caption": "The coffee shop's Saturday survey: the numbers are right, the method is not"
+    }
+   },
+   {
+    "say": "Okay, a slightly trickier one, and this one will look like something you actually read in a BC news feed. Imagine a Statistics Canada report comes out and says the AVERAGE household income in British Columbia is 72,000 dollars. A local news site writes a headline: 'BC families making 72,000 dollars a year cannot afford a home in Vancouver!' You read that and think, 'Okay, that tracks, housing IS crazy.' But wait. Average, also called the mean, is the sum of all incomes divided by the number of households. A few families making several million dollars pull that average way up. The MEDIAN income, the number right in the middle, is actually closer to 58,000 dollars. So the 'typical' BC household is making more like 58,000, not 72,000. The headline used the average to make the number sound bigger, which made the housing gap look even more extreme than it already is. The data is real, the math is real, but the choice of which number to highlight is a form of bias. Always ask yourself: are they showing me the average or the median, and does it matter here?",
+    "math": "\\text{Average (mean)} = \\frac{\\text{sum of all incomes}}{\\text{number of households}} = 72{,}000, \\quad \\text{Median} \\approx 58{,}000",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      72,
+      58
+     ],
+     "labels": [
+      "Mean",
+      "Median"
+     ],
+     "caption": "Income in thousands of dollars: the average is pulled up by very high earners; the median is closer to the 'typical' household"
+    }
+   },
+   {
+    "say": "Now let us talk about the chart trick you see in almost every news article. Imagine a company's profit went from 10 million to 11 million dollars. That is a real, solid ten percent growth. But if I draw a bar chart and I start my y-axis at 9 instead of at zero, that little bar looks like it DOUBLED. It looks huge. The numbers are not wrong, but my eye is completely fooled. This is called a truncated axis, and it is everywhere. Here is what to do: every single time you see a bar chart or a line chart, check the bottom of the y-axis. Does it start at zero? If it starts at 90 and goes to 100, and one bar is at 95 and the other is at 99, the second bar looks almost twice as tall, but really it is only about four percent bigger. You got it. You are not supposed to memorize a rule, you are supposed to develop the reflex of glancing at that axis before you let the chart make you feel something.",
+    "math": "\\text{Growth: } \\frac{11 - 10}{10} = \\frac{1}{10} = 10\\% \\quad \\text{(real change)} \\quad vs. \\quad \\text{visual impression: } \\sim 2\\times \\text{ (tricked!) }",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      10,
+      11
+     ],
+     "labels": [
+      "2025",
+      "2026"
+     ],
+     "caption": "Profit in millions of dollars with the y-axis starting at 0: a 10% change. Now imagine the y-axis started at 9 instead of 0 — the bar would look twice as tall. That is the trick."
+    }
+   },
+   {
+    "say": "This part is close to home and really important. In BC, many First Nations communities have been collecting water-quality data on their traditional territories for generations. When a government agency or a university uses that data, ethics are not optional. They have to ask permission, credit the community as the source, share the findings back, and make sure the data is not used in a way that harms the community. Here is a Grade 9 example: a science class is given a dataset of water-quality readings from a local First Nations monitoring station. The ethics check is: Did we get the data through a proper channel? Are we giving credit? Are we presenting the results honestly, including the bad readings, not just the good ones? And on the privacy side, if your school shares test scores, they have to be anonymized. Putting your name and your mark on a public spreadsheet is an ethics failure. Also think about language. A survey that asks 'Do you enjoy traditional Indigenous foods?' without explaining WHICH traditions, or which communities, can be culturally insensitive. The data matters, but so does the dignity of the people behind it.",
+    "math": "\\text{Ethics checklist: permission, credit, honesty, privacy, cultural respect}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway, the thing I want you to carry into every news feed, every group chat, every 'did you hear this statistic' conversation. A number is only as honest as the method that produced it. Before you share a stat, ask four quick questions: Who was asked, how were they asked, what was left out, and whose story is missing? You do not need a calculator for that. You just need to be the kid in the room who says, 'Hey, wait, who did you actually survey?' And trust me, that makes you the most interesting person in the room.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": "Your four-question filter: Who? How? What's missing? Whose story?"
+    }
+   }
+  ],
+  "answer": "A number is only as honest as the method that produced it — always ask who was sampled, how, and whose story is missing.",
+  "practice": {
+   "question": "Your school of 980 students holds a vote on whether to add a second hockey rink. A group of 30 students from the boys' hockey team is asked, 'Don't you think a second rink would be awesome?' Twenty-eight say yes. The group posts: '93% of students want a second rink!' Identify THREE problems with how this 'result' was collected, and explain why 93% is not a fair estimate of what all 980 students think.",
+   "answer": "(1) Selection bias: only the boys' hockey team was surveyed, not a random sample of all 980 students. (2) Leading question: 'Don't you think... would be awesome?' pushes people toward 'yes.' (3) Very small sample relative to the population: 30 out of 980 is about 3%, and those 30 are all hockey players with a vested interest, so the 28-out-of-30 (93%) result tells us almost nothing about the rest of the school."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 9
+ }
+}

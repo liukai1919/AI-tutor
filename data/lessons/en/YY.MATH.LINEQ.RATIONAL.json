@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LINEQ.RATIONAL",
+ "lang": "en",
+ "title": "Solve equations with fraction or decimal coefficients by clearing denominators first (1 + 2x = 3 − 2/3(x + 6))",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Clear the Fraction First: Solving 1 + 2x = 3 − ⅔(x + 6)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve equations with x on both sides, like five x minus two equals two x plus seven. Today's equation has one annoying extra: a fraction coefficient, two thirds, sitting in front of a bracket. Here is the plan: get rid of the fraction right away by multiplying every single term by the denominator, three. After that, it is just a normal equation you already know how to handle.",
+    "math": "1 + 2x = 3 - \\frac{2}{3}(x + 6)",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -0.5,
+      -0.5
+     ],
+     "labels": [
+      "1 + 2x",
+      "3 − ⅔(x + 6)"
+     ],
+     "caption": "Both sides are equal — the fraction is the part we want gone"
+    }
+   },
+   {
+    "say": "Think of the equation as a balanced scale. If you triple everything on the left and triple everything on the right, it stays balanced. So multiply every term by three. Three times one is three. Three times two x is six x. Three times three is nine. And three times two thirds is two, so the last term becomes two times the bracket x plus six. Notice the three and the denominator three cancel each other — that is exactly why we chose three.",
+    "math": "3(1) + 3(2x) = 3(3) - 3\\cdot\\frac{2}{3}(x + 6) \\;\\Rightarrow\\; 3 + 6x = 9 - 2(x + 6)",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -1.5,
+      -1.5
+     ],
+     "labels": [
+      "3 + 6x",
+      "9 − 2(x + 6)"
+     ],
+     "caption": "Tripling both sides keeps the scale balanced — and the fraction is gone"
+    }
+   },
+   {
+    "say": "Two mistakes love to show up here. Mistake one: multiplying only the fraction term by three and leaving the others alone, giving one plus two x equals three minus two times the bracket. That is like tripling one item on the scale but not the rest — it tips. Every term gets multiplied, all four of them. Mistake two: when you distribute the negative two, only hitting the x and writing negative two x plus six. The negative two must reach both things in the bracket: negative two x and negative twelve.",
+    "math": "\\text{Wrong: } 1 + 2x = 3 - 2(x+6) \\qquad \\text{Wrong: } -2(x+6) = -2x + 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1
+     ],
+     "labels": [
+      "1 + 2x",
+      "9 − 2(x + 6)"
+     ],
+     "caption": "Tripling only the right side tips the scale — the equation is no longer true"
+    }
+   },
+   {
+    "say": "Now finish it the way you already know. Distribute the negative two properly: nine minus two x minus twelve, which simplifies to negative three minus two x. Collect the x terms by adding two x to both sides: three plus eight x equals negative three. Subtract three from both sides: eight x equals negative six. Divide both sides by eight: x equals negative six eighths, which reduces to negative three quarters. Careful with the sign: a negative divided by a positive stays negative.",
+    "math": "3 + 6x = -3 - 2x \\;\\Rightarrow\\; 8x = -6 \\;\\Rightarrow\\; x = -\\frac{6}{8} = -\\frac{3}{4}",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -6,
+      -6
+     ],
+     "labels": [
+      "8x",
+      "−6"
+     ],
+     "caption": "Eight x balances negative six, so one x is negative six eighths"
+    }
+   },
+   {
+    "say": "Let us check it, because a real answer should work in the original equation. Left side: one plus two times negative three quarters is one minus three halves, which is negative one half. Right side: x plus six is twenty-one quarters, two thirds of that is seven halves, and three minus seven halves is also negative one half. Both sides match, so x equals negative three quarters is right. The big takeaway: when you see a fraction coefficient, multiply every term by the denominator first, and the fraction disappears before it can cause trouble.",
+    "math": "1 + 2\\left(-\\frac{3}{4}\\right) = -\\frac{1}{2} \\quad\\text{and}\\quad 3 - \\frac{2}{3}\\left(\\frac{21}{4}\\right) = -\\frac{1}{2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Fraction coefficient? Multiply EVERY term by the denominator first — then it is a normal equation.",
+  "practice": {
+   "question": "Solve for x: two plus x equals seven minus three quarters times the quantity x plus two. Hint: multiply every term on both sides by four first, then distribute carefully to both terms in the bracket.",
+   "answer": "Multiply everything by 4: 8 + 4x = 28 − 3(x + 2). Distribute: 8 + 4x = 28 − 3x − 6 = 22 − 3x. Add 3x: 8 + 7x = 22. Subtract 8: 7x = 14. So x = 2. Check: left side 2 + 2 = 4; right side 7 − three quarters of 4 = 7 − 3 = 4."
+  }
+ }
+}

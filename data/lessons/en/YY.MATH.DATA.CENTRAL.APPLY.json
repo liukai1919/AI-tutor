@@ -1,0 +1,139 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.CENTRAL.APPLY",
+ "lang": "en",
+ "title": "Use mean, median and mode to compare and interpret real data sets (sports stats, class surveys, prices)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Mean, Median, Mode: Comparing Two Real Data Sets",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to pick the measure that best describes one data set, and how an outlier tugs the mean around. Today we take that one step further: using mean, median and mode to compare two data sets and say something real about them.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the situation. Two grade eight friends, Maya and Jordan, both work part time on the weekend. These are their daily earnings in dollars over five shifts. Maya made forty five, fifty, forty five, fifty five and fifty five dollars. Jordan made twenty, twenty five, thirty, twenty five and one hundred and fifty dollars, because on his last shift he got a huge tip from a wedding party.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      45,
+      50,
+      45,
+      55,
+      55,
+      20,
+      25,
+      30,
+      25,
+      150
+     ],
+     "labels": [
+      "Shift 1",
+      "Shift 2",
+      "Shift 3",
+      "Shift 4",
+      "Shift 5",
+      "Maya",
+      "Jordan"
+     ],
+     "caption": "Daily earnings in dollars for Maya and Jordan"
+    }
+   },
+   {
+    "say": "Let's work out all three measures for each person. Maya's total is forty five plus fifty plus forty five plus fifty five plus fifty five, which is two hundred and fifty, so her mean is two hundred fifty divided by five, that is fifty dollars. Sorted, her numbers are forty five, forty five, fifty, fifty five, fifty five, so her median is fifty dollars. She has two forty fives and two fifty fives, so there are two modes. Jordan's total is twenty plus twenty five plus thirty plus twenty five plus one hundred fifty, which is two hundred and fifty as well, so his mean is also fifty dollars. But sorted, his numbers are twenty, twenty five, twenty five, thirty, one hundred fifty, so his median is only twenty five dollars, and his mode is twenty five dollars.",
+    "math": "\\bar{x}_{\\text{Maya}}=\\frac{250}{5}=50,\\qquad \\bar{x}_{\\text{Jordan}}=\\frac{250}{5}=50",
+    "visual": {
+     "type": "average",
+     "nums": [
+      20,
+      25,
+      30,
+      25,
+      150
+     ],
+     "labels": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+     ],
+     "caption": "Jordan's shifts: the mean line at 50 dollars sits above four of his five days"
+    }
+   },
+   {
+    "say": "Now the mistake I see all the time. Someone glances at the two means, sees fifty and fifty, and says these two jobs pay the same. That is not true. Look at Jordan's picture: four of his five days are below the mean line. That one hundred and fifty dollar tip day is an outlier, and it is dragging his mean way up. On a typical shift Jordan makes twenty five dollars while Maya makes fifty. So here the median tells the honest story, not the mean. The mean is not automatically the best measure — when there is an extreme value, reach for the median.",
+    "math": "\\text{median}_{\\text{Maya}}=50,\\qquad \\text{median}_{\\text{Jordan}}=25",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      50,
+      50,
+      50,
+      25
+     ],
+     "labels": [
+      "Maya",
+      "Jordan",
+      "Mean",
+      "Median"
+     ],
+     "caption": "Means look identical; medians show Maya earns twice as much on a typical day"
+    }
+   },
+   {
+    "say": "One more trap: comparing just one column instead of the whole set. If you only looked at shift five, you would shout that Jordan earns ninety five dollars more than Maya. But that is a single day, not the pattern. Compare the totals or the measures across all five shifts. Both totalled two hundred and fifty dollars, and Maya's median is double Jordan's, so the fair conclusion is that Maya's earnings are steadier and typically higher, while Jordan's are low most days with one lucky spike.",
+    "math": "55-150=-95 \\;\\text{(one day only, not the pattern)}",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      45,
+      50,
+      45,
+      55,
+      55,
+      20,
+      25,
+      30,
+      25,
+      150
+     ],
+     "labels": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "Maya",
+      "Jordan"
+     ],
+     "caption": "Shift 5 alone is misleading — read all five bars together"
+    }
+   },
+   {
+    "say": "So when you compare two real data sets, work out mean, median and mode for both, then let the shape of the data decide which one you trust.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Compare data sets with all three measures — when an outlier shows up, trust the median over the mean.",
+  "practice": {
+   "question": "Two corner stores in Victoria sell bubble tea. Store A's prices over five days, in dollars, are six, six, seven, six and seven. Store B's prices over five days are five, five, five, six and twenty four, because on the last day they only had the giant deluxe size. Find the mean and the median price for each store, then say which store is truly cheaper for a typical drink and why.",
+   "answer": "Store A: total is 32 dollars, so the mean is 32 divided by 5 equals 6 dollars 40; sorted the prices are 6, 6, 6, 7, 7, so the median is 6 dollars. Store B: total is 45 dollars, so the mean is 45 divided by 5 equals 9 dollars; sorted the prices are 5, 5, 5, 6, 24, so the median is 5 dollars. Store B looks more expensive by the mean, but that 24 dollar day is an outlier pulling the mean up. The medians say Store B is actually cheaper on a typical day — 5 dollars against 6 dollars."
+  }
+ }
+}

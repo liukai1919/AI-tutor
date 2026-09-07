@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.ROOT.PRIME_FACTOR",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkj7bj0mrxw0u",
+   "level": 1,
+   "question": "The prime factorization of 3600 is 2 × 2 × 2 × 2 × 3 × 3 × 5 × 5, that is four 2s, two 3s and two 5s. Group the prime factors into pairs and take one factor out of each pair. What is √3600?",
+   "options": [
+    "60",
+    "240",
+    "30",
+    "1800"
+   ],
+   "answerIndex": 0,
+   "explain": "Four 2s make two pairs, the 3s make one pair and the 5s make one pair, so √3600 = 2 × 2 × 3 × 5 = 60. The usual trap is keeping all four 2s, which gives 240 instead of taking one factor out of each pair.",
+   "tags": [
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0cscud5",
+   "level": 1,
+   "question": "The prime factorization of 1728 is 2 × 2 × 2 × 2 × 2 × 2 × 3 × 3 × 3, that is six 2s and three 3s. Group the prime factors into triples and take one factor out of each triple. What is the cube root of 1728?",
+   "options": [
+    "108",
+    "12",
+    "6",
+    "24"
+   ],
+   "answerIndex": 1,
+   "explain": "Six 2s make two triples and three 3s make one triple, so the cube root is 2 × 2 × 3 = 12. Watch out for leaving the three 3s untouched, which gives 108 — every group of three contributes exactly one factor.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0aw3pw2",
+   "level": 1,
+   "question": "A number is built from the prime factors 2 × 2 × 3 × 3 × 3 × 3 × 7 × 7, which multiply to 15876. That is two 2s, four 3s and two 7s. Pair the factors up and take one from each pair. What is √15876?",
+   "options": [
+    "1134",
+    "42",
+    "126",
+    "378"
+   ],
+   "answerIndex": 2,
+   "explain": "The four 3s form two pairs, so √15876 = 2 × 3 × 3 × 7 = 126. A common slip is counting the four 3s as only two and answering 42, or carrying all four 3s through and answering 1134.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0tyqxdz",
+   "level": 1,
+   "question": "The prime factorization of 8000 is 2 × 2 × 2 × 2 × 2 × 2 × 5 × 5 × 5, that is six 2s and three 5s. Group the prime factors in triples to take a cube root. What is the cube root of 8000?",
+   "options": [
+    "320",
+    "10",
+    "40",
+    "20"
+   ],
+   "answerIndex": 3,
+   "explain": "Six 2s make two triples and three 5s make one triple, so the cube root is 2 × 2 × 5 = 20. For a cube root you group in threes, not pairs — grouping the 2s in pairs is what produces 40.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0wzqd15",
+   "level": 2,
+   "question": "Use the prime factorization 19600 = 2⁴ × 5² × 7² to find √19600.",
+   "options": [
+    "140",
+    "560",
+    "70",
+    "9800"
+   ],
+   "answerIndex": 0,
+   "explain": "Halve every exponent: √(2⁴ × 5² × 7²) = 2² × 5 × 7 = 140. Forgetting to halve the 4 on the 2 leaves 2⁴ × 5 × 7 = 560, which is the most common error here.",
+   "tags": [
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj053pe5d",
+   "level": 2,
+   "question": "Priya is building a square patio in her Surrey backyard with exactly 2025 square paving stones, arranged in a full square with none left over. Since 2025 = 3⁴ × 5², how many stones are along each side?",
+   "options": [
+    "405",
+    "45",
+    "225",
+    "15"
+   ],
+   "answerIndex": 1,
+   "explain": "Halve each exponent: √(3⁴ × 5²) = 3² × 5 = 45 stones per side. Every exponent must be halved — halving only one of them gives 405 or 225.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0wbwhqr",
+   "level": 2,
+   "question": "A cube-shaped tank at a science fair holds 13824 cm³ of water. Its prime factorization is 13824 = 2⁹ × 3³. How long is one edge of the cube?",
+   "options": [
+    "12 cm",
+    "1536 cm",
+    "24 cm",
+    "48 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "For a cube root, divide each exponent by 3: ∛(2⁹ × 3³) = 2³ × 3 = 24 cm. Dividing by 2 instead of 3 gives 48 cm, and leaving the 2⁹ alone gives 1536 cm.",
+   "tags": [
+    "pf.exponent_miscount",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0wwhz1p",
+   "level": 2,
+   "question": "Given that 2916 = 2² × 3⁶, what is √2916?",
+   "options": [
+    "1458",
+    "18",
+    "108",
+    "54"
+   ],
+   "answerIndex": 3,
+   "explain": "Halve both exponents: √(2² × 3⁶) = 2 × 3³ = 54. Leaving one exponent alone gives 1458 or 108 — the halving has to be done to every prime.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj09a08or",
+   "level": 3,
+   "question": "Noah is tiling a square section of his family's patio in Kelowna with 2304 identical square tiles, where 2304 = 2⁸ × 3². He then places one edging strip along each tile edge all the way around the outside of the square. How many edging strips does he need?",
+   "options": [
+    "192",
+    "3072",
+    "96",
+    "48"
+   ],
+   "answerIndex": 0,
+   "explain": "Halving the exponents gives a side of 2⁴ × 3 = 48 tiles, and the four sides need 4 × 48 = 192 strips. Stopping at 48 answers only the first half of the question.",
+   "tags": [
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0x21d5x",
+   "level": 3,
+   "question": "A cube-shaped gift box from a Victoria craft fair has a volume of 5832 cm³, and 5832 = 2³ × 3⁶. The lid is one whole square face of the cube. What is the area of the lid?",
+   "options": [
+    "5184 cm²",
+    "324 cm²",
+    "18 cm²",
+    "36 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide each exponent by 3: ∛(2³ × 3⁶) = 2 × 3² = 18 cm for the edge, then one face is 18 × 18 = 324 cm². Two traps here: dividing only some exponents by 3, and answering with the edge length instead of the area.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "other",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0nxljtn",
+   "level": 3,
+   "question": "Maya writes: 810000 = 2⁴ × 3⁴ × 5⁴, so √810000 = 2² × 3⁴ × 5² = 8100. Her answer is not correct. What is her mistake?",
+   "options": [
+    "The 3⁴ is fine because 81 is a perfect square; halving 2⁴ was the mistake.",
+    "She counted four 3s when there are only two, so the root should be 300.",
+    "She did not halve the exponent on 3; the root is 2² × 3² × 5² = 900.",
+    "She halved each exponent when she should have doubled them instead."
+   ],
+   "answerIndex": 2,
+   "explain": "A square root halves the exponent of every prime, so √(2⁴ × 3⁴ × 5⁴) = 2² × 3² × 5² = 900. Maya halved the 2s and 5s but carried 3⁴ through unchanged, which is the classic slip.",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj7bj0oze9ns",
+   "level": 3,
+   "question": "The art club at a Burnaby school makes a square mosaic from 1936 small square tiles and a square rug pattern from 3025 small squares. Using 1936 = 2⁴ × 11² and 3025 = 5² × 11², how many more small squares are along one side of the rug than along one side of the mosaic?",
+   "options": [
+    "1089",
+    "121",
+    "33",
+    "11"
+   ],
+   "answerIndex": 3,
+   "explain": "Halving the exponents gives 2² × 11 = 44 for the mosaic side and 5 × 11 = 55 for the rug side, so the rug is 11 squares longer. Subtracting the two totals (1089) compares areas, not side lengths.",
+   "tags": [
+    "other",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "ok"
+   ]
+  }
+ ]
+}

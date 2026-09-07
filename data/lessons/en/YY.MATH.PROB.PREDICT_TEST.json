@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.PREDICT_TEST",
+ "lang": "en",
+ "title": "Predict, run an experiment and compare the results with the prediction",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Guess First, Then Try It Out!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write the chance of one outcome as a fraction, and how to spin and keep tally marks. Today we do the fun part — we make a guess first, then we spin and see how close our guess was.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "blue",
+      "red",
+      "green"
+     ],
+     "caption": "Our classroom spinner: 4 equal parts"
+    }
+   },
+   {
+    "say": "Here is Maya's spinner from her Surrey classroom. It has four equal parts: two blue, one red, and one green. So blue is two out of four, red is one out of four, and green is one out of four. If we spin forty times, our prediction for blue is half of forty, which is twenty. For red we predict one quarter of forty, which is ten, and green is also ten.",
+    "math": "\\frac{2}{4}\\times 40 = 20",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      10,
+      10
+     ],
+     "labels": [
+      "Colour",
+      "Predicted"
+     ],
+     "caption": "Predicted out of 40 spins: blue 20, red 10, green 10"
+    }
+   },
+   {
+    "say": "Now Maya really spins it forty times and tallies. She gets blue seventeen times, red twelve times, and green eleven times. Let us check the total: seventeen plus twelve is twenty nine, and twenty nine plus eleven is forty. Good, all forty spins are there.",
+    "math": "17+12+11=40",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      20,
+      10,
+      10,
+      17,
+      12,
+      11
+     ],
+     "labels": [
+      "blue",
+      "red",
+      "green",
+      "Predicted",
+      "Actual"
+     ],
+     "caption": "Predicted vs actual for 40 spins"
+    }
+   },
+   {
+    "say": "Now we compare. Blue was seventeen instead of twenty, so it was three short. Red was twelve instead of ten, two over. Green was eleven instead of ten, one over. Those are small gaps, so we say the results are close to our prediction. Blue still came up the most, just like we guessed.",
+    "math": "20-17=3,\\quad 12-10=2,\\quad 11-10=1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      10,
+      10,
+      17,
+      12,
+      11
+     ],
+     "labels": [
+      "Colour",
+      "Predicted",
+      "Actual"
+     ],
+     "caption": "Close, but not exactly equal — that is normal!"
+    }
+   },
+   {
+    "say": "Here is the mistake to watch for. Maya's friend spins only four times and gets red three times. He shouts, this spinner is broken, red is winning! But four spins is way too few. With only four spins, anything can happen by luck. You need lots of trials, like forty or a hundred, before you can say anything about the spinner. A prediction that does not match after four tries proves nothing at all.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      3,
+      0,
+      40,
+      12,
+      1
+     ],
+     "labels": [
+      "Spins",
+      "Red so far",
+      "Can we judge?"
+     ],
+     "caption": "4 spins: too few (no). 40 spins: enough (yes)."
+    }
+   },
+   {
+    "say": "So remember: predict first, run lots of trials, then compare. Real results wiggle around the prediction, and that is completely okay.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Predict first, do lots of trials, then compare — close is normal, and a few tries never prove anything.",
+  "practice": {
+   "question": "Liam has a bag of 20 marbles at his Kelowna school: 10 blue, 5 yellow, and 5 white. He will reach in, look, and put the marble back — 20 times in all. First, make a prediction table with the headings Colour and Predicted, and fill in how many times you expect each colour. Then Liam does it for real and records blue 9 times, yellow 7 times, and white 4 times. Add an Actual column, check that the actual numbers add to 20, and write one sentence saying whether the results were close to your prediction.",
+   "answer": "Predicted: blue 10, yellow 5, white 5 (blue is 10 out of 20, which is one half of 20 draws; yellow and white are each 5 out of 20, which is one quarter of 20 draws). Actual: blue 9, yellow 7, white 4, and 9 plus 7 plus 4 equals 20. Blue was 1 under, yellow was 2 over, white was 1 under. The results were close to the prediction, and blue still came up the most — the small differences are just normal luck."
+  }
+ }
+}

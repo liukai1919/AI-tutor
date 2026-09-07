@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.DEC_TO_FRAC",
+ "lang": "en",
+ "title": "Convert a decimal to a fraction in lowest terms",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Decimals into Neat Fractions",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that zero point two five means twenty-five hundredths, so you can write it as twenty-five over one hundred. Today we finish the job: we shrink that fraction down to its simplest, tidiest form.",
+    "math": "0.25 = \\frac{25}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "0.25 means 25 of the 100 little squares are shaded"
+    }
+   },
+   {
+    "say": "Here is the whole move in two steps. Step one, read the last decimal place out loud to get your denominator: two places means hundredths, so put the digits over one hundred. Step two, divide the top and the bottom by their biggest common factor. For twenty-five over one hundred, both split evenly by twenty-five, so twenty-five divided by twenty-five is one, and one hundred divided by twenty-five is four. You get one quarter.",
+    "math": "\\frac{25}{100}=\\frac{25\\div 25}{100\\div 25}=\\frac{1}{4}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "25 shaded squares is exactly one quarter of the grid"
+    }
+   },
+   {
+    "say": "Let us try a real one. You buy a snack at the corner store and the tax works out to zero point six five of a dollar, which is sixty-five cents. Two decimal places, so that is sixty-five over one hundred. Both numbers end in five, so they share a factor of five. Sixty-five divided by five is thirteen, and one hundred divided by five is twenty. So zero point six five is thirteen over twenty. Thirteen is a prime number and twenty is not a multiple of thirteen, so we are done — that is lowest terms.",
+    "math": "0.65=\\frac{65}{100}=\\frac{65\\div 5}{100\\div 5}=\\frac{13}{20}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      65
+     ],
+     "labels": [],
+     "caption": "65 cents out of a dollar, which simplifies to 13 over 20"
+    }
+   },
+   {
+    "say": "Now the two traps. First trap: stopping too early. If you take zero point seven five and only divide by two — wait, seventy-five is odd, so try a smaller factor like five: seventy-five over one hundred becomes fifteen over twenty. That is correct, but it is not finished, because fifteen and twenty still share a five. Keep going: fifteen over twenty becomes three over four. Three quarters is the real answer. Always ask yourself, can I still divide both numbers by something?",
+    "math": "0.75=\\frac{75}{100}=\\frac{15}{20}=\\frac{3}{4}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      75
+     ],
+     "labels": [],
+     "caption": "75 shaded squares equals three quarters of the grid"
+    }
+   },
+   {
+    "say": "Second trap: mixing up tenths and hundredths. Three hundredths is not zero point three. Zero point three is thirty little squares shaded — that is three tenths. Three hundredths is only three tiny squares, and it is written zero point zero three. Count the decimal places first: one place means over ten, two places mean over one hundred, three places mean over one thousand.",
+    "math": "0.03=\\frac{3}{100}\\quad\\text{but}\\quad 0.3=\\frac{3}{10}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      3,
+      30
+     ],
+     "labels": [],
+     "caption": "3 hundredths (0.03) versus 30 hundredths (0.3) — very different sizes"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line: count the decimal places to build the fraction, then keep dividing top and bottom until nothing divides them anymore.",
+    "math": "0.4=\\frac{4}{10}=\\frac{2}{5}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count the decimal places to get the denominator, then divide top and bottom until no common factor is left.",
+  "practice": {
+   "question": "Your water bottle holds zero point eight of a litre. Write zero point eight as a fraction in lowest terms. Hint: one decimal place means the denominator is ten, and eight over ten still has a common factor. Try sketching a bar split into ten parts with eight shaded.",
+   "answer": "Four fifths. Zero point eight is eight over ten, and dividing both numbers by two gives four over five."
+  }
+ }
+}

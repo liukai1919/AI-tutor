@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV1M.COUNT_MULTIPLES",
+ "lang": "en",
+ "title": "Skip-count by 250s, 500s, 1000s and 25 000s from any start",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Jumps: Counting by 250s, 500s and 25 000s",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already count by twenty-fives and by thousands like a pro. Today we just stretch those jumps a little bigger, so you can hop by two hundred fifty, five hundred, one thousand, or even twenty-five thousand, starting from any number you like.",
+    "math": "25,\\;100,\\;1000\\;\\rightarrow\\;250,\\;500,\\;25\\,000",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the secret that makes it fast. Two jumps of two hundred fifty land on five hundred, and four jumps of two hundred fifty land on one thousand. So two hundred fifty is a quarter of a thousand, just like a quarter is a quarter of a dollar.",
+    "math": "250+250=500 \\qquad 500+500=1000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1000,
+      250,
+      500
+     ],
+     "labels": [],
+     "caption": "Two hops of 250 make 500, four hops make 1000"
+    }
+   },
+   {
+    "say": "Let us count by two hundred fifty starting at three thousand two hundred fifty. I only watch the last three digits, because they follow my twenty-five pattern: two hundred fifty, five hundred, seven hundred fifty, then a brand new thousand. So I say three thousand two hundred fifty, three thousand five hundred, three thousand seven hundred fifty, four thousand, four thousand two hundred fifty.",
+    "math": "3250 \\to 3500 \\to 3750 \\to 4000 \\to 4250",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3250,
+      4250,
+      3250,
+      3500
+     ],
+     "labels": [],
+     "caption": "First hop: 3250 + 250 = 3500"
+    }
+   },
+   {
+    "say": "Here is the spot where lots of kids slip. From three thousand seven hundred fifty, some say three thousand nine hundred. Careful! Seven hundred fifty plus two hundred fifty is a whole one thousand, not nine hundred. So the thousands digit grows and we land on four thousand, exactly.",
+    "math": "750+250=1000 \\;\\Rightarrow\\; 3750+250=4000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3500,
+      4000,
+      3750,
+      4000
+     ],
+     "labels": [],
+     "caption": "3750 + 250 fills up to the next thousand: 4000"
+    }
+   },
+   {
+    "say": "Twenty-five thousands work the very same way, just with three zeros riding along. Start at one hundred twenty-five thousand and count the twenty-fives: one hundred twenty-five, one hundred fifty, one hundred seventy-five, two hundred. So you get one hundred fifty thousand, one hundred seventy-five thousand, two hundred thousand.",
+    "math": "125\\,000 \\to 150\\,000 \\to 175\\,000 \\to 200\\,000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      100000,
+      200000,
+      125000,
+      150000
+     ],
+     "labels": [],
+     "caption": "A 25 000 hop from 125 000 lands on 150 000"
+    }
+   },
+   {
+    "say": "So remember: four jumps of two hundred fifty always build one whole thousand, and the same pattern works for five hundreds and twenty-five thousands.",
+    "math": "4\\times 250=1000",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Two hundred fifty is a quarter of a thousand — four hops of 250 always make exactly 1000.",
+  "practice": {
+   "question": "Your class fundraiser for the Vancouver Aquarium field trip has already raised one thousand five hundred dollars, and each week it earns two hundred fifty dollars more. Skip-count by two hundred fifty to write the next four totals.",
+   "answer": "One thousand seven hundred fifty dollars, two thousand dollars, two thousand two hundred fifty dollars, two thousand five hundred dollars ($1750, $2000, $2250, $2500)."
+  }
+ }
+}

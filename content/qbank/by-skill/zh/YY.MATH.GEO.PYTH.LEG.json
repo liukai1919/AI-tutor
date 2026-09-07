@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.LEG",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkq75kyji5lrk",
+   "level": 1,
+   "question": "一个直角三角形（right triangle）里，最长的那条边（斜边 hypotenuse）是 13 cm，其中一条直角边（leg）是 5 cm。另一条直角边有多长？",
+   "options": [
+    "12 cm",
+    "144 cm",
+    "13.9 cm",
+    "8 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "求直角边要把平方相减：13² − 5² = 169 − 25 = 144，再开方（square root）得 12 cm。最常踩的坑是把两个平方加起来，或者算到 144 就停下来不开方。",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75ky7p6rug",
+   "level": 1,
+   "question": "一个直角三角形的斜边（hypotenuse）长 17 m，一条直角边（leg）长 8 m。另一条直角边是多少？",
+   "options": [
+    "225 m",
+    "15 m",
+    "18.8 m",
+    "9 m"
+   ],
+   "answerIndex": 1,
+   "explain": "17² − 8² = 289 − 64 = 225，开方得 15 m。注意 225 只是那条边的平方，必须再开一次方；另外斜边是最长边，答案一定小于 17 m。",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75kykd3cm8",
+   "level": 1,
+   "question": "一个直角三角形的斜边是 25 cm，一条直角边是 7 cm。另一条直角边有多长？",
+   "options": [
+    "576 cm",
+    "26.0 cm",
+    "24 cm",
+    "18 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "25² − 7² = 625 − 49 = 576，√576 = 24 cm。写 576 的那个是忘了开方；把 25 和 7 直接相减得 18 的做法也不对，勾股定理（Pythagorean theorem）相减的是平方，不是边长本身。",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75kyxt5blu",
+   "level": 1,
+   "question": "一个直角三角形的斜边长 20 m，一条直角边长 12 m。另一条直角边是多少？",
+   "options": [
+    "8 m",
+    "23.3 m",
+    "256 m",
+    "16 m"
+   ],
+   "answerIndex": 3,
+   "explain": "20² − 12² = 400 − 144 = 256，开方得 16 m。写 23.3 的那个是把平方加起来了——加法只能用来求斜边，求直角边一定是相减。",
+   "tags": [
+    "other",
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq75ky6pwto6",
+   "level": 2,
+   "question": "在直角三角形 ABC 中，∠C = 90°，斜边 c = 26 cm，直角边 a = 10 cm。求直角边 b。",
+   "options": [
+    "24 cm",
+    "16 cm",
+    "576 cm",
+    "27.9 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "由 a² + b² = c² 得 b² = 26² − 10² = 676 − 100 = 576，所以 b = 24 cm。∠C = 90° 说明 c 是斜边，是最长的一条，答案必须比 26 小。",
+   "tags": [
+    "ok",
+    "other",
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg"
+   ]
+  },
+  {
+   "qid": "qmtkq75kyf66tir",
+   "level": 2,
+   "question": "一个直角三角形的斜边是 12 cm，一条直角边是 5 cm。另一条直角边约是多少（保留一位小数）？",
+   "options": [
+    "13 cm",
+    "10.9 cm",
+    "119 cm",
+    "7 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "12² − 5² = 144 − 25 = 119，√119 ≈ 10.9 cm。写 13 的那个是算了 144 + 25 = 169 再开方——那是求斜边的做法；这里 5 和 12 不是勾股数（Pythagorean triple）中的两条直角边，答案是小数（decimal）。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "pyth.forget_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75kyon11z9",
+   "level": 2,
+   "question": "一个直角三角形的斜边是 41 mm，一条直角边是 40 mm，另一条直角边记作 x。下面哪个算式能正确求出 x？",
+   "options": [
+    "x = √(41² + 40²)",
+    "x = 41 − 40",
+    "x = √(41² − 40²)",
+    "x = 41² − 40²"
+   ],
+   "answerIndex": 2,
+   "explain": "已知斜边求直角边，先用斜边的平方减去已知直角边的平方，再开方：x = √(1681 − 1600) = √81 = 9 mm。没有根号的那个只算到了 x²；用加号的那个是求斜边的公式，用在这里会得到比斜边还长的边。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "other",
+    "ok",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkq75kybavugy",
+   "level": 2,
+   "question": "一个直角三角形的斜边长 6.5 m，一条直角边长 2.5 m。另一条直角边是多少？",
+   "options": [
+    "7.0 m",
+    "36 m",
+    "4 m",
+    "6 m"
+   ],
+   "answerIndex": 3,
+   "explain": "6.5² − 2.5² = 42.25 − 6.25 = 36，开方得 6 m。带小数也一样：先各自平方再相减，最后别忘了开方，36 只是这条边的平方。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq75kylldqef",
+   "level": 3,
+   "question": "温哥华一户人家把一把 4.1 m 长的梯子斜靠在外墙上，梯脚离墙根 0.9 m，梯子顶端正好贴着墙。这面墙上的窗台离地 3.6 m。梯子顶端比窗台高多少？",
+   "options": [
+    "0.4 m",
+    "12.4 m",
+    "0.5 m",
+    "0.6 m"
+   ],
+   "answerIndex": 0,
+   "explain": "梯子是斜边：4.1² − 0.9² = 16.81 − 0.81 = 16，√16 = 4 m 是梯顶高度，再减窗台 3.6 m，高出 0.4 m。写 12.4 的那个把 16 当成了高度，忘了开方；用 4.1 直接减 3.6 则跳过了求高这一步。",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "other",
+    "pyth.add_when_finding_leg"
+   ]
+  },
+  {
+   "qid": "qmtkq75kyzvm5mt",
+   "level": 3,
+   "question": "一张长方形野餐垫，量得对角线（diagonal）长 1.5 m，宽 0.9 m。妈妈要沿垫子四周缝一圈滚边条，需要多长的滚边条？",
+   "options": [
+    "5.3 m",
+    "4.2 m",
+    "4.68 m",
+    "3.0 m"
+   ],
+   "answerIndex": 1,
+   "explain": "对角线把长方形分成直角三角形，对角线是斜边：1.5² − 0.9² = 2.25 − 0.81 = 1.44，√1.44 = 1.2 m 是长；周长（perimeter）= 2 × (0.9 + 1.2) = 4.2 m。把 1.44 当成长边的那个漏了开方，容易只差一点点、看不出来。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "pyth.forget_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75kyd3udyd",
+   "level": 3,
+   "question": "小雅要算一个直角三角形：斜边 15 cm，一条直角边 9 cm，求另一条直角边。她写下 √(15² + 9²) ≈ 17.5 cm。她对吗？",
+   "options": [
+    "她没错，因为斜边和直角边平方相加再开方，约 17.5 cm",
+    "她错了，因为这里不用开方，225 − 81 = 144 cm 就是答案",
+    "她错了，求直角边要平方相减，√(225 − 81) = 12 cm",
+    "她错了，因为边长直接相减更快，15 − 9 = 6 cm 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "正确做法是 15² − 9² = 225 − 81 = 144，√144 = 12 cm。答成 17.5 的那个用了加法，可它比斜边 15 还长，而斜边必须是最长边——这是最快的自查方法；答 144 的那个则停在了平方上。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq75ky619ti1",
+   "level": 3,
+   "question": "素里（Surrey）小杰从家去冰球场，可以穿过公园走一条笔直的近路，长 3.4 km；也可以沿两条互相垂直的街道走，其中一条街长 1.6 km。沿街道走比走近路多走多少 km？",
+   "options": [
+    "7.2 km",
+    "2.0 km",
+    "0 km",
+    "1.2 km"
+   ],
+   "answerIndex": 3,
+   "explain": "近路是斜边：3.4² − 1.6² = 11.56 − 2.56 = 9，√9 = 3 km 是另一条街；两条街合计 1.6 + 3 = 4.6 km，比 3.4 km 多 1.2 km。答 7.2 的那个把 9 当成了边长却没开方；答 0 的那个用 3.4 − 1.6 求边，方法本身就错。",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

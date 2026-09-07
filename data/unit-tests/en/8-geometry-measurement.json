@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "geometry-measurement",
+ "lang": "en",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Geometry & Measurement · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 1,
+    "question": "A shoebox measures 5 cm long, 4 cm wide, and 3 cm tall. What is its volume?",
+    "options": [
+     "20 cm³",
+     "60 cm³",
+     "12 cm³",
+     "24 cm³"
+    ],
+    "answerIndex": 1,
+    "explain": "Volume = length × width × height = 5 × 4 × 3 = 60 cm³. The most common mistake is adding the three dimensions or multiplying only two of them, which gives 12 or 20."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 1,
+    "question": "A right triangle has legs of 6 cm and 8 cm. What is the length of the hypotenuse?",
+    "options": [
+     "14 cm",
+     "48 cm",
+     "2 cm",
+     "10 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "Use c² = a² + b²: c² = 36 + 64 = 100, so c = 10 cm. Students often add the legs (14) or multiply them (48) instead of squaring and then adding."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.03",
+    "level": 1,
+    "question": "A student wants to cut a net and fold it into a cube (6 square faces). Which description describes a valid cube net?",
+    "options": [
+     "Four squares in a row, with one square above the 2nd square and one square below the 2nd square",
+     "Six squares arranged in a single straight row",
+     "Six squares arranged in a 2-by-3 rectangle",
+     "Five squares in a straight row with one square above the 3rd square"
+    ],
+    "answerIndex": 0,
+    "explain": "A valid cube net can have at most 4 squares in a straight line; the cross/T shape with 4 in a row and tabs above and below works. A row of 5 or 6, or a 2×3 grid, cannot fold into a closed cube."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 2,
+    "question": "A student is wrapping a cylindrical candle with radius 3 cm and height 10 cm. How much wrapping paper is needed to cover the entire surface (including the top and bottom circles)?",
+    "options": [
+     "60π ≈ 188 cm²",
+     "48π ≈ 151 cm²",
+     "78π ≈ 245 cm²",
+     "192π ≈ 603 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "SA = 2πr² + 2πrh = 18π + 60π = 78π ≈ 245 cm². The most frequent error is forgetting the two circular ends (giving 60π) or using the diameter as the radius (giving 192π)."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 2,
+    "question": "A student is canoeing across a river that is 20 m wide. The current pushes the canoe 15 m downstream while she paddles straight across. What is the actual straight-line distance her canoe travels?",
+    "options": [
+     "35 m",
+     "25 m",
+     "13 m",
+     "5 m"
+    ],
+    "answerIndex": 1,
+    "explain": "The crossing forms a right triangle: d² = 20² + 15² = 400 + 225 = 625, so d = 25 m. Adding the two legs (35) or subtracting them (5) are the most common mistakes when the Pythagorean theorem is applied."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.03",
+    "level": 2,
+    "question": "A student builds a figure from 4 identical cubes: three cubes in a row on the desk, and one cube stacked on top of the middle cube. What does the TOP view (looking straight down from above) look like?",
+    "options": [
+     "Three squares in a single row",
+     "Three squares in a row with one extra square on top of the middle square",
+     "Two squares stacked vertically",
+     "Four squares in a 2-by-2 block"
+    ],
+    "answerIndex": 0,
+    "explain": "From directly above, the top cube hides behind the middle bottom cube, so you see only three squares in a row. Confusing the top view with the front view (the T-shape) is the most common error here."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 3,
+    "question": "A student builds a triangular-prism box for a science fair. The triangular base has a base of 6 cm and a height of 4 cm, and the prism is 10 cm long. How many 2 cm × 2 cm × 2 cm cubes have the same total volume as the box?",
+    "options": [
+     "30",
+     "60",
+     "120",
+     "15"
+    ],
+    "answerIndex": 3,
+    "explain": "Prism volume = ½ × 6 × 4 × 10 = 120 cm³; each small cube = 8 cm³; 120 ÷ 8 = 15 cubes. The most common errors are forgetting the ½ in the triangle area (giving 30) or dividing by the cube edge 2 instead of its volume 8 (giving 60)."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 3,
+    "question": "A student needs the diagonal of a rectangular tile that is 8 cm wide and 6 cm tall. She writes c = √(8 − 6) ≈ 1.4 cm. What is the correct diagonal length?",
+    "options": [
+     "1.4 cm",
+     "14 cm",
+     "10 cm",
+     "2 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "The correct method is c² = 8² + 6² = 64 + 36 = 100, so c = 10 cm. The student’s error was subtracting the legs and skipping the squaring step; adding the raw legs (14) is another frequent slip."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

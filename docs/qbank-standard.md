@@ -16,7 +16,7 @@
 ## 1. 题型与格式（硬校验，不合格的题直接丢弃）
 
 - 全部**单选题**：恰好 4 个选项、恰好 1 个正确——判分是确定性的，不用 AI 判卷。
-- 每题字段：`level`(1|2|3)、`question`、`options[4]`、`answerIndex`(0-3)、`explain`。
+- 每题字段：`level`(1|2|3)、`question`、`options[4]`、`answerIndex`(0-3)、`explain`；读图题另有可选 `visual`（题图，见 §7）。
 - `explain` 一到两句：正确解法 + 最容易踩的坑。答错时当场展示（边做边学，和 FSA 的最后统一讲评不同）。
 - 同一批题的 `answerIndex` 位置打散，不集中在同一个下标。
 - 数字必须手算 / 竖式能算动，适龄；货币用加元，单位用公制，情境用 BC 孩子的真实生活。
@@ -33,6 +33,12 @@
 
 - 干扰项**必须来自真实常见错误**（忘了进位、单位没换算、周长面积混淆、余数处理错、分母直接相加…），不许一眼假。
 - 出完每题自己验算一遍，确认有且只有一个选项正确（提示词铁律，同 FSA）。
+- **不许靠长度露馅**（2026-09-01 起，来自 iOS 端对存量 234 份题库的审计）：一题 4 个选项长度相近（差别 ≤ 15% 左右），
+  **正确项不能是最长的**。「某某说……他错在哪」的辨析题是重灾区——正确项天然要写「错在哪 + 正确做法」，
+  审计量出这类题正确项最长的占 60%，孩子挑最长的两道就能通关。规则：每个干扰项都要带自己的「因为……」理由，
+  正确项写长了删短它；L3 一批 4 道里辨析题**最多 2 道**，其余必须是真两步情境题。审稿提示词同样查这一条（`judgeCommon` 第 4 项）。
+- 技能题库的干扰项逐个挂误区 tag（`misconceptions.json` 的 id，对不上才写 `other`）；一个技能至少登记 2 条误区，
+  否则回补链路对这份题库是哑的。
 
 ## 3. 数量与补题
 
@@ -50,6 +56,9 @@
 - 8 题内没通关 → 本次不通关，鼓励复习后改天再来（下次自动换没做过的题）。
 - 当前难度没有可用题时借相邻难度的题顶上；实在无题可出则提前结算。
 - 中途退出：已答的题照记对错，不判通关。
+- **结算（2026-09-05 起）**：`/api/quiz/session` 随题包发一张场次票 `session`，`/api/quiz/finish` 凭票结算——
+  对错由服务端按题库 `answerIndex` 判（客户端报的 `correct` 不作数）、只认这一场发出去的 qid、一张票只结一次，
+  没票 / 票已用 → 400。以前信客户端的 `correct`，错误选项配 `correct:true` 也能通关。
 
 ## 5. 与进度体系的关系
 
@@ -61,6 +70,30 @@
 
 ## 6. 持久化与清理
 
-- `qbank.json`：`"curriculumId|lang" -> { questions: [{ qid, level, question, options, answerIndex, explain, usedAt }] }`。
+- `qbank.json`：`"curriculumId|lang" -> { questions: [{ qid, level, question, options, answerIndex, explain, usedAt, tags?, visual? }] }`。
 - 设置里「清空学习进度」**保留题库**（题是内容不是进度，重出要花钱），只清 usedAt 以外的进度状态；
   「清空全部记录」连题库一起删。
+- 随包种子合并（`qbankMerge`）先按 `qid` 认：同 qid 的题**原地刷新**内容字段（question / options / answerIndex / explain / tags / visual），保留这家的 `usedAt`；
+  没有 qid 命中再按题干去重。不这样做，题库修订（改题干、补图）会被当成新题再进一遍，旧散文版和新图版并存。
+
+## 7. 题图 `visual`（2026-09-05 起，契约 v3）
+
+来自 Apple 端审计（issue #5）：en 题库 148 道读图题在用文字念图——技能叫「读线图」，孩子做的是读一段英文再做算术。
+
+- `visual` 结构和课文 `steps[].visual` **完全一样**（`type` / `nums` / `labels` / `caption`），`nums`、`labels` 约定不变，
+  白名单和合法范围仍以 `data/curriculum/visual-contract.json` 为唯一事实源；`node tools/curriculum/visual_check.mjs --qbank` 是题库侧的 preflight。
+- **补图 = 把散文里的数据搬回图上**：`nums` 装了数据之后，题干里那句「week 1 at 12 mm, week 2 at 18 mm…」就删掉，只留问题。
+- 可选 `step`：统计图 = 纵轴一格代表多少（每个数值必须落在格线或半格上）；象形图 `pictograph` = 一个符号代表多少。
+  不给就由渲染端自动挑刻度。「每格 5 本、涂了 6 格」这类题必须给，否则文字和图对不上。
+- **题图模式**（渲染端 `renderVisual(v, {quiz:true})`）：`statBar` / `statLine` 不在柱顶、点上印数值，只画网格 + 刻度标签（标签只落在整倍数上，中间的格子要孩子自己数）；
+  `pieChart` 扇区标 `nums` 原值（合计恰为 100 才加 % 号），图例只写名字；`fractionBar` / `pie` 不标 n/d。
+- 四条红线：图不能把答案印出来（要孩子算「一格 5 本 × 6 格」就别在柱顶标 30）；概念题（「该选哪种图」「圆心角多少度」）不配图；
+  画不出来的不配（缺了键的象形图、题干写死了刻度标签的）；别为了配图改答案或改难度。
+- **为了画出一张像样的图可以补上下文数据**（issue #6）：只有一个点的折线图补别的点、单根柱补别的柱、只给一块的饼图补其余扇区，
+  补的数**避开选项里的数**，答案和选项一个不动。
+- **两张不同刻度的图**（「Class A 1 星 = 2 本、Class B 1 星 = 5 本，谁读得多」这一族）不升契约：只画一张（带它的 key），
+  另一张的 key 和符号数留在题干里；孩子仍要拿两个 key 各算一遍再比（issue #6 3️⃣ 选的第 2 条）。
+- 复式条形图至少 **3 个类目**：2 类目 × 2 系列 = 4 个数 + 4 个标签，和「4 个单系列」编码撞车（`parseStatSeries` 第 1 条优先），会被画成 4 根单柱。
+- **单元卷同样适用**：`data/unit-tests/<lang>/*.json` 的 `set.questions[]` 和闯关题同构，`/api/unit-test` 原样下发；
+  `node tools/curriculum/visual_check.mjs --unit-tests` 是单元卷侧的 preflight（issue #6 起，zh 冻结只动 en）。
+- 服务端 `/api/quiz/session` 原样下发 `visual`；Apple 端不认识的 `type`（目前 `pictograph`）降级成无图，题干仍能作答。

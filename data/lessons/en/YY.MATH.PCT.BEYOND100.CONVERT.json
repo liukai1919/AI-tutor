@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.BEYOND100.CONVERT",
+ "lang": "en",
+ "title": "Convert fractional and decimal percents to decimals and fractions (½% = 0.005, 3.25% = 0.0325, 122% = 1.22)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Tiny Percents and Big Percents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that on a hundredths grid, one percent is one little square, so half a percent is half of one square and one hundred twenty two percent is a whole grid plus twenty two more squares. Today we turn those pictures into numbers you can actually calculate with.",
+    "math": "1\\% = \\frac{1}{100} = 0.01",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [],
+     "caption": "One percent is one square out of one hundred"
+    }
+   },
+   {
+    "say": "Here is the whole rule. Percent means out of one hundred, so to write any percent as a decimal you divide by one hundred, which slides the digits two places to the right. Three point two five percent divided by one hundred is zero point zero three two five. And one hundred twenty two percent divided by one hundred is one point two two, which makes sense because one hundred twenty two squares is more than one full grid.",
+    "math": "3.25\\% = \\frac{3.25}{100} = 0.0325",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      100,
+      22
+     ],
+     "labels": [
+      "100%",
+      "22%"
+     ],
+     "caption": "122% is one whole hundredths grid (100 squares) plus 22 more squares"
+    }
+   },
+   {
+    "say": "Now the tricky one, one half percent. First rewrite the fraction as a decimal: one half is zero point five, so one half percent is the same as zero point five percent. Now divide by one hundred: zero point five becomes zero point zero zero five. As a fraction that is five thousandths, which is one two hundredth. Look at the grid, that is half of one single square out of a hundred, a really tiny amount.",
+    "math": "\\tfrac{1}{2}\\% = 0.5\\% = \\frac{0.5}{100} = 0.005 = \\frac{1}{200}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [],
+     "caption": "Reference: the shaded square is 1% (one of the 100). Half a percent is half of that one square."
+    }
+   },
+   {
+    "say": "Watch out for two traps. Some students see one half percent and write zero point five, but that is fifty percent, half of everything, not half of one square. And some students slide the decimal only one place and write five percent as zero point five, when five percent is really zero point zero five. Compare the grids: fifty squares shaded versus five squares shaded. Same digits, totally different amounts. Always count two places, every time.",
+    "math": "\\tfrac{1}{2}\\% = 0.005 \\ne 0.5 \\qquad 5\\% = 0.05 \\ne 0.5",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      5,
+      45
+     ],
+     "labels": [],
+     "caption": "Five percent is the small dark part; all shaded together is fifty percent"
+    }
+   },
+   {
+    "say": "Let us finish with a real one. Your bank pays one half percent interest a year on your savings, and you have four hundred dollars in there. Change one half percent to zero point zero zero five, then multiply: four hundred times zero point zero zero five is two dollars. Only two dollars, and that matches the tiny picture. If a store instead marks a jersey up to one hundred twenty two percent of its old sixty dollar price, use one point two two: sixty times one point two two is seventy three dollars and twenty cents.",
+    "math": "400 \\times 0.005 = 2 \\qquad 60 \\times 1.22 = 73.20",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      73.2
+     ],
+     "labels": [
+      "100% = $60",
+      "122% = $73.20"
+     ],
+     "caption": "One hundred twenty two percent is the whole price plus a bit more"
+    }
+   },
+   {
+    "say": "So no matter how small or how big the percent is, one move does it all: write any fraction in the percent as a decimal first, then divide by one hundred by sliding two places to the right.",
+    "math": "\\%\\;\\div\\;100\\;\\rightarrow\\;\\text{decimal}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To go from percent to decimal, turn any fraction into a decimal first, then divide by one hundred — slide the point two places right.",
+  "practice": {
+   "question": "A savings account at a Vancouver credit union pays three quarters of a percent per year. Write three quarters of a percent as a decimal. Then find the interest on eight hundred dollars for one year.",
+   "answer": "Three quarters is zero point seven five, so three quarters of a percent is zero point seven five percent, which is zero point zero zero seven five as a decimal. Eight hundred times zero point zero zero seven five is six dollars."
+  }
+ }
+}

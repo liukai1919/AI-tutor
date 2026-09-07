@@ -1,0 +1,134 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.FLU.01",
+ "lang": "en",
+ "title": "operations with fractions (addition, subtraction, multiplication, division, and order of operations)",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Fraction Ops: From Pizza Slices to the Boss-Level Expression",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You and three friends are at your place for game night, and you order a big eight-slice pizza. You grab two slices first because you're hungry. Now your friend says, 'Right, split what's left evenly among all four of us.' So you've got a whole pizza minus your two slices, and then you're dividing that by four people. That's subtraction AND division in one go — and it's just fractions doing their thing. Two-eighths eaten, six-eighths left, split four ways, and each of you gets three-sixteenths of the pizza. Tiny slice, I know, but the math is clean and it works every single time.",
+    "math": "1 - \\frac{2}{8} = \\frac{6}{8}, \\quad \\frac{6}{8} \\div 4 = \\frac{3}{16}",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "8 slices",
+      "6 left"
+     ],
+     "caption": "Two slices eaten, six left to split four ways"
+    }
+   },
+   {
+    "say": "Here's the cheat sheet I want you to keep in your back pocket. Addition and subtraction: get the same bottom number, then just add or subtract the tops. Multiplication — and this is the big one — the word 'times' really means 'of.' So three-quarters times two-thirds means 'two-thirds OF three-quarters.' You just multiply straight across: tops times tops, bottoms times bottoms. Division: flip the second fraction and multiply. And order of operations? Brackets first, then multiply and divide left to right, then add and subtract. Same rules as whole numbers, just with fraction toppings.",
+    "math": "\\frac{a}{b} \\pm \\frac{c}{b} = \\frac{a \\pm c}{b}, \\quad \\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd}, \\quad \\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      1,
+      4,
+      1
+     ],
+     "labels": [
+      "1/4",
+      "1/4"
+     ],
+     "caption": "Same denominator: just add the shaded parts"
+    }
+   },
+   {
+    "say": "Let's do one that feels real. Your phone battery is at three-quarters. You hop on a game with your squad and burn through one-half of the battery. Then you're home, so you plug it in and get back one-quarter. How much is left? First, find a common bottom — four works. Three-fourths minus two-fourths is one-fourth. Then add back one-fourth, and you land at two-fourths, which is the same as one-half. Battery at fifty percent. Perfectly normal Tuesday.",
+    "math": "\\frac{3}{4} - \\frac{1}{2} + \\frac{1}{4} = \\frac{3}{4} - \\frac{2}{4} + \\frac{1}{4} = \\frac{2}{4} = \\frac{1}{2}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75,
+      0.5
+     ],
+     "labels": [
+      "0",
+      "1",
+      "3/4",
+      "1/2"
+     ],
+     "caption": "Start at 3/4, subtract 1/2 (down to 1/4), then add 1/4: you end at 1/2"
+    }
+   },
+   {
+    "say": "Now a money one. You want those new sneakers, eighty bucks. You've got a part-time gig stocking shelves at the grocery store and you earn twenty-five dollars a week. But here's the thing — you and your friend always split a thirty-dollar boba tea order, so your fifteen-dollar half is three-fifths of your pay. So what do you actually save each week? You keep two-fifths. Twenty-five times two-fifths is fifty-fifths, which is ten dollars a week. And eighty divided by ten? Eight weeks. You can have those sneakers in eight weeks if the boba budget holds. It does not hold. But the math is solid.",
+    "math": "\\$25 \\times \\frac{2}{5} = \\$10 \\text{/week}, \\quad \\$80 \\div \\$10 = 8 \\text{ weeks}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      25,
+      15,
+      10
+     ],
+     "labels": [
+      "Pay $25",
+      "Boba $15",
+      "Saved"
+     ],
+     "caption": "Three-fifths goes to boba, two-fifths (ten bucks) goes to sneakers"
+    }
+   },
+   {
+    "say": "Alright, boss level. This one throws all four operations at you in one line, plus brackets. Half divided by nine-sixths, times, in brackets, seven minus four-fifths. Don't panic. We follow the rules. Brackets first: seven minus four-fifths. Seven is thirty-five-fifths, minus four-fifths, that's thirty-one-fifths. Next, divide: half divided by nine-sixths. Nine-sixths simplifies to three-halves, so half divided by three-halves is half times two-thirds, which is one-third. Finally, multiply: one-third times thirty-one-fifths. One times thirty-one is thirty-one, three times five is fifteen. You're at thirty-one fifteenths. Not a pretty number, but you did every step in the right order and it's correct. That's the whole game.",
+    "math": "\\frac{1}{2} \\div \\frac{9}{6} \\times \\left(7 - \\frac{4}{5}\\right) = \\frac{1}{2} \\div \\frac{3}{2} \\times \\frac{31}{5} = \\frac{1}{3} \\times \\frac{31}{5} = \\frac{31}{15}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "I want you to really feel why multiplication works the way it does, because once it clicks, you'll never forget it. Say you have a chocolate bar and you've broken off three-quarters. Now you eat two-thirds OF that piece. You're not taking two-thirds of the whole bar — you're taking two-thirds of the part you already have. If you draw a grid, three-quarters of the rows get shaded, and then two-thirds of the columns get shaded. The overlap is what you actually eat. Three-fourths times two-thirds is six-twelfths, which is one-half. You ate half the original bar. Multiplication is just 'part of a part,' and that grid makes it impossible to guess wrong.",
+    "math": "\\frac{3}{4} \\times \\frac{2}{3} = \\frac{6}{12} = \\frac{1}{2}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      3,
+      3,
+      2
+     ],
+     "labels": [
+      "3/4 of rows",
+      "2/3 of cols"
+     ],
+     "caption": "The overlap (6 of 12 cells) is 2/3 OF 3/4 = 1/2"
+    }
+   },
+   {
+    "say": "One last thing to lock in before you go. You don't need to memorize a different rule for every operation. You need one golden sentence: brackets first, then multiply and divide from the left, then add and subtract from the left. Every fraction, no matter how many of them are stacked, obeys that one rule. If you follow the order and keep your tops and bottoms honest, the answer will be right. Trust the process, and you'll be fine. You've got this.",
+    "math": "\\boxed{\\text{Brackets} \\;\\to\\; \\times \\div \\;\\to\\; + -}\\quad \\text{(always, for every fraction)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Fractions follow the exact same order-of-operations rules as whole numbers: brackets first, then multiply and divide left to right, then add and subtract — and 'times' just means 'part of a part.'",
+  "practice": {
+   "question": "You're splitting a $60 group pizza order 4 ways at a basketball game. You've already used $15 of the total on extra toppings. You want to figure out how much each person owes for the remaining cost, and then you realize one friend is only picking up 3/4 of their share because they're short. How much does that friend owe?",
+   "answer": "Remaining cost: $60 − $15 = $45. Each person's share: $45 ÷ 4 = $45/4 = $11.25. The friend who is short owes 3/4 of $11.25 = $33.75 ÷ 4 = $8.4375, which rounds to $8.44."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 7
+ }
+}

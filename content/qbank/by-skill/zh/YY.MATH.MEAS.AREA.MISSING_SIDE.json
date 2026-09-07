@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.AREA.MISSING_SIDE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkawfqwxlwg4l",
+   "level": 1,
+   "question": "一个长方形的面积（area）是 24 平方厘米（square centimetre），它的宽是 4 厘米。这个长方形的长是多少厘米？",
+   "options": [
+    "6 厘米",
+    "20 厘米",
+    "96 厘米",
+    "8 厘米"
+   ],
+   "answerIndex": 0,
+   "explain": "长方形面积 = 长 × 宽，已知面积和宽，就用除法倒推：24 ÷ 4 = 6 厘米。最容易踩的坑是把 24 乘 4 或减 4；写 8 厘米的那个是把 24 当成了一圈的长度来算。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqw5cb4sr",
+   "level": 1,
+   "question": "一个长方形的面积是 45 平方厘米，它的长是 9 厘米。这个长方形的宽是多少厘米？",
+   "options": [
+    "405 厘米",
+    "5 厘米",
+    "36 厘米",
+    "28 厘米"
+   ],
+   "answerIndex": 1,
+   "explain": "想「9 乘几等于 45」，也就是 45 ÷ 9 = 5 厘米。坑一是用乘法或减法倒推；写 28 厘米的那个求的是这个长方形一圈的长度，不是题目要的那条边。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwwjzjrf",
+   "level": 1,
+   "question": "一张长方形便利贴的面积是 36 平方厘米，它的宽是 3 厘米。这张便利贴的长是多少厘米？",
+   "options": [
+    "108 厘米",
+    "33 厘米",
+    "12 厘米",
+    "15 厘米"
+   ],
+   "answerIndex": 2,
+   "explain": "面积除以已知的一条边就得到另一条边：36 ÷ 3 = 12 厘米，验算 12 × 3 = 36 正好。写 15 厘米的那个是把 36 当成周长先除以 2 再减 3，面积和周长不能这样混用。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqw69r4kr",
+   "level": 1,
+   "question": "一个长方形的面积是 56 平方厘米，它的长是 8 厘米。下面哪个算式能算出它的宽？",
+   "options": [
+    "56 × 8 = 448，宽是 448 厘米",
+    "56 ÷ 2 − 8 = 20，宽是 20 厘米",
+    "56 − 8 = 48，宽是 48 厘米",
+    "56 ÷ 8 = 7，宽是 7 厘米"
+   ],
+   "answerIndex": 3,
+   "explain": "因为 8 × 宽 = 56，所以倒推要用除法：56 ÷ 8 = 7 厘米。用 56 × 8 或 56 − 8 都是逆运算用错了；用 56 ÷ 2 − 8 的那个把面积当成了周长（perimeter）。",
+   "tags": [
+    "eq.inverse_wrong",
+    "area_perim.confuse",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkawfqw2pqamh",
+   "level": 2,
+   "question": "一个正方形的面积是 64 平方厘米。它的边长是多少厘米？",
+   "options": [
+    "8 厘米",
+    "128 厘米",
+    "32 厘米",
+    "16 厘米"
+   ],
+   "answerIndex": 0,
+   "explain": "正方形面积 = 边长 × 边长，想「几乘几等于 64」，8 × 8 = 64，所以边长是 8 厘米。坑是把 64 当成一圈的长度去除以 4 得 16，或者随手除以 2 得 32——面积不是四条边加起来的。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwxco0m3",
+   "level": 2,
+   "question": "一个长方形的面积是 63 平方厘米，其中一条边是 7 厘米，另一条边记作 x，可以写成 x × 7 = 63。x 是多少？",
+   "options": [
+    "441 厘米",
+    "9 厘米",
+    "56 厘米",
+    "32 厘米"
+   ],
+   "answerIndex": 1,
+   "explain": "x × 7 = 63 是乘法方程，倒推要用除法：x = 63 ÷ 7 = 9 厘米。乘法方程别当成加法方程去减 7；写 32 厘米的那个算的是一圈的长度，题目问的是一条边。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwc99cj8",
+   "level": 2,
+   "question": "一个长方形的面积是 132 平方厘米，它的长是 12 厘米。它的宽是多少厘米？",
+   "options": [
+    "120 厘米",
+    "1584 厘米",
+    "11 厘米",
+    "46 厘米"
+   ],
+   "answerIndex": 2,
+   "explain": "132 ÷ 12 = 11 厘米，验算 12 × 11 = 132 正好对上。数字变大以后最容易改用减法或乘法；写 46 厘米的那个求成了这个长方形的周长。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqw6ve4xg",
+   "level": 2,
+   "question": "一个长方形的面积是 96 平方厘米，其中一条边是 8 厘米。下面哪种想法能正确求出另一条边？",
+   "options": [
+    "用 96 乘 8，另一条边就是 768 厘米。",
+    "把 96 当成一圈，96 ÷ 2 − 8 = 40 厘米。",
+    "用 96 减 8，另一条边就是 88 厘米。",
+    "想 8 乘几等于 96，另一条边是 12 厘米。"
+   ],
+   "answerIndex": 3,
+   "explain": "面积是两条边相乘得来的，所以倒推要问「8 乘几等于 96」，96 ÷ 8 = 12 厘米。把面积再乘一次或减一次都是逆运算用错；把 96 当成一圈的长度更是把面积和周长搞混了。",
+   "tags": [
+    "eq.inverse_wrong",
+    "area_perim.confuse",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwwmligd",
+   "level": 3,
+   "question": "温哥华社区花园里有一块长方形菜地，面积是 48 平方米，宽是 6 米。爷爷要沿着菜地的四条边围一圈栅栏，一共需要多少米栅栏？",
+   "options": [
+    "28 米",
+    "24 米",
+    "42 米",
+    "48 米"
+   ],
+   "answerIndex": 0,
+   "explain": "第一步用面积求出长：48 ÷ 6 = 8 米；第二步算一圈的周长（perimeter）：(8 + 6) × 2 = 28 米。坑是把面积的数字 48 直接当成栅栏长度，或者只做了第一步就交卷。",
+   "tags": [
+    "ok",
+    "area_perim.confuse",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwjjbb49",
+   "level": 3,
+   "question": "美术课上，一张长方形卡纸的面积是 36 平方厘米，宽是 3 厘米。老师要把这张卡纸剪成边长 3 厘米的正方形小卡片，一共能剪出几张？",
+   "options": [
+    "11 张",
+    "4 张",
+    "108 张",
+    "5 张"
+   ],
+   "answerIndex": 1,
+   "explain": "先求长：36 ÷ 3 = 12 厘米；卡纸宽正好是 3 厘米，所以沿长边每 3 厘米剪一刀，12 ÷ 3 = 4 张。坑是第一步用减法或乘法求长；写 5 张的那个把 36 当成了周长。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.inverse_wrong",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwfn4hqv",
+   "level": 3,
+   "question": "卡尔说：「一个长方形的面积是 60 平方厘米，一条边是 5 厘米，那么另一条边是 55 厘米，因为 60 − 5 = 55。」下面哪种说法是对的？",
+   "options": [
+    "他该用 60 × 5，另一条边是 300 厘米，因为面积要乘回去。",
+    "他没错，因为面积可以拆成 5 + 55，另一条边就是 55 厘米。",
+    "他错在用了减法，面积是两边相乘，60 ÷ 5 = 12 厘米。",
+    "他该把 60 看成一圈，60 ÷ 2 − 5 = 25 厘米才对。"
+   ],
+   "answerIndex": 2,
+   "explain": "面积是两条边相乘得到的，所以倒推只能用除法：60 ÷ 5 = 12 厘米，验算 12 × 5 = 60。说 55 厘米的那个把乘法关系当成了加法关系；说 25 厘米的那个把面积当成了一圈的长度。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.inverse_wrong",
+    "ok",
+    "area_perim.confuse"
+   ]
+  },
+  {
+   "qid": "qmtkawfqwy4bu3n",
+   "level": 3,
+   "question": "一块正方形广告牌的面积是 100 平方厘米。小雨说：「边长是 100 ÷ 4 = 25 厘米。」下面哪种说法是对的？",
+   "options": [
+    "边长是 400 厘米，因为要用 100 × 4 才能还原出一条边。",
+    "小雨说得对，因为正方形有 4 条边，100 ÷ 4 就是一条边。",
+    "边长是 50 厘米，因为把面积平均分给 2 条边，100 ÷ 2。",
+    "边长是 10 厘米，因为 10 × 10 = 100，不是四条边相加。"
+   ],
+   "answerIndex": 3,
+   "explain": "正方形面积 = 边长 × 边长，10 × 10 = 100，所以边长是 10 厘米。除以 4 求出来的是「周长的一条边」，那是把面积当成了一圈的长度；除以 2 或乘 4 也都是逆运算用错。",
+   "tags": [
+    "eq.inverse_wrong",
+    "area_perim.confuse",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

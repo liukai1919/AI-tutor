@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.GRAPH_TABLE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzdpw7u0ynax",
+   "level": 1,
+   "question": "A table of values for the expression y = 2x + 1 has four rows. The x-column reads 0.5, 1, 1.5 and 2, and the y-column is still empty. What number goes in the y-cell of the row where x = 1.5?",
+   "options": [
+    "4",
+    "0.25",
+    "6",
+    "3"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute the x-value into the expression: 2(1.5) + 1 = 4. The trap is adding the coefficient 2 to each row; y rises 2 for every 1 unit of x, and these rows step by only 0.5, so y rises just 1 per row.",
+   "tags": [
+    "ok",
+    "coord.xy_swap",
+    "linear.x_step_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw72r59d2",
+   "level": 1,
+   "question": "A table for y = 3x has a row with x = 1.5 and y = 4.5. Mateo plots this row on a grid where every square is worth 0.5 on both axes. Starting at the origin, how many squares does he count right and then up?",
+   "options": [
+    "9 right, 3 up",
+    "3 right, 9 up",
+    "1.5 right, 4.5 up",
+    "4.5 right, 1.5 up"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide each coordinate by the value of one square: 1.5 ÷ 0.5 = 3 squares right and 4.5 ÷ 0.5 = 9 squares up. Counting 1.5 and 4.5 squares treats each square as 1, and moving 9 right swaps x and y.",
+   "tags": [
+    "coord.xy_swap",
+    "ok",
+    "graph.scale_misread",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw72gacmc",
+   "level": 1,
+   "question": "A table for y = 0.25x + 1 has x-values 0, 1, 2, 3, 4 and y-values 1, 1.25, 1.5, 1.75, 2. Priya wants every point to land exactly on a grid line. What should each square be worth?",
+   "options": [
+    "x-axis 1 per square, y-axis 1 per square",
+    "x-axis 0.25 per square, y-axis 1 per square",
+    "x-axis 1 per square, y-axis 0.25 per square",
+    "x-axis 1 per square, y-axis 0.5 per square"
+   ],
+   "answerIndex": 2,
+   "explain": "The y-values step by 0.25, so each square on the y-axis must be worth 0.25 for every value to land on a line, while the whole-number x-values can stay at 1 per square. A y-scale of 1 or 0.5 leaves 1.25 and 1.75 floating between lines, and putting the 0.25 on the x-axis fixes the wrong axis.",
+   "tags": [
+    "graph.scale_misread",
+    "coord.xy_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw711uwxy",
+   "level": 1,
+   "question": "A table of values has x = −1.5, −0.5, 0.5, 1.5 and y = 2.5 in every row. The rows are plotted on a grid where each square is worth 0.5 on both axes. What does the graph look like?",
+   "options": [
+    "a horizontal line 2.5 squares above the x-axis",
+    "a vertical line 5 squares right of the y-axis",
+    "not a straight line, since x does not go 1, 2, 3",
+    "a horizontal line 5 squares above the x-axis"
+   ],
+   "answerIndex": 3,
+   "explain": "Every row has y = 2.5, so all the points sit at the same height, 2.5 ÷ 0.5 = 5 squares up, giving a horizontal line. The x-values do not need to be 1, 2, 3 for a relation to be linear, and counting 2.5 squares forgets that each square is worth 0.5.",
+   "tags": [
+    "graph.scale_misread",
+    "coord.xy_swap",
+    "linear.x_step_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw7g7ybnr",
+   "level": 2,
+   "question": "A table of values has x = 0, 0.5, 1, 1.5, 2 and y = −2, −0.5, 1, 2.5, 4. Which statement about the relation is correct?",
+   "options": [
+    "linear, y rises 3 for every 1 unit of x",
+    "linear, y rises 1.5 for every 1 unit of x",
+    "linear, y rises 1 for every 3 units of x",
+    "not linear, because x goes up by 0.5 not 1"
+   ],
+   "answerIndex": 0,
+   "explain": "Rate of change is the change in y per 1 unit of x: y rises 1.5 while x rises 0.5, so 1.5 ÷ 0.5 = 3 per unit. Reading the 1.5 as the rate ignores the 0.5 step, and an x-step of 0.5 does not stop the relation from being linear.",
+   "tags": [
+    "ok",
+    "linear.x_step_ignored",
+    "coord.xy_swap",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw764z4hb",
+   "level": 2,
+   "question": "Jordan graphs y = 1.5x − 2 on a grid where each square is worth 0.5 on both axes. One plotted point sits 2 squares right of the origin and 1 square below the x-axis. Which row of his table is that point?",
+   "options": [
+    "(2, −1)",
+    "(1, −0.5)",
+    "(−0.5, 1)",
+    "(−1, 2)"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply squares by the scale: 2 squares right is x = 1 and 1 square down is y = −0.5, and 1.5(1) − 2 = −0.5 confirms the row. Reading squares as whole units gives (2, −1), and writing the down count first swaps x and y.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "coord.xy_swap",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw75aan9b",
+   "level": 2,
+   "question": "Lena's table for y = 0.5x + 1 uses x = −3, −2, −1, 0, 1, 2, 3 and gives y = −0.5, 0, 0.5, 1, 1.5, 2, 2.5. She chooses 0.5 per square on the y-axis so every value lands on a grid line. How many squares tall must the y-axis be to show every y-value from −0.5 up to 2.5?",
+   "options": [
+    "3 squares",
+    "12 squares",
+    "6 squares",
+    "7 squares"
+   ],
+   "answerIndex": 2,
+   "explain": "The y-values run from −0.5 to 2.5, a span of 3, and 3 ÷ 0.5 = 6 squares. Using the x-values instead gives 12, treating each square as 1 gives 3, and counting one square per row gives 7, but rows are not squares.",
+   "tags": [
+    "graph.scale_misread",
+    "coord.xy_swap",
+    "ok",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw7tevdk1",
+   "level": 2,
+   "question": "A table of values has x = −1.5 in every row and y = −2, −1, 0, 1, 2. The rows are plotted on a grid where each square is worth 0.5 on both axes. Which describes the graph?",
+   "options": [
+    "horizontal, 3 squares below the x-axis",
+    "not a line, because x never changes",
+    "vertical, 1.5 squares left of the y-axis",
+    "vertical, 3 squares left of the y-axis"
+   ],
+   "answerIndex": 3,
+   "explain": "x is always −1.5 while y changes, so the points stack straight up and down: a vertical line 1.5 ÷ 0.5 = 3 squares left of the y-axis. Swapping the axes gives a horizontal line, forgetting the 0.5 scale gives 1.5 squares, and a vertical line is still a line.",
+   "tags": [
+    "coord.xy_swap",
+    "linear.x_step_ignored",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw706mjh7",
+   "level": 3,
+   "question": "Kai tutors for $15 an hour, so his earnings are E = 15h. His table uses h = 0.5, 1, 1.5, 2 and gives E = 7.5, 15, 22.5, 30. He graphs it with each square worth 0.5 h across and $5 up, joins the points because time is continuous, and extends the line to 3 h (extrapolation). How many squares up is the point at 3 h?",
+   "options": [
+    "9 squares up",
+    "6 squares up",
+    "45 squares up",
+    "18 squares up"
+   ],
+   "answerIndex": 0,
+   "explain": "At 3 h, E = 15(3) = 45 dollars, and 45 ÷ 5 = 9 squares up. Counting 45 squares ignores that each square is $5, 6 squares is the count across for 3 h, and 18 comes from adding $15 per row even though each row is only half an hour.",
+   "tags": [
+    "ok",
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw750beyq",
+   "level": 3,
+   "question": "Bulk cheddar at a Burnaby market costs $8 per kilogram, so C = 8m. Maya's table uses m = 0.5, 1, 1.5, 2 and gives C = 4, 8, 12, 16. She draws the line on a grid where each square is 0.5 kg across and $2 up, and joins the points because mass is continuous. She then reads a point on the line 1.5 squares right of the origin (interpolation). What does that point tell her?",
+   "options": [
+    "1.5 kg costs $12",
+    "0.75 kg costs $6",
+    "$0.75 buys 6 kg",
+    "0.75 kg costs $3"
+   ],
+   "answerIndex": 1,
+   "explain": "First convert squares to mass: 1.5 × 0.5 = 0.75 kg. Then use the line: 8 × 0.75 = $6, which is 3 squares up. The $4 rise per row is for a 0.5 kg step, not 1 kg, so the rate is $8 per kg, and squares must be scaled before reading them as kilograms.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "coord.xy_swap",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw7mvh2e8",
+   "level": 3,
+   "question": "Tomas makes a table for y = 4x − 1 with x = 0.25, 0.5, 0.75, 1 and gets y = 0, 1, 2, 3. He says the table must be wrong because the expression has a 4 in it, so y should go up by 4 each row. Which is correct?",
+   "options": [
+    "Tomas is right: the y-column should read 0, 4, 8, 12",
+    "Tomas is right: x and y are swapped, x should read 0, 1, 2, 3",
+    "The table is right: 4 per unit of x means 1 per 0.25 step",
+    "The table is right, but the y-axis then needs 4 per square"
+   ],
+   "answerIndex": 2,
+   "explain": "A slope of 4 means y rises 4 for every 1 unit of x; these rows step by 0.25, so y rises 4 × 0.25 = 1 per row and the table is correct. Check by substituting: 4(0.5) − 1 = 1. Ignoring the x-step and expecting a rise of 4 per row is the most common error here.",
+   "tags": [
+    "linear.x_step_ignored",
+    "coord.xy_swap",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzdpw7fcmqzc",
+   "level": 3,
+   "question": "Ana measures a candle: its height h cm after t hours is h = 12 − 6t. Her table uses t = 0, 0.25, 0.5, 0.75, 1 and gives h = 12, 10.5, 9, 7.5, 6. Her graph paper is 30 squares tall and 10 squares wide, and both axes start at 0. Which pair of scales puts every point on a grid line and fits the paper?",
+   "options": [
+    "t: 0.5 per square, h: 0.25 per square",
+    "1 per square on both the t and h axes",
+    "t: 1 per square, h: 1.5 per square",
+    "t: 0.25 per square, h: 0.5 per square"
+   ],
+   "answerIndex": 3,
+   "explain": "The t-values step by 0.25 and the h-values include 10.5 and 7.5, so t needs 0.25 per square and h needs 0.5 per square; h then reaches 12 ÷ 0.5 = 24 squares, which fits 30. Whole-number scales leave 0.25 and 10.5 between grid lines, and swapping the scales makes h need 48 squares.",
+   "tags": [
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "linear.x_step_ignored",
+    "ok"
+   ]
+  }
+ ]
+}

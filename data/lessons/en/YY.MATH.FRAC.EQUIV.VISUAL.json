@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.EQUIV.VISUAL",
+ "lang": "en",
+ "title": "Recognize and show equivalent fractions with fraction bars, circles and grids",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Same Amount, Different Slices",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know a fraction only makes sense when one whole is cut into equal parts. Today we learn something cool: the very same whole can be cut in different ways and still give you the same amount. Those are called equivalent fractions.",
+    "math": "",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      2,
+      1,
+      4,
+      2
+     ],
+     "labels": [],
+     "caption": "Same pizza: one half on the left, two quarters on the right"
+    }
+   },
+   {
+    "say": "Look at these two pizzas. They are exactly the same size. The first one is cut into two equal pieces and you take one, so that is one half. The second one is cut into four equal pieces and you take two, so that is two quarters. Put them side by side and the shaded amount is exactly the same. One half equals two quarters.",
+    "math": "\\frac{1}{2}=\\frac{2}{4}",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      2,
+      1,
+      4,
+      2
+     ],
+     "labels": [],
+     "caption": "One half and two quarters cover the same amount"
+    }
+   },
+   {
+    "say": "Now the same idea with a fraction bar, like a chocolate bar from the corner store. The top bar is cut into three equal parts with one part shaded, that is one third. The bottom bar is the same bar, but every piece got cut in half, so now there are six parts and two are shaded. The shaded length lines up perfectly. One third equals two sixths.",
+    "math": "\\frac{1}{3}=\\frac{2}{6}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      3,
+      1,
+      6,
+      2
+     ],
+     "labels": [],
+     "caption": "One third and two sixths reach the same place"
+    }
+   },
+   {
+    "say": "Here is a grid to show it one more way. This garden plot has three rows and four columns, so twelve equal squares. If I shade two whole rows, that is eight squares out of twelve. But two rows out of three rows is also two thirds. So eight twelfths and two thirds are the same amount of garden. Notice what happened: I did not change the amount, I only cut it into more, smaller pieces.",
+    "math": "\\frac{2}{3}=\\frac{8}{12}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      2,
+      4
+     ],
+     "labels": [],
+     "caption": "Two rows out of three is eight squares out of twelve"
+    }
+   },
+   {
+    "say": "Now two mistakes to watch out for. First, when you see a picture cut into four parts with two shaded, do not say the answer is two. Two is not a fraction. You must always say two out of four parts, two quarters. Second, only compare fractions when the wholes are the same size. One quarter of a giant party pizza can be way more food than one half of a tiny personal pizza, so those pictures do not tell you which fraction is bigger. Equivalent fractions only work on the very same whole.",
+    "math": "\\frac{2}{4}\\ne 2",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      2
+     ],
+     "labels": [],
+     "caption": "Two shaded out of four parts: say two quarters, not two"
+    }
+   },
+   {
+    "say": "So when you cut every piece into smaller equal pieces, the number of shaded pieces and the total pieces both grow, but the amount stays exactly the same. That is what makes two fractions equivalent.",
+    "math": "\\frac{1}{2}=\\frac{2}{4}=\\frac{3}{6}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      2,
+      1,
+      6,
+      3
+     ],
+     "labels": [],
+     "caption": "One half, two quarters, three sixths: all the same amount"
+    }
+   }
+  ],
+  "answer": "Equivalent fractions are the same amount of the same whole, just cut into more or fewer equal pieces.",
+  "practice": {
+   "question": "Draw two fraction bars of exactly the same length, one right above the other. Cut the top bar into four equal parts and shade three of them. Now cut the bottom bar into eight equal parts. How many of those eight parts do you need to shade so the shaded length matches the top bar? Write the equivalent fraction you found.",
+   "answer": "Six parts. Three quarters equals six eighths, because each of the four parts was cut into two, so three shaded parts became six shaded parts."
+  }
+ }
+}

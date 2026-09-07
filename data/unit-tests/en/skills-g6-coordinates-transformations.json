@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "coordinates-transformations",
+ "lang": "en",
+ "unitName": {
+  "zh": "坐标与组合变换",
+  "en": "Coordinates & combined transformations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Coordinates & combined transformations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.COORD.Q1.PLOT",
+    "level": 1,
+    "question": "On the grid map of Ellie's school field, you start at the origin (0, 0), move 6 units right along the x-axis, and then move 4 units up. That is where the flagpole, point B, stands. Which ordered pair names point B?",
+    "options": [
+     "(4, 6)",
+     "(6, 4)",
+     "(10, 4)",
+     "(6, 10)"
+    ],
+    "answerIndex": 1,
+    "explain": "An ordered pair is always written (across, up), so the 6 units right is the x-coordinate and the 4 units up is the y-coordinate: (6, 4). The most common slip is swapping the two numbers and writing (4, 6) — always read the horizontal move first."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+    "level": 1,
+    "question": "On a coordinate grid, the corner of Ravi's paper kite is at P(2, 3). He first slides the kite 4 units right, and then reflects it in the vertical mirror line x = 8. Where is the corner after both moves?",
+    "options": [
+     "(6, 3)",
+     "(8, 3)",
+     "(3, 10)",
+     "(10, 3)"
+    ],
+    "answerIndex": 3,
+    "explain": "Do the moves in order: the slide takes (2, 3) to (6, 3), and a reflection keeps the same distance from the mirror line on the other side — (6, 3) is 2 units left of x = 8, so the image is 2 units right of it at (10, 3). The usual trap is stopping at (6, 3) after the slide, or dropping the point onto the mirror line at (8, 3) instead of hopping the same distance past it."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE",
+    "level": 1,
+    "question": "Triangle ABC has vertices A(1, 1), B(4, 1) and C(1, 3). Its image has vertices A'(1, 6), B'(4, 6) and C'(1, 8). Which transformation maps triangle ABC onto its image?",
+    "options": [
+     "A translation 5 units up",
+     "A translation 6 units up",
+     "A translation 5 units right",
+     "A reflection in the line y = 6"
+    ],
+    "answerIndex": 0,
+    "explain": "Compare matching vertices: every x-coordinate stays the same and every y-coordinate grows by 5 (1 to 6, and 3 to 8), so the shape slid 5 units up. A common error is counting the grid lines from y = 1 to y = 6 and saying 6 units — subtract the coordinates (6 − 1 = 5) instead of counting lines."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.COORD.Q1.PLOT",
+    "level": 2,
+    "question": "Jasmine's map of the neighbourhood park is a coordinate grid where each unit stands for 50 m. She starts at the picnic table at (3, 2), walks in a straight line to the swings at (3, 8), then walks in a straight line to the water fountain at (7, 8). How far does Jasmine walk altogether?",
+    "options": [
+     "10 m",
+     "300 m",
+     "500 m",
+     "550 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Count each leg along the grid: (3, 2) to (3, 8) is 8 − 2 = 6 units and (3, 8) to (7, 8) is 7 − 3 = 4 units, so 10 units in total, and 10 × 50 m = 500 m. The two big traps are forgetting the scale conversion and answering 10 m, or stopping after the first leg."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+    "level": 2,
+    "question": "For an art project, a corner of Mateo's paper flag is at F(5, 2) on a coordinate grid. He rotates the flag 90° clockwise about the centre point C(5, 5), and then translates the image 3 units right and 1 unit up. Where does the corner F end up?",
+    "options": [
+     "(5, 6)",
+     "(2, 5)",
+     "(11, 6)",
+     "(8, 3)"
+    ],
+    "answerIndex": 0,
+    "explain": "F is 3 units straight below the centre C(5, 5); a 90° clockwise turn sends a point that is below the centre to the same distance left of it, giving (2, 5), and then the slide of 3 right and 1 up gives (5, 6). Students often either turn the wrong way (counter-clockwise gives (11, 6)) or forget one of the two steps — do them one at a time, in order."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE",
+    "level": 2,
+    "question": "Triangle PQR has vertices P(1, 1), Q(4, 1) and R(1, 3). After two moves its image has vertices P'(4, 7), Q'(7, 7) and R'(4, 5). Which sequence of transformations maps PQR onto its image?",
+    "options": [
+     "A translation 3 units right, then a translation 6 units up",
+     "A rotation of 180° about the point (1, 4), then a translation 3 units right",
+     "A reflection in the line y = 7, then a translation 3 units right",
+     "A reflection in the line y = 4, then a translation 3 units right"
+    ],
+    "answerIndex": 3,
+    "explain": "Reflecting in y = 4 sends P(1, 1) to (1, 7), Q(4, 1) to (4, 7) and R(1, 3) to (1, 5) — each vertex keeps its distance from the mirror line — and sliding 3 right then gives exactly (4, 7), (7, 7) and (4, 5). The classic mistake is checking only one vertex: a slide of 6 up works for P and Q but sends R(1, 3) to (1, 9), so you must test every vertex."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+    "level": 3,
+    "question": "Sam and Priya each start with the same sticker on a tablet grid, with its marked corner at (2, 5). Sam reflects his sticker in the line x = 6 and then translates it 4 units right. Priya translates hers 4 units right first and then reflects it in the line x = 6. Which statement about the marked corner is true?",
+    "options": [
+     "Both corners land on (14, 5); the order of the two moves makes no difference",
+     "Sam's corner lands on (10, 5) and Priya's lands on (6, 5)",
+     "Sam's corner lands on (14, 5) and Priya's lands on (6, 5), so the two images are 8 units apart",
+     "Sam's corner lands on (14, 5) and Priya's lands on (10, 5), so the two images are 4 units apart"
+    ],
+    "answerIndex": 2,
+    "explain": "Sam: (2, 5) is 4 units left of x = 6, so it reflects to (10, 5), and the slide right gives (14, 5); Priya: the slide gives (6, 5), which sits right on the mirror line, so the reflection leaves it at (6, 5) — 8 units apart. The big misconception in this unit is that order never matters; it does, and remember a point already on the mirror line does not move when you reflect."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE",
+    "level": 3,
+    "question": "Nadia is designing a repeating maple-leaf border for a class poster on a coordinate grid. On her first tile the marked corner is at M(3, 2) and the tip of the stem is at N(3, 5). On the next tile the marked corner is at M'(9, 2) and the tip of the stem is at N'(6, 2). Which sequence of moves takes the first tile onto the second?",
+    "options": [
+     "Translate 6 units right, then rotate 90° clockwise about the point (9, 2)",
+     "Translate 6 units right, then rotate 90° counter-clockwise about the point (9, 2)",
+     "Translate 6 units right, then reflect in the line x = 9",
+     "Translate 6 units right only — no turn is needed"
+    ],
+    "answerIndex": 1,
+    "explain": "The slide takes M to (9, 2) and N to (9, 5); the stem still points up, but in the image it points left, so a quarter turn counter-clockwise about M'(9, 2) is needed, sending (9, 5) to (6, 2). Watch two traps: a slide alone can never change which way the stem points, and turning clockwise instead would send the stem tip to (12, 2)."
+   }
+  ]
+ }
+}

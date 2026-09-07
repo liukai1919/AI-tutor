@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.WORD",
+ "lang": "en",
+ "title": "Solve multi-step addition and subtraction word problems",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two Steps, One Story: Word Problems That Need a Hidden Number",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add and subtract big numbers with regrouping, and how to check if an answer looks reasonable. Today we learn how to spot when one word problem needs two steps, because a number you need is hidden and you have to find it first.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Draw a bar for every part of the story. If one bar has no number on it yet, that is your hidden number, and finding it is step one. Only after that can you answer the real question. Let me show you with a food drive at a school in Richmond. In week one the students collected four thousand two hundred fifty cans. In week two they collected one thousand three hundred eighty fewer cans than week one. How many cans did they collect altogether?",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4250,
+      2870
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2 = ?"
+     ],
+     "caption": "Week two's bar is shorter than week one's by 1380 cans"
+    }
+   },
+   {
+    "say": "Step one, find the hidden bar. Week two is one thousand three hundred eighty fewer than four thousand two hundred fifty, so we take that much away. Four thousand two hundred fifty minus one thousand three hundred eighty equals two thousand eight hundred seventy cans in week two. Now every bar has a number on it.",
+    "math": "4250-1380=2870",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4250,
+      2870
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2"
+     ],
+     "caption": "The hidden bar is filled in: 2870 cans"
+    }
+   },
+   {
+    "say": "Step two, answer the question that was actually asked — how many altogether. We put the two weeks together. Four thousand two hundred fifty plus two thousand eight hundred seventy equals seven thousand one hundred twenty cans. Quick reasonableness check: about four thousand plus about three thousand is about seven thousand, so seven thousand one hundred twenty fits nicely.",
+    "math": "4250+2870=7120",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4250,
+      2870,
+      7120
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Altogether"
+     ],
+     "caption": "The two weeks joined together make 7120 cans"
+    }
+   },
+   {
+    "say": "Now here is the mistake I want you to dodge. Some kids hunt for a key word, see the word altogether, and immediately add the two numbers printed in the problem: four thousand two hundred fifty plus one thousand three hundred eighty equals five thousand six hundred thirty. But one thousand three hundred eighty is not week two — it is only the gap between the two weeks. Key words tell you nothing on their own. Picture the story, draw the bars, and ask yourself what each number really is.",
+    "math": "4250+1380=5630\\text{ (wrong)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      5630,
+      7120
+     ],
+     "labels": [
+      "Keyword guess",
+      "True total"
+     ],
+     "caption": "Adding the gap instead of week two loses 1490 cans"
+    }
+   },
+   {
+    "say": "So remember: read the story, draw the bars, fill in the hidden bar first, then answer the question.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the hidden number first, then answer the question — draw the bars, don't chase key words.",
+  "practice": {
+   "question": "On Saturday, a farmers market in Kelowna sold three thousand six hundred forty kilograms of apples. On Sunday they sold nine hundred eighty kilograms fewer than on Saturday. How many kilograms of apples did they sell over the two days altogether? Try drawing two bars first — one for Saturday and one for Sunday.",
+   "answer": "6300 kilograms. Step one, find Sunday: 3640 minus 980 equals 2660 kilograms. Step two, add the two days: 3640 plus 2660 equals 6300 kilograms. (Check: about 3600 plus about 2700 is about 6300 — reasonable.)"
+  }
+ }
+}

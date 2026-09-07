@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA_PERIM.WORD",
+ "lang": "en",
+ "title": "Solve area and perimeter problems (fences, tiles, gardens)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Fence or Floor? Solving Real Area and Perimeter Problems",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that two shapes can have the same perimeter but different areas. Today we use that idea in real life, and the whole trick is one question: am I going around the edge, or covering the inside?",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A garden 6 metres long and 4 metres wide"
+    }
+   },
+   {
+    "say": "Here is the easy way to remember. A fence goes around the edge, so a fence is perimeter. Grass, soil, tiles, or paint cover the inside, so those are area. When you read a problem, look for the word that tells you which one: fence, ribbon, or border means go around; tiles, sod, or paint means fill the inside.",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Edge = perimeter, inside = area"
+    }
+   },
+   {
+    "say": "Let's do a real one. Maya's family in Kamloops is making a rectangular vegetable garden that is six metres long and four metres wide. They want a fence all the way around it. A fence goes around the edge, so this is perimeter. Add all four sides: six plus four plus six plus four. Six and six make twelve, four and four make eight, and twelve plus eight is twenty. They need twenty metres of fencing.",
+    "math": "P = 6 + 4 + 6 + 4 = 20 \\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Perimeter: 6 + 4 + 6 + 4 = 20 m"
+    }
+   },
+   {
+    "say": "Now the same garden asks a different question. Maya wants to cover the inside with soil. Covering the inside is area, so we multiply the length by the width: six times four is twenty four. She needs enough soil for twenty four square metres.",
+    "math": "A = 6 \\times 4 = 24 \\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "6 rows of 4 squares: 24 square metres inside"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes at least once. Someone reads the fence question, then multiplies six times four and answers twenty four metres of fence. But twenty four is how much fills the inside, not how far it is around the edge. Watch your unit too. A fence is measured in metres, but soil is measured in square metres. If your question says fence and your answer says square metres, stop and check.",
+    "math": "6 \\times 4 = 24 \\text{ m}^2 \\ne 20 \\text{ m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Fence = 20 m around, soil = 24 square m inside"
+    }
+   },
+   {
+    "say": "So before you calculate anything, ask yourself: around the edge, or covering the inside? That one question tells you whether to add the sides or multiply them.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Around the edge means add the sides (perimeter, in metres); covering the inside means multiply length times width (area, in square metres).",
+  "practice": {
+   "question": "The Grade 5 class is building a rectangular reading nook in the corner of the classroom. It is 5 metres long and 3 metres wide. First: they want to put a ribbon border all the way around the outside edge. How many metres of ribbon do they need? Second: they want to cover the inside with carpet squares. How many square metres of carpet do they need? Try drawing the rectangle yourself and labelling the four sides before you start.",
+   "answer": "Ribbon (around the edge, so perimeter): 5 + 3 + 5 + 3 = 16 metres of ribbon. Carpet (covering the inside, so area): 5 x 3 = 15 square metres of carpet."
+  }
+ }
+}

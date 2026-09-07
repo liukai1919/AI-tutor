@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+ "lang": "en",
+ "title": "Read the rate of change and the value at x = 0 from a graph to write the expression (points (0, −3), (1, −1), (2, 1) → y = 2x − 3)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Reading a Graph and Writing the Rule",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to plot a discrete linear relation as separate dots in four quadrants. Today we do the reverse trick: look at three dots on a grid and write the expression that made them. It only takes two things — where the dots start, and how far they climb each step.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      -3,
+      1,
+      -1,
+      2,
+      1
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Three plotted points: A is zero and negative three, B is one and negative one, C is two and one"
+    }
+   },
+   {
+    "say": "First, find the value at x equals zero. Look at point A. Its x is zero and its y is negative three. Think of it like your bank balance before you start a shift — you owe your friend three dollars, so you begin at negative three. That number is the constant in your expression.",
+    "math": "x = 0 \\;\\Rightarrow\\; y = -3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      -3
+     ],
+     "labels": [
+      "start"
+     ],
+     "caption": "The starting point sits three units below the x-axis"
+    }
+   },
+   {
+    "say": "Now find the rate of change. Step from A to B: x goes up by one, and y goes from negative three up to negative one. That is a jump of positive two. Step from B to C: x goes up one again, and y goes from negative one up to one — positive two again. Same jump every time, so the rate of change is two. And always check the axis labels first, because if one square stands for five instead of one, that jump is really ten, not two.",
+    "math": "-3 \\to -1 \\to 1 \\quad (+2 \\text{ each step})",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      -3,
+      1,
+      -1,
+      2,
+      1
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "From dot to dot: one right, two up, every single time"
+    }
+   },
+   {
+    "say": "Put the two pieces together. The rate of change, two, becomes the coefficient of x, and the value at x equals zero, negative three, becomes the constant. So y equals two x minus three. Now test all three points, not just one. Two times zero minus three is negative three — matches A. Two times one minus three is negative one — matches B. Two times two minus three is one — matches C. All three work, so the rule is right.",
+    "math": "y = 2x - 3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      -3,
+      -1,
+      1
+     ],
+     "labels": [
+      "x",
+      "y"
+     ],
+     "caption": "The table of the three points, all matching y equals two x minus three"
+    }
+   },
+   {
+    "say": "Here is the trap. Some students grab the numbers in the wrong jobs and write y equals negative three x plus two — start of two, jumping down three. Sneaky part: test point B and it works, because negative three times one plus two is negative one. If you stop there you would think you nailed it. But test C: negative three times two plus two is negative four, and C is at positive one. It fails. That is why one matching point is never enough — the coefficient is the jump, the constant is the value at x equals zero, and you check every point.",
+    "math": "y = -3x + 2 \\;\\Rightarrow\\; x=2:\\; -4 \\neq 1",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      2,
+      1,
+      -1,
+      2,
+      -4
+     ],
+     "labels": [
+      "P",
+      "Q",
+      "R"
+     ],
+     "caption": "The wrong rule makes these dots — it hits B but then dives the wrong way"
+    }
+   },
+   {
+    "say": "So whenever a graph gives you the dots, read the y value at x equals zero for the constant, read the up-or-down jump per step for the coefficient, then check every point before you sign your name to it.",
+    "math": "y = (\\text{jump per step})\\,x + (\\text{value at }x=0)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The jump per step is the coefficient of x, the y value at x equals zero is the constant — then check every point.",
+  "practice": {
+   "question": "Priya tracks the money in her wallet after each week of her paper route on a coordinate grid, where x is the number of weeks and y is dollars. She plots three points: zero and negative two, one and two, and two and six. Negative two means she starts owing her brother two dollars. Write the expression for y, then check it against all three points.",
+   "answer": "y equals four x minus two. At x equals zero, y is negative two, so the constant is negative two. Each week y climbs from negative two to two to six, a jump of four, so the coefficient is four. Check: four times zero minus two is negative two, four times one minus two is two, and four times two minus two is six — all three points match."
+  }
+ }
+}

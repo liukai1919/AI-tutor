@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+ "lang": "en",
+ "title": "Write and solve a two-step equation from a situation with negatives (5° falling 3° per hour reaches −13°: 5 − 3h = −13)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "When It Keeps Getting Colder: 5 − 3h = −13",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a word problem into a two-step equation, like working out a canoe trip budget. Today we do the exact same thing, except the numbers drop below zero — a temperature that keeps falling.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the situation. In Prince George it is five degrees right now, and the temperature is falling three degrees every hour. We want to know how many hours until it hits negative thirteen. Let h be the number of hours. We start at five, and each hour we take away three more, so after h hours the temperature is five minus three h. Set that equal to negative thirteen.",
+    "math": "5 - 3h = -13",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -15,
+      6,
+      5,
+      -13
+     ],
+     "labels": [],
+     "caption": "From 5 degrees down to negative 13 degrees"
+    }
+   },
+   {
+    "say": "Now solve it in two moves. First peel off the starting five: subtract five from both sides. On the right, negative thirteen minus five means going five more degrees below zero, so it is negative eighteen — not negative eight. That leaves negative three h equals negative eighteen. Second move, divide both sides by negative three. A negative divided by a negative is positive, so h equals six hours.",
+    "math": "-3h = -13 - 5 = -18 \\quad \\Rightarrow \\quad h = \\frac{-18}{-3} = 6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -13,
+      -13
+     ],
+     "labels": [
+      "5 - 3h",
+      "-13"
+     ],
+     "caption": "Do the same thing to both sides and it stays balanced"
+    }
+   },
+   {
+    "say": "Here is the trap I see all the time. Some people look at negative thirteen, grab the thirteen, divide by three, and say about four and a third hours — because they forgot the starting five. But the five is not being multiplied by anything; it is the fixed starting temperature, so it has to come off first. Watch what happens with that wrong answer: five minus thirteen is negative eight, and negative eight is nowhere near negative thirteen. The scale tips.",
+    "math": "5 - 3\\left(\\tfrac{13}{3}\\right) = 5 - 13 = -8 \\neq -13",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1,
+      -8,
+      -13
+     ],
+     "labels": [
+      "5 - 13 = -8",
+      "-13"
+     ],
+     "caption": "Drop the starting 5 and the two sides stop matching"
+    }
+   },
+   {
+    "say": "Let's check the real answer by substituting h equals six back in, the way you already know how. Three times six is eighteen, and five minus eighteen is negative thirteen. It matches, so six hours is right. You can see it in the table too: every two hours the temperature falls six degrees, and by hour six it is sitting at negative thirteen.",
+    "math": "5 - 3(6) = 5 - 18 = -13 \\checkmark",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      -1,
+      -7,
+      -13
+     ],
+     "labels": [
+      "0 h",
+      "2 h",
+      "4 h",
+      "6 h"
+     ],
+     "caption": "Temperature after 0, 2, 4 and 6 hours"
+    }
+   },
+   {
+    "say": "So whenever a situation has a starting amount and something changing every hour, write start minus rate times h equals the ending value. Then undo the start first, and divide last.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Peel the starting number off both sides first, then divide by the coefficient — negatives included.",
+  "practice": {
+   "question": "At six in the evening in Kamloops the temperature is 2 degrees Celsius, and it falls 4 degrees every hour. Write a two-step equation using h for the number of hours, and solve it to find when the temperature reaches negative 18 degrees. Then check your answer by substituting it back.",
+   "answer": "2 minus 4h equals negative 18. Subtract 2 from both sides: negative 4h equals negative 20. Divide both sides by negative 4: h equals 5 hours, so it hits negative 18 degrees at eleven at night. Check: 2 minus 4 times 5 is 2 minus 20, which is negative 18."
+  }
+ }
+}

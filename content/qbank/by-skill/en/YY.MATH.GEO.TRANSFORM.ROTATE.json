@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.ROTATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5jp8va5re096",
+   "level": 1,
+   "question": "On a square grid, a small arrow sits on the centre dot and points straight up, toward the top of the grid (north). The arrow is rotated a quarter turn clockwise about the centre dot. Which way does it point now?",
+   "options": [
+    "Straight right, toward the east side of the grid",
+    "Straight left, toward the west side of the grid",
+    "Straight down, toward the bottom of the grid (south)",
+    "Still straight up, toward the top of the grid (north)"
+   ],
+   "answerIndex": 0,
+   "explain": "Clockwise follows the way clock hands sweep: north to east to south to west. One quarter turn clockwise takes the arrow from north to east; the usual trap is swinging it to west, which is a quarter turn the other way.",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vajkg9l7",
+   "level": 1,
+   "question": "On a square grid, a red counter sits 3 squares to the right of the centre dot, on the same row. The counter is rotated a half turn about the centre dot. Where does it land?",
+   "options": [
+    "3 squares straight above the centre dot",
+    "3 squares to the left of the centre dot, on the same row",
+    "It stays 3 squares to the right of the centre dot",
+    "3 squares straight below the centre dot"
+   ],
+   "answerIndex": 1,
+   "explain": "A half turn is two quarter turns, so every point ends up on the opposite side of the centre, the same distance away: 3 squares right becomes 3 squares left. The common trap is stopping after one quarter turn, which puts the counter above or below instead.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vaf1w6np",
+   "level": 1,
+   "question": "On a square grid, an arrow on the centre dot points straight right, toward the east side of the grid. The arrow is rotated a quarter turn counter-clockwise about the centre dot. Which way does it point now?",
+   "options": [
+    "Straight left, toward the west side of the grid",
+    "Straight down, toward the bottom of the grid (south)",
+    "Straight up, toward the top of the grid (north)",
+    "Still straight right, toward the east side of the grid"
+   ],
+   "answerIndex": 2,
+   "explain": "Counter-clockwise is the opposite way to clock hands: east to north to west to south. One quarter turn counter-clockwise sends east to north; turning the clock-hand way by mistake would give south.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8va2r5tqk",
+   "level": 1,
+   "question": "On a square grid, a blue dot is 2 squares straight below the centre dot. The blue dot is rotated a quarter turn clockwise about the centre dot. Where is the blue dot now?",
+   "options": [
+    "2 squares to the right of the centre dot",
+    "2 squares straight above the centre dot",
+    "Still 2 squares straight below the centre dot",
+    "2 squares to the left of the centre dot"
+   ],
+   "answerIndex": 3,
+   "explain": "Follow the clockwise order south to west to north to east: a point 2 squares below the centre swings round to 2 squares left. Turning counter-clockwise instead would wrongly send it 2 squares to the right.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jp8va0ntk47",
+   "level": 2,
+   "question": "A clock's minute hand starts pointing straight up at the 12. Jasleen turns the minute hand a quarter turn clockwise. Which number does it point at, and what do we call that time?",
+   "options": [
+    "At the 3 — quarter past the hour",
+    "At the 6 — half past the hour",
+    "At the 9 — quarter to the hour",
+    "Back at the 12 — o'clock"
+   ],
+   "answerIndex": 0,
+   "explain": "Clock hands are the model for clockwise: a quarter turn clockwise carries the minute hand from 12 round to the 3, which we say as quarter past. Landing on the 9 means the hand was turned counter-clockwise, and the 6 means a half turn instead of a quarter.",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vaygc47m",
+   "level": 2,
+   "question": "A swivel chair in the school library faces north. Owen spins it a quarter turn clockwise, and then a quarter turn clockwise again. Which direction is the chair facing now?",
+   "options": [
+    "East",
+    "South",
+    "West",
+    "North"
+   ],
+   "answerIndex": 1,
+   "explain": "Do the turns one at a time: north goes clockwise to east, then east goes clockwise to south, so two quarter turns the same way make a half turn. Stopping after one turn gives east, and spinning the wrong way gives west.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vatdoph5",
+   "level": 2,
+   "question": "On a map grid, an arrow points west. Which single rotation about the arrow's tail will make it point north?",
+   "options": [
+    "A quarter turn counter-clockwise",
+    "A half turn",
+    "A quarter turn clockwise",
+    "A quarter turn clockwise, and then a half turn"
+   ],
+   "answerIndex": 2,
+   "explain": "Follow the clockwise cycle west to north to east to south: one quarter turn clockwise is exactly enough. Going counter-clockwise from west lands on south, and a half turn lands on east.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vat3dtdh",
+   "level": 2,
+   "question": "A rectangular class banner is 60 cm across and 30 cm tall on the wall. Mr. Chan takes it down and puts it back so it is still 60 cm across and 30 cm tall, but now the words read upside down. Which rotation did he use?",
+   "options": [
+    "A quarter turn clockwise",
+    "A quarter turn either way — the direction does not matter",
+    "A quarter turn counter-clockwise",
+    "A half turn"
+   ],
+   "answerIndex": 3,
+   "explain": "A half turn leaves the banner 60 cm across and 30 cm tall but flips the words upside down, because every point moves to the opposite side of the centre. Either quarter turn would stand the banner up as 30 cm across and 60 cm tall, so the size is the clue to the amount of turn.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5jp8va567tg0",
+   "level": 3,
+   "question": "A security camera on the ceiling of a community centre points east. The manager rotates it a quarter turn counter-clockwise in the morning, then rotates it a half turn in the afternoon. Which direction does the camera point at the end of the day?",
+   "options": [
+    "South",
+    "East",
+    "West",
+    "North"
+   ],
+   "answerIndex": 0,
+   "explain": "Work through the turns one at a time: east goes counter-clockwise to north, and then a half turn from north lands on south. Stopping after the first turn (north), or making that first quarter turn the clock-hand way, are the two usual slips.",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vapcage7",
+   "level": 3,
+   "question": "At 2 o'clock the minute hand points straight up at the 12. Nina gives the minute hand a quarter turn clockwise, and then another quarter turn clockwise. What time does the clock show now?",
+   "options": [
+    "2:15, quarter past two",
+    "2:30, half past two",
+    "1:45, quarter to two",
+    "3:00, three o'clock"
+   ],
+   "answerIndex": 1,
+   "explain": "Two quarter turns clockwise make a half turn, so the minute hand travels 12 to 3 to 6, which reads half past two. Stopping at the 3 gives quarter past, and turning the hand backwards to the 9 gives quarter to.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8va6iq5nl",
+   "level": 3,
+   "question": "On a grid map of a Burnaby park, the playground is 3 squares straight north of the fountain. For a new sign, the whole map is rotated a quarter turn clockwise about the fountain. Sam says the playground is now 3 squares west of the fountain. Is Sam right?",
+   "options": [
+    "No — it is 3 squares south, because a quarter turn always sends a point to the opposite side",
+    "Yes — a quarter turn clockwise sends north round to west",
+    "No — it is 3 squares east of the fountain; Sam turned counter-clockwise instead of clockwise",
+    "No — it stays 3 squares north, because rotating a map only turns the picture and does not move the places"
+   ],
+   "answerIndex": 2,
+   "explain": "Clockwise runs north to east to south to west, so a point 3 squares north of the centre swings to 3 squares east. Sam turned the counter-clockwise way, the most common rotation slip — check yourself by sweeping a finger from the 12 to the 3 like a clock hand.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5jp8vashca17",
+   "level": 3,
+   "question": "Liam has to rotate a boat shape a quarter turn clockwise about a dot on his grid paper. By mistake he turns his paper a quarter turn counter-clockwise and traces the boat in that position. How does Liam's drawing compare with the correct one?",
+   "options": [
+    "It is exactly the same, because a quarter turn looks the same whichever way you go",
+    "It is a quarter turn away from the correct drawing",
+    "It is the correct drawing flipped over in a mirror line",
+    "It is a half turn away from the correct drawing"
+   ],
+   "answerIndex": 3,
+   "explain": "A quarter turn clockwise and a quarter turn counter-clockwise finish on opposite sides of the start, so the two drawings are two quarter turns apart — a half turn. Turning the wrong way never makes a mirror image; a rotation only swings the shape around the centre.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "similarity-scale",
+ "lang": "en",
+ "unitName": {
+  "zh": "比例尺图与相似形",
+  "en": "Scale diagrams & similar shapes"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Scale diagrams & similar shapes · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.SIM.UNIT_CONVERT",
+    "level": 1,
+    "question": "Priya measures her desk for a scale drawing. The desk is 1.35 m long. What is this length in centimetres?",
+    "options": [
+     "13.5 cm",
+     "135 cm",
+     "1350 cm",
+     "0.0135 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "There are 100 cm in 1 m, so multiply by 100: 1.35 x 100 = 135 cm. The usual trap is sliding the decimal only one place (13.5) or three places (1350) instead of two."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.SCALE_FACTOR",
+    "level": 1,
+    "question": "A photo of an orca is 5 cm wide. Blown up for a poster, the same orca is 40 cm wide. What is the scale factor from photo to poster?",
+    "options": [
+     "The scale factor is 8, an enlargement",
+     "The scale factor is 0.125, a reduction",
+     "The scale factor is 35, an enlargement",
+     "The scale factor is 200, an enlargement"
+    ],
+    "answerIndex": 0,
+    "explain": "Scale factor is image divided by original: 40 / 5 = 8, and a factor greater than 1 means an enlargement. Watch out for dividing the wrong way (5 / 40 = 0.125) or subtracting to get 35."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.SCALE_DRAW",
+    "level": 1,
+    "question": "On a floor plan of a classroom the scale is 1 cm : 2 m. The whiteboard wall is drawn 7 cm long. How long is the real wall?",
+    "options": [
+     "3.5 m",
+     "9 m",
+     "0.14 m",
+     "14 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Each 1 cm on the plan stands for 2 m in real life, so multiply: 7 x 2 = 14 m. Going from drawing to real life you multiply, not divide (3.5 m) and never add the scale number (9 m)."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+    "level": 2,
+    "question": "In triangle ABC, two of the angles are 40° and 75°. In triangle DEF, two of the angles are 65° and 75°. Are the two triangles similar?",
+    "options": [
+     "No, because the side lengths are not given",
+     "Yes, both have angles 40°, 65° and 75°",
+     "No, the angles 40° and 65° do not match",
+     "Yes, both triangles contain a 75° angle"
+    ],
+    "answerIndex": 1,
+    "explain": "Angles in a triangle add to 180°, so the missing angles are 65° and 40°; all three angles match, so the triangles are similar. One equal angle is never enough, and you do not need side lengths once all three angles match."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.MISSING_SIDE",
+    "level": 2,
+    "question": "Triangle PQR is similar to triangle STU. In triangle PQR, PQ = 6 cm and QR = 9 cm. In triangle STU, the side matching PQ is 15 cm. How long is the side matching QR?",
+    "options": [
+     "18 cm",
+     "3.6 cm",
+     "22.5 cm",
+     "24 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "Find the scale factor 15 / 6 = 2.5, then multiply the matching side: 9 x 2.5 = 22.5 cm. The classic error is adding the difference instead (9 + 9 = 18), because similar shapes multiply, they do not add."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.UNIT_CONVERT",
+    "level": 2,
+    "question": "Ben builds a model of a BC Ferries vessel at a scale of 1 : 200. His model is 82 cm long. How long is the real ferry, in metres?",
+    "options": [
+     "164 m",
+     "16 400 m",
+     "1.64 m",
+     "0.41 m"
+    ],
+    "answerIndex": 0,
+    "explain": "First scale up: 82 x 200 = 16 400 cm, then convert by dividing by 100 to get 164 m. The most common slip is reporting 16 400 and forgetting the cm to m conversion at the end."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.INDIRECT_MEASURE",
+    "level": 3,
+    "question": "At the same moment one afternoon, Maya, who is 1.5 m tall, casts a shadow 1.2 m long, and a nearby totem pole casts a shadow 6.4 m long. How tall is the totem pole?",
+    "options": [
+     "5.12 m",
+     "6.7 m",
+     "9.6 m",
+     "8 m"
+    ],
+    "answerIndex": 3,
+    "explain": "The sun makes similar triangles, so height / shadow is the same for both: 1.5 / 1.2 = 1.25, then 6.4 x 1.25 = 8 m. Be careful to multiply by the ratio, not by Maya's height alone (9.6 m), and never just add the difference."
+   },
+   {
+    "curriculumId": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+    "level": 3,
+    "question": "Ravi wants a triangle similar to one with sides 4 cm, 6 cm and 8 cm. He adds 3 cm to every side and draws a triangle with sides 7 cm, 9 cm and 11 cm. Is Ravi correct?",
+    "options": [
+     "Yes, every side changed by the same 3 cm",
+     "Yes, the angles stay the same when adding",
+     "No, 7 / 4, 9 / 6 and 11 / 8 are not equal",
+     "No, similar triangles must have equal sides"
+    ],
+    "answerIndex": 2,
+    "explain": "Similar shapes need one single ratio for all corresponding sides, and 1.75, 1.5 and 1.375 are different, so the triangles are not similar. Adding the same amount to each side is the most common trap; you must multiply each side by the same scale factor."
+   }
+  ]
+ }
+}

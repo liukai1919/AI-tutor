@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "geometry-measurement",
+ "lang": "en",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ },
+ "set": {
+  "title": "Geometry & Measurement · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "A hiking map uses a scale of 1 : 50 000. A trail is drawn as 4 cm long on the map. What is the actual length of the trail in kilometres?",
+    "options": [
+     "2 km",
+     "20 km",
+     "50 km",
+     "200 km"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply 4 cm by 50 000 to get 200 000 cm, then convert: 200 000 cm = 2 000 m = 2 km. The most common trap is forgetting to convert centimetres to kilometres (or dividing by 100 instead of 100 000)."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "Two triangles are similar. Triangle A has sides 3 cm, 4 cm, and 5 cm. In the similar Triangle B, the side corresponding to the 3 cm side measures 6 cm. What is the length of the side in Triangle B that corresponds to the 4 cm side?",
+    "options": [
+     "7 cm",
+     "6 cm",
+     "8 cm",
+     "9 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "The scale factor is 6 ÷ 3 = 2, so every side is doubled: 4 × 2 = 8 cm. The most common error is adding the difference (6 − 3 = 3, then 4 + 3 = 7) instead of multiplying by the scale factor."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "A rectangle measures 6 cm by 4 cm. It is enlarged by a scale factor of 2. What is the perimeter of the new rectangle?",
+    "options": [
+     "80 cm",
+     "20 cm",
+     "160 cm",
+     "40 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "Perimeter scales linearly with the scale factor: 2(6+4) × 2 = 40 cm. The most common trap is squaring the scale factor (20 × 4 = 80), which applies to area, not perimeter."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "A city map of a BC park shows a walking trail as 7 cm long. The map scale is 1 : 10 000. How many metres is the actual trail?",
+    "options": [
+     "70 000 m",
+     "700 m",
+     "70 m",
+     "7 m"
+    ],
+    "answerIndex": 1,
+    "explain": "7 cm × 10 000 = 70 000 cm, and 70 000 cm ÷ 100 = 700 m. The most common mistake is stopping at 70 000 and calling it metres, or converting by the wrong factor."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "On a sunny afternoon, a 4.5 m flagpole casts a shadow 3 m long. At the same moment, a student's shadow is 1.2 m long. How tall is the student?",
+    "options": [
+     "1.8 m",
+     "0.8 m",
+     "1.5 m",
+     "5.4 m"
+    ],
+    "answerIndex": 0,
+    "explain": "Set up the proportion: height ÷ shadow = 4.5 ÷ 3 = 1.5, so student height = 1.5 × 1.2 = 1.8 m. The most common error is inverting the ratio (1.2 × 3 ÷ 4.5 = 0.8) or simply reporting the ratio as the height (1.5 m)."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "A student is drawing a scale model of their 8 m by 5 m classroom. The scale is 1 cm : 2 m. What are the dimensions of the rectangle on the drawing?",
+    "options": [
+     "16 cm by 10 cm",
+     "2 cm by 1.25 cm",
+     "4 cm by 2.5 cm",
+     "8 cm by 5 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "Divide each real measurement by 2: 8 ÷ 2 = 4 cm and 5 ÷ 2 = 2.5 cm. The most common mistake is multiplying (8 × 2 = 16, 5 × 2 = 10), which would be an enlargement, not a reduction."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 3,
+    "question": "A community garden bed is a 3 m by 4 m rectangle. The garden club plans to build a new bed that is a similar rectangle enlarged by a scale factor of 3. What is the area of the new garden bed?",
+    "options": [
+     "36 m²",
+     "108 m²",
+     "324 m²",
+     "12 m²"
+    ],
+    "answerIndex": 1,
+    "explain": "Area scales by the square of the linear scale factor: (3×3) × (4×3) = 9 × 12 = 108 m². The most common misconception is multiplying the original area by just the scale factor (12 × 3 = 36 m²), which only works for a single length."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 3,
+    "question": "A student is building a model of a skateboard ramp. The real ramp has a triangular cross-section with a base of 2.4 m and a height of 1.2 m. The model's base must be 10 cm. What is the height of the model's triangular cross-section?",
+    "options": [
+     "2.5 cm",
+     "12 cm",
+     "2.4 cm",
+     "5 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "Convert to the same unit first: 2.4 m = 240 cm, so the scale factor is 10 ÷ 240 = 1/24. Model height = 120 cm ÷ 24 = 5 cm. The most common trap is mixing units (e.g., multiplying 1.2 by 10 to get 12 cm) instead of finding the true scale factor first."
+   }
+  ]
+ }
+}

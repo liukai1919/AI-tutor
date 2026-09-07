@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.VISUAL.TILES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkb8vg3h0v5yd",
+   "level": 1,
+   "question": "在方格纸上用小方块摆楼梯：第 1 个图形用 4 块，第 2 个用 7 块，第 3 个用 10 块，每次都比上一个多 3 块。第 n 个图形用多少块？请选出正确的式子（expression）。",
+   "options": [
+    "3n + 1",
+    "n + 3",
+    "4n + 3",
+    "3n + 4"
+   ],
+   "answerIndex": 0,
+   "explain": "每次多 3，所以 n 前面是 3；再看第 1 个要得 4，3 × 1 + 1 = 4，所以是 3n + 1。最容易踩的坑是把起始的 4 当成 n 的系数。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3iu7s3h",
+   "level": 1,
+   "question": "在方格纸上摆一条横条：第 1 个图形用 5 块方格，第 2 个用 7 块，第 3 个用 9 块，每次比上一个多 2 块。第 n 个图形的式子是哪个？",
+   "options": [
+    "5n + 2",
+    "2n + 3",
+    "n + 2",
+    "2n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "每次多 2 就写 2n；代入 n = 1 要等于 5，2 + 3 = 5，所以式子是 2n + 3。坑在于把开头的 5 写成系数、把 2 写成常数。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg36cxoel",
+   "level": 1,
+   "question": "在方格纸上摆长方形边框：第 1 个图形用 6 块方格，第 2 个用 10 块，第 3 个用 14 块，每次多 4 块。第 n 个图形用多少块？",
+   "options": [
+    "6n + 4",
+    "n + 4",
+    "4n + 2",
+    "4n + 6"
+   ],
+   "answerIndex": 2,
+   "explain": "增加量 4 是 n 的系数，n = 1 时 4 × 1 + 2 = 6，所以式子是 4n + 2。写成 n + 4 只说了「每次加 4」，并不能直接算出第 n 个。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3gsakvz",
+   "level": 1,
+   "question": "在方格纸上摆图形：第 1 个用 3 块方格，第 2 个用 8 块，第 3 个用 13 块，每次多 5 块。第 20 个图形用多少块？",
+   "options": [
+    "103 块",
+    "93 块",
+    "65 块",
+    "98 块"
+   ],
+   "answerIndex": 3,
+   "explain": "先写式子 5n - 2（每次多 5，n = 1 时得 3），再代入 20：100 - 2 = 98 块。坑是从第 1 个开始加 20 次 5 得 103，其实第 1 个到第 20 个只加了 19 次。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg31pzma1",
+   "level": 2,
+   "question": "一个方块规律的第 n 个图形有 5n + 2 块。第 12 个图形有多少块？",
+   "options": [
+    "62 块",
+    "29 块",
+    "60 块",
+    "67 块"
+   ],
+   "answerIndex": 0,
+   "explain": "直接把变量（variable）n = 12 代进去：5 × 12 + 2 = 62 块。坑是把 5 和 2 的角色弄反，算成 2 × 12 + 5。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3kumizx",
+   "level": 2,
+   "question": "一个方块规律的第 n 个图形有 3n + 2 块。哪一个图形正好有 47 块？",
+   "options": [
+    "第 14 个",
+    "第 15 个",
+    "第 22 个",
+    "第 16 个"
+   ],
+   "answerIndex": 1,
+   "explain": "由 3n + 2 = 47 得 3n = 45，n = 15。坑是从第 1 个的 5 块起数出「加了 14 次 3」就答第 14 个，忘了第 1 个本身也要算进去。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg31im6cj",
+   "level": 2,
+   "question": "一个方块规律的第 n 个图形有 6n + 4 块。式子里的 6 表示什么？",
+   "options": [
+    "从 6 开始一直加 4 就得第 n 个",
+    "第 1 个图形本来就有 6 块",
+    "后一个图形比前一个多 6 块",
+    "每个图形都排成 6 行方块"
+   ],
+   "answerIndex": 2,
+   "explain": "n 的系数就是每次增加的块数，所以 6 表示后一个比前一个多 6 块；常数 4 才和起点有关（第 1 个是 10 块）。坑是把 6 读成第 1 个图形的块数。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg37yn4bm",
+   "level": 2,
+   "question": "一个方块规律的前三个图形分别用 8 块、13 块、18 块。第 n 个图形的式子是哪个？",
+   "options": [
+    "8n + 5",
+    "n + 5",
+    "5n + 8",
+    "5n + 3"
+   ],
+   "answerIndex": 3,
+   "explain": "每次多 5，所以先写 5n；n = 1 时要得 8，5 + 3 = 8，式子是 5n + 3。坑是把起始的 8 当成系数、把增加量 5 当成常数。",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3032tc7",
+   "level": 3,
+   "question": "小雨在 Surrey 家门口用方砖铺小路。第 1 天铺完时小路有 5 块砖，以后每天再加 3 块。哪一天小路正好有 23 块砖？",
+   "options": [
+    "第 7 天",
+    "第 4 天",
+    "第 6 天",
+    "第 8 天"
+   ],
+   "answerIndex": 0,
+   "explain": "第 n 天的砖数是 3n + 2，由 3n + 2 = 23 得 n = 7。坑是只数出「一共加了 6 次 3」就答第 6 天，漏掉了第 1 天本身。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3mmxmj5",
+   "level": 3,
+   "question": "Victoria 一所学校的花园里，学生用方砖拼图案：第 1 个图案用 6 块，以后每个图案比前一个多 4 块。每块砖的价钱（rate）是 3 加元。拼第 10 个图案要花多少钱？",
+   "options": [
+    "138 加元",
+    "126 加元",
+    "120 加元",
+    "192 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "第 n 个图案是 4n + 2 块，第 10 个 = 42 块，42 × 3 = 126 加元。坑是以为第 10 个要在 6 块上加 10 次 4，算成 46 块。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg34jlcmm",
+   "level": 3,
+   "question": "阿明看着一个方块规律说：「第 1 个图形有 4 块，以后每次多 5 块，所以第 n 个图形是 4n + 5 块。」他错在哪里？",
+   "options": [
+    "写式子没用，从 4 开始一次次加 5 就行",
+    "他没写错，起始 4、每次 5，就是 4n + 5",
+    "每次多 5 才是 n 的系数，应写成 5n - 1",
+    "他该把 4 放到后面，写成 5n + 4 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "增加量 5 才是 n 的系数，且 5 × 1 - 1 = 4 对上第 1 个，所以正确式子是 5n - 1。坑就是把起始块数和每次的增加量写反了位置。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkb8vg3s5kd0i",
+   "level": 3,
+   "question": "在 Nanaimo 海边营地，露营的人用方形石块一圈圈围火堆：第 1 圈用 8 块，以后每多围一圈就多用 6 块。他们一共捡到 55 块石头，最多能围到第几圈，还剩几块？",
+   "options": [
+    "第 7 圈，还剩 5 块",
+    "第 6 圈，还剩 1 块",
+    "第 9 圈，还剩 1 块",
+    "第 8 圈，还剩 5 块"
+   ],
+   "answerIndex": 3,
+   "explain": "第 n 圈一共用 6n + 2 块：6 × 8 + 2 = 50 够，6 × 9 + 2 = 56 就不够了，所以围到第 8 圈，剩 55 - 50 = 5 块。坑是把式子记成 8 + 6n，多算了一圈的石头。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.PYTH.IDENTIFY",
+ "lang": "en",
+ "title": "Identify the hypotenuse and legs in any orientation, and test whether a triangle is right-angled with a² + b² = c² (Pythagorean triples)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Which Side Is the Hypotenuse?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the big picture: the two squares on the shorter sides add up to the square on the longest side. Today we do one small job with that idea — spotting which side is which no matter how the triangle is turned, and then checking whether a triangle really has a right angle.",
+    "math": "a^2+b^2=c^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the only rule you need for naming sides. The hypotenuse is the side sitting directly across from the right angle, and it is always the longest side. The two sides that touch the right angle and make the corner are the legs. Turn the triangle upside down, spin it, flip it — the right angle travels with it, so the hypotenuse is still the same side. Orientation never changes what a triangle is.",
+    "math": "\\text{legs}=a,b \\quad \\text{hypotenuse}=c",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "leg 8 cm",
+      "leg 6 cm",
+      "hypotenuse 10 cm",
+      ""
+     ],
+     "caption": "The two legs meet at the right angle; c sits across from it"
+    }
+   },
+   {
+    "say": "Let us test a real one. A ramp at the skate park has sides nine metres, twelve metres, and fifteen metres. Fifteen is the biggest, so if this is a right triangle, fifteen must be c. Now square the two legs: nine squared is eighty one, and twelve squared is one hundred forty four. Add them and you get two hundred twenty five. And fifteen squared is also two hundred twenty five. They match exactly, so yes — this triangle has a right angle. Nine, twelve, fifteen is a Pythagorean triple.",
+    "math": "9^2+12^2=81+144=225=15^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      12,
+      9
+     ],
+     "labels": [
+      "12 m",
+      "9 m",
+      "15 m",
+      ""
+     ],
+     "caption": "Legs 9 m and 12 m, hypotenuse 15 m"
+    }
+   },
+   {
+    "say": "Now the two traps. Trap one: someone draws that same triangle tipped on its side, sees twelve sitting at the bottom, and calls twelve the hypotenuse. Wrong — c is chosen by the right angle and by being longest, not by where it sits on the page. Trap two: adding the legs instead of squaring them. Nine plus twelve is twenty one, which is not fifteen, so they decide it is not a right triangle. Also wrong — the theorem is about squares, not the raw side lengths. Square first, then add.",
+    "math": "9+12=21\\neq 15 \\quad\\text{(wrong)}\\qquad 9^2+12^2=15^2 \\quad\\text{(right)}",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      9,
+      12,
+      15
+     ],
+     "labels": [
+      "9 m",
+      "12 m",
+      "15 m",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Same triangle, tipped over — 15 m is still the hypotenuse"
+    }
+   },
+   {
+    "say": "One more, and this time the answer is no. A triangular flower bed has sides five metres, six metres, and eight metres. Eight is the longest, so eight would have to be c. Five squared is twenty five, six squared is thirty six, and together that is sixty one. But eight squared is sixty four. Sixty one is not sixty four, so the corner is not a true right angle. Close, but the test says no — and close does not count.",
+    "math": "5^2+6^2=61\\neq 64=8^2",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      5,
+      6,
+      8
+     ],
+     "labels": [
+      "5 m",
+      "6 m",
+      "8 m",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Sides 5, 6, 8 — the test fails, so no right angle"
+    }
+   },
+   {
+    "say": "So here is your whole method in one breath: find the longest side and call it c, square the other two, add them, and see if you land exactly on c squared. Match means right angle. No match means no right angle. And it works from any angle you look at the triangle.",
+    "math": "a^2+b^2=c^2 \\;\\Leftrightarrow\\; \\text{right triangle}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The longest side is always the hypotenuse c — square the two legs, add them, and if you get c squared, it is a right triangle.",
+  "practice": {
+   "question": "Picture a triangular vegetable patch in a Surrey community garden. Draw it yourself: one side is eight metres, another side is fifteen metres, and the third side is seventeen metres. Which side would have to be the hypotenuse, and is this patch actually right-angled?",
+   "answer": "The seventeen metre side is the longest, so it would be the hypotenuse. Check: eight squared is sixty four, fifteen squared is two hundred twenty five, and sixty four plus two hundred twenty five is two hundred eighty nine. Seventeen squared is also two hundred eighty nine. They match, so yes — it is a right triangle, and eight, fifteen, seventeen is a Pythagorean triple."
+  }
+ }
+}

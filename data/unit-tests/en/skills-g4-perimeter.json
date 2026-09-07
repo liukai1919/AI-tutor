@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "perimeter",
+ "lang": "en",
+ "unitName": {
+  "zh": "周长",
+  "en": "Perimeter"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Perimeter · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.COUNT",
+    "level": 1,
+    "question": "On 1-cm grid paper, Noah draws a rectangle that is 5 squares across and 3 squares up. He wants to know the distance all the way around the outside of his rectangle. What is the perimeter?",
+    "options": [
+     "15 cm",
+     "8 cm",
+     "16 cm",
+     "12 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "Perimeter means the distance around the outside, so count the unit lengths along every edge: 5 + 3 + 5 + 3 = 16 cm. The most common trap is counting the squares inside (15) — that is area, not perimeter."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.CALC",
+    "level": 1,
+    "question": "A regular pentagon has 5 equal sides. Each side is 6 cm long. What is the perimeter of the pentagon?",
+    "options": [
+     "30 cm",
+     "24 cm",
+     "11 cm",
+     "36 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "A regular shape has all sides equal, so add the side length once for each side: 6 + 6 + 6 + 6 + 6 = 30 cm (or 5 × 6). The common trap is using the wrong number of sides — a pentagon has 5 sides, not 4 or 6."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+    "level": 1,
+    "question": "A rectangular photo frame has a perimeter of 20 cm. One of its longer sides measures 6 cm. How long is each shorter side?",
+    "options": [
+     "14 cm",
+     "7 cm",
+     "8 cm",
+     "4 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "A rectangle has two long sides and two short sides, so subtract both long sides first: 20 − 6 − 6 = 8 cm, then halve it because 8 cm is shared by the two short sides: 8 ÷ 2 = 4 cm. The common trap is subtracting only one 6 (giving 14 or 7) or forgetting the final halving (giving 8)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.COUNT",
+    "level": 2,
+    "question": "Maya outlines a shape on 1-cm grid paper for her art project. Starting at one corner she draws: 4 cm right, 3 cm up, 2 cm right, 3 cm up, 6 cm left, then 6 cm down back to the start. What is the perimeter of Maya's shape?",
+    "options": [
+     "30 cm",
+     "24 cm",
+     "18 cm",
+     "12 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Perimeter is the total of every side you travel around the outline: 4 + 3 + 2 + 3 + 6 + 6 = 24 cm. Two common traps are skipping the short 'up' steps (18 cm) and counting the squares covered inside (30 cm), which is area."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.CALC",
+    "level": 2,
+    "question": "A rectangular vegetable plot at a Surrey community garden is 8 m long and 5 m wide. Deer fencing costs $3 for each metre. How much will it cost to put fencing all the way around the plot?",
+    "options": [
+     "$120",
+     "$39",
+     "$26",
+     "$78"
+    ],
+    "answerIndex": 3,
+    "explain": "First find the perimeter, 8 + 5 + 8 + 5 = 26 m, then multiply by the cost per metre: 26 × 3 = $78. The biggest trap is using 8 × 5 = 40 (that is the area, which covers the ground, not the fence line around it)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+    "level": 2,
+    "question": "Ravi sews a triangular pennant flag for his school team. The perimeter of the flag is 1 m. Two of the sides measure 35 cm and 28 cm. How long is the third side?",
+    "options": [
+     "37 cm",
+     "43 cm",
+     "63 cm",
+     "137 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "Change 1 m into 100 cm first so all units match, add the two known sides, 35 + 28 = 63 cm, then subtract: 100 − 63 = 37 cm. The common traps are skipping the metre-to-centimetre conversion and stopping at 63 cm, which is only the two known sides added."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+    "level": 3,
+    "question": "The rectangular playground at Riley's school has a perimeter of 46 m. The long side of the playground measures 14 m. How much longer is a long side than a short side?",
+    "options": [
+     "9 m",
+     "18 m",
+     "5 m",
+     "4 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Take away both long sides, 46 − 14 − 14 = 18 m, halve it to get one short side, 18 ÷ 2 = 9 m, then compare: 14 − 9 = 5 m. The common trap is stopping partway and answering 9 m (the short side) or 18 m (the two short sides together) instead of the difference."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.COUNT",
+    "level": 3,
+    "question": "Emma has a rectangle of card 6 cm long and 4 cm wide. She cuts a 2 cm by 2 cm square out of one corner and throws the small piece away. What is the perimeter of the card that is left?",
+    "options": [
+     "16 cm, because a piece was cut away",
+     "20 cm, the same as before",
+     "18 cm",
+     "24 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Trace the new outline and add every side: 6 + 4 + 4 + 2 + 2 + 2 = 20 cm, exactly the same as the original rectangle, because the two cut edges replace the two edges removed from the corner. The common trap is assuming that removing card must make the perimeter smaller — the area shrinks by 4 square cm, but the distance around does not change."
+   }
+  ]
+ }
+}

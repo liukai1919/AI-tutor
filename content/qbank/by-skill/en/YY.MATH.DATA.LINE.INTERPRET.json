@@ -1,0 +1,431 @@
+{
+ "id": "YY.MATH.DATA.LINE.INTERPRET",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5r9jk43lff2u",
+   "level": 1,
+   "question": "The line graph shows the temperature at a Kamloops weather station. The line rises by the same amount each hour. If the pattern keeps going, what temperature does the graph predict for 5 p.m.?",
+   "options": [
+    "32°C",
+    "31°C",
+    "34°C",
+    "30°C"
+   ],
+   "answerIndex": 0,
+   "explain": "Find the step first: each hour the line goes up 2°C, so 30 + 2 = 32°C. A common trap is adding just 1 to get 31°C, or doubling the step and adding 4 to get 34°C — always check the size of the step between two points you already know.",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     24,
+     26,
+     28,
+     30
+    ],
+    "labels": [
+     "1 p.m.",
+     "2 p.m.",
+     "3 p.m.",
+     "4 p.m."
+    ],
+    "step": 2,
+    "caption": "Temperature at a Kamloops weather station (°C)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk41rdljq",
+   "level": 1,
+   "question": "The line graph shows the height of a sunflower in Grandma's Surrey garden. How much taller was the sunflower in week 4 than in week 1?",
+   "options": [
+    "13 cm",
+    "9 cm",
+    "3 cm",
+    "12 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Change over time means the later value minus the earlier value: 13 − 4 = 9 cm. The usual trap is answering 3 cm, which is only the growth for one week, or 13 cm, which is the height itself and not the change.",
+   "tags": [
+    "graph.value_instead_of_change",
+    "ok",
+    "other",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     4,
+     7,
+     10,
+     13
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4"
+    ],
+    "step": 1,
+    "caption": "Height of the sunflower in Grandma's Surrey garden (cm)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4f2qh13",
+   "level": 1,
+   "question": "The line graph shows how many people used the Burnaby community pool each day. Between which two days did the number of swimmers increase the most?",
+   "options": [
+    "Monday to Tuesday",
+    "Wednesday to Thursday",
+    "Tuesday to Wednesday",
+    "Thursday to Friday"
+   ],
+   "answerIndex": 2,
+   "explain": "Subtract to compare each step: 5, 15, 5 and 5, so the biggest jump is Tuesday to Wednesday, where the line is steepest. The trap is picking Thursday to Friday because those numbers are the highest — the biggest value is not the same as the biggest change.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "graph.value_instead_of_change"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     20,
+     25,
+     40,
+     45,
+     50
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday"
+    ],
+    "step": 5,
+    "caption": "People who used the Burnaby community pool each day"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4j4ezni",
+   "level": 1,
+   "question": "The line graph shows the snow depth at Mount Seymour on the first day of each month. Which sentence best describes the change shown by the line?",
+   "options": [
+    "The snow depth stays the same each month.",
+    "The snow depth is rising by 10 cm each month.",
+    "The snow depth is falling by 30 cm each month.",
+    "The snow depth is falling by 10 cm each month."
+   ],
+   "answerIndex": 3,
+   "explain": "The values go down by the same amount each step: 60 → 50 → 40 → 30, so the line falls 10 cm per month. The trap is saying 30 cm, which is the total drop over all three months, not the change for one month.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     60,
+     50,
+     40,
+     30
+    ],
+    "labels": [
+     "March 1",
+     "April 1",
+     "May 1",
+     "June 1"
+    ],
+    "step": 10,
+    "caption": "Snow depth at Mount Seymour (cm)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4f1knjd",
+   "level": 2,
+   "question": "The line graph at the Victoria library shows how many books were borrowed each hour. If the pattern continues, how many books does the graph predict for 1 p.m.?",
+   "options": [
+    "42 books",
+    "36 books",
+    "48 books",
+    "40 books"
+   ],
+   "answerIndex": 0,
+   "explain": "The line rises 6 books each hour, and 1 p.m. is two hours after 11 a.m.: 30 + 6 = 36 at noon, then 36 + 6 = 42. The trap is stopping one hour early at 36, so always count how many steps you need to take.",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     12,
+     18,
+     24,
+     30
+    ],
+    "labels": [
+     "8 a.m.",
+     "9 a.m.",
+     "10 a.m.",
+     "11 a.m."
+    ],
+    "step": 6,
+    "caption": "Books borrowed each hour at the Victoria library"
+   }
+  },
+  {
+   "qid": "qmt5r9jk461g80c",
+   "level": 2,
+   "question": "A line graph shows how far a BC Ferries ship has travelled from Tsawwassen. The plotted points are: 9:00 = 0 km, 9:30 = 12 km, 10:00 = ?, 10:30 = 36 km. The line rises steadily the whole time. What value belongs at 10:00?",
+   "options": [
+    "18 km",
+    "24 km",
+    "48 km",
+    "30 km"
+   ],
+   "answerIndex": 1,
+   "explain": "A steady line goes up by the same amount every half hour: 0, 12, 24, 36, so the missing point is 24 km. The trap is 48 km, which continues the pattern past 10:30 instead of filling the gap inside it.",
+   "tags": [
+    "other",
+    "ok",
+    "graph.extrapolate_step_count",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5r9jk4azewec",
+   "level": 2,
+   "question": "Leo's savings are shown on the line graph. Which table of values matches this line graph?",
+   "options": [
+    "Week 1 $12, Week 2 $14, Week 3 $16, Week 4 $18",
+    "Week 1 $4, Week 2 $8, Week 3 $12, Week 4 $16",
+    "Week 1 $12, Week 2 $16, Week 3 $20, Week 4 $24",
+    "Week 1 $12, Week 2 $16, Week 3 $24, Week 4 $32"
+   ],
+   "answerIndex": 2,
+   "explain": "Start at the first value and add the same step each time: $12, $16, $20, $24. The trap is the table starting at $4, which uses the step size as the starting amount instead of the amount Leo already had.",
+   "tags": [
+    "other",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     12,
+     16,
+     20,
+     24
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4"
+    ],
+    "step": 4,
+    "caption": "Leo's savings ($)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4rp684c",
+   "level": 2,
+   "question": "The line graph shows the battery level of Amira's tablet. If the battery keeps dropping in the same way, at what time does the graph predict it will reach 10%?",
+   "options": [
+    "5 p.m.",
+    "6 p.m.",
+    "8 p.m.",
+    "7 p.m."
+   ],
+   "answerIndex": 3,
+   "explain": "The line falls 15% each hour, so keep subtracting: 40% at 5 p.m., 25% at 6 p.m., 10% at 7 p.m. The trap is stopping at 6 p.m. when the value is still 25% — count the steps until you actually land on 10%.",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     100,
+     85,
+     70,
+     55
+    ],
+    "labels": [
+     "1 p.m.",
+     "2 p.m.",
+     "3 p.m.",
+     "4 p.m."
+    ],
+    "step": 5,
+    "caption": "Battery level of Amira's tablet (%)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk43payyv",
+   "level": 3,
+   "question": "Ravi's class collects rain in a gauge and plots the total collected so far on this line graph. What does the flat part of the line between Tuesday and Wednesday tell you?",
+   "options": [
+    "No rain fell on Wednesday, so the total stayed at 14 mm.",
+    "Another 14 mm of rain fell on Wednesday.",
+    "Rain fell on Wednesday, but more slowly than on Tuesday.",
+    "The class emptied the gauge on Wednesday."
+   ],
+   "answerIndex": 0,
+   "explain": "On a graph of a running total, a flat line means the total did not change, so nothing new was added that day. The trap is reading 14 mm as Wednesday’s rainfall — if rain had fallen, even slowly, the line would have gone up, and emptying the gauge would have made it drop.",
+   "tags": [
+    "ok",
+    "graph.cumulative_as_interval",
+    "other",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     8,
+     14,
+     14,
+     20
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday"
+    ],
+    "step": 2,
+    "caption": "Total rain collected so far in the class gauge (mm)"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4obu4xc",
+   "level": 3,
+   "question": "The line graph shows daily bike-share rides and e-scooter rides in Vancouver. If both patterns continue, on which day will bike rides first be greater than scooter rides?",
+   "options": [
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+   ],
+   "answerIndex": 1,
+   "explain": "Extend both lines using their own steps: bikes go up 200 a day (1200 on Friday) and scooters go up 50 a day (1100 on Friday), so Friday is the first day bikes are ahead. The trap is choosing Thursday, where the lines are close but bikes are still behind at 1000 against 1050.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     400,
+     600,
+     800,
+     1000,
+     900,
+     950,
+     1000,
+     1050
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Bike-share",
+     "E-scooter"
+    ],
+    "step": 50,
+    "caption": "Daily bike-share and e-scooter rides in Vancouver"
+   }
+  },
+  {
+   "qid": "qmt5r9jk4yywygd",
+   "level": 3,
+   "question": "Maya measures her tomato plant every two weeks and plots this line graph. If the plant keeps growing the same way, how tall does the graph predict it will be at week 10?",
+   "options": [
+    "42 cm",
+    "58 cm",
+    "50 cm",
+    "66 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Each plotted step is 8 cm for two weeks, and week 10 is two steps past week 6: 34 + 8 = 42 at week 8, then 42 + 8 = 50 cm. The trap is adding 8 cm for every single week and getting 66 cm — check what time gap one step on the graph really covers.",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok",
+    "graph.extrapolate_step_count"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     10,
+     18,
+     26,
+     34
+    ],
+    "labels": [
+     "Week 0",
+     "Week 2",
+     "Week 4",
+     "Week 6"
+    ],
+    "step": 2,
+    "caption": "Height of Maya's tomato plant, measured every two weeks (cm)"
+   }
+  },
+  {
+   "qid": "qmt7hvb6w0v4uc4",
+   "level": 3,
+   "question": "Nina plots the total number of lengths she has swum so far this week at the Kamloops pool, one point after each day. How many lengths did Nina swim on Wednesday and Friday put together?",
+   "options": [
+    "68 lengths",
+    "38 lengths",
+    "8 lengths",
+    "14 lengths"
+   ],
+   "answerIndex": 3,
+   "explain": "On a running-total graph, one day’s swim is the rise from the day before: Wednesday is 30 − 24 = 6 lengths and Friday is 38 − 30 = 8 lengths, so together she swam 6 + 8 = 14. The trap is adding the plotted points (30 + 38 = 68), which treats totals as daily amounts — mixing the two readings gives 30 + 8 = 38, and 8 counts Friday only.",
+   "tags": [
+    "graph.cumulative_as_interval",
+    "graph.cumulative_as_interval",
+    "other",
+    "ok"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     10,
+     24,
+     30,
+     30,
+     38
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday"
+    ],
+    "step": 2,
+    "caption": "Total lengths Nina has swum so far this week"
+   }
+  }
+ ]
+}

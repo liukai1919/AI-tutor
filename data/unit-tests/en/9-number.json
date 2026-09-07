@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ },
+ "set": {
+  "title": "Number · Unit Test (Grade 9)",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.NUM.01",
+    "level": 1,
+    "question": "What is the value of 3^4?",
+    "options": [
+     "12",
+     "81",
+     "64",
+     "108"
+    ],
+    "answerIndex": 1,
+    "explain": "3^4 means 3 × 3 × 3 × 3 = 81. The most common trap is multiplying the base by the exponent (3 × 4 = 12) instead of doing repeated multiplication."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.01",
+    "level": 1,
+    "question": "Simplify: m^3 × m^5",
+    "options": [
+     "m^8",
+     "m^15",
+     "m^2",
+     "2m^8"
+    ],
+    "answerIndex": 0,
+    "explain": "When multiplying powers with the same base, add the exponents: m^(3+5) = m^8. A frequent error is to multiply the exponents (giving m^15) or to combine the bases into 2m^8."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.02",
+    "level": 1,
+    "question": "Maya puts $500 in a savings account that earns 4% simple interest per year. How much interest does she earn in one year?",
+    "options": [
+     "$520",
+     "$20",
+     "$500",
+     "$40"
+    ],
+    "answerIndex": 1,
+    "explain": "Interest = Principal × Rate = $500 × 0.04 = $20. The trap is answering $520 (the new total balance) when the question asks only for the interest earned."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.01",
+    "level": 2,
+    "question": "Which expression is equivalent to (2^3)^4?",
+    "options": [
+     "2^7",
+     "6^4",
+     "2^12",
+     "32"
+    ],
+    "answerIndex": 2,
+    "explain": "The power-of-a-power rule says (a^m)^n = a^(m×n), so (2^3)^4 = 2^12. Common errors: adding the exponents to get 2^7, or multiplying the bases to get 6^4."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.02",
+    "level": 2,
+    "question": "Devon is planning a potluck dinner for 15 friends. His total budget is $200. If food costs $8 per person, how much money does he have left for drinks and decorations?",
+    "options": [
+     "$80",
+     "$120",
+     "$112",
+     "$48"
+    ],
+    "answerIndex": 0,
+    "explain": "Food cost = 15 × $8 = $120; remaining = $200 − $120 = $80. A common mistake is to report $120 (the food cost itself) instead of the amount left over after subtracting."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.01",
+    "level": 2,
+    "question": "Simplify (3n)^2.",
+    "options": [
+     "6n^2",
+     "9n",
+     "3n^2",
+     "9n^2"
+    ],
+    "answerIndex": 3,
+    "explain": "Apply the exponent to every factor inside the parentheses: (3n)^2 = 3^2 × n^2 = 9n^2. The most frequent errors are multiplying the base by the exponent (6n^2) or forgetting to square the variable (9n)."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.01",
+    "level": 3,
+    "question": "A student simplifies (5 + 2)^3 as 5^3 + 2^3 = 133. Which option shows the correct value and correctly explains the mistake?",
+    "options": [
+     "(5+2)^3 = 5^3 + 2^3 is correct because exponents distribute over addition.",
+     "(5+2)^3 = 7^3 = 343; the student incorrectly applied the exponent to each term separately.",
+     "(5+2)^3 = 5^3 × 2^3 = 1000; the student forgot to multiply the partial results.",
+     "(5+2)^3 = 3^3 = 27; the exponent only applies to the number of terms in the sum."
+    ],
+    "answerIndex": 1,
+    "explain": "(5+2)^3 = 7^3 = 343. Exponents do NOT distribute over addition: (a+b)^n ≠ a^n + b^n. This is the single most common exponent-law misconception at Grade 9."
+   },
+   {
+    "curriculumId": "BC.MATH.G9.NUM.02",
+    "level": 3,
+    "question": "Four friends take out a $400 loan at 5% simple interest per year to buy a shared gift for a classmate. They agree to repay the full amount (principal + interest) after 2 years. How much do they owe in total?",
+    "options": [
+     "$440",
+     "$420",
+     "$480",
+     "$400"
+    ],
+    "answerIndex": 0,
+    "explain": "Interest = P × r × t = $400 × 0.05 × 2 = $40; Total repayment = $400 + $40 = $440. The most common error is forgetting the time factor (giving $420) or misreading 5% as a larger rate (giving $480)."
+   }
+  ]
+ }
+}

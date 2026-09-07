@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "algebra",
+ "lang": "en",
+ "unitName": {
+  "zh": "多项式与有理式",
+  "en": "Polynomials & Rational Expressions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Polynomials & Rational Expressions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 1,
+    "question": "Factor completely using the greatest common factor: 6x³ + 9x² − 12x",
+    "options": [
+     "3x²(2x + 3 − 4)",
+     "3x(2x² + 3 − 4)",
+     "3x(2x² + 3x − 4)",
+     "6x(x² + 3x − 2)"
+    ],
+    "answerIndex": 2,
+    "explain": "Pull out the GCF of the coefficients (3) and the lowest power of x (x), giving 3x. Then divide each term by 3x. The most common trap is pulling out x² instead of x, which leaves a constant in the bracket that should not be there."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 1,
+    "question": "State the non-permissible values (NPV) for the rational expression (2x + 5) / (x² − 4x − 12).",
+    "options": [
+     "x = 6 and x = −2",
+     "x = −6 and x = 2",
+     "x = 4 and x = −12",
+     "x = 6"
+    ],
+    "answerIndex": 0,
+    "explain": "Factor the denominator: x² − 4x − 12 = (x − 6)(x + 2), so x ≠ 6 and x ≠ −2. Students often flip the signs (giving −6 and 2) or read the coefficients directly off the trinomial instead of solving each factor equal to zero."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 1,
+    "question": "Factor 49x² − 36y² completely.",
+    "options": [
+     "(7x + 6y)(7x + 6y)",
+     "(49x + 36y)(49x − 36y)",
+     "(7x + 36y)(7x − 36y)",
+     "(7x + 6y)(7x − 6y)"
+    ],
+    "answerIndex": 3,
+    "explain": "This is a difference of squares: (7x)² − (6y)² = (7x + 6y)(7x − 6y). The most frequent error is forgetting to take the square root of each coefficient (writing 49x and 36y instead of 7x and 6y) or writing both signs as plus."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 2,
+    "question": "A gardener in Surrey is planning a rectangular raised bed whose area (in m²) is modelled by 2x² + 7x + 3. Factor the expression to identify the two possible length-and-width expressions.",
+    "options": [
+     "(2x + 3)(x + 1)",
+     "(2x + 1)(x + 3)",
+     "(2x + 3)(2x + 1)",
+     "(x + 1)(x + 3)"
+    ],
+    "answerIndex": 1,
+    "explain": "Use the AC method: a·c = 6; split 7 into 6 + 1, giving 2x² + 6x + x + 3 = (2x + 1)(x + 3). A common slip is swapping the inner terms to get (2x + 3)(x + 1), which expands to 2x² + 5x + 3 — a quick check by expanding catches this."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 2,
+    "question": "Simplify the rational expression (x² − 9) / (x² + 5x + 6) and state all non-permissible values.",
+    "options": [
+     "(x − 3)/(x + 2), NPV: x ≠ −2",
+     "(x + 3)/(x + 2)",
+     "(x − 3)/(x + 2), NPV: x ≠ −3 and x ≠ −2",
+     "(x − 3)/(x + 2), NPV: x ≠ 3 and x ≠ 2"
+    ],
+    "answerIndex": 2,
+    "explain": "Factor both: (x−3)(x+3) / [(x+2)(x+3)] = (x−3)/(x+2). The NPVs come from the ORIGINAL denominator, so x ≠ −3 AND x ≠ −2. The trap is cancelling (x+3) and then forgetting that x = −3 was still excluded, or flipping the signs of the NPVs."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 2,
+    "question": "Factor completely: (2x + 1)² − 25",
+    "options": [
+     "4(x + 3)(x − 2)",
+     "(2x + 6)(2x − 4)",
+     "(x + 3)(x − 2)",
+     "4(2x + 6)(2x − 4)"
+    ],
+    "answerIndex": 0,
+    "explain": "Treat (2x+1) as a single term: [(2x+1)+5][(2x+1)−5] = (2x+6)(2x−4), then pull out the 2 from each factor to get 4(x+3)(x−2). Forgetting to factor out the remaining 2s (stopping at (2x+6)(2x−4)) is the most common incomplete step."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 3,
+    "question": "A student solving the equation (x + 1)/(x − 2) = 3/(x − 2) multiplies through by (x − 2) and obtains x = 2. What is the correct conclusion?",
+    "options": [
+     "x = 2 is the valid solution",
+     "x = −2 is the valid solution",
+     "Both x = 2 and x = −2 are valid solutions",
+     "There is no valid solution because x = 2 is a non-permissible value"
+    ],
+    "answerIndex": 3,
+    "explain": "After clearing the denominator, x = 2 makes the original denominator zero, so it is a non-permissible value and must be rejected. The equation has no solution. This is the single most common mistake in rational equations: failing to check the answer against the NPVs before declaring it valid."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 3,
+    "question": "The area A (in m²) of a community garden plot in Vancouver is given by A = (4x² + 12x + 8)/(x + 2), where x is a design parameter (in metres). First factor and simplify the expression, then evaluate A when x = 4.",
+    "options": [
+     "24 m²",
+     "20 m²",
+     "16 m²",
+     "18 m²"
+    ],
+    "answerIndex": 1,
+    "explain": "Factor the numerator: 4x²+12x+8 = 4(x+1)(x+2). Cancelling (x+2) gives A = 4(x+1), NPV x ≠ −2. At x = 4, A = 4(5) = 20 m². The main trap is cancelling (x+1) instead of (x+2), which would wrongly yield 4(x+2) = 24, or cancelling everything and writing 4x = 16."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

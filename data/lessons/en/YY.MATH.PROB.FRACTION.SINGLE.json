@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.FRACTION.SINGLE",
+ "lang": "en",
+ "title": "Write the probability of a single outcome as a fraction",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Writing a Probability as a Fraction",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list all the outcomes of one spin, and you know a fraction means one whole cut into equal parts. Today we put those two ideas together and write a probability as a fraction.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "blue",
+      "red",
+      "yellow"
+     ],
+     "caption": "A spinner with 4 equal parts: 2 blue, 1 red, 1 yellow"
+    }
+   },
+   {
+    "say": "Here is the little rule. The bottom number of the fraction is how many equal parts there are in all. The top number is how many of those parts give you the outcome you want. So on this spinner, there are four equal parts in all, and two of them are blue. The probability of landing on blue is two fourths.",
+    "math": "P(\\text{blue})=\\frac{2}{4}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1
+     ],
+     "labels": [
+      "blue",
+      "red",
+      "yellow"
+     ],
+     "caption": "2 blue parts out of 4 equal parts in all"
+    }
+   },
+   {
+    "say": "Let's try a real one. Imagine a spinner at the school fair in Kelowna with six equal parts: three parts say free hot chocolate, two parts say sticker, and one part says try again. Six equal parts in all, so six goes on the bottom. Sticker takes up two of those parts, so two goes on top. The probability of a sticker is two sixths.",
+    "math": "P(\\text{sticker})=\\frac{2}{6}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "hot chocolate",
+      "sticker",
+      "try again"
+     ],
+     "caption": "Fair spinner: 3 hot chocolate, 2 sticker, 1 try again — 6 equal parts"
+    }
+   },
+   {
+    "say": "Now watch two mistakes people make. First mistake: writing two thirds for the sticker, because there are three different labels on the spinner. But the bottom number counts equal parts, not how many colours or names there are. Second mistake: writing two fourths, comparing the two sticker parts to the four parts that are not stickers. A probability is never part to part. It is always part out of the whole, so the bottom number stays six.",
+    "math": "P(\\text{sticker})\\neq\\frac{2}{3},\\quad P(\\text{sticker})\\neq\\frac{2}{4},\\quad P(\\text{sticker})=\\frac{2}{6}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "hot chocolate",
+      "sticker",
+      "try again"
+     ],
+     "caption": "Count all 6 equal parts on the bottom — never sticker parts against the rest"
+    }
+   },
+   {
+    "say": "Every probability fraction lands somewhere between zero and one. Hot chocolate is three out of six, sticker is two out of six, and try again is one out of six. See how try again sits closest to impossible, and hot chocolate sits highest? The bigger the top number, the closer to certain.",
+    "math": "P(\\text{hot chocolate})=\\frac{3}{6},\\; P(\\text{sticker})=\\frac{2}{6},\\; P(\\text{try again})=\\frac{1}{6}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.5,
+      0.3333,
+      0.1667
+     ],
+     "labels": [
+      "hot chocolate",
+      "sticker",
+      "try again"
+     ],
+     "caption": "Each outcome marked on the impossible to certain line"
+    }
+   },
+   {
+    "say": "So remember: count the equal parts for the bottom, count the parts you want for the top, and you have written the probability.",
+    "math": "P=\\frac{\\text{parts you want}}{\\text{equal parts in all}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Probability as a fraction: the parts you want on top, all the equal parts on the bottom.",
+  "practice": {
+   "question": "At a Vancouver community centre raffle there is a spinner cut into eight equal parts. Three parts are green and say free swim, four parts are orange and say free skate, and one part is purple and says spin again. Draw it if you like! Write the probability of landing on green as a fraction.",
+   "answer": "P(green) = three eighths. There are eight equal parts in all, so eight is the bottom number, and three of them are green, so three is the top number. Careful — it is not three fifths (green parts against the other five parts); probability always compares to the whole spinner."
+  }
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.SYMMETRY.COMPLETE",
+ "lang": "en",
+ "title": "Complete or create a design with line symmetry on a grid",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finishing a Symmetry Picture on a Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot a line of symmetry — the fold line where both sides match exactly. Today we do the fun opposite job: someone gives us half a picture and the fold line, and we finish the other half so it matches.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "A six by six grid. The dark part is the half someone already coloured."
+    }
+   },
+   {
+    "say": "Here is the trick, and it is just counting squares. Look at one coloured square and ask, how many squares is it away from the fold line? Then go to the other side of the fold line and count the very same number of squares away. Colour that square. Same distance, opposite side. That is the whole rule.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      3
+     ],
+     "labels": [],
+     "caption": "Left half coloured, right half empty. The fold line runs down the middle."
+    }
+   },
+   {
+    "say": "Let's do a real one. Imagine a six by six grid of squares on our math paper, like a little quilt from the fabric store on Main Street. The fold line goes straight down the middle, so there are three columns on the left and three on the right. In the top row, Maya coloured the square that sits two squares left of the fold line. Where does its partner go?",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      1,
+      2
+     ],
+     "labels": [],
+     "caption": "Top row: the coloured square sits two squares to the left of the middle fold line."
+    }
+   },
+   {
+    "say": "Count it out. Two squares to the left of the fold, so the partner goes two squares to the right of the fold, in the very same top row. Colour it in, and now the top row matches. Then we do the exact same counting for every other coloured square, one at a time, until the picture is finished.",
+    "math": "2 \\text{ left} \\rightarrow 2 \\text{ right}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      1,
+      4
+     ],
+     "labels": [],
+     "caption": "The partner square is coloured two squares right of the fold, in the same row."
+    }
+   },
+   {
+    "say": "Here is the mistake I see a lot. Some kids slide the square straight over and put it right beside the fold line instead of counting. That makes the two halves look lopsided, because one side is two squares from the fold and the other side is only one. When you fold the paper, they would not land on top of each other. So always count, and never guess.",
+    "math": "2 \\neq 1",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      1,
+      3
+     ],
+     "labels": [],
+     "caption": "Wrong: the partner was placed only one square from the fold, so the halves do not match."
+    }
+   },
+   {
+    "say": "So remember: same row, same number of squares from the fold line, just on the other side.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To finish a symmetry design, copy each square the same number of squares from the fold line, on the opposite side, in the same row.",
+  "practice": {
+   "question": "Draw an eight by eight grid of squares, like a checkerboard tile floor at the Vancouver Aquarium. Draw the fold line straight down the middle, so there are four columns on the left and four on the right. In the second row from the top, colour the square that is three squares to the left of the fold line, and also the square that is one square to the left of the fold line. Now finish the design so it has line symmetry. Which two squares on the right side do you colour?",
+   "answer": "In that same second row, colour the square three squares to the right of the fold line, and the square one square to the right of the fold line. Each new square is the same distance from the fold as its partner, just on the other side."
+  }
+ }
+}

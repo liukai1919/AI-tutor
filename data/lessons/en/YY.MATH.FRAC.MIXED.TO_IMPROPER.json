@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.MIXED.TO_IMPROPER",
+ "lang": "en",
+ "title": "Convert mixed numbers to improper fractions",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Mixed Numbers into Improper Fractions",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that one and three quarters means one whole thing plus three quarter pieces. Today we learn one small trick: how to write that same amount as a single fraction, with just a top number and a bottom number.",
+    "math": "1\\frac{3}{4}=\\frac{?}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      4,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "One whole granola bar plus three quarter pieces"
+    }
+   },
+   {
+    "say": "Here is the secret: just count how many quarter pieces there are altogether. The first whole bar is cut into four quarters, so that is four pieces. Then we have three more pieces. Four plus three is seven, so we have seven quarters. Same amount, new outfit.",
+    "math": "1\\frac{3}{4}=\\frac{4+3}{4}=\\frac{7}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      4,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "4 quarters + 3 quarters = 7 quarters in total"
+    }
+   },
+   {
+    "say": "Now let us try two and three quarters. Two whole bars, each cut into four, gives two times four, which is eight pieces. Then add the three loose pieces. Eight plus three is eleven. So two and three quarters is eleven quarters. Times the bottom number, then add the top number, and keep the same bottom number.",
+    "math": "2\\frac{3}{4}=\\frac{2\\times 4+3}{4}=\\frac{11}{4}",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "2 groups of 4 quarters, plus 3 extra = 11 quarters"
+    }
+   },
+   {
+    "say": "Watch out for the mistake lots of kids make. Some people multiply two times four and stop there, writing eight quarters. But eight quarters is only two whole bars — the three loose pieces got left behind on the plate! Eight quarters lands right on two, while the real answer, eleven quarters, sits a little past two.",
+    "math": "2\\frac{3}{4}\\neq\\frac{8}{4}\\qquad 2\\frac{3}{4}=\\frac{11}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      3,
+      2,
+      2.75
+     ],
+     "labels": [],
+     "caption": "8 quarters stops at 2; the real answer jumps on to 11 quarters"
+    }
+   },
+   {
+    "say": "So remember the little song: times the bottom, add the top, keep the bottom the same. Do that and your mixed number turns into an improper fraction every single time.",
+    "math": "a\\frac{b}{c}=\\frac{a\\times c+b}{c}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Times the bottom, add the top, keep the bottom the same: two and three quarters is eleven quarters.",
+  "practice": {
+   "question": "At a shop on Granville Island you buy 4 and two thirds metres of ribbon. Write that mixed number, four and two thirds, as an improper fraction. (Hint: four wholes, each cut into thirds, plus two more thirds. You can draw the bars yourself if it helps.)",
+   "answer": "Four times three is twelve, plus two is fourteen, and the bottom stays three — so it is fourteen thirds."
+  }
+ }
+}

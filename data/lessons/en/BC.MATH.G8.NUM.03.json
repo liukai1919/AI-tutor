@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.NUM.03",
+ "lang": "en",
+ "title": "percents less than 1 and greater than 100 (decimal and fractional percents)",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Percents That Aren't 'Normal': Less Than 1% and Over 100%",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, so here's something that trips a lot of people up. You know how in school we always work with nice percents like 25% or 50%? But in real life, percents get weird. Your phone data plan says you've used 0.25% of your 100 gigabytes. Your part-time pay went up and it's now 122% of what it was before. A city's population grew by 3.25%. The number can be a fraction, a decimal, way under 1, or way over 100. And honestly? Once you see the trick, it's just the same 'out of 100' idea you already know. Let's unlock it.",
+    "math": "",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [],
+     "caption": "One shaded square out of 100 = 1%. A percent is always a piece of this grid."
+    }
+   },
+   {
+    "say": "Here's the one key idea that makes everything click: a percent just means 'out of 100.' So 1% is one out of a hundred — one little square on this grid. Now what's a half percent? That's half of one square. It's 0.5 out of 100. And what's 122%? That's 122 out of 100 — the whole grid AND 22 extra squares. You can go past 100, you can go below 1, you can use fractions like one-half percent. The rule never changes: divide by 100 to get your decimal, then multiply. That's it. That's the whole trick.",
+    "math": "\\frac{1}{2}\\% = 0.5\\% = \\frac{0.5}{100} = 0.005",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1,
+      0
+     ],
+     "labels": [
+      "1 square = 1%"
+     ],
+     "caption": "½% would be half of this one square. Still just a piece of the 100-grid."
+    }
+   },
+   {
+    "say": "So here's your conversion cheat-sheet, and I want you to really notice something. When I turn a percent into a decimal, I just move the decimal point two places to the left. One-half percent becomes zero point zero zero five. Three point two five percent becomes zero point zero three two five. One hundred twenty-two percent becomes one point two two. See how one-half percent is a really, really tiny number, but 122% is actually bigger than one? That's why it's powerful. On this number line from zero to two, zero point zero zero five is basically at the starting line, and one point two two is past the middle.",
+    "math": "0.5\\% \\to 0.005 \\qquad 3.25\\% \\to 0.0325 \\qquad 122\\% \\to 1.22",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      2,
+      0.005,
+      1.22
+     ],
+     "labels": [
+      "0",
+      "2",
+      "½% as decimal",
+      "122% as decimal"
+     ],
+     "caption": "As decimals, ½% (0.005) is tiny; 122% (1.22) is past 1."
+    }
+   },
+   {
+    "say": "Let's try a super simple one first so it sticks. Question: what is one-half percent of one billion dollars? Sounds scary, right? But we already know one-half percent is zero point zero zero five. So we just multiply: zero point zero zero five times one billion. You can think of it this way — one percent of one billion is ten million, so half of one percent is five million. And that's exactly what we get: zero point zero zero five times one billion equals five million. A half percent of a billion is five million dollars. Tiny percent, huge number, because the 'out of' part is a billion.",
+    "math": "\\frac{1}{2}\\% \\times 1{,}000{,}000{,}000 = 0.005 \\times 1{,}000{,}000{,}000 = 5{,}000{,}000",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10000000,
+      5000000
+     ],
+     "labels": [
+      "1% of 1 billion",
+      "½% of 1 billion"
+     ],
+     "caption": "½% is exactly half of 1%. Half of 10 million is 5 million."
+    }
+   },
+   {
+    "say": "Okay, a slightly harder one with a decimal percent. Vancouver's population last year was about six hundred three thousand five hundred people. It went up by three point two five percent. What's the new population? Step one: turn three point two five percent into a decimal — that's zero point zero three two five. Step two: find the increase. Zero point zero three two five times six hundred three thousand five hundred. Let's break it up: zero point zero three times six hundred three thousand five hundred is eighteen thousand one hundred five. Zero point zero zero two times that is one thousand two hundred seven. And zero point zero zero zero five times that is three hundred one point seven five. Add them up: nineteen thousand six hundred thirteen point seven five. Step three: add that to the starting population. Six hundred three thousand five hundred plus nineteen thousand six hundred thirteen point seven five gives us about six hundred twenty-three thousand one hundred fourteen people. Three point two five percent sounds small, but on a city that big it's almost twenty thousand new neighbours.",
+    "math": "0.0325 \\times 603{,}500 = 19{,}613.75 \\quad\\Rightarrow\\quad 603{,}500 + 19{,}613.75 \\approx 623{,}114",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      603500,
+      623114
+     ],
+     "labels": [
+      "Last year (603,500)",
+      "This year (≈623,114)"
+     ],
+     "caption": "The extra 3.25% adds about 19,614 people."
+    }
+   },
+   {
+    "say": "Now for the 'bigger than 100 percent' one, and this one works backwards, which is the part that really tests whether you get it. A worker's salary is now ninety-three thousand nine hundred forty dollars, and that new salary is 122% of what she made three years ago. What was her old salary? So we know: 122% of the old salary equals the new salary. In decimal form that's one point two two times the old salary equals ninety-three thousand nine hundred forty. To find the old salary, we divide: ninety-three thousand nine hundred forty divided by one point two two. Let me show you a quick check that makes this easy — seventy-seven thousand times one point two two. Seventy-seven thousand plus twenty-two percent of seventy-seven thousand. Twenty-two percent of seventy-seven thousand is sixteen thousand nine hundred forty. Seventy-seven thousand plus sixteen thousand nine hundred forty is ninety-three thousand nine hundred forty. Perfect match. So her old salary was seventy-seven thousand dollars, and a 22% raise brought it to 122% of the original.",
+    "math": "1.22 \\times \\text{old} = 93{,}940 \\quad\\Rightarrow\\quad \\text{old} = \\frac{93{,}940}{1.22} = 77{,}000",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      77000,
+      93940
+     ],
+     "labels": [
+      "Old salary ($77,000)",
+      "New salary ($93,940)"
+     ],
+     "caption": "New = 122% of old. The 'extra' 22% is the raise."
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to pin above your desk: a percent is always just a number over one hundred, so to use it in a calculation, slide the decimal two places left — whether that number is one-half, three point two five, or one hundred twenty-two. The size of the 'out of' part does the heavy lifting, not the percent itself. Half a percent of a billion is five million. One hundred twenty-two percent of seventy-seven thousand is ninety-three thousand nine hundred forty. You've got this.",
+    "math": "\\text{percent} \\div 100 = \\text{decimal multiplier}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A percent is just a number over 100 — divide by 100 to get your decimal, then multiply or divide as usual. ½% of a billion is $5 million; 122% of $77,000 is $93,940.",
+  "practice": {
+   "question": "A small BC coffee shop in Victoria had revenue of $84,000 last year. It grew by 1.5% this year. What is this year's revenue? (Round to the nearest dollar.)",
+   "answer": "1.5% = 0.015. Increase = 0.015 × 84,000 = $1,260. New revenue = $84,000 + $1,260 = $85,260."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

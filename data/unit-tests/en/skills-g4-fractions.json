@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "fractions",
+ "lang": "en",
+ "unitName": {
+  "zh": "分数",
+  "en": "Fractions"
+ },
+ "provider": "claude",
+ "at": "2026-08-23",
+ "set": {
+  "title": "Fractions · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FRAC.PARTS.EQUAL_PARTITION",
+    "level": 1,
+    "question": "Nadia folds a rectangular piece of paper, cuts it up, and shades one piece. In which case can she honestly say the shaded piece is 1/4 of the paper?",
+    "options": [
+     "The paper is cut into 4 pieces that are all the same size, and 1 piece is shaded",
+     "The paper is cut into 4 pieces of different sizes, and 1 piece is shaded",
+     "The paper is cut into 5 pieces that are all the same size, and 1 piece is shaded",
+     "The paper is cut into 4 pieces that are all the same size, and 3 pieces are shaded"
+    ],
+    "answerIndex": 0,
+    "explain": "A fraction only has meaning when the whole is split into equal parts: the bottom number 4 says 'four equal pieces' and the top number 1 says 'one of them'. The most common trap is counting 4 pieces of different sizes and calling one of them 1/4 — equal number of pieces is not enough, they must be equal in size."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR",
+    "level": 1,
+    "question": "Leo draws a number line from 0 to 1 and divides it into 5 equal jumps. He puts a dot on the 3rd mark after 0. What fraction does the dot show?",
+    "options": [
+     "2/5",
+     "3/5",
+     "3/6",
+     "5/3"
+    ],
+    "answerIndex": 1,
+    "explain": "On a number line the bottom number counts the equal jumps in the whole (5 jumps from 0 to 1) and the top number counts the jumps you have travelled (3), so the dot is 3/5. The usual trap is counting the tick marks instead of the jumps — there are 6 marks, which wrongly gives 3/6."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.COMPARE.SAME_DENOM",
+    "level": 1,
+    "question": "Sam and Priya each have a granola bar of the same size. Sam eats 5/8 of his bar and Priya eats 3/8 of hers. Who eats more, and why?",
+    "options": [
+     "Priya, because a smaller top number means her pieces are bigger",
+     "They eat the same amount, because both bars are the same size",
+     "Sam, because 5 of those equal eighths is more than 3 of them",
+     "You cannot tell, because the bottom numbers are the same so the fractions must be equal"
+    ],
+    "answerIndex": 2,
+    "explain": "When the bottom numbers match, the pieces are the same size, so you just compare how many pieces: 5 eighths beats 3 eighths. The trap is thinking the bottom number changes the piece size here — it does not, because both bars are cut into eighths."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.MODELS.REGION_SET_LINEAR",
+    "level": 2,
+    "question": "Owen picks 20 blueberries at a farm in the Fraser Valley. He puts 2/5 of them into his little sister's bowl. How many blueberries go into her bowl?",
+    "options": [
+     "4",
+     "8",
+     "10",
+     "12"
+    ],
+    "answerIndex": 1,
+    "explain": "With a set, first split it into the number of equal groups on the bottom (20 ÷ 5 = 4 in each fifth), then take as many groups as the top number says (2 × 4 = 8). Two traps: stopping at 4 (that is only 1/5) and answering 12 (that is the 3/5 left over)."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.COMPARE.BENCHMARKS",
+    "level": 2,
+    "question": "Kai and Mira are reading copies of the same book. Kai has read 5/12 of it and Mira has read 7/10 of it. Who has read more?",
+    "options": [
+     "Kai, because 12 is greater than 10",
+     "Kai, because 5/12 is closer to 1 than 7/10 is",
+     "You cannot compare them until the bottom numbers are the same",
+     "Mira, because 7/10 is more than 1/2 while 5/12 is less than 1/2"
+    ],
+    "answerIndex": 3,
+    "explain": "Use 1/2 as a benchmark: half of 12 is 6, so 5/12 is under a half, and half of 10 is 5, so 7/10 is over a half — Mira read more. The trap is comparing the bottom numbers on their own; a bigger bottom number means smaller pieces, not a bigger fraction."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.ORDER",
+    "level": 2,
+    "question": "After snack in a Surrey classroom there are three same-size milk cartons left: one is 3/4 full, one is 1/8 full and one is 5/8 full. Ordered from least full to most full, which list is right?",
+    "options": [
+     "1/8, 5/8, 3/4",
+     "1/8, 3/4, 5/8",
+     "3/4, 5/8, 1/8",
+     "3/4, 1/8, 5/8"
+    ],
+    "answerIndex": 0,
+    "explain": "Rename 3/4 as 6/8 so every carton is measured in eighths, then order 1/8, 5/8, 6/8. Two traps: ordering by the top numbers only (1, 3, 5) and listing them from most to least when the question asked for least first."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.ORDER",
+    "level": 3,
+    "question": "Zoe's class is choosing a walking route on Burnaby Mountain. The three trails are 3/4 km, 2/3 km and 5/12 km long. Which list puts the trails in order from shortest to longest?",
+    "options": [
+     "2/3, 3/4, 5/12",
+     "3/4, 2/3, 5/12",
+     "5/12, 2/3, 3/4",
+     "5/12, 3/4, 2/3"
+    ],
+    "answerIndex": 2,
+    "explain": "Rewrite all three in twelfths — 3/4 = 9/12, 2/3 = 8/12, 5/12 stays — then order 5/12, 8/12, 9/12, which is 5/12, 2/3, 3/4. The trap is judging by the top numbers (2, 3, 5) or by the bottom numbers alone instead of renaming them with a common bottom number."
+   },
+   {
+    "curriculumId": "YY.MATH.FRAC.COMPARE.BENCHMARKS",
+    "level": 3,
+    "question": "At a birthday party in Victoria there are two veggie pizzas of exactly the same size. Pizza A is cut into 6 equal slices and 4 slices are eaten. Pizza B is cut into 10 equal slices and 4 slices are eaten. Which pizza has more left?",
+    "options": [
+     "Pizza A, because its slices are bigger, so its leftovers must be bigger",
+     "They have the same amount left, because 4 slices were eaten from each",
+     "Pizza A, because 2/6 is closer to 1/2 than 6/10 is",
+     "Pizza B, because 6/10 is more than 1/2 while 2/6 is less than 1/2"
+    ],
+    "answerIndex": 3,
+    "explain": "First find what is left — 2/6 of Pizza A and 6/10 of Pizza B — then compare each to the benchmark 1/2: half of 6 is 3 so 2/6 is under a half, and half of 10 is 5 so 6/10 is over a half. The big trap is thinking 'same number of slices eaten means the same amount gone'; slices from a 6-cut pizza and a 10-cut pizza are not the same size."
+   }
+  ]
+ }
+}

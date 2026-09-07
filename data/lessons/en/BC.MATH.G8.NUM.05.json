@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.NUM.05",
+ "lang": "en",
+ "title": "financial literacy — best buys",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Finding the Best Buy: Is the Bigger Box Really Cheaper?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You've got ten dollars in your pocket, and you need a six-pack of protein bars for your gym bag. There are two stores on the way home. Store A says six bars, three ninety. Store B says eight bars, four eighty. Your brain goes, 'B has more bars, so it's probably the deal!' But is it? You can't just guess, because the total price is different AND the quantity is different. So how do you actually figure out which one is the real best buy? That's the skill we're learning today, and it'll save you money every single time you shop.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.9,
+      4.8
+     ],
+     "labels": [
+      "Store A (6 bars)",
+      "Store B (8 bars)"
+     ],
+     "caption": "Two stores, two prices, two quantities — which is actually cheaper per bar?"
+    }
+   },
+   {
+    "say": "Here's the trick that makes this easy every time. We find the unit price. That just means: what does ONE single item cost? To get it, you divide the total price by the total number of items. So for Store A, it's three ninety divided by six. For Store B, it's four eighty divided by eight. Once both numbers are 'per one bar,' you can just look at them side by side and the lower one wins. That's it. No magic, no cross-multiplying in your head while the cashier is staring at you. Just divide, then compare.",
+    "math": "\\text{Unit price} = \\frac{\\text{Total cost}}{\\text{Total quantity}}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3.9,
+      6,
+      0.65,
+      4.8,
+      8,
+      0.6
+     ],
+     "labels": [
+      "Price",
+      "Qty",
+      "Unit",
+      "A",
+      "B"
+     ],
+     "caption": "Divide price by quantity to get the cost per single item: A is $0.65 per bar, B is $0.60."
+    }
+   },
+   {
+    "say": "Let's actually do the math on our protein bar problem. Store A: three ninety divided by six. I'll think of it as three ninety is six times sixty-five cents, so the unit price is sixty-five cents per bar. Store B: four eighty divided by eight. Four eighty is eight times sixty cents, so that's sixty cents per bar. Now compare: sixty cents is less than sixty-five cents. So even though Store B costs more in total, every single bar is five cents cheaper. If you grabbed four bars from each store, four times sixty cents is two dollars forty at Store B, and four times sixty-five cents is two dollars sixty at Store A. You save twenty cents just by picking the right store. Small money, but it adds up over a month of snacks.",
+    "math": "\\frac{3.90}{6} = 0.65 \\quad\\text{vs}\\quad \\frac{4.80}{8} = 0.60",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      0.65,
+      0.6
+     ],
+     "labels": [
+      "Store A: $0.65/bar",
+      "Store B: $0.60/bar (best buy)"
+     ],
+     "caption": "Lower bar = better deal per item."
+    }
+   },
+   {
+    "say": "Now here's a quick check you can do in your head without dividing at all. It's called cross-multiplying, and it's a proportion trick. If Store A really is cheaper per bar, then the price per bar at A should be less than at B. That means three ninety over six should be less than four eighty over eight. Cross-multiply: three ninety times eight versus four eighty times six. That's thirty-one point twenty versus twenty-eight point eight. Since twenty-eight point eight is smaller, Store B wins. Same answer, different tool. You only need one method to be sure, but having a backup means you can double-check on a test or while shopping under pressure.",
+    "math": "\\frac{3.90}{6} \\;\\text{?}\\; \\frac{4.80}{8} \\quad\\Longrightarrow\\quad 3.90 \\times 8 = 31.20 \\;\\text{vs}\\; 4.80 \\times 6 = 28.80",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      31.2,
+      28.8
+     ],
+     "labels": [
+      "A",
+      "B"
+     ],
+     "caption": "Cross-products: A → 3.90 × 8 = 31.20, B → 4.80 × 6 = 28.80. Smaller cross-product = better deal."
+    }
+   },
+   {
+    "say": "Alright, level up a little. Say you're buying a phone screen protector. Store A sells a four-pack for fifteen ninety-nine, but there's a coupon for three dollars off. Store B sells a six-pack for twenty-one ninety-nine, no coupon. First, knock the coupon off Store A: fifteen ninety-nine minus three is twelve ninety-nine. Now find the unit price. Store A: twelve ninety-nine divided by four, which is three twenty-four point seven five, so about three twenty-five per protector. Store B: twenty-one ninety-nine divided by six, which is three sixty-six point five, so about three sixty-seven per protector. Store A with the coupon wins, even though it's fewer protectors. That's the thing about coupons: they change the whole game, so always subtract the coupon before you compare.",
+    "math": "\\frac{15.99 - 3.00}{4} = \\frac{12.99}{4} \\approx 3.25 \\quad\\text{vs}\\quad \\frac{21.99}{6} \\approx 3.67",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.25,
+      3.67
+     ],
+     "labels": [
+      "Store A (with $3 coupon): ~$3.25/each",
+      "Store B (no coupon): ~$3.67/each"
+     ],
+     "caption": "Coupon changes the unit price — always subtract it first!"
+    }
+   },
+   {
+    "say": "So here's your one-sentence cheat code for every shopping trip: divide the total price by the total number of items to get the unit price, subtract any coupons before you divide, and the lowest number per single item is your best buy. That's it. Whether it's granola bars, phone data, a week's worth of milk, or splitting a pizza with your friends — same two-step move. You've got this. Now go save a few bucks before your next trip to Sobeys.",
+    "math": "\\boxed{\\text{Best buy} = \\min\\!\\left(\\frac{\\text{price} - \\text{coupon}}{\\text{quantity}}\\right)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To find the best buy, subtract any coupon from the price, divide by the quantity to get the unit price, and pick the lowest cost per single item.",
+  "practice": {
+   "question": "You need a can of coffee creamer. Tim Hortons sells an eight-pack for $6.40. Sobeys sells a twelve-pack for $8.88. Which store gives you the better unit price, and how much do you save per can?",
+   "answer": "Tim Hortons: $6.40 ÷ 8 = $0.80 per can. Sobeys: $8.88 ÷ 12 = $0.74 per can. Sobeys is the best buy, saving you 6 cents per can."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

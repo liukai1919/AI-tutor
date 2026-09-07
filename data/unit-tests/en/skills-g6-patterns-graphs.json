@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "patterns-graphs",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律、式子与图象",
+  "en": "Patterns, expressions & graphs"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Patterns, expressions & graphs · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PAT.EXPR.FROM_PATTERN",
+    "level": 1,
+    "question": "A table shows a pattern. Figure number n: 1, 2, 3, 4. Number of dots: 5, 9, 13, 17. Which expression gives the number of dots in figure n?",
+    "options": [
+     "n + 4",
+     "5n",
+     "4n + 1",
+     "4n"
+    ],
+    "answerIndex": 2,
+    "explain": "The dots go up by 4 each time, so the rule starts with 4n; since 4 x 1 = 4 but figure 1 has 5 dots, add 1 to get 4n + 1. The common trap is writing 5n just because the first figure has 5 dots — check your rule on a second row (4 x 2 + 1 = 9) before choosing."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.TABLE.TO_GRAPH",
+    "level": 1,
+    "question": "At the school fun fair, granola bars cost $2 each. Number of bars: 1, 2, 3. Total cost: $2, $4, $6. If the number of bars is graphed on the horizontal axis and the cost on the vertical axis, which set of points shows this table?",
+    "options": [
+     "(1, 2), (2, 4), (3, 6)",
+     "(2, 1), (4, 2), (6, 3)",
+     "(1, 2), (2, 4), (3, 5)",
+     "(0, 2), (1, 4), (2, 6)"
+    ],
+    "answerIndex": 0,
+    "explain": "In an ordered pair the first number is the horizontal value (bars) and the second is the vertical value (cost), so 3 bars costing $6 becomes (3, 6). The most common mistake is swapping the two numbers and plotting (2, 1) instead of (1, 2)."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.VISUAL.TILES",
+    "level": 1,
+    "question": "Aria builds a growing tile pattern. Figure 1 uses 4 tiles, Figure 2 uses 6 tiles, and Figure 3 uses 8 tiles. Which expression gives the number of tiles in Figure n?",
+    "options": [
+     "4n",
+     "n + 2",
+     "2n",
+     "2n + 2"
+    ],
+    "answerIndex": 3,
+    "explain": "Each new figure adds 2 tiles, so the rule contains 2n, and because 2 x 1 = 2 while Figure 1 has 4 tiles, the two extra starting tiles give 2n + 2. Watch out for 4n: it works for Figure 1 only, and fails at Figure 2 (4 x 2 = 8, not 6)."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.GRAPH.TO_RULE",
+    "level": 2,
+    "question": "A graph at the Cultus Lake rental shed shows the cost of renting a paddleboard. The points are (1, 15), (2, 25), (3, 35) and (4, 45), where n is the number of hours and c is the cost in dollars. Which rule matches the graph?",
+    "options": [
+     "c = 15n",
+     "c = 10n + 5",
+     "c = 10n",
+     "c = 5n + 10"
+    ],
+    "answerIndex": 1,
+    "explain": "The cost climbs by $10 for each extra hour, so the hourly rate is 10n, and the $5 left over at 1 hour is a fixed fee, giving c = 10n + 5. The usual trap is reading the first point as the rate and writing c = 15n, which already fails at 2 hours ($30 instead of $25)."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.EXPR.FROM_PATTERN",
+    "level": 2,
+    "question": "Maya already has $12 in her jar and adds $7 of allowance every week. After 1, 2 and 3 weeks she has $19, $26 and $33. Which expression gives the amount in her jar after n weeks?",
+    "options": [
+     "7n + 12",
+     "12n + 7",
+     "7n",
+     "19n"
+    ],
+    "answerIndex": 0,
+    "explain": "The amount that repeats each week is the multiplier, so $7 per week gives 7n, and the $12 she started with is added once: 7n + 12. Mixing up the two numbers to get 12n + 7 is the common slip — test it at n = 2, which gives $31 instead of $26."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.TABLE.TO_GRAPH",
+    "level": 2,
+    "question": "Noah rides at a steady speed on the Galloping Goose Trail. Hours: 1, 2, 3, 4. Distance in km: 6, 12, 18, 24. He plots hours on the horizontal axis and kilometres on the vertical axis. Which extra point belongs on the same straight line?",
+    "options": [
+     "(5, 24)",
+     "(30, 5)",
+     "(6, 30)",
+     "(5, 30)"
+    ],
+    "answerIndex": 3,
+    "explain": "He rides 6 km each hour, so after 5 hours he has gone 5 x 6 = 30 km, plotted as (5, 30). Reversing the pair into (30, 5) is the classic error — the hours always go first on the horizontal axis."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.VISUAL.TILES",
+    "level": 3,
+    "question": "Ravi builds a tile path: Figure 1 uses 5 tiles, Figure 2 uses 8 tiles, and Figure 3 uses 11 tiles. He works out that Figure 4 needs 14 tiles, then says: since 8 is double 4, Figure 8 must need double 14, which is 28 tiles. Which statement is correct?",
+    "options": [
+     "Ravi is right; Figure 8 needs 28 tiles.",
+     "Ravi is wrong; Figure 8 needs 26 tiles.",
+     "Ravi is wrong; Figure 8 needs 24 tiles.",
+     "Ravi is wrong; Figure 8 needs 32 tiles."
+    ],
+    "answerIndex": 1,
+    "explain": "The rule is 3n + 2, so Figure 8 needs 3 x 8 + 2 = 26 tiles. Doubling the figure number does not double the tiles when the rule has a constant, because those 2 starting tiles get counted only once, not twice."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.GRAPH.TO_RULE",
+    "level": 3,
+    "question": "Two skating plans are graphed on the same grid, with visits n on the horizontal axis and total cost c in dollars on the vertical axis. Plan A passes through (0, 0), (1, 4) and (2, 8). Plan B passes through (0, 20), (1, 22) and (2, 24). After how many visits do the two plans cost the same amount?",
+    "options": [
+     "5 visits",
+     "6 visits",
+     "10 visits",
+     "20 visits"
+    ],
+    "answerIndex": 2,
+    "explain": "Plan A is c = 4n and Plan B is c = 2n + 20; Plan B starts $20 higher but each visit closes the gap by only $2, so it takes 20 divided by 2 = 10 visits, where both cost $40. Dividing $20 by the $4 rate to get 5 visits is the common trap — compare the two rates, not just one."
+   }
+  ]
+ }
+}

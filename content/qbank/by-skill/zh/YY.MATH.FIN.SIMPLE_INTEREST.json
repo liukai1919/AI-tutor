@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.SIMPLE_INTEREST",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtn8w7ynxjl3x3",
+   "level": 1,
+   "question": "本金（principal）900 加元存进储蓄账户（savings account），年利率（interest rate）4%，存 6 个月。用 I = P × r × t 算，单利（simple interest）是多少？",
+   "options": [
+    "18 加元",
+    "1800 加元",
+    "216 加元",
+    "36 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "利率化成小数 4% = 0.04，时间化成年 6 个月 = 6/12 = 0.5 年，所以 I = 900 × 0.04 × 0.5 = 18 加元。最常踩的坑是把 t 直接写成 6（得 216），或者把 4% 当成 4 去乘（得 1800）。",
+   "tags": [
+    "ok",
+    "fin.interest_rate_not_decimal",
+    "fin.months_as_years",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynchfpde",
+   "level": 1,
+   "question": "本金 1200 加元，年利率 3%，存 18 个月。用 I = P × r × t 算，单利是多少？",
+   "options": [
+    "64.80 加元",
+    "54 加元",
+    "648 加元",
+    "5400 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "18 个月 = 18/12 = 1.5 年，3% = 0.03，所以 I = 1200 × 0.03 × 1.5 = 54 加元。注意 18 个月不是 1.8 年（那会得 64.80），更不能把 t 写成 18。",
+   "tags": [
+    "other",
+    "ok",
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal"
+   ]
+  },
+  {
+   "qid": "qmtn8w7yndt2jy5",
+   "level": 1,
+   "question": "本金 500 加元，年利率 6%，存 3 个月。用 I = P × r × t 算，单利是多少？",
+   "options": [
+    "90 加元",
+    "750 加元",
+    "7.50 加元",
+    "30 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "3 个月 = 3/12 = 0.25 年，6% = 0.06，所以 I = 500 × 0.06 × 0.25 = 7.50 加元。写成 30 加元的那个是漏掉了乘时间（那是整整一年的利息），写成 90 的是把 t 当成了 3。",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynqyarf1",
+   "level": 1,
+   "question": "本金 2000 加元，年利率 2.5%，存 9 个月。下面哪个算式能正确算出单利 I？",
+   "options": [
+    "2000 × 0.025 × 12/9",
+    "2000 × 2.5 × 9/12",
+    "2000 × 0.025 × 9",
+    "2000 × 0.025 × 9/12"
+   ],
+   "answerIndex": 3,
+   "explain": "套 I = P × r × t 时，利率必须先化成小数（decimal）2.5% = 0.025，时间必须化成年 9 个月 = 9/12 年，所以正确算式是 2000 × 0.025 × 9/12。写 2.5 的那个把百分数当成了整数，写 12/9 的那个把分数上下颠倒了。",
+   "tags": [
+    "other",
+    "fin.interest_rate_not_decimal",
+    "fin.months_as_years",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynyynku9",
+   "level": 2,
+   "question": "小雅把 1500 加元存进储蓄账户，年利率 3.2%，按单利计算，存满 18 个月。期间没有其它交易（transaction），到期时账户里一共有多少钱？",
+   "options": [
+    "1572 加元",
+    "72 加元",
+    "8700 加元",
+    "2364 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先算利息：18 个月 = 1.5 年，I = 1500 × 0.032 × 1.5 = 72 加元；再加回本金：1500 + 72 = 1572 加元。只写 72 的那个忘了题目问的是账户总额，本金也还在账户里。",
+   "tags": [
+    "ok",
+    "pct.increase_not_added",
+    "fin.interest_rate_not_decimal",
+    "fin.months_as_years"
+   ]
+  },
+  {
+   "qid": "qmtn8w7yntvmk6t",
+   "level": 2,
+   "question": "小杰的预算（budget）里有 4800 加元存进年利率 1.75% 的储蓄账户，按单利计算，存 8 个月。这 8 个月产生的利息是多少？",
+   "options": [
+    "5600 加元",
+    "56 加元",
+    "84 加元",
+    "672 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "8 个月 = 8/12 = 2/3 年，先算 4800 × 0.0175 = 84（一整年的利息），再乘 2/3 得 56 加元。写 84 的那个把时间当成了 1 年，写 672 的那个把 t 当成了 8。",
+   "tags": [
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other",
+    "fin.months_as_years"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynw9ee0a",
+   "level": 2,
+   "question": "已知 I = P × r × t。若 P = 2500 加元，r = 4.5%，t = 4 个月，则 I 等于多少？",
+   "options": [
+    "3750 加元",
+    "450 加元",
+    "37.50 加元",
+    "112.50 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "4.5% = 0.045，4 个月 = 4/12 = 1/3 年，所以 I = 2500 × 0.045 × 1/3 = 112.5 × 1/3 = 37.50 加元。112.50 是一整年的利息，别忘了只存了 4 个月。",
+   "tags": [
+    "fin.interest_rate_not_decimal",
+    "fin.months_as_years",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynptdo7e",
+   "level": 2,
+   "question": "阿明有 2000 加元。A 账户年利率 2%，存 24 个月；B 账户年利率 3%，存 12 个月。两个账户都按单利计算，哪个账户的利息更多，多多少？",
+   "options": [
+    "A 账户多 240 加元",
+    "B 账户多 20 加元",
+    "A 账户多 2000 加元",
+    "A 账户多 20 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "A：24 个月 = 2 年，2000 × 0.02 × 2 = 80 加元；B：12 个月 = 1 年，2000 × 0.03 × 1 = 60 加元，所以 A 多 80 − 60 = 20 加元。得 240 的那个把月数直接当成了年数。",
+   "tags": [
+    "fin.months_as_years",
+    "other",
+    "fin.interest_rate_not_decimal",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynbvo2c8",
+   "level": 3,
+   "question": "艾登在储蓄账户里存了 2500 加元，银行按年利率 3.2% 计算单利。存满 9 个月后，他把本金和利息全部取出，再花 180 加元买了露营装备。他还剩多少加元？",
+   "options": [
+    "2380 加元",
+    "3040 加元",
+    "8320 加元",
+    "2320 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "第一步：9 个月 = 0.75 年，I = 2500 × 0.032 × 0.75 = 60 加元；第二步：2500 + 60 − 180 = 2380 加元。得 2320 的那个漏掉了利息，得 3040 的那个把 t 当成了 9。",
+   "tags": [
+    "ok",
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7ynh8wkba",
+   "level": 3,
+   "question": "诺亚有 1200 加元，有两种存法：存进年利率 4% 的账户 6 个月，或存进年利率 2.5% 的账户 12 个月。都按单利算，哪种利息更多，多多少？",
+   "options": [
+    "2.5% 那个账户多 72 加元",
+    "2.5% 那个账户多 6 加元",
+    "2.5% 那个账户多 600 加元",
+    "4% 那个账户多 6 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "4% 那笔：1200 × 0.04 × 0.5 = 24 加元；2.5% 那笔：1200 × 0.025 × 1 = 30 加元，所以 2.5% 的多 30 − 24 = 6 加元。坑在于利率高不等于利息多，时间也要一起算；得 72 的那个把月数当成了年数。",
+   "tags": [
+    "fin.months_as_years",
+    "ok",
+    "fin.interest_rate_not_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7yno7vo5j",
+   "level": 3,
+   "question": "杰玛要算本金 3600 加元、年利率 2%、存 15 个月的单利。她写下算式 I = 3600 × 2 × 15。她的算式错在哪里？",
+   "options": [
+    "只有利率错；时间用 15 没问题，因为存的就是 15 个月",
+    "只有时间错；利率用 2 没问题，因为 2% 的数字就是 2",
+    "两处都要改：利率写成 0.02，时间写成 15/12 年",
+    "算式没写错，只要把最后算出的得数除以 100 就行"
+   ],
+   "answerIndex": 2,
+   "explain": "I = P × r × t 里 r 必须是小数、t 必须是年，所以应写成 3600 × 0.02 × 15/12 = 90 加元，两处都得改。只改一处仍会错得离谱：2% 写成 2 会把答案放大 100 倍，15 个月写成 15 年会放大 12 倍。",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8w7yndoq5di",
+   "level": 3,
+   "question": "艾米丽把打工赚的 1500 加元存进年利率 2.4% 的储蓄账户，按单利计算。存满 10 个月后，她把本金和利息一起取出，全部转存进另一个年利率 3% 的账户，再存 1 年。第二次到期时她一共有多少加元？",
+   "options": [
+    "1915.80 加元",
+    "75.90 加元",
+    "1575.00 加元",
+    "1575.90 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "第一步：10 个月 = 10/12 年，I = 1500 × 0.024 × 10/12 = 30 加元，取出 1530 加元；第二步：新本金是 1530 而不是 1500，I = 1530 × 0.03 × 1 = 45.90 加元，共 1575.90 加元。只写 75.90 的那个只加了两次利息、忘了本金。",
+   "tags": [
+    "fin.months_as_years",
+    "pct.increase_not_added",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

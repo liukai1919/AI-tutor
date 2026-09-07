@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.BEST_BUY.DECIDE",
+ "lang": "en",
+ "title": "Choose the best buy for a real need by weighing unit price, quantity needed, coupons and expiry",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Best Buy: Cheapest Per Kilo Isn't Always Best",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a unit price and how to take a coupon off a price. Here is the twist this lesson fixes: the option with the cheapest price per kilogram is not automatically the best buy, because you also have to think about how much you actually need.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Maya needs five hundred grams of strawberries for a smoothie bar at her soccer game on Saturday. The store has three choices. Look at the bottom row: the two kilogram box is the cheapest per kilogram, at seven dollars per kilogram. But hold on, Maya only needs half a kilogram, and strawberries go bad in about three days.",
+    "math": "\\text{unit price}=\\frac{\\text{price}}{\\text{amount}}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      5,
+      14,
+      12,
+      10,
+      7
+     ],
+     "labels": [
+      "250 g box",
+      "500 g box",
+      "2 kg box",
+      "Price ($)",
+      "Per kg ($)"
+     ],
+     "caption": "Prices at the store; the 500 g box also has a one dollar off coupon"
+    }
+   },
+   {
+    "say": "So ask the real question: what do I pay to walk out with five hundred grams? Two of the small boxes gives five hundred grams for six dollars. The five hundred gram box is five dollars, minus the one dollar coupon, so four dollars. The two kilogram box is fourteen dollars, no matter that Maya only wants a quarter of it. Four dollars is the smallest, so the five hundred gram box with the coupon is the best buy.",
+    "math": "2\\times\\$3.00=\\$6.00;\\quad \\$5.00-\\$1.00=\\$4.00;\\quad \\$14.00",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      4,
+      14
+     ],
+     "labels": [
+      "Two 250 g",
+      "500 g + coupon",
+      "2 kg box"
+     ],
+     "caption": "Real cost of getting the 500 g Maya needs"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes. They scan the per kilogram row, spot seven dollars per kilogram, and grab the big box. But that means paying fourteen dollars instead of four, and one and a half kilograms of strawberries sitting in the fridge until they spoil. That is ten dollars thrown away. A great unit price on stuff you cannot use before it expires is not a deal at all.",
+    "math": "\\$14.00-\\$4.00=\\$10.00\\ \\text{wasted}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      8,
+      14,
+      4
+     ],
+     "labels": [
+      "2 kg box",
+      "500 g + coupon",
+      "Per kg ($)",
+      "You pay ($)"
+     ],
+     "caption": "Cheapest per kilogram, yet ten dollars more out of pocket"
+    }
+   },
+   {
+    "say": "And one more thing: do not stop at the unit price and call it your answer. The unit price is a middle step. The answer is the total you actually hand over for the amount you actually need.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Best buy means cheapest total for the amount you really need, after coupons and before it expires.",
+  "practice": {
+   "question": "Noah needs 600 g of grapes for his hiking club on Saturday. The store has: a 300 g bag for $2.40; a 600 g bag for $4.20, and he has a coupon for $0.50 off that bag; or a 2 kg box for $11.00. Grapes spoil in a few days and he has no use for extras. Which is the best buy, and what does he pay?",
+   "answer": "The 600 g bag with the coupon, for $3.70. Two 300 g bags would cost $4.80, and the 2 kg box is $11.00 even though its $5.50 per kilogram is the lowest unit price, because 1.4 kg would spoil unused."
+  }
+ }
+}

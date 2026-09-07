@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.TABLE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5u2kvjkul0g4",
+   "level": 1,
+   "question": "A table has two rows and four columns. The top row, number of hot lunches ordered, reads 1, 2, 3, 4. The bottom row, total cost in dollars, reads 4, 8, 12, 16. Which statement best explains why this table shows a linear relation?",
+   "options": [
+    "Each time the number of lunches goes up by 1, the cost goes up by the same amount, $4.",
+    "The cost doubles each time the number of lunches goes up by 1.",
+    "The costs keep going up, and any table where the numbers go up is a linear relation.",
+    "All four costs are even numbers, so they follow a pattern."
+   ],
+   "answerIndex": 0,
+   "explain": "A relation is linear when the y-value changes by the same amount for every equal step in x: here 4, 8, 12, 16 goes up by $4 each time. The common trap is looking only at 4 to 8 and calling it 'doubling' — 8 to 12 is not doubling, so that rule breaks.",
+   "tags": [
+    "ok",
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvji8dsos",
+   "level": 1,
+   "question": "Four tables are described in words. Each one lists x-values 1, 2, 3, 4 in the top row. Which table shows a linear relation?",
+   "options": [
+    "y-values are 2, 4, 8, 16.",
+    "y-values are 5, 8, 11, 14.",
+    "y-values are 3, 6, 10, 15.",
+    "y-values are 1, 4, 9, 16."
+   ],
+   "answerIndex": 1,
+   "explain": "Subtract each y-value from the next one: 5, 8, 11, 14 gives 3, 3, 3, so the change is constant and the relation is linear. The trap is thinking any neat pattern counts — 2, 4, 8, 16 grows by 2, 4, 8 and 1, 4, 9, 16 grows by 3, 5, 7, so their changes are not constant.",
+   "tags": [
+    "linear.nonconstant_as_linear",
+    "ok",
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjuun8f8",
+   "level": 1,
+   "question": "A table has two rows. The top row, number of weeks, reads 0, 1, 2, 3. The bottom row, dollars in Priya's savings jar, reads 12, 19, 26, 33. What is the constant change in the amount saved for each extra week?",
+   "options": [
+    "$12",
+    "$21",
+    "$7",
+    "$33"
+   ],
+   "answerIndex": 2,
+   "explain": "The constant change is the jump from one row to the next: 19 − 12 = 7, and 26 − 19 = 7, so it is $7 per week. A common trap is giving $21, the total change over all 3 weeks, or $12, which is the starting amount at week 0, not the change.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjvlyp50",
+   "level": 1,
+   "question": "A table has two rows. The top row, hours after the tap was turned on, reads 0, 1, 2, 3. The bottom row, litres of water in a rain barrel, reads 8, 13, 18, 23. Which number is the y-intercept of this linear relation, and what does it mean?",
+   "options": [
+    "5 L, the number of litres added each hour.",
+    "13 L, the amount of water in the barrel after 1 hour.",
+    "23 L, the amount of water in the barrel at the end of the table.",
+    "8 L, the amount of water already in the barrel at 0 hours."
+   ],
+   "answerIndex": 3,
+   "explain": "The y-intercept is the y-value when x is 0, so it is the 8 L already sitting in the barrel before the tap ran. The usual mix-up is naming 5 L — that is the constant change per hour, not the starting value.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "linear.intercept_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvj8drn3p",
+   "level": 2,
+   "question": "A linear relation is shown in a table. The x-values are 0, 1, 2, 3, 4 and the y-values are 9, 15, 21, 27, and one missing value. What is the missing y-value, and what is the y-intercept?",
+   "options": [
+    "y = 33 and the y-intercept is 9",
+    "y = 33 and the y-intercept is 6",
+    "y = 30 and the y-intercept is 9",
+    "y = 54 and the y-intercept is 9"
+   ],
+   "answerIndex": 0,
+   "explain": "The constant change is 15 − 9 = 6, so the next value is 27 + 6 = 33, and the y-intercept is the y-value at x = 0, which is 9. A frequent slip is naming 6 as the y-intercept — 6 is how fast y changes, while 9 is where the table starts.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjx6555f",
+   "level": 2,
+   "question": "A table lists x-values 0, 2, 4, 6 and y-values 5, 11, 17, 23. Is this a linear relation?",
+   "options": [
+    "No, because the x-values do not go up by 1.",
+    "Yes, because every time x goes up by 2, y goes up by the same amount, 6.",
+    "Yes, but only because all the y-values are odd numbers.",
+    "No, because y goes up by 6 while x only goes up by 2."
+   ],
+   "answerIndex": 1,
+   "explain": "Linear means equal steps in x always produce equal changes in y — here each step of 2 in x gives +6 in y, every single time. The trap is thinking x must count 1, 2, 3; the step size can be anything as long as it stays the same.",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "other",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvj6qabk1",
+   "level": 2,
+   "question": "At a Vancouver aquarium, a table lists the number of tickets 1, 2, 3, 4 and the total price in dollars 5, 10, 14, 19. Why is this NOT a linear relation?",
+   "options": [
+    "The first price is $5 and not $0, so the table has no y-intercept.",
+    "The prices are not all multiples of 5.",
+    "The price goes up by $5, then $4, then $5, so the change is not constant.",
+    "The total price goes up every time a ticket is added."
+   ],
+   "answerIndex": 2,
+   "explain": "Check the differences between rows: 5, 4, 5 are not all equal, so the change is not constant and the relation is not linear. A common trap is judging by whether the numbers look tidy — what matters is only whether the jump between rows stays the same.",
+   "tags": [
+    "linear.intercept_misread",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjd06xot",
+   "level": 2,
+   "question": "Ravi has a table of x-values and y-values and wants to decide whether it shows a linear relation. Which method actually answers that question?",
+   "options": [
+    "Find the mean of all the y-values and check that it is a whole number.",
+    "Check that every y-value is bigger than its x-value.",
+    "Find the mode of the y-values and check that it appears more than once.",
+    "When x goes up in equal steps, subtract each y-value from the next one and check that all the differences are the same."
+   ],
+   "answerIndex": 3,
+   "explain": "Linearity is about constant change, so you compare the differences between consecutive y-values while x steps up evenly. Mean, median, and mode describe a set of numbers, but they say nothing about whether the change from row to row is constant.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvj61flwc",
+   "level": 3,
+   "question": "Mia records snow depth outside her Kamloops school. Her table lists days after the storm as 1, 2, 4, 5 and the depth in centimetres as 30, 26, 22, 18. Mia says the relation is linear because the depth drops 4 cm from each row to the next. Is she correct?",
+   "options": [
+    "Mia is wrong, because the days skip from 2 to 4 — that 4 cm drop takes 2 days, so the drop per day is not constant.",
+    "Mia is right, because the depth is always going down, and a steady direction is all that makes a relation linear.",
+    "Mia is wrong, because a linear relation can never go down; the depth would have to be rising to make a line.",
+    "Mia is right, because the depth changes by the same amount, 4 cm, in every row, and that is constant change."
+   ],
+   "answerIndex": 0,
+   "explain": "Constant change means the same change for the same step in x, so you must check the x-steps too: day 1 to 2 is one day for 4 cm, but day 2 to 4 is two days for 4 cm, which is only 2 cm per day. The classic trap is looking at the y-column alone and missing that the days skip 3.",
+   "tags": [
+    "ok",
+    "linear.nonconstant_as_linear",
+    "other",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvji2jawd",
+   "level": 3,
+   "question": "A kayak rental at Deep Cove records a linear relation in a table. Hours rented: 2, 3, 4, 5. Total cost in dollars: 34, 46, 58, 70. What is the y-intercept of this relation, and what does it mean in this situation?",
+   "options": [
+    "$12 — the cost of one hour, since the total goes up by $12 each hour.",
+    "$10 — a fixed booking fee charged before any paddling time.",
+    "$22 — you take $34 and subtract $12 once to go back one hour.",
+    "$0 — renting for zero hours must cost nothing, so it starts at 0."
+   ],
+   "answerIndex": 1,
+   "explain": "The constant change is $12 per hour, so work backwards from 2 hours: 34 − 12 − 12 = $10 at 0 hours, a fixed fee. The most common trap is assuming the y-intercept must be $0 whenever x is 0, but a table can start above zero because of a flat fee.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjv19k14",
+   "level": 3,
+   "question": "Jonah's table lists bags of garden soil 1, 2, 3, 4 and total mass in kilograms 6, 13, 18, 25. He works out the differences 7, 5, 7, finds their mean is about 6.3, and says the relation is linear with a change of about 6.3 kg per bag. Is Jonah right?",
+   "options": [
+    "Yes — taking the mean of the differences is how you find the constant change when the steps are a bit uneven.",
+    "Yes, because the differences 7, 5 and 7 are all close to each other, so the change is constant enough to count.",
+    "No — a linear relation needs the same difference every time, and averaging hides that the change is not constant.",
+    "No — he should have used the median of 7, 5, 7, which is 7 kg per bag, because the median ignores the odd 5."
+   ],
+   "answerIndex": 2,
+   "explain": "Constant change means identical differences, not differences that average out nicely; 7, 5, 7 are not equal, so this table is not linear. Mean and median summarise a list of numbers, but no average can turn a changing step into a constant one.",
+   "tags": [
+    "linear.nonconstant_as_linear",
+    "linear.nonconstant_as_linear",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5u2kvjji3afn",
+   "level": 3,
+   "question": "A Burnaby pool sells swim passes. The table lists number of swims 3, 6, 9, 12 and total cost in dollars 21, 33, 45, 57. If the pattern keeps going, what would 15 swims cost, and what is the one-time card fee charged at 0 swims?",
+   "options": [
+    "$69, with a $12 one-time fee.",
+    "$57, with a $9 one-time fee.",
+    "$60, with no one-time fee.",
+    "$69, with a $9 one-time fee."
+   ],
+   "answerIndex": 3,
+   "explain": "Each extra 3 swims adds $12, so 15 swims cost 57 + 12 = $69, and working back from 3 swims gives 21 − 12 = $9 at 0 swims, the one-time fee. The big trap is assuming cost is just $4 per swim with nothing added — that gives $60 and ignores the fee sitting at the y-intercept.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "linear.intercept_misread",
+    "ok"
+   ]
+  }
+ ]
+}

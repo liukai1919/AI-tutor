@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "financial-percent",
+ "lang": "en",
+ "unitName": {
+  "zh": "理财中的百分数",
+  "en": "Financial percentages"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "review": {
+  "by": "claude",
+  "at": "2026-08-24",
+  "changes": 1
+ },
+ "set": {
+  "title": "Financial percentages · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.DISCOUNT",
+    "level": 1,
+    "question": "A skateboard at a shop in Surrey is priced at $40.00. The shop puts a sign on it: 25% off. What is the sale price of the skateboard?",
+    "options": [
+     "$10.00",
+     "$15.00",
+     "$30.00",
+     "$50.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Find 25% of $40 first (0.25 x 40 = $10), then subtract it from the original price: 40 - 10 = $30. The most common trap is stopping at $10 — that is only the discount, not the price you pay."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.TAX",
+    "level": 1,
+    "question": "Mia buys a hoodie for $60.00. GST is 5%. How much GST does she pay on the hoodie?",
+    "options": [
+     "$3.00",
+     "$0.30",
+     "$12.00",
+     "$63.00"
+    ],
+    "answerIndex": 0,
+    "explain": "5% means 5 out of every 100, so multiply: 0.05 x 60 = $3.00. Watch out for dividing by 5 (which gives $12) — 5% of an amount is much smaller than one fifth of it."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.TIP",
+    "level": 1,
+    "question": "After a hockey game, Noah's family gets a bill of $45.00 at a diner. They want to leave a 10% tip. How much is the tip?",
+    "options": [
+     "$0.45",
+     "$4.50",
+     "$9.00",
+     "$49.50"
+    ],
+    "answerIndex": 1,
+    "explain": "A 10% tip is one tenth of the bill, so move the decimal point one place left: $45.00 becomes $4.50. The usual slip is moving the decimal two places ($0.45) — that would be 1%, not 10%."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.DISCOUNT",
+    "level": 2,
+    "question": "A winter jacket in Kamloops normally costs $80.00. In the spring sale it is marked 15% off. How much does the jacket cost in the sale?",
+    "options": [
+     "$65.00",
+     "$92.00",
+     "$12.00",
+     "$68.00"
+    ],
+    "answerIndex": 3,
+    "explain": "Take 15% of $80 (0.15 x 80 = $12), then subtract: 80 - 12 = $68. A common mistake is subtracting the number 15 straight from 80 to get $65 — the 15 is a percent, not dollars."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.TAX",
+    "level": 2,
+    "question": "Ava buys a board game for $50.00 in Vancouver. She pays 5% GST and 7% PST. What is the total she pays at the till?",
+    "options": [
+     "$52.50",
+     "$56.00",
+     "$53.50",
+     "$62.00"
+    ],
+    "answerIndex": 1,
+    "explain": "The two taxes together are 5% + 7% = 12%, so the tax is 0.12 x 50 = $6.00 and the total is 50 + 6 = $56.00. The trap is treating 12% as $12 (giving $62) or remembering only one of the two taxes."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.TIP",
+    "level": 2,
+    "question": "A family meal in Richmond comes to $62.00 before tip. Liam wants to leave a 15% tip. Which amount should he leave?",
+    "options": [
+     "$9.30",
+     "$6.20",
+     "$3.10",
+     "$12.40"
+    ],
+    "answerIndex": 0,
+    "explain": "Build 15% from benchmarks: 10% of $62 is $6.20 and 5% is half of that, $3.10, so the tip is 6.20 + 3.10 = $9.30. Many students find the 10% part and forget to add the extra 5%."
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
+    "level": 3,
+    "question": "Wireless headphones at a Burnaby mall are $120.00. They are on sale at 30% off, and 12% tax is added to the sale price. What is the final amount paid at the till?",
+    "options": [
+     "$73.92",
+     "$84.00",
+     "$98.40",
+     "$94.08"
+    ],
+    "answerIndex": 3,
+    "explain": "Discount first: 30% of $120 is $36, so the sale price is $84. Then add tax on the sale price: 0.12 x 84 = $10.08, giving 84 + 10.08 = $94.08. The big trap is subtracting the tax instead of adding it, or charging tax on the original $120. (Electronics charge both GST and PST, so 12% is the right rate here.)"
+   },
+   {
+    "curriculumId": "YY.MATH.FIN.PCT.FINAL_PRICE",
+    "level": 3,
+    "question": "A store in Victoria advertises a $200.00 coat as 25% off, and then takes an extra 10% off the already-reduced price. Ben says that is 35% off, so the coat costs $130.00. What does the coat actually cost (before tax)?",
+    "options": [
+     "$130.00",
+     "$132.50",
+     "$135.00",
+     "$150.00"
+    ],
+    "answerIndex": 2,
+    "explain": "Work in order: 25% off $200 gives $150, then 10% off $150 is $15 off, so the price is $135.00. Percents cannot simply be added here, because the second discount is taken on the smaller price, not on the original $200 — the real overall change is 32.5% off."
+   }
+  ]
+ }
+}

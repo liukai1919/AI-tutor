@@ -1,0 +1,77 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV10K.DIGIT_VALUE",
+ "lang": "en",
+ "title": "Give the value of a digit by its place (thousands to ones)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "What Is Each Digit Really Worth?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read and write big numbers like three thousand four hundred sixty-two. Today we take one small step further: figuring out what each single digit inside that number is actually worth.",
+    "math": "3462",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. A digit does not just tell you how many. Where it sits tells you what it is worth. In three thousand four hundred sixty-two, the three sits in the thousands spot, so it is worth three thousand. The four sits in the hundreds spot, so it is worth four hundred. The six is worth sixty, and the two is worth just two. Same digits, different homes, very different values.",
+    "math": "3462 = 3000 + 400 + 60 + 2",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3462
+     ],
+     "labels": [],
+     "caption": "Each digit takes its value from the column it lives in"
+    }
+   },
+   {
+    "say": "Let us try a real one. Imagine a school in Kelowna raised four thousand and five dollars for new library books. What is the four worth? The four is sitting in the thousands column, so it is worth four thousand dollars. What is the five worth? It sits all the way over in the ones column, so it is worth only five dollars. And those two zeros in the middle mean zero hundreds and zero tens.",
+    "math": "4005 = 4000 + 0 + 0 + 5",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      4005
+     ],
+     "labels": [],
+     "caption": "Four thousand and five dollars, digit by digit"
+    }
+   },
+   {
+    "say": "Now here are two slips almost everybody makes. The first one is saying the four is worth just four. But four dollars would not buy even one library book, and the school raised four thousand. Always name the column, then say the whole value. The second slip is letting the zeros fall out and writing four hundred five instead. Look how small four hundred five really is next to four thousand and five. Those zeros are doing an important job. They are holding the hundreds and tens seats empty so the four can stay up in the thousands.",
+    "math": "4005 \\neq 405",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      405
+     ],
+     "labels": [],
+     "caption": "Four hundred five is much smaller than four thousand and five"
+    }
+   },
+   {
+    "say": "So whenever someone points at a digit and asks what it is worth, do this: find its column first, then say the value out loud with the column name. In two thousand seven hundred sixty, the seven lives in the hundreds column, so it is worth seven hundred, not seven.",
+    "math": "2760 = 2000 + 700 + 60 + 0",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      2760
+     ],
+     "labels": [],
+     "caption": "Find the column first, then say the value"
+    }
+   }
+  ],
+  "answer": "A digit is worth its number times its place, so find the column first and then say the whole value.",
+  "practice": {
+   "question": "A family in Victoria bought a used car for six thousand three hundred eight dollars. Write that number down yourself, then draw a place value chart with columns for thousands, hundreds, tens and ones. What is the three worth? What is the eight worth? And what does the zero tell you?",
+   "answer": "The number is six thousand three hundred eight. The three sits in the hundreds column, so it is worth three hundred dollars. The eight sits in the ones column, so it is worth eight dollars. The zero tells you there are no tens, and it holds that seat open so the three stays in the hundreds."
+  }
+ }
+}

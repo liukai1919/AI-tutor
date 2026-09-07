@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.FROM_GRAPH",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5ucy7yoi4qo9",
+   "level": 1,
+   "question": "On a coordinate grid, a discrete linear relation is plotted as four separate points. Reading them in order, the points are (0, 4), (1, 6), (2, 8) and (3, 10). Every time n goes up by 1, y goes up by the same amount. Which relation fits all four points?",
+   "options": [
+    "y = 2n + 4",
+    "y = 4n + 2",
+    "y = 2n",
+    "y = n + 4"
+   ],
+   "answerIndex": 0,
+   "explain": "The rate is how much y changes for each step of 1 in n (here 4 to 6 to 8, so 2), and the starting value is y when n = 0 (here 4), giving y = 2n + 4. The usual trap is writing the two numbers in the wrong jobs, like 4n + 2, which gives 2 instead of 4 at n = 0.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7ymj6bxt",
+   "level": 1,
+   "question": "On a coordinate grid, four points of a discrete linear relation are plotted at (0, 5), (1, 8), (2, 11) and (3, 14). No picture is needed — those are all the points. Which relation gives the correct y for every one of them?",
+   "options": [
+    "y = 5n + 3",
+    "y = 3n + 5",
+    "y = 3n",
+    "y = n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "Check the step first: y climbs 3 each time n climbs 1, so 3 is the rate, and y = 5 when n = 0, so 5 is the starting value: y = 3n + 5. Students often swap them and write 5n + 3, but that gives 3 at n = 0, not 5.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yk1p2mh",
+   "level": 1,
+   "question": "On a coordinate grid, a discrete linear relation is plotted at the points (0, 9), (1, 7), (2, 5) and (3, 3). The y-values are going down by the same amount each step. Which relation matches all four points?",
+   "options": [
+    "y = 9n - 2",
+    "y = 2n + 9",
+    "y = 9 - 2n",
+    "y = 7 - 2n"
+   ],
+   "answerIndex": 2,
+   "explain": "Because y drops 2 for each step of 1 in n, the rate is -2, and the value at n = 0 is 9, so y = 9 - 2n. The trap is treating 9 as the rate and writing 9n - 2, which would make y grow instead of shrink.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yskdjzi",
+   "level": 1,
+   "question": "On a coordinate grid, a discrete linear relation is plotted at (0, 3), (1, 5), (2, 7) and (3, 9). Nadia says the relation is y = 2n + 3. Owen says it is y = 3n + 2. Who is right, and what is the reason?",
+   "options": [
+    "Owen is right: 3 is the first y-value listed, so 3 must be the rate and 2 is the starting value.",
+    "Owen is right: y jumps from 3 up to 5, and 5 - 2 = 3, so the rate is 3 and the start is 2.",
+    "Neither is right: y is always double n, so the relation is y = 2n.",
+    "Nadia is right: y goes up 2 for each step of 1 in n, so 2 is the rate, and y = 3 when n = 0, so 3 is the starting value."
+   ],
+   "answerIndex": 3,
+   "explain": "The rate is the repeated change in y per step (2 here), and the starting value is y at n = 0 (3 here), so y = 2n + 3. The classic error is the one that says y = 3n + 2 — it borrows the first y-value as the rate; test it at n = 1 and you get 5 only by luck, but n = 2 gives 8 instead of 7.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.slope_intercept_swap",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7y38dssa",
+   "level": 2,
+   "question": "A table of values for a discrete linear relation shows: when n = 1, y = 7; when n = 2, y = 10; when n = 3, y = 13; when n = 4, y = 16. The table does not include n = 0. Which relation fits the table?",
+   "options": [
+    "y = 3n + 4",
+    "y = 3n + 7",
+    "y = 4n + 3",
+    "y = 3n"
+   ],
+   "answerIndex": 0,
+   "explain": "The y-values rise 3 each step, so the rate is 3; to find the starting value, step back once from n = 1: 7 - 3 = 4, giving y = 3n + 4. Watch out for the one that says 4n + 3 — it fits the first row only, and already fails at n = 2 (it gives 11, not 10).",
+   "tags": [
+    "ok",
+    "other",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yaitqux",
+   "level": 2,
+   "question": "At a bowling alley in Kelowna, a table shows the total cost C in dollars for n games: 1 game costs $9, 2 games cost $14, 3 games cost $19, 4 games cost $24, 5 games cost $29. Which relation describes the total cost?",
+   "options": [
+    "C = 4n + 5",
+    "C = 5n + 4",
+    "C = 9n",
+    "C = 5n + 9"
+   ],
+   "answerIndex": 1,
+   "explain": "Each extra game adds $5, so 5 is the rate; the one-time shoe fee is found by backing up from 1 game: 9 - 5 = $4, so C = 5n + 4. The tempting wrong choice swaps the jobs of the two numbers (4 per game plus $5) — it matches 1 game by coincidence but gives $13 for 2 games instead of $14.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yepprxw",
+   "level": 2,
+   "question": "Jayden has this table for a discrete linear relation: n = 1 gives y = 11, n = 2 gives y = 15, n = 3 gives y = 19, n = 4 gives y = 23. Which piece of reasoning correctly produces the relation?",
+   "options": [
+    "The first y-value is 11, so the starting value is 11 and the relation is y = 4n + 11.",
+    "The first y-value is 11, so 11 is the rate and 4 is the starting value; the relation is y = 11n + 4.",
+    "The y-values rise 4 each step, so back up one step from 11 to get 7 when n = 0; the relation is y = 4n + 7.",
+    "The y-values rise 4 each step, so the relation is y = 4n, and 11 is just where the table happens to start."
+   ],
+   "answerIndex": 2,
+   "explain": "When a table starts at n = 1, the first y-value is not the starting value — subtract one rate to get back to n = 0 (11 - 4 = 7), so y = 4n + 7. Two common traps live here: calling 11 the rate, and calling 11 the starting value without stepping back.",
+   "tags": [
+    "other",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yh4xx2n",
+   "level": 2,
+   "question": "A discrete linear relation is graphed, and the plotted points are (0, 12), (2, 16), (4, 20) and (6, 24). Notice that n jumps by 2 between plotted points. Which relation is correct?",
+   "options": [
+    "y = 12n + 2",
+    "y = 4n + 12",
+    "y = 2n + 16",
+    "y = 2n + 12"
+   ],
+   "answerIndex": 3,
+   "explain": "y goes up 4 for every 2 steps of n, so the rate per single step is 4 ÷ 2 = 2, and y = 12 when n = 0, giving y = 2n + 12. Two traps: using 4 as the rate without dividing by the 2-step gap, and swapping 12 and the rate to write 12n + 2.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yrqsxcf",
+   "level": 3,
+   "question": "Maya is saving for a bike and records her jar total every second week. Her table shows: week 3 has $46, week 5 has $58, week 7 has $70. She adds the same amount every week, and she had already saved some money before week 1. Which relation gives her savings S after n weeks?",
+   "options": [
+    "S = 6n + 28",
+    "S = 6n + 46",
+    "S = 28n + 6",
+    "S = 12n + 10"
+   ],
+   "answerIndex": 0,
+   "explain": "From week 3 to week 5 she gains $12 over 2 weeks, so the rate is $6 per week; backing up 3 weeks from $46 gives 46 - 18 = $28 at week 0, so S = 6n + 28. The choice using 12 as the weekly rate fits week 3 by accident but predicts $70 at week 5, and swapping the numbers to 28n + 6 makes her start with only $6.",
+   "tags": [
+    "ok",
+    "other",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7yhre4db",
+   "level": 3,
+   "question": "A community hall in Burnaby charges C = 3n + 25 dollars to rent a room for n hours. Ravi says: the cost starts at $3 and goes up $25 every hour. What should you tell him?",
+   "options": [
+    "He is right. The 3 is the starting cost and $25 is charged each hour, so 4 hours costs 3 + 25 × 4 = $103.",
+    "He swapped the two numbers. The $25 is the starting fee and the cost rises $3 each hour, so 4 hours costs $37.",
+    "He is wrong. The starting fee is 3 + 25 = $28 and it rises $3 each hour, so 4 hours costs 28 + 12 = $40.",
+    "He is wrong only about the order of operations. The cost is (3 + 25) x 4 = $112 for 4 hours, all in one bracket."
+   ],
+   "answerIndex": 1,
+   "explain": "In C = 3n + 25 the number attached to n is the rate ($3 per hour) and the number alone is the starting value ($25), so 4 hours costs 3 x 4 + 25 = $37. The most common slip is reading the first number you see as the starting fee — always ask which number is multiplied by n.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7ybi76tw",
+   "level": 3,
+   "question": "During a Surrey rainstorm, Priya measures the water depth in a rain barrel. After 2 hours the depth is 34 cm, and after 5 hours it is 49 cm. The depth rises by the same amount each hour. Which relation gives the depth d in centimetres after n hours of rain?",
+   "options": [
+    "d = 24n + 5",
+    "d = 15n + 4",
+    "d = 5n + 24",
+    "d = 5n + 34"
+   ],
+   "answerIndex": 2,
+   "explain": "The depth rises 15 cm over 3 hours, so the rate is 15 ÷ 3 = 5 cm per hour; going back 2 hours from 34 cm gives 34 - 10 = 24 cm already in the barrel, so d = 5n + 24. The choice using 15 as the hourly rate matches the 2-hour reading but predicts 79 cm at 5 hours instead of 49 cm.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ucy7ymrc2k1",
+   "level": 3,
+   "question": "A bake-sale booth at a Victoria school costs C = 4n + 6 dollars, where n is the number of trays of muffins and there is a one-time table fee. Which table of values matches this relation?",
+   "options": [
+    "n = 0 gives $4, n = 1 gives $10, n = 2 gives $16",
+    "n = 0 gives $0, n = 1 gives $4, n = 2 gives $8",
+    "n = 0 gives $10, n = 1 gives $14, n = 2 gives $18",
+    "n = 0 gives $6, n = 1 gives $10, n = 2 gives $14"
+   ],
+   "answerIndex": 3,
+   "explain": "At n = 0 the cost is just the table fee of $6, and each tray adds $4, so the values go 6, 10, 14. The table starting at $4 and jumping by 6 comes from swapping the rate and the starting value, and the table starting at $10 charges for a tray before any tray is made.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

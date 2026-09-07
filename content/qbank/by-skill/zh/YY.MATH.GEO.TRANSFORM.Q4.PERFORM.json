@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5vov8kk73y3w",
+   "level": 1,
+   "question": "在一张四象限坐标格（coordinate grid）上，横轴和纵轴都从 −10 到 10，每小格代表 1 个单位，原点是 (0, 0)。点 A 的坐标是 (−3, 4)。把点 A 绕原点顺时针（clockwise）旋转 90°，像 A′ 的坐标是多少？",
+   "options": [
+    "(4, 3)",
+    "(3, −4)",
+    "(−4, −3)",
+    "(−4, 3)"
+   ],
+   "answerIndex": 0,
+   "explain": "绕原点顺时针 90° 的规则是 (x, y) → (y, −x)，所以 (−3, 4) → (4, 3)，落在第一象限。常见坑是把顺时针做成逆时针（那会得到 (−4, −3)），或者旋转后仍然照抄原来 x 的负号。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vov8k4hv59i",
+   "level": 1,
+   "question": "在一张四象限坐标格上，横轴和纵轴都从 −12 到 12，每小格代表 1 个单位。点 B 在 (5, −2)。把点 B 先向左平移 8 格，再向上平移 6 格。像 B′ 的坐标是多少？",
+   "options": [
+    "(3, 4)",
+    "(−3, 4)",
+    "(13, 4)",
+    "(−3, −4)"
+   ],
+   "answerIndex": 1,
+   "explain": "向左 8 格是 x 减 8：5 − 8 = −3；向上 6 格是 y 加 6：−2 + 6 = 4，所以像是 (−3, 4)，在第二象限。常见坑是算出 3 而不是 −3（左移必须减），或者数对了却把点描到第一、第三象限去。",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "ok",
+    "other",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kzfvyop",
+   "level": 1,
+   "question": "在一张四象限坐标格上，横轴和纵轴都从 −10 到 10，每小格代表 1 个单位，原点是 (0, 0)。点 C 在 (−6, 3)。把点 C 绕原点旋转 180°，像 C′ 的坐标是多少？",
+   "options": [
+    "(3, 6)",
+    "(6, 3)",
+    "(6, −3)",
+    "(−3, −6)"
+   ],
+   "answerIndex": 2,
+   "explain": "绕原点旋转 180° 的规则是 (x, y) → (−x, −y)，两个坐标同时变号：(−6, 3) → (6, −3)，从第二象限跑到第四象限。常见坑是只转了 90°（那会得到 (3, 6) 或 (−3, −6)），或者只把 x 变号、忘了 y 也要变号。",
+   "tags": [
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kma5jfg",
+   "level": 1,
+   "question": "在一张四象限坐标格上，横轴和纵轴都从 −12 到 12，每小格代表 1 个单位。点 D 在 (3, −5)。先把点 D 关于 x 轴（x-axis）翻折，再把得到的点向左平移 7 格。最后的像 D′ 的坐标是多少？",
+   "options": [
+    "(4, 5)",
+    "(10, 5)",
+    "(−4, −5)",
+    "(−4, 5)"
+   ],
+   "answerIndex": 3,
+   "explain": "关于 x 轴翻折只把 y 变号：(3, −5) → (3, 5)；再向左 7 格是 x 减 7：3 − 7 = −4，所以像是 (−4, 5)，在第二象限。常见坑是忘了翻折那一步（y 仍写成 −5），或者左移后仍把 x 写成正数。",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "other",
+    "coord.sign_quadrant_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vov8k8397ep",
+   "level": 2,
+   "question": "点 P(−8, 5) 先绕原点逆时针（counter-clockwise）旋转 90°，再关于 x 轴翻折。像 P′ 的坐标是多少？",
+   "options": [
+    "(−5, 8)",
+    "(5, 8)",
+    "(5, −8)",
+    "(−5, −8)"
+   ],
+   "answerIndex": 0,
+   "explain": "逆时针 90° 的规则是 (x, y) → (−y, x)，(−8, 5) → (−5, −8)；再关于 x 轴翻折把 y 变号，得到 (−5, 8)。常见坑是把逆时针做成顺时针（会得到 (5, −8)），或者做完旋转就停下、漏掉翻折。",
+   "tags": [
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kxc2sn9",
+   "level": 2,
+   "question": "点 Q(6, −3) 先绕原点旋转 180°，再向下平移 5 格。像 Q′ 的坐标是多少？",
+   "options": [
+    "(3, 1)",
+    "(−6, −2)",
+    "(6, −2)",
+    "(−6, 8)"
+   ],
+   "answerIndex": 1,
+   "explain": "旋转 180° 两个坐标同时变号：(6, −3) → (−6, 3)；向下 5 格是 y 减 5：3 − 5 = −2，所以像是 (−6, −2)，在第三象限。常见坑是把 180° 当成 90° 来转，或者向下平移时把 y 加了 5。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kcfs7nc",
+   "level": 2,
+   "question": "线段 MN 的两个端点是 M(−9, 2) 和 N(−5, 2)。先把线段绕原点顺时针旋转 90°，再向下平移 3 格。像的两个端点坐标是哪一组？",
+   "options": [
+    "M′(−2, 6)、N′(−2, 2)",
+    "M′(−2, −12)、N′(−2, −8)",
+    "M′(2, 6)、N′(2, 2)",
+    "M′(2, 9)、N′(2, 5)"
+   ],
+   "answerIndex": 2,
+   "explain": "顺时针 90° 用 (x, y) → (y, −x)：M(−9, 2) → (2, 9)，N(−5, 2) → (2, 5)；再向下 3 格，y 各减 3，得到 (2, 6) 和 (2, 2)。常见坑是把顺时针转成逆时针（两个端点会跑到第三象限），或者转完就交卷、忘了平移。",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vov8k0pv1xw",
+   "level": 2,
+   "question": "图形的一个顶点 K(7, −4) 先关于 y 轴（y-axis）翻折，再绕原点顺时针旋转 90°。像 K′ 的坐标是多少？",
+   "options": [
+    "(4, 7)",
+    "(−4, −7)",
+    "(4, −7)",
+    "(−4, 7)"
+   ],
+   "answerIndex": 3,
+   "explain": "关于 y 轴翻折只把 x 变号：(7, −4) → (−7, −4)；再用顺时针 90° 的规则 (x, y) → (y, −x)，得到 (−4, 7)，在第二象限。常见坑是旋转方向反了（会得到 (4, −7)），或者漏掉翻折直接旋转原来的点。",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "other",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5vov8k61l3cf",
+   "level": 3,
+   "question": "温哥华一个社区中心要在大厅地板上做镶嵌（tessellation）图案。设计师在地图上画了四象限坐标格，原点在大厅正中央，每小格代表 1 米。一块三角形瓷砖的一个角在 (−5, −8)。设计师先把这块瓷砖绕原点逆时针旋转 90°，再向右平移 6 格。这个角最后的位置坐标是多少？",
+   "options": [
+    "(14, −5)",
+    "(−2, 5)",
+    "(14, 5)",
+    "(8, −5)"
+   ],
+   "answerIndex": 0,
+   "explain": "逆时针 90° 用 (x, y) → (−y, x)：(−5, −8) → (8, −5)；再向右 6 格是 x 加 6，得到 (14, −5)，在第四象限。常见坑是转成顺时针，或者旋转后忘了平移就把 (8, −5) 当答案。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kbobmw9",
+   "level": 3,
+   "question": "课堂上老师给出点 T(−6, 2)，要求绕原点顺时针旋转 90° 并写出像的坐标。小明写 (2, 6)，小艾写 (−2, −6)。下面哪一句说得对？",
+   "options": [
+    "小艾对：顺时针 90° 时 (x, y) 变成 (−y, x)，(−6, 2) 的像是 (−2, −6)，在第三象限。",
+    "小明对：顺时针 90° 时 (x, y) 变成 (y, −x)，(−6, 2) 的像是 (2, 6)，在第一象限。",
+    "小明的数字算对了，但从第二象限顺时针转下来应该落在第四象限，所以要写成 (2, −6)，符号得跟着象限改。",
+    "两人都不对：顺时针 90° 时 (x, y) 变成 (−x, −y)，(−6, 2) 的像是 (6, −2)，在第四象限。"
+   ],
+   "answerIndex": 1,
+   "explain": "顺时针 90° 的规则是 (x, y) → (y, −x)，(−6, 2) → (2, 6)，两个坐标都是正数，所以在第一象限。写成 (−2, −6) 的那个是把方向转反了（那是逆时针 90°），写成 (6, −2) 的那个则是转了 180°；另外坐标写好后不能再随意改象限，符号本身已经决定了它在哪一象限。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5vov8k3kqkut",
+   "level": 3,
+   "question": "UBC 校园地图上用四象限坐标格标位置，原点是钟楼，每小格代表 10 米。一条长椅的一端在 (4, 9)。园艺队先把它关于 x 轴翻折，做出对称的另一条长椅，再把翻折后的长椅绕原点顺时针旋转 90°。这一端最后的坐标是多少？",
+   "options": [
+    "(9, 4)",
+    "(4, −9)",
+    "(−9, −4)",
+    "(−9, 4)"
+   ],
+   "answerIndex": 2,
+   "explain": "关于 x 轴翻折把 y 变号：(4, 9) → (4, −9)；再用顺时针 90° 的规则 (x, y) → (y, −x)，得到 (−9, −4)，在第三象限。常见坑是把旋转做成逆时针（会得到 (9, 4)，跑到第一象限），或者翻折完就停下不转。",
+   "tags": [
+    "transform.rotation_direction",
+    "other",
+    "ok",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5vov8kmu35um",
+   "level": 3,
+   "question": "一幅镶嵌（tessellation）图案是这样生成的：每一块图形都由上一块先绕原点旋转 180°、再向左平移 4 格得到。第一块菱形的一个顶点在 V(−3, −6)。按这个规律连做两次变换后，这个顶点 V″ 的坐标是多少？",
+   "options": [
+    "(−1, 6)",
+    "(−1, 10)",
+    "(3, −6)",
+    "(−3, −6)"
+   ],
+   "answerIndex": 3,
+   "explain": "第一次：180° 使两个坐标变号，(−3, −6) → (3, 6)，再向左 4 格得到 V′(−1, 6)；第二次：(−1, 6) → (1, −6)，再向左 4 格得到 (−3, −6)——正好回到出发点。常见坑是只做了一次变换就停在 (−1, 6)，或者把 180° 当成 90° 来转。",
+   "tags": [
+    "other",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

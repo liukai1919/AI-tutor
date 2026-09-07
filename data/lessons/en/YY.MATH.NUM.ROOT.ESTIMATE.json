@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.ROOT.ESTIMATE",
+ "lang": "en",
+ "title": "Estimate the square root of a non-perfect square to one decimal place using the neighbouring perfect squares (√30 ≈ 5.5)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Getting √30 Down to One Decimal",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to trap a square root between two whole numbers, like saying the square root of thirty sits between five and six. Today we take one more step and sharpen that guess to one decimal place.",
+    "math": "\\sqrt{30} \\approx \\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Start with the neighbouring perfect squares. Twenty five and thirty six are the perfect squares on either side of thirty, and thirty sits almost exactly in the middle of them. That middle position is the clue: if thirty is roughly halfway between the two squares, then its square root is roughly halfway between five and six.",
+    "math": "25 < 30 < 36 \\;\\Rightarrow\\; 5 < \\sqrt{30} < 6",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      25,
+      36,
+      30
+     ],
+     "labels": [],
+     "caption": "Thirty sits near the middle of twenty five and thirty six"
+    }
+   },
+   {
+    "say": "So let us test five point five. Five point five times five point five is thirty point two five. That is just a hair above thirty, which tells me five point five is a tiny bit too big, but only by a sliver. Check the neighbour below: five point four times five point four is twenty nine point one six, and that is further from thirty. So five point five is the best guess to one decimal place.",
+    "math": "5.5 \\times 5.5 = 30.25 \\;\\Rightarrow\\; \\sqrt{30} \\approx 5.5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      5,
+      6,
+      5.5
+     ],
+     "labels": [],
+     "caption": "Five point five, tested by squaring it back"
+    }
+   },
+   {
+    "say": "Two traps to dodge here. First, do not grab the wrong pair of squares. Some people say the square root of thirty is between four and five, but four squared is sixteen and five squared is twenty five, and thirty is already past twenty five, so that pair is too low. Second, a square root is never just halving. The square root of sixteen is four, because four times four is sixteen, not eight. And one more thing: five point five is an estimate, so we say the square root of thirty is about five point five, never exactly five point five.",
+    "math": "\\sqrt{16} = 4 \\quad (\\text{not } 16 \\div 2)",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      16,
+      36,
+      30
+     ],
+     "labels": [],
+     "caption": "Thirty is past twenty five, so four and five is the wrong pair"
+    }
+   },
+   {
+    "say": "Your turn to watch one more. Say a square skate pad at the park covers forty square metres, and you want the side length. Thirty six and forty nine are the neighbouring perfect squares, so the side is between six and seven metres, and forty is much closer to thirty six, so lean low. Test six point three: six point three times six point three is thirty nine point six nine, really close to forty. Test six point four: that gives forty point nine six, a bit further off. So the side is about six point three metres.",
+    "math": "6.3 \\times 6.3 = 39.69 \\;\\Rightarrow\\; \\sqrt{40} \\approx 6.3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      6,
+      7,
+      6.3
+     ],
+     "labels": [],
+     "caption": "Forty leans toward thirty six, so the root leans toward six"
+    }
+   },
+   {
+    "say": "So here is the whole move in one breath: find the two perfect squares that hug your number, see which one it leans toward, pick a decimal, square it to check, and always say about.",
+    "math": "\\sqrt{30} \\approx 5.5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Hug your number with two perfect squares, lean toward the closer one, then square your decimal guess to check — and always say about.",
+  "practice": {
+   "question": "A square garden plot in a Victoria community garden has an area of seventy five square metres. Draw a number line from eight to nine, marked in tenths. Estimate the side length to one decimal place, and mark it on your line. Which two perfect squares did you use, and how did you check your decimal?",
+   "answer": "Sixty four and eighty one are the neighbouring perfect squares, so the side is between eight and nine metres. Seventy five leans toward eighty one, so try eight point seven: eight point seven times eight point seven is seventy five point six nine, very close to seventy five. Eight point six gives seventy three point nine six, which is further off. So the side is about eight point seven metres — an estimate, not an exact answer."
+  }
+ }
+}

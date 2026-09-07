@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "volume",
+ "lang": "en",
+ "unitName": {
+  "zh": "体积",
+  "en": "Volume"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Volume · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+    "level": 1,
+    "question": "A right prism-shaped planter box has a base with an area of 24 cm², and the box is 10 cm tall. Thinking of the prism as 10 identical layers stacked up, what is its volume?",
+    "options": [
+     "34 cm³",
+     "2.4 cm³",
+     "240 cm³",
+     "240 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "For any right prism, volume = area of the base × height, so each 1 cm layer holds 24 cm³ and 10 layers hold 24 × 10 = 240 cm³. The common traps are adding 24 + 10 instead of multiplying, and labelling the answer in cm² — volume is always measured in cubic units."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 1,
+    "question": "A cylindrical candle has a radius of 5 cm and a height of 4 cm. Using π ≈ 3.14, what is its volume?",
+    "options": [
+     "62.8 cm³",
+     "314 cm³",
+     "78.5 cm³",
+     "1256 cm³"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the circle base first: π r² = 3.14 × 5 × 5 = 78.5 cm², then multiply by the height: 78.5 × 4 = 314 cm³. The most common mistake is using r instead of r² (3.14 × 5 × 4 = 62.8), or stopping at the base area of 78.5 and forgetting to multiply by the height."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 1,
+    "question": "Noah packs soup in a rectangular container that measures 10 cm long, 6 cm wide and 5 cm deep. If he fills it right to the top, how much soup does it hold?",
+    "options": [
+     "300 mL",
+     "21 mL",
+     "300 L",
+     "3000 mL"
+    ],
+    "answerIndex": 0,
+    "explain": "Volume = 10 × 6 × 5 = 300 cm³, and since 1 cm³ = 1 mL, the container holds 300 mL. Watch two traps: adding the three dimensions instead of multiplying, and mixing up mL with L — 300 mL is only a small bowl, while 300 L would fill a bathtub."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+    "level": 2,
+    "question": "In science class there are two containers, both 12 cm tall. One is a cylinder with a base area of 50 cm²; the other is a rectangular prism, also with a base area of 50 cm². Which one holds more?",
+    "options": [
+     "The cylinder, because round containers hold more",
+     "The rectangular prism, because its base has straight sides",
+     "There is not enough information until you know the radius",
+     "They hold exactly the same: 600 cm³ each"
+    ],
+    "answerIndex": 3,
+    "explain": "Every right prism, round or straight-sided, has volume = base area × height, so 50 × 12 = 600 cm³ for both. The trap is thinking the shape of the base matters on its own — only its area and the height do, so the radius is not needed once you already know the base area."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 2,
+    "question": "A can of soup from the food drive has a diameter of 8 cm and a height of 10 cm. Using π ≈ 3.14, what is the volume of the can?",
+    "options": [
+     "251.2 cm³",
+     "2009.6 cm³",
+     "502.4 cm³",
+     "50.24 cm³"
+    ],
+    "answerIndex": 2,
+    "explain": "The diameter is 8 cm, so the radius is 4 cm: base area = 3.14 × 4 × 4 = 50.24 cm², then 50.24 × 10 = 502.4 cm³. The classic error here is putting the diameter straight into πr² (3.14 × 8 × 8 × 10 = 2009.6), which gives four times too much — always halve the diameter first."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 2,
+    "question": "The classroom fish tank is a rectangular prism 40 cm long and 25 cm wide. Ava fills it with water to a depth of 20 cm. How many litres of water is that?",
+    "options": [
+     "20 L",
+     "20 000 L",
+     "200 L",
+     "2 L"
+    ],
+    "answerIndex": 0,
+    "explain": "The water forms a prism: 40 × 25 × 20 = 20 000 cm³ = 20 000 mL, and 1000 mL = 1 L, so it is 20 L. The most common slip is skipping the conversion and answering 20 000 L — check whether the number makes sense, since 20 000 L would be a swimming pool."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.WORD",
+    "level": 3,
+    "question": "Before the soccer game, the coach fills a cylindrical jug with water to a depth of 40 cm; the jug has a radius of 10 cm. Each player's bottle holds 400 mL. Using π ≈ 3.14, how many bottles can be filled completely?",
+    "options": [
+     "3 bottles",
+     "31 bottles",
+     "32 bottles",
+     "314 bottles"
+    ],
+    "answerIndex": 1,
+    "explain": "Volume = 3.14 × 10 × 10 × 40 = 12 560 cm³ = 12 560 mL, and 12 560 ÷ 400 = 31.4, so only 31 bottles can be filled right up. Two traps: forgetting to square the radius (which gives about 3 bottles), and rounding 31.4 up to 32 — the leftover 0.4 is not a full bottle."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.CYLINDER",
+    "level": 3,
+    "question": "Two cylindrical candles are both 10 cm tall. The small one has a radius of 3 cm; the large one has a radius of 6 cm. How much more wax does the large candle need?",
+    "options": [
+     "Twice as much, because the radius doubled",
+     "Six times as much",
+     "Eight times as much",
+     "Four times as much"
+    ],
+    "answerIndex": 3,
+    "explain": "Doubling the radius multiplies the base area by 2² = 4 (from 3.14 × 9 = 28.26 cm² to 3.14 × 36 = 113.04 cm²), and with the same height the volume is 4 times as big: 282.6 cm³ versus 1130.4 cm³. The big misconception in this unit is assuming double the radius means double the volume — the radius gets squared, so its effect is much stronger."
+   }
+  ]
+ }
+}

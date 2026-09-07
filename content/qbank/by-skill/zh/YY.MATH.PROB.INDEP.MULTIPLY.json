@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.MULTIPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkrtsexcx6y4n",
+   "level": 1,
+   "question": "一个公平的转盘平均分成 5 等份，整个转盘就是全部结果，其中 1 份涂成蓝色。转一次转盘，同时抛一枚公平的硬币（正面、反面各占一半）。指针停在蓝色且硬币是正面的理论可能性（theoretical probability）是多少？",
+   "options": [
+    "1/10",
+    "1/7",
+    "7/10",
+    "1/5"
+   ],
+   "answerIndex": 0,
+   "explain": "两个独立事件同时发生要相乘：1/5 × 1/2 = 1/10，写成 1/10 的那个正确。最常见的坑是把 1/5 和 1/2 相加得 7/10，加法算的是别的问题，不是同时发生。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "prob.two_events_add_probabilities",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsex8fzd0c",
+   "level": 1,
+   "question": "甲转盘平均分成 6 等份，其中 2 份涂红色；乙转盘平均分成 4 等份，其中 1 份涂绿色。两个转盘各转一次，指针停在红色且停在绿色的可能性是多少？",
+   "options": [
+    "7/12",
+    "1/12",
+    "3/10",
+    "1/24"
+   ],
+   "answerIndex": 1,
+   "explain": "先化简：红色 2/6 = 1/3，绿色 1/4，再相乘 1/3 × 1/4 = 1/12。踩坑点有两个：一是把 1/3 和 1/4 相加得 7/12，二是漏看红色有 2 份而只用 1/6 算成 1/24。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexnm2fpu",
+   "level": 1,
+   "question": "掷一个公平的六面骰子（面上是 1、2、3、4、5、6），同时抛一枚公平的硬币。掷出 3 且硬币为反面的可能性是多少？",
+   "options": [
+    "2/3",
+    "1/8",
+    "1/12",
+    "1/6"
+   ],
+   "answerIndex": 2,
+   "explain": "P(3) = 1/6，P(反面) = 1/2，同时发生就相乘：1/6 × 1/2 = 1/12，写成 1/12 的那个正确。写成 2/3 的是把两个分数加了起来，写成 1/8 的是把 6 面和 2 面加成 8 种结果——样本空间其实是 6 × 2 = 12 种。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsex1t77mf",
+   "level": 1,
+   "question": "一个公平的转盘平均分成 8 等份，其中 3 份涂黄色；另有一个公平的四面骰子，面上是 1、2、3、4。转一次转盘、掷一次骰子，指针停在黄色且骰子掷出 4 的可能性是多少？",
+   "options": [
+    "5/8",
+    "1/32",
+    "3/12",
+    "3/32"
+   ],
+   "answerIndex": 3,
+   "explain": "P(黄) = 3/8，P(4) = 1/4，相乘得 3/8 × 1/4 = 3/32（分子乘分子、分母乘分母）。写成 3/12 的把 8 份和 4 面加成 12 种结果，可同时转和掷一共有 8 × 4 = 32 种结果。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "other",
+    "prob.two_events_add_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexo9zq58",
+   "level": 2,
+   "question": "列治文的社区中心有两个抽奖袋：A 袋里有 2 个红球和 3 个绿球，B 袋里有 3 个蓝球和 5 个黄球。小晴从每个袋里各随机摸一个球（两次互不影响，是独立事件）。她摸到 A 袋红球且 B 袋蓝球的可能性是多少？",
+   "options": [
+    "3/20",
+    "5/13",
+    "31/40",
+    "6/13"
+   ],
+   "answerIndex": 0,
+   "explain": "P(红) = 2/5，P(蓝) = 3/8，相乘 2/5 × 3/8 = 6/40 = 3/20。写成 5/13 或 6/13 的都把两个袋子的球数 5 + 8 加成了 13，可两次摸球的样本空间是 5 × 8 = 40 种配对。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "prob.two_events_add_probabilities",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsex96zidz",
+   "level": 2,
+   "question": "本拿比的游园会摊位要转两个转盘：第一个转盘中奖的可能性是 1/4，第二个转盘中奖的可能性是 2/5。两个转盘都中奖才能领奖品。两个都中奖的可能性是多少？",
+   "options": [
+    "13/20",
+    "1/10",
+    "3/9",
+    "2/9"
+   ],
+   "answerIndex": 1,
+   "explain": "两个转盘互不影响，直接相乘：1/4 × 2/5 = 2/20 = 1/10。写成 13/20 的是把 1/4 和 2/5 相加了——相加会让答案变大，可两件事都要发生只会更难，答案必须比 1/4 和 2/5 都小。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexjyh9hw",
+   "level": 2,
+   "question": "周末在家玩桌游，小凯把同一个公平的六面骰子连掷两次（第一次的结果不影响第二次）。两次都掷出 6 的可能性是多少？",
+   "options": [
+    "1/3",
+    "1/12",
+    "1/36",
+    "1/18"
+   ],
+   "answerIndex": 2,
+   "explain": "两次相互独立，1/6 × 1/6 = 1/36，写成 1/36 的那个正确。写成 1/12 的把 6 + 6 = 12 当成了全部结果，实际用表格列出来是 6 × 6 = 36 种；写成 1/3 的是把两个 1/6 相加。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsex103uqk",
+   "level": 2,
+   "question": "数学课上用一个公平的十二面骰子（面上是 1 到 12）和一枚公平的硬币。掷出的数大于 9，同时硬币是正面，这件事的可能性是多少？",
+   "options": [
+    "3/4",
+    "1/24",
+    "3/14",
+    "1/8"
+   ],
+   "answerIndex": 3,
+   "explain": "先找大于 9 的数有 10、11、12 三个，P = 3/12 = 1/4，再乘硬币的 1/2，得 1/8。写成 1/24 的只算了一个数（1/12），忘了大于 9 的结果有 3 个；写成 3/4 的是把 1/4 和 1/2 加了起来。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "other",
+    "prob.two_events_add_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexoffrj3",
+   "level": 3,
+   "question": "素里小学游园会上有两个独立的游戏：转盘平均分成 10 等份，其中 4 份写着「赢」；抽卡盒里有 6 张卡，其中 2 张写着「赢」。同一个人要两个游戏都赢才能拿大奖。拿到大奖的可能性是多少？",
+   "options": [
+    "2/15",
+    "11/15",
+    "3/8",
+    "2/5"
+   ],
+   "answerIndex": 0,
+   "explain": "先化简：转盘 4/10 = 2/5，抽卡 2/6 = 1/3，再相乘 2/5 × 1/3 = 2/15。写成 3/8 的把两个游戏的结果数 10 + 6 加成 16 种；写成 2/5 的只算了转盘，忘了还要抽卡。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexr0l3c8",
+   "level": 3,
+   "question": "维多利亚社区中心搞活动：转盘平均分成 4 等份，其中 1 份是「免费泳票」；转到泳票后还要抛一枚公平硬币，出现正面才真的能拿到票。当天有 48 人各玩一次，按理论可能性算，大约有多少人能拿到泳票？",
+   "options": [
+    "36 人",
+    "6 人",
+    "24 人",
+    "8 人"
+   ],
+   "answerIndex": 1,
+   "explain": "先算两件事同时发生：1/4 × 1/2 = 1/8，再算 48 × 1/8 = 6 人。答 36 人的把 1/4 和 1/2 加成了 3/4；答 8 人的把 4 份和 2 面加成 6 种结果，用了 1/6。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other",
+    "prob.two_events_add_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrtsexivii8y",
+   "level": 3,
+   "question": "小杰说：抛一枚公平硬币并掷一个公平的六面骰子，出现正面且掷出 2 的可能性是 1/6 + 1/2 = 2/3。下面哪句话说得对？",
+   "options": [
+    "他该先算样本空间 2 + 6 = 8 种，答案 1/8",
+    "他是对的，两件事都发生就把可能性相加",
+    "要用乘法：1/2 × 1/6 = 1/12，相加不对",
+    "他错在硬币会影响骰子，两件事并不独立"
+   ],
+   "answerIndex": 2,
+   "explain": "两个独立事件同时发生要相乘，1/2 × 1/6 = 1/12；说 2/3 的问题在于同时发生只会比单独一件更难，答案不可能比 1/2 还大。样本空间是 2 × 6 = 12 种，不是 2 + 6 = 8 种；硬币和骰子确实互不影响，独立没有问题。",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtsex3afb63",
+   "level": 3,
+   "question": "基隆拿的美术教室里有一个笔盒，装着 4 支蓝笔和 8 支黑笔。小美随机摸一支笔，看完后放回盒子；接着掷一个公平的六面骰子。她摸到蓝笔且掷出偶数的可能性是多少？",
+   "options": [
+    "5/6",
+    "7/18",
+    "1/18",
+    "1/6"
+   ],
+   "answerIndex": 3,
+   "explain": "因为放回，两件事独立：P(蓝) = 4/12 = 1/3，P(偶数) = 3/6 = 1/2，相乘得 1/6。写成 1/18 的把「偶数」当成了某一个数（用 1/6）；写成 7/18 的把 12 支笔和 6 个面加成了 18 种结果。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

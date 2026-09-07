@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkrzp1zrp0yma",
+   "level": 1,
+   "question": "书包里有 2 支红笔和 3 支蓝笔，一共 5 支，随机摸出 1 支。同时抛一枚公平的（fair）硬币。摸到红笔并且硬币正面朝上的理论可能性（theoretical probability）是多少？",
+   "options": [
+    "1/5",
+    "9/10",
+    "1/3",
+    "2/5"
+   ],
+   "answerIndex": 0,
+   "explain": "两个独立事件（independent events）同时发生，要把两个可能性相乘：2/5 × 1/2 = 1/5。写成 9/10 的是把两个可能性加了起来；写成 1/3 的是把红笔记成 2 比 3（红比蓝），可能性要用红笔数比总数 2/5。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zoovl1k",
+   "level": 1,
+   "question": "一把玩具锁的密码有两位：第一位要按 1、2、3、4 这四个数字键中的一个，第二位要按 A、B、C 这三个字母键中的一个。两次按键随机且互不影响。刚好按出「2」和「B」的可能性是多少？",
+   "options": [
+    "7/12",
+    "1/12",
+    "1/9",
+    "1/7"
+   ],
+   "answerIndex": 1,
+   "explain": "两位互不影响，可能性相乘：1/4 × 1/3 = 1/12（样本空间 sample space 里一共 12 种组合）。写成 7/12 的是把两个可能性相加了；把按对记成 1 比 3（对比错）就会得到 1/9。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zvu4lmu",
+   "level": 1,
+   "question": "明天温哥华下雨的理论可能性（theoretical probability）是 1/4，同一天 R4 公交准点到站的可能性是 2/3，这两件事互不影响。明天下雨并且公交准点的可能性是多少？",
+   "options": [
+    "11/12",
+    "2/9",
+    "1/6",
+    "1/2"
+   ],
+   "answerIndex": 2,
+   "explain": "两件事都要发生就相乘：1/4 × 2/3 = 2/12 = 1/6。写成 11/12 的是把两个可能性加了起来；把下雨记成 1 比 3（雨比不雨）会得到 2/9；用 3/4 算的是不下雨那种情况。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zoo4zzt",
+   "level": 1,
+   "question": "学校义卖有两个抽奖箱。第一个箱子里有 6 张纸条，其中 1 张写着「免费午餐」；第二个箱子里有 5 张纸条，其中 3 张写着「体育馆通行证」。每个箱子各随机抽 1 张，两次互不影响。两样奖品都抽到的可能性是多少？",
+   "options": [
+    "23/30",
+    "3/25",
+    "4/11",
+    "1/10"
+   ],
+   "answerIndex": 3,
+   "explain": "两个独立事件相乘：1/6 × 3/5 = 3/30 = 1/10。写成 23/30 的是把两个可能性相加了；把免费午餐记成 1 比 5（中比不中）会得到 3/25；4/11 是把两个箱子的纸条混在一起数，但两次抽奖是分开的。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1z77jwhs",
+   "level": 2,
+   "question": "A 和 B 是两个独立事件（independent events）。已知 P(A) = 3/8，P(B) = 2/5。那么 P(A 且 B) 等于多少？",
+   "options": [
+    "3/20",
+    "31/40",
+    "6/25",
+    "5/13"
+   ],
+   "answerIndex": 0,
+   "explain": "独立事件同时发生：3/8 × 2/5 = 6/40 = 3/20。写成 31/40 的是把两个可能性通分后相加了；写成 6/25 的是把 3/8 错读成 3 比 5；5/13 是分子分母各自相加，可能性不能这样算。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zd9x9qw",
+   "level": 2,
+   "question": "一个手机游戏有两关，互不影响。通过第一关的可能性是 2/3，通过第二关的可能性是 3/5。小志玩一次，两关都没通过的可能性是多少？",
+   "options": [
+    "11/15",
+    "2/15",
+    "1/3",
+    "2/5"
+   ],
+   "answerIndex": 1,
+   "explain": "先算每关没通过：1 - 2/3 = 1/3，1 - 3/5 = 2/5，再相乘：1/3 × 2/5 = 2/15。写成 2/5 的是忘了取相反的情况；11/15 是把两个可能性加了起来；把没通过记成 1 比 2、2 比 3 会得到 1/3。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zmz5hu0",
+   "level": 2,
+   "question": "一个储物柜的密码有两位，每一位都从 0 到 9 这十个数字里随机产生，两位互不影响。一次就猜中整个密码的可能性是多少？",
+   "options": [
+    "1/81",
+    "1/5",
+    "1/100",
+    "1/20"
+   ],
+   "answerIndex": 2,
+   "explain": "两位互不影响：1/10 × 1/10 = 1/100（样本空间 sample space 共 100 种密码）。写成 1/5 的是把 1/10 和 1/10 相加了；把每一位记成 1 比 9（猜中比猜错）会得到 1/81；1/20 是把 10 + 10 当成总数。",
+   "tags": [
+    "prob.part_to_part",
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zfcyel0",
+   "level": 2,
+   "question": "M 和 N 是两个独立事件，P(M) = 4/9，P(N) = 1/2。求 P(M 且 N)，结果写成最简分数。",
+   "options": [
+    "17/18",
+    "2/5",
+    "5/11",
+    "2/9"
+   ],
+   "answerIndex": 3,
+   "explain": "相乘再化简：4/9 × 1/2 = 4/18 = 2/9。写成 17/18 的是通分后相加了；把 4/9 错读成 4 比 5 会得到 2/5；5/11 是分子分母分别相加，这不是可能性的算法。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zcigs6d",
+   "level": 3,
+   "question": "周一早上，本拿比下雨的理论可能性是 3/5，同一时间 49 路公交准点到站的可能性是 3/4，两件事互不影响。小美只有在「下雨并且公交晚点」的时候才会迟到。她这天迟到的可能性是多少？",
+   "options": [
+    "3/20",
+    "17/20",
+    "1/5",
+    "9/20"
+   ],
+   "answerIndex": 0,
+   "explain": "先算公交晚点：1 - 3/4 = 1/4，再相乘：3/5 × 1/4 = 3/20。写成 9/20 的是用了准点 3/4，没有换成晚点；17/20 是把两个可能性加了起来；把晚点记成 1 比 3（晚点比准点）会得到 1/5。",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zk4lzbv",
+   "level": 3,
+   "question": "一个电子游戏里有两个转盘（spinner），互不影响。宝箱转盘平均分成 8 份，其中 3 份是金币；宝石转盘平均分成 6 份，其中 2 份是宝石。两个转盘各转一次，金币和宝石都拿到的理论可能性（最简分数）是多少？",
+   "options": [
+    "17/24",
+    "1/8",
+    "5/14",
+    "3/10"
+   ],
+   "answerIndex": 1,
+   "explain": "先化简每个转盘：3/8 和 2/6 = 1/3，再相乘：3/8 × 1/3 = 3/24 = 1/8。写成 17/24 的是把两个可能性相加了；把份数记成 3 比 5、2 比 4 会得到 3/10；5/14 是把两个转盘的份数混在一起数。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other",
+    "prob.part_to_part"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1zvsc0ch",
+   "level": 3,
+   "question": "小杰说：转盘平均分成 4 份，只有 1 份写着「免费冰淇淋」；另外还要抛一枚公平的硬币。所以「转到免费冰淇淋并且硬币正面朝上」的可能性是 1/4 + 1/2 = 3/4。他的说法哪里出了问题？",
+   "options": [
+    "他没错，因为两件事都要发生，可能性就该相加，得 3/4",
+    "转盘该记成 1/3（1 份比 3 份），再加上 1/2 得 5/6",
+    "同时发生要相乘不是相加，1/4 × 1/2 = 1/8",
+    "分母该合并成 4 + 2 = 6 种结果，答案是 1/6"
+   ],
+   "answerIndex": 2,
+   "explain": "两件事都发生会让机会变小，所以要相乘：1/4 × 1/2 = 1/8，比 1/4 还小；相加得到 3/4 反而比单独一件事大，一看就不合理。转盘上的 1 份要比总共 4 份，不是比剩下的 3 份。",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrzp1z40r7a5",
+   "level": 3,
+   "question": "学校储物柜的密码有两位：第一位从 A 到 E 这 5 个字母里随机产生，第二位从 1、2、3 这 3 个数字里随机产生，两位互不影响。小林随便按了一次，他没有一次就按对的可能性是多少？",
+   "options": [
+    "1/15",
+    "7/15",
+    "7/8",
+    "14/15"
+   ],
+   "answerIndex": 3,
+   "explain": "先算一次按对：1/5 × 1/3 = 1/15，没按对就是 1 - 1/15 = 14/15。写成 1/15 的是忘了最后取相反的情况；7/15 是先把两个可能性相加了；把每一位记成 1 比 4、1 比 2 会得到 7/8。",
+   "tags": [
+    "other",
+    "prob.two_events_add_probabilities",
+    "prob.part_to_part",
+    "ok"
+   ]
+  }
+ ]
+}

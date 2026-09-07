@@ -1,0 +1,118 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.STAT.BIAS",
+ "lang": "en",
+ "title": "Spot bias in a survey: leading questions, loaded language, who was asked, timing, privacy and cultural sensitivity",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Spot the Bias: Is This Survey Fair?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to pick a sampling method that avoids bias, like a random sample instead of a convenience sample. But here is the thing: even a perfect random sample can give you junk data if the survey itself is unfair. Today we learn to spot bias hiding in the question, the wording, who got asked, when they got asked, and whether the topic is too personal or touchy. Think of it like a checklist you run before you trust any survey result.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the checklist, five things to look for. One, a leading question, which nudges you toward one answer. Two, loaded language, which uses emotional words like 'waste' or 'greedy'. Three, who was asked, meaning does the group actually match the population. Four, timing, meaning was the survey done right after something that would change people's mood. Five, privacy and cultural sensitivity, meaning would some people feel unsafe or uncomfortable answering honestly, or would a question mean different things to different families. If a survey fails even one of these, the numbers can be off no matter how good the sampling was.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "labels": [
+      "Leading question",
+      "Loaded words",
+      "Who was asked",
+      "Timing",
+      "Privacy or culture"
+     ],
+     "caption": "The five-point bias checklist. Any one of these can wreck a survey."
+    }
+   },
+   {
+    "say": "Let's try it on a real example. A Surrey school council wants to know if students want a later start time. They post this in the Grade 12 group chat: 'Don't you agree that our ridiculously early eight thirty start is hurting everyone's grades?' They ask it the day after final exams. Let's run the checklist. 'Don't you agree' is a leading question, because it pushes you to say yes. 'Ridiculously early' and 'hurting everyone' are loaded words. Only Grade 12s in one group chat were asked, but the population is the whole school, Grades 8 to 12. And the timing is right after exams, when everyone is exhausted and cranky. That is four out of five checks failed. The one hundred and eighty yes votes they got tell us almost nothing.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      180,
+      12,
+      8
+     ],
+     "labels": [
+      "Yes, later start",
+      "No",
+      "Not sure"
+     ],
+     "caption": "Results look lopsided, but the question was leading, loaded, asked only to Grade 12s, and timed after exams."
+    }
+   },
+   {
+    "say": "Now the two mistakes I see most often. Mistake one: 'I don't see anything wrong with Do you agree that…' Here is the test. Ask yourself, could a person easily answer no without feeling awkward? With 'Do you agree that our start time is too early?', saying no feels like arguing. Compare it with the neutral version: 'What time do you think school should start?' Now both answers feel equally okay. Mistake two: 'They asked a thousand people, so the bias is gone.' Nope. A bigger sample only shrinks random wobble, it does not fix a tilted question. If you ask one thousand people a leading question, you just get one thousand nudged answers. Look at the table: the biased wording gives about the same lopsided result whether you ask fifty people or one thousand.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      84,
+      86,
+      85,
+      52,
+      51,
+      50
+     ],
+     "labels": [
+      "50 asked",
+      "500 asked",
+      "1000 asked",
+      "Leading wording % yes",
+      "Neutral wording % yes"
+     ],
+     "caption": "Percent saying yes. The leading question stays near 85% no matter the sample size; the neutral one stays near 50%."
+    }
+   },
+   {
+    "say": "Last check: privacy and cultural sensitivity. Suppose a coach asks the whole basketball team, out loud at practice, 'Who here can't afford the one hundred and twenty dollar tournament fee?' Even if the coach means well, players who are struggling will probably stay quiet, so the count comes out too low. A private, anonymous form fixes that. Similarly, a question like 'How much did your family spend on Christmas gifts?' assumes everyone celebrates Christmas, so some families cannot answer it honestly at all. Sensitive topics need private answers and wording that fits everyone.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      9
+     ],
+     "labels": [
+      "Asked out loud at practice",
+      "Anonymous form"
+     ],
+     "caption": "Same 15 players, same question about the fee. Out loud, only 2 admit it; anonymously, 9 do."
+    }
+   },
+   {
+    "say": "So here is the takeaway. Before you trust a survey, run the five checks: is the question leading, are the words loaded, who was asked, when were they asked, and is the topic private or culturally touchy. And remember, a bigger sample never fixes a biased question. Fix the question first, then worry about how many people to ask.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Run the five checks: leading, loaded, who, when, sensitive. A big sample never fixes a biased question.",
+  "practice": {
+   "question": "A Kelowna bike shop wants to know if teens would pay fifteen dollars a month for a bike-share pass. On the first sunny Saturday of spring, they ask two hundred customers already inside the shop: 'Wouldn't you love an affordable fifteen dollar pass to enjoy our beautiful trails?' One hundred and seventy say yes. Name at least three kinds of bias in this survey, and explain why asking two thousand customers instead of two hundred would not fix the problem.",
+   "answer": "Leading question ('Wouldn't you love…' pushes toward yes); loaded words ('affordable', 'beautiful'); who was asked (only customers already in a bike shop, not teens in general); timing (a sunny spring Saturday when biking sounds great). Asking two thousand customers would not help, because a bigger sample only reduces random wobble; every extra person still gets the same nudged question in the same biased setting, so the answers stay tilted."
+  }
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PLAN_GOAL",
+ "lang": "en",
+ "title": "Make a simple plan to reach a savings goal (how many weeks?)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "How Many Weeks Until I Reach My Savings Goal?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to subtract money amounts and how to divide with a remainder. Today we put those two skills together to answer one very useful question: if I save the same amount every week, how many weeks until I have enough?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "A savings plan only needs three numbers. What the thing costs, how much money you already have, and how much you can tuck away each week. Maya wants a scooter helmet and lights that cost seventy-five dollars. She already has fifteen dollars in her jar, and she saves eight dollars every week from helping at the market. First, take away what she already has: seventy-five minus fifteen leaves sixty dollars still to save.",
+    "math": "\\$75-\\$15=\\$60",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      75,
+      15,
+      60,
+      8
+     ],
+     "labels": [
+      "Goal",
+      "Has now",
+      "Still needs",
+      "Saves each week"
+     ],
+     "caption": "Maya's savings plan: three numbers in, one answer out."
+    }
+   },
+   {
+    "say": "Now the question becomes: how many eight dollar weeks fit inside sixty dollars? Sixty divided by eight is seven, with a remainder of four. Seven weeks brings in fifty-six dollars, and sixty is bigger than fifty-six, so seven weeks is not quite enough. Eight weeks brings in sixty-four dollars, which finally covers the sixty she needs.",
+    "math": "60\\div 8=7\\text{ R }4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      56,
+      64
+     ],
+     "labels": [
+      "Still needs",
+      "After 7 weeks",
+      "After 8 weeks"
+     ],
+     "caption": "Seven weeks falls short; eight weeks goes past the goal."
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes. They see seven remainder four and say seven weeks. But look at the leftover four dollars. That is money Maya still does not have, and the store will not hand over the helmet for four dollars short. It is just like saying twenty people need three vans when each van holds six. Three vans only carry eighteen, so two people get left standing on the sidewalk. When there is any remainder at all, you add one more week. Seven plus one is eight weeks.",
+    "math": "7+1=8",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      7,
+      8,
+      4
+     ],
+     "labels": [],
+     "caption": "Seven full weeks of eight dollars is fifty-six, and four dollars is still missing."
+    }
+   },
+   {
+    "say": "So Maya's plan is eight weeks. Let us check it the honest way: fifteen dollars in the jar plus eight weeks times eight dollars, which is sixty-four dollars, gives seventy-nine dollars. Seventy-nine is more than seventy-five, so she makes it, with four dollars to spare. Whenever you divide to find weeks, ask yourself: is there anything left over? If yes, add one more week.",
+    "math": "\\$15+8\\times\\$8=\\$79",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      75,
+      79,
+      8
+     ],
+     "labels": [
+      "Goal",
+      "Money after 8 weeks",
+      "Weeks needed"
+     ],
+     "caption": "Eight weeks gets her there with four dollars left over."
+    }
+   }
+  ],
+  "answer": "Subtract what you already have, divide by the weekly amount, and if there is any remainder, add one more week.",
+  "practice": {
+   "question": "Noah wants a pair of soccer cleats that cost ninety dollars. Draw a small table with three rows: Goal is ninety dollars, Money he has now is eighteen dollars, and Saves each week is seven dollars. How many weeks until Noah can buy the cleats?",
+   "answer": "Eleven weeks. Ninety minus eighteen leaves seventy-two dollars still needed. Seventy-two divided by seven is ten remainder two, so ten weeks is two dollars short. Add one more week: eleven weeks. Check: eighteen plus eleven times seven is eighteen plus seventy-seven, which is ninety-five dollars — enough, with five dollars left over."
+  }
+ }
+}

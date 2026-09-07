@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkpve7s6dz0c6",
+   "level": 1,
+   "question": "At 6 p.m. the temperature in Vancouver is 5 °C. It falls 3 °C every hour after that. After h hours the temperature is −13 °C. Which equation matches this situation?",
+   "options": [
+    "5 − 3h = −13",
+    "5 − 3 + h = −13",
+    "(5 − 3)h = −13",
+    "3h − 5 = −13"
+   ],
+   "answerIndex": 0,
+   "explain": "The 5 is the constant starting temperature and 3h is the total fall after h hours, so 5 − 3h = −13 (h = 6). The trap is turning 3h into 3 + h, or multiplying the starting 5 by h instead of leaving it alone.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpve7s13vxt1",
+   "level": 1,
+   "question": "In a card game Noah starts with 24 points and loses 9 points every round. After r rounds his score is −21 points. He writes the equation 24 − 9r = −21. In this equation, what does 9r represent?",
+   "options": [
+    "the sum of 9 and the number of rounds r",
+    "the total points lost after r rounds",
+    "the 24 start points split over r rounds",
+    "the points he still has after r rounds"
+   ],
+   "answerIndex": 1,
+   "explain": "The coefficient 9 is the points lost each round, so 9r is the total lost after r rounds (here r = 5). The constant 24 stays whole and is never multiplied or shared out by r.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpve7sm4yqw1",
+   "level": 1,
+   "question": "A parkade elevator starts on level 3 and goes down 2 levels at every stop, ending on level −5. Kai writes 3 − 2s = −5, where s is the number of stops. Which inverse operation should Kai do first?",
+   "options": [
+    "Divide both sides by −2.",
+    "Add 2 to both sides of it.",
+    "Subtract 3 from both sides.",
+    "Subtract −5 from both sides."
+   ],
+   "answerIndex": 2,
+   "explain": "Undo the constant first: subtracting 3 from both sides gives −2s = −8, then dividing by −2 gives s = 4. Adding 2 would only work if the term were −2 + s, which is the classic 'coefficient as addend' trap.",
+   "tags": [
+    "other",
+    "eq.coeff_as_addend",
+    "ok",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpve7sgrfatu",
+   "level": 1,
+   "question": "A hockey team's goal differential is +4. In every game after that it drops by 3. After g games the differential is −11. Which equation matches this situation?",
+   "options": [
+    "(4 − 3)g = −11",
+    "4 − 3 − g = −11",
+    "3g − 4 = −11",
+    "4 − 3g = −11"
+   ],
+   "answerIndex": 3,
+   "explain": "The 4 is the constant starting differential and 3g is the total drop after g games, so 4 − 3g = −11 (g = 5). Watch for multiplying the starting 4 by g, which wrongly scales the fixed part.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpve7s7u72gu",
+   "level": 2,
+   "question": "Solve the two-step equation 6 − 2x = −8.",
+   "options": [
+    "x = 7",
+    "x = 4",
+    "x = 12",
+    "x = −1"
+   ],
+   "answerIndex": 0,
+   "explain": "Subtract 6 from both sides to get −2x = −14, then divide by −2 to get x = 7; check: 6 − 2(7) = −8. The usual trap is doing 6 − (−8) as 6 − 8 and landing on −1.",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpve7sb8svbm",
+   "level": 2,
+   "question": "At midnight the temperature at a Kamloops weather station is −4 °C, and it falls 2 °C every hour. After how many hours is the temperature −20 °C?",
+   "options": [
+    "10 hours",
+    "8 hours",
+    "12 hours",
+    "14 hours"
+   ],
+   "answerIndex": 1,
+   "explain": "Write −4 − 2h = −20, add 4 to both sides to get −2h = −16, so h = 8 hours. Forgetting the −4 starting temperature and just doing 20 ÷ 2 gives 10, which is the most common slip.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "int.subtract_negative",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtkpve7s2d5b56",
+   "level": 2,
+   "question": "Which situation is modelled by the equation 6 − 4d = −22, where d is the number of seconds?",
+   "options": [
+    "A diver starts at the surface and drops 4 m each second, ending 22 m down.",
+    "A diver starts 6 m up and drops 4 m plus d more metres, ending 22 m down.",
+    "A diver starts 6 m up and drops 4 m each second, ending 22 m down.",
+    "A diver starts 6 m down and drops 4 m each second, ending 22 m down."
+   ],
+   "answerIndex": 2,
+   "explain": "The constant 6 is the starting height above the water and 4d is the total drop after d seconds, giving 6 − 4d = −22 and d = 7. A start of 0 m would drop the fixed part out of the equation entirely.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpve7sv7l6he",
+   "level": 2,
+   "question": "Owen has $9 on his school lunch card. Each school day $3 comes off it, and the office lets the card go to −$6 before it must be topped up. After how many school days is the balance −$6?",
+   "options": [
+    "12 days",
+    "1 day",
+    "2 days",
+    "5 days"
+   ],
+   "answerIndex": 3,
+   "explain": "Owing $6 means the balance is −6, so 9 − 3n = −6, which gives 3n = 15 and n = 5 days. Computing 9 − (−6) as 9 − 6 = 3 gives 1 day, and that subtract-a-negative slip is the trap here.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "int.subtract_negative",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpve7skjoe2y",
+   "level": 3,
+   "question": "At 4 p.m. the temperature at a Kelowna weather station was 3 °C. It fell by the same amount every hour, and at 8 p.m. it was −17 °C. How much did the temperature fall each hour?",
+   "options": [
+    "5 °C",
+    "4 °C",
+    "4.25 °C",
+    "3.5 °C"
+   ],
+   "answerIndex": 0,
+   "explain": "From 4 p.m. to 8 p.m. is 4 hours, so 3 − 4r = −17, giving 4r = 3 − (−17) = 20 and r = 5 °C per hour. Doing 3 − 17 = −14 instead of 3 − (−17) = 20 is the trap.",
+   "tags": [
+    "ok",
+    "other",
+    "pat.fixed_part_mishandled",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpve7syvai1f",
+   "level": 3,
+   "question": "Ben's chequing account holds $40. A bus-pass payment of $8 comes out every week and nothing goes in. After how many weeks is the account overdrawn by $24, that is, at a balance of −$24?",
+   "options": [
+    "5 weeks",
+    "8 weeks",
+    "3 weeks",
+    "2 weeks"
+   ],
+   "answerIndex": 1,
+   "explain": "Overdrawn by $24 means −24, so 40 − 8w = −24 and 8w = 40 − (−24) = 64, giving w = 8 weeks. Stopping at the week the balance first hits $0 gives only 5 weeks and ignores the overdraft.",
+   "tags": [
+    "other",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpve7seg0jx9",
+   "level": 3,
+   "question": "Sam solved 8 − 5t = −22 for a temperature problem and wrote t = −6. What went wrong?",
+   "options": [
+    "He read 5t as 5 + t and subtracted only 5.",
+    "He read −22 as 22 and dropped a negative.",
+    "After −5t = −30 he divided by 5, not −5.",
+    "He added 8 to both sides instead of taking 8."
+   ],
+   "answerIndex": 2,
+   "explain": "Subtracting 8 gives −5t = −30, and −30 ÷ (−5) = 6, not −6, since a negative divided by a negative is positive. Verify by substituting: 8 − 5(6) = −22.",
+   "tags": [
+    "eq.coeff_as_addend",
+    "int.subtract_negative",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpve7s6aqpds",
+   "level": 3,
+   "question": "Ravi's account is overdrawn by $45, so the balance is −$45. He deposits $9 every week and takes nothing out. After how many weeks does the account hold $9?",
+   "options": [
+    "1 week",
+    "4 weeks",
+    "5 weeks",
+    "6 weeks"
+   ],
+   "answerIndex": 3,
+   "explain": "Write −45 + 9w = 9, add 45 to both sides to get 9w = 54, so w = 6 weeks. The balance only reaches $0 after 5 weeks, so stopping there misses the extra $9 the question asks for.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "int.subtract_negative",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

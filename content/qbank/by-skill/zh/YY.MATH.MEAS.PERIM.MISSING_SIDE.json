@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkamfj2idbfoa",
+   "level": 1,
+   "question": "一个长方形相框，周长（perimeter）是 30 cm，它的长（length）是 9 cm。它的宽（width）是多少？",
+   "options": [
+    "宽是 6 cm",
+    "宽是 24 cm",
+    "宽是 21 cm",
+    "宽是 12 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "长方形有两条长和两条宽：30 ÷ 2 = 15，15 − 9 = 6 cm。最容易踩的坑是直接算 30 − 9 = 21，那等于把另一条长和另一条宽都漏掉了。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj2l2w3h0",
+   "level": 1,
+   "question": "学校有一块长方形花坛，一圈的周长（perimeter）是 26 m，它的宽（width）是 4 m。它的长（length）是多少？",
+   "options": [
+    "长是 22 m",
+    "长是 9 m",
+    "长是 17 m",
+    "长是 18 m"
+   ],
+   "answerIndex": 1,
+   "explain": "26 ÷ 2 = 13，13 − 4 = 9 m。算成 22 m 的那个只减了一条宽，忘了花坛一共有四条边；算成 17 m 的那个把该做的减法做成了加法。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "ok",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3ztd1vp",
+   "level": 1,
+   "question": "一张长方形卡纸，四周一圈的周长（perimeter）是 40 cm，两条长（length）各是 15 cm。一条宽（width）是多少？",
+   "options": [
+    "宽是 25 cm",
+    "宽是 35 cm",
+    "宽是 5 cm",
+    "宽是 10 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "40 ÷ 2 = 20，20 − 15 = 5 cm。写成 25 cm 的那个只减掉了一条长，另一条长还留在周长里没减掉。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "ok",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3twlqga",
+   "level": 1,
+   "question": "一块长方形拼图板的周长（perimeter）是 48 cm，宽（width）是 10 cm，长（length）还不知道。下面哪个方程（equation）能正确求出长？",
+   "options": [
+    "长 + 10 = 48，因为周长就是一条长加一条宽",
+    "长 = 48 + 10 + 10，因为求未知数要用加法还原",
+    "长 + 10 + 10 = 48，因为长只有一条宽有两条",
+    "长 + 长 + 10 + 10 = 48，因为两长两宽"
+   ],
+   "answerIndex": 3,
+   "explain": "长方形有两条长、两条宽，所以正确的方程是 长 + 长 + 10 + 10 = 48，解得长是 14 cm。只写一条长或一条宽的式子会漏掉边；把周长和已知边相加的那个则是把逆运算做反了。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3kg02s5",
+   "level": 2,
+   "question": "一个五边形（polygon）的周长（perimeter）是 60 cm，其中四条边分别是 12 cm、15 cm、9 cm、11 cm。第五条边是多少？",
+   "options": [
+    "13 cm",
+    "24 cm",
+    "107 cm",
+    "33 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "先把已知的四条边加起来：12 + 15 + 9 + 11 = 47，再用 60 − 47 = 13 cm。得到 107 cm 的那个把减法做成了加法；得到 24 cm 的那个少减了一条 11 cm 的边。",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3fjfze0",
+   "level": 2,
+   "question": "一个长方形的周长可以写成 2 × (长 + 宽)。已知 2 × (长 + 7) = 34（长度单位都是 cm），长（length）是多少？",
+   "options": [
+    "长 = 27",
+    "长 = 10",
+    "长 = 24",
+    "长 = 20"
+   ],
+   "answerIndex": 1,
+   "explain": "先两边同时除以 2：长 + 7 = 17，再 17 − 7 = 10。写 24 的那个把 17 − 7 做成了 17 + 7，逆运算方向反了；写 27 的那个跳过了除以 2 这一步。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "ok",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3dop6pt",
+   "level": 2,
+   "question": "一个四边形的周长（perimeter）是 84 cm，其中两条对边各长 25 cm，剩下的两条边一样长。剩下的每一条边是多少？",
+   "options": [
+    "42 cm",
+    "59 cm",
+    "17 cm",
+    "34 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "84 − 25 − 25 = 34，这是剩下两条边的和，还要再 34 ÷ 2 = 17 cm。停在 34 cm 的那个把两条一样长的边当成了一条。",
+   "tags": [
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3507quy",
+   "level": 2,
+   "question": "一个三角形的周长（perimeter）是 40 cm，两条边分别是 12 cm 和 15 cm，第三条边记作未知数（unknown）x，可以列出 x + 12 + 15 = 40。下面哪一步做得对？",
+   "options": [
+    "x = 40 − 12 = 28，另一条边不用减",
+    "x = 40 − 15 = 25，剩下那条不用减",
+    "x = 40 + 12 + 15 = 67",
+    "x = 40 − 12 − 15 = 13"
+   ],
+   "answerIndex": 3,
+   "explain": "未知数在等式开头，还原时要用周长减去两条已知边：40 − 12 − 15 = 13 cm。只减一条边会把另一条已知边漏掉；得到 67 的那个把逆运算做反，加法减法弄颠倒了。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3e6pgjm",
+   "level": 3,
+   "question": "Burnaby 一个活动场地是六边形的，绕一圈量下来的边长依次是 8 m、5 m、3 m、2 m、5 m，最后一条边太靠水边没量到。工人说整个场地的周长（perimeter）是 30 m。没量到的那条边是多少？",
+   "options": [
+    "7 m",
+    "12 m",
+    "53 m",
+    "14 m"
+   ],
+   "answerIndex": 0,
+   "explain": "先把量到的边加起来：8 + 5 + 3 + 2 + 5 = 23 m，再 30 − 23 = 7 m。得到 12 m 的那个漏掉了其中一条 5 m 的边；得到 53 m 的那个把减法做成了加法。",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3mvb3fk",
+   "level": 3,
+   "question": "Kelowna 社区中心的孩子做了一条长方形横幅，四周缝了一圈彩带，彩带一共用了 250 cm，正好绕横幅一圈。横幅的宽（width）是 45 cm。它的长（length）是多少？",
+   "options": [
+    "205 cm",
+    "80 cm",
+    "170 cm",
+    "160 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "彩带的长度就是周长：250 ÷ 2 = 125，125 − 45 = 80 cm。得到 205 cm 的那个忘了横幅有两条长和两条宽；得到 170 cm 的那个把 125 − 45 做成了 125 + 45。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "ok",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj32xbfpk",
+   "level": 3,
+   "question": "阿俊说：一个长方形的周长（perimeter）是 36 cm，长（length）是 13 cm，所以宽（width）就是 36 − 13 = 23 cm。下面哪句话说得对？",
+   "options": [
+    "他方向反了，求未知数要把减法还原成加法，应是 36 + 13 = 49 cm",
+    "他没有错，因为周长减去已知的那条长，剩下的部分就是宽，23 cm 对",
+    "他忘了两条长两条宽；应先 36 ÷ 2 = 18，再 18 − 13 = 5 cm",
+    "他只少减了一条长，长方形有两条长，应是 36 − 13 − 13 = 10 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "周长里藏着两条长和两条宽，所以要先 36 ÷ 2 = 18，再 18 − 13 = 5 cm。说 10 cm 的那个只想到两条长，把另一条宽也漏掉了；说 49 cm 的那个把逆运算做反了。",
+   "tags": [
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtkamfj3163qaj",
+   "level": 3,
+   "question": "Surrey 一个 L 形滑板场要围一圈护栏。量出来的边是 10 m、6 m、4 m、6 m、12 m，还有一条边没量。护栏总长（周长）是 44 m。小美说：量出来的边加起来是 38 m，所以没量的边是 44 + 38 = 82 m。她错在哪？",
+   "options": [
+    "她加错了总和，量出的边共 32 m，未知边是 44 − 32 = 12 m",
+    "她没有弄反，求未知数本来就要相加，82 m 才是正确答案",
+    "她多加了边，只要加 10、6、4，未知边是 44 − 20 = 24 m",
+    "她把加减弄反了，应该用 44 − 38 = 6 m 求那条没量的边"
+   ],
+   "answerIndex": 3,
+   "explain": "周长是所有边的和，所以未知边 = 周长 − 已量各边之和 = 44 − 38 = 6 m。说 82 m 的那个把还原方向做反了；说 12 m 的那个求和时漏掉了一条 6 m 的边。",
+   "tags": [
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok"
+   ]
+  }
+ ]
+}

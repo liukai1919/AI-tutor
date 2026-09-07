@@ -1,0 +1,145 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+ "lang": "en",
+ "title": "Apply a sequence of translations, reflections and rotations to a shape and draw the image",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two Moves in a Row: Slide, Then Turn",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to plot a point like two, one on a grid, and you can spot a single slide, flip, or turn. Today we do two moves in a row and draw exactly where the shape lands. Here is our little triangle, like a sail on a Vancouver sailboat: corner A is at two across and one up, corner B is at five across and one up, and corner C is at two across and three up.",
+    "math": "A(2,1),\\; B(5,1),\\; C(2,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      5,
+      1,
+      2,
+      3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Our starting triangle A, B, C"
+    }
+   },
+   {
+    "say": "Here is the golden rule for a sequence of moves: do one move at a time, in the order you are given, and draw the middle picture before you go on. Move one is a slide, three squares right and four squares up. Every corner gets the same treatment: add three to the across number and four to the up number. A at two, one becomes five, five. B at five, one becomes eight, five. C at two, three becomes five, seven. That middle triangle is the one we use for move two, not the one we started with.",
+    "math": "(x,y)\\to(x+3,\\;y+4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      5,
+      1,
+      2,
+      3,
+      5,
+      5,
+      8,
+      5,
+      5,
+      7
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "new A",
+      "new B",
+      "new C"
+     ],
+     "caption": "Move one: slide 3 right, 4 up"
+    }
+   },
+   {
+    "say": "Now move two: a quarter turn clockwise around the new corner A at five, five. Clockwise is the way the hands on a classroom clock go. Put your pencil tip on five, five like a pin and turn the paper a quarter turn. Here is the little trick: a quarter turn clockwise sends right to down, and up to right. New B was three squares right of the pin, so now it goes three squares down, landing at five, two. New C was two squares up from the pin, so now it goes two squares right, landing at seven, five. A is the pin, so it stays right where it is at five, five.",
+    "math": "90^{\\circ}\\ \\text{clockwise about }(5,5)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      5,
+      8,
+      5,
+      5,
+      7,
+      5,
+      2,
+      7,
+      5
+     ],
+     "labels": [
+      "pin A",
+      "new B",
+      "new C",
+      "final B",
+      "final C"
+     ],
+     "caption": "Move two: quarter turn clockwise around the pin"
+    }
+   },
+   {
+    "say": "Now the mistake I see most often: turning the wrong way. If you turn counterclockwise by accident, right goes to up and up goes to left, so B would land at five, eight and C at three, five. It is the same shape, but a completely wrong spot on the grid. So before you turn, whisper clockwise, like clock hands, and check that the corner sitting to the right of the pin swings down, not up. And keep the order too: if you turn first and slide afterwards, you land in a different place again.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      5,
+      5,
+      2,
+      7,
+      5,
+      5,
+      8,
+      3,
+      5
+     ],
+     "labels": [
+      "pin",
+      "B right",
+      "C right",
+      "B wrong",
+      "C wrong"
+     ],
+     "caption": "Clockwise goes down and right; counterclockwise is the wrong way"
+    }
+   },
+   {
+    "say": "So our finished triangle has A at five, five, B at five, two, and C at seven, five. One move at a time, in the order given, middle picture drawn, and the turn going the same way as clock hands.",
+    "math": "A(5,5),\\; B(5,2),\\; C(7,5)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      5,
+      5,
+      2,
+      7,
+      5
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "The final image after slide, then clockwise quarter turn"
+    }
+   }
+  ],
+  "answer": "One move at a time, in the given order: draw the middle picture, then turn the way clock hands go.",
+  "practice": {
+   "question": "On a grid map of a community garden, each square is one metre. A triangle plot has corner P at one comma two, corner Q at four comma two, and corner R at one comma four. First slide the triangle three squares right and four squares up. Then turn it a quarter turn clockwise around its new corner P. Where do the three corners end up?",
+   "answer": "After the slide, P is at four comma six, Q is at seven comma six, and R is at four comma eight. After the clockwise quarter turn around P: P stays at four comma six, Q lands at four comma three (it was three squares right of the pin, so it goes three squares down), and R lands at six comma six (it was two squares up, so it goes two squares right)."
+  }
+ }
+}

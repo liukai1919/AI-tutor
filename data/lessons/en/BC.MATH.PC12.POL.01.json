@@ -1,0 +1,138 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.POL.01",
+ "lang": "en",
+ "title": "polynomial functions and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Polynomial Functions: Reading the Story in the Curve",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're at the school science fair, and you've built a little water rocket. You measure how high it goes and plot height versus time. The curve you get isn't a straight line — it arcs up, peaks, and falls back down. In fact, the whole shape is described by a polynomial: h of t equals negative five t squared plus thirty t plus ten. Why a polynomial? Because the forces involved — gravity pulling down, the initial push up — combine into terms with whole-number powers of time. So polynomials aren't just a random thing on a test; they're the language we use whenever a quantity changes in a smooth, curved way. And the big questions you'd ask about that rocket — when does it hit the ground? What's the highest point? Which way does the tail of the curve go? — are exactly the questions we ask of every polynomial. Let's learn how to read that story.",
+    "math": "h(t) = -5t^2 + 30t + 10",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      7,
+      -5,
+      55
+     ],
+     "labels": [
+      "-5*x^2+30*x+10"
+     ],
+     "caption": "Water-rocket height: arcs up, peaks, falls back down"
+    }
+   },
+   {
+    "say": "So what exactly counts as a polynomial? A polynomial in x is a sum of terms, and each term is a constant times x raised to a whole-number power: zero, one, two, three, and so on. No negative exponents, no square roots, no x in the denominator. For example, two x cubed minus five x squared plus three x minus one is a polynomial. Its degree is three, because three is the highest power you see. The coefficient in front of that highest-power term — here it's two — is called the leading coefficient. You'll see why both of those numbers become almost like a fingerprint for the whole graph in a moment. A linear equation, y equals two x plus one, is also a polynomial — just degree one. So polynomials are a big family: lines, parabolas, cubics, quartics, all in.",
+    "math": "f(x) = 2x^3 - 5x^2 + 3x - 1 \\quad \\text{(degree 3, leading coefficient 2)}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -3,
+      3,
+      -8,
+      10
+     ],
+     "labels": [
+      "2*x^3-5*x^2+3*x-1"
+     ],
+     "caption": "A cubic polynomial: one smooth curve with two turns"
+    }
+   },
+   {
+    "say": "Here's the rule that saves you every time: the degree is the boss. It tells you three things at a glance. First, end behaviour. If the degree is odd, like a cubic, one tail goes up and the other goes down. If the degree is even, like a quadratic, both tails go the same direction. And which direction depends on the leading coefficient: positive means the right-hand tail points up, negative means it points down. Second, the maximum number of x-intercepts — a degree-three polynomial can cross the x-axis at most three times. Third, the maximum number of turns — one less than the degree, so a cubic has at most two turns, a quartic at most three. So before you even try to factor anything, just look at the degree and the leading coefficient, and you already know the overall shape.",
+    "math": "\\text{Odd degree: tails point in opposite directions.}\\quad \\text{Even degree: tails point the same way.}\\quad \\max\\text{ zeros} = \\text{degree},\\quad \\max\\text{ turns} = \\text{degree} - 1",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      4,
+      -6,
+      6
+     ],
+     "labels": [
+      "x^2-4",
+      "x^3-x"
+     ],
+     "caption": "Even degree (parabola) vs odd degree (cubic): notice the tails"
+    }
+   },
+   {
+    "say": "Now, the zeros. A zero of f of x is an x-value where f of x equals zero — in other words, where the graph crosses or touches the x-axis. How do we find them? The Factor Theorem is your workhorse: if you plug in a number a and get zero, then (x minus a) is a factor of the polynomial. It comes straight from the Remainder Theorem, which says that when you divide f of x by (x minus a), the remainder is simply f of a. Try it on f of x equals x cubed minus six x squared plus nine x: dividing by (x minus one) leaves a remainder of f of one, which is one minus six plus nine, so four. Dividing by (x minus three) leaves f of three, which is twenty-seven minus fifty-four plus twenty-seven, so zero. A remainder of zero means (x minus three) divides evenly, so it is a factor. So the recipe is: try factoring, pull out what you can, set each factor to zero, and solve. It works the same way as with a quadratic — factor, set each piece to zero — but now you might have three or four pieces instead of two. Let's see it in action with a concrete example.",
+    "math": "\\text{Remainder Theorem: } f(x)\\div(x-a)\\text{ leaves remainder } f(a). \\qquad \\text{Factor Theorem: } f(a)=0 \\iff (x-a)\\text{ is a factor of }f(x)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's do a clean quadratic. Say a friend is running a little custom phone-case business, and their daily profit, in dollars, is modeled by P of x equals x squared minus five x plus six, where x is the number of cases sold per day. She wants to know: at what sales level does she break even? Break-even means profit is zero, so we set the equation equal to zero and factor. x squared minus five x plus six factors into (x minus two)(x minus three). Set each factor to zero: x equals two or x equals three. So she breaks even selling two or three cases a day. Between two and three, her profit is negative — she's losing money. Outside that window, she's making a profit. And because it's a degree-two with a positive leading coefficient, both tails go up, which makes sense: selling very few or very many cases both give positive profit. The graph is a simple upward-opening parabola, and the two zeros are right there on the x-axis.",
+    "math": "P(x) = x^2 - 5x + 6 = (x-2)(x-3) = 0 \\implies x = 2 \\text{ or } x = 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      6,
+      -2,
+      8
+     ],
+     "labels": [
+      "x^2-5*x+6"
+     ],
+     "caption": "Profit parabola: breaks even at x = 2 and x = 3"
+    }
+   },
+   {
+    "say": "Now let's bump it up to a cubic, which is more like what you'll see on a Pre-Calc 12 test. Consider f of x equals x cubed minus six x squared plus nine x. First, pull out the common factor x: that gives x times (x squared minus six x plus nine). Now look at the quadratic inside: x squared minus six x plus nine is a perfect square — it's (x minus three) squared. So the full factorization is x times (x minus three) squared. The zeros are x equals zero and x equals three. Here's the interesting part: because (x minus three) appears to the second power, the graph touches the x-axis at three and bounces back — it doesn't cross. That's called a zero of even multiplicity. And the end behaviour: degree three is odd, leading coefficient is positive one, so the left tail goes down to negative infinity and the right tail goes up to positive infinity. You've got one crossing at zero, one touch-and-bounce at three, and the curve just flows through. That's the whole story, and you got it by factoring.",
+    "math": "f(x) = x^3 - 6x^2 + 9x = x(x-3)^2, \\quad \\text{zeros: } x=0,\\; x=3\\text{ (multiplicity 2)}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      5,
+      -1,
+      5
+     ],
+     "labels": [
+      "x^3-6*x^2+9*x"
+     ],
+     "caption": "Cubic: crosses at x = 0, touches and bounces at x = 3"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to lock in before the next quiz: the degree and the leading coefficient set the shape, the zeros tell you where the curve meets the x-axis, and factoring is the bridge that connects the algebra to the picture. Once you can factor, the graph basically draws itself. And whenever you're stuck, just ask: what's the degree, what's the leading coefficient, and what are the zeros? Answer those three questions and you've read the whole story the polynomial is telling you.",
+    "math": "\\boxed{\\text{Degree + Leading Coeff. }\\Rightarrow\\text{ Shape;\\quad Zeros }\\Rightarrow\\text{ x-intercepts;\\quad Factoring }\\Rightarrow\\text{ both}}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      6,
+      -2,
+      6
+     ],
+     "labels": [
+      "x^2-5*x+6",
+      "x^3-6*x^2+9*x"
+     ],
+     "caption": "Two polynomials side by side: same toolkit, different stories"
+    }
+   }
+  ],
+  "answer": "Read the degree and leading coefficient for shape, find the zeros by factoring, and the graph's whole story is in your hands.",
+  "practice": {
+   "question": "A small Vancouver bakery models its daily revenue (in dollars) from selling x loaves of sourdough with the polynomial R of x equals negative two x cubed plus twenty-four x squared minus seventy-two x. (a) Factor the polynomial completely. (b) Find all zeros and state their multiplicity. (c) Describe the end behaviour.",
+   "answer": "R(x) = -2x(x² − 12x + 36) = -2x(x − 6)². Zeros: x = 0 (multiplicity 1, crosses) and x = 6 (multiplicity 2, touches and bounces). End behaviour: degree 3 (odd), leading coefficient −2 (negative), so the left tail goes to positive infinity and the right tail goes to negative infinity."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

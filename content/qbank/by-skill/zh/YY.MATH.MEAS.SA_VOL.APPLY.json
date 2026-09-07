@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA_VOL.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkr5z59n383a7",
+   "level": 1,
+   "question": "温哥华的 Mia 要给一个长方体（rectangular prism）礼物盒**贴满**包装纸，盒子长 10 cm、宽 6 cm、高 5 cm，六个面都要贴。她需要多少包装纸？",
+   "options": [
+    "280 cm²",
+    "140 cm²",
+    "300 cm³",
+    "300 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "贴纸包住外面 = 求表面积（surface area），单位是 cm²：2×(10×6+10×5+6×5)=2×140=280 cm²。最常见的坑是算成 10×6×5=300 得到体积，那是「装满」才用的；另一个坑是加完 140 就停，忘了每种面各有两个。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "vol.surface_confuse",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59y7ojuv",
+   "level": 1,
+   "question": "Ken 家有一个圆柱形（cylinder）水桶，桶底半径 10 cm，桶高 30 cm。他要把桶**装满**水，能装多少水？（π 取 3.14）",
+   "options": [
+    "2512 cm²",
+    "9420 cm³",
+    "314 cm³",
+    "1884 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "装满 = 求体积（volume），用底面积×高：3.14×10×10×30=9420 cm³，单位是立方厘米。写成 2512 的是把整个桶的表面积算了出来；写成 314 的是只算了底面积就停下，忘了再乘高 30。",
+   "tags": [
+    "vol.surface_confuse",
+    "ok",
+    "word.stop_early",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr5z598ehefl",
+   "level": 1,
+   "question": "美术课上要给一块三棱柱（triangular prism）形的木楔子**整个外表面刷油漆**。它的两个三角形面是直角三角形，两条直角边是 6 cm 和 8 cm，斜边是 10 cm；棱柱的长是 15 cm。要刷多大面积？",
+   "options": [
+    "360 cm³",
+    "384 cm²",
+    "408 cm²",
+    "360 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "刷漆 = 求表面积，等于两个三角形加三个长方形：2×(6×8÷2)+(6+8+10)×15=48+360=408 cm²。答 360 cm³ 是算成了体积；答 360 cm² 是只加了三个长方形就停，两个三角形面没算进去。",
+   "tags": [
+    "vol.surface_confuse",
+    "word.stop_early",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59tia8e2",
+   "level": 1,
+   "question": "奶奶要给一个正方体形状的小木凳**六个面都刷一层清漆**，木凳的棱长是 40 cm。她一共要刷多大面积？",
+   "options": [
+    "4800 cm²",
+    "64000 cm³",
+    "1600 cm²",
+    "9600 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "刷漆看的是外表面，用面积单位 cm²：一个面 40×40=1600 cm²，六个面是 1600×6=9600 cm²。答 64000 cm³ 的是算成 40×40×40 的体积（那是「装满」才用）；答 1600 的只算了一个面就停。",
+   "tags": [
+    "word.stop_early",
+    "vol.surface_confuse",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr5z5967z7cl",
+   "level": 2,
+   "question": "一个立方体木箱的棱长是 1 m，要把它**装满**沙子。需要多少沙子？请用 cm³ 回答（1 m = 100 cm）。",
+   "options": [
+    "1000000 cm³",
+    "10000 cm³",
+    "1000000 cm²",
+    "100 cm³"
+   ],
+   "answerIndex": 0,
+   "explain": "先把棱长换成 100 cm，再求体积：100×100×100=1000000 cm³。立方单位换算要三个方向都换，1 m³=1000000 cm³，不是 100 cm³ 也不是 10000 cm³；装满东西的得数必须写 cm³，写 cm² 就变成面积了。",
+   "tags": [
+    "ok",
+    "unit.cubic_conversion_linear",
+    "vol.surface_confuse",
+    "unit.cubic_conversion_linear"
+   ]
+  },
+  {
+   "qid": "qmtkr5z591dctc3",
+   "level": 2,
+   "question": "一个圆柱（cylinder）的底面半径 r = 5 cm，高 h = 12 cm。要把它的**整个外表面涂上颜色**，需要涂多大面积？（π 取 3.14）",
+   "options": [
+    "376.8 cm²",
+    "533.8 cm²",
+    "942 cm³",
+    "455.3 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "涂外表面 = 表面积 = 两个圆 + 一个长方形：2×3.14×25 + 2×3.14×5×12 = 157+376.8 = 533.8 cm²。答 942 cm³ 是把体积 πr²h 算了出来；答 376.8 的只算了侧面那一圈，两个圆底忘了加。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "vol.surface_confuse",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59zxh6ol",
+   "level": 2,
+   "question": "一个三棱柱（triangular prism）模具的三角形底面是直角三角形，两条直角边为 12 cm 和 5 cm，斜边 13 cm；棱柱长 20 cm。要把模具**灌满**石膏，需要多少石膏？",
+   "options": [
+    "30 cm³",
+    "600 cm²",
+    "600 cm³",
+    "660 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "灌满 = 体积 = 底面积×高：(12×5÷2)×20 = 30×20 = 600 cm³。答 660 cm² 是把整个模具的表面积算了出来；答 30 的只停在底面积那一步；数对了但写成 cm² 也不行，装东西的得数一定是立方单位。",
+   "tags": [
+    "word.stop_early",
+    "vol.surface_confuse",
+    "ok",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59zbbnc8",
+   "level": 2,
+   "question": "下面四件事，哪一件要算的是**体积（volume）**、得数的单位是 cm³？",
+   "options": [
+    "沿着一个长方体礼盒的所有棱贴胶带，要多长胶带",
+    "给一个三棱柱木块的所有面刷漆，要刷多大面积",
+    "用包装纸把一个长方体礼盒的外面包住，要多少纸",
+    "往一个圆柱形花瓶里倒满水，一共要倒多少水"
+   ],
+   "answerIndex": 3,
+   "explain": "「倒满、装满、填满」问的是里面能放多少，用体积，单位 cm³；刷漆和包纸都是盖住外表面，用表面积、单位 cm²；沿棱贴胶带量的是长度，单位是 cm。判断时先问一句：这是在铺外面，还是在填里面？",
+   "tags": [
+    "other",
+    "vol.surface_confuse",
+    "vol.surface_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59ea0pms",
+   "level": 3,
+   "question": "Kelowna 的社区花园做了一个长方体种植箱，内部长 150 cm、宽 80 cm、深 40 cm，要把土**填满**。园艺店的土按立方米（m³）卖，装满这个箱子要买多少立方米的土？",
+   "options": [
+    "0.48 m³",
+    "4800 m³",
+    "4.24 m²",
+    "48 m³"
+   ],
+   "answerIndex": 0,
+   "explain": "先求体积：150×80×40 = 480000 cm³；再换算，1 m³ = 100×100×100 = 1000000 cm³，所以是 0.48 m³。立方单位换算不能按线性只除 100（那会得到 4800 m³），也不能只除 10000；答 4.24 m² 的是算成了箱子的表面积。",
+   "tags": [
+    "ok",
+    "unit.cubic_conversion_linear",
+    "vol.surface_confuse",
+    "unit.cubic_conversion_linear"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59mzzzrb",
+   "level": 3,
+   "question": "木工课上做了一个**没有盖子**的长方体木箱，长 60 cm、宽 40 cm、高 30 cm。要给箱子的外表面（底面和四个侧面，没有顶面）刷防水漆，每 100 cm² 的漆卖 0.20 加元。刷完这个箱子一共要花多少钱？",
+   "options": [
+    "8400 cm²",
+    "16.80 加元",
+    "144.00 加元",
+    "21.60 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "第一步求要刷的面积：底 60×40=2400，两侧 2×60×30=3600，两侧 2×40×30=2400，共 8400 cm²；第二步算钱：8400÷100×0.20 = 16.80 加元。停在 8400 cm² 就漏了问的是钱；箱子没盖，多加一个 2400 的顶面会变成 21.60 加元。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "vol.surface_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59ez5gmm",
+   "level": 3,
+   "question": "Maya 要缝一个布套，把一个圆柱形的鼓**整个包起来**（上下两个圆面和侧面都包）。鼓的半径 10 cm、高 20 cm，π 取 3.14。她算了 3.14×10×10×20 = 6280，说要 6280 cm³ 的布。她错在哪里？",
+   "options": [
+    "她算多了，只要盖住侧面就够，用 2πrh=1256 cm² 即可",
+    "她只是单位写错了，布的用量就是 6280，改成 cm² 即可",
+    "包住整个鼓要算表面积，她算的是体积，应是 1884 cm²",
+    "面积的算式没错，但这类包东西的题得数要写成 1884 cm³"
+   ],
+   "answerIndex": 2,
+   "explain": "布是铺在外表面上的，要用表面积：2×3.14×10×10 + 2×3.14×10×20 = 628+1256 = 1884 cm²。πr²h 求的是鼓里面能装多少，是体积；只把 6280 的单位从 cm³ 改成 cm² 并不能把体积变成面积，而题目说上下两个圆面也要包，所以只算侧面 1256 也不够。",
+   "tags": [
+    "word.stop_early",
+    "vol.surface_confuse",
+    "ok",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkr5z59y7ug9p",
+   "level": 3,
+   "question": "学校要给操场边 3 个一模一样的长方体水泥墩刷反光漆，**只刷四周和顶面**（底面贴地不刷）。每个墩长 80 cm、宽 50 cm、高 40 cm。3 个墩一共要刷多少面积？",
+   "options": [
+    "14400 cm²",
+    "160000 cm³",
+    "480000 cm³",
+    "43200 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "先算一个墩：顶面 80×50=4000，两侧 2×80×40=6400，两侧 2×50×40=4000，共 14400 cm²；再乘 3 得 43200 cm²。停在 14400 就只算了一个墩；答 160000 或 480000 cm³ 的是算成了体积——刷漆盖的是外表面，单位必须是 cm²。",
+   "tags": [
+    "word.stop_early",
+    "vol.surface_confuse",
+    "vol.surface_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

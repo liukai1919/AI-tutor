@@ -1,0 +1,135 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.FUN.01",
+ "lang": "en",
+ "title": "transformations of functions and relations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Transformations of Functions: The Four-Dial Recipe",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, so picture this. You're eighteen, heading off to university in the fall, and you're building a savings plan. Your base plan is simple: every week your savings go up by one hundred dollars. That's a straight line — your parent function, basically. But then life happens. You land a part-time job starting in three weeks — that's a horizontal shift. Your new job pays a little better, so you save one and a half times as much each week — that's a vertical stretch. And you already have two hundred dollars in your account from birthday money — that's a vertical shift. Notice what just happened? The shape of your savings curve never changed. It just got moved, stretched, and bumped. That's exactly what function transformations do. They take a parent function — the base shape — and slide, stretch, or flip it. In Pre-calc 12 we do this with parabolas, square roots, absolute value, exponentials, all of them. And the good news is the recipe is the same every single time.",
+    "math": "y \\;=\\; a\\,f\\!\\bigl(b(x-c)\\bigr)\\;+\\;d",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here's the master recipe, and I want you to just feel it before we use it. You take your parent function — call it f of x — and you apply four dials. The letter a, sitting in front of the function, controls vertical stretch or reflection: if a is greater than one the graph stretches taller, if a is between zero and one it squishes, and if a is negative it flips upside down. The letter b, tucked inside the parentheses right next to x, controls horizontal stretch or reflection: bigger than one squeezes the graph inward, negative flips it left to right. The letter c shifts the whole graph left or right. And here's the one everyone trips on: if c is positive the graph moves to the right, not the left. It feels backwards, but think of it this way — x minus two equals zero when x is two, so the 'zero point' of the function has moved to two. Finally, d is the plain vertical slide up or down. So: a and d are vertical, b and c are horizontal. Four dials, one formula, every graph in the course.",
+    "math": "y \\;=\\; a\\,f\\!\\bigl(b(x-c)\\bigr)\\;+\\;d \\qquad \\begin{cases} a: \\text{vertical stretch / flip} \\\\ b: \\text{horizontal stretch / flip} \\\\ c: \\text{horizontal shift} \\\\ d: \\text{vertical shift} \\end{cases}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      6,
+      -2,
+      8
+     ],
+     "labels": [
+      "x^2",
+      "(x-2)^2+3"
+     ],
+     "caption": "Parent parabola (orange) vs. shifted two right, three up (blue)"
+    }
+   },
+   {
+    "say": "Let's walk through a concrete one, easy first. Start with the parent f of x equals x squared. You know that U-shaped parabola sitting right on the origin, vertex at zero, zero. Now I want to slide it two units to the right and three units up. No stretching, no flipping. So a is one, b is one, c is two, d is three. Plug into the recipe: y equals one times (x minus two) squared plus three, which simplifies to y equals (x minus two) squared plus three. Watch the vertex: it was at zero, zero. Now it's at two, three. The curve is still a perfectly symmetric U, same width, same orientation. It just relocated. That's all a translation is — the whole graph picks up and walks to a new spot.",
+    "math": "f(x)=x^{2} \\quad\\Longrightarrow\\quad y=(x-2)^{2}+3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      6,
+      -2,
+      8
+     ],
+     "labels": [
+      "x^2",
+      "(x-2)^2+3"
+     ],
+     "caption": "Vertex slides from (0,0) to (2,3)"
+    }
+   },
+   {
+    "say": "Now let's add a stretch and a flip, because real problems mix things up. Start with the square-root parent: f of x equals the square root of x. It starts at the origin and creeps up to the right, getting flatter and flatter. Here's my transformation: stretch it vertically by a factor of two, shift it one unit to the left, and flip it upside down. Let's fill in the dials. a equals negative two — that single number gives us both the flip and the stretch. b equals one — no horizontal squeeze. c equals negative one, so x minus c becomes x minus negative one, which is x plus one. That is our left shift. d equals zero — no vertical slide. The new equation is y equals negative two times the square root of (x plus one). The starting point, where the graph 'turns on,' was at x equals zero. Now it's at x equals negative one. And instead of creeping upward, the graph dives downward, and twice as steeply as the original. Same shape, completely different position and attitude.",
+    "math": "f(x)=\\sqrt{x} \\quad\\Longrightarrow\\quad y=-2\\sqrt{x+1}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -2,
+      6,
+      -6,
+      6
+     ],
+     "labels": [
+      "sqrt(x)",
+      "-2*sqrt(x+1)"
+     ],
+     "caption": "Parent √x (orange) vs. flipped, doubled, shifted left 1 (blue)"
+    }
+   },
+   {
+    "say": "One last one, and this one brings in absolute value. Parent: f of x equals the absolute value of x. That V-shape with the point at the origin, arms going up at slope one and slope negative one. Now my instructions: stretch it vertically by two, slide it three units to the right, and drop the whole thing one unit down. Dials: a is two, b is one, c is three, d is negative one. The equation reads: y equals two times the absolute value of (x minus three) minus one. The vertex — that sharp pointy bit — was at zero, zero. It now sits at three, negative one. And because a is two, each arm has a slope of two and negative two instead of one and negative one. The V is steeper. But it's still a V. The transformation changed the size and the location, not the identity of the shape. That's the whole philosophy of this unit: you never build a new curve. You take a known parent and dial in four numbers.",
+    "math": "f(x)=|x| \\quad\\Longrightarrow\\quad y=2|x-3|-1",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -2,
+      8,
+      -3,
+      7
+     ],
+     "labels": [
+      "abs(x)",
+      "2*abs(x-3)-1"
+     ],
+     "caption": "Parent |x| (orange) vs. doubled, shifted right 3, down 1 (blue)"
+    }
+   },
+   {
+    "say": "One more idea that belongs in this unit: inverses. The inverse of a function undoes it, swapping every input with its output. On the graph, that means reflecting across the line y equals x. In the equation, you swap x and y and then solve for y. Take f of x equals two x plus three. Swap: x equals two y plus three. Solve: y equals x minus three, all divided by two. So the inverse, f inverse of x, is the quantity x minus three, over two. Quick check: f of one is five, and the inverse of five is five minus three over two, which is one. It sends you right back where you started. And notice the point one, five on the original becomes five, one on the inverse, which is exactly the mirror image across y equals x.",
+    "math": "f(x)=2x+3 \\;\\Longrightarrow\\; x=2y+3 \\;\\Longrightarrow\\; f^{-1}(x)=\\frac{x-3}{2}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -6,
+      6,
+      -6,
+      6
+     ],
+     "labels": [
+      "2*x+3",
+      "(x-3)/2",
+      "x"
+     ],
+     "caption": "A function and its inverse are reflections across the line y = x"
+    }
+   },
+   {
+    "say": "So here's your takeaway to carry into the rest of the course. No matter how wild the transformation looks on the graph — multiple shifts, a flip, a stretch, all at once — you are never inventing a new shape. You are applying four numbers to the same parent function. Memorize the recipe a, b, c, d, learn which dial does what, and every graph in Pre-calc 12 becomes a sentence you can read backwards from the equation. You take the shape you already know, you just tell it where to go and how big to be. You've got this.",
+    "math": "y \\;=\\; a\\,f\\!\\bigl(b(x-c)\\bigr)\\;+\\;d",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Transformations never change the shape — they just apply four numbers (a, b, c, d) to move, stretch, and flip the parent function.",
+  "practice": {
+   "question": "Your friend is designing a logo for a small bakery in Kelowna. She starts with the parent function y equals x squared. She wants to shift the parabola four units to the left, reflect it across the x-axis, and then slide it one unit up. Write the transformed equation and state the coordinates of the vertex.",
+   "answer": "a = −1 (flip), c = −4 (shift left 4), d = +1 (shift up 1). Equation: y = −(x + 4)² + 1. The vertex, originally at (0, 0), is now at (−4, 1)."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

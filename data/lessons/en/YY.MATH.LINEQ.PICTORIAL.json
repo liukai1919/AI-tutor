@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LINEQ.PICTORIAL",
+ "lang": "en",
+ "title": "Show a multi-step solution with a balance or algebra-tile picture, keeping both sides equal at every step",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Keep the Scale Balanced: Solving Step by Step",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve equations with x on both sides by collecting the x terms on one side. Today we are going to picture every single step on a balance scale, so you can see why the equation stays true the whole way through. Here is our equation: four x plus three equals two x plus eleven. Imagine x is the price of a bubble tea in dollars. On the left, four bubble teas plus three dollars. On the right, two bubble teas plus eleven dollars. The scale is level, so both sides are worth the same.",
+    "math": "4x + 3 = 2x + 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      19,
+      19
+     ],
+     "labels": [
+      "4x + 3",
+      "2x + 11"
+     ],
+     "caption": "Four x plus three balances two x plus eleven"
+    }
+   },
+   {
+    "say": "Step one: get the x terms together. There are two x on the right, so take two x off the right side. But here is the rule of the scale: whatever you take off one side, you must take off the other side too, or it tips. So take two x off the left as well. On the right, plus two x and minus two x make a zero pair, and they vanish completely. On the left, four x minus two x leaves two x. The scale is still level: two x plus three equals eleven.",
+    "math": "4x + 3 - 2x = 2x + 11 - 2x \\quad\\Rightarrow\\quad 2x + 3 = 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      11,
+      11
+     ],
+     "labels": [
+      "2x + 3",
+      "11"
+     ],
+     "caption": "After taking two x off both sides, still balanced"
+    }
+   },
+   {
+    "say": "Step two: get rid of the plain number next to the x. There are three dollars on the left, so take three off the left. Same rule, take three off the right too. Eleven minus three is eight. Now the scale shows two x on the left and eight on the right, still perfectly level. Notice we have not guessed anything yet. Each move was the same on both sides, so the balance never tipped.",
+    "math": "2x + 3 - 3 = 11 - 3 \\quad\\Rightarrow\\quad 2x = 8",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      8,
+      8
+     ],
+     "labels": [
+      "2x",
+      "8"
+     ],
+     "caption": "Two x balances eight"
+    }
+   },
+   {
+    "say": "Last step: two bubble teas weigh the same as eight dollars, so one bubble tea is half of that. Divide the left side by two, and divide the right side by two as well. Two x divided by two is x. Eight divided by two is four. So x equals four. Let us check it back in the original equation. Left side: four times four plus three is nineteen. Right side: two times four plus eleven is nineteen. Nineteen equals nineteen, so the scale really was balanced the whole way.",
+    "math": "\\frac{2x}{2} = \\frac{8}{2} \\quad\\Rightarrow\\quad x = 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      4,
+      4
+     ],
+     "labels": [
+      "x",
+      "4"
+     ],
+     "caption": "One x balances four dollars, and the check works"
+    }
+   },
+   {
+    "say": "Now two mistakes that break the scale. Mistake one: looking at two x equals eight and writing x equals eight. That divides the left side by two but leaves the right side alone, so the left pan gets lighter and the scale tips toward the eight. Wrong. Mistake two: back at step one, subtracting two x from the right and then keeping both plus two x and minus two x sitting there. They are a zero pair, they cancel to nothing, so cross them out. If you leave them, the equation looks messier and it is easy to miscount the x terms.",
+    "math": "2x = 8 \\;\\not\\Rightarrow\\; x = 8 \\qquad\\qquad 2x - 2x = 0",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      4,
+      8
+     ],
+     "labels": [
+      "x",
+      "8"
+     ],
+     "caption": "Dividing only the left side tips the scale, so x = 8 is wrong"
+    }
+   },
+   {
+    "say": "So here is the one idea to remember. Every single step, do the exact same thing to both pans of the scale: subtract the same x term, subtract the same number, divide by the same number. Cancel each zero pair completely. If the scale stays level at every step, your final answer is guaranteed to be right.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Whatever you do to one side of the scale, do to the other, and cancel every zero pair.",
+  "practice": {
+   "question": "Picture a balance scale. The left pan holds three bus fares plus nine dollars. The right pan holds one bus fare plus twenty-one dollars, and the scale is level. Write this as an equation with x as the price of one bus fare. Then solve it in three steps, and at each step write down what you removed or divided from BOTH pans. Check your answer in the original equation.",
+   "answer": "3x + 9 = x + 21. Take one x off both pans: 2x + 9 = 21. Take 9 off both pans: 2x = 12. Divide both pans by 2: x = 6. Check: 3 times 6 plus 9 is 27, and 6 plus 21 is 27. One bus fare costs 6 dollars."
+  }
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.COMPOSITE",
+ "lang": "en",
+ "title": "Find the area of composite shapes by splitting them",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Splitting Funny Shapes into Easy Ones",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the area of a rectangle, a triangle, and even a trapezoid. But what about a garden that is shaped like a giant letter L? Today we learn one little trick: cut the funny shape into pieces you already know.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is Ms. Yuanyuan's vegetable garden in her Surrey backyard, drawn on grid paper. Each little square is one metre by one metre. The garden is L shaped, so there is no single formula for it. But look closely: it is really just two rectangles stuck together, like two pieces of a sandwich.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      2,
+      6
+     ],
+     "labels": [],
+     "caption": "The garden on grid paper — each square is 1 m by 1 m"
+    }
+   },
+   {
+    "say": "Let's take the bottom piece first. It is a rectangle that is six metres across and two metres tall. Area of a rectangle is length times width, so six times two is twelve. That bottom piece is twelve square metres. Count the shaded squares if you like — there really are twelve.",
+    "math": "6 \\times 2 = 12 \\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      2,
+      6
+     ],
+     "labels": [],
+     "caption": "Piece A: 6 m across, 2 m tall = 12 square metres"
+    }
+   },
+   {
+    "say": "Now the top piece. It is three metres across and two metres tall, so three times two is six square metres. Then we just add the two pieces together: twelve plus six is eighteen. The whole L shaped garden is eighteen square metres.",
+    "math": "3 \\times 2 = 6 \\quad\\Rightarrow\\quad 12 + 6 = 18 \\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "Piece B: 3 m across, 2 m tall = 6 square metres"
+    }
+   },
+   {
+    "say": "Now here is the trap I want you to watch out for. Some kids look at this bottom piece, add up all four sides, six plus two plus six plus two, and say sixteen. But that is walking around the fence — that is perimeter, measured in metres. Area is the soil inside, counted in square metres, and it is six times two, which is twelve. Ask yourself: am I walking around the edge, or filling in the inside?",
+    "math": "P = 6+2+6+2 = 16 \\text{ m} \\ne A = 6 \\times 2 = 12 \\text{ m}^2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      2
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Around the edge is 16 m; the space inside is 12 square metres"
+    }
+   },
+   {
+    "say": "So whenever a shape looks strange, draw one line, split it into two friendly shapes, find each area, and add them up. And always finish with square metres, because you are filling the inside, not walking around it.",
+    "math": "\\text{Area}_{\\text{total}} = \\text{Area}_1 + \\text{Area}_2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Split the funny shape into shapes you know, find each area, then add — and answer in square units.",
+  "practice": {
+   "question": "Maya is putting new sod on her L shaped backyard lawn in Kamloops. She draws it on grid paper where each square is one metre by one metre. The big part is a rectangle five squares across and four squares down. Joined to it is a smaller rectangle three squares across and two squares down. What is the total area of the lawn?",
+   "answer": "Big part: five times four is twenty square metres. Small part: three times two is six square metres. Twenty plus six is twenty six square metres of sod."
+  }
+ }
+}

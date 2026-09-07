@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ORDER_OPS.BRACKETS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5lx35ogv5j79",
+   "level": 1,
+   "question": "计算：(3 + 5) × 4 的结果是多少？",
+   "options": [
+    "32",
+    "17",
+    "12",
+    "23"
+   ],
+   "answerIndex": 0,
+   "explain": "括号（brackets）里的要先算：3+5=8，再 8×4=32。最容易踩的坑是把括号当没看见，按先乘后加算成 3+5×4=23。",
+   "tags": [
+    "ok",
+    "order.ignore_brackets",
+    "other",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5lx35o9qq2fo",
+   "level": 1,
+   "question": "计算：24 ÷ (8 − 2) 的结果是多少？",
+   "options": [
+    "1",
+    "4",
+    "3",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "先算括号里的 8−2=6，再 24÷6=4。写成 24÷8−2=1 就是无视了括号；只算出 6 是停在括号里没做完。",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lx35oqkgild",
+   "level": 1,
+   "question": "计算：20 − (9 − 4) 的结果是多少？",
+   "options": [
+    "5",
+    "25",
+    "15",
+    "7"
+   ],
+   "answerIndex": 2,
+   "explain": "先算括号里的 9−4=5，再 20−5=15。把括号丢掉写成 20−9−4=7 是最常见的错；只算出 5 则是没做完整个算式。",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5lx35o3d5fvj",
+   "level": 1,
+   "question": "用文字说的一个计算过程是：先把 7 和 5 加起来，再用得到的和乘 3。下面哪个算式（expression）写得对？",
+   "options": [
+    "7 + 5 × 3",
+    "7 + (5 × 3)",
+    "7 × 3 + 5",
+    "(7 + 5) × 3"
+   ],
+   "answerIndex": 3,
+   "explain": "要让加法先算，就必须用括号（brackets）把 7+5 框起来，写成 (7+5)×3=36。没有括号的 7+5×3 会先算 5×3，把括号加在 5×3 上也一样是先乘，意思就变了。",
+   "tags": [
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lx35ooyaq36",
+   "level": 2,
+   "question": "计算：(18 + 6) ÷ 3 + 5 的结果是多少？",
+   "options": [
+    "13",
+    "3",
+    "8",
+    "25"
+   ],
+   "answerIndex": 0,
+   "explain": "括号先算：18+6=24，再 24÷3=8，最后 8+5=13。无视括号写成 18+6÷3+5=25 是最常见的错；算到 8 就停下则漏了后面的 +5。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5lx35ob6cfpa",
+   "level": 2,
+   "question": "计算：5 + 3 × (10 − 6) 的结果是多少？",
+   "options": [
+    "29",
+    "17",
+    "32",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "先算括号里的 10−6=4，再 3×4=12，最后 5+12=17。丢掉括号写成 5+3×10−6=29 是典型错；先算 5+3 再乘 4 得 32 也不对，因为这里的加法外面没有括号保护。",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lx35oq85x5y",
+   "level": 2,
+   "question": "计算：100 − (25 + 15) × 2 的结果是多少？",
+   "options": [
+    "180",
+    "105",
+    "20",
+    "80"
+   ],
+   "answerIndex": 2,
+   "explain": "先算括号里的 25+15=40，再 40×2=80，最后 100−80=20。无视括号算成 100−25+15×2=105，或者一路从左往右算成 (100−25+15)×2=180，都是常见的坑。",
+   "tags": [
+    "other",
+    "order.ignore_brackets",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lx35o3v5u04",
+   "level": 2,
+   "question": "计算：48 ÷ (2 × 3) + 7 的结果是多少？",
+   "options": [
+    "79",
+    "8",
+    "31",
+    "15"
+   ],
+   "answerIndex": 3,
+   "explain": "先算括号里的 2×3=6，再 48÷6=8，最后 8+7=15。无视括号写成 48÷2×3+7=79 是最常见的错；只把 48÷2 算了就加 7 得 31，是漏了括号里的乘 3。",
+   "tags": [
+    "order.ignore_brackets",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5lx35oyhn40c",
+   "level": 3,
+   "question": "Burnaby 一个班级做回收活动收集易拉罐。星期一收了 25 个，星期二收了 35 个。他们把两天收到的易拉罐全部合在一起，平均装进 5 个箱子，每个箱子装几个？",
+   "options": [
+    "12 个",
+    "32 个",
+    "7 个",
+    "60 个"
+   ],
+   "answerIndex": 0,
+   "explain": "要先把两天的总数加起来再平分，所以算式是 (25+35)÷5，即 60÷5=12 个。写成 25+35÷5=32 就是无视了括号，等于只把星期二的罐子分了箱。",
+   "tags": [
+    "ok",
+    "order.ignore_brackets",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lx35o0sf24g",
+   "level": 3,
+   "question": "Surrey 一家面包店早上烤了 60 个小面包，上午卖出 3 批，每批 12 个。剩下的面包每 4 个装一袋，一共能装几袋？",
+   "options": [
+    "51 袋",
+    "6 袋",
+    "24 袋",
+    "15 袋"
+   ],
+   "answerIndex": 1,
+   "explain": "算式是 (60 − 3×12) ÷ 4：先算卖出的 3×12=36，剩下 60−36=24，再 24÷4=6 袋。写成 60−3×12÷4=51 就是把括号丢了；算到剩下 24 个就停下，则忘了装袋这一步。",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5lx35owr8sr5",
+   "level": 3,
+   "question": "乐乐要算 (7 + 3) × 5，他写成 7 + 3 × 5 = 22。下面哪句话是对的？",
+   "options": [
+    "他做对了，运算顺序（order of operations）本来就要先乘后加，所以 22 是对的。",
+    "他做错了，应该按 7 × 5 + 3 = 38 算，因为乘法要先跟前面的数算。",
+    "他做错了，括号里的要先算：7+3=10，再 10×5=50。",
+    "他做对了，括号（brackets）只是提醒，加不加都一样，结果都是 22。"
+   ],
+   "answerIndex": 2,
+   "explain": "括号（brackets）里的必须先算：7+3=10，10×5=50。先乘后加只在没有括号的时候才用，括号会真的改变结果，不是可有可无的记号。",
+   "tags": [
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "ok",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmt5lx35o5d1hj6",
+   "level": 3,
+   "question": "Nanaimo 的一个班级去溜冰场。每个人要付租冰鞋 5 加元和门票 7 加元，全班 9 个人都去。下面哪个算式（expression）和结果都是对的？",
+   "options": [
+    "5 + 7 × 9 = 68 加元",
+    "5 × 9 + 7 = 52 加元",
+    "(5 + 7) + 9 = 21 加元",
+    "(5 + 7) × 9 = 108 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "每个人一共花 5+7=12 加元，9 个人就是 12×9=108 加元，所以要用括号写成 (5+7)×9。写成 5+7×9=68 等于只把门票乘了人数，把租冰鞋的钱漏在了乘法外面。",
+   "tags": [
+    "order.ignore_brackets",
+    "order.ignore_brackets",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

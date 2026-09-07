@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.IDENTIFY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkq88ld2e5jt3",
+   "level": 1,
+   "question": "Triangle DEF is a right triangle with its right angle at vertex E. It is drawn upside down, so the right angle points down and to the right. DE = 9 cm, EF = 12 cm, DF = 15 cm. Which side is the hypotenuse?",
+   "options": [
+    "DF, 15 cm, because it is opposite the right angle.",
+    "None of them, since an upside-down triangle has none.",
+    "EF, 12 cm, because it is the longest side lying flat.",
+    "DE, 9 cm, because it is the side pointing straight up."
+   ],
+   "answerIndex": 0,
+   "explain": "The hypotenuse is always the side opposite the right angle, whichever way the triangle is turned, so here it is DF, 15 cm. Turning a triangle upside down never changes which side is the hypotenuse.",
+   "tags": [
+    "ok",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq88lde5952a",
+   "level": 1,
+   "question": "Triangle PQR has its right angle at R, and it is tilted so that no side is horizontal. PR = 5 m, RQ = 12 m, PQ = 13 m. Which two sides are the legs?",
+   "options": [
+    "RQ and PQ, the two longest sides of the triangle.",
+    "PR and RQ, the two sides that form the right angle.",
+    "PR and PQ, the two sides that look most slanted.",
+    "It cannot be decided while the triangle is tilted."
+   ],
+   "answerIndex": 1,
+   "explain": "The legs are the two sides that meet at the right angle, so PR and RQ; PQ sits opposite the right angle, so it is the hypotenuse. Tilting the triangle changes nothing about which sides are the legs.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq88ldilcfsg",
+   "level": 1,
+   "question": "A triangle has sides 9 cm, 40 cm and 41 cm. Is it a right triangle?",
+   "options": [
+    "No, because 9 + 40 = 49, which is not 41.",
+    "No, because 9² + 41² does not equal 40².",
+    "Yes, because 81 + 1600 = 1681, which is 41².",
+    "Yes, but only when the 41 cm side is drawn flat."
+   ],
+   "answerIndex": 2,
+   "explain": "Square the two shorter sides and compare with the square of the longest: 81 + 1600 = 1681 and 41² = 1681, so it is right-angled. The common trap is adding 9 + 40 instead of adding the squares.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq88ldzimu8k",
+   "level": 1,
+   "question": "A square is drawn on the outside of each side of a triangle. The square on the shortest side has area 36 cm², the square on the next side has area 64 cm², and the square on the longest side has area 100 cm². What can you say about the triangle?",
+   "options": [
+    "It is not right-angled, since 6 + 8 = 14 and 14 is not 10.",
+    "It is right-angled only if the 100 cm² square sits at the bottom.",
+    "It is right-angled, with the 64 cm² square on the hypotenuse.",
+    "It is right-angled, with the 100 cm² square on the hypotenuse."
+   ],
+   "answerIndex": 3,
+   "explain": "The squares on the two legs must add to the square on the hypotenuse: 36 + 64 = 100, so the triangle is right-angled and the 100 cm² square sits on the hypotenuse. The largest square is always the one on the hypotenuse, wherever it is drawn.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq88ldls16tj",
+   "level": 2,
+   "question": "Noor leans a ladder against a shed wall. The foot of the ladder is 2.4 m from the wall, the top touches the wall 7 m up, and the ladder itself is 7.4 m long. Is the triangle made by the ladder, the wall and the ground right-angled?",
+   "options": [
+    "Yes, because 5.76 + 49 = 54.76, which is 7.4².",
+    "No, because 2.4² + 7.4² does not come to 7².",
+    "Yes, but only while the wall is standing upright.",
+    "No, because 2.4 + 7 = 9.4 m, which is not 7.4 m."
+   ],
+   "answerIndex": 0,
+   "explain": "Square the two sides that meet at the right angle, the ground and the wall: 5.76 + 49 = 54.76, and 7.4² = 54.76, so the corner is right-angled. Adding 2.4 + 7 instead of squaring is the usual slip.",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "tri.orientation_changes_type",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq88lddne3oq",
+   "level": 2,
+   "question": "Triangle KLM has its right angle at vertex L. Which equation must be true, no matter how the triangle is turned?",
+   "options": [
+    "KL + LM = KM",
+    "KL² + LM² = KM²",
+    "KL² + KM² = LM²",
+    "KM² + LM² = KL²"
+   ],
+   "answerIndex": 1,
+   "explain": "The right angle is at L, so KL and LM are the legs and KM, opposite the right angle, is the hypotenuse: KL² + LM² = KM². Putting the hypotenuse on the left of the equation is the most common mistake.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq88lddyofp5",
+   "level": 2,
+   "question": "A garden bed is supposed to have square corners. Maya measures two sides meeting at one corner as 12 m and 16 m, then measures the straight distance between their far ends as 20 m. Is that corner a right angle?",
+   "options": [
+    "No, because 12 + 16 = 28 m, which is not 20 m.",
+    "No, because 12² + 20² does not equal 16².",
+    "Yes, because 144 + 256 = 400, which is 20².",
+    "Yes, but only if the diagonal runs to the left."
+   ],
+   "answerIndex": 2,
+   "explain": "The two edges are the legs and the 20 m distance is the hypotenuse: 144 + 256 = 400 = 20², so the corner is square. If you add 12 + 16 instead of squaring, you get 28 and the test tells you nothing.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq88ld8xrg6e",
+   "level": 2,
+   "question": "Two triangular flags are cut for a school field day. Flag A has sides 20 cm, 21 cm and 29 cm. Flag B has sides 20 cm, 21 cm and 30 cm. Which statement is true?",
+   "options": [
+    "Both, as long as each is hung with its long side down.",
+    "Only Flag B, since its longest side, 30 cm, is bigger.",
+    "Neither one, since 20 + 21 equals neither 29 nor 30.",
+    "Only Flag A is right-angled, since 400 + 441 = 841."
+   ],
+   "answerIndex": 3,
+   "explain": "Test each with squares: 400 + 441 = 841 = 29², so Flag A is right-angled, while 841 is not 30², so Flag B is not. Having a longest side does not make a triangle right-angled; only the matching square sum does.",
+   "tags": [
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq88ld506na3",
+   "level": 3,
+   "question": "Ravi is building a small skateboard ramp. The back post stands 1.2 m tall, the base runs 0.5 m along the ground, and he has one piece of plywood 1.3 m long for the slope. Will the three pieces meet exactly, and which piece is the hypotenuse?",
+   "options": [
+    "Yes; the 1.3 m slope is the hypotenuse, as 0.25 + 1.44 = 1.69.",
+    "Yes; the 1.2 m post is the hypotenuse, since it is the tallest piece.",
+    "No; 0.5 + 1.2 = 1.7 m, so the plywood sheet is too short.",
+    "No; tipping the ramp onto its back would change the answer."
+   ],
+   "answerIndex": 0,
+   "explain": "The right angle is between the post and the ground, so the sloped plywood is the hypotenuse: 0.25 + 1.44 = 1.69 = 1.3², and the pieces meet exactly. The trap is calling the tallest piece the hypotenuse instead of the one opposite the right angle.",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq88ldb6jra5",
+   "level": 3,
+   "question": "At a campsite a tent pole stands straight up, 2.4 m tall. One rope runs from the top of the pole to a peg 1.8 m from the base and measures 3.0 m. A second rope runs from the top to a peg 3.2 m away and measures 4.2 m. Which rope, if either, is pulled perfectly straight, forming a right triangle with the pole and the ground?",
+   "options": [
+    "Neither rope, since 1.8 + 2.4 = 4.2 m and not 3.0 m.",
+    "Only the 3.0 m rope, since 3.24 + 5.76 = 9, which is 3.0².",
+    "Both ropes, since a slanted rope still makes a right triangle.",
+    "The 4.2 m rope, since the longer rope must be the hypotenuse."
+   ],
+   "answerIndex": 1,
+   "explain": "For each rope, square the peg distance and the pole height: 3.24 + 5.76 = 9 = 3.0² works, but 10.24 + 5.76 = 16 while 4.2² = 17.64, so that rope sags. Being the longest side does not by itself make a rope the hypotenuse of a right triangle.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq88ld1s692v",
+   "level": 3,
+   "question": "Tomas checks a triangle whose right angle is at the top-left corner. The two sides meeting there measure 7 cm and 24 cm, and the third side measures 25 cm. He writes 7² + 25² = 24² and says the triangle fails the test. What is the best response?",
+   "options": [
+    "He is correct, because a right angle at the top does not count.",
+    "He should add the sides: 7 + 24 = 31, so it is not right-angled.",
+    "He used 25 cm as a leg; since 49 + 576 = 625, it is right-angled.",
+    "He mislabelled the 24 cm side, so the triangle is not right-angled."
+   ],
+   "answerIndex": 2,
+   "explain": "The hypotenuse is the side opposite the right angle, so 7 and 24 are the legs: 49 + 576 = 625 = 25², and the triangle is right-angled. Tomas squared the hypotenuse as if it were a leg, and a right angle in the top-left corner is still a right angle.",
+   "tags": [
+    "tri.orientation_changes_type",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq88lduhwtkj",
+   "level": 3,
+   "question": "Emma is marking out a corner of a rectangular ice rink. She measures 6 m along one edge and 8 m along the other edge from the corner, then measures the straight distance between those two marks as 10.5 m. What should she conclude?",
+   "options": [
+    "The corner is square, since 6 + 8 = 14 m is more than 10.5 m.",
+    "The corner is not square, since 6² + 10.5² does not equal 8².",
+    "The corner is square; turning the rink would fix the extra 0.5 m.",
+    "The corner is not square; that distance should be 10 m."
+   ],
+   "answerIndex": 3,
+   "explain": "The two edges are the legs, so a square corner needs a distance of √(36 + 64) = 10 m between the marks, and 10.5 m shows the corner is open too wide. Adding 6 + 8 tests nothing here, and turning the rink cannot change a corner from square to not square.",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "tri.orientation_changes_type",
+    "ok"
+   ]
+  }
+ ]
+}

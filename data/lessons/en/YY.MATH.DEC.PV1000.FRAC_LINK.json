@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.PV1000.FRAC_LINK",
+ "lang": "en",
+ "title": "Write decimals as fractions and fractions with denominators 10, 100, 1000 as decimals",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Decimals into Fractions (and Back!)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that three tenths can be written as zero point three, and twenty-five hundredths can be written as zero point two five. Today we learn the little trick that makes this work every single time, even for thousandths.",
+    "math": "\\frac{3}{10}=0.3 \\qquad \\frac{25}{100}=0.25",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25
+     ],
+     "labels": [],
+     "caption": "25 out of 100 squares shaded — that is 25 hundredths, or 0.25"
+    }
+   },
+   {
+    "say": "Here is the secret. The last digit of the decimal tells you the bottom number of the fraction. If the last digit sits in the tenths spot, the bottom is ten. If it sits in the hundredths spot, the bottom is one hundred. If it sits in the thousandths spot, the bottom is one thousand. Then the digits you see just become the top number.",
+    "math": "0.7=\\frac{7}{10} \\qquad 0.43=\\frac{43}{100} \\qquad 0.086=\\frac{86}{1000}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.086
+     ],
+     "labels": [],
+     "caption": "The last digit 6 lands in the thousandths spot, so the bottom number is 1000"
+    }
+   },
+   {
+    "say": "Let's try a real one. At the store in Victoria, a granola bar costs zero point six five dollars. Say it out loud: sixty-five hundredths of a dollar. The last digit, the five, is in the hundredths spot, so the bottom number is one hundred. The digits are six five, so we write sixty-five over one hundred. And here it is on the grid: sixty-five shaded squares out of one hundred.",
+    "math": "0.65=\\frac{65}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      65
+     ],
+     "labels": [],
+     "caption": "0.65 of a dollar = 65 out of 100 squares = 65 hundredths"
+    }
+   },
+   {
+    "say": "Now let's go the other way. Your water bottle holds four hundred fifty thousandths of a litre. The bottom number is one thousand, so the last digit must land in the thousandths spot. We need three digits after the dot: four, five, zero. So it is zero point four five zero. Count the zeros in the bottom number, and that tells you how many digits go after the dot. Ten needs one digit, one hundred needs two, one thousand needs three.",
+    "math": "\\frac{450}{1000}=0.450",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.45
+     ],
+     "labels": [],
+     "caption": "450 thousandths sits just under halfway between 0 and 1"
+    }
+   },
+   {
+    "say": "Now watch out for a sneaky mistake. Some kids see one quarter and write zero point four, because they spot a four and just copy it down. But that is wrong! One quarter means one whole cut into four pieces, and one of those pieces is twenty-five hundredths, which is zero point two five. Zero point four is really four tenths, which is forty hundredths — much bigger. Look at the two grids: twenty-five squares is clearly less than forty squares. So never copy digits across. Only fractions with ten, one hundred, or one thousand on the bottom slide straight into a decimal.",
+    "math": "\\frac{1}{4}=\\frac{25}{100}=0.25 \\quad \\text{not } 0.4",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      25,
+      15
+     ],
+     "labels": [],
+     "caption": "The 25 dark squares are one quarter; adding the 15 lighter ones would make 40, which is 0.4 — much bigger!"
+    }
+   },
+   {
+    "say": "So here is what to remember. Look at where the last digit lands, and that spot names the bottom of your fraction — tenths, hundredths, or thousandths. Going back the other way, count the zeros to know how many digits go after the dot. Never just copy the digits!",
+    "math": "0.325=\\frac{325}{1000}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The place of the last digit names the bottom number: tenths → 10, hundredths → 100, thousandths → 1000. Count the zeros to go back.",
+  "practice": {
+   "question": "A bag of apples at the Vancouver market weighs zero point four seven five kilograms. Write that weight as a fraction. Then, a bottle of juice costs eighty-five hundredths of a dollar — that is the fraction eighty-five over one hundred. Write that price as a decimal.",
+   "answer": "0.475 = 475 over 1000 (the last digit, 5, is in the thousandths place). And 85 over 100 = 0.85 (one hundred has two zeros, so two digits go after the dot)."
+  }
+ }
+}

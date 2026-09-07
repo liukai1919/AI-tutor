@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LINEQ.DISTRIBUTE",
+ "lang": "en",
+ "title": "Solve equations that need the distributive property first (3(x − 4) = 2x + 1)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Clear the Brackets First: 3(x − 4) = 2x + 1",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve something like two times, bracket, x plus four, close bracket, equals negative six. Today the twist is that x shows up on both sides of the scale. The equation is three times, bracket, x minus four, close bracket, equals two x plus one. The plan is simple: clear the brackets first, then balance like usual.",
+    "math": "3(x-4)=2x+1",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      27,
+      27
+     ],
+     "labels": [
+      "3(x − 4)",
+      "2x + 1"
+     ],
+     "caption": "Both sides weigh the same, but the left side is wrapped in brackets"
+    }
+   },
+   {
+    "say": "Step one: distribute. The three multiplies every term inside the brackets, not just the first one. Three times x is three x. Three times negative four is negative twelve. So the left side becomes three x minus twelve. Nothing changed in weight, we just unpacked it.",
+    "math": "3(x-4)=3x-12",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      27,
+      27
+     ],
+     "labels": [
+      "3x − 12",
+      "2x + 1"
+     ],
+     "caption": "Same weight on the left, just unpacked: 3x − 12"
+    }
+   },
+   {
+    "say": "Step two: get the x terms together on one side. Both sides have some x's, so take two x off both pans. Three x minus two x leaves one x on the left. Two x minus two x leaves zero on the right, so the right is just one. Now the scale reads x minus twelve equals one.",
+    "math": "3x-12-2x=2x+1-2x \\\\ x-12=1",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      1,
+      1
+     ],
+     "labels": [
+      "x − 12",
+      "1"
+     ],
+     "caption": "After taking 2x off both sides, the scale still balances"
+    }
+   },
+   {
+    "say": "Step three: undo the minus twelve by adding twelve to both sides. Left side: x minus twelve plus twelve is just x. Right side: one plus twelve is thirteen. So x equals thirteen. Quick check: three times, bracket, thirteen minus four, is three times nine, which is twenty-seven. And two times thirteen plus one is twenty-six plus one, also twenty-seven. Both sides match, so thirteen is right.",
+    "math": "x-12+12=1+12 \\\\ x=13",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      13,
+      13
+     ],
+     "labels": [
+      "x",
+      "13"
+     ],
+     "caption": "Add 12 to both pans and x stands alone: x = 13"
+    }
+   },
+   {
+    "say": "Here is the mistake that costs people the most marks: distributing to only the first term. Someone writes three times, bracket, x minus four, as three x minus four. But they forgot to multiply the four by three. Think of it like a group chat with three friends each chipping in x dollars and each paying a four dollar fee. The total fee is twelve dollars, not four. The bracket means the three multiplies everything inside.",
+    "math": "3(x-4)\\neq 3x-4 \\quad 3(x-4)=3x-12",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      5,
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "Three rows of (x and 4): the 3 multiplies both parts, giving 3x + 3(4)"
+    }
+   },
+   {
+    "say": "One more trap: doing something to one side only. If you have three x equals twelve and just write x equals twelve, you took the three off the left but did nothing to the right, so the scale tips. Whatever you do, do it to both pans. Takeaway: distribute to every term, then keep the scale balanced by doing every move on both sides.",
+    "math": "3x=12 \\Rightarrow x=\\frac{12}{3}=4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      4,
+      12
+     ],
+     "labels": [
+      "x",
+      "12"
+     ],
+     "caption": "Dividing only the left side by 3 tips the scale: x = 12 is wrong, x = 4 is right"
+    }
+   }
+  ],
+  "answer": "Distribute to EVERY term in the brackets, then do each move to BOTH sides.",
+  "practice": {
+   "question": "Picture a balance scale. The left pan holds four times, bracket, x minus two, close bracket. The right pan holds two x plus six. It is perfectly balanced. Solve for x, and then check your answer in both pans. Hint: the x could stand for dollars in a shared bus fare.",
+   "answer": "Distribute: 4x − 8 = 2x + 6. Take 2x off both sides: 2x − 8 = 6. Add 8 to both sides: 2x = 14. Divide both sides by 2: x = 7. Check: 4(7 − 2) = 4 × 5 = 20 and 2(7) + 6 = 20. Balanced!"
+  }
+ }
+}

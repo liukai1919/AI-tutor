@@ -1,0 +1,138 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.NUM.02",
+ "lang": "en",
+ "title": "financial literacy — simple budgets and transactions",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Your Money, Your Plan: Budgets, Spending & Simple Interest",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. Your school is hosting a First Nations Cultural Day, and your teacher asks you to help plan it. She hands you a budget of five hundred twenty dollars. You need to cover a shared meal, decorations, printed invitations, a local musician, and tableware. Your one job: make sure every single dollar is accounted for and nothing goes over. That is what a budget is, and today we are learning how to build one.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "A budget has two sides. On one side you have your total income — the money you are actually allowed to spend, like that five hundred twenty dollars. On the other side you list every single expense. The golden rule is super simple: your total expenses must be less than or equal to your budget. If you spend more than you have, you are in the red, which means you owe money you do not have. So step one of any budget is always: write down what you have, then write down what you need to spend, and check that the second number never beats the first.",
+    "math": "I - E \\geq 0",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      520,
+      510
+     ],
+     "labels": [
+      "Total Budget",
+      "Total Expenses"
+     ],
+     "caption": "Budget vs. Expenses — the budget bar must be at least as long as the expenses bar."
+    }
+   },
+   {
+    "say": "Let us build the Cultural Day budget. You set aside one hundred eighty-five dollars for a shared meal, seventy-two dollars for decorations like cedar boughs and woven fabric, forty-eight dollars for printed invitations, one hundred thirty dollars for a local musician to play, and seventy-five dollars for plates, napkins, and other supplies. Let us add those up: one hundred eighty-five plus seventy-two is two hundred fifty-seven, plus forty-eight is three hundred five, plus one hundred thirty is four hundred thirty-five, plus seventy-five is five hundred ten. So your total spending is five hundred ten out of a five hundred twenty dollar budget. That leaves you ten dollars. That little leftover is your safety net — if something goes wrong, you have a small cushion.",
+    "math": "185 + 72 + 48 + 130 + 75 = 510, \\qquad 520 - 510 = \\$10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      185,
+      72,
+      48,
+      130,
+      75
+     ],
+     "labels": [
+      "Meal",
+      "Decor",
+      "Cards",
+      "Music",
+      "Misc"
+     ],
+     "caption": "Cultural Day budget in dollars: meal, decorations, printed invitations (cards), musician, supplies (misc)"
+    }
+   },
+   {
+    "say": "Now here is where it gets interesting. What if your budget had only been four hundred dollars but you needed five hundred ten? You would be one hundred ten dollars short. Maybe you have to wait a couple of months and save up. Here is the cool part: if you put your savings in a bank account, the bank actually pays you a little extra for the privilege of holding your money. That extra amount is called interest, and it makes your savings grow slowly over time. Let us learn exactly how to figure that out.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "The formula for simple interest is: Interest equals Principal times Rate times Time. The principal is the starting amount you deposit. The rate is the percentage the bank pays each year, written as a decimal — so three and a half percent becomes zero point zero three five. Time is how many years your money sits in the account. Let us try it: you deposit two hundred fifty dollars at three and a half percent for two years. The interest is two hundred fifty times zero point zero three five, which is eight dollars seventy-five, and times two that is seventeen dollars fifty cents. Add that back to your original two hundred fifty, and after two years your account shows two hundred sixty-seven dollars and fifty cents. The bank gave you seventeen dollars and fifty cents just for letting it sit there.",
+    "math": "I = P \\times r \\times t = 250 \\times 0.035 \\times 2 = 17.50, \\qquad \\text{Total} = 250 + 17.50 = 267.50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      250,
+      3.5,
+      2,
+      17.5,
+      267.5
+     ],
+     "labels": [
+      "P ($)",
+      "r (%)",
+      "t(yr)",
+      "I ($)",
+      "Total"
+     ],
+     "caption": "Simple interest: P = $250, r = 3.5% per year, t = 2 years, I = $17.50, total = $267.50"
+    }
+   },
+   {
+    "say": "Let us try a slightly trickier one. Your friend Maya wants to buy a guitar for four hundred dollars. Right now she has two hundred fifty dollars saved, and she puts it in a savings account earning three and a half percent simple interest per year. After two years she has two hundred sixty-seven dollars and fifty cents. After three years, two hundred seventy-six dollars and twenty-five cents. See, she is only earning eight dollars and seventy-five cents per year in interest. To go from two hundred fifty all the way to four hundred, she needs one hundred fifty dollars more. At eight dollars seventy-five per year, that is one hundred fifty divided by eight dollars seventy-five, which works out to about seventeen years. Whoa! That is the honest reality of simple interest on a small balance. This is why, in real life, people combine a savings account with a part-time job. The bank interest is a gentle little bonus, not the main engine of your savings.",
+    "math": "t = \\frac{400 - 250}{250 \\times 0.035} = \\frac{150}{8.75} \\approx 17.1 \\text{ years}",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      250,
+      258.75,
+      267.5,
+      276.25,
+      285,
+      293.75
+     ],
+     "labels": [
+      "yr 0",
+      "yr 1",
+      "yr 2",
+      "yr 3",
+      "yr 4",
+      "yr 5"
+     ],
+     "caption": "Maya's savings at 3.5% simple interest ($250 start): a straight line, up $8.75 every year"
+    }
+   },
+   {
+    "say": "Here is the one-line takeaway to carry with you: a budget is just a plan — write down what you have, write down what you will spend, and make sure the second number never beats the first. And when you are saving for something big, remember that simple interest is a gentle nudge, not a rocket. The real power is in the plan itself: knowing exactly where every dollar goes before you ever hand it over.",
+    "math": "I = P \\times r \\times t, \\qquad \\text{Budget: } \\sum \\text{Expenses} \\leq \\text{Income}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A budget is a plan: list what you have, list what you spend, and make sure you never go into the red. Simple interest (I = P × r × t) is a small yearly bonus, not a get-rich-quick trick — the real skill is planning every dollar before you spend it.",
+  "practice": {
+   "question": "Your family is planning a Thanksgiving dinner and your budget is one hundred twenty-five dollars. You spend sixty dollars on turkey and vegetables, twenty-five dollars on a pumpkin pie, fifteen dollars on plates and napkins, and twenty dollars on a small gift for Grandma. Do you have enough money left over to also buy a twenty-five-dollar bottle of juice? Show your work.",
+   "answer": "60 + 25 + 15 + 20 = 120. 125 − 120 = 5. You only have five dollars left, which is not enough for a twenty-five-dollar bottle of juice. You would need an extra twenty dollars."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

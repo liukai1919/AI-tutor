@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.MULT",
+ "lang": "en",
+ "title": "Multiply fractions and mixed numbers with an area model, then numerator × numerator over denominator × denominator (2/3 × 3/4 = 1/2)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Two Thirds of Three Quarters",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add fractions like five eighths plus seven eighths, and how to turn a mixed number into an improper fraction. Today we do something different: multiplying fractions. And here is the good news, there is no common denominator needed at all.",
+    "math": "\\frac{2}{3}\\times\\frac{3}{4}=?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture a rectangular pan of brownies. Cut it into four equal columns and shade three of them, that is three quarters of the pan. Now cut the same pan into three equal rows and shade two of them, that is two thirds. The piece where the shading overlaps is two thirds of three quarters. Count it: the whole pan is twelve little pieces, and the overlap covers six of them.",
+    "math": "\\frac{2}{3}\\times\\frac{3}{4}=\\frac{6}{12}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "Three rows by four columns: the overlap is 6 of the 12 pieces"
+    }
+   },
+   {
+    "say": "Look at where those numbers came from. Two rows times three columns gives six shaded pieces on top. Three rows times four columns gives twelve pieces in the whole pan on the bottom. So you just multiply numerator times numerator, and denominator times denominator. Six twelfths in lowest terms is one half.",
+    "math": "\\frac{2}{3}\\times\\frac{3}{4}=\\frac{2\\times3}{3\\times4}=\\frac{6}{12}=\\frac{1}{2}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      6
+     ],
+     "labels": [],
+     "caption": "6 out of 12 shaded — the same as one half"
+    }
+   },
+   {
+    "say": "Now the trap. Say you buy two and a half metres of ribbon at the craft store, three times. A lot of people multiply the whole number and the fraction separately and write six and a half. That is wrong. The correct move is the one you already know: turn two and a half into five halves, then multiply five halves by three over one. Five times three is fifteen, two times one is two, so fifteen halves, which is seven and a half metres. The picture shows three bars of two and a half, and they clearly stack past six.",
+    "math": "2\\tfrac{1}{2}\\times3=\\frac{5}{2}\\times\\frac{3}{1}=\\frac{15}{2}=7\\tfrac{1}{2}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2.5,
+      2.5,
+      2.5
+     ],
+     "labels": [
+      "2 1/2 m",
+      "2 1/2 m",
+      "2 1/2 m"
+     ],
+     "caption": "Three lots of 2.5 m make 7.5 m, not 6.5 m"
+    }
+   },
+   {
+    "say": "One more thing worth fixing. Lots of people believe multiplying always makes a number bigger, but that is only true when you multiply by something greater than one. Here we started at three quarters and took two thirds of it, and we landed on two quarters, which is one half. Multiplying by a fraction smaller than one pulls you down the number line, not up.",
+    "math": "\\frac{2}{3}\\times\\frac{3}{4}=\\frac{1}{2}<\\frac{3}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75,
+      0.5,
+      4
+     ],
+     "labels": [],
+     "caption": "From 3/4 down to 1/2 — times a fraction under one shrinks it"
+    }
+   },
+   {
+    "say": "So here is the whole move in one breath: mixed numbers turn into improper fractions, then multiply straight across the top and straight across the bottom, then write your answer in lowest terms. No common denominator anywhere.",
+    "math": "\\frac{a}{b}\\times\\frac{c}{d}=\\frac{a\\times c}{b\\times d}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To multiply fractions: multiply the numerators, multiply the denominators, and simplify — never find a common denominator.",
+  "practice": {
+   "question": "A rectangular patch in your community garden in Surrey measures three quarters of a metre wide and two thirds of a metre long. Sketch the area model yourself: draw a square, cut it into four columns and shade three of them, then cut it into three rows and shade two of them. How many square metres is the patch?",
+   "answer": "One half of a square metre. Three quarters times two thirds equals three times two over four times three, which is six twelfths, and six twelfths in lowest terms is one half. In the sketch, the overlap covers six of the twelve small pieces."
+  }
+ }
+}

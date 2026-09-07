@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtjmw6bvz1d18r",
+   "level": 1,
+   "question": "A flat net is made of 6 rectangles joined edge to edge: 4 rectangles in a row, 1 more rectangle taped above the second one, and 1 more taped below that same second one. Folded up, the net closes into a box (a cuboid) with no gaps and no leftover pieces. How many faces does the finished box have?",
+   "options": [
+    "6 faces",
+    "8 faces",
+    "12 faces",
+    "3 faces"
+   ],
+   "answerIndex": 0,
+   "explain": "Each rectangle of the net becomes one flat face, and the net has 6 rectangles, so the box has 6 faces. The trap is mixing the counts up: 8 belongs to the corners and 12 to the edges, not to the faces.",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bv8rjelg",
+   "level": 1,
+   "question": "The same net of 6 rectangles (4 in a row, with 1 above and 1 below the second rectangle) is folded into a closed box. Every place where two rectangles meet after folding becomes a straight edge of the box. How many edges does the finished box have?",
+   "options": [
+    "9 edges",
+    "12 edges",
+    "8 edges",
+    "6 edges"
+   ],
+   "answerIndex": 1,
+   "explain": "A folded cuboid has 12 edges: 4 around the top, 4 around the bottom and 4 standing up the sides. The trap is answering 9 because only 9 edges show in a picture, or reusing the face count of 6 or the corner count of 8.",
+   "tags": [
+    "solid.count_visible_only",
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bv4t0eoa",
+   "level": 1,
+   "question": "The same net of 6 rectangles is folded into a closed box. A vertex is a sharp corner where three edges of the box meet. How many vertices does the finished box have?",
+   "options": [
+    "6 vertices",
+    "12 vertices",
+    "8 vertices",
+    "7 vertices"
+   ],
+   "answerIndex": 2,
+   "explain": "Count 4 corners around the top and 4 around the bottom, so a cuboid has 8 vertices. The trap is answering 7 because one back corner is hidden in a drawing, or borrowing 6 from the faces and 12 from the edges.",
+   "tags": [
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "ok",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bv59t8hx",
+   "level": 1,
+   "question": "A net of 6 rectangles is folded into a closed box: two rectangles are 8 cm by 5 cm, two are 8 cm by 3 cm, and two are 5 cm by 3 cm. Which line gives the correct number of faces, edges and vertices for this box?",
+   "options": [
+    "8 faces, 6 edges, 12 vertices",
+    "3 faces, 9 edges, 7 vertices",
+    "12 faces, 8 edges, 6 vertices",
+    "6 faces, 12 edges, 8 vertices"
+   ],
+   "answerIndex": 3,
+   "explain": "Every cuboid has 6 faces, 12 edges and 8 vertices, no matter what the side lengths are. The trap is swapping the three numbers around, or using only the parts you would see from the front of a drawing.",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "solid.fev_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvv4sp2k",
+   "level": 2,
+   "question": "A net is made of 2 identical triangles and 3 rectangles. Folded up, it closes into a triangular prism. How many faces does the prism have?",
+   "options": [
+    "5 faces",
+    "6 faces",
+    "9 faces",
+    "3 faces"
+   ],
+   "answerIndex": 0,
+   "explain": "Each flat piece of the net becomes a face, so 2 triangles plus 3 rectangles gives 5 faces. The trap is answering with 9, which is the edge count, or 6, which is the vertex count.",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvzycxeo",
+   "level": 2,
+   "question": "The same net (2 triangles and 3 rectangles) is folded into a triangular prism. How many edges does the finished prism have?",
+   "options": [
+    "5 edges",
+    "9 edges",
+    "6 edges",
+    "7 edges"
+   ],
+   "answerIndex": 1,
+   "explain": "There are 3 edges around each triangular end and 3 long edges joining them, so 3 + 3 + 3 = 9 edges. The trap is grabbing 5 from the faces or 6 from the vertices, or counting only the edges you can see.",
+   "tags": [
+    "solid.fev_swap",
+    "ok",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bv2tif84",
+   "level": 2,
+   "question": "Priya cuts a net of 1 square and 4 triangles and folds it into a square-based pyramid for a class model. How many edges does her pyramid have?",
+   "options": [
+    "5 edges",
+    "12 edges",
+    "8 edges",
+    "6 edges"
+   ],
+   "answerIndex": 2,
+   "explain": "The square base has 4 edges and 4 more edges run up to the apex, giving 8 edges. The trap is answering 5, which is the number of faces and of vertices, not edges.",
+   "tags": [
+    "solid.fev_swap",
+    "other",
+    "ok",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvoz71um",
+   "level": 2,
+   "question": "Owen folds a net of 6 rectangles into a closed gift box for his aunt in Kelowna. He runs one strip of tape along every edge of the box. How many strips of tape does he use?",
+   "options": [
+    "8 strips",
+    "6 strips",
+    "9 strips",
+    "12 strips"
+   ],
+   "answerIndex": 3,
+   "explain": "Tape goes on edges, and a cuboid has 12 edges: 4 on top, 4 on the bottom and 4 upright. The trap is taping only the 9 edges you can see, or using the 6 faces or 8 corners by mistake.",
+   "tags": [
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvtumchq",
+   "level": 3,
+   "question": "For a science fair display, Rowan folds one net into a closed cuboid box and another net into a square-based pyramid. He covers every face of both solids with foil. How many faces does he cover altogether?",
+   "options": [
+    "11 faces",
+    "13 faces",
+    "20 faces",
+    "6 faces"
+   ],
+   "answerIndex": 0,
+   "explain": "The cuboid has 6 faces and the square pyramid has 5, so 6 + 5 = 11 faces. The trap is using the vertex totals (8 + 5 = 13) or the edge totals (12 + 8 = 20) instead of faces.",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bv645hv4",
+   "level": 3,
+   "question": "Sam folds one net into a cuboid cereal box and another net into a triangular prism tent model. He wants to know which solid has more edges, and by how many. How many more edges does the cuboid have than the prism?",
+   "options": [
+    "4 more edges",
+    "3 more edges",
+    "2 more edges",
+    "1 more edge"
+   ],
+   "answerIndex": 1,
+   "explain": "The cuboid has 12 edges and the triangular prism has 9, so 12 - 9 = 3. The trap is comparing vertices (8 - 6 = 2) or faces (6 - 5 = 1) instead of edges.",
+   "tags": [
+    "solid.count_visible_only",
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvze5roh",
+   "level": 3,
+   "question": "Ava folds a net of 6 rectangles into a closed box and then says: 'This box has 8 faces, 6 edges and 12 vertices.' What is the best response to Ava?",
+   "options": [
+    "She is right — a box has 8 faces, one for each corner.",
+    "She over-counted: only 3 faces and 7 vertices show on a box.",
+    "She swapped the counts: it is 6 faces, 12 edges, 8 vertices.",
+    "She missed the base, so a closed box has 7 faces and 13 edges."
+   ],
+   "answerIndex": 2,
+   "explain": "A cuboid always has 6 faces, 12 edges and 8 vertices, so Ava put the right numbers on the wrong words. The trap is trusting the counts you can see in a drawing instead of counting the hidden back face and corner too.",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjmw6bvxb6mxf",
+   "level": 3,
+   "question": "Leo folds a net of 6 identical squares into a closed cube for a games night. He puts one piece of tape along each edge and one sticker on each vertex. How many pieces of tape and stickers does he use in total?",
+   "options": [
+    "14 pieces",
+    "16 pieces",
+    "18 pieces",
+    "20 pieces"
+   ],
+   "answerIndex": 3,
+   "explain": "A cube has 12 edges and 8 vertices, so 12 + 8 = 20 pieces in total. The trap is slipping the face count of 6 into the sum (6 + 8 = 14 or 12 + 6 = 18) or counting only the edges and corners you can see.",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "solid.fev_swap",
+    "ok"
+   ]
+  }
+ ]
+}

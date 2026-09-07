@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.ORDER",
+ "lang": "en",
+ "title": "Order a set of fractions using common denominators or benchmarks",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Lining Up Fractions on a Number Line",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a fraction and ask, is it close to zero, close to one half, or close to one whole? Today we will use that same trick to put three fractions in order, from smallest to biggest, like lining up friends by height.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "Our helper: zero, one half, and one"
+    }
+   },
+   {
+    "say": "Here is our real problem. At the school bake sale in Kelowna, three trays of banana bread are left over. The first tray has one quarter left, the second tray has five sixths left, and the third tray has one half left. To know which tray has the least, we put each fraction on a number line from zero to one.",
+    "math": "\\frac{1}{4},\\ \\frac{5}{6},\\ \\frac{1}{2}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.25
+     ],
+     "labels": [],
+     "caption": "One quarter sits between zero and one half"
+    }
+   },
+   {
+    "say": "Let's place each one. One quarter is less than one half, so it goes on the left side. One half sits right in the middle. And five sixths is more than one half, because half of six sixths is three sixths, and five sixths is bigger than that. So five sixths goes on the right side, close to one.",
+    "math": "\\frac{1}{4}<\\frac{1}{2}<\\frac{5}{6}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5,
+      0.8333
+     ],
+     "labels": [],
+     "caption": "From one half, jump right to five sixths"
+    }
+   },
+   {
+    "say": "Now just read the number line from left to right, the same way you read a sentence. Smallest first: one quarter, then one half, then five sixths. So the first tray has the least banana bread left, and the second tray has the most.",
+    "math": "\\frac{1}{4},\\ \\frac{1}{2},\\ \\frac{5}{6}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      1,
+      6,
+      5
+     ],
+     "labels": [],
+     "caption": "One quarter is a small piece; five sixths is nearly full"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. Someone might say five sixths is the smallest because six is a big number, so the pieces must be tiny. But careful! Six only tells us how many pieces the tray was cut into. Five tells us how many are still there, and five out of six is almost the whole tray. Always ask, how close is this to zero, to one half, or to one whole?",
+    "math": "\\frac{5}{6}>\\frac{1}{2}",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      6,
+      5,
+      4,
+      1
+     ],
+     "labels": [],
+     "caption": "Five sixths is nearly a full pizza; one quarter is not"
+    }
+   },
+   {
+    "say": "So remember, put each fraction on the number line using zero, one half and one, then read from left to right to get them in order.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.25,
+      0.8333
+     ],
+     "labels": [],
+     "caption": "Left is smaller, right is bigger"
+    }
+   }
+  ],
+  "answer": "Place each fraction near zero, one half, or one on the number line, then read left to right to order them.",
+  "practice": {
+   "question": "Three water bottles are on the soccer field bench in Victoria. Maya's bottle is three quarters full, Owen's bottle is one third full, and Sofia's bottle is one half full. Draw a number line from zero to one, mark one half in the middle, and place all three fractions on it. Then write the three fractions in order from the least full bottle to the most full bottle.",
+   "answer": "One third, then one half, then three quarters. One third is less than one half, and three quarters is more than one half, so Owen's bottle has the least water and Maya's has the most."
+  }
+ }
+}

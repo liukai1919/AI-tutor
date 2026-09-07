@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.DIV.3D_BY_1D",
+ "lang": "en",
+ "title": "Divide 3-digit numbers by 1-digit numbers",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Place by Place: Dividing 3-Digit Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to share a number into equal groups by chopping off friendly chunks. Today I will show you a tidy way to do it: divide one place at a time, starting from the left. Here is our problem: three classes share 936 dollars for a field trip, fairly. How much does each class get?",
+    "math": "936 \\div 3 = ?",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      936
+     ],
+     "labels": [],
+     "caption": "936 is 9 hundreds, 3 tens, and 6 ones"
+    }
+   },
+   {
+    "say": "Watch how neat this is. Share the hundreds first: 9 hundreds shared by 3 is 3 hundreds. Then the tens: 3 tens shared by 3 is 1 ten. Then the ones: 6 ones shared by 3 is 2 ones. Put those pieces together and each class gets 312 dollars.",
+    "math": "900 \\div 3 = 300 \\quad 30 \\div 3 = 10 \\quad 6 \\div 3 = 2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      900,
+      30,
+      6
+     ],
+     "labels": [
+      "900",
+      "30",
+      "6"
+     ],
+     "caption": "Split 936 by place, then divide each part by 3"
+    }
+   },
+   {
+    "say": "Let us check it, because checking is what good mathematicians do. Three groups of 312 dollars is 936 dollars, and that is exactly what we started with. Perfect.",
+    "math": "312 \\times 3 = 936",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      312,
+      312,
+      312
+     ],
+     "labels": [
+      "Class A",
+      "Class B",
+      "Class C"
+     ],
+     "caption": "Three equal shares of 312 dollars make 936 dollars"
+    }
+   },
+   {
+    "say": "Now a sneaky one. A berry farm packs 624 blueberries into 6 boxes, the same number in each box. Start with the hundreds: 6 hundreds shared by 6 is 1 hundred. Next the tens: we have only 2 tens, and 2 tens cannot be shared into 6 whole tens, so the tens answer is zero. Write that zero down and slide the 2 tens over to the ones, making 24 ones. Then 24 shared by 6 is 4. Each box gets 104 blueberries.",
+    "math": "624 \\div 6 = 104",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      600,
+      24
+     ],
+     "labels": [
+      "600",
+      "24"
+     ],
+     "caption": "600 divided by 6 is 100, and 24 divided by 6 is 4"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes once. Some kids skip that empty tens spot and write 14 instead of 104. But look what happens: 6 boxes with 14 blueberries each is only 84 blueberries, nowhere near 624. That little zero is not nothing, it is a placeholder holding the tens spot open so the 1 stays in the hundreds. Never skip it.",
+    "math": "6 \\times 14 = 84 \\neq 624",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      84,
+      624
+     ],
+     "labels": [
+      "6 groups of 14 is only 84",
+      "We needed 624"
+     ],
+     "caption": "Dropping the zero makes the answer far too small"
+    }
+   },
+   {
+    "say": "So remember: divide hundreds, then tens, then ones, and if a place gives you nothing, write a zero right there and keep going.",
+    "math": "104",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      104
+     ],
+     "labels": [],
+     "caption": "1 hundred, 0 tens, 4 ones — the zero holds the tens place"
+    }
+   }
+  ],
+  "answer": "Divide place by place, left to right — and when a place gives nothing, write a zero there and keep going.",
+  "practice": {
+   "question": "An apple stand in Kelowna has 728 apples and packs them into 7 crates, with the same number of apples in every crate. Draw 7 equal groups if it helps you picture it. How many apples go in each crate? Try dividing the hundreds first, then the tens, then the ones — and watch out for a place that gives nothing!",
+   "answer": "104 apples in each crate. Here is why: 7 hundreds shared by 7 is 1 hundred; only 2 tens are left, which cannot make whole tens for 7 groups, so the tens digit is 0; then those 2 tens plus the 8 ones make 28 ones, and 28 divided by 7 is 4. Check it: 7 times 104 is 728."
+  }
+ }
+}

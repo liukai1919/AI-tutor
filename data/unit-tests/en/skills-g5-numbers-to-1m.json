@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "numbers-to-1m",
+ "lang": "en",
+ "unitName": {
+  "zh": "百万以内的数",
+  "en": "Numbers to 1 000 000"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Numbers to 1 000 000 · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.READ_WRITE",
+    "level": 1,
+    "question": "A sign at the Vancouver Aquarium says that four hundred six thousand ninety people visited last year. Which is that number in standard form?",
+    "options": [
+     "40 690",
+     "406 090",
+     "406 900",
+     "460 090"
+    ],
+    "answerIndex": 1,
+    "explain": "Build the number place by place: 406 thousands, then 0 hundreds, 9 tens, 0 ones, giving 406 090. The usual trap is hearing 'ninety' and writing it in the hundreds place (406 900) or forgetting the zero that holds the hundreds place empty."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.DIGIT_VALUE",
+    "level": 1,
+    "question": "The population of a BC city is 274 631. What is the value of the digit 7 in this number?",
+    "options": [
+     "7",
+     "7 000",
+     "70 000",
+     "700 000"
+    ],
+    "answerIndex": 2,
+    "explain": "The 7 sits in the ten thousands place, so its value is 7 × 10 000 = 70 000. A common mistake is naming the digit itself (7) or slipping one place over and saying 7 000."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.COUNT_MULTIPLES",
+    "level": 1,
+    "question": "Leo is counting by 250s starting at 3 500. What is the fourth number he says after 3 500?",
+    "options": [
+     "3 750",
+     "4 000",
+     "4 250",
+     "4 500"
+    ],
+    "answerIndex": 3,
+    "explain": "Count on four jumps: 3 750, 4 000, 4 250, 4 500. The trap is stopping one jump early — 4 250 is only the third number after the start."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.COMPARE_ORDER",
+    "level": 2,
+    "question": "Four BC community centres counted their visits last year: Kelowna 108 450, Surrey 108 054, Victoria 99 300, Nanaimo 98 760. Which centre had the greatest number of visits?",
+    "options": [
+     "Kelowna, 108 450",
+     "Surrey, 108 054",
+     "Victoria, 99 300",
+     "Nanaimo, 98 760"
+    ],
+    "answerIndex": 0,
+    "explain": "First compare how many digits each number has — 108 450 and 108 054 have six digits, so they are both larger than any five-digit number; then compare place by place from the left: 108 450 beats 108 054 in the hundreds place. The common trap is thinking 99 300 is biggest because it starts with a 9."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.ROUND_ESTIMATE",
+    "level": 2,
+    "question": "In July, BC Ferries carried 47 692 passengers on one route. Rounded to the nearest ten thousand, about how many passengers is that?",
+    "options": [
+     "40 000",
+     "47 000",
+     "47 700",
+     "50 000"
+    ],
+    "answerIndex": 3,
+    "explain": "To round to the nearest ten thousand, look at the digit to the right — the thousands digit is 7, and 7 is 5 or more, so round up to 50 000. The common trap is just chopping off the end digits and answering 40 000, or rounding to the wrong place."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.READ_WRITE",
+    "level": 2,
+    "question": "Which number is written in standard form as 300 000 + 20 000 + 500 + 4?",
+    "options": [
+     "32 504",
+     "320 504",
+     "320 054",
+     "325 040"
+    ],
+    "answerIndex": 1,
+    "explain": "Each place needs a digit, and any place missing from the expanded form gets a 0: 3 hundred thousands, 2 ten thousands, 0 thousands, 5 hundreds, 0 tens, 4 ones = 320 504. The common trap is squeezing the digits together (32 504) because the thousands place has no part written."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.COUNT_MULTIPLES",
+    "level": 3,
+    "question": "A salmon hatchery near Chilliwack releases 25 000 young salmon into the river each week. It has already released salmon for 7 weeks and wants to reach 250 000 in total. How many more weeks of releasing does it need?",
+    "options": [
+     "3 weeks",
+     "4 weeks",
+     "7 weeks",
+     "10 weeks"
+    ],
+    "answerIndex": 0,
+    "explain": "Skip-count by 25 000 seven times to get 175 000 released so far, then see that 250 000 − 175 000 = 75 000 is left, which is 3 more weeks of 25 000. The common trap is answering 10, the total number of weeks, instead of the extra weeks still needed."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PV1M.DIGIT_VALUE",
+    "level": 3,
+    "question": "A bottle depot in Burnaby counted 44 400 cans this month. How many times greater is the value of the 4 in the ten thousands place than the value of the 4 in the hundreds place?",
+    "options": [
+     "2 times",
+     "10 times",
+     "100 times",
+     "1 000 times"
+    ],
+    "answerIndex": 2,
+    "explain": "The two digits are worth 40 000 and 400, and 40 000 is 100 times 400 because the places are two steps apart and each step is 10 times bigger. The common trap is answering 10 times, since every single place-value step is only 10 times — you must count all the steps between the places."
+   }
+  ]
+ }
+}

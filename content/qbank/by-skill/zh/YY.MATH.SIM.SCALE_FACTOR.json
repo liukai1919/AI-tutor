@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.SCALE_FACTOR",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlzt4ybf3qvta",
+   "level": 1,
+   "question": "在方格纸上，原来的正方形每条边占 3 格。小明把它放大，新正方形每条边占 12 格。这次放大的比例系数（scale factor）是多少？",
+   "options": [
+    "4",
+    "1/4",
+    "9",
+    "36"
+   ],
+   "answerIndex": 0,
+   "explain": "比例系数 = 像 ÷ 原 = 12 ÷ 3 = 4，大于 1 就是放大。别反过来算成 3 ÷ 12，也别把「多出的 9 格」当系数——放大是每条边乘同一个数，不是加。",
+   "tags": [
+    "ok",
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybcwgwyv",
+   "level": 1,
+   "question": "在方格纸上，原三角形的底边占 10 格。缩小后，对应边（corresponding side）占 5 格。这次缩小的比例系数是多少？",
+   "options": [
+    "2",
+    "1/2",
+    "5",
+    "50"
+   ],
+   "answerIndex": 1,
+   "explain": "比例系数 = 像 ÷ 原 = 5 ÷ 10 = 1/2，落在 0 和 1 之间，说明是缩小。算成 10 ÷ 5 = 2 是把原和像弄反了；「少了 5 格」是减法，不是比例系数。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybbxn3ap",
+   "level": 1,
+   "question": "在方格纸上，原长方形的长占 6 格。用比例系数 1.5 把它放大，新长方形的长应该占几格？",
+   "options": [
+    "4",
+    "7.5",
+    "9",
+    "4.5"
+   ],
+   "answerIndex": 2,
+   "explain": "像的边长 = 原边长 × 比例系数 = 6 × 1.5 = 9 格。比例系数是「乘」上去的倍数，不是加上 1.5 格，也不是拿 6 去除以 1.5。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybzw4o4p",
+   "level": 1,
+   "question": "在方格纸上，把一个图形的每条边长都乘 0.8，画出新图形。新图形是放大（enlargement）还是缩小（reduction）？为什么？",
+   "options": [
+    "放大，因为 1 ÷ 0.8 = 1.25 大于 1",
+    "放大，因为 0.8 是正数，比 0 大",
+    "放大，因为每条边都多出了 0.8 格",
+    "缩小，因为 0.8 落在 0 和 1 之间"
+   ],
+   "answerIndex": 3,
+   "explain": "每条边都乘 0.8，比例系数就是 0.8，它在 0 和 1 之间，所以新图形比原来小，是缩小。判断放大还是缩小要拿系数和 1 比，不是和 0 比，也不要倒过来算 1 ÷ 0.8。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "other",
+    "sim.scale_add_not_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybkki6gn",
+   "level": 2,
+   "question": "一张房屋平面图的比例尺（scale）是 1 : 50。图上一面墙长 8 cm，这面墙实际有多长？",
+   "options": [
+    "4 m",
+    "16 cm",
+    "58 cm",
+    "40 m"
+   ],
+   "answerIndex": 0,
+   "explain": "1 : 50 表示图上 1 cm 对应实际 50 cm，实际长 = 8 × 50 = 400 cm = 4 m。别反过来用 8 ÷ 50，也别用 8 + 50——比例尺是乘的关系。",
+   "tags": [
+    "ok",
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4yb5i52op",
+   "level": 2,
+   "question": "三角形 ABC 和三角形 DEF 是相似三角形（similar triangles），ABC 是原图，DEF 是像。已知 AB = 6 cm，它的对应边 DE = 15 cm。比例系数是多少？",
+   "options": [
+    "0.4",
+    "2.5",
+    "9",
+    "90"
+   ],
+   "answerIndex": 1,
+   "explain": "比例系数 = 像 ÷ 原 = DE ÷ AB = 15 ÷ 6 = 2.5，大于 1 是放大。算成 6 ÷ 15 = 0.4 是把原和像弄反了；15 − 6 = 9 是加减思路，不是比例系数。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybki03zl",
+   "level": 2,
+   "question": "一个图形用比例系数 0.25 缩小后，像的一条边长 3 cm。原图上对应的那条边长多少？",
+   "options": [
+    "0.75 cm",
+    "3.25 cm",
+    "12 cm",
+    "1.2 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "因为 像 = 原 × 0.25，所以 原 = 3 ÷ 0.25 = 12 cm。缩小后像变短，原图应该更长；算出 0.75 cm 说明把原和像弄反了，3 + 0.25 则是加法思路。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybjf3ijd",
+   "level": 2,
+   "question": "科学课本上一张蜜蜂的图片标着比例尺 5 : 1。这个比例尺表示什么意思？",
+   "options": [
+    "图上 1 cm 对应实际 5 cm，是缩小 5 倍",
+    "图上每条边都比实际长度多 5 cm",
+    "图上 5 cm 对应实际 1 cm，是缩小 5 倍",
+    "图上 5 cm 对应实际 1 cm，是放大 5 倍"
+   ],
+   "answerIndex": 3,
+   "explain": "比例尺写成 图 : 实际，5 : 1 就是图上 5 cm 对应实际 1 cm，比例系数 = 5 ÷ 1 = 5，大于 1 是放大。读比例尺时先认清哪边是图、哪边是实际，别倒过来读。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzt4yb8ipm5q",
+   "level": 3,
+   "question": "学校社团设计了一个长 12 cm、宽 8 cm 的长方形标志。印成大海报后，长变成了 90 cm。海报上的宽应该是多少？",
+   "options": [
+    "60 cm",
+    "约 1.1 cm",
+    "96 cm",
+    "86 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "先算比例系数 = 像 ÷ 原 = 90 ÷ 12 = 7.5，再把宽乘同一个系数：8 × 7.5 = 60 cm。放大是每条边都乘同一个数，不是每边都加 78 cm；用 8 ÷ 7.5 是把系数用反了。",
+   "tags": [
+    "ok",
+    "sim.scale_factor_inverted",
+    "other",
+    "sim.scale_add_not_multiply"
+   ]
+  },
+  {
+   "qid": "qmtlzt4yb4z67f2",
+   "level": 3,
+   "question": "小雅把一个边长 4 cm 的正方形放大成边长 10 cm 的正方形，她说这次放大的比例系数是 0.4。下面哪个说法是对的？",
+   "options": [
+    "没错，放大时的系数本来就小于 1",
+    "算反了，应该是 10 ÷ 4 = 2.5",
+    "错了，应该用 10 − 4 = 6 当系数",
+    "错了，应该用 4 × 10 = 40 当系数"
+   ],
+   "answerIndex": 1,
+   "explain": "比例系数是像 ÷ 原 = 10 ÷ 4 = 2.5，放大时系数一定大于 1；算出 0.4 说明她用了原 ÷ 像。相减 10 − 4 或相乘 4 × 10 都不是比例系数。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4ybzqgtfw",
+   "level": 3,
+   "question": "阿明要按 1 : 20 的比例尺画自己房间的平面图。房间实际长 4 m，他在图上应该把这条边画多长？",
+   "options": [
+    "380 cm",
+    "80 m",
+    "20 cm",
+    "0.2 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "先统一单位 4 m = 400 cm，1 : 20 表示图上 1 cm 对应实际 20 cm，所以图上长 = 400 ÷ 20 = 20 cm。用 4 × 20 是方向反了（图应该比实际小），4 ÷ 20 = 0.2 是忘了先换算单位。",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "sim.scale_factor_inverted",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzt4yb3gmlbq",
+   "level": 3,
+   "question": "小凯把一个三条边分别是 3 cm、4 cm、5 cm 的三角形，每条边都加 3 cm，得到 6 cm、7 cm、8 cm 的新三角形，然后说这是原三角形放大 2 倍的比例尺图（scale diagram）。他说得对吗？",
+   "options": [
+    "不对，系数是 3 ÷ 6 = 0.5，是缩小",
+    "对，每条边都多了同样的 3 cm",
+    "对，6 ÷ 3 = 2，一条边对上就够了",
+    "不对，7 ÷ 4 和 8 ÷ 5 都不等于 2"
+   ],
+   "answerIndex": 3,
+   "explain": "比例尺图要求每条对应边都乘同一个比例系数：6 ÷ 3 = 2，但 7 ÷ 4 = 1.75、8 ÷ 5 = 1.6，不相等，所以不是放大 2 倍。每边加同一个长度得不到相似形，真正放大 2 倍应该是 6、8、10。",
+   "tags": [
+    "sim.scale_factor_inverted",
+    "sim.scale_add_not_multiply",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+ "lang": "en",
+ "title": "Find fractional and large percents of a quantity (½% of 1 billion; 150% of 60)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Tiny Percents and Big Percents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a percent into a decimal, and you know how to find a percent of a number. Today we just put those two moves together, so that even a weird looking percent like one half of one percent, or a big one like one hundred fifty percent, is no harder than twenty five percent of eighty.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the step. First write the percent as a decimal, then multiply it by the quantity. Let us do one hundred fifty percent of sixty. One hundred fifty percent is one point five as a decimal. One point five times sixty is ninety. And that makes sense: one hundred percent of sixty is sixty, another fifty percent is thirty, and sixty plus thirty is ninety.",
+    "math": "150\\% \\times 60 = 1.5 \\times 60 = 90",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      30,
+      90
+     ],
+     "labels": [
+      "100% = 60",
+      "50% = 30",
+      "150% = 90"
+     ],
+     "caption": "A whole plus a half of it makes 150 percent."
+    }
+   },
+   {
+    "say": "Now the tiny one. One half percent of one billion dollars. One half percent is zero point zero zero five as a decimal. So multiply: zero point zero zero five times one billion. An easy way to see it is in two hops. One percent of one billion is ten million. We only want half of that, and half of ten million is five million. So one half percent of one billion dollars is five million dollars.",
+    "math": "\\tfrac{1}{2}\\% \\times 1\\,000\\,000\\,000 = 0.005 \\times 1\\,000\\,000\\,000 = 5\\,000\\,000",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10000000,
+      5000000
+     ],
+     "labels": [
+      "1% = 10 million",
+      "half of 1% = 5 million"
+     ],
+     "caption": "Take one percent first, then cut it in half."
+    }
+   },
+   {
+    "say": "Here is the trap almost everybody falls into. People see the one half in one half percent and write zero point five as the decimal. But zero point five means fifty percent, not one half of one percent. Zero point five times one billion would give five hundred million dollars, which is one hundred times too big. One half percent means half of one single percent, so the decimal is zero point zero zero five, with two extra zeros. Count your zeros carefully every time.",
+    "math": "\\tfrac{1}{2}\\% = 0.5\\% = 0.005 \\neq 0.5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.005,
+      0.005,
+      0.5
+     ],
+     "labels": [
+      "one half percent",
+      "0.5 percent",
+      "50 percent"
+     ],
+     "caption": "The first two are the same tiny amount; the last is huge."
+    }
+   },
+   {
+    "say": "So no matter how small or how large the percent looks, the plan never changes. Turn the percent into a decimal, then multiply by the quantity, and finally ask yourself if the size of your answer looks sensible.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Change the percent to a decimal, then multiply: one half percent of one billion is five million, and 150 percent of 60 is 90.",
+  "practice": {
+   "question": "A British Columbia parks fund holds six hundred million dollars. A small community grant is one half of one percent of that fund. Write one half percent as a decimal, then multiply to find how many dollars the grant is.",
+   "answer": "One half percent is 0.005, and 0.005 times 600 000 000 equals 3 000 000, so the grant is three million dollars."
+  }
+ }
+}

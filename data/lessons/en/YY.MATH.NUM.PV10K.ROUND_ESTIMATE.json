@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV10K.ROUND_ESTIMATE",
+ "lang": "en",
+ "title": "Round to the nearest 10, 100 or 1000 and estimate quantities with benchmarks",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Rounding: Which Ten, Hundred, or Thousand Is Closest?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that in three thousand four hundred seventy-eight, the four sits in the hundreds place. Today we use that skill for something new: picking the closest round number, so we can say things like 'about three thousand five hundred' when we don't need the exact amount.",
+    "math": "3478",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3478
+     ],
+     "labels": [],
+     "caption": "Three thousand four hundred seventy-eight — the 4 is in the hundreds place."
+    }
+   },
+   {
+    "say": "Here is the trick, and it is all about a number line. Say we want three thousand four hundred seventy-eight rounded to the nearest hundred. First find the two hundreds it sits between: three thousand four hundred and three thousand five hundred. Halfway between them is three thousand four hundred fifty. Our number, three thousand four hundred seventy-eight, is past halfway, so it slides up to three thousand five hundred.",
+    "math": "3478 \\rightarrow 3500",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3478,
+      3500
+     ],
+     "labels": [],
+     "caption": "3478 is past the halfway mark 3450, so it hops up to 3500."
+    }
+   },
+   {
+    "say": "Let's do a real Vancouver one. A hockey game had four thousand two hundred sixty-three fans. Round that to the nearest thousand. The two thousands on either side are four thousand and five thousand. Halfway is four thousand five hundred. Four thousand two hundred sixty-three has not reached halfway yet, so it slides back down to four thousand. About four thousand fans came to the game.",
+    "math": "4263 \\rightarrow 4000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      4000,
+      5000,
+      4263,
+      4000
+     ],
+     "labels": [],
+     "caption": "4263 has not reached 4500, so it rounds down to 4000."
+    }
+   },
+   {
+    "say": "Now here is the mistake I see most often. Someone rounds three thousand four hundred seventy-eight to the nearest hundred and writes three thousand four hundred. What happened? They looked at the seventy-eight and thought 'that's small, so go down.' But seventy-eight is more than fifty, which means our number is past the halfway point. On the number line you can see it sitting much closer to three thousand five hundred. So three thousand four hundred is the wrong neighbour — the answer is three thousand five hundred.",
+    "math": "3478 \\neq 3400",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3500,
+      3478
+     ],
+     "labels": [],
+     "caption": "Look how close 3478 sits to 3500 — rounding down to 3400 would be the far one."
+    }
+   },
+   {
+    "say": "So always do it in this order. Name the place you are rounding to. Find the two round numbers on either side. Find the halfway point. Then ask which one your number is closer to. Closer to the top one, go up. Closer to the bottom one, go down. Sitting exactly on halfway, we agree to go up.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3000,
+      4000,
+      3500
+     ],
+     "labels": [],
+     "caption": "Halfway is the fence — past it you go up, before it you go down."
+    }
+   },
+   {
+    "say": "Rounding is not about the digits being big or small. It is about which round number your number is standing closer to on the number line.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To round, find the two round numbers on either side, then choose the one your number is closest to on the number line.",
+  "practice": {
+   "question": "A ferry from Tsawwassen carried two thousand six hundred forty passengers today. Round that to the nearest hundred. Draw a number line with two thousand six hundred at one end and two thousand seven hundred at the other, mark the halfway point of two thousand six hundred fifty, and see which end two thousand six hundred forty is closer to.",
+   "answer": "Two thousand six hundred. Two thousand six hundred forty has not reached the halfway point of two thousand six hundred fifty, so it is closer to two thousand six hundred and rounds down."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FRAC.ADDSUB.UNLIKE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkjtgsxxovkl1",
+   "level": 1,
+   "question": "两条一样长的分数条（fraction strip）代表同一个整体。第一条平均分成 4 份，涂了其中 1 份；第二条平均分成 6 份，涂了其中 1 份。把两条的涂色部分合起来，占这个整体的几分之几？结果写成最简分数。",
+   "options": [
+    "5/12",
+    "2/10",
+    "10/24",
+    "2/12"
+   ],
+   "answerIndex": 0,
+   "explain": "1/4 和 1/6 的份不一样大，要先通分：公分母（common denominator）取 12，1/4=3/12、1/6=2/12，合起来 3/12+2/12=5/12。最常踩的坑是把分母也加起来写成 2/10，分母只是告诉你一份多大，不能相加。",
+   "tags": [
+    "ok",
+    "frac.add_denominators",
+    "frac.not_lowest_terms",
+    "frac.common_denom_numerator_unchanged"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxcabzfw",
+   "level": 1,
+   "question": "两条一样长的分数条代表同一个整体。第一条平均分成 8 份，涂了其中 3 份；第二条平均分成 4 份，涂了其中 1 份。两条涂色部分合起来是整体的几分之几？结果写成最简分数。",
+   "options": [
+    "10/16",
+    "5/8",
+    "4/12",
+    "4/8"
+   ],
+   "answerIndex": 1,
+   "explain": "把 1/4 换成同样大小的小份：1/4=2/8，于是 3/8+2/8=5/8。写成 4/8 的那个只把分母统一了、分子却照抄没换，通分时分子分母要同乘同一个数。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "ok",
+    "frac.add_denominators",
+    "frac.common_denom_numerator_unchanged"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxgfqjbg",
+   "level": 1,
+   "question": "两条一样长的分数条代表同一个整体。第一条平均分成 3 份，涂了其中 2 份；第二条平均分成 6 份，涂了其中 1 份。第一条的涂色部分比第二条多出整体的几分之几？结果写成最简分数（lowest terms）。",
+   "options": [
+    "1/6",
+    "3/6",
+    "1/2",
+    "1/3"
+   ],
+   "answerIndex": 2,
+   "explain": "先通分成同样的小份：2/3=4/6，再算 4/6-1/6=3/6，约分后是 1/2。写成 3/6 的那个数值虽等值，但没有约到最简；写成 1/3 的那个是把分母也相减了。",
+   "tags": [
+    "frac.common_denom_numerator_unchanged",
+    "frac.not_lowest_terms",
+    "ok",
+    "frac.add_denominators"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxrfivo1",
+   "level": 1,
+   "question": "两条一样长的分数条代表同一个整体。第一条平均分成 4 份，涂了其中 1 份；第二条平均分成 12 份，涂了其中 5 份。两条涂色部分合起来是整体的几分之几？结果写成最简分数。",
+   "options": [
+    "6/16",
+    "6/12",
+    "8/12",
+    "2/3"
+   ],
+   "answerIndex": 3,
+   "explain": "12 是 4 的倍数，直接取公分母 12：1/4=3/12，3/12+5/12=8/12，约分得 2/3。停在 8/12 就漏了最后一步约分；写成 6/12 的那个是通分时忘了把分子 1 也乘 3。",
+   "tags": [
+    "frac.add_denominators",
+    "frac.common_denom_numerator_unchanged",
+    "frac.not_lowest_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxnmxpgn",
+   "level": 2,
+   "question": "计算 5/6 + 3/8，结果用最简分数表示（可以是假分数 improper fraction）。",
+   "options": [
+    "29/24",
+    "8/24",
+    "58/48",
+    "8/14"
+   ],
+   "answerIndex": 0,
+   "explain": "6 和 8 的最小公倍数是 24：5/6=20/24、3/8=9/24，相加得 29/24。写成 8/24 的那个只换了分母没换分子；写成 58/48 的那个用 48 做公分母却忘了约到最简。",
+   "tags": [
+    "ok",
+    "frac.common_denom_numerator_unchanged",
+    "frac.not_lowest_terms",
+    "frac.add_denominators"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxvuoo90",
+   "level": 2,
+   "question": "小雨在图书馆读一本书，周六读了全书的 2/5，周日又读了全书的 1/3。两天一共读了全书的几分之几？结果写成最简分数。",
+   "options": [
+    "3/8",
+    "11/15",
+    "3/15",
+    "22/30"
+   ],
+   "answerIndex": 1,
+   "explain": "公分母取 15：2/5=6/15、1/3=5/15，合计 11/15。写成 3/8 的那个把分子分母各自相加了，这样算出来的结果比 2/5 还小，一看就不合理。",
+   "tags": [
+    "frac.add_denominators",
+    "ok",
+    "frac.common_denom_numerator_unchanged",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxe93r2o",
+   "level": 2,
+   "question": "计算 7/12 - 1/4，结果写成最简分数（lowest terms）。",
+   "options": [
+    "6/8",
+    "6/12",
+    "1/3",
+    "4/12"
+   ],
+   "answerIndex": 2,
+   "explain": "12 已经是公分母：1/4=3/12，7/12-3/12=4/12，约分得 1/3。写成 6/8 的那个把分母也相减了；写成 4/12 的那个算对了却没约到最简。",
+   "tags": [
+    "frac.add_denominators",
+    "frac.common_denom_numerator_unchanged",
+    "ok",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsx6i60bb",
+   "level": 2,
+   "question": "小林上学路上骑车用了 3/10 小时，再步行 2/15 小时到学校。她路上一共用了多少小时？结果写成最简分数。",
+   "options": [
+    "26/60",
+    "5/25",
+    "5/30",
+    "13/30"
+   ],
+   "answerIndex": 3,
+   "explain": "10 和 15 的最小公倍数是 30：3/10=9/30、2/15=4/30，合计 13/30 小时。写成 5/30 的那个只改了分母、分子 3 和 2 没跟着变大，这是通分时最常见的漏步。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "frac.add_denominators",
+    "frac.common_denom_numerator_unchanged",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxyru4zr",
+   "level": 3,
+   "question": "社区中心活动分披萨，小美吃了整块的 1/4，她弟弟吃了整块的 1/6，其余没人动。这块披萨还剩下几分之几？结果写成最简分数。",
+   "options": [
+    "7/12",
+    "14/24",
+    "5/6",
+    "4/5"
+   ],
+   "answerIndex": 0,
+   "explain": "先通分求吃掉的部分：1/4+1/6=3/12+2/12=5/12，再用 1 减：12/12-5/12=7/12。写成 14/24 的那个用 24 做公分母、算对了却没约到最简；写成 4/5 的那个是把分母也加成了 10。",
+   "tags": [
+    "ok",
+    "frac.not_lowest_terms",
+    "frac.common_denom_numerator_unchanged",
+    "frac.add_denominators"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxbi6ibr",
+   "level": 3,
+   "question": "小雅周六在海堤跑了 5/6 km，周日跑了 3/4 km。她两天跑的总路程比 2 km 少多少？结果写成最简分数。",
+   "options": [
+    "6/5 km",
+    "5/12 km",
+    "10/24 km",
+    "4/3 km"
+   ],
+   "answerIndex": 1,
+   "explain": "先加：5/6+3/4=10/12+9/12=19/12 km，再减：24/12-19/12=5/12 km。写成 10/24 的那个只是没约到最简；写成 6/5 的那个在第一步把分母也加了，总路程就算错了。",
+   "tags": [
+    "frac.add_denominators",
+    "ok",
+    "frac.not_lowest_terms",
+    "frac.common_denom_numerator_unchanged"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxqx60vo",
+   "level": 3,
+   "question": "小凯算 1/6 + 1/10。他用 60 做公分母，写成 10/60 + 6/60 = 16/60，就把 16/60 当作最后答案。下面哪一句话正确指出了他的情况？",
+   "options": [
+    "公分母应该用 6+10=16，所以正确答案是 2/16",
+    "16/60 的分子分母没有公因数，已经是最简了",
+    "过程和通分都没错，但 16/60 还能约分，最简是 4/15",
+    "通分只要改分母、分子照抄相加，应得 2/60"
+   ],
+   "answerIndex": 2,
+   "explain": "60 是 6 和 10 的公倍数，10/60+6/60=16/60 数值正确，只是 16 和 60 都能被 4 整除，要约成 4/15（用最小公倍数 30 会更快）。把 16/60 当成最简是最常见的坑：分子分母都是偶数就一定还能约。",
+   "tags": [
+    "frac.add_denominators",
+    "frac.not_lowest_terms",
+    "ok",
+    "frac.common_denom_numerator_unchanged"
+   ]
+  },
+  {
+   "qid": "qmtkjtgsxkkt8ri",
+   "level": 3,
+   "question": "小杰周一练琴 2/3 小时，周二比周一少练 1/4 小时。他这两天一共练了多少小时？结果用最简分数表示。",
+   "options": [
+    "3/4 小时",
+    "26/24 小时",
+    "7/15 小时",
+    "13/12 小时"
+   ],
+   "answerIndex": 3,
+   "explain": "先求周二：2/3-1/4=8/12-3/12=5/12 小时；再求两天：2/3+5/12=8/12+5/12=13/12 小时。写成 7/15 的那个在第二步把分母也加了；写成 26/24 的那个用 24 做公分母、忘了约到最简。",
+   "tags": [
+    "frac.common_denom_numerator_unchanged",
+    "frac.not_lowest_terms",
+    "frac.add_denominators",
+    "ok"
+   ]
+  }
+ ]
+}

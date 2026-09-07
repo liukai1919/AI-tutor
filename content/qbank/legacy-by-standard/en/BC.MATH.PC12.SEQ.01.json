@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC12.SEQ.01",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3jyqruvkolji",
+   "level": 1,
+   "question": "Find the common ratio of the geometric sequence 3, 12, 48, 192, …",
+   "options": [
+    "3",
+    "4",
+    "1/4",
+    "-4"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide any term by the one before it: 12 ÷ 3 = 4. The most common trap is picking the first term (3) or accidentally taking the reciprocal (1/4)."
+  },
+  {
+   "qid": "qmt3jyqru6qxkgc",
+   "level": 1,
+   "question": "Write the general term for a geometric sequence with first term 5 and common ratio 2.",
+   "options": [
+    "5 · 2ⁿ",
+    "2 · 5⁽ⁿ⁻¹⁾",
+    "5 · 2⁽ⁿ⁻¹⁾",
+    "5 · (n − 1)"
+   ],
+   "answerIndex": 2,
+   "explain": "The general term is a₁·r⁽ⁿ⁻¹⁾, so 5·2⁽ⁿ⁻¹⁾. A frequent error is writing 5·2ⁿ (off by one) or swapping a₁ and r to get 2·5⁽ⁿ⁻¹⁾."
+  },
+  {
+   "qid": "qmt3jyqrunu6dwh",
+   "level": 1,
+   "question": "Does the infinite geometric series 1 + 1/3 + 1/9 + 1/27 + … converge or diverge?",
+   "options": [
+    "It converges because |r| < 1",
+    "It diverges because r ≠ 0",
+    "It converges to exactly 1",
+    "It diverges because there are infinitely many terms"
+   ],
+   "answerIndex": 0,
+   "explain": "An infinite geometric series converges when |r| < 1. Here r = 1/3, so it converges. The classic misconception is thinking 'infinitely many terms' always means divergent."
+  },
+  {
+   "qid": "qmt3jyqru7zyev1",
+   "level": 1,
+   "question": "In the sequence defined by aₙ = 7 · (1/2)⁽ⁿ⁻¹⁾, identify the first term and the common ratio.",
+   "options": [
+    "a₁ = 1/2, r = 7",
+    "a₁ = 7, r = 2",
+    "a₁ = 14, r = 1/2",
+    "a₁ = 7, r = 1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "Match to a₁·r⁽ⁿ⁻¹⁾: the coefficient in front is a₁ = 7, and the base of the exponent is r = 1/2. A common mistake is reading the exponent base as the first term or inverting the ratio to 2."
+  },
+  {
+   "qid": "qmt3jyqrucw0r14",
+   "level": 2,
+   "question": "A bacteria culture in a biology lab is counted at the start of each hour. The first count (hour 1) is 200 cells, and the population doubles every hour. How many cells are in the hour-5 count?",
+   "options": [
+    "6400",
+    "210",
+    "1000",
+    "3200"
+   ],
+   "answerIndex": 3,
+   "explain": "The 5th term is a₅ = 200·2⁴ = 3200 (the exponent is n − 1 = 4, not 5). The most common error is using 2⁵ and getting 6400, or treating it as an arithmetic increase."
+  },
+  {
+   "qid": "qmt3jyqruqlzf33",
+   "level": 2,
+   "question": "Evaluate the finite geometric sum: 4 + 8 + 16 + 32 + 64.",
+   "options": [
+    "124",
+    "128",
+    "62",
+    "60"
+   ],
+   "answerIndex": 0,
+   "explain": "Use S = a₁(rⁿ − 1)/(r − 1) = 4(2⁵ − 1)/1 = 4·31 = 124. The trap is computing 4·32 = 128 (forgetting to subtract 1) or accidentally adding only four terms to get 60."
+  },
+  {
+   "qid": "qmt3jyqru8v9pge",
+   "level": 2,
+   "question": "The general term aₙ = 3·(0.5)⁽ⁿ⁻¹⁾ also defines the exponential function f(x) = 3·(0.5)⁽ˣ⁻¹⁾. What is f(4)?",
+   "options": [
+    "3/16",
+    "3/2",
+    "3/8",
+    "3/4"
+   ],
+   "answerIndex": 2,
+   "explain": "f(4) = 3·(0.5)⁴⁻¹ = 3·(0.5)³ = 3/8. The most common trap is plugging x = 4 directly as the exponent (giving 3/16) instead of using x − 1 = 3."
+  },
+  {
+   "qid": "qmt3jyqru06haz4",
+   "level": 2,
+   "question": "Evaluate the sigma expression: Σ from k = 1 to 4 of 2·3⁽ᵏ⁻¹⁾.",
+   "options": [
+    "162",
+    "40",
+    "80",
+    "18"
+   ],
+   "answerIndex": 2,
+   "explain": "Expand each term: 2(1) + 2(3) + 2(9) + 2(27) = 2 + 6 + 18 + 54 = 80. Common errors: treating the whole sum as one term 2·3⁴ = 162, or dropping the factor of 2 to get 40."
+  },
+  {
+   "qid": "qmt3jyqru6wl3dk",
+   "level": 3,
+   "question": "A ball is dropped from a height of 8 m. Each bounce reaches 3/4 of the previous height. Find the total distance the ball travels (down and up) before coming to rest.",
+   "options": [
+    "32 m",
+    "56 m",
+    "48 m",
+    "24 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Total = initial drop + 2 × (sum of all bounce heights) = 8 + 2·(6/(1 − 3/4)) = 8 + 48 = 56 m. The classic mistake is forgetting to double the bounces (giving 32 m) since the ball travels both up AND down after each bounce."
+  },
+  {
+   "qid": "qmt3jyqruq018j9",
+   "level": 3,
+   "question": "What is the sum of the infinite series 2 + 2/3 + 2/9 + 2/27 + …?",
+   "options": [
+    "2",
+    "3",
+    "3/2",
+    "1"
+   ],
+   "answerIndex": 1,
+   "explain": "Identify a₁ = 2 and r = 1/3, then S = a₁/(1 − r) = 2/(2/3) = 3. A frequent error is using 2/(1 + 1/3) = 3/2 (wrong sign in the denominator) or simply reporting the first term."
+  },
+  {
+   "qid": "qmt3jyqrut6b4pz",
+   "level": 3,
+   "question": "A student models a geometric sequence (first term 3, ratio 2) as the exponential function f(x) = 3·2ˣ instead of the correct f(x) = 3·2⁽ˣ⁻¹⁾. What is the ratio of the student's f(5) to the actual 5th term a₅?",
+   "options": [
+    "1",
+    "1/2",
+    "4",
+    "2"
+   ],
+   "answerIndex": 3,
+   "explain": "f(5) = 3·2⁵ = 96 while a₅ = 3·2⁴ = 48, so the ratio is 96/48 = 2. The off-by-one error in the exponent means the student's value is exactly one 'ratio step' too high."
+  },
+  {
+   "qid": "qmt3jyqrusz8b9j",
+   "level": 3,
+   "question": "A student is asked to evaluate Σ from n = 1 to ∞ of 6·(1/2)⁽ⁿ⁻¹⁾ and writes: 'This must diverge because we are adding infinitely many positive terms.' Is the student correct?",
+   "options": [
+    "No; the series converges to 12 because |r| = 1/2 < 1",
+    "Yes; any infinite sum of positive terms always diverges",
+    "No; the series converges to 6, which is just the first term",
+    "Yes; the partial sums grow without bound"
+   ],
+   "answerIndex": 0,
+   "explain": "The series converges: S = 6/(1 − 1/2) = 12, since |r| < 1. The misconception is that 'infinite' automatically means 'diverges,' but a geometric series with |r| < 1 always has a finite sum."
+  }
+ ]
+}

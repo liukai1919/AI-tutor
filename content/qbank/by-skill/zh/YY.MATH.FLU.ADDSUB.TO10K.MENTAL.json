@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt59nsmogbc9qr",
+   "level": 1,
+   "question": "用凑整的方法算 298 + 47。第一步先把 298 看成 300，算出 300 + 47 = 347。第二步要怎么做，才能得到 298 + 47 真正的和（sum）？",
+   "options": [
+    "从 347 里减去 2，得 345",
+    "给 347 加上 2，得 349",
+    "从 347 里减去 3，得 344",
+    "就是 347，不用再调整"
+   ],
+   "answerIndex": 0,
+   "explain": "把 298 凑成 300 相当于多加了 2，所以算完要把这多加的 2 还回去：347 − 2 = 345。最容易踩的坑是方向弄反——多加了就要减回来，不是再加。",
+   "tags": [
+    "ok",
+    "mental.compensate_direction",
+    "other",
+    "mental.compensate_forget"
+   ]
+  },
+  {
+   "qid": "qmt59nsmoc4ls4j",
+   "level": 1,
+   "question": "用凑整的方法算 573 − 199：先把 199 看成 200，算出 573 − 200 = 373，再补偿。573 − 199 的差（difference）是多少？",
+   "options": [
+    "373",
+    "374",
+    "474",
+    "372"
+   ],
+   "answerIndex": 1,
+   "explain": "减 200 比减 199 多减了 1，所以要把 1 加回来：373 + 1 = 374。常见错误是算完 373 就停下不补偿，或者把 1 再减一次得 372。",
+   "tags": [
+    "mental.compensate_forget",
+    "ok",
+    "other",
+    "mental.compensate_direction"
+   ]
+  },
+  {
+   "qid": "qmt59nsmorkvdos",
+   "level": 1,
+   "question": "用拆分（decomposing）的方法算 246 + 135：先算 200 + 100 = 300，再算 40 + 30 = 70，最后算 6 + 5 = 11。把这三个结果合起来，和（sum）是多少？",
+   "options": [
+    "380",
+    "371",
+    "381",
+    "391"
+   ],
+   "answerIndex": 2,
+   "explain": "300 + 70 + 11 = 381。最容易踩的坑是个位算出 11 之后只把 1 写下来、忘了那 1 个十要进位（regrouping）到十位，结果写成 371。",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt59nsmogkxpc8",
+   "level": 1,
+   "question": "下面哪个算式的结果和 397 + 258 一样？",
+   "options": [
+    "400 + 258 + 3",
+    "390 + 258 − 7",
+    "400 + 260 − 3",
+    "400 + 258 − 3"
+   ],
+   "answerIndex": 3,
+   "explain": "397 比 400 少 3，所以先按 400 加，再把多加的 3 减掉：400 + 258 − 3 = 655，和 397 + 258 相等。坑在于补偿方向：凑整时把数变大了，后面就要减回去；写成 400 + 258 + 3 会多算 6。",
+   "tags": [
+    "mental.compensate_direction",
+    "other",
+    "mental.same_change_rule_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59nsmoh6g75y",
+   "level": 2,
+   "question": "温哥华水族馆周六来了 2995 位游客，周日来了 1480 位。两天一共来了多少位游客？（试着用凑整再补偿的心算方法。）",
+   "options": [
+    "4475",
+    "4375",
+    "4480",
+    "4485"
+   ],
+   "answerIndex": 0,
+   "explain": "把 2995 凑成 3000：3000 + 1480 = 4480，再把多加的 5 减掉，得 4475。常见错误是凑整后忘了减回 5（得 4480），或者列竖式时十位 9 + 8 = 17 忘了进位（regrouping），得 4375。",
+   "tags": [
+    "ok",
+    "other",
+    "mental.compensate_forget",
+    "mental.compensate_direction"
+   ]
+  },
+  {
+   "qid": "qmt59nsmoz8wtsn",
+   "level": 2,
+   "question": "小雨心算 468 + 275。她把 275 拆成 32 和 243，因为 468 + 32 正好凑成 500。她接着算 500 + 243。这道题的和（sum）是多少？",
+   "options": [
+    "775",
+    "743",
+    "711",
+    "733"
+   ],
+   "answerIndex": 1,
+   "explain": "468 + 32 = 500，剩下的 243 再加上去：500 + 243 = 743。最容易踩的坑是拆完 32 之后又把完整的 275 加一遍（得 775），那 32 就被算了两次；或者忘了先加的那 32，只算 468 + 243 = 711。",
+   "tags": [
+    "other",
+    "ok",
+    "mental.decompose_drop_part",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt59nsmormjxtk",
+   "level": 2,
+   "question": "BC 省两个小镇，Ashcroft 有 4002 人，Lillooet 有 2997 人。两地人口相差多少人？（提示：减法里两个数同时加上一样多，差不变。）",
+   "options": [
+    "1002",
+    "999",
+    "1005",
+    "1008"
+   ],
+   "answerIndex": 2,
+   "explain": "两个数都加 3：4005 − 3000 = 1005，差（difference）不变，所以答案是 1005。坑在于只把 2997 凑成 3000 却不补偿（得 1002），或者补偿方向反了、又减掉 3（得 999）。",
+   "tags": [
+    "mental.compensate_forget",
+    "mental.compensate_direction",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt59nsmo59rvf4",
+   "level": 2,
+   "question": "用凑整先估算（estimate）5897 + 3104，再想一想真正的和跟估算比怎么样。下面哪句说得对？",
+   "options": [
+    "大约是 8900，真正的和比估算多 101",
+    "大约是 9100，真正的和比估算少 99",
+    "大约是 9000，真正的和比估算少 1",
+    "大约是 9000，真正的和比估算多 1"
+   ],
+   "answerIndex": 3,
+   "explain": "5897 约等于 5900，3104 约等于 3100，估算是 9000；真正的和是 9001，比估算多 1。判断多还是少要看两次凑整的抵消：5897 少算了 3，3104 多算了 4，一共多 1，所以说「比估算少 1」的那个是反的。",
+   "tags": [
+    "other",
+    "other",
+    "mental.compensate_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt59nsmo1u4w99",
+   "level": 3,
+   "question": "小杰心算 623 − 298，他这样写：623 − 300 = 323，所以 623 − 298 = 323 − 2 = 321。他哪里出了问题？正确的差（difference）是多少？",
+   "options": [
+    "他多减了 2，要把这 2 加回来，正确的差是 325",
+    "他应该把 623 也凑成 620，差是 320",
+    "他的算法完全正确，差就是 321",
+    "他应该先算 623 − 290 = 333，差就是 333"
+   ],
+   "answerIndex": 0,
+   "explain": "减 300 比减 298 多减了 2，所以要把 2 加回来：323 + 2 = 325。写成 323 − 2 的那种做法是补偿方向反了，减法里多减就要加回来。若走 623 − 290 = 333 这条路，后面还得再减 8 才是 325，停在 333 也没算完。",
+   "tags": [
+    "ok",
+    "other",
+    "mental.compensate_direction",
+    "mental.decompose_drop_part"
+   ]
+  },
+  {
+   "qid": "qmt59nsmosuf6o4",
+   "level": 3,
+   "question": "Surrey 一所小学义卖募捐，周五收到 1998 加元，周六收到 2305 加元。学校的目标是 5000 加元。到周六结束时，还差多少加元才能达到目标？",
+   "options": [
+    "695 加元",
+    "697 加元",
+    "693 加元",
+    "4303 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先凑整求和：2000 + 2305 = 4305，多加了 2 要减回去，两天共 4303 加元；再算 5000 − 4303 = 697 加元。两个坑：凑整后忘了减回 2（会得 695），以及只算出两天的总数 4303 就当成答案，没做第二步减法。",
+   "tags": [
+    "mental.compensate_forget",
+    "ok",
+    "mental.compensate_direction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt59nsmo2588ul",
+   "level": 3,
+   "question": "小安算 5000 − 2996 时，把两个数都加 4，写成 5004 − 3000 = 2004。小林算 5000 + 2996 时，也把两个数都加 4，写成 5004 + 3000 = 8004。谁的做法能得到正确答案？",
+   "options": [
+    "只有小林的做法对",
+    "两人的做法都对",
+    "只有小安的做法对",
+    "两人的做法都错，凑整只能用在加法里"
+   ],
+   "answerIndex": 2,
+   "explain": "减法里两个数同时加 4，差（difference）不变，所以 5000 − 2996 = 5004 − 3000 = 2004 是对的。加法不一样：两个加数各加 4，和（sum）会多出 8，真正的和是 7996，不是 8004——加法只能改一个加数，再把多加的补偿回去。",
+   "tags": [
+    "mental.same_change_rule_confuse",
+    "mental.same_change_rule_confuse",
+    "ok",
+    "mental.same_change_rule_confuse"
+   ]
+  },
+  {
+   "qid": "qmt59nsmocg5mej",
+   "level": 3,
+   "question": "Kelowna 一个果园，上午摘了 1250 个苹果，下午比上午多摘 397 个。这一天一共摘了多少个苹果？",
+   "options": [
+    "2900 个",
+    "1647 个",
+    "2894 个",
+    "2897 个"
+   ],
+   "answerIndex": 3,
+   "explain": "下午：1250 + 400 = 1650，多加了 3 要减回去，得 1647 个；全天：1250 + 1647 = 2897 个。坑在于凑整后忘了减那 3（得 2900），或者只答出下午的 1647 个、漏了「一共」还要把上午加上。",
+   "tags": [
+    "mental.compensate_forget",
+    "other",
+    "mental.compensate_direction",
+    "ok"
+   ]
+  }
+ ]
+}

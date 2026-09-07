@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.MULT.3D_BY_1D",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5g0vvzwqi1sw",
+   "level": 1,
+   "question": "用面积模型（area model）算 213 × 3：把一个长方形的一条边分成 200、10、3 三段，另一条边长 3。这样长方形被分成三小块，面积（area）分别是 600、30、9。整个长方形的面积是多少？",
+   "options": [
+    "639",
+    "609",
+    "630",
+    "539"
+   ],
+   "answerIndex": 0,
+   "explain": "面积模型把 213 拆成 200+10+3，三块面积 600、30、9 全部加起来才是积（product）：600+30+9=639。最常见的坑是只加了其中两块（比如写成 609 或 630），漏掉一块面积——三块一块都不能少。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvz819gcj",
+   "level": 1,
+   "question": "用面积模型算 326 × 4：长方形的一条边分成 300、20、6 三段，另一条边长 4。其中 300×4=1200，6×4=24，中间那一块是 20×4。整个长方形的面积是多少？",
+   "options": [
+    "1224",
+    "1304",
+    "1280",
+    "1204"
+   ],
+   "answerIndex": 1,
+   "explain": "中间那块是 20×4=80，所以三块面积相加：1200+80+24=1304。最容易错的是把 1200 和 24 直接拼成 1224，漏掉了中间 80 这一块。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzkp8jzj",
+   "level": 1,
+   "question": "用面积模型算 124 × 4：长方形的一条边分成 100、20、4 三段，另一条边长 4，三小块的面积分别是 400、80、16。下面哪个算式正确地把这三块面积加起来求出积？",
+   "options": [
+    "400 + 80 = 480",
+    "400 + 16 = 416",
+    "400 + 80 + 16 = 496",
+    "300 + 80 + 16 = 396"
+   ],
+   "answerIndex": 2,
+   "explain": "面积模型分成几块，就要把几块的面积全加起来：400+80+16=496。写成 400+16 或 400+80 的都少加了一块；写成 300 开头的那个则是把 100×4 算小了 100。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvz9gm8h0",
+   "level": 1,
+   "question": "一个长方形的一条边长 4 cm，另一条边长 162 cm。用面积模型把 162 分成 100、60、2 三段后，三小块的面积分别是 400 cm²、240 cm²、8 cm²。这个长方形的面积是多少？",
+   "options": [
+    "408 cm²",
+    "640 cm²",
+    "548 cm²",
+    "648 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "400+240+8=648，所以面积是 648 cm²。写成 408 的漏掉了 60×4=240 这块，写成 640 的漏掉了 2×4=8 这块——分成三块就要加三块。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzmhz586",
+   "level": 2,
+   "question": "用分步乘（partial products）计算 417 × 6：400×6、10×6、7×6 三步的结果加起来，积是多少？",
+   "options": [
+    "2502",
+    "2460",
+    "2442",
+    "2402"
+   ],
+   "answerIndex": 0,
+   "explain": "三步分别是 2400、60、42，相加得 2400+60+42=2502。常见的坑是漏掉 10×6=60（得 2442）或漏掉 7×6=42（得 2460），每一个数位（digit）都要乘到。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzz8v15t",
+   "level": 2,
+   "question": "用分配律（distributive principle）把 253 × 7 拆成 200×7 + 50×7 + 3×7，积是多少？",
+   "options": [
+    "1421",
+    "1771",
+    "1750",
+    "1671"
+   ],
+   "answerIndex": 1,
+   "explain": "三个分步积是 1400、350、21，相加得 1771。得 1421 的漏掉了 50×7=350，得 1750 的漏掉了 3×7=21——拆成几项就要加回几项。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzewgmyz",
+   "level": 2,
+   "question": "计算 608 × 5（注意十位上的数字（digit）是 0）。积是多少？",
+   "options": [
+    "3004",
+    "3000",
+    "3040",
+    "2940"
+   ],
+   "answerIndex": 2,
+   "explain": "分步算：600×5=3000，0×5=0，8×5=40，相加得 3040。得 3004 的是把 8×5=40 进上去的 4 忘了加到十位；得 3000 的干脆漏掉了 8×5 这一步。",
+   "tags": [
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvz2b5qux",
+   "level": 2,
+   "question": "学校订铅笔，每盒 125 支，一共订了 8 盒。用分步乘算 125 × 8，一共有多少支铅笔？",
+   "options": [
+    "840 支",
+    "900 支",
+    "960 支",
+    "1000 支"
+   ],
+   "answerIndex": 3,
+   "explain": "100×8=800，20×8=160，5×8=40，相加得 800+160+40=1000 支。得 840 的漏掉了 20×8=160，得 960 的漏掉了 5×8=40。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzbyh79y",
+   "level": 3,
+   "question": "小雨用分步乘算 246 × 3。她写下：200×3=600，40×3=120，6×3=18，然后算 600+120=720，答案写成 720。她哪里出了问题？正确的积是多少？",
+   "options": [
+    "她把 6×3=18 这一项忘了加，积应该是 738",
+    "她少加了 40×3=120 这一项，积应该是 618",
+    "她少加了一项，补上以后百位是 6，积应该是 638",
+    "她算得对，600 加 120 就是 720，积就是 720"
+   ],
+   "answerIndex": 0,
+   "explain": "三个分步积 600、120、18 都要加：600+120+18=738，小雨只加了前两项。写成 618 的是反过来漏掉了 120，写成 638 的是百位少算了 100。",
+   "tags": [
+    "ok",
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "mult.partial_product_missing"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzv1hhdp",
+   "level": 3,
+   "question": "温哥华一所小学做铝罐回收活动，周一到周五每天回收 235 个铝罐。学校定的一周目标是 1000 个。这一周实际回收的数量比目标多多少个？",
+   "options": [
+    "超过 25 个",
+    "超过 175 个",
+    "超过 150 个",
+    "超过 75 个"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 235×5：1000+150+25=1175 个；再减目标：1175−1000=175 个。得 25 的漏掉了 30×5=150 这一项，得 150 的漏掉了 5×5=25——分步乘的每一项都要加齐再做第二步。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ok",
+    "mult.partial_product_missing",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzdzrtyn",
+   "level": 3,
+   "question": "学校要给露营活动买帐篷，每顶 268 加元，一共买 3 顶。老师带了 1000 加元，付完帐篷后还剩多少加元？",
+   "options": [
+    "376 加元",
+    "220 加元",
+    "196 加元",
+    "296 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "先算 268×3：600+180+24=804 加元；再算 1000−804=196 加元。剩 376 的是漏掉了 60×3=180，剩 220 的是漏掉了 8×3=24，都会让花的钱算少、剩的钱算多。",
+   "tags": [
+    "mult.partial_product_missing",
+    "mult.partial_product_missing",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5g0vvzq3xqc5",
+   "level": 3,
+   "question": "体育课上比跳绳总数：A 队有 6 人，每人跳 213 下；B 队有 4 人，每人跳 325 下。哪一队的总数多？多多少下？",
+   "options": [
+    "B 队多 82 下",
+    "B 队多 122 下",
+    "A 队多 58 下",
+    "B 队多 22 下"
+   ],
+   "answerIndex": 3,
+   "explain": "A 队：1200+60+18=1278 下；B 队：1200+80+20=1300 下；1300−1278=22，B 队多 22 下。答成 A 队多 58 的是算 B 队时漏了 20×4=80，答成 B 队多 82 的是算 A 队时漏了 10×6=60。",
+   "tags": [
+    "mult.partial_product_missing",
+    "ops.regroup_forget",
+    "mult.partial_product_missing",
+    "ok"
+   ]
+  }
+ ]
+}

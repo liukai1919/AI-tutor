@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TESSELLATION",
+ "lang": "en",
+ "title": "Create and explain tessellations using transformations",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Tiles That Fit Perfectly: Tessellations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to slide, flip, and turn a shape on a grid and say exactly where it lands. Today we use that same skill for one job: covering a floor with copies of one shape so there are no gaps and no overlaps. That is called a tessellation, and you can spot it in real life all the time.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [],
+     "caption": "A six by six patio: thirty six identical square tiles, no gaps, no overlaps"
+    }
+   },
+   {
+    "say": "Here is the one idea. A tessellation is made when you take one tile and keep transforming it. Slide it right one tile width, then again, then again to build a row. Then slide the whole row down to make the next row. Every new tile is just a copy of the first one that has been moved, and copies never change size or shape, so the fit stays perfect.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      6,
+      1,
+      6
+     ],
+     "labels": [],
+     "caption": "Top row shaded: one tile slid right five times makes a full row of six"
+    }
+   },
+   {
+    "say": "Let us do a real one. Say you are helping tile the floor of the shower stall in your house in Surrey. The stall floor is ninety centimetres by ninety centimetres, and the tiles are thirty centimetre squares. Ninety divided by thirty is three, so three tiles fit across and three tiles fit down. Three rows of three is nine tiles. Each tile is the first tile slid over by thirty centimetres or sixty centimetres, and down by thirty or sixty. Nine copies, zero gaps.",
+    "math": "90\\div 30=3,\\quad 3\\times 3=9",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      1,
+      1
+     ],
+     "labels": [],
+     "caption": "Ninety by ninety floor as a three by three grid; the shaded corner tile is the one that gets slid everywhere else"
+    }
+   },
+   {
+    "say": "Now here is the mistake lots of kids make. They think only squares can tessellate. Watch this instead. Take a rectangle tile that is thirty centimetres wide and fifteen centimetres tall, like a subway tile on a kitchen backsplash. It still tiles that same ninety by ninety wall perfectly: three across, because ninety divided by thirty is three, and six down, because ninety divided by fifteen is six. Three times six is eighteen tiles. Not a square, still a perfect fit.",
+    "math": "90\\div 30=3,\\quad 90\\div 15=6,\\quad 3\\times 6=18",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      3,
+      1,
+      1
+     ],
+     "labels": [],
+     "caption": "Same wall, thirty by fifteen tiles: six rows of three, eighteen tiles, still no gaps"
+    }
+   },
+   {
+    "say": "So what actually makes it work? At every corner where tiles meet, the angles have to add up to a full turn, three hundred and sixty degrees. In our square floor, four tiles meet at each inside corner, and each square corner is ninety degrees. Four times ninety is three hundred and sixty. A complete circle, so no gap is left over and nothing has to overlap. That is the whole secret.",
+    "math": "4\\times 90^\\circ=360^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [],
+     "caption": "One tile corner is ninety degrees; four of them meeting make a full three hundred and sixty degree turn"
+    }
+   },
+   {
+    "say": "So a tessellation is really just one tile plus a lot of slides, flips, and turns, and it works when the angles at each meeting point close up to three hundred and sixty degrees.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A tessellation is one shape copied by slides, flips, and turns, with the angles at every corner adding to 360 degrees.",
+  "practice": {
+   "question": "You are covering a rectangular hallway floor in your Vancouver apartment. The floor is one hundred and twenty centimetres wide and eighty centimetres long. Your tiles are squares that measure twenty centimetres on each side. Draw a quick grid on your page to help. How many tiles fit across the width, how many fit along the length, and how many tiles do you need in total? Then explain, using the corners of four tiles meeting, why there are no gaps.",
+   "answer": "One hundred and twenty divided by twenty is six tiles across, and eighty divided by twenty is four tiles down. Six times four is twenty four tiles in total. There are no gaps because each square corner is ninety degrees, and where four tiles meet, ninety times four is three hundred and sixty degrees, a full turn."
+  }
+ }
+}

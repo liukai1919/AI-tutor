@@ -1,0 +1,83 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.SA.RECT_PRISM",
+ "lang": "en",
+ "title": "Find the surface area of a rectangular prism (2lw + 2lh + 2wh)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Wrapping a Box: Surface Area of a Rectangular Prism",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that surface area means the total area of every face, and you have found it by opening a box into a net and adding the faces one at a time. Today we speed that up, because a rectangular prism is never random — its six faces always come in three matching pairs.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Look at the net. The front and the back are identical, the top and the bottom are identical, and the two ends are identical. So instead of six separate areas, you only need three areas, and then you double each one. That is exactly what the formula says: surface area equals two times length times width, plus two times length times height, plus two times width times height. Each two is there because that face has a twin on the opposite side.",
+    "math": "S = 2lw + 2lh + 2wh",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      8,
+      5,
+      3
+     ],
+     "labels": [],
+     "caption": "Matching colours are the twin faces — three pairs, six faces"
+    }
+   },
+   {
+    "say": "Say you are wrapping a birthday present for a friend. The box is eight centimetres long, five centimetres wide, and three centimetres high, and you want to know how much wrapping paper covers it. Length times width is forty, doubled is eighty. Length times height is twenty-four, doubled is forty-eight. Width times height is fifteen, doubled is thirty. Now add: eighty plus forty-eight is one hundred twenty-eight, plus thirty gives one hundred fifty-eight. So you need one hundred fifty-eight square centimetres of paper.",
+    "math": "S = 2(8)(5) + 2(8)(3) + 2(5)(3) = 80 + 48 + 30 = 158 \\\\text{ cm}^2",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      8,
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "l equals 8 cm, w equals 5 cm, h equals 3 cm"
+    }
+   },
+   {
+    "say": "Here are the two traps. First, some students write just length times width plus length times height plus width times height, and get seventy-nine. That is only three faces — half the box is still unwrapped. Count the faces in the net: there are six, not three. Second, do not hand back one hundred twenty. Eight times five times three equals one hundred twenty, but that is volume — how much fits inside the box. Surface area is paper on the outside, measured in square centimetres, so the answer stays one hundred fifty-eight.",
+    "math": "lw + lh + wh = 79 \\\\ne 158",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      8,
+      5,
+      3
+     ],
+     "labels": [],
+     "caption": "Six faces are shown — forgetting the doubles wraps only half the box"
+    }
+   },
+   {
+    "say": "So the whole move is small: pick the three different faces, find each area, double every one, and add. Paper on the outside is measured in square units, and the two in front of each term is what keeps all six faces in the answer.",
+    "math": "S = 2lw + 2lh + 2wh",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Six faces, three pairs: double lw, lh and wh, then add them up.",
+  "practice": {
+   "question": "Picture unfolding a granola-bar box into its net. The box is ten centimetres long, six centimetres wide, and four centimetres high, and you want to cover it in paper. Sketch the net if it helps, then find the surface area.",
+   "answer": "248 square centimetres. Two times ten times six is one hundred twenty, two times ten times four is eighty, and two times six times four is forty-eight. Adding gives one hundred twenty plus eighty plus forty-eight, which is two hundred forty-eight square centimetres. (Two hundred forty cubic centimetres would be the volume — a different question.)"
+  }
+ }
+}

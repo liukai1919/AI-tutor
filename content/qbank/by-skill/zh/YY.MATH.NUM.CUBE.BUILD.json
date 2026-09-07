@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.CUBE.BUILD",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtki6y3lvjemwj",
+   "level": 1,
+   "question": "用同样大小的小方块（linking cubes）搭一个实心的正方体（cube），每条棱都是 4 块。这个正方体一共用了多少块小方块？",
+   "options": [
+    "64 块",
+    "8 块",
+    "12 块",
+    "16 块"
+   ],
+   "answerIndex": 0,
+   "explain": "棱长 4 块的正方体是 4³ = 4 × 4 × 4 = 64 块：每层 16 块，一共 4 层。最容易踩的坑是把指数 3 当成「乘 3」，算成 4 × 3 = 12。",
+   "tags": [
+    "ok",
+    "sq.square_as_double",
+    "cube.cube_as_triple",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3ldku4cv",
+   "level": 1,
+   "question": "一个实心正方体每条棱是 8 块小方块。它的底面一层排了 64 块，这样的层一共有 8 层。整个正方体一共用了多少块小方块？",
+   "options": [
+    "24 块",
+    "512 块",
+    "16 块",
+    "64 块"
+   ],
+   "answerIndex": 1,
+   "explain": "每层 64 块、共 8 层，所以 64 × 8 = 512，也就是 8³ = 8 × 8 × 8。坑在于只报底面一层的 64 块，或把立方当成 8 × 3。",
+   "tags": [
+    "cube.cube_as_triple",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3l38netv",
+   "level": 1,
+   "question": "下面哪个数量的小方块，正好能搭成一个实心的正方体（每条棱一样长、中间不留空）？",
+   "options": [
+    "25 块",
+    "12 块",
+    "27 块",
+    "10 块"
+   ],
+   "answerIndex": 2,
+   "explain": "27 = 3 × 3 × 3 = 3³，所以能搭成棱长 3 块的正方体，它是完全立方数（perfect cube）。25 只是完全平方数（5²），能铺成平的正方形，但堆不成正方体。",
+   "tags": [
+    "other",
+    "cube.cube_as_triple",
+    "ok",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtki6y3lrgr2mm",
+   "level": 1,
+   "question": "一个实心正方体每条棱是 10 块小方块。用指数写成 10³，这个 10³ 表示什么意思？",
+   "options": [
+    "表示 10 乘 3，一共 30 块",
+    "表示 2 个 10 相乘，一共 100 块",
+    "表示 10 乘 2，一共 20 块",
+    "表示 3 个 10 相乘，一共 1000 块"
+   ],
+   "answerIndex": 3,
+   "explain": "指数 3 表示有 3 个相同的因数相乘：10 × 10 × 10 = 1000。写成 10 乘 3 的那个说法把指数读成了乘法，只有长、宽、高三个方向都乘上才是立方。",
+   "tags": [
+    "cube.cube_as_triple",
+    "other",
+    "sq.square_as_double",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtki6y3lzy2f7j",
+   "level": 2,
+   "question": "计算 7³ 的值。",
+   "options": [
+    "343",
+    "49",
+    "14",
+    "21"
+   ],
+   "answerIndex": 0,
+   "explain": "7³ = 7 × 7 × 7 = 49 × 7 = 343。写成 21 的那个把立方当成了 7 × 3；写成 49 的那个只乘了两次，那是 7²。",
+   "tags": [
+    "ok",
+    "other",
+    "sq.square_as_double",
+    "cube.cube_as_triple"
+   ]
+  },
+  {
+   "qid": "qmtki6y3l6i1ab7",
+   "level": 2,
+   "question": "计算 2³ + 3³ 的值。",
+   "options": [
+    "15",
+    "35",
+    "10",
+    "13"
+   ],
+   "answerIndex": 1,
+   "explain": "先各自算立方：2³ = 8，3³ = 27，再相加得 8 + 27 = 35。写成 13 的那个把指数当成了平方（4 + 9），写成 15 的那个把立方当成了乘 3。",
+   "tags": [
+    "cube.cube_as_triple",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3lgjbxc9",
+   "level": 2,
+   "question": "216 块相同的小方块正好搭成一个实心正方体，一块也不剩。这个正方体每条棱有多少块？",
+   "options": [
+    "72 块",
+    "36 块",
+    "6 块",
+    "108 块"
+   ],
+   "answerIndex": 2,
+   "explain": "要找一个数自己乘三次得 216：6 × 6 × 6 = 216，所以棱长是 6 块。写 72 的那个用 216 ÷ 3，是把立方当成乘 3；36 是底面一层的块数，不是棱长。",
+   "tags": [
+    "cube.cube_as_triple",
+    "other",
+    "ok",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtki6y3l2n270d",
+   "level": 2,
+   "question": "比较 4³ 和 6² 的大小，下面哪句话是对的？",
+   "options": [
+    "一样大，因为 4³ 和 6² 都是 36",
+    "6² 更大，因为 4³ = 4 × 3 = 12",
+    "6² 更大，因为 4³ = 4 × 2 = 8",
+    "4³ 更大，因为 4³ = 64，6² = 36"
+   ],
+   "answerIndex": 3,
+   "explain": "4³ = 4 × 4 × 4 = 64，6² = 6 × 6 = 36，所以 4³ 更大。比大小必须真的算出来：把 4³ 当成 4 × 3 = 12 或 4 × 2 = 8，都会得到相反的结论。",
+   "tags": [
+    "other",
+    "cube.cube_as_triple",
+    "sq.square_as_double",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtki6y3l10xsgw",
+   "level": 3,
+   "question": "温哥华一个班上手工课，每个同学都用小方块搭一个每条棱 4 块的实心正方体。班里分成 4 个小组，每组 5 人，人人都搭好了。全班一共用了多少块小方块？",
+   "options": [
+    "1280 块",
+    "240 块",
+    "160 块",
+    "320 块"
+   ],
+   "answerIndex": 0,
+   "explain": "先算一个正方体：4³ = 4 × 4 × 4 = 64 块；再算人数：4 × 5 = 20 人，所以 64 × 20 = 1280 块。坑在于第一步只算 4 × 3 = 12 或 4 × 4 = 16，后面再乘人数就整体偏小。",
+   "tags": [
+    "ok",
+    "cube.cube_as_triple",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3l8ai4yv",
+   "level": 3,
+   "question": "本拿比一家手工店里，1 块小方块卖 0.25 加元。小美要搭一个每条棱 5 块的实心正方体，把需要的小方块全买齐要花多少钱？",
+   "options": [
+    "3.75 加元",
+    "31.25 加元",
+    "2.50 加元",
+    "6.25 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "两步：先算块数 5³ = 5 × 5 × 5 = 125 块，再算钱 125 × 0.25 = 31.25 加元。算成 6.25 加元的只买了底面一层的 25 块，算成 3.75 加元的把立方当成了 5 × 3。",
+   "tags": [
+    "cube.cube_as_triple",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3lloc2rp",
+   "level": 3,
+   "question": "课上有同学说：搭一个每条棱 4 块的实心正方体只要 12 块，因为 4³ 就是 4 × 3。下面哪句话说清了他的问题？",
+   "options": [
+    "他错了，立方是乘 2 次，4³ = 4 × 2 = 8",
+    "他说得对，立方就是乘 3，4³ = 12",
+    "他错了，立方是 3 个 4 相乘，4³ = 64",
+    "他错了，立方是自己乘自己，4³ = 16"
+   ],
+   "answerIndex": 2,
+   "explain": "指数 3 表示 3 个 4 相乘：4 × 4 × 4 = 64，正好对应正方体的长、宽、高三个方向。说 4³ = 12 的那个把指数当成了乘数，说 4³ = 16 的那个只乘了两次，那是 4²。",
+   "tags": [
+    "sq.square_as_double",
+    "cube.cube_as_triple",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki6y3lj1qwt2",
+   "level": 3,
+   "question": "北温一个课后班先用小方块搭了一个每条棱 2 块的实心正方体，后来把它拆开，改搭一个每条棱 6 块的实心正方体。第二个正方体比第一个多用了多少块小方块？",
+   "options": [
+    "12 块",
+    "8 块",
+    "32 块",
+    "208 块"
+   ],
+   "answerIndex": 3,
+   "explain": "先分别算：2³ = 8 块，6³ = 6 × 6 × 6 = 216 块，再相减 216 − 8 = 208 块。得 12 的那个把两个立方都当成了乘 3（18 − 6），得 32 的那个按平方算成 36 − 4。",
+   "tags": [
+    "cube.cube_as_triple",
+    "sq.square_as_double",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

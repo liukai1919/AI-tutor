@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.COMPARE.UNLIKE",
+ "lang": "en",
+ "title": "Compare fractions with unlike denominators by making equivalent fractions",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which One Is Bigger? Comparing Fractions Fairly",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make equivalent fractions by multiplying the top and the bottom by the same number. Today we use that trick for one job: deciding which of two fractions is bigger when their bottom numbers are different.",
+    "math": "\\frac{2}{3} \\;\\square\\; \\frac{3}{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Imagine you and a friend each get a granola bar the same size. You eat two thirds of yours, your friend eats three quarters of theirs. Look at the bars. Thirds and quarters are different sized pieces, so counting pieces alone does not tell us who ate more. We need both bars cut into the same sized pieces.",
+    "math": "\\frac{2}{3} \\quad \\text{and} \\quad \\frac{3}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      3,
+      2,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "Two thirds on top, three quarters below — different sized pieces"
+    }
+   },
+   {
+    "say": "Three times four is twelve, so let us cut both bars into twelfths. For two thirds, multiply the top and the bottom by four: that gives eight twelfths. For three quarters, multiply the top and the bottom by three: that gives nine twelfths. Now the pieces are exactly the same size, so we can just count them. Eight is less than nine, so two thirds is less than three quarters. Your friend ate more.",
+    "math": "\\frac{2}{3}=\\frac{8}{12}, \\quad \\frac{3}{4}=\\frac{9}{12}, \\quad \\frac{8}{12}<\\frac{9}{12}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      12,
+      8,
+      12,
+      9
+     ],
+     "labels": [],
+     "caption": "Eight twelfths versus nine twelfths — same sized pieces, easy to count"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. Someone looks at one eighth and one quarter and says one eighth is bigger because eight is bigger than four. But the bottom number tells you how many pieces the whole was cut into. Cut a chocolate bar into eight pieces and each piece is tiny. Let us check it properly: one quarter is the same as two eighths, and two eighths is more than one eighth. So one quarter wins. A bigger bottom number means smaller pieces, not a bigger fraction.",
+    "math": "\\frac{1}{4}=\\frac{2}{8}, \\quad \\frac{2}{8}>\\frac{1}{8}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      8,
+      1,
+      8,
+      2
+     ],
+     "labels": [],
+     "caption": "One eighth versus one quarter rewritten as two eighths"
+    }
+   },
+   {
+    "say": "Here is the other trap. Compare two fifths and three tenths. Someone might say three tenths is bigger because three is bigger than two. But you can never compare just the top numbers when the bottom numbers are different. Change two fifths into tenths by multiplying the top and the bottom by two, which gives four tenths. Four tenths is more than three tenths, so two fifths is actually the bigger one. Always make the bottoms match first, then compare the tops.",
+    "math": "\\frac{2}{5}=\\frac{4}{10}, \\quad \\frac{4}{10}>\\frac{3}{10}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      10,
+      4,
+      10,
+      3
+     ],
+     "labels": [],
+     "caption": "Four tenths beats three tenths"
+    }
+   },
+   {
+    "say": "So remember: make the bottoms the same, then the tops tell the truth.",
+    "math": "\\frac{a}{b} \\;\\text{vs}\\; \\frac{c}{d} \\;\\rightarrow\\; \\text{same denominator} \\;\\rightarrow\\; \\text{compare tops}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Make the bottom numbers match first — then the top numbers tell you which fraction is bigger.",
+  "practice": {
+   "question": "At the store in Victoria you find two bottles of maple syrup. The small one holds three quarters of a litre and the big one holds five sixths of a litre. Rewrite both fractions with the same bottom number of twelve, then say which bottle holds more syrup. Try drawing two bars cut into twelve pieces to check.",
+   "answer": "Three quarters equals nine twelfths (multiply top and bottom by three) and five sixths equals ten twelfths (multiply top and bottom by two). Ten twelfths is more than nine twelfths, so the big bottle with five sixths of a litre holds more."
+  }
+ }
+}

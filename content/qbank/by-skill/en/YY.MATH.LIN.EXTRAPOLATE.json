@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.EXTRAPOLATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzht0snoajzp",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows the day of a canoe trip from 0 to 7, one grid square per day. The vertical axis shows total kilometres paddled from 0 to 60, one grid square per 5 km. Three points are plotted: day 1 at 10 km, day 2 at 20 km and day 3 at 30 km, and they lie on one straight line. If you extend the line past the data to day 5, what total distance does it predict?",
+   "options": [
+    "50 km",
+    "70 km",
+    "40 km",
+    "60 km"
+   ],
+   "answerIndex": 0,
+   "explain": "The line rises 10 km for each 1-day step, and day 5 is two steps past day 3, so 30 + 2 × 10 = 50 km. The common trap is counting the wrong number of steps, such as adding only one step (40 km) or four steps (70 km).",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0s872tdf",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows the day of a canoe trip from 0 to 8, one grid square per day. The vertical axis shows kilograms of food left from 0 to 20, one grid square per 2 kg. Points at day 0 (16 kg), day 1 (14 kg) and day 2 (12 kg) lie on a straight line. Extending the line to day 6, how much food does it predict will be left?",
+   "options": [
+    "6 kg",
+    "4 kg",
+    "2 kg",
+    "8 kg"
+   ],
+   "answerIndex": 1,
+   "explain": "The line drops 2 kg per day, and day 6 is four steps past day 2, so 12 − 4 × 2 = 4 kg. Miscounting the steps from day 2 (three steps gives 6 kg, five steps gives 2 kg) is the usual slip.",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0s7b63ep",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows hours since leaving camp from 0 to 8, one square per hour. The vertical axis shows kilometres still to go to the campsite from 0 to 30, one square per 5 km. Points at hour 0 (30 km), hour 1 (25 km) and hour 2 (20 km) lie on a straight line. Extending that line all the way to hour 8 gives −10 km. What should you conclude?",
+   "options": [
+    "The group is 10 km past the campsite at hour 8",
+    "A distance of −10 km means they arrive at hour 8",
+    "The line stops at hour 6, where the distance is 0 km",
+    "The line was drawn with 5 km steps too big, so it is 10 km"
+   ],
+   "answerIndex": 2,
+   "explain": "The line reaches 0 km at hour 6 (30 − 6 × 5), which means the group has arrived, so the relation stops making sense there. A negative distance to go is a sign you have extrapolated past where the situation is real, not a real prediction.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "lin.extrapolate_beyond_sense",
+    "ok",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0sfh9f8v",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows the day of a canoe trip from 0 to 10, one square per day. The vertical axis shows the number of canoes in the group from 0 to 10, one square per canoe. Points at day 1, day 2 and day 3 are all plotted at 4 canoes, so they lie on a horizontal line. If you extend this line to day 9, how many canoes does it predict?",
+   "options": [
+    "9 canoes, adding one each day",
+    "36 canoes, adding four each day",
+    "0 canoes, dropping to the axis",
+    "4 canoes, the line stays flat"
+   ],
+   "answerIndex": 3,
+   "explain": "A horizontal line has a step of 0, so extending it keeps the same value, 4 canoes, on every day. The trap is inventing a step size such as adding 1 or 4 per day when the data shows no change at all.",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzht0s74i3f9",
+   "level": 2,
+   "question": "A table of values for a linear relation shows x = 1, y = 7; x = 2, y = 11; x = 3, y = 15. The points lie on a straight line, and the relation is continuous. Extrapolate to find y when x = 8.",
+   "options": [
+    "35",
+    "31",
+    "39",
+    "47"
+   ],
+   "answerIndex": 0,
+   "explain": "Each step of 1 in x adds 4 to y, and x = 8 is five steps past x = 3, so y = 15 + 5 × 4 = 35. Getting 31 or 39 comes from stopping a step early or going a step too far, and 47 comes from counting eight steps instead of five.",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0srxg77q",
+   "level": 2,
+   "question": "On a canoe trip, the drinking water left after d days follows the linear relation W = 24 − 3d, where W is in litres. Data was checked on days 0 to 4. Which statement about extrapolating the line to day 10 is correct?",
+   "options": [
+    "Water remaining is −6 L on day 10, below the axis",
+    "Water runs out on day 8, so day 10 has no sensible value",
+    "Water remaining is 6 L on day 10, since 24 − 3 × 6",
+    "Water remaining is 0 L on day 10, where the line ends"
+   ],
+   "answerIndex": 1,
+   "explain": "Setting W = 0 gives d = 8, so the water is gone on day 8 and the line should stop there; extending to day 10 gives −6 L, which is impossible. A negative amount tells you the extrapolation has gone beyond where the situation makes sense.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0sy4ysmc",
+   "level": 2,
+   "question": "Mei's canoe group plots their distance from the start each evening. The point for day 2 is 28 km and the point for day 4 is 44 km, and they paddle at a steady pace so the points lie on a straight line. Extending the line, what distance does it predict for day 7?",
+   "options": [
+    "52 km",
+    "60 km",
+    "68 km",
+    "76 km"
+   ],
+   "answerIndex": 2,
+   "explain": "From day 2 to day 4 the distance grew 16 km over 2 days, so the step is 8 km per day; day 7 is three steps past day 4, giving 44 + 3 × 8 = 68 km. Common slips are using two steps (60 km) or four steps (76 km) instead of three.",
+   "tags": [
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0sxfj9et",
+   "level": 2,
+   "question": "A GPS battery on a canoe trip reads 100% at hour 0, 90% at hour 2 and 80% at hour 4, and the points lie on a straight line. Someone asks for the battery reading at hour 24. What is the best answer?",
+   "options": [
+    "−20%, the line keeps dropping 5% an hour",
+    "−10%, since 100 − 5 × 22 is −10",
+    "40%, since 100 − 5 × 12 is 40",
+    "0%, the battery died at hour 20"
+   ],
+   "answerIndex": 3,
+   "explain": "The battery loses 5% per hour, so it hits 0% at hour 20 and the line stops there; hour 24 is past the end of the real situation. Extending the line blindly gives −20%, which a battery can never show.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzht0s8goe6l",
+   "level": 3,
+   "question": "Ana's group records their distance from the start of a 105 km canoe route each evening: day 2 is 30 km and day 4 is 60 km, and the points lie on a straight line through the origin. Extending the line, on which day do they finish the route, and what happens to the line after that?",
+   "options": [
+    "Day 7; after that the line stops, since they have arrived",
+    "Day 6; after that the line stops, since they have arrived",
+    "Day 8; after that the line keeps rising 15 km a day",
+    "Day 7; after that the line keeps rising 15 km a day"
+   ],
+   "answerIndex": 0,
+   "explain": "The pace is 15 km per day, so 105 ÷ 15 = 7 means they reach the end on day 7, and after arriving the distance cannot keep growing, so the line should stop. Keeping the line rising past 105 km predicts distances that are not on the route.",
+   "tags": [
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzht0sui5ymk",
+   "level": 3,
+   "question": "Jaden's food chart for a canoe trip starts at 20 kg on day 0 and drops in a straight line by 2.5 kg per day. He extends the line to day 10 and predicts −5 kg of food left. What went wrong?",
+   "options": [
+    "Nothing; the line reaches −5 kg, so that is the answer",
+    "He should stop the line at day 8, where food hits 0 kg",
+    "He used 10 steps instead of 8, so the answer is 0 kg",
+    "He used 2.5 kg steps instead of 2 kg, so it is 0 kg"
+   ],
+   "answerIndex": 1,
+   "explain": "His arithmetic is right (20 − 10 × 2.5 = −5), but food cannot be negative; the line only makes sense until day 8, when 20 − 8 × 2.5 = 0. The trap is reporting an impossible value instead of judging where the relation stops applying.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "ok",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count"
+   ]
+  },
+  {
+   "qid": "qmtlzht0soy2iln",
+   "level": 3,
+   "question": "At a canoe camp the lake level is checked daily: day 1 reads 3.0 m and day 3 reads 2.6 m, falling in a straight line. The dock needs at least 1.0 m of water to launch canoes. Extending the line, on which day does the level reach 1.0 m, and is a prediction for day 20 meaningful?",
+   "options": [
+    "Day 11; a day 20 value of −0.8 m is a fair prediction",
+    "Day 10; a day 20 value of −0.8 m makes no sense",
+    "Day 11; a day 20 value of −0.8 m makes no sense",
+    "Day 10; a day 20 value of −0.8 m is a fair prediction"
+   ],
+   "answerIndex": 2,
+   "explain": "The level drops 0.2 m per day, and 3.0 − 1.0 = 2.0 m takes 10 steps after day 1, so day 11; day 20 gives 3.0 − 19 × 0.2 = −0.8 m, a negative water level that cannot happen. Forgetting the data starts at day 1 gives day 10, and a negative level should never be accepted as a prediction.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "ok",
+    "lin.extrapolate_beyond_sense"
+   ]
+  },
+  {
+   "qid": "qmtlzht0syu1dzj",
+   "level": 3,
+   "question": "Priya's group paddles 12 km each day and reaches their final campsite, 72 km from the start, on day 6. They then stay at that campsite for rest days. Priya extends her straight-line graph at 12 km per day and predicts 96 km on day 8. What is the best prediction for their distance from the start on day 8?",
+   "options": [
+    "96 km, by extending the line two more steps",
+    "84 km, by extending the line one more step",
+    "108 km, by extending the line three more steps",
+    "72 km, a horizontal line from day 6 onward"
+   ],
+   "answerIndex": 3,
+   "explain": "Once the group stops travelling, the distance stays at 72 km, so the graph becomes a horizontal line from day 6 on. Extending the sloped line past the campsite predicts distances beyond where they actually are, which is extrapolating past the point where the relation makes sense.",
+   "tags": [
+    "lin.extrapolate_beyond_sense",
+    "graph.extrapolate_step_count",
+    "graph.extrapolate_step_count",
+    "ok"
+   ]
+  }
+ ]
+}

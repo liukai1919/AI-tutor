@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.CENTRAL.COMPARE",
+ "lang": "en",
+ "title": "Choose which measure best describes a data set and explain how an outlier pulls the mean",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Which Average Tells the Truth?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the mean, the median, and the mode. Today we do the next job: deciding which one of them actually describes a group of numbers well, because sometimes one weird number sneaks in and makes the mean lie to us.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is what five friends earned last week doing odd jobs around Burnaby. Maya twenty dollars, Jayden twenty-five, Priya twenty-five, Sam thirty, and Noah one hundred fifty, because he helped at his family's restaurant all weekend. Add them up and you get two hundred fifty, so the mean is two hundred fifty divided by five, which is fifty dollars. Put them in order and the middle one, the median, is twenty-five dollars.",
+    "math": "\\frac{20+25+25+30+150}{5}=\\frac{250}{5}=50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      25,
+      25,
+      30,
+      150
+     ],
+     "labels": [
+      "Maya",
+      "Jayden",
+      "Priya",
+      "Sam",
+      "Noah"
+     ],
+     "caption": "Dollars earned last week"
+    }
+   },
+   {
+    "say": "Now look at where that mean line sits. Fifty dollars is higher than what four out of the five friends actually earned. Nobody's week really looked like fifty dollars. That one big number, one hundred fifty, is called an outlier, and it dragged the mean way up above the crowd.",
+    "math": "",
+    "visual": {
+     "type": "average",
+     "nums": [
+      20,
+      25,
+      25,
+      30,
+      150
+     ],
+     "labels": [
+      "Maya",
+      "Jayden",
+      "Priya",
+      "Sam",
+      "Noah"
+     ],
+     "caption": "The dashed line is the mean, fifty dollars"
+    }
+   },
+   {
+    "say": "Let's test it. Pretend Noah had a normal week and earned thirty dollars instead. Now the total is one hundred thirty, so the mean drops to twenty-six dollars. That is a drop of twenty-four dollars. But the median? Order them again, twenty, twenty-five, twenty-five, thirty, thirty, and the middle is still twenty-five. The median did not budge at all.",
+    "math": "\\frac{20+25+25+30+30}{5}=\\frac{130}{5}=26",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      50,
+      26,
+      25,
+      25
+     ],
+     "labels": [
+      "Mean with 150",
+      "Mean without",
+      "Median with",
+      "Median without"
+     ],
+     "caption": "The mean jumps, the median holds steady"
+    }
+   },
+   {
+    "say": "So here are the two traps. Trap one is thinking the mean is always the best answer. It is not, because with an outlier in there the mean describes nobody. Trap two is thinking the outlier shakes up the median the most. Also wrong. The median only cares about position in the line, not about how huge the biggest number is. For this data the median, twenty-five dollars, is the honest description of a typical week.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      50,
+      26,
+      25,
+      25
+     ],
+     "labels": [
+      "Mean with 150",
+      "Mean without",
+      "Median with",
+      "Median without"
+     ],
+     "caption": "Compare how much each measure shifted"
+    }
+   },
+   {
+    "say": "So the rule to remember is this. When one value is way out on its own, use the median, because the mean gets pulled toward the outlier.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "An outlier pulls the mean toward it but barely touches the median, so with an extreme value, the median describes the group better.",
+  "practice": {
+   "question": "Make a small table of how many minutes five friends took to bike to school in Victoria: Aiden eight minutes, Bea ten minutes, Cole ten minutes, Dev twelve minutes, and Eli sixty minutes because he got a flat tire and had to walk. First find the mean and the median. Which one better describes a typical bike ride? Then, if Eli's sixty changed to a normal twelve minutes, how much would the mean move, and how much would the median move?",
+   "answer": "The total is one hundred minutes, so the mean is one hundred divided by five, which is twenty minutes. In order the times are eight, ten, ten, twelve, sixty, so the median is ten minutes. The median describes a typical ride better, since four of the five friends took twelve minutes or less. If Eli's sixty became twelve, the total is fifty-two, so the mean drops to ten point four minutes, a move of nine point six minutes, while the median stays at ten minutes and does not move at all."
+  }
+ }
+}

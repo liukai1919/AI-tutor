@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.LIKELIHOOD",
+ "lang": "en",
+ "title": "Describe likelihood: impossible, unlikely, equally likely, likely, certain",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Impossible, Unlikely, Certain: Naming the Chances",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already say things like no way, maybe, or for sure. Today we learn the five math words that say exactly how likely something is.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture a line. At the far left is impossible, which means it can never happen. At the far right is certain, which means it always happens. Right in the middle is equally likely, where something has just as much chance of happening as not happening. Between the middle and the left we say unlikely, and between the middle and the right we say likely.",
+    "math": "",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0,
+      0.5,
+      1
+     ],
+     "labels": [
+      "impossible",
+      "equally likely",
+      "certain"
+     ],
+     "caption": "The likelihood line goes from impossible to certain"
+    }
+   },
+   {
+    "say": "Let us spin a real spinner. This one has eight equal parts: four red and four blue. Four out of eight is the same as one half, so red and blue have exactly the same chance. Landing on red is equally likely as landing on blue.",
+    "math": "\\frac{4}{8}=\\frac{1}{2}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      4,
+      4
+     ],
+     "labels": [
+      "red",
+      "blue"
+     ],
+     "caption": "Four red and four blue: equally likely"
+    }
+   },
+   {
+    "say": "Now here is a different spinner with eight equal parts: seven blue and only one red. Seven out of eight parts are blue, so landing on blue is likely. Only one out of eight is red, so landing on red is unlikely. Landing on green is impossible, because there is no green at all. And landing on some colour is certain, because every single part has a colour.",
+    "math": "\\frac{7}{8}\\text{ blue},\\ \\frac{1}{8}\\text{ red}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      7,
+      1
+     ],
+     "labels": [
+      "blue",
+      "red"
+     ],
+     "caption": "Seven blue, one red: blue is likely, red is unlikely"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. They see only one little red part and say landing on red is impossible. That is not right! Impossible means it can never ever happen, like landing on green. Red is only unlikely, because that thin red slice is really there, and one spin out of eight really can land on it. So on the line, green sits at the very far left, but red sits a little bit in from the edge.",
+    "math": "\\frac{0}{8}\\ \\text{vs}\\ \\frac{1}{8}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0,
+      0.125,
+      0.875,
+      1
+     ],
+     "labels": [
+      "green",
+      "red",
+      "blue",
+      "some colour"
+     ],
+     "caption": "Zero out of eight is impossible; one out of eight is only unlikely"
+    }
+   },
+   {
+    "say": "So just ask yourself: can it never happen, hardly ever, half the time, most of the time, or always? That tells you the word.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Impossible means never, certain means always, and unlikely, equally likely and likely are the spots in between.",
+  "practice": {
+   "question": "In your jacket pocket you have ten coins: nine loonies and one quarter. You reach in without looking and pull out one coin. Draw your own likelihood line, with impossible at the left end and certain at the right end. Where would you put each of these? (a) pulling out a loonie, (b) pulling out the quarter, (c) pulling out a coin, (d) pulling out a five dollar bill.",
+   "answer": "(a) likely — nine of the ten coins are loonies. (b) unlikely — only one coin out of ten is the quarter, but it can still happen. (c) certain — every single thing in the pocket is a coin, so it sits at the far right end. (d) impossible — there is no bill in the pocket at all, so it sits at the far left end."
+  }
+ }
+}

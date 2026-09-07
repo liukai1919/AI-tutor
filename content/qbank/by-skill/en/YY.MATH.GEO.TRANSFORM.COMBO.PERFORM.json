@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5quwuknw41wj",
+   "level": 1,
+   "question": "On a Cartesian plane, both the x-axis and the y-axis are numbered 0 to 10 in equal 1-unit steps, so every small square is 1 unit wide and 1 unit tall. Point P is plotted at the ordered pair (6, 4). A turning pin is placed at the point (5, 4), which is 1 unit to the left of P. Point P is rotated 90 degrees clockwise about that pin. What ordered pair is the image of P?",
+   "options": [
+    "(5, 3)",
+    "(4, 4)",
+    "(5, 5)",
+    "(3, 5)"
+   ],
+   "answerIndex": 0,
+   "explain": "P sits 1 unit to the RIGHT of the pin (5, 4). A quarter turn clockwise sends 'right of the pin' to 'below the pin', so the image is 1 unit down: (5, 3). The usual trap is turning counter-clockwise, which sends it 1 unit up to (5, 5).",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5quwukdlwjwv",
+   "level": 1,
+   "question": "On a Cartesian plane with both axes numbered 0 to 10 in equal 1-unit steps, point Q is plotted at the ordered pair (3, 7). A turning pin is placed at (3, 5), which is 2 units directly below Q. Point Q is rotated 90 degrees counter-clockwise about that pin. What ordered pair is the image of Q?",
+   "options": [
+    "(5, 5)",
+    "(1, 5)",
+    "(3, 3)",
+    "(5, 1)"
+   ],
+   "answerIndex": 1,
+   "explain": "Q is 2 units ABOVE the pin (3, 5). A quarter turn counter-clockwise sends 'above the pin' to 'left of the pin', so the image is 2 units left: (1, 5). Turning the wrong way gives (5, 5), and a half turn instead of a quarter turn gives (3, 3).",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5quwukjebmeq",
+   "level": 1,
+   "question": "On a Cartesian plane with both axes numbered 0 to 10 in equal 1-unit steps, point R is plotted at the ordered pair (2, 6). A mirror line is drawn straight up and down the grid through x = 5. Point R is reflected in that mirror line. What ordered pair is the image of R?",
+   "options": [
+    "(2, 4)",
+    "(7, 6)",
+    "(8, 6)",
+    "(5, 6)"
+   ],
+   "answerIndex": 2,
+   "explain": "Count the horizontal distance from R to the mirror: 5 − 2 = 3 units, so the image lands 3 units on the other side, at 5 + 3 = 8, giving (8, 6). The y-coordinate never changes for a vertical mirror. The common trap is treating x = 5 as 'slide 5 units right', which wrongly gives (7, 6).",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5quwuksmoqm0",
+   "level": 1,
+   "question": "On a Cartesian plane with both axes numbered 0 to 10 in equal 1-unit steps, a square has the four vertices (2, 2), (2, 4), (4, 4) and (4, 2). The whole square is translated 3 units right and 1 unit up. Which list gives the four vertices of the image square?",
+   "options": [
+    "(5, 1), (5, 3), (7, 3), (7, 1)",
+    "(6, 3), (6, 5), (8, 5), (8, 3)",
+    "(3, 5), (3, 7), (5, 7), (5, 5)",
+    "(5, 3), (5, 5), (7, 5), (7, 3)"
+   ],
+   "answerIndex": 3,
+   "explain": "A translation adds the same amount to every vertex: add 3 to each x and add 1 to each y, giving (5, 3), (5, 5), (7, 5) and (7, 3). A frequent trap is swapping the two numbers and moving 1 right and 3 up instead.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5quwukepc86m",
+   "level": 2,
+   "question": "Point B is at (2, 5) on a Cartesian plane. It is first reflected in the vertical line x = 4, and then the image is translated 3 units right. What ordered pair is the final image of B?",
+   "options": [
+    "(9, 5)",
+    "(6, 5)",
+    "(5, 5)",
+    "(3, 5)"
+   ],
+   "answerIndex": 0,
+   "explain": "Do the steps in the order written: reflecting (2, 5) in x = 4 gives (6, 5) because it is 2 units from the mirror, then sliding 3 right gives (9, 5). Doing the slide first and reflecting after gives (3, 5) — with a reflection and a translation, the order really does change the answer.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5quwuksghstc",
+   "level": 2,
+   "question": "In a coding club game in Burnaby, a sprite starts at (5, 2). The program tells it to rotate 90 degrees clockwise about the point (5, 5), and then translate 2 units up. What ordered pair does the sprite finish at?",
+   "options": [
+    "(8, 7)",
+    "(2, 7)",
+    "(4, 5)",
+    "(5, 10)"
+   ],
+   "answerIndex": 1,
+   "explain": "The sprite is 3 units BELOW the centre (5, 5); a quarter turn clockwise sends 'below' to 'left', so it lands at (2, 5), and 2 units up makes (2, 7). Turning counter-clockwise instead sends it right to (8, 5) and gives (8, 7).",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.order_ignored",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5quwuk1zcc7v",
+   "level": 2,
+   "question": "Point C is at (3, 4) on a Cartesian plane. It is first translated 2 units right, and then the image is rotated 90 degrees counter-clockwise about the point (6, 4). What ordered pair is the final image of C?",
+   "options": [
+    "(6, 5)",
+    "(8, 1)",
+    "(6, 3)",
+    "(7, 4)"
+   ],
+   "answerIndex": 2,
+   "explain": "Translate first: (3, 4) moves to (5, 4), which is 1 unit LEFT of the centre (6, 4). A quarter turn counter-clockwise sends 'left of the centre' to 'below the centre', so the image is (6, 3). Rotating before translating instead gives (8, 1), so keep the steps in the given order.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5quwuk1nusur",
+   "level": 2,
+   "question": "On a map grid of a Kelowna community garden, a marker starts at (2, 4) and must finish at (10, 4). Which sequence of two transformations moves the marker from (2, 4) exactly onto (10, 4)?",
+   "options": [
+    "Rotate 180 degrees about (5, 4), then translate 2 units up",
+    "Translate 2 units right, then reflect in the line x = 5",
+    "Rotate 90 degrees clockwise about (5, 4), then translate 2 units right",
+    "Reflect in the line x = 5, then translate 2 units right"
+   ],
+   "answerIndex": 3,
+   "explain": "Reflecting (2, 4) in x = 5 gives (8, 4) because it is 3 units from the mirror, and 2 units right lands exactly on (10, 4). Sliding first and reflecting after gives only (6, 4) — swapping the order of a reflection and a translation lands you somewhere else.",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5quwuksm7s9a",
+   "level": 3,
+   "question": "Amrit and Leo are playing the same grid game at a Surrey library club. Both robots start at (2, 3). Amrit's robot reflects in the vertical line x = 5 and then translates 4 units right. Leo's robot translates 4 units right first and then reflects in the line x = 5. How far apart are the two robots at the end?",
+   "options": [
+    "8 units",
+    "4 units",
+    "0 units, because both robots land on the same point",
+    "16 units"
+   ],
+   "answerIndex": 0,
+   "explain": "Amrit: (2, 3) reflects to (8, 3), then slides right to (12, 3). Leo: (2, 3) slides to (6, 3), then reflects to (4, 3). The gap is 12 − 4 = 8 units — always double the slide, which shows that swapping the order of a reflection and a translation does change the image.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.order_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5quwuk1fl5rk",
+   "level": 3,
+   "question": "Mira is designing a leaf logo on grid paper for her class T-shirt. One corner of the leaf is at (7, 4) and the centre of the logo is at (4, 4). She rotates the leaf 90 degrees clockwise about (4, 4), and then translates the whole image 2 units up. Where does the corner that started at (7, 4) end up?",
+   "options": [
+    "(4, 9)",
+    "(4, 3)",
+    "(1, 6)",
+    "(6, 1)"
+   ],
+   "answerIndex": 1,
+   "explain": "The corner is 3 units RIGHT of the centre (4, 4); a quarter turn clockwise sends it 3 units BELOW the centre, to (4, 1), and then 2 units up gives (4, 3). Turning counter-clockwise would send it to (4, 7) and give (4, 9) instead.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "transform.order_ignored"
+   ]
+  },
+  {
+   "qid": "qmt5quwukw0g1sf",
+   "level": 3,
+   "question": "On a grid plan of a Victoria skate park, a ramp is drawn as a triangle with vertices (2, 1), (5, 1) and (2, 3). The designer reflects the triangle in the horizontal line y = 4, and then translates the image 1 unit down. Which list gives the vertices of the final image?",
+   "options": [
+    "(2, 8), (5, 8), (2, 6)",
+    "(2, 7), (5, 7), (2, 5)",
+    "(2, 6), (5, 6), (2, 4)",
+    "(2, 2), (5, 2), (2, 0)"
+   ],
+   "answerIndex": 2,
+   "explain": "Reflect each vertex in y = 4 by counting its distance to the line: (2, 1) is 3 below, so it goes 3 above to (2, 7); similarly (5, 1) goes to (5, 7) and (2, 3) goes to (2, 5). Then subtract 1 from each y for the slide down: (2, 6), (5, 6), (2, 4). Sliding down first and reflecting after gives (2, 8), (5, 8), (2, 6) — a different image.",
+   "tags": [
+    "transform.order_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5quwukxst025",
+   "level": 3,
+   "question": "Ben says: 'Rotating a point 90 degrees clockwise about (5, 5) and then translating it 3 units right must give the same image as translating it 3 units right and then rotating it 90 degrees clockwise about (5, 5), because you make the same two moves either way.' Test his claim on the point (5, 8). Which statement is true?",
+   "options": [
+    "Ben is right: both orders give (11, 5), so the order of transformations never matters.",
+    "Ben is right: the two moves keep the shape the same size, so the final image is the same either way.",
+    "Ben is wrong: rotating first gives (5, 5) and translating first gives (2, 8), because a 90 degree clockwise turn takes the point to the left of the centre.",
+    "Ben is wrong: rotating first gives (11, 5), but translating first gives (8, 2), so the order changes where the point lands."
+   ],
+   "answerIndex": 3,
+   "explain": "Rotate first: (5, 8) is 3 above the centre, so a clockwise quarter turn puts it 3 right, at (8, 5), and sliding 3 right gives (11, 5). Translate first: (8, 8) is 3 right and 3 up of the centre, and turning clockwise lands it at (8, 2). Same two moves, different order, different image — and remember clockwise sends 'above the centre' to the RIGHT, not the left.",
+   "tags": [
+    "transform.order_ignored",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  }
+ ]
+}

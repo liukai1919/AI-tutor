@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.PYTH.LEG",
+ "lang": "en",
+ "title": "Find a missing leg by subtracting squares (hypotenuse 10 and leg 6 → √(100 − 36) = 8)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Finding the Missing Leg",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the hypotenuse when you have both legs — square them, add, take the square root. Today we flip it around: the longest side is given, one leg is given, and the other leg is the mystery.",
+    "math": "a^2 + b^2 = c^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      6,
+      8
+     ],
+     "labels": [
+      "6 m",
+      "?",
+      "10 m",
+      ""
+     ],
+     "caption": "Hypotenuse 10 m, one leg 6 m, other leg unknown"
+    }
+   },
+   {
+    "say": "Here is the whole idea. The two legs squared together make the hypotenuse squared. So if you already have the big total and one piece, you take that piece away. Missing leg squared equals hypotenuse squared minus known leg squared. Subtract, then square root.",
+    "math": "a^2 = c^2 - b^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      6,
+      8
+     ],
+     "labels": [
+      "b",
+      "a",
+      "c",
+      ""
+     ],
+     "caption": "a squared equals c squared minus b squared"
+    }
+   },
+   {
+    "say": "Try it with a ladder. You lean a ten metre ladder against the wall of your garage, and the bottom sits six metres out from the wall. How high up the wall does it reach? Ten squared is one hundred. Six squared is thirty-six. One hundred take away thirty-six is sixty-four. The square root of sixty-four is eight, so the ladder reaches eight metres up.",
+    "math": "a=\\sqrt{10^2-6^2}=\\sqrt{100-36}=\\sqrt{64}=8",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      6,
+      8
+     ],
+     "labels": [
+      "6 m",
+      "8 m",
+      "10 m",
+      ""
+     ],
+     "caption": "The ladder reaches 8 m up the wall"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, do not add: one hundred plus thirty-six is one hundred thirty-six, and its square root is about eleven point seven — longer than the ladder itself, which is impossible, because the hypotenuse is always the longest side. Second, do not stop at sixty-four. Sixty-four is the leg squared, not the leg. You must take the square root to finish.",
+    "math": "\\sqrt{100+36}\\approx 11.7 \\;\\text{✗}\\quad a^2=64 \\;\\text{✗}\\quad a=8 \\;\\text{✓}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So remember it like this: hypotenuse missing means add the squares, leg missing means subtract the squares — and either way, finish with the square root.",
+    "math": "a=\\sqrt{c^2-b^2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Missing leg equals the square root of the hypotenuse squared minus the known leg squared: √(100 − 36) = 8.",
+  "practice": {
+   "question": "A flagpole at your school is held up by a straight support wire. Picture a right triangle: the wire is the hypotenuse and is 15 metres long, and it is anchored to the ground 9 metres from the base of the pole. The pole itself is the vertical side. Sketch that right triangle, then find how high up the pole the wire is attached.",
+   "answer": "12 metres. Fifteen squared is 225, nine squared is 81, and 225 minus 81 is 144. The square root of 144 is 12."
+  }
+ }
+}

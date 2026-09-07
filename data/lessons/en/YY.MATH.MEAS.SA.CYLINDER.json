@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.SA.CYLINDER",
+ "lang": "en",
+ "title": "Find the surface area of a cylinder: two circles plus a rectangle whose length is the circumference",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Wrapping a Cylinder: Two Circles and One Rectangle",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the surface area of a rectangular prism by adding up all its faces, and you know the area of a circle is pi times the radius squared. A cylinder — think of a pop can — is the same idea, just with curved packaging: today we figure out how much metal it takes to make one.",
+    "math": "",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A pop can: radius three centimetres, height ten centimetres"
+    }
+   },
+   {
+    "say": "Imagine peeling the can apart. The top and the bottom pop off as two identical circles. Then you slice the curved part straight down and unroll it — and it flattens into a plain rectangle. So a cylinder is really just two circles plus one rectangle.",
+    "math": "SA = 2 \\times (\\text{circle}) + (\\text{rectangle})",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [],
+     "caption": "The unrolled net: two circles and the side as a rectangle"
+    }
+   },
+   {
+    "say": "Here is the part everyone has to think about carefully. How long is that rectangle? Its length is whatever wrapped all the way around the circle — that is the circumference, two times pi times the radius. Picture peeling the label off a can and laying it flat: the label is as long as the trip around the can. The other side of the rectangle is just the height of the can.",
+    "math": "SA = 2\\pi r^2 + 2\\pi r \\times h",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [],
+     "caption": "The long side of the rectangle is the base circumference"
+    }
+   },
+   {
+    "say": "Let us use real numbers. Our can has a radius of three centimetres and a height of ten centimetres, and we will use three point one four for pi. One circle is pi times three squared, which is three point one four times nine, so twenty eight point two six square centimetres. Two circles make fifty six point five two. Now the rectangle: the circumference is two times three point one four times three, which is eighteen point eight four centimetres, and the height is ten, so the rectangle is one hundred eighty eight point four square centimetres. Add them: fifty six point five two plus one hundred eighty eight point four gives two hundred forty four point nine two square centimetres.",
+    "math": "SA = 2(28.26) + (18.84 \\times 10) = 56.52 + 188.4 = 244.92\\ \\text{cm}^2",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [],
+     "caption": "Circles 28.26 each, rectangle 18.84 by 10"
+    }
+   },
+   {
+    "say": "Now the three traps. First, some people make the rectangle six centimetres long because the can is six centimetres across — that gives only sixty square centimetres instead of one hundred eighty eight point four, way too small, because the label goes around the can, not across it. Second, do not write circumference as pi times the radius; it is two times pi times the radius, so eighteen point eight four, not nine point four two. Third, for the circle area use radius squared, not two times the radius: three squared is nine, but two times three is only six.",
+    "math": "C = 2\\pi r = 18.84 \\quad\\text{(not } d = 6\\text{)};\\quad A = \\pi r^2 = 28.26",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Radius 3, across is 6, but around is 18.84"
+    }
+   },
+   {
+    "say": "So whenever you meet a cylinder, unroll it in your head: two circles plus one rectangle whose long side is the distance all the way around.",
+    "math": "SA = 2\\pi r^2 + 2\\pi rh",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Surface area of a cylinder equals two circles plus a rectangle whose length is the circumference: two pi r squared plus two pi r h.",
+  "practice": {
+   "question": "You are wrapping a cylindrical tin of hot chocolate for a school fundraiser in Kamloops. The tin has a base radius of five centimetres and a height of twelve centimetres. Sketch the net yourself: two circles and one rectangle. Using three point one four for pi, how much paper do you need to cover the whole tin, in square centimetres?",
+   "answer": "533.8 square centimetres. One circle is 3.14 times 5 squared, which is 78.5, so two circles are 157. The circumference is 2 times 3.14 times 5, which is 31.4, so the rectangle is 31.4 times 12, which is 376.8. Then 157 plus 376.8 equals 533.8 square centimetres."
+  }
+ }
+}

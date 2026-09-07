@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "geometry-measurement",
+ "lang": "zh",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "图形与测量 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "一个小长方形原宽 4 cm，按某个比例因子（scale factor）放大后变成 12 cm 宽。这个比例因子是多少？",
+    "options": [
+     "2",
+     "3",
+     "4",
+     "6"
+    ],
+    "answerIndex": 1,
+    "explain": "比例因子 = 放大后 ÷ 原来 = 12 ÷ 4 = 3。常见错误：用 12 − 4 = 8 再除以 4 得到 2，或误把加法当乘法。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "一位同学用比例尺 1 cm = 2 m 画了一张温哥华 seawall 的示意图，图上量得一段长 8 cm。这段的实际长度是多少？",
+    "options": [
+     "16 m",
+     "8 m",
+     "4 m",
+     "80 m"
+    ],
+    "answerIndex": 0,
+    "explain": "实际长度 = 图上长度 × 比例 = 8 cm × 2 m/cm = 16 m。常见错误：忘记乘比例直接读 8 m，或把 cm 和 m 换算搞混得到 80 m。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 1,
+    "question": "△ABC ∼ △DEF。已知 AB = 6 cm，DE = 10 cm，BC = 9 cm。求 EF 的长度。",
+    "options": [
+     "12 cm",
+     "18 cm",
+     "15 cm",
+     "10 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "相似三角形对应边成比例：AB/DE = BC/EF，即 6/10 = 9/EF，所以 EF = 9 × 10 ÷ 6 = 15 cm。常见错误：把 10 直接当作 EF（选了 D），或误用 9 × 2 = 18（以为比例是 2:1）。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "一位同学在海报上放大一幅传统原住民（Indigenous）几何纹样。参考小样宽 15 cm，海报上需要放大到原来的 3 倍。海报上纹样的宽度应为多少？",
+    "options": [
+     "30 cm",
+     "4.5 cm",
+     "50 cm",
+     "45 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "放大 3 倍就是 15 × 3 = 45 cm。常见错误：把「放大 3 倍」理解成「加上 3」得到 18 cm（本题未列），或误除得到 4.5 cm。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "一位同学用相似三角形原理搭建了一个 longhouse（长屋）模型。模型正面宽 20 cm、高 12 cm；对应的实际长屋正面宽 6 m。实际长屋正面的高度是多少？",
+    "options": [
+     "2.4 m",
+     "3.6 m",
+     "36 m",
+     "0.36 m"
+    ],
+    "answerIndex": 1,
+    "explain": "比例 = 600 cm ÷ 20 cm = 30，实际高度 = 12 × 30 = 360 cm = 3.6 m。常见错误：把 360 cm 误写成 36 m（漏移小数点）或 0.36 m（多除了 10）。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 2,
+    "question": "一位同学要按比例 1 : 500 制作一段 250 m 长的温哥华 seawall 的模型。模型上这段应多长（以 cm 为单位）？",
+    "options": [
+     "5 cm",
+     "2.5 cm",
+     "50 cm",
+     "500 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "模型长度 = 250 m ÷ 500 = 0.5 m = 50 cm。常见错误：只除以 50 得 5 cm，或把方向搞反变成 250 × 2 = 500 cm。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 3,
+    "question": "一位同学为学校展览放大一幅原住民壁画：原画是 1.2 m（宽）× 0.9 m（高）的矩形，放大后宽变为 2.0 m。求放大后壁画的周长（perimeter）。",
+    "options": [
+     "7.0 m",
+     "5.8 m",
+     "6.0 m",
+     "8.4 m"
+    ],
+    "answerIndex": 0,
+    "explain": "比例 = 2.0/1.2 = 5/3，新高 = 0.9 × 5/3 = 1.5 m；周长 = 2(2.0 + 1.5) = 7.0 m。常见错误：忘记按比例放大高度，直接用 2(2.0 + 0.9) = 5.8 m；或用错比例因子 2 得 8.4 m。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.GEO.01",
+    "level": 3,
+    "question": "一位同学在设计传统纹样时装时，把一块边长 6 cm 的正方形图案放大为边长 18 cm 的正方形。新图案的面积是原来面积的多少倍？",
+    "options": [
+     "3 倍",
+     "6 倍",
+     "18 倍",
+     "9 倍"
+    ],
+    "answerIndex": 3,
+    "explain": "长度比例 = 18/6 = 3，面积比例 = 3² = 9。常见错误：直接用长度比 3 当作面积比，或用 6 × 3 = 18。记住：面积（area）随比例因子的平方变化。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "number",
+ "lang": "en",
+ "unitName": {
+  "zh": "数与运算",
+  "en": "Number"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Number · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.NUM.01",
+    "level": 1,
+    "question": "A student builds a large cube from small unit cubes. Each edge of the large cube is 4 units long. How many unit cubes are needed to fill the entire large cube?",
+    "options": [
+     "16",
+     "48",
+     "64",
+     "128"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply the edge length by itself three times: 4 x 4 x 4 = 64. The most common mistake is computing 4 x 4 = 16 (the area of one face) instead of the volume."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.02",
+    "level": 1,
+    "question": "What is the value of √(25/144)?",
+    "options": [
+     "5/12",
+     "5/144",
+     "25/12",
+     "25/144"
+    ],
+    "answerIndex": 0,
+    "explain": "Take the square root of the numerator and the denominator separately: √25 = 5 and √144 = 12, giving 5/12. A common trap is taking the root of only one part of the fraction and leaving the other unchanged."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.03",
+    "level": 1,
+    "question": "What is 125% of 80?",
+    "options": [
+     "60",
+     "80",
+     "200",
+     "100"
+    ],
+    "answerIndex": 3,
+    "explain": "Convert 125% to the decimal 1.25 and multiply: 1.25 x 80 = 100. The most frequent error is subtracting 25% from 80 (giving 60) instead of adding 25% on top of the whole."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.04",
+    "level": 2,
+    "question": "A 120 cm string is cut into three pieces whose lengths are in the ratio 1 : 2 : 3. What is the length of the longest piece?",
+    "options": [
+     "20 cm",
+     "60 cm",
+     "40 cm",
+     "80 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Add the ratio parts (1 + 2 + 3 = 6), then multiply the total length by the largest part: (3/6) x 120 = 60 cm. Students often divide by the wrong total or accidentally calculate the shortest or middle piece."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.03",
+    "level": 2,
+    "question": "A worker in Kamloops received a 50% salary increase. If her current salary is $75,000, what was her original salary?",
+    "options": [
+     "$50,000",
+     "$37,500",
+     "$100,000",
+     "$25,000"
+    ],
+    "answerIndex": 0,
+    "explain": "A 50% increase means the new salary equals 1.5 times the old one, so old = 75,000 / 1.5 = 50,000. The main trap is multiplying 75,000 by 0.5 (giving 37,500) instead of dividing by 1.5."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.05",
+    "level": 2,
+    "question": "A student in Kelowna needs at least 750 g of salmon for a recipe. At a local grocery store, 500 g costs $12.50 and a 1 kg pack costs $22.00. What is the best buy to meet the 750 g requirement?",
+    "options": [
+     "Two 500 g packs for $25.00",
+     "One 1 kg pack for $22.00",
+     "One 500 g pack for $12.50",
+     "One 1 kg pack and one 500 g pack for $34.50"
+    ],
+    "answerIndex": 1,
+    "explain": "The 1 kg pack ($22) meets the 750 g need and is cheaper than two 500 g packs ($25). The single 500 g pack does not meet the requirement. The trap is picking the cheapest sticker price without confirming it supplies enough quantity."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.02",
+    "level": 3,
+    "question": "A student writes: √(9 + 16) = √9 + √16 = 3 + 4 = 7. What is the actual value of √(9 + 16)?",
+    "options": [
+     "7",
+     "12",
+     "25",
+     "5"
+    ],
+    "answerIndex": 3,
+    "explain": "Add inside the radical first: 9 + 16 = 25, then √25 = 5. The most common misconception in this unit is distributing the square root across addition, which is not allowed: √(a + b) ≠ √a + √b."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.NUM.05",
+    "level": 3,
+    "question": "A family in Victoria is planning a backyard BBQ and needs 2 kg of potatoes and 1.5 L of olive oil. Store A sells 1 kg of potatoes for $3.00 and 500 mL of olive oil for $5.00. Store B sells 2 kg of potatoes for $5.50 and 500 mL of olive oil for $3.50, and offers a $2 off coupon for purchases of $15 or more. How much money do they save by choosing the best option?",
+    "options": [
+     "$2",
+     "$5",
+     "$7",
+     "$9"
+    ],
+    "answerIndex": 2,
+    "explain": "Store A: 2($3) + 3($5) = $21. Store B: $5.50 + 3($3.50) = $16, which is at least $15, so subtract $2 to get $14. Savings: $21 - $14 = $7. The two main traps are forgetting the coupon (giving $5) or applying it twice (giving $9)."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

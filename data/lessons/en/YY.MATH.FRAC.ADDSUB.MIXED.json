@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.ADDSUB.MIXED",
+ "lang": "en",
+ "title": "Add and subtract mixed numbers, regrouping a whole when needed (3 1/4 − 1 3/4 = 1 1/2)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Borrowing a Whole: 3 1/4 − 1 3/4",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to subtract fractions once the denominators match, so here is the new wrinkle. You ran three and one quarter kilometres on the seawall, your friend ran one and three quarters, and to find the difference you hit a wall: one quarter minus three quarters does not work, because one quarter is too small. This step fixes exactly that.",
+    "math": "3\\frac{1}{4}-1\\frac{3}{4}=?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the move: borrow one whole from the three and chop it into quarters. One whole is four quarters, so three and one quarter becomes two, plus four quarters, plus one quarter, which is two and five quarters. Nothing changed in value, we just cut one of the wholes into pieces so we have enough to subtract from.",
+    "math": "3\\frac{1}{4}=2+\\frac{4}{4}+\\frac{1}{4}=2\\frac{5}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      5
+     ],
+     "labels": [],
+     "caption": "One borrowed whole plus one quarter makes five quarters"
+    }
+   },
+   {
+    "say": "Now finish it. Two and five quarters minus one and three quarters: five quarters minus three quarters is two quarters, and two wholes minus one whole is one whole. That gives one and two quarters, which simplifies to one and one half. On the number line you can see it, starting at three and one quarter and jumping back one and three quarters lands you exactly on one and one half. You ran one and a half kilometres farther than your friend.",
+    "math": "2\\frac{5}{4}-1\\frac{3}{4}=1\\frac{2}{4}=1\\frac{1}{2}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      4,
+      3.25,
+      1.5,
+      4
+     ],
+     "labels": [],
+     "caption": "Jumping back one and three quarters from three and one quarter"
+    }
+   },
+   {
+    "say": "Watch out for the classic trap. Lots of people see one quarter minus three quarters, decide it is impossible, and flip it around to get three quarters minus one quarter, writing two and two quarters. But look at the number line: from one and three quarters up to three and one quarter is clearly a jump of about one and a half, not two and a half. Subtraction never lets you swap the order to make life easier. Borrow instead.",
+    "math": "3\\frac{1}{4}-1\\frac{3}{4}\\neq 2\\frac{2}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      4,
+      1.75,
+      3.25,
+      4
+     ],
+     "labels": [],
+     "caption": "The real gap from one and three quarters to three and one quarter is one and one half"
+    }
+   },
+   {
+    "say": "If you would rather use improper fractions, that works too, just convert carefully. Three and one quarter is three times four, which is twelve quarters, plus one more quarter, so thirteen quarters. Do not forget to add that numerator, twelve quarters would be wrong. Then thirteen quarters minus seven quarters is six quarters, which is one and one half again. Same answer, both roads are correct.",
+    "math": "\\frac{13}{4}-\\frac{7}{4}=\\frac{6}{4}=1\\frac{1}{2}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      4,
+      3.25,
+      3.25,
+      4
+     ],
+     "labels": [],
+     "caption": "Three and one quarter sits at thirteen quarters on the line"
+    }
+   },
+   {
+    "say": "So the whole idea in one line: when the fraction on top is smaller than the fraction on the bottom, borrow one whole and rewrite it as a fraction with the same denominator, then subtract normally.",
+    "math": "3\\frac{1}{4}-1\\frac{3}{4}=1\\frac{1}{2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "When the top fraction is too small, borrow one whole as four quarters (or thirds, or fifths) and subtract, never flip the order.",
+  "practice": {
+   "question": "Picture a number line marked from zero to six kilometres, with every kilometre cut into three equal parts. You cycled five and one third kilometres along the Galloping Goose trail, and your friend cycled two and two thirds kilometres. Start at five and one third and jump back two and two thirds. Where do you land, and how much farther did you ride?",
+   "answer": "You land on two and two thirds kilometres. Borrow one whole from the five: five and one third becomes four and four thirds. Then four thirds minus two thirds is two thirds, and four minus two is two, so the answer is two and two thirds kilometres farther."
+  }
+ }
+}

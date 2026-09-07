@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.VISUAL.TILES",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtjn1p0s6j8hbi",
+   "level": 1,
+   "question": "Nadia colours squares on centimetre grid paper. Figure 1 is a strip of 6 equal squares with 4 of them shaded. Figure 2 is a strip of 9 equal squares with 7 shaded. Figure 3 is a strip of 12 equal squares with 10 shaded. Which expression gives the number of shaded squares in Figure n?",
+   "options": [
+    "3n + 1",
+    "n + 3",
+    "4n + 3",
+    "3n + 4"
+   ],
+   "answerIndex": 0,
+   "explain": "The shaded count grows by 3 each figure, so the rate is 3n; since Figure 1 has 4 shaded, the constant is 4 - 3 = 1, giving 3n + 1. The trap is writing n + 3 because you add 3 each time, but that rule only jumps one figure ahead instead of going straight to Figure n.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0skcuayq",
+   "level": 1,
+   "question": "A quilt block is drawn on grid paper. Figure 1 is a grid of 10 equal squares with 5 shaded, Figure 2 is a grid of 14 equal squares with 9 shaded, and Figure 3 is a grid of 18 equal squares with 13 shaded. Which expression gives the number of shaded squares in Figure n?",
+   "options": [
+    "5n + 4",
+    "4n + 1",
+    "n + 4",
+    "4n + 5"
+   ],
+   "answerIndex": 1,
+   "explain": "Shaded squares go 5, 9, 13, growing by 4, so use 4n and then check Figure 1: 4 x 1 = 4, and you need 5, so add 1 to get 4n + 1. A common trap is 5n + 4, which swaps the starting value 5 with the growth rate 4.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0sxzdzx9",
+   "level": 1,
+   "question": "On a garden plan drawn on grid paper, Figure 1 is a grid of 8 equal squares with 2 shaded, Figure 2 is a grid of 16 equal squares with 7 shaded, and Figure 3 is a grid of 24 equal squares with 12 shaded. Which expression gives the number of shaded squares in Figure n?",
+   "options": [
+    "n + 5",
+    "2n + 5",
+    "5n - 3",
+    "5n + 2"
+   ],
+   "answerIndex": 2,
+   "explain": "Shaded squares go 2, 7, 12, so the rate is 5 and the expression starts as 5n; testing Figure 1 gives 5, which is 3 too many, so subtract 3 to get 5n - 3. The trap is 5n + 2, which glues the first figure's 2 onto the rate instead of checking that the expression really gives 2 when n = 1.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0s56w9ug",
+   "level": 1,
+   "question": "A mosaic is built on grid paper. Figure 1 is a grid of 12 equal squares with 8 shaded, Figure 2 is a grid of 18 equal squares with 14 shaded, and Figure 3 is a grid of 24 equal squares with 20 shaded. Which expression gives the number of shaded squares in Figure n?",
+   "options": [
+    "8n + 6",
+    "6n + 8",
+    "n + 6",
+    "6n + 2"
+   ],
+   "answerIndex": 3,
+   "explain": "The shaded squares 8, 14, 20 grow by 6, so use 6n, then fix the start: 6 x 1 = 6 but Figure 1 has 8, so add 2 to get 6n + 2. The trap is 8n + 6, which uses the starting 8 as the rate and the rate 6 as the starting value.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "other",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0soqrd58",
+   "level": 2,
+   "question": "Owen records his square-tile pattern in a table. Figure 1 uses 6 tiles, Figure 2 uses 13 tiles, Figure 3 uses 20 tiles, and Figure 4 uses 27 tiles. Which expression gives the number of tiles in Figure n?",
+   "options": [
+    "7n - 1",
+    "6n + 7",
+    "n + 7",
+    "7n + 6"
+   ],
+   "answerIndex": 0,
+   "explain": "The tiles rise by 7 each figure, so start with 7n, then test n = 1: 7 gives one too many, so the expression is 7n - 1. The trap is 6n + 7, which swaps the starting 6 tiles with the growth of 7.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0sgyhey9",
+   "level": 2,
+   "question": "Priya graphs her tile pattern. The points are (1, 11), (2, 19), (3, 27) and (4, 35), where the first number is the figure number and the second is the number of tiles. Which expression gives the number of tiles in Figure n?",
+   "options": [
+    "11n + 8",
+    "8n + 3",
+    "n + 8",
+    "8n + 11"
+   ],
+   "answerIndex": 1,
+   "explain": "Going one step right on the graph moves the tiles up by 8, so the rate is 8n; check n = 1, where 8 must become 11, so add 3 to get 8n + 3. The trap is 8n + 11, which uses the Figure 1 total as the constant instead of asking what 8n needs to reach 11.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0sg74gwb",
+   "level": 2,
+   "question": "At a Coquitlam skate park, a tile border starts with 6 tiles in Figure 1, and every figure after that uses 3 more tiles than the figure before it. Which expression gives the number of tiles in Figure n?",
+   "options": [
+    "6n + 3",
+    "n + 3",
+    "3n + 3",
+    "3n + 6"
+   ],
+   "answerIndex": 2,
+   "explain": "The words give the rate 3 and the Figure 1 total 6, so write 3n and adjust: 3 x 1 = 3, so add 3 more to reach 6, giving 3n + 3. The trap is 3n + 6, which adds the starting total instead of the amount 3n is short by.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0shwr3qt",
+   "level": 2,
+   "question": "Sofia writes the expression 2n + 9 for the number of tiles in Figure n of her pattern. Which statement about her pattern is true?",
+   "options": [
+    "Figure 1 has 9 tiles and each new figure adds 2 tiles.",
+    "Figure 20 is found by adding 2 to Figure 1 twenty times.",
+    "Figure 1 has 2 tiles and each new figure adds 9 tiles.",
+    "Figure 1 has 11 tiles and each new figure adds 2 tiles."
+   ],
+   "answerIndex": 3,
+   "explain": "In 2n + 9 the number attached to n is the growth rate, so 2 tiles are added each figure, and substituting n = 1 gives 2 + 9 = 11 tiles in Figure 1. The trap is reading the 9 as the first figure's total, or swapping the roles so 2 becomes the start and 9 the growth.",
+   "tags": [
+    "other",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0smnv1pd",
+   "level": 3,
+   "question": "A community garden in Burnaby is laying a tile border. In Week 1 there are 7 tiles, and 4 more tiles are added every week after that. Which expression gives the number of tiles in Week n, and how many tiles are there in Week 12?",
+   "options": [
+    "4n + 3; 51 tiles",
+    "n + 4; 16 tiles",
+    "3n + 4; 40 tiles",
+    "7n + 4; 88 tiles"
+   ],
+   "answerIndex": 0,
+   "explain": "Adding 4 tiles a week makes the rate 4n, and since Week 1 must equal 7, the constant is 3, so 4n + 3 gives 4 x 12 + 3 = 51 tiles in Week 12. The trap is 3n + 4, which swaps the rate and the constant, or adding 4 twelve times one week at a time.",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "linear.slope_intercept_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0savbn4g",
+   "level": 3,
+   "question": "Mateo builds a tile pattern for a science fair display. Figure 1 uses 6 tiles and Figure 5 uses 26 tiles, and the same number of tiles is added from each figure to the next. Which expression gives the tiles in Figure n, and how many tiles are in Figure 12?",
+   "options": [
+    "5n + 6; 66 tiles",
+    "5n + 1; 61 tiles",
+    "6n + 5; 77 tiles",
+    "n + 5; 17 tiles"
+   ],
+   "answerIndex": 1,
+   "explain": "From Figure 1 to Figure 5 the tiles grow by 20 over 4 steps, so the rate is 20 divided by 4 = 5, and since 5 x 1 = 5 but Figure 1 has 6, the expression is 5n + 1, giving 61 tiles in Figure 12. The trap is 6n + 5, which turns the starting 6 into the rate.",
+   "tags": [
+    "other",
+    "ok",
+    "linear.slope_intercept_swap",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0snse39k",
+   "level": 3,
+   "question": "A tile pattern is described by the expression 3n + 8. Ava says the pattern starts with 3 tiles and grows by 8 tiles each figure. What is wrong with what Ava says?",
+   "options": [
+    "Nothing is wrong, since 3n + 8 and 8n + 3 give equal totals.",
+    "She is right, because 3 is the start and 8 is the growth.",
+    "She swapped them: Figure 1 has 11 tiles and it grows by 3.",
+    "She should count on by 8 from 3 until she reaches figure n."
+   ],
+   "answerIndex": 2,
+   "explain": "The number multiplied by n is always the growth rate, so the pattern grows by 3, and putting n = 1 gives 3 + 8 = 11 tiles in Figure 1. The trap is swapping the two numbers, since 3n + 8 and 8n + 3 describe different patterns.",
+   "tags": [
+    "other",
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmtjn1p0spgn1jj",
+   "level": 3,
+   "question": "Kai's tile pattern uses 5 tiles in Figure 1, 9 in Figure 2, 13 in Figure 3 and 17 in Figure 4. He needs Figure 50 and starts adding 4 over and over on his paper. Which is the correct way to find Figure 50?",
+   "options": [
+    "Add 4 to 5 fifty times to get 205 tiles.",
+    "Use 4n + 4, so Figure 50 has 204 tiles.",
+    "Use 5n + 4, so Figure 50 has 254 tiles.",
+    "Use 4n + 1, so Figure 50 has 201 tiles."
+   ],
+   "answerIndex": 3,
+   "explain": "Write the explicit expression first: the tiles grow by 4, and 4 x 1 = 4 must become 5, so the rule is 4n + 1 and Figure 50 has 201 tiles. The trap is adding 4 over and over, which needs 49 jumps from Figure 1, not 50, so it lands on the wrong total.",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "other",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  }
+ ]
+}

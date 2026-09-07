@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.COORD.Q4.SCALE",
+ "lang": "en",
+ "title": "Plot and read integer points in all four quadrants on axes with scaled tick marks (each square = 5)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Reading a Grid Where Each Square Is Worth 5",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to plot points in all four quadrants and how to name the origin and the quadrants. Today we add one twist that trips up a lot of people: what happens when each square on the grid is not worth one, but worth five.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the idea. When you look at a grid, always read the numbers printed on the axis first, not the number of squares. If the tick marks say five, ten, fifteen, twenty, then one square is a jump of five. So to plot the point fifteen, negative ten, you count three squares right, because three times five is fifteen, and then two squares down, because two times five is ten. The rule for x first and y second has not changed at all. Only the size of each step has.",
+    "math": "15 = 3 \\times 5, \\qquad -10 = -2 \\times 5",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      -2
+     ],
+     "labels": [
+      "(15, -10)"
+     ],
+     "caption": "On a grid where each square is 5, the point (15, -10) sits 3 squares right and 2 squares down"
+    }
+   },
+   {
+    "say": "Let us do a real one. Your class is tracking the balance in a school trip fund each week, and week zero is the origin. Plot these three points on a grid where every square is worth five: the point ten, fifteen, the point negative twenty, five, and the point negative five, negative fifteen. For ten, fifteen: ten divided by five is two, so two squares right, and fifteen divided by five is three, so three squares up. For negative twenty, five: negative twenty divided by five is negative four, so four squares left, and five divided by five is one, so one square up. For negative five, negative fifteen: one square left, and three squares down.",
+    "math": "(10,15)\\to(2,3);\\ (-20,5)\\to(-4,1);\\ (-5,-15)\\to(-1,-3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      3,
+      -4,
+      1,
+      -1,
+      -3
+     ],
+     "labels": [
+      "A (10, 15)",
+      "B (-20, 5)",
+      "C (-5, -15)"
+     ],
+     "caption": "A, B and C in squares — each square on the real grid stands for 5 units"
+    }
+   },
+   {
+    "say": "Now the three mistakes I see the most. First, swapping the numbers: someone reads the point fifteen, ten and plots it where ten, fifteen belongs. X always goes first, across, then y goes up or down. Second, wrong signs: the point negative ten, fifteen has a negative x, so it must go left and up, which is quadrant two, not quadrant four. Third, and this is the new one, forgetting the scale: someone sees the dot three squares right and calls it three, when each square is five, so it is really fifteen. Count the squares, then multiply by five.",
+    "math": "3 \\text{ squares} \\times 5 = 15 \\ne 3",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -2,
+      3,
+      3,
+      -2
+     ],
+     "labels": [
+      "(-10, 15) correct",
+      "(15, -10) different point"
+     ],
+     "caption": "Swapping the numbers lands you in a completely different quadrant"
+    }
+   },
+   {
+    "say": "So going the other way, reading a point off the grid, is just the same steps flipped. Count how many squares across from the origin, multiply by five, and put a minus sign if you went left. Then count how many squares up or down, multiply by five, minus sign if you went down. A dot four squares left and two squares up reads as negative twenty, ten, and it lives in quadrant two.",
+    "math": "(-4 \\times 5,\\ 2 \\times 5) = (-20, 10)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      2
+     ],
+     "labels": [
+      "(-20, 10)"
+     ],
+     "caption": "Four squares left and two up, at 5 per square, reads as (-20, 10)"
+    }
+   },
+   {
+    "say": "Here is the whole thing in one line: the plotting rule never changes, x first then y, but every square is worth five, so divide by five to plot and multiply by five to read.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Each square is 5: divide by 5 to plot a point, multiply by 5 to read one — and x always comes first.",
+  "practice": {
+   "question": "You are graphing your part-time job savings on a grid where every square on both axes is worth 5 dollars, and the origin is your starting balance. Draw your own axes with tick marks at 5, 10, 15 and 20 in each direction. First, plot the point negative fifteen, twenty. How many squares left and how many squares up is that, and which quadrant is it in? Second, a friend has plotted a dot that sits two squares right of the origin and four squares down. What are its coordinates?",
+   "answer": "Negative fifteen, twenty is 3 squares left (15 divided by 5 is 3) and 4 squares up (20 divided by 5 is 4), which puts it in quadrant two. The friend's dot is at (10, -20), because 2 times 5 is 10 to the right and 4 times 5 is 20 down, so it is in quadrant four."
+  }
+ }
+}

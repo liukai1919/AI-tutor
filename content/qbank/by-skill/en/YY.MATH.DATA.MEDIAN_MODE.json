@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DATA.MEDIAN_MODE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrdig72oasnb",
+   "level": 1,
+   "question": "A data table has one row with five entries, written left to right: 7, 2, 9, 4, 6. Nothing else appears in the table. What is the median of these five numbers?",
+   "options": [
+    "6",
+    "9",
+    "5.6",
+    "4"
+   ],
+   "answerIndex": 0,
+   "explain": "Order the numbers first: 2, 4, 6, 7, 9. With five values the median is the third one, 6. Grabbing 9 because it sits in the middle of the row as written is the usual trap.",
+   "tags": [
+    "ok",
+    "median.not_sorted",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrdig85yiss0",
+   "level": 1,
+   "question": "A data table lists six entries in one row, left to right: 8, 3, 6, 1, 7, 4. What is the median of these six numbers?",
+   "options": [
+    "4",
+    "5",
+    "3.5",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "Order them: 1, 3, 4, 6, 7, 8. With an even count you average the two middle values: (4 + 6) divided by 2 = 5. Reporting just 4 or just 6 skips the averaging step.",
+   "tags": [
+    "median.even_count_pick_one",
+    "ok",
+    "median.not_sorted",
+    "median.even_count_pick_one"
+   ]
+  },
+  {
+   "qid": "qmtkrdig812rib8",
+   "level": 1,
+   "question": "A data table lists the goals Amrit scored in seven games, one entry per game, in game order: 2, 5, 5, 3, 5, 4, 2. What is the mode?",
+   "options": [
+    "4",
+    "3",
+    "5",
+    "2"
+   ],
+   "answerIndex": 2,
+   "explain": "The mode is the value that appears most often, and 5 appears three times. The answer is the value 5, not 3, which is only how many times it showed up.",
+   "tags": [
+    "other",
+    "mode.count_as_mode",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrdig89nb45i",
+   "level": 1,
+   "question": "A data table lists six recorded values in one row, left to right: 6, 9, 6, 4, 9, 7. What is the mode of this data set?",
+   "options": [
+    "2, because the top count is two",
+    "6.5, the middle of the sorted list",
+    "No mode, because there is a tie",
+    "6 and 9, since each appears twice"
+   ],
+   "answerIndex": 3,
+   "explain": "A data set can have more than one mode: 6 and 9 each appear twice, more often than any other value, so both are modes. A tie does not mean there is no mode, and the mode is the repeated value, never the number of repeats.",
+   "tags": [
+    "mode.count_as_mode",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8uhwo5x",
+   "level": 2,
+   "question": "Jasleen timed four of her 100 m sprints at track practice, in seconds, in the order she ran them: 14.2, 13.8, 14.5, 13.9. What is the median time?",
+   "options": [
+    "14.05 s",
+    "14.2 s",
+    "13.9 s",
+    "14.15 s"
+   ],
+   "answerIndex": 0,
+   "explain": "Order the times first: 13.8, 13.9, 14.2, 14.5, then average the middle two: (13.9 + 14.2) divided by 2 = 14.05 s. Averaging the middle two of the unordered list gives 14.15 s, which is the common mistake.",
+   "tags": [
+    "ok",
+    "median.even_count_pick_one",
+    "median.even_count_pick_one",
+    "median.not_sorted"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8gke9ya",
+   "level": 2,
+   "question": "At a school bake sale, five items sold for these prices in this order: $2.50, $3.00, $2.50, $4.00, $3.50. Which statement about this data set is true?",
+   "options": [
+    "Median $2.50 and mode $2.50",
+    "Median $3.00 and mode $2.50",
+    "Median $3.00 and mode $4.00",
+    "Median $3.00 and mode 2 times"
+   ],
+   "answerIndex": 1,
+   "explain": "Sorted, the prices are 2.50, 2.50, 3.00, 3.50, 4.00, so the median is the middle price $3.00 and the mode is the repeated price $2.50. The mode names a price, not how many times it occurred, and the median needs sorting first.",
+   "tags": [
+    "median.not_sorted",
+    "ok",
+    "other",
+    "mode.count_as_mode"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8w8qzk2",
+   "level": 2,
+   "question": "A shoe store lists the sizes of the nine pairs of boots sold today, in order of sale: 9, 6, 8, 6, 11, 7, 10, 9, 6. The owner wants to know which size sells best. Which measure should she use, and what is it?",
+   "options": [
+    "The median, which is size 8",
+    "The mode, which is 3 pairs",
+    "The mode, which is size 6",
+    "The median, which is size 11"
+   ],
+   "answerIndex": 2,
+   "explain": "Which size sells best means the value that occurs most often, so use the mode: size 6 appears three times, more than any other. The mode is the size itself, not the count of 3, and the median (size 8 after sorting) answers a different question.",
+   "tags": [
+    "other",
+    "mode.count_as_mode",
+    "ok",
+    "median.not_sorted"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8lyhm39",
+   "level": 2,
+   "question": "Over seven days, Dev spent these numbers of minutes on homework: 45, 30, 45, 60, 30, 50, 40. What is the mode?",
+   "options": [
+    "2, the count of each repeat",
+    "45 min, the middle number",
+    "No mode, since the list ties",
+    "Both 30 min and 45 min tie"
+   ],
+   "answerIndex": 3,
+   "explain": "Both 30 and 45 appear twice, more often than any other time, so this data set has two modes. A tie does not erase the mode, and the mode is the number of minutes, not how many times it happened.",
+   "tags": [
+    "mode.count_as_mode",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8pflzqg",
+   "level": 3,
+   "question": "Ella weighs her recycling bin each day. For five days the masses were 2.4 kg, 3.1 kg, 2.4 kg, 4.0 kg and 3.6 kg, written in that order. On the sixth day she adds a reading of 2.9 kg to the end of the list. What is the median of all six masses?",
+   "options": [
+    "3.0 kg",
+    "2.9 kg",
+    "3.2 kg",
+    "3.1 kg"
+   ],
+   "answerIndex": 0,
+   "explain": "Adding a sixth value means re-ordering everything (2.4, 2.4, 2.9, 3.1, 3.6, 4.0) and averaging the two middle masses: (2.9 + 3.1) divided by 2 = 3.0 kg. Six values always need the average of two middles, not one of them.",
+   "tags": [
+    "ok",
+    "median.even_count_pick_one",
+    "median.not_sorted",
+    "median.even_count_pick_one"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8pbhtha",
+   "level": 3,
+   "question": "A Grade 8 class recorded how many books each of nine students read over the summer, in the order the students answered: 5, 3, 2, 6, 3, 5, 2, 5, 4. Which statement comparing the mode and the median is correct?",
+   "options": [
+    "The mode is 2 more than the median",
+    "The mode is 1 more than the median",
+    "The median is 1 more than the mode",
+    "The median and the mode are equal"
+   ],
+   "answerIndex": 1,
+   "explain": "Order the list to get 2, 2, 3, 3, 4, 5, 5, 5, 6, so the median is 4 and the mode is 5, which is 1 more. Reading 3 (how many 5s there are) as the mode, or taking the middle of the unordered list, both flip the comparison.",
+   "tags": [
+    "median.not_sorted",
+    "ok",
+    "mode.count_as_mode",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrdig81kq3bp",
+   "level": 3,
+   "question": "Priya wrote down her six bus waits in minutes as they happened: 12, 7, 9, 15, 7, 10. She took the two numbers sitting in the middle of that list, 9 and 15, averaged them, and reported a median of 12 min and a mode of 2. Which correction is right?",
+   "options": [
+    "Median 12 min, with mode 7 min",
+    "Median 9 min, with mode 7 min",
+    "Median 9.5 min, mode 7 min",
+    "Median 9.5 min, with mode 2"
+   ],
+   "answerIndex": 2,
+   "explain": "Order first: 7, 7, 9, 10, 12, 15, then average the true middle pair: (9 + 10) divided by 2 = 9.5 min, and the mode is the repeated wait, 7 min. Averaging the middle of an unordered list, or calling the count of 2 the mode, are Priya's two slips.",
+   "tags": [
+    "median.not_sorted",
+    "median.even_count_pick_one",
+    "ok",
+    "mode.count_as_mode"
+   ]
+  },
+  {
+   "qid": "qmtkrdig8p2qmrr",
+   "level": 3,
+   "question": "Kai logged seven bike rides in kilometres, in the order he rode them: 8.2, 6.5, 9.0, 6.5, 7.4, 10.1, 6.5. He deletes his longest ride from the list because it was on a borrowed e-bike. What is the median of the six rides that remain?",
+   "options": [
+    "6.5 km",
+    "7.75 km",
+    "7.4 km",
+    "6.95 km"
+   ],
+   "answerIndex": 3,
+   "explain": "Remove 10.1, then order the six that are left (6.5, 6.5, 6.5, 7.4, 8.2, 9.0) and average the middle two: (6.5 + 7.4) divided by 2 = 6.95 km. Deleting a value turned an odd count into an even one, so now you must average two middles instead of picking one.",
+   "tags": [
+    "median.even_count_pick_one",
+    "median.not_sorted",
+    "median.even_count_pick_one",
+    "ok"
+   ]
+  }
+ ]
+}

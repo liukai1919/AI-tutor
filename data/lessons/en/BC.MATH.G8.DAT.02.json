@@ -1,0 +1,158 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.DAT.02",
+ "lang": "en",
+ "title": "theoretical probability with two independent events",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Why Winning That Game Feels So Hard: Probability of Two Independent Events",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're at your friend's house on a Saturday, and you're playing a little table-top game. The rule is: you roll a fair six-sided die, and your friend flips a fair coin. You only win if you roll a five AND your friend gets heads. You play ten rounds and… you never win. Your friend goes, 'Ha! You'll never beat me!' And honestly, it does feel almost impossible. But is it really? Or do you just need to understand what's happening in the math? That's what we're going to figure out today — how to calculate the probability of TWO things both happening, when they don't affect each other.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "caption": "The die has 6 equally likely outcomes; the coin adds 2 more (heads or tails)"
+    }
+   },
+   {
+    "say": "So here's the big idea. When two events are independent, that means what happens in one doesn't change what happens in the other. Your die roll doesn't care what the coin does, and the coin doesn't care what you rolled. When that's true, there's a really neat trick: the probability of BOTH happening is just the probability of the first ONE times the probability of the second ONE. We call this the multiplication rule for independent events. So if the chance of rolling a five is one out of six, and the chance of heads is one out of two, the chance of BOTH is one-sixth times one-half. Let's not just trust me — let's SEE why that works by listing every possible outcome.",
+    "math": "P(A \\text{ and } B) = P(A) \\times P(B)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "Heads",
+      "Tails"
+     ],
+     "caption": "Sample space: 6 die outcomes × 2 coin outcomes = 12 equally likely pairs, one per box"
+    }
+   },
+   {
+    "say": "Look at that table. There are twelve little boxes, because six die outcomes times two coin outcomes gives us twelve total possibilities. Every single one of those boxes is equally likely — that's the 'fair die, fair coin' part. Now, how many of those twelve boxes is the one where you rolled a five AND got heads? Just ONE. So your probability is one out of twelve. And notice, that's exactly what we get if we multiply: one-sixth times one-half equals one-twelfth. The table confirms the multiplication rule. You don't need to list everything every time, but it's a great way to check your work and really understand why the multiplication rule is true.",
+    "math": "P(5 \\text{ and } H) = \\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "Heads",
+      "Tails"
+     ],
+     "caption": "Only 1 of the 12 boxes is (roll 5, heads) → probability = 1/12"
+    }
+   },
+   {
+    "say": "Let's try one that's a little different. Your class is doing a probability station, and you get two spinners. Spinner A has four equal sections: red, blue, green, yellow. Spinner B has three equal sections: one, two, three. The question is: what's the probability of spinning red on A AND a two on B? Since each spinner is fair, P of red is one out of four, and P of two is one out of three. These are independent — spinning A doesn't change B. So we multiply: one-quarter times one-third. One times one is one, four times three is twelve. You get one out of twelve. That's the same number as before! Different game, same probability. And if you drew a tree diagram — four branches from the first spinner, each splitting into three from the second — you'd count twelve little tips, and only one of them is red-and-two. Same answer, same logic.",
+    "math": "P(R \\text{ and } 2) = \\frac{1}{4} \\times \\frac{1}{3} = \\frac{1}{12}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow"
+     ],
+     "caption": "Spinner A (4 equal sections) — now imagine a second spinner with 3 sections (1, 2, 3). P(Red AND 2) = 1/4 × 1/3 = 1/12"
+    }
+   },
+   {
+    "say": "Now here's where it gets really useful for deciding if a game is fair. Your school's math night has a booth: you spin a four-section spinner — red, blue, green, yellow — and roll a six-sided die. You win a prize if you spin red AND roll an even number. Is that a fair game? Fair means fifty-fifty, a one-half chance of winning. Let's check. P of red is one-quarter. P of an even number — two, four, or six — is three out of six, which simplifies to one-half. Multiply: one-quarter times one-half is one-eighth. One out of eight is NOT one out of two. You win only twelve-and-a-half percent of the time. That's a pretty unfair booth! You'd lose seven times out of eight. So no, that game is not fair. To make it fair, the organizer would need to change the rules so your probability of winning is exactly one-half.",
+    "math": "P(R \\text{ and Even}) = \\frac{1}{4} \\times \\frac{3}{6} = \\frac{1}{4} \\times \\frac{1}{2} = \\frac{1}{8} \\neq \\frac{1}{2}",
+    "visual": {
+     "type": "probLine",
+     "nums": [
+      0.125,
+      0.5
+     ],
+     "labels": [
+      "Red AND Even (1/8)",
+      "Fair (1/2)"
+     ],
+     "caption": "The game's win probability (1/8) is far from the fair point (1/2) — not a fair game"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to remember. When two events are independent — one doesn't change the other — you find the probability of BOTH by multiplying their individual probabilities. Roll a five AND flip heads? One-sixth times one-half, one-twelfth. Spin red AND roll even? One-quarter times one-half, one-eighth. Multiply, check the sample space if you want, and you'll always know exactly how likely your double-win really is. And now, the next time your friend says 'you'll never beat me,' you can smile and say, 'Actually, my odds are one in twelve — that's better than you think, but nowhere near fifty-fifty.' And walk away knowing exactly why.",
+    "math": "P(A \\text{ and } B) = P(A) \\times P(B) \\quad \\text{(independent events)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "For two independent events, multiply the individual probabilities: P(A and B) = P(A) × P(B).",
+  "practice": {
+   "question": "At a local BC arcade, a game works like this: you spin a fair six-section spinner (sections 1 through 6) and then draw one ball from a bag containing 3 red balls and 5 blue balls (8 total). You win a free coffee (about $5.50) if you spin a 3 AND draw a red ball. What is the theoretical probability of winning, and how many times would you expect to win out of 24 tries?",
+   "answer": "P(3 on spinner) = 1/6. P(red ball) = 3/8. Since the events are independent, P(3 AND red) = 1/6 × 3/8 = 3/48 = 1/16. Out of 24 tries, you would expect to win 24 × 1/16 = 1.5 times, so about 1 or 2 wins in 24 tries."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

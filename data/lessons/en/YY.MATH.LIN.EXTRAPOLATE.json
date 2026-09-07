@@ -1,0 +1,141 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.EXTRAPOLATE",
+ "lang": "en",
+ "title": "Extrapolate beyond the data by extending the line, and judge whether the prediction makes sense (canoe journey daily checks)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Extending the Line: Will Our Canoe Food Last?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to interpolate, reading a value between two points you plotted. Today we go one step further: extending the line past the last data point to predict the future, and then asking, does that prediction actually make sense? Here is our setting. Your group is paddling the Bowron Lakes canoe circuit in BC, and every morning you count the food packs left. Day zero, twelve packs. Day one, ten. Day two, eight. Day three, six.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      3,
+      12,
+      10,
+      8,
+      6
+     ],
+     "labels": [
+      "Day",
+      "Food packs left"
+     ],
+     "caption": "Morning food-pack counts for the first four days of the trip"
+    }
+   },
+   {
+    "say": "Plot the points with day on the horizontal axis and food packs on the vertical axis. They line up perfectly, dropping two packs every day, so this is a linear relation with a rate of minus two packs per day. To extrapolate, you grab a ruler, lay it along the points, and keep drawing the line to the right, past Day three. Every extra day along that line is one more step of minus two.",
+    "math": "\\text{packs} = 12 - 2d",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      12,
+      1,
+      10,
+      2,
+      8,
+      3,
+      6
+     ],
+     "labels": [
+      "Day 0",
+      "Day 1",
+      "Day 2",
+      "Day 3"
+     ],
+     "caption": "Days across, packs up. The points sit on one straight line falling 2 per day"
+    }
+   },
+   {
+    "say": "Worked example: how many packs will be left on the morning of Day five? Day five is two days past Day three, so take two steps of minus two. Six minus two is four, and four minus two is two. Check it with the rule: twelve minus two times five equals twelve minus ten, which is two. The extended line lands on two packs at Day five, and that matches. Two packs for Day five sounds reasonable for a trip that is winding down.",
+    "math": "12 - 2(5) = 2",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      12,
+      1,
+      10,
+      2,
+      8,
+      3,
+      6,
+      5,
+      2
+     ],
+     "labels": [
+      "Day 0",
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 5"
+     ],
+     "caption": "Extending the line two more days lands on the point Day 5, 2 packs"
+    }
+   },
+   {
+    "say": "Here is the mistake that catches a lot of people. Someone sees six packs on Day three, wants Day five, and subtracts two just once, answering four. But Day five is two days later, not one, so you need two steps. Always count how many steps you are moving from your last data point, then multiply the rate by that number of steps. Two days times minus two packs per day is minus four, so six minus four gives two, not four.",
+    "math": "6 - 2\\times 2 = 2 \\quad (\\text{not } 6 - 2 = 4)",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      12,
+      6,
+      2
+     ],
+     "labels": [],
+     "caption": "From 6 packs, a jump of 4 (two days of minus 2) lands on 2, not 4"
+    }
+   },
+   {
+    "say": "Now the judging part. What does the line say for Day seven? Twelve minus two times seven is twelve minus fourteen, which is negative two packs. The line happily goes below the axis, but negative food packs do not exist. So this prediction makes no sense. The line only describes reality until the packs hit zero, which happens on Day six. Past that point you have to stop trusting the line. And even before Day six, remember that extrapolation assumes the pattern keeps going. If your group gets a resupply at a lodge, the whole line changes.",
+    "math": "12 - 2(7) = -2 \\;\\Rightarrow\\; \\text{impossible}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      6,
+      5,
+      2,
+      6,
+      0,
+      7,
+      -2
+     ],
+     "labels": [
+      "Day 3",
+      "Day 5",
+      "Day 6",
+      "Day 7?"
+     ],
+     "caption": "The line hits 0 packs on Day 6. Day 7 sits below the axis, which cannot happen in real life"
+    }
+   },
+   {
+    "say": "So here is the one idea to keep. Extrapolating is extending the line with the same rate, one step per unit, counting the steps carefully. Then always ask if the answer makes sense in the real situation, because a straight line will keep going forever, but real food, money, and distance will not.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Extend the line with the same step per unit, count your steps, then check the prediction makes real-world sense.",
+  "practice": {
+   "question": "On a canoe trip near Powell River, your group checks the camp-stove fuel canisters every morning. Day zero: ten canisters. Day one: nine. Day two: eight. Day three: seven. Draw a coordinate grid with days across and canisters up, plot the four points, and extend the line. (a) How many canisters does the line predict for Day six? (b) The line gives a value for Day twelve. Does that prediction make sense? Explain.",
+   "answer": "(a) The rate is minus one canister per day, so Day six is three steps past Day three: seven minus three equals four canisters (check: ten minus six equals four). (b) The line predicts ten minus twelve equals negative two canisters, which is impossible. The fuel runs out on Day ten, so the line stops making sense after Day ten."
+  }
+ }
+}

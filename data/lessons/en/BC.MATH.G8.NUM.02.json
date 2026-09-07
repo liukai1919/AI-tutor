@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.NUM.02",
+ "lang": "en",
+ "title": "square and cube roots",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Square & Cube Roots – Finding the Hidden Side",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. Your school is putting in a square herb garden for the biology class, and the teacher says, \"We need exactly sixteen square metres.\" You grab your phone and start Googling, \"What's the square root of sixteen?\" But wait — you don't even need a calculator. You just need to ask: what number, times itself, gives me sixteen? And the answer pops right out of your head. That, my friend, is a square root. And today we're going to make roots feel as easy as splitting a pizza with friends.",
+    "math": "\\sqrt{16} = 4",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A 4 m by 4 m square = 16 m²"
+    }
+   },
+   {
+    "say": "So here's the core idea. A square root is just the reverse of squaring a number. If I take four and multiply it by itself, I get sixteen. So the square root of sixteen — the number that, times itself, makes sixteen — is four. Think of it like this: you know the area of a square, and you want to find the length of one side. That's all a square root is. The little square root symbol just means \"find the side.\"",
+    "math": "\\sqrt{16} = 4 \\quad \\text{because} \\quad 4 \\times 4 = 16",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "side × side = area  →  4 × 4 = 16"
+    }
+   },
+   {
+    "say": "Now let's zoom out one dimension. Instead of a flat square, imagine a cube — like a big foam block for your art project. If each edge is five centimetres, the volume is five times five times five, which is one hundred twenty-five cubic centimetres. The cube root asks the same question but in 3-D: what number, times itself three times, gives me this volume? For one hundred twenty-five, that number is five. You just found a cube root without even trying.",
+    "math": "\\sqrt[3]{125} = 5 \\quad \\text{because} \\quad 5 \\times 5 \\times 5 = 125",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "5 cm × 5 cm × 5 cm = 125 cm³"
+    }
+   },
+   {
+    "say": "Let's do that one properly so it sticks. Question: what is the cube root of one hundred twenty-five? I start guessing with small numbers. Two times two times two is eight — way too small. Three times three times three is twenty-seven — still too small. Four times four times four is sixty-four — getting warmer. Five times five is twenty-five, and twenty-five times five is one hundred twenty-five. BINGO. So the cube root of one hundred twenty-five is five. You just need the number that fills all three edges of the cube.",
+    "math": "5 \\times 5 \\times 5 = 125 \\;\\;\\Rightarrow\\;\\; \\sqrt[3]{125} = 5",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "All three edges = 5 cm"
+    }
+   },
+   {
+    "say": "Alright, a little trickier one. What's the square root of the fraction sixteen over one hundred sixty-nine? Here's the shortcut: the square root of a fraction is just the square root of the top over the square root of the bottom. Square root of sixteen? Four, easy. Square root of one hundred sixty-nine? Let's check — thirteen times thirteen is one hundred sixty-nine. Yep. So the answer is four over thirteen. And look at the picture: in a thirteen-by-thirteen grid, a four-by-four corner is exactly sixteen one-hundred-sixty-ninths of the whole, and its side is four over thirteen of the full side.",
+    "math": "\\sqrt{\\frac{16}{169}} = \\frac{\\sqrt{16}}{\\sqrt{169}} = \\frac{4}{13}\\quad \\text{because}\\quad 4\\times 4=16,\\;13\\times 13=169",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      13,
+      13,
+      4,
+      4
+     ],
+     "labels": [
+      "4/13 side",
+      "4/13 side"
+     ],
+     "caption": "Shaded 4×4 corner = 16/169 of the 13×13 square"
+    }
+   },
+   {
+    "say": "Now the real-life one. Say you're comparing phone data plans and one is priced based on \"square root of thirty\" megabytes per day. You don't need the exact decimal — you need a good estimate. Here's the trick: find the two perfect squares that bracket thirty. Five times five is twenty-five. Six times six is thirty-six. Thirty sits between twenty-five and thirty-six, so the square root of thirty sits between five and six. Since thirty is a little closer to twenty-five than to thirty-six, the root is a little closer to five. A solid estimate: about five point five. You just estimated a square root in ten seconds flat.",
+    "math": "5^2 = 25 < 30 < 36 = 6^2 \\;\\;\\Rightarrow\\;\\; \\sqrt{30} \\approx 5.5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      5,
+      6,
+      5.5
+     ],
+     "labels": [
+      "√25 = 5",
+      "√36 = 6"
+     ],
+     "caption": "√30 ≈ 5.5, between 5 and 6"
+    }
+   },
+   {
+    "say": "Here's your takeaway to lock in: a square root finds the side of a square from its area, a cube root finds the edge of a cube from its volume, and when the number isn't a perfect square or cube, you just find the two whole-number roots that squeeze it from both sides. Roots are just \"undoing\" multiplication. You've got this.",
+    "math": "\\sqrt{a} \\times \\sqrt{a} = a \\qquad \\sqrt[3]{b} \\times \\sqrt[3]{b} \\times \\sqrt[3]{b} = b",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A square root undoes squaring (side of a square); a cube root undoes cubing (edge of a cube); estimate by squeezing between two perfect roots.",
+  "practice": {
+   "question": "You're building a small cube-shaped birdhouse for a neighbourhood nature trail. The interior volume must be 729 cm³ and all edges must be equal. What is the length of each edge in cm?",
+   "answer": "9 cm, because 9 × 9 × 9 = 729, so the cube root of 729 is 9."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

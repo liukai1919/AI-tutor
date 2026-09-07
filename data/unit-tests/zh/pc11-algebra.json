@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "algebra",
+ "lang": "zh",
+ "unitName": {
+  "zh": "多项式与有理式",
+  "en": "Polynomials & Rational Expressions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "多项式与有理式 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 1,
+    "question": "将 6x³ + 9x² − 12x 提取最大公因式（GCF）后进行因式分解，结果是？",
+    "options": [
+     "3x(2x² + 3x − 4)",
+     "3(2x³ + 3x² − 4x)",
+     "3x(2x² + 3x + 4)",
+     "6x(x² + 3x − 4)"
+    ],
+    "answerIndex": 0,
+    "explain": "GCF 是 3x（系数取 3、6、12 的最大公约数 3，x 的最低次幂是 x），提出后得 3x(2x²+3x−4)。最容易踩的坑：只提系数 3 而漏掉 x，或把 GCF 错算成 6x（9 不能被 6 整除）。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 1,
+    "question": "利用平方差公式（difference of squares）分解 4x² − 49，结果是？",
+    "options": [
+     "(x − 7)(x + 7)",
+     "(4x − 7)(4x + 7)",
+     "(2x − 7)(2x + 7)",
+     "(2x − 49)(2x + 49)"
+    ],
+    "answerIndex": 2,
+    "explain": "4x² = (2x)²，49 = 7²，所以 4x²−49 = (2x)²−7² = (2x−7)(2x+7)。常见错误：把系数 4 直接当底数写成 4x（那样平方就是 16x²），或把 49 没开平方就塞进因式里。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 1,
+    "question": "函数 f(x) = (x+3)/(x²−5x+6) 中，哪些 x 值是不允许的（即令分母为零的值）？",
+    "options": [
+     "x = 2 和 x = −3",
+     "x = 2 和 x = 3",
+     "x = 5 和 x = 6",
+     "x = −2 和 x = −3"
+    ],
+    "answerIndex": 1,
+    "explain": "分母 x²−5x+6 = (x−2)(x−3)，令其为 0 得 x=2 或 x=3。最容易踩的坑：把一次项系数 −5 和常数 6 误当成根，或把两个根的符号都搞反。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 2,
+    "question": "Victoria 一位园丁设计长方形花坛，面积（m²）用 2x² + 7x + 3 表示。将其因式分解为两个一次整式因式的乘积，正确的是？",
+    "options": [
+     "(2x + 3)(x + 1)",
+     "(2x + 3)(x + 3)",
+     "(x + 1)(x + 3)",
+     "(2x + 1)(x + 3)"
+    ],
+    "answerIndex": 3,
+    "explain": "用 ac 法：找两数乘积为 2×3=6、和为 7，即 6 和 1；拆中项 2x²+6x+x+3 = 2x(x+3)+1(x+3) = (2x+1)(x+3)。常见错误：把常数错配（如写成 (2x+3)(x+1)，展开后一次项变成 5x 而非 7x）。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.01",
+    "level": 2,
+    "question": "Abbotsford 一位学生在物理报告中遇到表达式 3(y+2)² − 12(y+2)。把 (y+2) 看作一个整体，提取公因式后完全因式分解，结果是？",
+    "options": [
+     "3(y+2)(y − 2)",
+     "3(y+2)(y + 4)",
+     "3y(y − 4)",
+     "3(y+2)(y + 6)"
+    ],
+    "answerIndex": 0,
+    "explain": "令 u = y+2，则 3u²−12u = 3u(u−4)，代回得 3(y+2)[(y+2)−4] = 3(y+2)(y−2)。最容易踩的坑：提取 3(y+2) 后，括号里应把整体 (y+2) 再减 4 得 y−2，而不是直接写 y+4 或丢掉整体只写 3y(y−4)。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 2,
+    "question": "化简分式（rational expression）：(2x+6)/(x²−4) × (x−2)/(x+3) = ？",
+    "options": [
+     "2/(x − 2)",
+     "2x/(x² − 4)",
+     "2/(x + 2)",
+     "2/(x + 3)"
+    ],
+    "answerIndex": 2,
+    "explain": "先因式分解：2x+6=2(x+3)，x²−4=(x−2)(x+2)。分子分母约去公共因式 (x+3) 和 (x−2)，得 2/(x+2)。常见错误：约分时把 (x+3) 和 (x−2) 搞混，错误地约掉不该约的因子，得到 2/(x−2) 或 2/(x+3)。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 3,
+    "question": "解方程 (x²−4)/(x−2) = x+2。正确的解集是？",
+    "options": [
+     "所有实数（all real numbers）",
+     "所有实数，但 x ≠ 2",
+     "x = 2",
+     "x = −2"
+    ],
+    "answerIndex": 1,
+    "explain": "左边 (x²−4)/(x−2) = (x−2)(x+2)/(x−2) = x+2（前提是 x≠2），方程化为 x+2 = x+2，恒成立；但 x=2 时原式分母为零，必须排除。最经典的误区：约分后忘了「x≠2」这个限制条件，直接选「所有实数」。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.ALG.02",
+    "level": 3,
+    "question": "Burnaby 一户人家有两个进水管：A 管单独注满泳池需 (x+3) 小时，B 管需 (x−1) 小时（x > 1）。当 x = 2 时，两管同时开启，注满泳池需要多少小时？",
+    "options": [
+     "6/5 小时",
+     "1 小时",
+     "6 小时",
+     "5/6 小时"
+    ],
+    "answerIndex": 3,
+    "explain": "合速率 = 1/(x+3)+1/(x−1)，代入 x=2 得 1/5+1/1 = 6/5（池/小时），注满时间 = 1÷(6/5) = 5/6 小时。最容易踩的坑：把算出的速率 6/5 直接当作时间，忘了取倒数；或把分母相加 1/(5+1)=1/6 导致时间变成 6 小时。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

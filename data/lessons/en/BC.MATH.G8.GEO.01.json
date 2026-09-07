@@ -1,0 +1,133 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.GEO.01",
+ "lang": "en",
+ "title": "surface area and volume of regular solids, including triangular and other right prisms and cylinders",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Soup Cans & Juice Boxes: Volume and Surface Area",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hey! So picture this: your aunt owns a tiny little restaurant in Burnaby, and she wants you to design a new soup can for her brand. Before you pick the metal, you need two super important numbers. Number one: how much soup actually fits inside? That is the volume. Number two: how much flat metal sheet do you need to wrap around and close the top and bottom? That is the surface area. By the end of this lesson, you will be able to grab any prism or cylinder and pop both numbers out like a pro.",
+    "math": "",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      5,
+      8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A soup can — radius 5 cm, height 8 cm"
+    }
+   },
+   {
+    "say": "Okay, here is the one golden rule that does all the heavy lifting for volume, and it works for EVERY prism and every cylinder. Volume equals the area of the base, times the height. Think of it like stacking coins: the base is one coin, and the height is how many coins you pile up. A rectangular box has a rectangle as its base. A triangular prism has a triangle. A cylinder has a circle. Same rule, different shape. You find the area of that flat base, then multiply by how tall the whole thing is. That is it. That is volume.",
+    "math": "V = A_{\\text{base}} \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      6,
+      4,
+      8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cuboid — the base is the 6 by 4 rectangle; stack it 8 cm tall"
+    }
+   },
+   {
+    "say": "Let's try a triangular prism. Imagine a juice box where the front and back are triangles. The triangle is four centimetres wide and three centimetres tall, and because it is a right-angled triangle, the slanted side works out to five centimetres. The box is ten centimetres long. Step one: area of the triangle base. That is half, times four, times three, which gives us six square centimetres. Step two: multiply by the length of the box, ten centimetres. Six times ten is sixty. So that juice box holds exactly sixty cubic centimetres of juice. That is only sixty millilitres, less than a third of a regular two-hundred-millilitre juice box.",
+    "math": "V = \\frac{1}{2} \\times 4 \\times 3 \\times 10 = 60 \\text{ cm}^3",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [
+      "4 cm",
+      "3 cm",
+      "5 cm",
+      ""
+     ],
+     "caption": "The triangular base: 4 cm base, 3 cm height, 5 cm slanted side"
+    }
+   },
+   {
+    "say": "Now let's talk surface area, because this is the metal sheet problem. The rule is simple in words: surface area is the sum of the areas of every single flat face. For a cylinder, if you carefully slice down the side and unroll it, you get a rectangle. The width of that rectangle is the circumference of the circle, which is two pi r. The height of the rectangle is the height of the can. And then you still have the two circular ends. So total surface area is two circles, plus one big rectangle. Two pi r squared, plus two pi r h. That is the whole thing. No secrets.",
+    "math": "SA = 2\\pi r^2 + 2\\pi r h",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      5,
+      8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Cylinder net: two circles + one rectangle (width = circumference)"
+    }
+   },
+   {
+    "say": "Let's do that soup can now. Radius is five centimetres, height is eight. First, volume: pi, times five squared, times eight. Five squared is twenty-five. Twenty-five times eight is two hundred. So volume is two hundred pi, which is about six hundred twenty-eight point three cubic centimetres. That is roughly one and a third US pints of soup. Now surface area: the two circles give two times pi times twenty-five, which is fifty pi. The big rectangle gives two pi times five, times eight, which is eighty pi. Add them: fifty pi plus eighty pi is one hundred thirty pi, about four hundred and eight point four square centimetres. That is the exact amount of flat metal sheet your aunt needs for one can.",
+    "math": "V = \\pi(5)^2(8) = 200\\pi \\approx 628.3 \\text{ cm}^3 \\quad\\; SA = 2\\pi(25)+2\\pi(5)(8)=130\\pi\\approx 408.4 \\text{ cm}^2",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      5,
+      8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Soup can: V = 200π cm³, SA = 130π cm²"
+    }
+   },
+   {
+    "say": "Quick one to tie it together. Let's get the surface area of that juice box from earlier. You have two triangular ends, each six square centimetres, so that is twelve. Then the three rectangular sides: the bottom is four times ten, which is forty. The back is three times ten, which is thirty. The slanted top is five times ten, which is fifty. Add them all: twelve, plus forty, plus thirty, plus fifty. That is one hundred and thirty-two square centimetres of cardboard. Compare that to the volume, sixty cubic centimetres of juice. Totally different jobs, but both started with that same little triangle.",
+    "math": "SA = 2(6)+4(10)+3(10)+5(10)=12+40+30+50=132 \\text{ cm}^2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      40,
+      30,
+      50
+     ],
+     "labels": [
+      "Triangles",
+      "Bottom",
+      "Back",
+      "Slant"
+     ],
+     "caption": "Face areas of the triangular prism: 12 + 40 + 30 + 50 = 132 cm²"
+    }
+   },
+   {
+    "say": "So here is your pocket cheat-sheet. Volume answers the question, how much fits inside, and the recipe is always base area times height, no matter the shape. Surface area answers the question, how much wrapping or material do I need, and the recipe is add up every face. Cylinder? Two pi r squared plus two pi r h. Prism? Two bases plus all the rectangular sides. Grab the base, do its area, and you are basically done. You just finished designing that soup can, by the way. Your aunt is going to be so impressed.",
+    "math": "V = A_{\\text{base}} \\times h \\qquad SA = \\sum \\text{(all faces)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Volume is base area times height (how much fits inside); surface area is the sum of all face areas (how much material you need).",
+  "practice": {
+   "question": "A cylindrical coffee mug has a radius of four centimetres and a height of ten centimetres. (a) How much coffee does it hold? Give your answer in terms of pi, then to one decimal place. (b) How much ceramic surface area is needed to make the mug? Again, in terms of pi, then to one decimal place.",
+   "answer": "(a) V = π(4²)(10) = 160π ≈ 502.7 cm³. (b) SA = 2π(4²) + 2π(4)(10) = 32π + 80π = 112π ≈ 351.9 cm²."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

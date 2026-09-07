@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkozy92ed3cr1",
+   "level": 1,
+   "question": "A table of values has four rows. When x = 0, y = 9. When x = 5, y = 39. When x = 10, y = 69. When x = 15, y = 99. Which expression gives the rule for this table?",
+   "options": [
+    "y = 6x + 9",
+    "y = 6x",
+    "y = 30x + 9",
+    "y = 9x + 6"
+   ],
+   "answerIndex": 0,
+   "explain": "The x-values jump by 5 while y jumps by 30, so the rate is 30 ÷ 5 = 6, and y = 9 when x = 0 gives the constant term: y = 6x + 9. The trap is using 30 as the rate — 30 is the jump per row, not per 1 of x.",
+   "tags": [
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkozy927q7ayu",
+   "level": 1,
+   "question": "In a table of values, x = 0 gives y = 5, x = 10 gives y = 35, x = 20 gives y = 65, and x = 30 gives y = 95. Which expression matches every row of this table?",
+   "options": [
+    "y = 30x + 5",
+    "y = 3x + 5",
+    "y = 3x",
+    "y = 5x + 3"
+   ],
+   "answerIndex": 1,
+   "explain": "Each row x grows by 10 and y grows by 30, so the rate is 30 ÷ 10 = 3, and the value at x = 0 is the constant 5: y = 3x + 5. Dropping the 5 is the most common slip — check your rule against a second row, like x = 20 giving 65.",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkozy92pol4vi",
+   "level": 1,
+   "question": "A table of values lists x = 5, 10, 15, 20 with matching y-values 22, 32, 42, 52. Which expression fits this table?",
+   "options": [
+    "y = 10x + 12",
+    "y = 2x",
+    "y = 2x + 12",
+    "y = 12x + 2"
+   ],
+   "answerIndex": 2,
+   "explain": "y climbs 10 while x climbs 5, so the rate is 10 ÷ 5 = 2; then work back from x = 5: 22 − 2 × 5 = 12, so y = 2x + 12. Since the table does not start at x = 0, you must subtract the rate part first to find the constant term.",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.intercept_forgotten",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkozy925b0bby",
+   "level": 1,
+   "question": "A table of values has these pairs: x = 0 with y = 3, x = 4 with y = 27, x = 8 with y = 51, and x = 12 with y = 75. Which expression describes the relation?",
+   "options": [
+    "y = 24x + 3",
+    "y = 3x + 6",
+    "y = 6x",
+    "y = 6x + 3"
+   ],
+   "answerIndex": 3,
+   "explain": "The difference in y is 24 for every 4 steps of x, so the rate is 24 ÷ 4 = 6, and y = 3 at x = 0 is the constant term: y = 6x + 3. Watch the scale of the x-column — 24 is the change per row, not per single unit of x.",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap",
+    "linear.intercept_forgotten",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkozy92tzbdpz",
+   "level": 2,
+   "question": "A table of values uses a large scale: x = 0, 25, 50, 75 and the matching y-values are 11, 61, 111, 161. Which expression is the rule?",
+   "options": [
+    "y = 2x + 11",
+    "y = 2x",
+    "y = 11x + 2",
+    "y = 50x + 11"
+   ],
+   "answerIndex": 0,
+   "explain": "Divide the y-difference by the x-difference: 50 ÷ 25 = 2 is the rate, and y = 11 when x = 0 is the constant term, giving y = 2x + 11. Big jumps in the x-column do not change the method — always divide before writing the rate.",
+   "tags": [
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkozy92ydqqnb",
+   "level": 2,
+   "question": "At a winter market in Vancouver, a hot chocolate stand starts with $15 in the cash box. For 0, 20, 40 and 60 cups sold, the money in the box is $15, $95, $175 and $255. Which expression gives the dollars y for x cups?",
+   "options": [
+    "y = 80x + 15",
+    "y = 4x + 15",
+    "y = 4x",
+    "y = 15x + 4"
+   ],
+   "answerIndex": 1,
+   "explain": "The money rises $80 for every 20 cups, so each cup adds 80 ÷ 20 = $4, and the $15 float is the constant term: y = 4x + 15. Forgetting the starting $15 is the usual error — test your rule at 40 cups, which must give $175.",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkozy9223yo2n",
+   "level": 2,
+   "question": "A table of values pairs x = 2, 6, 10, 14 with y = 13, 25, 37, 49. Which expression works for every row?",
+   "options": [
+    "y = 3x",
+    "y = 12x + 7",
+    "y = 3x + 7",
+    "y = 6x + 1"
+   ],
+   "answerIndex": 2,
+   "explain": "y goes up 12 for every 4 steps of x, so the rate is 12 ÷ 4 = 3, and 13 − 3 × 2 = 7 is the constant term: y = 3x + 7. A rule like 6x + 1 fits only the first row, so always test a second row before choosing.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "ok",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkozy92g0rrzp",
+   "level": 2,
+   "question": "A table of values shows x = 10, 20, 30, 40 with y = 45, 75, 105, 135. Which expression is correct for the whole table?",
+   "options": [
+    "y = 30x + 15",
+    "y = 3x",
+    "y = 4x + 5",
+    "y = 3x + 15"
+   ],
+   "answerIndex": 3,
+   "explain": "The rate is 30 ÷ 10 = 3, and 45 − 3 × 10 = 15 is the constant term, so y = 3x + 15; checking x = 30 gives 105, which matches. A rule built from only the first row, such as 4x + 5, breaks down at x = 20.",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.intercept_forgotten",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkozy92fab77w",
+   "level": 3,
+   "question": "A rain barrel in Victoria already holds 8 L when a shower starts. After 0, 5, 10 and 15 minutes it holds 8 L, 38 L, 68 L and 98 L. If the rain keeps falling at the same rate, how much water is in the barrel after 40 minutes?",
+   "options": [
+    "248 L",
+    "240 L",
+    "1208 L",
+    "326 L"
+   ],
+   "answerIndex": 0,
+   "explain": "The barrel gains 30 L every 5 minutes, so the rate is 6 L per minute and the rule is y = 6x + 8; at x = 40 that is 240 + 8 = 248 L. The common trap is answering 240 L by dropping the 8 L that was already in the barrel.",
+   "tags": [
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkozy922z2awk",
+   "level": 3,
+   "question": "Aisha starts a savings jar with money from her birthday. After 0, 5, 10 and 15 weeks she has $15, $40, $65 and $90, and she keeps saving the same amount each week. After how many weeks will she have $140?",
+   "options": [
+    "28 weeks",
+    "25 weeks",
+    "9 weeks",
+    "5 weeks"
+   ],
+   "answerIndex": 1,
+   "explain": "Her savings rise $25 every 5 weeks, so the rate is $5 per week and the rule is y = 5x + 15; solve 5x + 15 = 140 by subtracting 15 first, giving 125 ÷ 5 = 25 weeks. Dividing 140 by 5 straight away forgets the $15 she started with.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkozy92szwtnq",
+   "level": 3,
+   "question": "A table of values pairs x = 2, 7, 12, 17 with y = 16, 31, 46, 61. Maya says the rule is y = 8x because 8 × 2 = 16. Which expression actually fits the whole table?",
+   "options": [
+    "y = 15x + 10, because y climbs 15 from row to row",
+    "y = 8x, because 8 × 2 = 16 matches the first row",
+    "y = 3x + 10, because y rises 3 per 1 step of x",
+    "y = 10x + 3, because 10 is the rate and 3 the start"
+   ],
+   "answerIndex": 2,
+   "explain": "y rises 15 for every 5 steps of x, so the rate is 15 ÷ 5 = 3, and 16 − 3 × 2 = 10 is the constant term: y = 3x + 10, which also gives 61 at x = 17. Maya's rule only works on the first row — one point is never enough to fix a rule.",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.rule_from_one_point",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkt7172ftgmhs",
+   "level": 3,
+   "question": "Ines sells friendship bracelets at a Victoria market and starts the day with $11 already in her cash tin. Her tin holds $11, $47, $83 and $119 after 0, 6, 12 and 18 bracelets are sold. If every bracelet costs the same, how much is in the tin after 15 bracelets?",
+   "options": [
+    "$90",
+    "$171",
+    "$191",
+    "$101"
+   ],
+   "answerIndex": 3,
+   "explain": "Divide the y-jump by the x-jump first: $36 for every 6 bracelets is $6 each, so the rule is y = 6x + 11 and 15 bracelets give 6 x 15 + 11 = $101. The usual traps are adding $36 for each single bracelet, or dropping the $11 that was in the tin before any sale.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap",
+    "linear.x_step_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkt7172i60fht",
+   "level": 3,
+   "question": "A Burnaby climbing gym prints a cost table on the wall. For 6, 12, 18 and 24 climbs the total cost is $54, $84, $114 and $144. The table does not show the cost for 0 climbs. Which expression gives the total cost y in dollars for x climbs?",
+   "options": [
+    "y = 5x + 24",
+    "y = 24x + 5",
+    "y = 5x",
+    "y = 30x + 24"
+   ],
+   "answerIndex": 0,
+   "explain": "The cost rises $30 for every 6 climbs, so the rate is 30 divided by 6 = $5 per climb; then work back from a row: 54 - 5 x 6 = 24, giving y = 5x + 24. The common traps are using 30 as the rate because the x-step is not 1, or forgetting the $24 that is charged before any climbing.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkt7172fjoqmv",
+   "level": 3,
+   "question": "A table of values pairs x = 0, 5, 10, 15 with y = 10, 30, 50, 70. Owen says the y-values go up by 20, so the rule must be y = 20x + 10. What went wrong, and what is the real rule?",
+   "options": [
+    "The 10 is the rate and the 20 is the start, so the rule is y = 10x + 20",
+    "20 in y goes with 5 in x, so the rate is 4 and the rule is y = 4x + 10",
+    "Row two shows that 30 = 6 x 5, so the rule for every row must be y = 6x",
+    "A constant-difference table needs no extra term, so the rule is y = 4x"
+   ],
+   "answerIndex": 1,
+   "explain": "A constant difference is only a rate once you divide by the x-step: 20 in y over 5 in x is 4 for each single step, and x = 0 gives the constant 10, so y = 4x + 10 and it checks on every row. Owen kept 20 as the rate; the other frequent slips are treating the starting value 10 as the rate, or building a rule from one row only.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtkt7172ks72yh",
+   "level": 3,
+   "question": "A Chilliwack class books a bus for a field trip. The total cost for 0, 10, 20 and 30 students going is $90, $150, $210 and $270. The class has raised $330. How many students can go if the cost keeps growing at the same rate?",
+   "options": [
+    "55 students",
+    "22 students",
+    "40 students",
+    "31 students"
+   ],
+   "answerIndex": 2,
+   "explain": "First find the rule: the cost rises $60 for every 10 students, so $6 each, and $90 is charged before any student is added, giving y = 6x + 90. Then undo it in order - subtract the $90 first, so (330 - 90) divided by 6 = 40 students; dividing 330 by 6 straight away forgets the bus fee.",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.rule_from_one_point",
+    "ok",
+    "linear.x_step_ignored"
+   ]
+  }
+ ]
+}

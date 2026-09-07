@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.INTERPOLATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzh0qp7ni2wk",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows time in minutes and each grid square stands for 2 minutes. The vertical axis shows litres of water in a tank and each grid square stands for 5 litres. The points (4, 10) and (16, 40) are plotted and joined with a straight line. About how many litres does the line show at 10 minutes?",
+   "options": [
+    "about 25 L",
+    "about 10 L",
+    "about 5 L",
+    "about 50 L"
+   ],
+   "answerIndex": 0,
+   "explain": "Go up from 10 minutes to the line: it sits 5 squares high, and each vertical square is 5 L, so the reading is about 25 L. Count the squares, then multiply by the scale; do not report the square count itself or the minutes value.",
+   "tags": [
+    "ok",
+    "lin.read_wrong_axis",
+    "graph.scale_misread",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpurmtcz",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows hiking time in hours with each grid square standing for 1 hour, and the vertical axis shows distance in kilometres with each grid square standing for 2 kilometres. The points (1, 4) and (5, 12) are plotted and joined with a straight line. About what distance does the line show at 3 hours?",
+   "options": [
+    "about 4 km",
+    "about 8 km",
+    "about 3 km",
+    "about 6 km"
+   ],
+   "answerIndex": 1,
+   "explain": "At 3 hours the line is 4 squares high, and each vertical square is 2 km, so the distance is about 8 km. Reading 4 km comes from treating each square as 1 km, and 3 km comes from copying the hours value instead of reading the distance axis.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "lin.read_wrong_axis",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qp7nnx48",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows weeks with each grid square standing for 1 week, and the vertical axis shows dollars saved with each grid square standing for 10 dollars. The points (2, 30) and (6, 70) are plotted and joined with a straight line. About how many dollars does the line show at 5 weeks?",
+   "options": [
+    "about 5 dollars",
+    "about 50 dollars",
+    "about 60 dollars",
+    "about 6 dollars"
+   ],
+   "answerIndex": 2,
+   "explain": "At 5 weeks the line is 6 squares high and each square is 10 dollars, so about 60 dollars. The value halfway between 30 and 70 is 50, but that only belongs to the halfway week (4 weeks), not to week 5.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "other",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpvwlw5x",
+   "level": 1,
+   "question": "On a coordinate grid, the horizontal axis shows hours after noon with each grid square standing for 1 hour, and the vertical axis shows temperature in degrees Celsius with each grid square standing for 4 degrees. The points (1, 8) and (4, 20) are plotted and joined with a straight line. About what temperature does the line show at 3 hours after noon?",
+   "options": [
+    "about 4 °C",
+    "about 12 °C",
+    "about 3 °C",
+    "about 16 °C"
+   ],
+   "answerIndex": 3,
+   "explain": "The line rises 12 degrees over 3 hours, so 4 degrees per hour; at 3 hours it reads 8 + 8 = 16 °C, which is 4 squares high. Saying 4 °C means you reported the square count instead of multiplying by the 4 °C scale.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "lin.read_wrong_axis",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpowldnm",
+   "level": 2,
+   "question": "A taxi fare graph is a straight line through (2 km, $10) and (6 km, $22). On the graph each vertical square stands for $2. Use the line to estimate the fare for a 5 km ride.",
+   "options": [
+    "about $19",
+    "about $16",
+    "about $9.50",
+    "about $5"
+   ],
+   "answerIndex": 0,
+   "explain": "The fare rises $12 over 4 km, so $3 per km; at 5 km the line reads 10 + 3 × 3 = $19. The halfway value of $16 belongs only to the halfway distance of 4 km, not to 5 km.",
+   "tags": [
+    "ok",
+    "other",
+    "graph.scale_misread",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qp6uxz1i",
+   "level": 2,
+   "question": "A linear relation is graphed on a grid where each vertical square stands for 10 units. The line passes through (4, 30) and (10, 60). Estimate the y-value on the line when x = 6.",
+   "options": [
+    "4",
+    "40",
+    "6",
+    "45"
+   ],
+   "answerIndex": 1,
+   "explain": "The line rises 30 over 6 units of x, so 5 per unit; at x = 6 it reads 30 + 2 × 5 = 40, which is 4 squares up. Answering 4 reports the square count, and answering 6 just repeats the x-value.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "lin.read_wrong_axis",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpnjzmk6",
+   "level": 2,
+   "question": "A bus trip is graphed as a straight line through (10 min, 6 km) and (30 min, 18 km). Each horizontal square stands for 5 minutes. About how many minutes into the trip has the bus travelled 12 km?",
+   "options": [
+    "about 12 min",
+    "about 4 min",
+    "about 20 min",
+    "about 15 min"
+   ],
+   "answerIndex": 2,
+   "explain": "Go across from 12 km to the line, then down to the time axis: 12 km is halfway from 6 to 18, so the time is halfway from 10 to 30, about 20 min. That point sits 4 squares along, but each square is 5 minutes, so 4 min is a scale mistake.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "graph.scale_misread",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qp9nkofa",
+   "level": 2,
+   "question": "A candle's height is graphed as a straight line through (0 h, 20 cm) and (4 h, 12 cm). Each vertical square stands for 5 cm. Use the line to estimate the height after 2.5 hours.",
+   "options": [
+    "about 2.5 cm",
+    "about 17 cm",
+    "about 3 cm",
+    "about 15 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "The line drops 8 cm in 4 hours, so 2 cm per hour; after 2.5 hours it reads 20 − 5 = 15 cm. A falling line is read the same way as a rising one, and 15 cm is 3 squares up, not 3 cm.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "other",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qppap7gj",
+   "level": 3,
+   "question": "Marcus graphs how far a kayak has drifted. The horizontal axis is minutes with each square standing for 5 minutes, and the vertical axis is metres with each square standing for 20 metres. He joins the points (10, 60) and (30, 140) with a straight line. To find the drift at 20 minutes he goes up to the line, counts 5 squares, and says 'about 5 m'. What went wrong?",
+   "options": [
+    "He counted squares but never multiplied by 20 m per square; the drift is about 100 m.",
+    "He read the minutes axis instead of the metres axis, so the drift is about 20 m.",
+    "He counted squares from the first point, not from zero, so the drift is about 40 m.",
+    "Nothing went wrong, because the line sits 5 grid units up, so the drift is about 5 m."
+   ],
+   "answerIndex": 0,
+   "explain": "The line at 20 minutes is 5 squares high, and each square is 20 m, so the drift is about 100 m (check: 60 + 4 m/min × 10 min = 100). Counting squares is only the first step; the scale turns squares into metres.",
+   "tags": [
+    "ok",
+    "lin.read_wrong_axis",
+    "other",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qp8nk2yy",
+   "level": 3,
+   "question": "Ava's phone battery graph is a straight line: 90% at 8:00 a.m. and 30% at 12:00 noon, with each vertical square standing for 10%. She wants to know the battery at 10:30 a.m. so she can decide whether to plug in before her 11:00 class. About what does the line show at 10:30?",
+   "options": [
+    "about 60%",
+    "about 52%",
+    "about 10%",
+    "about 5%"
+   ],
+   "answerIndex": 1,
+   "explain": "First turn 10:30 into 2.5 hours after 8:00; the line drops 60% in 4 hours, or 15% per hour, so 90 − 2.5 × 15 ≈ 52%. The halfway value of 60% belongs to 10:00, not 10:30, and 10 is just the clock reading.",
+   "tags": [
+    "other",
+    "ok",
+    "lin.read_wrong_axis",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpvc5qq4",
+   "level": 3,
+   "question": "Jordan graphs a bike ride from home as a straight line through (20 min, 5 km) and (60 min, 15 km), with each horizontal square standing for 10 minutes. The Tim Hortons is 9 km from home. About how many minutes after leaving does the line show Jordan passing it?",
+   "options": [
+    "about 9 min",
+    "about 40 min",
+    "about 36 min",
+    "about 4 min"
+   ],
+   "answerIndex": 2,
+   "explain": "The line gains 10 km in 40 min, so 1 km every 4 min; 9 km is 4 km past the 5 km point, which is 16 min after 20 min, about 36 min. Reading 40 min assumes 9 km is the middle of the graph, but the middle is 10 km.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "other",
+    "ok",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzh0qpo6xkj1",
+   "level": 3,
+   "question": "Lena graphs the temperature at Kits Beach. The horizontal axis is hours after 6 a.m. with each square standing for 2 hours, and the vertical axis is degrees Celsius with each square standing for 2 degrees. She joins (2, 12) and (8, 24) with a straight line. About what temperature does the line show at 11 a.m.?",
+   "options": [
+    "about 5 °C",
+    "about 11 °C",
+    "about 9 °C",
+    "about 18 °C"
+   ],
+   "answerIndex": 3,
+   "explain": "First convert 11 a.m. to 5 hours after 6 a.m.; the line rises 12 degrees in 6 hours, so 2 degrees per hour, giving 12 + 3 × 2 = 18 °C. That point is 9 squares high, so 9 °C forgets the 2-degree scale, and 5 °C is the hours value, not the temperature.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "other",
+    "graph.scale_misread",
+    "ok"
+   ]
+  }
+ ]
+}

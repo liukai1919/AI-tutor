@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.SUBTRACT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlydz435hmtdu",
+   "level": 1,
+   "question": "一张长方形海报（poster）的总面积（area）用多项式表示为 (5x² + 4x + 9) 平方厘米。其中贴照片的部分面积是 (2x² − 3x + 4) 平方厘米，其余部分是空白。空白部分的面积是多少？",
+   "options": [
+    "3x² + 7x + 5",
+    "3x² + x + 13",
+    "3x² + x + 5",
+    "7x² + x + 13"
+   ],
+   "answerIndex": 0,
+   "explain": "空白 = 总面积 − 照片面积，减号要分给后面每一项：(5x² + 4x + 9) − 2x² + 3x − 4 = 3x² + 7x + 5。最常见的坑是只把 2x² 变号，−3x 和 +4 却照抄，就会得到 3x² + x + 13。",
+   "tags": [
+    "ok",
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44vevrhm",
+   "level": 1,
+   "question": "学校一块长方形草坪的总面积是 (4x² + 6x + 10) 平方米，中间挖出一个花坛，花坛面积是 (x² − 2x + 7) 平方米，剩下的都是草地。草地面积是多少？",
+   "options": [
+    "3x² + 4x + 17",
+    "3x² + 8x + 3",
+    "3x² + 4x + 3",
+    "5x² + 4x + 17"
+   ],
+   "answerIndex": 1,
+   "explain": "草地 = 总面积 − 花坛：4x² + 6x + 10 − x² + 2x − 7 = 3x² + 8x + 3。注意 −(−2x) 是 +2x，减一个负项等于加，别算成 6x − 2x = 4x。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "ok",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44koj4l4",
+   "level": 1,
+   "question": "一块长方形木板的面积是 (8x² + 3x + 12) 平方厘米。木工从上面锯掉一块面积为 (3x² − 5x + 6) 平方厘米的小板，剩下木板的面积是多少？",
+   "options": [
+    "5x² − 2x + 18",
+    "5x² − 2x + 6",
+    "5x² + 8x + 6",
+    "5x² + 8x + 18"
+   ],
+   "answerIndex": 2,
+   "explain": "把后面每一项变号再加：8x² + 3x + 12 − 3x² + 5x − 6 = 5x² + 8x + 6。−5x 变成 +5x，+6 变成 −6，一个都不能漏；写成 5x² − 2x + 18 的是只把第一项变了号。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz441bl00a",
+   "level": 1,
+   "question": "一面长方形墙的总面积是 (6x² + 9x + 14) 平方米，墙上有一扇窗，窗的面积是 (2x² − 4x + 5) 平方米。除了窗以外，需要刷漆的墙面面积是多少？",
+   "options": [
+    "4x² + 5x + 19",
+    "4x² + 5x + 9",
+    "8x² + 5x + 19",
+    "4x² + 13x + 9"
+   ],
+   "answerIndex": 3,
+   "explain": "刷漆面积 = 墙 − 窗 = 6x² + 9x + 14 − 2x² + 4x − 5 = 4x² + 13x + 9。减去 −4x 就是加 4x，所以 x 项是 9x + 4x = 13x，而不是 9x − 4x。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlydz44po7odt",
+   "level": 2,
+   "question": "计算：(7x − 5) − (−3x + 8)。",
+   "options": [
+    "10x − 13",
+    "10x + 3",
+    "4x − 13",
+    "4x + 3"
+   ],
+   "answerIndex": 0,
+   "explain": "把 (−3x + 8) 每一项变号：−(−3x) = +3x，−(+8) = −8，再合并同类项（like terms）：7x + 3x − 5 − 8 = 10x − 13。只把 −3x 变号而忘了 +8 会得到 10x + 3。",
+   "tags": [
+    "ok",
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44jouids",
+   "level": 2,
+   "question": "化简：(2x² − 6x + 1) − (5x² − 9x + 4)。",
+   "options": [
+    "−3x² − 15x + 5",
+    "−3x² + 3x − 3",
+    "−3x² − 15x − 3",
+    "3x² − 3x + 3"
+   ],
+   "answerIndex": 1,
+   "explain": "后面三项全部变号：−5x² + 9x − 4，再合并：2x² − 5x² = −3x²，−6x + 9x = 3x，1 − 4 = −3，得 −3x² + 3x − 3。−6x − (−9x) 是 +3x，别写成 −15x。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "ok",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44ah3ehx",
+   "level": 2,
+   "question": "Kayla 在做作业，要把多项式（polynomial）(x² − 4x + 2) 从 (3x² + x − 7) 中减去。她应该得到什么结果？",
+   "options": [
+    "2x² − 3x − 5",
+    "2x² − 3x − 9",
+    "2x² + 5x − 9",
+    "2x² + 5x − 5"
+   ],
+   "answerIndex": 2,
+   "explain": "「从 A 中减去 B」就是 A − B：(3x² + x − 7) − (x² − 4x + 2) = 3x² + x − 7 − x² + 4x − 2 = 2x² + 5x − 9。三项都要变号：−x²、+4x、−2，常数项（constant term）是 −7 − 2 = −9。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44eakqp5",
+   "level": 2,
+   "question": "小林算出两个多项式的和是 (6x + 3)。已知其中一个多项式是 (−2x + 5)，另一个多项式是什么？",
+   "options": [
+    "8x + 8",
+    "4x − 2",
+    "4x + 8",
+    "8x − 2"
+   ],
+   "answerIndex": 3,
+   "explain": "另一个 = 和 − 已知的那个 = (6x + 3) − (−2x + 5) = 6x + 3 + 2x − 5 = 8x − 2。验算：(8x − 2) + (−2x + 5) = 6x + 3 ✓。减去 −2x 要变成加 2x，所以系数（coefficient）是 8，不是 4。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlydz4495ny61",
+   "level": 3,
+   "question": "学校 Terry Fox Run 的筹款目标用多项式表示为 (8x² + 5x + 40) 加元。第一周筹到 (2x² − 3x + 15) 加元，第二周筹到 (3x² + x − 5) 加元。距离目标还差多少加元？",
+   "options": [
+    "3x² + 7x + 30",
+    "3x² + 3x + 50",
+    "3x² + 3x + 30",
+    "6x² + 8x + 25"
+   ],
+   "answerIndex": 0,
+   "explain": "先把两周加起来：5x² − 2x + 10；再用目标减：8x² + 5x + 40 − 5x² + 2x − 10 = 3x² + 7x + 30。减去 −2x 要变成 +2x，减去 +10 要变成 −10，两个都不能照抄。",
+   "tags": [
+    "ok",
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44nyjpx7",
+   "level": 3,
+   "question": "一个三角形的周长（perimeter）是 (10x + 3) 厘米，其中两条边的长度分别是 (4x − 5) 厘米和 (3x + 6) 厘米。第三条边的长度是多少厘米？",
+   "options": [
+    "3x + 4",
+    "3x + 2",
+    "6x + 8",
+    "3x − 8"
+   ],
+   "answerIndex": 1,
+   "explain": "第三边 = 周长 − 两条边 = 10x + 3 − (4x − 5) − (3x + 6) = 10x + 3 − 4x + 5 − 3x − 6 = 3x + 2。减去 (4x − 5) 时 −5 要变成 +5；减去 (3x + 6) 时 +6 要变成 −6，每一项都要变号。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "ok",
+    "other",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtlydz44ygx7ij",
+   "level": 3,
+   "question": "Priya 计算 (6x² + 2x − 9) − (2x² − 7x + 3) 时，写成 6x² + 2x − 9 − 2x² − 7x + 3，得到 4x² − 5x − 6。下面哪句话说对了？",
+   "options": [
+    "她做对了，减号只管紧跟着的 2x²，后面的项照抄，答案就是 4x² − 5x − 6",
+    "她只错在常数项，−7x 不用变号但 +3 要变 −3，正确答案是 4x² − 5x − 12",
+    "减号要分给后面每一项，−7x 变 +7x、+3 变 −3，正确答案是 4x² + 9x − 12",
+    "减号会让前后两个多项式都变号，重算后正确答案应该是 −8x² + 5x + 6"
+   ],
+   "answerIndex": 2,
+   "explain": "括号前的减号作用于括号里的每一项，所以应写成 6x² + 2x − 9 − 2x² + 7x − 3 = 4x² + 9x − 12。Priya 只把 2x² 变了号，−7x 和 +3 都照抄，这是最常见的错误；减去 −7x 等于加 7x。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlydz44ndyawf",
+   "level": 3,
+   "question": "Mia 在 Whistler 滑雪。起点海拔用多项式表示为 (3x² + 8x + 900) 米。她先滑到小屋，海拔下降了 (x² + 5x + 120) 米；再从小屋滑到山脚，海拔又下降了 (x² − 6x + 80) 米。山脚的海拔是多少米？",
+   "options": [
+    "x² + 7x + 1100",
+    "x² + 7x + 700",
+    "2x² + 3x + 780",
+    "x² + 9x + 700"
+   ],
+   "answerIndex": 3,
+   "explain": "总下降 = (x² + 5x + 120) + (x² − 6x + 80) = 2x² − x + 200；山脚 = 3x² + 8x + 900 − (2x² − x + 200) = x² + 9x + 700。减去 −x 等于加 x，所以 x 项是 8x + x = 9x；常数 900 − 200 = 700。",
+   "tags": [
+    "poly.subtract_first_term_only",
+    "int.subtract_negative",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

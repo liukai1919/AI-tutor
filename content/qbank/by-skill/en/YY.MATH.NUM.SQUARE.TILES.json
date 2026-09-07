@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.SQUARE.TILES",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtki0x691ox0a9",
+   "level": 1,
+   "question": "Noah builds a solid square with colour tiles on his desk: 14 tiles across each row, and 14 rows, with every space filled. How many tiles are in his square?",
+   "options": [
+    "196 tiles",
+    "28 tiles",
+    "140 tiles",
+    "182 tiles"
+   ],
+   "answerIndex": 0,
+   "explain": "A square built from tiles has n rows of n tiles, so 14 × 14 = 196. The common trap is doubling (14 + 14 = 28) instead of multiplying the side by itself.",
+   "tags": [
+    "ok",
+    "sq.square_as_double",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69olgabe",
+   "level": 1,
+   "question": "Sofia has a box of colour tiles. She wants to lay ALL of them into one square array, the same number of tiles across and down, with no gaps and none left over. Which number of tiles lets her do that?",
+   "options": [
+    "50 tiles",
+    "400 tiles",
+    "30 tiles",
+    "24 tiles"
+   ],
+   "answerIndex": 1,
+   "explain": "Tiles make a full square only when the count is n × n, and 20 × 20 = 400. Round, tidy numbers like 50 or 30 look square-ish, but no whole number times itself gives them.",
+   "tags": [
+    "sq.looks_square",
+    "ok",
+    "sq.looks_square",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtki0x69p88772",
+   "level": 1,
+   "question": "A tray of 225 colour tiles is packed as one full square: the same number of tiles in every row and every column, no gaps. How many tiles are in one row?",
+   "options": [
+    "112 tiles",
+    "25 tiles",
+    "15 tiles",
+    "45 tiles"
+   ],
+   "answerIndex": 2,
+   "explain": "Look for the number that multiplies by itself: 15 × 15 = 225, so each row holds 15 tiles. Halving 225 is the trap — squaring is not doubling, so undoing it is not halving.",
+   "tags": [
+    "sq.square_as_double",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69g7eagc",
+   "level": 1,
+   "question": "Emma has a full grid of colour tiles with 12 tiles in each row and 12 rows. In one corner she colours some tiles red so the red tiles form a smaller full square, 9 tiles across and 9 down. How many tiles are red?",
+   "options": [
+    "18 tiles",
+    "72 tiles",
+    "144 tiles",
+    "81 tiles"
+   ],
+   "answerIndex": 3,
+   "explain": "The red part is its own square array, so 9 × 9 = 81 red tiles. Watch two traps: 144 is the whole grid (12 × 12), and 18 comes from doubling 9 instead of squaring it.",
+   "tags": [
+    "sq.square_as_double",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtki0x69cv00i2",
+   "level": 2,
+   "question": "Which of these numbers is a perfect square?",
+   "options": [
+    "361",
+    "300",
+    "38",
+    "250"
+   ],
+   "answerIndex": 0,
+   "explain": "361 is a perfect square because 19 × 19 = 361. Round numbers such as 300 and 250 look neat, but no whole number times itself lands on them.",
+   "tags": [
+    "ok",
+    "sq.looks_square",
+    "sq.square_as_double",
+    "sq.looks_square"
+   ]
+  },
+  {
+   "qid": "qmtki0x69do3zl8",
+   "level": 2,
+   "question": "Jayden writes the prime factorization 196 = 2 × 2 × 7 × 7. Which conclusion is correct?",
+   "options": [
+    "Not a perfect square, since 196 is not round",
+    "A perfect square, because 14 × 14 = 196",
+    "A perfect square, because 28 × 28 = 196",
+    "Not a perfect square, since 2 and 7 differ"
+   ],
+   "answerIndex": 1,
+   "explain": "Pair the prime factors: (2 × 7) × (2 × 7) = 14 × 14 = 196, so 196 is a perfect square. Doubling 14 to 28 is the trap, since 28 × 28 = 784.",
+   "tags": [
+    "sq.looks_square",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69j3wfvf",
+   "level": 2,
+   "question": "A family in Kelowna lays a square patio out of square paving stones: 15 stones along each side, completely filled in. Each stone costs $4. What is the total cost of the stones?",
+   "options": [
+    "$120",
+    "$600",
+    "$900",
+    "$240"
+   ],
+   "answerIndex": 2,
+   "explain": "First count the stones: 15 × 15 = 225, then 225 × $4 = $900. Doubling the side (15 + 15 = 30) instead of squaring it gives far too few stones.",
+   "tags": [
+    "sq.square_as_double",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69tlaume",
+   "level": 2,
+   "question": "Ryan marks 200 on a number line. Which two perfect squares are its closest neighbours, one just below and one just above?",
+   "options": [
+    "169 and 196",
+    "100 and 400",
+    "200 and 225",
+    "196 and 225"
+   ],
+   "answerIndex": 3,
+   "explain": "14 × 14 = 196 sits just below 200 and 15 × 15 = 225 just above, so those are the neighbours. Note that 200 itself is not a perfect square — round-looking numbers usually are not.",
+   "tags": [
+    "other",
+    "sq.looks_square",
+    "sq.looks_square",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtki0x69z1xwju",
+   "level": 3,
+   "question": "During math class Dylan says, “20 must be a perfect square — it is a nice round number, and 2 × 10 = 20.” What is the problem with his reasoning?",
+   "options": [
+    "No whole number times itself can give 20",
+    "He is right, because 10 + 10 makes 20 a square",
+    "Nothing is wrong — round numbers are squares",
+    "He is wrong — 20 is a perfect cube, not square"
+   ],
+   "answerIndex": 0,
+   "explain": "A perfect square must be n × n: 4 × 4 = 16 and 5 × 5 = 25, so 20 is skipped over. Being round, even, or a product of two different numbers does not make a number square.",
+   "tags": [
+    "ok",
+    "sq.square_as_double",
+    "sq.looks_square",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69rx5knd",
+   "level": 3,
+   "question": "A mosaic at a community centre in Vancouver uses 324 small square tiles arranged as one full square. The artist adds one extra ring of tiles all the way around the outside, so the result is again a full square. How many tiles does the bigger square hold?",
+   "options": [
+    "328 tiles",
+    "400 tiles",
+    "648 tiles",
+    "361 tiles"
+   ],
+   "answerIndex": 1,
+   "explain": "324 = 18 × 18, and a ring adds one tile to each end of a side, so the new side is 20 and the square holds 20 × 20 = 400 tiles. Adding only 1 to the side gives 361 and forgets the far edge.",
+   "tags": [
+    "other",
+    "ok",
+    "sq.square_as_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69jds741",
+   "level": 3,
+   "question": "A gym floor is covered by 256 square mats laid in one full square array. Each mat measures 50 cm along a side. How long is one side of the whole covered square, in metres?",
+   "options": [
+    "32 m",
+    "16 m",
+    "8 m",
+    "128 m"
+   ],
+   "answerIndex": 2,
+   "explain": "256 = 16 × 16, so a side is 16 mats, and 16 × 0.5 m = 8 m. The trap is stopping at 16 and reporting it as metres, since each mat is only half a metre wide.",
+   "tags": [
+    "sq.square_as_double",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtki0x69n9mld7",
+   "level": 3,
+   "question": "Colour tiles are sold in boxes of 50. Priya buys 3 boxes and wants to use them to build the largest full square array she can, with the same number of tiles across and down. How many tiles will that square use?",
+   "options": [
+    "150 tiles",
+    "121 tiles",
+    "169 tiles",
+    "144 tiles"
+   ],
+   "answerIndex": 3,
+   "explain": "3 boxes give 3 × 50 = 150 tiles, and the largest perfect square not over 150 is 12 × 12 = 144. Using all 150 is the trap — 150 is round but no whole number times itself equals it, and 169 = 13 × 13 needs more tiles than she has.",
+   "tags": [
+    "sq.looks_square",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

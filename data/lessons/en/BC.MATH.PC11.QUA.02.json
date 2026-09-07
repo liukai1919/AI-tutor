@@ -1,0 +1,128 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.QUA.02",
+ "lang": "en",
+ "title": "linear and quadratic inequalities",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Linear & Quadratic Inequalities – Solving, Graphing, and Writing the Answer",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Alright, picture this. You're working part-time at a coffee shop in your neighbourhood in Vancouver, making fifteen dollars an hour before deductions. After taxes and benefits you actually take home about twelve dollars an hour. You've been saving for a new pair of hiking boots for a weekend trip up to Whistler, and you need at least one hundred dollars. So you're asking yourself: how many hours do I have to work? That's not an equation — there's no single 'equals' answer. You need your take-home pay to be at least one hundred, which means twelve times h is greater than or equal to one hundred. That's a linear inequality, and today we're going to learn how to solve both linear and quadratic inequalities, read their graphs, and write the answer up cleanly.",
+    "math": "12h \\geq 100",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here's the golden rule for linear inequalities: solve them exactly like you'd solve an equation — add, subtract, divide — but there's one gotcha. If you ever multiply or divide both sides by a negative number, you must flip the inequality sign. Let's solve a quick one. Three x minus seven is less than or equal to negative four. Add seven to both sides: three x is less than or equal to three. Divide by three: x is less than or equal to one. On the number line you see a closed dot at one, and everything to the left is shaded. Every number that's one or smaller satisfies the inequality. No negative involved, so no flip needed.",
+    "math": "3x - 7 \\leq -4 \\;\\Longrightarrow\\; 3x \\leq 3 \\;\\Longrightarrow\\; x \\leq 1",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -4,
+      6,
+      1
+     ],
+     "labels": [
+      "x ≤ 1 (shaded left of 1)"
+     ],
+     "caption": "Solution to 3x − 7 ≤ −4"
+    }
+   },
+   {
+    "say": "Now let's level up to a quadratic. We want x squared minus five x plus six to be greater than zero. The method here is different from the linear case. You don't isolate x algebraically. Instead, three steps: one, find the roots by factoring; two, let those roots split the number line into intervals; three, test one point in each interval to see which ones satisfy the inequality. Factor first: x minus two times x minus three, greater than zero. Roots at two and three. That gives three chunks: less than two, between two and three, and greater than three. Test zero in the first chunk: negative two times negative three is six, which is greater than zero — that interval works. Test two and a half in the middle: half times negative half is negative one quarter — fails. Test four in the last chunk: two times one is two, greater than zero — works. So the solution is x less than two, or x greater than three. Look at the graph: the parabola sits above the x-axis on exactly those two outer pieces, and dips below between two and three.",
+    "math": "x^2 - 5x + 6 > 0 \\;\\Longrightarrow\\; (x-2)(x-3) > 0 \\;\\Longrightarrow\\; x < 2 \\;\\text{or}\\; x > 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      6,
+      -1,
+      12
+     ],
+     "labels": [
+      "x^2-5*x+6"
+     ],
+     "caption": "y = x² − 5x + 6 above the x-axis for x < 2 and x > 3"
+    }
+   },
+   {
+    "say": "Let's do one in a context you might actually hit this month. Your Canadian mobile plan is fifty dollars a month base, plus two dollars for every gigabyte over ten. You've set a hard budget of eighty dollars. How many extra gigabytes can you use without blowing past that? Let g be the extra gigabytes. Fifty plus two g is less than or equal to eighty. Subtract fifty: two g is less than or equal to thirty. Divide by two: g is less than or equal to fifteen. You can use up to fifteen extra gigabytes. We divided by a positive number, so no flip. On the number line, closed dot at fifteen, shade left. Clean, quick, done — and you know exactly where your budget stands before the next bill hits.",
+    "math": "50 + 2g \\leq 80 \\;\\Longrightarrow\\; 2g \\leq 30 \\;\\Longrightarrow\\; g \\leq 15",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      15
+     ],
+     "labels": [
+      "g ≤ 15 extra GB"
+     ],
+     "caption": "Maximum extra data within an $80 budget"
+    }
+   },
+   {
+    "say": "Now a quadratic in a real situation. A little candle shop in Nanaimo sets the price of each candle at x dollars. Their revenue model is negative two x squared plus forty x. They want to earn at least one hundred and fifty dollars per batch. Set it up: negative two x squared plus forty x is greater than or equal to one hundred and fifty. Move everything left: negative two x squared plus forty x minus one hundred and fifty is greater than or equal to zero. Here's where people trip up. To make the leading coefficient positive we divide every term by negative two, and that means we flip the inequality. We get x squared minus twenty x plus seventy-five, less than or equal to zero. Factor: x minus five times x minus fifteen, less than or equal to zero. Roots at five and fifteen. The parabola opens upward, so it's at or below zero between the roots. Price must be between five and fifteen dollars, inclusive. Quick check: at ten dollars, revenue is negative two times one hundred plus four hundred, which is two hundred — well above the target. At five dollars it's exactly one hundred and fifty. At fifteen, also exactly one hundred and fifty. Solid.",
+    "math": "-2x^2 + 40x \\geq 150 \\;\\Longrightarrow\\; x^2 - 20x + 75 \\leq 0 \\;\\Longrightarrow\\; (x-5)(x-15) \\leq 0 \\;\\Longrightarrow\\; 5 \\leq x \\leq 15",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      22,
+      0,
+      250
+     ],
+     "labels": [
+      "-2*x^2+40*x",
+      "150"
+     ],
+     "caption": "Revenue ≥ $150 when price x is between $5 and $15"
+    }
+   },
+   {
+    "say": "One last skill before we wrap: writing your answer in interval notation, which is how you show it up neatly on a test. For x less than or equal to one, you write an open parenthesis, negative infinity, comma, one, close bracket. The open parenthesis at negative infinity is always there because infinity is not a number you can include. The close bracket at one means one itself is part of the solution. For x less than two or x greater than three: open parenthesis, negative infinity, comma, two, close parenthesis, union symbol, open parenthesis, three, comma, positive infinity, close parenthesis. Open parentheses at two and three because those values are excluded. For our candle problem, five less than or equal to x less than or equal to fifteen: open bracket, five, comma, fifteen, close bracket. Brackets mean the endpoint is included; parentheses mean it is not. That's your answer in one tidy line.",
+    "math": "x \\leq 1 \\;\\to\\; (-\\infty,\\, 1] \\qquad x<2 \\;\\text{or}\\; x>3 \\;\\to\\; (-\\infty,\\,2)\\cup(3,\\,+\\infty) \\qquad 5\\leq x\\leq 15 \\;\\to\\; [5,\\,15]",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      20,
+      5,
+      15
+     ],
+     "labels": [
+      "[5, 15]"
+     ],
+     "caption": "Interval notation: brackets mean the endpoints are included"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to carry into every exam: linear inequalities you solve like equations and just watch for the flip; quadratic inequalities you factor, find the roots, and test the intervals between them. Either way, sketch the number line or the graph, and the answer practically writes itself. You've got this.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Linear inequalities: solve like equations (flip the sign if you divide by a negative). Quadratic inequalities: factor, find the roots, test the intervals. Always draw the number line or graph to confirm.",
+  "practice": {
+   "question": "You're saving for a weekend trip to Kelowna. You earn fourteen dollars an hour at a part-time job, but three dollars an hour goes to taxes and deductions, so you take home eleven dollars an hour. You need at least two hundred twenty dollars for gas, food, and the lake cabin. Set up and solve the linear inequality to find the minimum number of hours you must work. Then, as a bonus, consider the quadratic model: a small BC farm stand's daily profit is P = −4x² + 80x, where x is the price per bunch of flowers in dollars. They want profit of at least three hundred dollars. Solve the quadratic inequality and state the valid price range in interval notation.",
+   "answer": "Linear: 11h ≥ 220, so h ≥ 20 hours. Quadratic: −4x² + 80x ≥ 300 → x² − 20x + 75 ≤ 0 → (x−5)(x−15) ≤ 0, so 5 ≤ x ≤ 15. Interval notation: [5, 15]."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.TOTALS_DECIMAL",
+ "lang": "en",
+ "title": "Calculate totals and differences of money using decimal notation",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Adding and Subtracting Money the Careful Way",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to line up the decimal point when you add and subtract decimals, and you know that a dollar amount like twelve dollars and five cents is written twelve point zero five. Today we put those two skills together to find money totals and money differences at the store.",
+    "math": "\\$12.05",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      12.05
+     ],
+     "labels": [],
+     "caption": "Twelve dollars and five cents"
+    }
+   },
+   {
+    "say": "Here is the big idea for money. Money always has exactly two digits after the decimal point, because the first spot is dimes and the second spot is pennies. So before you add or subtract, write every amount with two decimal places, then line up the decimal points and work as usual.",
+    "math": "\\$4.60 \\;+\\; \\$3.25",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.6,
+      3.25
+     ],
+     "labels": [
+      "Juice $4.60",
+      "Muffin $3.25"
+     ],
+     "caption": "Two prices, ready to be added"
+    }
+   },
+   {
+    "say": "Let's buy a snack at a store in Kamloops. A juice costs four dollars and sixty cents, and a muffin costs three dollars and twenty five cents. Stack them with the decimal points lined up. Zero cents plus five cents is five cents. Six dimes plus two dimes is eight dimes. Four dollars plus three dollars is seven dollars. The total is seven dollars and eighty five cents.",
+    "math": "\\begin{array}{r}\\$4.60\\\\+\\;\\$3.25\\\\\\hline \\$7.85\\end{array}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.6,
+      3.25,
+      7.85
+     ],
+     "labels": [
+      "Juice $4.60",
+      "Muffin $3.25",
+      "Total $7.85"
+     ],
+     "caption": "The two bars together make the total"
+    }
+   },
+   {
+    "say": "Now a difference. You pay with a ten dollar bill. Write ten dollars as ten point zero zero so it has two decimal places too, then subtract seven dollars and eighty five cents. Ten dollars minus seven dollars and eighty five cents leaves two dollars and fifteen cents in change.",
+    "math": "\\begin{array}{r}\\$10.00\\\\-\\;\\$7.85\\\\\\hline \\$2.15\\end{array}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      10,
+      7.85,
+      2.15
+     ],
+     "labels": [
+      "I paid $10.00",
+      "Snack $7.85",
+      "Change $2.15"
+     ],
+     "caption": "The long bar is what I paid; the short piece is my change"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Three dollars and five cents is not three point five. Three point five means three dollars and fifty cents, which is forty five cents too much! Five cents is only five pennies, so it goes in the second spot, and you fill the dimes spot with a zero. Three dollars and five cents is three point zero five.",
+    "math": "\\$3.5 \\ne \\$3.05",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.5,
+      3.05
+     ],
+     "labels": [
+      "Wrong $3.50",
+      "Right $3.05"
+     ],
+     "caption": "The wrong way makes the money look way too big"
+    }
+   },
+   {
+    "say": "So remember, give every amount two decimal places, line up the decimal points, and your total or your change will always be right.",
+    "math": "\\$8 = \\$8.00",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Give every money amount two decimal places, line up the decimal points, then add or subtract as usual.",
+  "practice": {
+   "question": "At a market in Victoria, Maya buys a bag of apples for six dollars and forty cents and a loaf of bread for two dollars and five cents. Write both prices with two decimal places, line up the decimal points, and find the total. Then, if Maya pays with a ten dollar bill, how much change does she get?",
+   "answer": "The total is $8.45, because $6.40 plus $2.05 is $8.45. Her change is $1.55, because $10.00 minus $8.45 is $1.55."
+  }
+ }
+}

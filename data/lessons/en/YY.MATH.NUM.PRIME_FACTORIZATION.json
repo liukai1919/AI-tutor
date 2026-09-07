@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PRIME_FACTORIZATION",
+ "lang": "en",
+ "title": "Write a number as a product of primes with a factor tree and exponents (300 = 2² × 3 × 5²)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Building a Factor Tree for 300",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know which numbers are prime, and you know the divisibility rules for two, three, five and more. Today we use both to break a big number, like three hundred, all the way down into a tidy string of primes.",
+    "math": "300 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the one move: split the number into two factors, then keep splitting any factor that is still composite. You stop a branch only when it lands on a prime. Primes are the end of the road — two, three, five, seven and their friends can not be split any more.",
+    "math": "300 \\rightarrow 2 \\times 150",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      2,
+      3,
+      5,
+      7,
+      11
+     ],
+     "labels": [],
+     "caption": "Circled: the primes where a branch stops"
+    }
+   },
+   {
+    "say": "Let us do three hundred. It is even, so pull out a two and you get one hundred fifty. One hundred fifty is still even, so pull out another two and you get seventy five. Seventy five ends in a five, so pull out a five and you get fifteen. And fifteen is three times five. Every branch has now landed on a prime, so the tree is finished: two times two times three times five times five.",
+    "math": "300 = 2 \\times 150 = 2 \\times 2 \\times 75 = 2 \\times 2 \\times 5 \\times 15 = 2 \\times 2 \\times 5 \\times 3 \\times 5",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Two 2s grouped together: 2 x 2 = 4, written as 2 squared"
+    }
+   },
+   {
+    "say": "Now gather the same primes into groups and count them. There are two twos, one three, and two fives. So we write two squared, times three, times five squared. Check it: two squared is four, five squared is twenty five, and four times three times twenty five is three hundred. It works.",
+    "math": "300 = 2^2 \\times 3 \\times 5^2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      1,
+      2
+     ],
+     "labels": [
+      " prime 2",
+      "prime 3",
+      "prime 5"
+     ],
+     "caption": "How many of each prime you counted"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, do not stop early: writing three hundred as four times seventy five is not finished, because four and seventy five are both composite and still need splitting. Second, count carefully — two times two times two is three twos, which is two cubed, or eight. We only have two twos in three hundred, so it is two squared, which is four.",
+    "math": "2 \\times 2 \\times 2 = 2^3 = 8 \\quad \\text{but} \\quad 2 \\times 2 = 2^2 = 4",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Three 2s would be 2 cubed = 8 — that is one too many"
+    }
+   },
+   {
+    "say": "So: split until every branch is prime, then count how many of each prime you have and turn those counts into exponents.",
+    "math": "300 = 2^2 \\times 3 \\times 5^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Split until every branch is prime, then count each prime: 300 = 2² × 3 × 5².",
+  "practice": {
+   "question": "A Surrey hockey club raised one hundred eighty dollars at a bake sale. Build a factor tree for one hundred eighty and write it as a product of primes using exponents. Hint: one hundred eighty is even, so start by pulling out a two.",
+   "answer": "180 = 2 × 90 = 2 × 2 × 45 = 2 × 2 × 3 × 15 = 2 × 2 × 3 × 3 × 5, so 180 = 2² × 3² × 5. Check: 4 × 9 × 5 = 180."
+  }
+ }
+}

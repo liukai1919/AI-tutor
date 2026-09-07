@@ -4,8 +4,9 @@ config.json
 # 语音合成缓存
 tts-cache/
 
-# 历史记录 / 学习进度 / FSA 卷 / 闯关题库（用户数据）
+# 历史记录 / 学习进度 / FSA 卷 / 闯关题库 / 用量账本（用户数据）
 # （根目录三个单例是旧版遗留：创建第一个孩子时自动迁入 data/kids/）
+usage.jsonl
 history.json
 history.json.tmp
 progress.json
@@ -53,3 +54,5 @@ data/voice/
 # Vercel demo 的种子题库（tools 下脚本从本地 qbank.json 过滤出 BC.* 键生成，
 # 见 api/index.js）。上面的 qbank.json 规则按文件名匹配会把它也挡掉，这里放行。
 !demo/qbank.json
+# tools/audit_qbank.mjs 的审稿记录（含剔掉的原题）：用户数据，随 qbank.json 一起留在本机
+audit-report.jsonl
