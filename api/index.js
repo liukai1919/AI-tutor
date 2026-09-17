@@ -9,7 +9,7 @@
  *   demo/qbank.json  从本地题库过滤出 BC.* 键的闯关题（AoPS 书籍键不进公开部署）
  * 实例回收 /tmp 即清空，访客数据一点不留——demo 要的就是这个。
  *
- * YY_DEMO=1 让 server.js 跳过书籍课程目录。没有 AI 引擎也没有 CosyVoice：
+ * YY_DEMO=1 让 server.js 跳过书籍课程目录。没有 AI 引擎也没有本地语音引擎：
  * 讲课/闯关全走仓库里的预生成包（data/lessons、data/unit-tests、题库种子），
  * 语音由前端自动退回浏览器 speechSynthesis，现场出题会收到「需要引擎」的提示。
  */

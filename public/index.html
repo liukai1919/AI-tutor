@@ -1602,7 +1602,7 @@ function renderExamples(){
   });
 }
 
-/* ---------- 浏览器语音（兜底；有 CosyVoice 时优先播服务器音频） ---------- */
+/* ---------- 浏览器语音（兜底；服务器配了语音引擎时优先播服务器音频） ---------- */
 const pickedVoice={zh:null,en:null};
 function pickVoices(){
   const vs=speechSynthesis.getVoices();
@@ -1649,7 +1649,7 @@ function speak(text,lang,onend,isRetry){
 // Chrome 桌面版长句会莫名停住的老毛病：说话期间隔几秒 resume 一下
 setInterval(()=>{ try{ if(("speechSynthesis" in window) && speechSynthesis.speaking) speechSynthesis.resume(); }catch(_){} }, 10000);
 
-/* ---------- 服务器语音（CosyVoice） ---------- */
+/* ---------- 服务器语音（Kokoro / CosyVoice 守护进程） ---------- */
 /* /api/tts 是幂等的「提交即查询」：轮询就是重复 POST 同一批文本 */
 let lessonTts={ enabled:false, texts:[], items:[] };
 let ttsPollTimer=null;
@@ -1678,7 +1678,7 @@ async function ttsSync(){
 function stopTtsPoll(){ if(ttsPollTimer){ clearInterval(ttsPollTimer); ttsPollTimer=null; } }
 function ttsItem(i){ return (lessonTts.enabled && lessonTts.items[i]) || null; }
 
-/* ---------- 播放：优先 CosyVoice 音频，没就绪等一小会儿，兜底浏览器语音 ---------- */
+/* ---------- 播放：优先服务器音频，没就绪等一小会儿，兜底浏览器语音 ---------- */
 let curAudio=null, playToken=0;
 function stopAllSound(){
   playToken++;
@@ -3138,7 +3138,7 @@ async function generateLesson(question, imageB64, mediaType){
 /* ---------- 播放器 ---------- */
 let lesson=null, lessonLang="zh", idx=0, playing=false, lessonCurriculumId=null;
 function startLesson(l, lang, curriculumId){
-  pause();               // 上一节的语音立刻停：CosyVoice 的 Audio 不主动 pause 会和新课叠着响
+  pause();               // 上一节的语音立刻停：服务器语音的 Audio 不主动 pause 会和新课叠着响
   lesson=l; lessonLang=lang||cfg.lang; idx=0; playing=false;
   lessonCurriculumId=curriculumId||null;
   setFocus(false);

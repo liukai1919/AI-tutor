@@ -247,9 +247,10 @@ function stageApp(dst) {
   copyInto(path.join(ROOT, "data", "unit-tests"), path.join(dst, "data"), { optional: true });
   copyInto(path.join(ROOT, "data", "voice"), path.join(dst, "data"), { optional: true });
 
-  // 想自己上 CosyVoice 的人用得到
+  // 想自己上本地语音引擎的人用得到（kokoro 是推荐，tts_* 两个是 CosyVoice 备选）
   const tools = path.join(dst, "tools");
   mkdirp(tools);
+  copyInto(path.join(ROOT, "tools", "kokoro_tts_server.py"), tools, { optional: true });
   copyInto(path.join(ROOT, "tools", "tts_server.py"), tools, { optional: true });
   copyInto(path.join(ROOT, "tools", "tts_batch.py"), tools, { optional: true });
 

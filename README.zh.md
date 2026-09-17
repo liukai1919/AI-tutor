@@ -30,7 +30,7 @@
 - BC 省 G4-G9 数学大纲 + 高中主干（**FMP 10 → Pre-calculus 11 → Pre-calculus 12**）的**全部课程**，中英各一份，点开秒出，断网也能上
 - 每节课配套的**闯关题库**
 - 每条主线 / 每个单元的**单元测试卷**（中英各一份）
-- **真人感语音**，中英文都有（CosyVoice 预先合成好的，不是浏览器那个机械音）
+- **真人感语音**，中英文都有（Kokoro-82M 预先合成好的，不是浏览器那个机械音）
 
 **什么还需要装 AI 引擎**（下一节讲怎么装，Ollama 免费离线）：
 
@@ -132,22 +132,49 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
 AI 只负责基于这些数字写叙事。生成一份约 1-2 分钟（走一次 AI），自动存档在
 `data/kids/<孩子id>/reports.json`（每孩子留最近 50 份），随时回看、对比、打印，不用重新生成。
 
-## 自然语音（可选，CosyVoice 2）
+## 自然语音（可选，Kokoro-82M）
 
-默认用孩子设备浏览器自带的语音朗读（免费、零配置，但比较生硬）。如果服务器这台机器装了
-[CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)（本地模型，Apache-2.0，2-4GB 显存，CPU 也能跑），
-配置后讲解会换成自然的真人感声音，中英文同一个音色。
+默认用孩子设备浏览器自带的语音朗读（免费、零配置，但比较生硬）。服务器这台机器配好本地语音
+引擎之后，讲解会换成自然的真人感声音。
 
-**推荐跑法：常驻守护进程**（模型只加载一次，之后每步 2-9 秒出声）。
-用 CosyVoice 自己的 Python 环境启动 `tools/tts_server.py`：
+推荐 [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)（Apache-2.0，8200 万参数，**不用显卡**，
+CPU 上约 5 倍实时）。它用的是**公开的预置音色**：
+
+- 英文 `af_heart`（美式女声）
+- 中文 `zf_xiaoxiao`
+
+**我们不克隆任何真人的声音**，也不需要给引擎喂参考录音。
+
+代价是中英文注定不是同一个声音——Kokoro 没有同音色跨语言合成的能力，中文课和英文课各用各的音色。
+
+### 装
+
+和别的 Python 环境分开，单开一个 venv：
 
 ```bash
-# 在装了 CosyVoice 的环境里（Windows 上通常是 WSL）：
-python tools/tts_server.py --port 9880
-# 模型不在 ~/tts/CosyVoice 时：--repo /path/CosyVoice [--model-dir ...]
+python3 -m venv .venv-kokoro
+.venv-kokoro/bin/python -m pip install kokoro==0.9.4 "misaki[en,zh]==0.9.4" soundfile
+.venv-kokoro/bin/python -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+
+# 模型快照下一次就够（唯一联网的一步，约 350MB；版本钉死，不要改）
+.venv-kokoro/bin/python -c "from huggingface_hub import snapshot_download as d; d('hexgrad/Kokoro-82M', revision='f3ff3571791e39611d31c381e3a41a3af07b4987')"
 ```
 
-守护进程默认只监听 `127.0.0.1`——`/synth` 没有鉴权，谁连得上谁就能排队占你的显卡。
+英文要 espeak-ng 做音素转换。Linux / WSL 上 `espeakng_loader` 自带的库通常直接能用，不行就
+`sudo apt install espeak-ng`。macOS 上 `brew install espeak-ng`——守护进程会自动指向 Homebrew 的路径，
+装在别处就用 `RA_ESPEAK_LIBRARY` / `RA_ESPEAK_DATA` 两个环境变量覆盖。
+
+### 跑
+
+**推荐跑法：常驻守护进程**（模型只加载一次，之后每步一两秒出声）。
+
+```bash
+.venv-kokoro/bin/python tools/kokoro_tts_server.py --port 9880
+# 换音色：--voice-en af_heart --voice-zh zf_xiaoxiao（要和下面 config 里的 voice 一致）
+# 快照不在默认的 HF 缓存里：--model-dir <快照目录>
+```
+
+守护进程默认只监听 `127.0.0.1`——`/synth` 没有鉴权，谁连得上谁就能排队占你的 CPU。
 在 WSL 里跑也不影响 Windows 上的 node 访问（WSL 的端口转发直接打到 VM 的 loopback，实测可用）。
 只有守护进程和 node 不在同一台机器上时才需要 `--host 0.0.0.0`，那种情况请自己配防火墙。
 
@@ -157,27 +184,36 @@ python tools/tts_server.py --port 9880
 "tts": {
   "enabled": true,
   "url": "http://localhost:9880",   // 守护进程地址（WSL 里跑也是 localhost，自动转发）
-  "mode": "zero_shot",              // 跟参考音最像（默认）。instruct 可用指令控语气，但部分
-                                    // CosyVoice 版本会把指令念出来，确认没问题再换
-
-  "speed": 1.0,
-  "refAudio": "",                   // 换音色：一段 3 秒以上干净人声的路径（引擎侧视角）
-  "refText": "",                    // zero_shot 模式需要参考音的逐字转写
-  "refLang": "zh"
+  "voice": {                        // ⚠️ 这三个值进语音文件名的哈希，定了就别再动
+    "engine": "kokoro-82M@f3ff357", // 换引擎 / 换模型版本要改这里，否则旧音频会继续被命中
+    "en": "af_heart",
+    "zh": "zf_xiaoxiao"
+  },
+  "speed": 1.0                      // 同样进哈希
 }
 ```
+
+**这几个值和守护进程的启动参数必须对上**。`tools/prevoice.mjs` 开烘前会读 `/health` 核对，
+对不上直接报错退出——不然烘出来的音频是 A 声音、文件名却按 B 声音算，用户那边一条都命不中。
 
 Windows + WSL 建议把守护进程装成 systemd 服务（`systemctl enable --now yuanyuan-tts`，
 unit 参考 README 同目录的 videogen 写法），跟着 WSL 一起自愈；
 **不要**让 Node 每次去 spawn `wsl.exe`——这台机器实测 wslservice 会周期性 wedge（E_UNEXPECTED），
 而已在跑的守护进程和 localhost 转发不受影响。
 
-不想常驻的话还有**命令模式**：`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`，
-每节课起一次进程批量合成（每次多付 ~12 秒模型加载）。url 和 command 都不配就是纯浏览器语音。
-
 工作方式：出完题服务器就开始按步合成，按内容哈希缓存在 `tts-cache/`（上限 500MB 自动清理，
 同一道题再讲直接秒播）。某一步没就绪时前端最多等 15 秒，等不到自动退回浏览器语音，
-**任何一环失败都不影响讲课**。英文讲解用同一音色跨语言合成（cross-lingual），不用单独配。
+**任何一环失败都不影响讲课**。
+
+### 备选：CosyVoice 2
+
+[CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)（2-4GB 显存）也还能用，接口一样，
+把 `url` 指向 `tools/tts_server.py --port 9880` 即可；另有命令模式
+`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`（每节课起一次进程）。
+它的好处是中英文可以同一个音色（cross-lingual）；坏处是要显卡，而且 zero_shot 本质上是在
+**模仿一段参考录音**（`refAudio` 留空时用的是 CosyVoice 仓库自带的那段真人录音）。
+我们因此在 2026-09-16 换成了 Kokoro。真要切回去，记得把 `tts.voice.engine` 改成别的值，
+否则会命中 Kokoro 烘出来的语音包。
 
 ## 部署到树莓派（孩子不在家也能用）
 
@@ -342,7 +378,7 @@ Ollama 白嫖，拍照问题留给最稳的 Claude。
 # 补闯关题库：约 92 分钟，需要一个 AI 引擎
 node tools/pregen.mjs --only quiz --concurrency 3
 
-# 补语音包：约 3.5 小时，需要 CosyVoice 守护进程 + ffmpeg
+# 补语音包：约 3.5 小时，需要 Kokoro 守护进程 + ffmpeg
 node tools/prevoice.mjs --langs zh,en
 ```
 
@@ -365,7 +401,7 @@ node tools/pregen.mjs --concurrency 3
 node tools/pregen.mjs --provider ollama --judge claude
 
 # 2. 预烘语音（中英各约 540 条，共三四个小时，约 160 MB）
-#    需要 CosyVoice 守护进程跑着 + ffmpeg。
+#    需要 Kokoro 守护进程跑着 + ffmpeg。
 #    只烘中文的话加 --langs zh，但注意界面默认是英文，
 #    新用户开箱听到的就是英文课——不烘英文他们只能听浏览器的机械音。
 node tools/prevoice.mjs --langs zh,en
@@ -397,7 +433,7 @@ node tools/pack.mjs --version 1.0.0
 
 - 中英文：**默认英文界面**（主要面向在英文学校上学的孩子），右上角「EN / 中」一键切换，
   界面、例题、讲解语言、语音全套跟着换；设置里也能改。设备上保存过的语言选择优先于默认值。
-- 语音朗读：配置了 CosyVoice 就用自然音色（见上），否则用孩子设备浏览器自带的语音（免费、不走服务器；
+- 语音朗读：配置了本地语音引擎就用自然音色（见上），否则用孩子设备浏览器自带的语音（免费、不走服务器；
   Edge 浏览器的"Natural"在线音色效果最好，会自动优先选用）。为此 Windows 装机版（v1.1.1 起）
   启动时会优先用 Edge 应用窗口打开：联网时「自己出题」的即时讲解也是自然人声，
   没装 Edge 才退回默认浏览器。
