@@ -26,7 +26,6 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -101,8 +100,7 @@ for (const lang of LANGS) {
 /* ---- 5. 语音：文件 + 索引（按随包默认配置算哈希，和 prevoice 一致）---- */
 const example = JSON.parse(fs.readFileSync(path.join(ROOT, "config.example.json"), "utf8"));
 const tts = Object.assign({}, S.DEFAULT_CONFIG.tts, example.tts || {});
-const voiceId = (text, lang) => crypto.createHash("sha1").update(JSON.stringify(
-  [tts.mode, tts.refAudio, tts.refText, (tts.instruct || {})[lang] || "", tts.speed, lang, text])).digest("hex");
+const voiceId = (text, lang) => S.ttsIdWith(tts, text, lang);   // 哈希只此一份，见 server.js
 const haveVoice = new Set();
 try { for (const f of fs.readdirSync(S.VOICE_PACK_DIR)) if (f.endsWith(".m4a")) haveVoice.add(f.replace(/\.m4a$/, "")); } catch (_) {}
 const voiceIndex = {};
@@ -125,8 +123,8 @@ if (!NO_VOICE) {
   bump("voice.files", used.size);
 }
 writeJson(path.join(OUT, "voice", "index.json"), {
-  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,2000)])).",
-  params: { mode: tts.mode, refAudio: tts.refAudio, refText: tts.refText, instruct: tts.instruct, speed: tts.speed },
+  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,2000), voice.engine, voice[lang]]))，唯一实现见 server.js 的 ttsIdWith。",
+  params: { mode: tts.mode, refAudio: tts.refAudio, refText: tts.refText, instruct: tts.instruct, speed: tts.speed, voice: tts.voice || {} },
   format: "m4a (AAC 48k mono)",
   index: voiceIndex
 });

@@ -56,3 +56,7 @@ data/voice/
 !demo/qbank.json
 # tools/audit_qbank.mjs 的审稿记录（含剔掉的原题）：用户数据，随 qbank.json 一起留在本机
 audit-report.jsonl
+
+# Kokoro 语音引擎的 Python 环境（venv，几 GB；模型快照在 HF 缓存里，也不入库）
+.venv-kokoro/
+tools/__pycache__/

@@ -101,14 +101,19 @@ const DEFAULT_CONFIG = {
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
   tts: {
-    // 自然语音（CosyVoice 2 等本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
-    // 推荐 url：tools/tts_server.py 常驻守护进程（模型不用反复加载，单步 2-9 秒），
-    //   例 "http://localhost:9880"（守护进程跑在 WSL/本机都行，见 README）。
+    // 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
+    // 推荐 url：tools/kokoro_tts_server.py 常驻守护进程（Kokoro-82M，CPU 就能跑，
+    //   用的是公开预置音色、不克隆任何真人的声音），例 "http://localhost:9880"。
+    // 备选 url：tools/tts_server.py（CosyVoice 2，要显卡 + 一段参考音）。
     // command 备选：每节课起一次 tools/tts_batch.py，{manifest} 会被替换成任务清单路径，
     //   例（Linux 同机）：["/home/you/miniconda3/envs/cosyvoice/bin/python","/path/ai-tutor/tools/tts_batch.py","{manifest}"]
     enabled: true,
     url: "",
     command: [],
+    /* 引擎和音色：**进语音文件名的哈希**（见 ttsIdWith）。改这里 = 已有的 tts-cache 和
+     * data/voice 语音包全部作废，必须重烘，所以定案之后就别再动。
+     * Kokoro 没有跨语言同音色的能力，中英文注定是两个不同的声音。 */
+    voice: { engine: "kokoro-82M@f3ff357", en: "af_heart", zh: "zf_xiaoxiao" },
     // zero_shot：跟参考音最像（默认）。instruct 理论上可控语气，但部分 CosyVoice
     // 版本会把指令当正文念出来（2026-08-12 实测中招），确认你那版没问题再换。
     mode: "zero_shot",
@@ -1630,12 +1635,19 @@ function toWslPath(p) {
   const m = /^([A-Za-z]):[\\/](.*)$/.exec(p);
   return m ? "/mnt/" + m[1].toLowerCase() + "/" + m[2].replace(/\\/g, "/") : p.replace(/\\/g, "/");
 }
-function ttsId(text, lang) {
-  const t = cfg.tts;
+/* 语音文件名的唯一来源。三个地方要算出同一个 sha1——这里（现场合成）、
+ * tools/prevoice.mjs（烘包）、tools/export_apple.mjs（建索引）——以前是三段互相抄的
+ * 同款代码，改一处漏两处整包就一条都命不中（README 里写过这个坑）。现在都调这一个。
+ * voice.engine / voice[lang] 是 2026-09-16 换 Kokoro 时加进来的：哈希里不带引擎和音色，
+ * 换了引擎旧的 CosyVoice 音频照样命中，孩子听到的还是旧声音，而且新旧混着播。 */
+function ttsIdWith(t, text, lang) {
+  const v = (t && t.voice) || {};
   return crypto.createHash("sha1").update(JSON.stringify(
-    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text]
+    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text,
+     v.engine || "", v[lang] || ""]
   )).digest("hex");
 }
+function ttsId(text, lang) { return ttsIdWith(cfg.tts, text, lang); }
 function ttsWavPath(id) { return path.join(TTS_CACHE, id + ".wav"); }
 /* 送去合成之前把「看着对、念着错」的写法换成读音：CosyVoice 把 "Ms. Yuanyuan" 按字母念成
  * "M S Yuanyuan"（2026-08-23 用户反馈）。只改送给引擎的文本，**不改哈希**（ttsId 仍按原文算），
@@ -1730,6 +1742,8 @@ async function ttsRunJobDaemon(items, pend) {
           text: ttsSpeakable(it.text, it.lang), lang: it.lang,
           mode: cfg.tts.mode || "instruct",
           speed: cfg.tts.speed || 1.0,
+          voice: (cfg.tts.voice || {})[it.lang] || "",   // Kokoro 守护进程以自己的启动参数为准，这里只是让日志能对上
+
           instruct: cfg.tts.instruct || {},
           refAudio: cfg.tts.refAudio || null, refText: cfg.tts.refText || null,
           refLang: cfg.tts.refLang || "zh"
@@ -3863,7 +3877,7 @@ module.exports = {
   curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews, isCourseData, findCurriculumItem, extractJson,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
-  ttsId, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
+  ttsId, ttsIdWith, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
 };

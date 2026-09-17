@@ -44,7 +44,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
-import crypto from "node:crypto";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 
@@ -107,14 +106,12 @@ const shippedTts = (() => {
   try { example = JSON.parse(fs.readFileSync(path.join(S.ROOT, "config.example.json"), "utf8")).tts || {}; } catch (_) {}
   const t = S.deepMerge(S.DEFAULT_CONFIG.tts, example);
   // url / command / cacheDir 之类不参与哈希，清掉免得看花眼
-  return { mode: t.mode, speed: t.speed, refAudio: t.refAudio, refText: t.refText, refLang: t.refLang, instruct: t.instruct };
+  return { mode: t.mode, speed: t.speed, refAudio: t.refAudio, refText: t.refText, refLang: t.refLang,
+           instruct: t.instruct, voice: t.voice || {} };
 })();
-function voiceId(text, lang) {
-  const t = shippedTts;
-  return crypto.createHash("sha1").update(JSON.stringify(
-    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text]
-  )).digest("hex");
-}
+// 哈希只此一份：调 server.js 导出的 ttsIdWith。以前这里自己抄了一遍同款代码，
+// 改一处漏一处就整包命不中（2026-09-16 换 Kokoro 时加 voice 字段，正是这种改动）。
+const voiceId = (text, lang) => S.ttsIdWith(shippedTts, text, lang);
 
 /* ---------------- 工作清单：课程包里每一步的 say ---------------- */
 function collect(langs = LANGS) {
@@ -157,6 +154,7 @@ async function synth(item) {
     body: JSON.stringify({
       text: S.ttsSpeakable(item.text, item.lang), lang: item.lang,   // 读音归一（Ms. → Miss），哈希仍按原文
       mode: shippedTts.mode, speed: shippedTts.speed,
+      voice: (shippedTts.voice || {})[item.lang] || "",
       refAudio: shippedTts.refAudio || null, refText: shippedTts.refText || null,
       refLang: shippedTts.refLang || "zh",
       instruct: (shippedTts.instruct || {})[item.lang] || ""
@@ -293,7 +291,9 @@ async function main() {
   const mine = all.filter(needs).filter((_, idx) => !SHARD || idx % SHARD.n === SHARD.i - 1);
   const todo = LIMIT ? mine.slice(0, LIMIT) : mine;
 
-  console.log("语音参数: mode=" + shippedTts.mode + " speed=" + shippedTts.speed
+  console.log("语音参数: engine=" + ((shippedTts.voice || {}).engine || "（无）")
+    + " 音色=" + LANGS.map(l => l + ":" + ((shippedTts.voice || {})[l] || "?")).join(" ")
+    + " speed=" + shippedTts.speed
     + (shippedTts.refAudio ? " refAudio=" + path.basename(shippedTts.refAudio) : " refAudio=（无）")
     + "   ← 按 config.example.json 算哈希，用户装完才对得上");
   const liveId = S.ttsId(all[0] ? all[0].text : "x", "zh");
@@ -317,13 +317,34 @@ async function main() {
   }
   if (!todo.length) { console.log("没有要烘的，已经齐了。"); pruneOrphans(); return; }
 
+  let health = null;
   try {
-    const h = await fetch(DAEMON + "/health", { signal: AbortSignal.timeout(8000) }).then(r => r.json());
-    if (!h.ok) throw new Error(h.error || (h.loading ? "模型还在加载" : "没准备好"));
+    health = await fetch(DAEMON + "/health", { signal: AbortSignal.timeout(8000) }).then(r => r.json());
+    if (!health.ok) throw new Error(health.error || (health.loading ? "模型还在加载" : "没准备好"));
   } catch (e) {
-    console.error("连不上 CosyVoice 守护进程（" + DAEMON + "）：" + e.message);
-    console.error("先把它跑起来：python tools/tts_server.py --port 9880（通常在 WSL 里，见 README）");
+    console.error("连不上语音守护进程（" + DAEMON + "）：" + e.message);
+    console.error("先把它跑起来：python tools/kokoro_tts_server.py --port 9880（见 README）");
     process.exit(1);
+  }
+  /* 守护进程以自己的启动参数为准，哈希以随包配置为准——两边对不上，烘出来的文件
+   * 内容是 A 声音、文件名却按 B 声音算，用户那边一条都命不中。宁可现在就停。
+   * 老的 CosyVoice 守护进程不返回 engine/voice，那时跳过这一关（只警告）。 */
+  const want = shippedTts.voice || {};
+  if (health.engine || health.voice) {
+    const bad = [];
+    if (want.engine && health.engine && want.engine !== health.engine) bad.push("引擎 配置=" + want.engine + " 守护进程=" + health.engine);
+    for (const lang of LANGS) {
+      const w = want[lang] || "", h = (health.voice || {})[lang] || "";
+      if (w && h && w !== h) bad.push(lang + " 音色 配置=" + w + " 守护进程=" + h);
+    }
+    if (bad.length) {
+      console.error("守护进程的引擎/音色和随包配置对不上，烘了也命不中：");
+      for (const b of bad) console.error("  " + b);
+      console.error("要么改 config.example.json 的 tts.voice，要么用对应参数重启守护进程。");
+      process.exit(1);
+    }
+  } else if (want.engine) {
+    console.log("注意:     守护进程没报 engine/voice（老版 CosyVoice 的 tts_server.py），跳过音色核对");
   }
   if (!KEEP_WAV) {
     try { await run(FFMPEG, ["-hide_banner", "-version"]); }
