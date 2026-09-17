@@ -101,19 +101,18 @@ const DEFAULT_CONFIG = {
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
   tts: {
-    // 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
-    // 推荐 url：tools/kokoro_tts_server.py 常驻守护进程（Kokoro-82M，CPU 就能跑，
-    //   用的是公开预置音色、不克隆任何真人的声音），例 "http://localhost:9880"。
-    // 备选 url：tools/tts_server.py（CosyVoice 2，要显卡 + 一段参考音）。
-    // command 备选：每节课起一次 tools/tts_batch.py，{manifest} 会被替换成任务清单路径，
-    //   例（Linux 同机）：["/home/you/miniconda3/envs/cosyvoice/bin/python","/path/ai-tutor/tools/tts_batch.py","{manifest}"]
+    /* 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
+     * url 可以是一个地址（所有语言都发它），也可以按语言分开配 —— 现在的分工就是后者：
+     *   { "zh": "http://localhost:9880",    // tools/tts_server.py（CosyVoice 2，要显卡 + 参考音）
+     *     "en": "http://localhost:9881" }   // tools/kokoro_tts_server.py（Kokoro-82M 预置音色 af_heart）
+     * command 备选：每节课起一次 tools/tts_batch.py，{manifest} 会被替换成任务清单路径，
+     *   例（Linux 同机）：["/home/you/miniconda3/envs/cosyvoice/bin/python","/path/ai-tutor/tools/tts_batch.py","{manifest}"] */
     enabled: true,
     url: "",
     command: [],
-    /* 引擎和音色：**进语音文件名的哈希**（见 ttsIdWith）。改这里 = 已有的 tts-cache 和
-     * data/voice 语音包全部作废，必须重烘，所以定案之后就别再动。
-     * Kokoro 没有跨语言同音色的能力，中英文注定是两个不同的声音。 */
-    voice: { engine: "kokoro-82M@f3ff357", en: "af_heart", zh: "zf_xiaoxiao" },
+    /* 只是说明当前各语言用什么引擎/音色，**不进哈希**（进了的话已经烘好的全作废）。
+     * 想知道守护进程实际在用什么，问它的 /health。 */
+    voice: { zh: "cosyvoice2 (zero_shot)", en: "kokoro-82M af_heart" },
     // zero_shot：跟参考音最像（默认）。instruct 理论上可控语气，但部分 CosyVoice
     // 版本会把指令当正文念出来（2026-08-12 实测中招），确认你那版没问题再换。
     mode: "zero_shot",
@@ -1616,11 +1615,20 @@ const ttsInFlight = new Set();     // 已排队/正在合成的 id
 const ttsFailed = new Map();       // id -> 失败时间（TTL 内不重试，前端走兜底）
 let ttsChain = Promise.resolve();  // 单队列：同一时刻只跑一个合成进程，防止模型重复加载挤显存
 
-/* 能不能「现场合成」：CosyVoice 守护进程或命令。随包发的语音包是成品，不算引擎。 */
+/* 这个语言该发给哪个守护进程。tts.url 可以是一个字符串（所有语言都发它），
+ * 也可以是 { zh: "…", en: "…" } —— 2026-09-16 起中文在 CosyVoice、英文在 Kokoro，
+ * 两台不同的进程，所以要分开。没配的语言返回 ""，那一条就留给前端退回浏览器语音。 */
+function ttsDaemonUrl(lang) {
+  const u = cfg.tts && cfg.tts.url;
+  const raw = typeof u === "string" ? u : (u && typeof u === "object" ? (u[lang] || "") : "");
+  return String(raw || "").replace(/\/+$/, "");
+}
+
+/* 能不能「现场合成」：守护进程或命令。随包发的语音包是成品，不算引擎。 */
 function ttsEngineAvailable() {
   const t = cfg.tts;
   if (!t || t.enabled === false) return false;
-  if (t.url) return true;   // 守护进程模式；真实可达性在合成时体现，失败会走兜底
+  if (ttsDaemonUrl("zh") || ttsDaemonUrl("en")) return true;   // 守护进程模式；真实可达性在合成时体现，失败会走兜底
   if (!Array.isArray(t.command) || t.command.length < 2) return false;
   const bin = t.command[0];
   return path.isAbsolute(bin) ? fs.existsSync(bin) : !!which(bin);
@@ -1638,13 +1646,15 @@ function toWslPath(p) {
 /* 语音文件名的唯一来源。三个地方要算出同一个 sha1——这里（现场合成）、
  * tools/prevoice.mjs（烘包）、tools/export_apple.mjs（建索引）——以前是三段互相抄的
  * 同款代码，改一处漏两处整包就一条都命不中（README 里写过这个坑）。现在都调这一个。
- * voice.engine / voice[lang] 是 2026-09-16 换 Kokoro 时加进来的：哈希里不带引擎和音色，
- * 换了引擎旧的 CosyVoice 音频照样命中，孩子听到的还是旧声音，而且新旧混着播。 */
+ *
+ * **这七项是历史包袱，不要再往里加东西。** 2026-09-16 换英文引擎时曾经加过
+ * engine / voice，结果是已经烘好的 5986 条全部作废；既然定了「已生成的不重烘」，
+ * 就必须原样保留。代价是同一句英文只要以前用 CosyVoice 生成过，就还会播旧声音，
+ * 英文课里新旧两种声音混着播 —— 这是明知的取舍。
+ * 英文语速也因此不能动 config 的 speed（它在哈希里），改 Kokoro 守护进程的 --speed。 */
 function ttsIdWith(t, text, lang) {
-  const v = (t && t.voice) || {};
   return crypto.createHash("sha1").update(JSON.stringify(
-    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text,
-     v.engine || "", v[lang] || ""]
+    [t.mode, t.refAudio, t.refText, (t.instruct || {})[lang] || "", t.speed, lang, text]
   )).digest("hex");
 }
 function ttsId(text, lang) { return ttsIdWith(cfg.tts, text, lang); }
@@ -1691,7 +1701,7 @@ async function ttsRunJob(items) {
   const pend = items.filter(it => !fs.existsSync(ttsWavPath(it.id)));
   if (!pend.length) { for (const it of items) ttsInFlight.delete(it.id); return; }
   fs.mkdirSync(TTS_CACHE, { recursive: true });
-  if (cfg.tts.url) return ttsRunJobDaemon(items, pend);
+  if (ttsDaemonUrl("zh") || ttsDaemonUrl("en")) return ttsRunJobDaemon(items, pend);
   const wsl = ttsUsesWsl();
   const manifest = {
     repo: cfg.tts.repo || null, modelDir: cfg.tts.modelDir || null,
@@ -1728,12 +1738,15 @@ async function ttsRunJob(items) {
 /* 守护进程模式：逐条 POST /synth，模型常驻所以每条只要几秒；
  * 连挂两条视为守护进程不在，剩下的直接判失败让前端走兜底 */
 async function ttsRunJobDaemon(items, pend) {
-  const base = cfg.tts.url.replace(/\/$/, "");
   const t0 = Date.now();
   console.log(`[tts] daemon synthesizing ${pend.length} clip(s)...`);
-  let consecFail = 0;
+  /* 失败计数按语言分开：中英是两台不同的守护进程，中文那台挂了不该把英文也停掉
+   * （2026-09-16 起 zh=CosyVoice、en=Kokoro）。 */
+  const consecFail = { zh: 0, en: 0 };
   for (const it of pend) {
-    if (consecFail >= 2) break;
+    const base = ttsDaemonUrl(it.lang);
+    if (!base) continue;                       // 这个语言没配地址：留给前端退回浏览器语音
+    if ((consecFail[it.lang] || 0) >= 2) continue;
     try {
       const r = await fetch(base + "/synth", {
         method: "POST",
@@ -1755,10 +1768,10 @@ async function ttsRunJobDaemon(items, pend) {
       const tmp = ttsWavPath(it.id) + ".tmp";
       fs.writeFileSync(tmp, buf);
       fs.renameSync(tmp, ttsWavPath(it.id));
-      consecFail = 0;
+      consecFail[it.lang] = 0;
     } catch (e) {
-      consecFail++;
-      console.log(`[tts] ${it.id.slice(0, 8)} failed: ${e.message}`);
+      consecFail[it.lang] = (consecFail[it.lang] || 0) + 1;
+      console.log(`[tts] ${it.id.slice(0, 8)} (${it.lang}) failed: ${e.message}`);
     }
   }
   let ok = 0;
@@ -3824,7 +3837,10 @@ if (require.main === module) detectProviders().then(() => {
       : "none detected - lessons still work from the bundled pack; see the README to add one"));
     console.log("  Default:      " + (pickProvider() ? (PROVIDER_META[pickProvider()].labelEn || pickProvider()) : "none"));
     const voiceBits = [];
-    if (ttsEngineAvailable()) voiceBits.push("live synthesis via " + (cfg.tts.url ? "daemon " + cfg.tts.url : "command mode") + " (" + (cfg.tts.mode || "instruct") + ")");
+    if (ttsEngineAvailable()) {
+      const daemons = ["zh", "en"].map(l => l + "=" + (ttsDaemonUrl(l) || "-")).join(" ");
+      voiceBits.push("live synthesis via " + (ttsDaemonUrl("zh") || ttsDaemonUrl("en") ? "daemon " + daemons : "command mode"));
+    }
     if (voicePack.size) voiceBits.push(voicePack.size + " pre-baked clips (data/voice/, read-only)");
     console.log("  Voice:        " + (voiceBits.length
       ? voiceBits.join(" + ")
@@ -3877,7 +3893,7 @@ module.exports = {
   curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews, isCourseData, findCurriculumItem, extractJson,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
-  ttsId, ttsIdWith, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
+  ttsId, ttsIdWith, ttsDaemonUrl, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
 };

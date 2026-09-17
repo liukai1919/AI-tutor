@@ -123,8 +123,8 @@ if (!NO_VOICE) {
   bump("voice.files", used.size);
 }
 writeJson(path.join(OUT, "voice", "index.json"), {
-  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,2000), voice.engine, voice[lang]]))，唯一实现见 server.js 的 ttsIdWith。",
-  params: { mode: tts.mode, refAudio: tts.refAudio, refText: tts.refText, instruct: tts.instruct, speed: tts.speed, voice: tts.voice || {} },
+  note: "index[lang][lessonId][stepIndex] = 文件名或 null（该步没有预烘语音，退回设备 TTS）。文件名 = sha1(JSON.stringify([mode, refAudio, refText, instruct[lang], speed, lang, say.trim().slice(0,2000)]))，唯一实现见 server.js 的 ttsIdWith。",
+  params: { mode: tts.mode, refAudio: tts.refAudio, refText: tts.refText, instruct: tts.instruct, speed: tts.speed },
   format: "m4a (AAC 48k mono)",
   index: voiceIndex
 });

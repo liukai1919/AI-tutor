@@ -50,7 +50,7 @@ launch takes over the old data automatically.
   Pre-calculus 10 → Pre-calculus 11 → Pre-calculus 12**), in both Chinese and English — instant, works offline
 - The matching **quiz bank** for each topic
 - A **unit test** for every strand / unit (in both languages)
-- **Natural-sounding voice** in both languages, pre-synthesized with Kokoro-82M — not the robotic browser voice
+- **Natural-sounding voice** in both languages, pre-synthesized — not the robotic browser voice
 
 **What still needs an AI engine** (next section; Ollama is free and offline):
 
@@ -162,29 +162,47 @@ narrative around them. Generating one takes about 1–2 minutes (one AI call) an
 in `data/kids/<kid-id>/reports.json` (the latest 50 per kid) — reopen, compare, or print any time without
 regenerating.
 
-## Natural voice (optional, Kokoro-82M)
+## Natural voice (optional)
 
 By default it uses the child's device's built-in browser text-to-speech (free, zero setup, but a bit robotic).
 Set up a local voice engine on the server machine and lessons switch to a natural, human-sounding voice.
 
-The recommended engine is [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0, 82M parameters,
-**no GPU needed**, about 5x realtime on CPU). It uses **public preset voices**:
+**The two languages use two different engines** (since 2026-09-16):
 
-- English: `af_heart` (American female)
-- Chinese: `zf_xiaoxiao`
+| | Engine | Where the voice comes from |
+| --- | --- | --- |
+| Chinese | [CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice), `tools/tts_server.py` | zero_shot imitation of a reference recording |
+| English | [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), `tools/kokoro_tts_server.py` | public preset voice `af_heart`, no reference audio |
 
-**We do not clone anyone's real voice**, and the engine needs no reference recording.
+So the two languages don't share a voice. Also, **audio that was already generated is never regenerated**,
+and English only switched engines on 2026-09-16 — so **English lessons mix two voices** (the older clips are
+CosyVoice). That's a deliberate trade-off: regenerating would mean redoing nearly 6,000 clips.
 
-The trade-off: Chinese and English are necessarily two different voices — Kokoro has no cross-lingual
-same-voice synthesis, so each language uses its own preset.
+### Chinese: CosyVoice 2
 
-### Install
+Needs 2–4GB of VRAM (CPU works too, but slowly). Start it inside CosyVoice's own Python environment:
 
-Use a dedicated venv, separate from any other Python environment:
+```bash
+# In an environment with CosyVoice installed (usually WSL on Windows):
+python tools/tts_server.py --port 9880
+# If the model isn't at ~/tts/CosyVoice: --repo /path/CosyVoice [--model-dir ...]
+```
+
+If you don't want a persistent daemon, there's also **command mode**:
+`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`, which spins up a process
+per lesson to synthesize in batch (costs an extra ~12 seconds of model loading each time).
+
+### English: Kokoro-82M
+
+Apache-2.0, 82M parameters, **no GPU needed** (about 5–6x realtime on CPU; swap in a CUDA build of torch
+inside the venv and add `--device cuda` to use the GPU). It uses the public preset voice `af_heart` —
+**we don't clone anyone's real voice**.
+
+Use a dedicated venv, separate from any other Python environment (English only needs `misaki[en]`):
 
 ```bash
 python3 -m venv .venv-kokoro
-.venv-kokoro/bin/python -m pip install kokoro==0.9.4 "misaki[en,zh]==0.9.4" soundfile
+.venv-kokoro/bin/python -m pip install kokoro==0.9.4 "misaki[en]==0.9.4"
 .venv-kokoro/bin/python -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 
 # Download the model snapshot once (the only step that needs the network, ~350MB; the revision is pinned — don't change it)
@@ -196,61 +214,54 @@ works as-is; otherwise `sudo apt install espeak-ng`. On macOS, `brew install esp
 at the Homebrew paths automatically, and `RA_ESPEAK_LIBRARY` / `RA_ESPEAK_DATA` override them if yours lives
 somewhere else.
 
-### Run
-
-**Recommended setup: a persistent daemon** (the model loads once, then each step takes a second or two).
-
 ```bash
-.venv-kokoro/bin/python tools/kokoro_tts_server.py --port 9880
-# Different voices: --voice-en af_heart --voice-zh zf_xiaoxiao (must match the `voice` block in config below)
+.venv-kokoro/bin/python tools/kokoro_tts_server.py --port 9881
+# English pace: --speed 0.9 (see below). GPU: --device cuda
 # Snapshot outside the default HF cache: --model-dir <snapshot dir>
 ```
 
-The daemon listens on `127.0.0.1` only — `/synth` has no auth, so anyone who can reach it can queue
-work onto your CPU. Running it inside WSL still works for the Node server on Windows (WSL's port
-forwarding reaches the VM's loopback directly; verified). You only need `--host 0.0.0.0` when the
-daemon and the Node server live on different machines — add your own firewall rules if so.
+It only does English: a Chinese request gets a 400 back, rather than an English voice mangling Chinese.
 
-Then point config.json at it:
+### Configuration
 
 ```jsonc
 "tts": {
   "enabled": true,
-  "url": "http://localhost:9880",   // daemon address (works even from WSL — localhost is auto-forwarded)
-  "voice": {                        // ⚠️ these three go into the voice-file hash — once settled, leave them alone
-    "engine": "kokoro-82M@f3ff357", // change this when you change engine or model revision, or old audio keeps matching
-    "en": "af_heart",
-    "zh": "zf_xiaoxiao"
+  "url": {                          // can also be a plain string — then every language goes to one address
+    "zh": "http://localhost:9880",  // CosyVoice 2
+    "en": "http://localhost:9881"   // Kokoro
   },
-  "speed": 1.0                      // also part of the hash
+  "voice": {                        // documentation only, not part of the hash
+    "zh": "cosyvoice2 (zero_shot)",
+    "en": "kokoro-82M af_heart"
+  },
+  "mode": "zero_shot",              // these DO go into the voice-file hash: change one and all
+  "speed": 1.0,                     // ~6,000 already-generated clips stop matching and must be redone
+  "refAudio": "", "refText": "", "refLang": "zh"
 }
 ```
 
-**These must match the daemon's own startup flags.** `tools/prevoice.mjs` checks `/health` before baking and
-exits with an error on any mismatch — otherwise the audio is voice A while the filename is hashed for voice B,
-and not a single clip will match on the user's machine.
+⚠️ **Don't touch `speed`.** It's in the hash, and both languages share the one value. Set the English pace
+with the Kokoro daemon's `--speed` instead (effective speed = request `speed` × `--speed`), which stays out
+of the hash — the trade-off being that already-generated English won't follow along when you change it.
 
-On Windows + WSL, it's best to run the daemon as a systemd service (`systemctl enable --now yuanyuan-tts`,
-see the videogen unit file in the same directory as this README for a template) so it recovers with WSL;
+A language with no address configured simply falls back to browser speech. Failures are counted per language:
+the Chinese daemon going down doesn't stop English.
+
+On Windows + WSL, it's best to run the daemons as systemd services (`systemctl enable --now yuanyuan-tts`,
+see the videogen unit file in the same directory as this README for a template) so they recover with WSL;
 **don't** have Node spawn `wsl.exe` on every request — on this kind of setup, wslservice has been observed
 to periodically wedge (E_UNEXPECTED), while an already-running daemon and localhost forwarding are unaffected.
+
+Both daemons listen on `127.0.0.1` only — `/synth` has no auth, so anyone who can reach it can queue work
+onto your machine. Running them inside WSL still works for the Node server on Windows (WSL's port forwarding
+reaches the VM's loopback directly; verified). You only need `--host 0.0.0.0` when a daemon and the Node
+server live on different machines — add your own firewall rules if so.
 
 How it works: as soon as a lesson is generated, the server starts synthesizing each step, cached by content
 hash in `tts-cache/` (capped at 500MB with automatic cleanup — replaying the same problem is instant). If a
 given step isn't ready yet, the frontend waits up to 15 seconds before falling back to browser speech —
 **a failure anywhere never blocks the lesson**.
-
-### Alternative: CosyVoice 2
-
-[CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice) (2–4GB VRAM) still works and speaks the same HTTP
-protocol: point `url` at `tools/tts_server.py --port 9880`. There's also **command mode**:
-`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`, which spins up a process
-per lesson (costs an extra ~12 seconds of model loading each time).
-
-Its upside is one voice across both languages (cross-lingual). Its downsides: it needs a GPU, and zero_shot
-mode works by **imitating a reference recording** (with `refAudio` empty it uses the real human recording
-shipped in the CosyVoice repo). That's why we moved to Kokoro on 2026-09-16. If you do switch back, set
-`tts.voice.engine` to something else, or you'll match the voice pack baked with Kokoro.
 
 ## Deploying to a Raspberry Pi (so kids can use it away from home)
 
@@ -458,7 +469,7 @@ as complete as the published one you have to regenerate two things yourself**:
 # Quiz bank: about 92 minutes, needs an AI engine
 node tools/pregen.mjs --only quiz --concurrency 3
 
-# Voice pack: about 3.5 hours, needs the Kokoro daemon + ffmpeg
+# Voice pack: about 3.5 hours, needs both voice daemons + ffmpeg
 node tools/prevoice.mjs --langs zh,en
 ```
 
@@ -484,7 +495,7 @@ node tools/pregen.mjs --concurrency 3
 node tools/pregen.mjs --provider ollama --judge claude
 
 # 2. Pre-bake the voice (~540 clips per language, three or four hours, ~160 MB)
-#    Needs the Kokoro daemon running plus ffmpeg.
+#    Needs both voice daemons running plus ffmpeg.
 #    You can pass --langs zh for Chinese only, but note the UI defaults to
 #    English, so new users land on English lessons — skip English here and
 #    they get the robotic browser voice out of the box.

@@ -62,7 +62,18 @@ const LIMIT = Number(opt("limit", 0)) || 0;
 const BITRATE = String(opt("bitrate", "48k"));
 const KEEP_WAV = flag("keep-wav");
 const DRY = flag("dry");
-const DAEMON = String(opt("url", (S.cfg.tts && S.cfg.tts.url) || "http://localhost:9880")).replace(/\/+$/, "");
+/* 守护进程按语言分：中文 CosyVoice（9880）、英文 Kokoro（9881）。
+ * --url 覆盖全部语言，--url-zh / --url-en 只覆盖一个（多开几路并行烘时用）。 */
+const clean = u => String(u || "").replace(/\/+$/, "");
+const DAEMONS = (() => {
+  const all = clean(opt("url", ""));
+  const out = {};
+  for (const lang of ["zh", "en"]) {
+    out[lang] = clean(opt("url-" + lang, "")) || all || S.ttsDaemonUrl(lang)
+      || (lang === "zh" ? "http://localhost:9880" : "http://localhost:9881");
+  }
+  return out;
+})();
 const GAP_S = Number(opt("gap", 0.32));         // 中文块间停顿
 const REDO = new Set(String(opt("redo", "")).split(",").map(s => s.trim()).filter(s => s === "zh" || s === "en"));
 const PRUNE = flag("prune");
@@ -148,13 +159,12 @@ function done(id) {
 
 /* ---------------- 合成 + 压缩 ---------------- */
 async function synth(item) {
-  const r = await fetch(DAEMON + "/synth", {
+  const r = await fetch(DAEMONS[item.lang] + "/synth", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       text: S.ttsSpeakable(item.text, item.lang), lang: item.lang,   // 读音归一（Ms. → Miss），哈希仍按原文
       mode: shippedTts.mode, speed: shippedTts.speed,
-      voice: (shippedTts.voice || {})[item.lang] || "",
       refAudio: shippedTts.refAudio || null, refText: shippedTts.refText || null,
       refLang: shippedTts.refLang || "zh",
       instruct: (shippedTts.instruct || {})[item.lang] || ""
@@ -291,9 +301,8 @@ async function main() {
   const mine = all.filter(needs).filter((_, idx) => !SHARD || idx % SHARD.n === SHARD.i - 1);
   const todo = LIMIT ? mine.slice(0, LIMIT) : mine;
 
-  console.log("语音参数: engine=" + ((shippedTts.voice || {}).engine || "（无）")
-    + " 音色=" + LANGS.map(l => l + ":" + ((shippedTts.voice || {})[l] || "?")).join(" ")
-    + " speed=" + shippedTts.speed
+  console.log("语音参数: mode=" + shippedTts.mode + " speed=" + shippedTts.speed
+    + "（这两项在哈希里，动一下已烘的全作废）"
     + (shippedTts.refAudio ? " refAudio=" + path.basename(shippedTts.refAudio) : " refAudio=（无）")
     + "   ← 按 config.example.json 算哈希，用户装完才对得上");
   const liveId = S.ttsId(all[0] ? all[0].text : "x", "zh");
@@ -302,7 +311,6 @@ async function main() {
     console.log("注意:     本机 config.json 的语音参数和随包发的不一样。");
     console.log("          烘出来的包用户能命中，但你本机现场合成的缓存跟它对不上（不影响正确性，只是各存一份）。");
   }
-  console.log("守护进程: " + DAEMON);
   console.log("管线:     zh=切段(≤90字/块, 停顿" + GAP_S + "s)  en=整段  统一响度 -16LUFS"
     + (REDO.size ? "   redo=" + [...REDO].join(",") : ""));
   console.log("课程包:   " + LANGS.join("+") + " 共 " + all.length + " 句不重复的旁白"
@@ -317,34 +325,31 @@ async function main() {
   }
   if (!todo.length) { console.log("没有要烘的，已经齐了。"); pruneOrphans(); return; }
 
-  let health = null;
-  try {
-    health = await fetch(DAEMON + "/health", { signal: AbortSignal.timeout(8000) }).then(r => r.json());
-    if (!health.ok) throw new Error(health.error || (health.loading ? "模型还在加载" : "没准备好"));
-  } catch (e) {
-    console.error("连不上语音守护进程（" + DAEMON + "）：" + e.message);
-    console.error("先把它跑起来：python tools/kokoro_tts_server.py --port 9880（见 README）");
-    process.exit(1);
-  }
-  /* 守护进程以自己的启动参数为准，哈希以随包配置为准——两边对不上，烘出来的文件
-   * 内容是 A 声音、文件名却按 B 声音算，用户那边一条都命不中。宁可现在就停。
-   * 老的 CosyVoice 守护进程不返回 engine/voice，那时跳过这一关（只警告）。 */
-  const want = shippedTts.voice || {};
-  if (health.engine || health.voice) {
-    const bad = [];
-    if (want.engine && health.engine && want.engine !== health.engine) bad.push("引擎 配置=" + want.engine + " 守护进程=" + health.engine);
-    for (const lang of LANGS) {
-      const w = want[lang] || "", h = (health.voice || {})[lang] || "";
-      if (w && h && w !== h) bad.push(lang + " 音色 配置=" + w + " 守护进程=" + h);
-    }
-    if (bad.length) {
-      console.error("守护进程的引擎/音色和随包配置对不上，烘了也命不中：");
-      for (const b of bad) console.error("  " + b);
-      console.error("要么改 config.example.json 的 tts.voice，要么用对应参数重启守护进程。");
+/* 每个要烘的语言都得先确认自己那台在跑，而且是对的那台：英文发给 CosyVoice
+   * 会得到中式口音的英文，中文发给 Kokoro 只会念出一堆怪音——两种都不报错，
+   * 但烘出来的东西是废的。所以英文那台必须自报 engine 是 kokoro。 */
+  const todoLangs = [...new Set(todo.map(i => i.lang))];
+  for (const lang of todoLangs) {
+    const url = DAEMONS[lang];
+    let health = null;
+    try {
+      health = await fetch(url + "/health", { signal: AbortSignal.timeout(8000) }).then(r => r.json());
+      if (!health.ok) throw new Error(health.error || (health.loading ? "模型还在加载" : "没准备好"));
+    } catch (e) {
+      console.error("连不上 " + lang + " 的语音守护进程（" + url + "）：" + e.message);
+      console.error(lang === "en"
+        ? "先把它跑起来：.venv-kokoro/bin/python tools/kokoro_tts_server.py --port 9881（见 README）"
+        : "先把它跑起来：python tools/tts_server.py --port 9880（CosyVoice，通常在 WSL 里）");
       process.exit(1);
     }
-  } else if (want.engine) {
-    console.log("注意:     守护进程没报 engine/voice（老版 CosyVoice 的 tts_server.py），跳过音色核对");
+    if (lang === "en" && !/kokoro/i.test(String(health.engine || ""))) {
+      console.error("en 的守护进程（" + url + "）不是 Kokoro：engine=" + (health.engine || "（没报）"));
+      console.error("英文要发给 tools/kokoro_tts_server.py，别烘出一批 CosyVoice 口音的英文。");
+      process.exit(1);
+    }
+    console.log("守护进程: " + lang + " -> " + url
+      + (health.engine ? "（" + health.engine + (health.voice && health.voice[lang] ? " " + health.voice[lang] : "") + "）" : "（CosyVoice）")
+      + (lang === "en" && health.speed && health.speed !== 1 ? " speed×" + health.speed : ""));
   }
   if (!KEEP_WAV) {
     try { await run(FFMPEG, ["-hide_banner", "-version"]); }
