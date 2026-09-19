@@ -1866,15 +1866,115 @@ try {
 /* 孩子的数据桶；账号存在但目录还没建（或被手工删了）时给空桶，首次写入落盘 */
 function kd(kidId) { return kidData.get(String(kidId)) || kidLoad(kidId); }
 
-function kidSave(kidId, key) {
+/* ---- 写盘：存不下就不能说存上了（#16） ----
+ * 以前 kidSave 吞掉所有写入异常只打日志：磁盘满/权限变了的时候内存照改、接口照回 ok，
+ * 一重启进度就没了，谁也不知道。现在的规矩：
+ *   · 写盘失败 → 把这个文件在内存里的那份退回磁盘上的样子（内存、磁盘不分叉），
+ *     抛 saveFailed 错误，路由兜底回 500 + saveFailed:true。客户端重试不会重复记分。
+ *   · 一次请求要写好几笔/好几个文件的（交卷、闯关结算、讲课）包进 kidTxn：期间 kidSave
+ *     只登记，出事务时一起落盘——先把所有 .tmp 写完（磁盘满、没权限都死在这一步，
+ *     正式文件一个没动），再逐个 rename。要么都记上，要么都没记。
+ *   · 现场生成的内容（讲解/卷子/报告，花了几分钟或花了钱）用 keep 模式：存不下也留在内存里
+ *     交给孩子用，接口带 saveFailed 提示，后台每分钟重试落盘，直到存上为止。 */
+let kidTx = null;                 // 进行中的事务：Set<"kidId\tkey">。事务体必须是同步代码（全局单例，中间不能 await）
+const kidUnsaved = new Set();     // keep 模式下没存上的 "kidId\tkey"，等 kidRetryUnsaved 重试
+let kidRetryTimer = null;
+const SAVE_FAIL_MSG = "没能保存到磁盘（磁盘满了或没有写入权限？），这一步没有记上，请检查后重试 / Could not save to disk (disk full or no write permission?) — this was not recorded; please check and try again";
+const SAVE_KEEP_MSG = "内容可以照常用，但没能保存到磁盘（磁盘满了或没有写入权限？）；服务器会自动重试，存上之前重启会丢 / You can use this now, but it could not be saved to disk (disk full or no write permission?). The server keeps retrying; it will be lost if the server restarts before that";
+
+function kidFile(kidId, key) { return path.join(kidDir(kidId), KID_FILE_NAMES[key]); }
+
+/* 把一个文件在内存里的那份退回磁盘上的样子。读不出来（不是「不存在」）就不动内存——那时说不清哪份更对 */
+function kidRevert(kidId, key) {
+  const empty = Array.isArray(KID_FILES[key]) ? [] : {};
+  let v;
   try {
-    fs.mkdirSync(kidDir(kidId), { recursive: true });
-    const f = path.join(kidDir(kidId), KID_FILE_NAMES[key]);
-    const tmp = f + ".tmp";
-    fs.writeFileSync(tmp, JSON.stringify(kd(kidId)[key]), "utf8");
-    fs.renameSync(tmp, f);
-  } catch (e) { console.log(`[kid:${kidId}] could not save ${KID_FILE_NAMES[key]}: ` + e.message); }
+    const raw = JSON.parse(fs.readFileSync(kidFile(kidId, key), "utf8"));
+    v = (Array.isArray(empty) ? Array.isArray(raw) : (raw && typeof raw === "object" && !Array.isArray(raw))) ? raw : empty;
+  } catch (e) {
+    if (e.code !== "ENOENT") { console.log(`[kid:${kidId}] could not roll ${KID_FILE_NAMES[key]} back from disk: ` + e.message); return; }
+    v = empty;
+  }
+  kd(kidId)[key] = v;
+  kidUnsaved.delete(kidId + "\t" + key);
 }
+
+/* 两段式落盘。失败时抛出的错误带 pending = 没落盘的那些 [kidId,key]（内存怎么处置由调用方定） */
+function kidCommit(pairs) {
+  const tmps = [];
+  try {
+    for (const [kidId, key] of pairs) {
+      fs.mkdirSync(kidDir(kidId), { recursive: true });
+      const tmp = kidFile(kidId, key) + ".tmp";
+      tmps.push(tmp);
+      fs.writeFileSync(tmp, JSON.stringify(kd(kidId)[key]), "utf8");
+    }
+  } catch (e) {
+    for (const tmp of tmps) { try { fs.unlinkSync(tmp); } catch (_) {} }
+    throw Object.assign(e, { pending: pairs });
+  }
+  for (let i = 0; i < pairs.length; i++) {
+    try { fs.renameSync(tmps[i], kidFile(pairs[i][0], pairs[i][1])); kidUnsaved.delete(pairs[i].join("\t")); }
+    catch (e) {
+      for (const tmp of tmps.slice(i)) { try { fs.unlinkSync(tmp); } catch (_) {} }
+      if (i) console.log(`[kid] partial save: ${i} of ${pairs.length} file(s) were already written before the failure`);
+      throw Object.assign(e, { pending: pairs.slice(i) });
+    }
+  }
+}
+
+function kidSaveFailed(e, pairs, keep) {
+  console.log(`[kid] could not save ${pairs.map(([k, key]) => k + "/" + KID_FILE_NAMES[key]).join(", ")}: ` + e.message);
+  if (keep) {
+    for (const p of pairs) kidUnsaved.add(p.join("\t"));
+    // YY_SAVE_RETRY_MS 只给回归测试用（tools/regress_server.mjs），不用等满一分钟
+    if (!kidRetryTimer) { kidRetryTimer = setInterval(kidRetryUnsaved, Number(process.env.YY_SAVE_RETRY_MS) || 60 * 1000); kidRetryTimer.unref(); }
+  } else {
+    for (const [kidId, key] of pairs) kidRevert(kidId, key);
+  }
+  return Object.assign(new Error(keep ? SAVE_KEEP_MSG : SAVE_FAIL_MSG), { status: 500, saveFailed: true, cause: e });
+}
+
+function kidRetryUnsaved() {
+  for (const s of [...kidUnsaved]) {
+    try { kidCommit([s.split("\t")]); console.log(`[kid] retry ok: ${s.replace("\t", "/")} is on disk now`); }
+    catch (_) { /* 还是存不下，下一轮再试 */ }
+  }
+  if (!kidUnsaved.size && kidRetryTimer) { clearInterval(kidRetryTimer); kidRetryTimer = null; }
+}
+
+function kidSave(kidId, key) {
+  if (kidTx) { kidTx.add(kidId + "\t" + key); return; }
+  try { kidCommit([[String(kidId), key]]); }
+  catch (e) { throw kidSaveFailed(e, e.pending || [[String(kidId), key]], false); }
+}
+
+/* 把一次请求里的几笔写入并成一笔。fn 必须同步；fn 自己抛错时内存也一起退回。
+ * opts.keep：见上——存不下也不回滚、不抛错，返回 saveFailed 错误对象让路由挂到响应上；正常返回 null。
+ * 非 keep 模式成功返回 fn 的返回值。 */
+function kidTxn(fn, opts) {
+  const keep = !!(opts && opts.keep);
+  if (kidTx) { const out = fn(); return keep ? null : out; }   // 嵌套：并入外层事务，由外层决定成败
+  kidTx = new Set();
+  let out, pairs;
+  try { out = fn(); }
+  catch (e) {
+    pairs = [...kidTx].map(s => s.split("\t")); kidTx = null;
+    for (const [kidId, key] of pairs) kidRevert(kidId, key);
+    throw e;
+  }
+  pairs = [...kidTx].map(s => s.split("\t")); kidTx = null;
+  try { if (pairs.length) kidCommit(pairs); }
+  catch (e) {
+    const err = kidSaveFailed(e, e.pending || pairs, keep);
+    if (keep) return err;
+    throw err;
+  }
+  return keep ? null : out;
+}
+
+/* keep 模式没存上时挂到响应上的提示（前端 api() 统一弹出来） */
+function saveWarn(err) { return err ? { saveFailed: true, warning: err.message } : {}; }
 
 function newRecId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
 
@@ -2992,7 +3092,11 @@ async function readBody(req, limit) {
 }
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, "http://x");
+  // 解析在鉴权之前、任何人都够得着：畸形 absolute-form（如 "http://["）会让 new URL 抛错，
+  // 放在 async 回调的 try 外面就成了 unhandled rejection，整个进程退出。只让这一个请求失败。
+  let url;
+  try { url = new URL(req.url, "http://x"); }
+  catch (_) { return send(res, 400, { error: "请求地址不合法 / Malformed request URL" }); }
   try {
     /* ---- 账号：注册 / 登录 / 登出 / 我是谁 / 登录前的孩子名单 ---- */
     if (url.pathname === "/api/auth/profiles" && req.method === "GET") {
@@ -3328,8 +3432,8 @@ const server = http.createServer(async (req, res) => {
       }
       console.log(`[report] ok in ${Math.round((Date.now() - t0) / 1000)}s`);
       const rec = { time: Date.now(), grade: String(g), lang, provider: id, kidName: kidUser ? kidUser.name : "", digest, content };
-      reportsAdd(kidId, rec);
-      return send(res, 200, { report: rec, ms: Date.now() - t0 });
+      const unsaved = kidTxn(() => reportsAdd(kidId, rec), { keep: true });   // 报告是花钱写出来的：存不下也先给家长看
+      return send(res, 200, Object.assign({ report: rec, ms: Date.now() - t0 }, saveWarn(unsaved)));
     }
 
     if (url.pathname === "/api/report/full/list" && req.method === "GET") {
@@ -3386,8 +3490,8 @@ const server = http.createServer(async (req, res) => {
       console.log(`[fsa] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${set.questions.length} questions`);
       // 出一次卷不便宜：立刻持久化，以后直接打开做，不再重新生成
       const rec = { time: Date.now(), grade: g, strand, lang, provider: id, title: set.title, questions: set.questions, attempts: [] };
-      fsaSetsAdd(kidId, rec);
-      return send(res, 200, { set: rec, provider: id, ms: Date.now() - t0 });
+      const unsaved = kidTxn(() => fsaSetsAdd(kidId, rec), { keep: true });
+      return send(res, 200, Object.assign({ set: rec, provider: id, ms: Date.now() - t0 }, saveWarn(unsaved)));
     }
 
     if (url.pathname === "/api/fsa/sets" && req.method === "GET") {
@@ -3466,10 +3570,10 @@ const server = http.createServer(async (req, res) => {
             unitName: { zh: def[1], en: def[2] },
             questions: packed.questions, attempts: []
           };
-          unitTestsAdd(kidId, rec);
+          const unsaved = kidTxn(() => unitTestsAdd(kidId, rec), { keep: true });
           console.log(`[unit] pack hit grade=${g} unit=${strand} lang=${lang} kid=${kidId}`);
           ledgerAdd({ task: "unit", provider: "pack", lang, ms: 0, ok: true });
-          return send(res, 200, { set: rec, provider: "pack", ms: 0, packed: true });
+          return send(res, 200, Object.assign({ set: rec, provider: "pack", ms: 0, packed: true }, saveWarn(unsaved)));
         }
       }
 
@@ -3499,8 +3603,8 @@ const server = http.createServer(async (req, res) => {
         unitName: { zh: def[1], en: def[2] },
         questions: set.questions, attempts: []
       };
-      unitTestsAdd(kidId, rec);
-      return send(res, 200, { set: rec, provider: id, ms: Date.now() - t0 });
+      const unsaved = kidTxn(() => unitTestsAdd(kidId, rec), { keep: true });
+      return send(res, 200, Object.assign({ set: rec, provider: id, ms: Date.now() - t0 }, saveWarn(unsaved)));
     }
 
     if (url.pathname === "/api/unit-test/sets" && req.method === "GET") {
@@ -3547,29 +3651,36 @@ const server = http.createServer(async (req, res) => {
       const rec = kd(kidId).unitTests.find(r => r.id === String(body.id || ""));
       if (!rec) return send(res, 404, { error: "卷子不存在 / Not found" });
       const qs = rec.questions || [];
-      const answers = qs.map((_, i) => {
-        const v = Math.round(Number((Array.isArray(body.answers) ? body.answers : [])[i]));
-        return v >= 0 && v <= 3 ? v : -1;   // -1 = 没作答（中途退出也能交）
+      /* 只认「整数且落在这道题的选项范围内」，别的一律当没作答（-1，中途退出也能交）。
+       * 不能走 Number()/Math.round 的宽松转换：Number(null)===0、Number(false)===0、Number("")===0，
+       * 一张全 null 的卷子会被判成「全选 A」写进成绩和知识点对错（#17）。同 /api/quiz/finish 的口径。 */
+      const rawAnswers = Array.isArray(body.answers) ? body.answers : [];
+      const answers = qs.map((q, i) => {
+        const v = rawAnswers[i];
+        return Number.isInteger(v) && v >= 0 && v < ((q.options || []).length || 4) ? v : -1;
       });
       const answered = answers.filter(v => v >= 0).length;
       // 一题没答就别记成绩：否则存档列表里「上次 0/8」看着像考砸了，其实是点进来又退出去
       if (!answered) return send(res, 200, { ok: true, right: 0, total: qs.length, answered: 0, skipped: true });
       let right = 0;
-      qs.forEach((q, i) => {
-        if (answers[i] < 0) return;
-        const ok = answers[i] === q.answerIndex;
-        if (ok) right++;
-        // 选择题判定是确定性的（不是 AI 判题），直接记进度；没挂上知识点的题只计分不记进度
-        if (q.curriculumId) progressRecord(kidId, q.curriculumId, ok ? "practiced-right" : "practiced-wrong");
+      // 逐题进度 + 成绩单并成一笔：存不下就整笔退回、回 500，孩子重交一次不会重复记分（#16）
+      kidTxn(() => {
+        qs.forEach((q, i) => {
+          if (answers[i] < 0) return;
+          const ok = answers[i] === q.answerIndex;
+          if (ok) right++;
+          // 选择题判定是确定性的（不是 AI 判题），直接记进度；没挂上知识点的题只计分不记进度
+          if (q.curriculumId) progressRecord(kidId, q.curriculumId, ok ? "practiced-right" : "practiced-wrong");
+        });
+        const at = {
+          time: Date.now(), right, total: qs.length, answered,
+          done: answered === qs.length,   // 中途退出的那次别当成绩单报，列表里标「没做完」
+          ms: Math.max(0, Math.round(Number(body.ms) || 0)),
+          answers
+        };
+        rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
+        kidSave(kidId, "unitTests");
       });
-      const at = {
-        time: Date.now(), right, total: qs.length, answered,
-        done: answered === qs.length,   // 中途退出的那次别当成绩单报，列表里标「没做完」
-        ms: Math.max(0, Math.round(Number(body.ms) || 0)),
-        answers
-      };
-      rec.attempts = [at, ...(rec.attempts || [])].slice(0, 10);
-      kidSave(kidId, "unitTests");
       return send(res, 200, { ok: true, right, total: qs.length, answered });
     }
 
@@ -3614,7 +3725,8 @@ const server = http.createServer(async (req, res) => {
       const bank = qbank[qbankKey(cid, open.lang)];
       const now = Date.now();
       const counted = new Set();
-      let topRight = 0;
+      let topRight = 0, passed = false;
+      try { kidTxn(() => {
       for (const r of (Array.isArray(body.results) ? body.results : []).slice(0, QUIZ_MAX_QUESTIONS + 4)) {
         const qid = String((r && r.qid) || "");
         const q = (bank && open.qids.has(qid)) ? bank.questions.find(x => x.qid === qid) : null;
@@ -3635,9 +3747,14 @@ const server = http.createServer(async (req, res) => {
           if (tag && tag !== "ok" && tag !== "other") missRecord(kidId, cid, tag);
         }
       }
-      if (bank) qbankSave();
-      const passed = topRight >= QUIZ_PASS_NEED;
+      passed = topRight >= QUIZ_PASS_NEED;
       if (passed) progressRecord(kidId, cid, "quiz-pass");
+      }); } catch (e) {
+        // 整场没记上（内存已退回）：票是 quizOpenTake 取走即作废的，还回去，孩子原样重交不会被当成「已结算」（#16）
+        if (e.saveFailed) quizOpen.set(String(body.session), open);
+        throw e;
+      }
+      if (bank) qbankSave();
       return send(res, 200, {
         ok: true, passed, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid),
         ...(remediationFor(kidId, cid) ? { remediate: remediationFor(kidId, cid) } : {})
@@ -3749,17 +3866,19 @@ const server = http.createServer(async (req, res) => {
         if (packed) {
           const rec = { time: Date.now(), question, hasImage: false, lang, grade: String(body.grade || ""),
             provider: "pack", lesson: packed, mode: "teach", curriculumId: teachCtx.item.id };
-          historyAdd(kidId, rec);
-          progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
+          const unsaved = kidTxn(() => {
+            historyAdd(kidId, rec);
+            progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
+          }, { keep: true });   // 课照上，没存上就明说
           if (ttsAvailable() && packed.isMath !== false) {
             try { ttsStates(packed.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
           }
           console.log(`[lesson] pack hit ${teachCtx.item.id} lang=${lang} kid=${kidId}`);
           ledgerAdd({ task: "teach", provider: "pack", lang, ms: 0, ok: true });
-          return send(res, 200, {
+          return send(res, 200, Object.assign({
             lesson: packed, provider: "pack", ms: 0, tts: ttsAvailable(), packed: true,
             curriculumId: teachCtx.item.id, status: progressStatus(kidId, teachCtx.item.id), lessonId: rec.id
-          });
+          }, saveWarn(unsaved)));
         }
       }
 
@@ -3792,14 +3911,16 @@ const server = http.createServer(async (req, res) => {
       console.log(`[lesson] ok in ${Math.round((Date.now() - t0) / 1000)}s, ${lesson.steps.length} steps`);
       const rec = { time: Date.now(), question, hasImage: !!imageB64, lang, grade: String(body.grade || ""), provider: id, lesson };
       if (teachCtx) { rec.mode = "teach"; rec.curriculumId = teachCtx.item.id; }
-      historyAdd(kidId, rec);
-      // 生成即视为「讲过」：进度立刻从 new 变 seen，并把这节课挂到知识点上
-      if (teachCtx) progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
+      const unsaved = kidTxn(() => {
+        historyAdd(kidId, rec);
+        // 生成即视为「讲过」：进度立刻从 new 变 seen，并把这节课挂到知识点上
+        if (teachCtx) progressRecord(kidId, teachCtx.item.id, "taught", rec.id);
+      }, { keep: true });   // 讲解是花时间/花钱生成的：存不下也照样讲，响应里明说没存上
       // 讲解生成好就立刻预合成语音（不等前端），孩子点开第一步时大概率已就绪
       if (ttsAvailable() && lesson.isMath !== false) {
         try { ttsStates(lesson.steps.map(s => ({ text: s.say, lang })), lang); } catch (_) {}
       }
-      const resp = { lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() };
+      const resp = Object.assign({ lesson, provider: id, ms: Date.now() - t0, tts: ttsAvailable() }, saveWarn(unsaved));
       // lessonId 带回给前端：清单/FSA 错题下次点开直接重播这节课，不再重新生成
       if (teachCtx) { resp.curriculumId = teachCtx.item.id; resp.status = progressStatus(kidId, teachCtx.item.id); resp.lessonId = rec.id; }
       return send(res, 200, resp);
@@ -3816,7 +3937,9 @@ const server = http.createServer(async (req, res) => {
       res.end(data);
     });
   } catch (e) {
-    send(res, 500, { error: e.message || "服务器出了点小问题" });
+    // 头已经发出去了就别再 writeHead（它会再抛一次，又变成 unhandled rejection）
+    if (res.headersSent) { try { res.end(); } catch (_) {} return; }
+    send(res, 500, Object.assign({ error: e.message || "服务器出了点小问题" }, e.saveFailed ? { saveFailed: true } : {}));
   }
 });
 

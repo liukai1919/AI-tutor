@@ -836,7 +836,7 @@ const I18N = {
     quizStatFmt:(r,n)=>`答对 ${r} / ${n} 题`,
     quizRelisten:"📖 再听一遍这节课",
     quizQuitConfirm:"还没闯完，要退出吗？已答的题会记录，但不算通关。",
-    quizSaveFail:"成绩没能保存（网络问题），下次再闯一次吧。",
+    quizSaveFail:"成绩没能保存（网络或服务器存储出了问题），下次再闯一次吧。",
     teachAgainTitle:"重新生成一节新课（点行内其他地方是直接重播上次的课）",
     reportTitle:"家长报告",
     reportHeadFmt:(grade,total,seen,solid)=>`本学期 ${grade} 数学共 ${total} 条内容：已讲 ${seen} 条，扎实 ${solid} 条。`,
@@ -1041,7 +1041,7 @@ const I18N = {
     quizStatFmt:(r,n)=>`${r} / ${n} correct`,
     quizRelisten:"📖 Hear the lesson again",
     quizQuitConfirm:"Quit the quiz? Answered questions are recorded, but it won't count as a pass.",
-    quizSaveFail:"Couldn't save the result (network hiccup) — take the quiz again next time.",
+    quizSaveFail:"Couldn't save the result (a network or server storage problem) — take the quiz again next time.",
     teachAgainTitle:"Generate a fresh lesson (tapping the row replays the saved one)",
     reportTitle:"Parent report",
     reportHeadFmt:(grade,total,seen,solid)=>`${grade} math this term: ${total} topics — ${seen} covered, ${solid} solid.`,
@@ -1284,6 +1284,11 @@ const TOK_LS="yuanyuan_token", TOK_SS="yuanyuan_parent_token";
 function deviceToken(){ try{ return localStorage.getItem(TOK_LS)||""; }catch(_){ return ""; } }
 function gateToken(){ try{ return sessionStorage.getItem(TOK_SS)||""; }catch(_){ return ""; } }
 function apiToken(){ return gateToken()||deviceToken(); }
+/* 临时家长态里「正在用这台设备的孩子」：解锁前记下，家长视角默认就看 TA（#18）。
+ * 跟家长 token 同生共死——都在 sessionStorage，退出/过期时一起清。 */
+const GATE_KID_SS="yuanyuan_gate_kid";
+function gateKid(){ try{ return sessionStorage.getItem(GATE_KID_SS)||""; }catch(_){ return ""; } }
+function clearGate(){ try{ sessionStorage.removeItem(TOK_SS); sessionStorage.removeItem(GATE_KID_SS); }catch(_){} }
 
 let serverInfo = { active:null, providers:[], tts:false, curriculumGrades:[], curriculumCourses:[], curriculumBooks:[], curriculumSkillsPreviews:[] };
 let profilesInfo = null;   // /api/auth/profiles：登录前的孩子名单、要不要注册向导
@@ -1292,6 +1297,8 @@ let me=null, myRole=null, myKids=[];
 /* 家长的「当前孩子」：报告/历史/清空/代做练习都作用于 TA；学生恒为自己（服务端强制） */
 function curKid(){
   if(myRole!=="parent") return "";
+  // 孩子设备上临时解锁：上下文是解锁前在用的那个孩子，不是 cfg.curKid 里残留的、也不是名单第一个
+  if(gateToken()){ const g=gateKid(); if(g && myKids.some(k=>k.id===g)) return g; }
   if(cfg.curKid && myKids.some(k=>k.id===cfg.curKid)) return cfg.curKid;
   return myKids.length ? myKids[0].id : "";
 }
@@ -1301,7 +1308,31 @@ function withKid(path){
 }
 function kidBody(){ const k=curKid(); return k?{kid:k}:{}; }
 
-/* 统一的 API 通道：带 token、统一 401（弹登录）/403（弹家长门）/429（限速提示） */
+/* 服务器说「没存上」（#16）：交卷、逐题记进度这些请求是发完不等的（.catch(()=>{})），
+ * 只有在这条统一通道里弹，孩子和家长才看得见。不挡操作，12 秒后自己收起，点一下也收。 */
+let saveNoticeTimer=null;
+function showSaveNotice(msg){
+  let el=$("saveNotice");
+  if(!el){
+    el=document.createElement("div"); el.id="saveNotice"; el.setAttribute("role","alert");
+    el.style.cssText="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:9999;max-width:min(92vw,560px);"
+      +"background:#c0392b;color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;line-height:1.5;"
+      +"box-shadow:0 6px 24px rgba(0,0,0,.25);cursor:pointer";
+    el.onclick=()=>el.classList.add("hidden");
+    document.body.appendChild(el);
+  }
+  el.textContent="⚠️ "+pickLangMsg(msg);
+  el.classList.remove("hidden");
+  clearTimeout(saveNoticeTimer);
+  saveNoticeTimer=setTimeout(()=>el.classList.add("hidden"),12000);
+}
+/* 服务端的双语报错是「中文 / English」一条串：按界面语言取一半，切不开就原样 */
+function pickLangMsg(msg){
+  const parts=String(msg||"").split(" / ");
+  return parts.length===2 ? parts[cfg.lang==="en"?1:0] : String(msg||"");
+}
+
+/* 统一的 API 通道：带 token、统一 401（弹登录）/403（弹家长门）/429（限速提示）/ 没存上（弹提示条） */
 async function api(path, opts){
   opts=opts||{};
   const headers={ "content-type":"application/json" };
@@ -1314,7 +1345,7 @@ async function api(path, opts){
   const data=await r.json().catch(()=>({}));
   if(r.status===401 && !opts.rawAuth){
     hideLoading();
-    if(gateToken()) sessionStorage.removeItem(TOK_SS);   // 临时家长态过期 → 先退回孩子态再重判
+    if(gateToken()) clearGate();   // 临时家长态过期 → 先退回孩子态再重判
     refreshAuth();
     throw Object.assign(new Error(data.error||""),{silent:true,status:401});
   }
@@ -1324,6 +1355,11 @@ async function api(path, opts){
     throw Object.assign(new Error(t("needParent")),{silent:true,status:403});
   }
   if(r.status===429) throw Object.assign(new Error(t("tooMany")),{status:429});
+  if(data.saveFailed){
+    // 500 = 这一步没记上（服务端已回滚，可以重试）；200 = 内容照给、但还没落盘（服务端在后台重试）
+    showSaveNotice(r.ok ? data.warning : data.error);
+    if(!r.ok) throw Object.assign(new Error(pickLangMsg(data.error)),{silent:true,saveFailed:true,status:r.status,data});
+  }
   if(!r.ok) throw Object.assign(new Error(data.error||t("genericErr")),{status:r.status,data});
   return data;
 }
@@ -1334,7 +1370,7 @@ async function refreshAuth(){
   try{
     const r=await fetch("/api/providers",{headers:{"x-session":apiToken()}});
     if(r.status===401){
-      if(gateToken()) sessionStorage.removeItem(TOK_SS);
+      if(gateToken()) clearGate();
       else localStorage.removeItem(TOK_LS);
       return refreshAuth();   // 最多再递归两层：丢临时家长态 → 丢设备登录 → 弹登录屏
     }
@@ -1406,7 +1442,7 @@ function renderAuth(v, ctx){
       try{
         const d=await api("/api/auth/login",{method:"POST",body:{kidId:ctx.id,pin:$("pinInput").value.trim()},rawAuth:true});
         localStorage.setItem(TOK_LS,d.token);
-        sessionStorage.removeItem(TOK_SS);
+        clearGate();
         hideAuthScreen();
         await refreshAuth();
       }catch(err){ authErr(err.status===401?t("loginFailed"):(err.message||t("genericErr"))); }
@@ -1426,7 +1462,7 @@ function renderAuth(v, ctx){
       try{
         const d=await api("/api/auth/login",{method:"POST",body:{username:$("puInput").value.trim(),password:$("ppInput").value},rawAuth:true});
         localStorage.setItem(TOK_LS,d.token);
-        sessionStorage.removeItem(TOK_SS);
+        clearGate();
         hideAuthScreen();
         const ok=await refreshAuth();
         if(ok && myKids.length===0) showAuthScreen("kidSetup");
@@ -1450,7 +1486,7 @@ function renderAuth(v, ctx){
         if($("rgCode")) b.registrationCode=$("rgCode").value.trim();
         const d=await api("/api/auth/register",{method:"POST",body:b,rawAuth:true});
         localStorage.setItem(TOK_LS,d.token);
-        sessionStorage.removeItem(TOK_SS);
+        clearGate();
         renderAuth("kidSetup");   // 下一步：建第一个孩子
       }catch(err){ authErr(err.message||t("genericErr")); }
     };
@@ -1487,7 +1523,10 @@ $("gateGo").onclick=async()=>{
   try{
     const d=await api("/api/auth/login",{method:"POST",body:{username:$("gateUser").value.trim(),password:$("gatePass").value},rawAuth:true});
     if(!d.user || d.user.role!=="parent") throw Object.assign(new Error(t("loginFailed")),{status:401});
+    // 解锁前是哪个孩子在用就记哪个；是不是这位家长的孩子由 curKid() 对着 myKids 验
+    const kidBefore=(myRole==="student"&&me)?String(me.id):gateKid();   // 已在临时家长态里重输一次密码：沿用原来的
     sessionStorage.setItem(TOK_SS,d.token);
+    if(kidBefore) sessionStorage.setItem(GATE_KID_SS,kidBefore); else sessionStorage.removeItem(GATE_KID_SS);
     closeParentGate();
     await refreshAuth();
     const after=gateAfter; gateAfter=null;
@@ -1503,7 +1542,7 @@ $("parentExit").onclick=async()=>{
   const tok=gateToken();
   if(tok){
     try{ await fetch("/api/auth/logout",{method:"POST",headers:{"x-session":tok}}); }catch(_){}
-    sessionStorage.removeItem(TOK_SS);
+    clearGate();
   }
   await refreshAuth();
 };
@@ -1513,7 +1552,7 @@ $("userBtn").onclick=async()=>{
   for(const tok of [gateToken(),deviceToken()]){
     if(tok){ try{ await fetch("/api/auth/logout",{method:"POST",headers:{"x-session":tok}}); }catch(_){} }
   }
-  sessionStorage.removeItem(TOK_SS);
+  clearGate();
   localStorage.removeItem(TOK_LS);
   me=null; myRole=null; myKids=[];
   await loadProfiles();
@@ -1546,7 +1585,8 @@ function buildKidSelectors(){
   });
 }
 function setCurKid(id, rerender){
-  cfg.curKid=id; saveCfg();
+  if(gateToken()){ try{ sessionStorage.setItem(GATE_KID_SS,id); }catch(_){} }
+  else { cfg.curKid=id; saveCfg(); }
   buildKidSelectors(); applyKidName();
   if(rerender) rerender();
 }
