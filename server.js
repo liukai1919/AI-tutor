@@ -1412,14 +1412,20 @@ function kd(kidId) { return kidData.get(String(kidId)) || kidLoad(kidId); }
  *     交给孩子用，接口带 saveFailed 提示，后台每分钟重试落盘，直到存上为止。 */
 let kidTx = null;                 // 进行中的事务：Set<"kidId\tkey">。事务体必须是同步代码（全局单例，中间不能 await）
 const kidUnsaved = new Set();     // keep 模式下没存上的 "kidId\tkey"，等 kidRetryUnsaved 重试
+const kidPending = new Map();     // 同上那些文件「承诺过要存」的内容快照（JSON 串）：之后的操作失败回滚时退到这里，不是磁盘（#16 复审 2）
 let kidRetryTimer = null;
 const SAVE_FAIL_MSG = "没能保存到磁盘（磁盘满了或没有写入权限？），这一步没有记上，请检查后重试 / Could not save to disk (disk full or no write permission?) — this was not recorded; please check and try again";
 const SAVE_KEEP_MSG = "内容可以照常用，但没能保存到磁盘（磁盘满了或没有写入权限？）；服务器会自动重试，存上之前重启会丢 / You can use this now, but it could not be saved to disk (disk full or no write permission?). The server keeps retrying; it will be lost if the server restarts before that";
 
 function kidFile(kidId, key) { return path.join(kidDir(kidId), KID_FILE_NAMES[key]); }
 
-/* 把一个文件在内存里的那份退回磁盘上的样子。读不出来（不是「不存在」）就不动内存——那时说不清哪份更对 */
+/* 把一个文件在内存里的那份退回「上一次承诺过的样子」：
+ *   · keep 模式还欠着没存上的内容（kidPending 有快照）→ 退回那份快照，重试状态照旧。以前这里一律退回磁盘并清掉重试，
+ *     等于把之前生成的卷子/讲解连内容带重试一起丢了（#16 复审 2）；
+ *   · 否则退回磁盘上的样子。读不出来（不是「不存在」）就不动内存——那时说不清哪份更对。 */
 function kidRevert(kidId, key) {
+  const tag = kidId + "\t" + key;
+  if (kidPending.has(tag)) { kd(kidId)[key] = JSON.parse(kidPending.get(tag)); return; }
   const empty = Array.isArray(KID_FILES[key]) ? [] : {};
   let v;
   try {
@@ -1430,12 +1436,15 @@ function kidRevert(kidId, key) {
     v = empty;
   }
   kd(kidId)[key] = v;
-  kidUnsaved.delete(kidId + "\t" + key);
+  kidUnsaved.delete(tag);
 }
 
-/* 两段式落盘。失败时抛出的错误带 pending = 没落盘的那些 [kidId,key]（内存怎么处置由调用方定） */
+/* 两段式落盘：先把所有 .tmp 写完（磁盘满、没权限都死在这一步，正式文件一个没动），再逐个 rename。
+ * rename 半途失败（#16 复审 1）：把已经换上去的文件倒序退回原样（rename 前记下的内容），所以失败时
+ * pending 永远是全部 pairs——要么都记上，要么都没记，重试不会重复记分。退不回去的（极罕见）记在 torn 里并大声打日志。 */
 function kidCommit(pairs) {
   const tmps = [];
+  const dropTmps = from => { for (const tmp of tmps.slice(from)) { try { fs.unlinkSync(tmp); } catch (_) {} } };
   try {
     for (const [kidId, key] of pairs) {
       fs.mkdirSync(kidDir(kidId), { recursive: true });
@@ -1444,23 +1453,51 @@ function kidCommit(pairs) {
       fs.writeFileSync(tmp, JSON.stringify(kd(kidId)[key]), "utf8");
     }
   } catch (e) {
-    for (const tmp of tmps) { try { fs.unlinkSync(tmp); } catch (_) {} }
+    dropTmps(0);
+    throw Object.assign(e, { pending: pairs });
+  }
+  /* 记下正式文件现在的样子（不存在记 null），rename 出事时用来退回 */
+  const prev = [];
+  try {
+    for (const [kidId, key] of pairs) {
+      try { prev.push(fs.readFileSync(kidFile(kidId, key))); }
+      catch (e) { if (e.code !== "ENOENT") throw e; prev.push(null); }
+    }
+  } catch (e) {
+    dropTmps(0);
     throw Object.assign(e, { pending: pairs });
   }
   for (let i = 0; i < pairs.length; i++) {
-    try { fs.renameSync(tmps[i], kidFile(pairs[i][0], pairs[i][1])); kidUnsaved.delete(pairs[i].join("\t")); }
+    try { fs.renameSync(tmps[i], kidFile(pairs[i][0], pairs[i][1])); }
     catch (e) {
-      for (const tmp of tmps.slice(i)) { try { fs.unlinkSync(tmp); } catch (_) {} }
-      if (i) console.log(`[kid] partial save: ${i} of ${pairs.length} file(s) were already written before the failure`);
-      throw Object.assign(e, { pending: pairs.slice(i) });
+      dropTmps(i);
+      const torn = [];
+      for (let j = i - 1; j >= 0; j--) {
+        const f = kidFile(pairs[j][0], pairs[j][1]);
+        try {
+          if (prev[j] === null) fs.unlinkSync(f);
+          else { fs.writeFileSync(f + ".undo", prev[j]); fs.renameSync(f + ".undo", f); }
+        } catch (e2) {
+          torn.push(pairs[j]);
+          try { fs.unlinkSync(f + ".undo"); } catch (_) {}
+          console.log(`[kid] TORN: ${pairs[j][0]}/${KID_FILE_NAMES[pairs[j][1]]} was written but could not be restored after a later failure: ` + e2.message);
+        }
+      }
+      if (i) console.log(`[kid] partial save rolled back: ${i - torn.length} of ${i} already-written file(s) restored`);
+      throw Object.assign(e, { pending: pairs, torn });
     }
   }
+  for (const p of pairs) { const tag = p.join("\t"); kidUnsaved.delete(tag); kidPending.delete(tag); }
 }
 
 function kidSaveFailed(e, pairs, keep) {
   console.log(`[kid] could not save ${pairs.map(([k, key]) => k + "/" + KID_FILE_NAMES[key]).join(", ")}: ` + e.message);
   if (keep) {
-    for (const p of pairs) kidUnsaved.add(p.join("\t"));
+    for (const p of pairs) {
+      const tag = p.join("\t");
+      kidUnsaved.add(tag);
+      kidPending.set(tag, JSON.stringify(kd(p[0])[p[1]]));   // 承诺过要存的就是现在内存里这份
+    }
     // YY_SAVE_RETRY_MS 只给回归测试用（tools/regress_server.mjs），不用等满一分钟
     if (!kidRetryTimer) { kidRetryTimer = setInterval(kidRetryUnsaved, Number(process.env.YY_SAVE_RETRY_MS) || 60 * 1000); kidRetryTimer.unref(); }
   } else {
@@ -1468,7 +1505,6 @@ function kidSaveFailed(e, pairs, keep) {
   }
   return Object.assign(new Error(keep ? SAVE_KEEP_MSG : SAVE_FAIL_MSG), { status: 500, saveFailed: true, cause: e });
 }
-
 function kidRetryUnsaved() {
   for (const s of [...kidUnsaved]) {
     try { kidCommit([s.split("\t")]); console.log(`[kid] retry ok: ${s.replace("\t", "/")} is on disk now`); }

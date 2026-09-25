@@ -72,7 +72,7 @@ server.js（http.createServer，一个回调分发 39 条路由）
 
 ### 1.4 持久化
 
-- **孩子桶** `data/kids/<kidId>/{history,progress,fsa-sets,unit-tests,reports}.json`：`kidTxn` 单例事务、两段式提交、失败回滚内存；keep 模式下内容照给、挂 `saveFailed` 警告、60 秒后台重试（#16 修的）。事务体必须是同步代码。
+- **孩子桶** `data/kids/<kidId>/{history,progress,fsa-sets,unit-tests,reports}.json`：`kidTxn` 单例事务、两段式提交、失败回滚内存；keep 模式下内容照给、挂 `saveFailed` 警告、60 秒后台重试（#16 修的）。事务体必须是同步代码。#16 返工（2026-09-25，按 Codex 复审）：rename 半途失败会把已换上的文件倒序退回，失败时 pending 一律是全部；keep 模式欠着的内容留快照（`kidPending`），之后的回滚退到快照而不是磁盘，重试状态保留。这两条是 Phase 1 抽 `lib/infra/storage` 时要原样带走的语义。
 - **题库** `qbank.json`：全局共享、不分家庭（故意的）。`qbankSave` 失败只打日志。`DELETE /api/qbank` 会把整个对象重新赋值，导出给 tools 的引用从此失效。
 - **账号** `data/users.json`：`usersCommit` 失败就抛错，绝不「没存上也算成功」。
 - **只在内存**：闯关场次票 `quizOpen`（key 是家长的 user.id，不是 kidId）、限速表、TTS 在途表、包文件 memo（连「文件不存在」也缓存）。
@@ -178,6 +178,7 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 42 / 42，不起服务器 |
 | **模型输出 JSON 修复单元测试（#22 新增）** | `node tools/test_models_json.mjs` | 24 / 24，不起服务器 |
 | **闯关规则单元测试（#23 新增）** | `node tools/test_quiz.mjs` | 26 / 26，不起服务器 |
+| **存储提交语义回归（#16 返工新增）** | `node tools/regress_storage.mjs` | 18 / 18；用 `tools/lib/fault_rename.cjs` 预载让指定文件的 rename 抛 EPERM |
 
 #23 之后 smoke 是 57 项（闯关 C 组改走 `/api/quiz/answer`），golden 快照只多了 `path` 键（服务端决定的难度序列），其余键值与 1d9242b 时一致。
 | 配图契约：课程 | `node tools/curriculum/visual_check.mjs` | 972 课 5986 步零违约 |
