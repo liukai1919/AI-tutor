@@ -2547,6 +2547,27 @@ async function readBody(req, limit) {
   });
 }
 
+/* ---------------- Action 层（lib/actions/，#24） ----------------
+ * 路由只做三件事：allow → resolveKid → 调 Action → send。业务中段都在 lib/actions/ 里，
+ * 将来的 Agent Tool（Phase 2）调同一份。ActionError 按它带的状态码回；其它错误照旧走统一 catch。 */
+const { ActionError } = require("./lib/actions/errors.js");
+const actions = require("./lib/actions/index.js").create({
+  // 进度 / 大纲
+  kd, kidSave, kidTxn, progressRecord, progressStatus, progressLevel, remediationFor, missRecord, findCurriculumItem,
+  INTERNAL_EVENTS, PARENT_ONLY_EVENTS, curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews,
+  curriculumKey, learnView, viewKey, strandGroups, STRANDS,
+  // 闯关
+  Q, L, normLang, pickProvider, qbankPlayable, ensureQuizBank, ledgerAdd, shuffleArr,
+  quizOpen, quizOpenCreate, quizOpenGet, quizOpenTake, quizNextPublic, qbank, qbankKey, qbankSave,
+  log: console.log,
+});
+/* 孩子上下文：resolveKid 可能给 null，原样传给 Action，由它决定要不要孩子（kidRequired 400 由 Action 抛） */
+const actx = (a, kidRaw) => ({ kidId: resolveKid(a, kidRaw), role: a.role, userId: a.user.id });
+async function runAction(res, fn) {
+  try { send(res, 200, await fn()); }
+  catch (e) { if (e instanceof ActionError) send(res, e.status, e.body); else throw e; }
+}
+
 const server = http.createServer(async (req, res) => {
   // 解析在鉴权之前、任何人都够得着：畸形 absolute-form（如 "http://["）会让 new URL 抛错，
   // 放在 async 回调的 try 外面就成了 unhandled rejection，整个进程退出。只让这一个请求失败。
@@ -2787,39 +2808,9 @@ const server = http.createServer(async (req, res) => {
 
     if (url.pathname === "/api/curriculum" && req.method === "GET") {
       const a = allow(req, res, "student"); if (!a) return;
-      const grades = curriculumGrades();
-      const g = curriculumKey(url.searchParams.get("grade") || 0);
-      if (!g) return send(res, 200, { grades, courses: curriculumCourses(), books: curriculumBooks(), skillsPreviews: curriculumSkillsPreviews() });
-      const d = learnView(g, url.searchParams.get("view"));
-      if (!d) return send(res, 404, { error: "这个年级的大纲数据还没准备好 / No curriculum data for this grade yet", grades });
-      /* 技能视图下 FSA 仍按 BC 五大主线出卷，清单里的分组是主题，所以另带一份主线名单给 FSA 下拉 */
-      const bc = (d.type === "skills-preview") ? curriculum.get(g) : null;
-      const fsaStrands = bc ? STRANDS.filter(([s]) => (bc.items || []).some(it => it.strand === s)).map(([s, zh, en]) => ({ strand: s, zhName: zh, enName: en })) : null;
-      const kidId = resolveKid(a, url.searchParams.get("kid"));
-      if (!kidId) return send(res, 400, NEED_KID_MSG);
-      const progress = kd(kidId).progress;
-      const strands = strandGroups(d, it => ({
-        id: it.id, en: it.en, zh: it.zh, status: progressStatus(kidId, it.id),
-        // 最近一节讲过的课：前端点条目直接重播（免费秒开），🔄 才重新生成
-        lessonId: ((progress[it.id] || {}).lessonIds || [])[0] || "",
-        /* 技能层多带几个字段给前端做徽章和折叠（老年级/书籍没有 it.skill，什么都不多发） */
-        ...(it.skill ? {
-          type: it.skill.type,
-          core: it.skill.core,
-          reviewFrom: it.skill.reviewFrom || 0,
-          prereqN: (it.skill.prereq || []).length,
-          miscN: (it.skill.misc || []).length,
-          standard: it.skill.primary || "",
-          ...(remediationFor(kidId, it.id) ? { remediate: remediationFor(kidId, it.id) } : {})
-        } : {})
-      }));
-      return send(res, 200, { grade: g, grades, source: d.source, strands,
-        ...(d.topicStandards ? { topicStandards: d.topicStandards } : {}),
-        ...(fsaStrands ? { fsaStrands } : {}),
-        unitKey: String(viewKey(g, d))     // 单元测试存档/读包用的 key（技能视图是 skills-g5，不是 5）
-      });
+      return await runAction(res, () => actions.curriculum.view(actx(a, url.searchParams.get("kid")),
+        { grade: url.searchParams.get("grade"), view: url.searchParams.get("view") }));
     }
-
     /* P3 家长报告（家长专属）：按主线汇总 + BC 四级话术级别 */
     if (url.pathname === "/api/report" && req.method === "GET") {
       const a = allow(req, res, "parent"); if (!a) return;
@@ -3145,101 +3136,23 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/quiz/session" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
-      const lang = normLang(body.lang);
-      const found = findCurriculumItem(String(body.curriculumId || ""));
-      if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const id = pickProvider(a.role === "parent" ? body.provider : null, "quiz");   // 学生不能指定引擎
-      const ready = qbankPlayable(found.item.id, lang);   // 随包发的题库：没引擎也能闯
-      if (!id && !ready) return send(res, 503, {
-        error: L(lang,
-          "这一节的闯关题不在随附的题库里，现出题需要一个 AI 引擎。" + "怎么装看 README（Ollama 免费离线 / claude / gemini / grok / codex 或 API）。",
-          "This topic's quiz questions aren't in the bundled question bank, so writing them needs an AI engine." + " See the README to set one up (Ollama is free and offline / claude / gemini / grok / codex or an API)."),
-        needsEngine: true });
-      let bank;
-      if (id) bank = await ensureQuizBank(found.item, found.data, lang, id);
-      else { ledgerAdd({ task: "quiz", provider: "bank", lang, ms: 0, ok: true }); bank = ready; }   // 没引擎、纯吃随包题库
-      const sid = quizOpenCreate(a.user.id, found.item.id, lang, Q.pickSession(bank, shuffleArr));   // 答题和结算都凭这张票
-      const open = quizOpen.get(sid);
-      const question = quizNextPublic(open, bank);
-      return send(res, 200, { session: sid, rules: Q.RULES, level: open.state.level, n: open.state.n, question });
+      return await runAction(res, () => actions.quiz.start(actx(a, body.kid), body));
     }
-
-    /* 答一题：服务端按题库判分、升降级、给下一题；答案和讲解这时才下发。
-     * 一道题只能答一次；finished 之后客户端该去 /api/quiz/finish 结算。 */
     if (url.pathname === "/api/quiz/answer" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 16 * 1024)).toString("utf8"));
-      const open = quizOpenGet(body.session, a.user.id, null);
-      if (!open) return send(res, 400, { error: "这场闯关的场次票无效或已经结算过 / Quiz session is invalid or already settled", staleSession: true });
-      const st = open.state;
-      if (!st.cur || st.answered) return send(res, 400, { error: "这场已经答完了，去结算吧 / This quiz is over, settle it", finished: true });
-      const bank = qbank[qbankKey(open.cid, open.lang)];
-      const q = bank ? bank.questions.find(x => x.qid === st.cur) : null;
-      if (!q) return send(res, 400, { error: "这场的题不在题库里了 / The quiz bank changed underneath this session", staleSession: true });
-      const r = Q.applyAnswer(st, q, body.picked);
-      if (!r) return send(res, 400, { error: "答案不合法 / Invalid answer index" });
-      const next = r.finished ? null : quizNextPublic(open, bank);
-      return send(res, 200, {
-        correct: r.correct, answerIndex: q.answerIndex, explain: q.explain || "",
-        level: st.level, n: st.n, topRight: st.topRight, finished: r.finished || !next, next
-      });
+      return await runAction(res, () => actions.quiz.answer(actx(a, body.kid), body));
     }
-
-    /* 闯关结算：按票里记的作答（服务端自己判过的）记统计、做过的题打 usedAt；通关判定以题库里的难度为准。
-     * body.results 不再看（#23 前由客户端上报 qid+picked，现在票里就有）。 */
     if (url.pathname === "/api/quiz/finish" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
-      const kidId = resolveKid(a, body.kid);
-      if (!kidId) return send(res, 400, NEED_KID_MSG);
-      const cid = String(body.curriculumId || "");
-      const found = findCurriculumItem(cid);
-      if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      /* 凭 /api/quiz/session 发的票结算：一场只结一次 */
-      const open = quizOpenTake(body.session, a.user.id, found.item.id);
-      if (!open) return send(res, 400, { error: "这场闯关的场次票无效或已经结算过 / Quiz session is invalid or already settled", staleSession: true });
-      const bank = qbank[qbankKey(cid, open.lang)];
-      const now = Date.now();
-      const counted = new Set();
-      let topRight = 0, right = 0, total = 0, passed = false;
-      try { kidTxn(() => {
-      for (const r of open.state.results) {
-        const q = bank ? bank.questions.find(x => x.qid === r.qid) : null;
-        if (!q || counted.has(r.qid)) continue;   // 题库被清了 / 重复的 qid 不记
-        counted.add(r.qid);
-        q.usedAt = now;
-        const ok = r.picked === q.answerIndex;   // 对错还是按题库现在的答案判，不信票里记的 ok
-        total++; if (ok) right++;
-        progressRecord(kidId, cid, ok ? "quiz-right" : "quiz-wrong");
-        if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
-        /* 答错且这道题挂了误区标签：记一笔，攒够 2 次就建议回补（技能图谱 §6）。老题库没有 tags，什么都不做。 */
-        if (!ok) { const tag = Q.missTag(q, r.picked); if (tag) missRecord(kidId, cid, tag); }
-      }
-      passed = topRight >= QUIZ_PASS_NEED;
-      if (passed) progressRecord(kidId, cid, "quiz-pass");
-      }); } catch (e) {
-        // 整场没记上（内存已退回）：票是 quizOpenTake 取走即作废的，还回去，孩子原样重交不会被当成「已结算」（#16）
-        if (e.saveFailed) quizOpen.set(String(body.session), open);
-        throw e;
-      }
-      if (bank) qbankSave();
-      return send(res, 200, {
-        ok: true, passed, right, total, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid),
-        ...(remediationFor(kidId, cid) ? { remediate: remediationFor(kidId, cid) } : {})
-      });
+      return await runAction(res, () => actions.quiz.finish(actx(a, body.kid), body));
     }
-
     /* 清空（家长专属，设置里的「清空学习进度 / 清空全部记录」；只作用于指定孩子，题库全局共享除外） */
     if (url.pathname === "/api/progress" && req.method === "DELETE") {
       const a = allow(req, res, "parent"); if (!a) return;
-      const kidId = resolveKid(a, url.searchParams.get("kid"));
-      if (!kidId) return send(res, 400, NEED_KID_MSG);
-      kd(kidId).progress = {};
-      kidSave(kidId, "progress");
-      console.log(`[progress] cleared (kid=${kidId})`);
-      return send(res, 200, { ok: true });
-    }
-    if (url.pathname === "/api/history" && req.method === "DELETE") {
+      return await runAction(res, () => actions.progress.clear(actx(a, url.searchParams.get("kid"))));
+    }    if (url.pathname === "/api/history" && req.method === "DELETE") {
       const a = allow(req, res, "parent"); if (!a) return;
       const kidId = resolveKid(a, url.searchParams.get("kid"));
       if (!kidId) return send(res, 400, NEED_KID_MSG);
@@ -3276,37 +3189,13 @@ const server = http.createServer(async (req, res) => {
 
     if (url.pathname === "/api/progress" && req.method === "GET") {
       const a = allow(req, res, "student"); if (!a) return;
-      const kidId = resolveKid(a, url.searchParams.get("kid"));
-      if (!kidId) return send(res, 400, NEED_KID_MSG);
-      const g = Number(url.searchParams.get("grade") || 0);
-      const prefix = g ? `BC.MATH.G${g}.` : "";
-      const items = {};
-      for (const [id, e] of Object.entries(kd(kidId).progress)) {
-        if (prefix && !id.startsWith(prefix)) continue;
-        items[id] = Object.assign({}, e, { status: progressStatus(kidId, id) });
-      }
-      return send(res, 200, { items });
+      return await runAction(res, () => actions.progress.get(actx(a, url.searchParams.get("kid")), { grade: url.searchParams.get("grade") }));
     }
-
     if (url.pathname === "/api/progress" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
-      const event = String(body.event || "");
-      // 内部事件不从这里进：跟不认识的事件一样回 400，不额外告诉调用方它存在
-      if (INTERNAL_EVENTS.has(event)) return send(res, 400, { error: "未知的事件 / Unknown event" });
-      // 标扎实/取消标扎实是家长的评价动作；孩子只能自报练习对错
-      if (PARENT_ONLY_EVENTS.has(event) && a.role !== "parent") {
-        return send(res, 403, { error: "需要家长权限 / Parent access required", parentRequired: true });
-      }
-      const kidId = resolveKid(a, body.kid);
-      if (!kidId) return send(res, 400, NEED_KID_MSG);
-      const id = String(body.curriculumId || "");
-      if (!findCurriculumItem(id)) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      const e = progressRecord(kidId, id, event);
-      if (!e) return send(res, 400, { error: "未知的事件 / Unknown event" });
-      return send(res, 200, { ok: true, status: progressStatus(kidId, id), entry: e });
+      return await runAction(res, () => actions.progress.record(actx(a, body.kid), body));
     }
-
     if (url.pathname === "/api/lesson" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req)).toString("utf8"));
