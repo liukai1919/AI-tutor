@@ -2566,6 +2566,9 @@ const actions = require("./lib/actions/index.js").create({
   lessonPackGet, ttsAvailable, ttsStates, PROVIDER_META, systemPromptTeach, systemPrompt, validateLesson, runEngine,
   log: console.log,
 });
+/* Agent Tool 登记表（lib/ai/tools/，#26）：Action 包成带 schema / 角色 / 超时 / 归一化错误 / trace 的 Tool。
+ * Phase 3 的 TutorAgent 从这里拿工具；现在没有路由用它，只在启动时组装一次让接线错误早暴露。 */
+const agentTools = require("./lib/ai/tools/index.js").createTools({ actions, findCurriculumItem, log: console.log });
 /* 孩子上下文：resolveKid 可能给 null，原样传给 Action，由它决定要不要孩子（kidRequired 400 由 Action 抛） */
 const actx = (a, kidRaw) => ({ kidId: resolveKid(a, kidRaw), role: a.role, userId: a.user.id });
 async function runAction(res, fn) {

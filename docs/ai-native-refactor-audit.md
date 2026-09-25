@@ -180,6 +180,9 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | **闯关规则单元测试（#23 新增）** | `node tools/test_quiz.mjs` | 26 / 26，不起服务器 |
 | **存储提交语义回归（#16 返工新增）** | `node tools/regress_storage.mjs` | 18 / 18；用 `tools/lib/fault_rename.cjs` 预载让指定文件的 rename 抛 EPERM |
 | **Action 层单元测试（#24 新增）** | `node tools/test_actions.mjs` | 61 / 61，桩 deps 不起服务器 |
+| **Tool Registry 单元测试（#26 新增）** | `node tools/test_tools.mjs` | 36 / 36，不起服务器 |
+
+Phase 2（#26）：`lib/ai/tools/` = JSON Schema 子集校验器 + registry（`register / get / list / describe / invoke`）+ 13 个 Tool 定义（`student.* / curriculum.* / questions.* / learning.* / calculator.*`）+ 零依赖安全算术求值器。`invoke` 永远 resolve 成 `{ ok, result | error:{ code, message, status }, meta:{ tool, traceId, ms, risk } }`，错误码五种：UNKNOWN_TOOL / INVALID_INPUT / PERMISSION / TIMEOUT / ACTION / INTERNAL。Tool 只转调 lib/actions，没有业务逻辑；server.js 启动时组装一次（`agentTools`），Phase 3 的 TutorAgent 从这里拿工具。
 
 Action 层约定（#24 起）：一个 Action = `(ctx, input) => output`，`ctx = { kidId | null, role, userId }` 由路由算好；出错抛 `ActionError(status, body)`，路由的 `runAction` 原样发，其它错误照旧走统一 catch（路由必须 `return await runAction(...)`，否则 saveFailed 会变成未处理的 rejection 把进程带走）。已抽（#24 + #25）：progress（get / record / clear）、curriculum（view）、quiz（start / answer / finish）、history（list / get / remove / clear）、fsa（generate / list / get / remove / attempt / clear）、unitTest（generate / list / get / remove / attempt / clear）、report（view / generateFull / listFull / getFull / removeFull）、lesson（create）。现场调模型的「runEngine 失败再跑一次」四份复制合成了 `lib/actions/_engine.js` 的 `generateOnce`，Phase 3 的 Harness 从这里接手。留在路由里的：auth、kids、tts、usage、providers、visual-contract、qbank DELETE（不是孩子数据，Phase 2 也不做成 Tool）。
 
