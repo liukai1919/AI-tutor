@@ -174,6 +174,7 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | 健壮性回归（#15/#16/#17） | `node tools/regress_server.mjs` | 24 / 24 |
 | **主流程冒烟（本轮新增）** | `node tools/smoke_flows.mjs` | 47 / 47 |
 | **辅导黄金用例（本轮新增）** | `node tools/golden_cases.mjs` | 12 / 12 |
+| **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 40 / 40，不起服务器 |
 | 配图契约：课程 | `node tools/curriculum/visual_check.mjs` | 972 课 5986 步零违约 |
 | 配图契约：题库 | `node tools/curriculum/visual_check.mjs --qbank` | 11946 题零违约 |
 | 配图契约：单元卷 | `node tools/curriculum/visual_check.mjs --unit-tests` | 1936 题零违约 |

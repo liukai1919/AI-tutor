@@ -195,6 +195,7 @@ function walkFiles(dir, base) {
 function stageApp(dst) {
   mkdirp(dst);
   copyInto(path.join(ROOT, "server.js"), dst);
+  copyInto(path.join(ROOT, "lib"), dst);        // server.js 拆出来的模块（lib/domain/...），#19 起
   copyInto(path.join(ROOT, "public"), dst);
   copyInto(path.join(ROOT, "README.md"), dst);
   copyInto(path.join(ROOT, "README.zh.md"), dst, { optional: true });
