@@ -128,6 +128,7 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | server.js:3522 | `/api/fsa/attempt` 由客户端上报答对数，和 unit-test / quiz 的服务端判分不一致 |
 | server.js:4018 | `DELETE /api/qbank` 后导出的 `qbank` 引用失效 |
 | server.js:2630 | `ensureQuizBank` 同一知识点并发请求会各自花钱生成 |
+| lib/ai/models/json.js `extractJson` | `\f \t \b \n \r` 是合法 JSON 转义，所以模型写单反斜杠的 `\frac` / `\times` / `\begin` 而其余部分合法时，`JSON.parse` 会「成功」并把它们吃成控制字符，永远走不到 `repairJson`。`tools/test_models_json.mjs` 已把现状钉住 |
 | server.js:1290 | `YY_DEMO=1` 同时关掉引擎、书籍和技能图谱。隔离测试因此看不到技能视图和误区回补，建议拆成 `YY_NO_ENGINE` 一个独立开关 |
 | index.html 3885 | 闯关结算请求失败时前端仍显示通关 |
 | index.html 3798 | `startQuiz` 不带 `kid`，家长代孩子闯关时场次票绑在家长 user.id 上 |
@@ -175,6 +176,7 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | **主流程冒烟（本轮新增）** | `node tools/smoke_flows.mjs` | 47 / 47 |
 | **辅导黄金用例（本轮新增）** | `node tools/golden_cases.mjs` | 12 / 12 |
 | **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 40 / 40，不起服务器 |
+| **模型输出 JSON 修复单元测试（#22 新增）** | `node tools/test_models_json.mjs` | 24 / 24，不起服务器 |
 | 配图契约：课程 | `node tools/curriculum/visual_check.mjs` | 972 课 5986 步零违约 |
 | 配图契约：题库 | `node tools/curriculum/visual_check.mjs --qbank` | 11946 题零违约 |
 | 配图契约：单元卷 | `node tools/curriculum/visual_check.mjs --unit-tests` | 1936 题零违约 |
