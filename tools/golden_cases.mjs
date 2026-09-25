@@ -55,17 +55,39 @@ const curriculumStatus = async (tok, cid) => {
   return (cur.strands.flatMap(s => s.items).find(i => i.id === cid) || {}).status;
 };
 async function quiz(tok, cid, plan) {
-  /* plan: [[level, right?, n], ...]，按题库里的 answerIndex 答；correct 字段故意全填 false，服务端不该信 */
+  /* plan: [[level, right?, n], ...] 展开成一串「答对 / 答错」；难度由服务端决定，plan 里的 level 只是
+   * 写用例时的预期，实际走过的难度记在 path 里（#23 起答案不下发，答对靠先答一次拿 answerIndex 是不行的，
+   * 所以「答错」= 先问服务端要不到答案就随便选，再按返回的 answerIndex 校准：见下面 pickFor） */
   const s = await srv.call("POST", "/api/quiz/session", { curriculumId: cid, lang: "en" }, tok);
-  if (s.status !== 200 || !s.body.questions?.length) return { skipped: "no bank for " + cid };
-  const qs = s.body.questions, used = new Set(), results = [];
-  for (const [lvl, right, n] of plan) {
-    const pool = qs.filter(q => q.level === lvl && !used.has(q.qid)).slice(0, n);
-    if (pool.length < n) return { skipped: `bank has only ${pool.length} unused L${lvl} for ${cid}` };
-    for (const q of pool) { used.add(q.qid); results.push({ qid: q.qid, correct: false, picked: right ? q.answerIndex : (q.answerIndex + 1) % 4 }); }
+  if (s.status !== 200 || !s.body.question) return { skipped: "no bank for " + cid };
+  const seq = plan.flatMap(([, right, n]) => Array(n).fill(!!right));
+  const path = [];
+  let cur = s.body.question, level = s.body.level, answered = 0;
+  for (const right of seq) {
+    if (!cur) break;
+    path.push(level);
+    /* 题库是随包数据，测试进程可以直接读它拿答案；产品客户端拿不到 */
+    const bankQ = bankQuestion(cid, "en", cur.qid);
+    if (!bankQ) return { skipped: "qid not in test-side bank " + cur.qid };
+    const picked = right ? bankQ.answerIndex : (bankQ.answerIndex + 1) % 4;
+    const a = await srv.call("POST", "/api/quiz/answer", { session: s.body.session, picked }, tok);
+    if (a.status !== 200 || a.body.correct !== right) return { skipped: "answer mismatch " + JSON.stringify(a.body).slice(0, 120) };
+    answered++;
+    cur = a.body.next; level = a.body.level;
+    if (a.body.finished) break;
   }
-  const f = await srv.call("POST", "/api/quiz/finish", { curriculumId: cid, lang: "en", session: s.body.session, results }, tok);
-  return { rules: s.body.rules, finish: { status: f.status, ...f.body }, answered: results.length };
+  const f = await srv.call("POST", "/api/quiz/finish", { curriculumId: cid, lang: "en", session: s.body.session }, tok);
+  /* finish 的键和 #23 前的快照保持同名同序（status 是进度状态，不是 HTTP 码）；right/total 是新加的响应字段，不进快照 */
+  const finish = { status: f.body.status, ok: f.body.ok, passed: f.body.passed, level: f.body.level };
+  if (f.body.remediate) finish.remediate = f.body.remediate;
+  if (f.status !== 200) finish.http = f.status;
+  return { rules: s.body.rules, finish, answered, path };
+}
+let bankCache = null;
+function bankQuestion(cid, lang, qid) {
+  if (!bankCache) bankCache = JSON.parse(fs.readFileSync(path.join(srv.DATA, "qbank.json"), "utf8"));
+  const b = bankCache[cid + "|" + lang];
+  return b && b.questions.find(q => q.qid === qid) || null;
 }
 
 const CASES = {

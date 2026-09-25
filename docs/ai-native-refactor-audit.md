@@ -83,8 +83,8 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 
 | 逻辑 | 位置 | 后果 |
 |---|---|---|
-| 闯关升降级、借题顺序、通关判定 | 3811-3873 | 服务端只在结算时按 qid+picked 复核，结算失败时前端用本地 topRight 直接显示「通关」 |
-| 三类卷子连 `answerIndex` 一起下发 | 3629、3648、3856 | 答案在客户端 |
+| ~~闯关升降级、借题顺序、通关判定~~ | ~~3811-3873~~ | **#23 已搬到服务端**（`lib/domain/quiz.js` + 场次票持有状态 + `POST /api/quiz/answer`）；前端只展示当前题，结算失败不再本地判通关 |
+| FSA 和单元卷连 `answerIndex` 一起下发（闯关 #23 起不再下发） | 3629、3648 | 答案在客户端 |
 | FSA 分数由前端算完上报 | 3688 | 服务端只夹值，属于可信任前端 |
 | FSA 逐题进度事件由前端判定后发 | 3632 | 同上 |
 | 单元卷成绩单分数本地另算 | 3648 | 和服务端判分可能对不上 |
@@ -177,6 +177,9 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | **辅导黄金用例（本轮新增）** | `node tools/golden_cases.mjs` | 12 / 12 |
 | **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 40 / 40，不起服务器 |
 | **模型输出 JSON 修复单元测试（#22 新增）** | `node tools/test_models_json.mjs` | 24 / 24，不起服务器 |
+| **闯关规则单元测试（#23 新增）** | `node tools/test_quiz.mjs` | 26 / 26，不起服务器 |
+
+#23 之后 smoke 是 55 项（闯关 C 组改走 `/api/quiz/answer`），golden 快照只多了 `path` 键（服务端决定的难度序列），其余键值与 1d9242b 时一致。
 | 配图契约：课程 | `node tools/curriculum/visual_check.mjs` | 972 课 5986 步零违约 |
 | 配图契约：题库 | `node tools/curriculum/visual_check.mjs --qbank` | 11946 题零违约 |
 | 配图契约：单元卷 | `node tools/curriculum/visual_check.mjs --unit-tests` | 1936 题零违约 |

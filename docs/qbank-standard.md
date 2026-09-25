@@ -59,6 +59,10 @@
 - **结算（2026-09-05 起）**：`/api/quiz/session` 随题包发一张场次票 `session`，`/api/quiz/finish` 凭票结算——
   对错由服务端按题库 `answerIndex` 判（客户端报的 `correct` 不作数）、只认这一场发出去的 qid、一张票只结一次，
   没票 / 票已用 → 400。以前信客户端的 `correct`，错误选项配 `correct:true` 也能通关。
+- **规则全在服务端（2026-09-25 起，#23）**：升降级、借题、通关判定由 `lib/domain/quiz.js` 执行，状态装在场次票里。
+  `/api/quiz/session` 只发第一题（没有 `answerIndex` / `explain` / `tags`）；`/api/quiz/answer { session, picked }`
+  判分并返回答案、讲解和下一题；`/api/quiz/finish { session }` 按票里的作答结算，`body.results` 不再看。
+  客户端不再持有题包，也不再自己判通关；结算失败一律显示「没存上」而不是通关。
 
 ## 5. 与进度体系的关系
 

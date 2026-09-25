@@ -19,6 +19,7 @@
  * 前提：data/lessons/en、data/unit-tests/en/4-number.json 和一份题库（根目录 qbank.json 或 demo/qbank.json）。
  * 缺题库时 C 组跳过。
  */
+import path from "node:path";
 import { launch, makeChecker } from "./lib/isolated_server.mjs";
 
 const { check, summary } = makeChecker();
@@ -59,37 +60,63 @@ try {
   r = await srv.call("GET", "/api/progress?grade=4");
   check("progress: taught=2, no right/wrong yet", r.body.items[item.id] && r.body.items[item.id].taught === 2 && !r.body.items[item.id].right && !r.body.items[item.id].wrong, r.body.items && r.body.items[item.id]);
 
-  console.log("C  quiz: server-side scoring, pass -> solid");
+  console.log("C  quiz: server holds the state, judges, and decides the next question (#23)");
   r = await srv.call("POST", "/api/quiz/session", { curriculumId: item.id, lang: "en" });
-  if (r.status !== 200 || !r.body.questions || !r.body.questions.length) {
+  if (r.status !== 200 || !r.body.question) {
     console.log("  skip  no quiz bank for " + item.id + " (" + r.status + ")");
   } else {
-    const qs = r.body.questions, rules = r.body.rules || {}, session = r.body.session;
-    check("quiz/session: ticket + rules + leveled questions with qid", typeof session === "string" && rules.passNeed >= 1 && rules.topLevel === 3
-      && qs.every(q => q.qid && [1, 2, 3].includes(q.level) && Array.isArray(q.options) && q.options.length === 4), { rules, n: qs.length });
-    const byLevel = l => qs.filter(q => q.level === l);
-    check("quiz/session: at least passNeed questions at the top level", byLevel(3).length >= rules.passNeed, { l3: byLevel(3).length });
-    // 客户端上报的 correct 一律不信：这里故意把 correct 写反，服务端应按 qid+picked 自己判
-    const results = [];
-    for (const [lvl, n] of [[1, 1], [2, 1], [3, rules.passNeed]]) for (const q of byLevel(lvl).slice(0, n)) results.push({ qid: q.qid, correct: false, picked: q.answerIndex });
-    r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item.id, lang: "en", session, results });
-    check("quiz/finish: passed, status solid, level proficient (client 'correct' flag ignored)", r.status === 200 && r.body.passed === true && r.body.status === "solid" && r.body.level === "proficient", r.body);
-    r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item.id, lang: "en", session, results });
+    const rules = r.body.rules || {}, session = r.body.session;
+    let cur = r.body.question;
+    check("quiz/session: ticket + rules + first question at L1, n=1", typeof session === "string" && rules.passNeed === 2 && rules.topLevel === 3 && rules.maxQuestions === 8
+      && r.body.level === 1 && r.body.n === 1 && cur.qid && cur.level === 1 && Array.isArray(cur.options) && cur.options.length === 4, r.body);
+    check("quiz/session: no answer, explain or tags leaked to the client", !("answerIndex" in cur) && !("explain" in cur) && !("tags" in cur) && !("questions" in r.body), Object.keys(cur));
+    /* 测试进程直接读随包题库拿答案（产品客户端拿不到） */
+    const bank = srv.readJson(path.join(srv.DATA, "qbank.json"));
+    const answerOf = (cid, qid) => (bank[cid + "|en"].questions.find(q => q.qid === qid) || {}).answerIndex;
+    r = await srv.call("POST", "/api/quiz/answer", { session, picked: 9 });
+    check("quiz/answer: out-of-range pick -> 400, nothing consumed", r.status === 400, r);
+    r = await srv.call("POST", "/api/quiz/answer", { session: "nope", picked: 0 });
+    check("quiz/answer: unknown ticket -> 400 staleSession", r.status === 400 && r.body.staleSession === true, r);
+    r = await srv.call("POST", "/api/quiz/answer", { session, picked: 0 }, fam.kidTok.B);
+    check("quiz/answer: someone else's ticket -> 400", r.status === 400, r);
+    // 通关最短路径：L1 对 → L2 对 → L3 对 ×2
+    const pathTaken = [];
+    let last = null;
+    for (let i = 0; i < 4; i++) {
+      pathTaken.push(cur.level);
+      last = await srv.call("POST", "/api/quiz/answer", { session, picked: answerOf(item.id, cur.qid) });
+      if (last.status !== 200 || !last.body.correct) break;
+      if (last.body.finished) break;
+      cur = last.body.next;
+    }
+    check("quiz/answer: right answers climb 1 -> 2 -> 3 -> 3 and finish at passNeed", pathTaken.join() === "1,2,3,3" && last.body.finished === true && last.body.topRight === 2 && last.body.next === null, { pathTaken, last: last.body });
+    check("quiz/answer: response carries answerIndex + explain only after answering", Number.isInteger(last.body.answerIndex) && typeof last.body.explain === "string", last.body);
+    r = await srv.call("POST", "/api/quiz/answer", { session, picked: 0 });
+    check("quiz/answer: after finished -> 400 finished", r.status === 400 && r.body.finished === true, r);
+    r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item.id, lang: "en", session, results: [{ qid: "x", picked: 0, correct: true }] });
+    check("quiz/finish: passed, status solid, level proficient, right/total from the ticket (body.results ignored)", r.status === 200 && r.body.passed === true && r.body.status === "solid" && r.body.level === "proficient" && r.body.right === 4 && r.body.total === 4, r.body);
+    r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item.id, lang: "en", session });
     check("quiz/finish: settled ticket cannot be replayed", r.status === 400 && r.body.staleSession === true, r);
     r = await srv.call("GET", "/api/curriculum?grade=4");
     check("curriculum: item now solid", r.body.strands[0].items[0].status === "solid", r.body.strands[0].items[0]);
     r = await srv.call("GET", "/api/progress?grade=4");
     const p = r.body.items[item.id];
-    check("progress: quiz right counted, quizPassedAt set", p && p.right === results.length && !p.wrong && typeof p.quizPassedAt === "number", p);
-    // 失败路径：另一个知识点全答错
+    check("progress: quiz right counted, quizPassedAt set", p && p.right === 4 && !p.wrong && typeof p.quizPassedAt === "number", p);
+    // 失败路径：另一个知识点连错两题，难度钉在 1，中途结算
     const item2 = (await srv.call("GET", "/api/curriculum?grade=4")).body.strands[0].items[1];
     r = await srv.call("POST", "/api/quiz/session", { curriculumId: item2.id, lang: "en" });
-    if (r.status === 200 && r.body.questions && r.body.questions.length) {
-      const wrong = r.body.questions.filter(q => q.level === 1).slice(0, 2).map(q => ({ qid: q.qid, correct: true, picked: (q.answerIndex + 1) % 4 }));
-      r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item2.id, lang: "en", session: r.body.session, results: wrong });
-      check("quiz/finish: all wrong -> not passed (client 'correct:true' ignored)", r.status === 200 && r.body.passed === false, r.body);
+    if (r.status === 200 && r.body.question) {
+      const s2 = r.body.session; let c2 = r.body.question, lv = [];
+      for (let i = 0; i < 2; i++) {
+        lv.push(c2.level);
+        const a = await srv.call("POST", "/api/quiz/answer", { session: s2, picked: (answerOf(item2.id, c2.qid) + 1) % 4 });
+        check("quiz/answer: wrong answer reports correct=false and stays at L1", a.status === 200 && a.body.correct === false && a.body.level === 1 && a.body.finished === false, a.body);
+        c2 = a.body.next;
+      }
+      r = await srv.call("POST", "/api/quiz/finish", { curriculumId: item2.id, lang: "en", session: s2 });
+      check("quiz/finish mid-way: not passed, 2 answered", r.status === 200 && r.body.passed === false && r.body.total === 2 && r.body.right === 0, r.body);
       const p2 = (await srv.call("GET", "/api/progress?grade=4")).body.items[item2.id];
-      check("progress: wrong counted, status not solid", p2 && p2.wrong === wrong.length && !p2.right && p2.status !== "solid", p2);
+      check("progress: wrong counted, status not solid", p2 && p2.wrong === 2 && !p2.right && p2.status !== "solid", p2);
     } else console.log("  skip  no quiz bank for " + item2.id);
   }
 

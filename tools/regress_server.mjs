@@ -159,8 +159,15 @@ async function main() {
   // (c) 闯关结算：存不下把场次票还回去
   const qs = await call("POST", "/api/quiz/session", { curriculumId: cid, lang: "en" });
   if (qs.status === 200 && qs.body.session) {
-    const results = qs.body.questions.slice(0, 3).map(q => ({ qid: q.qid, picked: 0 }));
-    const finish = () => call("POST", "/api/quiz/finish", { curriculumId: cid, session: qs.body.session, results });
+    // #23 起题目答案不下发、作答走 /api/quiz/answer 记在票里；这里答 3 题（选 A，对错无所谓），结算按票里的 3 条记
+    const results = [];
+    for (let i = 0; i < 3 && (i === 0 ? qs.body.question : results[i - 1].next); i++) {
+      const a = await call("POST", "/api/quiz/answer", { session: qs.body.session, picked: 0 });
+      if (a.status !== 200) break;
+      results.push(a.body);
+      if (a.body.finished) break;
+    }
+    const finish = () => call("POST", "/api/quiz/finish", { curriculumId: cid, session: qs.body.session });
     const t0 = tally(progressOnDisk());
     block(kidB, "progress.json");
     r = await finish();

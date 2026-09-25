@@ -797,12 +797,10 @@ function validateUnitTest(set, gradeData, strand, count) {
 /* ---------------- 闯关练习题库（P5）----------------
  * 一个知识点一个题库，孩子看完课一道一道做题，SAT 式做对升难度，通关标 solid。
  * 难度定义、数量、判定规则都定在 docs/qbank-standard.md——改规则先改那里。 */
-const QUIZ_PER_LEVEL_NEW = 4;     // 每级一次生成 4 道
-const QUIZ_LEVEL_CAP = 12;        // 每级封顶（单知识点单语言最多 36 道），到顶按最久没做过复用
-const QUIZ_SESSION_PER_LEVEL = 4; // 一次闯关每级最多带出 4 道
-const QUIZ_MAX_QUESTIONS = 8;     // 8 题内没通关 = 本次不通关
-const QUIZ_PASS_NEED = 2;         // 最高难度累计答对 2 题 = 通关
-const QUIZ_TOP_LEVEL = 3;
+/* 闯关规则常量和判定都在 lib/domain/quiz.js（#23）；这里留别名给题库生成/合并用 */
+const Q = require("./lib/domain/quiz.js");
+const QUIZ_PER_LEVEL_NEW = Q.PER_LEVEL_NEW, QUIZ_LEVEL_CAP = Q.LEVEL_CAP, QUIZ_SESSION_PER_LEVEL = Q.SESSION_PER_LEVEL;
+const QUIZ_MAX_QUESTIONS = Q.MAX_QUESTIONS, QUIZ_PASS_NEED = Q.PASS_NEED, QUIZ_TOP_LEVEL = Q.TOP_LEVEL;
 
 const QBANK_SCHEMA = {
   type: "object", additionalProperties: false,
@@ -2114,46 +2112,44 @@ function shuffleArr(a) {
 }
 
 /* 一次闯关的题包：每级最多 4 道，没做过的优先（打乱），其余按最久没做过补位 */
-function quizSession(bank) {
-  const out = [];
-  for (const lv of [1, 2, 3]) {
-    const qs = bank.questions.filter(q => q.level === lv);
-    const fresh = shuffleArr(qs.filter(q => !q.usedAt));
-    const used = qs.filter(q => q.usedAt).sort((a, b) => a.usedAt - b.usedAt);
-    out.push(...fresh.concat(used).slice(0, QUIZ_SESSION_PER_LEVEL));
-  }
-  // visual：题图（契约 v3 questionVisual），读图题的数据在图上；没有就不带这个键。tags 不下发（ok 的位置就是答案）
-  return out.map(q => Object.assign({ qid: q.qid, level: q.level, question: q.question, options: q.options, answerIndex: q.answerIndex, explain: q.explain },
-    q.visual ? { visual: q.visual } : {}));
-}
-
-/* 闯关场次（内存）：/api/quiz/session 发一张「场次票」，/api/quiz/finish 凭票结算，结算即作废。
- * 以前结算只认客户端报上来的 correct:true，随便报两道 L3 就 solid（2026-09-05 审出）；
- * 现在对错由服务端拿题库答案判，题目也只认这一场发出去的，同一场不能重复结算。
- * 重启会丢正在进行的场次——那一场结算时 400，前端提示「成绩没存上」，仅此而已。 */
+/* 闯关场次（内存）：/api/quiz/session 发一张「场次票」，票里装着这一场的完整状态
+ * （题池、当前难度、当前题、已答结果、topRight，见 lib/domain/quiz.js）；
+ * /api/quiz/answer 凭票判分并推进，/api/quiz/finish 凭票结算，结算即作废。
+ * 2026-09-25（#23）前升降级和通关判定在前端，服务端只在结算时复核；现在题目答案不再提前下发。
+ * 重启会丢正在进行的场次——那一场答题/结算时 400 staleSession，前端提示「成绩没存上」，仅此而已。 */
 const QUIZ_OPEN_TTL = 6 * 3600 * 1000;
 const QUIZ_OPEN_MAX = 500;
-const quizOpen = new Map();   // sid -> { userId, cid, lang, qids:Set, at }
-function quizOpenCreate(userId, cid, lang, questions) {
+const quizOpen = new Map();   // sid -> { userId, cid, lang, state, at }
+function quizOpenCreate(userId, cid, lang, byLevel) {
   const now = Date.now();
   for (const [k, v] of quizOpen) if (now - v.at > QUIZ_OPEN_TTL) quizOpen.delete(k);
   while (quizOpen.size >= QUIZ_OPEN_MAX) quizOpen.delete(quizOpen.keys().next().value);   // Map 按插入序，先丢最老的
   const sid = crypto.randomBytes(16).toString("hex");
-  quizOpen.set(sid, { userId, cid, lang, qids: new Set(questions.map(q => q.qid)), at: now });
+  quizOpen.set(sid, { userId, cid, lang, state: Q.newState(byLevel), at: now });
   return sid;
 }
-/* 凭票取场次：票不对 / 不是这个人的 / 不是这一节的 / 已结算 → null。取到即作废（一场只结一次） */
-function quizOpenTake(sid, userId, cid) {
+/* 凭票取场次（不作废）：票不对 / 过期 / 不是这个人的 / 不是这一节的（cid 传 null 不校验）→ null */
+function quizOpenGet(sid, userId, cid) {
   const key = String(sid || "");
   const s = quizOpen.get(key);
   if (!s) return null;
   /* 过期票一律作废（QUIZ_OPEN_TTL）：以前只在别人开新场时顺带清理，一张票能不能用取决于这期间有没有人另开一场（复审 R3） */
   if (Date.now() - s.at > QUIZ_OPEN_TTL) { quizOpen.delete(key); return null; }
-  if (s.userId !== userId || s.cid !== cid) return null;
-  quizOpen.delete(key);
+  if (s.userId !== userId || (cid != null && s.cid !== cid)) return null;
   return s;
 }
-
+/* 结算用：取到即作废（一场只结一次） */
+function quizOpenTake(sid, userId, cid) {
+  const s = quizOpenGet(sid, userId, cid);
+  if (s) quizOpen.delete(String(sid));
+  return s;
+}
+/* 场次里的下一题（发给客户端的版本：没有答案和讲解）；没题了返回 null */
+function quizNextPublic(open, bank) {
+  const qid = Q.nextQuestion(open.state);
+  const q = qid && bank ? bank.questions.find(x => x.qid === qid) : null;
+  return q ? Q.publicQuestion(q) : null;
+}
 /* ---------------- 账号与会话 ----------------
  * 家长自助注册（可选邀请码），孩子由家长创建（名字 + 4-6 位 PIN），不需要邮箱。
  * 登录发随机 token（x-session 头），60 天滑动过期，落盘 data/sessions.json 重启不掉线。
@@ -3126,15 +3122,35 @@ const server = http.createServer(async (req, res) => {
       let bank;
       if (id) bank = await ensureQuizBank(found.item, found.data, lang, id);
       else { ledgerAdd({ task: "quiz", provider: "bank", lang, ms: 0, ok: true }); bank = ready; }   // 没引擎、纯吃随包题库
-      const questions = quizSession(bank);
+      const sid = quizOpenCreate(a.user.id, found.item.id, lang, Q.pickSession(bank, shuffleArr));   // 答题和结算都凭这张票
+      const open = quizOpen.get(sid);
+      const question = quizNextPublic(open, bank);
+      return send(res, 200, { session: sid, rules: Q.RULES, level: open.state.level, n: open.state.n, question });
+    }
+
+    /* 答一题：服务端按题库判分、升降级、给下一题；答案和讲解这时才下发。
+     * 一道题只能答一次；finished 之后客户端该去 /api/quiz/finish 结算。 */
+    if (url.pathname === "/api/quiz/answer" && req.method === "POST") {
+      const a = allow(req, res, "student"); if (!a) return;
+      const body = JSON.parse((await readBody(req, 16 * 1024)).toString("utf8"));
+      const open = quizOpenGet(body.session, a.user.id, null);
+      if (!open) return send(res, 400, { error: "这场闯关的场次票无效或已经结算过 / Quiz session is invalid or already settled", staleSession: true });
+      const st = open.state;
+      if (!st.cur || st.answered) return send(res, 400, { error: "这场已经答完了，去结算吧 / This quiz is over, settle it", finished: true });
+      const bank = qbank[qbankKey(open.cid, open.lang)];
+      const q = bank ? bank.questions.find(x => x.qid === st.cur) : null;
+      if (!q) return send(res, 400, { error: "这场的题不在题库里了 / The quiz bank changed underneath this session", staleSession: true });
+      const r = Q.applyAnswer(st, q, body.picked);
+      if (!r) return send(res, 400, { error: "答案不合法 / Invalid answer index" });
+      const next = r.finished ? null : quizNextPublic(open, bank);
       return send(res, 200, {
-        questions,
-        session: quizOpenCreate(a.user.id, found.item.id, lang, questions),   // 结算凭这张票（见 quizOpenCreate）
-        rules: { maxQuestions: QUIZ_MAX_QUESTIONS, passNeed: QUIZ_PASS_NEED, topLevel: QUIZ_TOP_LEVEL }
+        correct: r.correct, answerIndex: q.answerIndex, explain: q.explain || "",
+        level: st.level, n: st.n, topRight: st.topRight, finished: r.finished || !next, next
       });
     }
 
-    /* 闯关结算：单题对错记统计、做过的题打 usedAt；通关判定以服务器题库里的难度为准 */
+    /* 闯关结算：按票里记的作答（服务端自己判过的）记统计、做过的题打 usedAt；通关判定以题库里的难度为准。
+     * body.results 不再看（#23 前由客户端上报 qid+picked，现在票里就有）。 */
     if (url.pathname === "/api/quiz/finish" && req.method === "POST") {
       const a = allow(req, res, "student"); if (!a) return;
       const body = JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
@@ -3143,33 +3159,25 @@ const server = http.createServer(async (req, res) => {
       const cid = String(body.curriculumId || "");
       const found = findCurriculumItem(cid);
       if (!found) return send(res, 400, { error: "未知的知识点 / Unknown curriculum item" });
-      /* 凭 /api/quiz/session 发的票结算：题目只认这一场发出去的，一场只结一次 */
+      /* 凭 /api/quiz/session 发的票结算：一场只结一次 */
       const open = quizOpenTake(body.session, a.user.id, found.item.id);
       if (!open) return send(res, 400, { error: "这场闯关的场次票无效或已经结算过 / Quiz session is invalid or already settled", staleSession: true });
       const bank = qbank[qbankKey(cid, open.lang)];
       const now = Date.now();
       const counted = new Set();
-      let topRight = 0, passed = false;
+      let topRight = 0, right = 0, total = 0, passed = false;
       try { kidTxn(() => {
-      for (const r of (Array.isArray(body.results) ? body.results : []).slice(0, QUIZ_MAX_QUESTIONS + 4)) {
-        const qid = String((r && r.qid) || "");
-        const q = (bank && open.qids.has(qid)) ? bank.questions.find(x => x.qid === qid) : null;
-        if (!q || counted.has(qid)) continue;   // 不是这一场的 / 不认识 / 重复的 qid 不记
-        /* 对错由服务端判：只认「选了第几个」，客户端报的 correct 一律不信。
-         * 下标不是合法整数就当没答（不记对也不记错），别让坏客户端刷出一堆错题。 */
-        const picked = (r && Number.isInteger(r.picked)) ? r.picked : -1;
-        if (picked < 0 || picked >= (q.options || []).length) continue;
-        counted.add(qid);
+      for (const r of open.state.results) {
+        const q = bank ? bank.questions.find(x => x.qid === r.qid) : null;
+        if (!q || counted.has(r.qid)) continue;   // 题库被清了 / 重复的 qid 不记
+        counted.add(r.qid);
         q.usedAt = now;
-        const ok = picked === q.answerIndex;
+        const ok = r.picked === q.answerIndex;   // 对错还是按题库现在的答案判，不信票里记的 ok
+        total++; if (ok) right++;
         progressRecord(kidId, cid, ok ? "quiz-right" : "quiz-wrong");
         if (q.level === QUIZ_TOP_LEVEL && ok) topRight++;
-        /* 答错且这道题挂了误区标签：记一笔，攒够 2 次就建议回补（技能图谱 §6）。
-         * 老题库没有 tags，这里什么都不做，行为和以前一样。 */
-        if (!ok && Array.isArray(q.tags)) {
-          const tag = picked <= 3 ? q.tags[picked] : "";
-          if (tag && tag !== "ok" && tag !== "other") missRecord(kidId, cid, tag);
-        }
+        /* 答错且这道题挂了误区标签：记一笔，攒够 2 次就建议回补（技能图谱 §6）。老题库没有 tags，什么都不做。 */
+        if (!ok) { const tag = Q.missTag(q, r.picked); if (tag) missRecord(kidId, cid, tag); }
       }
       passed = topRight >= QUIZ_PASS_NEED;
       if (passed) progressRecord(kidId, cid, "quiz-pass");
@@ -3180,7 +3188,7 @@ const server = http.createServer(async (req, res) => {
       }
       if (bank) qbankSave();
       return send(res, 200, {
-        ok: true, passed, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid),
+        ok: true, passed, right, total, status: progressStatus(kidId, cid), level: progressLevel(kidId, cid),
         ...(remediationFor(kidId, cid) ? { remediate: remediationFor(kidId, cid) } : {})
       });
     }
