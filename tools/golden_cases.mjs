@@ -59,7 +59,9 @@ async function quiz(tok, cid, plan) {
    * 写用例时的预期，实际走过的难度记在 path 里（#23 起答案不下发，答对靠先答一次拿 answerIndex 是不行的，
    * 所以「答错」= 先问服务端要不到答案就随便选，再按返回的 answerIndex 校准：见下面 pickFor） */
   const s = await srv.call("POST", "/api/quiz/session", { curriculumId: cid, lang: "en" }, tok);
-  if (s.status !== 200 || !s.body.question) return { skipped: "no bank for " + cid };
+  /* 缺 fixture（503 needsEngine）才 skip；其它非 200 / 没题都算接口坏了，记 error 让本用例失败（Codex 复审 20260925） */
+  if (s.status === 503 && s.body.needsEngine === true) return { skipped: "no bank for " + cid };
+  if (s.status !== 200 || !s.body.question) return { error: "quiz/session " + s.status + " " + JSON.stringify(s.body).slice(0, 160) };
   const seq = plan.flatMap(([, right, n]) => Array(n).fill(!!right));
   const path = [];
   let cur = s.body.question, level = s.body.level, answered = 0;
@@ -219,6 +221,7 @@ try {
     const out = await fn();
     actual[name] = out;
     const s = JSON.stringify(out);
+    if (s.includes('"error"')) { fail++; console.log("  FAIL  " + name + "  " + s.slice(0, 300)); continue; }
     if (s.includes('"skipped"')) { skipped++; console.log("  skip  " + name + "  " + s.slice(0, 120)); continue; }
     if (UPDATE) { console.log("  rec   " + name); continue; }
     if (!(name in expected)) { fail++; console.log("  NEW   " + name + " (no snapshot; run with --update)"); continue; }

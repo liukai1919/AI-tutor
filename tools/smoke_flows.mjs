@@ -62,9 +62,12 @@ try {
 
   console.log("C  quiz: server holds the state, judges, and decides the next question (#23)");
   r = await srv.call("POST", "/api/quiz/session", { curriculumId: item.id, lang: "en" });
-  if (r.status !== 200 || !r.body.question) {
-    console.log("  skip  no quiz bank for " + item.id + " (" + r.status + ")");
-  } else {
+  /* 只有「题库里没这一节且没引擎」（503 needsEngine）才算缺 fixture 可以跳；其它任何非 200 都是接口坏了，必须失败
+   * （Codex 复审 20260925-82d9cc0 指出以前把 500 也当缺题库跳过） */
+  const noBank = r.status === 503 && r.body.needsEngine === true;
+  if (noBank) console.log("  skip  no quiz bank for " + item.id + " (503 needsEngine)");
+  check("quiz/session: 200 with a first question (or an honest 503 needsEngine)", noBank || (r.status === 200 && !!r.body.question), r);
+  if (!noBank && r.status === 200 && r.body.question) {
     const rules = r.body.rules || {}, session = r.body.session;
     let cur = r.body.question;
     check("quiz/session: ticket + rules + first question at L1, n=1", typeof session === "string" && rules.passNeed === 2 && rules.topLevel === 3 && rules.maxQuestions === 8
@@ -105,7 +108,9 @@ try {
     // 失败路径：另一个知识点连错两题，难度钉在 1，中途结算
     const item2 = (await srv.call("GET", "/api/curriculum?grade=4")).body.strands[0].items[1];
     r = await srv.call("POST", "/api/quiz/session", { curriculumId: item2.id, lang: "en" });
-    if (r.status === 200 && r.body.question) {
+    const noBank2 = r.status === 503 && r.body.needsEngine === true;
+    check("quiz/session (2nd topic): 200 or honest 503", noBank2 || (r.status === 200 && !!r.body.question), r);
+    if (!noBank2 && r.status === 200 && r.body.question) {
       const s2 = r.body.session; let c2 = r.body.question, lv = [];
       for (let i = 0; i < 2; i++) {
         lv.push(c2.level);

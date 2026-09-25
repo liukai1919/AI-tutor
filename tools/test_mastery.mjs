@@ -56,6 +56,8 @@ check("unmark-solid clears solid but quizPassedAt keeps it proficient", p.Q.soli
 p = {};
 const bad = M.applyEvent(p, "Z", "quiz-pass-please", { now: T0 });
 check("unknown event -> null, entry still created untouched (matches old behaviour)", bad === null && p.Z && p.Z.taught === 0 && p.Z.lastAt === 0, p.Z);
+check("applyEvent without opts.now throws (no hidden clock in the domain layer)", [undefined, {}, { now: null }, { now: "1" }, { now: NaN }].every(o => { try { M.applyEvent({}, "T", "taught", o); return false; } catch (e) { return e instanceof TypeError; } }));
+check("same input + same now -> identical output", JSON.stringify(M.applyEvent({}, "Q", "quiz-pass", { now: 1 })) === JSON.stringify(M.applyEvent({}, "Q", "quiz-pass", { now: 1 })));
 check("EVENTS lists all 8; parent-only and internal sets are subsets", M.EVENTS.length === 8 && [...M.PARENT_ONLY_EVENTS, ...M.INTERNAL_EVENTS].every(x => M.EVENTS.includes(x)));
 check("dayKey is a local calendar date", /^\d{4}-\d{2}-\d{2}$/.test(M.dayKey(T0)));
 

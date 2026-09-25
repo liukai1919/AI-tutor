@@ -175,11 +175,11 @@ index.html 不只是视图。以下逻辑在前端，重构时要么搬到服务
 | 健壮性回归（#15/#16/#17） | `node tools/regress_server.mjs` | 24 / 24 |
 | **主流程冒烟（本轮新增）** | `node tools/smoke_flows.mjs` | 47 / 47 |
 | **辅导黄金用例（本轮新增）** | `node tools/golden_cases.mjs` | 12 / 12 |
-| **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 40 / 40，不起服务器 |
+| **掌握度纯函数单元测试（#21 新增）** | `node tools/test_mastery.mjs` | 42 / 42，不起服务器 |
 | **模型输出 JSON 修复单元测试（#22 新增）** | `node tools/test_models_json.mjs` | 24 / 24，不起服务器 |
 | **闯关规则单元测试（#23 新增）** | `node tools/test_quiz.mjs` | 26 / 26，不起服务器 |
 
-#23 之后 smoke 是 55 项（闯关 C 组改走 `/api/quiz/answer`），golden 快照只多了 `path` 键（服务端决定的难度序列），其余键值与 1d9242b 时一致。
+#23 之后 smoke 是 57 项（闯关 C 组改走 `/api/quiz/answer`），golden 快照只多了 `path` 键（服务端决定的难度序列），其余键值与 1d9242b 时一致。
 | 配图契约：课程 | `node tools/curriculum/visual_check.mjs` | 972 课 5986 步零违约 |
 | 配图契约：题库 | `node tools/curriculum/visual_check.mjs --qbank` | 11946 题零违约 |
 | 配图契约：单元卷 | `node tools/curriculum/visual_check.mjs --unit-tests` | 1936 题零违约 |
