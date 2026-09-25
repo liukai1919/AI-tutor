@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.SAVINGS_GROWTH",
+ "lang": "en",
+ "title": "Compare savings options: how principal, rate and time each change the interest, and total = principal + interest",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Which Savings Option Wins? Principal, Rate and Time",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find simple interest: I equals P times r times t. Today we use that formula to judge, not just compute. If you have some part-time money to save, which option actually gives you more? We will see how each of the three ingredients, principal, rate, and time, changes the interest, and we will always finish with the total: principal plus interest.",
+    "math": "I = P \\times r \\times t \\qquad \\text{Total} = P + I",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Start with a base case: five hundred dollars at three percent for two years. Interest is five hundred times zero point zero three times two, which is thirty dollars. Total is five hundred thirty. Now change one ingredient at a time. Double the principal to one thousand: interest becomes sixty. Double the rate to six percent: interest becomes sixty. Double the time to four years: interest becomes sixty. Doubling any one of the three doubles the interest. But look at the totals: the bigger principal gives a bigger total simply because you put more money in.",
+    "math": "500 \\times 0.03 \\times 2 = 30 \\qquad 1000 \\times 0.03 \\times 2 = 60",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      30,
+      60,
+      60,
+      60,
+      530,
+      1060,
+      560,
+      560
+     ],
+     "labels": [
+      "A: $500, 3%, 2 yr",
+      "B: $1000, 3%, 2 yr",
+      "C: $500, 6%, 2 yr",
+      "D: $500, 3%, 4 yr",
+      "Interest ($)",
+      "Total ($)"
+     ],
+     "caption": "Same $500 base, changing one ingredient at a time"
+    }
+   },
+   {
+    "say": "Time is the ingredient people forget. With five hundred dollars at three percent, you earn fifteen dollars every year, so the total climbs in a straight line: five hundred, five fifteen, five thirty, five forty-five, five sixty. That is a linear relation. At six percent it climbs thirty dollars a year, so the line is steeper. The rate sets the steepness, and time decides how far along the line you travel.",
+    "math": "\\text{Total after } t \\text{ years} = 500 + 15t",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      500,
+      515,
+      530,
+      545,
+      560,
+      500,
+      530,
+      560,
+      590,
+      620
+     ],
+     "labels": [
+      "Start",
+      "Year 1",
+      "Year 2",
+      "Year 3",
+      "Year 4",
+      "3% rate",
+      "6% rate"
+     ],
+     "caption": "Total value of $500 over time at 3% and at 6%"
+    }
+   },
+   {
+    "say": "Now a real judgment call. Maya has five hundred dollars from her summer job. Option X pays four percent for eighteen months. Option Y pays two and a half percent for three years. The higher rate looks like the obvious winner, but check. Eighteen months is one and a half years, so X earns five hundred times zero point zero four times one point five, which is thirty dollars, total five hundred thirty. Y earns five hundred times zero point zero two five times three, which is thirty-seven dollars fifty, total five hundred thirty-seven fifty. Y wins by seven fifty, because the extra time beats the extra rate.",
+    "math": "X: 500 \\times 0.04 \\times 1.5 = 30 \\qquad Y: 500 \\times 0.025 \\times 3 = 37.50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      30,
+      37.5,
+      530,
+      537.5
+     ],
+     "labels": [
+      "X: 4%, 18 months",
+      "Y: 2.5%, 3 years",
+      "Interest ($)",
+      "Total ($)"
+     ],
+     "caption": "Compare interest AND total before you judge"
+    }
+   },
+   {
+    "say": "Two mistakes to watch for. First, for Option X someone plugs in t equals eighteen because it says eighteen months. That gives five hundred times zero point zero four times eighteen, which is three hundred sixty dollars. Three hundred sixty dollars of interest on five hundred in a year and a half? Not realistic, and it happens because the rate is per year, so time must be in years: eighteen months is one point five years. Second mistake: answering that Maya ends up with thirty dollars. Thirty is only the interest. She still has her five hundred, so the amount in the account is five hundred thirty. Always add the principal back.",
+    "math": "t = \\frac{18}{12} = 1.5 \\text{ years} \\qquad 500 + 30 = 530",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      500,
+      30,
+      530
+     ],
+     "labels": [
+      "Principal",
+      "Interest",
+      "Total"
+     ],
+     "caption": "The total is the principal plus the interest, not the interest alone"
+    }
+   },
+   {
+    "say": "Here is the takeaway. Principal, rate and time each push the interest up, and doubling any one of them doubles the interest. To judge a savings option, convert months to years, compute the interest, then add the principal to get the total, and compare totals.",
+    "math": "\\text{Total} = P + P \\times r \\times t",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Judge a savings option by its total: Total = P + P × r × t, with time in years.",
+  "practice": {
+   "question": "Jordan saved eight hundred dollars from a part-time job at a Kelowna grocery store. Option 1 pays two percent simple interest for three years. Option 2 pays four percent simple interest for two years. Make a small table with the interest and the total for each option. Which option gives Jordan more money at the end, and by how much?",
+   "answer": "Option 1: interest = 800 × 0.02 × 3 = $48, total = $848. Option 2: interest = 800 × 0.04 × 2 = $64, total = $864. Option 2 gives more, by $16."
+  }
+ }
+}

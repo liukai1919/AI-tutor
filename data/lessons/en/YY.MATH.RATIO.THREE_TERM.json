@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RATIO.THREE_TERM",
+ "lang": "en",
+ "title": "Write and simplify two- and three-term ratios from a situation (6 red : 4 blue : 10 green = 3 : 2 : 5)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Three-Term Ratios: Shrink Every Bar",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write a ratio for two things, like three to two. Today we just add a third thing to the list, and then shrink the whole ratio down to its simplest form.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the situation. Your school spirit day box has six red wristbands, four blue ones, and ten green ones. Draw one bar for each colour. Red is six units long, blue is four, green is ten. Now write the ratio in the same order you said the colours: six to four to ten. Order is the whole point here. If you write it as four to six to ten, you have just told everyone there are more blue than red, which is not true.",
+    "math": "\\text{red} : \\text{blue} : \\text{green} = 6:4:10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      4,
+      10
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "caption": "Six red, four blue, ten green — bars in the order you name them"
+    }
+   },
+   {
+    "say": "Now simplify. Same idea as a two-term ratio: find the greatest common factor of all the numbers, then divide. Six, four, and ten all share a factor of two, and two is the biggest one they share. So divide every single term by two. Six divided by two is three. Four divided by two is two. Ten divided by two is five. The ratio six to four to ten is the same as three to two to five.",
+    "math": "6\\div 2 \\;:\\; 4\\div 2 \\;:\\; 10\\div 2 \\;=\\; 3:2:5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6,
+      4,
+      10,
+      3,
+      2,
+      5
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "caption": "Top row is the count, bottom row is the same ratio after dividing every term by two"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Someone divides red and blue by two, gets three and two, then forgets green and leaves it at ten. Look at what those bars look like. Green is now more than three times the red bar, but in the real box green was less than twice the red. The picture is lying, because green never got shrunk. A ratio only stays true if every term takes the same trip.",
+    "math": "6:4:10 \\neq 3:2:10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      2,
+      10
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "caption": "Wrong: red and blue were halved but green was left alone, so green looks huge"
+    }
+   },
+   {
+    "say": "Compare that to the correct one. Three, two, five. The bars have the exact same shape as the original box, just smaller. Green is still a bit less than twice red, blue is still the shortest. That matching shape is your check: if the simplified bars look like the original bars zoomed out, you did it right.",
+    "math": "6:4:10 = 3:2:5",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      2,
+      5
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "caption": "Correct: same shape as the original bars, just half the size"
+    }
+   },
+   {
+    "say": "So, two things to remember. Write the terms in the order you name them, and divide every term by the greatest common factor.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Keep the order, then divide every term by the GCF: 6:4:10 = 3:2:5.",
+  "practice": {
+   "question": "At a bake sale at your school in Kamloops, the table has eight lemon squares, twelve Nanaimo bars, and twenty oatmeal cookies. Draw three bars, one for each treat, using the numbers eight, twelve and twenty. Then write the ratio of lemon squares to Nanaimo bars to cookies, and simplify it as far as it will go.",
+   "answer": "8 : 12 : 20. The greatest common factor of eight, twelve and twenty is four, so divide every term by four: 8 divided by 4 is 2, 12 divided by 4 is 3, 20 divided by 4 is 5. The simplified ratio is 2 : 3 : 5."
+  }
+ }
+}

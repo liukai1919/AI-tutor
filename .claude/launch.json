@@ -4,15 +4,49 @@
     {
       "name": "yuanyuan",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["server.js"],
+      "runtimeArgs": [
+        "server.js"
+      ],
       "port": 8434,
       "autoPort": true
     },
     {
       "name": "yuanyuan-test",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "process.env.PORT='8435';require('./server.js')"],
+      "runtimeArgs": [
+        "-e",
+        "process.env.PORT=String(8435);process.argv[1]=require(\"path\").resolve(\"server.js\");require(\"module\").runMain();"
+      ],
       "port": 8435
+    },
+    {
+      "name": "yuanyuan-iso",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "const p=require(\"path\"),fs=require(\"fs\"),d=p.join(require(\"os\").tmpdir(),\"yy-iso-8437\");fs.mkdirSync(p.join(d,\"data\"),{recursive:true});for(const [f,c] of [[\".migrated-from-app\",\"iso\"],[\"config.json\",\"{}\"]]){try{fs.writeFileSync(p.join(d,f),c,{flag:\"wx\"})}catch(_){}}process.env.YY_DATA_DIR=d;process.env.YY_DEMO=\"1\";process.env.PORT=\"8437\";process.argv[1]=p.resolve(\"server.js\");require(\"module\").runMain();"
+      ],
+      "port": 8437
+    },
+    {
+      "name": "voice-abtest",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/serve_static.mjs",
+        "build/voice-abtest",
+        "8931"
+      ],
+      "port": 8931
+    },
+    {
+      "name": "voice-abtest2",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/serve_static.mjs",
+        "build/voice-abtest2",
+        "8932"
+      ],
+      "port": 8932
     }
   ]
 }

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkpp86hbuyucc",
+   "level": 1,
+   "question": "解这个两步方程（two-step equation）：−4x + 4 = 16。x 等于多少？",
+   "options": [
+    "x = −3",
+    "x = 3",
+    "x = −5",
+    "x = −8"
+   ],
+   "answerIndex": 0,
+   "explain": "先用逆运算（inverse operation）去掉常数：两边减 4 得 −4x = 12；再两边除以系数 −4，12 ÷ (−4) = −3。最容易踩的坑是除以负系数时把负号丢了，写成 3。",
+   "tags": [
+    "ok",
+    "eq.negative_coefficient_sign_lost",
+    "eq.inverse_wrong",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hl0ajyv",
+   "level": 1,
+   "question": "解方程 3x + 6 = −9 时，第一步该怎么做？下面哪一步是对的？",
+   "options": [
+    "两边同时加 6，得 3x = −3",
+    "两边同时减 6，得 3x = −15",
+    "两边同时除以 3，得 x + 6 = −3",
+    "两边同时减 6，得 3x = 15"
+   ],
+   "answerIndex": 1,
+   "explain": "两步方程要先消常数、后消系数：两边减 6，右边 −9 − 6 = −15，所以 3x = −15。两个坑：把 −9 − 6 当成「负负得正」算成 15，或者一上来就除以 3。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.undo_wrong_order",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkpp86h9y5p1a",
+   "level": 1,
+   "question": "解方程 −3x − 9 = 12。x 等于多少？",
+   "options": [
+    "x = 5",
+    "x = −1",
+    "x = −7",
+    "x = 7"
+   ],
+   "answerIndex": 2,
+   "explain": "常数是 −9，它的逆运算是两边加 9，得 −3x = 21；再两边除以 −3，21 ÷ (−3) = −7。坑在于把 21 ÷ (−3) 算成 7，或者把「加 9」做成「减 9」。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.inverse_wrong",
+    "ok",
+    "eq.negative_coefficient_sign_lost"
+   ]
+  },
+  {
+   "qid": "qmtkpp86h2ki966",
+   "level": 1,
+   "question": "下面哪个 x 的值代入 5x + 15 = −5 后能让等式成立（verify 验算）？",
+   "options": [
+    "x = 2",
+    "x = −16",
+    "x = 4",
+    "x = −4"
+   ],
+   "answerIndex": 3,
+   "explain": "两边减 15 得 5x = −20，再除以 5 得 x = −4；验算 5 × (−4) + 15 = −20 + 15 = −5，成立。坑：把 −5 − 15 算成 20，「负负得正」只管乘除，不管加减。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.undo_wrong_order",
+    "int.sign_rules_to_addition",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hvitbxk",
+   "level": 2,
+   "question": "本拿比一栋楼的电梯用正数表示地上楼层、负数表示地下车库层。电梯从 6 层出发，连续下降了 3 次，每次下降的层数都一样，记作 x 层（下降记作负数），最后停在 −3 层。x 是多少？",
+   "options": [
+    "x = −3",
+    "x = 3",
+    "x = −7",
+    "x = 1"
+   ],
+   "answerIndex": 0,
+   "explain": "情境写成 3x + 6 = −3：两边减 6 得 3x = −9，再除以 3 得 x = −3，也就是每次下降 3 层。坑：把 −3 − 6 算成 9，或者先除以 3 只除了一半的项。",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "eq.undo_wrong_order",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hitf3p3",
+   "level": 2,
+   "question": "已知 −3x + 6 = 18。那么 x + 10 等于多少？",
+   "options": [
+    "2",
+    "6",
+    "14",
+    "−2"
+   ],
+   "answerIndex": 1,
+   "explain": "先解方程：两边减 6 得 −3x = 12，再除以 −3 得 x = −4，所以 x + 10 = 6。坑：12 ÷ (−3) 丢了负号得 4，最后就会算成 14。",
+   "tags": [
+    "eq.inverse_wrong",
+    "ok",
+    "eq.negative_coefficient_sign_lost",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hy2bk9m",
+   "level": 2,
+   "question": "素里一所中学的环保挑战赛积分可以是负数。8 班这周的积分是上周积分的 5 倍再加 10 分，这周的积分是 −15 分。上周是多少分？",
+   "options": [
+    "−13 分",
+    "5 分",
+    "−5 分",
+    "−1 分"
+   ],
+   "answerIndex": 2,
+   "explain": "列出 5x + 10 = −15：两边减 10 得 5x = −25，再除以 5 得 −5 分；验算 5 × (−5) + 10 = −15。坑：−15 − 10 是两个负数相加，等于 −25 而不是 25。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "int.sign_rules_to_addition",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hok3v3e",
+   "level": 2,
+   "question": "解方程 22 = −2x + 4（未知数在等号右边）。x 等于多少？",
+   "options": [
+    "x = −15",
+    "x = −13",
+    "x = 9",
+    "x = −9"
+   ],
+   "answerIndex": 3,
+   "explain": "未知数在哪一边都一样：先消常数，两边减 4 得 18 = −2x，再两边除以 −2 得 x = −9。坑：18 ÷ (−2) 把负号丢了写成 9，或者一开始就用除法。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.inverse_wrong",
+    "eq.negative_coefficient_sign_lost",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hug883a",
+   "level": 3,
+   "question": "小马解方程 −4x + 12 = −8。她先两边减 12，写成 −4x = −20；再两边除以 −4，写成 x = −5。她错在哪里？",
+   "options": [
+    "最后一步错了：−20 ÷ (−4) 应得 5，负除以负得正，所以 x = 5。",
+    "第一步错了：12 是加的，应两边同时加 12，得 −4x = 4，x = −1。",
+    "第一步算错了：−8 减 12 两个负号得正，应得 −4x = 20，x = −5。",
+    "第一步错了：应先两边除以 −4 得 x + 12 = 2，再减 12，x = −10。"
+   ],
+   "answerIndex": 0,
+   "explain": "她的第一步没问题（−8 − 12 = −20），错在最后：负数除以负数得正数，−20 ÷ (−4) = 5；验算 −4 × 5 + 12 = −8 成立。坑：看见两个负号就习惯性给答案加负号。",
+   "tags": [
+    "ok",
+    "eq.inverse_wrong",
+    "int.sign_rules_to_addition",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmtkpp86h7t0276",
+   "level": 3,
+   "question": "温哥华岛的一次潜水，深度用负数表示，水面记作 0。潜水员从水面出发，6 分钟里每分钟下潜的深度都一样，记作 x 米（下潜是负数）；中途她又上升了 6 米，这时深度是 −24 米。如果她再按同样的速度下潜 2 分钟，深度会变成多少？",
+   "options": [
+    "−14 米",
+    "−34 米",
+    "−44 米",
+    "−30 米"
+   ],
+   "answerIndex": 1,
+   "explain": "先解 6x + 6 = −24：两边减 6 得 6x = −30，x = −5，即每分钟下潜 5 米；再下潜 2 分钟是 −24 + 2 × (−5) = −34 米。坑：−24 − 6 要得 −30，别用「负负得正」算成 30。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "eq.undo_wrong_order",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hdv29sz",
+   "level": 3,
+   "question": "本拿比一间实验室的超低温冷冻柜刚开机时里面是 10°C，之后每小时下降的度数都一样。开机 5 小时后温度是 −25°C。再运行 3 小时后，温度是多少？",
+   "options": [
+    "−34 °C",
+    "−10 °C",
+    "−46 °C",
+    "−4 °C"
+   ],
+   "answerIndex": 2,
+   "explain": "设每小时降 x°C，得 −5x + 10 = −25：两边减 10 得 −5x = −35，x = 7；再过 3 小时就是 −25 − 3 × 7 = −46 °C。坑：先除以 −5，或把 −25 − 10 算成 35。",
+   "tags": [
+    "eq.inverse_wrong",
+    "eq.undo_wrong_order",
+    "ok",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkpp86hnopv8o",
+   "level": 3,
+   "question": "打高尔夫（golf）时成绩用相对标准杆的数表示，低于标准杆记负数。小恺前 4 轮成绩完全一样，都记作 x；第 5 轮打了 +8。这 5 轮加起来是 −4。如果第 6 轮他打出和前 4 轮一样的成绩，6 轮的总成绩是多少？",
+   "options": [
+    "−1",
+    "−3",
+    "−13",
+    "−7"
+   ],
+   "answerIndex": 3,
+   "explain": "由 4x + 8 = −4 得 4x = −12，x = −3，即前 4 轮每轮低于标准杆 3 杆；第 6 轮再来一个 −3，总成绩是 −4 + (−3) = −7。坑：−4 − 8 等于 −12，不是 12。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "eq.inverse_wrong",
+    "eq.undo_wrong_order",
+    "ok"
+   ]
+  }
+ ]
+}

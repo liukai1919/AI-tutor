@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "patterning",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Patterning · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.PAT.01",
+    "level": 1,
+    "question": "A table shows a linear relation: x = 0 → y = 4, x = 1 → y = 6, x = 2 → y = 8, x = 3 → y = 10. What is the value of y when x = 7?",
+    "options": [
+     "16",
+     "18",
+     "14",
+     "20"
+    ],
+    "answerIndex": 1,
+    "explain": "Each step in x adds 2 to y, so the rule is y = 2x + 4. At x = 7, y = 14 + 4 = 18. The common trap is subtracting instead of adding the starting value, which gives 14."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.02",
+    "level": 1,
+    "question": "Evaluate the expression 2n + 7 when n = 5.",
+    "options": [
+     "17",
+     "24",
+     "10",
+     "9"
+    ],
+    "answerIndex": 0,
+    "explain": "Substitute first: 2(5) + 7 = 10 + 7 = 17. A frequent error is distributing the 2 into both terms (2(5+7) = 24) or simply adding 2 + 7 without multiplying."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.03",
+    "level": 1,
+    "question": "Solve for x: 2x + 3 = 11",
+    "options": [
+     "7",
+     "3",
+     "4",
+     "8"
+    ],
+    "answerIndex": 2,
+    "explain": "Undo the +3 first (2x = 8), then undo the ×2 (x = 4). The most common slip is adding 3 to both sides instead of subtracting, which gives x = 7."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.01",
+    "level": 2,
+    "question": "On a coordinate grid the x-axis has tick marks every 2 units and the y-axis has tick marks every 3 units. A straight line passes through the points (0, 6) and (4, 2). Which equation matches this line?",
+    "options": [
+     "y = x - 6",
+     "y = -2x + 6",
+     "y = -x + 4",
+     "y = -x + 6"
+    ],
+    "answerIndex": 3,
+    "explain": "Slope = (2 - 6)/(4 - 0) = -1, and the y-intercept is 6, so y = -x + 6. Watch for mixing up the slope with the intercept or misreading a point on the scaled axis."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.02",
+    "level": 2,
+    "question": "Maya already has $12 in her savings jar and adds $5 every week. She writes the expression 5w + 12, where w is the number of weeks. How much money will she have after 8 weeks?",
+    "options": [
+     "$40",
+     "$52",
+     "$100",
+     "$48"
+    ],
+    "answerIndex": 1,
+    "explain": "Substitute w = 8: 5(8) + 12 = 40 + 12 = $52. A common trap is distributing the 5 into the 12 as well (5(8 + 12) = $100), but the 12 is a separate constant."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.03",
+    "level": 2,
+    "question": "A BC teen's phone plan costs $30 per month plus $4 for every gigabyte of data used. Last month the bill was $58. How many gigabytes of data were used?",
+    "options": [
+     "7 GB",
+     "14 GB",
+     "2 GB",
+     "4 GB"
+    ],
+    "answerIndex": 0,
+    "explain": "Set up 30 + 4g = 58, subtract 30 to get 4g = 28, then divide to get g = 7. The typical mistake is dividing 28 by 2 instead of 4, or skipping the subtraction step and dividing 58 directly."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.01",
+    "level": 3,
+    "question": "A hiker on a BC mountain trail starts at an elevation of 200 m and descends 25 m with every kilometre walked. The relation is e = 200 - 25k, where k is kilometres and e is elevation in metres. What is the hiker's elevation after walking 12 km?",
+    "options": [
+     "100 m",
+     "-150 m",
+     "-100 m",
+     "-50 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Substitute k = 12: e = 200 - 25(12) = 200 - 300 = -100 m (100 m below the reference point). The most common error is computing 300 - 200 = 100 and dropping the negative sign, or multiplying 25 × 12 incorrectly."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.PAT.03",
+    "level": 3,
+    "question": "A Grade 8 student is saving for a trip to Vancouver Island. They already have $30 and earn $9 per week from babysitting. They need $120 total. How many full weeks of babysitting are still needed?",
+    "options": [
+     "9 weeks",
+     "13 weeks",
+     "12 weeks",
+     "10 weeks"
+    ],
+    "answerIndex": 3,
+    "explain": "Write 30 + 9w = 120, subtract 30 to get 9w = 90, then divide to get w = 10. The biggest trap is dividing the $120 goal straight by 9 (giving about 13) and forgetting the $30 already in the bank."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "9",
+ "strand": "patterning",
+ "lang": "zh",
+ "unitName": {
+  "zh": "规律与代数",
+  "en": "Patterning"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "规律与代数 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 1,
+    "question": "把两个多项式相加：(3x² + 2x – 5) + (x² – 4x + 7)，结果是什么？",
+    "options": [
+     "4x² + 6x + 2",
+     "2x² – 2x + 2",
+     "4x² – 2x + 2",
+     "4x² – 2x – 12"
+    ],
+    "answerIndex": 2,
+    "explain": "同类项合并：3x²+x²=4x²，2x+(–4x)=–2x，–5+7=+2。最易踩的坑是把 –4x 的负号丢掉，误算成 2x+4x=6x。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.03",
+    "level": 1,
+    "question": "解方程：2x + 5 = 13，求 x 的值。",
+    "options": [
+     "4",
+     "9",
+     "8",
+     "6"
+    ],
+    "answerIndex": 0,
+    "explain": "先两边减 5 得 2x=8，再除以 2 得 x=4。常见错误：把「减 5」写成「加 5」得 x=9，或忘记除以 2 直接取 8。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.02",
+    "level": 1,
+    "question": "精神独木舟（spirit canoe journey）训练中，队伍以匀速划行。下表记录了出发后各时刻离起点的距离：1 h → 6 km，2 h → 12 km，3 h → 18 km。按同样速率，4 h 时离起点多少千米？",
+    "options": [
+     "20 km",
+     "22 km",
+     "18 km",
+     "24 km"
+    ],
+    "answerIndex": 3,
+    "explain": "每小时多走 6 km（等差数列，公差 6），所以 4 h 时 18+6=24 km。容易错在把时间值 4 直接加上去得 22，或认为距离不变仍为 18。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 2,
+    "question": "北温哥华一块社区花园的总面积为 (5x² + 3x – 7) m²，其中要划出 (2x² + 5x + 3) m² 建停车场。剩余面积用多项式表示为？",
+    "options": [
+     "3x² + 8x – 4",
+     "3x² – 2x – 10",
+     "3x² – 2x – 4",
+     "7x² + 8x – 4"
+    ],
+    "answerIndex": 1,
+    "explain": "减法要把括号内每一项都变号：5x²–2x²=3x²，3x–5x=–2x，–7–3=–10。最典型错误是只给首项变号（得 3x²+8x–4）或漏掉常数项的负号（得 –4 而非 –10）。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.02",
+    "level": 2,
+    "question": "周末你在 Sea to Sky Trail 徒步。10:00 时海拔 200 m，10:30 时海拔 500 m，假设匀速行进。10:15 时你的海拔约为多少米？",
+    "options": [
+     "350 m",
+     "300 m",
+     "400 m",
+     "450 m"
+    ],
+    "answerIndex": 0,
+    "explain": "速率=(500–200)÷30 min=10 m/min；10:15 是 15 min 后，200+10×15=350 m。常见错误：把 30 min 当成 3 个单位算出速率 100，再 200+100=300 m。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.01",
+    "level": 2,
+    "question": "Kaya 在 Surrey 设计一条花园小径，长为 (2x + 5) m，宽为 3x m。用多项式表示小径面积（m²）：",
+    "options": [
+     "6x + 15x",
+     "6x² + 5x",
+     "6x² + 15",
+     "6x² + 15x"
+    ],
+    "answerIndex": 3,
+    "explain": "分配律：3x·2x=6x²，3x·5=15x，合起来 6x²+15x。典型错误：x·x 写成 x（得 6x），或第二项漏乘 3（得 5x）、漏 x（得 15）。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.03",
+    "level": 3,
+    "question": "温哥华两家手机公司：A 公司月费 $45 加每条短信 $0.05；B 公司月费 $60 含无限短信。写方程并求：每月发多少条短信时两方案费用恰好相等？",
+    "options": [
+     "30 条",
+     "300 条",
+     "150 条",
+     "3000 条"
+    ],
+    "answerIndex": 1,
+    "explain": "列方程 0.05x+45=60 → 0.05x=15 → x=300。最易踩的坑是小数点：15÷0.05=300，若误算成 15÷0.5=30 或 15÷0.005=3000 就错了。"
+   },
+   {
+    "curriculumId": "BC.MATH.G9.PAT.02",
+    "level": 3,
+    "question": "Aisha 每周存 $15，罐里已有 $50；Ben 每周存 $20，从零开始。Aisha 说：「我起点高，我的储蓄线一定永远在 Ben 上面。」这句话对不对？若不对，错在哪里？",
+    "options": [
+     "对——y 截距高就永远在上面",
+     "不对——两线在第 5 周相交，之后 Ben 的线在上面",
+     "不对——两线在第 10 周相交，之后 Ben 的线在上面",
+     "不对——Ben 斜率大，从第 0 周起他的线就在上面"
+    ],
+    "answerIndex": 2,
+    "explain": "列式 15x+50=20x → 5x=50 → x=10，第 10 周两人都是 $200；之后 Ben 的线反超。误区：以为截距高就永远领先，忽略了斜率（slope）更大会追上来。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

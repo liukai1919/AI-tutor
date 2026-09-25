@@ -1,0 +1,113 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.WORD",
+ "lang": "en",
+ "title": "Solve problems with rational numbers in context (average temperatures, account balances, elevation changes, paddle dimensions)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Rational Numbers in Real Life: Picture the Situation",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to work through something like one minus two times four fifths squared using order of operations. Today we take those same skills into real life: temperatures, bank balances, and elevation. The one new move is this: before you touch any numbers, picture what is actually happening, and let the situation choose the operation, not a keyword.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a Whistler morning. At six a m the temperature is negative four degrees Celsius. By two p m it is nine degrees. How much did the temperature change? A change is always later value minus earlier value, so we write nine minus negative four. Look at the number line: from negative four you climb four to reach zero, then nine more to reach nine. That is a total climb of thirteen degrees.",
+    "math": "9-(-4)=9+4=13",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      12,
+      -4,
+      9
+     ],
+     "labels": [],
+     "caption": "From negative 4 up to 9: 4 steps to zero, then 9 more, so 13 degrees"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes at least once: writing nine minus negative four and getting five. That treats the negative four as if it were a positive four. But five is only the gap from positive four to nine. Our morning started below zero, so the real gap has to cross zero. Subtracting a negative number always means moving to the right, which is adding. Nine minus negative four is nine plus four, thirteen.",
+    "math": "9-(-4)\\neq 5 \\quad\\text{because}\\quad 9-(-4)=9+4",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      12,
+      4,
+      9
+     ],
+     "labels": [],
+     "caption": "The wrong picture: a gap of 5 only works if you start at positive 4"
+    }
+   },
+   {
+    "say": "Now a bank balance, with several steps. Jayden's account is overdrawn at negative twelve dollars fifty. His forty dollar allowance gets deposited. He pays a friend back fifteen dollars seventy five. Then the bank removes a five dollar fee it charged by mistake. Careful with that last one: the word removes sounds like subtracting, but a fee being removed means five dollars comes back into his account, so it is plus five. The situation says add, even though the keyword says take away.",
+    "math": "-12.50+40-15.75+5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -12.5,
+      40,
+      -15.75,
+      5
+     ],
+     "labels": [
+      "Start",
+      "Allowance",
+      "Pays friend",
+      "Fee removed"
+     ],
+     "caption": "Each event as a signed amount in dollars: money in is positive, money out is negative"
+    }
+   },
+   {
+    "say": "Work left to right and keep a running balance. Negative twelve fifty plus forty is twenty seven fifty. Twenty seven fifty minus fifteen seventy five is eleven seventy five. Eleven seventy five plus five is sixteen seventy five. Jayden ends with sixteen dollars seventy five. Notice the trap here: twenty seven fifty looks like a nice tidy answer, but it is only the balance after the allowance. Always reread the question to make sure you have handled every event before you stop.",
+    "math": "-12.50+40=27.50,\\quad 27.50-15.75=11.75,\\quad 11.75+5=16.75",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -12.5,
+      40,
+      -15.75,
+      5,
+      -12.5,
+      27.5,
+      11.75,
+      16.75
+     ],
+     "labels": [
+      "Start",
+      "Allowance",
+      "Pays friend",
+      "Fee removed"
+     ],
+     "caption": "Top row: each amount. Bottom row: the running balance after each event"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Picture the situation on a number line, let what is really happening choose the plus or minus, remember that subtracting a negative moves you up, and do not stop until the question is fully answered.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Let the situation choose the sign, not the keyword. Subtracting a negative means adding, and keep going until every event is counted.",
+  "practice": {
+   "question": "Maya's bank account is overdrawn at negative eight dollars twenty five. She deposits thirty dollars of babysitting money. Then the bank cancels a four dollar fifty fee that it had charged her by mistake. What is Maya's balance now? Think about what cancelling a fee really does to her money.",
+   "answer": "Twenty six dollars twenty five. Cancelling the fee gives the money back, so it is plus four fifty: negative eight twenty five plus thirty equals twenty one seventy five, and twenty one seventy five plus four fifty equals twenty six twenty five."
+  }
+ }
+}

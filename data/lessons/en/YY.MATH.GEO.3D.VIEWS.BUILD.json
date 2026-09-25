@@ -1,0 +1,85 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.3D.VIEWS.BUILD",
+ "lang": "en",
+ "title": "Rebuild or identify a 3D object from its top, front and side views, and find the fewest cubes that fit",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Building a Solid Back From Its Three Views",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a stack of cubes and draw its top, front and side views. Today we run the movie backwards: I hand you the three views, and you rebuild the object — using as few cubes as you possibly can.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the one idea that makes this easy. A view never tells you how many cubes are hiding behind each other. It only tells you the tallest stack along that line of sight. So the top view tells you which squares of the base are used, and the front and side views tell you how tall the stacks have to get. Let us try it with a little model from woodwork class: the top view is a two by two square, completely filled.",
+    "math": "",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      2,
+      2,
+      2
+     ],
+     "labels": [],
+     "caption": "Top view: a filled two by two square, so the base uses 4 squares"
+    }
+   },
+   {
+    "say": "Start with the top view. Four squares are used, so we need at least four cubes sitting on the floor. Now the front view is two squares tall, so somewhere in the left column a stack must reach height two, and the same for the right column. The side view is also two tall, so the front row needs a height of two and so does the back row. Put one stack of two on the front left corner, and the other stack of two on the back right corner. That single pair covers both columns and both rows at once. Four cubes on the floor, plus two cubes stacked on top, gives six cubes.",
+    "math": "4+2=6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      2,
+      1,
+      1
+     ],
+     "labels": [],
+     "caption": "The shaded corner gets a second cube; the opposite corner gets one too"
+    }
+   },
+   {
+    "say": "Now the traps, because almost everybody falls into one. Trap one: adding the views. Four plus four plus four is twelve — but each cube is being counted from three directions at once, so that number is meaningless. Trap two: filling the whole box. Two by two by two is eight cubes, and yes it does give the right three views, but it is not the fewest — six already works. Trap three: counting only the cubes you can see and saying seven, forgetting the hidden one at the back. And one more: keep the front view and the side view straight. Turning the object ninety degrees swaps which direction is which, and you will build the mirror of what was asked.",
+    "math": "4+4+4=12 \\quad\\text{and}\\quad 2\\times 2\\times 2=8",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      2,
+      2,
+      2
+     ],
+     "labels": [
+      "cube"
+     ],
+     "caption": "The solid block: 8 cubes — right views, but 2 more than needed"
+    }
+   },
+   {
+    "say": "So the routine is always the same three moves. Fill the top view to get your base. Read the heights the front and side views demand. Then add the smallest number of tall stacks that satisfies all of those heights at once, letting one stack do double duty wherever you can.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Fill the top view first, then add only the tall stacks the front and side views demand — never add the three views together.",
+  "practice": {
+   "question": "You are building a model of a Vancouver skate ramp out of one centimetre cubes. The top view is a filled rectangle 3 squares wide and 2 squares deep. The front view is a filled rectangle 3 squares wide and 2 squares tall. The side view is a filled square 2 squares wide and 2 squares tall. Sketch the base grid yourself and write a height on each square. What is the fewest cubes you can use?",
+   "answer": "9 cubes. The top view has 3 times 2, or 6 squares, so 6 cubes sit on the floor. The front view needs all 3 widthwise columns to reach a height of 2, so you need 3 stacks of two — and if you place them so one is in the front row and another is in the back row, the side view's two rows are covered too. That is 6 plus 3, which is 9. (Not 6 plus 6 plus 4, and not the full block of 3 times 2 times 2, which is 12.)"
+  }
+ }
+}

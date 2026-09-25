@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.SQUARE.TILES",
+ "lang": "en",
+ "title": "Build perfect squares with colour tiles and identify perfect squares to 400 as n × n",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Squares of Tiles, All the Way to 400",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that one hundred forty four is a perfect square, because one hundred forty four colour tiles snap together into a perfect twelve by twelve square. Today we just keep going past that, all the way up to four hundred, so you can spot a perfect square even when the number gets big.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the rule, in tile language. A number is a perfect square when you can lay that many tiles into a square with the same number of rows as columns. Twelve rows of twelve tiles uses one hundred forty four tiles, no leftovers, no gaps. So one hundred forty four is a perfect square, and we write it as twelve squared.",
+    "math": "12 \\times 12 = 12^2 = 144",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      12,
+      12,
+      12,
+      12
+     ],
+     "labels": [],
+     "caption": "12 rows of 12 tiles = 144 tiles, a perfect square"
+    }
+   },
+   {
+    "say": "Now push past twelve. Add one more row and one more column and you get thirteen by thirteen, which is one hundred sixty nine tiles. Keep climbing: fourteen squared is one hundred ninety six, fifteen squared is two hundred twenty five, sixteen squared is two hundred fifty six, seventeen squared is two hundred eighty nine, eighteen squared is three hundred twenty four, nineteen squared is three hundred sixty one, and twenty squared lands exactly on four hundred. That is the whole list from thirteen up to twenty.",
+    "math": "13^2=169,\\;14^2=196,\\;15^2=225,\\;16^2=256,\\;17^2=289,\\;18^2=324,\\;19^2=361,\\;20^2=400",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      169,
+      196,
+      225,
+      256,
+      289,
+      324,
+      361,
+      400
+     ],
+     "labels": [
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20"
+     ],
+     "caption": "Top row: side length n. Bottom row: tiles needed, n times n"
+    }
+   },
+   {
+    "say": "Let us test one. Say you are setting up two hundred eighty nine hexagon stickers on your skateboard deck and you want a perfect square block. Ask yourself: what whole number times itself gives two hundred eighty nine? Try seventeen. Seventeen times seventeen is two hundred eighty nine. It works, so you can build a square seventeen tiles across and seventeen tiles down, with nothing left over.",
+    "math": "17 \\times 17 = 289",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      17,
+      17
+     ],
+     "labels": [
+      "tiles"
+     ],
+     "caption": "A square 17 tiles by 17 tiles holds exactly 289 tiles"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, squaring is not doubling. Three squared means three rows of three tiles, which is nine tiles, not six. Six is only two rows of three. Second, a number does not become a perfect square just because it looks tidy. Ten tiles cannot make a square, since three by three is nine and four by four is sixteen, and ten is stuck in between. One hundred is a perfect square, but the real reason is ten times ten, not because it ends in two zeros.",
+    "math": "3^2 = 3 \\times 3 = 9 \\neq 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "3 squared is this full 3 by 3 block: 9 tiles, not 6"
+    }
+   },
+   {
+    "say": "So when someone hands you a number up to four hundred, do not guess from how it looks. Just hunt for the whole number that times itself hits it exactly, and picture those tiles clicking into a square.",
+    "math": "n \\times n = n^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A number is a perfect square only if some whole number times itself gives it exactly — from 1 times 1 up to 20 times 20 equals 400.",
+  "practice": {
+   "question": "Your family is retiling a square patio corner in Kamloops using 20 centimetre by 20 centimetre tiles, and the box holds 324 tiles. Picture laying them out in a grid with the same number of rows as columns. Can all 324 tiles form a complete square, and if so how many tiles run along each side? Then decide whether a box of 200 tiles could do the same thing.",
+   "answer": "Yes for 324: it makes an 18 by 18 square, because 18 times 18 is 324, so 324 is a perfect square. No for 200: 14 times 14 is 196 and 15 times 15 is 225, so no whole number times itself lands on 200 — you would always have leftover tiles or a gap."
+  }
+ }
+}

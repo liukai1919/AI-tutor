@@ -1,0 +1,116 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.MULTI_BUY",
+ "lang": "en",
+ "title": "Evaluate multi-buy deals (3 for $10, buy 2 get 1 free) by finding the effective unit price",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Deal Detective: Finding the Real Price per Item",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a unit price when you see a package, like four dollars and sixty-eight cents for twelve granola bars being thirty-nine cents each. But stores also shout deals at you in words, like three for ten dollars, or buy two get one free. Today we turn those word deals into a unit price so you can tell which one is actually the better buy.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick, and it is only two questions. Question one, how much money actually leaves my wallet? Question two, how many items do I actually carry home? Then divide the money by the items. Let us try it on sports drinks at a store in Burnaby. One bottle on its own costs three dollars and seventy-five cents. The first deal says three for ten dollars. I pay ten dollars, I take home three bottles, so ten divided by three is about three dollars and thirty-three cents each.",
+    "math": "\\text{unit price}=\\frac{\\text{total paid}}{\\text{items home}}=\\frac{\\$10}{3}\\approx\\$3.33",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      10,
+      3,
+      3.33
+     ],
+     "labels": [
+      "Money paid ($)",
+      "Bottles home",
+      "Unit price ($)"
+     ],
+     "caption": "Deal A: three for ten dollars"
+    }
+   },
+   {
+    "say": "Now the second deal, buy two get one free. Watch both questions carefully. The money leaving my wallet pays for two bottles, so that is two times three seventy-five, which is seven dollars and fifty cents. But how many bottles do I carry home? Three, because the free one is still a real bottle sitting in my bag. Seven dollars and fifty cents divided by three is two dollars and fifty cents each.",
+    "math": "\\frac{2\\times\\$3.75}{3}=\\frac{\\$7.50}{3}=\\$2.50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7.5,
+      3,
+      2.5
+     ],
+     "labels": [
+      "Money paid ($)",
+      "Bottles home",
+      "Unit price ($)"
+     ],
+     "caption": "Deal B: buy two, get one free"
+    }
+   },
+   {
+    "say": "Now put the three prices side by side and the answer jumps out. Buying one at a time costs three seventy-five. Three for ten dollars brings it down to about three thirty-three. Buy two get one free brings it all the way down to two fifty. Notice that the deal with the biggest sticker number, ten dollars, was not the best one. Only the unit price tells you the truth.",
+    "math": "\\$2.50<\\$3.33<\\$3.75",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3.75,
+      3.33,
+      2.5
+     ],
+     "labels": [
+      "Regular",
+      "3 for 10",
+      "Buy 2 get 1"
+     ],
+     "caption": "Unit price in dollars: shorter bar means better buy"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everybody makes, so let us catch it now. On buy two get one free, people divide seven dollars and fifty cents by two, because they only paid for two. That gives three seventy-five, which says the deal saves you nothing at all. But you left the free bottle out of your count. You are carrying three bottles home, so you divide by three, and the real price is two fifty. The money goes on top, every single item you walk out with goes on the bottom.",
+    "math": "\\text{wrong: }\\frac{\\$7.50}{2}=\\$3.75\\quad\\text{right: }\\frac{\\$7.50}{3}=\\$2.50",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7.5,
+      2,
+      3.75,
+      7.5,
+      3,
+      2.5
+     ],
+     "labels": [
+      "Money paid ($)",
+      "Bottles counted",
+      "Unit price ($)",
+      "Wrong way",
+      "Right way"
+     ],
+     "caption": "Same money, different count, very different answer"
+    }
+   },
+   {
+    "say": "So whenever a store yells a deal at you, do not guess and do not just grab the biggest bundle. Build a tiny table with money paid, items home, and unit price, and let the numbers pick the winner.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Unit price equals total money paid divided by every item you take home, including the free ones.",
+  "practice": {
+   "question": "At a sports store in Kelowna, one pair of soccer socks costs six dollars. Deal one is three pairs for fifteen dollars. Deal two is buy two pairs, get one pair free. Draw yourself a small table with three columns: money paid, pairs taken home, and unit price. Fill in a row for each deal. Which deal is the better buy, and what is its unit price?",
+   "answer": "Deal one: fifteen dollars paid, three pairs home, fifteen divided by three is five dollars a pair. Deal two: two times six is twelve dollars paid, three pairs home (the free pair counts), twelve divided by three is four dollars a pair. Deal two is the better buy at four dollars a pair, saving one dollar per pair."
+  }
+ }
+}

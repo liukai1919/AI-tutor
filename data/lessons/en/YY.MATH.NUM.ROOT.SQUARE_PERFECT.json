@@ -1,0 +1,84 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.ROOT.SQUARE_PERFECT",
+ "lang": "en",
+ "title": "Find square roots of perfect squares to 400, including fractions (√(16/169) = 4/13)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Square Roots of Fractions — Top and Bottom",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that the square root of eighty-one is nine, because nine times nine gives eighty-one. Today we take that same idea one small step further: what happens when the number under the square root sign is a fraction, like sixteen over one hundred sixty-nine.",
+    "math": "\\sqrt{\\frac{16}{169}}=\\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick, and it is honestly kind of relaxing: you handle the top and the bottom separately. The square root of the fraction is the square root of the numerator over the square root of the denominator. So start with the top, sixteen. Sixteen tiles make a perfect square array that is four rows by four columns, so the square root of sixteen is four.",
+    "math": "\\sqrt{\\frac{16}{169}}=\\frac{\\sqrt{16}}{\\sqrt{169}}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "16 tiles laid out as a square: 4 rows by 4 columns, so the side is 4"
+    }
+   },
+   {
+    "say": "Now the bottom, one hundred sixty-nine. Think of a square patio built out of one hundred sixty-nine paving stones. Thirteen times thirteen is one hundred sixty-nine, so each side is thirteen stones long. That means the square root of one hundred sixty-nine is thirteen. Put the two answers together and you get four thirteenths.",
+    "math": "\\sqrt{\\frac{16}{169}}=\\frac{4}{13}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      13,
+      13
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A square patio of area 169 square metres has sides of 13 metres"
+    }
+   },
+   {
+    "say": "Two traps to dodge here. First, a square root is not halving. The square root of sixteen is four, not eight, because we want the side of the square, and four times four is sixteen. Eight times eight would be sixty-four, way too big. Second, do not root only the top and leave the bottom sitting there. Four over one hundred sixty-nine is wrong; the denominator needs its own root too, giving four over thirteen.",
+    "math": "\\sqrt{16}\\neq 8,\\qquad \\sqrt{\\frac{16}{169}}\\neq\\frac{4}{169}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "16 tiles make a 4 by 4 square, not an 8 by 8 one"
+    }
+   },
+   {
+    "say": "So whenever you see a fraction under a square root, split it into two jobs: find the side of the top square, find the side of the bottom square, and stack them back up as a fraction.",
+    "math": "\\sqrt{\\frac{a}{b}}=\\frac{\\sqrt{a}}{\\sqrt{b}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Square root of a fraction: root the numerator and the denominator separately — the root of 16 over 169 is 4 over 13.",
+  "practice": {
+   "question": "You are planning a square patio in Surrey. A small sample square uses 25 tiles arranged in a square array, and the finished patio uses 144 tiles arranged in a square array. Sketch each square array yourself if it helps, then find the square root of twenty-five over one hundred forty-four.",
+   "answer": "Five twelfths. The square root of 25 is 5 because 5 times 5 is 25, and the square root of 144 is 12 because 12 times 12 is 144, so the answer is 5 over 12."
+  }
+ }
+}

@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.FLU.01",
+ "lang": "en",
+ "title": "operations with rational numbers (addition, subtraction, multiplication, division, and order of operations)",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Playing with Positive and Negative Fractions – Order of Operations Edition",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You and your buddy are splitting a family-plan phone data allowance. You've already used three quarters of a gigabyte, and your buddy still has one fifth of a gig left. Your mom asks, 'How much more data have YOU used than they've got left?' That's just subtracting two fractions: three quarters minus one fifth. See? You've been doing this without even thinking about it. Now we're going to make it official, and we're going to handle the negatives, the dividing, the little exponent surprises — all in one smooth sentence of math.",
+    "math": "\\frac{3}{4} - \\frac{1}{5}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75,
+      0.2
+     ],
+     "labels": [
+      "0",
+      "1",
+      "3/4",
+      "1/5"
+     ],
+     "caption": "Where three-quarters and one-fifth live on the number line from 0 to 1"
+    }
+   },
+   {
+    "say": "Here's the golden rule, and it's exactly the same one you learned with whole numbers: we follow order of operations. Brackets first. Then exponents. Then multiply and divide, left to right. Then add and subtract, left to right. The only new thing is that our numbers are now fractions — some positive, some negative — but the traffic rules don't change. So whenever you see a long string of fraction operations, just scan for the brackets, handle the exponent, then work left to right through the times and divide signs, and finish with the plus and minus.",
+    "math": "\\text{B} \\rightarrow \\text{E} \\rightarrow \\text{M/D} \\rightarrow \\text{A/S}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's start easy. Add negative three-quarters and positive one-fifth. First, grab a common denominator. Four and five, their least common multiple is twenty. So negative three-quarters becomes negative fifteen-twentieths, and one-fifth becomes four-twentieths. Now you just add the tops: negative fifteen plus four is negative eleven. So your answer is negative eleven-twentieths. On the number line, you start at negative three-quarters and hop one-fifth to the right — you're still on the negative side, but a little closer to zero.",
+    "math": "-\\frac{3}{4}+\\frac{1}{5}=-\\frac{15}{20}+\\frac{4}{20}=-\\frac{11}{20}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -1,
+      1,
+      -0.75,
+      -0.55
+     ],
+     "labels": [
+      "-1",
+      "0",
+      "1",
+      "-3/4",
+      "-11/20"
+     ],
+     "caption": "Starting at negative three-quarters, jumping one-fifth right lands at negative eleven-twentieths"
+    }
+   },
+   {
+    "say": "Now multiplication and division of fractions. Two quick tricks. Multiplying: just multiply tops and multiply bottoms, keep the sign. So negative three-quarters times two-thirds is negative six-twelfths, which simplifies to negative one-half. Dividing: you flip the second fraction and multiply. So negative three-quarters divided by one-half becomes negative three-quarters times two, which is negative six-fourths, or negative three-halves. See that little grid? It's showing you that two-thirds of a three-quarters rectangle gives you six little pieces out of twelve — that's the meaning behind the multiplication.",
+    "math": "-\\frac{3}{4}\\times\\frac{2}{3}=-\\frac{6}{12}=-\\frac{1}{2} \\qquad -\\frac{3}{4}\\div\\frac{1}{2}=-\\frac{3}{4}\\times 2=-\\frac{6}{4}=-\\frac{3}{2}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      3,
+      3,
+      2
+     ],
+     "labels": [
+      "3/4 of the rows",
+      "2/3 of the columns",
+      "overlap = 6/12"
+     ],
+     "caption": "Three-quarters of the height times two-thirds of the width gives six out of twelve little squares"
+    }
+   },
+   {
+    "say": "Alright, now the real deal. Simplify: negative three-quarters, divided by one-fifth, PLUS, in brackets, negative one-third times negative five-halves. Step one, the divide: dividing by one-fifth means multiplying by five, so that gives us negative fifteen-fourths. Step two, the brackets: negative times negative is positive, so one-third times five-halves is positive five-sixths. Step three, add them. Common denominator of four and six is twelve. Negative fifteen-fourths is negative forty-five-twelfths. Five-sixths is ten-twelfths. Negative forty-five plus ten is negative thirty-five. Final answer: negative thirty-five twelfths. That's about negative two and eleven-twelfths — you can see it sitting just to the right of negative three on the number line.",
+    "math": "-\\frac{3}{4}\\div\\frac{1}{5}+\\left(-\\frac{1}{3}\\times-\\frac{5}{2}\\right)=-\\frac{15}{4}+\\frac{5}{6}=-\\frac{45}{12}+\\frac{10}{12}=-\\frac{35}{12}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -4,
+      0,
+      -3.75,
+      -2.92
+     ],
+     "labels": [
+      "-4",
+      "0",
+      "1",
+      "-15/4",
+      "-35/12"
+     ],
+     "caption": "Starting at negative fifteen-fourths, adding five-sixths hops you right to negative thirty-five-twelfths"
+    }
+   },
+   {
+    "say": "One last flavour — an exponent sneaks in. Simplify: one, minus, two times, four-fifths squared. Exponent first: four-fifths times four-fifths is sixteen twenty-fifths. Then multiply by two: two times sixteen twenty-fifths is thirty-two twenty-fifths. Now subtract from one: one is twenty-five twenty-fifths, so twenty-five minus thirty-two is negative seven. Answer: negative seven twenty-fifths. The picture shows you that sixteen out of twenty-five little squares is what four-fifths squared actually means — a bit more than half, but not quite two-thirds.",
+    "math": "1-2\\times\\left(\\frac{4}{5}\\right)^{2}=1-2\\times\\frac{16}{25}=1-\\frac{32}{25}=\\frac{25}{25}-\\frac{32}{25}=-\\frac{7}{25}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "Four-fifths squared: four-fifths of the rows times four-fifths of the columns lights up 16 of the 25 little squares"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to stick on your desk: the rules never change — brackets, exponents, multiply-divide, add-subtract — whether your numbers are whole or fractions, positive or negative. You just keep hunting for common denominators and you'll never get lost.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Order of operations is the same with fractions as with whole numbers: brackets, exponents, times-and-divide, then plus-and-minus — just remember to get common denominators before you add or subtract.",
+  "practice": {
+   "question": "You start the morning with three-quarters of your phone battery. You stream a video and use one-third of the battery, then play a round of a mobile game that takes another one-sixth. What fraction of the battery is left?",
+   "answer": "3/4 − 1/3 − 1/6 = 9/12 − 4/12 − 2/12 = 3/12 = 1/4. You've got one quarter of your battery left."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

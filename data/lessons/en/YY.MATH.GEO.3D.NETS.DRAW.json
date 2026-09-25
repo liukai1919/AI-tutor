@@ -1,0 +1,86 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.3D.NETS.DRAW",
+ "lang": "en",
+ "title": "Draw an accurate net for a rectangular prism, triangular prism or cylinder with the dimensions labelled",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Draw a Net That Actually Folds",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a net and decide whether it folds into a prism or a cylinder. Today we flip it around: instead of checking someone else's net, you draw your own, with every measurement labelled. Think of it like designing the flat cardboard for a granola bar box before it gets folded at the factory.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole method in three moves. One: count the faces of the solid, so you know how many shapes you need. Two: draw each face in its real shape and size, keeping matching faces attached along edges they actually share. Three: label every single edge with its measurement and unit. Let's do a rectangular prism, a chocolate box that is twelve centimetres long, five centimetres wide and three centimetres tall. A rectangular prism has six faces, in three matching pairs. Notice on the picture how the opposite faces share a colour — that is your check that you drew each pair twice.",
+    "math": "6 = 2 \\times (\\text{front}) + 2 \\times (\\text{side}) + 2 \\times (\\text{top})",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      12,
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Net of a 12 cm by 5 cm by 3 cm box; matching faces share a colour"
+    }
+   },
+   {
+    "say": "Now let's read the labels off that net carefully, because this is where marks are won. The two big front and back faces are twelve by three. The two end faces are five by three. The top and bottom are twelve by five. Every rectangle in the net is one of those three sizes, and each size appears exactly twice. When the length twelve on the top face touches the length twelve on the front face, those two edges are the same edge once it folds up — so they must be drawn the same length. That is why a net has to be accurate, not just roughly right.",
+    "math": "12\\times3,\\; 12\\times3,\\; 5\\times3,\\; 5\\times3,\\; 12\\times5,\\; 12\\times5",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      12,
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The same box in 3D — each face on the net came from here"
+    }
+   },
+   {
+    "say": "Two mistakes trip people up every year. First one: the wrong number of faces. A triangular prism is not six faces — it is five. Two triangles for the ends, and three rectangles for the sides. Count the flat surfaces on a real Toblerone box and you will get five every time. Second mistake, and this one is sneakier: for a cylinder, people make the rectangle as long as the diameter. It is not the diameter. When you unroll the curved side, that rectangle's length is the whole way around the circle — the circumference. Take a pop can with radius four centimetres and height twelve. The rectangle is twelve centimetres tall and two times pi times four, which is about twenty-five point one centimetres long. Eight centimetres would be nowhere near enough to wrap around it.",
+    "math": "C = 2\\pi r = 2\\pi(4) \\approx 25.1 \\text{ cm}",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      4,
+      12
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Cylinder net: the rectangle is 25.1 cm long, not 8 cm"
+    }
+   },
+   {
+    "say": "So your checklist before you hand the drawing in: did I draw the right number of faces, five for a triangular prism and six for a rectangular prism? Do matching faces have matching sizes? Does every edge have a number and a unit on it? If all three are yes, your net is accurate and it will fold.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count the faces, draw each one true to size, and label every edge with its unit.",
+  "practice": {
+   "question": "You are designing the flat cardboard for a rectangular prism pencil case that is 20 centimetres long, 8 centimetres wide and 4 centimetres tall. Sketch the net yourself. How many rectangles should it have, and what are the dimensions of each matching pair?",
+   "answer": "6 rectangles, in 3 matching pairs: two that are 20 cm by 4 cm, two that are 8 cm by 4 cm, and two that are 20 cm by 8 cm. Every edge should be labelled in centimetres."
+  }
+ }
+}

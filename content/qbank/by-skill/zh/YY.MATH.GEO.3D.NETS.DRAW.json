@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.3D.NETS.DRAW",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqq4l6u957qd",
+   "level": 1,
+   "question": "一个长方体（rectangular prism）礼盒，长 10 cm、宽 6 cm、高 4 cm。要画它的展开图（net），一共要画多少个长方形？这些长方形能配成几对完全一样的？",
+   "options": [
+    "6 个长方形，能配成 3 对完全一样的",
+    "5 个长方形，能配成 2 对完全一样的",
+    "4 个长方形，能配成 2 对完全一样的",
+    "8 个长方形，能配成 4 对完全一样的"
+   ],
+   "answerIndex": 0,
+   "explain": "长方体有 6 个面（face），相对的两个面完全相同，所以是 3 对：10×6、10×4、6×4。常见的坑是只数自己想象中看得见的几个面，画成 4 或 5 个，折起来就缺面了。",
+   "tags": [
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6qchde9",
+   "level": 1,
+   "question": "一个长方体收纳箱，长 8 cm、宽 5 cm、高 3 cm。画它的展开图并标上尺寸时，8 cm × 3 cm 的长方形要画几个？",
+   "options": [
+    "1 个，这个尺寸只出现一次",
+    "2 个，它们是相对的一对面",
+    "4 个，前后左右都是这个尺寸",
+    "6 个，六个面都是这个尺寸"
+   ],
+   "answerIndex": 1,
+   "explain": "8 cm × 3 cm 是由长和高决定的面，前面和后面各一个，所以画 2 个；另外还有 2 个 8×5 和 2 个 5×3。坑是以为每种尺寸只画一个，结果 6 个面只画了 3 个。",
+   "tags": [
+    "nets.face_count_wrong",
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6fgsd9v",
+   "level": 1,
+   "question": "一个正方体（长、宽、高都相等的特殊长方体）礼品盒，棱长 7 cm。它的展开图应该画成什么样？",
+   "options": [
+    "5 个正方形，每个边长都标 7 cm",
+    "4 个正方形，每个边长都标 7 cm",
+    "6 个正方形，每个边长都标 7 cm",
+    "6 个正方形，每个边长都标 14 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "正方体 6 个面全一样，所以展开图是 6 个边长 7 cm 的正方形。坑有两个：面数少画（画成 4 或 5 个），或者把两条棱加起来当成一条边标成 14 cm。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l600jqkh",
+   "level": 1,
+   "question": "一个长方体书盒，长 9 cm、宽 4 cm、高 6 cm。画展开图时，六个面的尺寸标注应该是哪一组（单位 cm）？",
+   "options": [
+    "9×4 两个、9×6 两个、4×6 一个",
+    "9×4 一个、9×6 一个、4×6 一个",
+    "9×4 三个、9×6 三个，没有 4×6",
+    "9×4 两个、9×6 两个、4×6 两个"
+   ],
+   "answerIndex": 3,
+   "explain": "长、宽、高两两配对得到三种面，每种各有相对的 2 个，所以是 9×4、9×6、4×6 各两个，共 6 个。写成每种各一个或漏掉 4×6 的那些，折起来都会缺面或重叠。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6kqw5yc",
+   "level": 2,
+   "question": "一个圆柱形水杯，底面半径 5 cm，高 12 cm。画它的展开图时，中间那个长方形里贴着底面圆滚一整圈的那条边，尺寸应该标多少？（π 取 3.14）",
+   "options": [
+    "31.4 cm",
+    "10.0 cm",
+    "5.0 cm",
+    "78.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "那条边要绕底面圆一整圈，所以标的是底面周长（circumference）：2×3.14×5＝31.4 cm。最常见的坑是直接把直径 10 cm 当成长边，那样纸只够盖住杯子一小段。",
+   "tags": [
+    "ok",
+    "nets.cylinder_rect_width_is_diameter",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6grk20j",
+   "level": 2,
+   "question": "一个三棱柱，底面三角形的三条边是 5 cm、5 cm、8 cm，柱长 12 cm。它的展开图中，长方形部分应该画成？",
+   "options": [
+    "4 个长方形：5×12、5×12、8×12、5×8",
+    "3 个长方形：5×12、5×12、8×12",
+    "2 个长方形：5×12、8×12（单位 cm）",
+    "3 个长方形：5×5、5×8、8×12"
+   ],
+   "answerIndex": 1,
+   "explain": "三角形有几条边，侧面就有几个长方形：3 个，每个长方形的一边是三角形的一条边，另一边都是柱长 12 cm。坑是多画一个长方形（把三棱柱当成 6 个面），或把两条三角形边相乘当成长方形尺寸。",
+   "tags": [
+    "nets.face_count_wrong",
+    "ok",
+    "nets.face_count_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6dnsmkp",
+   "level": 2,
+   "question": "一个三棱柱，底面三角形的三条边分别是 p、q、r，柱长是 h。它的展开图由哪些图形组成？",
+   "options": [
+    "2 个三角形和 4 个长方形：p×h、q×h、r×h、p×h",
+    "3 个三角形和 3 个长方形：p×h、q×h、r×h",
+    "2 个三角形和 3 个长方形：p×h、q×h、r×h",
+    "2 个三角形和 2 个长方形：p×h、q×h"
+   ],
+   "answerIndex": 2,
+   "explain": "三棱柱一共 5 个面：上下两个三角形底面，加 3 个侧面长方形，每个长方形的另一边都是 h。坑是凑成 6 个面（多一个三角形或多一个长方形），那是长方体的面数，不是三棱柱的。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "ok",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l67ebiwx",
+   "level": 2,
+   "question": "一个圆柱，底面半径是 r，高是 h。用字母表示，它的展开图由哪些图形组成？",
+   "options": [
+    "两个半径 r 的圆和一个 2r × h 的长方形",
+    "一个半径 r 的圆和一个 2πr × h 的长方形",
+    "两个半径 r 的圆和一个 πr² × h 的长方形",
+    "两个半径 r 的圆和一个 2πr × h 的长方形"
+   ],
+   "answerIndex": 3,
+   "explain": "圆柱展开图是上下两个半径 r 的圆，加一个长方形，长方形贴着圆滚一圈的边等于底面周长 2πr，另一边是高 h。坑是把长边写成直径 2r，或把底面面积 πr² 当成长度用。",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "nets.face_count_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6fbe4tx",
+   "level": 3,
+   "question": "在 Richmond 的社区中心做手工，要给一个圆柱形铁罐做一圈纸标签。罐子底面半径 4 cm、高 15 cm，纸要绕满一整圈，还要多留 2 cm 用来重叠粘贴。这张长方形纸应该画多大？（π 取 3.14）",
+   "options": [
+    "27.1 cm × 15 cm",
+    "25.1 cm × 15 cm",
+    "8.0 cm × 15 cm",
+    "10.0 cm × 15 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "第一步算绕一圈的长度：2×3.14×4＝25.1 cm；第二步加上重叠的 2 cm，得 27.1 cm，另一边就是高 15 cm。坑是用直径 8 cm 当绕一圈的长度，或者算完周长忘了加重叠那 2 cm。",
+   "tags": [
+    "ok",
+    "other",
+    "nets.cylinder_rect_width_is_diameter",
+    "nets.cylinder_rect_width_is_diameter"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6mzq9pn",
+   "level": 3,
+   "question": "学校义卖要用卡纸做三棱柱形状的巧克力盒。底面是直角三角形，两条直角边 3 cm 和 4 cm，斜边 5 cm，盒长 20 cm。画展开图时，长方形部分要画几个？它们的面积一共多少？",
+   "options": [
+    "4 个长方形，面积共 340 cm²",
+    "3 个长方形，面积共 240 cm²",
+    "3 个长方形，面积共 180 cm²",
+    "2 个长方形，面积共 140 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "三角形 3 条边对应 3 个长方形，宽都是 20 cm：3×20＝60、4×20＝80、5×20＝100，合计 240 cm²。坑是多画一个侧面变成 340，或漏掉斜边那一块只算 140。",
+   "tags": [
+    "nets.face_count_wrong",
+    "ok",
+    "other",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l61vjpvz",
+   "level": 3,
+   "question": "小宇在画一个圆柱（底面半径 3 cm、高 10 cm）的展开图，他把中间的长方形标成 6 cm × 10 cm，还说「长边就是底面直径」。下面哪句话说得对？（π 取 3.14）",
+   "options": [
+    "长边应是半径 3 cm，因为要从圆心量到边上才对",
+    "长边确实是 6 cm，因为长方形只要盖住直径就行",
+    "长边应是底面周长 18.8 cm，因为要绕圆一圈",
+    "长边应是 28.3 cm，因为要用底面圆的面积当长边"
+   ],
+   "answerIndex": 2,
+   "explain": "长方形那条边是圆滚一圈铺开的，所以等于周长 2×3.14×3＝18.8 cm，长方形是 18.8 cm × 10 cm。直径 6 cm 是横穿圆的一条线段，不是绕圆一圈的长度；面积 28.3 也不能当边长用。",
+   "tags": [
+    "other",
+    "nets.cylinder_rect_width_is_diameter",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqq4l6jlg77e",
+   "level": 3,
+   "question": "用一张大卡纸做一个无盖（open top）的长方体收纳盒的展开图：底面 30 cm × 20 cm，四周高 10 cm。展开图上要画几个长方形？它们的总面积是多少？",
+   "options": [
+    "6 个长方形，总面积 2200 cm²",
+    "4 个长方形，总面积 1000 cm²",
+    "5 个长方形，总面积 2200 cm²",
+    "5 个长方形，总面积 1600 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "无盖就少了顶面，只画 5 个：底面 30×20＝600，两个 30×10＝600，两个 20×10＝400，合计 1600 cm²。坑是按 6 个面照算成 2200，或者把两个侧面漏掉只剩 4 个面。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.MULTI_BUY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtknn0tbm9ymhn",
+   "level": 1,
+   "question": "A store price table has one row for pens. The row says: buy 2 pens for $3.00 and get the 3rd pen free, so you carry home 3 pens in total for $3.00. What is the effective unit price?",
+   "options": [
+    "$1.00 per pen",
+    "$1.50 per pen",
+    "$0.75 per pen",
+    "$3.00 per pen"
+   ],
+   "answerIndex": 0,
+   "explain": "You pay $3.00 and walk out with 3 pens, so divide by all 3: $3.00 ÷ 3 = $1.00. The usual trap is dividing by 2 because only 2 pens were paid for — the free pen still counts when you find the unit price.",
+   "tags": [
+    "ok",
+    "fin.free_item_ignored",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbq69mnn",
+   "level": 1,
+   "question": "A price table has two rows for the same apples. Row 1 says: a bag of 4 apples costs $3.20. Row 2 says: loose apples are $1.20 each, buy 3 and get 1 free, so you pay $3.60 and take 4 apples. Which row is the better buy?",
+   "options": [
+    "The deal row, at $0.90 per apple",
+    "The 4-apple bag, $0.80 per apple",
+    "The deal row, at $1.20 per apple",
+    "The deal row, it gives more fruit"
+   ],
+   "answerIndex": 1,
+   "explain": "Find both unit prices: $3.20 ÷ 4 = $0.80, and the deal gives 4 apples for $3.60, so $3.60 ÷ 4 = $0.90. A free item does not automatically make a deal cheaper — you still have to compare unit prices.",
+   "tags": [
+    "other",
+    "ok",
+    "fin.free_item_ignored",
+    "fin.bigger_pack_always_cheaper"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbuuvc6u",
+   "level": 1,
+   "question": "A price table has one row for notebooks. The row says: 3 notebooks for $10.50, no other discount. What is the unit price of one notebook?",
+   "options": [
+    "$5.25 per notebook",
+    "$7.00 per notebook",
+    "$3.50 per notebook",
+    "$2.10 per notebook"
+   ],
+   "answerIndex": 2,
+   "explain": "Three notebooks share the price of $10.50, so $10.50 ÷ 3 = $3.50 each. Dividing by 2 gives $5.25, which happens when you forget the price is spread over all 3 notebooks.",
+   "tags": [
+    "fin.free_item_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbvazip4",
+   "level": 1,
+   "question": "A price table has one row for muffins. The row says: pay for 3 muffins at $1.80 each and get a 4th muffin free, so the row total is $5.40 for 4 muffins. What is the effective unit price?",
+   "options": [
+    "$2.70 per muffin",
+    "$1.08 per muffin",
+    "$1.80 per muffin",
+    "$1.35 per muffin"
+   ],
+   "answerIndex": 3,
+   "explain": "You pay $5.40 and leave with 4 muffins, so $5.40 ÷ 4 = $1.35. Leaving the free muffin out keeps the answer at $1.80 and hides the whole point of the deal.",
+   "tags": [
+    "other",
+    "other",
+    "fin.free_item_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbk61k6p",
+   "level": 2,
+   "question": "A corner store sells pop two ways: a 6-pack for $7.20, or single cans at $1.35 each with a 'buy 2, get 1 free' sign. Which is the better buy?",
+   "options": [
+    "The 3-for-2 deal, because it is $0.90 per can",
+    "The 6-pack, because it gives you the most cans",
+    "The 6-pack, because it is only $1.20 per can",
+    "The 6-pack, because the deal is $1.35 per can"
+   ],
+   "answerIndex": 0,
+   "explain": "The deal costs 2 × $1.35 = $2.70 for 3 cans, so $2.70 ÷ 3 = $0.90, which beats $7.20 ÷ 6 = $1.20. Divide by every can you carry home, including the free one.",
+   "tags": [
+    "ok",
+    "fin.bigger_pack_always_cheaper",
+    "fin.bigger_pack_always_cheaper",
+    "fin.free_item_ignored"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbp5bv4f",
+   "level": 2,
+   "question": "An item costs $2.40 and the sign says 'buy 3, get 1 free.' Which calculation gives the effective unit price?",
+   "options": [
+    "$2.40 × 3 ÷ 3 = $2.40",
+    "$2.40 × 3 ÷ 4 = $1.80",
+    "$2.40 × 4 ÷ 3 = $3.20",
+    "$2.40 ÷ 4 = $0.60 each"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply to get the money you actually hand over ($2.40 × 3), then divide by the 4 items you receive: $7.20 ÷ 4 = $1.80. Dividing by 3 just gives back the sticker price and ignores the free item.",
+   "tags": [
+    "fin.free_item_ignored",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbxxcu92",
+   "level": 2,
+   "question": "Two deals on the same pack of markers: Deal A is 5 packs for $11.25. Deal B is $2.40 per pack, buy 3 and get 1 free. Which deal has the lower unit price?",
+   "options": [
+    "Deal A, because it is $2.25 per item",
+    "Deal A, because Deal B is $2.40 each",
+    "Deal B, because it is $1.80 per item",
+    "Deal A, because it gives you more items"
+   ],
+   "answerIndex": 2,
+   "explain": "Deal A is $11.25 ÷ 5 = $2.25 each; Deal B costs 3 × $2.40 = $7.20 for 4 packs, so $7.20 ÷ 4 = $1.80 each. Counting only the packs you paid for makes Deal B look like $2.40 and hides the better buy.",
+   "tags": [
+    "fin.bigger_pack_always_cheaper",
+    "fin.free_item_ignored",
+    "ok",
+    "fin.bigger_pack_always_cheaper"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbsdaby9",
+   "level": 2,
+   "question": "A box of 10 granola bars costs $9.00. A flyer coupon makes it 'buy 2 boxes, get 1 box free.' Using the coupon, what is the effective price per bar?",
+   "options": [
+    "$0.90 per bar",
+    "$0.30 per bar",
+    "$0.45 per bar",
+    "$0.60 per bar"
+   ],
+   "answerIndex": 3,
+   "explain": "You pay 2 × $9.00 = $18.00 and take home 3 boxes, which is 30 bars, so $18.00 ÷ 30 = $0.60 per bar. Dividing by only the 20 bars you paid for gives $0.90 and throws away the free box.",
+   "tags": [
+    "fin.free_item_ignored",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbi45qmg",
+   "level": 3,
+   "question": "Nadia needs 12 juice boxes for a Burnaby soccer game. The store sells a 4-box pack for $5.20, or single boxes at $1.60 each with 'buy 3, get 1 free.' Which way is cheaper for 12 boxes, and by how much?",
+   "options": [
+    "The singles deal, cheaper by $1.20",
+    "The 4-packs, cheaper by $1.20 in total",
+    "The 4-packs, because packs beat singles",
+    "The 4-packs, cheaper by $3.60 in total"
+   ],
+   "answerIndex": 0,
+   "explain": "Twelve boxes as 4-packs cost 3 × $5.20 = $15.60; with buy 3 get 1 free she pays for only 9 boxes, 9 × $1.60 = $14.40, saving $1.20. Charging for all 12 singles gives $19.20 and makes the packs look cheaper than they really are.",
+   "tags": [
+    "ok",
+    "other",
+    "fin.bigger_pack_always_cheaper",
+    "fin.free_item_ignored"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbin3z54",
+   "level": 3,
+   "question": "At a Richmond sports store, water bottles are $6.00 each with 'buy 2, get 1 free.' Jonah pays $12.00 and leaves with 3 bottles. He says the unit price is $6.00 because $12.00 ÷ 2 = $6.00. What is the correct fix?",
+   "options": [
+    "He was right, because only two bottles were paid for",
+    "He divided by 2, not 3, leaving out the free bottle",
+    "He should divide by 4, because the deal adds a bonus",
+    "He should just buy the biggest pack, which is cheaper"
+   ],
+   "answerIndex": 1,
+   "explain": "He carried out 3 bottles for $12.00, so the effective unit price is $12.00 ÷ 3 = $4.00. Dividing by the number paid for instead of the number received is the classic best-buy trap.",
+   "tags": [
+    "fin.free_item_ignored",
+    "ok",
+    "other",
+    "fin.bigger_pack_always_cheaper"
+   ]
+  },
+  {
+   "qid": "qmtknn0tb8btgpa",
+   "level": 3,
+   "question": "Grip stickers cost $3.00 each at a Victoria skate shop, with 'buy 3, get 1 free.' Priya has exactly $18.00 and uses the deal as many times as she can. How many stickers does she take home?",
+   "options": [
+    "6, because $18.00 ÷ $3.00 = 6",
+    "9, because $18.00 ÷ $2.00 = 9",
+    "8, because $9.00 buys 4 stickers",
+    "12, because a bigger buy gives more"
+   ],
+   "answerIndex": 2,
+   "explain": "One round of the deal costs 3 × $3.00 = $9.00 and gives 4 stickers, so $18.00 buys two rounds, or 8 stickers. Dividing $18.00 by $3.00 gives 6 and forgets that every third sticker bought brings a free one.",
+   "tags": [
+    "fin.free_item_ignored",
+    "other",
+    "ok",
+    "fin.bigger_pack_always_cheaper"
+   ]
+  },
+  {
+   "qid": "qmtknn0tbqkvnp7",
+   "level": 3,
+   "question": "Two flyers advertise the same yogurt tubes. Flyer A: one 12-tube box for $6.60. Flyer B: 6-tube boxes at $3.60 each, 'buy 2 boxes, get 1 box free.' Sam picks Flyer A because it is the biggest box. Is he right?",
+   "options": [
+    "Yes — Flyer B comes to $0.60 per tube",
+    "No — Flyer A comes to $1.10 per tube",
+    "Yes — the 12-tube box is the largest",
+    "No — Flyer B comes to $0.40 per tube"
+   ],
+   "answerIndex": 3,
+   "explain": "Flyer A is $6.60 ÷ 12 = $0.55 per tube, while Flyer B gives 3 boxes, or 18 tubes, for $7.20, which is $0.40 per tube — so the biggest box is not the better buy. Counting only the 12 tubes paid for in Flyer B gives $0.60 and flips the answer the wrong way.",
+   "tags": [
+    "fin.free_item_ignored",
+    "other",
+    "fin.bigger_pack_always_cheaper",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.IDENTIFY",
+ "lang": "en",
+ "title": "Identify which single transformation maps a shape onto its image",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Detective Time: Slide, Flip, or Turn?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to slide a shape, how to flip it over a line, and how to turn it a quarter or a half turn. Today we do something a little different — we play detective. We look at a shape and at where it landed, and we figure out which one single move got it there. Here is our triangle on a grid map of a park: corner A at two comma one, corner B at four comma one, and corner C at two comma four.",
+    "math": "A(2,1),\\ B(4,1),\\ C(2,4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      4,
+      1,
+      2,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Our starting triangle: A, B and C"
+    }
+   },
+   {
+    "say": "Now the triangle shows up in a new spot. A prime is at eight comma one, B prime is at six comma one, and C prime is at eight comma four. To name the move, ask yourself three detective questions. One: is the shape still facing the exact same way, just moved over? Then it is a slide. Two: is it facing the opposite way, like looking in a mirror? Then it is a flip. Three: has it tipped onto a different side, the way a clock hand swings around? Then it is a turn.",
+    "math": "A'(8,1),\\ B'(6,1),\\ C'(8,4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      4,
+      1,
+      2,
+      4,
+      8,
+      1,
+      6,
+      1,
+      8,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "The triangle and its image — which single move happened?"
+    }
+   },
+   {
+    "say": "Let us work it out. The flat bottom is still flat along the line y equals one, and the tall corner is still up at height four, so nothing tipped over — it is not a turn. But look at the pointy end. On the first triangle the short bottom side runs to the right, from A over to B. On the image it runs to the left, from A prime over to B prime. It is facing the opposite way, just like a mirror. Now picture a mirror line going straight up at x equals five. A is three squares to the left of it, and A prime is three squares to the right. B is one square left, B prime is one square right. Every corner sits the same distance on the other side. That is a reflection — a flip.",
+    "math": "A(2,1)\\rightarrow A'(8,1),\\quad B(4,1)\\rightarrow B'(6,1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      4,
+      1,
+      2,
+      4,
+      8,
+      1,
+      6,
+      1,
+      8,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Mirror line at x equals five: A is 3 left, A prime is 3 right"
+    }
+   },
+   {
+    "say": "Here is the mistake lots of kids make. Someone glances at it and says, it just scooted over to the right, so it is a slide. Let us test that. In a slide, every single corner has to move the same amount in the same direction. Corner A went from x equals two to x equals eight — that is six squares right. Corner B went from x equals four to x equals six — that is only two squares right. Six and two are not the same, so it cannot be a slide. And look what a real slide of six right would do: B would land way out at ten comma one, but the real B prime is at six comma one. Notice A and B traded sides too. Sliding never swaps your corners around — only a mirror does that.",
+    "math": "8-2=6\\quad\\text{but}\\quad 6-4=2",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      4,
+      1,
+      2,
+      4,
+      8,
+      1,
+      10,
+      1,
+      8,
+      4
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "slid A",
+      "slid B",
+      "slid C"
+     ],
+     "caption": "A slide of 6 right would put B at 10 comma 1 — that is not the real image"
+    }
+   },
+   {
+    "say": "So here is your detective trick. Check the corners with numbers, not just with your eyes. Same move for every corner means a slide. Facing the opposite way, with each corner the same distance across a mirror line, means a flip. Tipped onto a brand new side means a turn.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A slide moves every corner the same amount; a flip faces the other way with matching distances across the mirror line.",
+  "practice": {
+   "question": "On a grid map of a park in Vancouver, a triangular flower bed has corners at two comma three, five comma three, and two comma six. After the gardeners redraw it, the new bed has corners at ten comma three, seven comma three, and ten comma six. Draw both triangles on your own grid paper. Which single transformation moved the flower bed — a slide, a flip, or a turn? How do you know?",
+   "answer": "It is a reflection — a flip — over the vertical mirror line at x equals six. It is not a slide, because the corners moved different amounts sideways: two to ten is eight squares, but five to seven is only two squares. It is not a turn, because the heights stayed the same at three, three and six, so nothing tipped over. Check the mirror: two is four squares left of six and ten is four squares right; five is one square left and seven is one square right."
+  }
+ }
+}

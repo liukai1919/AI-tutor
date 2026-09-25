@@ -1,0 +1,201 @@
+{
+ "id": "BC.MATH.PC12.TRI.01",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt3kccky9xio1i",
+   "level": 1,
+   "question": "将 150° 转换为弧度（radian）形式（最简分数）是：",
+   "options": [
+    "5π/4",
+    "3π/4",
+    "5π/6",
+    "7π/6"
+   ],
+   "answerIndex": 2,
+   "explain": "150° × (π/180°) = 5π/6。常见错误是误用 150/90 得到 5π/3，或只写参考角 30° = π/6 而漏掉前面的系数。"
+  },
+  {
+   "qid": "qmt3kcckyxp2ctr",
+   "level": 1,
+   "question": "函数 y = 3sin(2x) 的振幅（amplitude）是多少？",
+   "options": [
+    "2",
+    "π/3",
+    "6",
+    "3"
+   ],
+   "answerIndex": 3,
+   "explain": "振幅 = |A|，即 sin 前面的系数 3 的绝对值。不要把频率 2（决定周期）或周期 π（= 2π/2）误认为振幅。"
+  },
+  {
+   "qid": "qmt3kcckyhkwitx",
+   "level": 1,
+   "question": "利用平方关系恒等式（Pythagorean identity），sin²θ + cos²θ 等于：",
+   "options": [
+    "tan θ",
+    "1",
+    "0",
+    "sin θ · cos θ"
+   ],
+   "answerIndex": 1,
+   "explain": "sin²θ + cos²θ = 1 是最基本的三角恒等式，对任意实数 θ 都成立，无需任何额外条件。"
+  },
+  {
+   "qid": "qmt3kccky62jst0",
+   "level": 2,
+   "question": "在区间 [−360°, 360°] 内，与 120° 终边相同（coterminal）的角有哪些？",
+   "options": [
+    "−120° 和 120°",
+    "−240° 和 120°",
+    "−240° 和 480°",
+    "−60° 和 120°"
+   ],
+   "answerIndex": 1,
+   "explain": "终边相同角 = 120° + 360°k（k 为整数）。k = −1 得 −240°，k = 0 得 120°。480° 超出给定区间，−60° 与 120° 终边不同。"
+  },
+  {
+   "qid": "qmt3kccky1cztw4",
+   "level": 2,
+   "question": "在区间 [0, 2π] 内，方程 sin x = 1/2 的全部解为：",
+   "options": [
+    "x = π/6",
+    "x = π/6 或 x = π/3",
+    "x = π/3 或 x = 2π/3",
+    "x = π/6 或 x = 5π/6"
+   ],
+   "answerIndex": 3,
+   "explain": "sin x = 1/2 在 Q1 和 Q2 各有一解：x = π/6（参考角 30°）和 x = π − π/6 = 5π/6。只写 Q1 的解是最常见的遗漏。"
+  },
+  {
+   "qid": "qmt3kcckykl68j5",
+   "level": 2,
+   "question": "函数 y = 3sin(2x + π) 的周期（period）是多少？",
+   "options": [
+    "π",
+    "2π",
+    "π/2",
+    "4π"
+   ],
+   "answerIndex": 0,
+   "explain": "周期 T = 2π/|b| = 2π/2 = π。振幅 3 和相位平移 +π 都不改变周期，周期只取决于 x 的系数 b 的绝对值。"
+  },
+  {
+   "qid": "qmt3kcckyoghany",
+   "level": 2,
+   "question": "已知 sin θ = 3/5，且 θ 在第一象限，用二倍角公式（double angle）求 cos 2θ 的值。",
+   "options": [
+    "−7/25",
+    "16/25",
+    "7/25",
+    "9/25"
+   ],
+   "answerIndex": 2,
+   "explain": "cos 2θ = 1 − 2sin²θ = 1 − 2×(9/25) = 7/25。若用 cos 2θ = cos²θ − sin²θ，需先由勾股关系得 cos θ = 4/5，再算 16/25 − 9/25 = 7/25。"
+  },
+  {
+   "qid": "qmt3kccky4qlne9",
+   "level": 3,
+   "question": "温哥华一座摩天轮半径 8 m，乘客离地高度（m）由 h(t) = 8cos(πt/3) + 10 描述（t 为分钟，t = 0 时乘客在最高点）。乘客第一次到达最低点的时刻 t = ？",
+   "options": [
+    "1.5 min",
+    "2 min",
+    "3 min",
+    "4 min"
+   ],
+   "answerIndex": 2,
+   "explain": "最低点对应 cos(πt/3) = −1，即 πt/3 = π，解得 t = 3 min。不要令 h = 0（那表示触地），而是找余弦取最小值 −1 的时刻。"
+  },
+  {
+   "qid": "qmt3kccky9i94ue",
+   "level": 3,
+   "question": "解方程 sin x · cos x = sin x，x ∈ [0, 2π]。某学生两边同除以 sin x 得 cos x = 1，写出解 x = 0, 2π。这个解法的主要问题是什么？",
+   "options": [
+    "除以 sin x 时丢失了 sin x = 0 的解（如 x = π），正确做法是移项后因式分解",
+    "cos x = 1 的解应为 x = π/2，学生计算有误",
+    "原方程应为 sin x · cos x = 1，学生抄错了题目",
+    "x = 0 和 x = 2π 是同一终边角，答案应只保留一个"
+   ],
+   "answerIndex": 0,
+   "explain": "正确做法：sin x(cos x − 1) = 0 → sin x = 0（x = 0, π, 2π）或 cos x = 1（x = 0, 2π）。两边除以 sin x 在 sin x = 0 时相当于除以零，会丢失 x = π 这个解。"
+  },
+  {
+   "qid": "qmt3kcckyjs7s93",
+   "level": 3,
+   "question": "利用恒等式化简 (sin θ + cos θ)² − 1，最简结果为：",
+   "options": [
+    "cos 2θ",
+    "1 + sin 2θ",
+    "−sin 2θ",
+    "sin 2θ"
+   ],
+   "answerIndex": 3,
+   "explain": "展开得 sin²θ + 2sinθcosθ + cos²θ − 1 = (sin²θ + cos²θ) + 2sinθcosθ − 1 = 1 + sin 2θ − 1 = sin 2θ。关键：平方关系产生的 1 和末尾的 −1 恰好抵消。"
+  },
+  {
+   "qid": "qmt3kcckyfy6suu",
+   "level": 3,
+   "question": "已知 tan θ = 2，且 θ 在第一象限。利用恒等式求 sin 2θ 的值。",
+   "options": [
+    "3/5",
+    "4/5",
+    "−4/5",
+    "2/5"
+   ],
+   "answerIndex": 1,
+   "explain": "sin 2θ = 2sinθcosθ。由 tanθ = 2 得 sinθ = 2cosθ，代入 sin²θ + cos²θ = 1 得 5cos²θ = 1，即 cosθ = 1/√5、sinθ = 2/√5。故 sin 2θ = 2×(2/√5)×(1/√5) = 4/5。"
+  },
+  {
+   "qid": "qmt664672q81k0b",
+   "level": 1,
+   "question": "角 θ = 240° 是标准位置角（standard position），它的参考角（reference angle）是多少？",
+   "options": [
+    "60°",
+    "30°",
+    "120°",
+    "150°"
+   ],
+   "answerIndex": 0,
+   "explain": "240° 在第三象限，参考角是终边与 x 轴（不是 y 轴）所夹的锐角，用 240° − 180° = 60°。最常踩的坑是用 360° − 240° = 120°（那是第四象限角才用的算法），或者拿 270° − 240° = 30° 去靠 y 轴——参考角永远量到 x 轴。"
+  },
+  {
+   "qid": "qmt664672i0ls57",
+   "level": 1,
+   "question": "利用商数关系恒等式（quotient identity）化简 tan θ · cos θ（设 cos θ ≠ 0），结果是：",
+   "options": [
+    "sin θ",
+    "cos θ",
+    "1",
+    "sin θ / cos² θ"
+   ],
+   "answerIndex": 0,
+   "explain": "把 tan θ 写成 sin θ / cos θ，于是 (sin θ / cos θ) · cos θ = sin θ，cos θ 约掉。常见错误是记反成 tan θ = cos θ / sin θ，或者把 cos θ 乘到分母上得到 sin θ / cos² θ——乘法是约分，不是继续往下压。"
+  },
+  {
+   "qid": "qmt664672bcv3j4",
+   "level": 1,
+   "question": "在单位圆（unit circle）上，cos(π/3) 的值是：",
+   "options": [
+    "√3/2",
+    "1/2",
+    "√3/3",
+    "√2/2"
+   ],
+   "answerIndex": 1,
+   "explain": "π/3 就是 60°，单位圆上该点坐标是 (1/2, √3/2)，横坐标才是余弦，所以 cos(π/3) = 1/2。最容易踩的坑是把 sin 和 cos 弄反选成 √3/2，或者和 π/4 的 √2/2 记混。"
+  },
+  {
+   "qid": "qmt6646721f4lwm",
+   "level": 1,
+   "question": "函数 y = −4cos x + 1 的最大值（maximum value）是多少？",
+   "options": [
+    "−3",
+    "4",
+    "5",
+    "3"
+   ],
+   "answerIndex": 2,
+   "explain": "cos x 的取值范围是 −1 到 1，所以 −4cos x 的范围是 −4 到 4，再加 1 得到 −3 到 5，最大值是 5（在 cos x = −1 时取到）。常见错误是被负号带偏，直接算 −4 + 1 = −3 当最大值；振幅（amplitude）是 |−4| = 4，负号只是把图象上下翻转，不会让最大值变负。"
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DEC.ADDSUB.1000.ALGORITHM",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5h635j3dc6ax",
+   "level": 1,
+   "question": "用竖式计算：0.67 + 0.458 = ?（先把小数点（decimal point）对齐，位数不够的在末尾补 0）",
+   "options": [
+    "1.128",
+    "0.525",
+    "1.028",
+    "0.128"
+   ],
+   "answerIndex": 0,
+   "explain": "把 0.67 补成 0.670，小数点对齐后逐位相加：0.670 + 0.458 = 1.128。写成 0.525 的是把两个数末位右对齐了；写成 1.028 的是百分位 7 + 5 = 12 忘了向十分位进 1。",
+   "tags": [
+    "ok",
+    "dec.ignore_place_align",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jclm1px",
+   "level": 1,
+   "question": "用竖式计算：0.9 − 0.325 = ?（把小数点对齐，0.9 后面缺的数位补 0）",
+   "options": [
+    "0.685",
+    "0.575",
+    "0.316",
+    "0.625"
+   ],
+   "answerIndex": 1,
+   "explain": "0.9 要补成 0.900，再从千分位（thousandths）开始退位：0.900 − 0.325 = 0.575。写成 0.685 的是借了位却忘记把上一位减 1；写成 0.316 的是把 0.9 当成 0.009 和 0.325 末位右对齐了。",
+   "tags": [
+    "ops.regroup_forget",
+    "ok",
+    "dec.ignore_place_align",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jdlj3ea",
+   "level": 1,
+   "question": "用竖式计算：2.5 − 1.375 = ?（对齐小数点，缺位补 0）",
+   "options": [
+    "1.350",
+    "1.235",
+    "1.125",
+    "1.275"
+   ],
+   "answerIndex": 2,
+   "explain": "2.5 补成 2.500 后再减：2.500 − 1.375 = 1.125。写成 1.235 的是退位后忘了把上一位减 1；写成 1.350 的是把 2.5 的 5 当成千分位、两数末位右对齐。",
+   "tags": [
+    "dec.ignore_place_align",
+    "ops.regroup_forget",
+    "ok",
+    "dec.ignore_place_align"
+   ]
+  },
+  {
+   "qid": "qmt5h635js7ks34",
+   "level": 1,
+   "question": "用竖式计算：1 − 0.408 = ?（整数 1 也要写成带小数点的形式再对齐）",
+   "options": [
+    "0.407",
+    "0.692",
+    "0.602",
+    "0.592"
+   ],
+   "answerIndex": 3,
+   "explain": "把 1 写成 1.000，小数点对齐后退位相减：1.000 − 0.408 = 0.592。写成 0.692 的是十分位退位后忘记把 10 减成 9；写成 0.407 的是把 1 当成 0.001 和 0.408 末位右对齐。",
+   "tags": [
+    "dec.ignore_place_align",
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5h635j9phyno",
+   "level": 2,
+   "question": "周六小林在 Stanley Park 跑步 1.65 km，周日跑了 0.475 km。两天一共跑了多少千米？",
+   "options": [
+    "2.125 km",
+    "1.125 km",
+    "0.640 km",
+    "2.025 km"
+   ],
+   "answerIndex": 0,
+   "explain": "把 1.65 补成 1.650 再加：1.650 + 0.475 = 2.125 km。写成 2.025 的是百分位 5 + 7 = 12 忘了向十分位进 1；写成 0.640 的是把两个数末位右对齐、没对齐小数点。",
+   "tags": [
+    "ok",
+    "ops.regroup_forget",
+    "dec.ignore_place_align",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jxuknx6",
+   "level": 2,
+   "question": "小雅的水壶里有 1.5 L 水，上午喝掉了 0.365 L。水壶里还剩多少升水？",
+   "options": [
+    "1.265 L",
+    "1.135 L",
+    "1.235 L",
+    "1.245 L"
+   ],
+   "answerIndex": 1,
+   "explain": "1.5 要补成 1.500 再减：1.500 − 0.365 = 1.135 L。写成 1.265 的是没补 0，把 6 和 5 直接抄了下来；写成 1.245 或 1.235 的是退位后忘记把上一位减 1。",
+   "tags": [
+    "dec.ignore_place_align",
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jjkl5kb",
+   "level": 2,
+   "question": "上学路上，小恒先走 0.6 km 到公交站，再坐车 0.45 km，最后走 0.375 km 到学校。这段路一共有多长？",
+   "options": [
+    "1.325 km",
+    "0.426 km",
+    "1.425 km",
+    "0.425 km"
+   ],
+   "answerIndex": 2,
+   "explain": "三个数都补成千分位再对齐相加：0.600 + 0.450 + 0.375 = 1.425 km。写成 0.426 的是把三个数末位右对齐；写成 1.325 的是百分位 0 + 5 + 7 = 12 忘了向十分位进 1。",
+   "tags": [
+    "ops.regroup_forget",
+    "dec.ignore_place_align",
+    "ok",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jhrniej",
+   "level": 2,
+   "question": "科学课上有一桶 2 L 的水，同学们倒出 0.685 L 做实验。桶里还剩多少升水？",
+   "options": [
+    "2.315 L",
+    "1.325 L",
+    "0.683 L",
+    "1.315 L"
+   ],
+   "answerIndex": 3,
+   "explain": "整数 2 要写成 2.000 再对齐小数点：2.000 − 0.685 = 1.315 L。写成 2.315 或 1.325 的是退位后忘记把上一位减 1；写成 0.683 的是把 2 当成 0.002 和 0.685 末位右对齐。",
+   "tags": [
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "dec.ignore_place_align",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5h635j7i2lq0",
+   "level": 3,
+   "question": "小美计算 0.9 + 0.246 时，把两个数的末位右对齐写成竖式，算出 0.255。这道题正确的结果应该是多少？",
+   "options": [
+    "1.146",
+    "0.255",
+    "0.336",
+    "0.146"
+   ],
+   "answerIndex": 0,
+   "explain": "加减小数要对齐小数点、不是对齐末位：0.9 补成 0.900，0.900 + 0.246 = 1.146。小美的 0.255 把 9 当成了千分位；写成 0.146 的是十分位 9 + 2 = 11 忘了向个位进 1；写成 0.336 的是把 0.9 错补成 0.09。",
+   "tags": [
+    "ok",
+    "dec.ignore_place_align",
+    "dec.ignore_place_align",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635jaet12d",
+   "level": 3,
+   "question": "露营时，小然先往一个 2 L 的空桶里倒了 0.375 L 水，又倒了 0.9 L 水。这个桶最多还能再装多少升水？",
+   "options": [
+    "1.616 L",
+    "0.725 L",
+    "0.735 L",
+    "1.725 L"
+   ],
+   "answerIndex": 1,
+   "explain": "先算倒进去的：0.375 + 0.900 = 1.275 L；再算还能装的：2.000 − 1.275 = 0.725 L。写成 1.616 的是加的时候末位右对齐、把 0.9 当成 0.009；写成 1.725 或 0.735 的是减的时候退位后忘了把上一位减 1。",
+   "tags": [
+    "dec.ignore_place_align",
+    "ok",
+    "ops.regroup_forget",
+    "ops.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmt5h635j25d5dh",
+   "level": 3,
+   "question": "学校远足：早上走了 2.375 km，下午走了 1.85 km。下午比早上少走了多少千米？",
+   "options": [
+    "1.525 km",
+    "2.190 km",
+    "0.525 km",
+    "0.575 km"
+   ],
+   "answerIndex": 2,
+   "explain": "1.85 补成 1.850，小数点对齐后再减：2.375 − 1.850 = 0.525 km。写成 2.190 的是把 1.85 当成 0.185、两数末位右对齐；写成 1.525 的是十分位退位后忘了把个位的 2 减成 1；写成 0.575 的是漏掉了 1.85 里的 5 个百分位（hundredths）。",
+   "tags": [
+    "ops.regroup_forget",
+    "dec.ignore_place_align",
+    "ok",
+    "dec.ignore_place_align"
+   ]
+  },
+  {
+   "qid": "qmt5h635j14lhsv",
+   "level": 3,
+   "question": "小杰和小安都在算 4 − 1.375。小杰先把 4 写成 4.000，再对齐小数点计算；小安直接把 4 和 1.375 的末位右对齐，算出 1.371。这道题正确的结果是多少？",
+   "options": [
+    "1.371",
+    "2.725",
+    "2.635",
+    "2.625"
+   ],
+   "answerIndex": 3,
+   "explain": "小杰的做法对：整数 4 补成 4.000，对齐小数点后退位相减，4.000 − 1.375 = 2.625。小安的 1.371 是把 4 当成了 0.004，位值（place value）全错了；写成 2.725 或 2.635 的是退位后忘记把上一位减 1。",
+   "tags": [
+    "dec.ignore_place_align",
+    "ops.regroup_forget",
+    "ops.regroup_forget",
+    "ok"
+   ]
+  }
+ ]
+}

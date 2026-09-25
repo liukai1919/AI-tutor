@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.PLAN_GOAL",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5kqvxpv6qh4b",
+   "level": 1,
+   "question": "A savings table has two columns, Week and Money added. Every row is the same: Week 1 adds $5, Week 2 adds $5, Week 3 adds $5, and the table keeps going with $5 in every row. Ben's goal is $45 for a soccer ball. How many rows (weeks) of this table does he need to reach $45?",
+   "options": [
+    "9 weeks",
+    "8 weeks",
+    "40 weeks",
+    "10 weeks"
+   ],
+   "answerIndex": 0,
+   "explain": "To plan a savings goal, divide the goal by the amount saved each week: 45 ÷ 5 = 9 weeks. A common trap is subtracting once (45 - 5 = 40) instead of finding how many $5 rows fit inside $45.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpyhj182",
+   "level": 1,
+   "question": "A savings table lists Week 1 → $6 added, Week 2 → $6 added, Week 3 → $6 added, and so on, with $6 added in every single row. Amara's goal is $27 for a hoodie. How many weeks does she need before she has at least $27?",
+   "options": [
+    "4 weeks",
+    "5 weeks",
+    "4.5 weeks",
+    "6 weeks"
+   ],
+   "answerIndex": 1,
+   "explain": "27 ÷ 6 = 4 with a remainder of 3, and after 4 weeks she has only $24, so she needs one more week — 5 weeks. The trap is dropping the remainder and answering 4 weeks; part of a week still means a whole extra week of saving.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpvzlkvu",
+   "level": 1,
+   "question": "A savings table has a Total saved column: after Week 1 it reads $12, after Week 2 $24, after Week 3 $36, and it keeps growing by $12 each week because Jonah puts in $12 every week. His goal is $80 for a fishing rod. In which week does the Total saved column first reach at least $80?",
+   "options": [
+    "6 weeks",
+    "8 weeks",
+    "7 weeks",
+    "68 weeks"
+   ],
+   "answerIndex": 2,
+   "explain": "Keep adding $12: week 6 shows $72, which is still under $80, so week 7 ($84) is the first row that reaches the goal. The trap is stopping at 6 because 80 ÷ 12 = 6 R 8 — the leftover $8 still has to be saved, so round up to 7 weeks.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxp0kljq2",
+   "level": 1,
+   "question": "A savings table shows the same amount in every row: $7 added in Week 1, $7 in Week 2, $7 in Week 3, and $7 in every row after that. Priya's goal is $50 for a swim pass. How many weeks does she need before she has at least $50?",
+   "options": [
+    "7 weeks",
+    "6 weeks",
+    "9 weeks",
+    "8 weeks"
+   ],
+   "answerIndex": 3,
+   "explain": "50 ÷ 7 = 7 with a remainder of 1, and 7 weeks gives only $49, so an eighth week is needed. Answering 7 weeks ignores that last $1 — always round the number of weeks up when there is a remainder.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpdis993",
+   "level": 2,
+   "question": "A savings goal is $96. The plan is to save $15 every week, starting from $0. How many weeks are needed to reach the goal?",
+   "options": [
+    "7 weeks",
+    "6.4 weeks",
+    "6 weeks",
+    "8 weeks"
+   ],
+   "answerIndex": 0,
+   "explain": "96 ÷ 15 = 6 R 6, and 6 weeks gives only $90, so the plan needs 7 weeks. Weeks are counted in whole numbers, so a leftover amount always means one more full week, not a part of a week.",
+   "tags": [
+    "ok",
+    "other",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxp6orz0c",
+   "level": 2,
+   "question": "Leo wants a $150 skateboard. He already has $45 saved and adds $12 to his savings every week. How many more weeks until he can buy the skateboard?",
+   "options": [
+    "8 weeks",
+    "9 weeks",
+    "13 weeks",
+    "12 weeks"
+   ],
+   "answerIndex": 1,
+   "explain": "First find the difference he still needs: 150 - 45 = 105, then 105 ÷ 12 = 8 R 9, so 8 weeks gives only $96 more and he needs 9 weeks. Two traps here: forgetting the $45 he already has, and dropping the remainder.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpmdccr7",
+   "level": 2,
+   "question": "Nadia gets $20 income each week from helping at her family's store, and her weekly expense is $12.50 for snacks and bus fare. She puts everything left over into savings for a $50 pair of running shoes. How many weeks until she can buy them?",
+   "options": [
+    "6 weeks",
+    "3 weeks",
+    "7 weeks",
+    "4 weeks"
+   ],
+   "answerIndex": 2,
+   "explain": "Savings each week is income minus expense: 20 - 12.50 = $7.50, and 7.50 x 6 = $45 while 7.50 x 7 = $52.50, so she needs 7 weeks. The big trap is planning with the $20 income instead of the $7.50 she actually saves.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpipncbz",
+   "level": 2,
+   "question": "A savings goal is $40.00. The weekly saving is $4.75. How many whole weeks are needed before there is at least $40.00?",
+   "options": [
+    "8 weeks",
+    "8.4 weeks",
+    "10 weeks",
+    "9 weeks"
+   ],
+   "answerIndex": 3,
+   "explain": "4.75 x 8 = $38.00, which is short of $40.00, and 4.75 x 9 = $42.75, so 9 weeks are needed. Stopping at 8 weeks because the total is 'close enough' is the same mistake as ignoring a remainder — the goal is not reached until the total is at least $40.00.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpvtyzoz",
+   "level": 3,
+   "question": "Sofia wants a $130 bike. She has $34 saved. Each week she earns $20 delivering flyers in her Surrey neighbourhood and spends $9 of it at the pool. She saves the rest. How many weeks until she has enough for the bike?",
+   "options": [
+    "9 weeks",
+    "8 weeks",
+    "12 weeks",
+    "5 weeks"
+   ],
+   "answerIndex": 0,
+   "explain": "She saves 20 - 9 = $11 a week and still needs 130 - 34 = $96, so 96 ÷ 11 = 8 R 8; after 8 weeks she has only $88 more, so 9 weeks are needed. Watch two traps: planning with the $20 income instead of the $11 saved, and dropping the remainder to say 8 weeks.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpkf67m5",
+   "level": 3,
+   "question": "Liam's goal is $95 for a camping tent. He saves $14 every week and starts from $0. He works out 95 ÷ 14 = 6 R 11 and tells his family, 'My plan takes 6 weeks.' What should he say instead?",
+   "options": [
+    "He is right — 6 weeks works, because the $11 left over does not really matter.",
+    "He needs 7 weeks — after 6 weeks he has only $84, so one more week of saving is required.",
+    "He should say 6 weeks and 11 days, because the remainder tells you the extra days.",
+    "He should say 11 weeks, because the remainder in the division is 11."
+   ],
+   "answerIndex": 1,
+   "explain": "In a savings plan the remainder means money still missing, so you round the number of weeks up: 6 weeks gives $84, and week 7 brings him to $98, past $95. The remainder 11 is dollars, not weeks and not days.",
+   "tags": [
+    "div.remainder_ignore",
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpisarrb",
+   "level": 3,
+   "question": "Over the last four weeks Ava saved $9, $12, $8 and $11. She decides her financial plan will use the mean of those four amounts as her weekly saving from now on. Her goal is $75 for concert tickets, starting from $0. How many weeks will her plan take?",
+   "options": [
+    "7 weeks",
+    "10 weeks",
+    "8 weeks",
+    "7.5 weeks"
+   ],
+   "answerIndex": 2,
+   "explain": "The mean is (9 + 12 + 8 + 11) ÷ 4 = 40 ÷ 4 = $10 a week, and 75 ÷ 10 = 7 R 5, so 7 weeks gives only $70 and she needs 8 weeks. The trap is answering 7 and forgetting the last $5 still has to be saved.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5kqvxpesg771",
+   "level": 3,
+   "question": "Noah wants a $180 snowboard before the hill opens in 12 weeks. He already has $20 saved and plans to put away $14 every week. Which statement about his plan is correct?",
+   "options": [
+    "11 weeks — he reaches the goal with a week to spare.",
+    "13 weeks — he misses the opening, because 180 ÷ 14 = 12 R 12.",
+    "9 weeks — he makes it early, because 180 ÷ 20 = 9.",
+    "12 weeks — he has $188 by the end of week 12, so he just makes it."
+   ],
+   "answerIndex": 3,
+   "explain": "He still needs 180 - 20 = $160, and 160 ÷ 14 = 11 R 6, so 11 weeks gives only $174 in total and he needs the full 12 weeks ($20 + $168 = $188). Dropping that remainder makes the plan look a week faster than it really is.",
+   "tags": [
+    "div.remainder_ignore",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

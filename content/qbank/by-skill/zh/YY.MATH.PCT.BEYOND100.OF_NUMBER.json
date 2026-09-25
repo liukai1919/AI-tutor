@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtklpfeusbgctg",
+   "level": 1,
+   "question": "求 40 000 的 ½%（fractional percent）是多少？先把 ½% 写成小数（decimal）再相乘。哪一行做对了？",
+   "options": [
+    "0.005 × 40 000 = 200",
+    "0.05 × 40 000 = 2 000",
+    "0.5 × 40 000 = 20 000",
+    "½% 就是 0.5，所以得数是 0.5"
+   ],
+   "answerIndex": 0,
+   "explain": "½% 是 1% 的一半，1% = 0.01，所以 ½% = 0.005，0.005 × 40 000 = 200。最容易踩的坑是把 ½% 直接当成 ½（也就是 50%），那样会算成 20 000。",
+   "tags": [
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pct.fractional_percent_as_fraction",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmtklpfeu5m0g89",
+   "level": 1,
+   "question": "求 60 的 150% 是多少？先把 150% 写成小数再相乘。哪一行做对了？",
+   "options": [
+    "150% 当成 150，得数是 150",
+    "1.5 × 60 = 90",
+    "0.15 × 60 = 9",
+    "15 × 60 = 900"
+   ],
+   "answerIndex": 1,
+   "explain": "150% = 150 ÷ 100 = 1.5，1.5 × 60 = 90。百分数大于 100%，得数一定比原来的量 60 大；算成 9 或 900 都是小数点位置（零的个数）搬错了。",
+   "tags": [
+    "pct.percent_as_number",
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmtklpfeutbswjn",
+   "level": 1,
+   "question": "求 8 000 的 ¼% 是多少？先把 ¼% 写成小数再相乘。哪一行做对了？",
+   "options": [
+    "¼ × 8 000 = 2 000",
+    "0.025 × 8 000 = 200",
+    "0.0025 × 8 000 = 20",
+    "¼% 就是 0.25，得数是 0.25"
+   ],
+   "answerIndex": 2,
+   "explain": "¼% = 0.25% = 0.0025，0.0025 × 8 000 = 20。写成 ¼ × 8 000 = 2 000 的那个漏掉了百分号，把 ¼% 放大成了 25%。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "pv.annex_zeros_miscount",
+    "ok",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmtklpfeusb6clv",
+   "level": 1,
+   "question": "求 45 的 300% 是多少？先把 300% 写成小数或整数再相乘。哪一行做对了？",
+   "options": [
+    "0.3 × 45 = 13.5",
+    "30 × 45 = 1 350",
+    "300 × 45 = 13 500",
+    "3 × 45 = 135"
+   ],
+   "answerIndex": 3,
+   "explain": "300% = 300 ÷ 100 = 3，3 × 45 = 135，正好是 45 的 3 倍。把 300% 直接当成 300 去乘，得数会大 100 倍。",
+   "tags": [
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount",
+    "pct.percent_as_number",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklpfeu6akmmo",
+   "level": 2,
+   "question": "求 24 000 的 ¾% 是多少？",
+   "options": [
+    "180",
+    "0.75",
+    "18 000",
+    "1 800"
+   ],
+   "answerIndex": 0,
+   "explain": "¾% = 0.75% = 0.0075，0.0075 × 24 000 = 180。先把分数形式的百分数换成小数，再乘；把 ¾% 当成 ¾ 会算出 18 000，大了 100 倍。",
+   "tags": [
+    "ok",
+    "pct.percent_as_number",
+    "pct.fractional_percent_as_fraction",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmtklpfeu4k6r5h",
+   "level": 2,
+   "question": "本拿比（Burnaby）一间社区图书馆去年借出 400 本中文书，今年借出的本数是去年的 125%。今年借出多少本？",
+   "options": [
+    "125 本",
+    "500 本",
+    "5 000 本",
+    "50 本"
+   ],
+   "answerIndex": 1,
+   "explain": "125% = 1.25，1.25 × 400 = 500 本。因为 125% 比 100% 大，今年一定比 400 多；直接把 125% 当成 125 本，就把百分数当成普通数了。",
+   "tags": [
+    "pct.percent_as_number",
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmtklpfeu3ey34q",
+   "level": 2,
+   "question": "一张冰球球星卡刚发行时值 12 加元，现在的价钱是当年的 350%。现在这张卡值多少加元？",
+   "options": [
+    "350 加元",
+    "4.2 加元",
+    "42 加元",
+    "420 加元"
+   ],
+   "answerIndex": 2,
+   "explain": "350% = 3.5，3.5 × 12 = 42 加元。算完要检查数量级：12 的 3.5 倍应该是四十几，得数变成 4.2 或 420 就是小数点挪错位了。",
+   "tags": [
+    "pct.percent_as_number",
+    "pv.annex_zeros_miscount",
+    "ok",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmtklpfeuutsczh",
+   "level": 2,
+   "question": "一笔 250 000 加元的房屋贷款，银行要收贷款金额 ⅖% 的手续费。手续费是多少加元？",
+   "options": [
+    "100 000 加元",
+    "100 加元",
+    "10 000 加元",
+    "1 000 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "⅖% = 0.4% = 0.004，0.004 × 250 000 = 1 000 加元。把 ⅖% 当成 ⅖ 会算出 100 000 加元，那等于贷款的 40%，一看就不合理。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklpfeuyjlqgc",
+   "level": 3,
+   "question": "基隆拿（Kelowna）一家书店上个月营业额是 60 000 加元，这个月的营业额是上个月的 150%。老板把这个月营业额的 ½% 捐给社区图书馆，捐了多少加元？",
+   "options": [
+    "450 加元",
+    "4 500 加元",
+    "45 加元",
+    "45 000 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先求这个月营业额：1.5 × 60 000 = 90 000 加元；再求它的 ½%：0.005 × 90 000 = 450 加元。坑在第二步——½% = 0.005，不是 0.5，用 0.5 会算成 45 000 加元。",
+   "tags": [
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount",
+    "pct.fractional_percent_as_fraction"
+   ]
+  },
+  {
+   "qid": "qmtklpfeuci0spa",
+   "level": 3,
+   "question": "一个校园环保项目的筹款目标是 8 000 加元。第一周筹到的钱是目标金额的 ¼%，第二周筹到的钱是第一周的 250%。第二周筹到多少加元？",
+   "options": [
+    "5 000 加元",
+    "50 加元",
+    "5 加元",
+    "500 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "第一周：0.0025 × 8 000 = 20 加元；第二周：2.5 × 20 = 50 加元。两个百分数要分开换算，把 ¼% 误当成 ¼ 会一路错到 5 000 加元。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmtklpfeumnd9uu",
+   "level": 3,
+   "question": "小晴要算「10 亿（1 000 000 000）的 ½%」。她写：½ = 0.5，所以答案是 500 000 000。她错在哪里？正确答案是多少？",
+   "options": [
+    "她没错，½% 就等于 ½，也就是 50%，答案是 500 000 000",
+    "她只是零补少了；½% = 0.05，正确答案是 50 000 000",
+    "她把 ½% 当成了 ½；½% = 0.005，正确答案是 5 000 000",
+    "她该把 ½% 直接当成 0.5 这个数，正确答案就是 0.5"
+   ],
+   "answerIndex": 2,
+   "explain": "½% 读作「百分之二分之一」，等于 1% 的一半，即 0.005，所以 1 000 000 000 × 0.005 = 5 000 000。小晴丢掉了百分号，把 ½% 放大成了 50%，得数大了 100 倍。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "pv.annex_zeros_miscount",
+    "ok",
+    "pct.percent_as_number"
+   ]
+  },
+  {
+   "qid": "qmtklpfeu48oecr",
+   "level": 3,
+   "question": "维多利亚（Victoria）一支中学篮球队去年卖出 400 张比赛门票，今年卖出的张数是去年的 225%，每张票 6 加元。今年的门票收入是多少加元？",
+   "options": [
+    "540 加元",
+    "1 350 加元",
+    "54 000 加元",
+    "5 400 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "先求今年张数：2.25 × 400 = 900 张；再求收入：900 × 6 = 5 400 加元。别把 225% 直接当成 225 张，那样会算成 1 350 加元。",
+   "tags": [
+    "pv.annex_zeros_miscount",
+    "pct.percent_as_number",
+    "pv.annex_zeros_miscount",
+    "ok"
+   ]
+  }
+ ]
+}

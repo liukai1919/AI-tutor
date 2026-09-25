@@ -1,0 +1,1336 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 7,
+  "standardsFile": "bc/grade-7.json",
+  "topics": [
+    {
+      "id": "integers",
+      "zh": "整数（含负数）的运算",
+      "en": "Integer operations",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G7.FLU.02"
+      ]
+    },
+    {
+      "id": "decimal-operations",
+      "zh": "小数的四则运算",
+      "en": "Decimal operations",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G7.FLU.03",
+        "BC.MATH.G7.FLU.01"
+      ]
+    },
+    {
+      "id": "fractions-decimals-percents",
+      "zh": "分数、小数、比与百分数",
+      "en": "Fractions, decimals, ratios & percents",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G7.NUM.01"
+      ],
+      "pilot": true
+    },
+    {
+      "id": "linear-relations",
+      "zh": "坐标系与线性关系",
+      "en": "Coordinates & linear relations",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G7.PAT.01",
+        "BC.MATH.G7.GEO.03"
+      ]
+    },
+    {
+      "id": "two-step-equations",
+      "zh": "两步方程",
+      "en": "Two-step equations",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G7.PAT.02"
+      ]
+    },
+    {
+      "id": "circles",
+      "zh": "圆",
+      "en": "Circles",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G7.GEO.01"
+      ]
+    },
+    {
+      "id": "volume",
+      "zh": "体积",
+      "en": "Volume",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G7.GEO.02"
+      ]
+    },
+    {
+      "id": "transformations-tessellations",
+      "zh": "组合变换与镶嵌",
+      "en": "Transformations & tessellations",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G7.GEO.04"
+      ]
+    },
+    {
+      "id": "circle-graphs",
+      "zh": "扇形统计图",
+      "en": "Circle graphs",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G7.DAT.01"
+      ]
+    },
+    {
+      "id": "two-events",
+      "zh": "两个独立事件",
+      "en": "Two independent events",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G7.DAT.02"
+      ]
+    },
+    {
+      "id": "financial-percent",
+      "zh": "理财中的百分数",
+      "en": "Financial percentages",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G7.NUM.02"
+      ]
+    },
+    {
+      "id": "square-numbers",
+      "zh": "平方数与平方根",
+      "en": "Square numbers & square roots",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G7.FLU.01"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.INT.CONCEPT",
+      "topic": "integers",
+      "type": "concept",
+      "rep": [
+        "numberLine",
+        "context"
+      ],
+      "en": "Understand negative numbers on a number line and in context (temperature, elevation, money)",
+      "zh": "在数轴和生活里认识负数（温度、海拔、账户）",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.NUM.PVBIG.COMPARE_ORDER"
+      ],
+      "misc": [
+        "int.negative_bigger_magnitude"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.INT.COMPARE_ORDER",
+      "topic": "integers",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order integers; find opposites",
+      "zh": "比较和排序整数，找相反数",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.CONCEPT"
+      ],
+      "misc": [
+        "int.negative_bigger_magnitude"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.INT.ADD",
+      "topic": "integers",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add integers with two-colour counters and number lines, then symbolically",
+      "zh": "整数加法：先用双色筹码、数轴，再用符号算",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.COMPARE_ORDER"
+      ],
+      "misc": [
+        "int.add_ignore_sign"
+      ],
+      "hints": "numberLine、groups"
+    },
+    {
+      "id": "YY.MATH.INT.SUBTRACT",
+      "topic": "integers",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Subtract integers, including subtracting a negative (9 − (−4) = 13)",
+      "zh": "整数减法，包括减去负数（9 − (−4) = 13）",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.ADD"
+      ],
+      "misc": [
+        "int.subtract_negative"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.INT.MULT_DIV",
+      "topic": "integers",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "groups"
+      ],
+      "en": "Multiply and divide integers using the sign rules",
+      "zh": "整数乘除：符号规则",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.SUBTRACT",
+        "YY.MATH.FLU.MULT.FACTS.DEVELOPING"
+      ],
+      "misc": [
+        "int.sign_rules_to_addition"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.INT.ORDER_OPS",
+      "topic": "integers",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Use the order of operations with integers, including brackets",
+      "zh": "整数的混合运算顺序（含括号）",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.MULT_DIV",
+        "YY.MATH.FLU.ORDER_OPS.BRACKETS"
+      ],
+      "misc": [
+        "order.left_to_right",
+        "int.sign_rules_to_addition"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.INT.WORD",
+      "topic": "integers",
+      "type": "apply",
+      "rep": [
+        "context",
+        "numberLine"
+      ],
+      "en": "Solve problems with integers (temperature changes, elevation, account balances)",
+      "zh": "整数应用题（温差、海拔变化、账户余额）",
+      "primary": "BC.MATH.G7.FLU.02",
+      "prereq": [
+        "YY.MATH.INT.ORDER_OPS"
+      ],
+      "misc": [
+        "int.subtract_negative"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.MULT.FACTS.EXTENDING",
+      "topic": "decimal-operations",
+      "type": "fluency",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Extend mental multiplication and division (×5 = ×10 ÷ 2; 214 × 5 = 1070)",
+      "zh": "口算拓展：×5 就是 ×10 再 ÷2（214 × 5 = 1070）",
+      "primary": "BC.MATH.G7.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.MENTAL.MULTI_DIGIT"
+      ],
+      "misc": [
+        "mult.x5_one_step_only",
+        "mult.halve_double_direction",
+        "mult.x5_as_double_double",
+        "word.stop_early"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.DEC.OPS.MIXED",
+      "topic": "decimal-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Add, subtract, multiply and divide decimals fluently",
+      "zh": "小数四则运算（熟练）",
+      "primary": "BC.MATH.G7.FLU.03",
+      "prereq": [
+        "YY.MATH.DEC.MULT.BY_DECIMAL",
+        "YY.MATH.DEC.DIV.BY_DECIMAL",
+        "YY.MATH.DEC.ADDSUB.1000.ALGORITHM"
+      ],
+      "misc": [
+        "dec.ignore_place_align",
+        "dec.mult_point_align"
+      ],
+      "hints": "placeValue"
+    },
+    {
+      "id": "YY.MATH.DEC.OPS.ORDER_OPS",
+      "topic": "decimal-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Use the order of operations with decimals, including brackets",
+      "zh": "小数的混合运算顺序（含括号）",
+      "primary": "BC.MATH.G7.FLU.03",
+      "prereq": [
+        "YY.MATH.DEC.OPS.MIXED",
+        "YY.MATH.FLU.ORDER_OPS.BRACKETS"
+      ],
+      "misc": [
+        "order.ignore_brackets"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.DEC.OPS.WORD",
+      "topic": "decimal-operations",
+      "type": "apply",
+      "rep": [
+        "context"
+      ],
+      "en": "Solve multi-step decimal problems (shopping totals, unit rates, measurements)",
+      "zh": "多步小数应用题（购物总价、单价、测量）",
+      "primary": "BC.MATH.G7.FLU.03",
+      "prereq": [
+        "YY.MATH.DEC.OPS.ORDER_OPS",
+        "YY.MATH.DEC.MULTDIV.WORD"
+      ],
+      "misc": [
+        "word.keyword_trap"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.REL.FRAC_TO_DEC",
+      "topic": "fractions-decimals-percents",
+      "type": "procedure",
+      "rep": [
+        "hundredthsGrid",
+        "symbolic",
+        "numberLine"
+      ],
+      "en": "Convert a fraction to a decimal by dividing the numerator by the denominator",
+      "zh": "分数化小数：分子除以分母",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.DEC.DIV.BY_WHOLE",
+        "YY.MATH.DEC.PV1000.FRAC_LINK"
+      ],
+      "misc": [
+        "rel.frac_to_dec_digits_copy",
+        "rel.divide_wrong_way"
+      ],
+      "hints": "numberLine、hundredthsGrid",
+      "diag": {
+        "entry": [
+          {
+            "level": 1,
+            "rep": "hundredthsGrid"
+          },
+          {
+            "level": 2,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "rel.frac_to_dec_digits_copy": "YY.MATH.DEC.PV1000.FRAC_LINK",
+          "rel.divide_wrong_way": "YY.MATH.DEC.DIV.BY_WHOLE"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.DEC_TO_FRAC",
+      "topic": "fractions-decimals-percents",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "hundredthsGrid"
+      ],
+      "en": "Convert a decimal to a fraction in lowest terms",
+      "zh": "小数化成最简分数",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.DEC.PV1000.FRAC_LINK",
+        "YY.MATH.FRAC.EQUIV.DIVIDE"
+      ],
+      "misc": [
+        "frac.not_lowest_terms",
+        "dec.tenths_hundredths_confuse"
+      ],
+      "hints": "hundredthsGrid",
+      "diag": {
+        "entry": [
+          {
+            "level": 2,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "frac.not_lowest_terms": "YY.MATH.FRAC.EQUIV.DIVIDE",
+          "dec.tenths_hundredths_confuse": "YY.MATH.DEC.PV1000.READ_WRITE"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.PCT_CONVERT",
+      "topic": "fractions-decimals-percents",
+      "type": "procedure",
+      "rep": [
+        "hundredthsGrid",
+        "symbolic"
+      ],
+      "en": "Convert among percents, fractions and decimals (3/8 = 0.375 = 37.5%)",
+      "zh": "百分数、分数、小数互化（3/8 = 0.375 = 37.5%）",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.REL.FRAC_TO_DEC",
+        "YY.MATH.PCT.FRAC_DEC_LINK"
+      ],
+      "misc": [
+        "pct.decimal_shift_wrong",
+        "pct.percent_as_number"
+      ],
+      "hints": "hundredthsGrid",
+      "diag": {
+        "entry": [
+          {
+            "level": 2,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "pct.decimal_shift_wrong": "YY.MATH.PCT.FRAC_DEC_LINK",
+          "pct.percent_as_number": "YY.MATH.PCT.MEANING"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.RATIO_LINK",
+      "topic": "fractions-decimals-percents",
+      "type": "represent",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Write a part-to-whole ratio as a fraction, decimal and percent (50:100 = 1/2 = 0.5 = 50%)",
+      "zh": "部分比整体的比写成分数、小数、百分数（50:100 = 1/2 = 0.5 = 50%）",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.RATIO.PART_PART_WHOLE",
+        "YY.MATH.REL.PCT_CONVERT"
+      ],
+      "misc": [
+        "ratio.part_whole_confuse"
+      ],
+      "hints": "barModel",
+      "diag": {
+        "entry": [
+          {
+            "level": 2,
+            "rep": "barModel"
+          }
+        ],
+        "branch": {
+          "ratio.part_whole_confuse": "YY.MATH.RATIO.PART_PART_WHOLE"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.TERMINATING_REPEATING",
+      "topic": "fractions-decimals-percents",
+      "type": "concept",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Tell terminating from repeating decimals and write repeating decimals with bar notation",
+      "zh": "区分有限小数和循环小数，会写循环节",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.REL.FRAC_TO_DEC",
+        "YY.MATH.NUM.PRIME_FACTORIZATION"
+      ],
+      "misc": [
+        "rel.repeating_rounds_to_terminating"
+      ],
+      "hints": "numberLine",
+      "diag": {
+        "entry": [
+          {
+            "level": 2,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "rel.repeating_rounds_to_terminating": "YY.MATH.REL.FRAC_TO_DEC"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.BENCHMARKS",
+      "topic": "fractions-decimals-percents",
+      "type": "fluency",
+      "rep": [
+        "symbolic",
+        "numberLine"
+      ],
+      "en": "Know common benchmarks by heart (1/4 = 0.25 = 25%, 1/3 ≈ 0.33, 3/4 = 75%)",
+      "zh": "常用基准值记熟（1/4 = 0.25 = 25%，1/3 ≈ 0.33，3/4 = 75%）",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.REL.PCT_CONVERT"
+      ],
+      "misc": [
+        "rel.third_is_0_3"
+      ],
+      "hints": "numberLine",
+      "diag": {
+        "entry": [
+          {
+            "level": 1,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "rel.third_is_0_3": "YY.MATH.REL.FRAC_TO_DEC"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.COMPARE_ORDER",
+      "topic": "fractions-decimals-percents",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order a mix of fractions, decimals and percents on a number line",
+      "zh": "把分数、小数、百分数混在一起比较、排序（数轴）",
+      "primary": "BC.MATH.G7.NUM.01",
+      "prereq": [
+        "YY.MATH.REL.PCT_CONVERT",
+        "YY.MATH.REL.BENCHMARKS",
+        "YY.MATH.NUM.BENCHMARK.MIXED_ORDER"
+      ],
+      "misc": [
+        "dec.longer_is_bigger",
+        "frac.bigger_denominator_bigger",
+        "pct.percent_as_number"
+      ],
+      "hints": "numberLine",
+      "diag": {
+        "entry": [
+          {
+            "level": 2,
+            "rep": "numberLine"
+          },
+          {
+            "level": 3,
+            "rep": "symbolic"
+          }
+        ],
+        "branch": {
+          "dec.longer_is_bigger": "YY.MATH.DEC.PV1000.COMPARE",
+          "frac.bigger_denominator_bigger": "YY.MATH.FRAC.COMPARE.UNLIKE",
+          "pct.percent_as_number": "YY.MATH.PCT.MEANING"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.REL.APPLY",
+      "topic": "fractions-decimals-percents",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Choose the best representation to solve a real problem (survey results, shoreline cleanup data, discounts)",
+      "zh": "选最合适的表示方式解决实际问题（调查结果、海岸清理数据、折扣）",
+      "primary": "BC.MATH.G7.NUM.01",
+      "supporting": [
+        "BC.MATH.G7.NUM.02"
+      ],
+      "prereq": [
+        "YY.MATH.REL.COMPARE_ORDER",
+        "YY.MATH.REL.RATIO_LINK"
+      ],
+      "misc": [
+        "ratio.part_whole_confuse",
+        "pct.of_vs_off"
+      ],
+      "hints": "barModel",
+      "diag": {
+        "entry": [
+          {
+            "level": 3,
+            "rep": "context"
+          }
+        ],
+        "branch": {
+          "ratio.part_whole_confuse": "YY.MATH.REL.RATIO_LINK",
+          "pct.of_vs_off": "YY.MATH.PCT.DISCOUNT"
+        }
+      }
+    },
+    {
+      "id": "YY.MATH.GEO.COORD.Q4.PLOT",
+      "topic": "linear-relations",
+      "type": "procedure",
+      "rep": [
+        "coordGrid"
+      ],
+      "en": "Plot and read points in all four quadrants; name the origin and quadrants",
+      "zh": "四象限描点、读点；认识原点和象限",
+      "primary": "BC.MATH.G7.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.COORD.Q1.PLOT",
+        "YY.MATH.INT.COMPARE_ORDER"
+      ],
+      "misc": [
+        "coord.xy_swap",
+        "coord.sign_quadrant_confuse"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.TABLE",
+      "topic": "linear-relations",
+      "type": "concept",
+      "rep": [
+        "dataTable"
+      ],
+      "en": "Recognize a discrete linear relation in a table (constant change)",
+      "zh": "从表格里看出离散线性关系（每次变化相同）",
+      "primary": "BC.MATH.G7.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.GRAPH.TO_RULE"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap",
+        "linear.nonconstant_as_linear",
+        "linear.intercept_misread",
+        "linear.x_step_ignored"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.EXPRESSION",
+      "topic": "linear-relations",
+      "type": "represent",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Write the expression for a linear relation (3n + 2) and evaluate it",
+      "zh": "写出线性关系的式子（3n + 2）并代入求值",
+      "primary": "BC.MATH.G7.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.TABLE",
+        "YY.MATH.PAT.EXPR.FROM_PATTERN"
+      ],
+      "misc": [
+        "pat.recursive_vs_explicit",
+        "linear.slope_intercept_swap"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.GRAPH",
+      "topic": "linear-relations",
+      "type": "represent",
+      "rep": [
+        "coordGrid",
+        "dataTable"
+      ],
+      "en": "Graph a discrete linear relation from a table or expression",
+      "zh": "根据表格或式子描点画离散线性关系",
+      "primary": "BC.MATH.G7.PAT.01",
+      "supporting": [
+        "BC.MATH.G7.GEO.03"
+      ],
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.EXPRESSION",
+        "YY.MATH.GEO.COORD.Q4.PLOT"
+      ],
+      "misc": [
+        "coord.xy_swap",
+        "linear.connect_discrete_points"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.FROM_GRAPH",
+      "topic": "linear-relations",
+      "type": "reason",
+      "rep": [
+        "coordGrid",
+        "symbolic"
+      ],
+      "en": "Derive the relation from a graph or table of values",
+      "zh": "从图象或表格推出关系式",
+      "primary": "BC.MATH.G7.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.GRAPH"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.RATE_INTERCEPT",
+      "topic": "linear-relations",
+      "type": "reason",
+      "rep": [
+        "coordGrid",
+        "context"
+      ],
+      "en": "Explain the rate of change and the starting value (y-intercept) in context",
+      "zh": "结合情境解释变化率和起始值（截距）",
+      "primary": "BC.MATH.G7.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.FROM_GRAPH"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap"
+      ],
+      "hints": "coordGrid、statLine"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP.MODEL",
+      "topic": "two-step-equations",
+      "type": "represent",
+      "rep": [
+        "balance",
+        "barModel"
+      ],
+      "en": "Model a two-step equation with a balance, algebra tiles or a bar model",
+      "zh": "用天平、代数砖或条形图表示两步方程",
+      "primary": "BC.MATH.G7.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EQ.BALANCE",
+        "YY.MATH.ALG.EQ.ONESTEP.COEFF"
+      ],
+      "misc": [
+        "eq.operate_one_side"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP.SOLVE",
+      "topic": "two-step-equations",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "balance"
+      ],
+      "en": "Solve two-step equations (3x + 4 = 16) by undoing operations in order",
+      "zh": "解两步方程（3x + 4 = 16）：按顺序逆运算",
+      "primary": "BC.MATH.G7.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP.MODEL"
+      ],
+      "misc": [
+        "eq.undo_wrong_order",
+        "eq.coefficient_subtract",
+        "eq.operate_one_side"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP.VERIFY",
+      "topic": "two-step-equations",
+      "type": "reason",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Verify a solution by substituting it back into the equation",
+      "zh": "把解代回方程验算",
+      "primary": "BC.MATH.G7.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP.SOLVE"
+      ],
+      "misc": [
+        "eq.coeff_as_addend",
+        "eq.verify_combine_before_mult",
+        "eq.verify_stop_before_constant",
+        "eq.verify_not_exact"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP.WORD",
+      "topic": "two-step-equations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Write and solve a two-step equation for a word problem (canoe trip planning, phone plans)",
+      "zh": "列两步方程解应用题（出行计划、手机套餐）",
+      "primary": "BC.MATH.G7.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP.VERIFY"
+      ],
+      "misc": [
+        "eq.equals_means_answer"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.GEO.CIRCLE.PARTS",
+      "topic": "circles",
+      "type": "concept",
+      "rep": [
+        "shapeCircle"
+      ],
+      "en": "Name radius, diameter and circumference and construct a circle from a given radius or diameter",
+      "zh": "认识半径、直径、圆周，按给定半径或直径画圆",
+      "primary": "BC.MATH.G7.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.ANGLE.MEASURE_DRAW"
+      ],
+      "misc": [
+        "circle.radius_diameter_confuse"
+      ],
+      "hints": "shapeCircle"
+    },
+    {
+      "id": "YY.MATH.GEO.CIRCLE.PI",
+      "topic": "circles",
+      "type": "reason",
+      "rep": [
+        "shapeCircle",
+        "dataTable"
+      ],
+      "en": "Discover that circumference ÷ diameter is always about 3.14 and develop C = π × d",
+      "zh": "发现周长 ÷ 直径总是约 3.14，得到 C = π × d",
+      "primary": "BC.MATH.G7.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.CIRCLE.PARTS",
+        "YY.MATH.DEC.DIV.BY_DECIMAL"
+      ],
+      "misc": [
+        "circle.radius_diameter_confuse",
+        "circle.pi_varies_with_size",
+        "circle.pi_added_not_multiplied",
+        "circle.pi_exact_value"
+      ],
+      "hints": "shapeCircle、dataTable"
+    },
+    {
+      "id": "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE",
+      "topic": "circles",
+      "type": "procedure",
+      "rep": [
+        "shapeCircle",
+        "symbolic"
+      ],
+      "en": "Calculate circumference from the radius or diameter",
+      "zh": "已知半径或直径求周长",
+      "primary": "BC.MATH.G7.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.CIRCLE.PI",
+        "YY.MATH.DEC.OPS.MIXED"
+      ],
+      "misc": [
+        "circle.radius_diameter_confuse"
+      ],
+      "hints": "shapeCircle"
+    },
+    {
+      "id": "YY.MATH.GEO.CIRCLE.AREA",
+      "topic": "circles",
+      "type": "procedure",
+      "rep": [
+        "shapeCircle",
+        "symbolic"
+      ],
+      "en": "Calculate the area of a circle with A = π × r × r",
+      "zh": "用 A = π × r × r 求圆的面积",
+      "primary": "BC.MATH.G7.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE"
+      ],
+      "misc": [
+        "circle.area_2r",
+        "circle.radius_diameter_confuse"
+      ],
+      "hints": "shapeCircle"
+    },
+    {
+      "id": "YY.MATH.GEO.CIRCLE.INVERSE",
+      "topic": "circles",
+      "type": "reason",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Find the radius or diameter from a given circumference or area",
+      "zh": "已知周长或面积反求半径、直径",
+      "primary": "BC.MATH.G7.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.CIRCLE.AREA",
+        "YY.MATH.ALG.EQ.TWOSTEP.SOLVE"
+      ],
+      "core": false,
+      "misc": [
+        "circle.radius_diameter_confuse",
+        "circle.area_2r",
+        "circle.r_squared_as_r"
+      ],
+      "hints": "shapeCircle"
+    },
+    {
+      "id": "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+      "topic": "volume",
+      "type": "concept",
+      "rep": [
+        "solidCuboid",
+        "solidCylinder"
+      ],
+      "en": "Understand volume as area of base × height for any right prism",
+      "zh": "理解体积 = 底面积 × 高（对任何直棱柱都成立）",
+      "primary": "BC.MATH.G7.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.VOL.RECT_PRISM",
+        "YY.MATH.MEAS.AREA.COMPOSITE"
+      ],
+      "misc": [
+        "vol.surface_confuse"
+      ],
+      "hints": "solidCuboid"
+    },
+    {
+      "id": "YY.MATH.MEAS.VOL.CYLINDER",
+      "topic": "volume",
+      "type": "procedure",
+      "rep": [
+        "solidCylinder",
+        "symbolic"
+      ],
+      "en": "Calculate the volume of a cylinder (π r² × h)",
+      "zh": "圆柱体积（π r² × h）",
+      "primary": "BC.MATH.G7.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+        "YY.MATH.GEO.CIRCLE.AREA"
+      ],
+      "misc": [
+        "circle.area_2r",
+        "circle.radius_diameter_confuse"
+      ],
+      "hints": "solidCylinder"
+    },
+    {
+      "id": "YY.MATH.MEAS.VOL.WORD",
+      "topic": "volume",
+      "type": "apply",
+      "rep": [
+        "context"
+      ],
+      "en": "Solve volume problems with rectangular prisms and cylinders (boxes, tanks, cans)",
+      "zh": "长方体和圆柱的体积应用题（箱子、水箱、罐头）",
+      "primary": "BC.MATH.G7.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.VOL.CYLINDER",
+        "YY.MATH.MEAS.CAPACITY.UNITS"
+      ],
+      "misc": [
+        "unit.cubic_conversion_linear"
+      ],
+      "hints": "solidCuboid、solidCylinder"
+    },
+    {
+      "id": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+      "topic": "transformations-tessellations",
+      "type": "procedure",
+      "rep": [
+        "coordGrid"
+      ],
+      "en": "Transform shapes in four quadrants and give the image coordinates",
+      "zh": "在四象限里做变换，写出像的坐标",
+      "primary": "BC.MATH.G7.GEO.04",
+      "supporting": [
+        "BC.MATH.G7.GEO.03"
+      ],
+      "prereq": [
+        "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+        "YY.MATH.GEO.COORD.Q4.PLOT"
+      ],
+      "misc": [
+        "coord.sign_quadrant_confuse",
+        "transform.rotation_direction"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.GEO.TRANSFORM.Q4.DESCRIBE",
+      "topic": "transformations-tessellations",
+      "type": "reason",
+      "rep": [
+        "coordGrid"
+      ],
+      "en": "Describe a combination of successive transformations precisely",
+      "zh": "精确描述连续变换的每一步",
+      "primary": "BC.MATH.G7.GEO.04",
+      "prereq": [
+        "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+        "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE"
+      ],
+      "misc": [
+        "transform.order_ignored"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.GEO.TESSELLATION",
+      "topic": "transformations-tessellations",
+      "type": "apply",
+      "rep": [
+        "areaGrid"
+      ],
+      "en": "Create and explain tessellations using transformations",
+      "zh": "用变换创作镶嵌图案，解释哪些图形能铺满平面",
+      "primary": "BC.MATH.G7.GEO.04",
+      "prereq": [
+        "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+        "YY.MATH.GEO.ANGLE.IN_POLYGONS"
+      ],
+      "misc": [
+        "tess.regular_only",
+        "tess.all_regular_tile",
+        "tess.point_sum_confuse",
+        "tess.transform_requirement_myth"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.DATA.CIRCLE.READ",
+      "topic": "circle-graphs",
+      "type": "concept",
+      "rep": [
+        "pieChart"
+      ],
+      "en": "Read a circle graph and convert its percentages into quantities",
+      "zh": "读扇形图，把百分数换算成实际数量",
+      "primary": "BC.MATH.G7.DAT.01",
+      "prereq": [
+        "YY.MATH.PCT.OF_NUMBER",
+        "YY.MATH.DATA.LINE.INTERPRET"
+      ],
+      "misc": [
+        "graph.percent_as_count"
+      ],
+      "hints": "pieChart"
+    },
+    {
+      "id": "YY.MATH.DATA.CIRCLE.CONSTRUCT",
+      "topic": "circle-graphs",
+      "type": "procedure",
+      "rep": [
+        "pieChart",
+        "dataTable"
+      ],
+      "en": "Construct and label a circle graph (quantity → percent → angle)",
+      "zh": "画扇形图并标注（数量 → 百分数 → 角度）",
+      "primary": "BC.MATH.G7.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CIRCLE.READ",
+        "YY.MATH.REL.PCT_CONVERT",
+        "YY.MATH.GEO.ANGLE.MEASURE_DRAW"
+      ],
+      "misc": [
+        "graph.angle_percent_confuse"
+      ],
+      "hints": "pieChart、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH",
+      "topic": "circle-graphs",
+      "type": "reason",
+      "rep": [
+        "pieChart",
+        "statBar"
+      ],
+      "en": "Decide when a circle graph is the right choice compared with bar and line graphs",
+      "zh": "判断什么时候该用扇形图，什么时候用条形图、折线图",
+      "primary": "BC.MATH.G7.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CIRCLE.CONSTRUCT"
+      ],
+      "core": false,
+      "misc": [
+        "graph.percent_as_count",
+        "graph.series_in_circle"
+      ],
+      "hints": "pieChart、statBar"
+    },
+    {
+      "id": "YY.MATH.PROB.TWO_EVENTS.OUTCOMES",
+      "topic": "two-events",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "spinner"
+      ],
+      "en": "List all outcomes of two independent events with a table or tree diagram",
+      "zh": "用表格或树状图列出两个独立事件的所有结果",
+      "primary": "BC.MATH.G7.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.THEORETICAL"
+      ],
+      "misc": [
+        "prob.two_events_add_outcomes"
+      ],
+      "hints": "dataTable、spinner"
+    },
+    {
+      "id": "YY.MATH.PROB.TWO_EVENTS.EXPERIMENT",
+      "topic": "two-events",
+      "type": "procedure",
+      "rep": [
+        "dataTable"
+      ],
+      "en": "Run many trials of two independent events and find the experimental probability",
+      "zh": "对两个独立事件做多次实验，算实验可能性",
+      "primary": "BC.MATH.G7.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.TWO_EVENTS.OUTCOMES",
+        "YY.MATH.PROB.EXPERIMENTAL"
+      ],
+      "misc": [
+        "prob.few_trials_conclusion"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PROB.TWO_EVENTS.COMPARE",
+      "topic": "two-events",
+      "type": "reason",
+      "rep": [
+        "dataTable",
+        "probLine"
+      ],
+      "en": "Compare experimental results for two events with the expected results",
+      "zh": "比较两个事件的实验结果和预期结果",
+      "primary": "BC.MATH.G7.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.TWO_EVENTS.EXPERIMENT",
+        "YY.MATH.PROB.COMPARE_TH_EXP"
+      ],
+      "misc": [
+        "prob.experimental_equals_theoretical"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.PCT.DISCOUNT",
+      "topic": "financial-percent",
+      "type": "procedure",
+      "rep": [
+        "barModel",
+        "context"
+      ],
+      "en": "Calculate a discount and the sale price",
+      "zh": "算折扣额和折后价",
+      "primary": "BC.MATH.G7.NUM.02",
+      "prereq": [
+        "YY.MATH.PCT.DISCOUNT",
+        "YY.MATH.REL.PCT_CONVERT"
+      ],
+      "misc": [
+        "pct.of_vs_off"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.PCT.TAX",
+      "topic": "financial-percent",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Calculate sales tax (GST/PST) and the total with tax",
+      "zh": "算销售税（GST/PST）和含税总价",
+      "primary": "BC.MATH.G7.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.PCT.DISCOUNT"
+      ],
+      "misc": [
+        "pct.tax_subtract"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.PCT.TIP",
+      "topic": "financial-percent",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Estimate and calculate a tip (10%, 15%, 20%)",
+      "zh": "估算和计算小费（10%、15%、20%）",
+      "primary": "BC.MATH.G7.NUM.02",
+      "prereq": [
+        "YY.MATH.REL.BENCHMARKS",
+        "YY.MATH.PCT.OF_NUMBER"
+      ],
+      "misc": [
+        "pct.decimal_shift_wrong",
+        "pct.percent_as_number",
+        "pct.benchmark_combine_wrong",
+        "word.stop_early"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.PCT.FINAL_PRICE",
+      "topic": "financial-percent",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Find the final price after a discount and tax, and the overall percentage change",
+      "zh": "先打折再加税的最终价格，以及总的变化百分比",
+      "primary": "BC.MATH.G7.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.PCT.TAX",
+        "YY.MATH.FIN.PCT.TIP"
+      ],
+      "misc": [
+        "pct.of_vs_off",
+        "pct.successive_add"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+      "topic": "square-numbers",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Recognize perfect squares to 144 as numbers that make a square array (n × n)",
+      "zh": "认识 144 以内的平方数：能摆成正方形点阵的数（n × n）",
+      "primary": "BC.MATH.G7.FLU.01",
+      "supporting": [
+        "BC.MATH.G8.NUM.01"
+      ],
+      "prereq": [
+        "YY.MATH.FLU.MULT.FACTS.EXTENDING"
+      ],
+      "core": false,
+      "misc": [
+        "sq.looks_square",
+        "sq.square_as_double"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.SQUARE.NOTATION",
+      "topic": "square-numbers",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Read and write square notation: 7² means 7 × 7 = 49, not 7 × 2",
+      "zh": "认识平方记号：7² 表示 7 × 7 = 49，不是 7 × 2",
+      "primary": "BC.MATH.G7.FLU.01",
+      "supporting": [
+        "BC.MATH.G8.NUM.01"
+      ],
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.RECOGNIZE"
+      ],
+      "core": false,
+      "misc": [
+        "sq.square_as_double"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.SQUARE.ROOT",
+      "topic": "square-numbers",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Find the square root of a perfect square (√81 = 9) as the inverse of squaring",
+      "zh": "求平方数的平方根（√81 = 9）：开方是平方的逆运算",
+      "primary": "BC.MATH.G7.FLU.01",
+      "supporting": [
+        "BC.MATH.G8.NUM.02"
+      ],
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.NOTATION"
+      ],
+      "core": false,
+      "misc": [
+        "sq.root_as_half",
+        "sq.roots_add"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+      "topic": "square-numbers",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Estimate the square root of a non-square number between two whole numbers (√20 is between 4 and 5)",
+      "zh": "估算非平方数的平方根落在哪两个整数之间（√20 在 4 和 5 之间）",
+      "primary": "BC.MATH.G7.FLU.01",
+      "supporting": [
+        "BC.MATH.G8.NUM.02"
+      ],
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.ROOT"
+      ],
+      "core": false,
+      "misc": [
+        "sq.root_as_half",
+        "sq.looks_square"
+      ],
+      "hints": "numberLine"
+    }
+  ]
+}

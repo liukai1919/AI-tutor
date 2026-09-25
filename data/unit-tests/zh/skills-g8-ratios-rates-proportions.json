@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "ratios-rates-proportions",
+ "lang": "zh",
+ "unitName": {
+  "zh": "比、比率与比例",
+  "en": "Ratios, rates & proportions"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "比、比率与比例 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.RATIO.THREE_TERM",
+    "level": 1,
+    "question": "Burnaby 一所小学的失物招领箱里有 12 顶黄帽子、18 顶蓝帽子、30 顶绿帽子。把「黄 : 蓝 : 绿」写成最简三项比（three-term ratio），结果是？",
+    "options": [
+     "6 : 9 : 15",
+     "2 : 3 : 30",
+     "2 : 3 : 5",
+     "5 : 3 : 2"
+    ],
+    "answerIndex": 2,
+    "explain": "三项都要除以同一个最大公因数：12 : 18 : 30 的 GCF 是 6，得到 2 : 3 : 5。最常见的坑是只把前两项除掉、绿色原样抄下来（写成 2 : 3 : 30），或者把顺序倒过来写成 5 : 3 : 2。"
+   },
+   {
+    "curriculumId": "YY.MATH.RATE.UNIT_RATE",
+    "level": 1,
+    "question": "在 Richmond 的超市，一盒 12 个鸡蛋卖 $7.20（加元）。这盒鸡蛋的单位比率（unit rate）是每个多少钱？",
+    "options": [
+     "$0.06 每个",
+     "$0.60 每个",
+     "$1.67 每个",
+     "$6.00 每个"
+    ],
+    "answerIndex": 1,
+    "explain": "单位比率是「每 1 个多少钱」，所以用钱去除以个数：7.20 ÷ 12 = 0.60，即 $0.60/个。最常见的坑是除反了，算成 12 ÷ 7.20 ≈ 1.67，那答的其实是「每 1 元能买几个」。"
+   },
+   {
+    "curriculumId": "YY.MATH.PROPORTION.SOLVE",
+    "level": 1,
+    "question": "解比例 \\frac{5}{8} = \\frac{x}{56}，x 等于多少？",
+    "options": [
+     "x = 35",
+     "x = 40",
+     "x = 53",
+     "x = 89.6"
+    ],
+    "answerIndex": 0,
+    "explain": "先看倍数关系：分母 8 × 7 = 56，所以分子也要 × 7，得 x = 5 × 7 = 35（交叉相乘 8x = 5 × 56 结果一样）。最常见的坑是把交叉相乘配错对，算成 8 × 56 ÷ 5 = 89.6；或者用加法想成 8 + 48 = 56、5 + 48 = 53。"
+   },
+   {
+    "curriculumId": "YY.MATH.RATIO.SHARE",
+    "level": 2,
+    "question": "手工社要把一根 144 cm 长的雪松木条按 2 : 3 : 7 剪成三段，做成三支不同长度的挂饰。最长的那一段是多少 cm？",
+    "options": [
+     "48 cm",
+     "36 cm",
+     "100.8 cm",
+     "84 cm"
+    ],
+    "answerIndex": 3,
+    "explain": "先求一份：2 + 3 + 7 = 12 份，144 ÷ 12 = 12 cm 一份，最长段是 7 份 = 7 × 12 = 84 cm。最常见的坑是拿总量直接除以段数（144 ÷ 3 = 48），那是平均分，不是按比分配。"
+   },
+   {
+    "curriculumId": "YY.MATH.RATE.COMPARE",
+    "level": 2,
+    "question": "放学后 Maya 骑车 24 分钟走了 6 km，Liam 骑车 15 分钟走了 4 km。谁骑得更快？下面哪句话说得对？",
+    "options": [
+     "Maya 更快，因为她骑的 6 km 比 4 km 远",
+     "Liam 更快，因为他每 km 只用 3.75 分钟",
+     "Maya 更快，因为她每 km 要用 4 分钟",
+     "两人一样快，因为路程和时间成比例"
+    ],
+    "answerIndex": 1,
+    "explain": "比较快慢要化成同一个单位比率：Maya 是 24 ÷ 6 = 4 分钟/km，Liam 是 15 ÷ 4 = 3.75 分钟/km，同样跑 1 km 用时少的更快，所以 Liam 快。最常见的坑是只看路程多就说更快，或者算对了「分钟/km」却以为数字大的更快。"
+   },
+   {
+    "curriculumId": "YY.MATH.PROPORTION.APPLY",
+    "level": 2,
+    "question": "一份 bannock 面包配方是 4 杯面粉配 300 mL 水。露营时要用 10 杯面粉做大份，按同样的比例要加多少水？",
+    "options": [
+     "750 mL",
+     "306 mL",
+     "120 mL",
+     "600 mL"
+    ],
+    "answerIndex": 0,
+    "explain": "面粉从 4 杯变成 10 杯是乘 10 ÷ 4 = 2.5 倍，水也要乘同样的倍数：300 × 2.5 = 750 mL。最常见的坑是用加法想成「面粉多 6 杯，水就多 6 mL」得到 306 mL，放大比例必须用乘法而不是加法。"
+   },
+   {
+    "curriculumId": "YY.MATH.PROPORTION.APPLY",
+    "level": 3,
+    "question": "Stanley Park 的地图比例尺是 1 cm 代表 250 m。Anna 在地图上量出她的骑行路线长 14 cm。如果她以 200 m/min 的速度骑完全程，需要多少分钟？",
+    "options": [
+     "3.5 分钟",
+     "35 分钟",
+     "175 分钟",
+     "17.5 分钟"
+    ],
+    "answerIndex": 3,
+    "explain": "两步走：先用比例尺算实际路程 14 × 250 = 3500 m，再用路程除以速度 3500 ÷ 200 = 17.5 分钟。最常见的坑是单位没对齐——把 3500 m 随手当成 3.5 报出去，或者把 200 m/min 看成 20 而算出 175 分钟。"
+   },
+   {
+    "curriculumId": "YY.MATH.RATE.COMPARE",
+    "level": 3,
+    "question": "社区中心的两个充气泳池同时注水：A 池 8 分钟注了 70 L，B 池 5 分钟注了 45 L。四个同学在讨论哪个水龙头出水更快，谁的说法完全正确？",
+    "options": [
+     "Jae：A 更快，因为 A 一共注了 70 L 比 45 L 多",
+     "Mia：A 更快，因为 A 注水用了 8 分钟比 5 分钟久",
+     "Ravi：B 更快，因为 B 每分钟 9 L 多于 A 的 8.75 L",
+     "Tom：两边一样快，因为两个比率都约等于 9"
+    ],
+    "answerIndex": 2,
+    "explain": "必须各自化成单位比率再比：A 是 70 ÷ 8 = 8.75 L/min，B 是 45 ÷ 5 = 9 L/min，所以 B 的水龙头更快。最常见的坑是只看总水量（70 > 45）或只看时间就下结论，也不能把 8.75 随手约成 9 —— 一约成整数，差别就被抹掉了。"
+   }
+  ]
+ }
+}

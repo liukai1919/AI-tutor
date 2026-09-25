@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.ROOT.PRIME_FACTOR",
+ "lang": "en",
+ "title": "Find square and cube roots of larger numbers by grouping prime factors in pairs or triples (√1764 = 2 × 3 × 7 = 42)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Roots of Big Numbers: Pair Up, Then Take One",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to break a number into its prime factors and spot a perfect square, like three hundred twenty four being two squared times three to the fourth. Today we use those same prime factors to actually find the root, even when the number is huge.",
+    "math": "\\sqrt{1764}=\\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea. A square root asks, what number times itself makes this? So sort the prime factors into pairs, and let each pair send out just one copy. Thirty six is two squared times three squared. One pair of twos sends out a two, one pair of threes sends out a three, and two times three is six. Look at the square: its side really is six. For cube roots you do the same thing with triples instead of pairs.",
+    "math": "\\sqrt{2^2\\times 3^2}=2\\times 3=6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [],
+     "caption": "Area 36 equals 6 times 6, so the side is 6"
+    }
+   },
+   {
+    "say": "Now the big one. One thousand seven hundred sixty four breaks down into two squared times three squared times seven squared. Every exponent is even, so it is a perfect square. Halve each exponent: two squared becomes two to the one, three squared becomes three, seven squared becomes seven. Multiply what comes out: two times three is six, six times seven is forty two. So the square root of one thousand seven hundred sixty four is forty two.",
+    "math": "\\sqrt{1764}=\\sqrt{2^2\\times 3^2\\times 7^2}=2\\times 3\\times 7=42",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "prime 2",
+      "prime 3",
+      "prime 7",
+      "exponent in 1764",
+      "exponent in the root"
+     ],
+     "caption": "Every exponent gets cut in half for a square root"
+    }
+   },
+   {
+    "say": "Cubes work the same way, just with triples. Say a storage cube at a Surrey warehouse holds one thousand seven hundred twenty eight cubic centimetres. That factors into two to the sixth times three cubed. For a cube root you divide each exponent by three: six divided by three is two, and three divided by three is one. So you get two squared times three, which is four times three, twelve. The cube is twelve centimetres on each edge.",
+    "math": "\\sqrt[3]{1728}=\\sqrt[3]{2^6\\times 3^3}=2^2\\times 3=12",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      12
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Volume 1728 cubic cm, so each edge is 12 cm"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. Take the square root of two squared times three to the fourth. Lots of people halve the first exponent but then just copy the three to the fourth, and write two times three to the fourth, which is one hundred sixty two. Way too big. Every exponent gets halved, so it is two times three squared, which is two times nine, eighteen. Check it: eighteen times eighteen is three hundred twenty four, and two squared times three to the fourth is four times eighty one, also three hundred twenty four. And when you count exponents, count carefully — two times two times two is two cubed, not two squared.",
+    "math": "\\sqrt{2^2\\times 3^4}=2\\times 3^2=18",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      162,
+      18
+     ],
+     "labels": [
+      "forgot to halve: 162",
+      "correct: 18"
+     ],
+     "caption": "Skipping one exponent blows the answer way up"
+    }
+   },
+   {
+    "say": "So remember: prime factorize, then halve the exponents for a square root or take a third of them for a cube root, and multiply the survivors.",
+    "math": "\\sqrt{1764}=2\\times 3\\times 7=42",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Prime factorize, halve the exponents for a square root (or take a third for a cube root), then multiply.",
+  "practice": {
+   "question": "A square patio in Kelowna has an area of 2025 square metres. Its prime factorization is three to the fourth times five squared. Find the side length of the patio in metres.",
+   "answer": "45 metres. Halve each exponent: three to the fourth becomes three squared, five squared becomes five. Then nine times five equals 45, and 45 times 45 equals 2025."
+  }
+ }
+}

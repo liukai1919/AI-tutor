@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RATIO.APPLY",
+ "lang": "en",
+ "title": "Solve ratio problems (recipes, mixing paint, scaling a class list)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Ratios in Real Life: Making Just the Right Amount",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build equivalent ratios with a ratio table. Today we use that skill on a real job: a recipe. When a recipe is written for a small batch and you need a bigger batch, ratios tell you exactly how much of each thing to use.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our situation. Ms. Yuanyuan is making trail mix for a class hike in Burnaby. The mix uses two cups of almonds for every three cups of dried cranberries. That is a part to part ratio, two to three. Look at the bar model: two blocks of almonds sitting beside three blocks of cranberries.",
+    "math": "2:3",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      3
+     ],
+     "labels": [
+      "Almonds (cups)",
+      "Cranberries (cups)"
+     ],
+     "caption": "Small batch: 2 cups almonds to 3 cups cranberries"
+    }
+   },
+   {
+    "say": "Now the whole class is coming, so I need six cups of almonds. Here is the key move: whatever I multiply the almonds by, I must multiply the cranberries by the very same number. Two times three is six, so I do three times three, which is nine. Six cups of almonds and nine cups of cranberries.",
+    "math": "2:3 = 6:9",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      6,
+      3,
+      9
+     ],
+     "labels": [
+      "Small batch",
+      "Big batch",
+      "Almonds",
+      "Cranberries"
+     ],
+     "caption": "Both rows multiplied by 3"
+    }
+   },
+   {
+    "say": "Watch out for the trap. Some kids see almonds go from two up to six, that is adding four, so they add four to the cranberries too and get seven. But look at the bars: six and seven are almost the same size, so the mix has lost its shape. It should still look like the little bar, just stretched. Six and nine keeps the shape. Multiply, never add.",
+    "math": "2:3 \\ne 6:7",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      7,
+      6,
+      9
+     ],
+     "labels": [
+      "Wrong: almonds",
+      "Wrong: cranberries",
+      "Right: almonds",
+      "Right: cranberries"
+     ],
+     "caption": "Adding 4 flattens the mix; multiplying by 3 keeps it"
+    }
+   },
+   {
+    "say": "One more careful thought. The ratio two to three compares almonds to cranberries, part to part. It does not mean almonds are two thirds of the whole bag. The whole bag is two plus three, which is five cups, so almonds are two fifths of the bag. Compare part to part, or part to whole, but know which one you are looking at.",
+    "math": "\\frac{2}{5}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      5,
+      2
+     ],
+     "labels": [],
+     "caption": "Almonds are 2 of the 5 total cups, not 2 of 3"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one breath: to scale a ratio, multiply every part by the same number, and the mix will taste exactly the same.",
+    "math": "2:3 = 6:9",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To scale a ratio, multiply every part by the same number — never add.",
+  "practice": {
+   "question": "A paint shop in Victoria mixes ocean blue using two litres of blue paint for every five litres of white paint. A customer needs eight litres of blue paint. How many litres of white paint should be mixed in? (Try drawing a bar with 2 blocks of blue beside 5 blocks of white to help you.)",
+   "answer": "20 litres of white. Two times four is eight, so multiply the white by four as well: five times four is twenty. The ratio 2 to 5 becomes 8 to 20."
+  }
+ }
+}

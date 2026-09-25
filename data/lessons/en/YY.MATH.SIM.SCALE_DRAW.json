@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.SCALE_DRAW",
+ "lang": "en",
+ "title": "Draw an enlargement or reduction of a 2D shape to a given scale on grid paper, and find real lengths from a scale diagram",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Scale Drawings on Grid Paper: Multiply, Don't Add",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know a scale factor is image divided by original, and that bigger than one enlarges while between zero and one shrinks. Today we use that number to actually draw a scaled shape on grid paper, and then to work backwards from a drawing to real-life lengths.",
+    "math": "\\text{scale factor} = \\frac{\\text{image}}{\\text{original}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole procedure in one line: multiply every side length by the scale factor. Say a game icon is three squares wide and two squares tall on the grid, and we enlarge it by a scale factor of three. Three times three is nine, and two times three is six. So the new icon is nine squares by six squares. Count carefully on the grid and draw it.",
+    "math": "3 \\times 3 = 9,\\quad 2 \\times 3 = 6",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      9,
+      6
+     ],
+     "labels": [
+      "squares"
+     ],
+     "caption": "The original was 3 by 2. Scale factor 3 makes it 9 by 6."
+    }
+   },
+   {
+    "say": "Reduction works exactly the same way, just with a scale factor smaller than one. A photo is eight squares by six squares, and we want it at scale factor one half. Eight times one half is four, six times one half is three. The picture shows the four by three copy sitting inside the eight by six original, so you can see it is the same shape, just half as long on every side.",
+    "math": "8 \\times \\frac{1}{2} = 4,\\quad 6 \\times \\frac{1}{2} = 3",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "Original 8 by 6; the shaded 4 by 3 is the reduction at scale factor one half."
+    }
+   },
+   {
+    "say": "Now the other direction: reading a real length off a scale diagram. A floor plan of a bedroom closet is drawn at scale one to fifty. That means one centimetre on paper is fifty centimetres in real life. On the drawing the closet is four centimetres by three centimetres. Four times fifty is two hundred centimetres, which is two metres. Three times fifty is one hundred fifty centimetres, which is one point five metres. So the real closet is two metres by one point five metres.",
+    "math": "4 \\times 50 = 200\\ \\text{cm} = 2\\ \\text{m},\\quad 3 \\times 50 = 150\\ \\text{cm} = 1.5\\ \\text{m}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "On paper at 1 : 50. Real size is 2 m by 1.5 m."
+    }
+   },
+   {
+    "say": "Three traps to watch. First, some people add instead of multiplying: they take the three by two icon and add three to each side to get six by five. But six divided by three is two and five divided by two is two and a half, so the sides grew by different amounts and the shape is squished. Multiplying keeps it the same shape. Second, do not flip the scale factor: nine divided by three is three, not three divided by nine. Third, when converting two hundred centimetres to metres you divide by one hundred to get two metres. Going to a bigger unit means a smaller number, so never multiply there.",
+    "math": "3+3=6,\\ 2+3=5 \\quad \\text{(wrong: } \\tfrac{6}{3}\\neq\\tfrac{5}{2}\\text{)}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      5
+     ],
+     "labels": [
+      "squares"
+     ],
+     "caption": "The 'add 3' mistake: 6 by 5 is not the same shape as 3 by 2."
+    }
+   },
+   {
+    "say": "So here is the whole step in one breath: to draw a scale copy, multiply every side by the scale factor and count squares. To find a real length, multiply the drawing length by the scale number, then convert units by dividing when you move up to a bigger unit.",
+    "math": "\\text{new length} = \\text{old length} \\times \\text{scale factor}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Scale drawings: multiply every side by the scale factor, never add.",
+  "practice": {
+   "question": "On grid paper, draw a rectangle for a community garden plot that is four squares long and three squares wide. Part A: draw an enlargement with scale factor two. How many squares long and wide is the new rectangle? Part B: the original drawing uses a scale of one centimetre to fifty centimetres, and each grid square is one centimetre. What are the real length and width of the garden plot in metres?",
+   "answer": "Part A: 4 times 2 = 8 squares long and 3 times 2 = 6 squares wide. Part B: 4 times 50 = 200 cm = 2 m long, and 3 times 50 = 150 cm = 1.5 m wide."
+  }
+ }
+}

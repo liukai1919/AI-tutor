@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "fmp10",
+ "strand": "relations",
+ "lang": "zh",
+ "unitName": {
+  "zh": "函数与线性关系",
+  "en": "Functions & Linear Relations"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "函数与线性关系 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.01",
+    "level": 1,
+    "question": "下表记录了 Alex 手机某月的数据用量（GB）与对应费用（加元）。哪一张表表示一个函数（function）？（提示：每个输入 x 只能对应唯一一个输出 y。）",
+    "options": [
+     "A：x: 1, 1, 2 对应 y: 10, 12, 15",
+     "B：x: 1, 2, 2 对应 y: 3, 6, 9",
+     "C：x: 1, 2, 3 对应 y: 4, 4, 8",
+     "D：x: 2, 2, 3 对应 y: 5, 7, 9"
+    ],
+    "answerIndex": 2,
+    "explain": "函数要求每个 x 只对应一个 y。C 中 x=1, 2, 3 各只对应一个值，所以是函数（多个 x 可对应同一个 y，没问题）。A、B、D 都出现了同一个 x 对应两个不同 y 的情况，不是函数。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 1,
+    "question": "Jay 骑车从 Stanley Park 骑到 English Bay Beach。在「距离–时间」图象上标出两个点 (2, 3) 和 (5, 9)（x 轴为时间/h，y 轴为距离/km）。这段路程的斜率（slope）是多少？",
+    "options": [
+     "2 km/h",
+     "1/2 h/km",
+     "−2 km/h",
+     "3 km/h"
+    ],
+    "answerIndex": 0,
+    "explain": "斜率 = Δy ÷ Δx = (9−3)/(5−2) = 6/3 = 2 km/h。最易踩的坑是把 Δx 和 Δy 搞反（得到 1/2），或把减的方向弄反导致出现负号。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.03",
+    "level": 1,
+    "question": "住在 Kelowna 的小雨每周存钱买漫画。她第 1 周存 $12，第 2 周存 $19，第 3 周存 $26，第 4 周存 $33。这个等差数列（arithmetic sequence）的公差（common difference）是多少？",
+    "options": [
+     "$12",
+     "$7",
+     "$19",
+     "$3"
+    ],
+    "answerIndex": 1,
+    "explain": "公差 d = 后一项 − 前一项 = 19 − 12 = 7（验证：26−19=7，33−26=7）。$12 是首项 a₁，不是公差；$3 没有对应任何实际运算。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.01",
+    "level": 2,
+    "question": "Sam 在 Victoria 的手机数据套餐中，超出包含额后的额外费用由 f(x) = 2x + 8 决定（x 为超出 GB 数，f(x) 为额外费用/加元）。运营商规定 0 ≤ x ≤ 15。该函数的值域（range）是？",
+    "options": [
+     "[0, 15]",
+     "[0, 38]",
+     "[8, 15]",
+     "[8, 38]"
+    ],
+    "answerIndex": 3,
+    "explain": "值域是函数在定义域上的所有输出。f(0) = 8，f(15) = 2×15 + 8 = 38，所以值域为 [8, 38]。[0, 15] 是定义域不是值域；[0, 38] 忘了起始偏移 +8，误以为 x=0 时费用为 0。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 2,
+    "question": "在 Whistler 乘缆车时，Mei 记录了海拔 h（m）与运行时间 t（min）：t = 0 时 h = 1200 m，t = 4 min 时 h = 1400 m。假设关系是线性的，正确的方程是？",
+    "options": [
+     "h = 50t + 1200",
+     "h = 1200t + 50",
+     "h = 25t + 1200",
+     "h = 50t − 1200"
+    ],
+    "answerIndex": 0,
+    "explain": "斜率 = (1400−1200)/(4−0) = 50 m/min；t = 0 时的截距 = 1200。所以 h = 50t + 1200。最常见的错误是把斜率和截距位置互换（得到 1200t + 50），或截距符号写反。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.03",
+    "level": 2,
+    "question": "工人在 Abbotsford 搭脚手架，每层比上一层多 4 根横杆：第 1 层 6 根、第 2 层 10 根、第 3 层 14 根……第 8 层需要多少根？",
+    "options": [
+     "38 根",
+     "34 根",
+     "30 根",
+     "6 根"
+    ],
+    "answerIndex": 1,
+    "explain": "a₁ = 6，d = 4，通项 aₙ = 6 + (n−1)×4。a₈ = 6 + 7×4 = 34。38 根是误用 aₙ = 6 + n×4（多算了一个公差）；30 根是少算了一个公差（用了 n−2）。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.02",
+    "level": 3,
+    "question": "在 Richmond 街道的坐标模型中，街道 A 的方程为 y = −4x + 6。小明要画一条与街道 A 垂直（perpendicular）的街道 B。下列哪个方程可以是街道 B？",
+    "options": [
+     "y = −4x + 2",
+     "y = 4x + 6",
+     "y = (1/4)x + 3",
+     "y = −(1/4)x + 6"
+    ],
+    "answerIndex": 2,
+    "explain": "垂直直线斜率互为负倒数：−4 的负倒数是 −1/(−4) = 1/4。所以街道 B 斜率必须是 1/4（截距任意）。y = 4x + 6 只是把负号去了（没取倒数），是最常见错误；y = −(1/4)x + 6 只取了倒数、忘了变号。"
+   },
+   {
+    "curriculumId": "BC.MATH.FMP10.REL.04",
+    "level": 3,
+    "question": "Sarah 在 Nanaimo 比较两个手机数据套餐（x 为超出包含额的 GB 数）：套餐 A 月费 $20，超出每 GB 加 $4；套餐 B 月费 $12，超出每 GB 加 $6。两个套餐总费用恰好相同时，超出用量是多少 GB？此时费用是多少？",
+    "options": [
+     "4 GB，$32",
+     "2 GB，$28",
+     "8 GB，$52",
+     "4 GB，$36"
+    ],
+    "answerIndex": 3,
+    "explain": "列方程 20 + 4x = 12 + 6x → 8 = 2x → x = 4 GB；费用 = 20 + 4×4 = $36（验证：12 + 6×4 = $36 ✓）。8 GB 是忘了最后除以 2；2 GB 是误用 8÷4；$32 是 x 对了但费用少算了一档。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

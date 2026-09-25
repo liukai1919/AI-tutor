@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV1M.DIGIT_VALUE",
+ "lang": "en",
+ "title": "Give the value of a digit up to the hundred thousands place; 10 of one place make the next",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "How Big Is That Digit? Up to Hundred Thousands",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read big numbers and how to say what a digit is worth in the thousands, hundreds, tens and ones. Today we stretch that same idea two seats further, all the way to the hundred thousands place, so you can tell what any digit in a big number is really worth.",
+    "math": "",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      247
+     ],
+     "labels": [],
+     "caption": "You already know these seats: hundreds, tens, ones"
+    }
+   },
+   {
+    "say": "Here is the big idea that makes it all work. Every seat is worth ten times the seat to its right. Ten ones make one ten. Ten tens make one hundred. Ten hundreds make one thousand. And it keeps going the same way: ten thousands make ten thousand, and ten of those make one hundred thousand. So the seats read, from the right: ones, tens, hundreds, thousands, ten thousands, hundred thousands.",
+    "math": "1 \\rightarrow 10 \\rightarrow 100 \\rightarrow 1\\,000 \\rightarrow 10\\,000 \\rightarrow 100\\,000",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      111
+     ],
+     "labels": [],
+     "caption": "Ten ones make a rod, ten rods make a flat — the same rule keeps going"
+    }
+   },
+   {
+    "say": "Let's try a real number. The city of Kelowna, in British Columbia, has about one hundred forty-four thousand, five hundred people. Let's write that as 144 500 and look at where each digit sits. The 1 sits in the hundred thousands seat, so it is worth one hundred thousand. The first 4 sits in the ten thousands seat, so it is worth forty thousand. The second 4 sits in the thousands seat, so it is worth four thousand. The 5 sits in the hundreds seat, so it is worth five hundred. Notice something cool: the two fours look the same, but one is worth forty thousand and the other is worth only four thousand. The seat decides the value.",
+    "math": "144\\,500 = 100\\,000 + 40\\,000 + 4\\,000 + 500",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      144500
+     ],
+     "labels": [],
+     "caption": "Same digit 4, two different seats, two different values"
+    }
+   },
+   {
+    "say": "Now here are two slips lots of kids make, so let's catch them. First slip: someone asks what the 4 in forty thousand is worth, and the child says just four. But four is way too tiny — it's the seat that gives it size, so the answer is forty thousand. Second slip: the zeros. In 305 070, the zeros are place holders, and they are doing a job. If you drop one and write 35 070, every digit slides toward the ones and shrinks. In 305 070 the 3 is worth three hundred thousand, the 5 is worth five thousand, and the 7 is worth seventy. Never skip a zero — it holds a seat open.",
+    "math": "305\\,070 = 300\\,000 + 5\\,000 + 70",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      305070
+     ],
+     "labels": [],
+     "caption": "The zeros hold empty seats so the other digits stay in place"
+    }
+   },
+   {
+    "say": "So whenever someone points at a digit, do two little steps. Step one, find which seat it is sitting in by counting from the right: ones, tens, hundreds, thousands, ten thousands, hundred thousands. Step two, say the digit together with the name of that seat. In 682 000, the 6 is in the hundred thousands seat, so it is worth six hundred thousand — not six.",
+    "math": "682\\,000 \\rightarrow 6 \\text{ is } 600\\,000",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      682000
+     ],
+     "labels": [],
+     "caption": "Find the seat, then say digit plus seat name"
+    }
+   },
+   {
+    "say": "Here is the one thing to remember: a digit's value comes from its seat, and each seat is worth ten times the one to its right.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A digit's value = the digit times its place — and each place is worth ten times the place to its right.",
+  "practice": {
+   "question": "A new bridge in British Columbia costs four hundred seventeen thousand, six hundred dollars. Write that number in your place value chart, using the digits four, one, seven, six, zero, zero in that order. What is the value of the 1? What is the value of the 7? And what is the value of the 4?",
+   "answer": "The number is 417 600. The 1 sits in the ten thousands seat, so it is worth ten thousand dollars. The 7 sits in the thousands seat, so it is worth seven thousand dollars. The 4 sits in the hundred thousands seat, so it is worth four hundred thousand dollars."
+  }
+ }
+}

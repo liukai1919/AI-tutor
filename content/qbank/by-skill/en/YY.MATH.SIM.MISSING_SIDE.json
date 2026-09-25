@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.MISSING_SIDE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn8b7sy6xf8u9",
+   "level": 1,
+   "question": "Triangle ABC is similar to triangle DEF. In triangle ABC, side AB is 4 cm and side BC is 6 cm. In triangle DEF, the side that corresponds to AB is 12 cm. How long is the side of triangle DEF that corresponds to BC?",
+   "options": [
+    "18 cm",
+    "8 cm",
+    "14 cm",
+    "2 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Find the scale factor from the matching pair first: 12 ÷ 4 = 3, then multiply the other side, 6 × 3 = 18 cm. The common trap is adding 8 to every side (giving 14) instead of multiplying by 3.",
+   "tags": [
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syqvovwp",
+   "level": 1,
+   "question": "A triangle has one side of 8 cm and another side of 14 cm. An enlargement of this triangle is drawn with a scale factor of 2.5. In the enlargement, how long is the side that corresponds to the 8 cm side?",
+   "options": [
+    "10.5 cm",
+    "20 cm",
+    "35 cm",
+    "3.2 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "A scale factor multiplies each side: 8 × 2.5 = 20 cm. The common trap is treating 2.5 as an amount to add (8 + 2.5 = 10.5) instead of a factor to multiply by.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syoyd27m",
+   "level": 1,
+   "question": "A large triangle has sides of 20 cm, 30 cm and 50 cm. A smaller similar triangle has a side of 10 cm, and that 10 cm side corresponds to the 20 cm side. How long is the smaller triangle side that corresponds to the 30 cm side?",
+   "options": [
+    "60 cm",
+    "25 cm",
+    "15 cm",
+    "20 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "The matching pair 10 and 20 gives a scale factor of 10 ÷ 20 = 1/2, so 30 × 1/2 = 15 cm. The common trap is writing 10/20 = 30/x and cross-multiplying the wrong way to get 60, which is bigger than the original even though this is a reduction.",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "sim.scale_add_not_multiply"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syw8ux8s",
+   "level": 1,
+   "question": "Triangle PQR has side PQ = 8 cm and side QR = 12 cm. Triangle STU is similar to it, and the side of STU that corresponds to PQ is 6 cm. How long is the side of STU that corresponds to QR?",
+   "options": [
+    "16 cm",
+    "4 cm",
+    "10 cm",
+    "9 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "Use the matching pair to get the factor: 6 ÷ 8 = 0.75, then 12 × 0.75 = 9 cm. The common trap is subtracting 2 from every side to get 10; a reduction multiplies by a factor, it does not take off a fixed amount.",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syimezxg",
+   "level": 2,
+   "question": "Triangle ABC is similar to triangle DEF, with A matching D, B matching E and C matching F. AB = 12 cm, DE = 20 cm and EF = 15 cm. How long is BC?",
+   "options": [
+    "9 cm",
+    "7 cm",
+    "25 cm",
+    "16 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "BC matches EF, so BC/EF = AB/DE: BC = 15 × 12 ÷ 20 = 9 cm. The common trap is flipping the ratio and computing 15 × 20 ÷ 12 = 25, which enlarges when the triangle should shrink.",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syh4a824",
+   "level": 2,
+   "question": "Jasper draws a scale diagram of a triangular park near his school. On his diagram two sides measure 6 cm and 10 cm. In the real park, the side that corresponds to the 6 cm side is 15 m long. How long is the real side that corresponds to the 10 cm side?",
+   "options": [
+    "9 m",
+    "25 m",
+    "19 m",
+    "4 m"
+   ],
+   "answerIndex": 1,
+   "explain": "The matching pair 6 cm and 15 m gives 15 ÷ 6 = 2.5 m for every drawing centimetre, so 10 × 2.5 = 25 m. The common trap is adding 9 to get 19 m, because 6 cm became 15 m; scale diagrams multiply, they do not add.",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syrhkn4w",
+   "level": 2,
+   "question": "A triangular sticker has sides of 12 cm and 8 cm. It is enlarged for a poster, and on the poster the side that corresponds to the 12 cm side measures 30 cm. How long is the poster side that corresponds to the 8 cm side?",
+   "options": [
+    "45 cm",
+    "26 cm",
+    "20 cm",
+    "3.2 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Build the factor from the pair you know: 30 ÷ 12 = 2.5, then 8 × 2.5 = 20 cm. The common trap is pairing 30 cm with the 8 cm side instead, which gives the factor 3.75 and the wrong answer 45 cm.",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "ok",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syhqlht4",
+   "level": 2,
+   "question": "Priya sews a smaller flag that is similar to her club flag. The club flag is a quadrilateral with one side 45 cm and the next side 60 cm. On her smaller flag, the side that corresponds to the 45 cm side is 30 cm. How long is the side that corresponds to the 60 cm side?",
+   "options": [
+    "90 cm",
+    "22.5 cm",
+    "45 cm",
+    "40 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "The factor is 30 ÷ 45 = 2/3, so 60 × 2/3 = 40 cm. The common trap is cross-multiplying the wrong pair, 60 × 45 ÷ 30 = 90, which makes the small flag bigger than the original.",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched",
+    "sim.scale_add_not_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8b7sy9q1ngs",
+   "level": 3,
+   "question": "Noor is 1.5 m tall and casts a 2 m shadow on the school field. At the same moment the flagpole casts an 18 m shadow. Her height with her shadow, and the pole height with its shadow, form two similar right triangles. How tall is the flagpole?",
+   "options": [
+    "13.5 m",
+    "17.5 m",
+    "24 m",
+    "27 m"
+   ],
+   "answerIndex": 0,
+   "explain": "Compare shadow to shadow first: 18 ÷ 2 = 9, then apply that factor to the height, 1.5 × 9 = 13.5 m. The common trap is writing 1.5/2 = 18/h and solving for 24, which mixes a height with a shadow on the same side of the proportion.",
+   "tags": [
+    "ok",
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syl83snf",
+   "level": 3,
+   "question": "A triangular logo has sides of 6 cm and 9 cm. On an enlarged copy, the side matching the 6 cm side is 24 cm. Ava says the side matching the 9 cm side is 27 cm. What is the correct length, and why?",
+   "options": [
+    "27 cm, because every side of an enlargement gains 18 cm",
+    "36 cm, because the factor is 24 ÷ 6 = 4 and 9 × 4 = 36",
+    "16 cm, because 24 cm matches the 9 cm side, so use 24 ÷ 9",
+    "2.25 cm, because the proportion works out to 6 × 9 ÷ 24"
+   ],
+   "answerIndex": 1,
+   "explain": "An enlargement multiplies every side by the same factor, here 24 ÷ 6 = 4, so 9 × 4 = 36 cm. Ava added 18 cm to each side, which changes the shape instead of keeping the sides in one ratio.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7sy9z3r11",
+   "level": 3,
+   "question": "A triangular support frame ABC has a crossbar DE, with D on side AB and E on side AC, and triangle ADE is similar to triangle ABC. AD is 60 cm, DB is 40 cm, and the crossbar DE is 90 cm. How long is the base BC?",
+   "options": [
+    "130 cm",
+    "60 cm",
+    "150 cm",
+    "54 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "AD matches AB, so first build the full side AB = 60 + 40 = 100 cm, giving the factor 100 ÷ 60 = 5/3, then BC = 90 × 5/3 = 150 cm. The common trap is pairing DE with DB = 40 cm; DE corresponds to BC, and AD corresponds to the whole side AB, not to the leftover piece.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtn8b7syse7ytv",
+   "level": 3,
+   "question": "A quilt block is a triangle with sides 18 cm and 12 cm. Sofia sews a larger similar block in which the side matching the 18 cm side is 24 cm. She has a 20 cm piece of ribbon for the side matching the 12 cm side. How much ribbon does that side need, and what is left?",
+   "options": [
+    "18 cm of ribbon, so 2 cm is left over",
+    "9 cm of ribbon, so 11 cm is left over",
+    "36 cm of ribbon, so she is 16 cm short",
+    "16 cm of ribbon, so 4 cm is left over"
+   ],
+   "answerIndex": 3,
+   "explain": "The factor is 24 ÷ 18 = 4/3, so the side needs 12 × 4/3 = 16 cm and 20 − 16 = 4 cm of ribbon is left. The common trap is adding 6 cm to every side to get 18 cm, since 18 cm grew to 24 cm; similar shapes scale by multiplying.",
+   "tags": [
+    "sim.scale_add_not_multiply",
+    "prop.cross_multiply_wrong_pair",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  }
+ ]
+}

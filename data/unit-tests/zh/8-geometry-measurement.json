@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "geometry-measurement",
+ "lang": "zh",
+ "unitName": {
+  "zh": "图形与测量",
+  "en": "Geometry & Measurement"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "图形与测量 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 1,
+    "question": "小美搬家时量得一个长方体纸箱的尺寸为 30 cm × 20 cm × 10 cm。这个纸箱的体积（volume）是多少？",
+    "options": [
+     "6000 cm³",
+     "600 cm³",
+     "60 cm³",
+     "2200 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "体积 = 长 × 宽 × 高 = 30×20×10 = 6000 cm³。最容易踩的坑：把体积公式和表面积公式 2(ab+bc+ac)=2200 搞混，或只乘了两个维度得到 600。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 1,
+    "question": "一个直角三角形（right triangle）的两条直角边（leg）分别是 6 cm 和 8 cm，求斜边（hypotenuse）的长度。",
+    "options": [
+     "14 cm",
+     "2 cm",
+     "10 cm",
+     "48 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "勾股定理：c² = 6²+8² = 36+64 = 100，所以 c = 10 cm。常见错误是把两条边直接相加得 14，或相乘得 48——勾股定理是「平方和再开方」，不是直接加减乘除。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.03",
+    "level": 1,
+    "question": "一个圆柱（cylinder）的展开图（net）由哪几部分组成？",
+    "options": [
+     "两个长方形和一个圆形",
+     "三个圆形",
+     "一个圆形和一个三角形",
+     "两个圆形和一个长方形"
+    ],
+    "answerIndex": 3,
+    "explain": "圆柱有两个圆形底面和一个长方形侧面（展开后），所以展开图 = 2 个圆 + 1 个长方形。容易和圆锥（1 个圆 + 1 个扇形）或棱柱的展开图混淆。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 2,
+    "question": "温哥华一家汤品店的汤罐是圆柱形，底面直径 8 cm，高 12 cm。求这个圆柱的侧面积（lateral surface area，即侧面展开后的面积）。",
+    "options": [
+     "48π cm²",
+     "192π cm²",
+     "16π cm²",
+     "96π cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "侧面积 = 底面周长 × 高 = πd × h = π×8×12 = 96π cm²。最典型的错误是把半径 r=4 当成直径代入得 48π，或误用体积公式 πr²h 得到 192π。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 2,
+    "question": "小雅在弗雷泽河（Fraser River）划独木舟，先向正东划了 3 km，再向正北划了 4 km。此时她距出发点的直线距离是多少？",
+    "options": [
+     "7 km",
+     "√7 km",
+     "5 km",
+     "1 km"
+    ],
+    "answerIndex": 2,
+    "explain": "东西和南北方向互相垂直，构成直角三角形：√(3²+4²)=√25=5 km。常见错误是直接把 3+4=7 当作距离，或把 3+4 放在根号下得 √7——勾股定理要求先各自平方再相加。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.03",
+    "level": 2,
+    "question": "用 3 个单位正方体搭模型：底层两个正方体左右并排，再在左边那个正方体的正上方叠放一个。从正上方往下看（俯视图），你看到的是哪个形状？",
+    "options": [
+     "一个 L 形（左列上下两个正方形，右列底部一个正方形）",
+     "三个正方形竖直排成一列",
+     "一个单独的正方形",
+     "两个并排的正方形"
+    ],
+    "answerIndex": 3,
+    "explain": "俯视图只看「占地」：左、右各一个正方体各占一格，上面那个叠在左边正上方，投影重合，所以俯视就是两个并排的正方形。最易踩的坑是把正视图（L 形）当成俯视图。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.01",
+    "level": 3,
+    "question": "一个直三棱柱（right triangular prism）的底面是直角边为 3 cm 和 4 cm 的直角三角形，棱柱的高（长度）为 10 cm。求它的总表面积（surface area）。",
+    "options": [
+     "82 cm²",
+     "120 cm²",
+     "132 cm²",
+     "144 cm²"
+    ],
+    "answerIndex": 2,
+    "explain": "斜边=5；两个三角形底面=2×(½×3×4)=12；三个矩形侧面=30+40+50=120；总计 12+120=132 cm²。两大高频错误：①漏掉斜边对应的矩形面（得 82）；②三角形面积忘了乘 ½（得 144）。"
+   },
+   {
+    "curriculumId": "BC.MATH.G8.GEO.02",
+    "level": 3,
+    "question": "在维多利亚一栋房子的外墙，一架 13 m 长的梯子斜靠在墙上，梯脚距墙 5 m。梯子顶端到达的高度是多少？",
+    "options": [
+     "12 m",
+     "144 m",
+     "8 m",
+     "13 m"
+    ],
+    "answerIndex": 0,
+    "explain": "梯子（斜边）=13，墙脚距离（底）=5，高度 h=√(13²−5²)=√(169−25)=√144=12 m。最经典的陷阱：算出 144 后忘了开平方就直接写 144 m——平方是中间步骤，不是最终答案。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

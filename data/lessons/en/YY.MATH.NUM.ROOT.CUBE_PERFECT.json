@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.ROOT.CUBE_PERFECT",
+ "lang": "en",
+ "title": "Find cube roots of perfect cubes (∛125 = 5) as the inverse of cubing",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Undoing a Cube: Finding Cube Roots",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to cube a number, like four cubed is four times four times four, which is sixty four. And you already know how to take a square root to undo squaring. Today we do the same trick one level up: we undo cubing. That is what a cube root does.",
+    "math": "4^3 = 4 \\times 4 \\times 4 = 64",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture a cube shaped storage bin, five centimetres on every edge. Its volume is five times five times five, which is one hundred twenty five cubic centimetres. Cubing goes from the edge to the volume. A cube root goes backwards: you hand it the volume, and it hands you back the edge. So the cube root of one hundred twenty five is five, because five cubed is one hundred twenty five.",
+    "math": "5^3 = 125 \\quad \\Rightarrow \\quad \\sqrt[3]{125} = 5",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Edge 5 cm, so the volume is 125 cubic cm — and the cube root of 125 is 5."
+    }
+   },
+   {
+    "say": "Here are the steps. Step one, read the number under the cube root sign as a volume. Step two, ask yourself what number times itself times itself gives that volume. Step three, check by cubing your guess. Let us try a cube shaped planter at a Vancouver community garden with a volume of two hundred sixteen cubic centimetres. Try five: five cubed is one hundred twenty five, too small. Try six: six times six is thirty six, and thirty six times six is two hundred sixteen. That works, so the cube root of two hundred sixteen is six.",
+    "math": "6^3 = 216 \\quad \\Rightarrow \\quad \\sqrt[3]{216} = 6",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A 6 cm edge builds a 216 cubic cm cube, so the cube root of 216 is 6."
+    }
+   },
+   {
+    "say": "Now two traps that catch a lot of people. Trap one: the little three does not mean divide by three. Someone might say the cube root of twenty seven is nine, but nine cubed is seven hundred twenty nine, way off. The real answer is three, because three times three times three is twenty seven. Trap two: do not slip back into square roots. Someone might say the cube root of sixty four is eight, but eight is the square root, since eight times eight is sixty four. For a cube root you need three equal factors, and four times four times four is sixty four, so the cube root of sixty four is four.",
+    "math": "\\sqrt[3]{27} = 3 \\;\\;(\\text{not } 9), \\qquad \\sqrt[3]{64} = 4 \\;\\;(\\text{not } 8)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      3,
+      4,
+      5,
+      8,
+      27,
+      64,
+      125
+     ],
+     "labels": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "number",
+      "number cubed"
+     ],
+     "caption": "Perfect cubes to keep handy: 2 gives 8, 3 gives 27, 4 gives 64, 5 gives 125."
+    }
+   },
+   {
+    "say": "So whenever you see a cube root, just ask yourself: which number, multiplied by itself three times, builds this? That number is your answer, and cubing it is your instant check.",
+    "math": "\\sqrt[3]{n^3} = n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A cube root undoes cubing: the cube root of 125 is 5 because 5 times 5 times 5 is 125.",
+  "practice": {
+   "question": "You are building a cube shaped storage box for your hockey gear, and every edge is the same length. The box holds a volume of 512 cubic centimetres. Sketch the cube if it helps, and find the length of one edge — that is, find the cube root of 512.",
+   "answer": "8 centimetres. Check it: 8 times 8 is 64, and 64 times 8 is 512, so the cube root of 512 is 8. (Careful — it is not 512 divided by 3, and it is not the square root.)"
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.TILES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlyb3vw266nvy",
+   "level": 1,
+   "question": "代数砖（algebra tiles）里，x² 砖是边长为 x 的正方形，面积 x²；x 砖是长 x、宽 1 的长方形，面积 x；单位砖是边长 1 的小正方形，面积 1。正砖表示加，负砖表示减。一幅砖图里有 1 块正 x² 砖、2 块正 x 砖、3 块负单位砖。这幅砖图表示的多项式（polynomial）是哪一个？",
+   "options": [
+    "x²+2x−3",
+    "x²+2x+3",
+    "2x+2x−3",
+    "x²−2x+3"
+   ],
+   "answerIndex": 0,
+   "explain": "按砖的种类逐类数：1 块 x² 砖是 x²，2 块正 x 砖是 +2x，3 块负单位砖是 −3，合起来是 x²+2x−3。x² 砖是 x 乘 x 的正方形，面积是 x²，不是 2x；负砖要写成减号。",
+   "tags": [
+    "ok",
+    "other",
+    "poly.tile_x2_as_2x",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vw6b026c",
+   "level": 1,
+   "question": "x² 砖是边长为 x 的正方形（面积 x²），x 砖是长 x、宽 1 的长方形（面积 x），单位砖是 1 乘 1 的小正方形（面积 1），正砖加、负砖减。桌上摆了 2 块正 x² 砖、3 块正 x 砖、1 块负 x 砖、4 块正单位砖。去掉零对（zero pair）后，这堆砖表示的最简多项式是？",
+   "options": [
+    "4x+2x+4",
+    "2x²+2x+4",
+    "2x²+4x+4",
+    "2x²+3x+4"
+   ],
+   "answerIndex": 1,
+   "explain": "1 块正 x 砖和 1 块负 x 砖是一对零对，先抵消，x 砖剩 2 块正的，所以是 2x²+2x+4。写成 4x 的那种把 x² 砖当成了 2x；写成 4x 的系数的那种把 4 块 x 砖全数进去了，忘了正负要抵消。",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "ok",
+    "poly.zero_pair_missed",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwveuado",
+   "level": 1,
+   "question": "x² 砖是边长为 x 的正方形（面积 x²），x 砖是长 x、宽 1 的长方形（面积 x），单位砖是 1 乘 1 的小正方形（面积 1），正砖加、负砖减。Ryan 摆了 1 块正 x² 砖、4 块正 x 砖、4 块负 x 砖、2 块负单位砖。如果要用最少的砖表示同一个多项式，需要几块砖？",
+   "options": [
+    "4 块",
+    "7 块",
+    "3 块",
+    "11 块"
+   ],
+   "answerIndex": 2,
+   "explain": "4 块正 x 砖和 4 块负 x 砖组成 4 对零对，全部抵消，只剩 1 块 x² 砖和 2 块负单位砖，共 3 块，表示 x²−2。把 11 块全留着的没有抵消零对；答 4 块的把 x² 砖拆成了 2 块 x 砖。",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "other",
+    "ok",
+    "poly.zero_pair_missed"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vw2mz0lm",
+   "level": 1,
+   "question": "x² 砖是边长为 x 的正方形（面积 x²），x 砖是长 x、宽 1 的长方形（面积 x），单位砖是 1 乘 1 的小正方形（面积 1），正砖加、负砖减。一幅砖图里有 1 块正 x² 砖、1 块正 x 砖、3 块负 x 砖、5 块正单位砖。去掉零对后，这幅砖图表示的多项式是几项式？",
+   "options": [
+    "单项式（monomial）",
+    "二项式（binomial）",
+    "四项式（4 项）",
+    "三项式（trinomial）"
+   ],
+   "answerIndex": 3,
+   "explain": "1 块正 x 砖和 1 块负 x 砖抵消后还剩 2 块负 x 砖，所以是 x²−2x+5，共三项（term）。答四项的把 +x 和 −x 都留着没抵消；答单项的把 x² 砖当成 2x，才会和 x 砖抵消到只剩常数。",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "other",
+    "poly.zero_pair_missed",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwk1s6i3",
+   "level": 2,
+   "question": "数学课上，四个同学各自用最少的代数砖摆多项式 −x²+3x−2，只有一个人摆对了。是谁？",
+   "options": [
+    "Ben：负 x² 砖 1 块、正 x 砖 3 块、负单位砖 2 块，共 6 块",
+    "Lily：负 x 砖 2 块、正 x 砖 3 块、负单位砖 2 块，共 7 块",
+    "Omar：负 x² 砖 1 块、正 x 砖 3 块、正单位砖 2 块，共 6 块",
+    "Zoe：负 x² 砖 1 块、正 x 砖 4 块、负 x 砖 1 块、负单位砖 2 块，共 8 块"
+   ],
+   "answerIndex": 0,
+   "explain": "−x² 要用 1 块负 x² 砖，+3x 用 3 块正 x 砖，−2 用 2 块负单位砖，共 6 块。用 2 块负 x 砖代替 −x² 的把 x² 砖当成了 2x；多放 1 块正 x 和 1 块负 x 的那堆里有零对，不是最少的砖。",
+   "tags": [
+    "ok",
+    "poly.tile_x2_as_2x",
+    "other",
+    "poly.zero_pair_missed"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwh6muge",
+   "level": 2,
+   "question": "一幅砖图里有 3 块正 x² 砖、2 块正 x 砖、4 块负 x 砖、1 块正单位砖、3 块负单位砖。去掉所有零对后，这幅砖图表示的最简多项式是？",
+   "options": [
+    "6x−2x−2",
+    "3x²−2x−2",
+    "3x²+2x+2",
+    "3x²−6x−4"
+   ],
+   "answerIndex": 1,
+   "explain": "x 砖：2 正 4 负，抵消 2 对后剩 2 块负的，是 −2x；单位砖：1 正 3 负，抵消 1 对后剩 2 块负的，是 −2；所以是 3x²−2x−2。写成 −6x−4 的那个把所有砖都数了，没有抵消零对；写成 6x 的把 x² 砖读成了 2x。",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other",
+    "poly.zero_pair_missed"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwd2tljo",
+   "level": 2,
+   "question": "Ava 先在桌上摆了 1 块正 x² 砖和 3 块负 x 砖，接着又在旁边放上 2 块正 x 砖和 4 块正单位砖。现在桌上的整堆砖去掉零对后，表示的最简多项式是？",
+   "options": [
+    "x²−5x+4",
+    "2x−x+4",
+    "x²−x+4",
+    "x²+x+4"
+   ],
+   "answerIndex": 2,
+   "explain": "把两批砖看成一堆：x 砖有 3 块负、2 块正，抵消 2 对后剩 1 块负的，所以是 x²−x+4。写成 −5x 的把 5 块 x 砖全算进去了，没抵消零对；写成 2x 开头的把 x² 砖当成了 2x。",
+   "tags": [
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vw8q9ozu",
+   "level": 2,
+   "question": "下面四堆砖中，哪一堆去掉零对（zero pair）后表示的正好是 2x²−x−3？",
+   "options": [
+    "3 块正 x 砖、2 块负 x 砖、2 块正 x² 砖、3 块负单位砖",
+    "2 块正 x² 砖、1 块正 x 砖、1 块负 x 砖、3 块负单位砖",
+    "4 块正 x 砖、2 块正 x 砖、3 块负 x 砖、3 块负单位砖",
+    "2 块正 x² 砖、2 块正 x 砖、3 块负 x 砖、3 块负单位砖"
+   ],
+   "answerIndex": 3,
+   "explain": "要得到 −x，负 x 砖要比正 x 砖多 1 块，2 正 3 负抵消后正好剩 1 块负的。1 正 1 负的那堆抵消后 x 项就没了，只剩 2x²−3；用 4 块正 x 砖代替 2 块 x² 砖的把 x² 当成了 2x。",
+   "tags": [
+    "other",
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vw9ejq3a",
+   "level": 3,
+   "question": "Maya 在温哥华家里的餐桌上摆代数砖：x² 砖有 2 块，都是正的；x 砖只有 1 块，是负的；单位砖一共 7 块，其中正的比负的多 3 块。去掉零对后，这堆砖表示的最简多项式是？",
+   "options": [
+    "2x²−x+3",
+    "2x²−x+7",
+    "4x−x+3",
+    "2x²−x+5"
+   ],
+   "answerIndex": 0,
+   "explain": "先算单位砖：正的和负的一共 7 块、相差 3 块，所以是 5 正 2 负；抵消 2 对后剩 3 块正的，常数项（constant term）是 +3，多项式是 2x²−x+3。常数写 7 的把单位砖全数了没抵消；写 4x 的把 x² 砖当成了 2x。",
+   "tags": [
+    "ok",
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwtor3ka",
+   "level": 3,
+   "question": "小雅看到一幅砖图：3 块正 x² 砖、1 块负 x 砖、2 块正单位砖。她写下 6x−x+2，然后化简成 5x+2。她错在哪里？",
+   "options": [
+    "她没有错，因为 x² 砖的面积是 x 乘 2，正好等于 2x",
+    "错在 x² 砖的面积是 x 乘 x，应该读成 3x²−x+2",
+    "错在 −x 应该写成 +x，因为负砖只是颜色不同，面积一样",
+    "错在没把 +x 和 −x 抵消，因为图里那块负 x 砖有零对"
+   ],
+   "answerIndex": 1,
+   "explain": "x² 砖是边长 x 的正方形，面积是 x·x = x²，3 块就是 3x²，正确读法是 3x²−x+2，不能把 x² 砖当成 2x。图里只有 1 块负 x 砖、没有正 x 砖，不存在零对；负砖表示减，必须写成减号。",
+   "tags": [
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other",
+    "poly.zero_pair_missed"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwylhdmz",
+   "level": 3,
+   "question": "Liam 摆了 1 块正 x² 砖、3 块正 x 砖、3 块负 x 砖、4 块负单位砖，然后说：「这堆砖表示 x²+3x−3x−4，是一个四项式。」下面哪句话对他的说法评价正确？",
+   "options": [
+    "他说得对，正负 x 砖都在图上，写式子时都要保留",
+    "确实有四种砖就是四项，但 x² 砖应先读成 2x",
+    "零对要抵消，最简形式是 x²−4，是二项式",
+    "应该只去掉 3 块负 x 砖，写成 x²+3x−4 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "3 块正 x 砖和 3 块负 x 砖组成 3 对零对，加起来是 0，去掉后只剩 x²−4，是二项式（binomial）。把 +3x 和 −3x 都留着没抵消，或者只拿走负的那一半，都不是最简形式；x² 砖也不能读成 2x。",
+   "tags": [
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlyb3vwm0otub",
+   "level": 3,
+   "question": "Jasmine 用代数砖摆了一个多项式，一共用了 10 块砖。其中 x 砖有 6 块，负 x 砖的数量是正 x 砖的一半；单位砖有 3 块，全是负的；剩下的都是正 x² 砖。去掉零对后，这个最简多项式是？",
+   "options": [
+    "x²+6x−3",
+    "2x+2x−3",
+    "x²+4x−3",
+    "x²+2x−3"
+   ],
+   "answerIndex": 3,
+   "explain": "先算 x² 砖：10−6−3 = 1 块，是 x²；再算 x 砖：6 块里负的是正的一半，所以 4 正 2 负，抵消后剩 2 块正的，是 +2x；结果是 x²+2x−3。写成 6x 的把 x 砖全数了没抵消零对；写成 2x+2x 的把 x² 砖当成了 2x。",
+   "tags": [
+    "poly.zero_pair_missed",
+    "poly.tile_x2_as_2x",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

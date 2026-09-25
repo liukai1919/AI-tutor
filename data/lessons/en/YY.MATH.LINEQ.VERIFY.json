@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LINEQ.VERIFY",
+ "lang": "en",
+ "title": "Verify a rational solution by substituting into both sides, and find the step where a wrong solution went off track",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Does It Balance? Checking a Fraction Answer",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to clear denominators and solve equations that end with a fraction answer like seven halves. But how do you know your answer is actually right? Today's one skill: prove a solution by substituting it into both sides separately, and if the check fails, hunt down the exact line where the work went off track.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of an equation as a balance scale. A solution is a value of x that makes the left pan and the right pan weigh exactly the same. So the check has three moves: put your x into the left side and work it out to one number. Put the same x into the right side and work it out to one number. Compare. Equal means balanced, and balanced means it is a solution. Anything else means it is not, no matter how close.",
+    "math": "\\text{LHS at } x \\stackrel{?}{=} \\text{RHS at } x",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "left side with x in it",
+      "right side with x in it"
+     ],
+     "caption": "Balanced only when both pans give the same number"
+    }
+   },
+   {
+    "say": "Let's solve one and check it. Two times, open bracket, three x minus one, close bracket, equals four x plus five. Expand: six x minus two equals four x plus five. Take four x off both sides: two x minus two equals five. Add two to both sides: two x equals seven, so x equals seven halves. Now the check, one side at a time. Left side: three times seven halves is twenty-one halves, minus one is nineteen halves, times two is nineteen. Right side: four times seven halves is fourteen, plus five is nineteen. Nineteen equals nineteen. Balanced, so seven halves really is the solution.",
+    "math": "x=\\tfrac{7}{2}:\\quad \\text{LHS}=2\\left(\\tfrac{21}{2}-1\\right)=2\\cdot\\tfrac{19}{2}=19,\\quad \\text{RHS}=4\\cdot\\tfrac{7}{2}+5=19",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      19,
+      19
+     ],
+     "labels": [
+      "2(3x − 1) = 19",
+      "4x + 5 = 19"
+     ],
+     "caption": "Both pans weigh 19 when x is seven halves"
+    }
+   },
+   {
+    "say": "Now your teammate Maya solved the same equation and got x equals three halves. Let's test it the same way instead of just trusting it. Left side: three times three halves is nine halves, minus one is seven halves, times two is seven. Right side: four times three halves is six, plus five is eleven. Seven is not eleven. The scale tips toward the right, so three halves is not a solution. And notice: we did not say seven and eleven are close enough, and we did not fiddle with the equation to force a match. A check is a yes or a no.",
+    "math": "x=\\tfrac{3}{2}:\\quad \\text{LHS}=2\\left(\\tfrac{9}{2}-1\\right)=7,\\quad \\text{RHS}=6+5=11,\\quad 7\\neq 11",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      7,
+      11
+     ],
+     "labels": [
+      "2(3x − 1) = 7",
+      "4x + 5 = 11"
+     ],
+     "caption": "Right pan heavier: the equation is not balanced at x = 3/2"
+    }
+   },
+   {
+    "say": "So where did Maya go wrong? Here are her lines. Line one: six x minus two equals four x plus five. Line two: two x minus two equals five. Line three: two x equals three. Line four: x equals three halves. Here is the detective trick: plug her answer into each line, starting from the bottom. Line three: two times three halves is three, and three equals three, fine. Line two: two times three halves minus two is one, but the right side is five. One is not five. So the break happened going from line two to line three. Look at that move: she had minus two on the left, and to remove it you add two to both sides, giving two x equals seven. She subtracted instead and got three. That one sign slip is the whole problem.",
+    "math": "2x-2=5\\ \\Rightarrow\\ 2x=5+2=7\\quad(\\text{not }5-2=3)",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      7,
+      7
+     ],
+     "labels": [
+      "2x − 2 + 2",
+      "5 + 2"
+     ],
+     "caption": "Adding 2 to both pans keeps the balance: 2x = 7"
+    }
+   },
+   {
+    "say": "Three traps to avoid when you check. One: a near miss is a miss. If the left gives eleven and the right gives twelve, the answer is wrong, full stop. Two: finish the whole side before comparing. In four x plus five equals seventeen, with x equals three, four times three is twelve, but you are not done, twelve plus five is seventeen, and seventeen equals seventeen, so three is a solution. Stopping at twelve would wrongly reject a correct answer. Three: negatives need brackets. Three n when n is negative two is three times negative two, which is negative six, not one. Takeaway: substitute into both sides separately, compare exactly, and if it fails, test each line to find the first one that breaks.",
+    "math": "4(3)+5=17\\ \\checkmark\\qquad 3(-2)=-6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A solution must make both sides exactly equal. If the check fails, test each line to find the first one that breaks.",
+  "practice": {
+   "question": "Priya is finding x, the number of dollars each friend chips in for a shared pizza. Her equation is 5(x − 1) = 3x + 2. Her work: line one, 5x − 5 = 3x + 2. Line two, 2x − 5 = 2. Line three, 2x = −3. Line four, x = −3/2. First, check her answer by substituting negative three halves into both sides (use brackets for the negative). Then find the line where her work went off track, fix it, and check the correct answer.",
+   "answer": "Check: LHS = 5(−3/2 − 1) = 5(−5/2) = −25/2, RHS = 3(−3/2) + 2 = −9/2 + 2 = −5/2. Not equal, so −3/2 is not a solution. The slip is between line two and line three: from 2x − 5 = 2 you add 5 to both sides, so 2x = 7, not −3. Correct answer x = 7/2. Check: LHS = 5(7/2 − 1) = 5(5/2) = 25/2, RHS = 3(7/2) + 2 = 21/2 + 4/2 = 25/2. Both sides equal, so each friend chips in $3.50."
+  }
+ }
+}

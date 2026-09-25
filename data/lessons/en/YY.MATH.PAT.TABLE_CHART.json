@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.TABLE_CHART",
+ "lang": "en",
+ "title": "Represent a changing pattern in a table or chart and read it back",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Making a Pattern Table (and Reading It Back)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to say a pattern rule out loud, like start at five dollars and add four dollars each time. Today we learn a neat way to keep track of it, so we never lose our place: we put the pattern in a table.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is Ravi from Kelowna. He puts five dollars in his jar the first week, and every week after that he adds four more dollars. A table has one row for the week and one row for the money. Week one is five dollars. Then nine, thirteen, seventeen, and twenty one dollars.",
+    "math": "5 \\rightarrow 9 \\rightarrow 13 \\rightarrow 17 \\rightarrow 21",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      5,
+      9,
+      13,
+      17,
+      21
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "Week",
+      "Dollars in the jar"
+     ],
+     "caption": "Ravi's savings table: each week gets its own column"
+    }
+   },
+   {
+    "say": "Now let us read the table back as a picture. When we plot Ravi's money week by week, the dots climb in a straight, steady staircase. That straight climb is the pattern saying hello — every week goes up by the same jump.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      5,
+      9,
+      13,
+      17,
+      21
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5"
+     ],
+     "caption": "Steady climb: the same size step every week"
+    }
+   },
+   {
+    "say": "Let us read the table back with numbers. To find the jump, I take one number and subtract the number just before it. Nine take away five is four. Thirteen take away nine is four. Seventeen take away thirteen is four. Every jump is four, and the table starts at five, so the rule is start at five dollars and add four dollars each week. On week five Ravi has twenty one dollars.",
+    "math": "9-5=4,\\quad 13-9=4,\\quad 17-13=4",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      25,
+      17,
+      21
+     ],
+     "labels": [],
+     "caption": "From week four to week five: a jump of four dollars"
+    }
+   },
+   {
+    "say": "Here is a mix up lots of kids make. They see the table starts at five and think the jump must be five too, so they write five, ten, fifteen, twenty, twenty five. But look at week two. Their guess says ten dollars, and the real table says nine dollars. That is why we always check by subtracting two numbers that sit side by side. Five is where we start, four is how much we jump — those are two different jobs.",
+    "math": "5+5=10\\neq 9",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      10,
+      15,
+      20,
+      25
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5"
+     ],
+     "caption": "The mistaken table — week two should be nine, not ten"
+    }
+   },
+   {
+    "say": "So remember: a table holds the pattern, and to read it back you find where it starts and subtract side by side numbers to find the jump.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A pattern table tells you two things: where it starts, and the jump you get by subtracting two numbers sitting side by side.",
+  "practice": {
+   "question": "Emma measures the snow in her backyard in Prince George. On Day one it is six centimetres deep, and each day three more centimetres of snow fall. Draw your own table with a row for Day one to Day five and a row for the depth in centimetres. Then read it back: how deep is the snow on Day five, and what is the pattern rule?",
+   "answer": "The table reads six, nine, twelve, fifteen, eighteen. On Day five the snow is eighteen centimetres deep. The rule is start at six centimetres and add three centimetres each day, because nine take away six is three, and twelve take away nine is three."
+  }
+ }
+}

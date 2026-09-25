@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LINEQ.WORD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlz3rxzblnrji",
+   "level": 1,
+   "question": "Plan A for a phone costs $20 per month plus $2 for every gigabyte of data used. Plan B has no monthly fee and costs $5 for every gigabyte. Let g be the number of gigabytes used in a month. Which equation shows when the two plans cost the same?",
+   "options": [
+    "20 + 2g = 5g",
+    "20 + 2 + g = 5g",
+    "2(20 + g) = 5g",
+    "20g + 2g = 5g"
+   ],
+   "answerIndex": 0,
+   "explain": "The $20 is a fixed part paid once, and $2 per gigabyte is the coefficient of g, so Plan A is 20 + 2g and Plan B is 5g. A common trap is writing 2 + g instead of 2g, or multiplying the fixed $20 by g as if it were charged per gigabyte.",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzox5t7e",
+   "level": 1,
+   "question": "Three consecutive whole numbers add up to 48. Let n stand for the smallest of the three numbers. After combining like terms, which equation matches the situation?",
+   "options": [
+    "n + n + n = 48",
+    "3n + 3 = 48",
+    "3(n + 3) = 48",
+    "3 + n + 3 = 48"
+   ],
+   "answerIndex": 1,
+   "explain": "The numbers are n, n + 1 and n + 2, so n + (n + 1) + (n + 2) = 3n + 3, and the sum is 48. The trap is forgetting the +1 and +2, which are fixed parts that must be kept and added, not dropped or multiplied by 3.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzcj4pkr",
+   "level": 1,
+   "question": "Priya started a savings jar with $15 and puts in $6 every week. The jar now holds $63. Write an equation and solve it: for how many weeks has she been saving?",
+   "options": [
+    "48 weeks",
+    "42 weeks",
+    "8 weeks",
+    "10.5 weeks"
+   ],
+   "answerIndex": 2,
+   "explain": "The situation is 15 + 6w = 63; subtract the fixed $15 to get 6w = 48, then divide by 6 to get w = 8. Stopping at 48 is only a middle step, and dividing 63 by 6 forgets the $15 that was already in the jar.",
+   "tags": [
+    "word.stop_early",
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzbkm4q1",
+   "level": 1,
+   "question": "A triangle has sides of length x cm, (x + 2) cm and (x + 4) cm. Its perimeter is 30 cm. Write an equation and solve for x.",
+   "options": [
+    "24 cm",
+    "10 cm",
+    "21 cm",
+    "8 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "Adding the three sides gives 3x + 6 = 30, so 3x = 24 and x = 8. The trap is stopping at 24 (that is 3x, not x) or dividing 30 by 3 without first taking away the extra 6 cm from the perimeter.",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxz781cci",
+   "level": 2,
+   "question": "Solve the equation 2(n + 5) = 26.",
+   "options": [
+    "n = 8",
+    "n = 10.5",
+    "n = 16",
+    "n = 19"
+   ],
+   "answerIndex": 0,
+   "explain": "Use the distributive property: 2n + 10 = 26, so 2n = 16 and n = 8. The most common trap is multiplying only the n by 2 and leaving the 5 alone, which gives 2n + 5 = 26 and a wrong answer of 10.5.",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzfz87n1",
+   "level": 2,
+   "question": "The sum of three consecutive even numbers is 78. What is the largest of the three numbers?",
+   "options": [
+    "24",
+    "28",
+    "26",
+    "30"
+   ],
+   "answerIndex": 1,
+   "explain": "Let the smallest be n; then n + (n + 2) + (n + 4) = 3n + 6 = 78, so n = 24 and the largest is 24 + 4 = 28. Do not stop at n = 24, and do not divide 78 by 3 without first subtracting the fixed 6.",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzu6ooye",
+   "level": 2,
+   "question": "A rectangular garden has width w metres and its length is (2w + 3) metres. The perimeter of the garden is 36 metres. Find the width.",
+   "options": [
+    "6 m",
+    "24 m",
+    "5 m",
+    "30 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Perimeter is 2w + 2(2w + 3) = 6w + 6, so 6w + 6 = 36, 6w = 30 and w = 5. The traps are stopping at 30 (that is 6w), or dividing 36 by 6 and forgetting the fixed 6 metres from the two lengths.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxz1gbden",
+   "level": 2,
+   "question": "Solve the equation 6x − 8 = 2x + 20.",
+   "options": [
+    "x = 28",
+    "x = 5",
+    "x = 3.5",
+    "x = 7"
+   ],
+   "answerIndex": 3,
+   "explain": "Collect like terms: subtract 2x from both sides and add 8 to both sides to get 4x = 28, so x = 7. Stopping at 28 is a middle step, and ignoring the −8 gives 4x = 20 and a wrong answer of 5.",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxz1fo9at",
+   "level": 3,
+   "question": "At Whistler, Shop A rents skis for a flat $15 plus $6 per hour. Shop B charges $9 per hour with no flat fee. Kai rented skis for exactly the number of hours at which both shops would charge the same amount. How much did Kai pay?",
+   "options": [
+    "$45",
+    "$5",
+    "$30",
+    "$75"
+   ],
+   "answerIndex": 0,
+   "explain": "Set the costs equal: 15 + 6h = 9h, so 15 = 3h and h = 5 hours; then the cost is 9 × 5 = $45 (or 15 + 6 × 5 = $45). The trap is stopping at 5 hours, or finding Shop A's cost as 6 × 5 = $30 and forgetting the $15 flat fee.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxze5flj5",
+   "level": 3,
+   "question": "A rectangular skating rink has a perimeter of 54 m. Its length is 3 m more than twice its width. What is the length of the rink?",
+   "options": [
+    "8 m",
+    "19 m",
+    "21 m",
+    "20 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Let the width be w, so the length is 2w + 3 and the perimeter is 2w + 2(2w + 3) = 6w + 6 = 54, giving w = 8 and length 2(8) + 3 = 19 m. The traps are answering the width instead of the length, or forgetting to distribute the 2 over the +3.",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxzu08yz7",
+   "level": 3,
+   "question": "Shop A rents bikes for a flat $12 plus $5 per hour. Shop B charges $8 per hour with no flat fee. Liam writes 12 + 5 + h = 8 + h, simplifies to 17 + h = 8 + h, and says the two shops can never cost the same. What went wrong?",
+   "options": [
+    "He dropped the $12 fee; it should be 5h = 8h, giving h = 0",
+    "He should multiply the fee by h too; 12h + 5h = 8h, so h = 0",
+    "He wrote 5h as 5 + h; it should be 12 + 5h = 8h, so h = 4",
+    "Nothing is wrong; 12 + 5 is 17, and 17 + h can never equal 8 + h"
+   ],
+   "answerIndex": 2,
+   "explain": "$5 per hour means 5 times h, so the coefficient 5 multiplies h and the equation is 12 + 5h = 8h, which gives 3h = 12 and h = 4 hours. Treating 5h as 5 + h turns the hourly rate into a one-time fee, which is why Liam wrongly found no solution.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz3rxz5l5wkb",
+   "level": 3,
+   "question": "A Grade 9 class is running a dance. Tickets cost $5 each, and the hall rental is a flat $200. The class wants exactly $250 left after paying the rental. They have already sold 30 tickets. How many more tickets must they sell?",
+   "options": [
+    "90 more",
+    "415 more",
+    "20 more",
+    "60 more"
+   ],
+   "answerIndex": 3,
+   "explain": "Let t be the total tickets: 5t − 200 = 250, so 5t = 450 and t = 90; then 90 − 30 = 60 more tickets. The traps are stopping at 90 without subtracting the 30 already sold, or ignoring the $200 rental and solving 5t = 250.",
+   "tags": [
+    "word.stop_early",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  }
+ ]
+}

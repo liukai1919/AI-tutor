@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT",
+ "lang": "en",
+ "title": "Find the volume of right prisms (triangular, trapezoidal) and cylinders as area of the base × height",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Base Area First, Then Height",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that for any right prism the volume is the area of the base times the height. Today we are just locking in the two moves that make that work every single time: find the area of the base, then multiply by how tall the solid is.",
+    "math": "V = A_{\\text{base}} \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A right prism is the same shape stacked all the way up."
+    }
+   },
+   {
+    "say": "Start with something easy, a can of pop from your lunch. The base is a circle with radius three centimetres, and the can is ten centimetres tall. Area of the base is pi times three squared, which is nine pi, about twenty eight point two seven square centimetres. Multiply that by ten and the volume is about two hundred eighty two point seven cubic centimetres. Base area first, height second.",
+    "math": "V = \\pi \\times 3^2 \\times 10 = 90\\pi \\approx 282.7\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      3,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Find the circle first, then stack it ten centimetres high."
+    }
+   },
+   {
+    "say": "Now a triangular prism, like one of those long chocolate boxes. The triangle on the end has a base of six centimetres and a height of four centimetres, and the box is twenty centimetres long. Step one is the area of the base: one half times six times four, which is twelve square centimetres.",
+    "math": "A_{\\text{base}} = \\frac{1}{2} \\times 6 \\times 4 = 12\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The triangle on the end is the base — remember to halve."
+    }
+   },
+   {
+    "say": "Step two, multiply by the height of the prism, which here is the twenty centimetre length. Twelve times twenty is two hundred forty, so the volume is two hundred forty cubic centimetres. Watch the units: square centimetres for the base, cubic centimetres once you multiply by the height.",
+    "math": "V = 12 \\times 20 = 240\\ \\text{cm}^3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Three traps to dodge here. First, do not grab a side rectangle as the base — the base is the pair of matching ends, the triangles. Second, do not forget the one half: six times four is twenty four, but the triangle is only twelve, and skipping the halving doubles your answer to four hundred eighty. Third, volume is not surface area — if your answer comes out in square centimetres, you added up faces instead of filling the solid.",
+    "math": "\\frac{1}{2}\\times 6\\times 4 = 12 \\neq 24",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Half of six times four is twelve, not twenty four."
+    }
+   },
+   {
+    "say": "So whatever the prism looks like — triangle end, trapezoid end, circle end — ask two questions. What shape is the end, and what is its area? Then multiply by the height, and finish in cubic units.",
+    "math": "V = A_{\\text{base}} \\times h",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the area of the base first, then multiply by the height — and answer in cubic units.",
+  "practice": {
+   "question": "You are packing a moving box in Surrey. It is a rectangular prism: the bottom measures forty centimetres by twenty five centimetres, and the box stands thirty centimetres tall. Sketch it if that helps. Find the area of the base, then the volume in cubic centimetres.",
+   "answer": "Base area is forty times twenty five, which is one thousand square centimetres. Volume is one thousand times thirty, which is thirty thousand cubic centimetres — that is thirty litres of space."
+  }
+ }
+}

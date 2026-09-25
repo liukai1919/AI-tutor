@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.MULT.BY_DECIMAL",
+ "lang": "en",
+ "title": "Multiply two decimals and place the decimal point by counting places",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Where Does the Decimal Point Go?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to multiply a decimal by a whole number, like zero point one two five times three equals zero point three seven five. Today we take one small step further: what happens when BOTH numbers are decimals, and how do we know where the decimal point goes in the answer.",
+    "math": "0.125 \\times 3 = 0.375",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's look at a picture first. Here is a big square cut into one hundred little squares, so each little square is one hundredth. To show zero point four times zero point seven, I colour four tenths going across and seven tenths going down. The overlap piece is four rows by seven columns, which is twenty eight little squares. Twenty eight hundredths is zero point two eight.",
+    "math": "0.4 \\times 0.7 = 0.28",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      28
+     ],
+     "labels": [],
+     "caption": "4 across x 7 down = 28 hundredths = 0.28"
+    }
+   },
+   {
+    "say": "Now here is the quick way, and the picture shows why it works. First ignore the dots and multiply like whole numbers: four times seven is twenty eight. Then count the decimal places in the question. Zero point four has one place, zero point seven has one place, so one plus one is two places. Tenths times tenths make hundredths, and hundredths need two places, so we put the point so the answer has two decimal places: zero point two eight.",
+    "math": "4 \\times 7 = 28 \\quad 1+1=2 \\text{ places} \\Rightarrow 0.28",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's try a real one. At the market, blueberries cost two dollars and forty cents per kilogram, and you buy one point five kilograms. Ignore the dots: twenty four times fifteen is three hundred sixty. Now count places: two point four has one place, one point five has one place, so two places altogether. Put the point two spots from the right in three hundred sixty, and you get three point six zero. That is three dollars and sixty cents.",
+    "math": "2.4 \\times 1.5 = 3.60",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      3.6
+     ],
+     "labels": [],
+     "caption": "$3.60 - three ones and six tenths"
+    }
+   },
+   {
+    "say": "Here is the mistake I want you to dodge. Some kids line the dots up like in addition and say one point two times zero point three is three point six. But we do not line up dots when we multiply, we count places. Twelve times three is thirty six, and one place plus one place is two places, so the answer is zero point three six. It also makes sense: zero point three is less than one whole, so taking zero point three of one point two must give something smaller than one point two, not bigger.",
+    "math": "1.2 \\times 0.3 = 0.36 \\ (\\text{not } 3.6)",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      2,
+      1.2,
+      0.36
+     ],
+     "labels": [],
+     "caption": "Multiplying by 0.3 moves us DOWN, from 1.2 to 0.36"
+    }
+   },
+   {
+    "say": "So remember: multiply like whole numbers, then count the decimal places in both factors and give the answer that many places.",
+    "math": "0.4 \\times 0.7 = 0.28",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Multiply as if there were no dots, then count the decimal places in both factors - the answer gets that many places.",
+  "practice": {
+   "question": "Ms. Yuanyuan draws a big square split into one hundred little squares, and the whole square is one square metre of her Victoria garden. She colours six tenths of it going across and five tenths of it going down for her carrot patch. Work out zero point six times zero point five: how many hundredths are in the overlap, and what is the answer as a decimal number of square metres? (Try sketching the ten by ten square yourself.)",
+   "answer": "Six times five is thirty, so the overlap is thirty hundredths. Zero point six has one decimal place and zero point five has one, so the answer needs two places: zero point three zero, which is zero point three square metres."
+  }
+ }
+}

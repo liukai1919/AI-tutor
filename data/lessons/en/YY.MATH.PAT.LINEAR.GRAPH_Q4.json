@@ -1,0 +1,134 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH_Q4",
+ "lang": "en",
+ "title": "Graph a discrete linear relation in four quadrants and explain why the points are not joined",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Dots, Not a Line: Graphing in All Four Quadrants",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a table of values and how to plot points in all four quadrants, so today we only add one small thing. Here is the setup: at lunch you and your friends play a card game where you can go below zero. Right now you are sitting at three points, and every round you win two more points. Let x be the number of rounds from now, so negative x means rounds that already happened, and let y be your score. That gives the linear relation y equals two x plus three, and here is the table.",
+    "math": "y = 2x + 3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -3,
+      -1,
+      1,
+      3,
+      5,
+      7
+     ],
+     "labels": [
+      "x = -3",
+      "x = -2",
+      "x = -1",
+      "x = 0",
+      "x = 1",
+      "x = 2"
+     ],
+     "caption": "Each column is one round; the value shown is your score y."
+    }
+   },
+   {
+    "say": "Now every row of that table turns into one dot. Three rounds ago you were at negative three, so that dot is left three and down three. One round ago you were at one point, so that one is left one and up one. Right now you are at zero rounds and three points, so that dot sits right on the y axis. Notice how the dots march up the grid in a perfectly straight pattern, but they are still six separate dots.",
+    "math": "(-3,-3),(-2,-1),(-1,1),(0,3),(1,5),(2,7)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      -3,
+      -2,
+      -1,
+      -1,
+      1,
+      0,
+      3,
+      1,
+      5,
+      2,
+      7
+     ],
+     "labels": [],
+     "caption": "Six dots from six rows of the table, spread across the four-quadrant grid."
+    }
+   },
+   {
+    "say": "Here is the one idea for today. Ask yourself what would sit halfway between two dots. That would be half a round of cards, and half a round does not exist. You either finish a round or you do not, so x can only be a whole number. When the input can only be whole numbers, we call the relation discrete, and a discrete graph is dots only. The dots are allowed to look lined up, but the space between them is empty.",
+    "math": "x \\in \\{-3,-2,-1,0,1,2\\}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      -3,
+      -2,
+      -1,
+      -1,
+      1,
+      0,
+      3,
+      1,
+      5,
+      2,
+      7
+     ],
+     "labels": [],
+     "caption": "The dots line up beautifully, but the gaps between them stay empty."
+    }
+   },
+   {
+    "say": "Now the mistake almost everyone makes. It is so tempting to grab a ruler and connect the dots into one long line, like this picture shows. But look at what that line says: at x equals one half, it reads y equals four. That is claiming that after half a round you would be at four points, and that is simply not a thing that can happen. The line invents scores that never existed, so leave the ruler in your pencil case.",
+    "math": "",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      4,
+      -6,
+      8
+     ],
+     "labels": [
+      "2*x+3"
+     ],
+     "caption": "The mistake: this solid line says every in-between value is real. It is not."
+    }
+   },
+   {
+    "say": "One more thing to watch, and it is all about signs. One round ago your score was one point, so that point is negative one, one: left one, then up one, landing in quadrant two. If you rush and plot one, negative one instead, you drop down into quadrant four and you have told a completely different story. Read the x number first and go left or right, then read the y number and go up or down. Same digits, opposite quadrants.",
+    "math": "(-1,1) \\neq (1,-1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -1,
+      1,
+      1,
+      -1
+     ],
+     "labels": [
+      "correct (-1, 1)",
+      "wrong (1, -1)"
+     ],
+     "caption": "Same two digits, but swapping the signs throws the point into the wrong quadrant."
+    }
+   },
+   {
+    "say": "So here is the whole thing in one breath. Build the table, plot each pair as its own dot, watch your signs so each dot lands in the right quadrant, and then stop. If the x values can only be whole numbers, the graph stays as separate dots forever.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Discrete relation? Plot the dots, mind the signs, and never join them.",
+  "practice": {
+   "question": "In a Vancouver parkade, each level you go up is three metres higher, and each underground level is three metres lower. Let x be the level number, where negative one and negative two mean the underground levels P one and P two, and let y be the height in metres compared to the ground. The relation is y equals three x. Make a table for x equals negative three, negative two, negative one, zero, one and two, draw your own four-quadrant grid, and plot the points. Then answer: should you join them with a straight line, and why?",
+   "answer": "The points are negative three and negative nine, negative two and negative six, negative one and negative three, zero and zero, one and three, and two and six. Do not join them. There is no level one and a half in a parkade, so only whole numbers make sense for x. The graph stays as six separate dots that happen to line up."
+  }
+ }
+}

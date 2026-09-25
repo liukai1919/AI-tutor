@@ -27,10 +27,10 @@
 
 **包里已经带了什么**（都不需要 AI 引擎）：
 
-- BC 省 G4-G7 数学大纲的**全部课程**，中英各一份，点开秒出，断网也能上
+- BC 省 G4-G9 数学大纲 + 高中主干（**FMP 10 → Pre-calculus 11 → Pre-calculus 12**）的**全部课程**，中英各一份，点开秒出，断网也能上
 - 每节课配套的**闯关题库**
-- 每个单元的**单元测试卷**（每年级 5 张，中英各一份）
-- **真人感语音**，中英文都有（CosyVoice 预先合成好的，不是浏览器那个机械音）
+- 每条主线 / 每个单元的**单元测试卷**（中英各一份）
+- **真人感语音**，中英文都有（预先合成好的，不是浏览器那个机械音）
 
 **什么还需要装 AI 引擎**（下一节讲怎么装，Ollama 免费离线）：
 
@@ -71,11 +71,16 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
   "port": 8434,
   "registrationCode": "",    // 第一位家长注册完，注册就自动关闭了；设了邀请码才能再开新家庭
   "provider": "auto",        // 固定用某个引擎：ollama | grok | claude | gemini | codex | anthropic | openai
+  "providerByTask": {        // 按任务挑引擎（可选）。任务名和用量账本一致：
+    "quiz": "ollama",        //   teach 讲课 / ask 拍照问题 / quiz 闯关出题 / unit 单元卷 / fsa / report /
+    "ask": "claude"          //   pregen:teach|quiz|unit（构建期跑批）/ judge:teach|quiz|unit（构建期审稿）
+  },                         // 路由的引擎当时不可用就退回 provider / 自动挑，绝不挡孩子的课
   "ollama": {
     "url": "http://localhost:11434",
     "model": "",             // 留空自动挑；建议 qwen 系列（数学好、支持中文和看图）
-    "think": true            // 关掉可提速，但数学准确率下降，不建议
-  },
+    "think": true,           // 关掉可提速，但数学准确率下降，不建议
+    "structured": false      // true = 用 Ollama 的 JSON-schema 约束解码。默认关：qwen3.8 在约束解码下
+  },                         //   会随机截断中文字符串，「提示词说明格式 + 校验重试」这条路更稳
   "anthropic": { "apiKey": "", "model": "claude-opus-5" },
   "openai": { "baseUrl": "", "apiKey": "", "model": "" },  // OpenRouter/xAI 等 OpenAI 兼容服务
   "tts": { ... }               // 自然语音（可选），见下面「自然语音」一节
@@ -127,14 +132,25 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
 AI 只负责基于这些数字写叙事。生成一份约 1-2 分钟（走一次 AI），自动存档在
 `data/kids/<孩子id>/reports.json`（每孩子留最近 50 份），随时回看、对比、打印，不用重新生成。
 
-## 自然语音（可选，CosyVoice 2）
+## 自然语音（可选）
 
-默认用孩子设备浏览器自带的语音朗读（免费、零配置，但比较生硬）。如果服务器这台机器装了
-[CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)（本地模型，Apache-2.0，2-4GB 显存，CPU 也能跑），
-配置后讲解会换成自然的真人感声音，中英文同一个音色。
+默认用孩子设备浏览器自带的语音朗读（免费、零配置，但比较生硬）。服务器这台机器配好本地语音
+引擎之后，讲解会换成自然的真人感声音。
 
-**推荐跑法：常驻守护进程**（模型只加载一次，之后每步 2-9 秒出声）。
-用 CosyVoice 自己的 Python 环境启动 `tools/tts_server.py`：
+**中英文用的是两个引擎**（2026-09-16 起）：
+
+| | 引擎 | 声音从哪来 |
+| --- | --- | --- |
+| 中文 | [CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)，`tools/tts_server.py` | zero_shot 模仿一段参考录音 |
+| 英文 | [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)，`tools/kokoro_tts_server.py` | 公开预置音色 `af_heart`，不需要参考音 |
+
+所以中英文不是同一个声音。另外**以前生成过的音频一律不重新生成**，而英文是 2026-09-16 之后
+才换的引擎——**英文课里会同时听到新旧两种声音**（老的那些是 CosyVoice 的），这是明知的取舍：
+重新生成意味着近 6000 条全部重来。
+
+### 中文：CosyVoice 2
+
+需要 2-4GB 显存（CPU 也能跑，但慢）。用 CosyVoice 自己的 Python 环境启动：
 
 ```bash
 # 在装了 CosyVoice 的环境里（Windows 上通常是 WSL）：
@@ -142,37 +158,75 @@ python tools/tts_server.py --port 9880
 # 模型不在 ~/tts/CosyVoice 时：--repo /path/CosyVoice [--model-dir ...]
 ```
 
-守护进程默认只监听 `127.0.0.1`——`/synth` 没有鉴权，谁连得上谁就能排队占你的显卡。
-在 WSL 里跑也不影响 Windows 上的 node 访问（WSL 的端口转发直接打到 VM 的 loopback，实测可用）。
-只有守护进程和 node 不在同一台机器上时才需要 `--host 0.0.0.0`，那种情况请自己配防火墙。
+不想常驻的话还有**命令模式**：`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`，
+每节课起一次进程批量合成（每次多付 ~12 秒模型加载）。
 
-然后 config.json 里指过去：
+### 英文：Kokoro-82M
+
+Apache-2.0，8200 万参数，**不用显卡**（CPU 上约 5-6 倍实时；这个 venv 里换成 CUDA 版 torch 再加
+`--device cuda` 就能上显卡）。用的是公开的预置音色 `af_heart`，**不克隆任何真人的声音**。
+
+和别的 Python 环境分开，单开一个 venv（英文只要 `misaki[en]`）：
+
+```bash
+python3 -m venv .venv-kokoro
+.venv-kokoro/bin/python -m pip install kokoro==0.9.4 "misaki[en]==0.9.4"
+.venv-kokoro/bin/python -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+
+# 模型快照下一次就够（唯一联网的一步，约 350MB；版本钉死，不要改）
+.venv-kokoro/bin/python -c "from huggingface_hub import snapshot_download as d; d('hexgrad/Kokoro-82M', revision='f3ff3571791e39611d31c381e3a41a3af07b4987')"
+```
+
+英文要 espeak-ng 做音素转换。Linux / WSL 上 `espeakng_loader` 自带的库通常直接能用，不行就
+`sudo apt install espeak-ng`。macOS 上 `brew install espeak-ng`——守护进程会自动指向 Homebrew 的路径，
+装在别处就用 `RA_ESPEAK_LIBRARY` / `RA_ESPEAK_DATA` 两个环境变量覆盖。
+
+```bash
+.venv-kokoro/bin/python tools/kokoro_tts_server.py --port 9881
+# 英文语速：--speed 0.9（见下）。上显卡：--device cuda
+# 快照不在默认的 HF 缓存里：--model-dir <快照目录>
+```
+
+它只做英文：收到中文请求直接返回 400，不会拿英文音色去念中文。
+
+### 配置
 
 ```jsonc
 "tts": {
   "enabled": true,
-  "url": "http://localhost:9880",   // 守护进程地址（WSL 里跑也是 localhost，自动转发）
-  "mode": "zero_shot",              // 跟参考音最像（默认）。instruct 可用指令控语气，但部分
-                                    // CosyVoice 版本会把指令念出来，确认没问题再换
-
-  "speed": 1.0,
-  "refAudio": "",                   // 换音色：一段 3 秒以上干净人声的路径（引擎侧视角）
-  "refText": "",                    // zero_shot 模式需要参考音的逐字转写
-  "refLang": "zh"
+  "url": {                          // 也可以写成一个字符串，那样所有语言都发同一个地址
+    "zh": "http://localhost:9880",  // CosyVoice 2
+    "en": "http://localhost:9881"   // Kokoro
+  },
+  "voice": {                        // 只是备忘，不进哈希
+    "zh": "cosyvoice2 (zero_shot)",
+    "en": "kokoro-82M af_heart"
+  },
+  "mode": "zero_shot",              // 下面这几项**进语音文件名的哈希**：动一下，
+  "speed": 1.0,                     // 已经生成好的近 6000 条全部对不上，必须重新生成
+  "refAudio": "", "refText": "", "refLang": "zh"
 }
 ```
+
+⚠️ **`speed` 不要动。** 它在哈希里，而且中英文共用一个值。英文语速改用 Kokoro 守护进程的
+`--speed`（实际语速 = 请求里的 `speed` × `--speed`），它不进哈希——代价是改了之后，以前生成过的
+英文不会跟着变。
+
+某个语言没配地址，那个语言就直接退回浏览器语音。两台守护进程的失败是分开算的：中文那台挂了
+不会把英文也停掉。
 
 Windows + WSL 建议把守护进程装成 systemd 服务（`systemctl enable --now yuanyuan-tts`，
 unit 参考 README 同目录的 videogen 写法），跟着 WSL 一起自愈；
 **不要**让 Node 每次去 spawn `wsl.exe`——这台机器实测 wslservice 会周期性 wedge（E_UNEXPECTED），
 而已在跑的守护进程和 localhost 转发不受影响。
 
-不想常驻的话还有**命令模式**：`"command": ["/path/python", "/path/ai-tutor/tools/tts_batch.py", "{manifest}"]`，
-每节课起一次进程批量合成（每次多付 ~12 秒模型加载）。url 和 command 都不配就是纯浏览器语音。
+守护进程默认都只监听 `127.0.0.1`——`/synth` 没有鉴权，谁连得上谁就能排队占你的机器。
+在 WSL 里跑也不影响 Windows 上的 node 访问（WSL 的端口转发直接打到 VM 的 loopback，实测可用）。
+只有守护进程和 node 不在同一台机器上时才需要 `--host 0.0.0.0`，那种情况请自己配防火墙。
 
 工作方式：出完题服务器就开始按步合成，按内容哈希缓存在 `tts-cache/`（上限 500MB 自动清理，
 同一道题再讲直接秒播）。某一步没就绪时前端最多等 15 秒，等不到自动退回浏览器语音，
-**任何一环失败都不影响讲课**。英文讲解用同一音色跨语言合成（cross-lingual），不用单独配。
+**任何一环失败都不影响讲课**。
 
 ## 部署到树莓派（孩子不在家也能用）
 
@@ -246,10 +300,12 @@ sudo tailscale up
 
 ## 跟大纲学（BC 省数学大纲）
 
-不止「来一题讲一题」——首页的「**跟大纲学**」tab 按加拿大 BC 省官方数学大纲（June 2016）系统教学：
+不止「来一题讲一题」——首页的「**跟大纲学**」tab 按加拿大 BC 省官方数学大纲（K-9 为 June 2016 版，10-12 年级分科课为 June 2018 版）系统教学：
 
-- 选年级（**Grade 4-7** 数据已内置）→ 看到这学期五大主线的全部知识点，
-  中英双语对照（英文是官方原文，中文标题给孩子和家长看）。
+- 选年级（**Grade 4-9** 数据已内置）→ 看到这学期五大主线的全部知识点，
+  中英双语对照（英文是官方原文，中文标题给孩子和家长看）。高中选课程——**FMP 10、Pre-calculus 11、
+  Pre-calculus 12**（通向大学数学的主干路线）——知识点按单元分组。八年级起讲课语气换成少年 / 高中生的口吻，
+  并新增函数图像、直角三角形、一般三角形、单位圆四种配图。
 - 点任一条，圆圆老师按该知识点开讲：生活例子引入 → 核心方法配图 → 1-2 个例题 → 口诀小结，
   中文课里自然带出英文术语（"小数，英文课上叫 decimal"），孩子在学校听英文课能对上号。
 - 课末练习按「答对了 ✓ / 还不会 ✗」自报对错，进度记在孩子自己名下
@@ -288,6 +344,29 @@ sudo tailscale up
 （家长登录后逐条删）。拍照题不保存照片本身，只记一个 📷 标志。
 记录跟着服务器走——孩子在平板上讲过的题，家长在电脑上登录家长账号、选中这个孩子就能翻到。
 
+## 用量账本（usage.jsonl）
+
+每一笔 AI 调用都会在数据目录记一行账（`usage.jsonl`，和 `config.json` 同目录）：
+哪个任务（讲课 / 拍照问题 / 闯关出题 / 出卷 / 报告 / 构建期 `pregen:*`）、哪个引擎、
+哪个模型、花了几秒、多少 token、多少美元（引擎报得出来的都记，claude CLI 和
+Ollama / API 类都能报）。失败的调用也记——token 已经花了，重试在账上就是两行。
+课程包 / 题库命中同样记一行零成本的，随包内容替这台机器省了多少次调用一眼可见。
+
+家长登录后进 **⚙️ 设置 → AI 引擎 → 📒 用量账本**：总览、按任务、按引擎、最近 20 笔，
+可切全部 / 最近 30 天 / 最近 7 天。
+
+同一份汇总也有 HTTP 接口，但它只认家长的会话头，浏览器地址栏直接敲会 401，
+要么用上面那一屏，要么用能带 `x-session` 头的客户端：
+
+```
+GET /api/usage            # 全部
+GET /api/usage?days=30    # 只看最近 30 天
+```
+
+这本账是「按任务挑引擎」（配置一节里的 `providerByTask`）的地基：先在账上看清
+每类任务真实花多少、成功率如何，再决定谁干什么活——比如出题跑批交给本地
+Ollama 白嫖，拍照问题留给最稳的 Claude。
+
 ## 自己打包发布
 
 ### 先搞清楚：仓库里有什么、没有什么
@@ -297,8 +376,8 @@ sudo tailscale up
 
 | 东西 | 在仓库里？ | 说明 |
 |---|---|---|
-| 课程包 `data/lessons/`（138 节） | ✅ 有 | 1.2 MB 文本，clone 下来直接能用 |
-| 单元测试卷 `data/unit-tests/`（40 张） | ✅ 有 | 328 KB 文本 |
+| 课程包 `data/lessons/`（234 节） | ✅ 有 | 约 2 MB 文本，clone 下来直接能用 |
+| 单元测试卷 `data/unit-tests/`（88 张） | ✅ 有 | 纯文本 |
 | BC 大纲 `data/curriculum/bc/` | ✅ 有 | 省政府公开材料 |
 | **闯关题库 `qbank.json`（1656 道）** | ❌ **没有** | 孩子每做一题就会写 `usedAt`，是活的用户状态，进了 git 每天都在脏 |
 | **语音包 `data/voice/`（1075 条）** | ❌ **没有** | 158 MB 二进制，进 git 就永久留在历史里删不掉 |
@@ -312,7 +391,7 @@ sudo tailscale up
 # 补闯关题库：约 92 分钟，需要一个 AI 引擎
 node tools/pregen.mjs --only quiz --concurrency 3
 
-# 补语音包：约 3.5 小时，需要 CosyVoice 守护进程 + ffmpeg
+# 补语音包：约 3.5 小时，需要两个语音守护进程 + ffmpeg
 node tools/prevoice.mjs --langs zh,en
 ```
 
@@ -325,12 +404,17 @@ node tools/prevoice.mjs --langs zh,en
 
 ```bash
 # 1. 生成课程 + 闯关题库 + 单元测试卷
-#    138 节课、138 组题库、40 张卷。需要一个 AI 引擎。
-#    跑一遍大概三四个小时，建议挂着过夜。
+#    234 节课、234 组题库、88 张卷（G4-9 + FMP 10 / Pre-calc 11 / Pre-calc 12）。需要一个 AI 引擎。
+#    本地模型跑一遍要大半天，建议挂着过夜。（--grades 8,9,fmp10,pc11,pc12 可只跑一部分，课程 id 当年级号用）
 node tools/pregen.mjs --concurrency 3
 
+#    有本地显卡想省订阅额度？便宜引擎跑批 + 强引擎审稿：
+#    生成交给 Ollama，数学对不对让 Claude 把关（审一遍比写一遍便宜得多），
+#    没过审的自动重生成一次，仍没过就留给下次跑。总账在 /api/usage 里对比。
+node tools/pregen.mjs --provider ollama --judge claude
+
 # 2. 预烘语音（中英各约 540 条，共三四个小时，约 160 MB）
-#    需要 CosyVoice 守护进程跑着 + ffmpeg。
+#    需要两个语音守护进程跑着 + ffmpeg。
 #    只烘中文的话加 --langs zh，但注意界面默认是英文，
 #    新用户开箱听到的就是英文课——不烘英文他们只能听浏览器的机械音。
 node tools/prevoice.mjs --langs zh,en
@@ -362,7 +446,7 @@ node tools/pack.mjs --version 1.0.0
 
 - 中英文：**默认英文界面**（主要面向在英文学校上学的孩子），右上角「EN / 中」一键切换，
   界面、例题、讲解语言、语音全套跟着换；设置里也能改。设备上保存过的语言选择优先于默认值。
-- 语音朗读：配置了 CosyVoice 就用自然音色（见上），否则用孩子设备浏览器自带的语音（免费、不走服务器；
+- 语音朗读：配置了本地语音引擎就用自然音色（见上），否则用孩子设备浏览器自带的语音（免费、不走服务器；
   Edge 浏览器的"Natural"在线音色效果最好，会自动优先选用）。为此 Windows 装机版（v1.1.1 起）
   启动时会优先用 Edge 应用窗口打开：联网时「自己出题」的即时讲解也是自然人声，
   没装 Edge 才退回默认浏览器。

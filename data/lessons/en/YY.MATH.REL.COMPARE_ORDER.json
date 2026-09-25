@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare and order a mix of fractions, decimals and percents on a number line",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Line Them Up: Fractions, Decimals and Percents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to switch between fractions, decimals and percents, and you know how to place numbers on a number line. This step puts those two skills together, so when someone hands you a messy mix like three quarters, zero point seven, and sixty-five percent, you can say for sure which one is biggest.",
+    "math": "\\frac{3}{4}\\;?\\;0.7\\;?\\;65\\%",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick: you cannot compare them while they are wearing different costumes. So turn every single one into a decimal first, because decimals are the easiest thing to place on a number line. Sixty-five percent means sixty-five out of one hundred, so it becomes zero point six five, and it sits a little past halfway between zero and one.",
+    "math": "65\\% = 0.65",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.65
+     ],
+     "labels": [],
+     "caption": "65% turns into 0.65 and lands just past the middle"
+    }
+   },
+   {
+    "say": "Let us do all three. Three quarters is zero point seven five. Zero point seven is already a decimal, so it stays as zero point seven. And sixty-five percent is zero point six five. Now they all speak the same language, and comparing them is easy.",
+    "math": "\\frac{3}{4}=0.75,\\quad 0.7=0.70,\\quad 65\\%=0.65",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      65
+     ],
+     "labels": [],
+     "caption": "65 shaded out of 100 squares — that is 65% and 0.65"
+    }
+   },
+   {
+    "say": "Now walk along the number line from zero to one. Zero point six five comes first, then zero point seven sits just after it, and zero point seven five is furthest to the right. Whatever is further right is bigger, so the order from smallest to biggest is sixty-five percent, then zero point seven, then three quarters. Notice I wrote zero point seven as zero point seven zero — giving them the same number of decimal places makes the comparing almost automatic.",
+    "math": "0.65 < 0.70 < 0.75",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.65,
+      0.75
+     ],
+     "labels": [],
+     "caption": "65% at 0.65, three quarters at 0.75, and 0.7 sitting between them"
+    }
+   },
+   {
+    "say": "Here is the trap I want you to dodge. Lots of people look at zero point four five and zero point seven and say the first one is bigger because it has more digits. That works for whole numbers, but not here. Write zero point seven as zero point seven zero and look again: seventy hundredths beats forty five hundredths. On the number line zero point four five is not even halfway, while zero point seven is well past the middle. Longer does not mean bigger.",
+    "math": "0.45 < 0.70",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.45,
+      0.7
+     ],
+     "labels": [],
+     "caption": "More digits does not win: 0.45 sits left of 0.7"
+    }
+   },
+   {
+    "say": "So whenever you get a mix, change everything into decimals, line them up on the number line, and read from left to right. The one furthest right is the champion.",
+    "math": "65\\% < 0.7 < \\frac{3}{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Turn them all into decimals, put them on one number line — the one furthest right is the biggest.",
+  "practice": {
+   "question": "At your school charity run in Burnaby, three classes have each raised part of their goal. Class A has reached two fifths of its goal, Class B has reached fifty-five percent, and Class C has reached zero point six of its goal. Draw a number line from zero to one, mark all three spots, then list the classes from least to greatest. Which class is closest to its goal?",
+   "answer": "Two fifths is zero point four, fifty-five percent is zero point five five, and zero point six stays zero point six. On the number line the order left to right is zero point four, zero point five five, zero point six — so least to greatest is Class A, then Class B, then Class C. Class C is closest to its goal."
+  }
+ }
+}

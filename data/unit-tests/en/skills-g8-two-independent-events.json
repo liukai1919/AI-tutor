@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "two-independent-events",
+ "lang": "en",
+ "unitName": {
+  "zh": "两个独立事件的可能性",
+  "en": "Probability of two independent events"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Probability of two independent events · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+    "level": 1,
+    "question": "At a games night, Maya spins a spinner with 4 equal sections (red, blue, green, yellow) and then rolls a regular 6-sided die. If she made a table showing every possible result of the spin paired with the roll, how many outcomes would the table have?",
+    "options": [
+     "10 outcomes",
+     "12 outcomes",
+     "24 outcomes",
+     "20 outcomes"
+    ],
+    "answerIndex": 2,
+    "explain": "For two independent events, multiply the number of choices: 4 spinner sections × 6 die faces = 24 outcomes, which is exactly the number of cells in a 4-by-6 table. The most common trap is adding 4 + 6 = 10 instead of multiplying."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.CONCEPT",
+    "level": 1,
+    "question": "Jordan has a bag holding 5 blue marbles and 3 white marbles. In which situation are the first draw and the second draw two independent events?",
+    "options": [
+     "Drawing one marble, keeping it, then drawing a second",
+     "Drawing two marbles from the bag together with one hand",
+     "Drawing one marble, giving it away, then drawing another",
+     "Drawing one marble, putting it back, then drawing again"
+    ],
+    "answerIndex": 3,
+    "explain": "Events are independent only when the first result does not change the second, so the marble must go back and the bag must still hold 8 marbles. The usual trap is thinking any two separate draws are independent — if the marble is kept or given away, the totals change and the events are dependent."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.MULTIPLY",
+    "level": 1,
+    "question": "Amir flips a fair coin and rolls a fair 6-sided die. What is the probability that he gets heads and a 5?",
+    "options": [
+     "1/12",
+     "2/3",
+     "1/6",
+     "1/2"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply the two separate probabilities: 1/2 × 1/6 = 1/12. The classic error is adding, 1/2 + 1/6 = 2/3, which is bigger than either event alone — a warning sign, since needing both things must make the chance smaller."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+    "level": 2,
+    "question": "Nina builds a table of sums for two spinners. Each spinner has 4 equal sections numbered 1, 2, 3 and 4, and she records the sum of the two spins. What is the probability that the sum is exactly 5?",
+    "options": [
+     "1/8",
+     "1/4",
+     "1/16",
+     "5/16"
+    ],
+    "answerIndex": 1,
+    "explain": "The table has 4 × 4 = 16 cells, and four of them give a sum of 5: (1,4), (2,3), (3,2) and (4,1), so the probability is 4/16 = 1/4. Many students count only (1,4) and (2,3) and answer 2/16 = 1/8, forgetting that the table treats the two spinners as different, so order counts."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.APPLY",
+    "level": 2,
+    "question": "On a November morning in Prince George, the probability of rain is 3/5 and the probability that Sofia's school bus is late is 1/4. Rain and a late bus are independent here. What is the probability that it rains and the bus is late?",
+    "options": [
+     "17/20",
+     "4/9",
+     "3/5",
+     "3/20"
+    ],
+    "answerIndex": 3,
+    "explain": "The word ‘and’ with independent events means multiply: 3/5 × 1/4 = 3/20. A frequent mistake is adding to get 17/20, or adding tops and bottoms to get 4/9 — both give an answer larger than 1/4, which is impossible when two things must happen together."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.COMPARE_FAIR",
+    "level": 2,
+    "question": "Anika and Ben spin two spinners once each. Spinner A has 2 equal sections, red and blue. Spinner B has 3 equal sections: red, red and blue. Anika wins if both spinners land on red, Ben wins if both land on blue, and otherwise nobody wins. Is this game fair?",
+    "options": [
+     "Fair — each player has exactly one winning colour",
+     "Not fair — Ben wins 1/2 and Anika wins only 1/3",
+     "Not fair — Anika wins 1/3 and Ben wins only 1/6",
+     "Fair — each player wins one half of the games played"
+    ],
+    "answerIndex": 2,
+    "explain": "Compare the two win probabilities: Anika has 1/2 × 2/3 = 1/3 and Ben has 1/2 × 1/3 = 1/6, so the game is not fair. The trap is judging fairness by counting rules (‘one winning pair each’) instead of by calculating and comparing each player's probability."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.APPLY",
+    "level": 3,
+    "question": "At a PNE booth you spin a spinner with 5 equal sections (one has a star) and roll a fair 6-sided die. You win a prize only if you land on the star and roll a number greater than 4. If 30 students each play the game once, about how many would you expect to win a prize?",
+    "options": [
+     "About 2 students",
+     "About 1 student",
+     "About 6 students",
+     "About 16 students"
+    ],
+    "answerIndex": 0,
+    "explain": "First find each probability: star is 1/5, and a number greater than 4 means 5 or 6, which is 2/6 = 1/3; multiply to get 1/15, then 30 × 1/15 = 2 students. The common slips are reading ‘greater than 4’ as only one face (1/6) or adding the two probabilities instead of multiplying."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.INDEP.CONCEPT",
+    "level": 3,
+    "question": "Priya has a bag with 4 red and 6 green gumballs. She takes one out, eats it, then takes out a second one. She writes P(both red) = 4/10 × 4/10 = 16/100. Which statement best describes what went wrong?",
+    "options": [
+     "Nothing is wrong; the two draws do not affect each other",
+     "She should have added 4/10 and 4/10 instead of multiplying",
+     "She should have used 3/9 for the second draw, not 4/10",
+     "She should have used 4/9 for the second draw, not 4/10"
+    ],
+    "answerIndex": 2,
+    "explain": "Eating the first gumball makes the draws dependent: 1 red and 1 gumball are gone, so the second draw is 3 reds out of 9, giving 4/10 × 3/9 = 2/15. The most common error is subtracting only from the total (4/9) or forgetting to change the second fraction at all — always ask whether the first result changed what is left."
+   }
+  ]
+ }
+}

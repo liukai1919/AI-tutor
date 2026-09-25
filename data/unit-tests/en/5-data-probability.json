@@ -15,7 +15,7 @@
    {
     "curriculumId": "BC.MATH.G5.DAT.01",
     "level": 1,
-    "question": "Maya's class made a double bar graph of books read in October. On the graph, each square stands for 4 books. Maya's bar is 6 squares long. How many books did Maya read?",
+    "question": "Maya's class made a bar graph of books read in October. Each square stands for 4 books. How many books did Maya read?",
     "options": [
      "10 books",
      "24 books",
@@ -23,7 +23,22 @@
      "12 books"
     ],
     "answerIndex": 1,
-    "explain": "With many-to-one correspondence, multiply the number of squares by the value of one square: 6 × 4 = 24 books. A common trap is adding 6 + 4 = 10, or forgetting the scale and reading the bar as if one square meant one book."
+    "explain": "With many-to-one correspondence, multiply the number of squares by the value of one square: 6 × 4 = 24 books. A common trap is adding 6 + 4 = 10, or forgetting the scale and reading the bar as if one square meant one book.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      24,
+      16,
+      32
+     ],
+     "labels": [
+      "Maya",
+      "Owen",
+      "Priya"
+     ],
+     "step": 4,
+     "caption": "Books read in October (each square = 4 books)"
+    }
    },
    {
     "curriculumId": "BC.MATH.G5.DAT.02",
@@ -41,7 +56,7 @@
    {
     "curriculumId": "BC.MATH.G5.DAT.01",
     "level": 1,
-    "question": "A double bar graph shows cans collected for a bottle drive. Each square stands for 10 cans. The Grade 5 bar is 7 squares long and the Grade 6 bar is 9 squares long. How many cans did Grade 5 collect?",
+    "question": "The bar graph shows the cans collected for the bottle drive. Each square stands for 10 cans. How many cans did Grade 5 collect?",
     "options": [
      "7 cans",
      "17 cans",
@@ -49,12 +64,25 @@
      "70 cans"
     ],
     "answerIndex": 3,
-    "explain": "Multiply the squares in the Grade 5 bar by the scale: 7 × 10 = 70 cans. On a double bar graph, check the legend first so you read the right bar — 90 is Grade 6's total, not Grade 5's."
+    "explain": "Multiply the squares in the Grade 5 bar by the scale: 7 × 10 = 70 cans. Check the label under each bar first so you read the right one — 90 is Grade 6's total, not Grade 5's.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      70,
+      90
+     ],
+     "labels": [
+      "Grade 5",
+      "Grade 6"
+     ],
+     "step": 10,
+     "caption": "Cans collected in the bottle drive (each square = 10 cans)"
+    }
    },
    {
     "curriculumId": "BC.MATH.G5.DAT.01",
     "level": 2,
-    "question": "At a school water station, a double bar graph shows refills on Saturday and Sunday. Each square stands for 6 water bottles. The Saturday bar is 5 squares long and the Sunday bar is 8 squares long. How many MORE bottles were filled on Sunday than on Saturday?",
+    "question": "The bar graph shows refills at the school water station on Saturday and Sunday. Each square stands for 6 bottles. How many MORE bottles were filled on Sunday than on Saturday?",
     "options": [
      "3 bottles",
      "13 bottles",
@@ -62,7 +90,20 @@
      "78 bottles"
     ],
     "answerIndex": 2,
-    "explain": "Either find each total (8 × 6 = 48 and 5 × 6 = 30, so 48 − 30 = 18) or multiply the 3 extra squares by 6. The most common trap is answering 3, the difference in squares, without applying the many-to-one scale."
+    "explain": "Either find each total (8 × 6 = 48 and 5 × 6 = 30, so 48 − 30 = 18) or multiply the 3 extra squares by 6. The most common trap is answering 3, the difference in squares, without applying the many-to-one scale.",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      30,
+      48
+     ],
+     "labels": [
+      "Saturday",
+      "Sunday"
+     ],
+     "step": 6,
+     "caption": "Water bottle refills at the school water station (each square = 6 bottles)"
+    }
    },
    {
     "curriculumId": "BC.MATH.G5.DAT.02",
@@ -106,7 +147,7 @@
    {
     "curriculumId": "BC.MATH.G5.DAT.01",
     "level": 3,
-    "question": "A double bar graph shows money raised at a school fun fair. Each square stands for $15. Division 4's bar is 6 squares long and Division 5's bar is 4 squares long. The two divisions put all of their money together to buy soccer balls that cost $25 each. How many soccer balls can they buy?",
+    "question": "The bar graph shows the money two divisions raised at the school fun fair. Each square stands for $15. The two divisions put all of their money together to buy soccer balls that cost $25 each. How many soccer balls can they buy?",
     "options": [
      "6 soccer balls",
      "10 soccer balls",
@@ -114,7 +155,20 @@
      "4 soccer balls"
     ],
     "answerIndex": 0,
-    "explain": "First use the scale: 6 × $15 = $90 and 4 × $15 = $60, giving $150 in total, then $150 ÷ $25 = 6 balls. Two common traps are adding the squares (6 + 4 = 10) as if each square were one ball, and using only one division's money ($90 ÷ $25 → 3)."
+    "explain": "First use the scale: 6 × $15 = $90 and 4 × $15 = $60, giving $150 in total, then $150 ÷ $25 = 6 balls. Two common traps are adding the squares (6 + 4 = 10) as if each square were one ball, and using only one division's money ($90 ÷ $25 → 3).",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      90,
+      60
+     ],
+     "labels": [
+      "Division 4",
+      "Division 5"
+     ],
+     "step": 15,
+     "caption": "Money raised at the fun fair (each square = $15)"
+    }
    }
   ]
  }

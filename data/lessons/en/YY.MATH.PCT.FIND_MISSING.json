@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.FIND_MISSING",
+ "lang": "en",
+ "title": "Find the missing part, whole or percent",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Working Backwards with Percents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like twenty percent of forty dollars. Today we flip it around: someone tells us the part and the percent, and we hunt for the whole.",
+    "math": "20\\% \\text{ of } ? = 8",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      20
+     ],
+     "labels": [],
+     "caption": "Twenty out of one hundred squares — that is 20 percent"
+    }
+   },
+   {
+    "say": "Here is the trick. Draw one long bar for the whole thing, which is always one hundred percent. If our clue is twenty percent, cut the bar into five equal chunks, because five twenties make one hundred. Each chunk is one of those twenty percent pieces.",
+    "math": "100\\% = 20\\% + 20\\% + 20\\% + 20\\% + 20\\%",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "20%",
+      "20%",
+      "20%",
+      "20%",
+      "20%"
+     ],
+     "caption": "The whole bar is 100 percent, cut into five equal 20 percent chunks"
+    }
+   },
+   {
+    "say": "Let us try a real one. Maya saved coins in a jar. She says twenty percent of her money is eight dollars. Since every chunk of the bar is twenty percent, every chunk must be worth eight dollars. Five chunks, eight dollars each, so eight times five is forty. The whole jar holds forty dollars.",
+    "math": "8 \\times 5 = 40",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      8,
+      8,
+      8,
+      8
+     ],
+     "labels": [
+      "$8",
+      "$8",
+      "$8",
+      "$8",
+      "$8"
+     ],
+     "caption": "Five chunks of eight dollars fill the whole bar: forty dollars"
+    }
+   },
+   {
+    "say": "Now watch a mistake lots of kids make. They see the words twenty percent and eight, and they multiply, getting one point six. But stop and think: the whole jar cannot hold less money than one little scoop from it. One dollar and sixty cents is way smaller than eight dollars, so it cannot possibly be the whole. When you are hunting for the whole, your answer must be bigger than the part.",
+    "math": "0.2 \\times 8 = 1.6 \\;\\; \\text{(too small!)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      8,
+      1.6
+     ],
+     "labels": [
+      "Part $8",
+      "Wrong whole $1.60"
+     ],
+     "caption": "The 'whole' came out shorter than the part — that is impossible"
+    }
+   },
+   {
+    "say": "Let us check our real answer to be sure. Twenty percent of forty dollars is eight dollars. That matches Maya's clue perfectly, so forty dollars is right. Always ask yourself: is my whole bigger than my part?",
+    "math": "20\\% \\text{ of } 40 = 8 \\;\\checkmark",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      8
+     ],
+     "labels": [
+      "Whole 100% = $40",
+      "Part 20% = $8"
+     ],
+     "caption": "The whole is always taller than the part"
+    }
+   }
+  ],
+  "answer": "Looking for the whole? Split the bar into equal percent chunks and build up — your whole must be BIGGER than the part.",
+  "practice": {
+   "question": "At a store in Kelowna, a winter jacket is on sale. Twenty five percent of the jacket's full price is thirty dollars. Draw a bar for the full price and cut it into four equal chunks of twenty five percent each. What is the jacket's full price?",
+   "answer": "One hundred and twenty dollars. Each twenty five percent chunk is worth thirty dollars, and thirty times four equals one hundred and twenty. Check it: twenty five percent of one hundred and twenty is thirty. And notice the whole, one hundred and twenty dollars, is bigger than the part, thirty dollars."
+  }
+ }
+}

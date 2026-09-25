@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.PYTH.APPLY",
+ "lang": "en",
+ "title": "Apply the Pythagorean theorem to real problems: ladders, diagonals of screens and fields, a canoe crossing a current",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Ladders, Screens and Fields: Pythagoras in Real Life",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to hunt down a missing leg — hypotenuse ten, leg six, and you get the square root of one hundred minus thirty six, which is eight. Today we do the same move, but nobody hands you the triangle. You have to spot it inside a real situation, like a ladder against a wall.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick that makes real problems easy. Look for the right angle first — where the wall meets the ground, where the side of a screen meets the bottom. The two sides that make that square corner are the legs. The slanted side, the one leaning across, is always the hypotenuse, and it is always the longest. It does not matter how the triangle is tipped or rotated.",
+    "math": "a^2+b^2=c^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "ground (leg)",
+      "wall (leg)",
+      "ladder (c)",
+      ""
+     ],
+     "caption": "The ladder leans across the right angle, so the ladder is c."
+    }
+   },
+   {
+    "say": "Let us try one. You are helping clean the gutters on a house in Surrey. Your ladder is five metres long, and you set the bottom of it one point five... actually, let us keep it clean: you set the bottom three metres out from the wall. How high up the wall does the top of the ladder reach? The ladder is the slanted side, so five is c. Three is one leg. The wall height is the missing leg.",
+    "math": "3^2+h^2=5^2",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "3 m",
+      "h = ?",
+      "5 m",
+      ""
+     ],
+     "caption": "Ladder 5 m, base 3 m out — how tall is h?"
+    }
+   },
+   {
+    "say": "Now subtract, because the missing side is a leg. Five squared is twenty five. Three squared is nine. Twenty five minus nine is sixteen. And here is the part people forget — sixteen is not the answer. Sixteen is h squared. Take the square root: the square root of sixteen is four. The ladder reaches four metres up the wall.",
+    "math": "h=\\sqrt{25-9}=\\sqrt{16}=4",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "3 m",
+      "4 m",
+      "5 m",
+      ""
+     ],
+     "caption": "Checked: 3 squared plus 4 squared equals 5 squared."
+    }
+   },
+   {
+    "say": "Watch the two traps. Trap one: adding when you should subtract. If you write five squared plus three squared you get thirty four, and the square root of that is about five point eight — a wall taller than the ladder itself, which is impossible. Trap two: stopping at sixteen. Sixteen is the middle of the work, not the end. Quick sanity check every time — the hypotenuse must be the biggest number in the picture.",
+    "math": "5^2+3^2=34\\;\\text{(wrong!)}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "3 m",
+      "5.8 m??",
+      "5 m",
+      ""
+     ],
+     "caption": "Adding gives a wall taller than the ladder — impossible."
+    }
+   },
+   {
+    "say": "Same skill, other direction. A rectangular soccer pitch at your school is forty metres by thirty metres, and you want to run the diagonal. The two sides are the legs, the diagonal is the hypotenuse, so this time you add. Forty squared is one thousand six hundred, thirty squared is nine hundred, together two thousand five hundred, and the square root of that is fifty metres. Slanted side missing means add; leg missing means subtract.",
+    "math": "d=\\sqrt{40^2+30^2}=\\sqrt{2500}=50",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      40,
+      30
+     ],
+     "labels": [
+      "40 m",
+      "30 m",
+      "d = 50 m",
+      ""
+     ],
+     "caption": "The diagonal across the pitch is 50 metres."
+    }
+   }
+  ],
+  "answer": "Find the right angle, name the slanted side c — then add for c, subtract for a leg, and always finish with the square root.",
+  "practice": {
+   "question": "A window cleaner in Burnaby leans a ladder against an apartment wall. The ladder is 13 metres long, and the bottom of it sits 5 metres out from the wall. How high up the wall does the top of the ladder reach? Sketch the triangle yourself, and decide first which number is the hypotenuse.",
+   "answer": "12 metres. The ladder is the slanted side, so c is 13 and 5 is a leg. A leg is missing, so subtract: 13 squared is 169, 5 squared is 25, and 169 minus 25 is 144. Then finish the job — the square root of 144 is 12."
+  }
+ }
+}

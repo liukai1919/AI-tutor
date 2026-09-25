@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EXPR.COMBINE_LIKE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkoofriuul3r5",
+   "level": 1,
+   "question": "天平（balance）的左盘上放着 4 个一模一样的小袋，每袋 n 克，另外还放了 6 个 1 克的砝码，然后又从左盘拿走 1 个小袋。左盘现在的总质量可以写成 4n + 6 − n。先合并同类项（like terms）化简，再代入 n = 5，左盘一共多少克？",
+   "options": [
+    "21 克",
+    "45 克",
+    "31 克",
+    "26 克"
+   ],
+   "answerIndex": 0,
+   "explain": "4n 和 −n 才是同类项，合并成 3n，常数 6 不动，化简成 3n + 6；代入 n = 5 得 15 + 6 = 21 克。最常踩的坑是把 4n 和 6 也凑到一起变成 9n，那样会算出 45 那个答案。",
+   "tags": [
+    "ok",
+    "expr.combine_unlike_terms",
+    "int.add_ignore_sign",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofri3ratqh",
+   "level": 1,
+   "question": "天平的左盘上放着 1 个装满的小袋（n 克）和 1 个只装了一半的同样小袋（0.5n 克），旁边还压着 3 个 1 克砝码；现在把这 3 个砝码全部拿走。左盘的质量写成 n + 0.5n − 3。先合并同类项再代入 n = 8，左盘是多少克？",
+   "options": [
+    "15 克",
+    "9 克",
+    "−12 克",
+    "5.5 克"
+   ],
+   "answerIndex": 1,
+   "explain": "n 和 0.5n 是同类项，合并成 1.5n，−3 是常数留着，化简成 1.5n − 3；代入 n = 8 得 12 − 3 = 9 克。坑在于把 −3 也当成同类项合并进去（得 −1.5n），或者把减号丢掉算成 12 + 3。",
+   "tags": [
+    "int.add_ignore_sign",
+    "ok",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofri2zktez",
+   "level": 1,
+   "question": "天平的左盘放着 2 个小袋（每袋 n 克）和 30 克砝码，右盘放着 5 个同样的小袋。左盘比右盘重多少克，可以写成 2n + 30 − 5n。先合并同类项化简，再代入 n = 4 求值。",
+   "options": [
+    "58 克",
+    "108 克",
+    "18 克",
+    "42 克"
+   ],
+   "answerIndex": 2,
+   "explain": "2n 和 −5n 合并时要带着减号：2 − 5 = −3，化简成 −3n + 30；代入 n = 4 得 −12 + 30 = 18 克。坑是把符号忽略成 2 + 5 = 7n（得 58），或者反过来算成 5n − 2n = 3n（得 42）。",
+   "tags": [
+    "int.add_ignore_sign",
+    "expr.combine_unlike_terms",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofri2eztdx",
+   "level": 1,
+   "question": "天平的左盘先放了 1 个半满的小袋（0.5n 克）和 18 克砝码，接着从左盘取走 2 个装满的小袋（每袋 n 克）。左盘现在的质量写成 0.5n − 2n + 18。先合并同类项化简，再代入 n = 6 求值。",
+   "options": [
+    "33 克",
+    "27 克",
+    "99 克",
+    "9 克"
+   ],
+   "answerIndex": 3,
+   "explain": "0.5n 和 −2n 是同类项，系数（coefficient）相加：0.5 − 2 = −1.5，化简成 −1.5n + 18；代入 n = 6 得 −9 + 18 = 9 克。坑是忽略负号算成 2.5n（得 33），或把常数 18 也当同类项合进去。",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "expr.combine_unlike_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkoofri6l8f06",
+   "level": 2,
+   "question": "先把 4x − 9x + 12 合并同类项（like terms）化简，再代入 x = 2.5 求值。结果是多少？",
+   "options": [
+    "−0.5",
+    "17.5",
+    "44.5",
+    "24.5"
+   ],
+   "answerIndex": 0,
+   "explain": "4x − 9x = −5x，化简成 −5x + 12；代入 x = 2.5 得 −12.5 + 12 = −0.5。最常见的坑是把 12 也合并进去变成 7x（得 17.5），或者不看符号算成 4 + 9 = 13。",
+   "tags": [
+    "ok",
+    "expr.combine_unlike_terms",
+    "int.add_ignore_sign",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofri2nw3eh",
+   "level": 2,
+   "question": "先把 6y + 5 − 2.5y − 8 合并同类项化简，再代入 y = 4 求值。结果是多少？",
+   "options": [
+    "2",
+    "11",
+    "27",
+    "−17"
+   ],
+   "answerIndex": 1,
+   "explain": "变量项：6 − 2.5 = 3.5，得 3.5y；常数项：5 − 8 = −3，化简成 3.5y − 3；代入 y = 4 得 14 − 3 = 11。坑是把 5 和 −8 当成同类项和 y 项一起合并，或者把 5 − 8 忽略符号算成 13。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "ok",
+    "int.add_ignore_sign",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofri0bkv6a",
+   "level": 2,
+   "question": "先把 8p − 0.5p − 14 + 6 合并同类项化简，再代入 p = 4 求值。结果是多少？",
+   "options": [
+    "50",
+    "16",
+    "22",
+    "−2"
+   ],
+   "answerIndex": 2,
+   "explain": "变量项 8 − 0.5 = 7.5 得 7.5p，常数项 −14 + 6 = −8，化简成 7.5p − 8；代入 p = 4 得 30 − 8 = 22。坑是 −14 + 6 忽略符号算成 20，或者把所有数字（含 −14 和 6）都合成一个 p 的系数。",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtkoofricmh1z3",
+   "level": 2,
+   "question": "先把 5t − t + 0.25t + 9 合并同类项化简，再代入 t = 12 求值。结果是多少？",
+   "options": [
+    "159",
+    "84",
+    "57",
+    "60"
+   ],
+   "answerIndex": 3,
+   "explain": "三个 t 项一起算：5 − 1 + 0.25 = 4.25，化简成 4.25t + 9；代入 t = 12 得 51 + 9 = 60。坑是把 −t 的符号丢掉（5 + 1 + 0.25 = 6.25），或者干脆漏掉 0.25t 这一项。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "int.add_ignore_sign",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkoofris3ht1w",
+   "level": 3,
+   "question": "在基洛纳（Kelowna）摘樱桃，每箱樱桃的质量是 n 千克，已知 4 箱樱桃共 24 千克。上午小艾装好了 8 箱，中午运走了 3.5 箱的量，托盘本身还有 12 千克。剩下的总质量写成 8n − 3.5n + 12。先合并同类项再代入求值，一共是多少千克？",
+   "options": [
+    "39 千克",
+    "81 千克",
+    "99 千克",
+    "27 千克"
+   ],
+   "answerIndex": 0,
+   "explain": "先由 4n = 24 得 n = 6；再合并同类项：8 − 3.5 = 4.5，化简成 4.5n + 12，代入得 27 + 12 = 39 千克。坑是把 −3.5n 的符号丢掉算成 11.5n（得 81），或者最后忘了加托盘的 12 千克。",
+   "tags": [
+    "ok",
+    "int.add_ignore_sign",
+    "expr.combine_unlike_terms",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoofrit3egoh",
+   "level": 3,
+   "question": "在本拿比（Burnaby）超市，一包冷冻莓果 n 加元，已知 3 包要 21 加元。小宇买了 7 包莓果，还买了 18 加元的其他东西，回家后退掉了 2 包莓果。他实际花的钱写成 7n + 18 − 2n。先合并同类项再代入求值，实际花了多少加元？",
+   "options": [
+    "161 加元",
+    "53 加元",
+    "67 加元",
+    "81 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "先由 3n = 21 得 n = 7；再合并：7n − 2n = 5n，18 是常数不动，化简成 5n + 18，代入得 35 + 18 = 53 加元。坑是把 18 也当同类项合进去，或者把 −2n 的符号丢掉算成 9n（得 81）。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "ok",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtkoofri6flqzb",
+   "level": 3,
+   "question": "求 2x − 7x + 30 在 x = 6 时的值，小林先把式子写成 9x + 30，再代入得到 84。下面哪个说法正确指出了他的问题？",
+   "options": [
+    "错在减反了方向：应该用 7x − 2x = 5x，化简成 5x + 30，代入 x = 6 得 60",
+    "错在没先合并 2x 和 30：2x + 30 = 32x，再减 7x 得 25x，代入后是 150",
+    "错在丢了减号：2x − 7x 应等于 −5x，化简成 −5x + 30，代入 x = 6 得 0",
+    "合并成 9x 本身没错，因为 2 + 7 = 9，他只是代入后漏加了 30，应得 54"
+   ],
+   "answerIndex": 2,
+   "explain": "合并同类项时系数要连着前面的符号一起算：2 − 7 = −5，所以化简结果是 −5x + 30，代入 x = 6 得 −30 + 30 = 0。最常见的坑就是只看数字把 2 和 7 相加得 9，把负号弄丢了。",
+   "tags": [
+    "other",
+    "expr.combine_unlike_terms",
+    "ok",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtkoofrinbcihy",
+   "level": 3,
+   "question": "高贵林（Coquitlam）一个班做柠檬水义卖。一大壶柠檬水是 n 升，已知半壶正好是 1 升。他们先做了 5 大壶，因为太酸倒掉了 1.5 壶的量，又从冰箱拿来 4 升现成的柠檬水。总量写成 5n − 1.5n + 4。先合并同类项再代入求值，最后一共有多少升？",
+   "options": [
+    "17 升",
+    "15 升",
+    "12.5 升",
+    "11 升"
+   ],
+   "answerIndex": 3,
+   "explain": "先由 0.5n = 1 得 n = 2；再合并同类项：5 − 1.5 = 3.5，化简成 3.5n + 4，代入得 7 + 4 = 11 升。坑是把 −1.5n 的符号丢掉算成 6.5n，或者把 4 升也当成同类项跟 n 合并。",
+   "tags": [
+    "int.add_ignore_sign",
+    "expr.combine_unlike_terms",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+ "lang": "en",
+ "title": "Build a table of values from a linear expression with integer inputs, including negatives (y = 3x − 4 for x = −2 to 3)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Filling In a Table of Values for y = 3x − 4",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to substitute a number into an expression and get one answer. Today we do that same move six times in a row, for x equals negative two all the way up to three, and we park the answers in a table of values. Our expression is y equals three x minus four.",
+    "math": "y = 3x - 4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the routine. Pick an x, multiply it by three, then subtract four, and write the answer in the y row underneath. Try x equals one: three times one is three, and three minus four is negative one. For x equals two: three times two is six, six minus four is two. For x equals three: nine minus four is five. Notice each y sits directly under its own x — that pairing is the whole point of the table.",
+    "math": "x=1:\\ 3(1)-4=-1\\quad x=2:\\ 3(2)-4=2\\quad x=3:\\ 3(3)-4=5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      -1,
+      2,
+      5
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "x",
+      "y"
+     ],
+     "caption": "Multiply by 3 first, then subtract 4 — answer goes under its x."
+    }
+   },
+   {
+    "say": "Now the negative inputs, using the exact same two moves. For x equals zero: three times zero is zero, and zero minus four is negative four. For x equals negative one: three times negative one is negative three, and negative three minus four is negative seven. For x equals negative two: three times negative two is negative six, and negative six minus four is negative ten. Nothing new — the coefficient three just lands on a negative number first.",
+    "math": "x=-2:\\ 3(-2)-4=-6-4=-10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -2,
+      -1,
+      0,
+      -10,
+      -7,
+      -4
+     ],
+     "labels": [
+      "-2",
+      "-1",
+      "0",
+      "x",
+      "y"
+     ],
+     "caption": "Negative inputs use the same two steps, no shortcuts."
+    }
+   },
+   {
+    "say": "Here is the trap almost everybody falls into. After getting negative six, some people think “two negatives make a positive” and write negative six minus four equals positive ten, or they cancel signs and say negative two. But that rule is for multiplying, not for adding and subtracting. Think of it as money: you already owe six dollars, then you spend four more — you owe ten dollars, not two. So negative six minus four is negative ten. On a number line you start at negative six and jump four steps further left.",
+    "math": "-6-4=-10\\ \\ (\\text{not } 10 \\text{ or } -2)",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -12,
+      0,
+      -6,
+      -10
+     ],
+     "labels": [],
+     "caption": "Start at −6, move 4 more to the left: you land on −10."
+    }
+   },
+   {
+    "say": "Last move: check the finished table. Read the y row left to right — negative ten, negative seven, negative four, negative one, two, five. Each jump is plus three, and each of those jumps happens while x moves up by exactly one. That matching pair, x goes up one and y goes up three, is what makes it a linear relation. Careful here: if your x values jumped by two instead of one, you would see y climbing by six, and that would still be linear — always check the x step before you judge.",
+    "math": "\\Delta x = +1,\\ \\Delta y = +3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      -10,
+      -7,
+      -4,
+      -1,
+      2,
+      5
+     ],
+     "labels": [
+      "-2",
+      "-1",
+      "0",
+      "1",
+      "2",
+      "3",
+      "x",
+      "y"
+     ],
+     "caption": "y climbs by 3 each time x climbs by 1 — constant change."
+    }
+   },
+   {
+    "say": "So that is the whole skill: go along your x values one at a time, multiply by the coefficient, subtract, and stack the answers underneath. Trust the two steps and let the negatives be negative.",
+    "math": "y = 3x - 4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Substitute one x at a time, multiply then subtract — and remember −6 − 4 is −10, not 10.",
+  "practice": {
+   "question": "You are tracking your savings account with the rule y equals four x minus six, where y is your balance in dollars and x is the number of weeks from today. Negative x means weeks in the past. Draw your own table of values with an x row and a y row, and fill in y for x equals negative two, negative one, zero, one, and two. Then say how much y changes each time x goes up by one.",
+   "answer": "When x is negative two, y is negative fourteen; when x is negative one, y is negative ten; when x is zero, y is negative six; when x is one, y is negative two; when x is two, y is two. Each time x goes up by one, y goes up by four dollars."
+  }
+ }
+}

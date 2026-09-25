@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.SAVINGS_GROWTH",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn91qdosi9ffa",
+   "level": 1,
+   "question": "A savings table has three rows. Every row starts with a principal of $400 in a savings account paying 3% simple interest. Row A is kept for 1 year, Row B for 2 years, and Row C for 6 months. Which row earns the most interest, and how much is it?",
+   "options": [
+    "Row B, with $24 of interest",
+    "Row B, with $424 of interest",
+    "Row C, with $72 of interest",
+    "Row A, with $12 of interest"
+   ],
+   "answerIndex": 0,
+   "explain": "When principal and rate are the same in every row, the longest time earns the most: 400 × 0.03 × 2 = $24. Watch the 6-month row — that is t = 0.5, not t = 6.",
+   "tags": [
+    "ok",
+    "fin.interest_as_total",
+    "fin.months_as_years",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn91qdosrha7t",
+   "level": 1,
+   "question": "A savings table lists three options that all pay 4% simple interest for 6 months. Option A starts with a principal of $300, Option B with $600, and Option C with $900. What is the total amount in Option B at the end of the 6 months?",
+   "options": [
+    "$12",
+    "$612",
+    "$744",
+    "$624"
+   ],
+   "answerIndex": 1,
+   "explain": "Six months is 1/2 of a year, so I = 600 × 0.04 × 0.5 = $12, and total = principal + interest = 600 + 12 = $612. The $12 on its own is only the interest, not the account.",
+   "tags": [
+    "fin.interest_as_total",
+    "ok",
+    "fin.months_as_years",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn91qdop8kc0l",
+   "level": 1,
+   "question": "In a savings table, Row A holds a principal of $800 at 2% simple interest for 6 months, and Row B holds a principal of $800 at 4% simple interest for 6 months. Which statement about these two rows is true?",
+   "options": [
+    "Row B earns $32 and Row A earns $16, so B doubles A",
+    "Row B earns $192 and Row A earns $96, so B doubles A",
+    "Row B earns $16 and Row A earns $8, so B doubles A",
+    "Row B totals $16 and Row A totals $8 after 6 months"
+   ],
+   "answerIndex": 2,
+   "explain": "With the same principal and time, doubling only the rate doubles the interest: 800 × 0.02 × 0.5 = $8 and 800 × 0.04 × 0.5 = $16. Those amounts are the interest earned; each account still totals over $800.",
+   "tags": [
+    "other",
+    "fin.months_as_years",
+    "ok",
+    "fin.interest_as_total"
+   ]
+  },
+  {
+   "qid": "qmtn91qdo0bvinn",
+   "level": 1,
+   "question": "A savings table has four rows, and each row starts with a principal of $500 at 3% simple interest. Row A runs for 4 months, Row B for 6 months, Row C for 12 months, and Row D for 24 months. Which row earns exactly half as much interest as Row C?",
+   "options": [
+    "Row D, because 24 months is twice 12 months",
+    "Row A, because 4 months earns $60 when t = 4",
+    "Row B, because its interest comes to $507.50",
+    "Row B, because 6 months is half of 12 months"
+   ],
+   "answerIndex": 3,
+   "explain": "With P and r fixed, interest grows in step with time, so half the time gives half the interest: 500 × 0.03 × 0.5 = $7.50, which is half of Row C's $15. The $507.50 is a total, not an interest amount.",
+   "tags": [
+    "other",
+    "fin.months_as_years",
+    "fin.interest_as_total",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn91qdotqmyux",
+   "level": 2,
+   "question": "Account M has P = $900, r = 0.03, t = 2 years. Account N has P = $900, r = 0.06, t = 12 months. Which statement is true?",
+   "options": [
+    "Both earn $54, so both totals are $954",
+    "N earns more: $648 against M's $54",
+    "N earns more, because 6% is double 3%",
+    "Both earn $54, so both totals are $54"
+   ],
+   "answerIndex": 0,
+   "explain": "Doubling the rate while halving the time leaves I = Prt unchanged: both give $54, and each total is 900 + 54 = $954. Note that 12 months means t = 1, not t = 12.",
+   "tags": [
+    "ok",
+    "fin.months_as_years",
+    "other",
+    "fin.interest_as_total"
+   ]
+  },
+  {
+   "qid": "qmtn91qdoiqmusr",
+   "level": 2,
+   "question": "Sofia has $1,200 to put away. Bank A pays 2.5% simple interest for 2 years, and Bank B pays 4% simple interest for 9 months. Which bank leaves her with the bigger total, and what is that total?",
+   "options": [
+    "Bank B, $1,632",
+    "Bank A, $1,260",
+    "Bank A, $60",
+    "Bank B, $1,236"
+   ],
+   "answerIndex": 1,
+   "explain": "Find each total: Bank A gives 1200 + 1200 × 0.025 × 2 = $1,260, and Bank B gives 1200 + 1200 × 0.04 × 0.75 = $1,236. The higher rate does not win here, because 9 months is only 0.75 of a year.",
+   "tags": [
+    "fin.months_as_years",
+    "ok",
+    "fin.interest_as_total",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn91qdourppor",
+   "level": 2,
+   "question": "A savings account has P = $2,000, r = 0.035 and t = 1 year, so I = $70. A second account keeps the same rate and the same time but starts with three times the principal. What total will the second account hold at the end of the year?",
+   "options": [
+    "$6,070",
+    "$2,210",
+    "$6,210",
+    "$210"
+   ],
+   "answerIndex": 2,
+   "explain": "Tripling the principal triples the interest, 3 × $70 = $210, and the total is the new principal plus that interest: 6000 + 210 = $6,210. The interest alone is never the final amount.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "fin.interest_as_total"
+   ]
+  },
+  {
+   "qid": "qmtn91qdow0yq2g",
+   "level": 2,
+   "question": "Rowan has $600 of birthday money to save. Which plan leaves him with the most money at the end of its term?",
+   "options": [
+    "5% for 9 months, ending with $622.50",
+    "9% for 6 months, ending with $924",
+    "4% for 18 months, ending with $36",
+    "4% for 18 months, ending with $636"
+   ],
+   "answerIndex": 3,
+   "explain": "Compare totals: 600 + 600 × 0.04 × 1.5 = $636, 600 + 600 × 0.09 × 0.5 = $627, and 600 + 600 × 0.05 × 0.75 = $622.50. The $36 is only the interest, and 6 months means t = 0.5.",
+   "tags": [
+    "other",
+    "fin.months_as_years",
+    "fin.interest_as_total",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn91qdo5p2mkp",
+   "level": 3,
+   "question": "Priya deposits $750 in a savings account paying 3% simple interest and leaves it there for 8 months. She writes I = 750 × 0.03 × 8 and gets $180. Judge her work.",
+   "options": [
+    "The interest is $15, since 8 months is 8/12 of a year",
+    "The $180 is right, since time can be counted in months",
+    "The interest is $765, since the principal must be added",
+    "The interest is $22.50, since a rate is always yearly"
+   ],
+   "answerIndex": 0,
+   "explain": "Time in I = Prt must be written in years, so 8 months is 8/12 = 2/3 of a year: 750 × 0.03 × 2/3 = $15. Using t = 8 makes the interest twelve times too large.",
+   "tags": [
+    "ok",
+    "fin.months_as_years",
+    "fin.interest_as_total",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn91qdofm5f8m",
+   "level": 3,
+   "question": "Nolan saved $480 from his paper route. His credit union offers 2% simple interest for 3 years, while a savings bond offers 5% simple interest for 9 months. Which option earns more interest, and by how much?",
+   "options": [
+    "The bond, by $187.20 of interest",
+    "The credit union, by $10.80 of interest",
+    "The bond, since 5% is far above 2%",
+    "The credit union, by $508.80 of interest"
+   ],
+   "answerIndex": 1,
+   "explain": "Compare the interest, not the rates: 480 × 0.02 × 3 = $28.80 against 480 × 0.05 × 0.75 = $18, so the credit union earns $10.80 more. Nine months is 0.75 of a year, and $508.80 is a total, not interest.",
+   "tags": [
+    "fin.months_as_years",
+    "ok",
+    "other",
+    "fin.interest_as_total"
+   ]
+  },
+  {
+   "qid": "qmtn91qdoavkez1",
+   "level": 3,
+   "question": "Maya already has $250 in her savings account. On the first day of the term she deposits her $90 birthday money into the same account, then leaves it untouched for 18 months at 4% simple interest. How much money is in the account at the end?",
+   "options": [
+    "$584.80",
+    "$20.40",
+    "$360.40",
+    "$265.00"
+   ],
+   "answerIndex": 2,
+   "explain": "Record the deposit first, so the principal is 250 + 90 = $340, then I = 340 × 0.04 × 1.5 = $20.40 and the account holds 340 + 20.40 = $360.40. The $20.40 is only the interest earned.",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_as_total",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn91qdou4z9c3",
+   "level": 3,
+   "question": "Jae has $1,000 and two savings options. Option 1 pays 6% simple interest for 2 years; Option 2 pays 4% simple interest for 3 years. Jae says Option 2 must be better because it runs for more years. Is Jae right?",
+   "options": [
+    "Yes, because more years always beat a higher rate",
+    "No, Option 1 wins, since 6% always beats 4%",
+    "No, Option 2 earns $1,120 of interest and wins",
+    "No, both earn $120, so the totals tie"
+   ],
+   "answerIndex": 3,
+   "explain": "Rate and time act together in I = Prt: 1000 × 0.06 × 2 = $120 and 1000 × 0.04 × 3 = $120, so both accounts end at $1,120. A longer time only wins if the lower rate does not cancel it out.",
+   "tags": [
+    "other",
+    "other",
+    "fin.interest_as_total",
+    "ok"
+   ]
+  }
+ ]
+}

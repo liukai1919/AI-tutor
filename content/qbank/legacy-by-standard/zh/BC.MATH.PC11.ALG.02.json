@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC11.ALG.02",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt3ja9kdt5zicx",
+   "level": 1,
+   "question": "化简分式（rational expression）：8x³/(12x²)",
+   "options": [
+    "2/3",
+    "4x/3",
+    "2x/3",
+    "2x²/3"
+   ],
+   "answerIndex": 2,
+   "explain": "先约分 8/12=2/3，再约 x³/x²=x，得 2x/3。最容易踩的坑是只约了系数却忘了约 x，或者把 x³/x² 算成 x²。"
+  },
+  {
+   "qid": "qmt3ja9kdwks8b7",
+   "level": 1,
+   "question": "分式 5x/(x² + 4x + 3) 中，x 的不允许取值（non-permissible values）是？",
+   "options": [
+    "x ≠ -1 且 x ≠ -3",
+    "x ≠ 1 且 x ≠ 3",
+    "x ≠ -1 且 x ≠ 3",
+    "x ≠ 1 且 x ≠ -3"
+   ],
+   "answerIndex": 0,
+   "explain": "把分母因式分解：x²+4x+3=(x+1)(x+3)，令其为零得 x=-1 或 x=-3。最常见的错是把因式分解时符号搞反，写成 (x-1)(x-3)。"
+  },
+  {
+   "qid": "qmt3ja9kd3gbqd9",
+   "level": 1,
+   "question": "计算 7x/(x − 2) − 3x/(x − 2)",
+   "options": [
+    "4x/(x − 4)",
+    "4x/(x − 2)²",
+    "10x/(x − 2)",
+    "4x/(x − 2)"
+   ],
+   "answerIndex": 3,
+   "explain": "同分母直接分子相减：(7x-3x)/(x-2)=4x/(x-2)。常见错误是把分母也相减得 x-4，或者把减号当加号得 10x。"
+  },
+  {
+   "qid": "qmt3ja9kdd1j1uo",
+   "level": 1,
+   "question": "化简 (2x/5) × (10/x²)",
+   "options": [
+    "4x",
+    "4/x",
+    "4x²",
+    "4"
+   ],
+   "answerIndex": 1,
+   "explain": "分子相乘 2x·10=20x，分母相乘 5·x²=5x²，约分得 4x/x²=4/x。最易错：把 x 和 x² 全约掉得 4，或只约系数留下 4x。"
+  },
+  {
+   "qid": "qmt3ja9kdznqc7m",
+   "level": 2,
+   "question": "计算 2/(x − 1) + 3/(x + 2)，结果最简形式是？",
+   "options": [
+    "(5x + 1)/(2x + 1)",
+    "5x + 1",
+    "(5x + 7)/[(x − 1)(x + 2)]",
+    "(5x + 1)/[(x − 1)(x + 2)]"
+   ],
+   "answerIndex": 3,
+   "explain": "LCD=(x-1)(x+2)，通分后分子为 2(x+2)+3(x-1)=2x+4+3x-3=5x+1。最易踩的坑是分配时符号错：3(x-1)=3x-3 而非 3x+3，否则会得到 5x+7。"
+  },
+  {
+   "qid": "qmt3ja9kdzbhku9",
+   "level": 2,
+   "question": "解分式方程（rational equation）：x/(x − 3) = 2，x 等于？",
+   "options": [
+    "6",
+    "3",
+    "-6",
+    "无解"
+   ],
+   "answerIndex": 0,
+   "explain": "两边乘 (x-3) 得 x=2(x-3)=2x-6，解出 x=6。需验证 x≠3（不允许取值），x=6 合法。常见错：把 x=3 当解（忘了它让分母为零），或移项时符号出错得 -6。"
+  },
+  {
+   "qid": "qmt3ja9kd14tvak",
+   "level": 2,
+   "question": "化简 (x² − 9)/(x + 3) ÷ (x − 3)/x",
+   "options": [
+    "x − 3",
+    "x",
+    "(x − 3)²/x",
+    "1"
+   ],
+   "answerIndex": 1,
+   "explain": "除法变乘法（翻倒数）：(x+3)(x-3)/(x+3)×x/(x-3)，分别约去 (x+3) 和 (x-3)，剩下 x。最易踩的坑是忘了把第二个分式翻倒数，导致多出一个 (x-3)。"
+  },
+  {
+   "qid": "qmt3ja9kd02s9nt",
+   "level": 2,
+   "question": "小明开车从 Vancouver 到 Whistler，路程 130 km。若速度从 v km/h 提高到 (v+10) km/h，节省的时间（小时）可表示为？",
+   "options": [
+    "130/(v + 10) − 130/v",
+    "1300/v",
+    "1300/[v(v + 10)]",
+    "130v/10"
+   ],
+   "answerIndex": 2,
+   "explain": "节省时间=130/v−130/(v+10)，通分 LCD=v(v+10)，分子=130(v+10)−130v=1300。常见错：把减法顺序写反（得负值），或直接用 v 当 LCD 漏乘 (v+10)。"
+  },
+  {
+   "qid": "qmt3ja9kd3xxx3h",
+   "level": 3,
+   "question": "解分式方程：3/(x − 2) + 2/x = 5/[x(x − 2)]，正确解是？",
+   "options": [
+    "x = 9/5",
+    "x = 1",
+    "x = 1/5",
+    "无解"
+   ],
+   "answerIndex": 0,
+   "explain": "LCD=x(x-2)，两边乘后得 3x+2(x-2)=5，即 5x-4=5，x=9/5。验证 x≠0,2，合法。最易踩的坑：展开 2(x-2) 时漏掉 -4 得 x=1，或符号写反成 +4 得 x=1/5。"
+  },
+  {
+   "qid": "qmt3ja9kdih5g71",
+   "level": 3,
+   "question": "化简分式 (x² + x − 6)/(x − 2)，正确的完整结果是？",
+   "options": [
+    "x+3",
+    "x-3",
+    "x+3（x ≠ 2）",
+    "x+3（x ≠ -3）"
+   ],
+   "answerIndex": 2,
+   "explain": "分子=(x+3)(x-2)，约去 (x-2) 得 x+3，但必须标注 x≠2（不允许取值）。常见误区：只写 x+3 忘了限制条件，或把限制错写成 x≠-3（那是分子为零的点，不是分母的）。"
+  },
+  {
+   "qid": "qmt3ja9kdu2jb8d",
+   "level": 3,
+   "question": "两个水工合作通一条下水道。甲单独通完需 x 天，乙单独通完需 2x 天。两人合作 4 天恰好通完，则 x = ?",
+   "options": [
+    "4",
+    "3",
+    "12",
+    "6"
+   ],
+   "answerIndex": 3,
+   "explain": "每天完成量：甲 1/x，乙 1/(2x)。合作 4 天：4/x+4/(2x)=1 → 6/x=1 → x=6。最易踩的坑：把题目中的「4 天」直接当答案，或用 2x 代替 x 多除了一次得 3。"
+  },
+  {
+   "qid": "qmt3ja9kdhdiid7",
+   "level": 3,
+   "question": "解分式方程 2x/(x − 3) = 6/(x − 3)，正确结果是？",
+   "options": [
+    "x = 3",
+    "无解",
+    "x = -3",
+    "x = 3 或 x = -3"
+   ],
+   "answerIndex": 1,
+   "explain": "同分母直接令分子相等：2x=6，x=3。但 x=3 使分母 x-3=0，是不允许取值（non-permissible value），必须排除！所以此方程无解。这是分式方程最经典的增根（extraneous root）陷阱。"
+  }
+ ]
+}

@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.TRANSLATE",
+ "lang": "en",
+ "title": "Translate (slide) a shape and describe the move",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Sliding a Shape: Translations",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a point on a grid, like three to the right and two up. Today we learn one small move called a translation, which just means sliding a shape without turning it or flipping it. It is like pushing your lunch tray straight across the table.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "A"
+     ],
+     "caption": "Point A sits at three right, two up"
+    }
+   },
+   {
+    "say": "Here is the whole idea. When you slide a shape, every single corner moves the same distance in the same direction. Nothing gets bigger, nothing spins around. So the trick is simple: pick one corner, add the slide to its numbers, and do the exact same thing to every other corner.",
+    "math": "(x,y)\\rightarrow(x+a,\\;y+b)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1
+     ],
+     "labels": [
+      "A",
+      "A prime"
+     ],
+     "caption": "A slides three right, zero up, and lands on A prime"
+    }
+   },
+   {
+    "say": "Let us try a real one. Imagine a little triangle sticker on a grid at the Richmond community centre. Its corners are at one and one, four and one, and one and three. We want to slide it four steps right and two steps up. Step one: take the first corner, one and one. One plus four is five, and one plus two is three. So it lands on five and three.",
+    "math": "(1,1)\\rightarrow(1+4,\\;1+2)=(5,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1,
+      1,
+      3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "The starting triangle: A, B and C"
+    }
+   },
+   {
+    "say": "Now do exactly the same to the other two corners. Four plus four is eight, and one plus two is three, so four and one lands on eight and three. Then one plus four is five, and three plus two is five, so one and three lands on five and five. Every corner moved four right and two up, so the new triangle is the same size and shape, just parked in a new spot.",
+    "math": "(4,1)\\rightarrow(8,3),\\quad(1,3)\\rightarrow(5,5)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      5,
+      3,
+      8,
+      3,
+      5,
+      5
+     ],
+     "labels": [
+      "A prime",
+      "B prime",
+      "C prime"
+     ],
+     "caption": "The slid triangle, four right and two up"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make, so let us catch it. Some people move only one corner and leave the rest where they were, which stretches the shape instead of sliding it. Others mix up the numbers and go two right and four up instead of four right and two up. Remember: the first number is always how far sideways, the second is always how far up or down, and every corner gets the very same push.",
+    "math": "(1,1)\\rightarrow(3,5)\\;\\text{is wrong};\\;(1,1)\\rightarrow(5,3)\\;\\text{is right}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      5,
+      3,
+      3,
+      5
+     ],
+     "labels": [
+      "start",
+      "right: 4 right 2 up",
+      "mixed up"
+     ],
+     "caption": "Same numbers, two different landing spots"
+    }
+   },
+   {
+    "say": "So to slide a shape, add the same two numbers to every corner, and describe the move by saying how far right or left and how far up or down.",
+    "math": "(x,y)\\rightarrow(x+4,\\;y+2)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To translate a shape, add the same slide to every corner: right or left changes x, up or down changes y.",
+  "practice": {
+   "question": "On a grid map of a Vancouver park, a rectangular picnic blanket has corners at two and one, five and one, two and three, and five and three. A gust of wind slides the whole blanket three steps right and one step down. Where does each corner land, and how would you describe the move in words?",
+   "answer": "Two and one goes to five and zero. Five and one goes to eight and zero. Two and three goes to five and two. Five and three goes to eight and two. The move is: three steps right and one step down, so x plus three and y minus one."
+  }
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.ANALYZE",
+ "lang": "en",
+ "title": "Analyze a linear graph: the rate of change as slope, what the y-intercept means, and how the equation shows both (y = 2.5x + 10)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading the Story in y = 2.5x + 10",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a graph, read the jump between points and the value at x equals zero, and write the rule. Today we go the other direction. Someone hands you the equation y equals two point five x plus ten and its graph, and your job is to explain what each number means in real life and how the graph shows it. Here is our story: your weekly allowance is a ten dollar base, plus two dollars fifty for every chore you finish. x is the number of chores, y is the dollars you get.",
+    "math": "y = 2.5x + 10",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      8,
+      0,
+      30
+     ],
+     "labels": [
+      "2.5*x+10"
+     ],
+     "caption": "Allowance y in dollars for x chores: y = 2.5x + 10"
+    }
+   },
+   {
+    "say": "Start with the plus ten. Ask: what happens when x is zero, meaning zero chores? Two point five times zero is zero, so y is just ten. On the graph that is the point zero comma ten, where the line crosses the y axis. That point is called the y intercept. In real life it is the money you get before doing anything, the ten dollar base. The table shows it too: the row with x equals zero has y equals ten.",
+    "math": "x = 0:\\quad y = 2.5(0) + 10 = 10",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      2,
+      4,
+      6,
+      10,
+      15,
+      20,
+      25
+     ],
+     "labels": [
+      "chores x",
+      "dollars y"
+     ],
+     "caption": "At x = 0 the value is 10: that is the y-intercept"
+    }
+   },
+   {
+    "say": "Now the two point five, the coefficient of x. That is the slope, the rate of change. Slope is rise over run: how much y goes up divided by how much x goes across. Pick two points from the graph, zero comma ten and two comma fifteen. The rise is fifteen minus ten, which is five. The run is two minus zero, which is two. Five over two is two point five. So every extra chore adds two dollars fifty, and the graph climbs at that steady rate, which is why it is a straight line.",
+    "math": "m = \\frac{15 - 10}{2 - 0} = \\frac{5}{2} = 2.5",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      8,
+      0,
+      30
+     ],
+     "labels": [
+      "2.5*x+10"
+     ],
+     "caption": "From (0, 10) to (2, 15): rise 5, run 2, slope 2.5"
+    }
+   },
+   {
+    "say": "Here is a mistake I see a lot. Someone reads y equals two point five x plus ten and says, you start with two fifty and get ten dollars per chore. That swaps the two numbers. Let us judge it against the graph. That swapped story would be y equals ten x plus two point five, the steep line. It crosses the y axis at two point five, but our real graph crosses at ten. After two chores it would give twenty two dollars fifty, but the real graph shows fifteen. So the number multiplying x is always the rate of change, and the number standing alone is always the starting value.",
+    "math": "y = 10x + 2.5 \\ne 2.5x + 10",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      0,
+      4,
+      0,
+      45
+     ],
+     "labels": [
+      "2.5*x+10",
+      "10*x+2.5"
+     ],
+     "caption": "Swapping the numbers gives a totally different line"
+    }
+   },
+   {
+    "say": "Two more traps. First, if a table starts at x equals one, the first row is not the y intercept. At one chore, y is two point five plus ten, which is twelve fifty. The intercept is at x equals zero, so you step back one chore and subtract two fifty to get ten. Second, do not flip the slope into run over rise. Run over rise here would be two over five, which is zero point four, meaning only forty cents per chore. But the money clearly jumps five dollars over two chores, so two fifty per chore is right. Rise goes on top.",
+    "math": "m = \\frac{\\text{rise}}{\\text{run}} = \\frac{5}{2},\\quad \\text{not } \\frac{2}{5}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      12.5,
+      15,
+      17.5
+     ],
+     "labels": [
+      "chores x",
+      "dollars y"
+     ],
+     "caption": "First row 12.5 is NOT the intercept; step back to x = 0 to get 10"
+    }
+   },
+   {
+    "say": "So in y equals two point five x plus ten, the two point five is the slope, the rate of change, two dollars fifty per chore, and the ten is the y intercept, the ten dollars you start with at zero chores. Read the coefficient as the rate and the constant as the start, and the graph will always agree with you.",
+    "math": "y = \\underbrace{2.5}_{\\text{slope}}\\,x + \\underbrace{10}_{\\text{y-intercept}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "In y = mx + b, m is the slope (rate of change) and b is the y-intercept (value at x = 0).",
+  "practice": {
+   "question": "A school snack stand tracks the dollars in its cash box, y, after selling x drinks. On a coordinate grid the graph is a straight line through the points zero comma four, two comma seven, and four comma ten. Find the slope and the y-intercept, explain what each one means in real life, and write the equation.",
+   "answer": "Slope = (7 − 4) ÷ (2 − 0) = 3 ÷ 2 = 1.5, so each drink adds $1.50. The y-intercept is 4 (the point at x = 0), so the box started with a $4 float before any sales. Equation: y = 1.5x + 4."
+  }
+ }
+}

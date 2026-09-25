@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.ZERO_ONE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlsoxin7f2jei",
+   "level": 1,
+   "question": "下面是一张用文字写出的幂（power）表格（table）：5³ = 125，5² = 25，5¹ = 5，5⁰ = ？。表格里每往下一行，指数（exponent）减 1，结果就除以一次底数（base）5。按这个规律，5⁰ 应该填多少？",
+   "options": [
+    "5⁰ = 1",
+    "5⁰ = 0",
+    "5⁰ = 5",
+    "5⁰ = 1/5"
+   ],
+   "answerIndex": 0,
+   "explain": "5¹ = 5，再往下一行要再除以一次底数：5 ÷ 5 = 1，所以 5⁰ = 1。最常见的坑是把零指数（zero exponent）当成 0，其实「再除以一次底数」得到的是 1，不是 0。",
+   "tags": [
+    "ok",
+    "exp.zero_exponent_zero",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxinpcxh78",
+   "level": 1,
+   "question": "一张用文字写出的表格：3⁴ = 81，3³ = 27，3² = 9，3¹ = ？。每往下一行，指数减 1，结果除以一次底数 3。按这个规律，3¹ 应该填多少？",
+   "options": [
+    "3¹ = 1",
+    "3¹ = 3",
+    "3¹ = 9",
+    "3¹ = 0"
+   ],
+   "answerIndex": 1,
+   "explain": "3² = 9，往下一行再除以一次底数：9 ÷ 3 = 3，所以 3¹ = 3，一次幂就是底数本身。别把 3¹ 当成 1，只有 3⁰ 才等于 1。",
+   "tags": [
+    "exp.one_exponent_one",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxinspkz2r",
+   "level": 1,
+   "question": "一张用文字写出的表格：10³ = 1000，10² = 100，10¹ = ？，10⁰ = ？。每往下一行，指数减 1，结果就除以一次底数 10。表格最后两格应该填什么？",
+   "options": [
+    "10¹ = 1，10⁰ = 1",
+    "10¹ = 10，10⁰ = 0",
+    "10¹ = 10，10⁰ = 1",
+    "10¹ = 10，10⁰ = 10"
+   ],
+   "answerIndex": 2,
+   "explain": "100 ÷ 10 = 10，所以 10¹ = 10；再除以 10 得 10 ÷ 10 = 1，所以 10⁰ = 1。每往下一行只是除以一次底数，结果不会突然变成 0，一次幂也不会变成 1。",
+   "tags": [
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxindgr40a",
+   "level": 1,
+   "question": "一张用文字写出的表格：4³ = 64，4² = 16，4¹ = 4，4⁰ = ？。每往下一行，指数减 1，结果除以一次底数 4。按这个规律（pattern），4⁰ 等于多少？理由是什么？",
+   "options": [
+    "4⁰ = 0，因为指数是 0，表示一个 4 都没有乘",
+    "4⁰ = 4，因为指数是 0 时底数保持原样不变",
+    "4⁰ = 1，因为一次幂本来就是 1，零次幂也一样",
+    "4⁰ = 1，因为 4¹ = 4，再除以 4 得 1"
+   ],
+   "answerIndex": 3,
+   "explain": "表格里每往下一行就除以一次底数：4¹ = 4，4 ÷ 4 = 1，所以 4⁰ = 1。零指数（zero exponent）不是「没有乘所以是 0」，而是「从 4 再除回去一次」得到 1；而 4¹ = 4 并不是 1。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "other",
+    "exp.one_exponent_one",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsoxinkjqtrq",
+   "level": 2,
+   "question": "m 是任意一个不为 0 的数。m¹ × m⁰ 的值是多少？",
+   "options": [
+    "等于 m",
+    "等于 0",
+    "等于 1",
+    "等于 m²"
+   ],
+   "answerIndex": 0,
+   "explain": "m¹ = m，m⁰ = 1，所以 m¹ × m⁰ = m × 1 = m（用指数相加也得 m¹⁺⁰ = m¹ = m）。坑在把 m⁰ 算成 0 而得 0，或把 m¹ 算成 1 而得 1。",
+   "tags": [
+    "ok",
+    "exp.zero_exponent_zero",
+    "exp.one_exponent_one",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxin846xtn",
+   "level": 2,
+   "question": "计算 9⁰ + 9¹ 的值。",
+   "options": [
+    "等于 9",
+    "等于 10",
+    "等于 2",
+    "等于 18"
+   ],
+   "answerIndex": 1,
+   "explain": "9⁰ = 1，9¹ = 9，相加得 10。若把 9⁰ 当成 0 会得 9，若把 9¹ 当成 1 会得 2。记住：零次幂是 1，一次幂是底数本身。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "ok",
+    "exp.one_exponent_one",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxinrhreud",
+   "level": 2,
+   "question": "y 是不为 0 的数。小婷想用 y⁷ ÷ y⁷ 来说明 y⁰ 的值。下面哪一种推理是正确的？",
+   "options": [
+    "y⁷ ÷ y⁷ = y⁰，指数 7 − 7 = 0，所以值是 0",
+    "y⁷ ÷ y⁷ = y¹，一次幂都等于 1，所以值是 1",
+    "y⁷ ÷ y⁷ = y⁰，一个数除以自己得 1，所以值是 1",
+    "y⁷ ÷ y⁷ = y⁰，底数 y 还剩一个，所以值是 y"
+   ],
+   "answerIndex": 2,
+   "explain": "y⁷ ÷ y⁷ 用指数相减是 y⁰，而一个不为 0 的数除以它自己一定得 1，所以 y⁰ = 1。指数是 0 不代表结果是 0，它只是说「除到一个底数都不剩」，剩下的是 1。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "exp.one_exponent_one",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxin4cok7e",
+   "level": 2,
+   "question": "k 是不为 0 的数。按「每次除以底数」的规律：k³ ÷ k = k²，k² ÷ k = k¹，k¹ ÷ k = k⁰。那么 k¹ 和 k⁰ 分别等于多少？",
+   "options": [
+    "k¹ = k，k⁰ = 0",
+    "k¹ = k，k⁰ = k",
+    "k¹ = 1，k⁰ = 1",
+    "k¹ = k，k⁰ = 1"
+   ],
+   "answerIndex": 3,
+   "explain": "k² = k × k，除以 k 后只剩一个 k，所以 k¹ = k；再除以 k，k ÷ k = 1，所以 k⁰ = 1。别把 k¹ 写成 1，也别把 k⁰ 写成 0。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "other",
+    "exp.one_exponent_one",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsoxineej2w9",
+   "level": 3,
+   "question": "在 Surrey 的科学课上，老师把一张纸对折：每对折一次，层数就变成原来的 2 倍，对折 n 次后层数是 2ⁿ。已知对折 3 次是 8 层，对折 2 次是 4 层。按「少折一次就除以 2」的规律，对折 1 次和一次都不折时，各有几层？",
+   "options": [
+    "2 层和 1 层",
+    "2 层和 0 层",
+    "1 层和 0 层",
+    "1 层和 1 层"
+   ],
+   "answerIndex": 0,
+   "explain": "4 ÷ 2 = 2，对折 1 次是 2 层（2¹ = 2）；再 2 ÷ 2 = 1，不折就是原来的 1 层（2⁰ = 1）。一张纸不折当然还是 1 层，不会是 0 层，这就是零次幂等于 1 的道理。",
+   "tags": [
+    "ok",
+    "exp.zero_exponent_zero",
+    "other",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsoxin9me3s0",
+   "level": 3,
+   "question": "Burnaby 湖里的一种浮萍每天数量变为前一天的 4 倍，投放后第 d 天的数量是 5 × 4ᵈ 株（d = 0 表示刚投放那天）。第 2 天有 80 株。按「每往前一天就除以 4」的规律，第 1 天和第 0 天各有多少株？",
+   "options": [
+    "20 株和 0 株",
+    "20 株和 5 株",
+    "5 株和 5 株",
+    "5 株和 0 株"
+   ],
+   "answerIndex": 1,
+   "explain": "80 ÷ 4 = 20，第 1 天是 20 株（5 × 4¹ = 5 × 4）；20 ÷ 4 = 5，第 0 天是 5 株（5 × 4⁰ = 5 × 1）。刚投放时当然有 5 株而不是 0 株，所以 4⁰ 是 1 不是 0；4¹ 是 4 也不是 1。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "ok",
+    "exp.one_exponent_one",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsoxin7wgff2",
+   "level": 3,
+   "question": "小雅在做作业时写下 8⁰ = 0，理由是「8 一次都没有乘，什么都没有，所以是 0」。下面哪个说法是正确的？",
+   "options": [
+    "她算对了：一个 8 都没有乘，结果当然就是 0",
+    "8⁰ 应是 8：指数是 0 时底数保持原样不变",
+    "8⁰ 应是 1：8¹ = 8，再除以 8 得 1",
+    "8⁰ 应是 1：一次幂都是 1，零次幂跟着也是 1"
+   ],
+   "answerIndex": 2,
+   "explain": "按「每次除以底数」的规律，8¹ = 8，再除以 8 得 1，所以 8⁰ = 1。「没乘任何 8」得到的不是 0，而是乘法的起点 1；同时 8¹ = 8 并不是 1，所以「一次幂都是 1」的理由也站不住。",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "other",
+    "ok",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsoxinei4k88",
+   "level": 3,
+   "question": "阿杰说：「指数是 1 的幂全都等于 1，所以 m¹ = 1。」（m 是不为 0 的数）下面哪个说法正确？",
+   "options": [
+    "他对，m¹ = 1：指数变成 1 之后底数就完全不起作用了",
+    "他错，m¹ = m²：一次幂就是把 m 再乘一次它自己",
+    "他错，m¹ = m，但 m⁰ = 0：再除一次底数就什么都没了",
+    "他错，m¹ = m：m² ÷ m 只剩一个 m，不是 1"
+   ],
+   "answerIndex": 3,
+   "explain": "m² ÷ m 是从两个 m 里除掉一个，还剩一个 m，所以 m¹ = m，一次幂就是底数本身。再除以一次底数 m ÷ m = 1 才得到 m⁰，它等于 1 而不是 0。",
+   "tags": [
+    "exp.one_exponent_one",
+    "other",
+    "exp.zero_exponent_zero",
+    "ok"
+   ]
+  }
+ ]
+}

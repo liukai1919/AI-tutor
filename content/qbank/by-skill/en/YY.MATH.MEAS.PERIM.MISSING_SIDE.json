@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtjmp1lj7w1t98",
+   "level": 1,
+   "question": "A rectangle has a perimeter of 30 cm. Its length is 9 cm, and the opposite side is also 9 cm. The two widths are equal to each other. How long is one width?",
+   "options": [
+    "6 cm",
+    "21 cm",
+    "12 cm",
+    "39 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Take both lengths away first: 30 − 9 − 9 = 12 cm is left for the two widths, so one width is 12 ÷ 2 = 6 cm. The common trap is stopping at 12 cm, which is two widths joined together.",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lj8aq4ez",
+   "level": 1,
+   "question": "A rectangle has a perimeter of 24 m. Each of its two lengths is 7 m, and its two widths are both w. Which equation matches this rectangle?",
+   "options": [
+    "w + 7 + 7 = 24",
+    "w + w + 7 + 7 = 24",
+    "24 + 7 + 7 = w + w",
+    "w + w = 24 + 7 + 7"
+   ],
+   "answerIndex": 1,
+   "explain": "Perimeter means all four sides added, so the equation needs both 7 m lengths and both w widths: w + w + 7 + 7 = 24. Writing only one w leaves a side out, and adding 7 + 7 onto 24 undoes the wrong operation.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "ok",
+    "eq.inverse_wrong",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1ljgmk5mg",
+   "level": 1,
+   "question": "A square has a perimeter of 36 cm. A square has 4 sides and all of them are the same length. How long is one side?",
+   "options": [
+    "18 cm",
+    "32 cm",
+    "9 cm",
+    "40 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "All four sides are equal, so 4 × s = 36 and s = 36 ÷ 4 = 9 cm. Dividing by 2 gives 18 cm, which only accounts for two of the four sides.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "other",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lkjsctf7",
+   "level": 1,
+   "question": "A rectangle has a perimeter of 40 cm. Its two widths measure 6 cm each, and its two lengths are equal. Which plan finds one length correctly?",
+   "options": [
+    "Take away only 6 from 40, then call the rest the length.",
+    "Split 40 in two, then take away 6 + 6 = 12 from the half.",
+    "Add 6 + 6 = 12 onto 40, then split that new total in two.",
+    "Take away 6 + 6 = 12 from 40, then split the rest in two."
+   ],
+   "answerIndex": 3,
+   "explain": "The two widths use up 6 + 6 = 12 cm, so 40 − 12 = 28 cm is shared by the two lengths, giving 14 cm each. Removing only one 6 forgets the width on the opposite side.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "other",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lkyddh47",
+   "level": 2,
+   "question": "For a rectangle, P = L + L + W + W. If P = 46 m and L = 15 m, which value of W makes the equation true?",
+   "options": [
+    "W = 8 m",
+    "W = 16 m",
+    "W = 31 m",
+    "W = 38 m"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute first: 15 + 15 + W + W = 46, so W + W = 16 and W = 8 m. Stopping at 16 m reports both widths together instead of one.",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lks2m874",
+   "level": 2,
+   "question": "A four-sided polygon has three equal sides of length s and a fourth side of 12 cm. Its perimeter is 45 cm, so s + s + s + 12 = 45. What is s?",
+   "options": [
+    "33 cm",
+    "11 cm",
+    "19 cm",
+    "15 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "Undo the + 12 first: 45 − 12 = 33 cm belongs to the three equal sides, then 33 ÷ 3 = 11 cm. Answering 33 cm stops halfway, since that is all three sides together.",
+   "tags": [
+    "other",
+    "ok",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lk21k2yw",
+   "level": 2,
+   "question": "Rectangle A has a perimeter of 32 cm and a width of 5 cm. Rectangle B has a perimeter of 32 cm and a width of 7 cm. Which statement about their lengths is true?",
+   "options": [
+    "Rectangle B has the longer length, by 2 cm.",
+    "Rectangle A has the longer length, by 4 cm.",
+    "Rectangle A has the longer length, by 2 cm.",
+    "The two lengths are equal, both are 16 cm."
+   ],
+   "answerIndex": 2,
+   "explain": "For A: 32 − 5 − 5 = 22, so its length is 11 cm; for B: 32 − 7 − 7 = 18, so its length is 9 cm — A wins by 2 cm. Equal perimeters do not mean equal side lengths.",
+   "tags": [
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok",
+    "perim.forget_hidden_side"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lk2s7n1y",
+   "level": 3,
+   "question": "A garden bed at a Surrey school is shaped like the letter L, so it has 6 sides. Walking once all the way around it is 26 m. Five of the sides measure 7 m, 4 m, 3 m, 2 m and 6 m. How long is the sixth side?",
+   "options": [
+    "22 m",
+    "48 m",
+    "19 m",
+    "4 m"
+   ],
+   "answerIndex": 3,
+   "explain": "Add the five known sides first: 7 + 4 + 3 + 2 + 6 = 22 m, then 26 − 22 = 4 m for the last side. On an L shape every side counts, including the short ones that are easy to skip.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "perim.forget_hidden_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lk74lpbk",
+   "level": 3,
+   "question": "A rectangular banner at a Vancouver skating rink needs trim all the way around. The perimeter is 54 m and one width is 12 m. Jamie says, “A length must be 42 m, because 54 − 12 = 42.” Which reply is right?",
+   "options": [
+    "No — remove both widths, then halve: a length is 15 m.",
+    "No — take away both of the 12 m widths, so a length is 30 m.",
+    "Yes — 54 − 12 = 42, since only one width is used up.",
+    "No — add the two widths on first, so a length is 39 m."
+   ],
+   "answerIndex": 0,
+   "explain": "A rectangle has two widths, so 54 − 12 − 12 = 30 m is shared by the two lengths, making each length 15 m. Jamie removed only one width and never split the leftover in two.",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lkghgz5r",
+   "level": 3,
+   "question": "A family in Victoria fences a rectangular vegetable patch. Fencing costs $3 per metre and they spend exactly $60 with none left over. Each of the two short sides of the patch is 4 m. How long is each long side?",
+   "options": [
+    "12 m",
+    "6 m",
+    "16 m",
+    "14 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Find the perimeter first: $60 ÷ $3 = 20 m of fence. Then 20 − 4 − 4 = 12 m is shared by the two long sides, so each is 6 m; stopping at 12 m gives both long sides at once.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "ok",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjmp1lkf1gm3s",
+   "level": 3,
+   "question": "Leah walks around a rectangular block in Nanaimo exactly twice and covers 180 m altogether. Each of the two short sides of the block is 20 m. How long is each long side?",
+   "options": [
+    "70 m",
+    "50 m",
+    "25 m",
+    "65 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Two laps are 180 m, so one perimeter is 180 ÷ 2 = 90 m; then 90 − 20 − 20 = 50 m for the two long sides, and each is 25 m. Forgetting the final halving leaves 50 m, which is two sides.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "perim.forget_hidden_side",
+    "ok",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjngu0cakyin9",
+   "level": 2,
+   "question": "Priya glues a ribbon border all the way around a rectangular poster for her Kamloops classroom. The ribbon is exactly 180 cm long and goes once around with none left over. Each of the two long sides of the poster is 55 cm. How long is each short side?",
+   "options": [
+    "70 cm",
+    "125 cm",
+    "145 cm",
+    "35 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "Take both long sides off first: 180 − 55 − 55 = 70, then share that 70 between the two equal short sides, so each is 35 cm. The usual trap is subtracting only one 55, or stopping at 70 and forgetting there are two short sides.",
+   "tags": [
+    "other",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtjngu0cu2b1zl",
+   "level": 2,
+   "question": "Nadia sews trim once around the edge of a four-sided flag. She starts with 100 cm of trim and has 8 cm left over when she finishes. Three of the flag sides measure 26 cm, 18 cm and 26 cm. How long is the fourth side?",
+   "options": [
+    "22 cm",
+    "66 cm",
+    "162 cm",
+    "30 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "First find the perimeter: 100 − 8 = 92 cm of trim actually went around. Then take away every known side, 92 − 26 − 18 − 26 = 22 cm; the traps are forgetting the 8 cm left over, or subtracting just one side instead of all three.",
+   "tags": [
+    "ok",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtjngu0cjkfs44",
+   "level": 2,
+   "question": "A quilt block in a Prince George classroom is a five-sided polygon. Three of its sides are 12 cm each, and the other two sides are equal to each other, each called s. The perimeter is 58 cm. Ana says s = 22 cm. Which reply is right?",
+   "options": [
+    "Yes — 58 − 36 = 22, and 22 cm is one whole side.",
+    "No — 22 cm is both equal sides, so s is 11 cm.",
+    "No — only one 12 cm side counts, so s is 46 cm.",
+    "No — s = 58 + 36, so each equal side is 94 cm."
+   ],
+   "answerIndex": 1,
+   "explain": "The three 12 cm sides use 36 cm, so 58 − 36 = 22 cm is what is left for the two equal sides together, giving 11 cm each. The trap is treating that leftover 22 as one side instead of splitting it between the two equal sides.",
+   "tags": [
+    "other",
+    "ok",
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong"
+   ]
+  },
+  {
+   "qid": "qmtjngu0cgageh2",
+   "level": 2,
+   "question": "A dog run at an Abbotsford park is shaped like the letter L and has 6 sides. Its perimeter is 32 m. Five of the sides measure 8 m, 5 m, 4 m, 3 m and 2 m. Ben says the sixth side must be 22 m. Which reply is right?",
+   "options": [
+    "Yes — the five sides add to 22 m, so the sixth is too.",
+    "No — the sixth side is 32 + 22 = 54 m, adding both.",
+    "No — 22 m is just the five sides, so 32 − 22 = 10 m.",
+    "No — the sixth side is 32 ÷ 6, since 6 sides match."
+   ],
+   "answerIndex": 2,
+   "explain": "Add the sides you know (8 + 5 + 4 + 3 + 2 = 22 m), then subtract that from the perimeter: 32 − 22 = 10 m. The trap is stopping at 22 m, which is only the sides already counted, and dividing by 6 fails because the sides of an L shape are not all equal.",
+   "tags": [
+    "perim.forget_hidden_side",
+    "eq.inverse_wrong",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

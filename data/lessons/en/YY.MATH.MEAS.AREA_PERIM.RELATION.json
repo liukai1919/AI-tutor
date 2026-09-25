@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA_PERIM.RELATION",
+ "lang": "en",
+ "title": "Show that shapes with the same perimeter can have different areas, and vice versa",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Same Perimeter, Different Area!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the area of a rectangle by multiplying length times width, and how to find the perimeter by adding up all the sides. Today we get to ask a fun question: if two garden beds use the exact same amount of fence, do they always hold the same amount of soil? Let's find out.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a garden bed at a community garden in Vancouver. It is five metres long and three metres wide. Let's walk around the edge first: five plus three plus five plus three is sixteen metres of fence. Now let's count the squares inside: five times three is fifteen square metres of soil.",
+    "math": "P = 5+3+5+3 = 16 \\text{ m},\\quad A = 5 \\times 3 = 15 \\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      5,
+      3,
+      5
+     ],
+     "labels": [],
+     "caption": "5 m by 3 m bed: 16 m of fence around, 15 square metres inside"
+    }
+   },
+   {
+    "say": "Now watch what happens with a second bed that uses the very same sixteen metres of fence. This one is seven metres long and only one metre wide. Around the edge: seven plus one plus seven plus one is also sixteen metres. Same fence! But inside, seven times one is only seven square metres. Same perimeter, and the area is less than half.",
+    "math": "P = 7+1+7+1 = 16 \\text{ m},\\quad A = 7 \\times 1 = 7 \\text{ m}^2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      1,
+      7,
+      1,
+      7
+     ],
+     "labels": [],
+     "caption": "7 m by 1 m bed: still 16 m of fence, but only 7 square metres inside"
+    }
+   },
+   {
+    "say": "Let's put all the sixteen metre beds in a table so you can see the pattern. Six by two gives twelve square metres. Five by three gives fifteen. Four by four gives sixteen. Every single one uses sixteen metres of fence, but the areas are seven, twelve, fifteen and sixteen. The long skinny bed holds the least, and the square holds the most.",
+    "math": "7\\times1=7,\\ 6\\times2=12,\\ 5\\times3=15,\\ 4\\times4=16",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      6,
+      5,
+      4,
+      1,
+      2,
+      3,
+      4
+     ],
+     "labels": [
+      "Bed A",
+      "Bed B",
+      "Bed C",
+      "Bed D",
+      "Length (m)",
+      "Width (m)"
+     ],
+     "caption": "All four beds use 16 m of fence — but their areas are 7, 12, 15 and 16 square metres"
+    }
+   },
+   {
+    "say": "Here is the mistake I want you to dodge. Some kids think a bigger perimeter always means a bigger area. Look: a two by six bed has a perimeter of sixteen metres and an area of twelve square metres. A three by three bed has a smaller perimeter, only twelve metres, but its area is nine. Now compare a one by ten bed: its perimeter is twenty two metres, bigger than sixteen, but its area is just ten square metres, less than twelve. More fence did not mean more soil. Perimeter is the walk around the outside; area is the squares filling the inside. They are two different jobs.",
+    "math": "1\\times10:\\ P=22,\\ A=10 \\quad\\text{vs}\\quad 2\\times6:\\ P=16,\\ A=12",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      6,
+      2,
+      6
+     ],
+     "labels": [],
+     "caption": "2 m by 6 m: P = 16 m, A = 12 sq m — beats the 1 by 10 bed with its bigger 22 m perimeter"
+    }
+   },
+   {
+    "say": "So remember: the fence tells you nothing certain about the soil. Same perimeter can hide very different areas, and a bigger perimeter can even come with a smaller area. Always check which one the question is really asking for.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Same perimeter does not mean same area — the skinnier the rectangle, the less area it holds.",
+  "practice": {
+   "question": "Ms. Yuanyuan is making a rectangular sandbox at a Burnaby playground using exactly twenty metres of wooden edging. Draw a grid for a sandbox that is eight metres long and two metres wide, and another that is six metres long and four metres wide. Check that both use twenty metres of edging, then find the area of each. Which one gives the kids more sand to play in?",
+   "answer": "Both use 20 m of edging: 8 + 2 + 8 + 2 = 20, and 6 + 4 + 6 + 4 = 20. Areas: 8 × 2 = 16 square metres, and 6 × 4 = 24 square metres. The 6 m by 4 m sandbox gives more sand — 8 square metres more — even though it uses the very same edging."
+  }
+ }
+}

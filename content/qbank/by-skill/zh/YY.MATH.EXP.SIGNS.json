@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.EXP.SIGNS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlspg3xaxizg0",
+   "level": 1,
+   "question": "计算 (−4)² 的值。这里底数（base）是 −4，指数（exponent）是 2。结果是多少？",
+   "options": [
+    "16",
+    "−8",
+    "−16",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "(−4)² = (−4) × (−4) = 16，两个负数相乘得正。写成 −16 的那个是把它当成了 −4²，让负号没有参与平方。",
+   "tags": [
+    "ok",
+    "other",
+    "rat.negative_base_bracket",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xbh4r6l",
+   "level": 1,
+   "question": "计算 −5² 的值是多少？（注意：这个式子里没有括号）",
+   "options": [
+    "25",
+    "−25",
+    "−10",
+    "10"
+   ],
+   "answerIndex": 1,
+   "explain": "−5² 表示 −(5²) = −(25) = −25：指数只管住 5，负号最后才加上去。算成 25 的那个是把它误当成了 (−5)²。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspg3x36tn1r",
+   "level": 1,
+   "question": "计算 (−2)³ 的值。底数是 −2，指数是 3，也就是三个 −2 相乘。结果是多少？",
+   "options": [
+    "8",
+    "−6",
+    "−8",
+    "6"
+   ],
+   "answerIndex": 2,
+   "explain": "(−2)³ = (−2) × (−2) × (−2)：前两个相乘得 4，再乘 −2 得 −8。三个负号配对后还剩一个，所以结果是负的；算成 8 是把奇次幂也当成了「负负得正」。",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xrrybd1",
+   "level": 1,
+   "question": "把 (−3)² 展开写成乘法算式，下面哪个写法是对的？",
+   "options": [
+    "(−3) × (3)",
+    "−(3) × (3)",
+    "(−3) + (−3)",
+    "(−3) × (−3)"
+   ],
+   "answerIndex": 3,
+   "explain": "(−3)² 的底数是 −3，指数 2 表示两个 −3 相乘：(−3) × (−3) = 9。写成 (−3) × (3) 或 −(3) × (3) 的都是 −9，那其实是 −3² 的意思。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xvdwq89",
+   "level": 2,
+   "question": "一个数列的每一项都是 (−3) 的幂（power）：第 1 项是 (−3)¹，第 2 项是 (−3)²，第 3 项是 (−3)³，依此类推。第 5 项的值是多少？",
+   "options": [
+    "−243",
+    "−15",
+    "243",
+    "−81"
+   ],
+   "answerIndex": 0,
+   "explain": "第 5 项是 (−3)⁵ = (−3)×(−3)×(−3)×(−3)×(−3) = −243。5 个负号两两配对后还剩一个，所以是负的；算成 243 是忘了奇次幂的结果为负。",
+   "tags": [
+    "ok",
+    "other",
+    "exp.odd_power_negative_positive",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xfvnc9z",
+   "level": 2,
+   "question": "比较 (−2)⁴ 和 −2⁴，下面哪一组值是正确的？",
+   "options": [
+    "(−2)⁴ = −16，−2⁴ = 16",
+    "(−2)⁴ = 16，−2⁴ = −16",
+    "(−2)⁴ = −16，−2⁴ = −16",
+    "(−2)⁴ = 16，−2⁴ = 16"
+   ],
+   "answerIndex": 1,
+   "explain": "(−2)⁴ 是四个 −2 相乘，负号配成两对，得 16；−2⁴ 是 −(2⁴) = −16，负号不参与乘方。两个式子只差一对括号，值却相差 32。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xev1mug",
+   "level": 2,
+   "question": "计算 (−3)² − (−2)³ 的值是多少？",
+   "options": [
+    "−1",
+    "1",
+    "17",
+    "−17"
+   ],
+   "answerIndex": 2,
+   "explain": "(−3)² = 9，(−2)³ = −8，所以 9 − (−8) = 9 + 8 = 17。常见错误是把 (−2)³ 算成 8 得到 1，或把 (−3)² 算成 −9 得到 −1。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "exp.odd_power_negative_positive",
+    "ok",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xxgff4z",
+   "level": 2,
+   "question": "下面四个式子里，哪一个的值是正数（positive）？",
+   "options": [
+    "−6²",
+    "(−6)³",
+    "−(6²)",
+    "(−6)²"
+   ],
+   "answerIndex": 3,
+   "explain": "(−6)² = (−6) × (−6) = 36 是正数。−6² 和 −(6²) 都是先算 36 再加负号，得 −36；(−6)³ 三个负数相乘得 −216，也是负的。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlspg3x726ah6",
+   "level": 3,
+   "question": "温哥华一所中学的数学社玩积分游戏：起始分是 2 分，每答错一题，分数就乘以 (−3)。小恩先连续答错了 3 题，之后又答错了第 4 题。答错 3 题后和答错 4 题后的分数分别是多少？",
+   "options": [
+    "−54 分和 162 分",
+    "−54 分和 −162 分",
+    "−18 分和 −24 分",
+    "54 分和 162 分"
+   ],
+   "answerIndex": 0,
+   "explain": "答错 3 题：2 × (−3)³ = 2 × (−27) = −54；答错 4 题：2 × (−3)⁴ = 2 × 81 = 162。乘奇数次 −3 结果为负、偶数次为正，别把 (−3)³ 当成 27。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "exp.odd_power_negative_positive"
+   ]
+  },
+  {
+   "qid": "qmtlspg3xbhn3jj",
+   "level": 3,
+   "question": "小林说：「(−3)² 和 −3² 都等于 9，因为负负得正。」他的说法哪里有问题？",
+   "options": [
+    "(−3)² 才是 −9，因为括号里的负号要保留到最后",
+    "−3² 应是 −9，因为指数只管 3，负号最后才加上",
+    "两个都应该是 −9，因为底数是负数结果一定是负数",
+    "他没有错，因为两种写法只是括号不同，意思一样"
+   ],
+   "answerIndex": 1,
+   "explain": "(−3)² = (−3) × (−3) = 9，但 −3² = −(3 × 3) = −9。没有括号时指数只作用在 3 上，负号最后才加，所以两者不相等。",
+   "tags": [
+    "rat.negative_base_bracket",
+    "ok",
+    "other",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtlspg3x9isl3h",
+   "level": 3,
+   "question": "小美要算 (−2)³，在计算器上少打了括号，输入 −2³ 得到 −8。她说：「这次没括号也没差别。」这个说法对吗？",
+   "options": [
+    "不对，(−2)³ 应该是 8，因为三个负号负负得正",
+    "对，因为不管几次幂，(−2)ⁿ 和 −2ⁿ 永远相等",
+    "对，奇次幂两者都是 −8，但换成 4 次幂就不同",
+    "不对，(−2)³ 应该是 −6，因为是 −2 乘上 3"
+   ],
+   "answerIndex": 2,
+   "explain": "(−2)³ = −8，−2³ = −(8) = −8，奇次幂时刚好相等；但 (−2)⁴ = 16 而 −2⁴ = −16，偶次幂就不同了。别因此以为括号可以随便省。",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly3gix0apsjv",
+   "level": 3,
+   "question": "小舟在 Burnaby 的机器人社写了一个小程序：程序会依次输出 (−2)¹、(−2)²、(−2)³ 这三个幂（power）的值，再把这三个值加起来。程序最后输出的和应该是多少？",
+   "options": [
+    "10",
+    "−14",
+    "14",
+    "−6"
+   ],
+   "answerIndex": 3,
+   "explain": "(−2)¹ = −2，(−2)² = (−2)×(−2) = 4，(−2)³ = 4×(−2) = −8，相加得 −2 + 4 − 8 = −6。最容易错的是把 (−2)³ 算成 8：三个负数相乘，前两个负负得正之后再乘第三个负数，结果仍然是负的。",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly3gixjiev3x",
+   "level": 3,
+   "question": "小宇在 Coquitlam 上数学课，老师让他为 x = −2 填一张表：第一列填 x³ 的值，第二列填 −x² 的值。代入时要把 −2 整个放进括号里。这一行的两个值分别是多少？",
+   "options": [
+    "x³ = −8，−x² = −4",
+    "x³ = 8，−x² = −4",
+    "x³ = −8，−x² = 4",
+    "x³ = 8，−x² = 4"
+   ],
+   "answerIndex": 0,
+   "explain": "代入要写成 (−2)³ = (−2)(−2)(−2) = −8；−x² = −(−2)²，先算平方得 4，最前面的负号最后才加上，所以是 −4。常见错误是把 (−2)³ 当成正的 8，或者把 −(−2)² 前面的负号和括号里的负号「抵消」成 4。",
+   "tags": [
+    "ok",
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "exp.odd_power_negative_positive"
+   ]
+  },
+  {
+   "qid": "qmtly3gix0o68n7",
+   "level": 3,
+   "question": "小安在 Victoria 的补习班上说：「(−5)³ = 125，因为负负得正，负数的幂（power）一定是正的。」下面哪种说法正确指出了问题？",
+   "options": [
+    "小安是对的，因为 (−5)³ 里有三个负号，负负得正之后就变成了正数",
+    "小安错了，(−5)³ = −125，因为负负得正只抵消两个负号，第三个负号留下来",
+    "小安错了，(−5)³ = −125，(−5)² = −25，因为底数是负数时幂都是负的",
+    "小安错了，应该是 −5³ = 125 才对，因为没有括号时负号被平掉了"
+   ],
+   "answerIndex": 1,
+   "explain": "(−5)³ = (−5)×(−5)×(−5)：前两个相乘得 25，再乘 −5 得 −125，奇数个负号抵消不完，所以负底数的奇次幂（odd power）是负的。但偶次幂是正的，(−5)² = 25；而没有括号的 −5³ 表示 −(5³) = −125，不是 125。",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "ok",
+    "rat.negative_base_bracket",
+    "rat.negative_base_bracket"
+   ]
+  },
+  {
+   "qid": "qmtly3gixg9ixof",
+   "level": 3,
+   "question": "小杰做作业算 2 × (−3)² − (−2)³，他写道：「(−3)² = 9，(−2)³ = 8，所以 2 × 9 − 8 = 10。」下面哪一项对他的过程判断正确？",
+   "options": [
+    "两个都没错，答案就是 10，因为负负得正，负底数的幂算出来都是正数",
+    "只有 (−3)² 错了，应是 −9，答案 −18 − 8 = −26，因为偶次幂才会保留负号",
+    "只有 (−2)³ 错了，应是 −8，答案 18 + 8 = 26，因为三个负数相乘结果是负的",
+    "两个都错了，(−3)² = −9、(−2)³ = −8，答案 −18 + 8 = −10，因为负底数的幂都是负的"
+   ],
+   "answerIndex": 2,
+   "explain": "(−3)² = (−3)×(−3) = 9 是对的，但 (−2)³ = (−2)×(−2)×(−2) = −8，所以 2 × 9 − (−8) = 18 + 8 = 26。最大的坑是把奇次幂 (−2)³ 当成正的 8，再把减负数当成减正数。",
+   "tags": [
+    "exp.odd_power_negative_positive",
+    "rat.negative_base_bracket",
+    "ok",
+    "rat.negative_base_bracket"
+   ]
+  }
+ ]
+}

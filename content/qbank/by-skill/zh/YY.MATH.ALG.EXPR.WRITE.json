@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EXPR.WRITE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtko17pwczyq0n",
+   "level": 1,
+   "question": "温哥华水族馆的学生票每张 $14，学校团体还要另外交一次性的预约费 $6。如果一共去 n 个学生，哪个代数式（expression）表示总花费？",
+   "options": [
+    "14n + 6 元",
+    "14n 元",
+    "14n + 6n 元",
+    "14 + n + 6 元"
+   ],
+   "answerIndex": 0,
+   "explain": "票价要跟人数相乘，写成 14n；预约费 $6 全团只交一次，是常数项（constant term），不乘 n，所以总花费是 14n + 6。最常踩的坑是把 $6 也乘上人数，写成 14n + 6n。",
+   "tags": [
+    "ok",
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtko17pweu5837",
+   "level": 1,
+   "question": "Ava 的存钱罐里已经有 $25，从这周开始她每周再往里放 $8。w 周之后，存钱罐里一共有多少钱？",
+   "options": [
+    "33w 元",
+    "8w + 25 元",
+    "8w 元",
+    "8 + w + 25 元"
+   ],
+   "answerIndex": 1,
+   "explain": "每周变化的 $8 要乘周数，写成 8w；一开始就有的 $25 是起始量，只算一次，所以是 8w + 25。写成 33w 就等于把 $25 也当成每周都存一次了。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtko17pwow2j45",
+   "level": 1,
+   "question": "下面哪一种情况，可以用式子 5m + 20 来表示总花费？（m 表示月数）",
+   "options": [
+    "每个月付 $5，一共付 m 个月，再没有别的费用了",
+    "每个月付 $5，而且每个月都要再交 $20，共 m 个月",
+    "一次性报名费 $20，之后每个月付 $5，一共 m 个月",
+    "把 5、m 和 20 这三个数直接加起来，就是总花费"
+   ],
+   "answerIndex": 2,
+   "explain": "5m 表示每月 $5 乘 m 个月，+20 是只交一次的固定费用，所以对应报名费 $20 加每月 $5 的情况。如果 $20 每个月都交，式子就变成 25m 了。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtko17pwbdzadw",
+   "level": 1,
+   "question": "Noah 有一卷 100 cm 长的彩带，他每做一个书签就剪掉 7 cm。做了 n 个书签之后，彩带还剩多少厘米？",
+   "options": [
+    "还剩 7n 厘米",
+    "还剩 93n 厘米",
+    "还剩 100 − 7 − n 厘米",
+    "还剩 100 − 7n 厘米"
+   ],
+   "answerIndex": 3,
+   "explain": "剪掉的总长是 7n，用原来的 100 cm 减去它，得到 100 − 7n。忘掉起始的 100 只写 7n，或者把 100 − 7 先算掉再乘 n，都会算错。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtko17pwukgof7",
+   "level": 2,
+   "question": "下面哪句话，正确地读出了式子 9x + 4 的意思？",
+   "options": [
+    "把 x 乘 9，再把乘出来的积加上 4",
+    "把 9 和 4 先加起来，再乘 x",
+    "把 9 加上 x，再把这个和加上 4",
+    "把 x 乘 9，这个式子没有常数项"
+   ],
+   "answerIndex": 0,
+   "explain": "9x 里的 9 是系数（coefficient），表示 9 乘 x；再加上常数项 4，所以读作 x 乘 9 之后加 4。把 9x 读成 9 + x 是最常见的错误。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko17pw014pyl",
+   "level": 2,
+   "question": "当 t = 6 时，式子 7t + 8 的值是多少？",
+   "options": [
+    "21，算法是 7 + 6 + 8",
+    "50，算法是 7 × 6 + 8",
+    "90，算法是 (7 + 8) × 6",
+    "42，算法是 7 × 6"
+   ],
+   "answerIndex": 1,
+   "explain": "代入（substitution）后先算乘法：7 × 6 = 42，再加常数项 8，得 50。把 7t 当成 7 + t 算成 21，或者漏掉 +8 只算 42，都是常见坑。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko17pwtdgv50",
+   "level": 2,
+   "question": "下面哪个式子和 4 + 6k 表示的是同一个式子？",
+   "options": [
+    "6k",
+    "10k",
+    "6k + 4",
+    "4 + 6 + k"
+   ],
+   "answerIndex": 2,
+   "explain": "加法可以交换顺序，所以 4 + 6k 和 6k + 4 完全一样。常数 4 不能和系数 6 合并成 10k，因为 4 不带 k。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtko17pwqjm1bv",
+   "level": 2,
+   "question": "代入哪个 n，能让式子 5n + 10 的值正好等于 60？",
+   "options": [
+    "n = 12，因为 60 ÷ 5 = 12",
+    "n = 45，因为 60 − 5 − 10 = 45",
+    "n = 4，因为 60 ÷ (5 + 10) = 4",
+    "n = 10，因为 (60 − 10) ÷ 5 = 10"
+   ],
+   "answerIndex": 3,
+   "explain": "要先把常数项 10 减掉，剩下 50 才是 5n 的部分，再除以 5 得 n = 10；代回去验算：5 × 10 + 10 = 60。直接用 60 ÷ 5 就是忘了先减常数项。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtko17pwbshgbx",
+   "level": 3,
+   "question": "在 Whistler 租一副滑雪板每天 $18，另外还要交一次性的头盔押金 $25。租 d 天的话，哪一组「式子 + 租 4 天的花费」全都正确？",
+   "options": [
+    "18d + 25，租 4 天要 $97",
+    "43d，租 4 天要 $172",
+    "18 + d + 25，租 4 天要 $47",
+    "18d，租 4 天要 $72"
+   ],
+   "answerIndex": 0,
+   "explain": "每天的 $18 乘天数得 18d，押金 $25 只交一次，所以式子是 18d + 25；代入 d = 4 得 18 × 4 + 25 = 97。把押金也乘天数（43d）会多算很多钱。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtko17pwtoytsc",
+   "level": 3,
+   "question": "坐 BC Ferries 去 Victoria，一个成人票 $18，一辆车 $58。一家人开一辆车、有 a 个成人，去程和回程各要买一次成人票和一次车位。哪一组「式子 + a = 3 时的总花费」全都正确？",
+   "options": [
+    "36a，总共 $108",
+    "36a + 116，总共 $224",
+    "36a + 58，总共 $166",
+    "2a + 152，总共 $158"
+   ],
+   "answerIndex": 1,
+   "explain": "单程是 18a + 58，往返要乘 2，得 36a + 116；代入 a = 3 得 108 + 116 = 224。车费也要算两次，只写 +58 就漏了回程那一份。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtko17pws6rck5",
+   "level": 3,
+   "question": "在社区中心游泳，先要一次性办卡 $30，之后每游一次付 $5。Jayden 一共花了 $105，他游了多少次？",
+   "options": [
+    "21 次，因为 105 ÷ 5 = 21",
+    "70 次，因为 5 + v + 30 = 105",
+    "15 次，因为 (105 − 30) ÷ 5 = 15",
+    "3 次，因为 105 ÷ (5 + 30) = 3"
+   ],
+   "answerIndex": 2,
+   "explain": "总花费的式子是 5v + 30，要先把只付一次的 $30 减掉，剩下 $75 再除以 $5，得 15 次；验算 5 × 15 + 30 = 105。直接用 105 ÷ 5 就是把办卡费当成游泳费了。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtko17pw3v0g75",
+   "level": 3,
+   "question": "Mia 要算式子 7n + 12 在 n = 4 时的值，她写的是 7 + 4 + 12 = 23。下面哪个说法是对的？",
+   "options": [
+    "常数 12 也要乘 n，应该算 (7 + 12) × 4 = 76",
+    "常数项 12 不用加，只要算 7 × 4 = 28 就对了",
+    "她算得对，7n 的意思就是 7 加 n，23 没错",
+    "7n 是 7 × n，正确算法是 7 × 4 + 12 = 40"
+   ],
+   "answerIndex": 3,
+   "explain": "7n 里的 7 是系数，表示 7 乘 n，所以要先算 7 × 4 = 28，再加常数项 12，得 40。把 7n 读成 7 + n，或者让常数 12 跟着 n 一起乘，都会得到错的值。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "linear.intercept_forgotten",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.SIMPLE_INTEREST",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn8wkyapl7t9h",
+   "level": 1,
+   "question": "In the formula I = P × r × t, the principal P is $500, the interest rate is 4% per year (written as the decimal 0.04), and the time t is 2 years. How much simple interest is earned?",
+   "options": [
+    "$40.00 in interest",
+    "$4000.00 in interest",
+    "$540.00 in interest",
+    "$20.00 in interest"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply all three parts once: 500 × 0.04 × 2 = 40. The usual trap is using 4 instead of 0.04, which makes the answer 100 times too big; the $540 answer is the whole balance, not the interest.",
+   "tags": [
+    "ok",
+    "fin.interest_rate_not_decimal",
+    "pct.increase_not_added",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyaoxjrga",
+   "level": 1,
+   "question": "In I = P × r × t, the principal is $600, the rate is 5% per year, and the time is 6 months. Write 6 months as a fraction of a year, then find the simple interest.",
+   "options": [
+    "$180.00 in interest",
+    "$15.00 in interest",
+    "$1500.00 in interest",
+    "$30.00 in interest"
+   ],
+   "answerIndex": 1,
+   "explain": "6 months is 6/12 = 0.5 of a year, and 5% is 0.05, so I = 600 × 0.05 × 0.5 = 15. The big trap is putting t = 6 into the formula, which counts 6 whole years instead of half a year.",
+   "tags": [
+    "fin.months_as_years",
+    "ok",
+    "fin.interest_rate_not_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyawdljd5",
+   "level": 1,
+   "question": "A loan of $800 charges 12% simple interest per year and is paid back after 18 months. Which calculation gives the simple interest?",
+   "options": [
+    "800 × 0.12 × 18",
+    "800 × 12 × 1.5",
+    "800 × 0.12 × 1.5",
+    "800 × 1.2 × 1.5"
+   ],
+   "answerIndex": 2,
+   "explain": "Turn the percent into a decimal (12% = 0.12) and the months into years (18/12 = 1.5), so the calculation is 800 × 0.12 × 1.5. Leaving 18 in as the time treats it as 18 years.",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyah0zs9m",
+   "level": 1,
+   "question": "In I = P × r × t, the principal is $400, the rate is 6% per year, and the time is 9 months. How much simple interest is earned?",
+   "options": [
+    "$216.00 in interest",
+    "$21.60 in interest",
+    "$1800.00 in interest",
+    "$18.00 in interest"
+   ],
+   "answerIndex": 3,
+   "explain": "9 months is 9/12 = 0.75 of a year, so I = 400 × 0.06 × 0.75 = 18. Careful: 9 months is not 0.9 of a year, and it is not 9 years.",
+   "tags": [
+    "fin.months_as_years",
+    "other",
+    "fin.interest_rate_not_decimal",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyaewarbd",
+   "level": 2,
+   "question": "Chloe deposits $1250 from her summer job into a savings account that pays 2.4% simple interest per year. She leaves the money there for 8 months. How much interest does she earn?",
+   "options": [
+    "$20.00 in interest",
+    "$30.00 in interest",
+    "$2000.00 in interest",
+    "$240.00 in interest"
+   ],
+   "answerIndex": 0,
+   "explain": "Use t = 8/12 = 2/3 of a year and r = 0.024: I = 1250 × 0.024 × 2/3 = 20. Using t = 8 (months as years) or r = 2.4 both blow the answer up far past what a small account could earn.",
+   "tags": [
+    "ok",
+    "other",
+    "fin.interest_rate_not_decimal",
+    "fin.months_as_years"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyaozt0zx",
+   "level": 2,
+   "question": "Marco puts $900 into a savings account paying 3.5% simple interest per year and leaves it for 2 years. What is the total amount in the account at the end?",
+   "options": [
+    "$7200.00 in the account",
+    "$963.00 in the account",
+    "$63.00 in the account",
+    "$931.50 in the account"
+   ],
+   "answerIndex": 1,
+   "explain": "First the interest: 900 × 0.035 × 2 = 63, then add it to the principal for a balance of 963. The $63 answer stops at the interest and forgets to add the original deposit back on.",
+   "tags": [
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "pct.increase_not_added",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyaex9rvu",
+   "level": 2,
+   "question": "Nadia deposits $2400 in a savings account that pays 1.5% simple interest per year. After 18 months she withdraws just the interest to pay for a bus pass. How much interest does she withdraw?",
+   "options": [
+    "$648.00 in interest",
+    "$5400.00 in interest",
+    "$54.00 in interest",
+    "$36.00 in interest"
+   ],
+   "answerIndex": 2,
+   "explain": "18 months is 18/12 = 1.5 years and 1.5% is 0.015, so I = 2400 × 0.015 × 1.5 = 54. Watch the two different 1.5s: one is the rate as a decimal, the other is the time in years.",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyav56y32",
+   "level": 2,
+   "question": "Owen deposits $2000 in a savings account paying 4.5% simple interest per year. After 4 months he takes everything out to buy a bike. How much money does he take out?",
+   "options": [
+    "$30.00 altogether",
+    "$2360.00 altogether",
+    "$5000.00 altogether",
+    "$2030.00 altogether"
+   ],
+   "answerIndex": 3,
+   "explain": "4 months is 4/12 = 1/3 of a year, so I = 2000 × 0.045 × 1/3 = 30, and he withdraws 2000 + 30 = 2030. The interest alone is only $30, so a balance in the thousands must include the principal.",
+   "tags": [
+    "pct.increase_not_added",
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyakbzxev",
+   "level": 3,
+   "question": "Kaito finds the simple interest on $1200 at 3% per year for 9 months. He writes I = 1200 × 0.03 × 9 = $324. What is wrong with his work?",
+   "options": [
+    "He used 9 as the time; 9 months is 9/12 = 0.75 year, so I = $27.",
+    "Nothing is wrong; the money sat for 9 months, so the time must be 9.",
+    "He should have used 3, not 0.03, since the rate is 3 percent a year.",
+    "He should have added $1200 to the interest, since I means new total."
+   ],
+   "answerIndex": 0,
+   "explain": "Time in I = Prt must be in years, so 9 months becomes 0.75 and I = 1200 × 0.03 × 0.75 = 27. His decimal rate of 0.03 was right; only the time was left in months.",
+   "tags": [
+    "ok",
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "pct.increase_not_added"
+   ]
+  },
+  {
+   "qid": "qmtn8wkya775yq8",
+   "level": 3,
+   "question": "Maya deposits a $1800 birthday gift into a savings account paying 2.5% simple interest per year and leaves it untouched for 10 months. She then wants to buy a $1830 laptop. Can she pay for it from that account?",
+   "options": [
+    "Yes - she will have $2250.00, which is enough.",
+    "Yes - she will have $1837.50, which is enough.",
+    "No - she will have only $37.50, not enough.",
+    "Yes - she will have $5550.00, which is enough."
+   ],
+   "answerIndex": 1,
+   "explain": "Interest is 1800 × 0.025 × 10/12 = 37.50, and the account holds 1800 + 37.50 = 1837.50, which covers the $1830 laptop with $7.50 left. The $37.50 is only the interest earned, not everything in the account.",
+   "tags": [
+    "fin.months_as_years",
+    "ok",
+    "pct.increase_not_added",
+    "fin.interest_rate_not_decimal"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyan3vvea",
+   "level": 3,
+   "question": "Jordan has $2000 to save. Account A pays 3% simple interest per year and he would leave the money 8 months. Account B pays 2% simple interest per year and he would leave the money 15 months. Which account earns more interest, and by how much?",
+   "options": [
+    "Account B, by $120.00",
+    "Account B, by $1000.00",
+    "Account B, by $10.00",
+    "Account A, by $10.00"
+   ],
+   "answerIndex": 2,
+   "explain": "Account A gives 2000 × 0.03 × 8/12 = 40 and Account B gives 2000 × 0.02 × 15/12 = 50, so B wins by $10. A higher rate does not automatically win, because the longer time makes up the difference.",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtn8wkyatz4jn3",
+   "level": 3,
+   "question": "Ava puts $850 in a savings account paying 4% simple interest per year. After 6 months she says, my account has $17 in it. What is the error?",
+   "options": [
+    "The interest is $204, because the time in the formula is 6.",
+    "The interest is $1700, because the rate in the formula is 4.",
+    "She is right; $17 is the whole balance after the 6 months.",
+    "$17 is the interest earned; the account holds $867 in all."
+   ],
+   "answerIndex": 3,
+   "explain": "With t = 0.5 year, I = 850 × 0.04 × 0.5 = 17, but that is the interest only, so the balance is 850 + 17 = 867. Always check whether the question wants the interest or the new total.",
+   "tags": [
+    "fin.months_as_years",
+    "fin.interest_rate_not_decimal",
+    "pct.increase_not_added",
+    "ok"
+   ]
+  }
+ ]
+}

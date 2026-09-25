@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.ZERO_ONE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlsnk5dl2lgec",
+   "level": 1,
+   "question": "A table lists powers of 5 in one column and their values in the next column. The rows read: 5³ is 125, 5² is 25, 5¹ is 5. Each value is the value in the row above divided by 5. The last row is for 5⁰ and its value is blank. What belongs in the blank?",
+   "options": [
+    "5⁰ = 1",
+    "5⁰ = 5",
+    "5⁰ = 0",
+    "5⁰ = 1/5"
+   ],
+   "answerIndex": 0,
+   "explain": "Keep the pattern going: 5 ÷ 5 = 1, so 5⁰ = 1. A zero exponent does not mean the value drops to 0; it is the result of dividing the base by itself.",
+   "tags": [
+    "ok",
+    "other",
+    "exp.zero_exponent_zero",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5dndhktb",
+   "level": 1,
+   "question": "A table of powers of 3 has these rows: 3⁴ is 81, 3³ is 27, 3² is 9, then a row for 3¹ with a blank value, then 3⁰ is 1. Every value is the one above it divided by 3. What value goes in the blank row?",
+   "options": [
+    "3¹ = 1",
+    "3¹ = 3",
+    "3¹ = 0",
+    "3¹ = 9"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide 9 by the base: 9 ÷ 3 = 3, so 3¹ = 3, which is just the base itself. Check it fits: 3 ÷ 3 = 1 gives the next row. An exponent of 1 does not turn the base into 1.",
+   "tags": [
+    "exp.one_exponent_one",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5d24kt6m",
+   "level": 1,
+   "question": "A table of powers of 10 has four rows. The first two are filled in: 10³ is 1000 and 10² is 100. The rows for 10¹ and 10⁰ are empty. Each row is the row above divided by 10. Which pair correctly fills the two empty rows?",
+   "options": [
+    "10¹ = 1 and 10⁰ = 0",
+    "10¹ = 10 and 10⁰ = 0",
+    "10¹ = 10 and 10⁰ = 1",
+    "10¹ = 1 and 10⁰ = 1"
+   ],
+   "answerIndex": 2,
+   "explain": "100 ÷ 10 = 10, so 10¹ = 10, and 10 ÷ 10 = 1, so 10⁰ = 1. The trap is thinking an exponent of 1 gives 1 or an exponent of 0 gives 0; the divide-by-the-base pattern shows neither is true.",
+   "tags": [
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero",
+    "ok",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5dqu0b9e",
+   "level": 1,
+   "question": "A table of powers of 2 shows: 2³ is 8, 2² is 4, 2¹ is 2, 2⁰ is 1. Each value is the one above it divided by 2. Why does the last row show 1 and not 0?",
+   "options": [
+    "Because 2⁰ means 2 × 0, so the value should really be 0, not 1",
+    "Because exponents of 1 and 0 both give 1, so 2¹ should be 1 too",
+    "Because a zero exponent always gives 0, so the table is wrong",
+    "Because the row above is 2, and 2 divided by the base 2 is 1"
+   ],
+   "answerIndex": 3,
+   "explain": "The pattern is divide by the base each row: 2 ÷ 2 = 1, so 2⁰ = 1. A zero exponent never means multiply by 0; it means one division by the base has brought you to 1.",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5da1udb5",
+   "level": 2,
+   "question": "For a nonzero number m, the divide-by-the-base pattern gives m³ ÷ m = m², m² ÷ m = m¹, and m¹ ÷ m = m⁰. Which statement is true?",
+   "options": [
+    "m¹ = m and m⁰ = 1",
+    "m¹ = 1 and m⁰ = 1",
+    "m¹ = 1 and m⁰ = 0",
+    "m¹ = m and m⁰ = 0"
+   ],
+   "answerIndex": 0,
+   "explain": "m¹ is a single factor of m, so m¹ = m, and m⁰ = m ÷ m = 1. Watch out for swapping these: an exponent of 1 does not give 1, and an exponent of 0 does not give 0.",
+   "tags": [
+    "ok",
+    "exp.one_exponent_one",
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5d3agx5o",
+   "level": 2,
+   "question": "Using the quotient law, 7⁴ ÷ 7⁴ = 7⁴⁻⁴ = 7⁰. But 7⁴ ÷ 7⁴ is also a nonzero number divided by itself. What does this tell you about 7⁰?",
+   "options": [
+    "7⁰ = 0, because 4 − 4 = 0 leaves nothing of the base",
+    "7⁰ = 1, because a nonzero number divided by itself is 1",
+    "7⁰ = 7, because the base is left over when exponents cancel",
+    "7⁰ = 1/7, because you divide by the base one more time"
+   ],
+   "answerIndex": 1,
+   "explain": "2401 ÷ 2401 = 1, so 7⁰ must equal 1. Subtracting exponents to get 0 does not make the value 0; the exponent is 0 but the value is 1.",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5dph4bk5",
+   "level": 2,
+   "question": "What is the value of 4⁰ + 4¹?",
+   "options": [
+    "1",
+    "4",
+    "5",
+    "2"
+   ],
+   "answerIndex": 2,
+   "explain": "4⁰ = 1 and 4¹ = 4, so the sum is 1 + 4 = 5. The common slips are treating 4⁰ as 0 (giving 4) or treating 4¹ as 1 (giving 2).",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "exp.zero_exponent_zero",
+    "ok",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5dc47gt2",
+   "level": 2,
+   "question": "Which statement is true for every nonzero value of k?",
+   "options": [
+    "k¹ = 1 because one copy of the base is just 1",
+    "k⁰ = k because the base stays even with no exponent",
+    "k⁰ = 0 because there are no factors of k left",
+    "k¹ = k because the power has one factor of k"
+   ],
+   "answerIndex": 3,
+   "explain": "k¹ means one factor of k, which is simply k; and k⁰ = k ÷ k = 1, not 0. Follow the pattern k² ÷ k = k¹ = k, then k ÷ k = k⁰ = 1.",
+   "tags": [
+    "exp.one_exponent_one",
+    "other",
+    "exp.zero_exponent_zero",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5d1imdmh",
+   "level": 3,
+   "question": "A science club in Burnaby watches a dish of cells that doubles every day. On day 4 the count is 2⁴ = 16 cells. Going back one day divides the count by 2. Using this pattern, how many cells were in the dish on day 1 (2¹) and on day 0 (2⁰)?",
+   "options": [
+    "2 on day 1 and 1 on day 0",
+    "2 on day 1 and 0 on day 0",
+    "1 on day 1 and 1 on day 0",
+    "1 on day 1 and 0 on day 0"
+   ],
+   "answerIndex": 0,
+   "explain": "Work backward: 16, 8, 4, then 2 on day 1 and 2 ÷ 2 = 1 on day 0. Day 0 cannot be 0 cells, because the dish had to start with something that could double; 2⁰ = 1.",
+   "tags": [
+    "ok",
+    "exp.zero_exponent_zero",
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5dkjjul2",
+   "level": 3,
+   "question": "A Kelowna orchard packs apples in sizes based on powers of 6. A crate holds 6² = 36 apples, a bag holds 6¹ apples, and a single apple counts as 6⁰. Each smaller size is the size above divided by 6. Ava buys one crate, one bag, and one single apple. How many apples does she have in total?",
+   "options": [
+    "42 apples",
+    "43 apples",
+    "38 apples",
+    "37 apples"
+   ],
+   "answerIndex": 1,
+   "explain": "A bag is 36 ÷ 6 = 6 apples and a single is 6 ÷ 6 = 1 apple, so 36 + 6 + 1 = 43. Counting the single as 0 (6⁰ = 0) or the bag as 1 (6¹ = 1) gives the wrong totals.",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "ok",
+    "exp.one_exponent_one",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5d3jtrjs",
+   "level": 3,
+   "question": "Noah writes in his notebook: 8⁰ = 0, because there are no 8s being multiplied together, so there is nothing there. Which response correctly explains his mistake?",
+   "options": [
+    "He is right, since no factors of 8 means nothing, so it is 0",
+    "He should have written 8, since with no exponent the base is left",
+    "8¹ ÷ 8 = 8⁰, and 8 ÷ 8 = 1, so the value must be 1, not 0",
+    "He should write 1 for 8¹ too, since both small exponents give 1"
+   ],
+   "answerIndex": 2,
+   "explain": "Each time the exponent drops by 1 you divide by the base, so 8⁰ = 8¹ ÷ 8 = 8 ÷ 8 = 1. Having no factors of 8 leaves the starting value 1, not nothing.",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "other",
+    "ok",
+    "exp.one_exponent_one"
+   ]
+  },
+  {
+   "qid": "qmtlsnk5d85q2a6",
+   "level": 3,
+   "question": "Ethan's dad sets a math puzzle for his allowance. He will pay Ethan 5¹ dollars on Saturday and 5⁰ dollars on Sunday. How much more money does Ethan receive on Saturday than on Sunday?",
+   "options": [
+    "$5 more",
+    "$0 more",
+    "$1 more",
+    "$4 more"
+   ],
+   "answerIndex": 3,
+   "explain": "5¹ = 5 dollars and 5⁰ = 5 ÷ 5 = 1 dollar, so the difference is 5 − 1 = $4. Treating 5⁰ as $0 gives $5, and treating 5¹ as $1 makes the two days look equal.",
+   "tags": [
+    "exp.zero_exponent_zero",
+    "exp.one_exponent_one",
+    "exp.zero_exponent_zero",
+    "ok"
+   ]
+  }
+ ]
+}

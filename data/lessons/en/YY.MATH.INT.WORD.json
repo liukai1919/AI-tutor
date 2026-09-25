@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.INT.WORD",
+ "lang": "en",
+ "title": "Solve problems with integers (temperature changes, elevation, account balances)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Integers in Real Life: Reading the Story",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add and subtract integers and follow the order of operations. Today we take one small step: reading a real story, like the temperature in Prince George or the money in your bank account, and turning it into an integer sentence you can solve.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      10,
+      0
+     ],
+     "labels": [],
+     "caption": "Zero is the starting line. Below zero and above zero both matter."
+    }
+   },
+   {
+    "say": "Here is the trick that makes real problems easy. Words tell you which direction to move on the number line. Colder, dropped, spent, went down, or below sea level all mean move left, so use a negative. Warmer, rose, earned, deposited, or above sea level all mean move right, so use a positive.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      6,
+      -3,
+      3
+     ],
+     "labels": [],
+     "caption": "Moving right is positive. Moving left is negative."
+    }
+   },
+   {
+    "say": "Let us try one. On a January morning in Kamloops the temperature is minus seven degrees Celsius. By the afternoon it has risen twelve degrees. What is the temperature now? Rose means move right, so we add twelve. Start at negative seven and hop twelve to the right. That lands you on positive five. So it is five degrees Celsius.",
+    "math": "-7+12=5",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      10,
+      -7,
+      5
+     ],
+     "labels": [],
+     "caption": "Start at negative seven, hop twelve to the right, land on five."
+    }
+   },
+   {
+    "say": "Now the mistake almost everybody makes. Suppose the temperature is nine degrees in the morning and negative four degrees at night, and you want the change. You subtract: nine minus negative four. Lots of kids write five, because they treat it like nine minus four. But subtracting a negative is not the same as subtracting a positive. Look at the number line: from negative four up to nine is thirteen whole steps, not five. So nine minus negative four is thirteen. The temperature dropped thirteen degrees.",
+    "math": "9-(-4)=9+4=13",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      10,
+      -4,
+      9
+     ],
+     "labels": [],
+     "caption": "From negative four to nine is thirteen steps — not five."
+    }
+   },
+   {
+    "say": "Here is why that works, in one sentence. Taking away a negative is like the bank cancelling a debt of four dollars — you end up four dollars better off, so it is the same as adding four. Whenever you see a minus sign right next to a negative number, flip it to adding.",
+    "math": "a-(-b)=a+b",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      14,
+      9,
+      13
+     ],
+     "labels": [],
+     "caption": "Minus negative four means hop four more to the right."
+    }
+   },
+   {
+    "say": "So, whenever you meet a real integer problem, do three things: pick zero, let the words tell you left or right, then check your answer against the number line. If your answer feels too small, look for a subtracted negative hiding in there.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Let the words choose the direction, and remember: subtracting a negative moves you right, so 9 − (−4) = 13.",
+  "practice": {
+   "question": "Maya's bank account is overdrawn: her balance is negative eighteen dollars. She pays back a fee of six dollars that the bank had charged her, meaning the bank removes a charge of negative six dollars from her account. Write the integer sentence and find her new balance. Try drawing a number line from negative twenty-five to five to check.",
+   "answer": "Negative eighteen minus negative six equals negative eighteen plus six, which is negative twelve. Her new balance is negative twelve dollars — she still owes money, but twelve dollars instead of eighteen."
+  }
+ }
+}

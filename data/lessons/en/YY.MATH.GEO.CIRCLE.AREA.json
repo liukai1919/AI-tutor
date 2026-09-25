@@ -1,0 +1,85 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.CIRCLE.AREA",
+ "lang": "en",
+ "title": "Calculate the area of a circle with A = π × r × r",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Area Inside a Circle",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the distance around a circle, the circumference. Today we learn something different: how much space is inside the circle, like how much cheese is on a pizza. That is called the area.",
+    "math": "",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Circumference goes around the edge. Area is all the space inside."
+    }
+   },
+   {
+    "say": "Here is the rule for area. Take the radius, multiply it by itself, then multiply that by pi. We write it as A equals pi times r times r, and we say it out loud as pi times r squared. The r times r part makes sense, because area is always about filling up flat space, so we need two lengths multiplied together, just like length times width for a rectangle.",
+    "math": "A = \\pi \\times r \\times r",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "r is the radius, from the centre to the edge"
+    }
+   },
+   {
+    "say": "Let us try a real one. Imagine a round wall clock in your classroom with a radius of five centimetres on a drawing. Step one, square the radius: five times five is twenty five. Step two, multiply by pi, using three point one four: twenty five times three point one four is seventy eight point five. So the area is seventy eight point five square centimetres. Notice the units are square centimetres, because we are covering a flat surface.",
+    "math": "A = \\pi \\times 5 \\times 5 = 25\\pi \\approx 78.5\\ \\text{cm}^2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "5 times 5 is 25, then 25 times 3.14 is 78.5 square cm"
+    }
+   },
+   {
+    "say": "Now the two traps that catch almost everybody. Trap one is doing pi times two r instead of pi times r squared. With our clock that would give three point one four times ten, which is thirty one point four, way too small, and that is a circumference answer, not an area. Trap two is grabbing the diameter by mistake. If someone tells you the clock is ten centimetres across, that ten is the diameter, so cut it in half to get a radius of five before you square it.",
+    "math": "\\pi \\times 2r \\ne \\pi \\times r^2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Wrong: 3.14 times 10 is 31.4. Right: 3.14 times 25 is 78.5"
+    }
+   },
+   {
+    "say": "So remember the order: square the radius first, then multiply by pi, and finish with square units. Radius first, pi second, square units last.",
+    "math": "A = \\pi r^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Square the radius first, then multiply by pi: A equals pi times r squared, and the answer is in square units.",
+  "practice": {
+   "question": "You order a round pizza from a shop on Commercial Drive, and the radius of the pizza is fifteen centimetres. Draw a circle, label the radius fifteen centimetres, and find the area of the pizza. Use three point one four for pi.",
+   "answer": "About 706.5 square centimetres. First 15 times 15 is 225, then 225 times 3.14 is 706.5."
+  }
+ }
+}

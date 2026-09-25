@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ORDER_OPS.NO_BRACKETS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5ltbc7intq9l",
+   "level": 1,
+   "question": "Here is an expression with no brackets: 2 + 5 × 6. It uses one addition and one multiplication. What is the value of the expression?",
+   "options": [
+    "32",
+    "42",
+    "13",
+    "30"
+   ],
+   "answerIndex": 0,
+   "explain": "In an expression without brackets, multiplication is done before addition: 5 × 6 = 30, then 2 + 30 = 32. The common trap is working straight across and doing 2 + 5 = 7 first, which gives 42.",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7fcafrh",
+   "level": 1,
+   "question": "Here is an expression with no brackets: 40 − 6 × 4. It uses one subtraction and one multiplication. What is the value of the expression?",
+   "options": [
+    "136",
+    "16",
+    "34",
+    "24"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiplication comes before subtraction, so 6 × 4 = 24 first, then 40 − 24 = 16. The common trap is subtracting first, 40 − 6 = 34, and then multiplying by 4 to get 136.",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7q5bo0t",
+   "level": 1,
+   "question": "Here is an expression with no brackets: 18 − 5 + 4. It uses one subtraction and one addition, and no multiplication or division. What is the value of the expression?",
+   "options": [
+    "9",
+    "27",
+    "17",
+    "13"
+   ],
+   "answerIndex": 2,
+   "explain": "When only addition and subtraction are left, you work from left to right: 18 − 5 = 13, then 13 + 4 = 17. The common trap is thinking addition must come first and doing 5 + 4 = 9 to get 9.",
+   "tags": [
+    "order.add_before_sub_always",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc783ct9o",
+   "level": 1,
+   "question": "Here is an expression with no brackets: 20 − 15 ÷ 5. It uses one subtraction and one division. What is the value of the expression?",
+   "options": [
+    "1",
+    "5",
+    "3",
+    "17"
+   ],
+   "answerIndex": 3,
+   "explain": "Division is done before subtraction: 15 ÷ 5 = 3, then 20 − 3 = 17. The common trap is going left to right and doing 20 − 15 = 5 first, then dividing by 5 to get 1.",
+   "tags": [
+    "order.left_to_right",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7y23dpe",
+   "level": 2,
+   "question": "At a store in Victoria, Amrit buys 3 packs of stickers that cost $6 each and 4 notebooks that cost $5 each. His total cost is given by 3 × 6 + 4 × 5. How much does he spend?",
+   "options": [
+    "$38",
+    "$110",
+    "$22",
+    "$77"
+   ],
+   "answerIndex": 0,
+   "explain": "Do both multiplications first, then add: 3 × 6 = 18 and 4 × 5 = 20, so 18 + 20 = $38. The common trap is going straight across, 3 × 6 = 18, 18 + 4 = 22, 22 × 5 = 110.",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7ujilt5",
+   "level": 2,
+   "question": "Evaluate 9 × 4 − 18 ÷ 3. There are no brackets in this expression.",
+   "options": [
+    "6",
+    "30",
+    "18",
+    "42"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiplication and division are done first, in any order: 9 × 4 = 36 and 18 ÷ 3 = 6, so 36 − 6 = 30. The common trap is going left to right and doing 36 − 18 = 18 before dividing by 3, which gives 6.",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7wwnssx",
+   "level": 2,
+   "question": "Nadia needs to evaluate 36 − 4 × 3 + 8. There are no brackets. Which first step is correct, and why?",
+   "options": [
+    "Subtract 36 − 4 = 32, because you always work from left to right.",
+    "Add 3 + 8 = 11 first, because addition is always done before subtraction.",
+    "Multiply 4 × 3 = 12 first, because multiplication is done before addition and subtraction.",
+    "Add 36 + 8 = 44 first, because you can add numbers in any order."
+   ],
+   "answerIndex": 2,
+   "explain": "Multiplication and division always come before addition and subtraction, so 4 × 3 = 12 is the first step, leaving 36 − 12 + 8 = 32. The trap is starting at the left end just because it is first on the page.",
+   "tags": [
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7n3uw2h",
+   "level": 2,
+   "question": "Ms. Patel already has 6 markers on the art table. She shares 36 more markers equally among 3 art tables, and one of those shares goes on her table too. The number of markers on her table is 6 + 36 ÷ 3. How many markers is that?",
+   "options": [
+    "14",
+    "42",
+    "12",
+    "18"
+   ],
+   "answerIndex": 3,
+   "explain": "Divide before you add: 36 ÷ 3 = 12, then 6 + 12 = 18 markers. The common trap is adding first, 6 + 36 = 42, and then dividing by 3 to get 14.",
+   "tags": [
+    "order.left_to_right",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7u27p0v",
+   "level": 3,
+   "question": "For a bottle drive in Kelowna, 6 teams each collect 9 bottles. Then 20 cracked bottles are thrown out, and a neighbour drops off 8 more bottles. The number of good bottles is 6 × 9 − 20 + 8. How many good bottles are there?",
+   "options": [
+    "42",
+    "26",
+    "34",
+    "82"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply first, then work left to right through the subtraction and addition: 6 × 9 = 54, 54 − 20 = 34, 34 + 8 = 42 bottles. The common trap is adding 20 + 8 = 28 first because addition looks like it should come before subtraction, which gives 26.",
+   "tags": [
+    "ok",
+    "order.add_before_sub_always",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7gz1fzc",
+   "level": 3,
+   "question": "Sam is evaluating 24 − 8 + 6 × 2. He correctly multiplies 6 × 2 = 12, then says he must finish all the addition before he does any subtraction. What is the correct value of the expression?",
+   "options": [
+    "4",
+    "28",
+    "44",
+    "22"
+   ],
+   "answerIndex": 1,
+   "explain": "After 6 × 2 = 12, the expression is 24 − 8 + 12, and addition and subtraction are done left to right: 24 − 8 = 16, then 16 + 12 = 28. Sam's rule is wrong; adding 8 + 12 = 20 first would give 4.",
+   "tags": [
+    "order.add_before_sub_always",
+    "ok",
+    "order.left_to_right",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc72p9zji",
+   "level": 3,
+   "question": "A SkyTrain car leaves Waterfront with 40 riders. At Metrotown 12 riders get off. At the next station, 2 groups of 8 students get on. The number of riders is 40 − 12 + 8 × 2. How many riders are on the car now?",
+   "options": [
+    "72",
+    "12",
+    "44",
+    "28"
+   ],
+   "answerIndex": 2,
+   "explain": "Multiply first: 8 × 2 = 16 students get on, then 40 − 12 = 28 and 28 + 16 = 44 riders. Two traps: adding 12 + 16 = 28 before subtracting gives 12, and going straight across from the left gives 72.",
+   "tags": [
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ltbc7xklw5s",
+   "level": 3,
+   "question": "Kiran evaluates 20 − 3 × 4 + 6 like this: 20 − 3 = 17, then 17 × 4 = 68, then 68 + 6 = 74. What went wrong, and what is the correct value?",
+   "options": [
+    "Kiran should multiply 3 × 4 = 12, subtract it from 20, and stop there; the correct value is 8.",
+    "Kiran's method is fine, because you always work from left to right; 74 is correct.",
+    "Kiran should add 12 + 6 = 18 first, because addition comes before subtraction; the correct value is 2.",
+    "Kiran should multiply 3 × 4 = 12 first; the correct value is 14."
+   ],
+   "answerIndex": 3,
+   "explain": "Multiplication is done before addition and subtraction, so 3 × 4 = 12 gives 20 − 12 + 6, and then left to right: 20 − 12 = 8, 8 + 6 = 14. Reading straight across from the left is the most common mistake here, and forgetting the final + 6 leaves you at 8.",
+   "tags": [
+    "other",
+    "order.left_to_right",
+    "order.add_before_sub_always",
+    "ok"
+   ]
+  }
+ ]
+}

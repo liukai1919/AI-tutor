@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ORDER_OPS.WRITE_EXPR",
+ "lang": "en",
+ "title": "Write a multi-step problem as one expression and evaluate it",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "One Story, One Expression",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to solve something like three times, in brackets four plus two. Today we learn how to turn a shopping story into that expression all by ourselves, so we can solve the whole problem in one line.",
+    "math": "3 \\times (4 + 2)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our story. Yumi is packing three lunch bags for a hike up Grouse Mountain. In each bag she puts a sandwich that costs four dollars and a juice box that costs two dollars. First, let us look at just one bag. One bag costs four plus two, which is six dollars.",
+    "math": "4 + 2 = 6",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4,
+      2
+     ],
+     "labels": [
+      "Sandwich $4",
+      "Juice $2"
+     ],
+     "caption": "One lunch bag = 4 + 2 = 6 dollars"
+    }
+   },
+   {
+    "say": "Now here is the big idea. The four plus two is a group that belongs together, because it is one whole bag. When something belongs together like that, we wrap it in brackets. Then we say there are three of those bags, so we write three times, brackets, four plus two. The brackets are like the bag itself, holding the sandwich and the juice inside.",
+    "math": "3 \\times (4 + 2)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      6,
+      6,
+      6
+     ],
+     "labels": [
+      "Bag 1",
+      "Bag 2",
+      "Bag 3"
+     ],
+     "caption": "Three equal bags, six dollars each"
+    }
+   },
+   {
+    "say": "Let us evaluate it. Brackets first: four plus two is six. Then three times six is eighteen. So Yumi spends eighteen dollars in total. And look, we wrote the whole story in just one line.",
+    "math": "3 \\times (4 + 2) = 3 \\times 6 = 18",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      6
+     ],
+     "labels": [],
+     "caption": "3 groups of $6 = $18"
+    }
+   },
+   {
+    "say": "Now watch out for a mistake lots of kids make. Some people forget the brackets and write three times four plus two. That gives twelve plus two, which is only fourteen. But that means three sandwiches and only one juice box. Poor Yumi, two friends get nothing to drink! The brackets are what tell us every bag gets a juice too.",
+    "math": "3 \\times 4 + 2 = 14 \\quad \\text{(wrong!)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      18,
+      14
+     ],
+     "labels": [
+      "With brackets $18",
+      "No brackets $14"
+     ],
+     "caption": "Dropping the brackets changes the whole story"
+    }
+   },
+   {
+    "say": "So remember: find the part that repeats, wrap it in brackets, then multiply. Brackets keep the story true.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Wrap the repeating group in brackets, then multiply — brackets keep the story true.",
+  "practice": {
+   "question": "A soccer team in Surrey buys four snack packs for a game. Each snack pack has one apple that costs two dollars and one granola bar that costs three dollars. Write the whole story as ONE expression using brackets, then find the total cost.",
+   "answer": "4 x (2 + 3) = 4 x 5 = 20 dollars. (Without brackets you would get 4 x 2 + 3 = 11, which would mean only one granola bar for the whole team!)"
+  }
+ }
+}

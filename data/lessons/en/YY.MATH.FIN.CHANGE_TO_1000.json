@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.CHANGE_TO_1000",
+ "lang": "en",
+ "title": "Make change for amounts to $1000 by counting up or decomposing",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Making Change Up to $1000 — Just Count Up!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make change for amounts up to one hundred dollars by counting up. Today we do the exact same thing with bigger numbers, up to one thousand dollars, so you can check your change when you buy something big, like a bike or a tent.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea. Put the price on a number line, and put the money you handed over further along the line. The change is simply the size of the jump from the price up to the money you paid. Start at two hundred sixty-eight dollars and fifty cents, and hop forward until you land on three hundred dollars.",
+    "math": "\\text{change} = \\text{jump from price} \\rightarrow \\text{money paid}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      265,
+      305,
+      268.5,
+      300
+     ],
+     "labels": [],
+     "caption": "From the price $268.50 up to the $300 you paid"
+    }
+   },
+   {
+    "say": "Let's do it in easy hops. A helmet at the bike shop in Victoria costs two hundred sixty-eight dollars and fifty cents. You hand the clerk three one hundred dollar bills. Hop one: fifty cents takes you to two hundred sixty-nine dollars. Hop two: one dollar takes you to two hundred seventy dollars. Hop three: thirty dollars takes you to three hundred dollars. Now add the hops. Fifty cents plus one dollar plus thirty dollars is thirty-one dollars and fifty cents. That is your change.",
+    "math": "0.50 + 1.00 + 30.00 = 31.50",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      265,
+      305,
+      268.5,
+      269
+     ],
+     "labels": [],
+     "caption": "Hop 1: $268.50 + $0.50 = $269.00, then $269 → $270 → $300"
+    }
+   },
+   {
+    "say": "Now a mistake lots of kids make. Ben looks at the same helmet and says, the change is two hundred sixty-eight dollars and fifty cents take away three hundred dollars. That is backwards! You cannot take three hundred dollars away from a price of only two hundred sixty-eight dollars and fifty cents. Look at the bars: the money you paid is the taller bar, and the change is only the extra bit sticking out above the price. So you always start at the price and count up to the money you handed over, never the other way around.",
+    "math": "300.00 - 268.50 = 31.50",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      268.5,
+      300
+     ],
+     "labels": [
+      "Price 268.50",
+      "You paid 300.00"
+     ],
+     "caption": "The change is the extra part above the price"
+    }
+   },
+   {
+    "say": "Let's try one more and then check it. A canoe paddle set costs four hundred thirty-two dollars and seventy-five cents, and you pay with five hundred dollars. Hop up: twenty-five cents gets you to four hundred thirty-three dollars, then seven dollars gets you to four hundred forty dollars, then sixty dollars gets you to five hundred dollars. Add the hops: twenty-five cents plus seven dollars plus sixty dollars is sixty-seven dollars and twenty-five cents. To check, add it back onto the price: four hundred thirty-two dollars and seventy-five cents plus sixty-seven dollars and twenty-five cents is exactly five hundred dollars. It works!",
+    "math": "0.25 + 7.00 + 60.00 = 67.25",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      425,
+      505,
+      432.75,
+      500
+     ],
+     "labels": [],
+     "caption": "$432.75 → $433 → $440 → $500, so the change is $67.25"
+    }
+   },
+   {
+    "say": "So here is the one thing to remember: start at the price, hop up to the money you paid, and add your hops. That is your change, every single time.",
+    "math": "\\text{price} + \\text{change} = \\text{money paid}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Start at the price and count UP to the money you paid — the hops you added together are the change.",
+  "practice": {
+   "question": "At a shop in Kelowna a mountain bike costs three hundred forty-seven dollars and twenty-five cents. You pay with four one hundred dollar bills, so four hundred dollars in all. Draw a number line, mark three hundred forty-seven dollars and twenty-five cents on the left and four hundred dollars on the right, and hop your way up. How much change do you get back?",
+   "answer": "$52.75. Hop up seventy-five cents to $348, then two dollars to $350, then fifty dollars to $400. Add the hops: 0.75 + 2 + 50 = 52.75. Check: $347.25 + $52.75 = $400."
+  }
+ }
+}

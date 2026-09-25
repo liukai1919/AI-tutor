@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LINEQ.BOTH_SIDES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlyr2b588eueq",
+   "level": 1,
+   "question": "一台天平（balance）两边平衡。左边放着 5 个一样的袋子和 2 颗散珠，右边放着 2 个同样的袋子和 11 颗散珠。每个袋子里都有 x 颗珠子。现在从两边各拿走 2 个袋子，把袋子集中到左边，天平仍然平衡。此时天平表示的等式（equation）是哪一个？",
+   "options": [
+    "3x + 2 = 11",
+    "5x + 2 = 11",
+    "7x + 2 = 11",
+    "5x + 2 = 13x"
+   ],
+   "answerIndex": 0,
+   "explain": "两边各拿走 2 袋，左边剩 5 − 2 = 3 袋加 2 颗，右边剩 11 颗，所以是 3x + 2 = 11。最容易踩的坑：只从右边拿走袋子（左边仍写 5x），或者把袋子「搬过去」时变成加法写成 7x。",
+   "tags": [
+    "ok",
+    "eq.operate_one_side",
+    "eq.move_term_keep_sign",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5fbvgbd",
+   "level": 1,
+   "question": "天平左边是 3 个袋子加 2 颗散珠，右边是 1 个袋子加 10 颗散珠，两边平衡。每个袋子里有 x 颗珠子。先从两边各拿走 1 个袋子，再从两边各拿走 2 颗散珠，最后把剩下的珠子平均分到剩下的袋子里。x 等于多少？",
+   "options": [
+    "x = 2",
+    "x = 4",
+    "x = 8",
+    "x = 2.5"
+   ],
+   "answerIndex": 1,
+   "explain": "两边各拿走 1 袋得 2x + 2 = 10，再各拿走 2 颗得 2x = 8，8 颗平均分到 2 袋，x = 4。最常见的错：把右边的 1 袋加到左边变成 4x = 8 得 2，或者算到 2x = 8 就直接说 x = 8 忘了两边同时除以 2。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "ok",
+    "eq.operate_one_side",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5n7hdu6",
+   "level": 1,
+   "question": "天平左边放着 2 个袋子和 9 颗散珠，右边放着 5 个同样的袋子、没有散珠，两边平衡。每袋有 x 颗珠子。要把所有袋子集中到右边，应从两边各拿走 2 个袋子。拿走后天平表示的等式是哪一个？",
+   "options": [
+    "9 = 7x",
+    "2x + 9 = 3x",
+    "9 = 3x",
+    "11x = 5x"
+   ],
+   "answerIndex": 2,
+   "explain": "两边各拿走 2 袋：左边只剩 9 颗散珠，右边剩 5 − 2 = 3 袋，所以 9 = 3x。注意 2 个袋子和 9 颗散珠不是同类项（like terms），不能合并成 11x；也不能只从右边拿袋子而左边不动。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "eq.operate_one_side",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5pncj6l",
+   "level": 1,
+   "question": "天平左边是 4 个袋子加 3 颗散珠，右边是 1 个袋子加 15 颗散珠，两边平衡。每个袋子里有 x 颗珠子。从两边各拿走 1 个袋子，再从两边各拿走 3 颗散珠，把剩下的珠子平均分到剩下的袋子里。每个袋子里有几颗珠子？",
+   "options": [
+    "6 颗",
+    "2.5 颗",
+    "12 颗",
+    "4 颗"
+   ],
+   "answerIndex": 3,
+   "explain": "两边各拿走 1 袋得 3x + 3 = 15，各拿走 3 颗得 3x = 12，12 颗分到 3 袋，x = 4。常见错误：把左边的 3 颗「搬到」右边时忘了变成减法，写成 3x = 18 得 6；或算到 3x = 12 后直接回答 12。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "expr.combine_unlike_terms",
+    "eq.operate_one_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5620gbh",
+   "level": 2,
+   "question": "解一元一次方程（linear equation）5x − 2 = 2x + 7 时，第一步要把含 x 的项集中到左边、常数集中到右边。整理之后，正确的等式是哪一个？",
+   "options": [
+    "3x = 9",
+    "7x = 5",
+    "3x = 9x",
+    "3x = 7"
+   ],
+   "answerIndex": 0,
+   "explain": "两边同时减 2x 再同时加 2：5x − 2x = 7 + 2，得 3x = 9。移项（把项移到另一边）一定要变号，写成 5x + 2x = 7 − 2 就错了；另外 5x − 2 中的 5x 和 −2 不是同类项，不能合并成 3x。",
+   "tags": [
+    "ok",
+    "eq.move_term_keep_sign",
+    "expr.combine_unlike_terms",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5nbsuel",
+   "level": 2,
+   "question": "一个数的 7 倍减去 4，等于这个数的 3 倍加上 20。设这个数为 y，可列方程 7y − 4 = 3y + 20。这个数是多少？",
+   "options": [
+    "y = 4",
+    "y = 6",
+    "y = −0.25",
+    "y = 24"
+   ],
+   "answerIndex": 1,
+   "explain": "两边同时减 3y 得 4y − 4 = 20，再两边同时加 4 得 4y = 24，y = 6。验算（verify）：7×6 − 4 = 38，3×6 + 20 = 38。最容易错的是把 −4 移到右边时没有变成 +4，写成 4y = 16 得 4。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "ok",
+    "expr.combine_unlike_terms",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5j36rhm",
+   "level": 2,
+   "question": "解方程 2m + 15 = 5m − 6。m 的解（solution）是多少？",
+   "options": [
+    "m = 21",
+    "m = −3",
+    "m = 7",
+    "m = −0.5"
+   ],
+   "answerIndex": 2,
+   "explain": "未知数系数（coefficient）大的一边是右边，所以两边同时减 2m 得 15 = 3m − 6，再两边加 6 得 21 = 3m，m = 7。若写成 2m + 5m = −6 − 15 就是移项没变号，会得到错误的 −3。",
+   "tags": [
+    "eq.operate_one_side",
+    "eq.move_term_keep_sign",
+    "ok",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5syr37h",
+   "level": 2,
+   "question": "解方程 8 − 3k = 2k − 7。k 等于多少？",
+   "options": [
+    "k = −15",
+    "k = −4",
+    "k = 15",
+    "k = 3"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时加 3k 得 8 = 5k − 7，再两边加 7 得 15 = 5k，k = 3。验算：8 − 9 = −1，6 − 7 = −1。把 −3k 移到右边时若仍写成 −3k（15 = −k）就是移项不变号；算到 15 = 5k 后必须两边同时除以 5，不能直接说 k = 15。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "expr.combine_unlike_terms",
+    "eq.operate_one_side",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5kasq75",
+   "level": 3,
+   "question": "在温哥华 Stanley Park 租自行车：甲店每小时 8 加元，另收头盔费 6 加元；乙店每小时 5 加元，另收头盔费 18 加元。设租 h 小时时两家店的总费用相同。h 是多少？",
+   "options": [
+    "4 小时",
+    "12 小时",
+    "2 小时",
+    "8 小时"
+   ],
+   "answerIndex": 0,
+   "explain": "列方程 8h + 6 = 5h + 18，两边减 5h 得 3h + 6 = 18，再减 6 得 3h = 12，h = 4。验算：8×4 + 6 = 38，5×4 + 18 = 38。把 6 移到右边时忘了变号会得 3h = 24（8 小时）；算到 3h = 12 就答 12 是忘了两边同时除以 3。",
+   "tags": [
+    "ok",
+    "eq.operate_one_side",
+    "expr.combine_unlike_terms",
+    "eq.move_term_keep_sign"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5lhbsy6",
+   "level": 3,
+   "question": "小安的存钱罐里现有 40 加元，以后每周存 4 加元；小杰现有 16 加元，以后每周存 8 加元。设 w 周后两人的钱一样多。w 等于多少？",
+   "options": [
+    "w = −2",
+    "w = 6",
+    "w = 24",
+    "w = 2"
+   ],
+   "answerIndex": 1,
+   "explain": "列方程 40 + 4w = 16 + 8w，两边减 4w 得 40 = 16 + 4w，再减 16 得 24 = 4w，w = 6。验算：40 + 24 = 64，16 + 48 = 64。写成 4w + 8w = 16 − 40 会得到 −2，那是把 8w 移到左边时没变号；周数为负显然不合理，看到这种结果要回头检查。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "ok",
+    "eq.operate_one_side",
+    "expr.combine_unlike_terms"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b5nxazir",
+   "level": 3,
+   "question": "小丽解方程 6a + 3 = 2a + 19，第一步写成 6a + 2a = 19 − 3，得 8a = 16，所以 a = 2。老师说她错了。下面哪一句说对了她的错误？",
+   "options": [
+    "她没有错，因为移项就是把项直接搬到另一边，8a = 16，a = 2 是对的",
+    "她应先把左边 6a + 3 合并成 9a，因为同一边的项必须先合并再移项",
+    "2a 移到左边要变号成 −2a，因为这是两边同时减 2a，应得 4a = 16",
+    "她应只在左边减 3 得 6a = 2a + 19，因为 3 本来就在左边，右边不用动"
+   ],
+   "answerIndex": 2,
+   "explain": "移项的本质是两边同时做同样的运算：两边减 2a 得 4a + 3 = 19，两边减 3 得 4a = 16，a = 4。验算 a = 2 时左边 15、右边 23 不相等，说明 a = 2 确实错了。6a 和 3 不是同类项不能合并，运算也不能只做一边。",
+   "tags": [
+    "eq.move_term_keep_sign",
+    "expr.combine_unlike_terms",
+    "ok",
+    "eq.operate_one_side"
+   ]
+  },
+  {
+   "qid": "qmtlyr2b57v3lma",
+   "level": 3,
+   "question": "科学课上种了两棵植物。第一棵现在高 6 cm，每周长高 5 cm；第二棵现在高 30 cm，每周长高 1 cm。设 x 周后两棵植物一样高，可列方程 6 + 5x = 30 + x。x 是多少？",
+   "options": [
+    "x = 3",
+    "x = 4",
+    "x = 24",
+    "x = 6"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时减 x 得 6 + 4x = 30，再两边减 6 得 4x = 24，x = 6。验算：6 + 30 = 36，30 + 6 = 36。把右边的 x 移到左边若写成 5x + x = 30 − 6 是没变号，会得到 4；算到 4x = 24 后要两边同时除以 4，不能直接答 24。",
+   "tags": [
+    "expr.combine_unlike_terms",
+    "eq.move_term_keep_sign",
+    "eq.operate_one_side",
+    "ok"
+   ]
+  }
+ ]
+}

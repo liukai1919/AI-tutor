@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL",
+ "lang": "en",
+ "title": "Add and subtract mentally with friendly numbers, compensating and decomposing",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Friendly Numbers: Add a Little Extra, Then Give It Back",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to make ten quickly in your head, like eight plus two makes ten. Today we use that same idea with bigger numbers, so you can add something like two hundred forty-seven plus ninety-eight in your head, without writing it down.",
+    "math": "247+98=?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Ninety-eight is a bit awkward, but one hundred is super friendly. So we pretend we are adding one hundred, take the easy jump, and then give back the extra two we added. Watch the jump on the number line: we start at two hundred forty-seven and hop one hundred, landing on three hundred forty-seven.",
+    "math": "247+100=347",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      240,
+      360,
+      247,
+      347
+     ],
+     "labels": [],
+     "caption": "A friendly jump of 100, from 247 to 347"
+    }
+   },
+   {
+    "say": "But wait, we were only supposed to add ninety-eight, not one hundred. We added two too many, so now we hop two steps back. Three hundred forty-seven minus two is three hundred forty-five. That is our answer: two hundred forty-seven plus ninety-eight equals three hundred forty-five.",
+    "math": "347-2=345",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      340,
+      352,
+      347,
+      345
+     ],
+     "labels": [],
+     "caption": "Give back the extra 2: hop back from 347 to 345"
+    }
+   },
+   {
+    "say": "Let us try one more, this time with money. Imagine you are shopping in Victoria and a scooter costs one hundred ninety-nine dollars and a helmet costs twenty-six dollars. Two hundred is the friendly number, so add two hundred and twenty-six to get two hundred twenty-six, then hop back one dollar because you added one dollar too much. The total is two hundred twenty-five dollars.",
+    "math": "199+26=200+26-1=225",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      225
+     ],
+     "labels": [],
+     "caption": "225 dollars: 2 hundreds, 2 tens, 5 ones"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Some kids add the extra two and then add two again, and they say two hundred forty-seven plus ninety-eight is three hundred forty-nine. But think about it: you already put in too much, so you have to take some out, not put more in. Adding extra means hopping back, always.",
+    "math": "347+2=349\\ \\text{(wrong)}\\qquad 347-2=345\\ \\text{(right)}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      340,
+      352,
+      349,
+      345
+     ],
+     "labels": [],
+     "caption": "349 is too far right; the true answer is 345"
+    }
+   },
+   {
+    "say": "So remember: make it friendly, take the easy jump, then give back exactly what you borrowed.",
+    "math": "247+98=247+100-2=345",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Round up to a friendly number, add it, then subtract the extra you added back.",
+  "practice": {
+   "question": "At a store in Kelowna, a soccer ball costs twenty-nine dollars and a ball pump costs one hundred fifty-four dollars. Use a friendly number to add one hundred fifty-four plus twenty-nine in your head. What is the total cost?",
+   "answer": "183 dollars. Think one hundred fifty-four plus thirty equals one hundred eighty-four, then hop back one dollar because you added one too many: one hundred eighty-three dollars."
+  }
+ }
+}

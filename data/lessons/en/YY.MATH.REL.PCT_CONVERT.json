@@ -1,0 +1,78 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.PCT_CONVERT",
+ "lang": "en",
+ "title": "Convert among percents, fractions and decimals (3/8 = 0.375 = 37.5%)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "From Three Eighths to a Percent",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to flip easy ones back and forth, like one half is zero point five, which is fifty percent. But what about a fraction that is not so tidy, like three eighths? Today we take that exact fraction all the way to a percent, and we do it in two small moves.",
+    "math": "\\frac{1}{2}=0.5=50\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      50
+     ],
+     "labels": [],
+     "caption": "One half means 50 of the 100 little squares"
+    }
+   },
+   {
+    "say": "Move one: turn the fraction into a decimal by dividing the top by the bottom. Three divided by eight is zero point three seven five. Notice it does not stop at the tenths place or the hundredths place, it keeps going to the thousandths. That is totally fine, we just keep all three digits.",
+    "math": "3\\div 8 = 0.375",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.375
+     ],
+     "labels": [],
+     "caption": "3 tenths, 7 hundredths, 5 thousandths"
+    }
+   },
+   {
+    "say": "Move two: a percent just means how much out of one hundred. So picture a big grid with one hundred little squares. Zero point three seven five of that whole grid is thirty seven and a half squares. That is why three eighths is thirty seven point five percent. On paper you get there by multiplying by one hundred, which slides the decimal point two places to the right.",
+    "math": "0.375\\times 100 = 37.5\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      37,
+      1
+     ],
+     "labels": [],
+     "caption": "37 full squares plus one half square = 37.5 out of 100"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. Someone sees zero point three seven five and writes three point seven five percent, because they slid the point only one place. Two places, always two, because there are two zeros in one hundred. And going the other way, five percent is not zero point five. Five percent is five squares out of one hundred, which is zero point zero five. Zero point five would be fifty squares, ten times too many.",
+    "math": "5\\% = \\frac{5}{100} = 0.05",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      5
+     ],
+     "labels": [],
+     "caption": "5 percent is only 5 of the 100 squares, so 0.05"
+    }
+   },
+   {
+    "say": "So the whole trip is just divide, then slide two places. Three eighths becomes zero point three seven five, and zero point three seven five becomes thirty seven point five percent. Same amount, three different outfits.",
+    "math": "\\frac{3}{8}=0.375=37.5\\%",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Divide top by bottom to get the decimal, then slide the point two places right for the percent: 3/8 = 0.375 = 37.5%.",
+  "practice": {
+   "question": "At practice in the school gym you sank 5 of your 8 free throws. Write that as a decimal and as a percent. Then say how many of the 100 little squares in a hundredths grid you would need to shade to show it.",
+   "answer": "5 divided by 8 is 0.625, and sliding the point two places right gives 62.5 percent. You would shade 62 whole squares plus half of one more square, which is 62.5 out of 100."
+  }
+ }
+}

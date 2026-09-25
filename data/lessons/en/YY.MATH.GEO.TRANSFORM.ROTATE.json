@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.ROTATE",
+ "lang": "en",
+ "title": "Rotate (turn) a shape a quarter or half turn, clockwise or counter-clockwise",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Shapes: Quarter and Half Turns",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a clock, like half past three or quarter past three. Today we use that same idea, but instead of turning clock hands, we turn a shape. A quarter turn and a half turn on a grid.",
+    "math": "",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      3,
+      15
+     ],
+     "labels": [],
+     "caption": "Quarter past three — the hand made a quarter turn"
+    }
+   },
+   {
+    "say": "Here is our rule. Clockwise means the same direction the clock hands go: right, then down. Counter-clockwise is the opposite way: up, then left. A quarter turn is ninety degrees, and a half turn is one hundred eighty degrees, which is two quarter turns.",
+    "math": "",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [],
+     "caption": "A quarter turn is ninety degrees"
+    }
+   },
+   {
+    "say": "Let's turn one point on a grid, around the corner point zero, zero. Start with the point A at three to the right and one up. Put your finger on zero zero and imagine A is glued to a stick from there.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0,
+      3,
+      1
+     ],
+     "labels": [
+      "centre",
+      "A"
+     ],
+     "caption": "Point A is 3 right and 1 up from the centre"
+    }
+   },
+   {
+    "say": "Now turn a quarter turn clockwise. The stick swings toward the right and downward, like a clock hand at three o'clock swinging to six o'clock. Our three-right and one-up becomes one right and three down. So A lands at one, negative three.",
+    "math": "(3,1)\\rightarrow(1,-3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0,
+      3,
+      1,
+      1,
+      -3
+     ],
+     "labels": [
+      "centre",
+      "A",
+      "A turned"
+     ],
+     "caption": "Quarter turn clockwise: A swings down to the right"
+    }
+   },
+   {
+    "say": "Here is the mistake lots of kids make. They turn the wrong way and send A up to the left, landing at negative one, three. That is a quarter turn counter-clockwise, not clockwise! Always check with your finger: clockwise from three o'clock goes down to six o'clock, never up to twelve.",
+    "math": "(3,1)\\rightarrow(-1,3)\\ \\text{is counter-clockwise}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      1,
+      1,
+      -3,
+      -1,
+      3
+     ],
+     "labels": [
+      "A start",
+      "clockwise",
+      "counter-clockwise"
+     ],
+     "caption": "Two different landings — only the down-right one is clockwise"
+    }
+   },
+   {
+    "say": "And a half turn is easy: it is two quarter turns, so the point ends up straight across on the other side of the centre. From three right and one up, a half turn lands you at three left and one down, at negative three, negative one. That's it. Point your finger, name the direction, then count the turns.",
+    "math": "(3,1)\\rightarrow(-3,-1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0,
+      3,
+      1,
+      -3,
+      -1
+     ],
+     "labels": [
+      "centre",
+      "A",
+      "half turn"
+     ],
+     "caption": "Half turn: straight through the centre to the other side"
+    }
+   }
+  ],
+  "answer": "Clockwise goes right-and-down like clock hands; a quarter turn is one ninety-degree swing, and a half turn is two of them, landing straight opposite.",
+  "practice": {
+   "question": "On a grid of the Stanley Park map, the totem pole marker sits at the point two to the right and four up from the centre point zero, zero. Draw that point on your own grid. Now turn it a quarter turn clockwise around the centre. Where does it land? Then, starting again from two right and four up, where does it land after a half turn?",
+   "answer": "A quarter turn clockwise lands it at four right and two down, the point four, negative two. A half turn lands it at two left and four down, the point negative two, negative four."
+  }
+ }
+}

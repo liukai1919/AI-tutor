@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.3D.VIEWS.DRAW",
+ "lang": "en",
+ "title": "Draw the top, front and side views of an object built from cubes",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Three Flat Photos of a Cube Tower",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You can already build a prism from its net and count cubes hidden inside a stack, so you know a cube tower has three directions: across, up, and back. This step is about squashing that tower into three flat pictures — the front view, the side view, and the top view. Here is our object: a block built from centimetre cubes, four cubes across, two cubes deep from front to back, and three cubes tall.",
+    "math": "4 \\times 2 \\times 3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      4,
+      2,
+      3
+     ],
+     "labels": [
+      "cubes"
+     ],
+     "caption": "Cube block: 4 across, 2 deep, 3 tall"
+    }
+   },
+   {
+    "say": "Think of it like taking three photos with your phone, but you are never allowed to stand at an angle. For the front view, you stand straight in front of the block and take the photo. You see four cubes across and three cubes up. The two cubes of depth are hiding directly behind — a camera cannot see them, so they do not go in the picture. So the front view is a flat rectangle of squares, four across and three up.",
+    "math": "\\text{front view} = 4 \\text{ across} \\times 3 \\text{ up}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      4,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "Front view: 4 squares across, 3 squares up"
+    }
+   },
+   {
+    "say": "Now walk around to the right side and take the photo from there. From the side, the four cubes of length are lined up behind each other, so you cannot see them any more. What you do see is the depth, two cubes across, and the height, still three cubes up. So the side view is two squares across and three squares up. Notice it is a different shape from the front view, and that is the whole point.",
+    "math": "\\text{side view} = 2 \\text{ across} \\times 3 \\text{ up}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      2,
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Side view: 2 squares across, 3 squares up"
+    }
+   },
+   {
+    "say": "Last one: climb up on a chair and look straight down, like a drone shot. Looking down, height disappears completely — all three levels sit on top of each other. You see four cubes across and two cubes going back. So the top view is four squares across and two squares down on your page. That second row is the depth lying flat, not a wall standing up.",
+    "math": "\\text{top view} = 4 \\text{ across} \\times 2 \\text{ deep}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      4,
+      2,
+      4
+     ],
+     "labels": [],
+     "caption": "Top view: 4 across, 2 deep, drawn flat"
+    }
+   },
+   {
+    "say": "Two traps catch almost everybody. Trap one: swapping the front and the side. Someone writes two across by three up as the front view — but that two came from the depth, so it is the side. Before you draw, say out loud which way you are facing. Trap two: drawing the top view as a little three D sketch with slanted lines. A view has only two directions, never three. If your top view has slanted lines or dashed hidden edges, it is a drawing of the block, not a view of it.",
+    "math": "2\\times 3 \\ne \\text{front view}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      2,
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "This 2 by 3 is the SIDE view — not the front"
+    }
+   },
+   {
+    "say": "So here is the takeaway: front gives you width and height, side gives you depth and height, top gives you width and depth. Three flat photos, each one perfectly flat.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      4,
+      2,
+      3
+     ],
+     "labels": [
+      "cubes"
+     ],
+     "caption": "One block, three flat views: 4 by 3, 2 by 3, 4 by 2"
+    }
+   }
+  ],
+  "answer": "Front shows width and height, side shows depth and height, top shows width and depth — always flat, never 3D.",
+  "practice": {
+   "question": "Priya builds a solid block out of two centimetre cubes for her woodworking project: it is five cubes wide from left to right, three cubes deep from front to back, and two cubes tall. Sketch her three views on grid paper. How many squares across and how many squares up or back is each one?",
+   "answer": "Front view: 5 squares across and 2 squares up. Side view: 3 squares across and 2 squares up. Top view: 5 squares across and 3 squares back. All three are flat grids of squares — no slanted or dashed lines."
+  }
+ }
+}

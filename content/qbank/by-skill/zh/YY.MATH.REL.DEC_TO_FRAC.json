@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.REL.DEC_TO_FRAC",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5t54j7qlxqz5",
+   "level": 1,
+   "question": "一条长条巧克力被平均分成 10 份，Mia 吃掉了其中 6 份，吃掉的部分写成小数（decimal）是 0.6。请把 0.6 化成最简分数（fraction in lowest terms）。",
+   "options": [
+    "3/5",
+    "3/50",
+    "6/10",
+    "30/50"
+   ],
+   "answerIndex": 0,
+   "explain": "0.6 读作六个十分之一，先写成 6/10，分子分母同除 2 得 3/5。坑：0.6 的 6 在十分位（tenths），不是百分位，写成 3/50 就小了 10 倍；6/10 和 30/50 值虽相等，但没约到最简。",
+   "tags": [
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7cqu01g",
+   "level": 1,
+   "question": "一张班级海报被平均分成 100 个一样大的小方格，Ben 涂了其中 4 格，涂色部分写成小数是 0.04。0.04 化成最简分数是多少？",
+   "options": [
+    "4/100",
+    "1/25",
+    "2/50",
+    "2/5"
+   ],
+   "answerIndex": 1,
+   "explain": "0.04 是四个百分之一，写成 4/100，分子分母同除 4 得 1/25。坑：写成 2/5 是把 0.04 当成了 0.4；停在 4/100 或 2/50 都还能继续约。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "ok",
+    "frac.not_lowest_terms",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7pms0bb",
+   "level": 1,
+   "question": "一段绳子被平均剪成 100 段一样长的小段，Sofia 拿走了其中 3 段，她拿走的部分写成小数是 0.03。0.03 化成最简分数是多少？",
+   "options": [
+    "30/100",
+    "3/10",
+    "3/100",
+    "6/200"
+   ],
+   "answerIndex": 2,
+   "explain": "0.03 就是三个百分之一，即 3/100；3 和 100 除了 1 没有别的公因数，所以 3/100 已经是最简。坑：三个百分之一是 0.03 不是 0.3，写成 3/10 或 30/100 都变成了 0.3；6/200 虽然相等但没约完。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7u5wly0",
+   "level": 1,
+   "question": "一个大蛋糕被平均切成 10 块，聚会结束后还剩 5 块，剩下的部分写成小数是 0.5。0.5 化成最简分数是多少？",
+   "options": [
+    "5/10",
+    "1/20",
+    "50/100",
+    "1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "0.5 = 5/10，分子分母同除 5 得 1/2。坑：写成 1/20 说明把 0.5 看成了 0.05；5/10 和 50/100 只是没约到最简。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5t54j73e1i33",
+   "level": 2,
+   "question": "把小数 0.36 化成最简分数。",
+   "options": [
+    "9/25",
+    "18/50",
+    "18/5",
+    "36/100"
+   ],
+   "answerIndex": 0,
+   "explain": "0.36 = 36/100，分子分母同除 4 得 9/25。坑：只同除 2 会停在 18/50，分子分母都还是偶数，说明没约完；18/5 是把百分位错当成十分位。",
+   "tags": [
+    "ok",
+    "frac.not_lowest_terms",
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7zbqxzq",
+   "level": 2,
+   "question": "把小数 0.125 化成最简分数。",
+   "options": [
+    "125/1000",
+    "1/8",
+    "25/200",
+    "5/40"
+   ],
+   "answerIndex": 1,
+   "explain": "0.125 = 125/1000，分子分母同除 125 得 1/8。坑：约成 25/200 或 5/40 都还能继续约（还有公因数 5），要一直约到分子分母只剩公因数 1 为止。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "ok",
+    "frac.not_lowest_terms",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7lf4xot",
+   "level": 2,
+   "question": "把小数 0.45 化成最简分数。",
+   "options": [
+    "45/100",
+    "9/2",
+    "9/20",
+    "90/200"
+   ],
+   "answerIndex": 2,
+   "explain": "0.45 = 45/100，分子分母同除 5 得 9/20。坑：写成 9/2 等于 4.5，是把小数点位置看错了；90/200 是把分数扩大了，约分的方向应该是同除不是同乘。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "dec.tenths_hundredths_confuse",
+    "ok",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7cwn1me",
+   "level": 2,
+   "question": "一小袋 BC 蓝莓的净重是 0.08 kg。把 0.08 化成最简分数（单位 kg）。",
+   "options": [
+    "4/5",
+    "8/100",
+    "4/50",
+    "2/25"
+   ],
+   "answerIndex": 3,
+   "explain": "0.08 是八个百分之一，写成 8/100，分子分母同除 4 得 2/25。坑：写成 4/5 就是 0.8，比实际大了 10 倍；8/100 和 4/50 都还没约到最简。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms",
+    "frac.not_lowest_terms",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7ah13to",
+   "level": 3,
+   "question": "Leo 早上从家走到学校是 0.25 km，放学后再从学校走到社区冰球馆是 0.15 km。他这一天走的这两段路一共是多少 km？把总路程写成最简分数。",
+   "options": [
+    "2/5",
+    "40/100",
+    "1/25",
+    "20/50"
+   ],
+   "answerIndex": 0,
+   "explain": "先加：0.25 + 0.15 = 0.40，再化分数：40/100，分子分母同除 20 得 2/5。坑：加完要接着约到最简，40/100 和 20/50 都没约完；写成 1/25 是把 0.4 当成了 0.04。",
+   "tags": [
+    "ok",
+    "frac.not_lowest_terms",
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7sm3saz",
+   "level": 3,
+   "question": "Maya 把 0.24 化成分数，她写下：0.24 = 24/100 = 12/50，然后说“做完了”。下面哪句话说得对？",
+   "options": [
+    "12/50 就是最简分数，Maya 已经做完了。",
+    "还没做完：12/50 的分子和分母还能同除 2，最简分数是 6/25。",
+    "她第一步就错了：0.24 应该写成 24/10，约简后是 12/5。",
+    "24/100 已经约过一次了，约一次就一定是最简，所以答案就是 12/50。"
+   ],
+   "answerIndex": 1,
+   "explain": "0.24 = 24/100，同除 2 得 12/50，但 12 和 50 都还是偶数，再同除 2 才得到 6/25。坑：约一次不等于最简，要检查分子分母是否还有公因数（common factor），直到只剩 1 为止。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "ok",
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms"
+   ]
+  },
+  {
+   "qid": "qmt5t54j72k2vpl",
+   "level": 3,
+   "question": "一瓶牛奶原本是 2 L，Ella 用掉 0.5 L 做班级华夫饼。剩下的牛奶占整瓶的几分之几？请写成最简分数。",
+   "options": [
+    "15/20",
+    "75/100",
+    "3/4",
+    "3/40"
+   ],
+   "answerIndex": 2,
+   "explain": "先算剩下：2 − 0.5 = 1.5 L，再看占比：1.5 ÷ 2 = 0.75 = 75/100，同除 25 得 3/4。坑：题目问的是剩下的部分，别拿 0.5 直接算；写成 3/40 是把 0.75 当成了 0.075。",
+   "tags": [
+    "frac.not_lowest_terms",
+    "frac.not_lowest_terms",
+    "ok",
+    "dec.tenths_hundredths_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5t54j7oaya8g",
+   "level": 3,
+   "question": "Noah 说：“一个整体被平均分成 100 份，涂了其中 6 份，写成小数就是 0.6，所以最简分数是 3/5。”下面哪句话对 Noah 的说法评价得对？",
+   "options": [
+    "Noah 全对，分成 100 份涂 6 份，6 写在小数点后面就是 0.6，最简分数是 3/5。",
+    "小数 0.6 写对了，只是分数没写好，0.6 就是 6/10，直接写 6/10 就行，不用再约。",
+    "小数应该写成 0.06，也就是 6/100，分子 6 和分母 100 已经不能再约了，这就是最简分数。",
+    "6 份是六个百分之一（hundredths），小数要写成 0.06，最简分数是 3/50。"
+   ],
+   "answerIndex": 3,
+   "explain": "100 份中的 6 份是六个百分之一，小数写在百分位上是 0.06 = 6/100，同除 2 得 3/50。坑：0.6 的 6 在十分位，表示 6/10，和 0.06 相差 10 倍；另外 6/100 还能同除 2，不是最简。",
+   "tags": [
+    "dec.tenths_hundredths_confuse",
+    "frac.not_lowest_terms",
+    "frac.not_lowest_terms",
+    "ok"
+   ]
+  }
+ ]
+}

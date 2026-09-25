@@ -1,0 +1,150 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.TABLE.PREDICT",
+ "lang": "en",
+ "title": "Use a table of values to extend a pattern and predict a far-away term",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Jumping Way Ahead in a Table",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a table of values and say its rule out loud, like ‘it goes up by four every week.’ Here is Noah in Burnaby, saving for a soccer ball. His table shows week one, two, three and four. Today we learn how to jump all the way to week twenty without writing twenty rows.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      11,
+      15,
+      19,
+      23
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week",
+      "Dollars"
+     ],
+     "caption": "Noah's savings after each week"
+    }
+   },
+   {
+    "say": "First, find two special numbers. Number one, the jump: fifteen take away eleven is four, so he adds four dollars every week. Number two, the start: if week one is eleven dollars and one jump of four already happened, then before any weeks went by he had eleven take away four, which is seven dollars. That seven was already sitting in his piggy bank.",
+    "math": "11-4=7",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      11,
+      15,
+      19,
+      23
+     ],
+     "labels": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week",
+      "Dollars"
+     ],
+     "caption": "Week zero shows the seven dollars he started with"
+    }
+   },
+   {
+    "say": "Now we can build a rule that works for any week. Take the week number, times four, then add the seven he started with. Let us test it. Week two: four times two is eight, plus seven is fifteen. The table says fifteen. Week four: four times four is sixteen, plus seven is twenty three. The table says twenty three. The rule works every time.",
+    "math": "\\text{dollars}=4\\times\\text{week}+7",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      8,
+      12,
+      16,
+      11,
+      15,
+      19,
+      23
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Four times week",
+      "Then add 7"
+     ],
+     "caption": "Multiply first, then add the starting seven"
+    }
+   },
+   {
+    "say": "Here is the far away one. How much money after week twenty? Do not write twenty rows. Just use the rule: four times twenty is eighty, and eighty plus seven is eighty seven. So after twenty weeks Noah has eighty seven dollars. One little calculation instead of twenty.",
+    "math": "4\\times 20+7=80+7=87",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      11,
+      27,
+      47,
+      67,
+      87
+     ],
+     "labels": [
+      "Week 1",
+      "Week 5",
+      "Week 10",
+      "Week 15",
+      "Week 20"
+     ],
+     "caption": "The rule fills in any week, near or far"
+    }
+   },
+   {
+    "say": "Watch out for one tricky mistake. Some kids see week four is twenty three dollars and think week twenty is five times that, which would be one hundred fifteen. That is too big, because the seven dollars in the piggy bank only appeared once — it does not get copied five times. And if you check the slow way, twenty three plus sixteen more jumps of four, that is twenty three plus sixty four, which is eighty seven. The slow way agrees with the rule. Adding one at a time is not wrong, just easy to lose count.",
+    "math": "23+4\\times 16=23+64=87",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      87,
+      87,
+      115
+     ],
+     "labels": [
+      "Slow adding",
+      "Rule: 4 times 20 plus 7",
+      "Times five (wrong)"
+     ],
+     "caption": "Two ways agree; multiplying the whole row does not"
+    }
+   },
+   {
+    "say": "So remember this: to reach a far away term, use the jump size times the term number, plus the starting amount.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Far-away term = jump size × term number + starting amount.",
+  "practice": {
+   "question": "At a Victoria market, Ava sells lemonade. Her cash box starts with five dollars, and she earns six more dollars every hour. Draw a table of values yourself: hour one is eleven dollars, hour two is seventeen dollars, hour three is twenty three dollars. Without writing every row, how much is in the cash box after twelve hours?",
+   "answer": "Seventy seven dollars. The rule is six times the hour number plus the five she started with, so six times twelve is seventy two, and seventy two plus five is seventy seven."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.COORD.Q4.SCALE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkovwccy1937f",
+   "level": 1,
+   "question": "A coordinate grid has the origin at its centre. On both axes, one square (from one tick mark to the next) stands for 5 units, and the grid runs 10 squares in each direction. Starting at the origin, you count 3 squares right and 2 squares up, then place a dot. What are the coordinates of that dot?",
+   "options": [
+    "(15, 10)",
+    "(3, 2)",
+    "(10, 15)",
+    "(15, −10)"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply each square count by the scale: 3 squares right gives x = 15, and 2 squares up gives y = 10, so the point is (15, 10). The common trap is writing the square counts (3, 2) as if each square were 1 unit.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "coord.xy_swap",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwccoja43r",
+   "level": 1,
+   "question": "On a coordinate grid, both axes are marked with tick marks and each square stands for 5 units; the grid runs 10 squares in every direction from the origin. To plot the point (−20, 25), what should you count from the origin?",
+   "options": [
+    "5 squares left, then 4 squares up",
+    "4 squares left, then 5 squares up",
+    "20 squares left, then 25 squares up",
+    "4 squares right, then 5 squares down"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide each coordinate by the scale of 5: 20 ÷ 5 = 4 squares for x = −20, and 25 ÷ 5 = 5 squares for y = 25. Count the x-move first, and let each sign decide left/right and up/down.",
+   "tags": [
+    "coord.xy_swap",
+    "ok",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwccwc14fx",
+   "level": 1,
+   "question": "A coordinate grid uses a scale of 5 units per square on both axes, with 10 squares in each direction from the origin. Point P is at (−30, −15). Counting from the origin, where does P sit?",
+   "options": [
+    "3 squares left and 6 squares down",
+    "30 squares left and 15 squares down",
+    "6 squares left and 3 squares down",
+    "6 squares right and 3 squares up"
+   ],
+   "answerIndex": 2,
+   "explain": "Divide by the scale: 30 ÷ 5 = 6 squares and 15 ÷ 5 = 3 squares, and both coordinates are negative, so go left then down into Quadrant III. Counting 30 and 15 squares ignores that one square is worth 5.",
+   "tags": [
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "ok",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdkzmehl",
+   "level": 1,
+   "question": "A coordinate grid has 10 squares in each direction from the origin, and each square is worth 5 units on both axes. A dot is placed exactly on the x-axis, 5 squares to the left of the origin. What are its coordinates?",
+   "options": [
+    "(0, −25)",
+    "(25, 0)",
+    "(−5, 0)",
+    "(−25, 0)"
+   ],
+   "answerIndex": 3,
+   "explain": "A point on the x-axis has y = 0, and 5 squares left at 5 units each gives x = −25, so the point is (−25, 0). Writing the 0 first would place the dot on the y-axis instead.",
+   "tags": [
+    "coord.xy_swap",
+    "coord.sign_quadrant_confuse",
+    "graph.scale_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkovwcd2p1bx3",
+   "level": 2,
+   "question": "A board game is printed on a coordinate grid where each square stands for 5 units on both axes. Mia's counter sits at (−15, 20). She slides it 4 squares right and 2 squares down. What are the counter's new coordinates?",
+   "options": [
+    "(5, 10)",
+    "(−11, 18)",
+    "(−35, 30)",
+    "(10, 5)"
+   ],
+   "answerIndex": 0,
+   "explain": "Convert the move first: 4 squares right is +20 and 2 squares down is −10. Then −15 + 20 = 5 and 20 − 10 = 10, so the counter lands on (5, 10); adding 4 and 2 straight to the coordinates forgets the scale.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdwh8gdn",
+   "level": 2,
+   "question": "Emma's graph paper has 10 squares in each direction from the origin, and each square stands for 5 units on both axes. She wants to plot the point (−40, 15). Does it fit, and what should she count?",
+   "options": [
+    "Yes — 3 squares left, then 8 squares up",
+    "Yes — 8 squares left, then 3 squares up",
+    "No — 40 squares left runs off the grid",
+    "Yes — 8 squares right, then 3 squares down"
+   ],
+   "answerIndex": 1,
+   "explain": "Divide by the scale: 40 ÷ 5 = 8 squares left and 15 ÷ 5 = 3 squares up, and 8 is inside the 10 squares available, so it fits. Trying to count 40 squares means the scale of 5 was ignored.",
+   "tags": [
+    "coord.xy_swap",
+    "ok",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdx9ppjw",
+   "level": 2,
+   "question": "A park map is drawn on a coordinate grid where each square stands for 5 m. The drinking fountain is 4 squares left of the origin and 5 squares up. The bench is 3 squares right of the origin and 1 square up. How far apart are they in the horizontal direction?",
+   "options": [
+    "20 m",
+    "7 m",
+    "35 m",
+    "5 m"
+   ],
+   "answerIndex": 2,
+   "explain": "Find both x-values first: 4 squares left is −20 and 3 squares right is +15, so the horizontal gap is 15 − (−20) = 35 m. Treating −20 as if it were 20 gives only 5 m, and counting squares alone gives 7.",
+   "tags": [
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "ok",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdkm5sk2",
+   "level": 2,
+   "question": "A table of values for a discrete linear relation lists the pairs (−10, 25), (−5, 15) and (0, 5). Ada plots them on a grid where each square is worth 5 units on both axes. To plot the middle pair, what should she count from the origin?",
+   "options": [
+    "3 squares left, then 1 square up",
+    "5 squares left, then 15 squares up",
+    "1 square right, then 3 squares down",
+    "1 square left, then 3 squares up"
+   ],
+   "answerIndex": 3,
+   "explain": "The middle pair is (−5, 15); divide each by 5 to get 1 square left and 3 squares up. Counting 5 and 15 squares treats every square as 1 unit instead of 5.",
+   "tags": [
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkovwcd32rq00",
+   "level": 3,
+   "question": "Priya is plotting (−30, 20) on a grid where each square stands for 5 units. She counts 6 squares right and 4 squares up, then places her dot in Quadrant I. What went wrong?",
+   "options": [
+    "She moved right, but a negative x sits left of the origin.",
+    "She counted 6 and 4, since each square stands for 1 unit.",
+    "She needs Quadrant III, since both counts turn negative.",
+    "She swapped the numbers, since 20 belongs on the x-axis."
+   ],
+   "answerIndex": 0,
+   "explain": "Her square counts are right (30 ÷ 5 = 6 and 20 ÷ 5 = 4), but x = −30 means 6 squares LEFT, so the dot belongs in Quadrant II. The sign of x decides left or right, not the size of the number.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse",
+    "coord.xy_swap"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdus3et1",
+   "level": 3,
+   "question": "On a map of a school field the flagpole is the origin, and each square of the grid stands for 5 m. The bike rack is 7 squares west and 4 squares south of the flagpole. Ben walks from the bike rack 3 squares east and 2 squares north. What are Ben's coordinates now?",
+   "options": [
+    "(−10, −20)",
+    "(−20, −10)",
+    "(−32, −18)",
+    "(−50, −30)"
+   ],
+   "answerIndex": 1,
+   "explain": "The bike rack is at (−35, −20) because 7 × 5 = 35 west and 4 × 5 = 20 south. Moving 3 squares east adds 15 and 2 squares north adds 10, landing on (−20, −10); adding 3 and 2 directly forgets the scale.",
+   "tags": [
+    "coord.xy_swap",
+    "ok",
+    "graph.scale_misread",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwcd86lasy",
+   "level": 3,
+   "question": "A hallway floor is marked as a coordinate grid where each square is worth 5 units. Locker A is 4 squares right of the origin and 3 squares down. Locker B is 4 squares right of the origin and 5 squares up. What are Locker B's coordinates, and how far above Locker A is it?",
+   "options": [
+    "B is (25, 20), and it is 40 units above A.",
+    "B is (4, 5), and it is just 8 units above A.",
+    "B is (20, 25), and it is 40 units above A.",
+    "B is (20, −25), and it is 10 units below A."
+   ],
+   "answerIndex": 2,
+   "explain": "Scale both counts: B is 4 × 5 = 20 right and 5 × 5 = 25 up, so B is (20, 25), while A is (20, −15). The gap is 25 − (−15) = 40 units, since subtracting a negative adds.",
+   "tags": [
+    "coord.xy_swap",
+    "graph.scale_misread",
+    "ok",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkovwcdv4l5uc",
+   "level": 3,
+   "question": "Sam reads a plotted point as 3 squares left of the origin and 6 squares up, on a grid where each square stands for 5 units. He writes the point as (−3, 6). Which correction is right?",
+   "options": [
+    "(15, −30), since scaling up flips the two signs.",
+    "(−3, 6), since you record the squares you counted.",
+    "(30, −15), since the up-count must be written first.",
+    "(−15, 30), since each square is 5 units, not 1."
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the square counts by the scale: 3 × 5 = 15 left gives x = −15, and 6 × 5 = 30 up gives y = 30, so the point is (−15, 30). A square count is never the coordinate until you multiply by the scale, and scaling never changes a sign.",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "graph.scale_misread",
+    "coord.xy_swap",
+    "ok"
+   ]
+  }
+ ]
+}

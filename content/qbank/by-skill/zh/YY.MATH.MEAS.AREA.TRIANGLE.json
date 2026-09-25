@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.AREA.TRIANGLE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5p6e67rr0fq3",
+   "level": 1,
+   "question": "一个平行四边形（parallelogram）的底（base）是 8 cm，对应的高（height）是 5 cm，它斜着的那条边长 6 cm。沿着一条对角线把它剪开，正好得到两个完全一样的三角形。其中一个三角形的面积（area）是多少？",
+   "options": [
+    "20 cm²",
+    "40 cm²",
+    "24 cm²",
+    "26 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "平行四边形面积 = 8 × 5 = 40 cm²，剪成两个一样的三角形，所以每个是 40 ÷ 2 = 20 cm²。最容易踩的坑是算出 40 就停手，忘了三角形只占平行四边形的一半。",
+   "tags": [
+    "ok",
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67aajbsr",
+   "level": 1,
+   "question": "一个三角形的底（base）是 10 cm，这条底对应的高（height）是 6 cm，另外还有一条斜着的边长 7 cm。这个三角形的面积（area）是多少？",
+   "options": [
+    "60 cm²",
+    "30 cm²",
+    "35 cm²",
+    "16 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "三角形面积 = 底 × 高 ÷ 2 = 10 × 6 ÷ 2 = 30 cm²。写成 60 的那个是忘了除以 2（那是同底等高平行四边形的面积），用 7 去乘的那个是把斜边当成高了。",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "area.use_side_not_height",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67z8gpn5",
+   "level": 1,
+   "question": "一个平行四边形的底是 9 cm，对应的高是 4 cm，斜边长 6 cm。现在有一个三角形，它的底和高跟这个平行四边形完全一样。这个三角形的面积是多少？",
+   "options": [
+    "27 cm²",
+    "72 cm²",
+    "18 cm²",
+    "36 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "平行四边形面积 = 9 × 4 = 36 cm²，同底等高的三角形只有它的一半，所以是 36 ÷ 2 = 18 cm²。写成 36 的那个是把平行四边形的面积直接当成三角形面积了。",
+   "tags": [
+    "area.use_side_not_height",
+    "other",
+    "ok",
+    "area.tri_forget_half"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67myrcwt",
+   "level": 1,
+   "question": "小语说：三角形面积 = 底 × 高 ÷ 2。下面哪句话把这个公式的道理讲对了？",
+   "options": [
+    "不对，三角形面积就等于底 × 高，不用除以 2。",
+    "不对，公式里的高应该换成三角形斜着的那条边的长度。",
+    "不对，只有直角三角形才能用这个公式，别的三角形不行。",
+    "对，两个完全一样的三角形正好能拼成一个底和高都相同的平行四边形，所以三角形是它的一半。"
+   ],
+   "answerIndex": 3,
+   "explain": "两个全等三角形拼起来就是一个同底等高的平行四边形，平行四边形面积是底 × 高，所以三角形要再除以 2。注意高一定是从顶点垂直落到底边的那一段，不是斜边；任何三角形都能用这个公式。",
+   "tags": [
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5p6e679e8un7",
+   "level": 2,
+   "question": "一个三角形的三条边分别是 8 cm、15 cm、17 cm。取 8 cm 的那条边作底（base），它对应的高（height）正好是 15 cm。这个三角形的面积是多少？",
+   "options": [
+    "60 cm²",
+    "120 cm²",
+    "68 cm²",
+    "40 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "面积 = 8 × 15 ÷ 2 = 60 cm²。写成 120 的那个漏了 ÷2；用 17 去乘的那个把最长边（斜边）当成了高；写成 40 的那个是把三条边加起来，那是周长（perimeter）不是面积。",
+   "tags": [
+    "ok",
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67vo01rt",
+   "level": 2,
+   "question": "一个三角形的面积是 48 cm²，它的底是 16 cm，另一条斜着的边长 12 cm。这条 16 cm 的底对应的高是多少？",
+   "options": [
+    "3 cm",
+    "6 cm",
+    "24 cm",
+    "8 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "由 底 × 高 ÷ 2 = 48 得 底 × 高 = 96，所以高 = 96 ÷ 16 = 6 cm。写成 3 的那个是直接用 48 ÷ 16、忘了先把面积乘回 2；用 12 去除的那个是拿斜边当底或当高了。",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "other",
+    "area.use_side_not_height"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67kt14bf",
+   "level": 2,
+   "question": "一个平行四边形的底是 14 cm，对应的高是 6 cm，斜边长 8 cm。另有一个三角形，它的底和高跟这个平行四边形完全相同。这个三角形的面积是多少？",
+   "options": [
+    "84 cm²",
+    "56 cm²",
+    "42 cm²",
+    "40 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "平行四边形面积 = 14 × 6 = 84 cm²，同底等高的三角形是它的一半：84 ÷ 2 = 42 cm²。写成 84 的那个停在了平行四边形那一步，用 8 去乘的那个把斜边当成了高。",
+   "tags": [
+    "area.tri_forget_half",
+    "area.use_side_not_height",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67nlwlp4",
+   "level": 2,
+   "question": "一个三角形的底 b = 11 cm，这条底对应的高 h = 6 cm，还有一条斜边长 9 cm。下面哪个算式能正确算出它的面积？",
+   "options": [
+    "11 × 9 ÷ 2",
+    "（11 + 6）× 2",
+    "11 × 6",
+    "11 × 6 ÷ 2"
+   ],
+   "answerIndex": 3,
+   "explain": "面积公式是底 × 高 ÷ 2，也就是 11 × 6 ÷ 2 = 33 cm²。用 9 的那个式子把斜边当成了高，只写 11 × 6 的那个漏掉了 ÷2，带括号相加再乘 2 的那个算的是周长思路。",
+   "tags": [
+    "area.use_side_not_height",
+    "other",
+    "area.tri_forget_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67fsrp8m",
+   "level": 3,
+   "question": "温哥华一所小学的社区花园里有一块三角形花圃，底边长 6 m，这条底对应的高是 4.5 m，斜着的那条边长 5 m。学校要给整块花圃铺新土，每平方米的土要 8 加元。铺完一共要花多少钱？",
+   "options": [
+    "108 加元",
+    "120 加元",
+    "216 加元",
+    "104 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "面积 = 6 × 4.5 ÷ 2 = 13.5 m²，费用 = 13.5 × 8 = 108 加元。算成 216 的那个忘了 ÷2；用 5 m 当高的那个把斜边错当成高；算成 104 的那个乘法时漏掉了 0.5 × 8 = 4 这一份。",
+   "tags": [
+    "ok",
+    "area.use_side_not_height",
+    "area.tri_forget_half",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67olkgjz",
+   "level": 3,
+   "question": "BC 省一所学校运动会要做三角形的小彩旗。每面彩旗的底是 24 cm，这条底对应的高是 18 cm，斜着的那条边长 22 cm。一共要做 5 面同样的彩旗，一共需要多少布？",
+   "options": [
+    "2160 cm²",
+    "1080 cm²",
+    "1320 cm²",
+    "216 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "一面彩旗 = 24 × 18 ÷ 2 = 216 cm²，5 面就是 216 × 5 = 1080 cm²。写成 2160 的那个每面都忘了 ÷2；用 22 去乘的那个把斜边当成了高；写成 216 的那个只算了一面，没乘 5。",
+   "tags": [
+    "area.tri_forget_half",
+    "ok",
+    "area.use_side_not_height",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67ulggmx",
+   "level": 3,
+   "question": "小北要算一个三角形的面积：它的底是 10 cm，从顶点垂直落到这条底上的高是 4 cm，左边斜着的那条边长 5 cm。他写的是 10 × 5 ÷ 2 = 25 cm²。下面哪句话说得对？",
+   "options": [
+    "他没错，斜着的那条 5 cm 的边可以当高用，因为它也是从顶点连到底边的一条线，量起来更方便。",
+    "他错在多除了一个 2，三角形的面积就是底乘边，所以应该是 10 × 5 = 50 cm²。",
+    "他把斜边当成高了，高必须是垂直落到底边的那一段，应该算 10 × 4 ÷ 2 = 20 cm²。",
+    "他错在没把三条边加起来，面积应该是 10 + 5 + 4 = 19 cm²，三条边都要用上。"
+   ],
+   "answerIndex": 2,
+   "explain": "公式里的高只能是从顶点垂直落到底边的那条线段，所以要用 4 cm：10 × 4 ÷ 2 = 20 cm²。斜边比高长，拿它来算面积一定会算大；把三条边加起来算的是周长（perimeter），不是面积。",
+   "tags": [
+    "area.use_side_not_height",
+    "area.tri_forget_half",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5p6e67s1815b",
+   "level": 3,
+   "question": "素里一所学校在操场上画了一块三角形的游戏区，面积是 90 m²，底边长 15 m，这个三角形最长的一条边是 25 m。老师要沿着这条底边对应的高拉一条绳子，绳子每米 3 加元。买绳子要花多少钱？",
+   "options": [
+    "18 加元",
+    "45 加元",
+    "75 加元",
+    "36 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "由 15 × 高 ÷ 2 = 90 得 15 × 高 = 180，高 = 12 m，费用 = 12 × 3 = 36 加元。算成 18 的那个用 90 ÷ 15 求高、忘了先乘回 2；用 25 m 的那个把最长边当成高；用 15 m 的那个把底当成高了。",
+   "tags": [
+    "area.tri_forget_half",
+    "other",
+    "area.use_side_not_height",
+    "ok"
+   ]
+  }
+ ]
+}

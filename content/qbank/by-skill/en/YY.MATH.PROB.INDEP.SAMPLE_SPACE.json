@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrolz7ojbbiv",
+   "level": 1,
+   "question": "A sample-space table for a fair coin and a fair 6-sided die is written out in words: the table has 2 rows, one labelled heads and one labelled tails, and 6 columns labelled 1, 2, 3, 4, 5 and 6. Every cell holds one outcome, such as heads with a 4. How many outcomes are in the sample space?",
+   "options": [
+    "12 outcomes, one per cell",
+    "2 outcomes, heads or tails",
+    "8 outcomes, since 2 + 6 = 8",
+    "6 outcomes, one per die face"
+   ],
+   "answerIndex": 0,
+   "explain": "Count the cells: 2 rows × 6 columns = 12 outcomes. The usual trap is adding 2 + 6 to get 8 — each coin side must pair with every die face, so you multiply.",
+   "tags": [
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz74x6rdc",
+   "level": 1,
+   "question": "Two fair spinners are used. Spinner A is split into 4 equal coloured parts (red, blue, green, yellow) and spinner B is split into 5 equal parts numbered 1 to 5. A table is set up with 4 rows for the colours and 5 columns for the numbers, and one outcome is written in each cell. How many outcomes does the finished table hold?",
+   "options": [
+    "9, since 4 + 5 makes 9 cells",
+    "20, one per cell in the table",
+    "2, my colour or not my colour",
+    "5, one for each spinner number"
+   ],
+   "answerIndex": 1,
+   "explain": "The table is 4 rows by 5 columns, so 4 × 5 = 20 cells and 20 outcomes. Adding 4 + 5 = 9 counts labels, not the colour-number pairs inside the table.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz76axhmx",
+   "level": 1,
+   "question": "A fair coin has 2 equal sides (heads and tails) and a bag holds 5 marbles, each a different colour and equally likely to be drawn. A table is made with 2 rows for the coin sides and 5 columns for the marble colours, and each cell shows one coin-and-marble outcome. How many outcomes are listed in total?",
+   "options": [
+    "7 outcomes, since 2 + 5 = 7",
+    "2 outcomes, red or not red",
+    "10 outcomes, one per cell",
+    "5 outcomes, one per marble"
+   ],
+   "answerIndex": 2,
+   "explain": "Each of the 2 coin sides pairs with each of the 5 colours, so the table has 2 × 5 = 10 cells. Saying 7 comes from adding, and saying red-or-not-red lumps many separate outcomes into two groups.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7ddikia",
+   "level": 1,
+   "question": "Two fair number cubes are rolled, one green and one white, and each cube has 6 equally likely faces numbered 1 to 6. A table is built with 6 rows for the green cube and 6 columns for the white cube, and every cell holds one pair such as green 2 with white 5. How many cells does the completed sample-space table have?",
+   "options": [
+    "12 cells, because 6 + 6 = 12",
+    "6 cells, one for each table row",
+    "2 cells, doubles or not doubles",
+    "36 cells, one pair in each cell"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the rows by the columns: 6 × 6 = 36 pairs. Adding 6 + 6 gives 12, which is only the number of row and column labels, not the number of pairs inside.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "other",
+    "prob.outcomes_lumped",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7wfmj2g",
+   "level": 2,
+   "question": "Maya spins a fair spinner with 3 equal colours and rolls a fair 6-sided die. Before listing the sample space, she wants to know how many outcomes her table will hold. Which method gives the correct total?",
+   "options": [
+    "Multiply: 3 × 6 = 18 outcomes",
+    "Add: 3 + 6 = 9 outcomes in all",
+    "Use 2: my colour or not mine",
+    "Use 6: the die has the most faces"
+   ],
+   "answerIndex": 0,
+   "explain": "For two independent events, multiply the counts: 3 × 6 = 18 outcomes. Adding gives 9, which forgets that every colour must be paired with all six die faces.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7pljknp",
+   "level": 2,
+   "question": "Owen draws a tree diagram for flipping a fair coin and then spinning a fair spinner with 4 equal colours. The first stage of the tree has 2 branches, and each of those branches splits into 4 more. How many complete paths does the tree have?",
+   "options": [
+    "6 paths, because 2 + 4 makes 6",
+    "8 paths, each of 2 splits into 4",
+    "4 paths, one for each colour",
+    "2 paths, blue or not blue only"
+   ],
+   "answerIndex": 1,
+   "explain": "Each of the 2 coin branches splits into 4, so there are 2 × 4 = 8 end paths, one per outcome. Adding the branch counts to get 6 misses that the split happens on every branch.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other",
+    "prob.outcomes_lumped"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7ldwa4x",
+   "level": 2,
+   "question": "Priya flips a fair coin and spins a fair spinner with 5 equal sections numbered 1 to 5. She starts her list of the sample space: H1, H2, H3, H4, H5. How many outcomes are still missing from her list?",
+   "options": [
+    "1 more, one “tails” result",
+    "2 more, because 2 + 5 = 7 total",
+    "5 more, one for each tails pair",
+    "0 more, the list is complete"
+   ],
+   "answerIndex": 2,
+   "explain": "The full sample space is 2 × 5 = 10 outcomes, and Priya has listed the 5 heads pairs, so 5 tails pairs are missing. Writing tails as a single result lumps five different outcomes together.",
+   "tags": [
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7lhjr9e",
+   "level": 2,
+   "question": "A sample-space table for a fair coin and a fair spinner is finished, and it holds 24 cells in total. The coin gives the table 2 rows. How many equal parts does the spinner have?",
+   "options": [
+    "22 parts, since 24 - 2 = 22",
+    "2 parts, a win or a loss",
+    "6 parts, one per die face",
+    "12 parts, since 2 × 12 = 24"
+   ],
+   "answerIndex": 3,
+   "explain": "Rows × columns = cells, so 2 × ? = 24 gives 12 spinner parts. Subtracting (or adding) the 2 rows treats the events as if they were combined by addition instead of pairing.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7tad25k",
+   "level": 3,
+   "question": "At a school carnival in Burnaby, Jayden spins a fair spinner with 4 equal colours (red, blue, green, yellow) and rolls a fair 6-sided die. He builds a table showing every possible outcome. How many cells of that table hold an outcome with an even die number?",
+   "options": [
+    "12 cells, 4 colours × 3 evens",
+    "2 cells, one even and one odd",
+    "3 cells, one per even number",
+    "7 cells, since 4 + 3 makes 7"
+   ],
+   "answerIndex": 0,
+   "explain": "First the whole table is 4 × 6 = 24 cells; the even faces are 2, 4 and 6, so 4 × 3 = 12 cells qualify. Counting only 3 forgets that each even number appears once with every colour.",
+   "tags": [
+    "ok",
+    "prob.outcomes_lumped",
+    "other",
+    "prob.two_events_add_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrolz7u6mvh9",
+   "level": 3,
+   "question": "Ella flips a loonie and a toonie and says there are 2 + 2 = 4 outcomes. Her total of 4 happens to be right, but the same method gives a wrong answer for a coin and a die. Which statement gives the correct reasoning for the 4 outcomes?",
+   "options": [
+    "2 + 2 = 4, because you count the sides of both coins",
+    "2 × 2 = 4, since every side pairs with both toonie sides",
+    "There are 2 outcomes, since you match or you do not",
+    "2 + 2 = 4 always works, because the two coins are separate"
+   ],
+   "answerIndex": 1,
+   "explain": "The right reasoning pairs each side of one coin with each side of the other, so 2 × 2 = 4; adding only looks correct here by coincidence and fails for a coin and a die (2 × 6 = 12, not 8).",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "ok",
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrolz78i8rd7",
+   "level": 3,
+   "question": "At a Kelowna school cafeteria a lunch is one main from 3 choices (soup, wrap, pasta) and one drink from 5 choices, and every combination is equally likely to be picked at random. A table lists all the lunch outcomes. How many of those outcomes include the soup?",
+   "options": [
+    "8 outcomes, since 3 + 5 = 8",
+    "2 outcomes, soup or not soup",
+    "5 outcomes, one per drink",
+    "15 outcomes, the whole table"
+   ],
+   "answerIndex": 2,
+   "explain": "The table has 3 × 5 = 15 outcomes, and the soup row pairs with all 5 drinks, so 5 outcomes include soup. Grouping the table into soup and not-soup hides the separate outcomes you need to count.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.outcomes_lumped",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrolz780aeyq",
+   "level": 3,
+   "question": "Noor rolls a fair 6-sided die and spins a fair spinner with 3 equal colours. She writes that the sample space is my colour or not my colour, so 2 outcomes. What is wrong with her sample space?",
+   "options": [
+    "She should have said 6, because the die decides",
+    "Nothing is wrong, since you either win or lose",
+    "She should have said 9, because 6 + 3 = 9",
+    "Each colour-number pair is an outcome, so 18"
+   ],
+   "answerIndex": 3,
+   "explain": "A sample space lists every single pair, and 6 × 3 = 18 pairs like blue-4 exist; win or lose is a grouping of outcomes, not the sample space itself.",
+   "tags": [
+    "other",
+    "prob.outcomes_lumped",
+    "prob.two_events_add_outcomes",
+    "ok"
+   ]
+  }
+ ]
+}

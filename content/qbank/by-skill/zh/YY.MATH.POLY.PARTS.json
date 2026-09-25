@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.POLY.PARTS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtly6b54e9l14f",
+   "level": 1,
+   "question": "用代数砖（algebra tiles）拼面积：一块大正方形砖的面积是 x²，一块长条砖的面积是 x，一块小方砖的面积是 1。桌上摆了 1 块大正方形砖、4 块长条砖和 6 块小方砖，把它们的总面积写成一个多项式（polynomial）。这个多项式的次数（degree）是多少？",
+   "options": [
+    "2",
+    "11",
+    "3",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explain": "总面积是 x² + 4x + 6，次数看最高的指数（exponent），x² 的指数是 2，所以次数是 2。三项不等于三次；x² 前面看不见的系数是 1 而不是 0，这一项是存在的。",
+   "tags": [
+    "ok",
+    "other",
+    "poly.degree_is_term_count",
+    "expr.coefficient_one_invisible"
+   ]
+  },
+  {
+   "qid": "qmtly6b54qms2ca",
+   "level": 1,
+   "question": "用代数砖拼面积：一块大正方形砖的面积是 x²，一块长条砖的面积是 x，一块小方砖的面积是 1。桌上摆了 1 块大正方形砖、5 块长条砖和 2 块小方砖，把总面积写成一个多项式。这个多项式里 x² 的系数（coefficient）是多少？",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "5"
+   ],
+   "answerIndex": 1,
+   "explain": "总面积是 x² + 5x + 2，x² 前面没写数字，表示系数是 1（只有 1 块砖），不是 0；2 后面没有变量，是常数项（constant term），不是系数。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "ok",
+    "expr.constant_as_coefficient",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly6b54zdlmaa",
+   "level": 1,
+   "question": "一块地由三部分拼成：一个边长 x 米的正方形，面积是 x² 平方米；一条长 x 米、宽 1 米的小路，面积是 x 平方米；还有一个面积 9 平方米的小花坛。把三部分面积相加得到总面积的多项式。下面哪句话说对了？（三项式 = trinomial）",
+   "options": [
+    "它是三项式，所以次数是 3",
+    "9 是系数，因为它是个数字",
+    "它是三项式，最高次数是 2",
+    "x 的系数是 0，因为没写数字"
+   ],
+   "answerIndex": 2,
+   "explain": "总面积是 x² + x + 9，有三项，是三项式；次数由最高指数决定，是 2，不是项数 3。x 前面没写数字时系数是 1，9 没有变量，是常数项而不是系数。",
+   "tags": [
+    "poly.degree_is_term_count",
+    "expr.constant_as_coefficient",
+    "ok",
+    "expr.coefficient_one_invisible"
+   ]
+  },
+  {
+   "qid": "qmtly6b54rllhgy",
+   "level": 1,
+   "question": "用代数砖拼面积：一块大正方形砖的面积是 x²，一块长条砖的面积是 x，一块小方砖的面积是 1。桌上摆了 1 块大正方形砖、3 块长条砖和 7 块小方砖，把总面积写成一个多项式。这个多项式的系数（coefficients）有哪些？",
+   "options": [
+    "只有 3 和 7",
+    "只有 0 和 3",
+    "1、3 和 7",
+    "只有 1 和 3"
+   ],
+   "answerIndex": 3,
+   "explain": "总面积是 x² + 3x + 7。系数是变量前面的数：x² 前面看不见的系数是 1，3x 的系数是 3；7 后面没有变量，是常数项（constant term），不算系数。",
+   "tags": [
+    "other",
+    "expr.coefficient_one_invisible",
+    "expr.constant_as_coefficient",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly6b54wojrd3",
+   "level": 2,
+   "question": "多项式 5y − 2y² − 7 的次数（degree）和常数项（constant term）分别是多少？",
+   "options": [
+    "次数 2，常数项 −7",
+    "次数 3，常数项 −7",
+    "次数 2，常数项 −2",
+    "次数 2，常数项 7"
+   ],
+   "answerIndex": 0,
+   "explain": "次数看最高指数，y² 的指数是 2，所以是二次，不能按三项数成三次。常数项是没有变量的那一项，要连符号一起看，是 −7；−2 是 y² 的系数，不是常数项。",
+   "tags": [
+    "ok",
+    "poly.degree_is_term_count",
+    "expr.constant_as_coefficient",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly6b544kw6u9",
+   "level": 2,
+   "question": "关于多项式 4a² − ab + 3b − 1，下面哪句话正确？",
+   "options": [
+    "有 4 项，最高次数是 4",
+    "有 4 项，最高次数是 2",
+    "有 4 项，−1 也是系数",
+    "有 3 项，ab 的系数是 0"
+   ],
+   "answerIndex": 1,
+   "explain": "这个多项式有 4 项，变量（variables）是 a 和 b。−ab 的系数是 −1 不是 0，所以它是实实在在的一项；4a² 和 ab 的次数都是 2，整体是二次，不是 4 次；−1 没有变量，是常数项，不是系数。",
+   "tags": [
+    "poly.degree_is_term_count",
+    "ok",
+    "expr.constant_as_coefficient",
+    "expr.coefficient_one_invisible"
+   ]
+  },
+  {
+   "qid": "qmtly6b54rag2of",
+   "level": 2,
+   "question": "多项式 9 − 4p + p² 是几次几项式？（三项式 = trinomial，二项式 = binomial）",
+   "options": [
+    "一次二项式",
+    "三次三项式",
+    "二次三项式",
+    "二次二项式"
+   ],
+   "answerIndex": 2,
+   "explain": "先数项：9、−4p、p² 共三项，是三项式；再看最高指数：p² 的指数是 2，是二次。p² 前面没写数字时系数是 1，这一项不能丢掉；项数和次数是两回事。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "poly.degree_is_term_count",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly6b54h8fnfb",
+   "level": 2,
+   "question": "多项式 xy − 3x + 4y − 8 中，xy 这一项的系数（coefficient）是多少？",
+   "options": [
+    "−8",
+    "0",
+    "−3",
+    "1"
+   ],
+   "answerIndex": 3,
+   "explain": "xy 前面没写数字，表示 1 × xy，系数是 1 而不是 0；−8 没有变量，是常数项（constant term）；−3 是 x 那一项的系数，不是 xy 的。",
+   "tags": [
+    "expr.constant_as_coefficient",
+    "expr.coefficient_one_invisible",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly6b542em1qi",
+   "level": 3,
+   "question": "小美在列治文（Richmond）夜市摆摊卖珍珠奶茶。她算出一天的利润（加元）可以用多项式 −0.5x² + 30x − 150 表示，其中 x 是当天卖出的杯数，摊位租金 150 加元不管卖多少杯都要付。摊位租金对应多项式的哪一部分？这个多项式的次数是多少？",
+   "options": [
+    "常数项 −150；次数 2",
+    "系数是 −150；次数 2",
+    "常数项是 30；次数 2",
+    "常数项是 −150；次数 3"
+   ],
+   "answerIndex": 0,
+   "explain": "不随杯数 x 变化的那一项就是常数项（constant term），是 −150（付出去所以是负的）；它后面没有变量，不是系数。次数看最高指数，x² 的指数是 2，所以是二次，不能按三项算成三次。",
+   "tags": [
+    "ok",
+    "expr.constant_as_coefficient",
+    "other",
+    "poly.degree_is_term_count"
+   ]
+  },
+  {
+   "qid": "qmtly6b54s9lbyy",
+   "level": 3,
+   "question": "本拿比（Burnaby）一户人家要围一个长方形菜园，宽是 w 米，长比宽多 4 米。他们算出菜园面积是 w² + 4w 平方米，围栏总长（周长 perimeter）是 4w + 8 米。下面哪句话正确？",
+   "options": [
+    "两个都是二次，因为都有两项",
+    "面积多项式二次，周长多项式一次",
+    "两个都是一次，因为 w² 的系数是 0",
+    "周长多项式的系数有 4 和 8 两个"
+   ],
+   "answerIndex": 1,
+   "explain": "次数看最高指数：面积 w² + 4w 里 w² 的指数是 2，所以是二次；周长 4w + 8 里最高指数是 1，所以是一次。项数不决定次数；w² 的系数是看不见的 1；8 没有变量，是常数项，不是系数。",
+   "tags": [
+    "poly.degree_is_term_count",
+    "ok",
+    "expr.coefficient_one_invisible",
+    "expr.constant_as_coefficient"
+   ]
+  },
+  {
+   "qid": "qmtly6b54tedf9d",
+   "level": 3,
+   "question": "阿杰说：「x² − 5x + 6 有三项，所以它是三次多项式。」他的说法哪里有问题？",
+   "options": [
+    "他没错，三项式的次数就是 3",
+    "次数应该是 1，因为 x² 前面没有系数",
+    "次数看最高指数，这里是 2 不是 3",
+    "次数应该是 6，因为最大的系数是 6"
+   ],
+   "answerIndex": 2,
+   "explain": "次数（degree）由最高指数决定，x² 的指数是 2，所以它是二次三项式；项数是 3 不代表次数是 3。x² 前面没写数字时系数是 1；6 没有变量，是常数项，不是系数，也不决定次数。",
+   "tags": [
+    "poly.degree_is_term_count",
+    "expr.coefficient_one_invisible",
+    "ok",
+    "expr.constant_as_coefficient"
+   ]
+  },
+  {
+   "qid": "qmtly6b54etftmr",
+   "level": 3,
+   "question": "温哥华一个公园要铺一块正方形草坪，边长 s 米，面积是 s² 平方米。草坪四周再铺一圈宽 2 米的石板路，石板路的面积算出来是 8s + 16 平方米。把草坪和石板路的面积相加得到总面积的多项式。关于这个总面积多项式，哪句话正确？",
+   "options": [
+    "s² 前面没数，系数是 0；常数项 16",
+    "它有三项，所以是三次多项式",
+    "系数有三个：1、8 和 16",
+    "s² 的系数是 1，常数项是 16"
+   ],
+   "answerIndex": 3,
+   "explain": "总面积是 s² + 8s + 16。s² 前面没写数字，系数是 1 而不是 0；16 没有变量，是常数项（constant term），不算系数；次数看最高指数 2，不能按三项算成三次。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "poly.degree_is_term_count",
+    "expr.constant_as_coefficient",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.INT.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare and order integers; find opposites",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which Integer Wins? Comparing and Ordering",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how negative numbers work on a number line, like temperatures in a Whistler winter. Today we take one small step further: deciding which of two integers is actually bigger, and finding a number's opposite.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -8,
+      8,
+      0
+     ],
+     "labels": [],
+     "caption": "Our home base: zero, with negatives to the left and positives to the right"
+    }
+   },
+   {
+    "say": "Here is the one rule that does all the work. On a number line, the number further to the right is always the bigger one. It does not matter if it looks big or small, or if it has a minus sign. Right means bigger, left means smaller. Every single time.",
+    "math": "\\text{right} \\Rightarrow \\text{greater}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -8,
+      8,
+      -5,
+      3
+     ],
+     "labels": [],
+     "caption": "Negative five sits left of three, so three is greater"
+    }
+   },
+   {
+    "say": "Let's try a real one. Say it is minus six degrees Celsius in Prince George and minus two degrees in Vancouver. Which temperature is warmer, meaning which number is greater? Find both on the line. Minus six is six steps left of zero. Minus two is only two steps left. Minus two is further to the right, so minus two is greater. In words, negative two is greater than negative six, and Vancouver is warmer.",
+    "math": "-2 > -6",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -8,
+      8,
+      -6,
+      -2
+     ],
+     "labels": [],
+     "caption": "The jump from negative six to negative two moves right, so negative two is greater"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. Someone looks at negative seven and negative two and thinks, seven is bigger than two, so negative seven must be bigger. That is wrong. Check the line: negative seven sits way out on the left, further from zero and colder. Negative two is on its right. So negative two is greater than negative seven. With negatives, the bigger the digit looks, the smaller the number actually is.",
+    "math": "-7 < -2",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -9,
+      3,
+      -7,
+      -2
+     ],
+     "labels": [],
+     "caption": "Negative seven is left of negative two, so negative seven is the smaller number"
+    }
+   },
+   {
+    "say": "Now opposites, which is quick. The opposite of a number is the one that sits the same distance from zero but on the other side. Four is four steps right of zero, so its opposite is negative four, four steps left. And the opposite of negative four is four. Zero is its own opposite, since it is not on either side. Think of it like owing four dollars versus having four dollars, same size, other direction.",
+    "math": "-(4) = -4 \\quad\\text{and}\\quad -(-4) = 4",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -6,
+      6,
+      -4,
+      4
+     ],
+     "labels": [],
+     "caption": "Negative four and four are both four steps from zero, on opposite sides"
+    }
+   },
+   {
+    "say": "So when you order integers, just walk along the number line from left to right, smallest to biggest. And remember, further left always means smaller, even when the digits look big.",
+    "math": "-7 < -6 < -2 < 0 < 3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -8,
+      5,
+      -7,
+      3
+     ],
+     "labels": [],
+     "caption": "Reading left to right is reading smallest to largest"
+    }
+   }
+  ],
+  "answer": "On a number line, further right is always greater — so negative two beats negative seven, and opposites are the same distance from zero on opposite sides.",
+  "practice": {
+   "question": "On a ski trip, the temperature at the base of Grouse Mountain is negative three degrees Celsius, and at the top it is negative nine degrees Celsius. Draw a number line from negative ten to zero and mark both temperatures. Which temperature is greater? Then write the opposite of negative nine.",
+   "answer": "Negative three is greater, because it sits further to the right on the number line (the base is warmer). The opposite of negative nine is nine."
+  }
+ }
+}

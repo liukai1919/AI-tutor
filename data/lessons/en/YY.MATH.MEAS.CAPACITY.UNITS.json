@@ -1,0 +1,116 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+ "lang": "en",
+ "title": "Relate volume and capacity units: 1 cm³ = 1 mL, 1000 mL = 1 L, m³",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Cubic Centimetres and Millilitres: Best Friends",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the volume of a rectangular prism by multiplying length times width times height. Today we answer the next question: once we know the volume, how much juice or water actually fits inside? That is where millilitres and litres come in.",
+    "math": "V = l \\times w \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      20,
+      10,
+      6
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A lunch container: 20 cm by 10 cm by 6 cm"
+    }
+   },
+   {
+    "say": "Here is the big idea, and it is beautifully simple. One cubic centimetre of space holds exactly one millilitre of liquid. Not about equal — exactly equal. So a container with a volume of two hundred and fifty cubic centimetres holds two hundred and fifty millilitres. The number does not change at all; only the word does.",
+    "math": "1\\ \\text{cm}^3 = 1\\ \\text{mL}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      250,
+      750,
+      1000,
+      250,
+      750,
+      1000
+     ],
+     "labels": [
+      "Small juice box",
+      "Water bottle",
+      "Milk carton",
+      "Volume in cm³",
+      "Liquid in mL"
+     ],
+     "caption": "Same number on both rows — cubic centimetres and millilitres match perfectly"
+    }
+   },
+   {
+    "say": "Now picture a cube that is ten centimetres on every edge, about the size of a small tissue box. Its volume is ten times ten times ten, which is one thousand cubic centimetres. That means it holds one thousand millilitres. And one thousand millilitres is one litre — just like the milk carton in your fridge. So a ten by ten by ten cube holds exactly one litre.",
+    "math": "10 \\times 10 \\times 10 = 1000\\ \\text{cm}^3 = 1000\\ \\text{mL} = 1\\ \\text{L}",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "1000 cm³ = 1000 mL = 1 L"
+    }
+   },
+   {
+    "say": "Let us do the lunch container from the start. Twenty times ten is two hundred, and two hundred times six is one thousand two hundred. So the volume is one thousand two hundred cubic centimetres, which means one thousand two hundred millilitres. To turn that into litres we divide by one thousand, and we get one point two litres. Just a little more than a carton of milk.",
+    "math": "20 \\times 10 \\times 6 = 1200\\ \\text{cm}^3 = 1200\\ \\text{mL} = 1.2\\ \\text{L}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1200,
+      1200,
+      1.2
+     ],
+     "labels": [
+      "Volume in cm³",
+      "Liquid in mL",
+      "Same amount in L"
+     ],
+     "caption": "Same container, three ways to say the same amount"
+    }
+   },
+   {
+    "say": "Now the trap that catches almost everybody. One metre is one hundred centimetres, so lots of kids write one cubic metre equals one hundred cubic centimetres. That is wrong! A cubic metre is a box one hundred centimetres long, one hundred wide, and one hundred tall. You have to multiply all three: one hundred times one hundred times one hundred, which is one million cubic centimetres. That is one million millilitres, or one thousand litres. Cubic units grow three times over, not just once.",
+    "math": "1\\ \\text{m}^3 = 100 \\times 100 \\times 100 = 1\\,000\\,000\\ \\text{cm}^3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      100,
+      1000000
+     ],
+     "labels": [
+      "Wrong guess for 1 m³ in cm³",
+      "Correct value for 1 m³ in cm³"
+     ],
+     "caption": "Multiply the 100 three times, not once — that is a million, not a hundred"
+    }
+   },
+   {
+    "say": "So remember: one cubic centimetre is one millilitre, one thousand millilitres is one litre, and for cubic metres you must multiply one hundred three times to get one million cubic centimetres.",
+    "math": "1\\ \\text{cm}^3 = 1\\ \\text{mL},\\quad 1000\\ \\text{mL} = 1\\ \\text{L}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "1 cm³ = 1 mL and 1000 mL = 1 L — and cubic units grow three times, so 1 m³ = 1 000 000 cm³, never 100.",
+  "practice": {
+   "question": "Your family buys a rectangular cooler for a picnic at the beach. Inside, it measures 12 centimetres long, 5 centimetres wide, and 25 centimetres tall. First, find its volume in cubic centimetres. Then say how many millilitres of lemonade it can hold, and finally write that amount in litres. If it helps, sketch the box yourself and label the three edges.",
+   "answer": "12 times 5 is 60, and 60 times 25 is 1500. So the volume is 1500 cm³, which holds 1500 mL of lemonade, and 1500 divided by 1000 gives 1.5 L."
+  }
+ }
+}

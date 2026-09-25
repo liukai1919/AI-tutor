@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.ANGLE.ESTIMATE",
+ "lang": "en",
+ "title": "Estimate angles using 45°, 90° and 180° as references",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Guessing Angles with 45, 90 and 180",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to name angles — acute, right, obtuse, straight. Today we learn how to guess about how many degrees an angle is, without a protractor, just by comparing it to three friendly angles you can picture in your head.",
+    "math": "",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      90
+     ],
+     "labels": [],
+     "caption": "A right angle: the corner of your math book, 90 degrees"
+    }
+   },
+   {
+    "say": "Here are our three reference angles. Ninety degrees is a square corner, like the corner of your desk. One hundred eighty degrees is a perfectly straight line, like the horizon over the ocean. And forty five degrees is exactly half of a square corner — like folding a square piece of paper corner to corner.",
+    "math": "45^\\circ,\\ 90^\\circ,\\ 180^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      45
+     ],
+     "labels": [],
+     "caption": "45 degrees: half of a square corner"
+    }
+   },
+   {
+    "say": "Now watch how we use them. Look at this angle. First I ask: is it smaller than a square corner? Yes, it is. So it is less than ninety. Then I ask: is it bigger than half a corner? Yes, it opens a bit wider than forty five. So my estimate is somewhere between forty five and ninety — I will say about sixty degrees. The real answer is sixty, so my reasoning worked.",
+    "math": "45^\\circ < 60^\\circ < 90^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      60
+     ],
+     "labels": [],
+     "caption": "Bigger than 45, smaller than 90, so about 60 degrees"
+    }
+   },
+   {
+    "say": "Here is one more. This angle is clearly wider than a square corner, but it has not flattened into a straight line yet. So it lives between ninety and one hundred eighty. It looks about halfway between them, and halfway between ninety and one hundred eighty is one hundred thirty five. Nice guess — the true measure is one hundred thirty five degrees.",
+    "math": "\\frac{90^\\circ+180^\\circ}{2}=135^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      135
+     ],
+     "labels": [],
+     "caption": "Between 90 and 180, right in the middle: about 135 degrees"
+    }
+   },
+   {
+    "say": "Now the mistake I see all the time. Someone draws this same thirty degree angle twice, once with short little arms and once with long arms stretching across the page, and they say the long one is bigger. It is not! The arms are just lines going on for a ride — what matters is how far open the two arms are, like how wide a door swings, not how tall the door is. Both of these are thirty degrees, well under half a square corner.",
+    "math": "30^\\circ = 30^\\circ",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      30
+     ],
+     "labels": [],
+     "caption": "Long arms or short arms — the opening is still 30 degrees"
+    }
+   },
+   {
+    "say": "So whenever you meet an angle, squeeze it between two friends: is it under forty five, between forty five and ninety, between ninety and one hundred eighty, or past straight? That gives you a smart estimate every time.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Compare, don't measure: an angle's size is how wide it opens, not how long its arms are.",
+  "practice": {
+   "question": "On a Vancouver playground, a slide is propped against its ladder. When you stand beside it, the angle between the slide and the flat ground is a little smaller than a square corner but clearly wider than a folded-paper half corner. Draw that angle yourself and estimate its size in degrees. Then: your friend draws the very same slide angle but makes the slide 3 metres long instead of 1 metre. Is their angle bigger, smaller, or the same?",
+   "answer": "Any estimate between about 45 degrees and 90 degrees is good — around 70 degrees is a fine guess, since it sits between the two references. And the friend's angle is exactly the same size: making the arms longer does not open the angle any wider."
+  }
+ }
+}

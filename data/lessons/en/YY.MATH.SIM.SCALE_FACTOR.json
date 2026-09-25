@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.SCALE_FACTOR",
+ "lang": "en",
+ "title": "Understand scale factor as image ÷ original: greater than 1 enlarges, between 0 and 1 reduces; read scales such as 1 : 50",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Scale Factor: Image Divided by Original",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find equivalent ratios and solve a proportion for a missing value. Today we zoom in on one number that sits behind all of that: the scale factor. It tells you exactly how much a picture has been stretched or shrunk, and today we figure out what that number means and how to read scales like one to fifty.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the rule. Scale factor equals image divided by original. Say you take a two by three phone photo and print it as a four by six. The image side is four, the original side is two, so four divided by two gives a scale factor of two. Check the other side: six divided by three is also two. Every side got multiplied by two. A scale factor bigger than one means an enlargement.",
+    "math": "\\text{scale factor} = \\frac{\\text{image}}{\\text{original}} = \\frac{4}{2} = 2",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "The 2 by 3 original sits inside the 4 by 6 image. Every side doubled: scale factor 2."
+    }
+   },
+   {
+    "say": "Now go the other way. A six by eight poster gets shrunk to a three by four thumbnail on your phone. Image divided by original is three divided by six, which is one half, or zero point five. Check: four divided by eight is also one half. A scale factor between zero and one means a reduction. The shape is the same, just smaller.",
+    "math": "\\frac{3}{6} = \\frac{4}{8} = 0.5",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      8,
+      3,
+      4
+     ],
+     "labels": [],
+     "caption": "The 3 by 4 thumbnail inside the 6 by 8 poster. Each side is halved: scale factor 0.5."
+    }
+   },
+   {
+    "say": "Two traps to watch. Trap one: flipping the fraction. If you write original over image for the photo, two divided by four, you get zero point five for something that clearly got bigger. Your quick check: enlargement must give a number over one, reduction must give a number under one. Trap two: adding instead of multiplying. Someone says, the sides went from two to four so I just add two to each side, and makes three into five. But a four by five rectangle is not the same shape as two by three, because five divided by three is not two. Scale factors always multiply.",
+    "math": "2 \\times 2 = 4 \\quad 3 \\times 2 = 6 \\quad (\\text{not } 3 + 2 = 5)",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      5,
+      2,
+      3
+     ],
+     "labels": [],
+     "caption": "Adding 2 to each side gives 4 by 5. It is stretched wrong: not similar to 2 by 3."
+    }
+   },
+   {
+    "say": "Scales on maps and floor plans are written like one to fifty. Read it as: one unit on the drawing stands for fifty of the same unit in real life. So the drawing is the image and the real thing is the original, and the scale factor is one over fifty, which is zero point zero two, a reduction. To go from drawing to real, multiply by fifty. A wall that is four centimetres on a one to fifty floor plan is four times fifty, which is two hundred centimetres, or two metres.",
+    "math": "1 : 50 \\Rightarrow \\text{scale factor} = \\frac{1}{50} = 0.02, \\quad 4 \\text{ cm} \\times 50 = 200 \\text{ cm}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      50
+     ],
+     "labels": [
+      "Drawing 1 cm",
+      "Real 50 cm"
+     ],
+     "caption": "A 1 : 50 scale: the real length is 50 times the drawing length."
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Scale factor is image divided by original. Over one, the shape grew. Between zero and one, it shrank. And a scale like one to fifty is just a scale factor of one over fifty written as a ratio.",
+    "math": "\\text{scale factor} = \\frac{\\text{image}}{\\text{original}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Scale factor = image ÷ original. Above 1 it enlarges, between 0 and 1 it reduces.",
+  "practice": {
+   "question": "Maya draws her favourite hockey card on grid paper as a rectangle three squares wide and four squares tall, each square one centimetre. She then blows it up into a poster fifteen centimetres wide and twenty centimetres tall. What is the scale factor from the card to the poster, and is it an enlargement or a reduction? A friend says the scale factor is zero point two. Explain the friend's mistake.",
+   "answer": "Scale factor = 15 ÷ 3 = 5 (check: 20 ÷ 4 = 5). It is an enlargement because 5 is greater than 1. The friend divided original by image (3 ÷ 15 = 0.2), which flips the fraction; an enlargement can never have a scale factor below 1."
+  }
+ }
+}

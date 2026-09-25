@@ -1,0 +1,154 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.FIN.01",
+ "lang": "en",
+ "title": "financial literacy : gross and net pay",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Gross Pay vs. Net Pay: Why Your Paycheque Is Less Than You Think",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "So picture this. You just landed a part-time job at a coffee shop in your neighbourhood, and your boss says you will make twenty dollars an hour. You work twenty-five hours that week, so in your head you do twenty times twenty-five and get five hundred dollars. You are excited, right? But then the money hits your bank account, and it is only four hundred dollars. One hundred dollars is missing. What happened? That missing hundred is the gap between what is called gross pay and net pay, and understanding that gap is basically the whole point of being financially literate.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      500,
+      100,
+      400
+     ],
+     "labels": [
+      "Gross Pay",
+      "Deductions",
+      "Net Pay"
+     ],
+     "caption": "Your $500 gross pay splits into $100 in deductions and $400 you actually keep."
+    }
+   },
+   {
+    "say": "Here is the core idea. Gross pay is the total amount you earn before the government and your employer take their cut. It might be an hourly wage times the number of hours you worked, a fixed yearly salary, or a commission, which is a percentage of what you sell. Net pay is what lands in your bank account after all the deductions. In Canada, the three big deductions you will see on a paycheque are income tax, the Canada Pension Plan, or CPP, and Employment Insurance, or EI. So the golden formula is: Net pay equals gross pay minus all deductions.",
+    "math": "\\text{Net Pay} = \\text{Gross Pay} - (\\text{Income Tax} + \\text{CPP} + \\text{EI})",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      500,
+      100,
+      400
+     ],
+     "labels": [
+      "Gross",
+      "Deductions",
+      "Net"
+     ],
+     "caption": "Gross $500 → Deductions $100 → Net $400"
+    }
+   },
+   {
+    "say": "Let me show you what that deduction pie looks like in the simple example. You earn five hundred dollars gross. The tax office takes ten percent, which is fifty dollars, for income tax. CPP takes six percent, that is thirty dollars, and it goes toward your future pension. EI takes four percent, twenty dollars, and that protects you if you temporarily lose your job. Add those three up: fifty plus thirty plus twenty is one hundred dollars total. Take that from five hundred and you are left with four hundred dollars. That four hundred is your actual take-home pay.",
+    "math": "\\text{Gross} = 20 \\times 25 = 500 \\quad\\; \\text{Tax }10\\%=50,\\; \\text{CPP }6\\%=30,\\; \\text{EI }4\\%=20 \\quad\\; \\text{Net} = 500 - 100 = 400",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      50,
+      30,
+      20,
+      400
+     ],
+     "labels": [
+      "Income Tax",
+      "CPP",
+      "EI",
+      "Net Pay"
+     ],
+     "caption": "How your $500 gross pay is sliced up."
+    }
+   },
+   {
+    "say": "Now let us do a worked example together, step by step. Say you work twenty-five hours at a rate of twenty dollars per hour. First, find gross pay: twenty times twenty-five is five hundred dollars. Next, figure out each deduction. Income tax is ten percent of five hundred, so that is fifty dollars. CPP is six percent of five hundred, which is thirty dollars. EI is four percent of five hundred, which is twenty dollars. Add the three deductions: fifty plus thirty plus twenty gives one hundred. Finally, subtract: five hundred minus one hundred equals four hundred. Your net pay is four hundred dollars. Notice that you keep exactly eighty cents out of every dollar you earn.",
+    "math": "\\begin{aligned} \\text{Gross} &= 20 \\times 25 = \\$500 \\\\ \\text{Tax} &= 0.10 \\times 500 = \\$50 \\\\ \\text{CPP} &= 0.06 \\times 500 = \\$30 \\\\ \\text{EI} &= 0.04 \\times 500 = \\$20 \\\\ \\text{Deductions} &= 50+30+20 = \\$100 \\\\ \\text{Net} &= 500 - 100 = \\$400 \\end{aligned}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      500,
+      50,
+      30,
+      20,
+      100,
+      400
+     ],
+     "labels": [
+      "Gross",
+      "Tax 10%",
+      "CPP 6%",
+      "EI 4%",
+      "Deductions",
+      "Net"
+     ],
+     "caption": "Worked example: $20/hr × 25 hrs"
+    }
+   },
+   {
+    "say": "Let us make it a little trickier. This time you work thirty hours at eighteen dollars per hour, and the tax rates are slightly different: income tax is twelve percent, CPP is still six percent, but EI drops to two percent. Gross pay is eighteen times thirty, which is five hundred forty dollars. Income tax: twelve percent of five hundred forty. To do that, take ten percent, which is fifty-four, add two percent, which is ten point eight, and you get sixty-four point eight dollars. CPP: six percent of five hundred forty is thirty-two point four dollars. EI: two percent of five hundred forty is ten point eight dollars. Total deductions: sixty-four point eight plus thirty-two point four plus ten point eight equals one hundred and eight dollars. Net pay: five hundred forty minus one hundred eight is four hundred thirty-two dollars.",
+    "math": "\\begin{aligned} \\text{Gross} &= 18 \\times 30 = \\$540 \\\\ \\text{Tax }12\\% &= 0.12 \\times 540 = \\$64.80 \\\\ \\text{CPP }6\\% &= 0.06 \\times 540 = \\$32.40 \\\\ \\text{EI }2\\% &= 0.02 \\times 540 = \\$10.80 \\\\ \\text{Deductions} &= 64.80+32.40+10.80 = \\$108.00 \\\\ \\text{Net} &= 540 - 108 = \\$432 \\end{aligned}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      540,
+      64.8,
+      32.4,
+      10.8,
+      108,
+      432
+     ],
+     "labels": [
+      "Gross",
+      "Tax 12%",
+      "CPP 6%",
+      "EI 2%",
+      "Deductions",
+      "Net"
+     ],
+     "caption": "Worked example: $18/hr × 30 hrs"
+    }
+   },
+   {
+    "say": "One thing that trips people up is mixing up which percentage to apply to what. Every single deduction is a percentage of your gross pay, not of your net pay, and not of whatever is left after the previous deduction. You always go back to the original gross number. So if your gross is five hundred forty, twelve percent is always calculated on five hundred forty, not on four hundred seventy-five or some other leftover. Keep that anchor in your brain: deductions are all pulled from the same starting amount.",
+    "math": "\\text{Each deduction} = \\text{its percentage} \\times \\text{Gross Pay (the same number every time)}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway to carry around: gross pay is what you earn, net pay is what you keep, and the difference is always a percentage of that gross pay, never of the shrinking remainder. Once you internalize that, reading any paycheque stub in Canada becomes totally doable, and you can actually plan how much of your paycheck to save, spend, or set aside for university next year.",
+    "math": "\\boxed{\\text{Net Pay} = \\text{Gross Pay} - \\text{Total Deductions}}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      500,
+      400
+     ],
+     "labels": [
+      "Gross Pay",
+      "Net Pay"
+     ],
+     "caption": "The $100 gap is your deductions — always calculated from gross."
+    }
+   }
+  ],
+  "answer": "Gross pay is what you earn; net pay is what you keep; every deduction is a percentage of that same gross number.",
+  "practice": {
+   "question": "A Grade 10 student in Victoria works 15 hours at a bookstore for $17 per hour. Their paycheque shows income tax of 10%, CPP of 6%, and EI of 2%. What is their net pay?",
+   "answer": "Gross = 17 × 15 = $255. Tax = 10% × 255 = $25.50. CPP = 6% × 255 = $15.30. EI = 2% × 255 = $5.10. Total deductions = $45.90. Net pay = 255 − 45.90 = $209.10."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 6
+ }
+}

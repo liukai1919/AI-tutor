@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.APPLY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzr14a8qpf3m",
+   "level": 1,
+   "question": "A graph shows the cost of a taxi ride in Kelowna. Distance in km is on the horizontal axis and cost in dollars is on the vertical axis. The straight line crosses the cost axis at $6 (the cost at 0 km) and rises $3 for every 1 km. Using the graph, what is the cost of a 5 km ride?",
+   "options": [
+    "$21",
+    "$9",
+    "$15",
+    "$5"
+   ],
+   "answerIndex": 0,
+   "explain": "Start at the $6 where the line crosses the cost axis, then add $3 for each of the 5 km: 6 + 3 × 5 = $21. The common trap is forgetting the $6 starting cost and answering only $15.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14ab4t3aw",
+   "level": 1,
+   "question": "Noah starts a bike ride at his friend's house, which is 2 km from his home. A graph shows his distance from home in km (vertical axis) against time in minutes (horizontal axis). The line starts at 2 km at 0 minutes and rises 3 km every 10 minutes. How far from home is Noah after 20 minutes?",
+   "options": [
+    "6 km",
+    "8 km",
+    "5 km",
+    "20 km"
+   ],
+   "answerIndex": 1,
+   "explain": "The line starts at 2 km and rises 3 km for each 10 minutes, so after 20 minutes it is at 2 + 3 + 3 = 8 km. Don't drop the 2 km starting distance: 6 km is only how far he rode, not how far he is from home.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14aweso9a",
+   "level": 1,
+   "question": "The Hillcrest pool posts a table for its punch-card plan: 0 visits cost $10, 1 visit costs $13, 2 visits cost $16, and 3 visits cost $19. When these points are plotted with visits on the horizontal axis and cost on the vertical axis, they lie on a straight line. If the line is extended, what is the cost for 6 visits?",
+   "options": [
+    "$18",
+    "$19",
+    "$28",
+    "$6"
+   ],
+   "answerIndex": 2,
+   "explain": "The table rises $3 per visit from a $10 start, so 6 visits cost 10 + 3 × 6 = $28. A common slip is answering $18 (6 × 3), which leaves out the $10 you pay before the first visit.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "ok",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14as5fr1o",
+   "level": 1,
+   "question": "A graph shows the cost of renting a kayak at Deep Cove. Hours are on the horizontal axis and cost in dollars is on the vertical axis. The line crosses the cost axis at $12 (the fee for 0 hours) and rises $8 for each extra hour. Which rule matches the graph?",
+   "options": [
+    "Cost = 12 × hours + 8",
+    "Hours = 8 × cost + 12",
+    "Cost = (8 + 12) × hours",
+    "Cost = 8 × hours + 12"
+   ],
+   "answerIndex": 3,
+   "explain": "The $8 per hour multiplies the hours, and the one-time $12 is added on: Cost = 8 × hours + 12. Swapping them (12 × hours + 8) would charge the $12 fee every hour instead of once.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzr14a9x21sv",
+   "level": 2,
+   "question": "A graph shows parking costs at a Richmond lot. Hours are on the horizontal axis and cost in dollars is on the vertical axis. The straight line passes through (0, $3) and (4, $9). A driver paid $12. Use the graph to find how many hours they parked.",
+   "options": [
+    "6 hours",
+    "8 hours",
+    "9 hours",
+    "12 hours"
+   ],
+   "answerIndex": 0,
+   "explain": "The line rises $6 over 4 hours, so $1.50 per hour, starting from $3. Take off the $3 first, then divide: (12 − 3) ÷ 1.5 = 6 hours. Dividing $12 by $1.50 without removing the $3 gives 8, which is wrong.",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14al5i2bt",
+   "level": 2,
+   "question": "A graph shows the monthly cost of a phone data plan. Data used in GB is on the horizontal axis and cost in dollars is on the vertical axis. The straight line passes through (2 GB, $14) and (5 GB, $26). Using the graph, what is the cost for 8 GB?",
+   "options": [
+    "$32",
+    "$38",
+    "$30",
+    "$8"
+   ],
+   "answerIndex": 1,
+   "explain": "From 2 GB to 5 GB the cost rises $12 over 3 GB, so $4 per GB. From 5 GB, add 3 more GB: 26 + 3 × 4 = $38. Answering $32 (8 × 4) forgets the $6 base fee the line starts from.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14alw5w51",
+   "level": 2,
+   "question": "A coach bus leaves the Vancouver depot and is already 5 km along the highway when a student starts a timer. Her table shows: 0 min → 5 km, 10 min → 13 km, 20 min → 21 km. Plotted with time on the horizontal axis, the points lie on a straight line. If the bus keeps this speed, how far along the highway will it be at 35 minutes?",
+   "options": [
+    "28 km",
+    "29 km",
+    "33 km",
+    "35 km"
+   ],
+   "answerIndex": 2,
+   "explain": "The distance grows 8 km every 10 minutes, or 0.8 km per minute, starting from 5 km: 5 + 0.8 × 35 = 33 km. Stopping at the 30-minute value (29 km) or dropping the 5 km head start (28 km) are the usual slips.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "ok",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14afclo89",
+   "level": 2,
+   "question": "A graph shows Sam's hike on the Lynn Canyon trail. Time in minutes is on the horizontal axis and distance from the trailhead in km is on the vertical axis. The line rises from (0, 0) to (30, 2), is horizontal from (30, 2) to (45, 2), then rises again to (75, 4). How long did Sam stop to rest?",
+   "options": [
+    "30 minutes",
+    "45 minutes",
+    "2 minutes",
+    "15 minutes"
+   ],
+   "answerIndex": 3,
+   "explain": "A horizontal part means the distance is not changing, so Sam is resting. The flat part runs from 30 to 45 minutes, so the rest lasted 45 − 30 = 15 minutes; reading just the 45 or the 30 stops before the subtraction.",
+   "tags": [
+    "word.stop_early",
+    "word.stop_early",
+    "lin.read_wrong_axis",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzr14az4iz7g",
+   "level": 3,
+   "question": "A graph shows the cost of chartering a bus for a field trip to Science World. Number of students is on the horizontal axis and total cost in dollars is on the vertical axis. The line crosses the cost axis at $120 (the charge with 0 students) and rises $5 per student. A class of 30 students takes the bus and shares the total cost equally. How much does each student pay?",
+   "options": [
+    "$9",
+    "$5",
+    "$270",
+    "$4"
+   ],
+   "answerIndex": 0,
+   "explain": "First work out the total for 30 students from the graph's rule: 120 + 5 × 30 = $270. Then share it: 270 ÷ 30 = $9 each. Stopping at $270, or splitting only the $120 fee or only the $5 per student, misses a step.",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlzr14a4e1942",
+   "level": 3,
+   "question": "Maya is driving from Nanaimo to Campbell River, a trip of 150 km. When she starts a timer she is already 15 km from Nanaimo. A graph of her distance from Nanaimo in km (vertical axis) against time in minutes (horizontal axis) is a straight line through (0, 15) and (30, 60). If she keeps this pace, how many minutes after starting the timer does she reach Campbell River?",
+   "options": [
+    "100 minutes",
+    "90 minutes",
+    "135 minutes",
+    "150 minutes"
+   ],
+   "answerIndex": 1,
+   "explain": "The line rises 45 km in 30 minutes, so 1.5 km per minute. She still needs 150 − 15 = 135 km, and 135 ÷ 1.5 = 90 minutes. Dividing the full 150 km by the rate ignores the 15 km she had already driven.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzr14af97tpq",
+   "level": 3,
+   "question": "A graph shows the cost of a Burnaby hockey program. Practice sessions are on the horizontal axis and cost in dollars is on the vertical axis. The line crosses the cost axis at $40 (a one-time jersey fee) and rises $15 per session. Kai says 8 sessions cost 8 × (40 + 15) = $440. What went wrong?",
+   "options": [
+    "Nothing is wrong; the $40 applies each session, so $440 is right",
+    "Kai should stop at 40 + 15 = $55, which is the cost of one session",
+    "The $40 is paid only once, so the cost is 40 + 15 × 8 = $160",
+    "Kai should leave out the $40 fee and just answer 15 × 8 = $120"
+   ],
+   "answerIndex": 2,
+   "explain": "The $40 jersey fee is where the line starts and is paid once; only the $15 repeats, so 40 + 15 × 8 = $160. Multiplying the fee by 8 charges it every session, which is the most common error with a fixed part.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlzr14a0hs4a1",
+   "level": 3,
+   "question": "A graph shows the ferry from Horseshoe Bay to Langdale. Time in minutes is on the horizontal axis and distance travelled in km is on the vertical axis. The line is straight and passes through (0, 0) and (40, 20). Priya wants the distance after 30 minutes. She finds 30 on the vertical axis, moves across to the line, reads down to 60, and answers 60 km. What went wrong?",
+   "options": [
+    "Nothing is wrong; the line passes through 60, so 60 km is right",
+    "She should stop at 30, since the number she started from is the answer",
+    "She forgot to add the 20 km from the given point, so it is 80 km",
+    "Time is on the horizontal axis, so start at 30 there; that gives 15 km"
+   ],
+   "answerIndex": 3,
+   "explain": "Time is on the horizontal axis, so find 30 minutes there, go up to the line, and read across: 15 km. Starting on the wrong axis swaps the question, and 60 km in half an hour should also fail the does-it-make-sense check.",
+   "tags": [
+    "lin.read_wrong_axis",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  }
+ ]
+}

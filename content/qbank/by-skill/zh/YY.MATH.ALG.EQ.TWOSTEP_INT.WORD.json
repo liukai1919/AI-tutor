@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkpxukrrnu4a0",
+   "level": 1,
+   "question": "小澜的学校午餐卡里现在有 12 加元，卡里可以扣成负数（表示欠费）。她每天买一次热饮，每次扣 4 加元。扣了 n 天以后，卡上显示 −8 加元。下面哪个方程（equation）能表示这件事？",
+   "options": [
+    "12 − 4n = −8",
+    "12 − (4 + n) = −8",
+    "12 + 4n = −8",
+    "(12 − 4)n = −8"
+   ],
+   "answerIndex": 0,
+   "explain": "起始的 12 加元是常数（constant），只算一次；每天扣 4 加元、扣了 n 天就是 4n，所以写成 12 − 4n = −8（解得 n = 5）。最容易踩的坑是把 4n 读成 4 + n，或者把起始的 12 也跟着乘 n。",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "other",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrzgxq87",
+   "level": 1,
+   "question": "一月的清晨，惠斯勒（Whistler）的气温是 −2°C。太阳出来后气温每小时上升 4°C，t 小时后气温到了 14°C。这件事可以列成 −2 + 4t = 14。t 是多少？",
+   "options": [
+    "3 小时",
+    "4 小时",
+    "7 小时",
+    "12 小时"
+   ],
+   "answerIndex": 1,
+   "explain": "先用逆运算（inverse operation）把常数 −2 移走：两边同时加 2，得 4t = 14 − (−2) = 16，所以 t = 4（验算：−2 + 16 = 14）。最大的坑是把 14 − (−2) 算成 14 − 2 = 12，减负数要变成加。",
+   "tags": [
+    "int.subtract_negative",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtkpxukr0hkcx8",
+   "level": 1,
+   "question": "本拿比一栋楼的电梯里，地下层用负数表示（地下 4 层记作 −4）。下面哪个情境可以用方程 6 − 2f = −4 表示（f 表示按了几次「下一层」）？",
+   "options": [
+    "电梯从 6 楼出发，先降 2 层，再降 f 层，最后停在 −4 层",
+    "电梯从 0 层出发，每按一次降 2 层，按 f 次后停在 −4 层",
+    "电梯从 6 楼出发，每按一次降 2 层，按 f 次后停在 −4 层",
+    "电梯从 6 楼出发，每按一次降 6 − 2 层，按 f 次后停在 −4 层"
+   ],
+   "answerIndex": 2,
+   "explain": "起点 6 楼是常数，只用一次；每按一次降 2 层、按 f 次一共降 2f 层，所以是 6 − 2f = −4（f = 5）。说成「先降 2 层再降 f 层」的那个，就是把 2f 错读成了 2 + f。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpxukr46437a",
+   "level": 1,
+   "question": "在豪湾（Howe Sound）做调查的小潜水器现在位于水下 6 米（记作 −6 米），之后每分钟再下潜 3 米。它的深度可以写成 −6 − 3m = −24。几分钟后它到 −24 米？",
+   "options": [
+    "8 分钟",
+    "10 分钟",
+    "15 分钟",
+    "6 分钟"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时加 6：−3m = −24 − (−6) = −18，所以 m = 6（验算：−6 − 18 = −24）。坑在 −24 − (−6) 上：减负数要变成加 6，算成 −24 − 6 = −30 就会多算出 4 分钟。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "int.subtract_negative",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrt5j4oy",
+   "level": 2,
+   "question": "解方程（two-step equation）：−6 + 3x = −21。x 等于多少？",
+   "options": [
+    "x = −5",
+    "x = −7",
+    "x = −18",
+    "x = −9"
+   ],
+   "answerIndex": 0,
+   "explain": "两边同时加 6：3x = −21 − (−6) = −15，再除以系数 3 得 x = −5（验算：−6 + (−15) = −21）。最常见的坑是把 −21 − (−6) 算成 −21 − 6 = −27，答成 −9。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrv2682q",
+   "level": 2,
+   "question": "解方程：8 − 4x = −16。x 等于多少？",
+   "options": [
+    "x = 4",
+    "x = 6",
+    "x = −6",
+    "x = 20"
+   ],
+   "answerIndex": 1,
+   "explain": "两边同时减 8：−4x = −16 − 8 = −24，再两边除以系数 −4，得 x = 6（验算：8 − 24 = −16）。坑在最后一步的符号：−24 ÷ (−4) 是正的 6，负负得正；也不要把常数 8 直接丢掉。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "other",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrf9ijc9",
+   "level": 2,
+   "question": "要解方程 5 − 3h = −13，下面哪一步是正确的第一步（含结果）？",
+   "options": [
+    "先算 5 − 3 = 2，得 2h = −13",
+    "两边同时减 5，得 −3h = −8",
+    "两边同时减 5，得 −3h = −18",
+    "先把 3h 拆成 3 + h，得 2 − h = −13"
+   ],
+   "answerIndex": 2,
+   "explain": "3h 表示系数 3 乘 h，不能和常数 5 合并；先用逆运算把常数移走：−13 − 5 = −18，得 −3h = −18，再除以 −3 得 h = 6（验算：5 − 18 = −13）。把 5 − 3 合成 2 写出 2h 是最常见的错。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "other",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrh9ydhj",
+   "level": 2,
+   "question": "解方程：−2x − 9 = 5。x 等于多少？",
+   "options": [
+    "x = 2",
+    "x = −16",
+    "x = 7",
+    "x = −7"
+   ],
+   "answerIndex": 3,
+   "explain": "两边同时加 9：−2x = 5 − (−9) = 14，再除以 −2 得 x = −7（验算：14 − 9 = 5）。坑是把 5 − (−9) 算成 5 − 9 = −4，减负数必须变成加 9。",
+   "tags": [
+    "int.subtract_negative",
+    "eq.coeff_as_addend",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrd0i7hi",
+   "level": 3,
+   "question": "西温（West Vancouver）的户外温度计下午 3:00 显示 8°C，之后气温匀速下降，晚上 7:00 显示 −4°C。如果一直按同样的速度降，从下午 3:00 算起，几小时后气温会到 −16°C？",
+   "options": [
+    "8 小时",
+    "4 小时",
+    "21 小时",
+    "24 小时"
+   ],
+   "answerIndex": 0,
+   "explain": "先求速率：4 小时里从 8 降到 −4，共降 8 − (−4) = 12°C，即每小时降 3°C；再列 8 − 3h = −16，得 3h = 24，h = 8（验算：8 − 24 = −16）。两个坑：8 − (−4) 别算成 4，还有时间要从 3:00 起算，不能只算从 −4 再往下的那段。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrql198v",
+   "level": 3,
+   "question": "基洛纳一所中学的学生会账户里有 18 加元，账户允许透支（余额可以是负数）。他们每周买两包纸杯，每包 3 加元。w 周之后账户余额是 −12 加元。w 是多少？",
+   "options": [
+    "2 周",
+    "5 周",
+    "24 周",
+    "10 周"
+   ],
+   "answerIndex": 1,
+   "explain": "先算每周花 2 × 3 = 6 加元，列出 18 − 6w = −12；两边减 18 得 −6w = −30，w = 5（验算：18 − 30 = −12）。坑是漏掉「每周两包」只按 3 加元算，或者把起始的 18 加元丢掉。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpxukrv4dwqx",
+   "level": 3,
+   "question": "小谭要算：电梯在 6 层，每按一次「下一层」降 2 层，按几次会到地下 4 层（−4）。他写下 6 − 2f = −4，接着写成 4f = −4，得 f = −1。他错在哪里？",
+   "options": [
+    "错在没把 2f 拆开；2f 就是 2 + f，应写成 6 − 2 − f = −4",
+    "错在起始的 6 也要乘 f；每按一次都从 6 层重算，应写成 6f − 2 = −4",
+    "错在把常数 6 和系数 2 相减合并；2f 是 2 乘 f，并不能变成 4f",
+    "错在 −4 − 6 算成了 −10；减负数要变成加，这里应该得 2"
+   ],
+   "answerIndex": 2,
+   "explain": "6 − 2f 里 6 是常数、2 是 f 的系数，两者不是同类项，不能合并成 4f；正确做法是两边减 6 得 −2f = −10，再除以 −2 得 f = 5（验算：6 − 10 = −4）。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "int.subtract_negative"
+   ]
+  },
+  {
+   "qid": "qmtkpxukry3ghq3",
+   "level": 3,
+   "question": "一月的普林斯乔治（Prince George），早上 7:00 气温是 −4°C，早上 9:00 是 −12°C，气温匀速下降。学校规定气温到 −28°C 就取消户外活动。照这个速度，几点会到 −28°C？",
+   "options": [
+    "上午 10:00",
+    "下午 2:00",
+    "第二天凌晨 3:00",
+    "下午 1:00"
+   ],
+   "answerIndex": 3,
+   "explain": "先求速率：7:00 到 9:00 共 2 小时，气温降了 −4 − (−12) = 8°C，即每小时降 4°C；再从 7:00 列 −4 − 4h = −28，得 4h = 24，h = 6，7:00 加 6 小时是下午 1:00（验算：−4 − 24 = −28）。坑是把 −4 − (−12) 算成 −16，速率就错成每小时 8°C 了。",
+   "tags": [
+    "int.subtract_negative",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  }
+ ]
+}

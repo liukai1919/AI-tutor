@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "circles",
+ "lang": "en",
+ "unitName": {
+  "zh": "圆",
+  "en": "Circles"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Circles · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.PARTS",
+    "level": 1,
+    "question": "Nina uses a compass to draw a circle for her art project. She opens the compass so the gap between the metal point and the pencil tip is 6 cm, then draws the circle. What is the diameter of the circle she drew?",
+    "options": [
+     "3 cm",
+     "6 cm",
+     "12 cm",
+     "18.84 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "The compass gap is the radius (centre to edge), and the diameter is twice the radius, so 6 × 2 = 12 cm. The most common trap is reading the compass gap as the diameter and answering 6 cm — always ask yourself whether the length starts at the centre or crosses the whole circle."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.PI",
+    "level": 1,
+    "question": "Ravi wrapped a string around three round jar lids and measured each one. Lid A: circumference 25.1 cm, diameter 8 cm. Lid B: circumference 44.0 cm, diameter 14 cm. Lid C: circumference 62.8 cm, diameter 20 cm. For each lid he divides the circumference by the diameter. What does he find?",
+    "options": [
+     "The quotient is about 2 for every lid.",
+     "The quotient is about 3.14 for every lid.",
+     "The quotient is about 6.28 for every lid.",
+     "The quotient gets bigger as the lid gets bigger."
+    ],
+    "answerIndex": 1,
+    "explain": "Every lid gives circumference ÷ diameter ≈ 3.14 (25.1 ÷ 8 ≈ 3.14, 44.0 ÷ 14 ≈ 3.14, 62.8 ÷ 20 = 3.14), and that constant is π. The common trap is thinking a bigger circle gives a bigger quotient — the circumference and diameter grow together, so the ratio never changes."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE",
+    "level": 1,
+    "question": "The round clock on the wall of Mr. Chan's classroom has a diameter of 30 cm. Using π ≈ 3.14, what is the distance all the way around the edge of the clock face?",
+    "options": [
+     "94.2 cm",
+     "47.1 cm",
+     "60 cm",
+     "706.5 cm"
+    ],
+    "answerIndex": 0,
+    "explain": "Use C = π × d, so C = 3.14 × 30 = 94.2 cm. The usual trap is halving the 30 first (3.14 × 15 = 47.1 cm) — you only double or halve when you are given the radius, and here the diameter is already given."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.AREA",
+    "level": 2,
+    "question": "A round tabletop in the Burnaby library has a radius of 50 cm. Using π ≈ 3.14, what is the area of the tabletop?",
+    "options": [
+     "157 cm²",
+     "314 cm²",
+     "31 400 cm²",
+     "7 850 cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "Use A = π × r × r, so A = 3.14 × 50 × 50 = 3.14 × 2 500 = 7 850 cm². Two common traps: doubling the radius to 100 first and squaring that (31 400 cm²), or finding the distance around instead of the surface (314 cm²) — area needs r × r, and the answer is in square units."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE",
+    "level": 2,
+    "question": "The wheel on Leo's bike has a radius of 35 cm. He rolls the bike forward so the wheel makes exactly one full turn. Using π ≈ 3.14, how far does the bike travel, in metres?",
+    "options": [
+     "1.1 m",
+     "2.198 m",
+     "21.98 m",
+     "219.8 m"
+    ],
+    "answerIndex": 1,
+    "explain": "One full turn travels one circumference: C = 2 × π × r = 2 × 3.14 × 35 = 219.8 cm, then divide by 100 to get 2.198 m. The biggest trap is skipping the unit conversion and answering 219.8 m; the second is using the radius as if it were the diameter (3.14 × 35)."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.INVERSE",
+    "level": 2,
+    "question": "A round trampoline in Amrit's backyard has a circumference of 12.56 m. Using π ≈ 3.14, what is the diameter of the trampoline?",
+    "options": [
+     "4 m",
+     "2 m",
+     "6.28 m",
+     "39.4 m"
+    ],
+    "answerIndex": 0,
+    "explain": "Since C = π × d, undo the multiplication by dividing: d = 12.56 ÷ 3.14 = 4 m. The common trap is multiplying by 3.14 instead of dividing (39.4 m) — when you are given the circumference you are working backwards, so divide."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.AREA",
+    "level": 3,
+    "question": "A round wading pool at a Kelowna park has a diameter of 8 m. The city buys a cover that must cover the whole water surface. The cover material costs $5 per square metre. Using π ≈ 3.14, how much does the material cost?",
+    "options": [
+     "$125.60",
+     "$1 004.80",
+     "$251.20",
+     "$502.40"
+    ],
+    "answerIndex": 2,
+    "explain": "A cover lies on the surface, so use area: r = 8 ÷ 2 = 4 m, A = 3.14 × 4 × 4 = 50.24 m², then 50.24 × 5 = $251.20. The classic mistake is finding the distance around instead (3.14 × 8 = 25.12 m, giving $125.60) — covering means area, fencing or trim means circumference."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.CIRCLE.INVERSE",
+    "level": 3,
+    "question": "The circular mat of a trampoline has an area of 28.26 m². Amrit wants to run safety padding all the way around the edge of the mat. Using π ≈ 3.14, how many metres of padding does he need?",
+    "options": [
+     "6 m",
+     "9.42 m",
+     "88.74 m",
+     "18.84 m"
+    ],
+    "answerIndex": 3,
+    "explain": "Work backwards from the area first: r × r = 28.26 ÷ 3.14 = 9, so r = 3 m and d = 6 m; then the padding is the circumference, C = 3.14 × 6 = 18.84 m. The common trap is stopping at the radius and using it as the diameter (3.14 × 3 = 9.42 m) — after undoing the area, remember to double the radius before finding the circumference."
+   }
+  ]
+ }
+}

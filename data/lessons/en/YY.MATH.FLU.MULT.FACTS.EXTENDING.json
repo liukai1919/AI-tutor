@@ -1,0 +1,83 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MULT.FACTS.EXTENDING",
+ "lang": "en",
+ "title": "Extend mental multiplication and division (×5 = ×10 ÷ 2; 214 × 5 = 1070)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "The Times Five Shortcut",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to halve numbers fast, like turning forty-eight into twenty-four. Today we use that skill to multiply anything by five in your head, without a calculator.",
+    "math": "\\times 5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole trick. Five is exactly half of ten, and multiplying by ten is easy. So to multiply by five, first multiply by ten, then take half. Look at twenty-four times five. Twenty-four times ten is two hundred forty, and half of two hundred forty is one hundred twenty. The area picture agrees: one hundred plus twenty is one hundred twenty.",
+    "math": "24 \\times 5 = 24 \\times 10 \\div 2 = 240 \\div 2 = 120",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      24,
+      5
+     ],
+     "labels": [],
+     "caption": "Twenty-four times five broken up: one hundred plus twenty equals one hundred twenty"
+    }
+   },
+   {
+    "say": "Now a bigger one, the kind that looks scary. Two hundred fourteen times five. Step one, times ten: two hundred fourteen becomes two thousand one hundred forty. Step two, halve it: half of two thousand is one thousand, and half of one hundred forty is seventy. So the answer is one thousand seventy.",
+    "math": "214 \\times 5 = 2140 \\div 2 = 1070",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      2140,
+      2140,
+      1070
+     ],
+     "labels": [],
+     "caption": "Start at two thousand one hundred forty, jump back to half: one thousand seventy"
+    }
+   },
+   {
+    "say": "Here is the slip almost everyone makes: they do the easy times ten part, get two thousand one hundred forty, and stop right there. But that is two hundred fourteen groups of ten, which is double what we want. Five groups must be half of ten groups, so you always have to finish with the halving step.",
+    "math": "214 \\times 10 = 2140 \\quad\\text{(too big!)}\\qquad 2140 \\div 2 = 1070",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2140,
+      1070
+     ],
+     "labels": [
+      "214 times 10",
+      "214 times 5"
+     ],
+     "caption": "Times five is half as much as times ten"
+    }
+   },
+   {
+    "say": "So whenever you see times five, think times ten, then half. Two easy moves instead of one hard one.",
+    "math": "n \\times 5 = n \\times 10 \\div 2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To multiply by five: times ten, then halve it.",
+  "practice": {
+   "question": "You and four friends each buy the same hoodie at a shop in Vancouver, so that is five hoodies. Each hoodie costs one hundred twenty-eight dollars. Use the times ten then halve trick to find the total cost in your head.",
+   "answer": "Six hundred forty dollars. One hundred twenty-eight times ten is one thousand two hundred eighty, and half of one thousand two hundred eighty is six hundred forty."
+  }
+ }
+}

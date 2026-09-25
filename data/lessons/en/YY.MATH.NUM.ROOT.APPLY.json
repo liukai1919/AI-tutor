@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.ROOT.APPLY",
+ "lang": "en",
+ "title": "Use square and cube roots to solve problems (side of a square field from its area, edge of a cubic tank from its volume)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Roots to the Rescue: Finding a Side from Area or Volume",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the square root of a perfect square, and the cube root of a perfect cube, like the cube root of one hundred twenty-five is five. Today we use that skill in real life: when someone tells you the area of a square, or the volume of a cube, and you need to find one side.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea. For a square, you get the area by multiplying the side by itself. So to go backwards, from area to side, you take the square root. For a cube, you get the volume by multiplying the edge by itself three times. So to go backwards, from volume to edge, you take the cube root. Square shape, square root. Cube shape, cube root.",
+    "math": "A = s^2 \\;\\Rightarrow\\; s=\\sqrt{A} \\qquad V = e^3 \\;\\Rightarrow\\; e=\\sqrt[3]{V}",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      6,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A square with area 36 square metres has sides of 6 metres, because 6 times 6 is 36"
+    }
+   },
+   {
+    "say": "Try a real one. Your school is fencing off a square garden plot behind the field, and the plans say the area is eighty-one square metres. How long is each side? Ask yourself: what number times itself gives eighty-one? Nine times nine is eighty-one, so each side is nine metres. Notice the units too: the area was in square metres, and the side comes out in plain metres.",
+    "math": "s=\\sqrt{81}=9\\text{ m}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      9,
+      9,
+      9,
+      9
+     ],
+     "labels": [],
+     "caption": "81 unit squares arranged 9 by 9 — the side of the square is 9"
+    }
+   },
+   {
+    "say": "Now the three-D version. A cubic water tank at a community garden holds sixty-four cubic metres. What is the length of one edge? This time do not reach for the square root. You want the number that, times itself three times, gives sixty-four. Four times four is sixteen, and sixteen times four is sixty-four. So each edge is four metres.",
+    "math": "e=\\sqrt[3]{64}=4\\text{ m}",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A cube with edge 4 metres: 4 times 4 times 4 gives 64 cubic metres"
+    }
+   },
+   {
+    "say": "Here are the three traps people fall into. First, dividing the area by four, like saying a square field of sixty-four square metres has sides of sixteen metres. Four is the number of sides, but area is not shared out around the edges — check it: sixteen times sixteen is two hundred fifty-six, way too big. Second, treating a square root as halving, saying the square root of sixteen is eight. But eight times eight is sixty-four, not sixteen. The right answer is four. Third, the sneaky one: the tank was sixty-four cubic metres, and if you take the square root you get eight. But eight times eight times eight is five hundred twelve, not sixty-four. Cubic metres means cube root, so the answer stays four.",
+    "math": "\\sqrt[3]{64}=4 \\quad\\text{not}\\quad \\sqrt{64}=8",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      8,
+      8
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "A square of area 64 square metres has sides of 8 metres, not 16 and not 32"
+    }
+   },
+   {
+    "say": "So whenever a problem hands you an area or a volume and asks for a side, look at the units. Square units send you to the square root, cubic units send you to the cube root. Then just ask what number, multiplied by itself the right number of times, gives you that value.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Area to side is the square root; volume to edge is the cube root — let the units tell you which.",
+  "practice": {
+   "question": "A community centre in Kamloops is building a square skate pad with an area of 121 square metres, and beside it a cube-shaped rainwater tank with a volume of 27 cubic metres. How long is each side of the skate pad, and how long is each edge of the tank? Sketch the square and the cube yourself if it helps.",
+   "answer": "The skate pad has sides of 11 metres, because 11 times 11 is 121. The tank has edges of 3 metres, because 3 times 3 times 3 is 27."
+  }
+ }
+}

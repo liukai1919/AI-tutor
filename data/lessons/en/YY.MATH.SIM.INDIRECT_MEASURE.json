@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.SIM.INDIRECT_MEASURE",
+ "lang": "en",
+ "title": "Use similar triangles to measure indirectly: heights from shadows, river widths, longhouse models, mural enlargements",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Measuring a Tree with Its Shadow",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a missing side when two triangles are similar. Today we use that skill to measure something you cannot reach with a tape measure, like a tall cedar in the park, using nothing but its shadow.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. On a sunny afternoon the sun's rays all come in at the same angle. So you and your shadow make a right triangle, and a tree and its shadow make a right triangle with that same sun angle. Same angles means the two triangles are similar, and similar means the sides are in proportion.",
+    "math": "",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      2,
+      1.6
+     ],
+     "labels": [
+      "2 m shadow",
+      "you, 1.6 m",
+      "sun ray",
+      "sun angle"
+     ],
+     "caption": "Your triangle: height 1.6 m, shadow 2 m, the sun ray is the slanted side"
+    }
+   },
+   {
+    "say": "Say you are one point six metres tall and your shadow is two metres long. At the same moment, the cedar casts a shadow twelve metres long. Now match corresponding sides: your height pairs with the tree's height, and your shadow pairs with the tree's shadow. So tree height over your height equals tree shadow over your shadow.",
+    "math": "\\frac{h}{1.6}=\\frac{12}{2}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      12,
+      9.6
+     ],
+     "labels": [
+      "12 m shadow",
+      "h",
+      "",
+      ""
+     ],
+     "caption": "The tree's triangle: same sun angle, shadow 12 m, height h"
+    }
+   },
+   {
+    "say": "Twelve divided by two is six, so the tree's triangle is six times bigger. That six is the scale factor, not the answer, so keep going. The tree's height is one point six times six, which is nine point six metres. Sanity check: a shadow six times longer means a tree six times taller, and nine point six metres is about a three storey building. That makes sense.",
+    "math": "h = 1.6 \\times 6 = 9.6\\ \\text{m}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      12,
+      1.6,
+      9.6
+     ],
+     "labels": [
+      "you",
+      "tree",
+      "shadow (m)",
+      "height (m)"
+     ],
+     "caption": "Both rows scale by 6: 2 becomes 12, and 1.6 becomes 9.6"
+    }
+   },
+   {
+    "say": "Watch out for the classic slip: pairing sides that do not match. If you write h over two equals one point six over twelve, you have matched your shadow with the tree's height. That gives h equal to about zero point two seven metres, a tree shorter than a hockey stick. Impossible, so go back and re-pair. And keep the units the same. If the shadow was measured as twelve hundred centimetres, divide by one hundred to get twelve metres. Do not multiply.",
+    "math": "\\frac{h}{2}=\\frac{1.6}{12}\\quad\\text{(wrong pairing)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1.6,
+      0.27
+     ],
+     "labels": [
+      "you",
+      "tree (wrong pairing)"
+     ],
+     "caption": "Wrong pairing makes the tree shorter than you. Impossible!"
+    }
+   },
+   {
+    "say": "Takeaway: same sun angle means similar triangles. Match height to height and shadow to shadow, find the scale factor, then multiply to get the real height.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Same sun angle = similar triangles. Pair height with height, shadow with shadow, then scale up.",
+  "practice": {
+   "question": "Your friend Maya is one point five metres tall, and on the beach at Kits her shadow is two point five metres long. At the same moment, a totem pole beside her casts a shadow fifteen metres long. Draw the two triangles yourself, then find the height of the totem pole in metres.",
+   "answer": "Scale factor is 15 ÷ 2.5 = 6, so the pole is 1.5 × 6 = 9 metres tall."
+  }
+ }
+}

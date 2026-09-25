@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.PYTH.MODEL",
+ "lang": "en",
+ "title": "See the Pythagorean relationship as areas: the squares on the two legs together equal the square on the hypotenuse",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Squares on the Sides: Seeing Pythagoras",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build perfect squares with tiles, and you know a right triangle is the one with a square corner. Today we look at a right triangle in a brand new way — we grow a square on each of its three sides and compare their areas.",
+    "math": "",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [
+      "4 cm",
+      "3 cm",
+      "5 cm",
+      ""
+     ],
+     "caption": "A right triangle with legs 3 cm and 4 cm, hypotenuse 5 cm"
+    }
+   },
+   {
+    "say": "Here is the key idea. The two short sides that make the square corner are called the legs. The long slanted side across from the square corner is the hypotenuse. If you build a square on each leg, and add those two areas together, you get exactly the area of the square built on the hypotenuse. Not the sides added — the areas added.",
+    "math": "\\text{area on leg} + \\text{area on leg} = \\text{area on hypotenuse}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "The square on the 3 cm leg: 3 rows by 3 columns is 9 little squares"
+    }
+   },
+   {
+    "say": "Let us count real tiles. Skateboard ramp time: the ramp has a 3 metre leg and a 4 metre leg. The square on the 3 metre leg is three by three, which is nine square metres. The square on the 4 metre leg is four by four, which is sixteen square metres. Nine plus sixteen is twenty five square metres.",
+    "math": "3^2 + 4^2 = 9 + 16 = 25",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      4,
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "The square on the 4 cm leg: 4 rows by 4 columns is 16 little squares"
+    }
+   },
+   {
+    "say": "Now build the square on the hypotenuse, the 5 metre side. Five rows of five is twenty five square metres. That is the same twenty five we just got from adding the two leg squares. The tiles from the two small squares would fill the big square perfectly, with none left over and no gaps.",
+    "math": "5^2 = 25 \\quad \\text{and} \\quad 9 + 16 = 25",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      5,
+      5
+     ],
+     "labels": [],
+     "caption": "The square on the 5 cm hypotenuse: 5 rows by 5 columns is 25 little squares"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into. They add the sides instead of the areas: three plus four is seven, so they think the hypotenuse square is seven. But seven squares of tiles is not the picture at all — we needed twenty five. The second trap is picking the wrong side as the hypotenuse when the triangle is tipped or rotated. The hypotenuse is never one of the sides touching the square corner. It is always the side sitting directly across from it, and it is always the longest one.",
+    "math": "3 + 4 = 7 \\ne 25",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "3 m",
+      "4 m",
+      "5 m is the hypotenuse",
+      ""
+     ],
+     "caption": "Rotated ramp: the legs swapped places, but the slanted side is still the hypotenuse"
+    }
+   },
+   {
+    "say": "So whenever you see a right triangle, picture three squares glued to its sides. The two little ones together always hold exactly as many tiles as the big one.",
+    "math": "a^2 + b^2 = c^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "On a right triangle, the areas of the squares on the two legs add up to the area of the square on the hypotenuse.",
+  "practice": {
+   "question": "You are tiling a corner of a patio in Kelowna with 1 metre by 1 metre paving stones. You lay a right triangle out on the ground: one leg is 6 metres and the other leg is 8 metres. Draw or imagine a square built on each leg. How many 1 metre paving stones fill the square on the 6 metre leg? How many fill the square on the 8 metre leg? Adding those two answers together tells you the area of the square on the hypotenuse — what is it, in square metres?",
+   "answer": "The square on the 6 metre leg is 6 rows of 6, which is 36 paving stones. The square on the 8 metre leg is 8 rows of 8, which is 64 paving stones. Together, 36 plus 64 is 100, so the square on the hypotenuse has an area of 100 square metres."
+  }
+ }
+}

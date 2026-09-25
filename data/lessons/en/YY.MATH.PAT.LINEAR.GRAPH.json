@@ -1,0 +1,131 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.GRAPH",
+ "lang": "en",
+ "title": "Graph a discrete linear relation from a table or expression",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "From Table to Dots on the Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a rule like three n plus two and how to plot a point on a grid. Today we join those two skills together: we take a table of numbers and turn each row into a dot on a coordinate grid.",
+    "math": "c = 2n + 1",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our story. You rent a bike at Stanley Park. It costs two dollars for each hour, plus a one dollar helmet fee. So the cost rule is two times the number of hours, plus one. For one hour that is two plus one, which is three dollars. For two hours, four plus one is five dollars. For three hours, six plus one is seven dollars. For four hours, eight plus one is nine dollars.",
+    "math": "c = 2n + 1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      3,
+      5,
+      7,
+      9
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Hours",
+      "Cost in dollars"
+     ],
+     "caption": "Each column is one hour choice and the matching cost"
+    }
+   },
+   {
+    "say": "Now the key move. Read each column of the table sideways and it becomes a point. Hours goes across, cost goes up. One hour, three dollars, becomes the point one comma three. Two hours, five dollars, becomes two comma five. Three hours, seven dollars, becomes three comma seven. Four hours, nine dollars, becomes four comma nine. Four columns, four dots.",
+    "math": "(1,3),\\ (2,5),\\ (3,7),\\ (4,9)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      5,
+      3,
+      7,
+      4,
+      9
+     ],
+     "labels": [
+      "(1,3)",
+      "(2,5)",
+      "(3,7)",
+      "(4,9)"
+     ],
+     "caption": "Hours across the bottom, cost in dollars going up"
+    }
+   },
+   {
+    "say": "Here is the trap almost everyone falls into at least once. For three hours the cost is seven dollars, so the dot belongs at three across and seven up. If you get it backwards and go seven across and three up, you have just said seven hours costs three dollars. Totally different bike ride! The first number is always how far across, the second is always how far up.",
+    "math": "(3,7)\\ \\neq\\ (7,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      7,
+      7,
+      3
+     ],
+     "labels": [
+      "Right: 3 across, 7 up",
+      "Oops: 7 across, 3 up"
+     ],
+     "caption": "Same two numbers, two very different dots"
+    }
+   },
+   {
+    "say": "One more thing. Do not connect these dots with a line. The bike shop only rents by the whole hour, so there is no such thing as two and a half hours here. A line would be telling a lie about hours that do not exist. Leave them as separate dots. You will still see them marching up in a perfectly straight pattern, going one step right and two steps up every time.",
+    "math": "+1\\ \\text{hour} \\rightarrow +\\$2",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      3,
+      2,
+      5,
+      3,
+      7,
+      4,
+      9
+     ],
+     "labels": [
+      "",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Straight-line pattern, but separate dots — no line drawn"
+    }
+   },
+   {
+    "say": "So remember: every row of the table is one dot. Across first, up second, and keep the dots apart.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Each table column becomes one dot: across first, up second — and leave the dots unjoined.",
+  "practice": {
+   "question": "At a Richmond ice rink, skate rental costs three dollars for each hour, plus a one dollar entry fee. So the cost is three times the number of hours, plus one. Work out the cost for one hour, two hours, and three hours. Then draw your own grid with hours going across and dollars going up, and mark the three points. Should you join them with a line?",
+   "answer": "One hour costs four dollars, two hours costs seven dollars, and three hours costs ten dollars. So the points are one across and four up, two across and seven up, and three across and ten up. No, do not join them — the rink only rents by the whole hour, so you leave three separate dots."
+  }
+ }
+}

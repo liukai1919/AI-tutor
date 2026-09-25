@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.IMPROPER.TO_MIXED",
+ "lang": "en",
+ "title": "Convert improper fractions to mixed numbers",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Top-Heavy Fractions into Mixed Numbers",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that eleven quarters is more than one whole, and you already know how to divide and say what the leftover means. Today we put those two skills together, so you can write a top-heavy fraction like eleven quarters as a mixed number, the way a recipe or a measuring cup would say it.",
+    "math": "\\frac{11}{4} = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the key idea. One whole bar is cut into four quarters, so four quarters make exactly one whole. That means every time we can gather four quarters, we can trade them for one whole.",
+    "math": "\\frac{4}{4} = 1",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      4
+     ],
+     "labels": [],
+     "caption": "Four quarters completely fill one whole bar"
+    }
+   },
+   {
+    "say": "So let us gather. We have eleven quarters. Put four in a group, that is one whole. Another four, that is a second whole. Now only three quarters are left over, and three is not enough to make another whole. Eleven divided by four is two with three left over, so eleven quarters is two wholes and three quarters.",
+    "math": "11 \\div 4 = 2 \\text{ R } 3 \\;\\Rightarrow\\; \\frac{11}{4} = 2\\frac{3}{4}",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "11 quarters: 2 full groups of 4, with 3 quarters left over"
+    }
+   },
+   {
+    "say": "Look at where each number lands. The answer to the division, two, becomes the whole number in front. The leftover, three, becomes the top of the little fraction. And the bottom stays four, because we never changed the size of the pieces. They are still quarters.",
+    "math": "\\frac{11}{4} = 2\\frac{3}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      4,
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "One full bar, another full bar's worth, then 3 quarters left"
+    }
+   },
+   {
+    "say": "Here is the mistake I want you to dodge. Some kids look at eleven quarters and write three and two quarters, because they mix up the two numbers from the division. But three whole bars would already be twelve quarters, and we only have eleven. So three is too many wholes. The number of full groups goes in front, the leftover goes on top. Always check yourself with that quick thought.",
+    "math": "\\frac{11}{4} \\ne 3\\frac{2}{4}, \\quad \\frac{11}{4} = 2\\frac{3}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      4,
+      2.75
+     ],
+     "labels": [],
+     "caption": "11 quarters sits between 2 and 3, not past 3"
+    }
+   },
+   {
+    "say": "Let us do one more together. Say you have seventeen fifths of a litre of juice. Seventeen divided by five is three, with two left over. So it is three and two fifths litres. Three full jugs, and two fifths of the next one.",
+    "math": "17 \\div 5 = 3 \\text{ R } 2 \\;\\Rightarrow\\; \\frac{17}{5} = 3\\frac{2}{5}",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      5,
+      2
+     ],
+     "labels": [],
+     "caption": "17 fifths: 3 full groups of 5, with 2 fifths left over"
+    }
+   }
+  ],
+  "answer": "Divide top by bottom: the quotient is the whole number, the remainder goes on top, and the denominator never changes.",
+  "practice": {
+   "question": "At a Vancouver school picnic, the juice is measured in quarter litre cups, and there are twenty-three quarters of a litre in the cooler. Write twenty-three quarters as a mixed number. Try the division first, then check that your whole number is not too big.",
+   "answer": "Twenty-three divided by four is five with three left over, so twenty-three quarters equals five and three quarters litres."
+  }
+ }
+}

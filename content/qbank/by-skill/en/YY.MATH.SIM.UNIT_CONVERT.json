@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.UNIT_CONVERT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzprdlk3s6yc",
+   "level": 1,
+   "question": "A worksheet on scale diagrams begins with a conversion table of three rows. Row 1 says 1 cm = 10 mm. Row 2 says 1 m = 100 cm. Row 3 says 1 km = 1000 m. Using the table, write 4.5 m in centimetres.",
+   "options": [
+    "450 cm",
+    "45 cm",
+    "0.045 cm",
+    "4500 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Metres to centimetres is a change to a smaller unit, so multiply by the table's factor: 4.5 × 100 = 450 cm. Dividing (0.045 cm) goes the wrong way, and 10 or 1000 are the factors for other rows of the table.",
+   "tags": [
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlcwytu7",
+   "level": 1,
+   "question": "A conversion table has three rows: 1 km = 1000 m, 1 m = 100 cm, 1 cm = 10 mm. A trail on a scale diagram represents a real distance of 2.4 km. Using the table, how many metres is 2.4 km?",
+   "options": [
+    "0.0024 m",
+    "2400 m",
+    "240 m",
+    "24 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Kilometres to metres means a smaller unit, so multiply by the table's 1000: 2.4 × 1000 = 2400 m. The trap is using 100 or 10 as the factor, or dividing, which gives a tiny answer like 0.0024 m.",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlfu0ic2",
+   "level": 1,
+   "question": "A table of length units lists 1 cm = 10 mm, 1 m = 100 cm and 1 km = 1000 m. A line on a scale diagram measures 85 mm. Using the table, what is 85 mm in centimetres?",
+   "options": [
+    "850 cm",
+    "0.85 cm",
+    "8.5 cm",
+    "0.085 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Millimetres to centimetres is a change to a bigger unit, so divide by 10: 85 ÷ 10 = 8.5 cm. Multiplying gives 850 cm, which is longer than the original line, so it cannot be right.",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlz3iuw5",
+   "level": 1,
+   "question": "A conversion table lists 1 m = 100 cm, 1 cm = 10 mm and 1 km = 1000 m. The key on a scale diagram says a real desk is 375 cm long. Using the table, what is 375 cm in metres?",
+   "options": [
+    "37.5 m",
+    "37 500 m",
+    "0.375 m",
+    "3.75 m"
+   ],
+   "answerIndex": 3,
+   "explain": "Centimetres to metres is a bigger unit, so divide by 100: 375 ÷ 100 = 3.75 m. Dividing by 10 or 1000 uses the wrong row of the table, and multiplying gives 37 500 m, far too long for a desk.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzprdl8j7ezr",
+   "level": 2,
+   "question": "0.35 km = ? cm",
+   "options": [
+    "35 000 cm",
+    "3500 cm",
+    "350 cm",
+    "0.00035 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Go in two steps: 0.35 km × 1000 = 350 m, then 350 m × 100 = 35 000 cm. The common trap is using only one factor (like 1 km = 1000 cm) or dividing when moving to a smaller unit.",
+   "tags": [
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtlzprdljhfpz0",
+   "level": 2,
+   "question": "Priya's model of a BC Ferries ship is 48.5 cm long. The real ship's length is listed in metres, so before finding the scale factor she converts the model length to metres. What is 48.5 cm in metres?",
+   "options": [
+    "4850 m",
+    "0.485 m",
+    "0.0485 m",
+    "4.85 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Centimetres to metres is a bigger unit, so divide by 100: 48.5 ÷ 100 = 0.485 m. Dividing by 10 or 1000 uses the wrong factor, and multiplying gives 4850 m, which is longer than a real ship.",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdl3jioxo",
+   "level": 2,
+   "question": "To draw a scale diagram of a kitchen counter, Marcus needs the counter length of 3.6 m written in millimetres. Which calculation gives the correct number of millimetres?",
+   "options": [
+    "3.6 × 100",
+    "3.6 ÷ 1000",
+    "3.6 × 1000",
+    "3.6 × 10 000"
+   ],
+   "answerIndex": 2,
+   "explain": "Since 1 m = 100 cm and 1 cm = 10 mm, there are 1000 mm in a metre, so multiply 3.6 by 1000 to get 3600 mm. Dividing shrinks the number even though millimetres are smaller and need a bigger count.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdl5icsol",
+   "level": 2,
+   "question": "A garden path on a builder's scale diagram is labelled 1250 mm. Marcus wants the length in metres to match the rest of his plan. What is 1250 mm in metres?",
+   "options": [
+    "12.5 m",
+    "0.125 m",
+    "1 250 000 m",
+    "1.25 m"
+   ],
+   "answerIndex": 3,
+   "explain": "There are 1000 mm in 1 m, so divide: 1250 ÷ 1000 = 1.25 m. Dividing by 100 or 10 000 uses the wrong factor, and multiplying by 1000 makes a garden path longer than a city.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzprdld0hdgy",
+   "level": 3,
+   "question": "For a totem pole project, Sam's model is 0.85 m tall and Mia's model is 620 mm tall. To place both on the same scale diagram, the heights must be in centimetres. How many centimetres taller is Sam's model than Mia's?",
+   "options": [
+    "23 cm",
+    "78.8 cm",
+    "53.5 cm",
+    "6115 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Convert both first: 0.85 m × 100 = 85 cm and 620 mm ÷ 10 = 62 cm, so the difference is 85 − 62 = 23 cm. Mixing up the factors, or multiplying 620 by 10 instead of dividing, gives the wrong gap.",
+   "tags": [
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlrgylqj",
+   "level": 3,
+   "question": "Liam needs 3.2 km written in centimetres to set the scale of a map. He writes 3.2 × 100 = 320 cm. What went wrong?",
+   "options": [
+    "He should multiply by 1000 instead, because 1 km is the same as 1000 cm.",
+    "He should multiply by 100 000, since 1 km = 1000 m and 1 m = 100 cm.",
+    "He should multiply by 10 000, since 1 km = 100 m and 1 m = 100 cm.",
+    "He should divide by 100 000 instead, because cm is a smaller unit than km."
+   ],
+   "answerIndex": 1,
+   "explain": "Chain the factors: 1 km = 1000 m and 1 m = 100 cm, so 1 km = 100 000 cm and 3.2 km = 320 000 cm. Liam used only the metre-to-centimetre factor; the answer that divides is backwards because a smaller unit needs a bigger count.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlgj5gbz",
+   "level": 3,
+   "question": "On a Garibaldi hiking map with a scale of 1 : 50 000, Jordan measures a trail at 6.4 cm. She multiplies to get 6.4 × 50 000 = 320 000 cm of real distance. The trail sign shows distances in kilometres. What is 320 000 cm in kilometres?",
+   "options": [
+    "320 km",
+    "32 km",
+    "3.2 km",
+    "0.32 km"
+   ],
+   "answerIndex": 2,
+   "explain": "Convert in two steps: 320 000 cm ÷ 100 = 3200 m, then 3200 m ÷ 1000 = 3.2 km. Using 1 km = 100 m, or treating 1 km as 1000 cm, gives an answer that is off by a factor of 10 or 100.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzprdlkbrzw1",
+   "level": 3,
+   "question": "Ava is drawing her bedroom as a scale diagram at 1 cm : 30 cm. The real room is 3.6 m by 4.2 m. Before she can divide by 30, she must write both room lengths in centimetres. Which pair is correct?",
+   "options": [
+    "36 cm and 42 cm",
+    "3600 cm and 4200 cm",
+    "0.036 cm and 0.042 cm",
+    "360 cm and 420 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "Each metre is 100 cm, so 3.6 × 100 = 360 cm and 4.2 × 100 = 420 cm, and only then can she divide by 30. Using 10 or 1000 as the factor, or dividing by 100, gives a room that could not hold a bed.",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok"
+   ]
+  }
+ ]
+}

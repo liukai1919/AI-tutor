@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.PRODUCT_QUOTIENT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlsjydvw2xl67",
+   "level": 1,
+   "question": "n⁵ 表示 5 个 n 相乘，n³ 表示 3 个 n 相乘。把 n⁵ × n³ 写成一个幂（power），结果是？",
+   "options": [
+    "n⁸",
+    "n²",
+    "n¹⁵",
+    "2n⁸"
+   ],
+   "answerIndex": 0,
+   "explain": "5 个 n 再乘上 3 个 n，一共是 8 个 n 相乘，所以底数不变、指数相加得 n⁸。最容易踩的坑是把指数相乘写成 n¹⁵；底数 n 保持不变，也不能变成 2n⁸。",
+   "tags": [
+    "ok",
+    "other",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvzgq1xx",
+   "level": 1,
+   "question": "计算 5⁸ ÷ 5²，把结果写成一个幂。",
+   "options": [
+    "5⁴",
+    "5⁶",
+    "5¹⁰",
+    "1⁶"
+   ],
+   "answerIndex": 1,
+   "explain": "同底数幂相除，底数 5 不变，指数相减：8 − 2 = 6，得 5⁶。别把指数相除（8 ÷ 2 = 4）写成 5⁴，也别把底数相除写成 1⁶。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "other",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvd5a6v5",
+   "level": 1,
+   "question": "计算 3² × 3⁴，结果写成一个幂是？",
+   "options": [
+    "3⁸",
+    "6⁶",
+    "3⁶",
+    "9⁶"
+   ],
+   "answerIndex": 2,
+   "explain": "两个幂的底数（base）都是 3，相乘时底数保持 3，指数相加 2 + 4 = 6，得 3⁶（等于 729，可用 9 × 81 验算）。底数不能相加成 6 或相乘成 9，指数也不能相乘成 8。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvv4iwee",
+   "level": 1,
+   "question": "把 a⁴ × a × a² 写成一个幂。提示：单独的 a 就是 a¹。",
+   "options": [
+    "a⁶",
+    "a⁸",
+    "3a⁷",
+    "a⁷"
+   ],
+   "answerIndex": 3,
+   "explain": "三个因数底数都是 a，指数相加：4 + 1 + 2 = 7，得 a⁷。常见错误是漏掉单独那个 a 的指数 1 而得到 a⁶，或者把指数相乘 4 × 1 × 2 = 8。",
+   "tags": [
+    "other",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvtlcrbm",
+   "level": 2,
+   "question": "化简 m⁹ ÷ m³ × m²（从左到右计算），把结果写成一个幂。",
+   "options": [
+    "m⁸",
+    "m¹⁴",
+    "m⁶",
+    "m⁴"
+   ],
+   "answerIndex": 0,
+   "explain": "先算除法：指数相减 9 − 3 = 6 得 m⁶；再算乘法：指数相加 6 + 2 = 8，得 m⁸。除法是指数相减、乘法是指数相加，不能把 9 ÷ 3 × 2 直接算在指数上得到 m⁶。",
+   "tags": [
+    "ok",
+    "other",
+    "exp.multiply_exponents_for_product",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvuq0d1w",
+   "level": 2,
+   "question": "实验室里一种细菌每小时数量翻一倍。开始时有 2⁴ 个，5 小时后数量是 2⁴ × 2⁵ 个。这个数写成一个幂是？",
+   "options": [
+    "2²⁰",
+    "2⁹",
+    "4⁹",
+    "4²⁰"
+   ],
+   "answerIndex": 1,
+   "explain": "底数都是 2，保持不变，指数相加 4 + 5 = 9，得 2⁹（512 个，可用 16 × 32 验算）。底数 2 + 2 = 4 是错的，指数 4 × 5 = 20 也是错的。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "exp.add_bases",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvxkwl9r",
+   "level": 2,
+   "question": "已知 x⁴ × x▢ = x¹²，方框里的指数（exponent）应该是多少？",
+   "options": [
+    "3",
+    "16",
+    "8",
+    "48"
+   ],
+   "answerIndex": 2,
+   "explain": "同底数幂相乘是指数相加，所以 4 + ▢ = 12，▢ = 8。如果误以为指数相乘，就会算成 12 ÷ 4 = 3；把 12 和 4 相加得 16 或相乘得 48 也都不对。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsjydv4f4c0w",
+   "level": 2,
+   "question": "本拿比一所学校有 3⁷ 本电子书，要平均存进 3³ 个班级账号里。每个账号存多少本？把结果写成一个幂。",
+   "options": [
+    "1⁴",
+    "3¹⁰",
+    "3²¹",
+    "3⁴"
+   ],
+   "answerIndex": 3,
+   "explain": "平均分就是 3⁷ ÷ 3³，底数 3 不变，指数相减 7 − 3 = 4，得 3⁴（81 本）。别把指数相加成 3¹⁰ 或相乘成 3²¹；底数也不能相除写成 1⁴。",
+   "tags": [
+    "exp.add_bases",
+    "other",
+    "exp.multiply_exponents_for_product",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvrfxaim",
+   "level": 3,
+   "question": "一个正方体水箱边长是 10² cm，它的体积等于 10² × 10² × 10² 立方厘米。用容量为 10³ 立方厘米（1 升）的水杯往里倒水，正好需要多少杯？",
+   "options": [
+    "10³",
+    "10²",
+    "10⁵",
+    "10⁹"
+   ],
+   "answerIndex": 0,
+   "explain": "先算体积：指数相加 2 + 2 + 2 = 6，得 10⁶；再除以 10³：指数相减 6 − 3 = 3，得 10³ = 1000 杯。坑在于把 2 × 2 × 2 = 8 当成体积的指数，或者把 6 ÷ 3 = 2 当成杯数的指数。",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.multiply_exponents_for_product",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsjydv27n46i",
+   "level": 3,
+   "question": "基隆拿（Kelowna）一家果园装了 5⁴ 箱苹果，每箱 5² 个。这些苹果要平均装上 5³ 辆货车，每辆车装多少个苹果？",
+   "options": [
+    "5⁵",
+    "5³",
+    "5⁹",
+    "25³"
+   ],
+   "answerIndex": 1,
+   "explain": "先算总数：5⁴ × 5² 指数相加得 5⁶；再平均分：5⁶ ÷ 5³ 指数相减得 5³ = 125 个。别把 4 × 2 = 8 当成总数的指数，也别把底数 5 × 5 相乘写成 25。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlsjydvrdfdmy",
+   "level": 3,
+   "question": "小明算 2³ × 2⁴ 时写成 4⁷，理由是「底数相加、指数相加」。下面哪句话正确指出了他的问题？",
+   "options": [
+    "他没错，底数 2 + 2 = 4、指数 3 + 4 = 7，结果就是 4⁷",
+    "底数保持 2 是对的，但指数要相乘 3 × 4 = 12，应是 2¹²",
+    "底数不变仍是 2，只把指数相加得 7，结果应是 2⁷",
+    "底数相加得 4 没问题，但指数要相乘，应是 4¹²"
+   ],
+   "answerIndex": 2,
+   "explain": "同底数幂相乘，底数不变、只把指数相加：2³ × 2⁴ = 2⁷ = 128。可以验算：8 × 16 = 128，而 4⁷ = 16384，差得很远。把底数也相加是这里最常见的错误。",
+   "tags": [
+    "exp.add_bases",
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtlsjydv8kgzov",
+   "level": 3,
+   "question": "小雅算 n⁶ ÷ n² 得到 n³，理由是「6 ÷ 2 = 3」。老师让她代入 n = 2 检验。下面哪个判断是对的？",
+   "options": [
+    "n³ 是对的，因为除法就把指数也相除，6 ÷ 2 = 3",
+    "应是 n⁸，因为 2⁶ ÷ 2² 里要把指数相加，6 + 2 = 8",
+    "应是 1⁴，因为底数也要相除 2 ÷ 2 = 1，指数 6 − 2 = 4",
+    "应是 n⁴，因为 64 ÷ 4 = 16 正好是 2⁴，指数要相减"
+   ],
+   "answerIndex": 3,
+   "explain": "代入 n = 2：2⁶ ÷ 2² = 64 ÷ 4 = 16 = 2⁴，所以 n⁶ ÷ n² = n⁴，指数是相减 6 − 2 而不是相除。检验时 2³ = 8 不等于 16，说明把指数相除是错的。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "other",
+    "exp.add_bases",
+    "ok"
+   ]
+  }
+ ]
+}

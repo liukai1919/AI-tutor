@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.CIRCLE.CHOOSE_GRAPH",
+ "lang": "en",
+ "title": "Decide when a circle graph is the right choice compared with bar and line graphs",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Pie, Bar, or Line? Picking the Right Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a circle graph — turn each amount into a percent, then into an angle, and slice it up. Today is just one small step: how to decide whether a circle graph is even the right graph to reach for, instead of a bar graph or a line graph.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the one question to ask: do all my numbers add up to one whole thing? A circle graph is a whole pizza. Every slice is a share of that same pizza. So when a Grade seven class of twenty five students each pick exactly one way to get to school — ten walk, eight take the bus, four bike, three come by car — those four numbers add to twenty five, the whole class. That is a whole. A circle graph fits beautifully, because you can see at a glance that walking is almost half the class.",
+    "math": "10+8+4+3=25",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      10,
+      8,
+      4,
+      3
+     ],
+     "labels": [
+      "Walk",
+      "Bus",
+      "Bike",
+      "Car"
+     ],
+     "caption": "All 25 students, one whole class"
+    }
+   },
+   {
+    "say": "Now compare that to four friends' heights: one hundred fifty two, one hundred forty eight, one hundred sixty, and one hundred fifty five centimetres. Add them up and you get six hundred fifteen centimetres — but that number means nothing. Nobody is six hundred fifteen centimetres tall. There is no whole here, only separate amounts you want to compare. That is a bar graph's job. And if the numbers are one thing changing over time, like your height every birthday, you use a line graph to show the trend.",
+    "math": "",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      152,
+      148,
+      160,
+      155
+     ],
+     "labels": [
+      "Aria",
+      "Ben",
+      "Chloe",
+      "Dev"
+     ],
+     "caption": "Separate amounts — compare with bars, not slices"
+    }
+   },
+   {
+    "say": "Let's work one out. Maya gets forty dollars of allowance in a month and spends every bit of it: sixteen dollars on movies, ten on snacks, eight into savings, and six on bus fare. Check the test — sixteen plus ten plus eight plus six is forty. That is the whole allowance, so a circle graph is the right pick. Sixteen out of forty is forty percent for movies, ten out of forty is twenty five percent for snacks, eight out of forty is twenty percent for savings, and six out of forty is fifteen percent for bus fare. Those add to one hundred percent — a full circle.",
+    "math": "\\frac{16}{40}=40\\%",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      16,
+      10,
+      8,
+      6
+     ],
+     "labels": [
+      "Movies",
+      "Snacks",
+      "Savings",
+      "Bus fare"
+     ],
+     "caption": "Maya's whole $40 allowance"
+    }
+   },
+   {
+    "say": "Here is the mistake people make. Maya's brother recorded the daily high in Kelowna for five days: eighteen, twenty one, twenty four, twenty two, and nineteen degrees Celsius, and he put them in a circle graph. Watch what goes wrong. Adding them gives one hundred four degrees, and that is not a real thing — there is no whole hundred and four degree day being shared out. Monday's slice would claim to be about seventeen percent of the week's temperature, which is nonsense. These numbers are one thing changing over time, so a line graph is the right choice: now you can actually see the warm up and the cool down.",
+    "math": "18+21+24+22+19=104",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      18,
+      21,
+      24,
+      22,
+      19
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Change over time — a line graph, not a pie"
+    }
+   },
+   {
+    "say": "So before you draw, run the whole test. Do the numbers add up to one real whole? Circle graph. Are they separate amounts you want to compare side by side? Bar graph. Is one thing changing over time? Line graph.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Use a circle graph only when your numbers add up to one real whole — bars compare separate amounts, lines show change over time.",
+  "practice": {
+   "question": "Ravi has two sets of data. Set one: how he spent all fifty dollars of his birthday money — twenty dollars on a video game, fifteen on a hoodie, ten on snacks, and five put into savings. Set two: the number of hours he practised basketball each week for five weeks — three, four, six, five, then seven. Which set belongs in a circle graph, and how big would the video game slice be as a percent of the circle?",
+   "answer": "Set one. Twenty plus fifteen plus ten plus five is fifty, the whole birthday money, so each amount is a share of one whole — that is a circle graph. The video game slice is twenty out of fifty, which is forty percent of the circle (one hundred forty four degrees). Set two is one thing changing week by week, so it belongs on a line graph — adding those hours to twenty five would not describe a whole anything."
+  }
+ }
+}

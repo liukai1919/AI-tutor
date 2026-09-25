@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.MULTIPLY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrs3b3ahkdte",
+   "level": 1,
+   "question": "A spinner is divided into 4 equal parts, and 1 of those parts is shaded blue. A fair coin has 2 equal sides, and 1 of them is heads. You spin the spinner once and flip the coin once. What is the probability of getting blue and heads?",
+   "options": [
+    "1/8",
+    "3/4",
+    "1/6",
+    "1/3"
+   ],
+   "answerIndex": 0,
+   "explain": "Independent events multiply: 1/4 × 1/2 = 1/8. The common trap is adding to get 3/4 — needing two things to happen at once makes the chance smaller, not bigger.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3mb4ixd",
+   "level": 1,
+   "question": "A bag holds 5 marbles that are all the same size, and 2 of them are green. A fair number cube has 6 equal faces numbered 1 to 6, so exactly 1 face shows a 3. You draw one marble and roll the cube. What is the probability of green and a 3?",
+   "options": [
+    "17/30",
+    "1/15",
+    "2/11",
+    "1/30"
+   ],
+   "answerIndex": 1,
+   "explain": "P(green) = 2/5 and P(3) = 1/6, so multiply numerator by numerator and denominator by denominator: 2/30 = 1/15. Do not add 5 and 6 to get 11 outcomes; the sample space is 5 × 6 = 30.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3xaciaw",
+   "level": 1,
+   "question": "One spinner has 3 equal sections and 1 section is red. A second spinner has 5 equal sections and 2 sections are yellow. Both spinners are fair, and each spin is independent. What is the probability of red on the first spinner and yellow on the second?",
+   "options": [
+    "11/15",
+    "1/4",
+    "2/15",
+    "1/5"
+   ],
+   "answerIndex": 2,
+   "explain": "Multiply: 1/3 × 2/5 = 2/15. A common trap is adding to get 11/15; with independent events, the word and always means multiply.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3iquy1y",
+   "level": 1,
+   "question": "A fair spinner has 8 equal parts, and 3 of the parts are purple. A fair coin has 2 equal sides, and 1 side is tails. You spin the spinner once and flip the coin once. What is the probability of purple and tails?",
+   "options": [
+    "7/8",
+    "3/10",
+    "1/4",
+    "3/16"
+   ],
+   "answerIndex": 3,
+   "explain": "Multiply the two probabilities: 3/8 × 1/2 = 3/16. The trap is adding the parts (8 + 2 = 10); the spinner and coin together give 8 × 2 = 16 equally likely pairs.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3ya76l2",
+   "level": 2,
+   "question": "Maya rolls a fair 6-sided number cube and flips a fair coin. What is the probability that she rolls a number greater than 4 and the coin lands heads?",
+   "options": [
+    "1/6",
+    "1/4",
+    "1/12",
+    "5/6"
+   ],
+   "answerIndex": 0,
+   "explain": "Greater than 4 means 5 or 6, so P = 2/6 = 1/3, and then 1/3 × 1/2 = 1/6. The trap is using 1/6 for a single number when two numbers work.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_outcomes",
+    "other",
+    "prob.two_events_add_probabilities"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3oz13w7",
+   "level": 2,
+   "question": "Events A and B are independent, with P(A) = 1/4 and P(B) = 2/5. What is P(A and B)?",
+   "options": [
+    "13/20",
+    "1/10",
+    "2/9",
+    "1/3"
+   ],
+   "answerIndex": 1,
+   "explain": "Multiply straight across: (1 × 2)/(4 × 5) = 2/20 = 1/10. Adding gives 13/20, which is far too big for two events that must both happen.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b34r35d0",
+   "level": 2,
+   "question": "At a school fair, a prize game uses two fair spinners. The first lands on 'win' 1 time out of 4, and the second lands on 'win' 1 time out of 3. Priya gets a prize only if she wins on both spinners. What is the probability she gets a prize?",
+   "options": [
+    "7/12",
+    "1/7",
+    "1/12",
+    "1/6"
+   ],
+   "answerIndex": 2,
+   "explain": "Both must happen, so multiply: 1/4 × 1/3 = 1/12. Adding the denominators (4 + 3 = 7) is the usual mistake; the two spinners give 4 × 3 = 12 equally likely pairs.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3ya57gm",
+   "level": 2,
+   "question": "Aiden's drawer holds 10 socks, and 4 of them are wool. His snack bag holds 6 granola bars, and 3 of them are chocolate. He grabs one sock and one bar without looking. What is the probability he gets a wool sock and a chocolate bar?",
+   "options": [
+    "9/10",
+    "7/16",
+    "3/4",
+    "1/5"
+   ],
+   "answerIndex": 3,
+   "explain": "P(wool) = 4/10 = 2/5 and P(chocolate) = 3/6 = 1/2, so 2/5 × 1/2 = 1/5. Counting 10 + 6 = 16 outcomes is the trap; the real sample space is 10 × 6 = 60.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "other",
+    "prob.two_events_add_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b35y58te",
+   "level": 3,
+   "question": "A cafeteria cooler holds 12 drinks: 3 apple juice, 5 orange juice, and 4 water. A snack bin holds 10 snacks, and 6 of them are muffins. Noah takes one drink and one snack without looking. What is the probability he gets apple juice and a muffin?",
+   "options": [
+    "3/20",
+    "17/20",
+    "9/22",
+    "3/10"
+   ],
+   "answerIndex": 0,
+   "explain": "P(apple juice) = 3/12 = 1/4 and P(muffin) = 6/10 = 3/5, so 1/4 × 3/5 = 3/20. Turn each count into a fraction first, then multiply — adding them gives 17/20, which is bigger than either probability alone.",
+   "tags": [
+    "ok",
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b35dnd9f",
+   "level": 3,
+   "question": "Ella's bus is on time 4 mornings out of 5. Whether it rains is independent of the bus, and it rains 1 morning out of 4. What is the probability that tomorrow the bus is late and it rains?",
+   "options": [
+    "9/20",
+    "1/20",
+    "1/5",
+    "1/9"
+   ],
+   "answerIndex": 1,
+   "explain": "Late is the opposite of on time: 1 - 4/5 = 1/5, and then 1/5 × 1/4 = 1/20. The trap is multiplying 4/5 by 1/4 and forgetting to switch to the probability of being late.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other",
+    "prob.two_events_add_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b3ocvsho",
+   "level": 3,
+   "question": "Liam spins a fair spinner with 5 equal sections (2 are green) and rolls a fair number cube. He writes P(green and 6) = 2/5 + 1/6 = 17/30. What should he do instead?",
+   "options": [
+    "Add outcomes, because 5 + 6 = 11 is the sample space: 2/11.",
+    "Nothing, because two events means you add: 17/30 is right.",
+    "Multiply, because both events happen: 2/5 × 1/6 = 1/15.",
+    "Use 1/5, because only one section can be green: 1/30."
+   ],
+   "answerIndex": 2,
+   "explain": "With independent events, and means multiply: 2/5 × 1/6 = 1/15. Adding gives 17/30, which is larger than 2/5 — but requiring both events makes the chance smaller, never bigger.",
+   "tags": [
+    "prob.two_events_add_outcomes",
+    "prob.two_events_add_probabilities",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrs3b38qxnho",
+   "level": 3,
+   "question": "In a class raffle, each student draws one ticket from Box A, which holds 20 tickets with 4 winners, and one ticket from Box B, which holds 15 tickets with 5 winners. A student wins the grand prize only if both tickets are winners. What is the probability of winning the grand prize?",
+   "options": [
+    "8/15",
+    "9/35",
+    "2/15",
+    "1/15"
+   ],
+   "answerIndex": 3,
+   "explain": "P(Box A winner) = 4/20 = 1/5 and P(Box B winner) = 5/15 = 1/3, so 1/5 × 1/3 = 1/15. Simplify each fraction first; adding tickets (20 + 15) or winners (4 + 5) mixes two separate sample spaces into one.",
+   "tags": [
+    "prob.two_events_add_probabilities",
+    "prob.two_events_add_outcomes",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

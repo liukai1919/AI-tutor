@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.APPLY",
+ "lang": "en",
+ "title": "Model a real situation as a linear relation and use a table, expression or graph to answer questions (phone plan: $20 plus $5 per GB)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "From Phone Plan to Formula",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot a constant difference in a table and turn it into an expression. Today we do the same thing, except nobody hands us the table — we build it ourselves from a real story, like a phone plan.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the plan. Telus charges twenty dollars a month no matter what, plus five dollars for every gigabyte of data you use. Let's make a table. At zero gigabytes you still pay the twenty dollars. Every extra gigabyte adds five more, so twenty five, thirty, thirty five, forty.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      25,
+      30,
+      35,
+      40
+     ],
+     "labels": [
+      "0 GB",
+      "1 GB",
+      "2 GB",
+      "3 GB",
+      "4 GB"
+     ],
+     "caption": "Monthly cost in dollars as data goes up by 1 GB"
+    }
+   },
+   {
+    "say": "Look at the two jobs those numbers do. The twenty dollars is paid once — it is the value when the number of gigabytes is zero. The five dollars is the rate of change, the amount added per gigabyte. So if n is the number of gigabytes, the cost is five n plus twenty. Try seven gigabytes: five times seven is thirty five, plus twenty is fifty five dollars.",
+    "math": "C = 5n + 20 \\quad\\Rightarrow\\quad C = 5(7) + 20 = 55",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      35
+     ],
+     "labels": [
+      "Fixed $20",
+      "7 GB at $5"
+     ],
+     "caption": "$20 once, plus $5 seven times, gives $55"
+    }
+   },
+   {
+    "say": "Here is where lots of people slip. For five gigabytes, one student wrote twenty five dollars — they multiplied five by five but forgot the fixed twenty. Another wrote one hundred twenty five — they took the whole twenty five dollar first month and multiplied it by five, which stretches the fixed part too. The twenty only gets paid once. Five times five is twenty five, plus twenty is forty five dollars.",
+    "math": "5(5) + 20 = 45 \\neq 25 \\neq 125",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      25,
+      125,
+      45
+     ],
+     "labels": [
+      "Forgot $20",
+      "Stretched $20",
+      "Correct"
+     ],
+     "caption": "Only the middle bar of the plan grows with data"
+    }
+   },
+   {
+    "say": "Now flip the question. You have sixty dollars a month to spend — how much data does that buy? Take the fixed twenty off first: sixty minus twenty is forty dollars left for data. Then divide by five dollars per gigabyte: forty divided by five is eight. Careful here — the answer is eight gigabytes, not forty. Forty was just the money left over on the way.",
+    "math": "60 = 5n + 20 \\;\\Rightarrow\\; 40 = 5n \\;\\Rightarrow\\; n = 8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      45,
+      50,
+      55,
+      60
+     ],
+     "labels": [
+      "5 GB",
+      "6 GB",
+      "7 GB",
+      "8 GB"
+     ],
+     "caption": "Reading the table backwards lands on 8 GB for $60"
+    }
+   },
+   {
+    "say": "So whenever you meet a real situation, hunt for two numbers: the amount that gets paid once, and the amount that repeats each time. One becomes the constant, the other becomes the coefficient, and the whole story fits in one short expression.",
+    "math": "C = (\\text{rate}) \\times n + (\\text{fixed})",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Pay-once number is the constant, per-item number is the coefficient: cost equals five n plus twenty.",
+  "practice": {
+   "question": "A rec centre in Burnaby charges a fifteen dollar sign-up fee, plus three dollars every time you go for a swim. Write an expression for the total cost after n swims. What does Maya pay for nine swims? And if she has forty eight dollars saved, how many swims can she get?",
+   "answer": "The expression is three n plus fifteen. Nine swims: three times nine is twenty seven, plus fifteen equals forty two dollars. With forty eight dollars: forty eight minus fifteen leaves thirty three, and thirty three divided by three is eleven swims (not thirty three — that was just the leftover money)."
+  }
+ }
+}

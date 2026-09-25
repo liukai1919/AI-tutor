@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "rational-operations",
+ "lang": "en",
+ "unitName": {
+  "zh": "有理数的四则运算",
+  "en": "Operations with rational numbers"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Operations with rational numbers · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.RAT.CONCEPT",
+    "level": 1,
+    "question": "On a number line, which of these numbers sits between −2 and −1?",
+    "options": [
+     "−1/3",
+     "−3/2",
+     "−2/3",
+     "−5/2"
+    ],
+    "answerIndex": 1,
+    "explain": "−3/2 is −1.5, which lands halfway between −2 and −1. The usual trap is flipping the fraction: −2/3 is only about −0.67, so it sits between −1 and 0."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.ADDSUB",
+    "level": 1,
+    "question": "What is −2/3 + 1/4?",
+    "options": [
+     "−11/12",
+     "5/12",
+     "−5/12",
+     "−1/7"
+    ],
+    "answerIndex": 2,
+    "explain": "Use a common denominator of 12: −8/12 + 3/12 = −5/12. Because the signs are different you subtract the sizes and keep the sign of the bigger one; adding them to get −11/12 (or adding across the top and bottom to get −1/7) is the common error."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.POWERS",
+    "level": 1,
+    "question": "What is the value of (−2/3)²?",
+    "options": [
+     "4/9",
+     "−4/9",
+     "−4/3",
+     "4/3"
+    ],
+    "answerIndex": 0,
+    "explain": "The brackets mean the whole fraction is squared: (−2/3)(−2/3) = 4/9, and negative × negative is positive. Watch for squaring only the top (4/3) or leaving the answer negative."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.COMPARE_ORDER",
+    "level": 2,
+    "question": "Sana records four morning temperatures at her Kamloops school: −0.8 °C, −3/4 °C, −1/2 °C, and 0.7 °C. Which list goes from coldest to warmest?",
+    "options": [
+     "−1/2, −3/4, −0.8, 0.7",
+     "−3/4, −0.8, −1/2, 0.7",
+     "0.7, −1/2, −3/4, −0.8",
+     "−0.8, −3/4, −1/2, 0.7"
+    ],
+    "answerIndex": 3,
+    "explain": "Change every number to a decimal first: −0.8, −0.75, −0.5, 0.7, then read them left to right on the number line. The trap is ordering negatives by size alone — −0.8 looks smaller than −3/4 only until you see that −0.8 is farther left."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.MULTDIV",
+    "level": 2,
+    "question": "Evaluate (−5/6) ÷ (−2/3).",
+    "options": [
+     "−5/4",
+     "5/9",
+     "5/4",
+     "4/5"
+    ],
+    "answerIndex": 2,
+    "explain": "Flip the second fraction and multiply: (−5/6) × (−3/2) = 15/12 = 5/4, and negative ÷ negative is positive. Two common traps are multiplying without flipping (5/9) and flipping the first fraction instead of the second."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.ORDER_OPS",
+    "level": 2,
+    "question": "Evaluate 6 − 4 × (−0.5)².",
+    "options": [
+     "5",
+     "7",
+     "0.5",
+     "10"
+    ],
+    "answerIndex": 0,
+    "explain": "Powers come first: (−0.5)² = 0.25, then 4 × 0.25 = 1, then 6 − 1 = 5. Doing the subtraction first gives 0.5, and treating (−0.5)² as −0.25 gives 7."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.WORD",
+    "level": 3,
+    "question": "Nia's bank account is overdrawn at −$18.60. She deposits $45.00 from her babysitting job, and then three automatic bus-pass payments of $9.75 each come out. What is her balance afterwards?",
+    "options": [
+     "$55.65",
+     "−$2.85",
+     "$16.65",
+     "$2.85"
+    ],
+    "answerIndex": 1,
+    "explain": "Work in order: −18.60 + 45.00 = 26.40, then 3 × 9.75 = 29.25, and 26.40 − 29.25 = −$2.85, so she is overdrawn again. The traps are adding the payments instead of subtracting them, or dropping the negative sign at the end."
+   },
+   {
+    "curriculumId": "YY.MATH.RAT.POWERS",
+    "level": 3,
+    "question": "Ravi works out −5² + (−5)² and writes 50. What went wrong?",
+    "options": [
+     "Nothing is wrong: −5² and (−5)² both equal 25.",
+     "−5² means −(5 × 5) = −25, so the answer is 0.",
+     "(−5)² means −(5 × 5) = −25, so the answer is −50.",
+     "−5² equals −10, so the answer should be 15."
+    ],
+    "answerIndex": 1,
+    "explain": "Without brackets the exponent applies only to the 5, so −5² = −(5 × 5) = −25, while (−5)² = 25, giving −25 + 25 = 0. The classic mistake is squaring the negative sign too, which turns −5² into 25."
+   }
+  ]
+ }
+}

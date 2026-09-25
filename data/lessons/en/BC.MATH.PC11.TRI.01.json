@@ -1,0 +1,118 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.TRI.01",
+ "lang": "en",
+ "title": "trigonometry : non-right triangles and angles in standard position",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Angles in Standard Position & the Unit Circle",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this — you're on the seawall in Vancouver looking up, and a delivery drone is flying in a big circle overhead. Your friend texts: 'The drone is at one-fifty degrees on its flight path. Where exactly is it relative to you?' You can't just draw a right triangle here because the angle is way past ninety. So how do we pin down that position? That is exactly what angles in standard position and the unit circle let us do, and we are going to build that tool together today.",
+    "math": "",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      150
+     ],
+     "labels": [
+      "θ"
+     ],
+     "caption": "A drone at 150° on its circular path — we need its x and y position."
+    }
+   },
+   {
+    "say": "First, let us agree on a language. An angle in standard position means the vertex sits right at the origin, the zero-zero point, and the starting arm — we call it the initial arm — lies along the positive x-axis, pointing to the right. Then we rotate the other arm, the terminal arm, counter-clockwise for positive angles or clockwise for negative ones. So one-fifty degrees means: start pointing right, then sweep one-fifty degrees up and to the left. That is the whole definition. No triangle required yet — just a direction.",
+    "math": "\\text{Vertex at }(0,0)\\text{, initial arm on }+x\\text{-axis, rotate to }\\theta",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      150
+     ],
+     "labels": [
+      "terminal arm"
+     ],
+     "caption": "Standard position: start at 0° (right), sweep counter-clockwise to 150°."
+    }
+   },
+   {
+    "say": "Now here is the magic trick. Instead of drawing a right triangle with some random hypotenuse every time, we fix the radius to exactly one. We draw a circle of radius one centred at the origin — that is the unit circle. Wherever the terminal arm crosses that circle, the x-coordinate is the cosine of the angle, and the y-coordinate is the sine of the angle. So at one-fifty degrees, the point on the circle is: cosine of one-fifty for x, sine of one-fifty for y. The unit circle turns trig into a simple coordinate system, and it works for every angle, not just the ones under ninety.",
+    "math": "(\\cos\\theta,\\;\\sin\\theta)\\text{ on the unit circle of radius }1",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      150
+     ],
+     "labels": [
+      "θ"
+     ],
+     "caption": "Every angle lands on a point (cos θ, sin θ) of the unit circle."
+    }
+   },
+   {
+    "say": "Here is the shortcut that saves you from memorizing three-sixty different values. The reference angle is just the sharp, acute angle between the terminal arm and the x-axis — always between zero and ninety. For one-fifty degrees, the reference angle is one-eighty minus one-fifty, which is thirty degrees. You use the sine and cosine of thirty — the ones you already know from your thirty-sixty-ninety triangle — and then assign the correct sign based on the quadrant. Quadrant one: both positive. Quadrant two: sine positive, cosine negative. Quadrant three: both negative. Quadrant four: sine negative, cosine positive. That tiny table is your whole sign system.",
+    "math": "\\text{Quadrant II: }\\sin\\theta>0,\\;\\cos\\theta<0 \\quad\\text{ref. angle }= 180°-\\theta",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      150
+     ],
+     "labels": [
+      "θ = 150°"
+     ],
+     "caption": "Reference angle (30°) and the sign pattern in Quadrant II."
+    }
+   },
+   {
+    "say": "Let us do one together. Find sine and cosine of one-fifty degrees. Step one: which quadrant? One-fifty is between ninety and one-eighty, so quadrant two. Step two: reference angle is one-eighty minus one-fifty, that is thirty degrees. Step three: sine of thirty is one half, and cosine of thirty is the square root of three over two. Step four: in quadrant two, sine stays positive and cosine flips to negative. So sine of one-fifty equals one half, and cosine of one-fifty equals negative square root of three over two. Done. You never had to draw a triangle with a one-fifty degree angle in it.",
+    "math": "\\sin 150°=\\sin 30°=\\frac{1}{2},\\qquad \\cos 150°=-\\cos 30°=-\\frac{\\sqrt{3}}{2}",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      150
+     ],
+     "labels": [
+      "θ = 150°"
+     ],
+     "caption": "Worked: sin 150° = ½, cos 150° = −(√3)/2 via reference angle 30°."
+    }
+   },
+   {
+    "say": "Okay, slightly trickier. What is the cosine of four-oh-five degrees? First question: is that even a real angle? Yes — it is just more than one full spin around the circle. We find the coterminal angle by subtracting three-sixty: four-oh-five minus three-sixty is forty-five. So cosine of four-oh-five is the very same as cosine of forty-five, which is square root of two over two. The drone went a full circle and then a tiny bit more, but it lands on exactly the same spot as forty-five degrees. Coterminal angles mean: different numbers, same direction, same coordinates.",
+    "math": "\\cos 405°=\\cos(405°-360°)=\\cos 45°=\\frac{\\sqrt{2}}{2}",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      405
+     ],
+     "labels": [
+      "405° = 45°"
+     ],
+     "caption": "405° and 45° are coterminal — same terminal arm, same point on the circle."
+    }
+   },
+   {
+    "say": "So here is the one sentence to carry into next week: the unit circle turns every angle into a point, the reference angle connects it back to a thirty, forty-five, or sixty triangle you already know, and the quadrant tells you the sign. That is your whole toolkit for reading angles beyond ninety degrees, and it is the direct foundation for the sine and cosine laws you will use to solve non-right triangles. You have got this.",
+    "math": "\\boxed{\\text{Unit circle point} + \\text{reference angle} + \\text{quadrant sign} = \\text{any angle's sin \\& cos}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The unit circle turns any angle into a coordinate point; the reference angle links it to a 30-60-90 or 45-45-90 triangle, and the quadrant sets the sign — that is how you read sin and cos beyond 90 degrees.",
+  "practice": {
+   "question": "Your school is hosting a drone show over Stanley Park. The drone's GPS reports its position on a unit circle. If the terminal arm is at 210 degrees, what are the drone's coordinates? (Round each value to two decimal places.)",
+   "answer": "210° is in Quadrant III (180°–270°), reference angle = 210° − 180° = 30°. In QIII both sin and cos are negative. sin 210° = −sin 30° = −0.50, cos 210° = −cos 30° ≈ −0.87. Coordinates: (−0.87, −0.50)."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 6
+ }
+}

@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.LIN.INTERPOLATE",
+ "lang": "en",
+ "title": "Interpolate: read an approximate value between known points on a line graph",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading Between the Dots: Interpolation",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a table of values and plot the points on a grid to get a straight line. Here is the new trick: sometimes the number you actually want is not in your table. Say you are tracking your phone data. After two days you used three gigabytes, after four days six gigabytes, after six days nine, and after eight days twelve. Your friend asks: about how much had you used after five days? Five is not in the table, but it sits between two points you do have. Reading a value between known points on the line is called interpolation, and that is our one job today.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the table we would already have made. Days go across the top row, gigabytes underneath. Look closely: there is no column for five days. But five sits right between four and six. Because this is a linear relation, the line between those two points is straight, so the answer for five days must sit right between six gigabytes and nine gigabytes. That is the whole idea. The graph lets us see exactly where.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      4,
+      6,
+      8,
+      3,
+      6,
+      9,
+      12
+     ],
+     "labels": [
+      "Days",
+      "GB used"
+     ],
+     "caption": "Our table of values. Notice: no column for 5 days."
+    }
+   },
+   {
+    "say": "Now the three steps, and they always go in this order. Step one: find your known value on the horizontal axis. That is five days, on the x axis. Step two: go straight up from five until you hit the line. Step three: from that spot on the line, go straight left until you hit the vertical axis, and read the number there. You will land halfway between six and nine on the y axis, which is seven point five gigabytes. Check it with arithmetic: five is exactly halfway between four and six, so the answer is exactly halfway between six and nine. Six plus nine is fifteen, divided by two is seven point five. The graph and the math agree.",
+    "math": "x=5\\ \\Rightarrow\\ y \\approx \\frac{6+9}{2}=7.5",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      3,
+      4,
+      6,
+      6,
+      9,
+      8,
+      12
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "caption": "Start at x = 5, go up to the line between B and C, then left to read y = 7.5"
+    }
+   },
+   {
+    "say": "Here is the first mistake I see all the time, and it is about the scale. Say you have a part-time job paying twenty dollars an hour. One hour is twenty dollars, two hours forty, three hours sixty, four hours eighty. When you graph this, one grid square up cannot be one dollar, or you would need eighty squares. So each square up stands for twenty dollars. The mistake is treating every square as one. Someone asks what you earn in two and a half hours. You go up from two point five, hit the line halfway between the second and third gridline, and read two and a half. Wrong! Those gridlines say forty and sixty, not two and three. Halfway between forty and sixty is fifty dollars. Always read the number printed on the axis, not the number of squares you counted.",
+    "math": "2.5\\text{ h}\\ \\Rightarrow\\ \\frac{40+60}{2}=50\\text{ dollars}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+     ],
+     "labels": [
+      "$20",
+      "$40",
+      "$60",
+      "$80"
+     ],
+     "caption": "On this graph each square up means 20 dollars. Halfway between 40 and 60 reads 50."
+    }
+   },
+   {
+    "say": "The second mistake is reading the wrong axis. In that same pay problem, some people go up from two point five hours, stop at the line, and announce the answer is two point five. But two point five is the hours, the thing you started with, on the x axis. The pay lives on the y axis. You have to finish the letter L: up to the line, then all the way across to the vertical axis. Look at this little table: the input two point five hours sits between two and three, and the output fifty dollars sits between forty and sixty. Two different numbers, two different axes. The question asked for dollars, so the answer is fifty dollars.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      2.5,
+      3,
+      40,
+      50,
+      60
+     ],
+     "labels": [
+      "Hours (x)",
+      "Pay in dollars (y)"
+     ],
+     "caption": "2.5 is the input on the x axis; 50 is the answer read from the y axis"
+    }
+   },
+   {
+    "say": "So here is the takeaway. Interpolating means reading a value between two points you already plotted. Find your number on the x axis, go up to the line, go across to the y axis, and read what the axis actually says. Check the scale so one square is not mistaken for one unit, and make sure you are reporting the y value, not the x value you started with. Because the relation is linear, halfway across always means halfway up.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To interpolate: go up from x to the line, across to the y axis, and read the axis scale, not the square count.",
+  "practice": {
+   "question": "You walk dogs in Kelowna for a steady hourly rate. Draw a coordinate grid with hours worked on the x axis and dollars earned on the y axis, letting each square up stand for 15 dollars. Plot the points (2, 30), (4, 60) and (6, 90) and join them with a straight line. Use the graph to interpolate: about how many dollars do you earn after 3 hours? Say which axis you read the answer from.",
+   "answer": "About 45 dollars. Three hours is halfway between 2 and 4, so the line sits halfway between 30 and 60 dollars. Thirty plus sixty is ninety, divided by two is forty-five. The answer is read from the y axis (dollars), and since each square is 15 dollars, the point is three squares up, not three dollars."
+  }
+ }
+}

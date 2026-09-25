@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "number-radicals",
+ "lang": "en",
+ "unitName": {
+  "zh": "实数、幂与根式",
+  "en": "Real Numbers, Powers & Radicals"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Real Numbers, Powers & Radicals · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.01",
+    "level": 1,
+    "question": "A student in a Pre-calc 11 class at a BC school is asked to classify √49 on a worksheet. Which statement is true?",
+    "options": [
+     "It is irrational because it contains a radical sign.",
+     "It is rational but not an integer.",
+     "It is a rational number and an integer.",
+     "It is neither rational nor irrational."
+    ],
+    "answerIndex": 2,
+    "explain": "√49 = 7, which is both rational (7 = 7/1) and an integer. The common trap is seeing the radical sign and automatically calling the number irrational — but any perfect square under the root simplifies to a rational number."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.02",
+    "level": 1,
+    "question": "While reviewing exponent rules before a quiz, a student writes the expression 5⁰ × 3⁻². What is the value?",
+    "options": [
+     "1/9",
+     "0",
+     "9",
+     "1"
+    ],
+    "answerIndex": 0,
+    "explain": "5⁰ = 1 (any non-zero base to the zero power is 1) and 3⁻² = 1/9, so the product is 1 × 1/9 = 1/9. The most common trap is treating x⁰ as 0, which would zero out the whole expression."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.03",
+    "level": 1,
+    "question": "A student designing a triangular logo for a BC school club needs to simplify √50. What is the simplified radical form?",
+    "options": [
+     "5√10",
+     "2√5",
+     "√5",
+     "5√2"
+    ],
+    "answerIndex": 3,
+    "explain": "Factor 50 as 25 × 2, then pull out √25 = 5 to get 5√2. The common error is pulling out a factor that is not a perfect square (e.g., pulling out 5 from 5 × 10) or confusing √50 with √20 = 2√5."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.02",
+    "level": 2,
+    "question": "A student checking work on a physics problem needs to simplify (−3)⁴ ÷ (−3)². What is the result?",
+    "options": [
+     "−9",
+     "9",
+     "81",
+     "−81"
+    ],
+    "answerIndex": 1,
+    "explain": "Use the quotient law: (−3)^(4−2) = (−3)² = 9. Because the exponent is even, the negative base becomes positive. The most frequent mistake is attaching a stray negative sign to the answer — remember that an even power of a negative number is positive."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.03",
+    "level": 2,
+    "question": "Three friends at a BC park measure the diagonals of three rectangular trail maps in cm: √12, √18, and √27. The longest diagonal is how many centimetres longer than the shortest, in simplified radical form?",
+    "options": [
+     "√15",
+     "3√3",
+     "√3",
+     "5√3"
+    ],
+    "answerIndex": 2,
+    "explain": "Simplify first: √27 = 3√3 and √12 = 2√3, then subtract: 3√3 − 2√3 = √3. The key trap is trying to subtract the radicands directly (√27 − √12 ≠ √15); you must simplify each radical first, then combine like terms."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.02",
+    "level": 2,
+    "question": "While preparing for a math competition, a student needs to simplify x^(2/3) × x^(1/3) × x⁻¹. What is the result?",
+    "options": [
+     "1",
+     "x",
+     "x⁻¹",
+     "x²"
+    ],
+    "answerIndex": 0,
+    "explain": "Add the exponents: 2/3 + 1/3 − 1 = 1 − 1 = 0, so the expression equals x⁰ = 1. Common errors include dropping the x⁻¹ factor (giving x), making an arithmetic slip (1 − 1 = −1, giving x⁻¹), or adding the numerators as if the denominators were 1 (giving x²)."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.03",
+    "level": 3,
+    "question": "A student solving √(x + 5) = x − 1 for homework squares both sides and gets x = 4 or x = −1. After checking in the original equation, what is the correct solution set?",
+    "options": [
+     "x = 4 and x = −1",
+     "x = −1 only",
+     "x = 4 and x = 1",
+     "x = 4 only"
+    ],
+    "answerIndex": 3,
+    "explain": "Squaring both sides introduces an extraneous root. Check: x = 4 gives √9 = 3 and 4 − 1 = 3 (valid); x = −1 gives √4 = 2 but −1 − 1 = −2 (invalid). Always substitute back — the most common misconception is accepting both roots without checking, since squaring can create false solutions."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.NUM.02",
+    "level": 3,
+    "question": "A BC engineering student is verifying a formula and must simplify (4^(3/2) × 2⁻¹) ÷ 8^(1/3). What is the result?",
+    "options": [
+     "4",
+     "2",
+     "1",
+     "8"
+    ],
+    "answerIndex": 1,
+    "explain": "Compute each piece: 4^(3/2) = (2²)^(3/2) = 2³ = 8; 2⁻¹ = 1/2; 8^(1/3) = 2. Then (8 × 1/2) ÷ 2 = 4 ÷ 2 = 2. The main traps are flipping the negative exponent (2⁻¹ → 2, giving 8), misreading the cube root (8^(1/3) → 4, giving 1), or forgetting the final division (giving 4)."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

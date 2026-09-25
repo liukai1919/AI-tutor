@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.SIGNS",
+ "lang": "en",
+ "title": "Evaluate powers with negative bases and explain why (−3)² ≠ −3² and (−2)³ is negative",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Negative Bases: Who Gets Squared?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to expand a power like two to the seventh into repeated multiplication. Today we settle one tricky question: when there is a negative sign near the base, does the exponent apply to it or not? That is the whole difference between negative three in brackets squared and negative three squared with no brackets.",
+    "math": "(-3)^2 \\quad \\text{vs} \\quad -3^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Brackets mean the base is the whole number negative three. So negative three in brackets squared means negative three times negative three. A negative times a negative is a positive, so the answer is positive nine. Think of a three by three grid: nine squares, no matter which direction you count from.",
+    "math": "(-3)^2 = (-3)\\times(-3) = 9",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "Three rows of three: nine squares, all positive"
+    }
+   },
+   {
+    "say": "With no brackets, the base is only the three. The exponent grabs the three first, giving three times three which is nine. Then the negative sign in front flips it, so negative three squared with no brackets is negative nine. Picture that same three by three grid of nine squares, and then a minus sign in front of the whole picture.",
+    "math": "-3^2 = -(3\\times 3) = -9",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "Nine squares, then the minus sign in front flips the total to −9"
+    }
+   },
+   {
+    "say": "Here is the common slip. Someone writes negative three squared with no brackets equals nine. That treats it like the negative was squared too, but the negative is not part of the base. Quick check: if you owed nine dollars, would you write it as negative nine or positive nine? The minus sign out front means owing, so negative three squared is negative nine, not nine.",
+    "math": "-3^2 \\neq 9, \\qquad -3^2 = -9",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -10,
+      10,
+      -9,
+      9
+     ],
+     "labels": [],
+     "caption": "−9 and +9 are 18 apart: brackets change the answer that much"
+    }
+   },
+   {
+    "say": "Now odd exponents. Negative two in brackets cubed means negative two times negative two times negative two. The first two negatives make positive four. Then four times negative two is negative eight. With three negatives, one is always left unpaired, so the result stays negative. Saying negative two cubed equals positive eight is the second common mistake.",
+    "math": "(-2)^3 = (-2)(-2)(-2) = 4\\times(-2) = -8",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Three factors of −2: two pair up to +4, the third keeps it negative"
+    }
+   },
+   {
+    "say": "So here is the rule. Brackets around a negative base mean the exponent applies to the negative too. An even exponent gives a positive answer, an odd exponent gives a negative answer. No brackets means only the number gets the exponent, and the negative sign waits in front.",
+    "math": "(-a)^{\\text{even}} > 0, \\quad (-a)^{\\text{odd}} < 0, \\quad -a^n = -(a^n)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Brackets make the negative part of the base: (−3)² = 9, but −3² = −9, and (−2)³ = −8.",
+  "practice": {
+   "question": "A Vancouver hiking app logs temperature changes in degrees Celsius. Evaluate each of these and say whether the result is positive or negative: negative four in brackets squared, negative four squared with no brackets, and negative three in brackets cubed.",
+   "answer": "(−4)² = (−4)(−4) = 16, positive. −4² = −(4 × 4) = −16, negative. (−3)³ = (−3)(−3)(−3) = 9 × (−3) = −27, negative."
+  }
+ }
+}

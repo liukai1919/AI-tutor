@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PVBIG.READ_WRITE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ky2iat7cznl",
+   "level": 1,
+   "question": "在数位表（place value chart）里，小数点右边依次是十分位、百分位、千分位（thousandths）。现在有一个数填在表里：个位是 6，十分位是 0，百分位是 0，千分位是 4，其余数位都是 0。这个数的标准写法是哪一个？",
+   "options": [
+    "6.004",
+    "6.04",
+    "6.4",
+    "6.0004"
+   ],
+   "answerIndex": 0,
+   "explain": "千分位是小数点后第三位，所以 4 必须落在第三格，前面两格用 0 占位，写成 6.004。最常见的坑是把占位的 0 漏掉写成 6.4 或 6.04，那样 4 就跑到十分位、百分位上去了。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iazcdnao",
+   "level": 1,
+   "question": "在数位表里，从个位往左依次是十位、百位、千位、万位、十万位、百万位（millions）、千万位、亿位、十亿位（billions）。现在有一个数：十亿位上是 4，其余所有数位都是 0。它的标准写法是哪一个？",
+   "options": [
+    "4 000 000",
+    "4 000 000 000",
+    "40 000 000",
+    "400 000 000"
+   ],
+   "answerIndex": 1,
+   "explain": "十亿位是从个位往左数的第 10 格，所以 4 后面要跟 9 个 0，写成 4 000 000 000。最容易踩的坑是把十亿位当成百万位，写成只有 7 位的 4 000 000（那是四百万）。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iajg49qc",
+   "level": 1,
+   "question": "数位表里的数位是按从大到小排好的。下面哪一组数位名称的顺序是完全正确的（从大到小）？",
+   "options": [
+    "百万位、十亿位、千位、千分位",
+    "十亿位、千位、百万位、千分位",
+    "十亿位、百万位、千位、千分位",
+    "百万位、千位、十亿位、千分位"
+   ],
+   "answerIndex": 2,
+   "explain": "从大到小是十亿位（billions）→ 百万位（millions）→ 千位 → 千分位（thousandths），十亿位比百万位大 1000 倍。最常见的坑是把百万位排在十亿位前面，误以为百万更大。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iafap976",
+   "level": 1,
+   "question": "一个数填在数位表里：十亿位上是 2，百万位上是 5，其余所有数位都是 0。这个数的标准写法是哪一个？",
+   "options": [
+    "2 500 000 000",
+    "2 000 000 005",
+    "2 050 000 000",
+    "2 005 000 000"
+   ],
+   "answerIndex": 3,
+   "explain": "十亿位是第 10 格、百万位是第 7 格，中间的亿位和千万位都要写 0 占位，所以是 2 005 000 000。写成 2 500 000 000 是把 5 放到了亿位，写成 2 000 000 005 是把 5 掉到了个位。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iam7a487",
+   "level": 2,
+   "question": "把「十二亿零三百万零四十」写成标准形式（standard form），应该是哪一个？",
+   "options": [
+    "1 203 000 040",
+    "1 203 000 400",
+    "123 000 040",
+    "1 230 000 040"
+   ],
+   "answerIndex": 0,
+   "explain": "十二亿是 1 200 000 000，三百万让百万位为 3，四十让十位为 4，其余数位补 0，得到 1 203 000 040（共 10 位）。坑在于中间那些不出声的 0 必须占位，少写一个就变成了只有 9 位的 123 000 040。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ky2ia3ir1nn",
+   "level": 2,
+   "question": "下面哪个数读作「五点零零三」？",
+   "options": [
+    "5.03",
+    "5.003",
+    "5.3",
+    "5.0003"
+   ],
+   "answerIndex": 1,
+   "explain": "读作五点零零三，说明小数点后有三位，3 在千分位（thousandths），前面两个 0 分别占十分位和百分位，所以是 5.003。写成 5.03 或 5.0003 都是占位 0 少写或多写了一个。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ky2ianzry8q",
+   "level": 2,
+   "question": "一个数由 3 个十亿、6 个百万、2 个十分之一 和 8 个千分之一 组成，其余数位都是 0。这个数是哪一个？",
+   "options": [
+    "3 060 000 000.208",
+    "3 006 000 000.28",
+    "3 006 000 000.208",
+    "3 000 006 000.208"
+   ],
+   "answerIndex": 2,
+   "explain": "3 个十亿是 3 000 000 000，6 个百万让百万位为 6，得到 3 006 000 000；小数部分十分位 2、百分位 0、千分位 8，是 .208，合起来 3 006 000 000.208。写成 .28 就把 8 从千分位挪到了百分位，值大了十倍。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iaq7qiw7",
+   "level": 2,
+   "question": "在 4 444 444 444 这个数里，十亿位（billions place）上的那个 4 所表示的值，是百万位（millions place）上的那个 4 所表示的值的多少倍？",
+   "options": [
+    "100 倍",
+    "1 000 000 倍",
+    "10 000 倍",
+    "1 000 倍"
+   ],
+   "answerIndex": 3,
+   "explain": "十亿位上的 4 表示 4 000 000 000，百万位上的 4 表示 4 000 000，4 000 000 000 ÷ 4 000 000 = 1 000 倍。坑在于数错中间隔了几个数位：十亿位和百万位之间隔着亿位和千万位，正好差 3 个数位，也就是 1 000 倍。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iafnqgq6",
+   "level": 3,
+   "question": "学校广播说：「过去十年，卑诗省一共新种了十亿零五万棵树。」校报编辑要把这个数用标准形式印出来，应该印哪一个？",
+   "options": [
+    "1 000 050 000",
+    "1 000 000 050",
+    "1 050 000",
+    "1 000 500 000"
+   ],
+   "answerIndex": 0,
+   "explain": "十亿是 1 000 000 000（1 后面 9 个 0），五万让万位为 5，其余数位补 0，得到 1 000 050 000。写成 1 000 500 000 是把 5 放到了十万位，写成 1 000 000 050 是把 5 放到了十位——中间的占位 0 数错一个，数就整个变了。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ky2ia5y2aav",
+   "level": 3,
+   "question": "温哥华一条新天车（SkyTrain）线路的造价是 1 200 000 000 加元。下面哪句话把这个数读对了，并且说对了数字 1 所在的数位？",
+   "options": [
+    "一百二十万加元，1 在百万位，因为 1 后面数出六个 0",
+    "十二亿加元，1 在十亿位（billions place）",
+    "一亿二千万加元，1 在亿位，因为 1 后面跟着八个 0",
+    "十二亿加元，1 在百万位，因为最大的数位就叫百万位"
+   ],
+   "answerIndex": 1,
+   "explain": "这个数有 10 位，最高位就是十亿位，所以读作十二亿，1 在十亿位（billions）。坑在于数位数错：只数出 7 位就会读成一百二十万；也有人读对了十二亿却说 1 在百万位，读法和数位要对得上。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iamnocvj",
+   "level": 3,
+   "question": "兄妹俩看新闻：「卑诗省今年在渡轮系统上投入 1 000 000 000 加元。」哥哥说这个数读作「一百万」，妹妹说读作「十亿」。下面哪种说法是对的？",
+   "options": [
+    "哥哥对：1 后面每多 3 个 0 就升一级，3 个 0 是千、6 个 0 是百万，9 个 0 还是百万",
+    "哥哥对：数字后面全是 0，所以就是一百万",
+    "妹妹对：这个数一共 10 位，最高位是十亿位（billions），所以读作十亿",
+    "妹妹对，但这个数末尾多写了一个 0，其实应该是 100 000 000（一亿）"
+   ],
+   "answerIndex": 2,
+   "explain": "数一数数位最可靠：1 000 000 000 有 10 位，1 落在十亿位，所以读作十亿（billion）；1 后面 6 个 0 才是百万。坑就在于只看到一串 0 就随口念成百万，或者自己去改题目里 0 的个数。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ky2iasgjpgl",
+   "level": 3,
+   "question": "科学课要记录一个数据，老师这样描述它：十亿位上是 7；百万位上的数字比十亿位上的数字小 5；千分位（thousandths）上是 3；其余所有数位都是 0。这个数是哪一个？",
+   "options": [
+    "7 200 000 000.003",
+    "7 020 000 000.003",
+    "7 002 000 000.03",
+    "7 002 000 000.003"
+   ],
+   "answerIndex": 3,
+   "explain": "先算百万位：7 − 5 = 2，所以十亿位 7、百万位 2，整数部分是 7 002 000 000；再把 3 放进千分位，小数部分是 .003，合起来 7 002 000 000.003。两个常见的坑：把 2 放到亿位（写成 7 200 000 000）、把 3 放到百分位（写成 .03）。",
+   "tags": [
+    "pv.million_billion_confuse",
+    "pv.million_billion_confuse",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  }
+ ]
+}

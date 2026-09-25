@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.TABLE.PREDICT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5htz49vbv2fq",
+   "level": 1,
+   "question": "一张表格（table）记录了一个规律：项数 1、2、3、4 对应的数是 5、8、11、14。它的规律法则（pattern rule）是：第 n 项 = 3n + 2。第 20 项是多少？",
+   "options": [
+    "62",
+    "60",
+    "65",
+    "59"
+   ],
+   "answerIndex": 0,
+   "explain": "把 n = 20 代进法则：3 × 20 + 2 = 62。最容易踩的坑是只做 3 × 20 得 60，忘了表格里每一项还要再加上起点的 2。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49ixzj8j",
+   "level": 1,
+   "question": "一张表格记录了一个递减规律（decreasing pattern）：项数 1、2、3、4 对应的数是 100、96、92、88。它的规律法则是：第 n 项 = 104 − 4n。第 20 项是多少？",
+   "options": [
+    "28",
+    "24",
+    "20",
+    "84"
+   ],
+   "answerIndex": 1,
+   "explain": "代入 n = 20：104 − 4 × 20 = 104 − 80 = 24。坑在于从第 1 项 100 开始减 20 次 4 得到 20——第 1 项到第 20 项之间只走了 19 步，所以要用法则直接算。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49erpv9l",
+   "level": 1,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 6、12、18、24，规律法则是：第 n 项 = 6n。第 50 项是多少？",
+   "options": [
+    "294",
+    "306",
+    "300",
+    "30"
+   ],
+   "answerIndex": 2,
+   "explain": "直接代入 n = 50：6 × 50 = 300。写成 30 的那个只是把表格往下多延了一行（第 5 项），一格一格加是走不到第 50 项的。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49180vqd",
+   "level": 1,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 9、14、19、24，规律法则是：第 n 项 = 5n + 4。第 20 项是多少？",
+   "options": [
+    "100",
+    "109",
+    "29",
+    "104"
+   ],
+   "answerIndex": 3,
+   "explain": "代入 n = 20：5 × 20 + 4 = 104。写成 100 的那个只算了每次加 5 的部分，把起点那 4 丢掉了。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5htz49rcfyx0",
+   "level": 2,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 3、7、11、15。先自己找出规律法则，再算出第 50 项是多少。",
+   "options": [
+    "199",
+    "203",
+    "200",
+    "195"
+   ],
+   "answerIndex": 0,
+   "explain": "每次加 4，第 1 项是 3，所以第 n 项 = 4n − 1；代入 n = 50 得 4 × 50 − 1 = 199。写成 200 的那个只用了 4 × 50，没有调整起点。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49dq3tze",
+   "level": 2,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 2、5、8、11。用变量（variable）n 表示项数，哪个符号（symbol）表达式能直接算出第 n 项？",
+   "options": [
+    "n + 3",
+    "3n − 1",
+    "3n + 2",
+    "3n"
+   ],
+   "answerIndex": 1,
+   "explain": "每次加 3，所以先写 3n，再看 n = 1 时 3 × 1 = 3 比 2 多 1，于是第 n 项 = 3n − 1。写成 n + 3 的那个只描述了「每次加 3」，它算不出第 50 项。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz497jst0k",
+   "level": 2,
+   "question": "一张表格记录一个递减规律：项数 1、2、3、4 对应的数是 150、147、144、141。第 40 项是多少？",
+   "options": [
+    "36",
+    "30",
+    "33",
+    "120"
+   ],
+   "answerIndex": 2,
+   "explain": "每次减 3，第 n 项 = 153 − 3n，代入 n = 40 得 153 − 120 = 33。写成 30 的那个是从 150 减了 40 次 3，多减了一次。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49x8jbk0",
+   "level": 2,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 4、9、14、19。不一个一个往下加，哪个算式能直接算出第 100 项？",
+   "options": [
+    "5 × 100",
+    "19 + 5 × 100",
+    "5 × 99 − 1",
+    "5 × 100 − 1"
+   ],
+   "answerIndex": 3,
+   "explain": "每次加 5、第 1 项是 4，所以第 n 项 = 5n − 1，第 100 项就是 5 × 100 − 1 = 499。写成 5 × 99 − 1 的那个算出来是第 99 项，项数别代错。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5htz49nnkvgt",
+   "level": 3,
+   "question": "小雨在 Kelowna 每周往储蓄罐里放同样多的钱。她用表格记录罐里的总钱数：第 1 周 25 元，第 2 周 32 元，第 3 周 39 元，第 4 周 46 元。照这个规律，第 20 周罐里一共有多少钱？",
+   "options": [
+    "158 元",
+    "165 元",
+    "151 元",
+    "140 元"
+   ],
+   "answerIndex": 0,
+   "explain": "每周加 7 元，第 n 周 = 7n + 18，代入 n = 20 得 140 + 18 = 158 元。写成 140 元的那个只算了 20 周存进去的 7 元，忘了第 1 周之前罐里已经有的那 18 元。",
+   "tags": [
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49h0149q",
+   "level": 3,
+   "question": "Burnaby 一场社区活动的门票每天卖出一样多。表格（chart）记录每天结束时剩下的票：第 1 天 480 张，第 2 天 465 张，第 3 天 450 张，第 4 天 435 张。照这个递减规律，第 25 天结束时还剩多少张票？",
+   "options": [
+    "105 张",
+    "120 张",
+    "135 张",
+    "375 张"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少 15 张，第 n 天 = 495 − 15n，代入 n = 25 得 495 − 375 = 120 张。写成 105 张的那个是从 480 再减 25 次 15，从第 1 天到第 25 天其实只减了 24 次。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz49svcya9",
+   "level": 3,
+   "question": "一张表格里，项数 1、2、3、4 对应的数是 10、16、22、28。小安说：规律是每次加 6，所以第 30 项就是 6 × 30 = 180。下面哪句话说得对？",
+   "options": [
+    "小安算对了，第 30 项就是 180",
+    "小安应该从 28 开始，再加 30 次 6，得到 208",
+    "小安漏了起点，第 n 项应写成 6n + 4，第 30 项是 184",
+    "小安应该把第 1 项 10 加到 6 × 30 上，得到 190"
+   ],
+   "answerIndex": 2,
+   "explain": "检查 n = 1：6 × 1 = 6，可表里第 1 项是 10，差 4，所以第 n 项 = 6n + 4，第 30 项 = 180 + 4 = 184。只记住「每次加 6」而不写出第 n 项，就会算成 180 或者数错要加几次。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok",
+    "pat.recursive_vs_explicit"
+   ]
+  },
+  {
+   "qid": "qmt5htz4926e84z",
+   "level": 3,
+   "question": "Victoria 一所小学办跑步挑战，用表格记录累计圈数：第 1 天 8 圈，第 2 天 14 圈，第 3 天 20 圈，第 4 天 26 圈。老师说累计超过 300 圈才算达标。照这个规律，第 50 天累计多少圈？达标了吗？",
+   "options": [
+    "296 圈，不达标",
+    "300 圈，刚好没超过，不达标",
+    "308 圈，达标",
+    "302 圈，达标"
+   ],
+   "answerIndex": 3,
+   "explain": "每天加 6 圈，第 n 天 = 6n + 2，代入 n = 50 得 300 + 2 = 302 圈，超过 300，达标。写成 300 圈的那个只算了 6 × 50，丢掉起点的 2，结论就反了。",
+   "tags": [
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "pat.recursive_vs_explicit",
+    "ok"
+   ]
+  }
+ ]
+}

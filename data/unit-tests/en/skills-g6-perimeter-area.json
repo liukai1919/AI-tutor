@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "perimeter-area",
+ "lang": "en",
+ "unitName": {
+  "zh": "周长与面积",
+  "en": "Perimeter & area"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Perimeter & area · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.PARALLELOGRAM",
+    "level": 1,
+    "question": "On the grid in her math journal, Maya draws a parallelogram with a base of 9 cm and a height of 4 cm. What is its area?",
+    "options": [
+     "13 cm²",
+     "18 cm²",
+     "26 cm²",
+     "36 cm²"
+    ],
+    "answerIndex": 3,
+    "explain": "Slide the triangle from one end of a parallelogram to the other and it becomes a rectangle, so area = base × height = 9 × 4 = 36 cm². The trap is adding 9 + 4 or doubling to 26, which measures the distance around, not the space inside."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.TRIANGLE",
+    "level": 1,
+    "question": "A triangular flag for the school assembly has a base of 10 cm and a height of 6 cm. What is the area of the flag?",
+    "options": [
+     "30 cm²",
+     "32 cm²",
+     "16 cm²",
+     "60 cm²"
+    ],
+    "answerIndex": 0,
+    "explain": "Two copies of a triangle make a parallelogram, so area = base × height ÷ 2 = 10 × 6 ÷ 2 = 30 cm². The most common slip is stopping at 10 × 6 = 60 and forgetting the ÷ 2."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.TRAPEZOID",
+    "level": 1,
+    "question": "A garden bed behind the school is shaped like a trapezoid. Its two parallel sides are 6 m and 10 m, and the height between them is 4 m. What is the area of the bed?",
+    "options": [
+     "20 m²",
+     "32 m²",
+     "40 m²",
+     "64 m²"
+    ],
+    "answerIndex": 1,
+    "explain": "Average the two parallel sides, then multiply by the height: (6 + 10) ÷ 2 × 4 = 8 × 4 = 32 m². The usual trap is forgetting the ÷ 2 and getting 64, or using only the long side (10 × 4 = 40)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.PERIM.COMPLEX",
+    "level": 2,
+    "question": "The skate pad at Jordan's park is L-shaped. It began as a rectangle 8 m across the front and 7 m from front to back, and then a corner piece 5 m wide and 4 m deep was taken out. How much fencing is needed to go all the way around the skate pad?",
+    "options": [
+     "24 m",
+     "27 m",
+     "30 m",
+     "36 m"
+    ],
+    "answerIndex": 2,
+    "explain": "Work out the two unlabelled sides first: 8 − 5 = 3 m and 7 − 4 = 3 m, then add every side: 8 + 7 + 5 + 4 + 3 + 3 = 30 m. Two common traps are adding only the four given numbers (24 m) and finding the area instead of the perimeter (36)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.COMPOSITE",
+    "level": 2,
+    "question": "Priya's family builds a garden plot shaped like a house: a rectangle 6 m wide and 4 m tall, with a triangle on top that has a base of 6 m and a height of 3 m. What is the total area of the plot?",
+    "options": [
+     "24 m²",
+     "42 m²",
+     "21 m²",
+     "33 m²"
+    ],
+    "answerIndex": 3,
+    "explain": "Split the shape, find each part, then add: rectangle 6 × 4 = 24 m² and triangle 6 × 3 ÷ 2 = 9 m², so 24 + 9 = 33 m². The big trap is treating the whole thing as one rectangle (6 × 7 = 42), which counts the empty corners beside the triangle."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.PARALLELOGRAM",
+    "level": 2,
+    "question": "A parallelogram-shaped tile has a base of 12 cm. Its slanted side is 5 cm long, and the height drawn straight up from the base to the top is 4 cm. What is the area of the tile?",
+    "options": [
+     "48 cm²",
+     "60 cm²",
+     "34 cm²",
+     "24 cm²"
+    ],
+    "answerIndex": 0,
+    "explain": "Height means the straight-up distance between the two parallel sides, so area = 12 × 4 = 48 cm². The classic mistake is grabbing the slanted side (12 × 5 = 60); that side is longer than the true height, so it would give a rectangle taller than the shape really is."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.COMPOSITE",
+    "level": 3,
+    "question": "The Chen family's back deck is a rectangle 6 m long and 5 m wide, but a square-cornered piece 2 m by 3 m has been cut out of one corner for a tree. Deck stain costs $9 for each square metre. How much will it cost to stain the whole deck?",
+    "options": [
+     "$186",
+     "$198",
+     "$216",
+     "$270"
+    ],
+    "answerIndex": 2,
+    "explain": "Find the full rectangle, subtract the cut-out, then multiply by the price: 6 × 5 = 30 m², 30 − 6 = 24 m², and 24 × 9 = $216. Two traps are forgetting to subtract the tree corner ($270) and slipping on the regrouping in 24 × 9 ($186 instead of $216)."
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.AREA.TRIANGLE",
+    "level": 3,
+    "question": "A triangular patch of lawn beside the school has an area of 24 m². The height measured from its base is 6 m. How long is the base?",
+    "options": [
+     "4 m",
+     "8 m",
+     "12 m",
+     "18 m"
+    ],
+    "answerIndex": 1,
+    "explain": "Working backwards, undo the ÷ 2 first: 24 × 2 = 48, then 48 ÷ 6 = 8 m. The most common error is dividing straight away (24 ÷ 6 = 4), which forgets that the triangle is only half of the parallelogram with the same base and height."
+   }
+  ]
+ }
+}

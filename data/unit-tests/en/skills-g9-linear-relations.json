@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "linear-relations",
+ "lang": "en",
+ "unitName": {
+  "zh": "二元线性关系",
+  "en": "Two-variable linear relations"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Two-variable linear relations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.LIN.HORIZ_VERT",
+    "level": 1,
+    "question": "Jonah plots a line through (−4, 3), (0, 3) and (5, 3). Every point on his line has a y-coordinate of 3. Which equation describes his line, and why does it use only one variable?",
+    "options": [
+     "y = 3, because y stays 3 for every x",
+     "x = 3, because the 3 tells you across",
+     "y = x + 3, because y depends on x",
+     "x = −4, because that is the first point"
+    ],
+    "answerIndex": 0,
+    "explain": "On a horizontal line the y-value never changes, so the rule only needs to say y = 3; x is free to be anything. The common trap is writing x = 3 because the number 3 makes you think of moving across — check which coordinate is repeating."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.GRAPH_TABLE",
+    "level": 1,
+    "question": "Ravi is building a table of values for y = 2x − 1.5 so he can graph the line. Which value of y goes with x = 0.5?",
+    "options": [
+     "2.5",
+     "−1",
+     "−0.5",
+     "0.5"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply first, then subtract: y = 2(0.5) − 1.5 = 1 − 1.5 = −0.5. Two common traps are subtracting before multiplying (0.5 − 1.5 = −1) and losing the negative sign by working out 1.5 − 1 instead."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.CONTINUOUS",
+    "level": 1,
+    "question": "In which situation should the graph be drawn as separate points that are NOT joined by a line?",
+    "options": [
+     "The distance a cyclist travels as she rides to school",
+     "The depth of water in a pool while it is filling up",
+     "The temperature of a mug of cocoa as it cools down",
+     "The total cost of buying 1, 2, 3 or 4 bus tickets"
+    ],
+    "answerIndex": 3,
+    "explain": "You can only buy whole bus tickets, so the values between the points have no meaning and the relation is discrete — plot dots only. The trap is joining the dots just because they line up nicely; ask first whether half a ticket makes sense."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.INTERPOLATE",
+    "level": 2,
+    "question": "Priya walks the Coquitlam Crunch trail at a steady pace and records her total distance: 0 h → 0 km, 1 h → 4.5 km, 2 h → 9 km, 3 h → 13.5 km. She graphs the data and joins the points. About how far has she walked after 1.5 h?",
+    "options": [
+     "4.5 km",
+     "6.75 km",
+     "6.0 km",
+     "9.0 km"
+    ],
+    "answerIndex": 1,
+    "explain": "Interpolating means reading between known points: 1.5 h is halfway between 1 h and 2 h, so the distance is halfway between 4.5 km and 9 km, which is 6.75 km. The common traps are grabbing the nearest table value (4.5 km) or adding 1.5 to 4.5 instead of using the line."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.ANALYZE",
+    "level": 2,
+    "question": "A kayak rental shop on Okanagan Lake charges by the equation C = 12h + 25, where h is the number of hours and C is the cost in dollars. What does the 25 tell you?",
+    "options": [
+     "The rental costs $25 for each hour on the water",
+     "The cost goes up by $25 every 12 hours of use",
+     "The fixed fee charged before any hours are used",
+     "The number of hours the kayak was rented for"
+    ],
+    "answerIndex": 2,
+    "explain": "The number added on is the value when h = 0, so it is the fixed launch fee of $25; the 12 is the rate of change, $12 per hour. The most common error in this unit is swapping the rate and the starting value — always test the equation at x = 0."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.APPLY",
+    "level": 2,
+    "question": "Maya's family drives from Vancouver toward Kamloops at a steady speed. On her distance–time graph the line passes through (0, 0) and (2, 170), where time is in hours and distance is in kilometres. How far will they have driven after 3.5 h?",
+    "options": [
+     "297.5 km",
+     "255 km",
+     "340 km",
+     "595 km"
+    ],
+    "answerIndex": 0,
+    "explain": "First find the rate from the graph: 170 km ÷ 2 h = 85 km/h, then 85 × 3.5 = 297.5 km. The big trap is multiplying the point's 170 km by 3.5 instead of finding the speed first."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.EXTRAPOLATE",
+    "level": 3,
+    "question": "A Grade 9 class is paddling the Bowron Lake canoe circuit, which is 116 km long in total. Their daily check gives total distance paddled: Day 1 → 26 km, Day 2 → 52 km, Day 3 → 78 km, Day 4 → 104 km. They extend the line to Day 6. What does it predict, and is the prediction reasonable?",
+    "options": [
+     "156 km, and it is reasonable because the pattern is linear",
+     "156 km, and it is reasonable because they paddle every day",
+     "116 km, because the line must stop at the end of the route",
+     "156 km, but not reasonable — the route is only 116 km long"
+    ],
+    "answerIndex": 3,
+    "explain": "Extending the line does give 26 × 6 = 156 km, but the circuit ends at 116 km, so the pattern cannot continue that far — the trip finishes partway through Day 5. The trap is trusting an extrapolation just because the arithmetic works; always check the prediction against the real situation."
+   },
+   {
+    "curriculumId": "YY.MATH.LIN.ANALYZE",
+    "level": 3,
+    "question": "Nina graphs the water left in her rain barrel: it holds 24 L at 0 min and 12 L after 4 min, and the graph is a straight line falling to the right. She writes the equation y = 3x + 24. What is her mistake?",
+    "options": [
+     "She swapped the numbers; it should be y = 24x + 3",
+     "Her rate should be negative, so y = −3x + 24",
+     "She used the wrong start, so it is y = 3x + 12",
+     "She divided instead: it should be y = 0.3x + 24"
+    ],
+    "answerIndex": 1,
+    "explain": "The rate of change is (12 − 24) ÷ (4 − 0) = −3 L per minute, and the value at x = 0 is 24, giving y = −3x + 24. The classic slip is calculating 12 ÷ 4 or 24 − 12 and dropping the negative sign — if the line falls to the right, the rate must be negative."
+   }
+  ]
+ }
+}

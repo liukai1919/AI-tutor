@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EXPR.EVALUATE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkorvpb5rv5kh",
+   "level": 1,
+   "question": "式子（expression）是 0.5n − 3n + 25，变量（variable）n 的值是 14。把 n = 14 代入（substitution）后求值（evaluate），结果是多少？",
+   "options": [
+    "−10",
+    "22.5",
+    "−110",
+    "60"
+   ],
+   "answerIndex": 0,
+   "explain": "系数和变量之间是乘号：0.5 × 14 = 7，3 × 14 = 42，所以 7 − 42 + 25 = −10。最常踩的坑是把 3n 读成 3 + n 而算出 22.5，或者 7 − 42 丢了负号算成 35 再加 25 得 60。",
+   "tags": [
+    "ok",
+    "eq.coeff_as_addend",
+    "eq.verify_combine_before_mult",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkorvpb3wwavd",
+   "level": 1,
+   "question": "式子是 2n − 15，变量 n 的值是 −6。代入后这个式子的值是多少？",
+   "options": [
+    "27",
+    "−27",
+    "−19",
+    "−42"
+   ],
+   "answerIndex": 1,
+   "explain": "代入负数要加括号：2n = 2 × (−6) = −12，再减 15 得 −27。写成 2 − 6 − 15 就把乘号弄丢了（得 −19）；−12 − 15 也不能用负负得正算成 27，两个负数相加只会更负。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbrven3k",
+   "level": 1,
+   "question": "式子是 −4n − 6，变量 n 的值是 2.5（一个小数 decimal）。代入后求值，结果是多少？",
+   "options": [
+    "−7.5",
+    "16",
+    "−16",
+    "14"
+   ],
+   "answerIndex": 2,
+   "explain": "先算乘法：−4 × 2.5 = −10，再减 6，得 −16。坑一是把 −4n 当成 −4 + n 算出 −7.5；坑二是把 −10 − 6 算成 16，负负得正只用在乘除上。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "int.sign_rules_to_addition",
+    "ok",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbtgz59o",
+   "level": 1,
+   "question": "式子是 8n − 3，变量 n 的值是 −0.5（一个负的小数）。代入后这个式子的值是多少？",
+   "options": [
+    "4.5",
+    "7",
+    "−28",
+    "−7"
+   ],
+   "answerIndex": 3,
+   "explain": "8n 是 8 × (−0.5) = −4，再减 3 得 −7。代入负数不写括号就会变成 8 − 0.5 − 3 = 4.5；−4 − 3 也不是 7，它比 −4 还小。",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "int.sign_rules_to_addition",
+    "eq.verify_combine_before_mult",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkorvpb81geca",
+   "level": 2,
+   "question": "一个式子是：n 的 5 倍，加上 n 的 2.5 倍，再减去 8。当 n = −3 时，这个式子的值是多少？",
+   "options": [
+    "−30.5",
+    "30.5",
+    "−6.5",
+    "−42.5"
+   ],
+   "answerIndex": 0,
+   "explain": "5 × (−3) = −15，2.5 × (−3) = −7.5，所以 −15 − 7.5 − 8 = −30.5。坑是把 −22.5 − 8 用负负得正算成 30.5，或者代入时不加括号写成 5 − 3 + 2.5 − 3 − 8。",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbusco5c",
+   "level": 2,
+   "question": "Mia 在 Richmond 的周末市集摆摊卖手链：每条卖 6.5 加元，材料成本每条 2 加元，摊位费一天 75 加元。当天利润的式子是 6.5b − 2b − 75（b 是卖出的条数）。她卖出 12 条，当天利润是多少？",
+   "options": [
+    "21 加元",
+    "−21 加元",
+    "−70.5 加元",
+    "−96 加元"
+   ],
+   "answerIndex": 1,
+   "explain": "6.5 × 12 = 78，2 × 12 = 24，78 − 24 − 75 = −21，也就是亏了 21 加元。坑是 54 − 75 丢掉负号算成 21，或者把 6.5b 读成 6.5 + b 算出 −70.5。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "eq.coeff_as_addend",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbao2bq9",
+   "level": 2,
+   "question": "式子是 −3.5n + 2。分别把 n = 4 和 n = −4 代入求值，下面哪一组结果是对的？",
+   "options": [
+    "n = 4 时是 −21，n = −4 时是 7",
+    "n = 4 时是 −5.5，n = −4 时是 2.5",
+    "n = 4 时是 −12，n = −4 时是 16",
+    "n = 4 时是 −12，n = −4 时是 −5.5"
+   ],
+   "answerIndex": 2,
+   "explain": "n = 4：−3.5 × 4 + 2 = −12；n = −4：−3.5 × (−4) + 2 = 14 + 2 = 16。最常见的坑是代入 −4 时不写括号，算成 −3.5 − 4 + 2 = −5.5，负负得正的乘法结果就没了。",
+   "tags": [
+    "eq.verify_combine_before_mult",
+    "eq.coeff_as_addend",
+    "ok",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbotx2ox",
+   "level": 2,
+   "question": "式子是 −0.6n + 2n − 11，变量 n 的值是 −5。代入后求值，结果是多少？",
+   "options": [
+    "18",
+    "−29",
+    "−19.6",
+    "−18"
+   ],
+   "answerIndex": 3,
+   "explain": "−0.6 × (−5) = 3，2 × (−5) = −10，所以 3 − 10 − 11 = −18。坑是把 −7 − 11 用负负得正算成 18，或者代入时不加括号写成 −0.6 − 5 + 2 − 5 − 11。",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "eq.verify_combine_before_mult",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbkldlz4",
+   "level": 3,
+   "question": "Prince George 用一个简化式子估算体感温度：W = 1.4t − 8，t 是实际气温（℃）。今天的实际气温比昨天的 −5 ℃ 又低了 3 ℃。今天的体感温度 W 是多少？",
+   "options": [
+    "−19.2 ℃",
+    "−14.6 ℃",
+    "19.2 ℃",
+    "−22.4 ℃"
+   ],
+   "answerIndex": 0,
+   "explain": "先求 t：比 −5 ℃ 再低 3 ℃，所以 t = −5 − 3 = −8；再代入：1.4 × (−8) = −11.2，−11.2 − 8 = −19.2。坑是把 −11.2 − 8 算成 19.2，也别把 1.4t 写成 1.4 − 8。",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "int.sign_rules_to_addition",
+    "eq.verify_combine_before_mult"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbe6sjht",
+   "level": 3,
+   "question": "海洋研究队在 Haida Gwaii 附近同时下放两台探测器，深度式子分别是 A：D = −4.5m − 12，B：D = −6m（m 是下放的分钟数，深度用负数表示水面以下的米数）。m = 5 时，哪一台更深、深多少米？",
+   "options": [
+    "A 更深，深 10.5 米",
+    "A 更深，深 4.5 米",
+    "A 更深，深 46.5 米",
+    "A 更深，深 64.5 米"
+   ],
+   "answerIndex": 1,
+   "explain": "A：−4.5 × 5 − 12 = −34.5；B：−6 × 5 = −30；−34.5 − (−30) = −4.5，所以 A 深 4.5 米。坑是求差时把减负数当成减正数算出 64.5，或者把 4.5m 读成 4.5 + m。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "ok",
+    "eq.verify_combine_before_mult",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbtkuv5s",
+   "level": 3,
+   "question": "Owen 计算式子 4n − 7 在 n = −3 时的值。他写的是：4 − 3 − 7 = −6。关于他的做法，下面哪个说法是对的？",
+   "options": [
+    "他没错：4n 就是 4 + n，所以 −6 是正确答案",
+    "他该先算 −3 − 7 = −10，再乘 4，答案是 −40",
+    "4n 要算 4 × (−3) = −12，答案是 −19",
+    "他错在最后一步：−12 − 7 按负负得正应得 19"
+   ],
+   "answerIndex": 2,
+   "explain": "4n 是 4 乘 n，代入负数必须写括号：4 × (−3) = −12，再减 7 得 −19。写成 4 − 3 既丢了乘号也丢了负号；−12 − 7 也不能用负负得正，那条规则只管乘除。",
+   "tags": [
+    "eq.coeff_as_addend",
+    "eq.verify_combine_before_mult",
+    "ok",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkorvpbrkz0cf",
+   "level": 3,
+   "question": "Ken 计算式子 2.5n − 12 在 n = −4 时的值。他先算 −4 − 12 = −16，再算 2.5 × (−16) = −40。下面哪个说法是对的？",
+   "options": [
+    "他没错：先算 −4 − 12 再乘 2.5，−40 是对的",
+    "他错在最后一步：−10 − 12 应按负负得正算成 22",
+    "他错在代入：应写成 2.5 − 4 − 12，答案是 −13.5",
+    "他错在顺序：应先乘再减，2.5 × (−4) − 12 = −22"
+   ],
+   "answerIndex": 3,
+   "explain": "代入后要按运算顺序先乘后减：2.5 × (−4) = −10，再 −10 − 12 = −22。常数 −12 不能和 n 先合并再乘，它不是括号里的一项；−10 − 12 也不会因为两个负号变成 22。",
+   "tags": [
+    "eq.verify_combine_before_mult",
+    "int.sign_rules_to_addition",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

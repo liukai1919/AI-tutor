@@ -1,0 +1,87 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.INDEP.CONCEPT",
+ "lang": "en",
+ "title": "Recognize independent events: one outcome does not change the other (drawing with vs. without replacement)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Put It Back, or Keep It? Independent Events",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the probability of one draw by listing all the outcomes. Today we answer a new question: when you draw twice, does the first draw change what happens on the second one? That is what independent means.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is your gym bag with five balls: three red and two white. The chance of pulling a red is three out of five. Now suppose you look at it, drop it back in, and shake the bag. The bag is exactly the same as before, so the second draw is still three out of five. Nothing changed, so these two draws are independent.",
+    "math": "P(\\text{red}) = \\frac{3}{5} \\rightarrow \\frac{3}{5}",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "red",
+      "white"
+     ],
+     "caption": "Three red and two white: chance of red is three fifths, both times"
+    }
+   },
+   {
+    "say": "Now play it differently. You pull out a red ball and keep it in your hand. Look at the bag now: only two red and two white are left, four balls total. The chance of red on the second draw is two out of four, which is one half. The first draw changed the bag, so these two draws are not independent.",
+    "math": "\\frac{3}{5} \\rightarrow \\frac{2}{4} = \\frac{1}{2}",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      2,
+      2
+     ],
+     "labels": [
+      "red",
+      "white"
+     ],
+     "caption": "After keeping one red: chance of red drops to one half"
+    }
+   },
+   {
+    "say": "Two traps here. First trap: people write three fifths for the second draw even when they kept the ball. That is wrong, because there are only four balls left, not five. Second trap: if you put the ball back and pull red twice in a row, someone says red cannot come again. But the bag has no memory. It is still three red and two white, so red is still three out of five. Independent does not mean the outcomes are equally likely either. Red and white are not equally likely here, and the draws with replacement are still independent.",
+    "math": "\\text{kept: } \\frac{2}{4} \\quad \\text{put back: } \\frac{3}{5}",
+    "visual": {
+     "type": "balls",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "red",
+      "white"
+     ],
+     "caption": "Put back twice: the bag is still three red and two white"
+    }
+   },
+   {
+    "say": "So before you do anything else, ask yourself one question: did the ball go back in? If yes, the draws are independent and the chances stay the same. If no, the second draw has a smaller bag and different chances.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Put it back and the draws are independent; keep it out and the second draw changes.",
+  "practice": {
+   "question": "You have a small box with six hockey cards: four Canucks cards and two Oilers cards. Round one: you pull one card, look at it, and slide it back in, then pull again. Round two: you pull one card, keep it, then pull again. In which round are the two draws independent, and if you keep a Canucks card, what is the chance the second card is a Canucks card?",
+   "answer": "Round one is independent, because the box is still four Canucks out of six cards both times, which is two thirds. Round two is not independent: after keeping a Canucks card, only three Canucks are left out of five cards, so the chance is three fifths."
+  }
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROPORTION.SOLVE",
+ "lang": "en",
+ "title": "Set up and solve a proportion for a missing value (3/8 = x/56) using a scale factor or cross-products",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Finding the Missing Number in a Proportion",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build equivalent ratios in a ratio table, and you already know how to solve something like three x equals twelve. Today we snap those two skills together to find a missing value in a proportion, like three eighths equals x over fifty six.",
+    "math": "\\frac{3}{8}=\\frac{x}{56}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the story. On your basketball team you sink three shots out of every eight you take. Last month you took fifty six shots. Look at the bottom row first. Eight times seven is fifty six, so the scale factor is seven. A ratio only stays equal if you multiply both rows by the same thing, so the top row must also be times seven. Three times seven is twenty one. So x is twenty one shots made.",
+    "math": "\\frac{3}{8}=\\frac{3\\times 7}{8\\times 7}=\\frac{21}{56}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      21,
+      8,
+      56
+     ],
+     "labels": [
+      "Small ratio",
+      "Big ratio",
+      "Makes",
+      "Shots"
+     ],
+     "caption": "Bottom row times seven, so top row times seven too"
+    }
+   },
+   {
+    "say": "Sometimes the scale factor is not a nice whole number, so here is the method that always works: cross products. Multiply the top of the left by the bottom of the right, and set it equal to the other diagonal. Three times fifty six is one hundred sixty eight, and that equals eight times x. Now it is just a one step equation. Divide both sides by eight. One hundred sixty eight divided by eight is twenty one. Same answer, twenty one.",
+    "math": "3\\times 56=8x\\;\\Rightarrow\\;168=8x\\;\\Rightarrow\\;x=21",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      168,
+      168
+     ],
+     "labels": [
+      "8 times x",
+      "168"
+     ],
+     "caption": "Balanced, so dividing both sides by eight keeps it true"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First, never add your way up a ratio. Eight plus forty eight is fifty six, so some people add forty eight on top too and get fifty one out of fifty six. That would mean you almost never miss, which is nothing like three out of eight. Ratios scale by multiplying, not adding. Second, when you cross multiply, do not grab the wrong pair. Eight times fifty six divided by three gives about one hundred forty nine, which is more shots made than shots taken, so it cannot be right. Always pair each number with the one diagonally across from it, and keep makes with makes and shots with shots.",
+    "math": "\\frac{3}{8}\\neq\\frac{3+48}{8+48}=\\frac{51}{56}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      51,
+      21,
+      56,
+      56
+     ],
+     "labels": [
+      "Wrong, added 48",
+      "Right, times 7",
+      "Makes",
+      "Shots"
+     ],
+     "caption": "Fifty one of fifty six is far too good, twenty one is the true match"
+    }
+   },
+   {
+    "say": "So, find the scale factor when it is easy, use cross products when it is not, and then check that your answer makes sense in the story. Twenty one out of fifty six really is the same as three out of eight.",
+    "math": "\\frac{3}{8}=\\frac{21}{56}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Ratios scale by multiplying: cross multiply, then divide by the coefficient.",
+  "practice": {
+   "question": "Your phone plan data shows you use 4 gigabytes every 5 days. At the same rate, how much data would you use in 45 days? Set it up as the proportion four over five equals x over forty five, and solve it two ways: with a scale factor, and with cross products.",
+   "answer": "x equals 36 gigabytes. Scale factor: 5 times 9 is 45, so 4 times 9 is 36. Cross products: 4 times 45 is 180, and 180 divided by 5 is 36. Check: 36 over 45 simplifies to 4 over 5."
+  }
+ }
+}

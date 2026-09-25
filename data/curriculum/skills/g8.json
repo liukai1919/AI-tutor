@@ -1,0 +1,1665 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 8,
+  "standardsFile": "bc/grade-8.json",
+  "topics": [
+    {
+      "id": "squares-cubes",
+      "zh": "完全平方数与完全立方数",
+      "en": "Perfect squares & cubes",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G8.NUM.01"
+      ],
+      "review": [
+        "YY.MATH.NUM.SQUARE.RECOGNIZE",
+        "YY.MATH.NUM.SQUARE.NOTATION"
+      ]
+    },
+    {
+      "id": "roots",
+      "zh": "平方根与立方根",
+      "en": "Square & cube roots",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G8.NUM.02"
+      ],
+      "review": [
+        "YY.MATH.NUM.SQUARE.ROOT",
+        "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE"
+      ]
+    },
+    {
+      "id": "fraction-operations",
+      "zh": "分数的四则运算",
+      "en": "Operations with fractions",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G8.FLU.01"
+      ]
+    },
+    {
+      "id": "percents-beyond-100",
+      "zh": "小于 1 与大于 100 的百分数",
+      "en": "Percents below 1% and above 100%",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G8.NUM.03"
+      ]
+    },
+    {
+      "id": "ratios-rates-proportions",
+      "zh": "比、比率与比例",
+      "en": "Ratios, rates & proportions",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G8.NUM.04"
+      ]
+    },
+    {
+      "id": "best-buys",
+      "zh": "理财：怎么买最划算",
+      "en": "Financial literacy: best buys",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G8.NUM.05"
+      ]
+    },
+    {
+      "id": "expressions",
+      "zh": "代数式与代入求值",
+      "en": "Expressions & substitution",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G8.PAT.02"
+      ]
+    },
+    {
+      "id": "linear-relations",
+      "zh": "离散线性关系",
+      "en": "Discrete linear relations",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G8.PAT.01"
+      ]
+    },
+    {
+      "id": "two-step-equations",
+      "zh": "两步方程（含负数）",
+      "en": "Two-step equations with integers",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G8.PAT.03"
+      ]
+    },
+    {
+      "id": "pythagorean",
+      "zh": "勾股定理",
+      "en": "Pythagorean theorem",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G8.GEO.02"
+      ]
+    },
+    {
+      "id": "views-nets",
+      "zh": "三视图与展开图",
+      "en": "Views & nets of 3D objects",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G8.GEO.03"
+      ]
+    },
+    {
+      "id": "surface-area-volume",
+      "zh": "表面积与体积",
+      "en": "Surface area & volume",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G8.GEO.01"
+      ]
+    },
+    {
+      "id": "central-tendency",
+      "zh": "平均数、中位数与众数",
+      "en": "Central tendency",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G8.DAT.01"
+      ]
+    },
+    {
+      "id": "two-independent-events",
+      "zh": "两个独立事件的可能性",
+      "en": "Probability of two independent events",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G8.DAT.02"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.NUM.SQUARE.TILES",
+      "topic": "squares-cubes",
+      "type": "represent",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Build perfect squares with colour tiles and identify perfect squares to 400 as n × n",
+      "zh": "用方片摆出正方形，认出 400 以内的完全平方数（n × n）",
+      "primary": "BC.MATH.G8.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.RECOGNIZE",
+        "YY.MATH.FLU.MULT.FACTS.DEVELOPING"
+      ],
+      "misc": [
+        "sq.square_as_double",
+        "sq.looks_square"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.CUBE.BUILD",
+      "topic": "squares-cubes",
+      "type": "concept",
+      "rep": [
+        "solidCube",
+        "symbolic"
+      ],
+      "en": "Build perfect cubes with linking cubes and write them with exponents (4³ = 4 × 4 × 4 = 64)",
+      "zh": "用小方块搭出正方体，认识完全立方数并用指数写出（4³ = 4 × 4 × 4 = 64）",
+      "primary": "BC.MATH.G8.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.TILES",
+        "YY.MATH.MEAS.VOL.RECT_PRISM"
+      ],
+      "misc": [
+        "cube.cube_as_triple",
+        "sq.square_as_double"
+      ],
+      "hints": "solidCube"
+    },
+    {
+      "id": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+      "topic": "squares-cubes",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Use prime factorization to decide whether a number is a perfect square or a perfect cube (324 = 2² × 3⁴ is a square)",
+      "zh": "用质因数分解判断一个数是完全平方数还是完全立方数（324 = 2² × 3⁴ 是平方数）",
+      "primary": "BC.MATH.G8.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PRIME_FACTORIZATION",
+        "YY.MATH.NUM.CUBE.BUILD"
+      ],
+      "misc": [
+        "pf.exponent_miscount",
+        "pf.stop_at_composite",
+        "powers.cube_test_even_exponent"
+      ],
+      "hints": "areaGrid、solidCube"
+    },
+    {
+      "id": "YY.MATH.NUM.POWERS.SQUARE_CUBE_COMPARE",
+      "topic": "squares-cubes",
+      "type": "reason",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Tell squaring and cubing apart from doubling and tripling, and explain why 64 is both a perfect square and a perfect cube",
+      "zh": "区分平方、立方与乘 2、乘 3；解释为什么 64 既是完全平方数又是完全立方数",
+      "primary": "BC.MATH.G8.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST"
+      ],
+      "misc": [
+        "cube.cube_as_triple",
+        "sq.square_as_double",
+        "sq.looks_square"
+      ],
+      "hints": "areaGrid、solidCube"
+    },
+    {
+      "id": "YY.MATH.NUM.ROOT.SQUARE_PERFECT",
+      "topic": "roots",
+      "type": "procedure",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Find square roots of perfect squares to 400, including fractions (√(16/169) = 4/13)",
+      "zh": "求 400 以内完全平方数的平方根，包括分数（√(16/169) = 4/13）",
+      "primary": "BC.MATH.G8.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.TILES",
+        "YY.MATH.NUM.SQUARE.ROOT"
+      ],
+      "misc": [
+        "sq.root_as_half",
+        "root.fraction_root_one_part"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.ROOT.CUBE_PERFECT",
+      "topic": "roots",
+      "type": "procedure",
+      "rep": [
+        "solidCube",
+        "symbolic"
+      ],
+      "en": "Find cube roots of perfect cubes (∛125 = 5) as the inverse of cubing",
+      "zh": "求完全立方数的立方根（∛125 = 5）：开立方是立方的逆运算",
+      "primary": "BC.MATH.G8.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.CUBE.BUILD",
+        "YY.MATH.NUM.ROOT.SQUARE_PERFECT"
+      ],
+      "misc": [
+        "root.cube_root_as_third",
+        "root.cube_root_as_square_root"
+      ],
+      "hints": "solidCube"
+    },
+    {
+      "id": "YY.MATH.NUM.ROOT.ESTIMATE",
+      "topic": "roots",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Estimate the square root of a non-perfect square to one decimal place using the neighbouring perfect squares (√30 ≈ 5.5)",
+      "zh": "用相邻的完全平方数估算非平方数的平方根到一位小数（√30 ≈ 5.5）",
+      "primary": "BC.MATH.G8.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.ROOT.SQUARE_PERFECT",
+        "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE"
+      ],
+      "misc": [
+        "sq.root_as_half",
+        "root.wrong_neighbour_squares",
+        "est.estimate_as_exact"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.NUM.ROOT.PRIME_FACTOR",
+      "topic": "roots",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Find square and cube roots of larger numbers by grouping prime factors in pairs or triples (√1764 = 2 × 3 × 7 = 42)",
+      "zh": "把质因数两两、三三分组求较大数的平方根和立方根（√1764 = 2 × 3 × 7 = 42）",
+      "primary": "BC.MATH.G8.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+        "YY.MATH.NUM.ROOT.CUBE_PERFECT"
+      ],
+      "misc": [
+        "root.prime_factor_exponent_halve_wrong",
+        "pf.exponent_miscount"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.NUM.ROOT.APPLY",
+      "topic": "roots",
+      "type": "apply",
+      "rep": [
+        "context",
+        "areaGrid"
+      ],
+      "en": "Use square and cube roots to solve problems (side of a square field from its area, edge of a cubic tank from its volume)",
+      "zh": "用平方根、立方根解决问题（由面积求正方形场地的边长、由体积求正方体水箱的棱长）",
+      "primary": "BC.MATH.G8.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.ROOT.ESTIMATE",
+        "YY.MATH.NUM.ROOT.CUBE_PERFECT"
+      ],
+      "misc": [
+        "root.area_to_side_divide_by_4",
+        "sq.root_as_half",
+        "root.cube_root_as_square_root"
+      ],
+      "hints": "shapeRect、solidCube"
+    },
+    {
+      "id": "YY.MATH.FRAC.ADDSUB.LIKE",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "fractionBar",
+        "symbolic"
+      ],
+      "en": "Add and subtract fractions with like denominators and write the answer in lowest terms (5/8 + 7/8 = 1 1/2)",
+      "zh": "同分母分数加减，结果化成最简（5/8 + 7/8 = 1 1/2）",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.EQUIV.DIVIDE",
+        "YY.MATH.FRAC.IMPROPER.TO_MIXED"
+      ],
+      "misc": [
+        "frac.add_denominators",
+        "frac.not_lowest_terms"
+      ],
+      "hints": "fractionBar"
+    },
+    {
+      "id": "YY.MATH.FRAC.ADDSUB.UNLIKE",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "fractionBar",
+        "symbolic"
+      ],
+      "en": "Add and subtract fractions with unlike denominators using a common denominator (2/3 + 1/4 = 11/12)",
+      "zh": "异分母分数加减：先通分再计算（2/3 + 1/4 = 11/12）",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.ADDSUB.LIKE",
+        "YY.MATH.NUM.LCM",
+        "YY.MATH.FRAC.EQUIV.MULTIPLY"
+      ],
+      "misc": [
+        "frac.add_denominators",
+        "frac.common_denom_numerator_unchanged",
+        "frac.not_lowest_terms"
+      ],
+      "hints": "fractionBar"
+    },
+    {
+      "id": "YY.MATH.FRAC.ADDSUB.MIXED",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add and subtract mixed numbers, regrouping a whole when needed (3 1/4 − 1 3/4 = 1 1/2)",
+      "zh": "带分数加减，不够减时从整数借 1（3 1/4 − 1 3/4 = 1 1/2）",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.ADDSUB.UNLIKE",
+        "YY.MATH.FRAC.MIXED.TO_IMPROPER"
+      ],
+      "misc": [
+        "mixed.subtract_parts_reversed",
+        "mixed.improper_convert_wrong"
+      ],
+      "hints": "fractionBar、numberLine"
+    },
+    {
+      "id": "YY.MATH.FRAC.MULT",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Multiply fractions and mixed numbers with an area model, then numerator × numerator over denominator × denominator (2/3 × 3/4 = 1/2)",
+      "zh": "分数与带分数乘法：先用面积模型，再分子乘分子、分母乘分母（2/3 × 3/4 = 1/2）",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.ADDSUB.LIKE",
+        "YY.MATH.FRAC.MIXED.TO_IMPROPER"
+      ],
+      "misc": [
+        "frac.mult_common_denominator",
+        "frac.mult_mixed_parts_separately",
+        "dec.mult_always_bigger"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.FRAC.DIV",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "fractionBar",
+        "symbolic"
+      ],
+      "en": "Divide fractions by asking how many groups fit (3/4 ÷ 1/8 = 6), then by multiplying by the reciprocal",
+      "zh": "分数除法：先想「能装几份」（3/4 ÷ 1/8 = 6），再学乘倒数",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.MULT",
+        "YY.MATH.FLU.DIV.MEANING"
+      ],
+      "misc": [
+        "frac.div_no_flip",
+        "frac.div_flip_wrong_fraction",
+        "div.commutative_flip"
+      ],
+      "hints": "fractionBar"
+    },
+    {
+      "id": "YY.MATH.FRAC.ORDER_OPS",
+      "topic": "fraction-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Use the order of operations with fractions, including brackets but not exponents (½ ÷ 9/6 × (7 − 4/5))",
+      "zh": "分数的混合运算顺序（含括号、不含乘方）：½ ÷ 9/6 × (7 − 4/5)",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.DIV",
+        "YY.MATH.FRAC.ADDSUB.MIXED",
+        "YY.MATH.DEC.OPS.ORDER_OPS"
+      ],
+      "misc": [
+        "order.left_to_right",
+        "order.ignore_brackets",
+        "order.add_before_sub_always"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.FRAC.OPS.WORD",
+      "topic": "fraction-operations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Solve fraction problems in context: beats in a drum song, scaling a recipe, sharing a harvest by family size",
+      "zh": "分数应用题：鼓歌里的节拍、按比例改配方、按家庭人数分配收获",
+      "primary": "BC.MATH.G8.FLU.01",
+      "prereq": [
+        "YY.MATH.FRAC.ORDER_OPS"
+      ],
+      "misc": [
+        "word.keyword_trap",
+        "word.stop_early",
+        "frac.div_no_flip"
+      ],
+      "hints": "barModel、fractionBar"
+    },
+    {
+      "id": "YY.MATH.PCT.BEYOND100.MEANING",
+      "topic": "percents-beyond-100",
+      "type": "concept",
+      "rep": [
+        "hundredthsGrid",
+        "symbolic"
+      ],
+      "en": "Make sense of percents below 1% and above 100% on hundredths grids (0.5% is half a square; 250% is two and a half grids)",
+      "zh": "在百格图上认识小于 1% 和大于 100% 的百分数（0.5% 是半格；250% 是两格半）",
+      "primary": "BC.MATH.G8.NUM.03",
+      "prereq": [
+        "YY.MATH.PCT.MEANING",
+        "YY.MATH.PCT.FRAC_DEC_LINK"
+      ],
+      "misc": [
+        "pct.over_100_impossible",
+        "pct.percent_as_number"
+      ],
+      "hints": "hundredthsGrid"
+    },
+    {
+      "id": "YY.MATH.PCT.BEYOND100.CONVERT",
+      "topic": "percents-beyond-100",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "hundredthsGrid"
+      ],
+      "en": "Convert fractional and decimal percents to decimals and fractions (½% = 0.005, 3.25% = 0.0325, 122% = 1.22)",
+      "zh": "分数形式、小数形式的百分数与小数、分数互化（½% = 0.005，3.25% = 0.0325，122% = 1.22）",
+      "primary": "BC.MATH.G8.NUM.03",
+      "prereq": [
+        "YY.MATH.PCT.BEYOND100.MEANING"
+      ],
+      "misc": [
+        "pct.fractional_percent_as_fraction",
+        "pct.decimal_shift_wrong"
+      ],
+      "hints": "hundredthsGrid"
+    },
+    {
+      "id": "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+      "topic": "percents-beyond-100",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "barModel"
+      ],
+      "en": "Find fractional and large percents of a quantity (½% of 1 billion; 150% of 60)",
+      "zh": "求一个量的小百分数和大百分数（10 亿的 ½%；60 的 150%）",
+      "primary": "BC.MATH.G8.NUM.03",
+      "prereq": [
+        "YY.MATH.PCT.BEYOND100.CONVERT",
+        "YY.MATH.PCT.OF_NUMBER"
+      ],
+      "misc": [
+        "pct.fractional_percent_as_fraction",
+        "pct.percent_as_number",
+        "pv.annex_zeros_miscount"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+      "topic": "percents-beyond-100",
+      "type": "procedure",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Apply a percent increase or decrease and find the new amount (population up 3.25% → multiply by 1.0325)",
+      "zh": "算百分比增减后的新量（人口增长 3.25% → 乘 1.0325）",
+      "primary": "BC.MATH.G8.NUM.03",
+      "prereq": [
+        "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+        "YY.MATH.FIN.PCT.FINAL_PRICE"
+      ],
+      "misc": [
+        "pct.increase_not_added",
+        "pct.decimal_shift_wrong",
+        "pct.of_vs_off"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.PCT.CHANGE.ORIGINAL",
+      "topic": "percents-beyond-100",
+      "type": "reason",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Find the original amount before a percent change (a salary is $93 940 after a 122% increase — what was it?)",
+      "zh": "已知增减后的量倒推原值（工资涨了 122% 后是 $93 940，原来是多少）",
+      "primary": "BC.MATH.G8.NUM.03",
+      "prereq": [
+        "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+        "YY.MATH.PCT.FIND_MISSING"
+      ],
+      "misc": [
+        "pct.increase_percent_as_total",
+        "pct.reverse_by_subtracting_percent",
+        "pct.whole_part_swap"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.RATIO.THREE_TERM",
+      "topic": "ratios-rates-proportions",
+      "type": "represent",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Write and simplify two- and three-term ratios from a situation (6 red : 4 blue : 10 green = 3 : 2 : 5)",
+      "zh": "从情境写出两项比和三项比并化简（6 红 : 4 蓝 : 10 绿 = 3 : 2 : 5）",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.RATIO.MEANING",
+        "YY.MATH.RATIO.EQUIVALENT",
+        "YY.MATH.NUM.GCF"
+      ],
+      "misc": [
+        "ratio.order_swap",
+        "ratio.simplify_one_term"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.RATIO.SHARE",
+      "topic": "ratios-rates-proportions",
+      "type": "procedure",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Share a quantity in a given ratio (cut a 105 cm string in the ratio 3 : 5 : 7)",
+      "zh": "按比分配一个总量（105 cm 的绳子按 3 : 5 : 7 剪成三段）",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.RATIO.THREE_TERM",
+        "YY.MATH.RATIO.PART_PART_WHOLE"
+      ],
+      "misc": [
+        "ratio.share_divide_by_terms",
+        "ratio.part_whole_confuse"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.RATE.UNIT_RATE",
+      "topic": "ratios-rates-proportions",
+      "type": "concept",
+      "rep": [
+        "dataTable",
+        "context"
+      ],
+      "en": "Understand a rate as a comparison of different units and find unit rates (240 km in 3 h = 80 km/h)",
+      "zh": "认识比率是不同单位的量之比，会求单位比率（3 小时 240 km = 80 km/h）",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.DEC.MULTDIV.WORD",
+        "YY.MATH.RATIO.MEANING"
+      ],
+      "misc": [
+        "rate.divide_wrong_way",
+        "ratio.order_swap"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.RATE.COMPARE",
+      "topic": "ratios-rates-proportions",
+      "type": "reason",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Compare rates by converting to the same unit rate (who is faster: 5 km in 24 min or 3 km in 15 min?)",
+      "zh": "化成同一单位比率来比较（谁跑得快：24 分钟 5 km 还是 15 分钟 3 km）",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.RATE.UNIT_RATE"
+      ],
+      "misc": [
+        "rate.compare_without_unit_rate",
+        "rate.divide_wrong_way"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PROPORTION.SOLVE",
+      "topic": "ratios-rates-proportions",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Set up and solve a proportion for a missing value (3/8 = x/56) using a scale factor or cross-products",
+      "zh": "列比例求未知项（3/8 = x/56）：用倍数关系或交叉相乘",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.RATIO.EQUIVALENT",
+        "YY.MATH.ALG.EQ.ONESTEP.COEFF"
+      ],
+      "misc": [
+        "ratio.add_to_scale",
+        "prop.cross_multiply_wrong_pair"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PROPORTION.APPLY",
+      "topic": "ratios-rates-proportions",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Solve ratio, rate and percent problems in context (scale drawings, recipes, drum-box proportions, speed)",
+      "zh": "比、比率、百分数的综合应用（比例图、配方、鼓箱尺寸、速度）",
+      "primary": "BC.MATH.G8.NUM.04",
+      "prereq": [
+        "YY.MATH.PROPORTION.SOLVE",
+        "YY.MATH.RATIO.SHARE",
+        "YY.MATH.RATE.COMPARE",
+        "YY.MATH.PCT.BEYOND100.OF_NUMBER"
+      ],
+      "misc": [
+        "ratio.add_to_scale",
+        "rate.divide_wrong_way",
+        "word.stop_early"
+      ],
+      "hints": "barModel、dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.UNIT_PRICE",
+      "topic": "best-buys",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Find unit prices ($4.68 for 12 = 39¢ each; price per 100 g) to compare package sizes",
+      "zh": "算单价（12 个 $4.68 = 每个 39¢；每 100 g 多少钱）来比较不同包装",
+      "primary": "BC.MATH.G8.NUM.05",
+      "prereq": [
+        "YY.MATH.RATE.UNIT_RATE",
+        "YY.MATH.FIN.CONSUMER.COMPARE"
+      ],
+      "misc": [
+        "fin.bigger_pack_always_cheaper",
+        "rate.divide_wrong_way"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.COUPON_VS_PERCENT",
+      "topic": "best-buys",
+      "type": "reason",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Compare a dollar-off coupon with a percent-off discount and decide which saves more on a given price",
+      "zh": "比较「减 $5」优惠券和「打 8 折」在某个价格下哪个更省",
+      "primary": "BC.MATH.G8.NUM.05",
+      "prereq": [
+        "YY.MATH.FIN.PCT.DISCOUNT",
+        "YY.MATH.FIN.UNIT_PRICE"
+      ],
+      "misc": [
+        "fin.percent_vs_dollar_confuse",
+        "pct.of_vs_off"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.MULTI_BUY",
+      "topic": "best-buys",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "context"
+      ],
+      "en": "Evaluate multi-buy deals (3 for $10, buy 2 get 1 free) by finding the effective unit price",
+      "zh": "用实际单价评估「3 件 $10」「买二送一」这类促销",
+      "primary": "BC.MATH.G8.NUM.05",
+      "prereq": [
+        "YY.MATH.FIN.UNIT_PRICE"
+      ],
+      "misc": [
+        "fin.free_item_ignored",
+        "fin.bigger_pack_always_cheaper"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.BEST_BUY.DECIDE",
+      "topic": "best-buys",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Choose the best buy for a real need by weighing unit price, quantity needed, coupons and expiry",
+      "zh": "结合单价、实际需要的量、优惠券和保质期，决定怎么买最划算",
+      "primary": "BC.MATH.G8.NUM.05",
+      "prereq": [
+        "YY.MATH.FIN.MULTI_BUY",
+        "YY.MATH.FIN.COUPON_VS_PERCENT"
+      ],
+      "misc": [
+        "fin.need_ignored",
+        "fin.bigger_pack_always_cheaper",
+        "word.stop_early"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.ALG.EXPR.WRITE",
+      "topic": "expressions",
+      "type": "represent",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Write an expression to describe a relationship (n tickets at $12 plus a $5 fee = 12n + 5)",
+      "zh": "用代数式描述数量关系（n 张 $12 的票加 $5 手续费 = 12n + 5）",
+      "primary": "BC.MATH.G8.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.EXPR.FROM_PATTERN",
+        "YY.MATH.ALG.RELATION.QUANTITIES"
+      ],
+      "misc": [
+        "eq.coeff_as_addend",
+        "linear.intercept_forgotten",
+        "pat.fixed_part_mishandled"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.EXPR.PARTS",
+      "topic": "expressions",
+      "type": "concept",
+      "rep": [
+        "symbolic",
+        "balance"
+      ],
+      "en": "Identify terms, coefficients, variables and constants in an expression (0.5n − 3n + 25)",
+      "zh": "认识代数式里的项、系数、变量和常数（0.5n − 3n + 25）",
+      "primary": "BC.MATH.G8.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EXPR.WRITE"
+      ],
+      "misc": [
+        "expr.coefficient_one_invisible",
+        "expr.constant_as_coefficient"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EXPR.EVALUATE",
+      "topic": "expressions",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Evaluate an expression by substitution, including negative and decimal values (0.5n − 3n + 25 when n = 14)",
+      "zh": "代入求值，含负数和小数（n = 14 时求 0.5n − 3n + 25）",
+      "primary": "BC.MATH.G8.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EXPR.PARTS",
+        "YY.MATH.INT.ORDER_OPS",
+        "YY.MATH.DEC.OPS.ORDER_OPS"
+      ],
+      "misc": [
+        "eq.coeff_as_addend",
+        "expr.substitute_negative_no_brackets",
+        "eq.verify_combine_before_mult",
+        "int.sign_rules_to_addition"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.ALG.EXPR.COMBINE_LIKE",
+      "topic": "expressions",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Simplify an expression by combining like terms before substituting (0.5n − 3n + 25 = −2.5n + 25)",
+      "zh": "先合并同类项再代入（0.5n − 3n + 25 = −2.5n + 25）",
+      "primary": "BC.MATH.G8.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.EXPR.EVALUATE"
+      ],
+      "core": false,
+      "misc": [
+        "expr.combine_unlike_terms",
+        "int.add_ignore_sign"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.GEO.COORD.Q4.SCALE",
+      "topic": "linear-relations",
+      "type": "procedure",
+      "rep": [
+        "coordGrid",
+        "symbolic"
+      ],
+      "en": "Plot and read integer points in all four quadrants on axes with scaled tick marks (each square = 5)",
+      "zh": "在刻度不是 1 的坐标轴上（每格 5）四个象限描点、读点",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.GEO.COORD.Q4.PLOT"
+      ],
+      "misc": [
+        "coord.xy_swap",
+        "coord.sign_quadrant_confuse",
+        "graph.scale_misread"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+      "topic": "linear-relations",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Build a table of values from a linear expression with integer inputs, including negatives (y = 3x − 4 for x = −2 to 3)",
+      "zh": "由线性式子列数值表，输入含负数（y = 3x − 4，x 从 −2 到 3）",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.ALG.EXPR.EVALUATE",
+        "YY.MATH.PAT.LINEAR.TABLE"
+      ],
+      "misc": [
+        "int.sign_rules_to_addition",
+        "linear.x_step_ignored"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR",
+      "topic": "linear-relations",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Find the expression from a table with a constant difference, extended to larger numbers (x = 0, 5, 10… → y = 4x + 7)",
+      "zh": "从等差的数值表写出式子，扩展到较大的数（x 取 0、5、10… → y = 4x + 7）",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.EXPRESSION",
+        "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap",
+        "linear.intercept_forgotten",
+        "linear.x_step_ignored",
+        "linear.rule_from_one_point"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.GRAPH_Q4",
+      "topic": "linear-relations",
+      "type": "represent",
+      "rep": [
+        "coordGrid",
+        "dataTable"
+      ],
+      "en": "Graph a discrete linear relation in four quadrants and explain why the points are not joined",
+      "zh": "在四个象限画离散线性关系的图，说明为什么点之间不连线",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+        "YY.MATH.GEO.COORD.Q4.SCALE",
+        "YY.MATH.PAT.LINEAR.GRAPH"
+      ],
+      "misc": [
+        "linear.connect_discrete_points",
+        "coord.sign_quadrant_confuse"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+      "topic": "linear-relations",
+      "type": "reason",
+      "rep": [
+        "coordGrid",
+        "symbolic"
+      ],
+      "en": "Read the rate of change and the value at x = 0 from a graph to write the expression (points (0, −3), (1, −1), (2, 1) → y = 2x − 3)",
+      "zh": "从图上读出变化率和 x = 0 时的值，写出式子（点 (0, −3)、(1, −1)、(2, 1) → y = 2x − 3）",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.GRAPH_Q4",
+        "YY.MATH.PAT.LINEAR.FROM_GRAPH"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap",
+        "linear.rule_from_one_point",
+        "graph.scale_misread"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.PAT.LINEAR.APPLY",
+      "topic": "linear-relations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Model a real situation as a linear relation and use a table, expression or graph to answer questions (phone plan: $20 plus $5 per GB)",
+      "zh": "用线性关系描述真实情境，用表格、式子或图回答问题（手机套餐：$20 加每 GB $5）",
+      "primary": "BC.MATH.G8.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+        "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR"
+      ],
+      "misc": [
+        "pat.fixed_part_mishandled",
+        "linear.slope_intercept_swap",
+        "word.stop_early"
+      ],
+      "hints": "dataTable、coordGrid"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.MODEL",
+      "topic": "two-step-equations",
+      "type": "represent",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Model two-step equations with negatives using algebra tiles or a balance (3x − 4 = −13)",
+      "zh": "用代数砖、天平表示含负数的两步方程（3x − 4 = −13）",
+      "primary": "BC.MATH.G8.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP.MODEL",
+        "YY.MATH.INT.SUBTRACT"
+      ],
+      "misc": [
+        "eq.operate_one_side",
+        "eq.undo_wrong_order"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+      "topic": "two-step-equations",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "balance"
+      ],
+      "en": "Solve two-step equations with integer coefficients, constants and solutions (−4x + 7 = 19 → x = −3)",
+      "zh": "解整数系数、常数和解的两步方程（−4x + 7 = 19 → x = −3）",
+      "primary": "BC.MATH.G8.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.MODEL",
+        "YY.MATH.ALG.EQ.TWOSTEP.SOLVE",
+        "YY.MATH.INT.MULT_DIV"
+      ],
+      "misc": [
+        "eq.undo_wrong_order",
+        "eq.negative_coefficient_sign_lost",
+        "eq.inverse_wrong",
+        "int.sign_rules_to_addition"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+      "topic": "two-step-equations",
+      "type": "reason",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Verify a solution by substituting it back, including negatives (check x = −3 in −4x + 7 = 19)",
+      "zh": "把解代回原方程验算，含负数（把 x = −3 代入 −4x + 7 = 19）",
+      "primary": "BC.MATH.G8.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+        "YY.MATH.ALG.EQ.TWOSTEP.VERIFY"
+      ],
+      "misc": [
+        "eq.verify_stop_before_constant",
+        "eq.verify_not_exact",
+        "expr.substitute_negative_no_brackets"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+      "topic": "two-step-equations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Solve two-step equations in other forms: x/3 + 5 = 2 and 2(x + 4) = −6",
+      "zh": "解其他形式的两步方程：x/3 + 5 = 2，2(x + 4) = −6",
+      "primary": "BC.MATH.G8.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE"
+      ],
+      "core": false,
+      "misc": [
+        "eq.fraction_form_multiply_one_term",
+        "eq.brackets_distribute_partially",
+        "eq.undo_wrong_order"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD",
+      "topic": "two-step-equations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Write and solve a two-step equation from a situation with negatives (5° falling 3° per hour reaches −13°: 5 − 3h = −13)",
+      "zh": "从含负数的情境列两步方程并求解（从 5° 每小时降 3° 降到 −13°：5 − 3h = −13）",
+      "primary": "BC.MATH.G8.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+        "YY.MATH.ALG.EQ.TWOSTEP.WORD"
+      ],
+      "misc": [
+        "pat.fixed_part_mishandled",
+        "eq.coeff_as_addend",
+        "int.subtract_negative"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.GEO.PYTH.MODEL",
+      "topic": "pythagorean",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "shapeTriangle"
+      ],
+      "en": "See the Pythagorean relationship as areas: the squares on the two legs together equal the square on the hypotenuse",
+      "zh": "用面积看勾股定理：两条直角边上的正方形面积加起来等于斜边上的正方形面积",
+      "primary": "BC.MATH.G8.GEO.02",
+      "prereq": [
+        "YY.MATH.NUM.SQUARE.TILES",
+        "YY.MATH.MEAS.AREA.RECT_FORMULA",
+        "YY.MATH.GEO.TRI.BY_ANGLES"
+      ],
+      "misc": [
+        "pyth.add_sides_not_squares",
+        "pyth.hypotenuse_misidentified"
+      ],
+      "hints": "areaGrid、rightTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.PYTH.IDENTIFY",
+      "topic": "pythagorean",
+      "type": "reason",
+      "rep": [
+        "shapeTriangle",
+        "symbolic"
+      ],
+      "en": "Identify the hypotenuse and legs in any orientation, and test whether a triangle is right-angled with a² + b² = c² (Pythagorean triples)",
+      "zh": "不管三角形怎么摆都能认出斜边和直角边；用 a² + b² = c² 判断是否直角三角形（勾股数）",
+      "primary": "BC.MATH.G8.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.PYTH.MODEL"
+      ],
+      "misc": [
+        "pyth.hypotenuse_misidentified",
+        "tri.orientation_changes_type",
+        "pyth.add_sides_not_squares"
+      ],
+      "hints": "rightTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+      "topic": "pythagorean",
+      "type": "procedure",
+      "rep": [
+        "shapeTriangle",
+        "symbolic"
+      ],
+      "en": "Find the hypotenuse from the two legs, exactly or to one decimal place (legs 5 and 12 → 13; legs 4 and 7 → √65 ≈ 8.1)",
+      "zh": "已知两条直角边求斜边，精确值或保留一位小数（5 和 12 → 13；4 和 7 → √65 ≈ 8.1）",
+      "primary": "BC.MATH.G8.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.PYTH.IDENTIFY",
+        "YY.MATH.NUM.ROOT.ESTIMATE"
+      ],
+      "misc": [
+        "pyth.forget_square_root",
+        "pyth.add_sides_not_squares",
+        "sq.root_as_half"
+      ],
+      "hints": "rightTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.PYTH.LEG",
+      "topic": "pythagorean",
+      "type": "procedure",
+      "rep": [
+        "shapeTriangle",
+        "symbolic"
+      ],
+      "en": "Find a missing leg by subtracting squares (hypotenuse 10 and leg 6 → √(100 − 36) = 8)",
+      "zh": "已知斜边和一条直角边求另一条直角边：平方相减（斜边 10、直角边 6 → √(100 − 36) = 8）",
+      "primary": "BC.MATH.G8.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.PYTH.HYPOTENUSE"
+      ],
+      "misc": [
+        "pyth.add_when_finding_leg",
+        "pyth.forget_square_root"
+      ],
+      "hints": "rightTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.PYTH.APPLY",
+      "topic": "pythagorean",
+      "type": "apply",
+      "rep": [
+        "context",
+        "shapeTriangle"
+      ],
+      "en": "Apply the Pythagorean theorem to real problems: ladders, diagonals of screens and fields, a canoe crossing a current",
+      "zh": "勾股定理应用：梯子、屏幕和球场的对角线、独木舟横渡有水流的河",
+      "primary": "BC.MATH.G8.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.PYTH.LEG"
+      ],
+      "misc": [
+        "pyth.hypotenuse_misidentified",
+        "pyth.add_when_finding_leg",
+        "word.stop_early"
+      ],
+      "hints": "rightTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.3D.VIEWS.DRAW",
+      "topic": "views-nets",
+      "type": "represent",
+      "rep": [
+        "solidCuboid",
+        "areaGrid"
+      ],
+      "en": "Draw the top, front and side views of an object built from cubes",
+      "zh": "画出用小方块搭的物体的俯视图、正视图和侧视图",
+      "primary": "BC.MATH.G8.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.3D.FACES_EDGES_VERTICES",
+        "YY.MATH.MEAS.VOL.COUNT_CUBES"
+      ],
+      "misc": [
+        "views.front_side_swap",
+        "views.draw_hidden_depth"
+      ],
+      "hints": "solidCuboid、areaGrid"
+    },
+    {
+      "id": "YY.MATH.GEO.3D.VIEWS.BUILD",
+      "topic": "views-nets",
+      "type": "reason",
+      "rep": [
+        "areaGrid",
+        "solidCuboid"
+      ],
+      "en": "Rebuild or identify a 3D object from its top, front and side views, and find the fewest cubes that fit",
+      "zh": "由三视图还原或辨认立体图形，找出符合的最少方块数",
+      "primary": "BC.MATH.G8.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.3D.VIEWS.DRAW"
+      ],
+      "misc": [
+        "views.count_from_views_add",
+        "views.front_side_swap",
+        "vol.count_visible_only"
+      ],
+      "hints": "solidCuboid"
+    },
+    {
+      "id": "YY.MATH.GEO.3D.NETS.MATCH",
+      "topic": "views-nets",
+      "type": "reason",
+      "rep": [
+        "netCuboid",
+        "solidCuboid"
+      ],
+      "en": "Match nets to prisms and cylinders and spot nets that will not fold (six squares that don't make a cube)",
+      "zh": "把展开图和棱柱、圆柱配对，识别折不起来的展开图（6 个正方形却拼不成正方体）",
+      "primary": "BC.MATH.G8.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.3D.NAME_BY_BASE",
+        "YY.MATH.GEO.3D.VIEWS.DRAW"
+      ],
+      "misc": [
+        "nets.any_six_squares_fold",
+        "nets.face_count_wrong"
+      ],
+      "hints": "netCuboid、netCylinder"
+    },
+    {
+      "id": "YY.MATH.GEO.3D.NETS.DRAW",
+      "topic": "views-nets",
+      "type": "procedure",
+      "rep": [
+        "netCuboid",
+        "symbolic"
+      ],
+      "en": "Draw an accurate net for a rectangular prism, triangular prism or cylinder with the dimensions labelled",
+      "zh": "画出长方体、三棱柱、圆柱的展开图并标上尺寸",
+      "primary": "BC.MATH.G8.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.3D.NETS.MATCH",
+        "YY.MATH.GEO.CIRCLE.CIRCUMFERENCE"
+      ],
+      "misc": [
+        "nets.face_count_wrong",
+        "nets.cylinder_rect_width_is_diameter"
+      ],
+      "hints": "netCuboid、netCylinder"
+    },
+    {
+      "id": "YY.MATH.MEAS.SA.FROM_NET",
+      "topic": "surface-area-volume",
+      "type": "concept",
+      "rep": [
+        "netCuboid",
+        "symbolic"
+      ],
+      "en": "Understand surface area as the total area of every face, found from a net",
+      "zh": "理解表面积就是所有面的面积之和，用展开图来算",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.3D.NETS.DRAW",
+        "YY.MATH.MEAS.AREA.COMPOSITE"
+      ],
+      "misc": [
+        "vol.surface_confuse",
+        "solid.count_visible_only"
+      ],
+      "hints": "netCuboid"
+    },
+    {
+      "id": "YY.MATH.MEAS.SA.RECT_PRISM",
+      "topic": "surface-area-volume",
+      "type": "procedure",
+      "rep": [
+        "netCuboid",
+        "symbolic"
+      ],
+      "en": "Find the surface area of a rectangular prism (2lw + 2lh + 2wh)",
+      "zh": "求长方体的表面积（2lw + 2lh + 2wh）",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.SA.FROM_NET",
+        "YY.MATH.MEAS.VOL.RECT_PRISM"
+      ],
+      "misc": [
+        "sa.forget_double_faces",
+        "vol.surface_confuse"
+      ],
+      "hints": "netCuboid"
+    },
+    {
+      "id": "YY.MATH.MEAS.SA.TRI_PRISM",
+      "topic": "surface-area-volume",
+      "type": "procedure",
+      "rep": [
+        "netCuboid",
+        "symbolic"
+      ],
+      "en": "Find the surface area of a triangular prism: two triangles plus three rectangles",
+      "zh": "求三棱柱的表面积：两个三角形加三个长方形",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.SA.RECT_PRISM",
+        "YY.MATH.MEAS.AREA.TRIANGLE"
+      ],
+      "misc": [
+        "sa.tri_prism_rects_same_size",
+        "area.tri_forget_half",
+        "area.use_side_not_height"
+      ],
+      "hints": "netCuboid、shapeTriangle"
+    },
+    {
+      "id": "YY.MATH.MEAS.SA.CYLINDER",
+      "topic": "surface-area-volume",
+      "type": "procedure",
+      "rep": [
+        "netCylinder",
+        "symbolic"
+      ],
+      "en": "Find the surface area of a cylinder: two circles plus a rectangle whose length is the circumference",
+      "zh": "求圆柱的表面积：两个圆加一个长等于圆周长的长方形",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.SA.RECT_PRISM",
+        "YY.MATH.GEO.CIRCLE.AREA",
+        "YY.MATH.GEO.3D.NETS.DRAW"
+      ],
+      "misc": [
+        "nets.cylinder_rect_width_is_diameter",
+        "circle.radius_diameter_confuse",
+        "circle.area_2r"
+      ],
+      "hints": "netCylinder"
+    },
+    {
+      "id": "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT",
+      "topic": "surface-area-volume",
+      "type": "procedure",
+      "rep": [
+        "solidCuboid",
+        "symbolic"
+      ],
+      "en": "Find the volume of right prisms (triangular, trapezoidal) and cylinders as area of the base × height",
+      "zh": "用底面积 × 高求直棱柱（三棱柱、梯形柱）和圆柱的体积",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.VOL.BASE_HEIGHT",
+        "YY.MATH.MEAS.VOL.CYLINDER",
+        "YY.MATH.MEAS.AREA.TRAPEZOID"
+      ],
+      "misc": [
+        "vol.base_area_wrong_face",
+        "area.tri_forget_half",
+        "vol.surface_confuse"
+      ],
+      "hints": "solidCylinder、solidCuboid"
+    },
+    {
+      "id": "YY.MATH.MEAS.SA_VOL.APPLY",
+      "topic": "surface-area-volume",
+      "type": "apply",
+      "rep": [
+        "context",
+        "solidCuboid"
+      ],
+      "en": "Decide whether a problem needs surface area or volume (painting vs. filling), pick the unit (cm² vs. cm³) and solve it",
+      "zh": "判断题目要的是表面积还是体积（刷漆还是装满），选对单位（cm² 与 cm³）并解题",
+      "primary": "BC.MATH.G8.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.SA.CYLINDER",
+        "YY.MATH.MEAS.SA.TRI_PRISM",
+        "YY.MATH.MEAS.VOL.PRISM_BASE_HEIGHT"
+      ],
+      "misc": [
+        "vol.surface_confuse",
+        "unit.cubic_conversion_linear",
+        "word.stop_early"
+      ],
+      "hints": "solidCuboid、netCylinder"
+    },
+    {
+      "id": "YY.MATH.DATA.MEAN",
+      "topic": "central-tendency",
+      "type": "procedure",
+      "rep": [
+        "average",
+        "dataTable"
+      ],
+      "en": "Find the mean as a fair share (total ÷ count), including decimal means",
+      "zh": "求平均数：总和 ÷ 个数（匀一匀），结果可以是小数",
+      "primary": "BC.MATH.G8.DAT.01",
+      "prereq": [
+        "YY.MATH.DEC.DIV.BY_WHOLE",
+        "YY.MATH.FLU.ADDSUB.TO1M.ALGORITHM"
+      ],
+      "misc": [
+        "mean.divide_by_wrong_count",
+        "mean.total_as_mean"
+      ],
+      "hints": "average、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.MEDIAN_MODE",
+      "topic": "central-tendency",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Find the median (order first; average the middle two) and the mode (there may be none or more than one)",
+      "zh": "求中位数（先排序；偶数个取中间两个的平均）和众数（可能没有，也可能不止一个）",
+      "primary": "BC.MATH.G8.DAT.01",
+      "prereq": [
+        "YY.MATH.DEC.PV1000.COMPARE"
+      ],
+      "misc": [
+        "median.not_sorted",
+        "median.even_count_pick_one",
+        "mode.count_as_mode"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.CENTRAL.COMPARE",
+      "topic": "central-tendency",
+      "type": "reason",
+      "rep": [
+        "dataTable",
+        "statBar"
+      ],
+      "en": "Choose which measure best describes a data set and explain how an outlier pulls the mean",
+      "zh": "判断哪种统计量最能代表一组数据，解释极端值怎么把平均数拉偏",
+      "primary": "BC.MATH.G8.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.MEAN",
+        "YY.MATH.DATA.MEDIAN_MODE"
+      ],
+      "misc": [
+        "central.mean_always_best",
+        "central.outlier_affects_median_most"
+      ],
+      "hints": "statBar、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.MEAN.MISSING_VALUE",
+      "topic": "central-tendency",
+      "type": "reason",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Work backwards from a mean: find the score needed on the next test to reach a target average",
+      "zh": "从平均数倒推：要达到目标平均分，下一次得考多少",
+      "primary": "BC.MATH.G8.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.MEAN",
+        "YY.MATH.ALG.EQ.ONESTEP.WORD"
+      ],
+      "misc": [
+        "mean.target_as_next_score",
+        "mean.divide_by_wrong_count"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.CENTRAL.APPLY",
+      "topic": "central-tendency",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Use mean, median and mode to compare and interpret real data sets (sports stats, class surveys, prices)",
+      "zh": "用平均数、中位数、众数比较和解读真实数据（运动数据、班级调查、价格）",
+      "primary": "BC.MATH.G8.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CENTRAL.COMPARE",
+        "YY.MATH.DATA.MEAN.MISSING_VALUE"
+      ],
+      "misc": [
+        "central.mean_always_best",
+        "graph.partial_compare"
+      ],
+      "hints": "dataTable、statBar"
+    },
+    {
+      "id": "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+      "topic": "two-independent-events",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "spinner"
+      ],
+      "en": "List the sample space of two independent events with a tree diagram or table (coin + die = 12 outcomes)",
+      "zh": "用树状图或表格列出两个独立事件的样本空间（硬币 + 骰子 = 12 种结果）",
+      "primary": "BC.MATH.G8.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.TWO_EVENTS.OUTCOMES"
+      ],
+      "misc": [
+        "prob.two_events_add_outcomes",
+        "prob.outcomes_lumped"
+      ],
+      "hints": "dataTable、spinner"
+    },
+    {
+      "id": "YY.MATH.PROB.INDEP.CONCEPT",
+      "topic": "two-independent-events",
+      "type": "concept",
+      "rep": [
+        "context",
+        "balls"
+      ],
+      "en": "Recognize independent events: one outcome does not change the other (drawing with vs. without replacement)",
+      "zh": "认识独立事件：一个结果不影响另一个（放回摸球与不放回摸球）",
+      "primary": "BC.MATH.G8.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.THEORETICAL"
+      ],
+      "misc": [
+        "prob.independent_means_equal",
+        "prob.past_results_change_outcomes"
+      ],
+      "hints": "balls"
+    },
+    {
+      "id": "YY.MATH.PROB.INDEP.MULTIPLY",
+      "topic": "two-independent-events",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Find the probability that two independent events both happen by multiplying (P(5 and heads) = 1/6 × 1/2 = 1/12)",
+      "zh": "用乘法求两个独立事件同时发生的可能性（P(掷出 5 且正面) = 1/6 × 1/2 = 1/12）",
+      "primary": "BC.MATH.G8.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.INDEP.SAMPLE_SPACE",
+        "YY.MATH.PROB.INDEP.CONCEPT",
+        "YY.MATH.FRAC.MULT"
+      ],
+      "misc": [
+        "prob.two_events_add_probabilities",
+        "prob.two_events_add_outcomes"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PROB.INDEP.COMPARE_FAIR",
+      "topic": "two-independent-events",
+      "type": "reason",
+      "rep": [
+        "spinner",
+        "dataTable"
+      ],
+      "en": "Decide whether a game or spinner is fair by comparing each player's theoretical probability of winning",
+      "zh": "比较每个玩家获胜的理论可能性，判断游戏或转盘是否公平",
+      "primary": "BC.MATH.G8.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.INDEP.MULTIPLY",
+        "YY.MATH.PROB.TWO_EVENTS.COMPARE"
+      ],
+      "misc": [
+        "prob.fair_means_equal_sectors",
+        "prob.equal_outcomes_assumed"
+      ],
+      "hints": "spinner"
+    },
+    {
+      "id": "YY.MATH.PROB.INDEP.APPLY",
+      "topic": "two-independent-events",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Solve probability problems with two independent events in context (weather and the bus, passcodes, games)",
+      "zh": "两个独立事件的应用题（天气和公交、密码、游戏）",
+      "primary": "BC.MATH.G8.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.INDEP.COMPARE_FAIR"
+      ],
+      "misc": [
+        "prob.two_events_add_probabilities",
+        "prob.part_to_part"
+      ],
+      "hints": "dataTable"
+    }
+  ]
+}

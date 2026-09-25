@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkpp1cun70u7e",
+   "level": 1,
+   "question": "The equation 5x + 3 = −7 has the coefficient 5 in front of x, the constant +3 added on the left side, and the number −7 alone on the right side. Rowan wants to verify x = −2. Which line shows the check done correctly?",
+   "options": [
+    "5(−2) + 3 = −10 + 3 = −7, so x = −2 is a solution",
+    "5(−2) = −10, and −10 is not −7, so it is not a solution",
+    "5(−2) + 3 = 10 + 3 = 13, so x = −2 is not a solution",
+    "5(−2) + 3 = −8, close to −7, so x = −2 is a solution"
+   ],
+   "answerIndex": 0,
+   "explain": "To verify, substitute the value in brackets, multiply, and then use the constant: 5(−2) + 3 = −10 + 3 = −7. The usual trap is stopping at −10 and comparing before the +3 is added.",
+   "tags": [
+    "ok",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cu0buphm",
+   "level": 1,
+   "question": "Maya builds the equation −4x + 7 = 19 with algebra tiles: on the left she places 4 negative x-tiles and 7 positive unit tiles, and on the right she places 19 positive unit tiles. She wants to verify x = −3. Which line shows the check done correctly?",
+   "options": [
+    "−4(−3) = 12, and 12 is not 19, so x = −3 is not a solution",
+    "−4(−3) + 7 = 12 + 7 = 19, so x = −3 is a solution",
+    "−4(−3) = −12, so −12 + 7 = −5 and x = −3 is not a solution",
+    "−4(−3) + 7 = 18, one off 19, so x = −3 is a solution"
+   ],
+   "answerIndex": 1,
+   "explain": "Each of the 4 negative x-tiles is worth +3 when x = −3, giving 12, and the 7 unit tiles bring the left side to exactly 19. A near miss such as 18 is still a fail, because verifying needs both sides to match exactly.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuvr2rx9",
+   "level": 1,
+   "question": "In the equation 3x − 8 = −20, the coefficient is 3, the constant on the left side is −8, and the right side is the single number −20. Priya wants to verify x = −4. Which line shows the check done correctly?",
+   "options": [
+    "3(−4) = −12, which is not −20, so the check fails",
+    "3 − 4 − 8 = −9, not −20, so the check fails",
+    "3(−4) − 8 = −12 − 8 = −20, so the check works",
+    "3(−4) − 8 = −19, about −20, so the check works"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute with brackets and carry on through the constant: 3(−4) − 8 = −12 − 8 = −20. Writing 3 − 4 instead of 3(−4) turns the multiplication into a subtraction and gives −9 by mistake.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cueg21hh",
+   "level": 1,
+   "question": "The equation −2x + 5 = 11 has the coefficient −2, the constant +5 on the left side, and 11 on the right side. To verify a value you replace x, finish the whole left side, and see whether it equals the right side exactly. For x = −3, which line verifies it?",
+   "options": [
+    "−2(−3) = 6, and 6 is not 11, so the sides do not match",
+    "−2 − 3 + 5 = 0, and 0 is not 11, so the sides do not match",
+    "−2(−3) + 5 = 10, which is 1 from 11, so the sides match",
+    "−2(−3) + 5 = 6 + 5 = 11, so the sides match exactly"
+   ],
+   "answerIndex": 3,
+   "explain": "Replace x with (−3): −2(−3) = 6, then add the constant 5 to reach 11, the same as the right side. A left side of 10 is one away, and one away still means the value is not a solution.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cu03sq99",
+   "level": 2,
+   "question": "Check whether x = −2 is a solution of −5x + 4 = 15. Which line shows the verification carried out correctly?",
+   "options": [
+    "−5(−2) + 4 = 10 + 4 = 14, so 14 ≠ 15 and it fails",
+    "−5(−2) = 10, and 10 is not 15, so the check fails",
+    "−5(−2) + 4 = 14, which is very close to 15, so it passes",
+    "−5(−2) + 4 = −10 + 4 = −6, so the check must fail"
+   ],
+   "answerIndex": 0,
+   "explain": "Substituting gives 10 + 4 = 14 on the left while the right side is 15, so x = −2 is not a solution — being one away is still a fail. Also keep the +4: comparing 10 with 15 skips the constant.",
+   "tags": [
+    "ok",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuggl1m2",
+   "level": 2,
+   "question": "Ben wants to know whether x = −2 is a solution of 7x + 9 = −5, without solving the equation all over again. Which plan is the right way to verify it?",
+   "options": [
+    "Replace x with −2 and work out 7 − 2 + 9, then compare with −5",
+    "Replace x with (−2), work out 7(−2) + 9, and compare with −5",
+    "Work out 7 × (−2) first and compare that answer with −5",
+    "Replace x with (−2) and accept it if the sides are fairly close"
+   ],
+   "answerIndex": 1,
+   "explain": "Verifying means substituting the value in brackets, finishing the whole left side (coefficient first, then constant), and checking it equals the right side exactly. Writing 7 − 2 instead of 7(−2) turns the multiplication into a subtraction.",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuvsd92n",
+   "level": 2,
+   "question": "Kaya is verifying x = −4 in the equation −3x − 5 = 7. So far she has written −3(−4) = 12. What is the correct next step, and what does it show?",
+   "options": [
+    "Compare 12 with 7 right now; they differ, so it is not a solution",
+    "Rewrite −3(−4) as −12, then −12 − 5 = −17, so it is not a solution",
+    "Subtract the 5: 12 − 5 = 7, which matches, so it is a solution",
+    "Drop the −5 so both sides read 12, then call it a solution"
+   ],
+   "answerIndex": 2,
+   "explain": "After the multiplying you still have to use the constant: 12 − 5 = 7 matches the right side, so x = −4 is a solution. Comparing 12 with 7 before subtracting the 5 is the most common slip.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuoc1gku",
+   "level": 2,
+   "question": "A hiking group near Squamish starts 20 m above the trailhead and descends 7 m each minute, so their height after m minutes is −7m + 20. They reach −8 m, which is 8 m below the trailhead, and Ravi says that takes m = 4 minutes. Which check is correct?",
+   "options": [
+    "−7(4) = −28, and −28 is not −8, so Ravi is wrong",
+    "7(4) + 20 = 48, and 48 is not −8, so Ravi is wrong",
+    "−7(4) + 20 = −9, close to −8, so Ravi is right",
+    "−7(4) + 20 = −28 + 20 = −8, so Ravi is right"
+   ],
+   "answerIndex": 3,
+   "explain": "Substitute 4 for m and finish the left side: −28 + 20 = −8, which matches, so 4 minutes is right. Dropping the negative on the coefficient (using 7 × 4) or stopping at −28 both break the check.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cusbqah1",
+   "level": 3,
+   "question": "Amir and Bea each give a value for the equation −5x + 3 = 23. Amir says x = −4 and Bea says x = 4. After substituting both values, which statement is correct?",
+   "options": [
+    "Only Amir is right: −5(−4) + 3 = 20 + 3 = 23 exactly",
+    "Only Bea is right, since Amir's value gives −17, not 23",
+    "Neither works: −5(−4) = 20 and −5(4) = −20, so both fail",
+    "Both work: change −5 to +5 and Bea's value gives 23"
+   ],
+   "answerIndex": 0,
+   "explain": "With brackets, −5(−4) = 20 and 20 + 3 = 23, so only x = −4 checks out; Bea's value gives −20 + 3 = −17. You may never rewrite the equation, such as changing −5 to +5, to make a check pass.",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuil4nuz",
+   "level": 3,
+   "question": "In a Prince George science lab a freezer cools by the same integer amount c each hour. It starts at 15 °C and after 6 hours it reads −9 °C, so 6c + 15 = −9. Mia says c = −4. Which check is complete, and what does it mean?",
+   "options": [
+    "6(−4) = −24, and −24 is not −9, so c = −4 is the wrong rate",
+    "6(−4) + 15 = −24 + 15 = −9, so it cools 4 °C an hour",
+    "6 − 4 + 15 = 17, and 17 is not −9, so c = −4 is wrong",
+    "6(−4) + 15 = −8, nearly −9, so it cools about 4 °C an hour"
+   ],
+   "answerIndex": 1,
+   "explain": "Substitute −4 for c in brackets: 6(−4) = −24, then −24 + 15 = −9, matching the reading, so the freezer drops 4 °C every hour. A left side of −8 is a near miss, and a near miss is not a solution.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cuvpoqrs",
+   "level": 3,
+   "question": "Owen checks whether x = −6 is a solution of −2x − 5 = 7. He writes −2 − 6 − 5 = −13, then says x = −6 is not a solution. What went wrong?",
+   "options": [
+    "He compared too early, because the −5 belongs after the comparing",
+    "He said −2(−6) = −12, because two negatives make a negative",
+    "He lost the brackets: −2(−6) = 12, so the left side is really 7",
+    "Nothing is wrong, because a check only needs to be roughly equal"
+   ],
+   "answerIndex": 2,
+   "explain": "Substituting a negative needs brackets: −2(−6) = 12, and 12 − 5 = 7, so x = −6 really is a solution. Writing −2 − 6 turns the multiplication into a subtraction and throws the check off.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpp1cum1okqr",
+   "level": 3,
+   "question": "A drone submarine off Tofino starts 12 m below the surface, at −12 m, and sinks by the same amount r each minute. After 4 minutes it is at −52 m, so 4r − 12 = −52. Toby says r = −10. Which check and conclusion are right?",
+   "options": [
+    "4(−10) = −40, and −40 is not −52, so Toby must be wrong",
+    "4(−10) − 12 = −51, which is nearly −52, so Toby is right",
+    "4 − 10 − 12 = −18, which is not −52, so Toby must be wrong",
+    "4(−10) − 12 = −52 exactly, so it sinks 10 m a minute"
+   ],
+   "answerIndex": 3,
+   "explain": "Put −10 in with brackets: 4(−10) = −40, then −40 − 12 = −52, matching the depth, so the drone sinks 10 m each minute. Stopping at −40 or accepting −51 both mean the check was never finished exactly.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

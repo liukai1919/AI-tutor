@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.DESCRIBE",
+ "lang": "en",
+ "title": "Describe a combination of successive transformations precisely",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two Moves in a Row — Say It Precisely",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to slide, flip and turn a shape on a grid, and how to name the one move that took a shape to its image. Today we do just one small new thing: when a shape makes two moves in a row, how do we describe it so precisely that nobody could get it wrong?",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "A precise description needs three things. One, the order, so you actually say first and then. Two, the type of each move, slide, flip or turn. And three, the exact details, how far and which way for a slide, or which mirror line for a flip. Think of it like giving a friend directions to your place in Burnaby. First walk two blocks north, then turn right. Saying just walk and turn is not enough.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      3
+     ],
+     "labels": [
+      "A"
+     ],
+     "caption": "Our starting point A sits at 2 comma 3"
+    }
+   },
+   {
+    "say": "Let us do it with real numbers. Point A is at two comma three. First move, translate four units right and two units down. Two plus four is six, and three minus two is one, so A lands at six comma one. Call that B. Second move, reflect in the x axis. That keeps the x the same and flips the sign of the y, so six comma one becomes six comma negative one. Call that C. Now here is the precise description: first a translation of four right and two down, then a reflection in the x axis.",
+    "math": "(2,3)\\rightarrow(6,1)\\rightarrow(6,-1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      3,
+      6,
+      1,
+      6,
+      -1
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "A slides to B, then B flips over the x-axis to C"
+    }
+   },
+   {
+    "say": "Now the mistake almost everybody makes: swapping the order and thinking it does not matter. Watch. If we flip first, two comma three reflects in the x axis to two comma negative three. Then we slide four right and two down: two plus four is six, and negative three minus two is negative five. That gives six comma negative five. But our real answer was six comma negative one. Same two moves, different order, and the shape ends four units apart. So the order is part of the description, not a detail you can skip.",
+    "math": "(2,3)\\rightarrow(2,-3)\\rightarrow(6,-5)\\neq(6,-1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      6,
+      -1,
+      6,
+      -5
+     ],
+     "labels": [
+      "C",
+      "wrong"
+     ],
+     "caption": "Slide-then-flip gives C, but flip-then-slide misses by 4 units"
+    }
+   },
+   {
+    "say": "So whenever you describe two transformations, say them like a recipe: first this exact move, then that exact move. Order, type, details, every time.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Describe a combination like a recipe: first this move, then that one — order, type, and exact details, every time.",
+  "practice": {
+   "question": "On a grid map of a park in Kelowna, a picnic table is marked at the point negative three comma four. Draw your own grid. First translate it five units right and three units down, then reflect it in the y axis. Where does the table end up? Then check: if you reflected in the y axis first and slid afterwards, would you land in the same spot?",
+   "answer": "Negative three plus five is two, and four minus three is one, so after the slide it is at two comma one. Reflecting in the y axis flips the sign of x, so the final point is negative two comma one. In the other order: negative three comma four reflects to three comma four, then sliding gives eight comma one — a completely different spot, which shows the order really matters."
+  }
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.LINE.CREATE",
+ "lang": "en",
+ "title": "Draw a line graph from a table of values with a suitable scale",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Making a Line Graph from a Table",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a line graph and find points on a grid. Today we do the other direction: we start with a table of numbers and draw the line graph ourselves. The tricky part is choosing how much each square on the grid is worth, and that is exactly what we will practise.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": "From a table to a line graph"
+    }
+   },
+   {
+    "say": "Here is our table. Our class ran a bottle drive in Burnaby, and each day we counted the bottles we collected. Monday twenty, Tuesday thirty five, Wednesday forty five, Thursday sixty, Friday eighty. Each column is one day, and the number under it is that day's count.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      35,
+      45,
+      60,
+      80
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Bottles collected each day"
+    }
+   },
+   {
+    "say": "Now the important step: picking the scale. Look for the biggest number in the table, which is eighty on Friday. Our grid paper is only ten squares tall, so one square cannot mean one bottle, because we would need eighty squares. Instead let one square mean ten bottles. Eighty divided by ten is eight squares, and that fits nicely with room to spare.",
+    "math": "80\\div 10=8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      20,
+      35,
+      45,
+      60,
+      80
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Biggest value is 80, so 1 square = 10 bottles"
+    }
+   },
+   {
+    "say": "Now we plot. Monday is twenty, so go up two squares because two times ten is twenty. Tuesday is thirty five, so go up three and a half squares. Wednesday forty five is four and a half squares, Thursday sixty is six squares, and Friday eighty is eight squares. Put a dot for each day, then join the dots with straight lines from left to right. That line shows our bottle drive growing all week.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      20,
+      35,
+      45,
+      60,
+      80
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Dots plotted with 1 square = 10, then joined"
+    }
+   },
+   {
+    "say": "Here is the mistake to watch for. Some kids count the squares up to Thursday, get six squares, and write down six bottles. But each square is worth ten, not one! So Thursday is six times ten, which is sixty bottles. Always check the numbers written along the side of the graph before you read a point. Counting squares tells you how many jumps; the scale tells you how big each jump is.",
+    "math": "6\\times 10=60",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      20,
+      35,
+      45,
+      60,
+      80
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Thursday: 6 squares up means 6 times 10 = 60, not 6"
+    }
+   },
+   {
+    "say": "So remember: biggest number first, then choose a scale that fits your grid, then plot your dots and join them. That is a line graph made by you.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": "Biggest number, scale, plot, join"
+    }
+   }
+  ],
+  "answer": "Find the biggest number, pick a scale that fits your grid, then plot the dots and join them — and remember each square is worth the scale, not one.",
+  "practice": {
+   "question": "A family in Victoria measured the rain each day in millimetres: Monday fifteen, Tuesday thirty, Wednesday twenty five, Thursday forty five. Their grid paper is ten squares tall. What should one square be worth, and how many squares up does Thursday's dot go? Try drawing the line graph yourself.",
+   "answer": "The biggest number is forty five, so let one square be worth five millimetres — ten squares times five is fifty, which is just enough. Thursday is forty five divided by five, which is nine squares up. (Monday is three squares, Tuesday six squares, Wednesday five squares.)"
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.3D.VIEWS.BUILD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkqjwrn4x1mfi",
+   "level": 1,
+   "question": "A cube build sits on a table. Its top view is a grid of 6 equal squares (2 rows of 3), and 4 of those squares are shaded; a shaded square means a stack of cubes stands there. Every stack is exactly 1 cube tall. The front view is a row of 3 squares, all shaded, and the side view is a row of 2 squares, both shaded. What is the fewest number of cubes?",
+   "options": [
+    "4 cubes — one for each shaded square on the top view",
+    "9 cubes — add the shaded squares: 4 + 3 + 2 = 9",
+    "6 cubes — one for every square in the whole top grid",
+    "3 cubes — only 3 of them can be seen from the front"
+   ],
+   "answerIndex": 0,
+   "explain": "Every stack is 1 cube tall, so the cube count equals the number of shaded top-view squares, which is 4. The trap is adding the three views (4 + 3 + 2 = 9) — the views show the same cubes from three different sides.",
+   "tags": [
+    "ok",
+    "views.count_from_views_add",
+    "other",
+    "vol.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrn3lg8nr",
+   "level": 1,
+   "question": "An object built from cubes is only 1 cube deep (one row from front to back). Its front view is a grid of 9 equal squares (3 rows of 3); the shaded squares form columns 3, 1 and 2 cubes tall from left to right, so 6 squares are shaded. Its top view is a row of 3 shaded squares, and its side view is a column of 3 shaded squares. What is the fewest number of cubes?",
+   "options": [
+    "12 cubes — add the views: 6 + 3 + 3 shaded squares",
+    "6 cubes — one per shaded square, as it is 1 cube deep",
+    "9 cubes — one cube for every square of the front grid",
+    "3 cubes — that is what the side view shows, 3 squares"
+   ],
+   "answerIndex": 1,
+   "explain": "Because the object is only 1 cube deep, each shaded square of the front view is exactly one cube: 3 + 1 + 2 = 6. Do not count the unshaded squares of the grid, and do not read the side view instead of the front view — the side view only shows the height.",
+   "tags": [
+    "views.count_from_views_add",
+    "ok",
+    "other",
+    "views.front_side_swap"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnsusn89",
+   "level": 1,
+   "question": "Kai glues cubes into a solid block with no gaps inside. Each of the three views — top, front and side — is a grid of 4 equal squares (2 rows of 2) with all 4 squares shaded. How many cubes are in the block?",
+   "options": [
+    "12 cubes — add the shaded squares: 4 + 4 + 4 = 12",
+    "7 cubes — that is how many cubes you can actually see",
+    "8 cubes — 2 by 2 in each of the two layers, 4 + 4",
+    "4 cubes — one cube for each square of the front view"
+   ],
+   "answerIndex": 2,
+   "explain": "The block is 2 wide, 2 deep and 2 tall, so it is two layers of 4 cubes: 8. The classic trap is answering 7 because one cube stays hidden at the back — hidden cubes still count.",
+   "tags": [
+    "views.count_from_views_add",
+    "vol.count_visible_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnhn0icm",
+   "level": 1,
+   "question": "An object is built from cubes in a single row: it is 3 cubes wide from left to right, only 1 cube deep, and the stacks are 2, 1 and 1 cubes tall from left to right. Its front view is a grid of 6 squares (3 wide, 2 tall) with 4 shaded, and its top view is a row of 3 shaded squares. How many squares are shaded in the side view?",
+   "options": [
+    "4 squares — that is what you see looking from the front",
+    "9 squares — 4 + 3 + 2 shaded squares in the three views",
+    "3 squares — the object is 3 cubes wide from the side",
+    "2 squares — the side view is 1 wide and 2 cubes tall"
+   ],
+   "answerIndex": 3,
+   "explain": "Looking from the right you see the depth (1 square wide) and the height (2 squares), so 2 squares are shaded. The usual slip is drawing the front view (3 wide) in the side view's place.",
+   "tags": [
+    "views.front_side_swap",
+    "views.count_from_views_add",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrn7ez3jr",
+   "level": 2,
+   "question": "At a Kelowna makerspace, Priya builds a shape from identical cubes. From the front she sees 3 columns of heights 3, 2 and 1 (6 shaded squares). From the right side she sees 2 columns: the front one 2 cubes tall and the back one 3 cubes tall (5 shaded squares). What is the fewest number of cubes that gives both views?",
+   "options": [
+    "6 cubes — one stack of 3, one of 2 and one of 1",
+    "11 cubes — 6 front squares plus 5 side squares",
+    "5 cubes — the side view shows 3 + 2, that is 5",
+    "9 cubes — every floor square needs a cube first"
+   ],
+   "answerIndex": 0,
+   "explain": "Place the 3-stack in the back row and the 2-stack in the front row, so the side view's 3 and 2 come from stacks already counted: 3 + 2 + 1 = 6. Adding the squares of the two views (6 + 5) counts the same cubes twice.",
+   "tags": [
+    "ok",
+    "views.count_from_views_add",
+    "views.front_side_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnizhi16",
+   "level": 2,
+   "question": "Marcus is given the top, front and side views of a cube building and must use as few cubes as possible. Which plan finds the fewest number of cubes?",
+   "options": [
+    "Add up the shaded squares in all three views to get the number of cubes",
+    "Start every square at 1 cube, then raise only the stacks the views demand",
+    "Count only the cubes that would be visible from outside the finished build",
+    "Use the front view for the depth and the side view for the width of the build"
+   ],
+   "answerIndex": 1,
+   "explain": "Fewest cubes means giving every shaded top-view square just 1 cube, then raising only the stacks a view's height forces you to raise. Adding the squares of the three views counts the same cube up to three times.",
+   "tags": [
+    "views.count_from_views_add",
+    "ok",
+    "vol.count_visible_only",
+    "views.front_side_swap"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnd8a66j",
+   "level": 2,
+   "question": "Emily builds a stage set from cubes for a school play. Her build is 4 cubes wide from left to right, 2 cubes deep from front to back, and the tallest stack is 3 cubes. Which grid could be its side view?",
+   "options": [
+    "A grid 4 squares wide and 3 tall, shaded to the full height",
+    "A grid 4 squares wide and 2 tall, matching width and depth",
+    "A grid 2 squares wide and 3 tall, depth across the bottom",
+    "A grid of 9 squares in all, from the 4 + 2 + 3 of the build"
+   ],
+   "answerIndex": 2,
+   "explain": "The side view looks along the width, so its grid is as wide as the depth (2) and as tall as the height (3). Drawing the front view (4 wide) or the top view (4 by 2) instead is the common mix-up.",
+   "tags": [
+    "views.front_side_swap",
+    "other",
+    "ok",
+    "views.count_from_views_add"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnixehas",
+   "level": 2,
+   "question": "A cube object has a top view with 5 shaded squares, a front view with 4 shaded squares and a side view with 3 shaded squares. Which statement about the number of cubes is true?",
+   "options": [
+    "It is 12, the shaded squares of the three views added up",
+    "It is 3, only the cubes showing in the side view are counted",
+    "It is exactly 4, since the front view already shows every cube",
+    "It is at least 5, as every shaded top square holds a cube"
+   ],
+   "answerIndex": 3,
+   "explain": "Each shaded square of the top view has at least one cube under it, so the build uses 5 cubes or more. Adding 5 + 4 + 3 counts the same cubes from three directions, so it can never be the total.",
+   "tags": [
+    "views.count_from_views_add",
+    "vol.count_visible_only",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrn3tg5gr",
+   "level": 3,
+   "question": "A cube sculpture in a Burnaby community garden stands on a 2 by 2 grid of squares, and all 4 squares are shaded in the top view, so every square carries at least one cube. From the front you see 2 columns, 3 cubes tall on the left and 2 cubes tall on the right. From the right side you see 2 columns, 2 cubes tall at the front and 3 cubes tall at the back. What is the fewest number of cubes?",
+   "options": [
+    "7 cubes — the 2-stack sits in the front row, short column",
+    "8 cubes — the 2-stack sits behind the 3-stack, in one column",
+    "14 cubes — add the shaded squares 4 + 5 + 5 from the views",
+    "5 cubes — count only the cubes the front view lets you see"
+   ],
+   "answerIndex": 0,
+   "explain": "Put the 3-stack in the back of the left column, then put the 2-stack in the front row of the right column so one stack covers the front view's 2 and the side view's 2 at once: 3 + 2 + 1 + 1 = 7. Putting the 2-stack in the wrong square forces an extra cube and gives 8.",
+   "tags": [
+    "ok",
+    "other",
+    "views.count_from_views_add",
+    "vol.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnwl85fm",
+   "level": 3,
+   "question": "Aisha studies a cube build in which every stack is exactly 1 cube tall. Its top view has 3 shaded squares, its front view has 3 shaded squares, and its side view has 2 shaded squares. She says the build uses 3 + 3 + 2 = 8 cubes. What is wrong with her thinking?",
+   "options": [
+    "Nothing is wrong, adding the views gives the total, so 8 is right",
+    "Views show the same cubes from 3 sides, so adding double-counts: 3",
+    "She used the front view where the side view belongs, so it is 7",
+    "She counted hidden cubes too; only the visible ones count, so it is 5"
+   ],
+   "answerIndex": 1,
+   "explain": "The three views are three pictures of the same cubes, so adding them counts each cube more than once; with every stack 1 cube tall, the 3 shaded top squares mean 3 cubes. Writing 3 + 3 + 2 = 8 is the classic trap here.",
+   "tags": [
+    "views.count_from_views_add",
+    "ok",
+    "views.front_side_swap",
+    "vol.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrnypekp5",
+   "level": 3,
+   "question": "For a Nanaimo science fair, Owen models a building with cubes. The top view is a 2 by 2 grid with 3 squares shaded — the front-right square is empty. The front view has 2 columns, 2 cubes tall on the left and 1 cube tall on the right. The side view has 2 columns, 2 cubes tall at the back and 1 cube tall at the front. What is the fewest number of cubes?",
+   "options": [
+    "9 cubes — add the shaded squares 3 + 3 + 3 from the views",
+    "6 cubes — make every shaded top square 2 cubes tall to be safe",
+    "4 cubes — three stacks of 1, with the back-left raised to 2",
+    "3 cubes — only the 3 cubes you can see from above are counted"
+   ],
+   "answerIndex": 2,
+   "explain": "The 3 shaded top squares need 3 cubes, and the height of 2 in the back-left corner adds just 1 more, giving 4. Adding 3 + 3 + 3 counts the same small set of cubes three times.",
+   "tags": [
+    "views.count_from_views_add",
+    "other",
+    "ok",
+    "vol.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqjwrna03h8b",
+   "level": 3,
+   "question": "Nadia and Owen count the fewest cubes for the same build. The front view has 3 columns of heights 2, 1 and 1 (4 shaded squares). The side view has 2 columns, 2 cubes tall at the back and 1 cube tall at the front (3 shaded squares). Nadia answers 4 cubes; Owen answers 5 cubes. Who is right?",
+   "options": [
+    "Owen, because the tall stack needs a cube behind it, making 5",
+    "Neither, adding the view squares gives 4 + 3 = 7 cubes",
+    "Owen, because the side view is 3 wide, so a third row is needed",
+    "Nadia, one stack of 2 and two of 1 satisfy every view: 4"
+   ],
+   "answerIndex": 3,
+   "explain": "Put the 2-stack in the back row, then a 1-stack in the front row and one more 1-stack, and both views are matched with 4 cubes. The side view's 2 columns tell you the depth, not an extra row of the front view.",
+   "tags": [
+    "other",
+    "views.count_from_views_add",
+    "views.front_side_swap",
+    "ok"
+   ]
+  }
+ ]
+}

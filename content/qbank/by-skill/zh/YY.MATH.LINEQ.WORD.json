@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LINEQ.WORD",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlz5std1sa8gj",
+   "level": 1,
+   "question": "在温哥华租自行车，先付固定费 $12，之后每小时 $4。小明还车时一共付了 $44。设他租了 h 小时，列出方程（equation）并求解：他租了几小时？",
+   "options": [
+    "8 小时",
+    "11 小时",
+    "32 小时",
+    "28 小时"
+   ],
+   "answerIndex": 0,
+   "explain": "列方程 12 + 4h = 44，两边先减去固定的 12 得 4h = 32，再除以 4 得 h = 8。最容易踩的坑：算到 32 就停下当答案，或者把固定的 $12 漏掉直接 44 ÷ 4。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdtpkcnq",
+   "level": 1,
+   "question": "两个连续整数（consecutive integers）的和是 37。设较小的那个是 n，列方程并求解：较小的整数是多少？",
+   "options": [
+    "18.5",
+    "18",
+    "36",
+    "34"
+   ],
+   "answerIndex": 1,
+   "explain": "较大的数是 n + 1，方程是 n + (n + 1) = 37，合并同类项（like terms）得 2n + 1 = 37，所以 2n = 36，n = 18。坑：漏掉 +1 写成 2n = 37 会得到小数；算到 2n = 36 就停也不对。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdwy6q4h",
+   "level": 1,
+   "question": "一个长方形相框，宽是 w cm，长比宽多 4 cm，周长（perimeter）是 40 cm。列方程并求解：宽 w 是多少？",
+   "options": [
+    "32 cm",
+    "10 cm",
+    "8 cm",
+    "28 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "长是 w + 4，周长方程 2w + 2(w + 4) = 40，用分配律（distributive property）得 4w + 8 = 40，4w = 32，w = 8。坑：忘了 2(w + 4) 里的 4 也要乘 2，或者算到 32 就停。",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5stde57zm8",
+   "level": 1,
+   "question": "手机套餐 A 每月 $40，流量不限；套餐 B 每月固定 $10，另外每 GB 流量 $5。设用 g GB 时两个套餐一样贵，列方程并求解：g 是多少？",
+   "options": [
+    "8 GB",
+    "25 GB",
+    "30 GB",
+    "6 GB"
+   ],
+   "answerIndex": 3,
+   "explain": "一样贵就是两边相等：10 + 5g = 40，先减 10 得 5g = 30，再除以 5 得 g = 6。坑：把固定的 $10 漏掉直接算 40 ÷ 5，或者把 5g 当成 5 + g。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdwhs9sh",
+   "level": 2,
+   "question": "一个等腰三角形的两条腰各长 (2x − 1) cm，底边长 x cm，周长（perimeter）是 33 cm。下面哪个方程正确表示这个情境？",
+   "options": [
+    "2(2x − 1) + x = 33",
+    "(2x − 1) + x = 33",
+    "2(2x) − 1 + x = 33",
+    "2 + 2x − 1 + x = 33"
+   ],
+   "answerIndex": 0,
+   "explain": "两条腰要各算一次：2(2x − 1) + x = 33，分配律要把 −1 也乘 2，得 4x − 2 + x = 33，5x = 35，x = 7。坑：只乘 2x 不乘 −1，或者只加了一条腰就停。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdf9h724",
+   "level": 2,
+   "question": "两个连续整数（consecutive integers），较大数的 4 倍减去较小数的 2 倍等于 24。设较小数为 n，列方程并求解：较大的整数是多少？",
+   "options": [
+    "10",
+    "11",
+    "13",
+    "19"
+   ],
+   "answerIndex": 1,
+   "explain": "较大数是 n + 1，方程 4(n + 1) − 2n = 24，分配律得 4n + 4 − 2n = 24，2n = 20，n = 10，题目问的是较大数，所以是 11。坑：解出 n = 10 就停；或者漏掉 4 × 1 = 4 写成 2n = 24。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5std89riug",
+   "level": 2,
+   "question": "一块长方形菜地，宽是 x m，长是 (2x + 3) m，周长（perimeter）是 42 m。列方程并求解：这块菜地的长是多少？",
+   "options": [
+    "6 m",
+    "17 m",
+    "15 m",
+    "13 m"
+   ],
+   "answerIndex": 2,
+   "explain": "周长方程 2x + 2(2x + 3) = 42，展开得 6x + 6 = 42，x = 6，长是 2 × 6 + 3 = 15 m。坑：解出 x = 6 就停（题问的是长）；把 2x + 3 当成 2 + x + 3 会算错系数（coefficient）。",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "eq.coeff_as_addend"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdwmmycl",
+   "level": 2,
+   "question": "小明的存钱罐里有 $50，以后每周存 $8；妹妹的存钱罐里有 $20，以后每周存 $13。设 w 周后两人的钱一样多，列方程并求解 w。",
+   "options": [
+    "14 周后",
+    "永远不会",
+    "30 周后",
+    "6 周后"
+   ],
+   "answerIndex": 3,
+   "explain": "两边相等：50 + 8w = 20 + 13w，把 8w 移过去、20 移过来得 30 = 5w，w = 6，验算两人都是 $98。坑：起始金额 50 和 20 应该相减得 30，加成 70 就错了；算到 30 就停也不对。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz5std39or6j",
+   "level": 3,
+   "question": "套餐 A 每月 $35，已含 4 GB 流量，超出部分每 GB $8；套餐 B 每月 $15，不含流量，每 GB $6。设一个月用 g GB（g 大于 4），用多少 GB 时两个套餐一样贵？",
+   "options": [
+    "6 GB",
+    "12 GB",
+    "不会一样贵",
+    "2 GB"
+   ],
+   "answerIndex": 0,
+   "explain": "A 的超出部分是 (g − 4) GB，方程 35 + 8(g − 4) = 15 + 6g，展开得 8g + 3 = 6g + 15，2g = 12，g = 6，验算两边都是 $51。坑：忘了 A 已含 4 GB；或者解出超出量 2 GB 就停，没加回包含的 4 GB。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdcgthze",
+   "level": 3,
+   "question": "小明连续五天记录日期，这五个日期都在同一个月内，加起来等于 85。设第一天是 n 号，列方程并求解：最后一天是几号？",
+   "options": [
+    "15 号",
+    "19 号",
+    "21 号",
+    "17 号"
+   ],
+   "answerIndex": 1,
+   "explain": "五天是 n、n+1、n+2、n+3、n+4，方程 5n + 10 = 85，5n = 75，n = 15，最后一天是 15 + 4 = 19 号。坑：解出 n = 15 就停，题问的是最后一天；漏掉 +10 会得到 n = 17。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdlomx8u",
+   "level": 3,
+   "question": "题目：套餐 A 月费 $20、每 GB $4；套餐 B 月费 $50、每 GB $1，用多少 GB 时一样贵？小明这样解：20 + 4g = 50 + g，所以 4g − g = 50 + 20，得 3g = 70。他错在哪一步？",
+   "options": [
+    "他没错，3g = 70 就是最终答案不用再算",
+    "4g 应写成 4 + g，因为 4 和 g 是相加的",
+    "移项时 20 应变成 −20，正确是 3g = 30",
+    "月费也要乘 g，应列 20g + 4g = 50g + g"
+   ],
+   "answerIndex": 2,
+   "explain": "方程 20 + 4g = 50 + g 列得对，但把 20 移到右边要变号：4g − g = 50 − 20，3g = 30，g = 10。验算（verify）：A 是 20 + 40 = 60，B 是 50 + 10 = 60。坑：固定月费移项时忘了变号。",
+   "tags": [
+    "word.stop_early",
+    "eq.coeff_as_addend",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlz5stdrjvinj",
+   "level": 3,
+   "question": "学校里一块三角形花坛，三条边长分别是 (x + 1) m、(x + 2) m 和 (2x + 1) m，周长（perimeter）是 36 m。列方程求出 x，再判断：最长的一条边是多少米？",
+   "options": [
+    "8 m",
+    "19 m",
+    "13 m",
+    "17 m"
+   ],
+   "answerIndex": 3,
+   "explain": "三边相加：(x + 1) + (x + 2) + (2x + 1) = 36，合并同类项得 4x + 4 = 36，x = 8，三边是 9、10、17，最长 17 m。坑：解出 x = 8 就停；漏掉 +4 得 x = 9；把 2x + 1 当成 2 + x + 1 会算错最长边。",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "eq.coeff_as_addend",
+    "ok"
+   ]
+  }
+ ]
+}

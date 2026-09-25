@@ -1,0 +1,137 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.POL.02",
+ "lang": "en",
+ "title": "rational functions",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Rational Functions: The Curve That Approaches a Wall",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Hey, so picture this. You've got a phone plan that costs forty dollars a month plus five dollars for every gigabyte you go over ten gigs. If you use ten gigs plus some extra, say x extra gigs, your total bill is forty plus five x, and your total data is ten plus x gigs. Now what's your average cost per gig? It's forty plus five x, all divided by ten plus x. See that? One polynomial on top, one on the bottom. That's a rational function, and as you add more and more extra gigs, that average cost creeps closer and closer to five dollars per gig but never quite reaches it, always staying just below. That 'never quite hits it' feeling? That's the whole story of rational functions.",
+    "math": "f(x) = \\frac{5x + 40}{x + 10}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -15,
+      20,
+      -5,
+      10
+     ],
+     "labels": [
+      "(5*x+40)/(x+10)"
+     ],
+     "caption": "Average cost per gig: starts at 4 and creeps up toward 5"
+    }
+   },
+   {
+    "say": "So let's pin down what we're actually looking at. A rational function is any function you can write as P of x divided by Q of x, where P and Q are both polynomials, and the one on the bottom is not the zero polynomial. The most important rule: you can never divide by zero, so wherever Q of x equals zero, the function simply does not exist there. That single restriction is what gives rational functions all their wild behaviour — the vertical walls, the holes, the way the curve swoops in from both directions. Everything we do in this lesson flows from that one 'no dividing by zero' rule.",
+    "math": "f(x) = \\frac{P(x)}{Q(x)}, \\quad Q(x) \\neq 0",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      8,
+      -5,
+      5
+     ],
+     "labels": [
+      "1/(x-2)"
+     ],
+     "caption": "Simplest rational function: two branches, a wall at x = 2"
+    }
+   },
+   {
+    "say": "First characteristic to hunt for: the vertical asymptote. You find it by setting the denominator equal to zero and solving. But — and this is the part that trips people up — you only get a vertical asymptote if the numerator is NOT zero at that same x value. If both top and bottom are zero, you've got a hole instead, and we'll get to that in a minute. So for our phone-plan example, set x plus ten equal to zero, giving x equals negative ten. Plug that into the top: five times negative ten plus forty is negative ten, which is not zero. So x equals negative ten is a true vertical asymptote. The graph shoots up to positive infinity on one side and down to negative infinity on the other. The curve approaches that wall but never touches it.",
+    "math": "\\text{VA: } x = -10, \\quad \\text{since } Q(-10)=0 \\text{ and } P(-10)=-10 \\neq 0",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -15,
+      20,
+      -5,
+      10
+     ],
+     "labels": [
+      "(5*x+40)/(x+10)"
+     ],
+     "caption": "Vertical asymptote at x = -10: the two branches shoot off on either side of it"
+    }
+   },
+   {
+    "say": "Now the horizontal asymptote, which tells you where the graph is heading as x gets really, really big in either direction. The shortcut is to compare the degrees — the highest power of x — on top and bottom. If the top degree is smaller than the bottom degree, the horizontal asymptote is y equals zero. If they're equal, you take the ratio of the leading coefficients. If the top degree is bigger, there's no horizontal asymptote; instead you get a slanted line called an oblique asymptote. For our phone plan, both top and bottom are first degree, so we grab the leading coefficients: five on top, one on bottom, giving a horizontal asymptote at y equals five. That's exactly the 'five dollars per gig' limit we felt intuitively at the start.",
+    "math": "\\deg P = \\deg Q = 1 \\implies y = \\frac{5}{1} = 5",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -15,
+      40,
+      0,
+      12
+     ],
+     "labels": [
+      "(5*x+40)/(x+10)",
+      "5"
+     ],
+     "caption": "As x grows, the curve hugs y = 5 from below"
+    }
+   },
+   {
+    "say": "Here's the sneaky one: a hole, or point discontinuity. You only get one if a factor appears in BOTH the numerator and the denominator. When that happens, you cancel it — but the x-value that makes that cancelled factor zero is where the function is still undefined, because the original expression had zero on the bottom. So you get a tiny open circle on the curve instead of a vertical wall. Classic example: x squared minus nine, all over x minus three. Factor the top: x plus three times x minus three. Cancel the x minus three, and you're left with just x plus three. But at x equals three, the original had three minus three in the denominator, which is zero. So there's a hole at the point where x is three and y is six. The line is there everywhere except that one missing dot.",
+    "math": "\\frac{x^2 - 9}{x - 3} = \\frac{(x+3)(x-3)}{x-3} = x+3, \\quad x \\neq 3",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -6,
+      8,
+      -3,
+      10
+     ],
+     "labels": [
+      "x+3"
+     ],
+     "caption": "Looks like the line y = x + 3, but the point (3, 6) is missing — that's the hole"
+    }
+   },
+   {
+    "say": "Let's put every tool together on one function and walk through it top to bottom. Consider x squared plus x minus six, over x squared minus four. Step one, factor everything: the top is x plus three times x minus two; the bottom is x minus two times x plus two. Step two, cancel the common factor x minus two. That tells us x equals two is a HOLE, not a vertical asymptote. To find the y-value of the hole, plug x equals two into the simplified expression: two plus three, over two plus two, which is five over four. Step three, vertical asymptote: set the remaining bottom factor to zero, x plus two equals zero, so x equals negative two. Check the top at negative two: four minus two minus six is negative four, not zero, so it's a real asymptote. Step four, horizontal asymptote: both degrees are two, ratio of leading coefficients is one over one, so y equals one. Step five, intercepts: y-intercept is f of zero, which is negative six over negative four, three halves. x-intercept: set the original numerator to zero, x plus three times x minus two equals zero, giving x equals negative three or x equals two, but x equals two is our hole, so the only x-intercept is x equals negative three. Domain: all reals except x equals two and x equals negative two. Done — you've got the full picture.",
+    "math": "\\frac{x^2+x-6}{x^2-4} = \\frac{(x+3)(x-2)}{(x-2)(x+2)}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -6,
+      6,
+      -3,
+      5
+     ],
+     "labels": [
+      "(x^2+x-6)/(x^2-4)"
+     ],
+     "caption": "VA at x = -2, HA at y = 1, hole at (2, 1.25), x-int at -3"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway: a rational function is a fraction of two polynomials, and every feature you need — the vertical walls, the horizontal or slanted limits, the little holes, the intercepts, the domain — falls out of one simple act: factor the top, factor the bottom, cancel what you can, and then ask 'where is the bottom still zero?' Nail that routine and you can sketch any rational-function graph by hand.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Factor top and bottom, cancel common factors (those x-values become holes), then read off vertical asymptotes, horizontal asymptotes, intercepts, and domain from what's left.",
+  "practice": {
+   "question": "A small grocery store in Vancouver charges a flat delivery fee of $12 plus $3 per kilogram of produce ordered. If a customer orders w kilograms (w > 0), their average cost per kilogram is C(w) = (3w + 12) / w. (a) Find the vertical asymptote. (b) Find the horizontal asymptote and explain what it means in plain English. (c) What is the y-intercept, and why does it not represent a real order?",
+   "answer": "(a) Vertical asymptote: w = 0 (you can't order zero kilograms and still have a 'per-kilogram' average). (b) Horizontal asymptote: y = 3, meaning as the order gets very large, the average cost per kg approaches the per-kg price of $3 and the flat fee becomes negligible. (c) y-intercept: C(0) would be 12/0, which is undefined — you can't have a per-kilogram average if you ordered no kilograms, so there is no y-intercept (the vertical asymptote at w = 0 is where the cost per kg would blow up)."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

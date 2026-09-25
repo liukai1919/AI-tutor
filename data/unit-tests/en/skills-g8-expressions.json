@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "expressions",
+ "lang": "en",
+ "unitName": {
+  "zh": "代数式与代入求值",
+  "en": "Expressions & substitution"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Expressions & substitution · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.WRITE",
+    "level": 1,
+    "question": "At Okanagan Lake, renting a paddleboard costs $9 for each hour, plus a one-time $4 life-jacket fee. Which expression gives the total cost, in dollars, for h hours?",
+    "options": [
+     "4h + 9",
+     "13h",
+     "9h + 4",
+     "9h − 4"
+    ],
+    "answerIndex": 2,
+    "explain": "The $9 repeats with every hour, so it multiplies the variable (9h), and the $4 is charged once, so it is added on: 9h + 4. A common trap is writing 4h + 9, which charges $4 per hour and $9 once."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.PARTS",
+    "level": 1,
+    "question": "In the expression 8 − 4.5k, what is the coefficient of k?",
+    "options": [
+     "4.5",
+     "−4.5",
+     "8",
+     "3.5"
+    ],
+    "answerIndex": 1,
+    "explain": "A coefficient carries the sign in front of it, and the term here is −4.5k, so the coefficient is −4.5. The most common error is dropping the negative and answering 4.5; 8 is the constant, not a coefficient."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.EVALUATE",
+    "level": 1,
+    "question": "Evaluate 5x + 3 when x = −4.",
+    "options": [
+     "−17",
+     "23",
+     "17",
+     "−23"
+    ],
+    "answerIndex": 0,
+    "explain": "Substitute first, then follow the order of operations: 5(−4) + 3 = −20 + 3 = −17. The usual trap is multiplying 5 × 4 and forgetting the negative, or subtracting the 3 instead of adding it."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.COMBINE_LIKE",
+    "level": 2,
+    "question": "Simplify by combining like terms: 0.75p + 6 − 3p − 2",
+    "options": [
+     "3.75p + 4",
+     "−2.25p + 8",
+     "2.25p + 4",
+     "−2.25p + 4"
+    ],
+    "answerIndex": 3,
+    "explain": "Group like terms with their signs: 0.75p − 3p = −2.25p and 6 − 2 = 4, giving −2.25p + 4. Watch the two minus signs — adding instead of subtracting gives 3.75p, and missing the −2 leaves the constant as 8."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.WRITE",
+    "level": 2,
+    "question": "Maya loads $60 onto a gift card for the bubble tea shop near her SkyTrain station. Each drink costs $5.50. Which expression shows how many dollars are left on the card after she buys b drinks?",
+    "options": [
+     "5.5b − 60",
+     "60 − 5.5b",
+     "60 + 5.5b",
+     "54.5b"
+    ],
+    "answerIndex": 1,
+    "explain": "The card starts at $60 and each drink takes $5.50 away, so the repeated cost 5.5b is subtracted from 60: 60 − 5.5b. Writing 5.5b − 60 reverses the order and would give a negative amount for small b."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.EVALUATE",
+    "level": 2,
+    "question": "On a ski day at Whistler, the temperature in °C at a height of a kilometres above the village is given by 12 − 6.5a. What is the temperature when a = 2?",
+    "options": [
+     "1 °C",
+     "11 °C",
+     "−1 °C",
+     "25 °C"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply before subtracting: 12 − 6.5(2) = 12 − 13 = −1 °C. Doing 12 − 6.5 first and then multiplying by 2 gives 11, which is the wrong order of operations."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.COMBINE_LIKE",
+    "level": 3,
+    "question": "Jaya sells hot chocolate at her school ski day. She charges $2.50 per cup, the supplies cost her $0.40 per cup, and she pays a one-time $15 booth fee. Her profit in dollars for c cups is 2.5c − 0.4c − 15. What is her profit if she sells 40 cups?",
+    "options": [
+     "$69.00",
+     "$85.00",
+     "$84.00",
+     "$100.00"
+    ],
+    "answerIndex": 0,
+    "explain": "Combine the like terms first: 2.5c − 0.4c − 15 = 2.1c − 15, then substitute to get 2.1(40) − 15 = 84 − 15 = $69. Forgetting the $0.40 supplies gives $85, and forgetting the one-time $15 fee gives $84."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EXPR.PARTS",
+    "level": 3,
+    "question": "Nadia’s savings after shovelling snow are modelled by 15j − 2.5j + 40, where j is the number of driveways she clears. Which statement about this expression is correct?",
+    "options": [
+     "12.5 is the constant term and 40 is the coefficient of j.",
+     "The second term is 2.5j, so the like terms combine to 17.5j.",
+     "15j and 2.5j are not like terms, because their coefficients are different.",
+     "40 is the constant, and the like terms 15j and −2.5j combine to 12.5j."
+    ],
+    "answerIndex": 3,
+    "explain": "The constant 40 is the money Nadia already had, while 15j and −2.5j are like terms (same variable j) that combine to 12.5j. The two classic traps are mixing up the constant with a coefficient, and reading the second term as +2.5j instead of −2.5j."
+   }
+  ]
+ }
+}

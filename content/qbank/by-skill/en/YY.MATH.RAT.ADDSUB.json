@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.RAT.ADDSUB",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtls57rlhszrpo",
+   "level": 1,
+   "question": "A number line runs from −1 to 1. Each whole unit is cut into 4 equal parts, so every tick mark is 1/4 apart. A counter starts on the tick at −3/4. It slides to the right by 1/2, which is 2 tick marks. Which number does the counter land on?",
+   "options": [
+    "−1/4",
+    "5/4",
+    "−5/4",
+    "−1/8"
+   ],
+   "answerIndex": 0,
+   "explain": "Moving right means adding: −3/4 + 1/2 = −3/4 + 2/4 = −1/4. The trap is adding the sizes and ignoring the negative start to get 5/4, or adding the denominators to get −1/8.",
+   "tags": [
+    "ok",
+    "int.add_ignore_sign",
+    "other",
+    "frac.add_denominators"
+   ]
+  },
+  {
+   "qid": "qmtls57rl15qspt",
+   "level": 1,
+   "question": "A number line runs from −1 to 1, and each whole unit is cut into 10 equal parts, so every tick mark is 0.1 apart. A frog sits on −0.7. Which number does the frog land on after the calculation −0.7 − (−0.3)?",
+   "options": [
+    "−1.0",
+    "−0.4",
+    "0.4",
+    "1.0"
+   ],
+   "answerIndex": 1,
+   "explain": "Subtracting a negative is the same as adding its opposite: −0.7 − (−0.3) = −0.7 + 0.3 = −0.4, three ticks to the right. The trap is treating it as −0.7 − 0.3 and sliding left to −1.0.",
+   "tags": [
+    "int.subtract_negative",
+    "ok",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtls57rlyatih4",
+   "level": 1,
+   "question": "A number line runs from −1 to 1. Each whole unit is cut into 6 equal parts, so every tick mark is 1/6 apart. A bead sits on 1/3, which is 2 tick marks to the right of 0. You add −5/6, so the bead moves 5 tick marks to the left. Which number does the bead land on?",
+   "options": [
+    "−4/9",
+    "7/6",
+    "−1/2",
+    "1/2"
+   ],
+   "answerIndex": 2,
+   "explain": "Write both fractions in sixths: 1/3 + (−5/6) = 2/6 − 5/6 = −3/6 = −1/2. Adding a negative moves left; the common trap is adding the sizes to get 7/6 or adding the denominators to get −4/9.",
+   "tags": [
+    "frac.add_denominators",
+    "int.add_ignore_sign",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtls57rl2j0l0v",
+   "level": 1,
+   "question": "A number line runs from −1 to 1. Each whole unit is cut into 8 equal parts, so every tick mark is 1/8 apart. A marker sits on −5/8. Which number does the marker land on after −5/8 − (−1/4)? Note that 1/4 is the same as 2 tick marks.",
+   "options": [
+    "−7/8",
+    "−3/16",
+    "7/8",
+    "−3/8"
+   ],
+   "answerIndex": 3,
+   "explain": "Subtracting −1/4 is the same as adding 1/4, so the marker moves 2 ticks to the right: −5/8 + 2/8 = −3/8. The trap is reading it as −5/8 − 2/8 and sliding left to −7/8.",
+   "tags": [
+    "int.subtract_negative",
+    "frac.add_denominators",
+    "int.add_ignore_sign",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtls57rlswcwrb",
+   "level": 2,
+   "question": "Simplify: −2/3 + 1/4",
+   "options": [
+    "−5/12",
+    "−1/7",
+    "−11/12",
+    "11/12"
+   ],
+   "answerIndex": 0,
+   "explain": "Use the common denominator 12: −8/12 + 3/12 = −5/12. Since 8/12 is bigger than 3/12 the answer keeps the negative sign; the trap is adding the sizes to get −11/12 or adding the denominators to get −1/7.",
+   "tags": [
+    "ok",
+    "frac.add_denominators",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtls57rljbiebb",
+   "level": 2,
+   "question": "Maya owes her brother $12.50, so her balance with him is −$12.50. He tells her to forget $4.25 of that debt, which removes −$4.25 from her balance. What is her new balance?",
+   "options": [
+    "−$16.75",
+    "−$8.25",
+    "$16.75",
+    "$8.25"
+   ],
+   "answerIndex": 1,
+   "explain": "Removing a debt is subtracting a negative: −12.50 − (−4.25) = −12.50 + 4.25 = −8.25, so she still owes $8.25. The trap is treating it as −12.50 − 4.25 and making the debt bigger.",
+   "tags": [
+    "int.subtract_negative",
+    "ok",
+    "int.add_ignore_sign",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtls57rl0hzgy1",
+   "level": 2,
+   "question": "Calculate: 1/2 − (−3/5)",
+   "options": [
+    "−1/10",
+    "4/7",
+    "11/10",
+    "−11/10"
+   ],
+   "answerIndex": 2,
+   "explain": "Change subtracting a negative into adding: 1/2 + 3/5 = 5/10 + 6/10 = 11/10. The trap is dropping the second minus sign and doing 1/2 − 3/5 = −1/10.",
+   "tags": [
+    "int.subtract_negative",
+    "frac.add_denominators",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtls57rlg5d7zt",
+   "level": 2,
+   "question": "Calculate −2/5 + (−0.3) and give the answer as a fraction in lowest terms.",
+   "options": [
+    "−1/3",
+    "7/10",
+    "−1/10",
+    "−7/10"
+   ],
+   "answerIndex": 3,
+   "explain": "Turn 0.3 into 3/10, then add two negatives: −4/10 + (−3/10) = −7/10. Two negatives added together stay negative and get bigger in size; the trap is subtracting the sizes to get −1/10 or adding the denominators to get −1/3.",
+   "tags": [
+    "frac.add_denominators",
+    "int.add_ignore_sign",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtls57rlg852gg",
+   "level": 3,
+   "question": "Ben is kayaking near a dock on Okanagan Lake. Positions east of the dock are positive and positions west are negative, measured in kilometres. He starts at −1/2 km, paddles 5/6 km east, and then the wind drifts him 3/4 km west. Where does he end up?",
+   "options": [
+    "5/12 km west of the dock",
+    "1/12 km east of the dock",
+    "5/12 km east of the dock",
+    "25/12 km east of the dock"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the signed moves using denominator 12: −6/12 + 10/12 − 9/12 = −5/12, so he is 5/12 km west of the dock. The trap is adding all three sizes as if every move were east, or adding the denominators to get 1/12.",
+   "tags": [
+    "ok",
+    "frac.add_denominators",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtls57rl2ro5b0",
+   "level": 3,
+   "question": "In Fort Nelson the temperature at midnight was −8.4 °C. By noon it had risen by 5.9 °C. Yesterday's noon temperature was −4.7 °C. How does today's noon temperature compare with yesterday's noon temperature?",
+   "options": [
+    "7.2 °C colder",
+    "2.2 °C warmer",
+    "2.2 °C colder",
+    "7.2 °C warmer"
+   ],
+   "answerIndex": 1,
+   "explain": "First find today's noon: −8.4 + 5.9 = −2.5 °C. Then compare: −2.5 − (−4.7) = −2.5 + 4.7 = 2.2, so today is 2.2 °C warmer. The trap is doing −2.5 − 4.7 = −7.2 and calling it colder.",
+   "tags": [
+    "int.subtract_negative",
+    "ok",
+    "other",
+    "int.add_ignore_sign"
+   ]
+  },
+  {
+   "qid": "qmtls57rltz7duh",
+   "level": 3,
+   "question": "Priya works out −5/6 + 1/4 like this: −5/6 + 1/4 = −4/10 = −2/5. What went wrong?",
+   "options": [
+    "Nothing is wrong; −2/5 is already simplified",
+    "She should ignore the signs; it should be 13/12",
+    "She added the denominators; it should be −7/12",
+    "She should have subtracted; it should be −13/12"
+   ],
+   "answerIndex": 2,
+   "explain": "Denominators are never added; find a common denominator first: −10/12 + 3/12 = −7/12. The signs matter too: because 10/12 is bigger than 3/12, the answer stays negative.",
+   "tags": [
+    "frac.add_denominators",
+    "int.add_ignore_sign",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtls57rlg934dn",
+   "level": 3,
+   "question": "Kai calculates −0.6 − (−3/4). He changes 3/4 to 0.75 and then writes −0.6 − 0.75 = −1.35. What went wrong?",
+   "options": [
+    "He should ignore the signs and add, giving 1.35",
+    "It should be −0.15 because he started at a negative",
+    "Nothing; two subtractions make it more negative, −1.35",
+    "Subtracting −0.75 means adding 0.75, so it is 0.15"
+   ],
+   "answerIndex": 3,
+   "explain": "Converting 3/4 to 0.75 was fine, but subtracting a negative means adding: −0.6 + 0.75 = 0.15. The trap is treating − (−0.75) as − 0.75 and sliding further into the negatives.",
+   "tags": [
+    "int.add_ignore_sign",
+    "other",
+    "int.subtract_negative",
+    "ok"
+   ]
+  }
+ ]
+}

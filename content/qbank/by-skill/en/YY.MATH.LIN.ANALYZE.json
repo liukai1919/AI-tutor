@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.ANALYZE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlzmy9q82m3el",
+   "level": 1,
+   "question": "On a coordinate grid with x from 0 to 6 and y from 0 to 30, a straight line crosses the y-axis at (0, 10) and also passes through (1, 12.5), (2, 15) and (3, 17.5). Which equation shows this line?",
+   "options": [
+    "y = 2.5x + 10",
+    "y = 10x + 2.5",
+    "y = 2.5x + 12.5",
+    "y = 0.4x + 10"
+   ],
+   "answerIndex": 0,
+   "explain": "The y-intercept is the y-value where x = 0, which is 10, and the slope is rise over run: y climbs 2.5 for each 1 step in x, so y = 2.5x + 10. Do not use the value at x = 1 as the start, and do not swap the two numbers.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q7txpcc",
+   "level": 1,
+   "question": "On a coordinate grid with x from 0 to 8 and y from 0 to 12, a straight line passes through (0, 6) and (4, 8). Which statement about the line is true?",
+   "options": [
+    "The rate of change is 6 and the y-intercept is 0.5",
+    "The rate of change is 0.5 and the y-intercept is 6",
+    "The rate of change is 2 and the y-intercept is 6",
+    "The rate of change is 0.5 and the y-intercept is 8"
+   ],
+   "answerIndex": 1,
+   "explain": "From (0, 6) to (4, 8) the line rises 2 while running 4, so the rate is 2 ÷ 4 = 0.5, and the y-intercept is the y-value at x = 0, which is 6. Dividing run by rise gives 2, which is the common trap.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "lin.slope_rise_run_swap",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q5akoeg",
+   "level": 1,
+   "question": "A line on a coordinate grid has the equation y = −2x + 5. Which description matches its graph?",
+   "options": [
+    "It crosses the y-axis at −2 and rises 5 units for each 1 unit right",
+    "It crosses the y-axis at 5 and drops 1 unit for every 2 units right",
+    "It crosses the y-axis at 5 and drops 2 units for each 1 unit right",
+    "It passes through the origin and drops 2 units for each 1 unit right"
+   ],
+   "answerIndex": 2,
+   "explain": "In y = −2x + 5 the number multiplying x is the rate (down 2 for each 1 right) and the constant 5 is where the line meets the y-axis. Swapping the roles of −2 and 5 is the most common slip.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap",
+    "ok",
+    "linear.intercept_misread"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q9c1lva",
+   "level": 1,
+   "question": "On a coordinate grid with x from 0 to 6 and y from 0 to 10, a horizontal line passes through (1, 7), (3, 7) and (5, 7). Which statement describes this line?",
+   "options": [
+    "The rate is 7, and the line meets the y-axis at y = 0",
+    "The rate is 0, and the line meets the y-axis at y = 1",
+    "The rate is undefined, and the line meets the y-axis at 7",
+    "The rate is 0, and the line meets the y-axis at y = 7"
+   ],
+   "answerIndex": 3,
+   "explain": "A horizontal line has rise 0, so its rate of change is 0 ÷ run = 0, and it stays at y = 7 all the way to the y-axis, giving the equation y = 7. Only a vertical line has an undefined rate.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q61yf93",
+   "level": 2,
+   "question": "A table for a linear relation shows: when x = 1, y = 9; when x = 2, y = 6; when x = 3, y = 3; when x = 4, y = 0. Which equation matches the graph of this relation?",
+   "options": [
+    "y = −3x + 12",
+    "y = 12x − 3",
+    "y = −3x + 9",
+    "y = −x/3 + 12"
+   ],
+   "answerIndex": 0,
+   "explain": "Each step of 1 in x drops y by 3, so the rate is −3; stepping back from (1, 9) to x = 0 gives 9 + 3 = 12, the y-intercept. The first row of a table is not the intercept unless x = 0 there.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9qxl0dy9",
+   "level": 2,
+   "question": "A phone plan's cost graph is a straight line through (0, 25) and (4, 45), where x is gigabytes of data used and y is the monthly cost in dollars. Which interpretation of the graph is correct?",
+   "options": [
+    "Base fee $5, and each gigabyte costs $25",
+    "Base fee $25, and each gigabyte costs $5",
+    "No base fee, and each gigabyte costs $11.25",
+    "Base fee $25, and each gigabyte costs $0.20"
+   ],
+   "answerIndex": 1,
+   "explain": "The value at x = 0 is the base fee, $25, and the slope (45 − 25) ÷ (4 − 0) = 5 is the cost per gigabyte. Dividing the total $45 by 4 GB ignores the base fee and gives a wrong rate.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q835az4",
+   "level": 2,
+   "question": "The graph of a linear relation passes through (2, 11) and (4, 15), but the part near the y-axis is cut off. Using the slope, what is the y-intercept of the line?",
+   "options": [
+    "11",
+    "2",
+    "7",
+    "10"
+   ],
+   "answerIndex": 2,
+   "explain": "The slope is (15 − 11) ÷ (4 − 2) = 2, so moving back 2 units in x from (2, 11) lowers y by 4, landing at (0, 7). The first point you can see is not the intercept unless its x-value is 0.",
+   "tags": [
+    "linear.intercept_misread",
+    "linear.slope_intercept_swap",
+    "ok",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9qp7h2cw",
+   "level": 2,
+   "question": "Maya graphs her savings using M = 15w + 40, where w is the number of weeks and M is dollars saved. Which statement about her graph is correct?",
+   "options": [
+    "The line meets the M-axis at 15 and rises $40 each week",
+    "The line meets the M-axis at 40 and rises $1 every 15 weeks",
+    "The line starts at (1, 55), so Maya began with $55 saved",
+    "The line meets the M-axis at 40 and rises $15 each week"
+   ],
+   "answerIndex": 3,
+   "explain": "The constant 40 is the value at w = 0, so the line meets the M-axis at 40, and the coefficient 15 is the rise per week. The value after week 1 ($55) is not the starting amount.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap",
+    "linear.intercept_misread",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9qhybjc4",
+   "level": 3,
+   "question": "A kayak rental at Deep Cove is graphed as a straight line: 2 hours costs $40 and 4 hours costs $50. What does the y-intercept of this graph tell you?",
+   "options": [
+    "$30, a fixed fee charged even for 0 hours",
+    "$40, the cost shown at the first plotted point",
+    "$5, the fixed fee before the hourly charge",
+    "$39.60, found using a rate of $0.20 per hour"
+   ],
+   "answerIndex": 0,
+   "explain": "The rate is (50 − 40) ÷ (4 − 2) = $5 per hour, so going back 2 hours from $40 gives $30 at 0 hours: a fixed fee paid before any paddling. The first plotted point is not the intercept, and $5 is the rate, not the fee.",
+   "tags": [
+    "ok",
+    "linear.intercept_misread",
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9qgj66iv",
+   "level": 3,
+   "question": "A rain barrel is draining. Its graph is a straight line: after 2 hours it holds 180 L and after 5 hours it holds 150 L. Which equation models the graph, and when will the barrel be empty?",
+   "options": [
+    "V = −10t + 180, so empty at t = 18 h",
+    "V = −10t + 200, so empty at t = 20 h",
+    "V = 200t − 10, so empty at t = 0.05 h",
+    "V = −0.1t + 180.2, so empty at t = 1802 h"
+   ],
+   "answerIndex": 1,
+   "explain": "The rate is (150 − 180) ÷ (5 − 2) = −10 L per hour, and going back 2 hours from 180 L gives 200 L at t = 0, so V = −10t + 200 and it is empty when 10t = 200, at 20 hours. Using 180 as the start ignores the 2 hours already drained.",
+   "tags": [
+    "linear.intercept_misread",
+    "ok",
+    "linear.slope_intercept_swap",
+    "lin.slope_rise_run_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9qcbbb2t",
+   "level": 3,
+   "question": "A taxi graph is a straight line through (0, 3.50) and (2, 8.50), with km on the x-axis and fare in dollars on the y-axis. Jordan writes F = 3.50k + 2.50 and says the taxi charges $3.50 per km with a $2.50 flag fee. What went wrong?",
+   "options": [
+    "The rate should be $0.40 per km, because slope is run divided by rise",
+    "The flag fee should be $8.50, because that is the first fare on the line",
+    "Jordan swapped them: the fee at 0 km is $3.50 and the rate is $2.50 per km",
+    "Nothing, because the number in front of k is always the fee you pay first"
+   ],
+   "answerIndex": 2,
+   "explain": "The value at k = 0 is the flag fee, $3.50, and the slope (8.50 − 3.50) ÷ 2 = $2.50 is the charge per km, so the equation should be F = 2.50k + 3.50. The number multiplying k is always the rate, never the starting fee.",
+   "tags": [
+    "lin.slope_rise_run_swap",
+    "linear.intercept_misread",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtlzmy9q8js6pw",
+   "level": 3,
+   "question": "Two bike-rental shops in Victoria graph their prices as straight lines, with hours on the x-axis and cost in dollars on the y-axis. Shop A's line passes through (0, 20) and (4, 60). Shop B's line passes through (0, 30) and (4, 50). For a 6-hour rental, which shop is cheaper, and why?",
+   "options": [
+    "Shop B by $30, because 6 hours × $5 is less than 6 hours × $10",
+    "Shop A, because $20 + 6 × $0.10 is far less than $30 + 6 × $0.20",
+    "Shop A, because $10 + 6 × $20 is less than $5 + 6 × $30 in total",
+    "Shop B by $20, because $30 + 6 × $5 is less than $20 + 6 × $10"
+   ],
+   "answerIndex": 3,
+   "explain": "Read each line as start fee plus rate: Shop A is $20 + $10 per hour and Shop B is $30 + $5 per hour, so 6 hours costs $80 at A and $60 at B. Leaving out the start fees changes the size of the difference, and swapping fee and rate flips the answer.",
+   "tags": [
+    "linear.intercept_misread",
+    "lin.slope_rise_run_swap",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  }
+ ]
+}

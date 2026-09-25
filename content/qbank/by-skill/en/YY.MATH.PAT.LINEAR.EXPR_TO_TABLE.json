@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkp1dkds5zksg",
+   "level": 1,
+   "question": "A table of values has two rows. The top row is the x-row and it shows six numbers: −2, −1, 0, 1, 2, 3. The bottom row is the y-row and all six of its cells are still empty. The rule for the table is y = 3x − 4. What number belongs in the y-cell under x = −2?",
+   "options": [
+    "−10",
+    "10",
+    "−6",
+    "2"
+   ],
+   "answerIndex": 0,
+   "explain": "Multiply first: 3 × (−2) = −6, then subtract 4, landing on −10. The trap is turning −6 − 4 into +10; two negatives make a positive is a multiplying rule, and adding two negatives moves further down.",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd76r39m",
+   "level": 1,
+   "question": "A table of values has an x-row reading −2, −1, 0, 1, 2, 3 and a y-row of six cells underneath. The rule is y = 5x − 1. Five of the six y-cells are already filled, so the y-row reads −11, blank, −1, 4, 9, 14. Which number belongs in the blank cell, the one under x = −1?",
+   "options": [
+    "6",
+    "−6",
+    "4",
+    "−4"
+   ],
+   "answerIndex": 1,
+   "explain": "Use the rule: 5 × (−1) = −5, then subtract 1 to get −6. Check it with the constant change of 5, since −6 + 5 = −1, the next entry; the trap is reading −5 − 1 as 6.",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd4tuyaz",
+   "level": 1,
+   "question": "A table of values has two rows and six columns. The x-row reads −2, −1, 0, 1, 2, 3, and the y-row is completely empty. The rule for the table is y = 2x − 5. Which list gives the six y-values in the correct order, from left to right?",
+   "options": [
+    "−4, −2, 0, 2, 4, 6",
+    "9, 7, −5, −3, −1, 1",
+    "−9, −7, −5, −3, −1, 1",
+    "−9, −8, −7, −6, −5, −4"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute each x into 2x − 5: 2(−2) − 5 = −9, 2(−1) − 5 = −7, and so on up to 2(3) − 5 = 1. The usual trap is letting the negative inputs turn positive, like calling −4 − 5 equal to 9.",
+   "tags": [
+    "other",
+    "int.sign_rules_to_addition",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkdp6bapm",
+   "level": 1,
+   "question": "A table of values has an x-row reading −3, −2, −1, 0, 1, 2 and an empty y-row of six cells. The rule for the table is y = 4x − 3. Once every cell is filled, which number will be the smallest value in the y-row?",
+   "options": [
+    "15",
+    "−12",
+    "5",
+    "−15"
+   ],
+   "answerIndex": 3,
+   "explain": "Since the 4 in front of x is positive, the smallest x gives the smallest y: 4 × (−3) − 3 = −12 − 3 = −15. The trap is reading −12 − 3 as 15, but taking 3 away from −12 goes further below zero.",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkdh2mjuv",
+   "level": 2,
+   "question": "A weather station on Grouse Mountain models the temperature with T = 3h − 7 (°C), where h is the number of hours after 6 a.m. and a negative h means before 6 a.m. Ana builds a table of values for h = −2, −1, 0, 1, 2, 3. What temperature belongs in the cell for h = −2?",
+   "options": [
+    "−13 °C",
+    "13 °C",
+    "−1 °C",
+    "1 °C"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute and multiply first: 3 × (−2) = −6, then subtract 7 to get −13 °C. The trap is saying −6 − 7 = 13, because two negatives make a positive only when you multiply.",
+   "tags": [
+    "ok",
+    "int.sign_rules_to_addition",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd2gzn6l",
+   "level": 2,
+   "question": "Ravi builds a table of values for y = 6x − 5 using the x-values −2, −1, 0, 1, 2. How much bigger is the y-value in the cell for x = 2 than the y-value in the cell for x = −2?",
+   "options": [
+    "12",
+    "24",
+    "6",
+    "10"
+   ],
+   "answerIndex": 1,
+   "explain": "Fill both cells: 6(−2) − 5 = −17 and 6(2) − 5 = 7, so the gap is 7 − (−17) = 24. The trap is answering 6, which is the change for one step of x, while here x moves four steps.",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "linear.x_step_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd7ytubu",
+   "level": 2,
+   "question": "A table of values is built from the rule y = 2x − 8. Which number belongs in the y-cell under x = −5, and for which reason?",
+   "options": [
+    "18, because two minus signs in a row make a plus",
+    "−2, because 2 × (−5) = −10 and then 8 is added",
+    "−18, because 2 × (−5) = −10, then 8 comes off",
+    "−13, because 2 − 5 = −3 and then 8 is taken off"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute, multiply, then subtract: 2 × (−5) = −10, and −10 − 8 = −18. The trap is claiming two minus signs make a plus, since that rule belongs to multiplying, not to adding or subtracting.",
+   "tags": [
+    "int.sign_rules_to_addition",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkdqc0h1v",
+   "level": 2,
+   "question": "Ella builds a table of values for y = 3x − 4, but to fit her poster she chooses the x-values −2, 0, 2, 4. Her y-row comes out as −10, −4, 2, 8. Which statement about her table is correct?",
+   "options": [
+    "y rises 6 each time x rises 1, because 6 is the gap",
+    "The table is not linear, since x does not step 1, 2, 3",
+    "y rises 2 each time x rises 2, to match the x-step",
+    "y rises 6 each time x rises 2, which is 3 for each 1"
+   ],
+   "answerIndex": 3,
+   "explain": "Her x jumps by 2 and her y jumps by 6, so the change is 6 per 2, which is 3 for every 1 — matching the 3 in y = 3x − 4. A table is still a discrete linear relation when x steps by 2; just divide the y-jump by the x-step.",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.x_step_ignored",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd1qpqs8",
+   "level": 3,
+   "question": "At a Kelowna arena the ice-plant reading follows T = 4h − 9 (°C), where h is hours after midnight and a negative h means before midnight. Priya fills a table of values for h = −3, −2, −1, 0, 1. How many of her five readings are colder than −10 °C?",
+   "options": [
+    "3, the readings at h = −3, h = −2 and h = −1",
+    "2, only the readings at h = −3 and h = −2",
+    "5, because every reading is colder than −10",
+    "0, since every reading comes out positive here"
+   ],
+   "answerIndex": 0,
+   "explain": "Fill the row: 4(−3) − 9 = −21, then −17, −13, −9, −5, so three readings sit below −10 °C. The trap is letting −12 − 9 become +21; two negatives added together stay negative.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "int.sign_rules_to_addition"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkd4u7grd",
+   "level": 3,
+   "question": "Noah tracks his savings with b = 12w − 30 (dollars), where w counts weeks from today and a negative w means a past week. He builds a table of values for w = −2, −1, 0, 1, 2, 3. In which cell does his balance first become positive, and what is it there?",
+   "options": [
+    "At w = 2, where the balance is $6",
+    "At w = 3, where the balance is $6",
+    "At w = −2, where the balance is $54",
+    "At w = 1, where the balance is $18"
+   ],
+   "answerIndex": 1,
+   "explain": "Fill the cells in order: −54, −42, −30, −18, −6, 6, so the balance first turns positive at w = 3 with $6. The trap is the cell at w = 2, where 24 − 30 is −6, not +6.",
+   "tags": [
+    "other",
+    "ok",
+    "int.sign_rules_to_addition",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkdie4kzg",
+   "level": 3,
+   "question": "Aanya builds the table of values for y = 4x − 9 with the x-values −3, −2, −1, 0, and writes the y-row 21, 17, 13, −9. Her last value is right but the first three are not. What went wrong?",
+   "options": [
+    "She multiplied 4x by 9 instead of subtracting the 9 from it",
+    "She added 4 each row instead of checking the x-step",
+    "She used the multiply sign rule on −12 − 9, getting +21",
+    "She replaced x in the 9 as well as in the 4x term"
+   ],
+   "answerIndex": 2,
+   "explain": "For x = −3, 4 × (−3) = −12 and −12 − 9 = −21, not +21, and the same slip flipped her next two values. Two negatives make a positive works for multiplying, never for adding or subtracting.",
+   "tags": [
+    "other",
+    "linear.x_step_ignored",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkp1dkdnddbuy",
+   "level": 3,
+   "question": "A tide gauge at Departure Bay reads d = 4t − 6 (cm above the marker), where t is minutes after 8:00. Ben builds a table of values using t = 0, 3, 6, 9 and gets the d-values −6, 6, 18, 30, so he says the reading climbs 12 cm every minute. What is the real change per minute, and what is d at t = 1?",
+   "options": [
+    "12 cm each minute, and d = 6 cm when t = 1",
+    "4 cm each minute, and d = 10 cm when t = 1",
+    "12 cm each minute, and d = −2 cm when t = 1",
+    "4 cm each minute, and d = −2 cm when t = 1"
+   ],
+   "answerIndex": 3,
+   "explain": "The d-values jump 12 across 3 minutes, so the change is 12 ÷ 3 = 4 cm per minute, matching the 4 in d = 4t − 6, and d = 4(1) − 6 = −2 cm. The trap is calling the jump between rows the per-minute change without checking the t-step.",
+   "tags": [
+    "linear.x_step_ignored",
+    "other",
+    "linear.x_step_ignored",
+    "ok"
+   ]
+  }
+ ]
+}

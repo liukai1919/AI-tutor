@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR",
+ "lang": "en",
+ "title": "Find the expression from a table with a constant difference, extended to larger numbers (x = 0, 5, 10… → y = 4x + 7)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "From Table to Expression, Big Jumps and All",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a rule like y equals three x minus four and build a table from it. Today we go the other way: I hand you the table, you find the expression. The twist is that x does not go one, two, three anymore — it jumps by fives. Same trick, just one extra move.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is Maya at a school market in Burnaby. She starts her tin with a seven dollar float, and every bracelet she sells adds the same amount. Look at the y row: seven, twenty seven, forty seven, sixty seven. Each time y goes up by twenty. But careful — x did not go up by one, it went up by five. So twenty dollars happened over five bracelets. Twenty divided by five is four dollars per bracelet. That four is the coefficient of x.",
+    "math": "\\frac{+20}{+5} = 4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      27,
+      47,
+      67
+     ],
+     "labels": [
+      "x = 0",
+      "x = 5",
+      "x = 10",
+      "x = 15"
+     ],
+     "caption": "Dollars in Maya's tin: y climbs 20 while x climbs 5"
+    }
+   },
+   {
+    "say": "Now the starting value. Look at the column where x equals zero — before she sells anything, the tin already holds seven dollars. That is the constant. So the expression is y equals four x plus seven. And here is the part most people skip: check every row, not just the first. Four times five plus seven is twenty seven. Four times ten plus seven is forty seven. Four times fifteen plus seven is sixty seven. Every row fits.",
+    "math": "y = 4x + 7",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      27,
+      47,
+      67
+     ],
+     "labels": [
+      "4(0)+7",
+      "4(5)+7",
+      "4(10)+7",
+      "4(15)+7"
+     ],
+     "caption": "Every row checks out, not just the first one"
+    }
+   },
+   {
+    "say": "Two traps live in this exact question. Trap one: someone sees y jump by twenty and writes y equals twenty x plus seven. Test it — twenty times five plus seven is one hundred and seven, but the table says twenty seven. Way off, because they forgot x moved five steps, not one. Trap two: someone gets the four right but drops the seven and writes just four x. Then four times five is twenty, and the tin really has twenty seven. Missing the float every single time.",
+    "math": "20(5)+7 = 107 \\neq 27",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      7,
+      107,
+      207,
+      307
+     ],
+     "labels": [
+      "x = 0",
+      "x = 5",
+      "x = 10",
+      "x = 15"
+     ],
+     "caption": "What y = 20x + 7 would predict — nothing matches after row one"
+    }
+   },
+   {
+    "say": "So the whole move is three beats. Divide the y jump by the x jump to get the coefficient, read the constant off where x is zero, then test the rule on every row before you call it done.",
+    "math": "y = 4x + 7",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Coefficient = y jump divided by x jump; constant = y when x is zero — then check every row.",
+  "practice": {
+   "question": "A rec centre in Surrey posts a table for its swim pass. It has two rows. The x row, the number of swims, reads zero, four, eight, twelve. The y row, the total cost in dollars, reads nine, twenty nine, forty nine, sixty nine. Write the expression for y in terms of x, then check it on the last column.",
+   "answer": "y = 5x + 9. The y values climb by 20 while x climbs by 4, and 20 divided by 4 is 5, so the coefficient is 5. When x is zero the cost is 9, so the constant is 9. Check the last column: 5 times 12 is 60, plus 9 is 69 — it matches."
+  }
+ }
+}

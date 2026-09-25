@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.COORD.Q4.PLOT",
+ "lang": "en",
+ "title": "Plot and read points in all four quadrants; name the origin and quadrants",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding Points on the Whole Map",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to plot points like three comma five in the first quadrant, where both numbers are positive. But what if you are at the Vancouver Aquarium and your friend is two blocks west and three blocks south of the fountain? Today we stretch the grid so it can hold negative numbers too, and now every spot in every direction gets an address.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [
+      "(3, 5)"
+     ],
+     "caption": "The first quadrant you already know — now let us open up the rest"
+    }
+   },
+   {
+    "say": "Here is the whole map. The two lines cross at the middle, and that middle point is called the origin. Its address is zero comma zero. From the origin, the x number tells you how far to go sideways: positive means right, negative means left. The y number tells you how far to go up or down: positive means up, negative means down. That splits the map into four regions we call quadrants. We number them starting from the top right and going counter clockwise, like a clock running backwards. Quadrant one is top right, quadrant two is top left, quadrant three is bottom left, and quadrant four is bottom right.",
+    "math": "(x,\\ y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      4,
+      -4,
+      4,
+      -4,
+      -4,
+      4,
+      -4
+     ],
+     "labels": [
+      "QI (+,+)",
+      "QII (-,+)",
+      "QIII (-,-)",
+      "QIV (+,-)"
+     ],
+     "caption": "Origin in the middle at zero comma zero; four quadrants numbered counter clockwise"
+    }
+   },
+   {
+    "say": "Let us plot negative two comma three together. Always start at the origin, and always do the x number first. The x number is negative two, so I walk two steps to the left. Now the y number is positive three, so from there I walk three steps up. I land in the top left region, which is quadrant two. That makes sense, because in quadrant two x is negative and y is positive, and negative two comma three is exactly negative then positive.",
+    "math": "(-2,\\ 3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -2,
+      3
+     ],
+     "labels": [
+      "(-2, 3)"
+     ],
+     "caption": "Left two, then up three — that lands in quadrant two"
+    }
+   },
+   {
+    "say": "Now here are the two slips almost everybody makes at first. Slip one is swapping the numbers. Some people see negative two comma three and go up two and left three, landing at negative three comma two. That is a different spot entirely. Remember, x always comes first, just like alphabetical order, x before y. Slip two is grabbing the wrong signs. Some people put negative two comma three down in quadrant four, at the bottom right. But bottom right means x is positive and y is negative, and our point is the other way around. Quick check before you commit: read the two signs, then ask which quadrant has that sign pair.",
+    "math": "(-2,\\ 3)\\ \\neq\\ (-3,\\ 2)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -2,
+      3,
+      -3,
+      2,
+      2,
+      -3
+     ],
+     "labels": [
+      "correct (-2, 3)",
+      "swapped (-3, 2)",
+      "wrong signs (2, -3)"
+     ],
+     "caption": "One right answer and two common wrong landings — all different spots"
+    }
+   },
+   {
+    "say": "Let us read a point backwards now. Suppose a dot sits at the spot where you walk three steps left and two steps down from the origin. Left three means x is negative three. Down two means y is negative two. So the address is negative three comma negative two, and since both numbers are negative, it lives in quadrant three, the bottom left. Both negative always means quadrant three.",
+    "math": "(-3,\\ -2)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -3,
+      -2
+     ],
+     "labels": [
+      "(-3, -2)"
+     ],
+     "caption": "Both numbers negative, so this point sits in quadrant three"
+    }
+   },
+   {
+    "say": "So here is the whole thing in one line. Start at the origin, x first for left or right, then y for up or down, and the pair of signs tells you the quadrant.",
+    "math": "(x,\\ y)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Start at the origin, go x sideways first, then y up or down — and the two signs tell you the quadrant.",
+  "practice": {
+   "question": "On a map of Stanley Park, the totem poles are at the origin, zero comma zero. Each grid square is one hundred metres. The bike rental is four squares east and two squares north of the totem poles. The picnic spot is five squares west and three squares south. Draw your own grid with all four quadrants, then write the ordered pair for each place and name the quadrant it lands in.",
+   "answer": "Bike rental is at four comma two, in quadrant one, because east is positive x and north is positive y. Picnic spot is at negative five comma negative three, in quadrant three, because west is negative x and south is negative y."
+  }
+ }
+}

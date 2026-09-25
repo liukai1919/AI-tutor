@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc11",
+ "strand": "financial",
+ "lang": "en",
+ "unitName": {
+  "zh": "理财",
+  "en": "Financial Literacy"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Financial Literacy · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 1,
+    "question": "A 16-year-old in Surrey deposits $500 in a savings account that earns 4% per year, compounded annually. How much is in the account after 3 years?",
+    "options": [
+     "$540.80",
+     "$562.43",
+     "$560.00",
+     "$520.00"
+    ],
+    "answerIndex": 1,
+    "explain": "Use A = P(1+r)^t = 500(1.04)^3 = $562.43. The most common trap is using simple interest (500 + 3×$20 = $560) or stopping after only 1–2 compounding periods."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 1,
+    "question": "A 15-year-old in Kelowna earns $800 in a summer job and deposits it in an account earning 5% per year, compounded annually. What is the balance after exactly 1 year?",
+    "options": [
+     "$804.00",
+     "$850.00",
+     "$800.00",
+     "$840.00"
+    ],
+    "answerIndex": 3,
+    "explain": "A = 800(1.05)^1 = $840. Students often confuse 5% with 0.5% (giving $804) or add a flat $50 (giving $850) instead of multiplying by 1.05."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 1,
+    "question": "A 17-year-old in Victoria is choosing between buying a bike for $1,200 or leasing it for $30 per month over 6 months (no extra fees). What is the total cost of the 6-month lease?",
+    "options": [
+     "$180",
+     "$1,200",
+     "$1,380",
+     "$30"
+    ],
+    "answerIndex": 0,
+    "explain": "Total lease cost = monthly rate × number of months = $30 × 6 = $180. Common mistakes include quoting the buy price by accident, adding the two options together, or reporting only the single monthly payment."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 2,
+    "question": "A 16-year-old in Burnaby borrows $1,500 at 6% per year, compounded annually, to buy a phone for their school's tech club. They will repay the full amount in one lump sum after 2 years. How much must they repay?",
+    "options": [
+     "$1,680.00",
+     "$1,650.00",
+     "$1,685.40",
+     "$1,590.00"
+    ],
+    "answerIndex": 2,
+    "explain": "A = 1500(1.06)^2 = 1500 × 1.1236 = $1,685.40. The trap is applying simple interest (1500 + 2×$90 = $1,680) or adding the two years' rates as a flat 12%."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 2,
+    "question": "A 17-year-old in Kamloops compares two phone plans: Plan A costs $45/month for 24 months with no up-front charge; Plan B costs $1,200 up-front for the phone plus $20/month for 24 months. What are the 24-month totals, and which plan is cheaper?",
+    "options": [
+     "Plan A totals $1,080; Plan B totals $1,200; Plan A is cheaper.",
+     "Plan A totals $1,080; Plan B totals $1,680; Plan A is cheaper.",
+     "Plan A totals $1,080; Plan B totals $1,680; Plan B is cheaper.",
+     "Plan A totals $1,200; Plan B totals $1,680; Plan A is cheaper."
+    ],
+    "answerIndex": 1,
+    "explain": "Plan A = 45×24 = $1,080; Plan B = 1,200 + 20×24 = $1,680. The key trap is forgetting Plan B's monthly payments (reporting only the $1,200 up-front) or reversing which plan is cheaper."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 2,
+    "question": "A 16-year-old in Whistler deposits $1,000 at 4% per year, compounded semi-annually. What is the balance after 2 years?",
+    "options": [
+     "$1,082.43",
+     "$1,081.60",
+     "$1,080.00",
+     "$1,040.40"
+    ],
+    "answerIndex": 0,
+    "explain": "A = 1000(1 + 0.04/2)^(2×2) = 1000(1.02)^4 = $1,082.43. The most common error is using annual compounding, 1000(1.04)^2 = $1,081.60, instead of adjusting both the rate and the number of periods for semi-annual compounding."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 3,
+    "question": "A 17-year-old in Abbotsford wants a $3,000 laptop for college. Option 1: invest $1,500 now at 5% compounded annually for 2 years. Option 2: invest $750 now at 5% compounded annually for 4 years. Neither option has extra contributions. Which option yields more money, and by how much?",
+    "options": [
+     "Option 1 gives $1,650.00; Option 2 gives $900.00; Option 1 is $750.00 more.",
+     "Option 1 gives $1,653.75; Option 2 gives $911.63; Option 2 is $742.12 more.",
+     "Option 1 gives $1,653.75; Option 2 gives $911.63; Option 1 is $911.63 more.",
+     "Option 1 gives $1,653.75; Option 2 gives $911.63; Option 1 is $742.12 more."
+    ],
+    "answerIndex": 3,
+    "explain": "Option 1: 1500(1.05)^2 = $1,653.75; Option 2: 750(1.05)^4 = $911.63. Option 1 wins by $742.12. The big misconception is assuming the longer time (4 years) must beat the shorter time, ignoring that Option 1 starts with twice the principal."
+   },
+   {
+    "curriculumId": "BC.MATH.PC11.FIN.01",
+    "level": 3,
+    "question": "A 17-year-old in Courtenay wants a car. Buying means a $12,000 loan at 7% compounded annually, repaid as a lump sum after 3 years. Leasing means $350/month for 36 months plus a $2,000 down payment and a $500 end-of-lease fee. What are the total costs, and which option is more expensive?",
+    "options": [
+     "Buy: $14,520.00; Lease: $15,100.00; Lease is $580.00 more.",
+     "Buy: $14,700.52; Lease: $14,600.00; Buy is $100.52 more.",
+     "Buy: $14,700.52; Lease: $15,100.00; Lease is $399.48 more.",
+     "Buy: $14,700.52; Lease: $15,100.00; Buy is $399.48 more."
+    ],
+    "answerIndex": 2,
+    "explain": "Buy: 12000(1.07)^3 = $14,700.52. Lease: 350×36 + 2000 + 500 = $15,100. The lease is $399.48 more. Traps include using simple interest for the loan (giving $14,520), forgetting the $500 end-of-lease fee, or reversing which option costs more."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

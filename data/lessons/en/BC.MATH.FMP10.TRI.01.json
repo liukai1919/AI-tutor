@@ -1,0 +1,154 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.TRI.01",
+ "lang": "en",
+ "title": "primary trigonometric ratios",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "SOH-CAH-TOA: Measuring What You Can't Reach",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this: you're walking through Stanley Park in Vancouver and there's this massive Douglas fir you just have to know the height of. You can't climb it. You can't drag a fifty-metre tape up the trunk. But here's the trick — you walk twenty metres back, tilt your head up, and your phone tells you the angle to the top. Boom, you have everything you need to find the height without ever touching the tree. That's trigonometry, and the tool that makes it work is called the primary trigonometric ratios.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Before we can use the ratios, we need to name the three sides of a right triangle. Pick one of the two small angles and call it theta. The side straight across from theta is the opposite side. The side right next to theta, but it's not the longest one, is the adjacent side. And the longest side, the one across from the ninety-degree corner, is the hypotenuse. See how each name is relative to the angle you picked? Change the angle, and 'opposite' and 'adjacent' swap around.",
+    "math": "\\text{opposite, adjacent, hypotenuse (relative to } \\theta\\text{)}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      8,
+      6
+     ],
+     "labels": [
+      "adjacent (8 m)",
+      "opposite (6 m)",
+      "hyp (10 m)",
+      "θ"
+     ],
+     "caption": "A 3-4-5 right triangle scaled up, with sides named relative to θ"
+    }
+   },
+   {
+    "say": "Now here's the magic. No matter how big or small you draw the triangle, as long as the angle stays the same, the ratios of the sides stay exactly the same. That gives us three formulas. Sine: the opposite side divided by the hypotenuse. Cosine: the adjacent side divided by the hypotenuse. Tangent: the opposite side divided by the adjacent side. I always remember it with the phrase S-O-H, C-A-H, T-O-A. You'll use these three little fractions for basically every trig problem in this course.",
+    "math": "\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}},\\quad \\cos\\theta=\\frac{\\text{adj}}{\\text{hyp}},\\quad \\tan\\theta=\\frac{\\text{opp}}{\\text{adj}}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      3,
+      4
+     ],
+     "labels": [
+      "adj (3)",
+      "opp (4)",
+      "hyp (5)",
+      "θ"
+     ],
+     "caption": "SOH-CAH-TOA on a 3-4-5 triangle"
+    }
+   },
+   {
+    "say": "Let's try one. You're helping a friend load a kayak onto a loading ramp at a lake up in Squamish. The ramp is five metres long and it makes a twenty-degree angle with the ground. The question is: how high does the top of the ramp sit above the ground? The height we want is the opposite side. The ramp itself is the hypotenuse. Opposite over hypotenuse is sine. So sine of twenty degrees equals height divided by five. Multiply both sides by five: height equals five times sine of twenty degrees. Sine of twenty degrees is about zero point three four two. Five times zero point three four two is one point seven one metres. The ramp lifts the kayak about one point seven metres off the ground.",
+    "math": "\\sin 20^\\circ=\\frac{h}{5}\\;\\Longrightarrow\\; h=5\\sin 20^\\circ\\approx 1.71\\text{ m}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      4.7,
+      1.71
+     ],
+     "labels": [
+      "4.70 m",
+      "h = 1.71 m",
+      "5 m (ramp)",
+      "20°"
+     ],
+     "caption": "Kayak ramp: find the height using sine"
+    }
+   },
+   {
+    "say": "One more, a little different. You're at a park in Victoria and there's a huge western red cedar. You walk exactly thirty metres back from the trunk, and your phone's angle app reads forty-five degrees up to the top. How tall is the tree above your eye level? Height is the opposite side. Thirty metres is the adjacent side. Opposite over adjacent is tangent. So tangent of forty-five degrees equals height divided by thirty. Tangent of forty-five degrees is exactly one — a nice little special value to remember. So height equals thirty times one, which is thirty metres. That cedar is about thirty metres above your eyes.",
+    "math": "\\tan 45^\\circ=\\frac{h}{30}\\;\\Longrightarrow\\; h=30\\tan 45^\\circ=30\\times 1=30\\text{ m}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      30,
+      30
+     ],
+     "labels": [
+      "30 m",
+      "30 m (height)",
+      "42.4 m",
+      "45°"
+     ],
+     "caption": "Tree height: find the opposite side using tangent"
+    }
+   },
+   {
+    "say": "Now let's flip the question around, because sometimes it's the angle you're missing. You lean a four-metre ladder against the side of your house, and its feet sit two and a half metres out from the wall. What angle does the ladder make with the ground? The two and a half metres runs along the ground right next to that angle, so it's the adjacent side, and the ladder is the hypotenuse. Adjacent over hypotenuse is cosine. So cosine of theta equals two point five divided by four, which is zero point six two five. To get the angle itself, you use the inverse cosine button on your calculator: theta equals inverse cosine of zero point six two five, which is about fifty-one point three degrees. And if you also want to know how high up the wall the ladder reaches, the Pythagorean theorem finishes the job: four squared minus two point five squared is sixteen minus six point two five, which is nine point seven five, and the square root of that is about three point one two metres.",
+    "math": "\\cos\\theta=\\frac{2.5}{4}=0.625\\;\\Longrightarrow\\;\\theta=\\cos^{-1}(0.625)\\approx 51.3^\\circ,\\qquad h=\\sqrt{4^2-2.5^2}=\\sqrt{9.75}\\approx 3.12\\text{ m}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      2.5,
+      3.12
+     ],
+     "labels": [
+      "2.5 m",
+      "3.12 m",
+      "4 m (ladder)",
+      "θ = ?"
+     ],
+     "caption": "Ladder against a wall: find the angle with inverse cosine, the height with the Pythagorean theorem"
+    }
+   },
+   {
+    "say": "Here's your go-to strategy whenever a problem lands on your desk. First, sketch the right triangle and label what you know. Second, name the side you want as opposite, adjacent, or hypotenuse. Third, look at the two sides in your ratio and pick the right formula: if you have opposite and hypotenuse, use sine; adjacent and hypotenuse, use cosine; opposite and adjacent, use tangent. Fourth, plug in the numbers, isolate the unknown, and you're done. And if a problem gives you two sides but no angle, the Pythagorean theorem gives you the missing side, and then trig hands you the angle.",
+    "math": "\\text{sketch} \\rightarrow \\text{name sides} \\rightarrow \\text{pick ratio} \\rightarrow \\text{solve}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "adj",
+      "opp",
+      "hyp",
+      "θ"
+     ],
+     "caption": "Label the sides you know, then choose the right ratio"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to carry into the next unit: in any right triangle, an angle locks in the shape, and sine, cosine, and tangent let you trade a known side for an unknown one. You never have to touch what you're measuring — you just need one side and one angle.",
+    "math": "\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}},\\quad \\cos\\theta=\\frac{\\text{adj}}{\\text{hyp}},\\quad \\tan\\theta=\\frac{\\text{opp}}{\\text{adj}}",
+    "visual": {
+     "type": "angle",
+     "nums": [
+      45
+     ],
+     "labels": [],
+     "caption": "One angle + one side = every other measurement in a right triangle"
+    }
+   }
+  ],
+  "answer": "One angle and one side are all you need: sine, cosine, and tangent let you find any missing side in a right triangle without ever touching it.",
+  "practice": {
+   "question": "A flagpole stands in the middle of your BC schoolyard. You stand fifteen metres from the base and measure an angle of elevation of thirty-five degrees to the top. Using tangent, how tall is the flagpole? (Round to one decimal place.)",
+   "answer": "tan 35° = h / 15, so h = 15 × tan 35° ≈ 15 × 0.7002 ≈ 10.5 m. The flagpole is about 10.5 metres tall."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+ "lang": "en",
+ "title": "Solve two-step equations in other forms: x/3 + 5 = 2 and 2(x + 4) = −6",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Two-Step Equations in Disguise",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already crush equations like negative four x plus seven equals nineteen. Today x shows up dressed differently — divided by three, or trapped inside brackets — but the exact same two moves still work.",
+    "math": "\\frac{x}{3}+5=2 \\qquad 2(x+4)=-6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of the equation as a balance scale. Whatever is stuck to x from the outside comes off first. In x divided by three plus five, the plus five is on the outside, so it goes first. And the golden rule: whatever you do, you do it to the whole side, not just one piece.",
+    "math": "\\frac{x}{3}+5=2",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      2,
+      2
+     ],
+     "labels": [
+      "x/3 + 5",
+      "2"
+     ],
+     "caption": "Both sides balance — keep them equal at every step"
+    }
+   },
+   {
+    "say": "Let us do it. Subtract five from both sides: two minus five is negative three, so x divided by three equals negative three. Now undo the divide by three by multiplying both sides by three: negative three times three is negative nine. So x equals negative nine. Check it: negative nine divided by three is negative three, and negative three plus five is two. It works.",
+    "math": "\\frac{x}{3}+5=2 \\;\\Rightarrow\\; \\frac{x}{3}=-3 \\;\\Rightarrow\\; x=-9",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -12,
+      0,
+      -9
+     ],
+     "labels": [],
+     "caption": "The solution x = -9"
+    }
+   },
+   {
+    "say": "Now the bracket one. Two times the bracket equals negative six, so first divide both sides by two: the bracket x plus four equals negative three. Then subtract four from both sides: negative three minus four is negative seven. So x equals negative seven. Check: negative seven plus four is negative three, and two times negative three is negative six. Perfect.",
+    "math": "2(x+4)=-6 \\;\\Rightarrow\\; x+4=-3 \\;\\Rightarrow\\; x=-7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -6,
+      -6
+     ],
+     "labels": [
+      "2(x + 4)",
+      "-6"
+     ],
+     "caption": "Halve both sides and the scale stays level"
+    }
+   },
+   {
+    "say": "Here are the two traps. Trap one: multiplying by three but only touching one term, turning x divided by three plus five equals two into x plus five equals six. That is broken — the three has to hit every single term, including the five and the two. Trap two: distributing to only the first term, writing two x plus four instead of two x plus eight. Both mistakes tip the scale over.",
+    "math": "\\frac{x}{3}+5=2 \\;\\nRightarrow\\; x+5=6",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      -4,
+      6
+     ],
+     "labels": [
+      "x + 5",
+      "6"
+     ],
+     "caption": "Touching only one term breaks the balance"
+    }
+   },
+   {
+    "say": "So remember: work from the outside in. Undo the plus or minus first, then the multiply or divide — and whatever you do, do it to the entire side.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Peel from the outside in — and whatever you do, do it to every term on both sides.",
+  "practice": {
+   "question": "Grab a pencil and solve this one: two times, open bracket, x plus six, close bracket, equals negative ten. Divide both sides by two first, then undo the inside. What is x? Bonus: check your answer by putting it back in.",
+   "answer": "x equals negative eleven. Dividing both sides by two gives x plus six equals negative five, then subtracting six gives x equals negative eleven. Check: negative eleven plus six is negative five, and two times negative five is negative ten."
+  }
+ }
+}

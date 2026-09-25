@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.SIMPLIFY_MIXED",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtly6ij674sbjr",
+   "level": 1,
+   "question": "化简 (2³)² × 2⁴，把结果写成一个幂（power）的形式。",
+   "options": [
+    "2¹⁰",
+    "2⁹",
+    "2²⁴",
+    "4¹⁰"
+   ],
+   "answerIndex": 0,
+   "explain": "幂的乘方是指数相乘：(2³)² = 2⁶；再同底数幂相乘是指数相加：2⁶ × 2⁴ = 2¹⁰。别把 (2³)² 算成 2⁵，也别把 2⁶ × 2⁴ 的指数乘成 2²⁴，底数 2 更不会变成 4。",
+   "tags": [
+    "ok",
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6d0sw83",
+   "level": 1,
+   "question": "化简 3² × (3³)² ÷ 3³，把结果写成一个幂的形式。",
+   "options": [
+    "3⁴",
+    "3⁵",
+    "3⁹",
+    "6⁵"
+   ],
+   "answerIndex": 1,
+   "explain": "(3³)² = 3⁶，于是 3² × 3⁶ ÷ 3³ 的指数是 2 + 6 − 3 = 5，得 3⁵。相乘是指数相加、相除是指数相减，底数始终是 3，不会加成 6。",
+   "tags": [
+    "exp.power_of_power_add",
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6qbx563",
+   "level": 1,
+   "question": "化简 (y³)² × y²。",
+   "options": [
+    "y¹²",
+    "y⁷",
+    "y⁸",
+    "2y⁸"
+   ],
+   "answerIndex": 2,
+   "explain": "(y³)² = y⁶，再乘 y² 指数相加得 y⁸。幂的乘方是 3 × 2 而不是 3 + 2；同底数相乘是指数相加而不是 6 × 2，底数 y 也不会变成 2y。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "exp.power_of_power_add",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij66dk3b6",
+   "level": 1,
+   "question": "化简 (a²b)³ × a²。",
+   "options": [
+    "a⁷b⁴",
+    "a¹²b³",
+    "2a⁸b³",
+    "a⁸b³"
+   ],
+   "answerIndex": 3,
+   "explain": "(a²b)³ 里每个因式都要乘方：a⁶b³；再乘 a² 得 a⁸b³。b 的指数是 1 × 3 = 3，a 的指数是 2 × 3 = 6 再加 2，不是把指数加在一起，也不会多出系数 2。",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6yqi162",
+   "level": 2,
+   "question": "小雅整理手机相册：文件夹有 2⁵ 个，每个文件夹里有 2³ 张照片。她想把所有照片平均分到 (2²)³ 本电子相册里，每本相册分到几张？",
+   "options": [
+    "4 张",
+    "8 张",
+    "512 张",
+    "1024 张"
+   ],
+   "answerIndex": 0,
+   "explain": "照片共 2⁵ × 2³ = 2⁸ 张，相册有 (2²)³ = 2⁶ 本，每本 2⁸ ÷ 2⁶ = 2² = 4 张。坑：(2²)³ 是 2⁶ 不是 2⁵；2⁵ × 2³ 的指数是相加得 8，不是相乘得 15，底数也不会变成 4。",
+   "tags": [
+    "ok",
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6jdr5sj",
+   "level": 2,
+   "question": "生物课上，培养皿里一开始有 2² 个酵母细胞，每过一小时细胞数变为原来的 2² 倍。3 小时后，把所有细胞平均分到 2⁴ 个小皿里，每个小皿有多少个细胞？",
+   "options": [
+    "8 个",
+    "16 个",
+    "4096 个",
+    "256 个"
+   ],
+   "answerIndex": 1,
+   "explain": "3 小时后细胞数是 2² × (2²)³ = 2² × 2⁶ = 2⁸，平均到 2⁴ 个小皿，每皿 2⁸ ÷ 2⁴ = 2⁴ = 16 个。(2²)³ 的指数是 2 × 3 = 6 而不是 2 + 3；底数一直是 2，别把 2² × 2⁶ 写成 4⁸。",
+   "tags": [
+    "exp.power_of_power_add",
+    "ok",
+    "exp.add_bases",
+    "exp.multiply_exponents_for_product"
+   ]
+  },
+  {
+   "qid": "qmtly6ij662iu37",
+   "level": 2,
+   "question": "化简 (m³n)² × m² ÷ m⁴。",
+   "options": [
+    "m⁸n²",
+    "m³n³",
+    "m⁴n²",
+    "2m⁴n²"
+   ],
+   "answerIndex": 2,
+   "explain": "(m³n)² = m⁶n²，乘 m² 得 m⁸n²，再除以 m⁴ 得 m⁴n²。n 只被平方一次，指数是 1 × 2 = 2；m 的指数是 6 + 2 − 4，不要把 6 和 2 相乘，底数也不会多出系数 2。",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "exp.power_of_power_add",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6uzl5du",
+   "level": 2,
+   "question": "不用计算器，先用指数运算律（exponent laws）化简，再求 5⁴ × 5² ÷ (5³)² 的值。",
+   "options": [
+    "5",
+    "25",
+    "64",
+    "1"
+   ],
+   "answerIndex": 3,
+   "explain": "5⁴ × 5² = 5⁶，(5³)² = 5⁶，5⁶ ÷ 5⁶ = 5⁰ = 1。任何非零数的零次幂（zero exponent）都是 1；把 (5³)² 算成 5⁵ 会得到 5，把 5⁴ × 5² 算成 5⁸ 会得到 25，把底数加成 10 再除会得到 64。",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6x7n24f",
+   "level": 3,
+   "question": "温哥华一场科技展的 LED 墙由正方形面板拼成：每块面板每边有 2⁴ 个 LED 灯珠，整面墙一共用了 2⁵ 块面板。每 2⁶ 个灯珠需要一块控制芯片。整面墙一共需要多少块芯片？（用幂的形式表示）",
+   "options": [
+    "2⁷ 个",
+    "2³⁴ 个",
+    "4⁷ 个",
+    "2⁵ 个"
+   ],
+   "answerIndex": 0,
+   "explain": "一块面板有 (2⁴)² = 2⁸ 个灯珠，整面墙 2⁸ × 2⁵ = 2¹³ 个，芯片数 2¹³ ÷ 2⁶ = 2⁷ 个。(2⁴)² 是指数相乘得 8 而不是 6；2⁸ × 2⁵ 是指数相加得 13 而不是相乘，底数一直是 2 不会变成 4。",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "exp.power_of_power_add"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6w0bwk5",
+   "level": 3,
+   "question": "本拿比一家茶叶店把茶叶装在边长 3² cm 的正方体小盒里，仓库里共有 3³ 盒。现在要把全部茶叶倒出来改装成容量 3⁴ cm³ 的小袋（假设装满且不浪费），需要多少个小袋？（用幂的形式表示）",
+   "options": [
+    "3⁴ 袋",
+    "3⁵ 袋",
+    "3¹⁴ 袋",
+    "6⁵ 袋"
+   ],
+   "answerIndex": 1,
+   "explain": "一盒体积 (3²)³ = 3⁶ cm³，3³ 盒共 3⁶ × 3³ = 3⁹ cm³，装成 3⁹ ÷ 3⁴ = 3⁵ 袋。体积要把边长乘三次，指数是 2 × 3 而不是 2 + 3；后面相乘、相除只对指数做加、减，底数始终是 3。",
+   "tags": [
+    "exp.power_of_power_add",
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij6ds7alk",
+   "level": 3,
+   "question": "小明化简 (x³)² × x⁴ ÷ x²，写的过程是：(x³)² = x⁵，x⁵ × x⁴ = x⁹，x⁹ ÷ x² = x⁷。下面哪种说法是对的？",
+   "options": [
+    "x⁷ 没错，因为幂的乘方本来就是指数相加",
+    "应得 x²²，因为 x⁶ × x⁴ 要把指数相乘得 x²⁴",
+    "应得 x⁸，因为 (x³)² 是指数相乘，得 x⁶",
+    "应得 2x⁸，因为 x⁶ × x⁴ 底数也要加在一起"
+   ],
+   "answerIndex": 2,
+   "explain": "小明错在第一步：幂的乘方要把指数相乘，(x³)² = x⁶，接着 x⁶ × x⁴ ÷ x² = x⁸。同底数相乘只把指数相加，既不相乘，底数也不变，不会冒出系数 2。",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly6ij65rm308",
+   "level": 3,
+   "question": "下面四个化简（simplify）算式中，只有一个是完全正确的，是哪一个？",
+   "options": [
+    "3² × 3³ ÷ 3 = 6⁴",
+    "3⁵ × 3² ÷ 3³ = 3⁷",
+    "(3²)³ × 3² = 3⁷",
+    "(3⁴)² × 3 = 3⁹"
+   ],
+   "answerIndex": 3,
+   "explain": "(3⁴)² = 3⁸，再乘 3 得 3⁹，这条正确。其余各错一处：3⁵ × 3² 是 3⁷ 而不是 3¹⁰，所以除以 3³ 应得 3⁴；(3²)³ 是 3⁶ 而不是 3⁵，乘 3² 应得 3⁸；3² × 3³ 底数不变是 3⁵，除以 3 应得 3⁴ 而不是 6⁴。",
+   "tags": [
+    "exp.add_bases",
+    "exp.multiply_exponents_for_product",
+    "exp.power_of_power_add",
+    "ok"
+   ]
+  }
+ ]
+}

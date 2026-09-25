@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PCT.BEYOND100.CONVERT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtklmukgf7p1ga",
+   "level": 1,
+   "question": "百分数（percent）表示把整体平均分成 100 份后取了几份。½% 是一个分数形式的百分数（fractional percent）。把 ½% 化成小数，下面哪个算式和结果都对？",
+   "options": [
+    "½% = 0.5 ÷ 100 = 0.005",
+    "½% = ½ = 0.5（去掉百分号）",
+    "½% = 0.5 ÷ 10 = 0.05",
+    "½% = 0.5 ÷ 1000 = 0.0005"
+   ],
+   "answerIndex": 0,
+   "explain": "百分号就是「除以 100」，所以 ½% 先写成 0.5%，再把 0.5 除以 100 得 0.005。最容易踩的坑是把 ½% 直接当成 ½ = 0.5，那其实是 50%，大了整整 100 倍。",
+   "tags": [
+    "ok",
+    "pct.fractional_percent_as_fraction",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukg0jekim",
+   "level": 1,
+   "question": "把 3.25% 化成小数（decimal），结果是下面哪一个？",
+   "options": [
+    "0.325（小数点左移一位）",
+    "0.0325（小数点左移两位）",
+    "3.25（把百分号去掉就行）",
+    "0.00325（小数点左移三位）"
+   ],
+   "answerIndex": 1,
+   "explain": "化成小数就是除以 100，小数点（decimal point）向左移两位：3.25% = 0.0325。只移一位得 0.325、或干脆把百分号去掉得 3.25，都是移位移错了。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukg0u5syx",
+   "level": 1,
+   "question": "122% 化成小数是多少？",
+   "options": [
+    "12.2，因为 122 ÷ 10",
+    "0.122，因为 122 ÷ 1000",
+    "1.22，因为 122 ÷ 100",
+    "122，因为百分号直接去掉"
+   ],
+   "answerIndex": 2,
+   "explain": "122% = 122 ÷ 100 = 1.22。大于 100% 的百分数化成小数一定大于 1，如果算出 12.2 或 0.122，说明小数点移的位数不对。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukgj1yx03",
+   "level": 1,
+   "question": "百分数的意思是「每 100 份里有几份」。把 ¼% 写成最简分数（fraction），是下面哪一个？",
+   "options": [
+    "1/4，因为 ¼% 就是 ¼",
+    "1/40，因为 ¼ 再除以 10",
+    "1/4000，因为 ¼ 再除以 1000",
+    "1/400，因为 ¼ 再除以 100"
+   ],
+   "answerIndex": 3,
+   "explain": "¼% 表示每 100 份里有 ¼ 份，所以 ¼ ÷ 100 = 1/400。写成 1/4 的那个是把 ¼% 当成了 ¼，而 ¼ 其实等于 25%。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklmukg87ruon",
+   "level": 2,
+   "question": "BC 一家信用社（credit union）的储蓄账户年利率是 ¾%。把 ¾% 化成小数，应该是多少？",
+   "options": [
+    "0.0075，因为 0.75 ÷ 100",
+    "0.75，因为 ¾ = 0.75",
+    "0.075，因为 0.75 ÷ 10",
+    "0.00075，因为 0.75 ÷ 1000"
+   ],
+   "answerIndex": 0,
+   "explain": "¾% 先写成 0.75%，再除以 100 得 0.0075。坑在于把 ¾% 当成 ¾ = 0.75，那是 75%，利率一下子被放大了 100 倍。",
+   "tags": [
+    "ok",
+    "pct.fractional_percent_as_fraction",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukgimj5dp",
+   "level": 2,
+   "question": "一瓶果汁的标签上写着某种矿物质含量是 0.4%。把 0.4% 写成最简分数是多少？",
+   "options": [
+    "2/5，因为 0.4% 就是 0.4",
+    "1/250，因为 0.4% = 0.004",
+    "1/2500，因为 0.4% = 0.0004",
+    "1/25，因为 0.4% = 0.04"
+   ],
+   "answerIndex": 1,
+   "explain": "0.4% = 0.4 ÷ 100 = 0.004 = 4/1000，约分得 1/250。写成 2/5 的那个把 0.4% 当成了 0.4，小数点少移了两位。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukgymspqh",
+   "level": 2,
+   "question": "一个保温水壶的原价（original amount）是 25 加元，商店调价后新价格是原价的 108%。新价格是多少？",
+   "options": [
+    "2.70 加元，因为 108% = 0.108",
+    "270.00 加元，因为 108% = 10.8",
+    "27.00 加元，因为 108% = 1.08",
+    "0.27 加元，因为 108% = 0.0108"
+   ],
+   "answerIndex": 2,
+   "explain": "先把 108% 除以 100 化成 1.08，再算 25 × 1.08 = 27 加元。若把 108% 写成 10.8 或 0.108，小数点就移错位了，答案会差 10 倍或 100 倍。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukg75ouq2",
+   "level": 2,
+   "question": "学校跑步社今年的人数是去年的 175%。用小数和分数分别表示 175%，哪一组都对？",
+   "options": [
+    "0.175 和 7/40，除以 1000",
+    "175 和 175/1，去掉百分号",
+    "17.5 和 35/2，除以 10",
+    "1.75 和 7/4，除以 100"
+   ],
+   "answerIndex": 3,
+   "explain": "175% = 175 ÷ 100 = 1.75；写成分数是 175/100，约分得 7/4。大于 100% 的量一定超过 1，所以 0.175 那组一看就偏小了。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklmukggr9wkb",
+   "level": 3,
+   "question": "科学课上测三份水样的含盐量：甲样本是 ¾%，乙样本写成小数是 0.008，丙样本是 0.9%。把三份水样按含盐量从小到大排，哪一句对？",
+   "options": [
+    "甲 < 乙 < 丙，因为 ¾% = 0.0075",
+    "乙 < 丙 < 甲，因为 ¾% = 0.75",
+    "乙 < 甲 < 丙，因为 0.008 = 0.08%",
+    "丙 < 甲 < 乙，因为 0.9% = 0.0009"
+   ],
+   "answerIndex": 0,
+   "explain": "先全部化成小数再比：¾% = 0.0075，0.9% = 0.009，乙本来就是 0.008，所以 0.0075 < 0.008 < 0.009。最常见的错是把 ¾% 当成 0.75，那会让甲错变成最大的。",
+   "tags": [
+    "ok",
+    "pct.fractional_percent_as_fraction",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukgxookcf",
+   "level": 3,
+   "question": "实验室有两个矿物样本：样本一的某成分含量是 ⅛%，样本二的同一成分含量写成小数是 0.0125。下面哪句话说得对？",
+   "options": [
+    "样本一大，因为 ⅛% = 0.125，比 0.0125 大",
+    "样本二大，因为 ⅛% = 0.00125，是它的 10 倍",
+    "样本二大，因为 ⅛% = 0.000125，是它的 100 倍",
+    "两个一样大，因为 ⅛% = 0.0125，完全相同"
+   ],
+   "answerIndex": 1,
+   "explain": "⅛ = 0.125，所以 ⅛% = 0.125%，再除以 100 得 0.00125；0.0125 正好是它的 10 倍，样本二含量高。把 ⅛% 当成 0.125 的想法，是把分数形式的百分数直接当成了分数。",
+   "tags": [
+    "pct.fractional_percent_as_fraction",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklmukgtm1fx3",
+   "level": 3,
+   "question": "小杰说：「⅕% 化成小数是 0.2。」下面哪句话说得对？",
+   "options": [
+    "他错了，⅕% = 0.2%，再除以 1000 得 0.0002",
+    "他错了，⅕% = 0.2%，再除以 10 得 0.02",
+    "他错了，⅕% = 0.2%，再除以 100 得 0.002",
+    "他说得对，因为 ⅕ = 0.2，百分号可去掉"
+   ],
+   "answerIndex": 2,
+   "explain": "⅕% 要分两步：先把 ⅕ 写成 0.2，得到 0.2%；再除以 100 得 0.002。只做完第一步就停在 0.2，等于把 ⅕% 当成了 ⅕，也就是 20%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.fractional_percent_as_fraction"
+   ]
+  },
+  {
+   "qid": "qmtklmukgcgsri2",
+   "level": 3,
+   "question": "妈妈在 BC 一家银行存了 4000 加元，年利率是 ½%（单利）。存满一年后，本金加利息一共是多少？",
+   "options": [
+    "4200 加元，利息 4000 × 0.05 = 200",
+    "4002 加元，利息 4000 × 0.0005 = 2",
+    "6000 加元，利息 4000 × 0.5 = 2000",
+    "4020 加元，利息 4000 × 0.005 = 20"
+   ],
+   "answerIndex": 3,
+   "explain": "先把 ½% 化成小数 0.005，利息 4000 × 0.005 = 20 加元，本息合计 4020 加元。用 0.5 去算会得到 2000 加元利息，那是把 ½% 当成了 50%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.fractional_percent_as_fraction",
+    "ok"
+   ]
+  }
+ ]
+}

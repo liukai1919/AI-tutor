@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.GEO.PYTH.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqiuqkowq3cv",
+   "level": 1,
+   "question": "小雅家客厅的电视屏幕是长方形，宽 150 cm、高 80 cm。她想知道这块屏幕的对角线（diagonal）有多长，也就是把屏幕沿角对角量一条直线。这条对角线是多少厘米？",
+   "options": [
+    "170 cm",
+    "约 126.9 cm",
+    "230 cm",
+    "28900 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "屏幕的宽和高是两条直角边（leg），对角线是斜边（hypotenuse）：150²+80²=28900，√28900=170 cm。最常见的坑是算到 28900 就停手，那只是平方和，还差开方这一步。",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "other",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk6spate",
+   "level": 1,
+   "question": "本拿比一个滑板公园里有一段直的斜坡，斜面（最长的那条边，从坡底一直到坡顶）长 20 m，从坡底到坡顶正下方的水平距离是 16 m。坡顶离地面多高？",
+   "options": [
+    "约 25.6 m",
+    "12 m",
+    "144 m",
+    "4 m"
+   ],
+   "answerIndex": 1,
+   "explain": "斜面是斜边，坡高是直角边，已知斜边求直角边要平方相减：20²−16²=400−256=144，√144=12 m。写成 20²+16² 的那个算出约 25.6 m，比斜面本身还长，一看就不可能。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "word.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqkvl0p38",
+   "level": 1,
+   "question": "小杰在菲莎河上划独木舟，他一直朝正对岸的方向划，可是水流把他往下游带。他实际划出的那条斜线路径长 100 m，上岸的地方在出发点正对面的下游 60 m 处。这条河有多宽（也就是两岸之间的垂直距离）？",
+   "options": [
+    "约 116.6 m",
+    "40 m",
+    "80 m",
+    "6400 m"
+   ],
+   "answerIndex": 2,
+   "explain": "实际走的斜线是斜边，河宽和被冲下游的 60 m 是两条互相垂直的直角边：100²−60²=6400，√6400=80 m。坑在于求直角边时用了加法 100²+60²，那样河宽比船走的路还长，明显不对。",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "other",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqksqy8ft",
+   "level": 1,
+   "question": "小林在史丹利公园放风筝，风筝线拉得笔直。这时风筝离地面 24 m 高，风筝正下方地面的那一点离小林站的位置 7 m。小林手里放出的风筝线有多长？",
+   "options": [
+    "625 m",
+    "31 m",
+    "约 23.0 m",
+    "25 m"
+   ],
+   "answerIndex": 3,
+   "explain": "高度 24 m 和地面上的 7 m 是两条直角边，拉直的风筝线是斜边：24²+7²=625，√625=25 m。坑是看到 24 最大就把它当斜边去做减法，可斜边一定是三角形里最长的一条，风筝线不可能比高度还短。",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqkdxlmv7",
+   "level": 2,
+   "question": "一个直角三角形（right triangle）的斜边长 37 cm，其中一条直角边长 12 cm。另一条直角边有多长？",
+   "options": [
+    "35 cm",
+    "1225 cm",
+    "约 38.9 cm",
+    "25 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "已知斜边和一条直角边，求另一条直角边要平方相减：37²−12²=1369−144=1225，√1225=35 cm。写成 37²+12² 的那个是把求斜边的做法搬了过来，算出的直角边比斜边还长；而 1225 只是平方，还没开方。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk7si2c3",
+   "level": 2,
+   "question": "学校屋顶装了一块长方形的太阳能板，长 80 cm，从一角到对角的对角线长 100 cm。现在要沿着这块板的四条边贴一圈防水条。需要多长的防水条（也就是这块板的周长 perimeter）？",
+   "options": [
+    "60 cm",
+    "280 cm",
+    "360 cm",
+    "约 416 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "先把对角线当斜边求出宽：100²−80²=3600，√3600=60 cm；再算周长 2×(80+60)=280 cm。最大的坑是求出 60 就交卷，60 cm 只是这块板的宽，题目要的是绕一圈的长度。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_when_finding_leg"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk62bq8d",
+   "level": 2,
+   "question": "直角三角形 ABC 的直角在顶点 B，两条边 AB = 8 m，BC = 15 m。AC 有多长？",
+   "options": [
+    "23 m",
+    "约 12.7 m",
+    "17 m",
+    "289 m"
+   ],
+   "answerIndex": 2,
+   "explain": "直角在 B，对着直角的 AC 才是斜边，AB 和 BC 是两条直角边：8²+15²=289，√289=17 m。坑是看见 15 最大就把 BC 当斜边去做减法，得到约 12.7 m——斜边只能是直角所对的那条边，跟谁的数字大没关系。",
+   "tags": [
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk4ykcnv",
+   "level": 2,
+   "question": "安娜把一架 5 m 长的梯子（ladder）斜靠在墙上，梯脚离墙 1.4 m，梯子顶端在墙上够到 h m 高。下面哪个方程正确描述了这个情形？",
+   "options": [
+    "5² + h² = 1.4²",
+    "5² + 1.4² = h²",
+    "h = 5² − 1.4²",
+    "1.4² + h² = 5²"
+   ],
+   "answerIndex": 3,
+   "explain": "梯子是斜边，墙上的高度 h 和地面上的 1.4 m 是两条直角边，所以 1.4²+h²=5²。把 h² 或 1.4² 单独放到等号右边，等于把一条直角边当成了斜边；而 h=5²−1.4² 那个漏掉了最后开方这一步。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_when_finding_leg",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqkqgc8lp",
+   "level": 3,
+   "question": "消防车的云梯长 25 m。救援时先把梯脚放在离楼墙 7 m 的地方，梯顶靠在墙上；后来为了让车让开，梯脚被挪到离墙 15 m，梯子长度不变，梯顶还是靠着墙。梯顶在墙上的位置比原来下降了多少米？",
+   "options": [
+    "4 m",
+    "8 m",
+    "约 3.2 m",
+    "24 m"
+   ],
+   "answerIndex": 0,
+   "explain": "两次都是已知斜边求直角边：√(25²−7²)=24 m，√(25²−15²)=20 m，所以下降了 24−20=4 m。坑一是算出 24 m 就停手，那只是原来的高度；坑二是直接拿梯脚挪动的 15−7=8 m 当高度变化，可底边和高度并不是等量变化的。",
+   "tags": [
+    "ok",
+    "other",
+    "pyth.add_when_finding_leg",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk3wub6c",
+   "level": 3,
+   "question": "一条独木舟从岸边朝正对岸划，两岸垂直距离 60 m；靠岸时发现自己在出发点正对面的下游 80 m 处。四个同学在讨论这条实际走过的斜线路径有多长，谁说得对？",
+   "options": [
+    "80 m 那段最长，它是斜边，路径是 √(80²−60²)≈52.9 m。",
+    "路径是斜边，用 √(60²+80²)，等于 100 m。",
+    "60²+80²=10000，算到这一步就够了，路径是 10000 m。",
+    "船先横渡再顺流，两段相加就行，路径是 60+80=140 m。"
+   ],
+   "answerIndex": 1,
+   "explain": "横渡的 60 m 和被水流冲的 80 m 互相垂直，是两条直角边，船实际走的斜线才是斜边：√(60²+80²)=√10000=100 m。用减法算出约 52.9 m 的那个把最长的边认错了——斜边一定比每条直角边都长。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "word.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqiuqk1lesur",
+   "level": 3,
+   "question": "基洛纳一所学校的长方形操场长 75 m、宽 40 m。塔莎要从操场的一角走到对面那一角：她可以沿着两条边走，也可以从操场中间斜穿对角线走。斜穿比沿着两条边走少走多少米？",
+   "options": [
+    "85 m",
+    "35 m",
+    "30 m",
+    "约 51.6 m"
+   ],
+   "answerIndex": 2,
+   "explain": "先把对角线当斜边求出来：75²+40²=7225，√7225=85 m；再比较两条路线：(75+40)−85=30 m。最容易踩的坑是算出 85 m 就停下——那是对角线本身，不是少走的距离。",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "ok",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtktgxsk5z2q4m",
+   "level": 3,
+   "question": "素里一所中学有一块长方形排球场。从一个角拉一条线到对面的角，量得这条对角线（diagonal）长 26 m，场地的短边长 10 m。热身时队员这样走：先从一个角沿短边走到相邻的角，再沿长边走到对面的角，最后沿对角线直接走回起点。走完这一圈一共是多少米？",
+   "options": [
+    "34 m",
+    "62 m",
+    "约 64 m",
+    "60 m"
+   ],
+   "answerIndex": 3,
+   "explain": "对角线是斜边（hypotenuse），长边是直角边（leg）：26² − 10² = 676 − 100 = 576，√576 = 24 m。一圈 = 10 + 24 + 26 = 60 m。坑：求直角边要相减不是相加；另外算出 24 m 后别停下，写成 34 m 的那个漏掉了最后那段对角线。",
+   "tags": [
+    "word.stop_early",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_when_finding_leg",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtktgxskyana0s",
+   "level": 3,
+   "question": "小雨买了一台长方形电脑显示器，盒子上写着屏幕对角线（diagonal）50 cm、屏幕高 30 cm。她要把显示器放进书架的一个格子里，格子内部宽 60 cm。屏幕的宽比格子内部的宽度窄多少厘米？",
+   "options": [
+    "20 cm",
+    "40 cm",
+    "10 cm",
+    "约 1.7 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "对角线 50 cm 是斜边，屏幕宽是直角边：50² − 30² = 2500 − 900 = 1600，√1600 = 40 cm，所以 60 − 40 = 20 cm。坑：50 cm 是斜着量的对角线，不能当成屏幕的宽（那样会得 10 cm）；求直角边也不能用 50² + 30²。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_when_finding_leg"
+   ]
+  },
+  {
+   "qid": "qmtktgxskf4ux6a",
+   "level": 3,
+   "question": "布莱恩要给车库外墙刷漆。他把一架 5 m 长的梯子（ladder）斜靠在墙上，梯脚离墙 3 m，梯顶刚好碰到他要刷的最高处。他要刷的是一块长方形墙面：从地面一直到梯顶那么高，宽 3 m。这块墙面的面积是多少平方米？",
+   "options": [
+    "4 平方米",
+    "12 平方米",
+    "约 17.5 平方米",
+    "15 平方米"
+   ],
+   "answerIndex": 1,
+   "explain": "梯子是斜边（hypotenuse），墙上的高度是直角边：5² − 3² = 25 − 9 = 16，√16 = 4 m；面积 = 4 × 3 = 12 平方米。坑：梯子长 5 m 不等于够到的高度 4 m（用 5 会得 15）；求高度要相减，而且算出 4 m 只是中间一步，还要乘宽。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pyth.add_when_finding_leg",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtktgxsk4kqyk8",
+   "level": 3,
+   "question": "亚当在斯阔米什河上划独木舟横渡。去程他朝正对岸划，被水流带偏，实际划出的那条斜线路径长 65 m，上岸的地方在出发点正对面的下游 25 m 处。回程他从上游一点的位置出发，正好垂直横渡没有被冲偏，走的就是两岸之间的垂直距离。他这一去一回一共划了多少米？",
+   "options": [
+    "60 m",
+    "130 m",
+    "125 m",
+    "约 135 m"
+   ],
+   "answerIndex": 2,
+   "explain": "斜线路径 65 m 是斜边，河宽是直角边：65² − 25² = 4225 − 625 = 3600，√3600 = 60 m；来回 = 65 + 60 = 125 m。坑：65 m 是斜着划的路径，不是河宽（都按 65 算会得 130）；求河宽要相减，而且算出 60 m 后还得把去程加上。",
+   "tags": [
+    "word.stop_early",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.add_when_finding_leg"
+   ]
+  }
+ ]
+}

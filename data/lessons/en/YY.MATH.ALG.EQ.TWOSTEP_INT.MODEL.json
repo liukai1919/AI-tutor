@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EQ.TWOSTEP_INT.MODEL",
+ "lang": "en",
+ "title": "Model two-step equations with negatives using algebra tiles or a balance (3x − 4 = −13)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Balancing Three x Minus Four Equals Negative Thirteen",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to picture an equation as a balance scale, with both pans holding exactly the same weight. Today we take that same picture and use it when the numbers go negative, like three x minus four equals negative thirteen.",
+    "math": "3x - 4 = -13",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -13,
+      -13
+     ],
+     "labels": [
+      "3x - 4",
+      "-13"
+     ],
+     "caption": "Left pan: three mystery bags with four dollars taken away. Right pan: negative thirteen."
+    }
+   },
+   {
+    "say": "Look at the left pan. There are three identical bags, each holding x dollars, and a card that says take away four dollars. To get the bags alone, we clear that minus four by adding four dollars. But here is the rule that keeps everything honest: whatever you add to one pan, you must add to the other pan too. So add four to both sides. On the left, minus four plus four is zero, and we are left with three x. On the right, negative thirteen plus four is negative nine.",
+    "math": "3x - 4 + 4 = -13 + 4",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -9,
+      -9
+     ],
+     "labels": [
+      "3x",
+      "-9"
+     ],
+     "caption": "After adding four dollars to each pan, the scale is still perfectly level."
+    }
+   },
+   {
+    "say": "Now the left pan holds three equal bags and the right pan holds negative nine. Since the three bags share that negative nine evenly, split both pans into three equal parts. One bag on the left, and negative nine divided by three, which is negative three, on the right. So x equals negative three. Let us check it: three times negative three is negative nine, and negative nine minus four is negative thirteen. That matches, so we are right.",
+    "math": "\\frac{3x}{3} = \\frac{-9}{3} \\quad\\Rightarrow\\quad x = -3",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -3,
+      -3
+     ],
+     "labels": [
+      "x",
+      "-3"
+     ],
+     "caption": "Split both pans into three equal shares: one bag balances negative three."
+    }
+   },
+   {
+    "say": "Here are two traps the balance picture catches instantly. First trap: adding four to only the left pan. The left side gets heavier and the scale tips, so it is no longer the same equation. Second trap: dividing by three too early, turning three x minus four into x minus four equals negative thirteen over three. On the balance that means cutting the bags into thirds while the minus four card is still sitting there, so that card does not get shared properly. Clear the constant first, then share.",
+    "math": "3x - 4 + 4 \\ne -13",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1,
+      -9,
+      -13
+     ],
+     "labels": [
+      "3x - 4 + 4",
+      "-13"
+     ],
+     "caption": "Touching one pan only tips the scale — that answer cannot be trusted."
+    }
+   },
+   {
+    "say": "So the whole idea is this: keep the scale level. Add four to both pans to clear the minus four, then divide both pans by three, and x equals negative three.",
+    "math": "3x - 4 = -13 \\;\\Rightarrow\\; 3x = -9 \\;\\Rightarrow\\; x = -3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Keep the balance level: add to both pans to clear the constant, then divide both pans by the coefficient.",
+  "practice": {
+   "question": "Picture a balance scale. On the left pan there are four identical mystery bags, each holding x dollars, together with a card that says take away six dollars. The right pan shows negative eighteen dollars. Draw the scale yourself if it helps. Write the equation, then use balance moves to find x.",
+   "answer": "The equation is four x minus six equals negative eighteen. Add six dollars to both pans: four x equals negative twelve. Divide both pans by four: x equals negative three. Check: four times negative three is negative twelve, and negative twelve minus six is negative eighteen."
+  }
+ }
+}

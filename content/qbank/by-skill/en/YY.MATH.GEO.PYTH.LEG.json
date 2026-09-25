@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.GEO.PYTH.LEG",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkq7fctx9wq50",
+   "level": 1,
+   "question": "Picture a right triangle described only in words: it has one square corner, the longest side (the hypotenuse, opposite the square corner) is 13 cm, and one of the two shorter sides (a leg) is 5 cm. How long is the other leg?",
+   "options": [
+    "12 cm",
+    "144 cm",
+    "13.9 cm",
+    "8 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "When the hypotenuse is known, subtract the squares: 13² − 5² = 169 − 25 = 144, then take the square root to get 12 cm. The usual trap is adding the squares — adding is only for finding the hypotenuse.",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctowymeo",
+   "level": 1,
+   "question": "A right triangle is described in words like this: the square corner sits at the bottom left, the hypotenuse across from that corner measures 25 m, and one leg measures 24 m. Find the length of the missing leg.",
+   "options": [
+    "49 m",
+    "7 m",
+    "34.7 m",
+    "1 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Subtract the squares because the hypotenuse is the known long side: 625 − 576 = 49, and the square root of 49 is 7 m. Stopping at 49 is the common slip — 49 is the square of the leg, not the leg.",
+   "tags": [
+    "pyth.forget_square_root",
+    "ok",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctuqmqas",
+   "level": 1,
+   "question": "In words: a right triangle has a square corner, its hypotenuse is 17 cm, and one leg is 8 cm. No picture is needed — use just those two numbers to find the second leg.",
+   "options": [
+    "225 cm",
+    "18.8 cm",
+    "15 cm",
+    "9 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "Missing leg means subtract: 17² − 8² = 289 − 64 = 225, and the square root of 225 is 15 cm. Watch out for 225 itself, which is only the leg squared.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctgdpgte",
+   "level": 1,
+   "question": "A right triangle has a hypotenuse of 15 cm and one leg of 9 cm. Which calculation finds the length of the other leg?",
+   "options": [
+    "√(225 + 81)",
+    "√(15 − 9)",
+    "225 − 81",
+    "√(225 − 81)"
+   ],
+   "answerIndex": 3,
+   "explain": "With the hypotenuse known, square both given sides and subtract, then root: √(225 − 81) = √144 = 12 cm. Adding the squares would find a hypotenuse, which is already given here.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "other",
+    "pyth.forget_square_root",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq7fct2a70hu",
+   "level": 2,
+   "question": "In a right triangle the hypotenuse is 12 cm and one leg is 7 cm. Find the other leg to one decimal place.",
+   "options": [
+    "9.7 cm",
+    "13.9 cm",
+    "95 cm",
+    "5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "Subtract the squares: 144 − 49 = 95, and √95 is about 9.7 cm. Not every triangle is a Pythagorean triple, so a decimal answer is normal — just never add the squares when a leg is missing.",
+   "tags": [
+    "ok",
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fct6bd175",
+   "level": 2,
+   "question": "Priya leans a 5 m ladder against the wall of her house in Surrey. The foot of the ladder is 1.4 m out from the wall. How high up the wall does the top of the ladder reach?",
+   "options": [
+    "5.2 m",
+    "4.8 m",
+    "3.6 m",
+    "23.04 m"
+   ],
+   "answerIndex": 1,
+   "explain": "The ladder is the hypotenuse, so subtract: 25 − 1.96 = 23.04, and √23.04 = 4.8 m. The wall height can never be more than the ladder, so an answer bigger than 5 m signals that the squares were added.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctpovqmt",
+   "level": 2,
+   "question": "A skateboard ramp at the local park has a sloped surface 2.5 m long, and its base along the ground is 2.0 m. How tall is the ramp at its high end?",
+   "options": [
+    "2.25 m",
+    "3.2 m",
+    "1.5 m",
+    "0.5 m"
+   ],
+   "answerIndex": 2,
+   "explain": "The slope is the hypotenuse, so 6.25 − 4 = 2.25 and √2.25 = 1.5 m. Forgetting the square root leaves 2.25, which is the height squared, not the height.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fcturm0h6",
+   "level": 2,
+   "question": "A guy wire 20 m long runs from the top of a pole straight down to a ground anchor 16 m from the base of the pole. How tall is the pole?",
+   "options": [
+    "25.6 m",
+    "144 m",
+    "4 m",
+    "12 m"
+   ],
+   "answerIndex": 3,
+   "explain": "The wire is the longest side, so subtract the squares: 400 − 256 = 144, and √144 = 12 m. Subtracting the side lengths instead of their squares gives 4 m, which is far too short.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctdqsagb",
+   "level": 3,
+   "question": "Owen builds a rectangular garden bed. A diagonal board across it measures 2.6 m, and the short side of the bed measures 1.0 m. He wants wooden edging around the whole rectangle. How many metres of edging does he need?",
+   "options": [
+    "6.8 m",
+    "13.5 m",
+    "7.6 m",
+    "7.2 m"
+   ],
+   "answerIndex": 0,
+   "explain": "First find the long side with 6.76 − 1 = 5.76, so √5.76 = 2.4 m, then add all four sides: 2 × (1.0 + 2.4) = 6.8 m. Using 5.76 as a side length skips the square root and blows the perimeter up.",
+   "tags": [
+    "ok",
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fctef4ut2",
+   "level": 3,
+   "question": "A tent pole stands 2.1 m tall. A rope 2.9 m long runs from the top of the pole to a peg in the ground, and a second rope of the same length runs to a peg on the exact opposite side. How far apart are the two pegs?",
+   "options": [
+    "7.2 m",
+    "4.0 m",
+    "8.0 m",
+    "1.6 m"
+   ],
+   "answerIndex": 1,
+   "explain": "Each rope is a hypotenuse: 8.41 − 4.41 = 4, so √4 = 2.0 m from the pole to one peg, and the two pegs are 2 × 2.0 = 4.0 m apart. Adding the squares here would make each rope shorter than the distance it covers.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "pyth.forget_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq7fct5p83f4",
+   "level": 3,
+   "question": "A rectangular window pane has a diagonal of 3.4 m and one side of 1.6 m. What is the area of the pane?",
+   "options": [
+    "6.0 m²",
+    "14.4 m²",
+    "4.8 m²",
+    "5.4 m²"
+   ],
+   "answerIndex": 2,
+   "explain": "The diagonal is the hypotenuse, so the other side is √(11.56 − 2.56) = √9 = 3.0 m, and the area is 1.6 × 3.0 = 4.8 m². Using the diagonal itself as a side, or skipping the square root, makes the pane far bigger than it really is.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtktcj1t7aib6p",
+   "level": 3,
+   "question": "Outside a bakery on Commercial Drive stands a folding A-frame sign: two flat panels joined at a hinge on top, each panel 1.7 m long, with the feet resting 1.6 m apart on the sidewalk. The hinge sits directly above the midpoint between the two feet, so each panel is the hypotenuse of a right triangle. How high is the hinge above the sidewalk?",
+   "options": [
+    "1.9 m",
+    "2.25 m",
+    "0.9 m",
+    "1.5 m"
+   ],
+   "answerIndex": 3,
+   "explain": "Half the 1.6 m spread first, so the base leg is 0.8 m, then the height is the missing leg: √(2.89 - 0.64) = √2.25 = 1.5 m. The common traps are adding the squares instead of subtracting, and forgetting to halve the 1.6 m.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtktcj1t120f6x",
+   "level": 3,
+   "question": "A newly planted maple in a Kamloops park stands 3.5 m tall. A support strap is tied around the trunk 0.5 m below the top of the tree and runs straight down to a stake in the ground. The strap is 5.0 m long and the trunk is straight up and down. How far from the base of the tree is the stake?",
+   "options": [
+    "4.0 m",
+    "3.6 m",
+    "5.8 m",
+    "16 m"
+   ],
+   "answerIndex": 0,
+   "explain": "The tie point is 3.5 - 0.5 = 3.0 m up, and the strap is the hypotenuse, so the ground distance is a leg: √(25 - 9) = √16 = 4.0 m. Two traps here are adding the squares and using the full 3.5 m height instead of the 3.0 m tie point.",
+   "tags": [
+    "ok",
+    "other",
+    "pyth.add_when_finding_leg",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtktcj1tsukeap",
+   "level": 3,
+   "question": "Ravi's class is finding the missing side of a right triangle whose hypotenuse is 20 cm and one leg is 12 cm. Ines writes √(400 - 144), while Théo writes √(400 + 144). Which student has set the work up correctly, and what is the missing leg?",
+   "options": [
+    "Théo is right - the two squares are always added, so it is about 23.3 cm.",
+    "Ines is right - the missing side is a leg, so the squares subtract: 16 cm.",
+    "Neither is right - with a missing leg you subtract the lengths: 20 - 12 = 8 cm.",
+    "Ines set it up right but should drop the square root, so the leg is 256 cm."
+   ],
+   "answerIndex": 1,
+   "explain": "The hypotenuse squared already holds both legs' squares, so a missing leg means subtracting: √(400 - 144) = √256 = 16 cm. Adding gives about 23.3 cm, which cannot be right because a leg is always shorter than the 20 cm hypotenuse.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other",
+    "pyth.forget_square_root"
+   ]
+  },
+  {
+   "qid": "qmtktcj1td1kwx0",
+   "level": 3,
+   "question": "Noor is flying a kite at Garry Point Park. She has let out 26 m of string, straight from her hands to the kite, and the kite is 24 m ahead of her measured along the ground. To find how high the kite is above her hands, Sam computes √(676 + 576) and gets about 35.4 m. What is the best correction?",
+   "options": [
+    "He should stop before the square root: the height is 100 m.",
+    "His work is fine - with any right triangle the squares are added.",
+    "The height must be under the 26 m string: √(676 - 576) = 10 m.",
+    "He should subtract lengths, not squares: 26 - 24 gives 2 m."
+   ],
+   "answerIndex": 2,
+   "explain": "The string is the hypotenuse, so the height is a leg and the squares subtract: √(676 - 576) = √100 = 10 m. Adding squares would make the height longer than the string itself, and stopping at 100 skips the square root.",
+   "tags": [
+    "pyth.forget_square_root",
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,413 @@
+{
+ "id": "YY.MATH.DATA.LINE.READ",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5r32bl6f3nnj",
+   "level": 1,
+   "question": "The line graph shows how much water is in a rain barrel. On the vertical axis, each grid square stands for 5 cm. How much water was in the barrel on Monday?",
+   "options": [
+    "15 cm",
+    "5 cm",
+    "3 cm",
+    "8 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "On a many-to-one scale you multiply: 3 squares × 5 cm each = 15 cm. The usual trap is counting squares instead of reading the scale, which gives the answer 3 cm.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "graph.scale_misread",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     15,
+     20,
+     30
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday"
+    ],
+    "step": 5,
+    "caption": "Water in the rain barrel (cm)"
+   }
+  },
+  {
+   "qid": "qmt5r32bl54a60s",
+   "level": 1,
+   "question": "The line graph shows the money in Emma's savings jar at the end of each week. At the end of which week did Emma have the most money?",
+   "options": [
+    "Week 2, because the line is steepest between week 1 and week 2",
+    "Week 5, because the point for week 5 is the highest, at $33",
+    "Week 4, because that is where the line stops going up quickly",
+    "Week 2, because the line climbs $6 there, more than the $3 climb later"
+   ],
+   "answerIndex": 1,
+   "explain": "How much money she has is shown by how HIGH the point is, so $33 in week 5 is the most. Steepness only tells you how fast the money changed, not how much she had.",
+   "tags": [
+    "graph.steep_means_more",
+    "ok",
+    "other",
+    "graph.steep_means_more"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     4,
+     10,
+     14,
+     30,
+     33
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4",
+     "Week 5"
+    ],
+    "step": 1,
+    "caption": "Money in Emma's savings jar at the end of each week ($)"
+   }
+  },
+  {
+   "qid": "qmt5r32bloumdu7",
+   "level": 1,
+   "question": "The line graph shows how many books a class read each month. On the vertical axis, each grid square stands for 10 books. How many books did the class read in March?",
+   "options": [
+    "3.5 books",
+    "30 books",
+    "35 books",
+    "40 books"
+   ],
+   "answerIndex": 2,
+   "explain": "The 3rd line is 30 books and the 4th is 40 books, so halfway is 35 books. Counting grid lines as if each were 1 book gives 3.5, which forgets that one square stands for 10.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "ok",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     10,
+     20,
+     35,
+     50
+    ],
+    "labels": [
+     "January",
+     "February",
+     "March",
+     "April"
+    ],
+    "step": 10,
+    "caption": "Books the class read each month"
+   }
+  },
+  {
+   "qid": "qmt5r32blw3qr2j",
+   "level": 1,
+   "question": "A line graph shows Liam's height on his birthday each year: 120 cm, then 126 cm, then 131 cm, then 135 cm. The line goes up every year, but each part of the line is a little less steep than the one before. What does the graph tell you about Liam?",
+   "options": [
+    "He grew the same amount every year",
+    "He got shorter after year 2, because the line becomes less steep",
+    "He stopped growing after year 2, because the line flattens out",
+    "He grew taller every year, but grew a little less each year"
+   ],
+   "answerIndex": 3,
+   "explain": "The line keeps rising (120 → 126 → 131 → 135), so he keeps growing; the rises get smaller (6 cm, 5 cm, 4 cm), so the line gets less steep. A flatter line that still rises means slower growth, not shrinking or stopping.",
+   "tags": [
+    "other",
+    "graph.steep_means_more",
+    "graph.steep_means_more",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5r32bl8nod2h",
+   "level": 2,
+   "question": "On this line graph, one grid square on the vertical axis stands for 4 units. How much did the value go up from Tuesday to Wednesday?",
+   "options": [
+    "12 units",
+    "3 units",
+    "36 units",
+    "9 units"
+   ],
+   "answerIndex": 0,
+   "explain": "Read both points first: 6 × 4 = 24 and 9 × 4 = 36, so the rise is 36 − 24 = 12 units. Subtracting the squares (9 − 6 = 3) forgets that each square counts for 4.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "other",
+    "graph.scale_misread"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     24,
+     36
+    ],
+    "labels": [
+     "Tuesday",
+     "Wednesday"
+    ],
+    "step": 4,
+    "caption": "Each grid square on the vertical axis = 4 units"
+   }
+  },
+  {
+   "qid": "qmt5r32blud5n3x",
+   "level": 2,
+   "question": "Sofia and Noah each drew a line graph of their savings. The line graph shows Sofia's, where one grid square stands for $2. On Noah's graph one grid square stands for $5, and his line rises 2 squares from week 1 to week 2. Whose savings grew more from week 1 to week 2?",
+   "options": [
+    "Sofia, because her line rises 3 squares and Noah's rises only 2",
+    "Noah, by $4",
+    "Sofia, because her line looks steeper on the page",
+    "They grew by the same amount"
+   ],
+   "answerIndex": 1,
+   "explain": "Always turn squares into real amounts before comparing: Sofia rose 3 × $2 = $6 and Noah rose 2 × $5 = $10, so Noah grew $4 more. Two graphs with different scales cannot be compared just by counting squares or by which line looks steeper.",
+   "tags": [
+    "graph.scale_misread",
+    "ok",
+    "graph.steep_means_more",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     8,
+     14
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2"
+    ],
+    "step": 2,
+    "caption": "Sofia's savings ($) — each grid square = $2"
+   }
+  },
+  {
+   "qid": "qmt5r32bl59kc1y",
+   "level": 2,
+   "question": "The line graph shows the water level in the school's fish tank through the day. What does the flat part of the line between 2 p.m. and 5 p.m. tell you?",
+   "options": [
+    "Nobody measured the water between 2 p.m. and 5 p.m.",
+    "The water level dropped slowly during those hours",
+    "The water level stayed at 40 cm the whole time",
+    "The water level rose by 40 cm during those hours"
+   ],
+   "answerIndex": 2,
+   "explain": "A horizontal line means the value is not changing, so the level held at 40 cm from 2 p.m. to 5 p.m. A flat line is often mistaken for a slow drop, but slow dropping would still tilt downward.",
+   "tags": [
+    "other",
+    "graph.steep_means_more",
+    "ok",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     44,
+     40,
+     40,
+     40,
+     40,
+     36
+    ],
+    "labels": [
+     "1 p.m.",
+     "2 p.m.",
+     "3 p.m.",
+     "4 p.m.",
+     "5 p.m.",
+     "6 p.m."
+    ],
+    "step": 4,
+    "caption": "Water level in the school's fish tank (cm)"
+   }
+  },
+  {
+   "qid": "qmt5r32bl2u5f3h",
+   "level": 2,
+   "question": "The line graph shows the height of Maya's bean plant each week. Between which weeks did the plant grow the fastest, and how can you see it on the graph?",
+   "options": [
+    "Weeks 3 to 4, because the line is highest there",
+    "Weeks 1 to 2, because that is where the line starts to climb",
+    "Every week is the same, because the line keeps going up",
+    "Weeks 2 to 3, because the line is steepest there, an 8 cm rise"
+   ],
+   "answerIndex": 3,
+   "explain": "Compare the rises: 4 cm, then 8 cm, then 3 cm, so weeks 2 to 3 is the biggest change and that is exactly the steepest part of the line. The highest point (23 cm in week 4) tells you the tallest the plant got, not where it grew fastest.",
+   "tags": [
+    "graph.steep_means_more",
+    "other",
+    "other",
+    "ok"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     8,
+     12,
+     20,
+     23
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4"
+    ],
+    "step": 1,
+    "caption": "Height of Maya's bean plant (cm)"
+   }
+  },
+  {
+   "qid": "qmt5r32blfwkvem",
+   "level": 3,
+   "question": "The line graph shows how many passengers took the Horseshoe Bay ferry each day. Each grid square on the vertical axis stands for 50 passengers. How many more passengers rode on the busiest day than on the quietest day?",
+   "options": [
+    "200 passengers",
+    "4 passengers",
+    "350 passengers",
+    "500 passengers"
+   ],
+   "answerIndex": 0,
+   "explain": "Busiest is Thursday, 7 × 50 = 350, and quietest is Wednesday, 3 × 50 = 150, so the difference is 350 − 150 = 200 passengers. Subtracting squares first (7 − 3 = 4) and forgetting the scale is the common slip.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "other",
+    "other"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     200,
+     300,
+     150,
+     350
+    ],
+    "labels": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday"
+    ],
+    "step": 50,
+    "caption": "Passengers on the Horseshoe Bay ferry each day (each grid square = 50 passengers)"
+   }
+  },
+  {
+   "qid": "qmt5r32blzhd830",
+   "level": 3,
+   "question": "Ravi and Mei each drew a line graph of the SAME classroom temperature during the morning. The line graph shows Ravi's, where each grid square stands for 1 °C. On Mei's graph each grid square stands for 5 °C, so her line rises only 2 squares from 9 a.m. to noon, and Ravi's line looks much steeper. Which statement is true?",
+   "options": [
+    "Ravi's graph shows a bigger rise, because a steeper line always means a bigger change, whatever the scale",
+    "Both graphs show the same 10 °C rise; Ravi's line only looks steeper because his scale is stretched out",
+    "Mei's graph shows a bigger rise, because each of her squares counts for 5 °C, so her squares are worth more",
+    "Ravi's rise of 10 squares is 5 times Mei's rise of 2 squares, so his temperature rise is 5 times bigger"
+   ],
+   "answerIndex": 1,
+   "explain": "Both lines show 25 − 15 = 10 °C, since 10 × 1 = 10 and 2 × 5 = 10. Steepness depends on the scale you choose, so you must read the scale before you trust how steep a line looks.",
+   "tags": [
+    "graph.steep_means_more",
+    "ok",
+    "graph.scale_misread",
+    "graph.scale_misread"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     15,
+     18,
+     22,
+     25
+    ],
+    "labels": [
+     "9 a.m.",
+     "10 a.m.",
+     "11 a.m.",
+     "noon"
+    ],
+    "step": 1,
+    "caption": "Classroom temperature on Ravi's graph (°C) — each grid square = 1 °C"
+   }
+  },
+  {
+   "qid": "qmt5r32bluscvl3",
+   "level": 3,
+   "question": "Jayden graphs the rain collected in the class rain gauge each week. Each grid square stands for 6 mm. If the pattern keeps going, what should the point for week 5 be?",
+   "options": [
+    "31 mm, because the line goes up a little each week",
+    "5 mm, because the next point would be 5 squares above zero",
+    "36 mm, because the line rises one square, or 6 mm, each week",
+    "60 mm, because the line has been rising steeply"
+   ],
+   "answerIndex": 2,
+   "explain": "First find the trend from the graph: each week the line climbs one square, and one square is 6 mm, so 30 + 6 = 36 mm. Reading the next point as 5 squares = '5 mm' ignores the many-to-one scale.",
+   "tags": [
+    "other",
+    "graph.scale_misread",
+    "ok",
+    "graph.steep_means_more"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     12,
+     18,
+     24,
+     30
+    ],
+    "labels": [
+     "Week 1",
+     "Week 2",
+     "Week 3",
+     "Week 4"
+    ],
+    "step": 6,
+    "caption": "Rain collected in the class rain gauge each week (mm)"
+   }
+  },
+  {
+   "qid": "qmt7hvb6w0wfkoq",
+   "level": 3,
+   "question": "The line graph shows how many cars parked at the Newton rec centre in Surrey on two days. On the vertical axis, each grid square stands for 20 cars. How many more cars parked on Friday than on Tuesday?",
+   "options": [
+    "2.5 cars",
+    "270 cars",
+    "60 cars",
+    "50 cars"
+   ],
+   "answerIndex": 3,
+   "explain": "Read each point with the scale first: Friday is 8 × 20 = 160 cars, and Tuesday sits halfway between 100 and 120, which is 110 cars, so 160 − 110 = 50 more cars. Subtracting squares alone (8 − 5.5 = 2.5) forgets that each square counts for 20, dropping the half puts Tuesday at 100 and gives 60, and adding the two days gives 270.",
+   "tags": [
+    "graph.scale_misread",
+    "other",
+    "other",
+    "ok"
+   ],
+   "visual": {
+    "type": "statLine",
+    "nums": [
+     110,
+     160
+    ],
+    "labels": [
+     "Tuesday",
+     "Friday"
+    ],
+    "step": 20,
+    "caption": "Cars parked at the Newton rec centre in Surrey (each grid square = 20 cars)"
+   }
+  }
+ ]
+}

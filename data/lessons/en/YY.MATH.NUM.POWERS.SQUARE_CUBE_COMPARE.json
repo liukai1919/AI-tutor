@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.POWERS.SQUARE_CUBE_COMPARE",
+ "lang": "en",
+ "title": "Tell squaring and cubing apart from doubling and tripling, and explain why 64 is both a perfect square and a perfect cube",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Squaring, Cubing, and Why 64 Is Both",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the prime factor trick — three hundred twenty four is two squared times three to the fourth, so it is a perfect square. Today we lock down something even more basic that trips people up: an exponent is not a multiplier. Squaring is not doubling, and cubing is not tripling.",
+    "math": "n^2 \\neq 2n \\qquad n^3 \\neq 3n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Start with squaring. Three squared means three times three, which is nine. Doubling three would give six. Picture a skate park pad that is three metres by three metres: you can see nine square tiles, not six. That is why we call it squaring — you are literally building a square.",
+    "math": "3^2 = 3 \\times 3 = 9 \\quad\\text{but}\\quad 2 \\times 3 = 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "Three squared is a 3 by 3 square — 9 unit squares, not 6."
+    }
+   },
+   {
+    "say": "Now cubing. Four cubed means four times four times four. Four times four is sixteen, and sixteen times four is sixty four. Tripling four would only give twelve. Think of stacking sugar cubes into a solid cube, four along every edge — that block holds sixty four little cubes, way more than twelve.",
+    "math": "4^3 = 4 \\times 4 \\times 4 = 64 \\quad\\text{but}\\quad 3 \\times 4 = 12",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A 4 by 4 by 4 cube is made of 64 unit cubes."
+    }
+   },
+   {
+    "say": "So here is the cool part. Sixty four is a perfect square because eight times eight is sixty four. And sixty four is a perfect cube because four times four times four is sixty four. Your prime factor tool proves it: sixty four is two to the power of six. Six splits evenly into two groups of three, giving two cubed squared, which is eight squared. Six also splits into three groups of two, giving two squared cubed, which is four cubed.",
+    "math": "64 = 2^6 = (2^3)^2 = 8^2 = (2^2)^3 = 4^3",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      8,
+      8,
+      8,
+      8
+     ],
+     "labels": [],
+     "caption": "An 8 by 8 square also holds 64 units — same number, different shape."
+    }
+   },
+   {
+    "say": "Watch the traps. Someone says three squared is six — no, that is doubling; it is nine. Someone says four cubed is twelve — no, that is tripling; it is sixty four. And a number does not become a perfect square just because it looks round. Ten, twenty and fifty are not perfect squares — ten is two times five, and neither exponent is even. One hundred is a perfect square, but the reason is ten times ten, not because it ends in zeros.",
+    "math": "10 = 2 \\times 5 \\ \\text{(not a square)} \\qquad 100 = 2^2 \\times 5^2 = 10^2",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      1,
+      4,
+      9,
+      16,
+      25,
+      36,
+      49,
+      64,
+      81,
+      100
+     ],
+     "labels": [],
+     "caption": "Circled numbers are the perfect squares — 10, 20 and 50 are not among them."
+    }
+   },
+   {
+    "say": "So before you answer, ask yourself: am I building a square, building a cube, or just multiplying? Squaring means two equal factors, cubing means three equal factors, and prime factors tell you the truth every time.",
+    "math": "64 = 8^2 = 4^3",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Squaring is two equal factors and cubing is three — never doubling or tripling. That is why 64 is both: 8 times 8, and 4 times 4 times 4.",
+  "practice": {
+   "question": "You are stacking sugar cubes for a bake sale display into one solid cube, with 3 cubes along every edge. First: how many small cubes do you need in total, and why is the answer not 9? Second: your friend says 36 is a perfect cube because 3 times 12 is 36. Using prime factors, decide whether 36 is a perfect square, a perfect cube, both, or neither.",
+   "answer": "You need 3 cubed, which is 3 times 3 times 3, so 27 cubes. It is not 9, because 9 is 3 squared — only two factors, not three. For 36: its prime factorization is 2 squared times 3 squared. Both exponents are even, so 36 is a perfect square, and it equals 6 times 6. The exponents are not multiples of 3, so it is not a perfect cube. Your friend confused cubing with tripling."
+  }
+ }
+}

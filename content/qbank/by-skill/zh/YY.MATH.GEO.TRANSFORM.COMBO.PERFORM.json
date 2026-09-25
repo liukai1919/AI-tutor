@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.COMBO.PERFORM",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5qqdudah74it",
+   "level": 1,
+   "question": "在直角坐标平面（Cartesian plane）上有一个点 P(3,2)。对它连续做两次变换（transformation）：第一步，绕点 (2,2) 逆时针旋转 90°；第二步，向右平移 3 格。最后的像在哪个有序数对（ordered pair）上？",
+   "options": [
+    "(5,3)",
+    "(2,6)",
+    "(5,1)",
+    "(4,2)"
+   ],
+   "answerIndex": 0,
+   "explain": "P(3,2) 在旋转中心 (2,2) 的正右方 1 格，逆时针转 90° 就到中心正上方 1 格，得 (2,3)；再向右平移 3 格得到 (5,3)。把方向转成顺时针会错成 (5,1)，先平移再旋转会错成 (2,6)。",
+   "tags": [
+    "ok",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdud6147h1",
+   "level": 1,
+   "question": "点 R(5,2) 先绕点 (3,2) 顺时针旋转 90°，再向上平移 4 格。最后的像是哪个点？",
+   "options": [
+    "(7,0)",
+    "(3,4)",
+    "(3,8)",
+    "(1,6)"
+   ],
+   "answerIndex": 1,
+   "explain": "R 在中心 (3,2) 正右方 2 格，顺时针 90° 转到中心正下方 2 格，得 (3,0)；再向上平移 4 格得 (3,4)。若方向做成逆时针会得到 (3,8)，若先平移再旋转会得到 (7,0)。",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudwq98lj",
+   "level": 1,
+   "question": "点 S(2,1) 先沿竖直直线 x=4 翻折，再绕点 (6,3) 顺时针旋转 90°。最后的像是哪个点？",
+   "options": [
+    "(8,3)",
+    "(4,7)",
+    "(4,3)",
+    "(6,5)"
+   ],
+   "answerIndex": 2,
+   "explain": "S 到直线 x=4 的距离是 2，翻折后落在 (6,1)；它在中心 (6,3) 正下方 2 格，顺时针 90° 转到中心正左方 2 格，得 (4,3)。转成逆时针会得到 (8,3)，先旋转再翻折会得到 (4,7)。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudml4388",
+   "level": 1,
+   "question": "小宇把点 M(5,4) 绕点 (3,2) 旋转了 90°，像正好落在 (1,4)。下面哪个说法是对的？",
+   "options": [
+    "这是顺时针 90°；如果改成逆时针 90°，像会落在 (5,0)。",
+    "先向左平移 4 格再绕点 (3,2) 顺时针旋转 90°，也能得到 (1,4)。",
+    "这是逆时针 90°；如果改成顺时针 90°，像会落在 (1,0)。",
+    "这是逆时针 90°；如果改成顺时针 90°，像会落在 (5,0)。"
+   ],
+   "answerIndex": 3,
+   "explain": "M 在中心 (3,2) 的右上方（右 2 上 2），逆时针 90° 后转到左上方，得 (1,4)；同一个点顺时针 90° 会转到右下方，得 (5,0)。说成落在 (1,0) 的其实是旋转 180° 的位置。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5qqdud4pnwhg",
+   "level": 2,
+   "question": "三角形 ABC 的顶点是 A(3,4)、B(6,4)、C(3,6)。先绕点 A(3,4) 逆时针旋转 90°，再向右平移 2 格。最后的像的三个顶点是？",
+   "options": [
+    "(5,4)、(5,7)、(3,4)",
+    "(3,6)、(3,9)、(1,6)",
+    "(5,4)、(2,4)、(5,2)",
+    "(5,4)、(5,1)、(7,4)"
+   ],
+   "answerIndex": 0,
+   "explain": "绕 A 逆时针 90°：A 不动仍是 (3,4)，B 从 A 的右方 3 格转到上方 3 格得 (3,7)，C 从 A 的上方 2 格转到左方 2 格得 (1,4)；再整体右移 2 格得 (5,4)、(5,7)、(3,4)。方向做成顺时针会得到含 (5,1) 的那组，先平移再旋转会得到含 (3,9) 的那组。",
+   "tags": [
+    "ok",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudaw84hj",
+   "level": 2,
+   "question": "在一个方格棋盘游戏里，棋子现在停在 (7,2)。规则卡上写着：先沿水平直线 y=4 翻折，再绕点 (5,6) 顺时针旋转 90°。棋子最后停在哪里？",
+   "options": [
+    "(5,8)",
+    "(5,4)",
+    "(1,4)",
+    "(3,6)"
+   ],
+   "answerIndex": 1,
+   "explain": "(7,2) 到直线 y=4 的距离是 2，翻折后到 (7,6)；它在中心 (5,6) 正右方 2 格，顺时针 90° 转到中心正下方 2 格，得 (5,4)。转成逆时针会错成 (5,8)，把两步顺序调过来会错成 (1,4)。",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.order_ignored",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudg90rpz",
+   "level": 2,
+   "question": "点 K(3,5) 先向右平移 4 格，再绕点 (5,3) 顺时针旋转 90°，得到点 X。下面哪一组变换也能把 K 变到同一个点 X？",
+   "options": [
+    "先绕点 (5,3) 逆时针旋转 90°，再向下平移 4 格",
+    "先绕点 (5,3) 顺时针旋转 90°，再向右平移 4 格",
+    "先绕点 (5,3) 顺时针旋转 90°，再向下平移 4 格",
+    "先向右平移 4 格，再绕点 (5,3) 逆时针旋转 90°"
+   ],
+   "answerIndex": 2,
+   "explain": "原来的做法：K 右移 4 格到 (7,5)，绕 (5,3) 顺时针 90° 后到 X(7,1)。若把旋转提前，K 先顺时针转到 (7,5)，还差 4 格才到 (7,1)，所以要接着向下平移 4 格。这说明换顺序时平移的方向也得跟着改，不能照抄原来的向右 4 格。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "ok",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt7hvb6w0gh8dh",
+   "level": 2,
+   "question": "在方格纸的寻宝游戏里，宝藏标记 T 在 (2,6)。线索卡上写着：先绕点 (4,6) 逆时针旋转 90°，再沿竖直直线 x=5 翻折。标记最后落在哪个点？",
+   "options": [
+    "(6,8)",
+    "(4,10)",
+    "(4,6)",
+    "(6,4)"
+   ],
+   "answerIndex": 3,
+   "explain": "T 在中心 (4,6) 正左方 2 格，逆时针 90° 转到中心正下方 2 格，得 (4,4)；它到直线 x=5 的距离是 1，翻折后落在 (6,4)。把方向做成顺时针会得到 (6,8)；先翻折再旋转会得到 (4,10)；把旋转做成 180° 会落到 (4,6)。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudobzrt1",
+   "level": 3,
+   "question": "卡尔说：先沿竖直直线 x=4 翻折再向右平移 3 格，和先向右平移 3 格再沿 x=4 翻折，结果肯定一样。用点 D(1,2) 检验一下，下面哪个说法是对的？",
+   "options": [
+    "说法对：两种顺序都得到 (10,2)。",
+    "说法不对：先翻折后平移得到 (4,2)，先平移后翻折得到 (10,2)。",
+    "说法对：两种顺序都得到 (7,2)。",
+    "说法不对：先翻折后平移得到 (10,2)，先平移后翻折得到 (4,2)。"
+   ],
+   "answerIndex": 3,
+   "explain": "先翻折：D 到 x=4 距离 3，落在 (7,2)，再右移 3 格得 (10,2)。先平移：D 右移 3 格到 (4,2)，它正好在翻折线上，翻折后还是 (4,2)。两个结果不同，所以连续变换的顺序不能随便换；把两条路径的结果对调的那个说法也是错的。",
+   "tags": [
+    "transform.order_ignored",
+    "transform.order_ignored",
+    "transform.order_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudbo1hhu",
+   "level": 3,
+   "question": "在一张方格地图上，泳池边的标记牌在 L(6,3)。教练的指令是：把标记牌先绕点 (4,3) 旋转 90°，再向上平移 2 格，最后应该正好落在 (4,3)。下面哪个说法是对的？",
+   "options": [
+    "旋转应该是顺时针 90°；做成逆时针会落在 (4,7)。",
+    "旋转应该是顺时针 90°；做成逆时针会落在 (4,1)。",
+    "旋转应该是顺时针 90°，而且先向上平移 2 格再旋转也一样会落在 (4,3)。",
+    "旋转应该是逆时针 90°；做成顺时针会落在 (4,7)。"
+   ],
+   "answerIndex": 0,
+   "explain": "L 在中心 (4,3) 正右方 2 格，顺时针 90° 转到正下方得 (4,1)，再上移 2 格正好回到 (4,3)，所以是顺时针。若做成逆时针会先到 (4,5)，上移 2 格后是 (4,7)。另外先平移再旋转会得到 (6,1)，可见顺序也不能换。",
+   "tags": [
+    "ok",
+    "transform.rotation_direction",
+    "transform.order_ignored",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdud6am9ti",
+   "level": 3,
+   "question": "温哥华一个社区中心用方格图设计地砖图案。三角形 T 的顶点是 P(4,5)、Q(7,5)、R(4,8)。设计要求三步：第一步向右平移 2 格；第二步沿水平直线 y=5 翻折；第三步绕点 (6,3) 旋转 180°。最后的像的三个顶点是？",
+   "options": [
+    "(6,1)、(3,1)、(6,4)",
+    "(6,1)、(3,1)、(6,6)",
+    "(8,3)、(8,0)、(3,3)",
+    "(4,3)、(4,6)、(9,3)"
+   ],
+   "answerIndex": 1,
+   "explain": "右移 2 格得 (6,5)、(9,5)、(6,10)；沿 y=5 翻折（y 变成 10−y）得 (6,5)、(9,5)、(6,0)；绕 (6,3) 旋转 180°（x 变成 12−x，y 变成 6−y）得 (6,1)、(3,1)、(6,6)。把前两步顺序调换会错成含 (6,4) 的那组；最后一步做成 90° 旋转会错成另外两组。",
+   "tags": [
+    "transform.order_ignored",
+    "ok",
+    "transform.rotation_direction",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5qqdudr65oy8",
+   "level": 3,
+   "question": "在方格纸做的滑雪场地图上，标记 S 原来在 (2,2)。工作人员先把它向上平移 5 格，再绕点 (5,7) 做一次 90° 或 180° 的旋转，S 最后落在 (5,4)。下面哪个说法是对的？",
+   "options": [
+    "这次旋转是绕 (5,7) 顺时针 90°。",
+    "这次旋转是绕 (5,7) 旋转 180°。",
+    "这次旋转是绕 (5,7) 逆时针 90°。",
+    "这次旋转是绕 (5,7) 逆时针 90°，而且先旋转再向上平移 5 格也会落在 (5,4)。"
+   ],
+   "answerIndex": 2,
+   "explain": "上移 5 格后 S 到 (2,7)，正好在中心 (5,7) 正左方 3 格；逆时针 90° 会转到中心正下方 3 格，得 (5,4)，符合结果（顺时针会到 (5,10)，180° 会到 (8,7)）。但顺序不能换：先旋转再上移会落在 (10,9)，所以加了那句顺序无所谓的说法是错的。",
+   "tags": [
+    "transform.rotation_direction",
+    "transform.rotation_direction",
+    "ok",
+    "transform.order_ignored"
+   ]
+  }
+ ]
+}

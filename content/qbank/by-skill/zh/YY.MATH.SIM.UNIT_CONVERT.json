@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.UNIT_CONVERT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlzqwsxcnfw80",
+   "level": 1,
+   "question": "换算表（conversion table）里写着：1 m = 100 cm。一根跳绳长 3.5 m，换成厘米（cm）是多少？",
+   "options": [
+    "350 cm",
+    "35 cm",
+    "0.035 cm",
+    "3500 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "米换厘米是大单位换小单位，数字要变多：3.5 × 100 = 350 cm。常见坑是只乘 10（把 1 m 当成 10 cm），或者方向反了去除以 100。",
+   "tags": [
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxg2dm97",
+   "level": 1,
+   "question": "换算表里写着：1 cm = 10 mm。一枚硬币厚 1.8 mm，换成厘米（cm）是多少？",
+   "options": [
+    "18 cm",
+    "0.18 cm",
+    "0.018 cm",
+    "180 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "毫米换厘米是小单位换大单位，数字要变少：1.8 ÷ 10 = 0.18 cm。别反过来乘 10 得到 18 cm，也别把 1 cm 当成 100 mm 去除以 100。",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsx52uxaw",
+   "level": 1,
+   "question": "换算表里写着：1 km = 1000 m。学校操场跑道一圈长 400 m，换成千米（km）是多少？",
+   "options": [
+    "4 km",
+    "400 000 km",
+    "0.4 km",
+    "0.04 km"
+   ],
+   "answerIndex": 2,
+   "explain": "米换千米要除以 1000：400 ÷ 1000 = 0.4 km，小数点向左移三位。把 1 km 记成 100 m 会得到 4 km，方向反了去乘 1000 会得到大得离谱的数。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsx17knrm",
+   "level": 1,
+   "question": "换算表里写着：1 m = 1000 mm。一块木板长 2.4 m，换成毫米（mm）是多少？",
+   "options": [
+    "240 mm",
+    "24 mm",
+    "0.0024 mm",
+    "2400 mm"
+   ],
+   "answerIndex": 3,
+   "explain": "米换毫米要乘 1000：2.4 × 1000 = 2400 mm，小数点向右移三位。只移一位或两位是把 1 m 当成了 10 mm 或 100 mm，除以 1000 则是方向反了。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxa9wql4",
+   "level": 2,
+   "question": "把 0.65 km 换成厘米（cm）。提示：可以先换成 m，再换成 cm。",
+   "options": [
+    "65 000 cm",
+    "650 cm",
+    "6500 cm",
+    "6.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "0.65 × 1000 = 650 m，再 650 × 100 = 65 000 cm，两步都是大换小，都要乘。某一步倍数用错（如把 1 km 当 100 m）会得 6500 cm，最后一步反过来除会得 6.5 cm。",
+   "tags": [
+    "ok",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsx9nnbrr",
+   "level": 2,
+   "question": "小雨要画从家到 SkyTrain 站的比例尺图（scale diagram），实际距离是 2.75 km。为了和图上的单位对比，她要先把它换成米。2.75 km 是多少 m？",
+   "options": [
+    "275 m",
+    "2750 m",
+    "0.00275 m",
+    "27 500 m"
+   ],
+   "answerIndex": 1,
+   "explain": "1 km = 1000 m，所以 2.75 × 1000 = 2750 m。把 1 km 记成 100 m 会得到 275 m，方向反了去除以 1000 会得到一个极小的数。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsx9yv395",
+   "level": 2,
+   "question": "一张打印纸厚 0.1 mm，一包有 250 张。这包纸一共厚多少厘米（cm）？",
+   "options": [
+    "250 cm",
+    "0.25 cm",
+    "2.5 cm",
+    "0.025 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "先算 0.1 × 250 = 25 mm，再 25 ÷ 10 = 2.5 cm，毫米换厘米是小换大，要除以 10。乘 10 得 250 cm 是方向反了，除以 100 是把 1 cm 当成了 100 mm。",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxwfoo8q",
+   "level": 2,
+   "question": "五金店里一根 PVC 水管标着长 4750 mm。换成米（m）是多少？",
+   "options": [
+    "47.5 m",
+    "0.475 m",
+    "4 750 000 m",
+    "4.75 m"
+   ],
+   "answerIndex": 3,
+   "explain": "1 m = 1000 mm，所以 4750 ÷ 1000 = 4.75 m，小数点向左移三位。只移两位是把 1 m 当成了 100 mm，去乘 1000 则是方向反了。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxvszpbh",
+   "level": 3,
+   "question": "四位同学各自报了家到学校的距离：小安 0.85 km，小北 900 m，小晨 82 000 cm，小丹 860 000 mm。哪一个距离最远？",
+   "options": [
+    "900 m",
+    "82 000 cm",
+    "860 000 mm",
+    "0.85 km"
+   ],
+   "answerIndex": 0,
+   "explain": "全部换成米再比：0.85 km = 850 m，82 000 cm = 820 m，860 000 mm = 860 m，所以 900 m 最远。坑在 cm、mm 换 m 要除以 100、1000，方向或倍数一错，数字看着大的就会被误当成最远。",
+   "tags": [
+    "ok",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxecujyw",
+   "level": 3,
+   "question": "一张校园比例尺图上，操场的长画成 6.4 cm，实际长度是图上的 500 倍。操场实际长多少米（m）？",
+   "options": [
+    "320 m",
+    "32 m",
+    "320 000 m",
+    "3.2 m"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 6.4 × 500 = 3200 cm，再 3200 ÷ 100 = 32 m。厘米换米要除以 100，只除以 10 得 320 m 是倍数错，乘 100 得 320 000 m 是方向反了。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "ok",
+    "unit.convert_wrong_direction",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsx12xt0r",
+   "level": 3,
+   "question": "小美说：“1 km = 100 m，所以 2.3 km = 2.3 × 100 = 230 m。”她错在哪里？",
+   "options": [
+    "1 km 应是 10 000 m，算 2.3 × 10 000 = 23 000 m",
+    "换算方向反了，应算 2.3 ÷ 100 = 0.023 m",
+    "1 km 是 1000 m，应算 2.3 × 1000 = 2300 m",
+    "倍数没错，但 2.3 × 100 算错了，应是 23 m"
+   ],
+   "answerIndex": 2,
+   "explain": "千米到米的倍数是 1000 而不是 100，所以 2.3 km = 2300 m。她的方向其实是对的（大单位换小单位要乘），错的是倍数，别因此又去改成除法。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok",
+    "unit.metric_factor_wrong"
+   ]
+  },
+  {
+   "qid": "qmtlzqwsxcb1qgi",
+   "level": 3,
+   "question": "小杰把 0.45 m 换成毫米时说：“m 比 mm 大，所以要除：0.45 ÷ 1000 = 0.00045 mm。”他的说法对吗？",
+   "options": [
+    "除法方向对，但倍数应是 100，得 0.0045 mm",
+    "应乘 100，因为 1 m = 100 mm，得 45 mm",
+    "他没错，m 比 mm 大，换算时就该除以 1000",
+    "大换小数字要变多，应乘 1000，得 450 mm"
+   ],
+   "answerIndex": 3,
+   "explain": "同一段长度用更小的单位去量，数字会变多，所以大单位换小单位要乘：0.45 × 1000 = 450 mm。“单位大所以除”是最常见的方向错误，判断方向要看数字该变多还是变少。",
+   "tags": [
+    "unit.metric_factor_wrong",
+    "unit.metric_factor_wrong",
+    "unit.convert_wrong_direction",
+    "ok"
+   ]
+  }
+ ]
+}

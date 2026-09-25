@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.EXP.SIMPLIFY_MIXED",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtly4hbfzu0myo",
+   "level": 1,
+   "question": "Two to the exponent 3 is multiplied by two to the exponent 5, and the product is then divided by two to the exponent 4. Written as a single power with base 2, what is the result?",
+   "options": [
+    "2⁴",
+    "2¹¹",
+    "4⁴",
+    "2²"
+   ],
+   "answerIndex": 0,
+   "explain": "Same base, so add the exponents for the product (3 + 5 = 8) and subtract for the quotient (8 − 4 = 4), giving 2⁴. Multiplying 3 × 5 to get 2¹⁵ is the usual trap, and the base never changes.",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly4hbf0kcsnt",
+   "level": 1,
+   "question": "The product of x squared and y is raised to the exponent 3, and the result is multiplied by x to the exponent 2. Which expression is the simplified form?",
+   "options": [
+    "x¹²y³",
+    "x⁸y³",
+    "x⁷y⁴",
+    "2x⁸y³"
+   ],
+   "answerIndex": 1,
+   "explain": "First apply the power to each factor: (x²y)³ = x⁶y³, multiplying 2 × 3. Then multiply by x² by adding exponents: x⁶ × x² = x⁸, so the answer is x⁸y³. Adding 2 + 3 in the power of a power gives the wrong x⁷.",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "exp.power_of_power_add",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfuprurl",
+   "level": 1,
+   "question": "Three to the exponent 2 is multiplied by three to the exponent 3, and that product is divided by three to the exponent 5. What is the value of the result?",
+   "options": [
+    "3",
+    "0",
+    "1",
+    "32"
+   ],
+   "answerIndex": 2,
+   "explain": "Add the exponents for the product (2 + 3 = 5), then subtract for the quotient (5 − 5 = 0), and 3⁰ = 1 because dividing a power by its base over and over lands on 1, not 0. Multiplying 2 × 3 instead of adding leads to the wrong value 3.",
+   "tags": [
+    "exp.multiply_exponents_for_product",
+    "other",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfdl5ryv",
+   "level": 1,
+   "question": "Two to the exponent 3 is raised to the exponent 2, and the result is multiplied by two to the exponent 4. Written as a single power with base 2, what is the result?",
+   "options": [
+    "2⁹",
+    "2²⁴",
+    "4¹⁰",
+    "2¹⁰"
+   ],
+   "answerIndex": 3,
+   "explain": "A power of a power multiplies the exponents, so (2³)² = 2⁶, and then the product adds them: 6 + 4 = 10, giving 2¹⁰. Adding 3 + 2 in the first step gives the wrong 2⁹, and the base stays 2 throughout.",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly4hbf5921vh",
+   "level": 2,
+   "question": "Simplify m⁵ × m³ ÷ m² and write the answer as a single power.",
+   "options": [
+    "m⁶",
+    "m¹³",
+    "2m⁶",
+    "m⁴"
+   ],
+   "answerIndex": 0,
+   "explain": "Add exponents for the product (5 + 3 = 8) and subtract for the quotient (8 − 2 = 6), giving m⁶. Multiplying 5 × 3 to get m¹⁵ first leads to the wrong m¹³, and the base m is never doubled.",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly4hbf9oc5z5",
+   "level": 2,
+   "question": "Simplify (a³b)² × a⁴b completely.",
+   "options": [
+    "a⁹b⁴",
+    "a¹⁰b³",
+    "a²⁴b²",
+    "2a¹⁰b³"
+   ],
+   "answerIndex": 1,
+   "explain": "First (a³b)² = a⁶b² by multiplying each exponent by 2, then add exponents when multiplying: a⁶ × a⁴ = a¹⁰ and b² × b = b³, giving a¹⁰b³. Adding 3 + 2 inside the bracket is the common slip that produces a⁹b⁴.",
+   "tags": [
+    "exp.power_of_power_add",
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly4hbf2o8vrx",
+   "level": 2,
+   "question": "A bakery in Kelowna packs cookies for a school fundraiser. There are 2³ trays, each tray holds 2² boxes, and each box holds (2²)³ cookies. Written as a single power, how many cookies are there in total?",
+   "options": [
+    "2¹⁰",
+    "2³⁶",
+    "2¹¹",
+    "6¹¹"
+   ],
+   "answerIndex": 2,
+   "explain": "First (2²)³ = 2⁶ by multiplying 2 × 3, then multiply the three powers by adding exponents: 3 + 2 + 6 = 11, so there are 2¹¹ cookies. Adding 2 + 3 inside the bracket gives 2⁵ and the wrong total 2¹⁰.",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfc8ed57",
+   "level": 2,
+   "question": "Over a season, a small arena in Vancouver sold 5³ × 5⁴ tickets in total, spread equally over 5² home games. Written as a single power, how many tickets were sold per game?",
+   "options": [
+    "5⁹",
+    "5¹⁰",
+    "10⁵",
+    "5⁵"
+   ],
+   "answerIndex": 3,
+   "explain": "Add exponents for the total (3 + 4 = 7) and subtract for the equal shares (7 − 2 = 5), so each game sold 5⁵ tickets. Multiplying 3 × 4 to get 5¹² first is the trap that leads to 5¹⁰.",
+   "tags": [
+    "other",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtly4hbf71o7w7",
+   "level": 3,
+   "question": "Mia says 3⁴ × 3⁴ = 9⁸. Kai says 3⁴ × 3⁴ = 3¹⁶. Who is right, and why?",
+   "options": [
+    "Neither, the base stays 3 and the exponents add, giving 3⁸.",
+    "Kai, because multiplying powers means multiplying the exponents.",
+    "Mia, because both the bases and the exponents get added together.",
+    "Neither, it is the same as (3⁴)² and adding 4 and 2 gives 3⁶."
+   ],
+   "answerIndex": 0,
+   "explain": "Multiplying powers with the same base keeps that base and adds the exponents: 3⁴ × 3⁴ = 3⁸. The base is never added (9⁸ is wrong) and the exponents are never multiplied (3¹⁶ is wrong); writing it as (3⁴)² also gives 3⁸ because a power of a power multiplies.",
+   "tags": [
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases",
+    "exp.power_of_power_add"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfjtb6nb",
+   "level": 3,
+   "question": "In a Victoria science class, a dish starts with (2²)³ bacteria. The count doubles every hour for 4 hours, which multiplies it by 2⁴. Then a treatment leaves only 1 out of every 2³ bacteria alive. Written as a single power, how many bacteria are left?",
+   "options": [
+    "2⁶",
+    "2⁷",
+    "2²¹",
+    "4⁷"
+   ],
+   "answerIndex": 1,
+   "explain": "Start with (2²)³ = 2⁶, multiply by 2⁴ by adding to get 2¹⁰, then divide by 2³ by subtracting to get 2⁷. Adding 2 + 3 inside the bracket gives 2⁵ and the wrong final answer 2⁶.",
+   "tags": [
+    "exp.power_of_power_add",
+    "ok",
+    "exp.multiply_exponents_for_product",
+    "exp.add_bases"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfx4fwoy",
+   "level": 3,
+   "question": "A square community garden in Kamloops has side length 5³ m. It is divided into equal rectangular plots that are 5² m long and 5 m wide. Written as a single power, how many plots are there?",
+   "options": [
+    "5²",
+    "5⁴",
+    "5³",
+    "5⁹"
+   ],
+   "answerIndex": 2,
+   "explain": "The garden area is (5³)² = 5⁶ m² and each plot is 5² × 5 = 5³ m², so the number of plots is 5⁶ ÷ 5³ = 5³, which is 125. Adding 3 + 2 for the garden area gives 5⁵ and the wrong answer 5², and dividing means subtracting exponents, not adding.",
+   "tags": [
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtly4hbfjq4dl6",
+   "level": 3,
+   "question": "A video file of 2¹² kB is split into (2²)³ equal parts on a Burnaby school computer. Sam copies 2⁴ of those parts to a USB stick. Written as a single power, how many kB did Sam copy?",
+   "options": [
+    "4¹⁰",
+    "2¹¹",
+    "2²⁴",
+    "2¹⁰"
+   ],
+   "answerIndex": 3,
+   "explain": "There are (2²)³ = 2⁶ parts, each of size 2¹² ÷ 2⁶ = 2⁶ kB, and 2⁴ parts give 2⁶ × 2⁴ = 2¹⁰ kB. Adding 2 + 3 in the bracket gives 2⁵ parts and the wrong 2¹¹, and multiplying 6 × 4 at the end gives the wrong 2²⁴.",
+   "tags": [
+    "exp.add_bases",
+    "exp.power_of_power_add",
+    "exp.multiply_exponents_for_product",
+    "ok"
+   ]
+  }
+ ]
+}

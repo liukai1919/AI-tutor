@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.RAT.WORD",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlshd2ybpki51",
+   "level": 1,
+   "question": "一月的某天，Whistler 白天最高气温是 4°C，夜里最低气温是 −7°C。夜里的气温比白天的最高气温低了多少度？",
+   "options": [
+    "11°C",
+    "−3°C",
+    "−11°C",
+    "3°C"
+   ],
+   "answerIndex": 0,
+   "explain": "温差要用最高减最低：4 − (−7) = 4 + 7 = 11°C，减去一个负数等于加上它的相反数。算成 4 − 7 = −3 的是把 −(−7) 当成了 −7；看到「低」就拿 −7 去减 4 得 −11 也不对。",
+   "tags": [
+    "ok",
+    "int.subtract_negative",
+    "word.keyword_trap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2yn0cv3d",
+   "level": 1,
+   "question": "Prince George 连续三天的清晨气温分别是 −9°C、3°C、−6°C。这三天清晨的平均气温（average temperature）是多少？",
+   "options": [
+    "−12°C",
+    "−4°C",
+    "0°C",
+    "4°C"
+   ],
+   "answerIndex": 1,
+   "explain": "先求总和 −9 + 3 + (−6) = −12，再除以 3 得 −4°C。−12 只是总和，还没除以天数；加上 −6 就是往下走 6，不能变成加 6。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "int.subtract_negative",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2y1w2uwt",
+   "level": 1,
+   "question": "小林的账户余额是 −18 元（透支了 18 元）。他往账户里存入 30 元后，账户里还剩多少钱？",
+   "options": [
+    "−48 元",
+    "48 元",
+    "12 元",
+    "−12 元"
+   ],
+   "answerIndex": 2,
+   "explain": "存钱是加：−18 + 30 = 12 元，30 元先补上欠的 18 元，还多出 12 元。题里有「还剩」不代表要减，写成 −48 的那个就是被关键词骗了。",
+   "tags": [
+    "word.keyword_trap",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2y0amh9j",
+   "level": 1,
+   "question": "某商场的地下停车场 P3 层在海拔 −9 m，楼顶观景台在海拔 36 m。从 P3 层坐电梯到观景台，需要上升多少米？",
+   "options": [
+    "27 m",
+    "−45 m",
+    "−27 m",
+    "45 m"
+   ],
+   "answerIndex": 3,
+   "explain": "上升的高度 = 终点 − 起点 = 36 − (−9) = 36 + 9 = 45 m：先从地下 9 m 升到 0，再升 36 m。写成 27 的是把减 −9 当成了减 9；按题目顺序用 −9 减 36 得 −45 也是错的。",
+   "tags": [
+    "int.subtract_negative",
+    "word.keyword_trap",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlshd2yrtzzt5",
+   "level": 2,
+   "question": "一艘潜水艇在海平面以下 40 m 处，记作 −40 m。它先上浮 25 m，接着又下潜 12 m。现在它的位置是多少米？",
+   "options": [
+    "−27 m",
+    "−15 m",
+    "−77 m",
+    "−3 m"
+   ],
+   "answerIndex": 0,
+   "explain": "上浮是加：−40 + 25 = −15；再下潜是减：−15 − 12 = −27 m。−15 只是上浮后的中间位置，别算到一半就停；也不能因为是潜水艇就把 25 m 也当成下潜。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "word.keyword_trap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2y63dig9",
+   "level": 2,
+   "question": "Fort St. John 某天晚上 11 点气温是 −5.5°C。气象站记录显示，此前 5 小时里气温每小时的变化都是 −1.5°C。当天傍晚 6 点的气温是多少？",
+   "options": [
+    "−13°C",
+    "2°C",
+    "−7.5°C",
+    "−2°C"
+   ],
+   "answerIndex": 1,
+   "explain": "5 小时的总变化是 5 × (−1.5) = −7.5°C，往回推要减掉这段变化：−5.5 − (−7.5) = −5.5 + 7.5 = 2°C。写成 −13 的是把减 −7.5 当成了减 7.5；−7.5 只是变化量，不是气温。",
+   "tags": [
+    "int.subtract_negative",
+    "ok",
+    "word.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2yi7w4f8",
+   "level": 2,
+   "question": "小雅的账户余额是 −12.50 元。她退掉一双不合脚的鞋，商店退款 45.50 元到她账户；之后她又交了 20 元手机费。现在她的账户余额是多少？",
+   "options": [
+    "33 元",
+    "−78 元",
+    "13 元",
+    "25.50 元"
+   ],
+   "answerIndex": 2,
+   "explain": "退款是钱进账，要加：−12.50 + 45.50 = 33；再交手机费：33 − 20 = 13 元。看到「退」就减是关键词陷阱；33 只是中间结果，原来的 −12.50 也不能漏掉。",
+   "tags": [
+    "word.stop_early",
+    "word.keyword_trap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2ys2h54k",
+   "level": 2,
+   "question": "一支独木舟划桨（paddle）总长 3/2 m。桨叶（blade）的长度是总长的 1/3，顶端握把（grip）长 1/10 m。中间桨杆（shaft）的长度是多少米？",
+   "options": [
+    "11/10 m",
+    "1 m",
+    "1/2 m",
+    "9/10 m"
+   ],
+   "answerIndex": 3,
+   "explain": "桨叶长 1/3 × 3/2 = 1/2 m，桨杆 = 3/2 − 1/2 − 1/10 = 9/10 m。只减掉桨叶得到的 1 m 是中间结果，握把也要减掉，而不是加上去。",
+   "tags": [
+    "other",
+    "word.stop_early",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlshd2y7mz9ms",
+   "level": 3,
+   "question": "Prince George 某周周一到周五的最低气温平均是 −3°C。已知周一到周四的最低气温分别是 −5°C、−1°C、−6°C、2°C。周五的最低气温是多少？",
+   "options": [
+    "−5°C",
+    "−15°C",
+    "−25°C",
+    "−10°C"
+   ],
+   "answerIndex": 0,
+   "explain": "5 天总和 = 5 × (−3) = −15，前四天之和 = −5 + (−1) + (−6) + 2 = −10，周五 = −15 − (−10) = −5°C。算成 −25 是把减 −10 当成了减 10；−15 和 −10 都只是中间结果。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "int.subtract_negative",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlshd2y1yk8qm",
+   "level": 3,
+   "question": "BC 东北部一座矿井的地面入口海拔 720 m。矿工乘电梯下降了 6 段，每段 150 m，到达作业面；随后又沿斜坡向上走了 85 m 到休息区。休息区的海拔（elevation）是多少？",
+   "options": [
+    "−180 m",
+    "−95 m",
+    "−265 m",
+    "95 m"
+   ],
+   "answerIndex": 1,
+   "explain": "作业面海拔 720 − 6 × 150 = −180 m，再向上 85 m：−180 + 85 = −95 m。−180 只是中间站；向上走要加，不能因为在矿井里就把 85 m 也当成下降。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "word.keyword_trap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtlshd2yq6sjep",
+   "level": 3,
+   "question": "小杰上周的账户余额是 −8 元，这周是 15 元。他想算这周比上周多了多少钱，写下 15 − (−8) = 15 − 8 = 7，答 7 元。他错在哪里？",
+   "options": [
+    "他没有错，因为余额是负数时相减本来就要先去掉负号",
+    "应该反过来用上周减这周，因为 −8 − 15 = −23 才对",
+    "减去 −8 要变成加 8，正确算式是 15 + 8 = 23 元",
+    "算式没错，但他算到一半就停了，还要再加上 −8 得 −1 元"
+   ],
+   "answerIndex": 2,
+   "explain": "减去一个负数等于加它的相反数，15 − (−8) = 15 + 8 = 23 元：从欠 8 元到有 15 元，要先补 8 再多 15。负号不能随手去掉，也不能颠倒顺序去减。",
+   "tags": [
+    "int.subtract_negative",
+    "word.keyword_trap",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlshd2yi4p4ws",
+   "level": 3,
+   "question": "Kamloops 某天清晨 8 点气温是 −7°C，之后气温均匀上升，到下午 2 点达到 11°C。这 6 小时里，气温平均每小时上升多少度？",
+   "options": [
+    "−3°C",
+    "2/3°C",
+    "18°C",
+    "3°C"
+   ],
+   "answerIndex": 3,
+   "explain": "总变化 = 11 − (−7) = 11 + 7 = 18°C，再除以 6 小时得每小时 3°C。18 只是总变化不是每小时的；写成 2/3 的那个是把减 −7 算成了减 7，−3 则是按题目顺序用清晨减下午。",
+   "tags": [
+    "word.keyword_trap",
+    "int.subtract_negative",
+    "word.stop_early",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC12.EXP.02",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3k69pevbipn8",
+   "level": 1,
+   "question": "Evaluate log₈(64).",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "log₈(64) asks '8 to what power equals 64?' Since 8² = 64, the answer is 2. Common trap: dividing 64 by 8 to get 8, or confusing the base with the result."
+  },
+  {
+   "qid": "qmt3k69petxq52g",
+   "level": 1,
+   "question": "Evaluate log₃(27) + log₃(1/9).",
+   "options": [
+    "5",
+    "0",
+    "1",
+    "2"
+   ],
+   "answerIndex": 2,
+   "explain": "log₃(27) = 3 and log₃(1/9) = log₃(3⁻²) = −2. Adding gives 3 + (−2) = 1. Trap: forgetting that the log of a fraction (a number less than 1) is negative."
+  },
+  {
+   "qid": "qmt3k69perq9853",
+   "level": 1,
+   "question": "Evaluate log₅(25) − log₅(5).",
+   "options": [
+    "3",
+    "1",
+    "0",
+    "2"
+   ],
+   "answerIndex": 1,
+   "explain": "log₅(25) = 2 because 5² = 25, and log₅(5) = 1 because 5¹ = 5. So 2 − 1 = 1. Trap: thinking log₅(5) equals 5, or subtracting the bases."
+  },
+  {
+   "qid": "qmt3k69pep147ww",
+   "level": 1,
+   "question": "Evaluate ln(e³).",
+   "options": [
+    "e³",
+    "1",
+    "9",
+    "3"
+   ],
+   "answerIndex": 3,
+   "explain": "The natural log (ln) is the inverse of e^x, so ln(e³) = 3. Trap: thinking the result is e³ itself, or multiplying 3 by e."
+  },
+  {
+   "qid": "qmt3k69pe0ifdtu",
+   "level": 2,
+   "question": "Using the product law of logarithms, simplify log₂(8) + log₂(4).",
+   "options": [
+    "8",
+    "5",
+    "12",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "By the product law, log₂(8) + log₂(4) = log₂(8 × 4) = log₂(32) = 5 (since 2⁵ = 32). Trap: multiplying the two log values (3 × 2 = 6) instead of combining the arguments first."
+  },
+  {
+   "qid": "qmt3k69pe6jzl9u",
+   "level": 2,
+   "question": "A BC student is growing bacteria in a school biology lab. The population follows P = 500 · 2ᵗ, where t is time in hours. After how many hours will the population reach 4 000?",
+   "options": [
+    "2",
+    "8",
+    "4",
+    "3"
+   ],
+   "answerIndex": 3,
+   "explain": "Set 500 · 2ᵗ = 4000, so 2ᵗ = 8. Since 2³ = 8, t = 3 hours. Trap: dividing 4000 by 500 to get 8 and then choosing 8 as the time instead of recognizing it as the exponent."
+  },
+  {
+   "qid": "qmt3k69pe60h91f",
+   "level": 2,
+   "question": "Simplify log₇(49 · 7³).",
+   "options": [
+    "5",
+    "10",
+    "3",
+    "7"
+   ],
+   "answerIndex": 0,
+   "explain": "49 = 7², so 49 · 7³ = 7² · 7³ = 7⁵. Then log₇(7⁵) = 5. Trap: treating 49 and 7 as separate multipliers and adding 49 + 3, or forgetting that 49 = 7²."
+  },
+  {
+   "qid": "qmt3k69peyufq8i",
+   "level": 2,
+   "question": "At a school concert, a student measures sound. The decibel level is D = 10 · log₁₀(I/I₀). If the intensity ratio I/I₀ = 1 000, what is D in decibels?",
+   "options": [
+    "100",
+    "1 000",
+    "30",
+    "3"
+   ],
+   "answerIndex": 2,
+   "explain": "log₁₀(1000) = 3 (since 10³ = 1000), so D = 10 × 3 = 30 dB. Trap: confusing log₁₀(1000) with 1000 itself, or forgetting to multiply by the coefficient 10."
+  },
+  {
+   "qid": "qmt3k69pecgigpi",
+   "level": 3,
+   "question": "Solve: log₂(x) + log₂(x − 3) = 2. Select all valid solutions.",
+   "options": [
+    "x = 4",
+    "x = −1",
+    "x = 4 or x = −1",
+    "x = 3"
+   ],
+   "answerIndex": 0,
+   "explain": "Combine: log₂(x(x−3)) = 2, so x(x−3) = 4, giving x² − 3x − 4 = 0 → (x−4)(x+1) = 0. x = −1 is rejected because log₂(−1) is undefined. Only x = 4 works. Trap: accepting both algebraic roots without checking the log domain."
+  },
+  {
+   "qid": "qmt3k69pej3bxq2",
+   "level": 3,
+   "question": "Solve: log₄(x²) = 3. Select all valid solutions.",
+   "options": [
+    "x = 8 only",
+    "x = 8 or x = −8",
+    "x = −8 only",
+    "x = 8 or x = 64"
+   ],
+   "answerIndex": 1,
+   "explain": "x² = 4³ = 64, so x = ±8. Both are valid because the argument x² is positive for both values. Trap: applying the power rule as 2·log₄(x) = 3, which would incorrectly require x > 0 and eliminate x = −8."
+  },
+  {
+   "qid": "qmt3k69pe23c1ok",
+   "level": 3,
+   "question": "The graph of y = log₂(x + 3) − 1 is obtained from the parent graph y = log₂(x) by which transformation?",
+   "options": [
+    "shift right 3 units, then down 1 unit",
+    "shift left 3 units, then up 1 unit",
+    "shift left 3 units, then down 1 unit",
+    "shift right 3 units, then up 1 unit"
+   ],
+   "answerIndex": 2,
+   "explain": "The +3 inside the function (x + 3) shifts the graph LEFT by 3, not right — this is the most common mistake. The −1 outside shifts it DOWN by 1. Trap: reading x + 3 as a shift to the right."
+  },
+  {
+   "qid": "qmt3k69pecd4nty",
+   "level": 3,
+   "question": "A student must estimate log₂(7) and log₅(7) without a calculator. Which is greater?",
+   "options": [
+    "they are equal",
+    "log₅(7)",
+    "cannot be determined without a calculator",
+    "log₂(7)"
+   ],
+   "answerIndex": 3,
+   "explain": "Using change of base: log₂(7) = ln 7 / ln 2 and log₅(7) = ln 7 / ln 5. Since ln 2 < ln 5, dividing by the smaller denominator gives the larger result, so log₂(7) > log₅(7). Trap: assuming a larger base always produces a larger log value."
+  }
+ ]
+}

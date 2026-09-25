@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA.CYLINDER",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkqzme6e0sfl1",
+   "level": 1,
+   "question": "A cylinder net is cut out and laid flat. It has 3 pieces: 2 equal circles and 1 rectangle. Each circle has a radius of 5 cm, and the rectangle is 12 cm wide. The long side of the rectangle must wrap exactly once around one circle. Using π = 3.14, how long is that long side?",
+   "options": [
+    "31.4 cm",
+    "15.7 cm",
+    "10.0 cm",
+    "78.5 cm"
+   ],
+   "answerIndex": 0,
+   "explain": "The long side wraps once around the circle, so it equals the circumference: C = 2 × 3.14 × 5 = 31.4 cm. The classic trap is using the diameter (10 cm) or C = π × r instead of 2 × π × r.",
+   "tags": [
+    "ok",
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6ktn9t8",
+   "level": 1,
+   "question": "A cylinder net laid flat has 3 pieces: 2 equal circles and 1 rectangle. Each circle has a radius of 3 cm. Using π = 3.14, what is the total area of the 2 circles (the rectangle is not included)?",
+   "options": [
+    "226.08 cm²",
+    "56.52 cm²",
+    "37.68 cm²",
+    "28.26 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "Each circle is A = π × r × r = 3.14 × 3 × 3 = 28.26 cm², and a cylinder net has two of them, so 2 × 28.26 = 56.52 cm². Two traps: using π × 2r instead of π × r × r, and counting only one circle.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "circle.area_2r",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6nt719e",
+   "level": 1,
+   "question": "A cylinder net laid flat has 3 pieces: 2 equal circles and 1 rectangle. Each circle has a diameter of 8 cm, and the rectangle is 10 cm wide, with its length equal to the distance around one circle. Using π = 3.14, what is the area of the rectangle only?",
+   "options": [
+    "502.40 cm²",
+    "80.00 cm²",
+    "251.20 cm²",
+    "50.24 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "The rectangle is circumference × width: C = 3.14 × 8 = 25.12 cm, so 25.12 × 10 = 251.20 cm². Watch out: 8 cm is the diameter, not the radius, and the length is never just the diameter.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6tyyzjm",
+   "level": 1,
+   "question": "A cylinder net laid flat has 3 pieces: 2 equal circles of radius 3 cm and 1 rectangle that is 5 cm wide, whose length wraps exactly once around a circle. Using π = 3.14, what is the total area of all 3 pieces?",
+   "options": [
+    "131.88 cm²",
+    "86.52 cm²",
+    "103.62 cm²",
+    "150.72 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "Two circles: 2 × 3.14 × 3 × 3 = 56.52 cm². Rectangle: (2 × 3.14 × 3) × 5 = 94.2 cm². Total 150.72 cm². The most common trap is making the rectangle 6 cm long (the diameter) instead of 18.84 cm (the circumference).",
+   "tags": [
+    "circle.area_2r",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6ap97dk",
+   "level": 2,
+   "question": "A cylinder has radius r and height h. Which expression gives its total surface area, built from 2 circles plus 1 rectangle?",
+   "options": [
+    "2πr² + 2πrh",
+    "2πr² + 2rh",
+    "2πr² + πrh",
+    "4πr + 2πrh"
+   ],
+   "answerIndex": 0,
+   "explain": "The two ends give 2πr² and the rectangle is circumference × height = 2πr × h, so the total is 2πr² + 2πrh. The trap is writing the rectangle as 2rh, which uses the diameter as its length instead of the circumference.",
+   "tags": [
+    "ok",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6komsnq",
+   "level": 2,
+   "question": "A soup can for a Burnaby school food drive has a diameter of 8 cm and a height of 11 cm. A paper label wraps around the curved side only, with no overlap and nothing on the ends. Using π = 3.14, what is the area of the label?",
+   "options": [
+    "552.64 cm²",
+    "276.32 cm²",
+    "88.00 cm²",
+    "376.80 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "The label is the rectangle of the net: circumference × height = (3.14 × 8) × 11 = 276.32 cm². Traps: treating 8 cm as the radius, and adding the two circular ends when the label covers only the side.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "ok",
+    "nets.cylinder_rect_width_is_diameter",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6hra7du",
+   "level": 2,
+   "question": "Ravi draws the net of a cylindrical candle with radius 4 cm and height 9 cm. Using π = 3.14, which pair of measurements correctly describes the rectangle in his net?",
+   "options": [
+    "length 8.00 cm × width 9 cm",
+    "length 12.56 cm × width 9 cm",
+    "length 25.12 cm × width 9 cm",
+    "length 25.12 cm × width 4 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "The rectangle's length is the circumference, 2 × 3.14 × 4 = 25.12 cm, and its width is the height, 9 cm. Using 8 cm (the diameter) or 12.56 cm (π × r) for the length is the usual slip.",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6dp09co",
+   "level": 2,
+   "question": "A cylindrical container of trail mix has a diameter of 6 cm and a height of 10 cm. Using π = 3.14, what is its total surface area?",
+   "options": [
+    "602.88 cm²",
+    "116.52 cm²",
+    "226.08 cm²",
+    "244.92 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "First halve the diameter: r = 3 cm. Two circles: 2 × 3.14 × 9 = 56.52 cm². Rectangle: (2 × 3.14 × 3) × 10 = 188.4 cm². Total 244.92 cm². The trap is putting the diameter 6 straight into π × r × r.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.area_2r",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6p6el93",
+   "level": 3,
+   "question": "A cylindrical rain barrel in a Surrey community garden has a diameter of 60 cm and a height of 100 cm. It is open at the top, so paint is needed on the curved side and the circular bottom only. Using π = 3.14, how much surface must be painted?",
+   "options": [
+    "21666 cm²",
+    "24492 cm²",
+    "8826 cm²",
+    "48984 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "Side: (3.14 × 60) × 100 = 18840 cm². Bottom circle (r = 30): 3.14 × 30 × 30 = 2826 cm². Total 21666 cm². Two traps here: including a second circle for the open top, and using 60 cm as the radius.",
+   "tags": [
+    "ok",
+    "other",
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6hzfp40",
+   "level": 3,
+   "question": "Maya finds the surface area of a cylinder with radius 5 cm and height 12 cm. She writes: two circles = 2 × 3.14 × 5 × 5 = 157, rectangle = 10 × 12 = 120, total = 277 cm². Using π = 3.14, what went wrong?",
+   "options": [
+    "The circles are wrong, because a circle's area is π × 2r, so each one is 3.14 × 10 cm².",
+    "The rectangle's length must be the circumference, 2 × 3.14 × 5 = 31.4 cm, not 10 cm.",
+    "The circles are wrong, because 10 cm across the circle is the radius to use in π × r × r.",
+    "Nothing is wrong, because the rectangle's length is the diameter, 10 cm, so 277 cm² is right."
+   ],
+   "answerIndex": 1,
+   "explain": "Her circles are fine, but the rectangle must wrap all the way around, so its length is the circumference 31.4 cm, giving 31.4 × 12 = 376.8 cm² and a total of 533.8 cm². Using the diameter as the rectangle's length is the most common cylinder-net error.",
+   "tags": [
+    "circle.area_2r",
+    "ok",
+    "circle.radius_diameter_confuse",
+    "nets.cylinder_rect_width_is_diameter"
+   ]
+  },
+  {
+   "qid": "qmtkqzme64f1sga",
+   "level": 3,
+   "question": "A wrap-around label covers the whole curved side of a cylindrical thermos with no overlap. The label has an area of 471 cm² and the thermos is 15 cm tall. Using π = 3.14, what is the total surface area of the thermos, including both circular ends?",
+   "options": [
+    "1099 cm²",
+    "533.8 cm²",
+    "628 cm²",
+    "549.5 cm²"
+   ],
+   "answerIndex": 2,
+   "explain": "Work backwards: circumference = 471 ÷ 15 = 31.4 cm, so r = 31.4 ÷ 6.28 = 5 cm, and the two ends give 2 × 3.14 × 25 = 157 cm²; 471 + 157 = 628 cm². The trap is reading 31.4 as π × r (giving r = 10) instead of 2 × π × r.",
+   "tags": [
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqzme6rasmpg",
+   "level": 3,
+   "question": "Two cylindrical candles are wrapped completely, ends included. Candle A has radius 3 cm and height 10 cm; Candle B has radius 5 cm and height 4 cm. Using π = 3.14, which candle needs more wrapping, and by how much?",
+   "options": [
+    "Candle B, by 80.48 cm²",
+    "Candle B, by 69.08 cm²",
+    "Candle A, by 37.68 cm²",
+    "Candle B, by 37.68 cm²"
+   ],
+   "answerIndex": 3,
+   "explain": "Candle A: 56.52 + (18.84 × 10) = 244.92 cm². Candle B: 157 + (31.4 × 4) = 282.6 cm². The difference is 37.68 cm² in favour of B. Short and wide can still beat tall and thin, but only if each rectangle uses the circumference as its length.",
+   "tags": [
+    "nets.cylinder_rect_width_is_diameter",
+    "circle.radius_diameter_confuse",
+    "circle.area_2r",
+    "ok"
+   ]
+  }
+ ]
+}

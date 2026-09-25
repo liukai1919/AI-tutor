@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.PV100.MODEL",
+ "lang": "en",
+ "title": "Show tenths and hundredths on grids and base-10 blocks",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Tenths and Hundredths on a Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to split a whole into equal parts and name the top and bottom numbers of a fraction. Today we use that same idea to show tenths and hundredths with a picture, so decimals like zero point three four stop feeling like a mystery.",
+    "math": "1 = \\frac{10}{10} = \\frac{100}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      100
+     ],
+     "labels": [
+      "one whole"
+     ],
+     "caption": "The whole big square is 1. It is cut into 100 equal little squares."
+    }
+   },
+   {
+    "say": "Here is our whole square, cut into ten tall strips. If I colour just one strip, that is one tenth of the whole, and we write it as zero point one. Notice that one strip is made of ten little squares, so ten little squares out of one hundred is also one tenth.",
+    "math": "\\frac{1}{10} = \\frac{10}{100} = 0.1",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "one tenth"
+     ],
+     "caption": "One full column = 10 little squares = one tenth = 0.1"
+    }
+   },
+   {
+    "say": "Now watch the tiniest piece. One little square all by itself is one hundredth, and we write it as zero point zero one. Think of a Canadian dollar: the whole grid is one dollar, one strip is ten cents, and one tiny square is one penny.",
+    "math": "\\frac{1}{100} = 0.01",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "one hundredth"
+     ],
+     "caption": "One little square = one hundredth = 0.01"
+    }
+   },
+   {
+    "say": "Let us build zero point three four together. Three whole strips give us three tenths, which is thirty little squares, and then four extra little squares give us four hundredths. Thirty plus four is thirty-four little squares coloured in, so this picture shows thirty-four hundredths, or zero point three four.",
+    "math": "0.34 = \\frac{3}{10} + \\frac{4}{100} = \\frac{34}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      30,
+      4
+     ],
+     "labels": [
+      "3 tenths",
+      "4 hundredths"
+     ],
+     "caption": "3 full columns (30 squares) + 4 single squares = 34 out of 100 = 0.34"
+    }
+   },
+   {
+    "say": "Base ten blocks tell the very same story. Let the big flat be one whole, then each long rod is one tenth and each tiny cube is one hundredth. Three rods and four cubes is again three tenths and four hundredths, which is zero point three four.",
+    "math": "3 \\text{ rods} + 4 \\text{ cubes} = 0.34",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      34
+     ],
+     "labels": [
+      "rods = tenths",
+      "cubes = hundredths"
+     ],
+     "caption": "Flat = 1 whole, rod = 0.1, cube = 0.01 → 3 rods + 4 cubes = 0.34"
+    }
+   },
+   {
+    "say": "Here is a slip lots of kids make. They think zero point zero four and zero point four are the same because both say a four. But look: zero point zero four is only four tiny squares, while zero point four is four whole strips, which is forty tiny squares. Four squares and forty squares are very different, so the place of the four really matters.",
+    "math": "0.04 = \\frac{4}{100} \\quad \\text{but} \\quad 0.4 = \\frac{40}{100}",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      4,
+      36
+     ],
+     "labels": [
+      "0.04",
+      "the extra 36 that makes 0.4"
+     ],
+     "caption": "First colour = 4 squares (0.04). Add 36 more and you reach 40 squares (0.4)."
+    }
+   }
+  ],
+  "answer": "On a hundred grid, one whole column is a tenth (0.1) and one little square is a hundredth (0.01) — so 0.34 is 3 columns plus 4 squares.",
+  "practice": {
+   "question": "Picture a hundred grid, ten squares across and ten squares down, and let the whole grid be one Canadian dollar. Colour in six full columns and then three extra little squares. Draw it if you like! How many little squares did you colour, and what decimal amount of a dollar is that?",
+   "answer": "Six columns are 6 times 10, which is 60 squares, plus 3 more squares makes 63 squares out of 100. That is 0.63, or 63 cents — six tenths and three hundredths."
+  }
+ }
+}

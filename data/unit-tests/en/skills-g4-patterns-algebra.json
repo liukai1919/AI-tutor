@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "patterns-algebra",
+ "lang": "en",
+ "unitName": {
+  "zh": "规律与方程",
+  "en": "Patterns & equations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Patterns & equations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PAT.INC_DEC.EXTEND",
+    "level": 1,
+    "question": "A number pattern goes 125, 150, 175, 200, … What are the next two numbers?",
+    "options": [
+     "205, 210",
+     "225, 250",
+     "220, 240",
+     "250, 300"
+    ],
+    "answerIndex": 1,
+    "explain": "Find the gap between two numbers next to each other (150 − 125 = 25), then keep adding 25: 200 + 25 = 225 and 225 + 25 = 250. The common trap is adding a different amount (like 5 or 20) after only glancing at the first digits — always check your step against at least two pairs in the pattern."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONE_STEP.MEANING",
+    "level": 1,
+    "question": "A balance scale stays level. On the left pan is □ + 6. On the right pan is 14. Which number sentence tells you what □ must be?",
+    "options": [
+     "14 + 6 = □",
+     "6 − 14 = □",
+     "□ − 6 = 14",
+     "14 − 6 = □"
+    ],
+    "answerIndex": 3,
+    "explain": "A balanced scale means both sides are worth the same, so □ is whatever is left of 14 after taking away the 6 you can already see: 14 − 6 = □, giving □ = 8. The common trap is adding the two numbers you can see (14 + 6); adding makes the left pan far too heavy, so the scale would not balance."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.INC_DEC.RULE",
+    "level": 1,
+    "question": "Nova lines up beach stones on the sand at Spanish Banks. Her rows have 3, 7, 11, 15, 19 stones. Which sentence describes her pattern rule?",
+    "options": [
+     "Start at 3, add 4 each time",
+     "Start at 3, add 3 each time",
+     "Start at 4, add 3 each time",
+     "Start at 7, add 4 each time"
+    ],
+    "answerIndex": 0,
+    "explain": "A pattern rule names two things: the first number in the pattern (3) and the amount you add to get the next one (7 − 3 = 4). The common trap is counting the numbers in between instead of subtracting, or swapping the start and the step — the start must be the very first number you see."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.TABLE_CHART",
+    "level": 2,
+    "question": "Ellis saves the same amount every week for a hockey stick. His table shows: Week 1 = $12, Week 2 = $20, Week 3 = ?, Week 4 = $36, Week 5 = $44. How much has he saved by Week 3?",
+    "options": [
+     "$24",
+     "$26",
+     "$28",
+     "$32"
+    ],
+    "answerIndex": 2,
+    "explain": "Read the table across to find the step: $20 − $12 = $8 each week, so Week 3 = $20 + $8 = $28 (and it checks, because $28 + $8 = $36). The common trap is guessing a small jump like $4 from the missing spot instead of first working out the step from two weeks you can actually see."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONE_STEP.ADDSUB",
+    "level": 2,
+    "question": "A Grade 4 class runs a bottle drive. On Monday they collected 145 cans. By the end of Tuesday the total was 213 cans. Solving 145 + □ = 213 tells how many cans came in on Tuesday. What is □?",
+    "options": [
+     "68",
+     "132",
+     "78",
+     "358"
+    ],
+    "answerIndex": 0,
+    "explain": "To find a missing change, subtract: 213 − 145 = 68 cans, and you can check with 145 + 68 = 213. The common trap is subtracting the smaller digit from the larger one in each column instead of regrouping (3 − 5 becoming 5 − 3), which gives the wrong answer 132."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONE_STEP.MULTDIV",
+    "level": 2,
+    "question": "Juice boxes are packed 8 to a tray for sports day. The school has 56 juice boxes and no leftovers. Solve 8 × □ = 56 to find how many trays there are.",
+    "options": [
+     "48",
+     "7",
+     "64",
+     "448"
+    ],
+    "answerIndex": 1,
+    "explain": "Multiplication and division undo each other, so □ = 56 ÷ 8 = 7 trays, and the check is 8 × 7 = 56. The common trap is subtracting (56 − 8 = 48) or multiplying (8 × 56) — before you choose an operation, ask whether the answer should be smaller than 56 or bigger."
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.RELATION.QUANTITIES",
+    "level": 3,
+    "question": "A nature camp in Squamish charges the same amount for each child. The sign-up chart shows: 4 children cost $28, and 6 children cost $42. How much will it cost for 9 children?",
+    "options": [
+     "$54",
+     "$56",
+     "$63",
+     "$70"
+    ],
+    "answerIndex": 2,
+    "explain": "First find the cost for one child ($28 ÷ 4 = $7, which matches $42 ÷ 6 = $7), then multiply: 9 × $7 = $63. The common trap is adding two rows of the chart ($28 + $42 = $70), but that is the cost for 4 + 6 = 10 children, not 9."
+   },
+   {
+    "curriculumId": "YY.MATH.PAT.INC_DEC.EXTEND",
+    "level": 3,
+    "question": "Ravi has $180 saved. Every week he spends $25 of it on his swimming lesson and saves nothing new. After how many weeks will he have less than $50 left for the first time?",
+    "options": [
+     "4 weeks",
+     "5 weeks",
+     "7 weeks",
+     "6 weeks"
+    ],
+    "answerIndex": 3,
+    "explain": "Skip-count backward by 25 and check after each week: $155, $130, $105, $80, $55, $30 — the first amount under $50 is $30, which happens after 6 weeks. The common trap is stopping at $55 (it is close to $50 but still more than $50) or counting the starting $180 as week 1."
+   }
+  ]
+ }
+}

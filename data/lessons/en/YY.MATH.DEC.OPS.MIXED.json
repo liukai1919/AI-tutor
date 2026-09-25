@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DEC.OPS.MIXED",
+ "lang": "en",
+ "title": "Add, subtract, multiply and divide decimals fluently",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Decimals: Do You Line Up, or Do You Count?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add decimals by lining up the decimal point, and how to multiply decimals by counting the places. Today we do just one small thing: decide which of those two rules a question needs, so you never mix them up.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea. When you add or subtract, the columns have to match, so tenths sit under tenths and hundredths sit under hundredths. That means you line up the decimal point. When you multiply, you do not care about columns at all. You just multiply like whole numbers, then count how many decimal places went in, and put that many back into the answer.",
+    "math": "+,-\\;\\Rightarrow\\;\\text{line up}\\qquad \\times\\;\\Rightarrow\\;\\text{count places}",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      1.25
+     ],
+     "labels": [],
+     "caption": "One point two five: one one, two tenths, five hundredths"
+    }
+   },
+   {
+    "say": "Let us try it with money. Your bus fare is three dollars and five cents, and a drink is one dollar and seventy five cents. That is adding, so line up the decimal points. Five hundredths plus five hundredths is ten hundredths, so write zero and carry one tenth. Zero tenths plus seven tenths plus the carried one tenth is eight tenths. Three plus one is four. You get four dollars and eighty cents.",
+    "math": "\\begin{array}{r}3.05\\\\+1.75\\\\\\hline 4.80\\end{array}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3,
+      5,
+      3.05,
+      4.8
+     ],
+     "labels": [],
+     "caption": "Jumping 1.75 from 3.05 lands on 4.80"
+    }
+   },
+   {
+    "say": "Now the same numbers, but multiplied. Ignore the dots and multiply three hundred five by one hundred seventy five, which gives fifty three thousand three hundred seventy five. Three point zero five has two decimal places, and one point seven five has two, so that is four places altogether. Count four places back from the right and you get five point three three seven five. Notice the answer has four decimal places, even though neither number did.",
+    "math": "3.05\\times1.75=5.3375",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      5.3375
+     ],
+     "labels": [],
+     "caption": "Four decimal places, because two plus two is four"
+    }
+   },
+   {
+    "say": "Here are the two slip ups to watch for. Some people write one point five plus zero point two five by squeezing the right edges together and get zero point four zero. That is wrong, because the five in one point five is five tenths, not five hundredths. Write it as one point five zero, line up the dots, and you get one point seven five. The other slip up is doing one point two times zero point three by lining things up and answering three point six. But one point two is about one, and zero point three is less than one, so the answer must be smaller than one point two. Twelve times three is thirty six, and there are two decimal places, so it is zero point three six.",
+    "math": "1.50+0.25=1.75\\qquad 1.2\\times0.3=0.36",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      2,
+      1.75,
+      0.36
+     ],
+     "labels": [],
+     "caption": "1.75 is the correct sum; 0.36 is the correct product"
+    }
+   },
+   {
+    "say": "So before you write anything, ask yourself one question: am I adding, or am I multiplying? Adding means line up the dots. Multiplying means count the places.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Adding and subtracting: line up the decimal points. Multiplying: forget the dots, then count the decimal places.",
+  "practice": {
+   "question": "At the Vancouver corner store, a granola bar costs two dollars and forty cents and a juice costs one dollar and fifteen cents. First, what do the two cost together? Second, if instead you buy two point four kilograms of apples at one point one five dollars per kilogram, what is the cost? Do both by hand and notice which rule you used each time.",
+   "answer": "Together they cost three dollars and fifty five cents, because you line up the decimal points: two point four zero plus one point one five is three point five five. The apples cost two point seven six dollars, because twenty four times one hundred fifteen is two thousand seven hundred sixty, and one decimal place plus two decimal places is three places, giving two point seven six zero, which is two dollars and seventy six cents."
+  }
+ }
+}

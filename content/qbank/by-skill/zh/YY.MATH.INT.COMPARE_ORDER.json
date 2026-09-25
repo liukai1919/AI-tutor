@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.INT.COMPARE_ORDER",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ryyqzr2fhau",
+   "level": 1,
+   "question": "在一条数轴（number line）上，0 在中间，向右每走 1 格数就大 1，向左每走 1 格数就小 1。点 M 在 0 的左边 3 格，表示 −3；点 N 在 0 的左边 8 格，表示 −8。下面哪个说法是正确的？",
+   "options": [
+    "−3 > −8，因为在数轴上 −3 比 −8 更靠右",
+    "−3 和 −8 一样大，因为它们都在 0 的左边",
+    "−8 > −3，因为 8 比 3 大",
+    "−8 离 0 更远，所以 −8 更大"
+   ],
+   "answerIndex": 0,
+   "explain": "数轴上越靠右的数越大：−3 只往左走 3 格，−8 往左走 8 格，所以 −3 在右边，−3 > −8。最常见的坑是拿掉负号只比 8 和 3，就会错说 −8 更大；负数里离 0 越远反而越小。",
+   "tags": [
+    "ok",
+    "other",
+    "int.negative_bigger_magnitude",
+    "int.negative_bigger_magnitude"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqz1eiqu5",
+   "level": 1,
+   "question": "在数轴上，0 的右边第 7 格处是点 P，每格代表 1，所以 P 表示 7。点 Q 和 P 分别在 0 的两侧，并且到 0 的距离一样远，这样的 Q 就是 P 的相反数（opposite）。点 Q 表示的整数是多少？",
+   "options": [
+    "7",
+    "−7",
+    "0",
+    "−14"
+   ],
+   "answerIndex": 1,
+   "explain": "相反数是「到 0 距离相同、方向相反」的数：7 在 0 右边 7 格，那么它的相反数就在 0 左边 7 格，也就是 −7。常见的坑是把距离加倍写成 −14，或者忘了换方向仍写 7。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqz5go8o4",
+   "level": 1,
+   "question": "数轴上有四个点，每格代表 1：点 A 在 0 的左边 2 格，点 B 在 0 的左边 5 格，点 C 在 0 的右边 1 格，点 D 在 0 的左边 9 格。把这四个点表示的整数（integer）从小到大排列，正确的是哪一组？",
+   "options": [
+    "−2, −5, −9, 1",
+    "1, −2, −5, −9",
+    "−9, −5, −2, 1",
+    "−9, −5, 1, −2"
+   ],
+   "answerIndex": 2,
+   "explain": "从小到大就是按数轴从左往右读：最左边是 −9，然后 −5、−2，最后才是 0 右边的 1。最容易踩的坑是把负数当普通数排成 −2, −5, −9，那其实是在比 2、5、9 的大小，负数正好反过来。",
+   "tags": [
+    "int.negative_bigger_magnitude",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqznf4v54",
+   "level": 1,
+   "question": "互为相反数（opposites）的两个数，在数轴上分别在 0 的两侧，而且到 0 的距离相等。下面哪一组数是互为相反数？",
+   "options": [
+    "−12 和 −12",
+    "−12 和 0",
+    "12 和 21",
+    "−12 和 12"
+   ],
+   "answerIndex": 3,
+   "explain": "到 0 的距离都是 12、又分别在 0 的左右两侧的那一组，就是 −12 和 12。坑在于只把数字调个顺序（12 和 21）或干脆照抄同一个数，都没有做到「方向相反」。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqzxap1up",
+   "level": 2,
+   "question": "把这五个整数从大到小排列：−11, 4, −4, 0, 9。哪一组排对了？",
+   "options": [
+    "9, 4, 0, −4, −11",
+    "9, 4, 0, −11, −4",
+    "−11, −4, 0, 4, 9",
+    "9, 4, −4, −11, 0"
+   ],
+   "answerIndex": 0,
+   "explain": "从大到小就是数轴上从右往左读：正数最大（9、4），然后是 0，再是负数，负数里离 0 近的更大，所以 −4 排在 −11 前面。最常见的错是把 −11 当成比 −4 大，或者把 0 丢到最后当最小。",
+   "tags": [
+    "ok",
+    "int.negative_bigger_magnitude",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqz2vuvhh",
+   "level": 2,
+   "question": "下面四个式子中，哪一个是正确的？",
+   "options": [
+    "−15 > −9",
+    "−15 < −9",
+    "0 < −3",
+    "−9 < −20"
+   ],
+   "answerIndex": 1,
+   "explain": "负数越往左越小：−15 在 −9 的左边，所以 −15 < −9。踩坑点有两个——一是看到 15 比 9 大就说 −15 更大，二是以为 0 比负数小，其实 0 比任何负数都大。",
+   "tags": [
+    "int.negative_bigger_magnitude",
+    "ok",
+    "other",
+    "int.negative_bigger_magnitude"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqzd32ybm",
+   "level": 2,
+   "question": "−13 的相反数（opposite）是多少？",
+   "options": [
+    "−13",
+    "1÷13 的结果",
+    "13",
+    "0"
+   ],
+   "answerIndex": 2,
+   "explain": "求相反数只要把符号反过来、大小不变，所以 −13 的相反数是 13（两者到 0 的距离都是 13）。坑是把相反数和倒数搞混写成 1÷13，或者觉得负数的相反数还是它自己。",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqzkot7vs",
+   "level": 2,
+   "question": "已知某个整数的相反数（opposite）是 −8。这个整数是多少？它和 −8 比谁大？",
+   "options": [
+    "这个数是 −8，它和 −8 一样大",
+    "这个数是 0，两个数一样大",
+    "这个数是 8，但 −8 > 8",
+    "这个数是 8，而且 8 > −8"
+   ],
+   "answerIndex": 3,
+   "explain": "相反数是成对的：−8 的相反数是 8，所以这个数就是 8；数轴上 8 在 0 右边、−8 在 0 左边，因此 8 > −8。最容易踩的坑是认下「8 和 −8 长得一样大」而忽略符号决定了左右位置。",
+   "tags": [
+    "other",
+    "other",
+    "int.negative_bigger_magnitude",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqzcwajsc",
+   "level": 3,
+   "question": "一月的某个早上，BC 省几个地方的气温是：Vancouver 3 °C，Kamloops −6 °C，Whistler −11 °C，Prince George −14 °C。把这四个气温从最暖到最冷排列，哪一组是对的？",
+   "options": [
+    "3, −6, −11, −14",
+    "−14, −11, −6, 3",
+    "3, −14, −11, −6",
+    "3, −6, −14, −11"
+   ],
+   "answerIndex": 0,
+   "explain": "最暖到最冷就是从大到小：先是唯一的正数 3，接着负数里离 0 最近的 −6，然后 −11，最冷的是 −14。踩坑点是看到 14 最大就以为 −14 最暖；温度越低数越小，−14 才是最冷的那个。",
+   "tags": [
+    "ok",
+    "other",
+    "int.negative_bigger_magnitude",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqz60run2",
+   "level": 3,
+   "question": "在 Vancouver 一家商场的停车场里，Maya 停在地下 3 层，记作 −3；Ben 停的那一层比 Maya 还要低 2 层；Chloe 停在地面以上 1 层，记作 1。把三个人所在的楼层从低到高排列，哪一组是对的？",
+   "options": [
+    "Maya（−3）、Ben（−5）、Chloe（1）",
+    "Ben（−5）、Maya（−3）、Chloe（1）",
+    "Ben（−5）、Chloe（1）、Maya（−3）",
+    "Chloe（1）、Maya（−3）、Ben（−5）"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 Ben：比 −3 再低 2 层就是 −5。再按数轴从左到右排：−5 < −3 < 1，所以 Ben 最低、Chloe 最高。坑在于算出 −5 后又觉得 −3 比 −5 更低，负数里离 0 越远才越小。",
+   "tags": [
+    "int.negative_bigger_magnitude",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqzxcqta9",
+   "level": 3,
+   "question": "同学 Liam 说：「因为 7 比 2 大，所以 −7 也比 −2 大。」下面哪个判断和理由都正确？",
+   "options": [
+    "他错了：−7 和 −2 一样大，因为它们都是负数，负数都在 0 的左边，没法分大小",
+    "他说得对：负数里数字部分大的那个就更大，所以 −7 > −2，就像 7 > 2 一样",
+    "他错了：数轴上 −7 在 −2 的左边，越靠左的数越小，所以 −7 < −2",
+    "他说得对，不过这个规律只在气温这种情境里成立，纯数字比大小时就要反过来看"
+   ],
+   "answerIndex": 2,
+   "explain": "比较整数要看数轴上的位置，不能只看去掉负号后的数字：−7 要往左走 7 格，比只走 2 格的 −2 更靠左，所以 −7 < −2。Liam 的错就是把「数字大」直接当成「数大」，负数正好相反，而且这个规律对所有情境都一样。",
+   "tags": [
+    "other",
+    "int.negative_bigger_magnitude",
+    "ok",
+    "int.negative_bigger_magnitude"
+   ]
+  },
+  {
+   "qid": "qmt5ryyqz8sif1r",
+   "level": 3,
+   "question": "Ava 的储蓄账户余额是 −25 加元（表示欠银行 25 加元），Noah 的余额正好是 Ava 余额的相反数（opposite），Sofia 的余额是 −40 加元。把三人的余额从小到大排列，哪一组是对的？",
+   "options": [
+    "−25, −40, 25",
+    "25, −25, −40",
+    "−40, 25, −25",
+    "−40, −25, 25"
+   ],
+   "answerIndex": 3,
+   "explain": "先求 Noah：−25 的相反数是 25。再按数轴从左往右排：−40 < −25 < 25，欠得越多余额越小。最容易踩的坑是觉得 −40 比 −25 大（因为 40 比 25 大），其实欠 40 元的账户比欠 25 元的更少钱。",
+   "tags": [
+    "int.negative_bigger_magnitude",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

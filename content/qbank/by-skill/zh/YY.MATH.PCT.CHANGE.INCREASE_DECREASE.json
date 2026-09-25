@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtklul59lomoej",
+   "level": 1,
+   "question": "一条长方形色条平均分成 100 等份，整条代表原来的观众人数 400 人（100%）。为了表示人数增长 6%，老师在这条的右边又接上了和其中 1 份一样大的 6 份。增长后的观众人数是多少？",
+   "options": [
+    "424 人",
+    "640 人",
+    "24 人",
+    "406 人"
+   ],
+   "answerIndex": 0,
+   "explain": "整条分成 100 份，每份是 400÷100=4 人，接上的 6 份就是 24 人，新人数 400+24=424 人，也可以直接算 400×1.06。最常踩的坑是只答增加的 24 人，忘了把原来的一整条（原值 original amount）加回去。",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul59b7o3ap",
+   "level": 1,
+   "question": "一条色条平均分成 100 等份，整条代表一个书包的原价 $60（100%）。店员把其中的 15 份划掉，表示减价 15%。现在的售价是多少加元？",
+   "options": [
+    "$9.00",
+    "$51.00",
+    "$45.00",
+    "$59.10"
+   ],
+   "answerIndex": 1,
+   "explain": "每 1 份是 60÷100=$0.60，划掉的 15 份是 $9，售价为 60−9=$51，也可以直接算 60×0.85=51。$9 是省下来的钱（折扣额），不是折后价；15% 写成小数是 0.15，不是 0.015。",
+   "tags": [
+    "pct.of_vs_off",
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul59ae7cwn",
+   "level": 1,
+   "question": "一条色条平均分成 100 等份，整条代表一个鱼场原有的 8 000 条鱼（100%）。把其中 1 份再对半分开，只涂了这半份，用来表示鱼的数量增加了 ½%（即 0.5%）。增加后一共有多少条鱼？",
+   "options": [
+    "8 400 条",
+    "40 条",
+    "8 040 条",
+    "12 000 条"
+   ],
+   "answerIndex": 2,
+   "explain": "½% 就是 0.5%＝0.005，8000×0.005=40 条，新数量 8000+40=8040 条（也就是 8000×1.005）。这种分数形式的百分数（fractional percent）最容易被当成 ½=50% 或 5%，换成小数时小数点（decimal point）要数准两位。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul59fwhapc",
+   "level": 1,
+   "question": "一条色条平均分成 100 等份，整条代表图书馆原来的 250 个座位（100%）。要表示座位数增加 120%，就要在这条右边再接上同样大小的 120 份（正好是一整条再加 20 份）。现在有多少个座位？",
+   "options": [
+    "280 个",
+    "3 250 个",
+    "300 个",
+    "550 个"
+   ],
+   "answerIndex": 3,
+   "explain": "每份是 250÷100=2.5 个，接上的 120 份是 300 个，新座位数 250+300=550 个，也就是 250×2.2（100%+120%=220%）。只答 300 个是漏掉了原来那一整条；120% 写成小数是 1.2，不是 0.12。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklul59ckjokr",
+   "level": 2,
+   "question": "一个数原来是 6 400，把它增加 3.25%。增加后的新数是多少？",
+   "options": [
+    "6 608",
+    "8 480",
+    "6 420.8",
+    "208"
+   ],
+   "answerIndex": 0,
+   "explain": "3.25% 写成小数（decimal）是 0.0325，增加后是原来的 100%+3.25%=103.25%，所以 6400×1.0325=6608（增量是 208）。百分数换小数时小数点向左移两位：3.25% 是 0.0325，不是 0.325 也不是 0.00325。",
+   "tags": [
+    "ok",
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added"
+   ]
+  },
+  {
+   "qid": "qmtklul59tu4e2k",
+   "level": 2,
+   "question": "一个样本（sample）的数量原来是 45 000，减少 0.4%。减少后是多少？",
+   "options": [
+    "43 200",
+    "44 820",
+    "180",
+    "44 982"
+   ],
+   "answerIndex": 1,
+   "explain": "0.4%＝0.004，减少后是原来的 100%−0.4%=99.6%，所以 45000×0.996=44820。180 只是减少掉的量，必须从原来的量里减掉才是新量；0.4% 不是 4%，也不是 0.04%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.increase_not_added",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul596zsnls",
+   "level": 2,
+   "question": "一个量原来是 24 000，把它增加 ¼%。增加后的新量是多少？",
+   "options": [
+    "30 000",
+    "60",
+    "24 060",
+    "24 600"
+   ],
+   "answerIndex": 2,
+   "explain": "¼%＝0.25%＝0.0025，24000×1.0025=24060（增量只有 60）。¼% 是「四分之一个百分点」，既不等于 ¼（25%），也不等于 2.5%，别把小数点移少了位。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul5963bfaf",
+   "level": 2,
+   "question": "一个数原来是 320，把它增加 250%。增加后的新数是多少？",
+   "options": [
+    "400",
+    "8 000",
+    "800",
+    "1 120"
+   ],
+   "answerIndex": 3,
+   "explain": "增加 250% 后是原来的 100%+250%=350%＝3.5，所以 320×3.5=1120。800 只是增加的那部分（320×2.5），还要加上原来的 320；250% 写成小数是 2.5，不是 0.25 也不是 25。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtklul59czf9af",
+   "level": 3,
+   "question": "Kelowna 一个社区 2024 年有 12 000 人。2025 年的人口（population）比 2024 年增长了 2.5%，2026 年又在 2025 年的基础上增长了 1%。2026 年这个社区有多少人？",
+   "options": [
+    "12 423 人",
+    "12 420 人",
+    "16 500 人",
+    "423 人"
+   ],
+   "answerIndex": 0,
+   "explain": "分两步：12000×1.025=12300（2025 年），再 12300×1.01=12423（2026 年）。不能把 2.5% 和 1% 直接加成 3.5% 一次算，因为第二次增长是在 12 300 这个新的原值上算的。",
+   "tags": [
+    "ok",
+    "other",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added"
+   ]
+  },
+  {
+   "qid": "qmtklul59xee5w5",
+   "level": 3,
+   "question": "Abbotsford 一个蓝莓（blueberry）农场原有 2 500 棵果树。春天补种后，果树数量比原来增加了 12%；夏天又有其中 ½% 的果树因虫害被砍掉。夏天之后农场还剩多少棵果树？",
+   "options": [
+    "2 660 棵",
+    "2 786 棵",
+    "2 800 棵",
+    "1 400 棵"
+   ],
+   "answerIndex": 1,
+   "explain": "第一步 2500×1.12=2800 棵；第二步砍掉 2800×0.005=14 棵，剩 2800×0.995=2786 棵。½%＝0.005（不是 0.05，更不是 ½），而且做完增长后不能停，还要在新的量上再算减少。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "ok",
+    "pct.increase_not_added",
+    "pct.decimal_shift_wrong"
+   ]
+  },
+  {
+   "qid": "qmtklul59t70jsp",
+   "level": 3,
+   "question": "Burnaby 一家店里滑板原价 $85，店庆全场减价 20%。Maya 算了 85×0.2=17，说滑板现在卖 $17。下面哪个说法正确地指出了她的问题？",
+   "options": [
+    "20% 要写成 0.02，所以新价格是 85×0.98=$83.30",
+    "$17 是省下的钱，新价格应该是 85+17=$102",
+    "$17 是省下的钱，新价格应该是 85−17=$68",
+    "85×0.2 算出来的就是新价格，$17 没有错"
+   ],
+   "answerIndex": 2,
+   "explain": "85×0.2=17 求的是「省下多少钱」（折扣额），折后价要用 85−17=68，或者直接 85×0.8=68。20% 写成小数就是 0.2，减价后付的是原价的 80%。",
+   "tags": [
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok",
+    "pct.of_vs_off"
+   ]
+  },
+  {
+   "qid": "qmtklul59zy3plm",
+   "level": 3,
+   "question": "温哥华一个青少年编程社团 2023 年有 50 名成员。2024 年成员人数比 2023 年增长了 150%，2025 年又比 2024 年减少了 4%。2025 年社团有多少名成员？",
+   "options": [
+    "72 人",
+    "75 人",
+    "130 人",
+    "120 人"
+   ],
+   "answerIndex": 3,
+   "explain": "2024 年：50×(100%+150%)=50×2.5=125 人；2025 年：125×0.96=120 人。增长 150% 是变成原来的 2.5 倍（增量 75 还要加回原来的 50），减少 4% 要乘 0.96 而不是乘 0.6 或 1.04。",
+   "tags": [
+    "pct.increase_not_added",
+    "pct.decimal_shift_wrong",
+    "pct.increase_not_added",
+    "ok"
+   ]
+  }
+ ]
+}

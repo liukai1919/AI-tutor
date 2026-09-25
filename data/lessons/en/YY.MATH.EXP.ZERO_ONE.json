@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.ZERO_ONE",
+ "lang": "en",
+ "title": "Explain with the divide-by-the-base pattern why any nonzero base to the exponent 0 is 1 and to the exponent 1 is itself (6⁰ = 1, m¹ = m)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Why 6 to the Power of 0 Is 1 (Not 0!)",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that when you divide powers with the same base, you subtract the exponents. Like y to the seventh divided by y cubed equals y to the fourth. Today we use that same rule to answer a question that trips up a lot of people: what does six to the power of zero actually equal, and what about m to the power of one?",
+    "math": "y^{7} \\div y^{3} = y^{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us build a table of powers of six. Six cubed is two hundred sixteen. Six squared is thirty six. Six to the first is six. Watch what happens as we move down the table: each time the exponent drops by one, the value gets divided by six. Two hundred sixteen divided by six is thirty six. Thirty six divided by six is six. The pattern is: step down one exponent, divide by the base.",
+    "math": "6^{3}=216,\\quad 6^{2}=36,\\quad 6^{1}=6",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2,
+      1,
+      216,
+      36,
+      6
+     ],
+     "labels": [
+      "exponent",
+      "6³",
+      "6²",
+      "6¹"
+     ],
+     "caption": "Powers of 6: going down one exponent means dividing by 6"
+    }
+   },
+   {
+    "say": "Now keep the pattern going one more step. Six to the first is six. To get to six to the power of zero, we divide by six one more time. Six divided by six is one. So six to the power of zero equals one. It is not zero, it is one. The pattern forces it: six to the first divided by six is six to the zero, and six divided by six is one.",
+    "math": "6^{1} \\div 6 = 6^{0} \\quad\\Rightarrow\\quad 6 \\div 6 = 1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2,
+      1,
+      0,
+      216,
+      36,
+      6,
+      1
+     ],
+     "labels": [
+      "exponent",
+      "6³",
+      "6²",
+      "6¹",
+      "6⁰"
+     ],
+     "caption": "Continue the pattern: 6 ÷ 6 = 1, so 6⁰ = 1"
+    }
+   },
+   {
+    "say": "Here is the same idea using your subtract-the-exponents rule. Six to the fourth divided by six to the fourth is six to the power of four minus four, which is six to the zero. But any number divided by itself is one. One thousand two hundred ninety six divided by one thousand two hundred ninety six is one. So six to the zero has to be one. This works for any nonzero base, like m: m to the fourth divided by m to the fourth is m to the zero, and it also equals one.",
+    "math": "\\frac{6^{4}}{6^{4}} = 6^{4-4} = 6^{0} = 1",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1296,
+      1296,
+      1,
+      1296,
+      1296,
+      1
+     ],
+     "labels": [
+      "6⁴",
+      "6⁴",
+      "6⁴ ÷ 6⁴"
+     ],
+     "caption": "1296 ÷ 1296 = 1, and the exponent rule says that is 6⁰"
+    }
+   },
+   {
+    "say": "Now for the exponent of one. Two common mistakes: thinking six to the zero is zero, and thinking m to the first is one. Both are wrong. Look at the table pattern: the exponent one row is just the base itself. Six to the first is six, not one. And m to the first is m, because one factor of m is just m. Think of it like your phone data: one gigabyte used is one gigabyte, not nothing and not one of something else. An exponent of one means just one copy of the base.",
+    "math": "6^{1}=6,\\qquad m^{1}=m,\\qquad 6^{0}=1 \\;(\\text{not } 0)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2,
+      1,
+      0,
+      1000,
+      100,
+      10,
+      1
+     ],
+     "labels": [
+      "exponent",
+      "10³",
+      "10²",
+      "10¹",
+      "10⁰"
+     ],
+     "caption": "Same pattern with base 10: 10¹ = 10 (not 1) and 10⁰ = 1 (not 0)"
+    }
+   },
+   {
+    "say": "So here is the takeaway. Every time you drop the exponent by one, you divide by the base. That pattern shows that any nonzero base to the power of one is the base itself, and any nonzero base to the power of zero is one. Six to the zero is one. m to the first is m.",
+    "math": "a^{1}=a,\\qquad a^{0}=1 \\quad (a \\neq 0)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Drop the exponent by 1, divide by the base: so a¹ = a and a⁰ = 1 (never 0).",
+  "practice": {
+   "question": "Make a table of powers of 4 in your notebook. Four cubed is 64, four squared is 16, and four to the first is 4. Each row down, you divide by 4. Use the pattern to fill in the next row: what is four to the power of zero? And is four to the first equal to 4 or to 1?",
+   "answer": "Four to the power of zero is 1, because 4 divided by 4 is 1. Four to the first is 4, the base itself, not 1."
+  }
+ }
+}

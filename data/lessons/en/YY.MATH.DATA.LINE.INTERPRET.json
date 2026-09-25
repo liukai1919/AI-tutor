@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.LINE.INTERPRET",
+ "lang": "en",
+ "title": "Interpret change over time and make predictions from a line graph",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Guessing What Comes Next on a Line Graph",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a line graph and see if it goes up or down. Today we take one small step further: we look at how much it changes each time, and use that to guess what happens next.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a bean plant in a Grade 6 garden in Victoria. Every week the class measures it in centimetres and puts a dot on the graph. Week one it was four centimetres, then seven, then ten, then thirteen, then sixteen. The line climbs steadily, like a staircase.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      4,
+      7,
+      10,
+      13,
+      16
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5"
+     ],
+     "caption": "Bean plant height in centimetres"
+    }
+   },
+   {
+    "say": "To predict, look at the size of each step up. From four to seven is three centimetres. From seven to ten is three. From ten to thirteen is three, and from thirteen to sixteen is three again. Same jump every single week, so the plant is growing three centimetres per week.",
+    "math": "7-4=3,\\quad 10-7=3,\\quad 13-10=3,\\quad 16-13=3",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      4,
+      7,
+      10,
+      13,
+      16
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5"
+     ],
+     "caption": "Each step up is 3 cm"
+    }
+   },
+   {
+    "say": "Careful here, this is where lots of people slip. Some say the plant grew twelve centimetres on the graph, so next week it will be sixteen plus twelve, which is twenty eight. But that twelve centimetres happened over four weeks, not one week. Twelve divided by four is three, so one week is only three centimetres.",
+    "math": "16-4=12,\\quad 12\\div4=3",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      28,
+      19
+     ],
+     "labels": [
+      "Wrong 28",
+      "Right 19"
+     ],
+     "caption": "Use one week's growth, not four weeks' growth"
+    }
+   },
+   {
+    "say": "So for week six we start at sixteen and add one more step of three. Sixteen plus three is nineteen centimetres. We put a dot at nineteen and keep the line going in the same direction. It is a smart guess, not a promise, because the plant might get more sun or less water.",
+    "math": "16+3=19",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      4,
+      7,
+      10,
+      13,
+      16,
+      19
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+     ],
+     "caption": "Week 6 is our prediction: 19 cm"
+    }
+   },
+   {
+    "say": "Remember this: find the size of one step, then add one more step to the last point.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find how much it changes in one step, then add one more step to the last point.",
+  "practice": {
+   "question": "Liam checks his savings jar on the first day of each month and draws a line graph. In January he has twenty dollars, in February thirty five dollars, in March fifty dollars, and in April sixty five dollars. How much does he save each month, and how much do you predict he will have in May?",
+   "answer": "He saves fifteen dollars each month, because thirty five minus twenty is fifteen, and the jumps stay the same. So in May we predict sixty five plus fifteen, which is eighty dollars."
+  }
+ }
+}

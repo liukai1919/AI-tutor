@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.3D.FACES_EDGES_VERTICES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkb3d4pw23u7l",
+   "level": 1,
+   "question": "一张展开图（net）由 6 个长方形组成：中间横着连成一排的有 4 个，这一排的上面接 1 个、下面再接 1 个。沿折线折起来，正好做成一个长方体（rectangular prism）。这个长方体有多少个面（faces）？",
+   "options": [
+    "6 个面",
+    "8 个面",
+    "12 个面",
+    "3 个面"
+   ],
+   "answerIndex": 0,
+   "explain": "展开图上有几块，折起来就有几个面——6 块长方形折成 6 个面。写 8 的那个是把顶点数当成了面数，写 3 的那个只数了看得见的那几面。",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4ph251o0",
+   "level": 1,
+   "question": "一张展开图有 6 个长方形：中间一排连着 4 个，这排的上面和下面各再接 1 个。把它折起来是一个长方体。这个长方体一共有多少条棱（edges）？",
+   "options": [
+    "6 条棱",
+    "12 条棱",
+    "9 条棱",
+    "8 条棱"
+   ],
+   "answerIndex": 1,
+   "explain": "长方体上面一圈 4 条棱、下面一圈 4 条棱，再加 4 条竖着的侧棱，一共 12 条。写 9 的那个漏掉了藏在后面看不见的 3 条，写 6 的那个把面数当成了棱数。",
+   "tags": [
+    "solid.fev_swap",
+    "ok",
+    "solid.count_visible_only",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4p62zku9",
+   "level": 1,
+   "question": "把一张由 6 个长方形拼成的展开图（中间一排 4 个，上下各 1 个）折起来，得到一个长方体纸盒。这个纸盒有多少个顶点（vertices）？",
+   "options": [
+    "12 个顶点",
+    "7 个顶点",
+    "8 个顶点",
+    "6 个顶点"
+   ],
+   "answerIndex": 2,
+   "explain": "长方体上面一层 4 个角、下面一层 4 个角，一共 8 个顶点。写 7 的那个漏了被盒子挡住的那个角，写 12 的那个把棱数当成了顶点数。",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "ok",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4p8r0gy4",
+   "level": 1,
+   "question": "小杰剪出 6 个长方形拼成一张展开图：中间一排 4 个，上下各接 1 个，折起来做成一个长方体礼盒。下面哪句话把它的面、棱、顶点数目全说对了？",
+   "options": [
+    "8 个面、12 条棱、6 个顶点",
+    "12 个面、6 条棱、8 个顶点",
+    "3 个面、9 条棱、7 个顶点",
+    "6 个面、12 条棱、8 个顶点"
+   ],
+   "answerIndex": 3,
+   "explain": "长方体永远是 6 个面、12 条棱、8 个顶点。6、8、12 这三个数最容易互相串位，记住「面最少、棱最多」就不会写成 8 个面、6 条棱。",
+   "tags": [
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4psytgff",
+   "level": 2,
+   "question": "用 F 表示面数、E 表示棱数、V 表示顶点数。一张展开图由 2 个全等的三角形和 3 个长方形组成，折起来是一个三棱柱（triangular prism）。它的 F、E、V 各是多少？",
+   "options": [
+    "F=5，E=9，V=6",
+    "F=6，E=5，V=9",
+    "F=9，E=6，V=5",
+    "F=3，E=7，V=5"
+   ],
+   "answerIndex": 0,
+   "explain": "2 个三角形加 3 个长方形就是 5 个面；两个三角形底面各 3 条边共 6 条，再加 3 条侧棱是 9 条棱；上下各 3 个角是 6 个顶点。写成 F=6、E=5 的那个把面和棱串位了。",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4p5kyvev",
+   "level": 2,
+   "question": "下面四种说法里，哪一种描述的立体和记号「F=6、E=12、V=8」说的是同一个？（F 面、E 棱、V 顶点）",
+   "options": [
+    "2 个全等六边形和 6 个长方形折成的棱柱，因为有 12 条棱",
+    "2 个全等四边形和 4 个长方形折成的棱柱，也就是长方体",
+    "2 个全等三角形和 3 个长方形折成的棱柱，因为 6 是顶点数",
+    "1 个四边形和 4 个三角形折成的棱锥，因为看得见 3 个面"
+   ],
+   "answerIndex": 1,
+   "explain": "F=6、E=12、V=8 正是长方体，它的展开图是 2 个全等四边形（quadrilateral）加 4 个长方形。说六棱柱的那个把 12 错当成底面边数，说三棱柱的那个把 6 从面数挪去当了顶点数。",
+   "tags": [
+    "solid.fev_swap",
+    "ok",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4p7jylia",
+   "level": 2,
+   "question": "记 F、E、V 分别是一个长方体的面数、棱数、顶点数。下面哪句话说得对？",
+   "options": [
+    "顶点最多、面次之、棱最少，也就是 12、8、6",
+    "面最多、棱次之、顶点最少，也就是 12、8、6",
+    "棱最多、顶点次之、面最少，也就是 12、8、6",
+    "只数看得见的：3 个面、9 条棱、7 个顶点"
+   ],
+   "answerIndex": 2,
+   "explain": "长方体是 6 个面、12 条棱、8 个顶点，所以棱最多、顶点次之、面最少。说面最多的那两个都是把三个数的位置串了；只写 3 个面、9 条棱的那个漏掉了背面看不见的部分。",
+   "tags": [
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "ok",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4pt19n9q",
+   "level": 2,
+   "question": "美术课上，安娜用一张有 2 个全等三角形和 3 个长方形的展开图折了一个棱柱；本用一张有 6 个长方形的展开图折了一个长方体。两个立体的顶点（vertices）加起来一共多少个？",
+   "options": [
+    "21 个",
+    "12 个",
+    "11 个",
+    "14 个"
+   ],
+   "answerIndex": 3,
+   "explain": "三棱柱有 6 个顶点，长方体有 8 个顶点，6 + 8 = 14。答 11 的那个加的是面数（5 + 6），答 21 的那个加的是棱数（9 + 12）。",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "solid.fev_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4ps9gd2y",
+   "level": 3,
+   "question": "素里（Surrey）的小雨用一张 6 个长方形的展开图折成一个长方体礼物盒，想沿着每一条棱（edge）都贴上一段装饰带。她已经贴好了 5 条，还剩多少条没贴？",
+   "options": [
+    "还剩 7 条",
+    "还剩 1 条",
+    "还剩 3 条",
+    "还剩 4 条"
+   ],
+   "answerIndex": 0,
+   "explain": "先数棱：长方体有 12 条棱，再减去贴好的 5 条，12 − 5 = 7 条。答 1 的那个把 6 个面当成了棱数，答 4 的那个只数了看得见的 9 条棱。",
+   "tags": [
+    "ok",
+    "solid.fev_swap",
+    "solid.fev_swap",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4p9kox3j",
+   "level": 3,
+   "question": "基洛纳（Kelowna）的手工课上，阿明用一张有 2 个全等三角形和 3 个长方形的展开图折出一个三棱柱，再照着它用吸管当每条棱、橡皮泥球当每个顶点搭一个模型。吸管和泥球一共要用多少个？",
+   "options": [
+    "11 个",
+    "15 个",
+    "12 个",
+    "14 个"
+   ],
+   "answerIndex": 1,
+   "explain": "三棱柱有 9 条棱、6 个顶点，吸管 9 根加泥球 6 个，一共 15 个。答 11 的那个把面数 5 当成了棱数，答 12 的那个只算了看得见的那部分棱和顶点。",
+   "tags": [
+    "solid.fev_swap",
+    "ok",
+    "solid.count_visible_only",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4pacbo6v",
+   "level": 3,
+   "question": "本拿比（Burnaby）的阿哲用展开图折好一个长方体纸盒后说：它有 8 个面、6 条棱、12 个顶点。他错在哪里？",
+   "options": [
+    "他只把看得见的数了：看得见的其实是 3 个面、9 条棱、7 个顶点",
+    "他把棱和顶点说反了：应该是 8 个面、12 条棱、6 个顶点",
+    "三个数全串位了：应该是 6 个面、12 条棱、8 个顶点",
+    "他把面和棱说反了：应该是 6 个面、8 条棱、12 个顶点"
+   ],
+   "answerIndex": 2,
+   "explain": "长方体一定是 6 个面、12 条棱、8 个顶点，阿哲把这三个数全放错了位置。数的时候先数面（上下前后左右共 6 个），再数角（上下各 4 个），最后棱一定是最多的那个。",
+   "tags": [
+    "solid.count_visible_only",
+    "solid.fev_swap",
+    "ok",
+    "solid.fev_swap"
+   ]
+  },
+  {
+   "qid": "qmtkb3d4pdmy8q0",
+   "level": 3,
+   "question": "里士满（Richmond）的小美用一张有 2 个全等六边形和 6 个长方形的展开图折成一个六棱柱灯笼，要在每个顶点（vertex）系一根 20 cm 长的流苏线。一共需要多少 cm 的线？",
+   "options": [
+    "360 cm",
+    "180 cm",
+    "160 cm",
+    "240 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "六棱柱上面 6 个顶点、下面 6 个顶点，一共 12 个，12 × 20 = 240 cm。答 360 的那个乘的是 18 条棱，答 180 的那个只数了正面看得见的 9 个顶点。",
+   "tags": [
+    "solid.fev_swap",
+    "solid.count_visible_only",
+    "solid.fev_swap",
+    "ok"
+   ]
+  }
+ ]
+}

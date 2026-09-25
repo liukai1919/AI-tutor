@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.RAT.ORDER_OPS",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlse0uopsey9u",
+   "level": 1,
+   "question": "Simplify the expression 1 − 2 × (2/3)². The exponent 2 sits on the bracket that holds the whole fraction 2/3. Give the answer as a fraction.",
+   "options": [
+    "1/9",
+    "5/9",
+    "4/9",
+    "−7/9"
+   ],
+   "answerIndex": 0,
+   "explain": "Square the bracket first: (2/3)² = 4/9, then multiply 2 × 4/9 = 8/9, then subtract 1 − 8/9 = 1/9. Multiplying 2 × 2/3 before squaring gives (4/3)² and the wrong answer −7/9.",
+   "tags": [
+    "ok",
+    "order.ignore_brackets",
+    "order.left_to_right",
+    "rat.exponent_after_multiply"
+   ]
+  },
+  {
+   "qid": "qmtlse0upmvvots",
+   "level": 1,
+   "question": "Simplify 5 − 2 × (2 − 0.5)². The bracket holds the subtraction 2 − 0.5, and the exponent 2 applies to that bracket. Give the answer as a decimal.",
+   "options": [
+    "0.75",
+    "0.5",
+    "−4",
+    "20.25"
+   ],
+   "answerIndex": 1,
+   "explain": "Brackets first (2 − 0.5 = 1.5), then the exponent (1.5² = 2.25), then multiply (2 × 2.25 = 4.5), then subtract 5 − 4.5 = 0.5. Doing 5 − 2 first because it comes first from the left gives 20.25.",
+   "tags": [
+    "order.ignore_brackets",
+    "ok",
+    "rat.exponent_after_multiply",
+    "order.left_to_right"
+   ]
+  },
+  {
+   "qid": "qmtlse0upiwbqyu",
+   "level": 1,
+   "question": "Simplify 2 + 3 × (2/3)². The whole fraction 2/3 is inside the bracket that is squared. Give the answer as a fraction.",
+   "options": [
+    "8/3",
+    "6",
+    "10/3",
+    "100/9"
+   ],
+   "answerIndex": 2,
+   "explain": "Square first: (2/3)² = 4/9, then 3 × 4/9 = 4/3, then 2 + 4/3 = 10/3. Squaring only the numerator (2/9 instead of 4/9) gives 8/3, and multiplying 3 × 2/3 before squaring gives 6.",
+   "tags": [
+    "order.ignore_brackets",
+    "rat.exponent_after_multiply",
+    "ok",
+    "order.left_to_right"
+   ]
+  },
+  {
+   "qid": "qmtlse0up894l55",
+   "level": 1,
+   "question": "Simplify 1 − (−1/2)² × 4. The negative fraction −1/2 is inside the bracket that is squared. What is the value?",
+   "options": [
+    "2",
+    "9",
+    "−3",
+    "0"
+   ],
+   "answerIndex": 3,
+   "explain": "Square the whole bracket first: (−1/2)² = 1/4, then 1/4 × 4 = 1, then 1 − 1 = 0. Squaring only the 1/2 and keeping the negative gives −1/4 and the wrong answer 2.",
+   "tags": [
+    "order.ignore_brackets",
+    "order.left_to_right",
+    "rat.exponent_after_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlse0upxd25oq",
+   "level": 2,
+   "question": "Evaluate 1 + 8 × (1/2 − 1/4)². Give the answer as a fraction in lowest terms.",
+   "options": [
+    "3/2",
+    "5",
+    "79/16",
+    "81/16"
+   ],
+   "answerIndex": 0,
+   "explain": "Brackets first: 1/2 − 1/4 = 1/4, then the exponent: (1/4)² = 1/16, then 8 × 1/16 = 1/2, then 1 + 1/2 = 3/2. Multiplying 8 × 1/4 = 2 before squaring gives 4 and the wrong answer 5.",
+   "tags": [
+    "ok",
+    "rat.exponent_after_multiply",
+    "order.ignore_brackets",
+    "order.left_to_right"
+   ]
+  },
+  {
+   "qid": "qmtlse0uppso4c7",
+   "level": 2,
+   "question": "Evaluate 3.2 − 0.2 × (1 + 3)². Give the answer as a decimal.",
+   "options": [
+    "2.56",
+    "0",
+    "144",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "Brackets give 4, the exponent gives 16, then 0.2 × 16 = 3.2 and 3.2 − 3.2 = 0. Squaring 0.2 × 4 = 0.8 instead of squaring 4 gives 0.64 and the wrong answer 2.56.",
+   "tags": [
+    "rat.exponent_after_multiply",
+    "ok",
+    "order.left_to_right",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlse0upm96ya2",
+   "level": 2,
+   "question": "Jasmine has a can of deck stain that covers 10 m². She stains 4 square stepping tiles, each with side length 3/4 m. The area of stain left over is 10 − 4 × (3/4)² square metres. How many square metres is that?",
+   "options": [
+    "20.25 m²",
+    "9.25 m²",
+    "7.75 m²",
+    "1 m²"
+   ],
+   "answerIndex": 2,
+   "explain": "Each tile has area (3/4)² = 9/16 m², so 4 tiles use 4 × 9/16 = 9/4 = 2.25 m², leaving 10 − 2.25 = 7.75 m². Squaring 4 × 3/4 = 3 instead of squaring 3/4 gives 9 m² used and the wrong answer 1 m².",
+   "tags": [
+    "order.left_to_right",
+    "order.ignore_brackets",
+    "ok",
+    "rat.exponent_after_multiply"
+   ]
+  },
+  {
+   "qid": "qmtlse0upvm2hi7",
+   "level": 2,
+   "question": "Evaluate 5 − 4 ÷ (2/3)². Give the answer as a fraction or integer.",
+   "options": [
+    "−13",
+    "9/4",
+    "−31",
+    "−4"
+   ],
+   "answerIndex": 3,
+   "explain": "Exponent first: (2/3)² = 4/9, then 4 ÷ 4/9 = 4 × 9/4 = 9, then 5 − 9 = −4. Dividing 4 ÷ 2/3 = 6 before squaring gives 36 and the wrong answer −31.",
+   "tags": [
+    "order.ignore_brackets",
+    "order.left_to_right",
+    "rat.exponent_after_multiply",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlse0up7z5xt8",
+   "level": 3,
+   "question": "Priya simplifies 1 − 2 × (4/5)². She writes: 1 − 2 × (4/5)² = 1 − (8/5)² = 1 − 64/25 = −39/25. Which statement about her work is correct?",
+   "options": [
+    "She multiplied by 2 before squaring; squaring first gives 1 − 32/25 = −7/25.",
+    "She should have done 1 − 2 first; then (−1 × 4/5)² gives 16/25.",
+    "She should have squared only the 4, so 2 × 4/25 = 8/25 and 1 − 8/25 = 17/25.",
+    "Nothing went wrong; multiplying 2 × 4/5 before squaring is the correct order here."
+   ],
+   "answerIndex": 0,
+   "explain": "Exponents come before multiplication, so (4/5)² = 16/25 must be found first, then 2 × 16/25 = 32/25 and 1 − 32/25 = −7/25. Combining 2 × 4/5 into 8/5 and then squaring is the classic trap.",
+   "tags": [
+    "ok",
+    "order.left_to_right",
+    "order.ignore_brackets",
+    "rat.exponent_after_multiply"
+   ]
+  },
+  {
+   "qid": "qmtlse0upqb4y4v",
+   "level": 3,
+   "question": "Ava has a square sheet of felt that is 2 m by 2 m. She cuts out 3 square patches, each with side length 2/3 m, for a school banner. How much felt area is left, in square metres?",
+   "options": [
+    "4/9 m²",
+    "8/3 m²",
+    "0 m²",
+    "10/3 m²"
+   ],
+   "answerIndex": 1,
+   "explain": "The sheet has area 4 m² and each patch has area (2/3)² = 4/9 m², so the felt left is 4 − 3 × 4/9 = 4 − 4/3 = 8/3 m². Multiplying 3 × 2/3 = 2 and then squaring gives 4 m² used and wrongly leaves 0 m².",
+   "tags": [
+    "order.left_to_right",
+    "ok",
+    "rat.exponent_after_multiply",
+    "order.ignore_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlse0up54cce1",
+   "level": 3,
+   "question": "Maya has 12 m² of fabric. She cuts 2 square pieces for cushion covers. Each piece was planned to be 2 m on a side, but she makes every side 0.5 m shorter, so each side is (2 − 0.5) m. How much fabric is left, in square metres?",
+   "options": [
+    "7.75 m²",
+    "225 m²",
+    "7.5 m²",
+    "3 m²"
+   ],
+   "answerIndex": 2,
+   "explain": "Each piece has side 1.5 m and area 1.5² = 2.25 m², so 12 − 2 × 2.25 = 7.5 m² is left. Squaring 2 × 1.5 = 3 instead of squaring 1.5 gives 9 m² used and the wrong answer 3 m².",
+   "tags": [
+    "order.ignore_brackets",
+    "order.left_to_right",
+    "ok",
+    "rat.exponent_after_multiply"
+   ]
+  },
+  {
+   "qid": "qmtlse0upmxqx2d",
+   "level": 3,
+   "question": "Daniel evaluates 6 − 0.5 × (3 − 1)². He writes: 6 − 0.5 × 2² = 5.5 × 4 = 22. Which statement is correct?",
+   "options": [
+    "His answer is right, because after the brackets you work from left to right.",
+    "He should have squared 0.5 × 2 = 1 first, so the answer is 6 − 1 = 5.",
+    "He should have removed the brackets: 6 − 0.5 × 3 − 1² = 3.5.",
+    "He subtracted before multiplying; 0.5 × 4 = 2 and 6 − 2 = 4."
+   ],
+   "answerIndex": 3,
+   "explain": "After brackets and exponents, multiplication comes before subtraction: 2² = 4, then 0.5 × 4 = 2, then 6 − 2 = 4. Working strictly left to right (6 − 0.5 first) is the trap that produces 22.",
+   "tags": [
+    "order.left_to_right",
+    "rat.exponent_after_multiply",
+    "order.ignore_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

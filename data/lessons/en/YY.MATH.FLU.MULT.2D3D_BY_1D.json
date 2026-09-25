@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MULT.2D3D_BY_1D",
+ "lang": "en",
+ "title": "Multiply 2- and 3-digit numbers by 1-digit numbers (decomposing, area model)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Break It Apart: Big Numbers Times One Digit",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know your facts like three times six, and you know that the three in thirty-four means three tens. Today we use both of those to multiply a big number, like thirty-four times six, by breaking it into friendly pieces.",
+    "math": "34 \\times 6 = ?",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      34
+     ],
+     "labels": [],
+     "caption": "34 is 3 tens and 4 ones"
+    }
+   },
+   {
+    "say": "Imagine six friends at the Granville Island market, and each one buys a bag with thirty-four blueberries. Instead of counting one giant pile, we split thirty-four into thirty and four. Then we do two easy multiplications: thirty times six is one hundred eighty, and four times six is twenty-four.",
+    "math": "34 = 30 + 4",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      34,
+      6
+     ],
+     "labels": [],
+     "caption": "Split 34 into 30 and 4, then multiply each piece by 6"
+    }
+   },
+   {
+    "say": "Now we put the two pieces back together. One hundred eighty plus twenty-four. Add the twenty first to make two hundred, then add the four more. That gives two hundred four blueberries. Notice we had to trade ten tens for a new hundred, so the two hundred appears.",
+    "math": "180 + 24 = 204",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      204
+     ],
+     "labels": [],
+     "caption": "204: 2 hundreds, 0 tens, 4 ones"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. For twenty-three times four, they say twenty times four is eighty, and then they write eighty plus two. Oops, they forgot to multiply the three ones! The three ones times four is twelve, not two. So the right answer is eighty plus twelve, which is ninety-two. Every piece of the picture must get multiplied, and every piece must get added.",
+    "math": "23 \\times 4 = 80 + 12 = 92",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      4
+     ],
+     "labels": [],
+     "caption": "Both pieces count: 80 and 12, never 80 and 2"
+    }
+   },
+   {
+    "say": "The same trick works for three-digit numbers too. For two hundred thirteen times three, break it into two hundred, ten, and three. Two hundred times three is six hundred, ten times three is thirty, and three times three is nine. Add all three pieces: six hundred thirty-nine.",
+    "math": "213 \\times 3 = 600 + 30 + 9 = 639",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      639
+     ],
+     "labels": [],
+     "caption": "639: 6 hundreds, 3 tens, 9 ones"
+    }
+   },
+   {
+    "say": "Remember this: break the big number apart by place value, multiply every piece, then add all the pieces back together.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Break the number into hundreds, tens and ones, multiply every piece, then add all the pieces back.",
+  "practice": {
+   "question": "A pair of warm gloves at the Kelowna winter market costs twenty-seven dollars. A hockey coach buys three pairs for the team. Draw your own area model: split twenty-seven into twenty and seven, multiply each piece by three, then add. How much does the coach pay in all?",
+   "answer": "Eighty-one dollars. Twenty times three is sixty, seven times three is twenty-one, and sixty plus twenty-one is eighty-one."
+  }
+ }
+}

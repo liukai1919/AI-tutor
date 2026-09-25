@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.APPLY",
+ "lang": "en",
+ "title": "Choose the best representation to solve a real problem (survey results, shoreline cleanup data, discounts)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which Picture Helps You Solve It?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to turn a part to whole ratio into a fraction, a decimal and a percent. Today we add one small move: before you calculate, draw a bar model so you can see what the question is actually asking.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the situation. At a shoreline cleanup in White Rock, your class collected one hundred pieces of litter. Sixty of them were plastic. Let us draw one bar for the whole hundred pieces, and shade the plastic part.",
+    "math": "\\frac{60}{100}=0.6=60\\%",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      100,
+      60
+     ],
+     "labels": [
+      "All litter",
+      "Plastic"
+     ],
+     "caption": "Whole = 100 pieces, plastic part = 60"
+    }
+   },
+   {
+    "say": "See how the bar answers the question for you? The plastic piece sits inside the whole bar, so plastic is sixty out of one hundred. That is sixty hundredths, which is zero point six, which is sixty percent. The bar keeps the whole in front of your eyes so you never lose it.",
+    "math": "60:100=\\frac{60}{100}=\\frac{3}{5}=60\\%",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      60
+     ],
+     "labels": [],
+     "caption": "60 out of 100 squares shaded = 60%"
+    }
+   },
+   {
+    "say": "Now the classic trap. Someone hears sixty plastic and forty non plastic and writes plastic is sixty over forty. But sixty over forty compares plastic to the other litter, not to the whole pile. Look at the two bars: forty is not the whole, one hundred is. Always ask yourself, what is the whole here, and put that number on the bottom.",
+    "math": "\\frac{60}{40}\\;\\text{✗}\\qquad \\frac{60}{100}=60\\%\\;\\text{✓}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      40
+     ],
+     "labels": [
+      "Plastic",
+      "Other"
+     ],
+     "caption": "Part to part is 60 to 40 — but the whole is 60 + 40 = 100"
+    }
+   },
+   {
+    "say": "One more real one, with dollars. A hoodie at the mall costs fifty dollars and it is twenty five percent off. Draw the fifty dollar bar in four equal chunks, since twenty five percent is one quarter. One chunk is twelve dollars and fifty cents, and that chunk is the discount. The sale price is the three chunks left, which is thirty seven dollars and fifty cents. The discount is what you save; the sale price is what you pay. Do not hand the cashier twelve fifty.",
+    "math": "0.25\\times 50=12.50\\;;\\;\\;50-12.50=37.50",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12.5,
+      37.5
+     ],
+     "labels": [
+      "Save 25%",
+      "Pay 75%"
+     ],
+     "caption": "$50 hoodie: discount $12.50, sale price $37.50"
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Draw the bar, label the whole, and then decide whether the question wants the part you take away or the part that is left.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Draw a bar, label the whole first — then check if the question wants the part removed or the part left.",
+  "practice": {
+   "question": "Your school surveyed eighty students about how they get to school. Thirty two of them ride the bus. Draw a bar model for all eighty students and shade the bus riders. What fraction, decimal and percent of the students ride the bus? Then, a bike helmet costs sixty dollars with thirty percent off — how much do you save, and how much do you actually pay?",
+   "answer": "Bus riders: 32 out of 80, which is 32 over 80 equals 2 over 5, equals 0.4, equals 40 percent. Helmet: you save 0.30 times 60 equals 18 dollars, and you pay 60 minus 18 equals 42 dollars."
+  }
+ }
+}

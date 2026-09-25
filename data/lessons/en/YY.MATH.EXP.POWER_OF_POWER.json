@@ -1,0 +1,101 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.POWER_OF_POWER",
+ "lang": "en",
+ "title": "Simplify a power of a power, of a product and of a quotient ((3²)⁴ = 3⁸, (5n)³ = 125n³, (m/n)⁵ = m⁵/n⁵)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Powers of Powers, Products and Quotients",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that when you multiply powers with the same base, you add the exponents, like n to the fifth times n cubed equals n to the eighth. Today we take one more step: what happens when a whole power, or a whole product, or a whole fraction, gets raised to an exponent? Think of it like a game combo: three squared to the fourth power means we take three squared and multiply four copies of it together.",
+    "math": "(3^2)^4 = 3^2 \\cdot 3^2 \\cdot 3^2 \\cdot 3^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now use the rule you already know. Four copies of three squared multiplied together means we add the exponents: two plus two plus two plus two, which is eight. So three squared to the fourth power is three to the eighth. Adding two four times is the same as two times four. That is the power of a power rule: multiply the exponents. Picture it as a two by four grid of little threes: two rows for the inside exponent, four columns for the outside exponent, eight threes in total.",
+    "math": "(3^2)^4 = 3^{2 \\cdot 4} = 3^8",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      2,
+      4,
+      2,
+      4
+     ],
+     "labels": [],
+     "caption": "2 rows × 4 columns = 8 threes multiplied together, so 3 to the eighth"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes once. Someone writes three squared to the fourth power equals three to the sixth, because they added two and four. But adding exponents is for multiplying two powers side by side, like three squared times three to the fourth. Here the outer four is telling you to repeat the whole thing four times, so the exponent two shows up four times. Two times four is eight, not six. Quick check with real numbers: three squared is nine, and nine to the fourth is nine times nine times nine times nine, which is six thousand five hundred sixty one. Three to the eighth is also six thousand five hundred sixty one. Three to the sixth is only seven hundred twenty nine, so the adding answer is way off.",
+    "math": "(3^2)^4 \\neq 3^{2+4} \\qquad 9^4 = 6561 = 3^8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      6561,
+      729,
+      6561
+     ],
+     "labels": [
+      "9 to the 4th",
+      "3 to the 6th",
+      "3 to the 8th"
+     ],
+     "caption": "Only 3 to the eighth matches the real value 6561"
+    }
+   },
+   {
+    "say": "Second kind: a power of a product. Say your part time job pays a rate, and the number of hours is n, so five n is your pay. Cube it: five n to the third power means five n times five n times five n. Regroup the fives together and the n's together: five times five times five is one hundred twenty five, and n times n times n is n cubed. So five n cubed equals one hundred twenty five n cubed. The outer exponent hits every factor inside the brackets, including the coefficient five.",
+    "math": "(5n)^3 = 5n \\cdot 5n \\cdot 5n = 5^3 n^3 = 125n^3",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Three copies of (5n): each copy holds a 5 and an n, so 5 appears 3 times and n appears 3 times"
+    }
+   },
+   {
+    "say": "The classic slip here is writing five n cubed as five n cubed with the five left alone, as if only the n got cubed. But the brackets say the whole thing, five n, is multiplied three times, so the five gets multiplied three times too. Test it with n equals two: five times two is ten, and ten cubed is one thousand. One hundred twenty five times two cubed is one hundred twenty five times eight, which is one thousand. Matches. But five times two cubed is only forty. The coefficient must get the exponent too. The same idea works for a quotient: m over n to the fifth power is m to the fifth over n to the fifth, because the exponent hits the top and the bottom.",
+    "math": "(5n)^3 = 125n^3 \\neq 5n^3 \\qquad \\left(\\frac{m}{n}\\right)^5 = \\frac{m^5}{n^5}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1000,
+      40
+     ],
+     "labels": [
+      "(5·2)³ = 125·2³",
+      "5·2³"
+     ],
+     "caption": "With n = 2, the correct 1000 versus the mistaken 40"
+    }
+   },
+   {
+    "say": "So here is the one line to remember. Power of a power: multiply the exponents. Power of a product or a quotient: give the exponent to every single factor inside, including the coefficient, the numerator and the denominator.",
+    "math": "(a^m)^n = a^{mn} \\qquad (ab)^n = a^n b^n \\qquad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Power of a power: multiply the exponents. Power of a product or quotient: every factor inside gets the exponent.",
+  "practice": {
+   "question": "You are saving for a bike in Vancouver. Simplify each expression as a single power or a simplified term: (a) two to the third power, all raised to the fourth power; (b) three k, all cubed; (c) x over y, all to the fourth power.",
+   "answer": "(a) 2 to the 12th, since 3 times 4 equals 12. (b) 27 k cubed, since 3 cubed is 27. (c) x to the fourth over y to the fourth."
+  }
+ }
+}

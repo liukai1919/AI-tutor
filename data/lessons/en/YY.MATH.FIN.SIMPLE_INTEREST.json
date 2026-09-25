@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.SIMPLE_INTEREST",
+ "lang": "en",
+ "title": "Compute simple interest I = P × r × t with the rate as a decimal and time in years (months as a fraction of a year)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Simple Interest: I = P r t",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a percent of a number, like three percent of five hundred dollars. Simple interest is that same skill, just repeated for each year the money sits there. Today we learn one formula that does it in a single line: I equals P times r times t.",
+    "math": "I = P \\times r \\times t",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is what each letter means. P is the principal, the money you start with. r is the yearly interest rate, but it must be written as a decimal, so three percent becomes zero point zero three. t is the time in years. Say you put five hundred dollars from your part time job into a savings account at three percent per year for two years. Five hundred times zero point zero three is fifteen dollars each year, and fifteen times two years is thirty dollars of interest.",
+    "math": "I = 500 \\times 0.03 \\times 2 = 30",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      500,
+      0.03,
+      2,
+      30
+     ],
+     "labels": [
+      "P (principal, $)",
+      "r (rate as decimal)",
+      "t (years)",
+      "I (interest, $)"
+     ],
+     "caption": "$500 at 3% per year for 2 years earns $30 interest"
+    }
+   },
+   {
+    "say": "Now the tricky part: time in months. Your cousin lends eight hundred dollars to a friend at four percent per year, but only for six months. Six months is six out of twelve, which is one half of a year, so t is zero point five. Eight hundred times zero point zero four is thirty two, and thirty two times zero point five is sixteen dollars. If a question asks how much is paid back in total, add the interest to the principal: eight hundred plus sixteen is eight hundred sixteen dollars. The interest alone is sixteen, the total is eight hundred sixteen. Read the question to see which one it wants.",
+    "math": "t = \\frac{6}{12} = 0.5, \\quad I = 800 \\times 0.04 \\times 0.5 = 16",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      800,
+      0.04,
+      0.5,
+      16
+     ],
+     "labels": [
+      "P ($)",
+      "r (decimal)",
+      "t (years)",
+      "I ($)"
+     ],
+     "caption": "6 months = 6/12 = 0.5 years, so I = $16 (total repaid $816)"
+    }
+   },
+   {
+    "say": "Let me show you the two mistakes I see most. First, forgetting to convert the rate. Five hundred times three times two gives three thousand dollars, which would mean earning six times your whole savings in two years. No bank is that generous, so that number is a red flag. Second, using months as if they were years. Eight hundred times zero point zero four times six gives one hundred ninety two dollars, twelve times too big, because six months got treated as six whole years. The bars show how far off that is: sixteen dollars correct versus one hundred ninety two dollars wrong.",
+    "math": "800 \\times 0.04 \\times 6 = 192 \\ne 16",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      16,
+      192
+     ],
+     "labels": [
+      "Correct: t = 0.5 years",
+      "Wrong: t = 6"
+     ],
+     "caption": "Using 6 instead of 0.5 makes the interest twelve times too big"
+    }
+   },
+   {
+    "say": "So every time you meet simple interest, do the same three checks before you multiply: principal in dollars, rate as a decimal, time in years, with months divided by twelve. Then I equals P times r times t, and if the question asks for the total, add the interest onto the principal.",
+    "math": "I = P \\times r \\times t",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "I = P × r × t: rate as a decimal, time in years (months ÷ 12)",
+  "practice": {
+   "question": "Maya saves one thousand two hundred dollars from her summer job in an account paying five percent simple interest per year. How much interest does she earn in nine months? Then, how much is in the account at the end of the nine months?",
+   "answer": "t = 9 ÷ 12 = 0.75 years. I = 1200 × 0.05 × 0.75 = $45 interest. Total in the account = 1200 + 45 = $1245."
+  }
+ }
+}

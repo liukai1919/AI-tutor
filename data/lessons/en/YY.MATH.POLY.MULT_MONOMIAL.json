@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.MULT_MONOMIAL",
+ "lang": "en",
+ "title": "Multiply a polynomial by a monomial with an area model and the distributive property (2n(n + 7) = 2n² + 14n)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Multiplying by a Monomial: The Area Model",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add polynomials by collecting like terms, and how to multiply powers with the same base, like n times n squared equals n cubed. Today we put those together for one new move: multiplying a whole bracket by a single term, like two n times the bracket n plus seven. Think of it as finding the area of a rectangle.",
+    "math": "2n(n+7)",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture a rectangle that is two n tall and n plus seven wide. Split the width into two pieces, a piece that is n wide and a piece that is seven wide. Now the big rectangle is really two smaller rectangles sitting side by side. The area of the whole thing is the two smaller areas added together. That is the distributive property in picture form.",
+    "math": "2n \\times (n+7) = 2n \\times n + 2n \\times 7",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      9,
+      4
+     ],
+     "labels": [
+      "n + 7 wide, 2n tall"
+     ],
+     "caption": "A rectangle 2n tall and (n + 7) wide, split into an n-wide part and a 7-wide part"
+    }
+   },
+   {
+    "say": "Let's find each small area. The left rectangle is two n tall and n wide. Two n times n is two times n times n, and n times n is n squared, so that area is two n squared. The right rectangle is two n tall and seven wide. Two n times seven is fourteen n. Add the two areas, and the answer is two n squared plus fourteen n. Those are not like terms, so it stays as two terms.",
+    "math": "2n \\times n = 2n^2, \\quad 2n \\times 7 = 14n, \\quad 2n(n+7) = 2n^2 + 14n",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      2,
+      14,
+      14
+     ],
+     "labels": [
+      "Left box: 2n by n",
+      "Right box: 2n by 7"
+     ],
+     "caption": "Two areas: 2n squared (coefficient 2, exponent 2) and 14n (coefficient 14, exponent 1)"
+    }
+   },
+   {
+    "say": "Here is where a lot of people slip. Mistake one is multiplying only the first term in the bracket, writing two n squared plus seven. The picture stops that: the seven-wide rectangle is still two n tall, so its area needs the two n too. Mistake two is saying n times n equals two n. That is adding, not multiplying. n times n is n squared, because you add the exponents: one plus one is two. The two n version would be n plus n.",
+    "math": "n \\times n = n^2 \\;(\\text{not } 2n), \\qquad 2n(n+7) \\neq 2n^2 + 7",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "2n(n + 7)",
+      "2n² + 14n"
+     ],
+     "caption": "Both sides equal only when the 2n reaches every term inside the bracket"
+    }
+   },
+   {
+    "say": "Try one with real numbers to check it. Say your part-time pay is three x dollars an hour and you work x plus four hours. Total pay is three x times the bracket x plus four. Left rectangle: three x times x is three x squared. Right rectangle: three x times four is twelve x. So total pay is three x squared plus twelve x. Quick check with x equals two: three x is six dollars an hour, times six hours, is thirty-six dollars. And three times four plus twelve times two is twelve plus twenty-four, also thirty-six. It works.",
+    "math": "3x(x+4) = 3x^2 + 12x",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      6,
+      6
+     ],
+     "labels": [],
+     "caption": "With x = 2 the rectangle is 6 by (2 + 4): the split-and-add idea gives 36 both ways"
+    }
+   },
+   {
+    "say": "So the whole move is: draw the rectangle, split the bracket into its terms, multiply the monomial by each term, then add the pieces. Remember, the outside term touches every term inside, and n times n is n squared.",
+    "math": "a(b+c) = ab + ac",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The outside term multiplies every term inside the bracket: 2n(n + 7) = 2n² + 14n",
+  "practice": {
+   "question": "A community garden plot in Surrey is four m metres long and m plus five metres wide. Draw a rectangle four m tall, split the width into an m-wide part and a five-wide part, and find the total area by adding the two smaller areas. Write the expanded expression for 4m(m + 5).",
+   "answer": "Left part: 4m times m = 4m². Right part: 4m times 5 = 20m. Total area: 4m² + 20m square metres."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DATA.MEAN.MISSING_VALUE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkrj0xs86cckv",
+   "level": 1,
+   "question": "小林前 3 场篮球比赛一共得了 24 分。他希望 4 场比赛的平均得分（mean）达到 10 分，那么第 4 场他要得多少分？",
+   "options": [
+    "16 分",
+    "6 分",
+    "10 分",
+    "26 分"
+   ],
+   "answerIndex": 0,
+   "explain": "先倒推总分：4 场平均 10 分，总分要 4 × 10 = 40 分，再减去已有的 24 分，得 16 分。最常见的坑是把目标平均分 10 直接当成下一场要得的分。",
+   "tags": [
+    "ok",
+    "mean.divide_by_wrong_count",
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsqxoahz",
+   "level": 1,
+   "question": "前 3 次科学小测的分数加起来是 231 分。要让 4 次的平均分（mean）正好是 78 分，第 4 次的分数 x 应该满足下面哪个等式（equation）？",
+   "options": [
+    "(231 + x) ÷ 3 = 78，因为前面只考了 3 次",
+    "(231 + x) ÷ 4 = 78，因为一共 4 次成绩",
+    "x = 78，因为目标平均分就是 78 分",
+    "(231 + x) ÷ 5 = 78，因为还要再多算一次"
+   ],
+   "answerIndex": 1,
+   "explain": "包括新的一次在内一共 4 次，所以总和 (231 + x) 要除以 4 才等于 78，解得 x = 312 − 231 = 81 分。写成除以 3 的那个漏数了新考的这次，除以 5 的那个多数了一次。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsjqmqk3",
+   "level": 1,
+   "question": "王老师说：这学期 5 次测验的平均分（mean）要达到 88 分。那么这 5 次的总分必须是多少分？",
+   "options": [
+    "88 分",
+    "352 分",
+    "440 分",
+    "528 分"
+   ],
+   "answerIndex": 2,
+   "explain": "平均分 = 总分 ÷ 个数，反过来就是总分 = 平均分 × 个数 = 88 × 5 = 440 分。坑在于个数要用 5，不是 4 也不是 6；写 88 的那个是把平均分当成了总分。",
+   "tags": [
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsnqo8tk",
+   "level": 1,
+   "question": "小雅这周前 4 天一共读了 52 页书。她想让 5 天的平均阅读量（mean）达到 15 页，第 5 天要读多少页？",
+   "options": [
+    "15 页",
+    "38 页",
+    "8 页",
+    "23 页"
+   ],
+   "answerIndex": 3,
+   "explain": "5 天总共要读 5 × 15 = 75 页，减去已读的 52 页，第 5 天要读 23 页。写 15 的那个把目标平均数直接当成了当天的量，写 8 的那个只乘了 4 天。",
+   "tags": [
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsoig5ep",
+   "level": 2,
+   "question": "温哥华的小美每周往存钱罐里存钱，前 4 周分别存了 6、9、11、10 加元。她希望 5 周的平均存款（mean）达到 10 加元，第 5 周要存多少加元？",
+   "options": [
+    "14 加元",
+    "4 加元",
+    "24 加元",
+    "10 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "前 4 周共 6 + 9 + 11 + 10 = 36 加元；5 周总额要 5 × 10 = 50 加元，所以第 5 周要存 50 − 36 = 14 加元。用 4 × 10 去减的那个漏算了第 5 周本身。",
+   "tags": [
+    "ok",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "mean.target_as_next_score"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xshedjw1",
+   "level": 2,
+   "question": "小赵前 5 天平均每天做 20 个仰卧起坐。他想让 6 天的平均（mean）提高到 22 个，第 6 天要做多少个？",
+   "options": [
+    "22 个",
+    "32 个",
+    "10 个",
+    "54 个"
+   ],
+   "answerIndex": 1,
+   "explain": "先用平均数倒推：前 5 天共 5 × 20 = 100 个；6 天要达到 6 × 22 = 132 个，所以第 6 天做 132 − 100 = 32 个。要提高平均数，新的一次必须高于目标 22，答 22 就错了。",
+   "tags": [
+    "mean.target_as_next_score",
+    "ok",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xshgw706",
+   "level": 2,
+   "question": "一组 6 个数的平均数（mean）是 15。再加入第 7 个数以后，7 个数的平均数变成 16。这第 7 个数是多少？",
+   "options": [
+    "16",
+    "6",
+    "22",
+    "38"
+   ],
+   "answerIndex": 2,
+   "explain": "原来 6 个数的和是 6 × 15 = 90，新的 7 个数的和是 7 × 16 = 112，所以加入的数是 112 − 90 = 22。答 16 的那个把目标平均数当成了新加的数。",
+   "tags": [
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count",
+    "ok",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsyh5d7n",
+   "level": 2,
+   "question": "小周前 3 次社会课测验分别得了 74、80、86 分。他想让 4 次的平均分（mean）达到 82 分。下面哪种算法是对的？",
+   "options": [
+    "用 3 × 82 = 246 减去 74 + 80 + 86，因为前面只考了 3 次",
+    "用 5 × 82 = 410 减去 74 + 80 + 86，因为还要多算一次",
+    "不用算，第 4 次考 82 分就行，因为目标平均分正好是 82",
+    "用 4 × 82 = 328 减去 74 + 80 + 86，得到第 4 次的分数"
+   ],
+   "answerIndex": 3,
+   "explain": "目标平均分乘以总次数 4 得到需要的总分 328，再减去已有的 240，第 4 次要考 88 分。乘 3 或乘 5 的算法都把次数数错了；直接答 82 的那个忽略了前面成绩偏低要补回来。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count",
+    "mean.target_as_next_score",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xszqi1lw",
+   "level": 3,
+   "question": "素里的莉娜在少年篮球联赛已经打了 6 场，平均每场得 9 分，联赛还剩 2 场。她想让 8 场的平均得分（mean）达到 10 分。教练估计倒数第二场她只能得 8 分，那么最后一场她需要得多少分？",
+   "options": [
+    "18 分",
+    "10 分",
+    "8 分",
+    "28 分"
+   ],
+   "answerIndex": 0,
+   "explain": "已得 6 × 9 = 54 分，8 场要达到 8 × 10 = 80 分，剩下两场共需 26 分；减去倒数第二场的 8 分，最后一场要得 18 分。坑在于总场数要按 8 场算，也不能把目标 10 分当成最后一场的得分。",
+   "tags": [
+    "ok",
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsjgrgmj",
+   "level": 3,
+   "question": "温哥华的阿豪科学课一学期有 5 次测验，每次满分 100 分。前 4 次他得了 78、85、91、86 分。他想让 5 次的平均分（mean）达到 88 分。第 5 次要考多少分，他还有可能做到吗？",
+   "options": [
+    "需要 88 分，因为目标平均分就是 88 分，很轻松能做到",
+    "需要 100 分，正好是满分，所以还有可能做到",
+    "需要 88 × 4 − 340 = 12 分，因为前面只有 4 次成绩",
+    "需要 88 × 6 − 340 = 188 分，超过满分，不可能做到"
+   ],
+   "answerIndex": 1,
+   "explain": "前 4 次共 340 分，5 次要达到 5 × 88 = 440 分，所以第 5 次要考 440 − 340 = 100 分，刚好满分，理论上还能做到。乘 4 或乘 6 的算法都数错了次数。",
+   "tags": [
+    "mean.target_as_next_score",
+    "ok",
+    "mean.divide_by_wrong_count",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsdp0c28",
+   "level": 3,
+   "question": "小杰前 4 次单元测验的平均分（mean）是 76 分（每次满分 100 分）。他说：只要第 5 次考 84 分，5 次的平均分就变成 84 分了。他错在哪里？",
+   "options": [
+    "他应该用 4 × 84 − 304 = 32 分，因为前面一共只考了 4 次",
+    "他没错，第 5 次考 84 分平均分就是 84 分，因为新分数就是目标",
+    "他把目标当成了下次分数；其实要 420 − 304 = 116 分，做不到",
+    "他应该用 6 × 84 − 304 = 200 分，因为目标那次也要算进去"
+   ],
+   "answerIndex": 2,
+   "explain": "前 4 次总分 4 × 76 = 304 分，5 次平均 84 需要总分 5 × 84 = 420 分，第 5 次得考 116 分，超过满分。前面分数低于目标时，新的一次必须高于目标才能把平均数拉上来。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.target_as_next_score",
+    "ok",
+    "mean.divide_by_wrong_count"
+   ]
+  },
+  {
+   "qid": "qmtkrj0xsbkauv4",
+   "level": 3,
+   "question": "本拿比社区花园里，一个小组前 3 周平均每周种了 12 棵菜苗，第 4 周他们种了 20 棵。为了让 5 周的平均（mean）达到 15 棵，第 5 周要种多少棵？",
+   "options": [
+    "34 棵",
+    "15 棵",
+    "4 棵",
+    "19 棵"
+   ],
+   "answerIndex": 3,
+   "explain": "先由平均数倒推前 3 周共 3 × 12 = 36 棵，加第 4 周的 20 棵得 56 棵；5 周要 5 × 15 = 75 棵，所以第 5 周种 75 − 56 = 19 棵。别忘了先把前 3 周的总数还原出来，次数也要按 5 周算。",
+   "tags": [
+    "mean.divide_by_wrong_count",
+    "mean.target_as_next_score",
+    "mean.divide_by_wrong_count",
+    "ok"
+   ]
+  }
+ ]
+}

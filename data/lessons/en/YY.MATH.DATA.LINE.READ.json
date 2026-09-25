@@ -1,0 +1,139 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.LINE.READ",
+ "lang": "en",
+ "title": "Read values and trends from a line graph",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Reading a Line Graph Like a Story",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a double bar graph, where each bar shows an amount. A line graph is a cousin of that, but instead of separate bars, the dots are joined up so you can see how something changes over time. Today we just want to learn how to read a line graph and tell its story.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      25,
+      25,
+      40,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Snow depth in centimetres at Grouse Mountain, Monday to Friday"
+    }
+   },
+   {
+    "say": "Here is the big idea. Every dot is one measurement, just like the top of a bar. To read a dot, put your finger on the day at the bottom, slide straight up to the dot, then slide straight across to the numbers on the side. On Monday the snow was ten centimetres. On Thursday the dot is at forty centimetres. That is the deepest point of the whole week.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      25,
+      25,
+      40,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Monday is 10 cm, Thursday is 40 cm, the highest dot"
+    }
+   },
+   {
+    "say": "Now for the part only a line graph can tell you: the trend. When the line goes up, the snow is getting deeper. When it goes flat, nothing changed. When it goes down, the snow is melting away. So from Monday to Tuesday the line climbs, from Tuesday to Wednesday it stays flat, it climbs again to Thursday, and then it drops down to Friday. The shape of the line tells the story of the week.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      25,
+      25,
+      40,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Up, flat, up, then down"
+    }
+   },
+   {
+    "say": "Here is a mistake that catches a lot of people. Look at the line going from Monday to Tuesday. It is a nice steep climb, so someone might say, hey, Tuesday must have the most snow. But steepness is about how fast something changes, not how much there is. From Monday to Tuesday the snow went up by fifteen centimetres, which is a big change, but it only reached twenty five. Thursday is the tallest dot at forty centimetres. Always look at how high the dot sits, not at how tilted the line is.",
+    "math": "25-10=15",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      10,
+      25,
+      25,
+      40,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Same numbers as bars: Thursday really is the tallest"
+    }
+   },
+   {
+    "say": "One more careful check before you read any dot. Peek at the numbers on the side and see how much each grid line is worth. On our graph each line is worth ten centimetres, not one. So a dot sitting three lines up means thirty centimetres, not three. Reading the scale first keeps you from being off by a whole lot.",
+    "math": "3\\times 10=30",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      10,
+      25,
+      25,
+      40,
+      30
+     ],
+     "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     "caption": "Check the side scale first: each grid line here is 10 cm"
+    }
+   },
+   {
+    "say": "So remember: the height of a dot tells you how much, and the direction of the line tells you the change. Those two things together let you read any line graph.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "How high the dot sits tells you how much; which way the line tilts tells you the change.",
+  "practice": {
+   "question": "Nadia tracks how much she saves each month for a bike. In January she has fifteen dollars, in February thirty dollars, in March thirty dollars, in April fifty dollars, and in May forty five dollars. Sketch a line graph of these five points on paper. Then answer: in which month did she have the most money saved, and between which two months did her savings go down?",
+   "answer": "April had the most, at fifty dollars. Her savings went down between April and May, from fifty dollars to forty five dollars. Careful: the jump from March to April is the steepest climb, but the highest dot is still April, not March."
+  }
+ }
+}

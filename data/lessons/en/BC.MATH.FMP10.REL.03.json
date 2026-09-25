@@ -1,0 +1,160 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.REL.03",
+ "lang": "en",
+ "title": "arithmetic sequences",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Arithmetic Sequences: The Constant-Jump Pattern",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You've got a part-time job at a coffee shop in your neighbourhood, and you're saving up for a concert ticket that costs fifty dollars. Every Friday you drop five dollars into your savings jar. Week one, you've got five dollars. Week two, ten. Week three, fifteen. Week four, twenty. Notice anything? Every single week, you're adding the exact same amount — five dollars. That's not random, that's a pattern. And in math we have a name for that pattern: an arithmetic sequence. 'Arithmetic' here doesn't mean 'basic math' — it means you keep adding, over and over, by the same amount. That's the whole idea: a list of numbers where the jump from one term to the next is always the same.",
+    "math": "5,\\; 10,\\; 15,\\; 20,\\; 25,\\; \\ldots",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+     ],
+     "caption": "Each week you add 5 dollars — the jump never changes"
+    }
+   },
+   {
+    "say": "Before we do anything with these, let's give the pieces their proper names, because in your math class they'll expect you to use this language. The first number in the list — that five dollars — is called the first term, and we write it as a-sub-one. The amount you add every single time — that five — is the common difference, written as d. And every number in the list is a term, identified by its position. So the fourth term, which is twenty, means the number that sits in position four. Got it? First term: where you start. Common difference: the constant jump. Term position: which slot you're in.",
+    "math": "a_1 = 5, \\qquad d = 5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      10,
+      15,
+      20,
+      25
+     ],
+     "labels": [
+      "a₁ (start)",
+      "a₂",
+      "a₃",
+      "a₄",
+      "a₅"
+     ],
+     "caption": "a₁ = 5,  d = +5"
+    }
+   },
+   {
+    "say": "Now here's the big question your teacher will ask: what if I don't want to count all the way through? I want to know how much you'll have saved by week fifty. You don't want to write out fifty numbers. So we build a shortcut, and it's called the general term, or the n-th-term formula. Here's the logic: to reach any term, you start at a-sub-one and then add the common difference d — but how many times? Not n times. (n minus one) times. Why? Because between the first term and the second term there's one jump. Between the first and the third, two jumps. So to get to the n-th term you've made n-minus-one jumps. That gives us: a-sub-n equals a-sub-one plus (n minus one) times d. Let's test it. Week five: five plus four times five, which is five plus twenty, which is twenty-five. Matches our table perfectly. Week ten: five plus nine times five, which is five plus forty-five, which is fifty. You could have counted it, but now you just plug in and go.",
+    "math": "a_n = a_1 + (n-1)\\,d",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      100,
+      5,
+      50
+     ],
+     "labels": [],
+     "caption": "Start at 5, take nine jumps of 5 to land on 50 (week 10)"
+    }
+   },
+   {
+    "say": "Let's do a slightly different problem. Your phone plan is getting more expensive every month. Month one: forty dollars. Month two: forty-three. Month three: forty-six. See the pattern? Three dollars more each month. Your mom says, 'What will we be paying by month twelve?' So: first term is forty, common difference is three, and n is twelve. Plug in: a-sub-twelve equals forty plus eleven times three. Eleven times three is thirty-three. Forty plus thirty-three is seventy-three. So by month twelve that plan costs you seventy-three dollars a month. Notice the common difference is positive, so the sequence is increasing. If d were negative the sequence would decrease — same formula, same process, just a negative number in the middle.",
+    "math": "a_{12} = 40 + (12-1)\\times 3 = 40 + 33 = 73",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      40,
+      43,
+      46,
+      49,
+      52,
+      73
+     ],
+     "labels": [
+      "Month 1",
+      "Month 2",
+      "Month 3",
+      "Month 4",
+      "Month 5",
+      "Month 12"
+     ],
+     "caption": "d = +3 (increasing sequence)"
+    }
+   },
+   {
+    "say": "Now let's flip it — a decreasing sequence. You're on a road trip up the coast, and you check your fuel gauge every hour. After one hour: thirty-eight litres. After two: thirty-one. After three: twenty-four. You're burning seven litres per hour, so d is negative seven. Your friend in the passenger seat asks, 'What will the gauge read at the five-hour mark?' First term is thirty-eight, d is negative seven, n is five. So: a-sub-five equals thirty-eight plus four times negative seven. Four times negative seven is negative twenty-eight. Thirty-eight minus twenty-eight is ten. Ten litres left. Time to pull into a gas station soon.",
+    "math": "a_5 = 38 + (5-1)\\times(-7) = 38 + (-28) = 10",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      38,
+      31,
+      24,
+      17,
+      10
+     ],
+     "labels": [
+      "1 h",
+      "2 h",
+      "3 h",
+      "4 h",
+      "5 h"
+     ],
+     "caption": "d = −7 (decreasing sequence)"
+    }
+   },
+   {
+    "say": "Here's the connection your unit is building toward. If I plot the terms of an arithmetic sequence as points on a grid — position on the x-axis, value on the y-axis — what do I get? A straight line. Always. Because the rate of change is constant, and that is exactly what makes a line linear. Look at this smaller sequence: two, five, eight, eleven, fourteen. The points land perfectly on the line y equals three x minus one. See that? The common difference — three — is the slope. That's not a coincidence. An arithmetic sequence is literally a linear function that only takes whole-number inputs. So when your teacher says 'constant rate of change is an essential attribute of linear relations,' this is what she means. The common difference and the slope are the same idea wearing two different hats.",
+    "math": "y = 3x - 1 \\quad\\bigl(\\text{the line through } a_n = 2+(n-1)\\cdot 3\\bigr)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      2,
+      2,
+      5,
+      3,
+      8,
+      4,
+      11
+     ],
+     "labels": [],
+     "caption": "(1, 2), (2, 5), (3, 8), (4, 11) sit on y = 3x − 1: the common difference d = 3 is the slope"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to pin to your wall: an arithmetic sequence is a list where you add the same number every single time, and the shortcut to jump straight to any term is: start where you started, then add the common difference n-minus-one times. That's it. Increasing or decreasing, saving for a ticket or burning fuel on a road trip — one formula handles it all.",
+    "math": "a_n = a_1 + (n-1)\\,d",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "An arithmetic sequence adds the same common difference d every step; the n-th term is a₁ + (n−1)·d — and that constant jump is exactly the slope of the line the terms sit on.",
+  "practice": {
+   "question": "You're saving for a new pair of sneakers that cost $120. You already have $25 saved, and every Sunday you add $10 to your jar. (a) Write the first four terms of the sequence. (b) By which week can you first afford the sneakers?",
+   "answer": "(a) 25, 35, 45, 55.  (b) Set aₙ = 25 + (n−1)(10) ≥ 120, so 10(n−1) ≥ 95, giving n−1 ≥ 9.5, so n ≥ 10.5. You need week 11. Check: a₁₁ = 25 + 10×10 = 125 ≥ 120. ✓"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

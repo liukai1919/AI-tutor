@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5voikdzkp07y",
+   "level": 1,
+   "question": "A coordinate grid has the x-axis numbered from -8 to 8 and the y-axis numbered from -8 to 8, with the origin at (0, 0). Kai plots point A at (-5, 2), which lands in Quadrant II. He reflects point A in the y-axis. What are the coordinates of the image A'?",
+   "options": [
+    "(5, 2)",
+    "(-5, -2)",
+    "(5, -2)",
+    "(2, 5)"
+   ],
+   "answerIndex": 0,
+   "explain": "A reflection in the y-axis flips the point left-right, so only the x-coordinate changes sign: (-5, 2) becomes (5, 2), staying 2 units above the x-axis. The common trap is changing both signs, which gives the one that says (5, -2) and moves the point into the wrong quadrant.",
+   "tags": [
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "coord.sign_quadrant_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5voikd4xwc9d",
+   "level": 1,
+   "question": "A coordinate grid has both axes numbered from -6 to 6, with the origin at (0, 0). Point B is plotted at (3, 4) in Quadrant I. Point B is rotated 90 degrees clockwise about the origin. What are the coordinates of the image B'?",
+   "options": [
+    "(-4, 3)",
+    "(4, -3)",
+    "(-4, -3)",
+    "(3, -4)"
+   ],
+   "answerIndex": 1,
+   "explain": "For a 90 degree clockwise turn about the origin, swap the two numbers and then change the sign of the new y-coordinate: (3, 4) becomes (4, -3), which lands in Quadrant IV as expected. The usual trap is turning the other way, which gives the one that says (-4, 3) in Quadrant II.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5voikd455z6x",
+   "level": 1,
+   "question": "A coordinate grid has both axes numbered from -12 to 12, with the origin at (0, 0). Point C is plotted at (-2, -6) in Quadrant III. Point C is translated 7 units right and 4 units up. What are the coordinates of the image C'?",
+   "options": [
+    "(5, 2)",
+    "(-5, -2)",
+    "(5, -2)",
+    "(-9, -10)"
+   ],
+   "answerIndex": 2,
+   "explain": "Right means add to x and up means add to y: -2 + 7 = 5 and -6 + 4 = -2, so the image is (5, -2) in Quadrant IV. The common trap is thinking a point that started in a negative quadrant must keep a negative x, which gives the one that says (-5, -2).",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "coord.sign_quadrant_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5voikdcea17u",
+   "level": 1,
+   "question": "A coordinate grid has both axes numbered from -10 to 10, with the origin at (0, 0). Point D is plotted at (6, -3) in Quadrant IV. Point D is reflected in the x-axis. What are the coordinates of the image D'?",
+   "options": [
+    "(-6, -3)",
+    "(-3, 6)",
+    "(-6, 3)",
+    "(6, 3)"
+   ],
+   "answerIndex": 3,
+   "explain": "A reflection in the x-axis flips the point up-down, so only the y-coordinate changes sign: (6, -3) becomes (6, 3), still 6 units right of the y-axis. The trap is flipping the x-coordinate instead, which gives the one that says (-6, -3) and reflects in the wrong axis.",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "other",
+    "coord.sign_quadrant_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5voikdpl3qla",
+   "level": 2,
+   "question": "On a quilt design grid, one corner of a fabric patch sits at (-4, 5). The whole patch is rotated 180 degrees about the origin. What are the coordinates of the image of that corner?",
+   "options": [
+    "(4, -5)",
+    "(4, 5)",
+    "(5, 4)",
+    "(-4, -5)"
+   ],
+   "answerIndex": 0,
+   "explain": "A 180 degree rotation about the origin sends a point straight through the origin to the opposite side, so both signs change: (-4, 5) becomes (4, -5), moving from Quadrant II to Quadrant IV. The trap is turning only 90 degrees, which swaps the numbers and gives the one that says (5, 4).",
+   "tags": [
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5voikdx2i1zt",
+   "level": 2,
+   "question": "A tessellation of identical arrow tiles covers a coordinate grid with no gaps. The tip of one arrow is at (2, -5). To make the next tile in the pattern, the arrow is rotated 90 degrees counter-clockwise about the origin. Where is the tip of the new tile?",
+   "options": [
+    "(-5, -2)",
+    "(5, 2)",
+    "(-2, 5)",
+    "(-5, 2)"
+   ],
+   "answerIndex": 1,
+   "explain": "For a 90 degree counter-clockwise turn about the origin, swap the numbers and change the sign of the new x-coordinate: (2, -5) becomes (5, 2) in Quadrant I. The trap is turning clockwise instead, which gives the one that says (-5, -2).",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5voikd4oxv8t",
+   "level": 2,
+   "question": "A vertex of a shape is at (-6, 3). After one single transformation, the image of that vertex is at (6, -3). Which transformation was used?",
+   "options": [
+    "A reflection in the y-axis",
+    "A rotation of 90 degrees clockwise about the origin",
+    "A rotation of 180 degrees about the origin",
+    "A reflection in the x-axis"
+   ],
+   "answerIndex": 2,
+   "explain": "Both coordinates changed sign, and the only single move that does that is a 180 degree rotation about the origin, which carries a point from Quadrant II straight through the origin to Quadrant IV. A reflection changes just one coordinate, so the reflection choices each land at (6, 3) or (-6, -3) instead.",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "ok",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5voikdhc61av",
+   "level": 2,
+   "question": "The point (-8, -2) is rotated 90 degrees clockwise about the origin. What are the coordinates of the image?",
+   "options": [
+    "(2, -8)",
+    "(2, 8)",
+    "(8, 2)",
+    "(-2, 8)"
+   ],
+   "answerIndex": 3,
+   "explain": "For 90 degrees clockwise about the origin, swap the numbers and change the sign of the new y-coordinate: (-8, -2) becomes (-2, 8), moving from Quadrant III to Quadrant II. Checking the quadrant catches the usual trap of turning counter-clockwise, which would give the one that says (2, -8) in Quadrant IV.",
+   "tags": [
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5voikdt6lmly",
+   "level": 3,
+   "question": "Nadia is designing a tessellating maple-leaf tile for a poster on a coordinate grid. One corner of her tile is at (4, 6). Her design rule for the next tile is: rotate the tile 90 degrees clockwise about the origin, then translate the image 3 units down. What are the coordinates of that corner on the new tile?",
+   "options": [
+    "(6, -7)",
+    "(6, -1)",
+    "(-6, 1)",
+    "(6, 7)"
+   ],
+   "answerIndex": 0,
+   "explain": "Do the rotation first: 90 degrees clockwise sends (4, 6) to (6, -4); then translate 3 units down by subtracting 3 from y, giving (6, -7). Two traps live here, rotating counter-clockwise to (-6, 4), and moving up instead of down, so name the direction of each step before you compute it.",
+   "tags": [
+    "ok",
+    "other",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5voikdhowrch",
+   "level": 3,
+   "question": "Priya rotates the point (-3, 5) 90 degrees counter-clockwise about the origin and writes the image as (5, 3). Her partner says the image cannot be in Quadrant I. What is the correct image of (-3, 5)?",
+   "options": [
+    "(5, 3)",
+    "(-5, -3)",
+    "(-5, 3)",
+    "(3, -5)"
+   ],
+   "answerIndex": 1,
+   "explain": "Counter-clockwise 90 degrees about the origin swaps the numbers and changes the sign of the new x-coordinate, so (-3, 5) becomes (-5, -3), moving from Quadrant II to Quadrant III. Priya turned clockwise, which is why she landed on the one that says (5, 3) in Quadrant I.",
+   "tags": [
+    "transform.rotation_direction",
+    "ok",
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction"
+   ]
+  },
+  {
+   "qid": "qmt5voikd1g2n9e",
+   "level": 3,
+   "question": "On a map of a Vancouver park drawn on a coordinate grid, the origin is the park entrance and each unit is 10 m. A totem-pole marker is at (5, -4). The designer moves the marker by reflecting it in the y-axis and then translating it 2 units up. What are the coordinates of the marker after both moves?",
+   "options": [
+    "(5, 6)",
+    "(-5, 6)",
+    "(-5, -2)",
+    "(5, -2)"
+   ],
+   "answerIndex": 2,
+   "explain": "Reflecting (5, -4) in the y-axis changes only the x-coordinate, giving (-5, -4); adding 2 to y then gives (-5, -2) in Quadrant III. The trap is flipping both signs during the reflection, which would give the one that says (-5, 6) and puts the marker on the wrong side of the x-axis.",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "coord.sign_quadrant_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5voikdvao87z",
+   "level": 3,
+   "question": "A hockey rink logo is drawn on a coordinate grid with the centre-ice dot at the origin. One vertex of the logo is at (-7, 4). The logo is rotated 180 degrees about the origin. Liam says the image vertex is still in Quadrant II because the shape only turned around. Which statement gives the correct image vertex and its quadrant?",
+   "options": [
+    "(-7, -4), in Quadrant III",
+    "(4, 7), in Quadrant I",
+    "(7, 4), in Quadrant I",
+    "(7, -4), in Quadrant IV"
+   ],
+   "answerIndex": 3,
+   "explain": "A 180 degree rotation about the origin changes the sign of both coordinates, so (-7, 4) becomes (7, -4), which is right of the y-axis and below the x-axis, that is Quadrant IV. A half turn always sends a point to the opposite quadrant, so Quadrant II can never hold the image, and turning only 90 degrees clockwise gives the one that says (4, 7).",
+   "tags": [
+    "coord.sign_quadrant_confuse",
+    "transform.rotation_direction",
+    "coord.sign_quadrant_confuse",
+    "ok"
+   ]
+  }
+ ]
+}

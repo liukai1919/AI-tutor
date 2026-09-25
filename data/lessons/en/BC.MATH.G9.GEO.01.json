@@ -1,0 +1,129 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.GEO.01",
+ "lang": "en",
+ "title": "spatial proportional reasoning",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Scaling Up (or Down) Without Guessing: Similar Shapes & the Scale Factor",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this: your friend is making a scale model of a traditional longhouse for their Indigenous Studies project. The real longhouse in Squamish is about twenty metres long and five metres wide. The model they are building for the school display is only four metres long. The question is, how wide should the model be? You don't guess. You use proportional reasoning. Every shape in that model is a perfect, scaled-down copy of the real thing. Same angles, same shape, just a different size. That single idea is spatial proportional reasoning, and by the end of this little lesson, you're going to own it.",
+    "math": "",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      20,
+      5
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Real longhouse footprint (20 m by 5 m) — the model will be a shrunken copy of this."
+    }
+   },
+   {
+    "say": "Here is the core idea, and it is genuinely one idea. Two shapes are similar when they have the same shape but different sizes. Same angles, and every single side is multiplied by the very same number. We call that number the scale factor. If the scale factor is two and a half, then every length gets multiplied by two and a half. If it is one fifth, every length gets divided by five. The angles never, ever change. So one tiny ratio tells you everything about the whole shape. That is what makes similar shapes so powerful.",
+    "math": "\\text{scale factor } k = \\frac{\\text{new length}}{\\text{original length}}",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      4,
+      6,
+      8
+     ],
+     "labels": [
+      "4 cm",
+      "6 cm",
+      "8 cm",
+      "",
+      "",
+      ""
+     ],
+     "caption": "A triangle with sides 4, 6, and 8 cm. Every side will scale by the same factor k."
+    }
+   },
+   {
+    "say": "Let's do a quick one. The longhouse is twenty metres by five metres. The model is four metres long. What is the model's width? Step one: find the scale factor. Model length over real length: four over twenty, which simplifies to one fifth. The model is one fifth the size. Step two: apply that factor to the width. Five metres times one fifth equals one metre. The model should be one metre wide. You never had to measure anything on the model. The ratio did all the work for you.",
+    "math": "k = \\frac{4\\text{ m}}{20\\text{ m}} = \\frac{1}{5}, \\qquad \\text{width} = 5 \\times \\frac{1}{5} = 1\\text{ m}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      20,
+      5,
+      4,
+      1
+     ],
+     "labels": [
+      "Real length",
+      "Real width",
+      "Model length",
+      "Model width"
+     ],
+     "caption": "All four measurements in metres. Notice the ratio between each real and model pair is the same: 1 to 5."
+    }
+   },
+   {
+    "say": "Now a slightly trickier one, the kind that shows up on your unit test. You are in the schoolyard in Kelowna on a sunny October day. A one-and-a-half-metre flagpole casts a shadow that is zero-point-six metres long. A big Douglas fir next to it casts a four-metre shadow. How tall is the tree? The flagpole-and-shadow triangle and the tree-and-shadow triangle are similar, because the sun hits both at the same angle. So the ratios match. You set up the proportion: one and a half over zero point six equals the tree height over four. Cross-multiply: zero point six times tree height equals one and a half times four, which is six. Divide both sides by zero point six, and the tree height is ten metres. A ten-metre Douglas fir is about three storeys tall, so that feels right.",
+    "math": "\\frac{1.5}{0.6} = \\frac{h}{4} \\;\\Longrightarrow\\; 0.6\\,h = 6 \\;\\Longrightarrow\\; h = 10\\text{ m}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      4,
+      10
+     ],
+     "labels": [
+      "4 m shadow",
+      "10 m tree",
+      "",
+      ""
+     ],
+     "caption": "The tree-shadow triangle. The smaller flagpole-shadow triangle has the same angles, so the side ratios match."
+    }
+   },
+   {
+    "say": "Here is the one rule to pin to the wall above your desk. If two shapes are similar, then the ratio of any pair of corresponding sides is the same as the ratio of any other pair. Side a over a-prime equals side b over b-prime equals side c over c-prime, and they all equal the scale factor k. You only need one pair of matching sides to find k, and then that single number unlocks every other length in the shape. And the angles? They are always the same. You never scale an angle. Ever.",
+    "math": "\\frac{a}{a'} = \\frac{b}{b'} = \\frac{c}{c'} = k",
+    "visual": {
+     "type": "triangle",
+     "nums": [
+      5,
+      7,
+      9
+     ],
+     "labels": [
+      "5 m",
+      "7 m",
+      "9 m",
+      "",
+      "",
+      ""
+     ],
+     "caption": "Any triangle. Scale every side by the same k and you get a similar triangle with identical angles."
+    }
+   },
+   {
+    "say": "So here is your one-line takeaway. Similar shapes keep their angles and multiply every length by one scale factor. Find the ratio of any one pair of matching sides, and that ratio solves every other measurement in the shape. Whether you are scaling a longhouse model for a class project, figuring out a tree's height from its shadow, or enlarging a First Nations mural design for a gallery wall in Vancouver, it is always the same one idea. One ratio. Angles stay put. You've got it.",
+    "math": "\\text{One ratio} \\;\\Longrightarrow\\; \\text{every measurement solved. Angles unchanged.}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find one pair of matching sides, compute the ratio, and that single scale factor solves every other length. Angles never change.",
+  "practice": {
+   "question": "Your school's Indigenous Studies club is building a scale model of a Haida totem pole for the winter show. The real totem pole is six metres tall and zero-point-eight metres wide at the base. The model will be one-point-two metres tall. How wide should the base of the model be? Give your answer in centimetres.",
+   "answer": "Scale factor = 1.2 / 6 = 0.2 (one-fifth). Base width = 0.8 m × 0.2 = 0.16 m = 16 cm."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 1
+ }
+}

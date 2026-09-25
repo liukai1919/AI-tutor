@@ -1,0 +1,152 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.FIN.01",
+ "lang": "en",
+ "title": "financial literacy : compound interest, investments, loans",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Compound Interest: Making Your Money Work (or Owe) for You",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You've been working a part-time job at the grocery store for a year, and you've saved two thousand dollars. You want to go on a road trip with your friends in four years. Your bank says they'll pay you five percent interest per year, and here's the key phrase: the interest compounds. That means next year you earn interest not just on your original two thousand, but on two thousand plus the interest you already earned. It's like your money starts making little money-babies, and those babies start making their own. That's compound interest, and it is the single most powerful financial tool you will ever use. Let's learn exactly how to calculate it.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      2000,
+      2100,
+      2205,
+      2315.25,
+      2431.01
+     ],
+     "labels": [
+      "Yr 0",
+      "Yr 1",
+      "Yr 2",
+      "Yr 3",
+      "Yr 4"
+     ],
+     "caption": "$2,000 growing at 5% compounded annually"
+    }
+   },
+   {
+    "say": "Here is the formula you will use every single time. A equals P times the quantity one plus r over n, all raised to the power of n times t. Let me break that down. A is your final amount, the money in your account at the end. P is your principal, the starting amount. r is the annual interest rate as a decimal, so five percent becomes point zero five. n is how many times per year the interest compounds, so annual is one, monthly is twelve, daily is three sixty five. And t is the number of years. The exponent, n times t, just counts the total number of compounding periods you are waiting through.",
+    "math": "A = P\\left(1 + \\frac{r}{n}\\right)^{nt}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2000,
+      0.05,
+      1,
+      4,
+      2431
+     ],
+     "labels": [
+      "P (Start $)",
+      "r (Rate)",
+      "n (per year)",
+      "t (Years)",
+      "A (Final $)"
+     ],
+     "caption": "The five pieces of the compound-interest formula"
+    }
+   },
+   {
+    "say": "Let's do a clean, easy example. You deposit two thousand dollars into a savings account that pays five percent per year, compounded once a year, and you leave it alone for four years. So P is two thousand, r is point zero five, n is one, t is four. Plugging in: A equals two thousand times one point zero five to the fourth power. One point zero five to the fourth is one point two one five five, approximately. Two thousand times one point two one five five is two thousand four hundred thirty-one dollars and one cent. So you earned about four hundred thirty-one dollars in interest. Notice how each year you earned a little more than the year before, because you were earning interest on the interest too. That snowball effect is the whole point.",
+    "math": "A = 2000(1+0.05)^{1\\times4} = 2000(1.05)^4 = 2000(1.2155) = \\$2{,}431.01",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2000,
+      2100,
+      2205,
+      2315.25,
+      2431.01
+     ],
+     "labels": [
+      "Year 0",
+      "Year 1",
+      "Year 2",
+      "Year 3",
+      "Year 4"
+     ],
+     "caption": "Year-by-year growth: interest earns interest"
+    }
+   },
+   {
+    "say": "Now let's make it a little more realistic. You invest three thousand dollars in a GIC that pays four and a half percent per year, but the interest compounds every single month. You hold it for three years. Here, P is three thousand, r is point zero four five, n is twelve because it is monthly, and t is three. So the exponent is twelve times three, which is thirty six. And the piece inside the bracket is one plus point zero four five divided by twelve, which is one point zero zero three seven five. So A equals three thousand times one point zero zero three seven five to the thirty sixth power. That gives you about three thousand four hundred thirty-three dollars. You earned roughly four hundred thirty-three dollars of interest. See how compounding monthly gives you a tiny bit more than compounding annually at the same stated rate? More frequent compounding means your interest starts earning interest sooner.",
+    "math": "A = 3000\\!\\left(1+\\frac{0.045}{12}\\right)^{12\\times3} = 3000(1.00375)^{36} \\approx \\$3{,}432.74",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      3000,
+      3138,
+      3282,
+      3433
+     ],
+     "labels": [
+      "0 mo",
+      "12 mo",
+      "24 mo",
+      "36 mo"
+     ],
+     "caption": "$3,000 at 4.5% compounded monthly over 3 years"
+    }
+   },
+   {
+    "say": "Now flip the idea around. Instead of your money growing, you are the one who owes money. Say you finance a used car for fifteen thousand dollars at seven percent per year for five years. The bank charges you compound interest on whatever balance you still owe. Every month your payment gets split into two pieces: the first chunk covers the interest that built up that month, and the rest chips away at your actual debt. In the first month, most of your payment goes to interest because your balance is still high. By the last month, almost all of it goes to your balance. Over five years, your monthly payment is about two hundred ninety-seven dollars, you pay back roughly seventeen thousand eight hundred twenty dollars total, and about two thousand eight hundred twenty dollars of that is pure interest to the bank. Same math as the savings account, just working against you.",
+    "math": "\\text{Monthly payment} \\approx \\$297,\\quad \\text{Total paid} \\approx \\$17{,}820,\\quad \\text{Interest} \\approx \\$2{,}820",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      15000,
+      2820
+     ],
+     "labels": [
+      "Principal",
+      "Interest"
+     ],
+     "caption": "Where your $17,820 goes on a 5-year, 7% car loan"
+    }
+   },
+   {
+    "say": "Quick real-world decision: buy or lease? If you buy that fifteen-thousand-dollar car, you might put down three thousand and finance the rest. You are paying a bigger monthly amount, but in five years the car is completely yours. You can sell it, modify it, drive it into the ground, no questions asked. If you lease, your monthly payment might be two hundred dollars instead of three hundred, but at the end of three years you hand the car back to the dealership. You do not own anything, you have limits on how many kilometres you can drive, and if you are late with a payment they can repossess it. In BC, a lot of people lease because the payment is lower and they like getting a new car every couple of years. But if your long-term goal is to build wealth, buying and keeping the asset usually wins. And remember: the money you save to buy compounds for you, while the loan you take to buy compounds against you.",
+    "math": "",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      15000,
+      2820
+     ],
+     "labels": [
+      "Car",
+      "Interest"
+     ],
+     "caption": "The real cost of a financed car over 5 years"
+    }
+   },
+   {
+    "say": "Here is your one-line takeaway. Compound interest means you earn, or owe, interest on top of interest. The earlier you start saving, the bigger that snowball gets for you. The longer you take to pay off a loan, the bigger that snowball gets against you. Time is the most powerful variable in the formula, more powerful than the interest rate, more powerful than your starting amount. Start your savings early, pay off your debt fast, and you win. That is the whole game.",
+    "math": "A = P\\left(1+\\frac{r}{n}\\right)^{nt}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Compound interest = interest on interest. Time is the superpower: start saving early, pay debt off fast.",
+  "practice": {
+   "question": "You deposit four thousand dollars into a high-interest savings account at a BC credit union that pays six percent per year, compounded monthly. How much will you have after two years? Round to the nearest cent.",
+   "answer": "A = 4000(1 + 0.06/12)^(12×2) = 4000(1.005)^24 ≈ 4000 × 1.12716 = $4,508.64. You earned $508.64 in interest."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 6
+ }
+}

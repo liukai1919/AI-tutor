@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.GEO.PYTH.APPLY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkqd6331fzv13",
+   "level": 1,
+   "question": "A painter leans a straight ladder against the wall of a house in Surrey. The bottom of the ladder sits on the ground 6 metres out from the wall, and the top of the ladder touches the wall 8 metres above the ground. The wall meets the ground at a right angle. How long is the ladder?",
+   "options": [
+    "10 metres",
+    "14 metres",
+    "100 metres",
+    "5.3 metres"
+   ],
+   "answerIndex": 0,
+   "explain": "The ladder is the hypotenuse because it faces the right angle: 6 squared plus 8 squared is 100, and the ladder is the square root of 100, which is 10 m. The usual trap is answering 100 — that is the square of the length, not the length.",
+   "tags": [
+    "ok",
+    "other",
+    "word.stop_early",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkqd6336socf0",
+   "level": 1,
+   "question": "A television screen in a family room is a rectangle 120 cm wide and 50 cm tall, so each corner is a right angle. Stores describe a TV by the length of the straight line from one corner to the opposite corner. What is that diagonal length?",
+   "options": [
+    "170 cm",
+    "130 cm",
+    "109 cm",
+    "16900 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "The diagonal is the hypotenuse of a right triangle with legs 120 and 50: 14400 plus 2500 is 16900, and the square root of 16900 is 130 cm. Do not stop at 16900, and do not subtract — the two sides of the screen are both legs.",
+   "tags": [
+    "other",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqd633zeazu8",
+   "level": 1,
+   "question": "A wooden garden gate is a rectangle 2 metres wide and 1.5 metres tall, with square corners. A carpenter nails one straight board from the bottom left corner to the top right corner as a brace. How long is that brace?",
+   "options": [
+    "3.5 metres",
+    "6.25 metres",
+    "2.5 metres",
+    "1.3 metres"
+   ],
+   "answerIndex": 2,
+   "explain": "The brace is the hypotenuse: 2 squared plus 1.5 squared is 4 plus 2.25, which is 6.25, and the square root of 6.25 is 2.5 m. Answering 6.25 means stopping one step early, before taking the square root.",
+   "tags": [
+    "other",
+    "word.stop_early",
+    "ok",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkqd633biiqu4",
+   "level": 2,
+   "question": "In a right triangle the hypotenuse measures 26 cm and one leg measures 24 cm. What is the length of the other leg?",
+   "options": [
+    "35.4 cm",
+    "50 cm",
+    "100 cm",
+    "10 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "The 26 cm side is the hypotenuse, so subtract: 676 minus 576 is 100, and the square root of 100 is 10 cm. Adding the squares gives about 35.4 cm, which would make a leg longer than the hypotenuse — impossible.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "other",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqd633pvid89",
+   "level": 2,
+   "question": "Marisol measures her flat rectangular TV screen as 96 cm wide and 72 cm tall, and she wants the diagonal length d. Which method gives the correct value of d?",
+   "options": [
+    "Add 96 squared and 72 squared, then take the square root",
+    "Add 96 squared and 72 squared, then stop; that total is d",
+    "Subtract 72 squared from 96 squared, then take the root",
+    "Add 96 and 72, then take the square root of the total"
+   ],
+   "answerIndex": 0,
+   "explain": "Width and height are the two legs, so the squares are added and then square rooted: 9216 plus 5184 is 14400, and the square root is 120 cm. Subtracting is only for a missing leg, and the total of the squares is not the answer by itself.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pyth.hypotenuse_misidentified",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqd6338t81v2",
+   "level": 2,
+   "question": "A 10 metre ladder leans against Ava's garage wall with its base 6 metres from the wall, so its top touches the wall 8 metres up. Ava then slides the base out until it is 8 metres from the wall, while the ladder stays 10 metres long. How far down the wall does the top of the ladder slide?",
+   "options": [
+    "6 metres",
+    "2 metres",
+    "4.8 metres",
+    "14 metres"
+   ],
+   "answerIndex": 1,
+   "explain": "The new height is a missing leg: 100 minus 64 is 36, so the top is now 6 m up, and 8 minus 6 means it slid 2 m. Answering 6 m stops at the new height instead of the distance it slid.",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqd633h1hkco",
+   "level": 2,
+   "question": "At Vanier Park, Noah has let out 25 metres of kite string, which is pulled straight and tight. The kite is directly above a spot on the ground that is 20 metres from where Noah stands, and his hand is at ground level. How high above the ground is the kite?",
+   "options": [
+    "32 metres",
+    "225 metres",
+    "15 metres",
+    "45 metres"
+   ],
+   "answerIndex": 2,
+   "explain": "The tight string is the hypotenuse, so the height is a missing leg: 625 minus 400 is 225, and the square root of 225 is 15 m. Adding 625 and 400 gives about 32 m, which is longer than the string itself.",
+   "tags": [
+    "pyth.add_when_finding_leg",
+    "word.stop_early",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqd6333flhqn",
+   "level": 3,
+   "question": "Lea paddles her canoe from a dock straight toward the far bank of a river that is 45 metres wide, but the current carries her 24 metres downstream, so her actual path is a straight slanted line. She lands, turns around, and paddles back along that same slanted path to the dock. How far did she paddle in total?",
+   "options": [
+    "138 metres",
+    "76 metres",
+    "51 metres",
+    "102 metres"
+   ],
+   "answerIndex": 3,
+   "explain": "One crossing is the hypotenuse: 2025 plus 576 is 2601, and the square root is 51 m, so the round trip is 102 m. Answering 51 m stops after one crossing and forgets the return trip.",
+   "tags": [
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqd633mm8zrh",
+   "level": 3,
+   "question": "A rectangular soccer field is 80 metres long and 60 metres wide. After practice, Owen walks from one corner to the opposite corner by going along the length and then along the width. His friend cuts straight across the field on the diagonal between the same two corners. How many metres shorter is the diagonal route?",
+   "options": [
+    "40 metres",
+    "100 metres",
+    "140 metres",
+    "87 metres"
+   ],
+   "answerIndex": 0,
+   "explain": "The diagonal is the hypotenuse: 6400 plus 3600 is 10000, so it is 100 m, and Owen's route is 80 plus 60, which is 140 m, so the saving is 40 m. Answering 100 m gives the diagonal instead of the difference the question asks for.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "other",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkqd633m68o8n",
+   "level": 3,
+   "question": "Kai wants to know how high up a wall a 15 metre ladder reaches when its base is 9 metres from the wall. He writes 15 squared plus 9 squared equals 306, and answers about 17.5 metres. Which statement identifies his error?",
+   "options": [
+    "He used the wrong leg as the hypotenuse; the 9 m base is the longest side",
+    "The ladder is the hypotenuse, so he must subtract: 225 - 81 gives 12 m",
+    "Nothing went wrong, because the two given lengths are always the legs",
+    "His only slip was stopping at 306; the height is 306 m, not 17.5 m"
+   ],
+   "answerIndex": 1,
+   "explain": "The ladder faces the right angle, so 15 m is the hypotenuse and the height is a missing leg: 225 minus 81 is 144, giving 12 m. Adding the squares always produces a height taller than the ladder, which is a signal the wrong operation was used.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.add_when_finding_leg",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkqd633pdlgc3",
+   "level": 3,
+   "question": "A 12 metre pole stands upright on a level sports field. Two straight support wires run from the very top of the pole down to two pegs in the ground, and each peg is 16 metres from the base of the pole, on opposite sides. Wire costs $2 per metre. What is the total cost of the wire needed for both supports?",
+   "options": [
+    "$112",
+    "$42",
+    "$80",
+    "$40"
+   ],
+   "answerIndex": 2,
+   "explain": "Each wire is a hypotenuse: 144 plus 256 is 400, so each wire is 20 m, both wires are 40 m, and 40 times $2 is $80. Answering $40 stops after pricing only one wire.",
+   "tags": [
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtktbyhfcoxp33",
+   "level": 1,
+   "question": "Nadia sets up a tent at a campground near Cultus Lake. The tent pole stands straight up 1.5 metres tall, meeting the flat ground at a right angle. A straight guy rope runs from the very top of the pole down to a peg in the ground 2 metres from the bottom of the pole. How long is that rope?",
+   "options": [
+    "6.25 m",
+    "3.5 m",
+    "1.3 m",
+    "2.5 m"
+   ],
+   "answerIndex": 3,
+   "explain": "The rope is the hypotenuse, so square both legs and add: 1.5 squared plus 2 squared is 2.25 + 4 = 6.25, and the square root of 6.25 is 2.5 m. The usual trap is answering 6.25 — that is the squared value, not a length.",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtktbyhfylahng",
+   "level": 1,
+   "question": "At a playground in Burnaby, a straight slide runs from the top of a platform down to the level ground. The platform is 3 metres tall and stands at a right angle to the ground, and the slide itself is 5 metres long. How far along the ground is the bottom of the slide from the base of the platform?",
+   "options": [
+    "4 m",
+    "16 m",
+    "5.8 m",
+    "8 m"
+   ],
+   "answerIndex": 0,
+   "explain": "The 5 m slide is the hypotenuse and the 3 m height is a leg, so subtract the squares: 25 − 9 = 16, and the square root of 16 is 4 m. Adding the squares gives about 5.8 and only works when the hypotenuse is the missing side; stopping at 16 forgets the square root.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pyth.add_when_finding_leg",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtktbyhfgxgs8q",
+   "level": 1,
+   "question": "Mei rides her bike 9 kilometres due east on a flat trail, then turns and rides 12 kilometres due north, so the two parts of her ride meet at a right angle. If she could ride in one straight line from where she stopped back to her starting point, how long would that straight line be?",
+   "options": [
+    "7.9 km",
+    "15 km",
+    "225 km",
+    "21 km"
+   ],
+   "answerIndex": 1,
+   "explain": "Her two rides are the legs of a right triangle, so the straight way back is the hypotenuse: 9 squared plus 12 squared is 225, and the square root of 225 is 15 km. Do not simply add 9 + 12, and do not stop at 225 — the square root is the final step.",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "word.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtktbyhf2kj2kt",
+   "level": 1,
+   "question": "Theo paddles his canoe straight out from one bank of a creek that is 12 metres wide, aiming at a right angle to the bank. The current pushes him sideways, so his real path through the water is a straight slanted line measuring 13 metres. How far downstream of the spot he aimed for does he land?",
+   "options": [
+    "25 m",
+    "17.7 m",
+    "5 m",
+    "1 m"
+   ],
+   "answerIndex": 2,
+   "explain": "The 13 m slanted path is the hypotenuse and the 12 m width is a leg, so subtract: 169 − 144 = 25, and the square root of 25 is 5 m downstream. The common slip is adding the squares, which gives about 17.7 and is only correct when the slanted side is the one you are looking for.",
+   "tags": [
+    "word.stop_early",
+    "pyth.add_when_finding_leg",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

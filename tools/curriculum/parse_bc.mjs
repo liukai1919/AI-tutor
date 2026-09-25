@@ -25,21 +25,127 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 
+/* ---------------- 10-12 年级分科课程 ----------------
+ * 官网从 10 年级起不再有「core」，而是并列多门课（FMP10 / Workplace 10；Pre-calc 11 / Foundations 11 …）。
+ * 这里只收「主干」：FMP10 → Pre-calculus 11 → Pre-calculus 12（理工升学路径）。
+ * 高中大纲没有五大主线，Content 是一张平的清单，所以每门课自定义「单元」（strandDefs，格式同书籍）
+ * 把条目分组——UI 分组、单元测试、家长报告都按它来。每条 Content 必须在 unitRules 里有显式归属，
+ * Big Idea 也按 bigIdeaUnit 挂到单元上（挂不上的留空，讲课时没有 Big Idea 也能讲）。 */
+const COURSES = {
+  fmp10: {
+    grade: 10, code: "FMP10", slug: "foundations-of-mathematics-and-pre-calculus", version: "June 2018",
+    title: { en: "Foundations of Mathematics and Pre-calculus 10", zh: "数学基础与预备微积分 10" },
+    short: { en: "FMP 10", zh: "FMP 10" },
+    label: "Foundations of Mathematics and Pre-calculus 10 · BC Ministry of Education · June 2018",
+    units: [
+      ["algebra", "ALG", "幂与多项式", "Powers & Polynomials"],
+      ["relations", "REL", "函数与线性关系", "Functions & Linear Relations"],
+      ["trigonometry", "TRI", "三角比", "Trigonometry"],
+      ["financial", "FIN", "理财", "Financial Literacy"]
+    ],
+    unitRules: [
+      ["operations on powers", "algebra"],
+      ["prime factorization", "algebra"],
+      ["multiplication of polynomial", "algebra"],
+      ["polynomial factoring", "algebra"],
+      ["functions and relations", "relations"],
+      ["linear functions", "relations"],
+      ["arithmetic sequences", "relations"],
+      ["systems of linear equations", "relations"],
+      ["primary trigonometric ratios", "trigonometry"],
+      ["financial literacy", "financial"]
+    ],
+    bigIdeaUnit: [
+      [/^algebra allows us to generalize/i, "algebra"],
+      [/extend to powers and polynomials/i, "algebra"],
+      [/constant rate of change/i, "relations"],
+      [/^trigonometry involves/i, "trigonometry"],
+      [/representing and analyzing situations/i, "financial"]
+    ]
+  },
+  pc11: {
+    grade: 11, code: "PC11", slug: "pre-calculus", version: "June 2018",
+    title: { en: "Pre-calculus 11", zh: "预备微积分 11" },
+    short: { en: "Pre-calc 11", zh: "Pre-calc 11" },
+    label: "Pre-calculus 11 · BC Ministry of Education · June 2018",
+    units: [
+      ["number-radicals", "NUM", "实数、幂与根式", "Real Numbers, Powers & Radicals"],
+      ["algebra", "ALG", "多项式与有理式", "Polynomials & Rational Expressions"],
+      ["quadratics", "QUA", "二次函数与不等式", "Quadratics & Inequalities"],
+      ["trigonometry", "TRI", "三角", "Trigonometry"],
+      ["financial", "FIN", "理财", "Financial Literacy"]
+    ],
+    unitRules: [
+      ["real number system", "number-radicals"],
+      ["powers with rational exponents", "number-radicals"],
+      ["radical operations", "number-radicals"],
+      ["polynomial factoring", "algebra"],
+      ["rational expressions", "algebra"],
+      ["quadratic functions", "quadratics"],
+      ["linear and quadratic inequalities", "quadratics"],
+      ["trigonometry", "trigonometry"],
+      ["financial literacy", "financial"]
+    ],
+    bigIdeaUnit: [
+      [/^algebra allows us to generalize/i, "algebra"],
+      [/powers, radicals, and polynomials/i, "number-radicals"],
+      [/^quadratic relationships/i, "quadratics"],
+      [/^trigonometry involves/i, "trigonometry"]
+    ]
+  },
+  pc12: {
+    grade: 12, code: "PC12", slug: "pre-calculus", version: "June 2018",
+    title: { en: "Pre-calculus 12", zh: "预备微积分 12" },
+    short: { en: "Pre-calc 12", zh: "Pre-calc 12" },
+    label: "Pre-calculus 12 · BC Ministry of Education · June 2018",
+    units: [
+      ["functions", "FUN", "函数变换", "Transformations of Functions"],
+      ["exponential-log", "EXP", "指数与对数", "Exponential & Logarithmic Functions"],
+      ["sequences", "SEQ", "等比数列与级数", "Geometric Sequences & Series"],
+      ["polynomial-rational", "POL", "多项式与有理函数", "Polynomial & Rational Functions"],
+      ["trigonometry", "TRI", "三角函数", "Trigonometric Functions"]
+    ],
+    unitRules: [
+      ["transformations of functions", "functions"],
+      ["exponential functions", "exponential-log"],
+      ["logarithms", "exponential-log"],
+      ["geometric sequences", "sequences"],
+      ["polynomial functions", "polynomial-rational"],
+      ["rational functions", "polynomial-rational"],
+      ["trigonometry", "trigonometry"]
+    ],
+    bigIdeaUnit: [
+      [/^using inverses/i, "exponential-log"],
+      [/families of functions/i, "polynomial-rational"],
+      [/^transformations of shapes/i, "functions"]
+    ]
+  }
+};
+
 /* ---------------- 参数 ---------------- */
 const args = process.argv.slice(2);
 function argVal(name) {
   const i = args.indexOf(name);
   return i >= 0 ? args[i + 1] : null;
 }
-const grade = Number(argVal("--grade"));
+const courseId = argVal("--course");
+const COURSE = courseId ? COURSES[courseId] : null;
+const grade = COURSE ? COURSE.grade : Number(argVal("--grade"));
 const htmlFile = argVal("--html");
 const outDir = argVal("--out") || path.join(ROOT, "data", "curriculum", "bc");
-if (!Number.isInteger(grade) || grade < 1 || grade > 9) {
-  console.error("用法：node tools/curriculum/parse_bc.mjs --grade 4 [--html saved.html] [--out dir]");
+if (courseId && !COURSE) {
+  console.error("不认识的课程 id：" + courseId + "（可选：" + Object.keys(COURSES).join(" / ") + "）");
   process.exit(1);
 }
-const SOURCE_URL = `https://curriculum.gov.bc.ca/curriculum/mathematics/${grade}/core`;
-const SOURCE_VERSION = "June 2016"; // 2016 定稿至今无修订计划（见 docs/bc-curriculum-plan.md §1.1）
+if (!COURSE && (!Number.isInteger(grade) || grade < 1 || grade > 9)) {
+  console.error("用法：node tools/curriculum/parse_bc.mjs --grade 4 [--html saved.html] [--out dir]");
+  console.error("      node tools/curriculum/parse_bc.mjs --course fmp10|pc11|pc12 [--html saved.html]   # 10-12 年级分科课程");
+  process.exit(1);
+}
+const SOURCE_URL = COURSE
+  ? `https://curriculum.gov.bc.ca/curriculum/mathematics/${grade}/${COURSE.slug}`
+  : `https://curriculum.gov.bc.ca/curriculum/mathematics/${grade}/core`;
+const SOURCE_VERSION = COURSE ? COURSE.version : "June 2016"; // K-9 2016 定稿至今无修订计划（见 docs/bc-curriculum-plan.md §1.1）
 
 /* ---------------- 主线归类 ----------------
  * BC 官方不给条目编号也不在页面上标主线；按 K→9 continuous view 的五大主线归类。
@@ -110,7 +216,29 @@ const STRAND_PREFIX_RULES = [
   ["volume of rectangular prisms", "geometry-measurement"],
   ["cartesian coordinates", "geometry-measurement"],
   ["circle graphs", "data-probability"],
-  ["experimental probability", "data-probability"]
+  ["experimental probability", "data-probability"],
+  // —— Grade 8 ——（官方 K-9 continuous view（July 2019）把 expressions / two-step equations 放在
+  // computational fluency、financial literacy 放在 data；本项目沿用 G4-G7 已发布的归法：
+  // 代数类条目归 patterning（和 G7 two-step equations 一致）、financial literacy 归 number）
+  ["perfect squares and cubes", "number"],
+  ["square and cube roots", "number"],
+  ["percents less than 1", "number"],
+  ["numerical proportional reasoning", "number"],
+  ["operations with fractions", "computational-fluency"],
+  ["expressions", "patterning"],
+  ["surface area and volume", "geometry-measurement"],
+  ["pythagorean theorem", "geometry-measurement"],
+  ["construction, views, and nets", "geometry-measurement"],
+  ["central tendency", "data-probability"],
+  ["theoretical probability", "data-probability"],
+  // —— Grade 9 ——（同上：多项式、多步方程这些代数条目归 patterning）
+  ["operations with rational numbers", "computational-fluency"],
+  ["exponents and exponent laws", "number"],
+  ["operations with polynomials", "patterning"],
+  ["two-variable linear relations", "patterning"],
+  ["multi-step one-variable linear equations", "patterning"],
+  ["spatial proportional reasoning", "geometry-measurement"],
+  ["statistics in society", "data-probability"]
 ];
 /* Big Idea 的主线：官网每条大意的 elaboration 第一条就是主线名（"Number: …"），直接认它 */
 const BIG_IDEA_STRAND = [
@@ -242,13 +370,26 @@ async function loadHtml() {
   return await r.text();
 }
 
+/* 主线（K-9）/ 单元（10-12 分科课）归类：规则都是条目原文前缀，匹配不上硬报错 */
+const UNIT_DEFS = COURSE ? COURSE.units : null;                       // [slug, code, zh, en]
+const STRAND_ORDER = COURSE ? UNIT_DEFS.map(u => u[0]) : Object.keys(STRAND_CODE);
+const strandCode = s => COURSE ? UNIT_DEFS.find(u => u[0] === s)[1] : STRAND_CODE[s];
 function strandOf(itemText) {
   const n = norm(itemText);
-  for (const [prefix, strand] of STRAND_PREFIX_RULES) if (n.startsWith(norm(prefix))) return strand;
-  throw new Error(`条目没有主线归类规则（新年级要先在 STRAND_PREFIX_RULES 补规则）：\n  "${itemText}"`);
+  const rules = COURSE ? COURSE.unitRules : STRAND_PREFIX_RULES;
+  for (const [prefix, strand] of rules) if (n.startsWith(norm(prefix))) return strand;
+  throw new Error(COURSE
+    ? `条目没有单元归类规则（在 COURSES.${courseId}.unitRules 补）：
+  "${itemText}"`
+    : `条目没有主线归类规则（新年级要先在 STRAND_PREFIX_RULES 补规则）：
+  "${itemText}"`);
 }
 
-function bigIdeaStrand(elabFlat) {
+function bigIdeaStrand(text, elabFlat) {
+  if (COURSE) {
+    for (const [re, unit] of COURSE.bigIdeaUnit) if (re.test(text)) return unit;
+    return "";                                   // 高中的大意不一定对应某个单元，允许空
+  }
   const first = (elabFlat[0] || "");
   for (const [re, strand] of BIG_IDEA_STRAND) if (re.test(first)) return strand;
   return null;
@@ -268,26 +409,28 @@ if (args.includes("--list")) {
 }
 
 /* 旧文件：保留人工中文层 */
-const outFile = path.join(outDir, `grade-${grade}.json`);
+const outFile = path.join(outDir, COURSE ? `course-${courseId}.json` : `grade-${grade}.json`);
 let prev = null;
 try { prev = JSON.parse(fs.readFileSync(outFile, "utf8")); } catch (_) {}
 const prevItems = new Map((prev && prev.items || []).map(it => [it.id, it]));
-const prevBig = new Map((prev && prev.bigIdeas || []).map(b => [b.strand, b]));
+const prevBig = new Map((prev && prev.bigIdeas || []).map(b => [b.strand + "|" + b.en, b]));
 const warnings = [];
 
 const bigIdeas = bigRows.map((r, i) => {
   const flat = r.elabs.length ? parseElabUl(r.elabs[0]) : [];
-  let strand = bigIdeaStrand(flat);
-  if (!strand) {
+  let strand = bigIdeaStrand(r.text, flat);
+  if (strand === null) {
     // 按官网行序回退——依赖 STRAND_CODE 的键序，不一定对，必须人工核对
     strand = Object.keys(STRAND_CODE)[i] || "number";
     warnings.push(`Big Idea 第 ${i + 1} 行没匹配到主线关键词，按行序回退为 ${strand}，请核对：\n  ${r.text}`);
   }
-  const old = prevBig.get(strand);
-  let zh = "";
-  if (old) {
-    if (old.en === r.text) zh = old.zh || "";
-    else warnings.push(`Big Idea (${strand}) 英文原文变了，zh 已清空待重校：\n  旧: ${old.en}\n  新: ${r.text}`);
+  if (COURSE && !strand) warnings.push(`Big Idea 第 ${i + 1} 行没挂到任何单元（bigIdeaUnit 没规则），讲课时这条大意用不上：\n  ${r.text}`);
+  // 原文一字不差才沿用旧 zh（高中一个单元可能挂多条大意，所以按 单元+原文 对）；变了就清空待重校
+  const old = prevBig.get(strand + "|" + r.text);
+  const zh = old ? (old.zh || "") : "";
+  if (!old && prev) {
+    const same = (prev.bigIdeas || []).find(b => b.strand === strand && !bigRows.some(x => x.text === b.en));
+    if (same) warnings.push(`Big Idea (${strand}) 英文原文变了，zh 已清空待重校：\n  旧: ${same.en}\n  新: ${r.text}`);
   }
   return { strand, en: r.text, zh };
 });
@@ -296,7 +439,7 @@ const counters = {};
 const items = contentRows.map(r => {
   const strand = strandOf(r.text);
   const nn = counters[strand] = (counters[strand] || 0) + 1;
-  const id = `BC.MATH.G${grade}.${STRAND_CODE[strand]}.${String(nn).padStart(2, "0")}`;
+  const id = `BC.MATH.${COURSE ? COURSE.code : "G" + grade}.${strandCode(strand)}.${String(nn).padStart(2, "0")}`;
   const elaborations = r.elabs.flatMap(e => parseElabUl(e)).map(en => ({ en, zh: "" }));
   const item = { id, strand, en: r.text, zh: "", elaborations, terms: [], teachHints: "" };
   const old = prevItems.get(id);
@@ -314,7 +457,24 @@ const items = contentRows.map(r => {
   return item;
 });
 
-const out = {
+const out = COURSE ? {
+  jurisdiction: "BC",
+  type: "course",                  // server 按这个字段认分科课程（和书籍的 type:"book" 并列）
+  courseId,
+  grade,
+  title: COURSE.title,
+  short: COURSE.short,
+  source: {
+    kind: "bc-course",
+    url: SOURCE_URL,
+    version: SOURCE_VERSION,
+    label: COURSE.label,
+    fetchedAt: new Date().toISOString().slice(0, 10)
+  },
+  strandDefs: UNIT_DEFS.map(([slug, , zh, en]) => [slug, zh, en]),
+  bigIdeas,
+  items
+} : {
   jurisdiction: "BC",
   grade,
   source: {
@@ -332,17 +492,18 @@ fs.writeFileSync(outFile, JSON.stringify(out, null, 2) + "\n", "utf8");
 /* ---------------- 验收报告（对应计划 §1.4） ---------------- */
 console.log(`\n✔ 写入 ${path.relative(ROOT, outFile)}`);
 console.log(`  Big Ideas: ${bigIdeas.length} 条（主线：${bigIdeas.map(b => b.strand).join(", ")}）`);
-console.log(`  Content:   ${items.length} 条（预期 12-20）`);
-for (const [strand, code] of Object.entries(STRAND_CODE)) {
+const [lo, hi] = COURSE ? [6, 12] : [8, 20];
+console.log(`  Content:   ${items.length} 条（预期 ${lo}-${hi}）`);
+for (const strand of STRAND_ORDER) {
   const n = items.filter(it => it.strand === strand).length;
-  console.log(`    ${code}  ${strand}: ${n} 条${n ? "" : "  ⚠ 空主线！"}`);
+  console.log(`    ${strandCode(strand)}  ${strand}: ${n} 条${n ? "" : "  ⚠ 空主线！"}`);
 }
 console.log("  spot check（前 3 条原文）：");
 for (const it of items.slice(0, 3)) console.log(`    ${it.id}  ${it.en}`);
 const missingZh = items.filter(it => !it.zh).length;
 if (missingZh) console.log(`  ⚠ ${missingZh} 条缺中文层（zh 为空），等 AI 辅助翻译 + 人工校对后补进文件。`);
 for (const w of warnings) console.log("  ⚠ " + w);
-if (items.length < 12 || items.length > 20) {
-  console.log("  ⚠ 条目数超出 12-20 预期范围（K-9 每年级 13-19 条），检查解析是否正确！");
+if (items.length < lo || items.length > hi) {
+  console.log(`  ⚠ 条目数超出 ${lo}-${hi} 预期范围（K-9 每年级 8-19 条，10-12 分科课 7-10 条），检查解析是否正确！`);
   process.exitCode = 2;
 }

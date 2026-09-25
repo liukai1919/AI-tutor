@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.APPLY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkpbvx2jykjpm",
+   "level": 1,
+   "question": "A phone plan in Surrey costs $20 each month plus $5 for every GB of data used. What is the bill for a month in which 3 GB are used?",
+   "options": [
+    "$35",
+    "$15",
+    "$65",
+    "$75"
+   ],
+   "answerIndex": 0,
+   "explain": "The $20 is a fixed part paid once, and only the $5 is repeated: 20 + 5 x 3 = $35. The usual trap is to multiply the whole $25 by 3, or to stop after the $15 of data and forget the monthly fee.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx21bbfl4",
+   "level": 1,
+   "question": "A TransLink youth pass costs $12 to buy, then $2 for each ride taken with it. Which expression gives the total cost c after r rides?",
+   "options": [
+    "c = 2 + 12r",
+    "c = 12 + 2r",
+    "c = 2r",
+    "c = 14r"
+   ],
+   "answerIndex": 1,
+   "explain": "The one-time $12 is the starting value and the $2 is the rate per ride, so c = 12 + 2r. A common mistake is swapping the two numbers, or adding them first to get 14r, which charges the $12 again on every ride.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2gpii8m",
+   "level": 1,
+   "question": "A community centre charges a $15 membership plus $4 for each swim. The table of values reads: 0 swims $15, 1 swim $19, 2 swims $23, 3 swims $27. What is the cost of 6 swims?",
+   "options": [
+    "$24",
+    "$94",
+    "$39",
+    "$114"
+   ],
+   "answerIndex": 2,
+   "explain": "The table goes up $4 each row from a starting value of $15, so 6 swims cost 15 + 4 x 6 = $39. Watch out for stopping at the $24 of swim charges, or multiplying the $15 membership by 6 when it is paid only once.",
+   "tags": [
+    "word.stop_early",
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2j62xi6",
+   "level": 1,
+   "question": "A dog-walking service charges a $10 booking fee plus $7 for each walk, so the total is c = 10 + 7w. What does the 7 tell you about this situation?",
+   "options": [
+    "The booking fee is $7 and it is paid once.",
+    "The total is $7 when no walks are booked.",
+    "Each walk costs $10 with $7 added on top.",
+    "The total goes up $7 for each extra walk."
+   ],
+   "answerIndex": 3,
+   "explain": "The number multiplied by the variable is the rate of change, so each extra walk adds $7, while the 10 is the value at w = 0. The classic error is swapping the roles and reading the 7 as the one-time fee.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx21g3v5o",
+   "level": 2,
+   "question": "A phone plan costs C = 20 + 5g dollars, where g is the number of GB used in a month. One month the bill was $65. How many GB were used?",
+   "options": [
+    "9 GB",
+    "13 GB",
+    "3 GB",
+    "45 GB"
+   ],
+   "answerIndex": 0,
+   "explain": "Take off the fixed $20 first, then divide by the rate: (65 - 20) / 5 = 9 GB. Two traps are dividing $65 by 5 straight away, which ignores the monthly fee, and answering 45, which is only the halfway step.",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.slope_intercept_swap",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx25qsyfb",
+   "level": 2,
+   "question": "A Whistler shop rents snowboards. Its table of values shows 1 day $45, 2 days $75, 3 days $105 and 4 days $135. Which expression gives the total cost c for d days?",
+   "options": [
+    "c = 45d",
+    "c = 30d + 15",
+    "c = 30d",
+    "c = 15d + 30"
+   ],
+   "answerIndex": 1,
+   "explain": "The difference is $30 per day, so step back one day from $45 to get $15 at d = 0, giving c = 30d + 15. Using c = 45d works only for one day, because it charges the fixed $15 again every day.",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2u46lde",
+   "level": 2,
+   "question": "Nora charges for babysitting by a linear relation whose graph passes through the points (0, 15), (2, 41) and (4, 67), where x is hours and y is dollars. What does she charge for a 6-hour job?",
+   "options": [
+    "$103",
+    "$78",
+    "$93",
+    "$168"
+   ],
+   "answerIndex": 2,
+   "explain": "From (0, 15) to (2, 41) the cost rises $26 over 2 hours, so the rate is $13 per hour and the total is 15 + 13 x 6 = $93. Do not stop at the $78 of hourly pay, and do not multiply the $15 starting fee by 6.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2rae68n",
+   "level": 2,
+   "question": "Which situation is modelled by the expression c = 25 + 6n, where n is the number of classes?",
+   "options": [
+    "A gym charges $6 to join, then $25 for each class.",
+    "A gym charges $6 per class and nothing to sign up.",
+    "A gym charges $31 for every class you sign up for.",
+    "A gym charges $25 to join, then $6 for each class."
+   ],
+   "answerIndex": 3,
+   "explain": "The number sitting alone is the one-time value at n = 0, and the number attached to n is the repeated rate, so $25 to join and $6 per class. Swapping them, or folding the join fee into every class as $31, both change the relation.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx26s9fo8",
+   "level": 3,
+   "question": "Jordan pays $20 a month for his phone plan plus $5 for every GB of data. In September his bill was $70. In October he used 3 GB less than in September. What was his October bill?",
+   "options": [
+    "$55",
+    "$35",
+    "$145",
+    "$175"
+   ],
+   "answerIndex": 0,
+   "explain": "First undo the fixed fee to find September usage, (70 - 20) / 5 = 10 GB, so October is 7 GB and costs 20 + 5 x 7 = $55. The common slip is answering $35, which is the data charge only, with the $20 fee left off.",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "linear.slope_intercept_swap",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2wd0td1",
+   "level": 3,
+   "question": "A Grade 8 class books a field trip: $180 for the bus plus $12 for each student who enters the museum. Exactly 20 students go, and the whole cost is shared equally among them. How much does each student pay?",
+   "options": [
+    "$420",
+    "$21",
+    "$12",
+    "$9"
+   ],
+   "answerIndex": 1,
+   "explain": "Build the relation first, total = 180 + 12n, so 180 + 12 x 20 = $420, then divide by 20 to get $21 each. The trap is stopping at the $420 total, or sharing only the bus and forgetting the museum fee.",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2r13rfj",
+   "level": 3,
+   "question": "A climbing gym charges $30 to join plus $9 for each visit. Ben says 5 visits cost $195, because he worked out 30 + 9 = 39 and then multiplied 39 by 5. What went wrong?",
+   "options": [
+    "He should have stopped at $45 and not added a join fee at all here.",
+    "The $9 should be the one-time fee and the $30 the cost per visit.",
+    "The $30 join fee is paid once, so it should not be multiplied by 5.",
+    "He should have multiplied the $30 by 5 and left the $9 on its own."
+   ],
+   "answerIndex": 2,
+   "explain": "In a linear relation only the rate repeats, so the cost is 30 + 9 x 5 = $75. Adding the fixed part to the rate before multiplying charges the $30 membership five times over.",
+   "tags": [
+    "word.stop_early",
+    "linear.slope_intercept_swap",
+    "ok",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtkpbvx2vh2a85",
+   "level": 3,
+   "question": "Nadia has $45 saved and adds $8 every week. Marcus has $85 saved and adds $3 every week. When their savings are equal, how much money does each of them have?",
+   "options": [
+    "8 weeks",
+    "$130",
+    "$64",
+    "$109"
+   ],
+   "answerIndex": 3,
+   "explain": "Set 45 + 8w equal to 85 + 3w to get 5w = 40, so w = 8 weeks, then finish the job: 45 + 8 x 8 = $109 each. Answering 8 stops at the intermediate week number instead of the amount asked for.",
+   "tags": [
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  }
+ ]
+}

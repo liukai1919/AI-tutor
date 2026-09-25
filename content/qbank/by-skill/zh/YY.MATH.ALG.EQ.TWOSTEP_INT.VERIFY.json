@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.VERIFY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkpohypmofm46",
+   "level": 1,
+   "question": "检查 x = −3 是不是方程（equation）−5x + 6 = 21 的解。下面哪一句验算（verify）完全正确？",
+   "options": [
+    "左边 = −5×(−3) + 6 = 21，与右边相等，是解。",
+    "左边 = −5 − 3 + 6 = −2，−2 ≠ 21，所以不是解。",
+    "左边 = −5×(−3) = 15，15 ≠ 21，所以 x = −3 不是解。",
+    "左边 = −5×(−3) + 6 = 20，与 21 只差 1，也是解。"
+   ],
+   "answerIndex": 0,
+   "explain": "代入要写成 −5×(−3) = 15，再加上常数 6 得 21，与右边 21 完全相等，所以是解。最常踩的坑是算到 15 就停下来比较，或者漏掉括号写成 −5 − 3。",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohypx7bex7",
+   "level": 1,
+   "question": "把 n = −2 代入两步方程（two-step equation）3n + 5 = −1 做验算。哪一句过程完全正确？",
+   "options": [
+    "左边 = 3×(−2) = −6，−6 ≠ −1，所以 n = −2 不是解。",
+    "左边 = 3×(−2) + 5 = −1，与右边相等，n = −2 是解。",
+    "左边 = 3 − 2 + 5 = 6，6 ≠ −1，所以 n = −2 不是解。",
+    "左边 = 3×(−2) + 5 = 0，与 −1 只差 1，也算是解。"
+   ],
+   "answerIndex": 1,
+   "explain": "3n 在 n = −2 时是 3×(−2) = −6，再加常数 5 得 −1，与右边相等，所以 n = −2 是解。写成 3 − 2 的那个把乘号丢了，算到 −6 就比较的那个忘了加常数。",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohyp5xwh14",
+   "level": 1,
+   "question": "把 y = −4 代入算式 5y + 12，左边（left side）等于多少？理由是什么？",
+   "options": [
+    "−20，因为代入后算出 5×(−4) = −20，常数 12 不用管。",
+    "13，因为 5y 在 y = −4 时是 5 − 4 = 1，1 + 12 = 13。",
+    "−8，因为 5×(−4) = −20，再加上常数 12 得 −8。",
+    "−7，因为 −20 加 12 大约就是 −7，差 1 不影响判断。"
+   ],
+   "answerIndex": 2,
+   "explain": "代入负数要加括号：5×(−4) = −20，再加常数 12 得 −8。算成 13 的那个把 5y 当成 5 − 4，停在 −20 的那个漏掉了常数。",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohyptiq1l6",
+   "level": 1,
+   "question": "判断 x = −5 是不是 8 − 3x = 23 的解。哪一句验算过程完全正确？",
+   "options": [
+    "左边 = 8 − 3 − 5 = 0，0 ≠ 23，所以 x = −5 不是解。",
+    "左边 = 8 + 15 = 22，与 23 只差 1，可以说是解。",
+    "左边 = −3×(−5) = 15，15 ≠ 23，所以 x = −5 不是解。",
+    "左边 = 8 − 3×(−5) = 23，与右边相等，x = −5 是解。"
+   ],
+   "answerIndex": 3,
+   "explain": "−3x 在 x = −5 时是 −3×(−5) = +15，再加常数 8 得 23，与右边相等，所以是解。写成 8 − 3 − 5 的那个丢了乘号和负负得正，只算 15 的那个漏了常数 8。",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "eq.verify_stop_before_constant",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpohypxwsb2d",
+   "level": 2,
+   "question": "把 x = −5 代进去算一算，下面哪个方程真的以 x = −5 为解？",
+   "options": [
+    "2x + 9 = −1",
+    "2x + 9 = 6",
+    "2x + 9 = −2",
+    "2x + 9 = −10"
+   ],
+   "answerIndex": 0,
+   "explain": "代入得 2×(−5) + 9 = −10 + 9 = −1，所以右边写 −1 的那个才成立。右边写 −10 的忘了加常数 9，写 6 的把 2x 算成 2 − 5，写 −2 的以为差 1 也能算相等。",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "eq.verify_stop_before_constant"
+   ]
+  },
+  {
+   "qid": "qmtkpohypzj5ich",
+   "level": 2,
+   "question": "有同学解 −6x + 4 = 22，得到 x = −3。用验算判断这个解对不对，哪一句判断和理由都正确？",
+   "options": [
+    "不对——代入得 −6×(−3) = 18，18 ≠ 22，解错了。",
+    "对——代入得 −6×(−3) + 4 = 22，与右边完全相等。",
+    "不对——代入得 −6 − 3 + 4 = −5，−5 ≠ 22，解错了。",
+    "对——代入得 21，与 22 只差 1，验算时可以忽略。"
+   ],
+   "answerIndex": 1,
+   "explain": "系数（coefficient）是 −6，代入负数要加括号：−6×(−3) = 18，再加常数 4 得 22，与右边相等，解正确。只算 18 就下结论的漏了常数，写 −6 − 3 的丢了乘号。",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohypz5hueg",
+   "level": 2,
+   "question": "用验算判断：x = −2 是不是 5x + 3 = −8 的解？哪一句判断和理由都正确？",
+   "options": [
+    "不是解——5x 在 x = −2 时是 5 − 2 = 3，3 + 3 = 6，6 ≠ −8。",
+    "是解——左边 −7 与右边 −8 只差 1，很接近就当作相等。",
+    "不是解——代入得 5×(−2) + 3 = −7，而 −7 ≠ −8，不算相等。",
+    "不是解——只要看 5×(−2) = −10，−10 ≠ −8，常数 3 不用代。"
+   ],
+   "answerIndex": 2,
+   "explain": "完整代入是 5×(−2) + 3 = −10 + 3 = −7，而右边是 −8，两边差 1 就不相等，所以不是解。验算不允许「接近」，也不能算到 −10 就停下或把 5x 写成 5 − 2。",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "ok",
+    "eq.verify_stop_before_constant"
+   ]
+  },
+  {
+   "qid": "qmtkpohypvkiwgx",
+   "level": 2,
+   "question": "小明要验算 x = −6 是不是 4x + 15 = −9 的解。下面哪种写法和结论都正确？",
+   "options": [
+    "写成 4×(−6) + 15 = −10，与 −9 只差 1，也是解。",
+    "写成 4 − 6 + 15，x 直接换成 −6，算得 13，不是解。",
+    "写成 4×(−6) = −24，只拿 −24 和 −9 比，不是解。",
+    "写成 4×(−6) + 15，−6 要加括号，算得 −9，是解。"
+   ],
+   "answerIndex": 3,
+   "explain": "代入负数时把 −6 放进括号：4×(−6) = −24，再加常数 15 得 −9，与右边相等，所以是解。把 x 直接写成 −6 变成 4 − 6 就把乘法丢了，只比较 −24 则漏了常数。",
+   "tags": [
+    "eq.verify_not_exact",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpohypew7nhg",
+   "level": 3,
+   "question": "卡姆卢普斯（Kamloops）某天下午 2 点气温是 20 °C，之后每小时气温变化 c °C，每小时变化的度数一样多。5 小时后（晚上 7 点）气温是 −5 °C，可以列出方程 20 + 5c = −5。小敏说 c = −5。请用验算判断她对不对。",
+   "options": [
+    "对——代入得 20 + 5×(−5) = −5，与右边完全相等。",
+    "不对——代入得 20 + 5 − 5 = 20，20 ≠ −5，所以她错了。",
+    "对——代入得 −4，与 −5 只差 1 °C，气温差 1 度可忽略。",
+    "不对——代入得 5×(−5) = −25，−25 ≠ −5，所以她错了。"
+   ],
+   "answerIndex": 0,
+   "explain": "把 c = −5 代入：5×(−5) = −25，再加常数 20 得 −5，与右边相等，所以每小时降 5 °C 是对的。算到 −25 就比较的漏了起始的 20 °C，写成 20 + 5 − 5 的丢了乘号。",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact",
+    "eq.verify_stop_before_constant"
+   ]
+  },
+  {
+   "qid": "qmtkpohypy8aos2",
+   "level": 3,
+   "question": "素里（Surrey）某天清晨气温是 t °C。一个天气规则说：当天最高气温 = 2t + 9（单位 °C）。今天预报的最高气温是 3 °C。请用验算判断：清晨气温是不是 −3 °C？",
+   "options": [
+    "不是——代入得 2×(−3) = −6，−6 ≠ 3，所以不是 −3 °C。",
+    "是——代入得 2×(−3) + 9 = 3，与预报的 3 °C 相等。",
+    "不是——代入得 2 − 3 + 9 = 8，8 ≠ 3，所以不是 −3 °C。",
+    "是——代入得 4，与 3 只差 1 °C，预报差 1 度也算对。"
+   ],
+   "answerIndex": 1,
+   "explain": "先把规则写成方程 2t + 9 = 3，再把 t = −3 代入：2×(−3) = −6，加 9 得 3，与预报相等，所以清晨确实是 −3 °C。算到 −6 就比较漏了常数 9，写成 2 − 3 的丢了乘号。",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohyp85986s",
+   "level": 3,
+   "question": "小杰要验算 x = −3 是不是 −4x + 7 = 19 的解，他写下：−4 − 3 + 7 = 0，所以不是解。下面哪句话说清了他的问题？",
+   "options": [
+    "他没写错，−4x 在 x = −3 时就是 −4 − 3 = −7，加 7 得 0，不是解。",
+    "他多算了常数，验算只要比较 −4×(−3) = 12 和 19，仍然不是解。",
+    "他漏了括号，应是 −4×(−3) = 12，再加 7 得 19，是解。",
+    "他算得对，只是差得多，把常数 7 改成 19 两边就相等，是解。"
+   ],
+   "answerIndex": 2,
+   "explain": "−4x 表示 −4 乘 x，代入负数必须加括号：−4×(−3) = 12，再加常数 7 得 19，与右边相等，x = −3 是解。写成 −4 − 3 就把乘法变成了减法，验算也不能靠改常数来凑相等。",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtkpohyp9he4bw",
+   "level": 3,
+   "question": "小安验算 x = −4 是不是 3x − 1 = −12 的解，她算出左边是 −13，就说「只差 1，应该算解」。下面哪句判断和理由都正确？",
+   "options": [
+    "她说得对——−13 和 −12 只差 1，验算允许这么小的误差。",
+    "她说得对——因为 3×(−4) = −12，和右边相等，就已经是解。",
+    "她说得不对——3x 应算成 3 − 4 = −1，减 1 得 −2，离 −12 太远。",
+    "她说得不对——−13 ≠ −12，验算要两边完全相等才算解。"
+   ],
+   "answerIndex": 3,
+   "explain": "左边 3×(−4) − 1 = −12 − 1 = −13，右边是 −12，只要不完全相等就不是解，差 1 也不行。停在 3×(−4) = −12 的漏了常数 −1，写成 3 − 4 的把乘号丢了。",
+   "tags": [
+    "eq.verify_not_exact",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,133 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.DATA.DBAR.CREATE",
+ "lang": "en",
+ "title": "Make a double bar graph from a table and choose a sensible scale",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Building a Double Bar Graph: Picking a Smart Scale",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to read a double bar graph, even when one square stands for five. Today we flip it around, we are going to build one ourselves from a table, and the trickiest part is choosing how much one square should be worth.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our table. Class five A and class five B in Surrey collected bottles for four weeks. Class five A got forty, twenty five, thirty five and thirty. Class five B got twenty, forty five, fifteen and fifty. Two classes, four weeks, so every week will get two bars side by side.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      40,
+      25,
+      35,
+      30,
+      20,
+      45,
+      15,
+      50
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Class 5A",
+      "Class 5B"
+     ],
+     "caption": "Bottles collected each week"
+    }
+   },
+   {
+    "say": "Now the big step, choosing the scale. First find the largest number in the whole table. That is fifty, class five B in week four. If one square meant one bottle, we would need fifty squares going up, way too tall for our page. So let one square mean five bottles. Fifty divided by five is ten, so ten squares up is plenty. Nice and roomy.",
+    "math": "50 \\div 5 = 10",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      40,
+      25,
+      35,
+      30,
+      20,
+      45,
+      15,
+      50
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Class 5A",
+      "Class 5B"
+     ],
+     "caption": "One square stands for 5 bottles"
+    }
+   },
+   {
+    "say": "Let's draw week one together. Class five A collected forty bottles, and forty divided by five is eight, so that bar goes up eight squares. Class five B collected twenty bottles, and twenty divided by five is four, so that bar goes up four squares, right beside it. Same for the rest, twenty five is five squares, thirty five is seven squares, thirty is six squares, forty five is nine squares, fifteen is three squares, and fifty is ten squares. Then colour class five A one colour and class five B another, and add a legend so everyone knows which is which.",
+    "math": "40 \\div 5 = 8,\\quad 20 \\div 5 = 4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      40,
+      20
+     ],
+     "labels": [
+      "Week 1 Class 5A",
+      "Week 1 Class 5B"
+     ],
+     "caption": "Week 1: 8 squares tall and 4 squares tall"
+    }
+   },
+   {
+    "say": "Here is the mistake I see all the time. A friend looks at the week two bar for class five B, counts nine squares, and writes down nine bottles. But wait, each square is worth five, not one. Nine squares means nine times five, which is forty five bottles. So when you build your graph, write the numbers five, ten, fifteen, twenty and so on up the side of the axis, not one, two, three. That little label saves you every time.",
+    "math": "9 \\times 5 = 45",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      0,
+      25,
+      0,
+      0,
+      0,
+      45,
+      0,
+      0
+     ],
+     "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Class 5A",
+      "Class 5B"
+     ],
+     "caption": "9 squares is 45 bottles, not 9"
+    }
+   },
+   {
+    "say": "So remember, find the biggest number first, pick a scale that keeps your graph about ten squares tall, and always label the axis with the real values.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Find the biggest number, then pick a scale so the tallest bar is about ten squares high, and label the axis by that scale, not by ones.",
+  "practice": {
+   "question": "A school in Kelowna is running a food drive. Class five C collected thirty cans in March, forty five cans in April, and sixty cans in May. Class five D collected twenty five cans in March, fifty cans in April, and thirty five cans in May. You want to draw a double bar graph on grid paper that is only about twelve squares tall. What should one square stand for, and how many squares tall will the tallest bar be? Try sketching the graph yourself with two coloured bars for each month.",
+   "answer": "Let one square stand for five cans. The largest number is sixty, and sixty divided by five is twelve, so the tallest bar (class five C in May) is twelve squares high. The axis should be labelled five, ten, fifteen, twenty and so on, all the way up to sixty."
+  }
+ }
+}

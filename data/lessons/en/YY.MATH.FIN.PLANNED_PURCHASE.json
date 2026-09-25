@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.PLANNED_PURCHASE",
+ "lang": "en",
+ "title": "Plan a purchase or event (hosting a First Peoples gathering, buying a phone): compare saving up with paying over time, and adjust the budget",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Save Up or Pay Over Time? Planning a Big Purchase",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to build a monthly budget and how to find the best buy. Today we use those skills for one real decision: when you want something big, like a new phone, should you save up for it, or pay for it a bit at a time? We will compare the two plans with numbers, then tweak the budget to make the plan work.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the situation. The phone you want costs seven hundred twenty dollars. You have already saved one hundred twenty dollars, and you can put fifty dollars a week aside from your part time job. Plan A is to save up. First subtract what you already have: seven hundred twenty minus one hundred twenty is six hundred dollars still needed. Then six hundred divided by fifty is twelve. So saving up takes twelve weeks, and the phone costs you exactly seven hundred twenty dollars.",
+    "math": "720-120=600,\\quad 600\\div 50=12\\text{ weeks}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      720,
+      120,
+      600
+     ],
+     "labels": [
+      "Phone price",
+      "Already saved",
+      "Still need"
+     ],
+     "caption": "The gap you still need to fill is $600, not $720"
+    }
+   },
+   {
+    "say": "Plan B is to pay over time. The store offers the phone for nothing down and thirty five dollars a month for twenty four months. Multiply: thirty five times twenty four is eight hundred forty dollars. Compare that with the seven hundred twenty dollar price: eight hundred forty minus seven hundred twenty is one hundred twenty dollars extra. You get the phone today, but you pay one hundred twenty dollars more in total, and you are locked into two years of payments.",
+    "math": "35\\times 24=840,\\quad 840-720=120\\text{ extra}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      120,
+      50,
+      12,
+      720,
+      0,
+      35,
+      24,
+      840
+     ],
+     "labels": [
+      "Down payment ($)",
+      "Each payment ($)",
+      "Number of payments",
+      "Total cost ($)",
+      "Save up",
+      "Pay over time"
+     ],
+     "caption": "Same phone, two plans: $720 total versus $840 total"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of people make. They take the full price, seven hundred twenty, and divide by fifty right away. That gives fourteen point four, so they say fifteen weeks. But that ignores the one hundred twenty dollars already sitting in the account. The money you have saved is a head start, so always subtract it first. And one more trap: six hundred dollars is not the answer either. The question asked how many weeks, so keep going until you get twelve.",
+    "math": "720\\div 50=14.4\\ \\text{(wrong)}\\qquad 600\\div 50=12\\ \\text{(right)}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      14.4,
+      12
+     ],
+     "labels": [
+      "Wrong: 720 divided by 50",
+      "Right: 600 divided by 50"
+     ],
+     "caption": "Skipping the savings step makes the plan look almost 3 weeks longer"
+    }
+   },
+   {
+    "say": "Now adjust the budget. Suppose twelve weeks feels too long but you do not want to pay the extra one hundred twenty dollars. Look at your variable expenses. If you trim ten dollars a week from snacks and bubble tea, your weekly saving goes from fifty to sixty dollars. Then six hundred divided by sixty is ten weeks. Two weeks faster, and still the full price of seven hundred twenty with nothing extra. Small budget changes make the save up plan much more realistic.",
+    "math": "50+10=60,\\quad 600\\div 60=10\\text{ weeks}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      50,
+      12,
+      60,
+      10
+     ],
+     "labels": [
+      "Weekly saving ($)",
+      "Weeks needed",
+      "Current budget",
+      "Adjusted budget"
+     ],
+     "caption": "Saving $10 more per week cuts the wait from 12 weeks to 10"
+    }
+   },
+   {
+    "say": "So the takeaway: subtract what you already have, divide by what you can save each week to get the wait time, then multiply the payments to see the true cost of paying over time. Paying over time is faster but costs more. Saving up is cheaper, and a small budget tweak can make it faster too.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Weeks to save = (price minus savings) divided by weekly saving; pay-over-time cost = payment times number of payments.",
+  "practice": {
+   "question": "Your class is hosting a First Peoples gathering with a community feast that costs four hundred fifty dollars. You have already raised one hundred fifty dollars, and bottle drives bring in twenty five dollars a week. A caterer also offers nothing down and forty dollars a month for twelve months. How many weeks does it take to save up? How much more does the pay-over-time plan cost in total?",
+   "answer": "Save up: 450 minus 150 is 300 still needed, and 300 divided by 25 is 12 weeks. Pay over time: 40 times 12 is 480 dollars, which is 30 dollars more than the 450 dollar price."
+  }
+ }
+}

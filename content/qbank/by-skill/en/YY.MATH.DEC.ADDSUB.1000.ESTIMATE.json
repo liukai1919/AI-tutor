@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.DEC.ADDSUB.1000.ESTIMATE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5h84q3q9huem",
+   "level": 1,
+   "question": "A number line goes from 0 to 1 and is divided into 10 equal parts, so the marks are 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1. Aria puts a dot at 0.487. Which mark is her dot closest to?",
+   "options": [
+    "0.5",
+    "0.4",
+    "0.6",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explain": "Between the marks 0.4 and 0.5, the dot for 0.487 sits 0.087 past 0.4 but only 0.013 below 0.5, so 0.5 is the closest mark. The common trap is to look only at the tenths digit and say 0.4, which is really dropping the rest of the number instead of comparing distances.",
+   "tags": [
+    "ok",
+    "est.truncate_decimal",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3ywd24b",
+   "level": 1,
+   "question": "On a number line from 0 to 1 divided into 10 equal parts (each part is 0.1), Noor puts one dot at 0.312 and another dot at 0.655. She moves each dot to the nearest mark and then adds those two marks. What estimate does she get for the sum?",
+   "options": [
+    "0.8",
+    "1.0",
+    "0.9",
+    "1.1"
+   ],
+   "answerIndex": 1,
+   "explain": "The dot at 0.312 is nearest the 0.3 mark and the dot at 0.655 is nearest the 0.7 mark, so the estimate is 0.3 + 0.7 = 1.0 (the exact sum is 0.967, so this is a good estimate). The trap is moving 0.655 down to 0.6 by ignoring the thousandths, which gives the low estimate 0.9.",
+   "tags": [
+    "other",
+    "ok",
+    "est.truncate_decimal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3swdkns",
+   "level": 1,
+   "question": "A number line from 0 to 1 is divided into 10 equal parts, with marks at 0, 0.1, 0.2, and so on up to 1. Diego marks 0.508 and 0.196, then moves each one to the nearest mark to estimate the difference between them. Which estimate is correct?",
+   "options": [
+    "0.2",
+    "0.4",
+    "0.3",
+    "0.7"
+   ],
+   "answerIndex": 2,
+   "explain": "The number 0.508 is nearest the 0.5 mark and 0.196 is nearest the 0.2 mark, so the estimated difference is 0.5 - 0.2 = 0.3 (the exact difference is 0.312). One trap is chopping 0.196 down to 0.1 and getting 0.4; another is adding the benchmarks instead of subtracting them.",
+   "tags": [
+    "other",
+    "est.truncate_decimal",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q34esuyi",
+   "level": 1,
+   "question": "A number line runs from 0 to 1 with marks every 0.1, and the benchmarks Mei is allowed to use are 0, 0.5 and 1. She marks the number 0.962. Which reason for choosing a benchmark is correct?",
+   "options": [
+    "Use 0.5, because 0.962 is between 0.5 and 1, and you always choose the smaller benchmark.",
+    "Use 0, because 0.962 is less than 1, and any decimal less than 1 is estimated as 0.",
+    "Use 0.5, because the 9 in the tenths place is closer to 5 than it is to 10.",
+    "Use 1, because 0.962 is only 0.038 away from 1 but 0.462 away from 0.5."
+   ],
+   "answerIndex": 3,
+   "explain": "To pick a benchmark you compare distances on the number line: 1 - 0.962 = 0.038, while 0.962 - 0.5 = 0.462, so 1 is much closer. The common trap is thinking a decimal less than 1 must be estimated as 0, or always grabbing the benchmark on the left.",
+   "tags": [
+    "other",
+    "est.truncate_decimal",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3mwxiig",
+   "level": 2,
+   "question": "Estimate 6.803 + 2.149 by rounding each number to the nearest whole number. Which estimate do you get?",
+   "options": [
+    "9",
+    "8",
+    "10",
+    "8.9"
+   ],
+   "answerIndex": 0,
+   "explain": "6.803 rounds to 7 and 2.149 rounds to 2, so the estimate is 7 + 2 = 9 (the exact sum is 8.952). The usual trap is dropping the decimal part instead of rounding, which gives 6 + 2 = 8 and is too low.",
+   "tags": [
+    "ok",
+    "est.truncate_decimal",
+    "round.wrong_place",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3hfq9xb",
+   "level": 2,
+   "question": "Estimate 12.487 - 3.512 by rounding each number to the nearest tenth. Which estimate do you get?",
+   "options": [
+    "8.9",
+    "9.0",
+    "9.1",
+    "16.0"
+   ],
+   "answerIndex": 1,
+   "explain": "Rounding to the nearest tenth gives 12.5 and 3.5, so the estimate is 12.5 - 3.5 = 9.0 (the exact difference is 8.975). Watch out for cutting 12.487 down to 12.4 instead of rounding it up, and for adding when the question says difference.",
+   "tags": [
+    "est.truncate_decimal",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3i3p69z",
+   "level": 2,
+   "question": "Ravi wants to know whether 4.238 + 3.891 is more than 8, without adding exactly. Which reasoning is correct?",
+   "options": [
+    "Dropping the digits after the decimal point gives 4 + 3 = 7, so the sum is less than 8.",
+    "Rounding to the nearest whole gives 4 + 4 = 8, so the sum is exactly 8.",
+    "4.238 is more than 4.2 and 3.891 is more than 3.8, and 4.2 + 3.8 = 8, so the sum must be more than 8.",
+    "Both numbers are less than 4.5, so their sum must be less than 8."
+   ],
+   "answerIndex": 2,
+   "explain": "If you replace each number with something smaller and the smaller pair already adds to 8, the real sum has to be bigger than 8. The big trap is treating an estimate as the exact answer and saying the sum equals 8 (it is really 8.129).",
+   "tags": [
+    "est.truncate_decimal",
+    "est.estimate_as_exact",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3al8g76",
+   "level": 2,
+   "question": "Use benchmarks instead of adding exactly. Which of these sums is closest to 5?",
+   "options": [
+    "1.995 + 3.512",
+    "0.489 + 4.006",
+    "3.508 + 1.980",
+    "2.487 + 2.516"
+   ],
+   "answerIndex": 3,
+   "explain": "Replace each number with a friendly benchmark: 2.487 and 2.516 are both about 2.5, and 2.5 + 2.5 = 5, while the others give about 2 + 3.5 = 5.5, about 0.5 + 4 = 4.5, and about 3.5 + 2 = 5.5. The trap is only checking the whole-number part, which hides how close 2.487 and 2.516 really are to 2.5.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5h84q369d9t3",
+   "level": 3,
+   "question": "Sam estimates 7.396 - 2.851 by rounding each number to the nearest whole number and gets 7 - 3 = 4. His friend says the exact difference must be bigger than 4. Who is right, and why?",
+   "options": [
+    "The friend is right: 7.396 went down to 7 and 2.851 up to 3, and both changes pull the estimate below the real difference.",
+    "Sam is right: rounding to whole numbers gives the exact answer when the decimal parts are small, and these are tiny.",
+    "Sam is right: one number went down and the other up, so the roundings cancel and the estimate equals the exact difference.",
+    "The friend is right, but only because 7 - 3 was worked out wrongly and should be 5, which is bigger than the 4 Sam wrote."
+   ],
+   "answerIndex": 0,
+   "explain": "In a subtraction, making the first number smaller and the second number bigger both pull the answer down, so the estimate 4 must be under the exact difference of 4.545. The most common misconception is believing that rounding one number down and the other up always cancels out.",
+   "tags": [
+    "ok",
+    "est.estimate_as_exact",
+    "est.bias_direction_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3gat465",
+   "level": 3,
+   "question": "Kai's goal is to walk 4 km in one day. He walks 1.874 km to school in the morning and 2.089 km on a trail after school. He estimates 1.9 + 2.1 = 4.0 and says he met his goal exactly. Which statement is true?",
+   "options": [
+    "The real total is exactly 4 km, because the estimate came out to 4.0 and a good estimate lands on the true answer.",
+    "The real total is a bit under 4 km, because 1.874 and 2.089 were both rounded up, so the estimate is a bit too high.",
+    "The real total is more than 4 km, because rounding always makes an estimate too small, so the real walk is longer.",
+    "The real total is about 3 km, because 1.874 and 2.089 become 1 and 2 when you keep only the whole number part."
+   ],
+   "answerIndex": 1,
+   "explain": "Both distances were rounded up to make the estimate, so the true total (3.963 km) must be a little below the estimate of 4.0 km, and Kai just missed his goal. The trap is treating an estimate as the exact total; always ask whether you rounded up or down before you trust it.",
+   "tags": [
+    "est.estimate_as_exact",
+    "ok",
+    "est.bias_direction_ignored",
+    "est.truncate_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5h84q3mqehvq",
+   "level": 3,
+   "question": "Priya's water bottle holds 0.750 L. She drinks 0.385 L in the morning and 0.294 L at lunch. Without calculating exactly, which conclusion about how much is left is correct?",
+   "options": [
+    "More than 0.1 L is left, because each drink is under 0.4 L, so together they are under 0.5 L and about 0.25 L is left.",
+    "Exactly 0.1 L is left, because 0.750 rounds to 0.8 and 0.8 - 0.7 = 0.1.",
+    "Less than 0.1 L is left, because 0.385 + 0.294 is about 0.7 and 0.750 - 0.7 = 0.05.",
+    "More than 0.1 L is left, because 0.385 + 0.294 is about 0.6 and 0.750 - 0.6 = 0.15."
+   ],
+   "answerIndex": 2,
+   "explain": "Round each drink to the nearest tenth first: 0.4 + 0.3 = 0.7 L used, leaving about 0.750 - 0.7 = 0.05 L, so less than 0.1 L remains (the exact amount left is 0.071 L). The trap is chopping 0.385 down to 0.3 instead of rounding it up, which makes the leftover look much bigger than it is.",
+   "tags": [
+    "other",
+    "est.estimate_as_exact",
+    "ok",
+    "est.truncate_decimal"
+   ]
+  },
+  {
+   "qid": "qmt5h84q318t2o0",
+   "level": 3,
+   "question": "At a school carnival in Surrey, Maya has $20.00. She wants popcorn for $6.45, a drink for $4.80 and a hot dog for $7.95. Without adding exactly, is $20.00 enough for all three?",
+   "options": [
+    "No - rounding to the nearest dollar gives $6 + $5 + $8 = $19, but estimates are always too low, so the real total is over $20.",
+    "Yes - dropping the cents gives $6 + $4 + $7 = $17, so she will have about $3 left over.",
+    "No - $7 + $5 + $8 = $20 exactly, so the real total is $20 and she will be short.",
+    "Yes - rounding every price up gives $7 + $5 + $8 = $20, and because every price was rounded up the real total must be less than $20."
+   ],
+   "answerIndex": 3,
+   "explain": "When every amount is rounded up and the estimate still fits in $20, the exact total is guaranteed to fit too (it is $19.20). The traps here are believing estimates are always too low, and dropping the cents, which makes the leftover money look like $3 instead of $0.80.",
+   "tags": [
+    "est.bias_direction_ignored",
+    "est.truncate_decimal",
+    "est.estimate_as_exact",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LINEQ.VERIFY",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtlz4d7yhhnnp6",
+   "level": 1,
+   "question": "The equation 5x + 4 = −11 says that 5 times a number, plus 4, equals −11. Priya thinks the number is x = −3. She checks by putting −3 in place of x on the left side and comparing the result with the right side, −11. Which statement describes a correct check?",
+   "options": [
+    "Yes, because 5(−3) + 4 = −15 + 4 = −11 matches the right side",
+    "No, because 5 − 3 + 4 works out to 6, and 6 does not equal −11",
+    "No, because 5(−3) works out to −15, and −15 does not equal −11",
+    "Yes, because −15 is only 4 away from −11, which is close enough"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute with brackets, finish every operation on the side, then compare exactly: 5(−3) + 4 = −15 + 4 = −11, which equals the right side. Stopping at −15, or writing 5 − 3 instead of 5(−3), gives a wrong check.",
+   "tags": [
+    "ok",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yj83dm9",
+   "level": 1,
+   "question": "The equation 3y − 5 = −16 says that 3 times a number, minus 5, equals −16. Theo claims the number is y = −4. He substitutes −4 for y on the left side and compares the result with the right side, −16. Which statement describes a correct check?",
+   "options": [
+    "Yes, because 3(−4) − 5 = −17, and −17 is only 1 away from −16",
+    "No, because 3(−4) − 5 = −12 − 5 = −17, and −17 is not −16",
+    "No, because 3(−4) works out to −12, and −12 does not equal −16",
+    "No, because 3 − 4 − 5 works out to −6, and −6 does not equal −16"
+   ],
+   "answerIndex": 1,
+   "explain": "3(−4) − 5 = −12 − 5 = −17, and −17 is not −16, so y = −4 is not a solution. A check has to match exactly; being 1 away means the value is wrong, and comparing −12 with −16 before subtracting the 5 is an unfinished check.",
+   "tags": [
+    "eq.verify_not_exact",
+    "ok",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yhvkvg4",
+   "level": 1,
+   "question": "The equation (1/2)x + 7 = 4 says that half of a number, plus 7, equals 4. Amara thinks the number is x = −6. She substitutes −6 for x on the left side and compares the result with the right side, 4. Which statement describes a correct check?",
+   "options": [
+    "No, because 1/2 − 6 + 7 works out to 1.5, and 1.5 does not equal 4",
+    "No, because (1/2)(−6) works out to −3, and −3 does not equal 4",
+    "Yes, because (1/2)(−6) + 7 = −3 + 7 = 4, matching the right side",
+    "Yes, because −3 is only a few units away from 4, which is close enough"
+   ],
+   "answerIndex": 2,
+   "explain": "Half of −6 is (1/2)(−6) = −3, and −3 + 7 = 4, exactly the right side, so x = −6 is a solution. Writing 1/2 − 6 turns the multiplication into a subtraction, and stopping at −3 forgets the + 7.",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yoru7ok",
+   "level": 1,
+   "question": "The equation 0.4t + 3 = 0 says that 0.4 times a number, plus 3, equals 0. Marcus claims the number is t = −5. He substitutes −5 for t on the left side and compares the result with the right side, 0. Which statement describes a correct check?",
+   "options": [
+    "Yes, because 0.4(−5) + 3 = 1, which is only one away from 0",
+    "No, because 0.4 − 5 + 3 = −1.6, and −1.6 does not equal 0",
+    "No, because 0.4(−5) works out to −2, and −2 does not equal 0",
+    "No, because 0.4(−5) + 3 = −2 + 3 = 1, and 1 does not equal 0"
+   ],
+   "answerIndex": 3,
+   "explain": "0.4(−5) = −2, then −2 + 3 = 1, and 1 is not 0, so t = −5 is not a solution (the real solution is t = −7.5). A left side that is one away from the right side is a miss, not a match, and stopping at −2 leaves out the + 3.",
+   "tags": [
+    "eq.verify_not_exact",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yxfu2ph",
+   "level": 2,
+   "question": "Is x = −2 a solution of 2(x − 3) + 5x = −20? Choose the correct check.",
+   "options": [
+    "Left side is −20, so both sides match and x = −2 works",
+    "Left side is −10, so the sides differ and x = −2 fails",
+    "Left side is −7, so the sides differ and x = −2 fails",
+    "Left side is −17, which is close enough, so x = −2 works"
+   ],
+   "answerIndex": 0,
+   "explain": "Substitute with brackets and finish the whole side: 2(−2 − 3) + 5(−2) = 2(−5) + (−10) = −20, an exact match. Writing 5 − 2 instead of 5(−2), or stopping after 2(−5) = −10, leaves the check unfinished, and −17 is a miss, not a match.",
+   "tags": [
+    "ok",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7ybvaqln",
+   "level": 2,
+   "question": "Sam checks whether x = −2 is a solution of 0.5x + 3 = 2. His work is: Line 1: 0.5 − 2 + 3. Line 2: = 1.5. Line 3: 1.5 is close to 2, so x = −2 is a solution. Which statement about Sam's check is correct?",
+   "options": [
+    "Line 3 is fine: 1.5 is close enough to 2 for the check to pass",
+    "Line 1 is wrong: 0.5(−2) = −1, then −1 + 3 = 2, an exact match",
+    "Line 2 is wrong: 0.5(−2) = −1, and −1 is not 2, so x = −2 fails",
+    "Line 1 is fine: putting −2 in place of x gives 0.5 − 2 + 3 exactly"
+   ],
+   "answerIndex": 1,
+   "explain": "0.5x means 0.5 times x, so the substitution must be 0.5(−2) = −1, giving −1 + 3 = 2, an exact match. Sam got 1.5 because he dropped the brackets, and a left side that is merely close to 2 never makes a check pass.",
+   "tags": [
+    "eq.verify_not_exact",
+    "ok",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7y84vv7v",
+   "level": 2,
+   "question": "Is x = −3/2 a solution of 4x + 5 = 2x + 2? Choose the correct check of both sides.",
+   "options": [
+    "No, because the left side is −6 and the right side is −3",
+    "No, because 4 − 3/2 + 5 = 7.5 and 2 − 3/2 + 2 = 2.5 differ",
+    "Yes, because both sides equal −1 after substituting −3/2",
+    "Yes, because the sides come out to −1 and −0.5, close enough"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute into both sides and finish each one: 4(−3/2) + 5 = −6 + 5 = −1 and 2(−3/2) + 2 = −3 + 2 = −1, so they match exactly. Comparing −6 with −3 stops before the constants are added, and 4 − 3/2 replaces multiplying with subtracting.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok",
+    "eq.verify_not_exact"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yd7we9y",
+   "level": 2,
+   "question": "Noor's science homework says: 2.5 times the overnight low in Fort St. John, plus 14, equals −6. She writes 2.5L + 14 = −6 and solves to get L = −8 °C. Which check correctly decides whether Noor is right?",
+   "options": [
+    "Noor is wrong: 2.5 − 8 + 14 works out to 8.5, and 8.5 is not −6",
+    "Noor is wrong: 2.5(−8) works out to −20, and −20 is not −6",
+    "Noor is right: −20 is roughly in the range of −6, close enough",
+    "Noor is right: 2.5(−8) + 14 = −20 + 14 = −6, an exact match"
+   ],
+   "answerIndex": 3,
+   "explain": "Check by substituting: 2.5(−8) = −20, then −20 + 14 = −6, exactly the right side, so L = −8 is correct. Stopping at −20 misses the + 14, and 2.5 − 8 is not 2.5 times −8.",
+   "tags": [
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7yo1rjvg",
+   "level": 3,
+   "question": "Tao solved 6 − 2(x + 1) = 3x + 14 and got x = −2. He checked it like this. Line 1: left side 6 − 2(−2 + 1) = 6 − 2(−1) = 6 + 2 = 8. Line 2: right side 3 − 2 + 14 = 15. Line 3: 8 is not 15, so x = −2 is not a solution. His teacher says x = −2 IS the solution. Which line went wrong, and why?",
+   "options": [
+    "Line 2: 3x at x = −2 is 3(−2) = −6, so the right side is 8, not 15",
+    "Line 3: 8 and 15 are close, so Tao should have accepted x = −2",
+    "None: 3 − 2 + 14 is exactly what replacing x with −2 in 3x + 14 gives",
+    "Line 1: 6 − 2(−1) should stop at −2(−1) = 2, so the left side is 2"
+   ],
+   "answerIndex": 0,
+   "explain": "3x means 3 times x, so with x = −2 the right side is 3(−2) + 14 = −6 + 14 = 8, matching the left side exactly. Tao wrote 3 − 2 instead of 3(−2), which turned a correct solution into a false failure.",
+   "tags": [
+    "ok",
+    "eq.verify_not_exact",
+    "expr.substitute_negative_no_brackets",
+    "eq.verify_stop_before_constant"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7zcp4yqx",
+   "level": 3,
+   "question": "Ben solves (3/4)x − 5 = −11 and gets x = −7. His check: (3/4)(−7) − 5 = −5.25 − 5 = −10.25, and he says that is basically −11, so x = −7 works. Anika solves the same equation and gets x = −8. Whose value is the solution, and why?",
+   "options": [
+    "Ben's, because −10.25 rounds to about −11, and a check only needs to be close",
+    "Anika's, because (3/4)(−8) − 5 = −6 − 5 = −11 exactly, as a check must",
+    "Neither, because (3/4)(−8) = −6 and (3/4)(−7) = −5.25, and neither equals −11",
+    "Neither, because 3/4 − 8 − 5 = −12.25 and 3/4 − 7 − 5 = −11.25, and neither is −11"
+   ],
+   "answerIndex": 1,
+   "explain": "A solution must make both sides exactly equal: (3/4)(−8) − 5 = −6 − 5 = −11, so x = −8 is the solution. Ben's −10.25 is a near miss, which means x = −7 is wrong, not ‘close enough’.",
+   "tags": [
+    "eq.verify_not_exact",
+    "ok",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7zmcv3dn",
+   "level": 3,
+   "question": "In Fort Nelson the daytime high was 12 degrees warmer than the overnight low L. The weather club also found that 3 times the low plus 20 gave that same high, so 3L + 20 = L + 12. Kai says L = −4 °C and Priya says L = −5 °C. Who is right?",
+   "options": [
+    "Neither: 3(−4) = −12 is not −4, and 3(−5) = −15 is not −5, so both fail",
+    "Both: Kai's sides are 8 and 8, and Priya's are 5 and 7, which is close enough",
+    "Kai only: 3(−4) + 20 = 8 and −4 + 12 = 8 match; Priya's sides are 5 and 7",
+    "Neither: 3 − 4 + 20 = 19 is not 8, and 3 − 5 + 20 = 18 is not 7, so both fail"
+   ],
+   "answerIndex": 2,
+   "explain": "Substitute each value into both sides: for L = −4, 3(−4) + 20 = 8 and −4 + 12 = 8, an exact match; for L = −5 the sides are 5 and 7, so it fails. Being 2 apart is not close enough, and comparing 3(−4) with −4 stops before the constants are added.",
+   "tags": [
+    "eq.verify_stop_before_constant",
+    "eq.verify_not_exact",
+    "ok",
+    "expr.substitute_negative_no_brackets"
+   ]
+  },
+  {
+   "qid": "qmtlz4d7zwb9ieh",
+   "level": 3,
+   "question": "Divers at Porteau Cove record depth d in metres, with d negative below the surface. The water pressure in kPa is 100 − 10d. A gauge reads 145 kPa. Lin says d = −4.5 and Sam says d = −4. Who is right?",
+   "options": [
+    "Sam: 100 − 10(−4) = 140, which is close enough to 145 to count as right",
+    "Neither: −10(−4.5) = 45 and −10(−4) = 40, and neither one is 145",
+    "Neither: 100 − 10 − 4.5 = 85.5 and 100 − 10 − 4 = 86, and neither is 145",
+    "Lin: 100 − 10(−4.5) = 100 + 45 = 145 exactly, while Sam's gives 140"
+   ],
+   "answerIndex": 3,
+   "explain": "Substitute with brackets: 100 − 10(−4.5) = 100 + 45 = 145, exactly the gauge reading, so Lin is right. Sam's value gives 140, and a check that is 5 off is a miss; writing 100 − 10 − 4.5 loses both the multiplication and the sign.",
+   "tags": [
+    "eq.verify_not_exact",
+    "eq.verify_stop_before_constant",
+    "expr.substitute_negative_no_brackets",
+    "ok"
+   ]
+  }
+ ]
+}

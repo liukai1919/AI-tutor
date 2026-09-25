@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.CONCEPT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkrr7c3qcluez",
+   "level": 1,
+   "question": "A bag holds 5 red and 5 blue counters. Ava draws one counter, records the colour, puts it back, and then draws again. Which statement about the two draws is true?",
+   "options": [
+    "They are independent: the bag holds all 10 counters again.",
+    "The second draw is less likely to be red if red came first.",
+    "They are independent only if red and blue are equally likely.",
+    "They are not independent, since red was already used up."
+   ],
+   "answerIndex": 0,
+   "explain": "Because the counter goes back, both draws start from the same 10 counters, so one draw cannot change the other. The trap is thinking independence comes from red and blue being equally likely, or that a colour gets 'used up' when it is replaced.",
+   "tags": [
+    "ok",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3hkge2j",
+   "level": 1,
+   "question": "A jar holds 3 green and 5 yellow beads, 8 beads in all. Liam draws one bead and keeps it, then draws a second bead. Are the two draws independent?",
+   "options": [
+    "Yes — every bead in the jar has the same chance of being drawn.",
+    "No — after he keeps the first bead, only 7 beads are left.",
+    "Yes — green stays at 3 out of 8 on the first and second draw.",
+    "No — drawing green first makes green impossible next time."
+   ],
+   "answerIndex": 1,
+   "explain": "Keeping the first bead changes the jar from 8 beads to 7, so the second draw depends on the first. The common trap is saying green stays 3/8; the jar is smaller now, but green is still possible.",
+   "tags": [
+    "prob.independent_means_equal",
+    "ok",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c320yale",
+   "level": 1,
+   "question": "At games night Mia spins a spinner with 4 equal sections and flips a coin. Which statement about the spin and the flip is true?",
+   "options": [
+    "Not independent — heads twice in a row forces the next flip to be tails.",
+    "Independent only if the coin and every section are equally likely.",
+    "Independent — the coin cannot change the spinner's four sections.",
+    "Not independent — the spinner has four outcomes and the coin only two."
+   ],
+   "answerIndex": 2,
+   "explain": "Events are independent when one outcome does not change the other, and a coin flip leaves each spinner section at 1 out of 4. Neither a streak of heads nor a different number of outcomes has any effect.",
+   "tags": [
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal",
+    "ok",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3ltip75",
+   "level": 1,
+   "question": "Which of these describes two independent events?",
+   "options": [
+    "Drawing a name from a hat and keeping it, then drawing again.",
+    "Taking two apples from a bowl of six without replacing either.",
+    "Spinning red twice, so the next spin must land on another colour.",
+    "Rolling a number cube, then flipping a coin at games night."
+   ],
+   "answerIndex": 3,
+   "explain": "Independent means the first outcome leaves the second one's chances unchanged, which is true for a cube and a coin. Keeping what you drew shrinks what is left, and a spinner never remembers earlier spins.",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3ql4qhx",
+   "level": 2,
+   "question": "A bag has 12 marbles: 4 red and 8 white. Sam draws one marble, keeps it, then draws another. Which expression gives P(red, then red)?",
+   "options": [
+    "4/12 × 3/11 (11 marbles are left)",
+    "4/12 × 4/12 (the bag is unchanged)",
+    "4/12 × 3/12 (still 12 in the bag)",
+    "4/12 × 0 (red cannot come twice)"
+   ],
+   "answerIndex": 0,
+   "explain": "Without replacement both numbers shrink: 3 reds out of 11 marbles on the second draw, so 4/12 × 3/11. Writing 4/12 twice treats the draws as independent when they are not, and a second red is still possible.",
+   "tags": [
+    "ok",
+    "prob.independent_means_equal",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3bjptyg",
+   "level": 2,
+   "question": "Which pair of events is NOT independent?",
+   "options": [
+    "Rolling a 4 on a number cube, then rolling that same cube again.",
+    "Drawing two tickets from a box without putting the first back.",
+    "Flipping tails three times, then flipping the coin a fourth time.",
+    "Spinning twice on a spinner whose sections are different sizes."
+   ],
+   "answerIndex": 1,
+   "explain": "Events are not independent when the first outcome changes what is available for the second, which only happens when the ticket is not returned. Repeats, streaks, and uneven sections do not create dependence.",
+   "tags": [
+    "prob.past_results_change_outcomes",
+    "ok",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c354p2qg",
+   "level": 2,
+   "question": "Mr. Chen has 12 name cards, one for each student. He draws a name for line leader, then draws a name for door holder. What one change would make the two draws independent?",
+   "options": [
+    "Shuffle the cards well so that each draw is completely fair.",
+    "Skip any name that was already drawn on an earlier day.",
+    "Put the first name back in the pile before drawing again.",
+    "Check that every student's name appears on exactly one card."
+   ],
+   "answerIndex": 2,
+   "explain": "Only replacing the first card leaves all 12 names available for the second draw, so one outcome cannot change the other. Shuffling and equal chances make the draw fair, but fair is not the same as independent.",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "ok",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3t6y85e",
+   "level": 2,
+   "question": "Two events A and B each have a probability of 1/3. Which statement is true?",
+   "options": [
+    "They must be independent, since both probabilities equal 1/3.",
+    "They cannot be independent, because both chances are the same.",
+    "After A happens twice, P(B) must fall below 1/3 to balance out.",
+    "Equal probabilities do not tell us whether A affects B."
+   ],
+   "answerIndex": 3,
+   "explain": "Independence is about whether one event changes the other's chance, not about the two chances being equal. Matching probabilities such as 1/3 and 1/3 prove nothing either way, and earlier results never adjust P(B).",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3oftwbt",
+   "level": 3,
+   "question": "A bake-sale box holds 15 muffins: 6 banana and 9 blueberry. Priya takes one muffin at random and eats it, then Devon takes one muffin at random. Which statement is true?",
+   "options": [
+    "If Priya ate blueberry, Devon's chance of blueberry is 8/14.",
+    "Devon's chance of blueberry stays 9/15, so the picks are independent.",
+    "Devon cannot get blueberry, since blueberry was already taken.",
+    "Each chance is 1/2, because there are only two kinds of muffin."
+   ],
+   "answerIndex": 0,
+   "explain": "Eating a blueberry muffin leaves 8 blueberry out of 14 muffins, so the second pick depends on the first. The usual trap is keeping 9/15 as though the box refilled itself.",
+   "tags": [
+    "ok",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c332fjii",
+   "level": 3,
+   "question": "Ravi flips a fair coin four times and gets heads every time. He says the fifth flip is more likely to be tails because tails is 'due'. Which statement is correct?",
+   "options": [
+    "He is right, because four heads makes tails more likely to balance out.",
+    "He is wrong: each flip is independent and the coin has no memory.",
+    "He is wrong, because heads is now more likely after a long streak.",
+    "He is right, because heads and tails must even out over five flips."
+   ],
+   "answerIndex": 1,
+   "explain": "Every flip is a separate event with P(tails) = 1/2, no matter what came before. Both 'tails is due' and 'heads is hot' assume past results change the coin, and they do not.",
+   "tags": [
+    "prob.past_results_change_outcomes",
+    "ok",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c3wnko8d",
+   "level": 3,
+   "question": "A fair carnival game uses Spinner A with 5 equal sections (2 say WIN) and Spinner B with 4 equal sections (1 says WIN). A player spins both spinners once. Which statement is correct?",
+   "options": [
+    "The spins are independent, so P(two wins) = 2/5 + 1/4 = 13/20.",
+    "The spins are not independent, since the spinners differ in size.",
+    "The spins are independent, so P(two wins) = 2/5 × 1/4 = 1/10.",
+    "After a win on Spinner A, Spinner B is less likely to say WIN."
+   ],
+   "answerIndex": 2,
+   "explain": "Neither spinner changes the other, so multiply the two chances: 2/5 × 1/4 = 1/10. Adding gives a chance bigger than either event, and Spinner B cannot react to Spinner A's result.",
+   "tags": [
+    "other",
+    "prob.independent_means_equal",
+    "ok",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrr7c37ch9cr",
+   "level": 3,
+   "question": "A jar holds 20 raffle tickets: 5 gold and 15 white. Maya draws one ticket, keeps it, then draws a second. She writes P(gold, gold) = 5/20 × 5/20. What is wrong?",
+   "options": [
+    "Nothing — every ticket in the jar is still equally likely to come out.",
+    "The second chance is 0, because gold cannot be drawn two times.",
+    "Nothing — keeping a ticket does not change the jar for the next draw.",
+    "The second chance is 4/19, because one gold ticket is now gone."
+   ],
+   "answerIndex": 3,
+   "explain": "Keeping the first gold ticket leaves 4 gold among 19 tickets, so the draws are not independent and the answer is 5/20 × 4/19. Writing 5/20 twice treats a without-replacement draw as if the jar refilled.",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,133 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G8.NUM.04",
+ "lang": "en",
+ "title": "numerical proportional reasoning (rates, ratio, proportions, and percent)",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Ratios Are Just 'Parts' — Split Anything Fairly",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay so picture this. You and your friend Jake go out for pizza after soccer practice. You both get hungry, but you ordered different amounts — you grabbed two slices, Jake grabbed three. The tab is forty-five bucks. Now, how do you split that fairly? You don't just divide by two, right? You split it in the ratio of two to three. That's proportional reasoning, and it's honestly one of the most useful math skills you'll ever use — splitting bills, scaling a recipe, figuring out your phone data, even making a cedar drum that actually sounds good.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      3
+     ],
+     "labels": [
+      "You (2 slices)",
+      "Jake (3 slices)"
+     ],
+     "caption": "Splitting the $45 bill in ratio 2 : 3"
+    }
+   },
+   {
+    "say": "Here's the trick that makes every ratio problem click, and I promise it's simpler than it looks. A ratio like two to three does NOT mean two dollars and three dollars. It means two PARTS and three PARTS. You add up the parts — two plus three gives you five total parts. Then you figure out what one part is worth, and you multiply back out. That's the whole method. Three steps every time: add the parts, divide the total by the number of parts, then multiply. Done.",
+    "math": "\\text{One part} = \\frac{\\text{Total amount}}{\\text{sum of the ratio numbers}}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      3
+     ],
+     "labels": [
+      "Part 1 = 2",
+      "Part 2 = 3"
+     ],
+     "caption": "Ratio 2 : 3  →  2 parts + 3 parts = 5 parts total"
+    }
+   },
+   {
+    "say": "Let's try a real one. You get a hundred-and-twenty-dollar birthday gift, and you want to share it with your little sister in the ratio of three to five, because she helped you save up. Step one: add the parts. Three plus five is eight total parts. Step two: one part is one hundred twenty divided by eight, which is fifteen dollars. Step three: your share is three times fifteen, that's forty-five. Her share is five times fifteen, that's seventy-five. Quick check: forty-five plus seventy-five is one hundred twenty. Perfect, nobody's shortchanged.",
+    "math": "\\frac{120}{3+5}=\\frac{120}{8}=15 \\;\\$ \\quad\\Rightarrow\\quad 3\\times15=\\$45,\\;\\; 5\\times15=\\$75",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      45,
+      75
+     ],
+     "labels": [
+      "You  (3 × $15 = $45)",
+      "Sister (5 × $15 = $75)"
+     ],
+     "caption": "$120 split in ratio 3 : 5  →  $45 and $75"
+    }
+   },
+   {
+    "say": "Now here's the one your teacher loves to throw at you. A string is one hundred five centimetres long, and you cut it into three pieces whose lengths are in the ratio three to five to seven. Three parts, five parts, seven parts — add them up, that's fifteen parts total. One part is one hundred five divided by fifteen, which is seven centimetres. Piece one: three times seven, twenty-one centimetres. Piece two: five times seven, thirty-five centimetres. Piece three: seven times seven, forty-nine centimetres. Let's check: twenty-one plus thirty-five is fifty-six, plus forty-nine is one hundred five. Nailed it, the whole string is accounted for.",
+    "math": "\\frac{105}{3+5+7}=\\frac{105}{15}=7\\;\\text{cm} \\;\\Longrightarrow\\; 3\\times7=21\\;\\text{cm},\\;\\;5\\times7=35\\;\\text{cm},\\;\\;7\\times7=49\\;\\text{cm}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      21,
+      35,
+      49
+     ],
+     "labels": [
+      "Piece 1  (3 × 7 = 21 cm)",
+      "Piece 2  (5 × 7 = 35 cm)",
+      "Piece 3  (7 × 7 = 49 cm)"
+     ],
+     "caption": "105 cm string cut in ratio 3 : 5 : 7  →  21 cm, 35 cm, 49 cm"
+    }
+   },
+   {
+    "say": "Now here's where it all connects, because ratio, rate, and percent are literally the same family. A rate is a ratio with different units — like eight litres per hundred kilometres, or sixty bucks per month for your phone plan. A percent is just a ratio where the total is one hundred. So go back to that three-to-five-to-seven string. Three parts out of fifteen is one-fifth, which is twenty percent. Five out of fifteen is one-third, about thirty-three point three percent. Seven out of fifteen is about forty-six point seven percent. Same string, same numbers, just a different way of saying it. You've already got the skill; percent is just the ratio wearing a different hat.",
+    "math": "\\frac{3}{15}=\\frac{1}{5}=20\\%, \\qquad \\frac{5}{15}=\\frac{1}{3}\\approx 33.3\\%, \\qquad \\frac{7}{15}\\approx 46.7\\%",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      20,
+      33.3,
+      46.7
+     ],
+     "labels": [
+      "Piece 1: 20%",
+      "Piece 2: 33.3%",
+      "Piece 3: 46.7%"
+     ],
+     "caption": "The 3 : 5 : 7 ratio expressed as percents of the whole string"
+    }
+   },
+   {
+    "say": "And this stuff isn't just for worksheets. When you're making a cedar hand drum for a culture or art class, the ratio of the drum's diameter to its height completely changes the pitch and the tone. Too tall, it sounds muffled and boomy. Too flat, it's thin and sharp. A good starting point is a height that is about forty-five percent of the diameter, a height-to-diameter ratio of about nine to twenty, so a thirty-centimetre-diameter drum works best at around thirteen-and-a-half centimetres tall. Paddle makers on the coast do exactly the same thing: the blade length to shaft length ratio, the width-to-length ratio of the blade — it's all proportional reasoning making the tool actually work in real life.",
+    "math": "\\frac{\\text{height}}{\\text{diameter}}=\\frac{13.5}{30}=0.45=\\frac{9}{20}\\;\\text{(height : diameter = 9 : 20)}",
+    "visual": {
+     "type": "solidCylinder",
+     "nums": [
+      15,
+      13.5
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Cedar hand drum: 30 cm diameter (r = 15 cm) × 13.5 cm high"
+    }
+   },
+   {
+    "say": "So here's your one-line takeaway to remember before the test: a ratio is just PARTS. Add the parts up, divide the total by the number of parts to find what one part is worth, then multiply back out. Whether you're splitting a pizza bill, cutting a string into three pieces, scaling a cedar drum, or checking how much gas you need for a road trip to Whistler, it's the same three-step move every single time. You've got this.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A ratio is just 'parts' — add them up, find the value of one part, then multiply back. That's the whole trick, every time.",
+  "practice": {
+   "question": "Your family is road-tripping to Whistler for the weekend. Your dad's car gets 8 litres of gas per 100 km, and the drive is 320 km one way. If gas is $1.40 per litre at the pump, how much will gas cost for the whole round trip?",
+   "answer": "Round trip = 320 × 2 = 640 km. Fuel needed = (640 ÷ 100) × 8 = 6.4 × 8 = 51.2 litres. Cost = 51.2 × $1.40 = $71.68. Gas will cost $71.68 for the round trip."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.ROOT.PRIME_FACTOR",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkj9snz08ivvp",
+   "level": 1,
+   "question": "一个数的质因数分解（prime factorization）写出来是 1764 = 2 × 2 × 3 × 3 × 7 × 7。把这些质因数两两分成一组，每组取出一个数相乘，就得到它的平方根（square root）。√1764 等于多少？",
+   "options": [
+    "42",
+    "84",
+    "294",
+    "882"
+   ],
+   "answerIndex": 0,
+   "explain": "两两分组得到 (2×2)(3×3)(7×7)，每组只取一个相乘：2 × 3 × 7 = 42。最常踩的坑是把某一组里的两个因数都乘了进去（算成 84 或 294），或者以为开平方就是把原数除以 2。",
+   "tags": [
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "root.prime_factor_exponent_halve_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzbogxsh",
+   "level": 1,
+   "question": "3375 的质因数连乘写法是 3375 = 3 × 3 × 3 × 5 × 5 × 5。求立方根（cube root）时，把质因数三个一组，每组取出一个数相乘。∛3375 等于多少？",
+   "options": [
+    "45",
+    "15",
+    "75",
+    "1125"
+   ],
+   "answerIndex": 1,
+   "explain": "三三分组得到 (3×3×3)(5×5×5)，每组取一个：3 × 5 = 15，验算 15 × 15 × 15 = 3375。坑在于把一组里的两个数都乘上去（算成 45 或 75），立方根是每三个取一个，不是每两个。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj9snz5jxs5b",
+   "level": 1,
+   "question": "已知一个数可以写成 2⁴ × 5² 的形式。求平方根时，把每个质因数的指数（exponent）除以 2 就行。这个数的平方根是多少？",
+   "options": [
+    "2⁴ × 5 = 80",
+    "2² × 5² = 100",
+    "2² × 5 = 20",
+    "2 × 5 = 10"
+   ],
+   "answerIndex": 2,
+   "explain": "每个指数都要除以 2：2⁴ 变成 2²，5² 变成 5，所以答案是 2² × 5 = 20（20 × 20 = 400 = 2⁴ × 5²）。坑是只给一个质数减半、另一个原样搬下来，或者把 2⁴ 当成只有一对 2 而写成 2 × 5。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj9snz8gyo89",
+   "level": 1,
+   "question": "5832 分解质因数后是 5832 = 2 × 2 × 2 × 3 × 3 × 3 × 3 × 3 × 3，一共有三个 2 和六个 3。把它们三个一组，每组取出一个数相乘。∛5832 等于多少？",
+   "options": [
+    "6",
+    "72",
+    "54",
+    "18"
+   ],
+   "answerIndex": 3,
+   "explain": "三个 2 是一组，给出一个 2；六个 3 正好分成两组，给出 3 × 3，所以 ∛5832 = 2 × 3 × 3 = 18。坑是把指数减半当成开立方（算成 2 × 3³ = 54），或者六个 3 只数出了一组（算成 6）。",
+   "tags": [
+    "pf.exponent_miscount",
+    "root.prime_factor_exponent_halve_wrong",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkj9snz5jxqat",
+   "level": 2,
+   "question": "本拿比一所小学买了 2916 块正方形地砖，正好铺成一个大正方形，没有剩下。已知 2916 = 2² × 3⁶。这个大正方形每边有多少块地砖？",
+   "options": [
+    "54 块",
+    "108 块",
+    "1458 块",
+    "18 块"
+   ],
+   "answerIndex": 0,
+   "explain": "每边的块数就是 √2916：把指数都除以 2，得 2 × 3³ = 54 块（54 × 54 = 2916）。坑是漏掉 2 的指数减半（算成 2² × 3³ = 108），或把六个 3 只分成两组（算成 2 × 3² = 18）；开平方也不等于除以 2。",
+   "tags": [
+    "ok",
+    "root.prime_factor_exponent_halve_wrong",
+    "other",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzz003k5",
+   "level": 2,
+   "question": "计算 ∛(3³ × 5⁶)，结果是多少？",
+   "options": [
+    "3 × 5³ = 375",
+    "3 × 5² = 75",
+    "3 × 5 = 15",
+    "3³ × 5² = 675"
+   ],
+   "answerIndex": 1,
+   "explain": "求立方根就是把每个指数除以 3：3³ 变成 3，5⁶ 变成 5²，答案是 3 × 5² = 75。坑是把指数减半（5⁶ 写成 5³），那是平方根的做法；也有人忘了 3³ 同样要除以 3。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount",
+    "root.prime_factor_exponent_halve_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzjj02v4",
+   "level": 2,
+   "question": "计算 √(2⁸ × 3² × 5⁴)，结果是多少？",
+   "options": [
+    "2⁸ × 3 × 5² = 19200",
+    "2⁴ × 3² × 5² = 3600",
+    "2⁴ × 3 × 5² = 1200",
+    "2⁴ × 3 × 5 = 240"
+   ],
+   "answerIndex": 2,
+   "explain": "平方根把每个质因数的指数除以 2：2⁸ 变 2⁴、3² 变 3、5⁴ 变 5²，答案是 2⁴ × 3 × 5² = 1200。坑是只减半了一部分质数的指数，把 2⁸ 或 3² 原样抄下来。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzvt4hkn",
+   "level": 2,
+   "question": "里士满一个正方体收纳箱的体积是 85184 cm³，已知 85184 = 2⁶ × 11³。它的棱长是多少？",
+   "options": [
+    "88 cm",
+    "484 cm",
+    "22 cm",
+    "44 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "棱长就是体积的立方根：指数除以 3，2⁶ 变 2²、11³ 变 11，得 2² × 11 = 44 cm。坑是把 2⁶ 减半成 2³（算成 88），或忘了 11 的指数也要除以 3（算成 484）。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkj9snz6hc84u",
+   "level": 3,
+   "question": "素里一块正方形草坪的面积是 4356 m²，已知 4356 = 2² × 3² × 11²。学校要沿草坪四周装一圈围栏，围栏每米 12 加元。装完一圈一共要花多少钱？",
+   "options": [
+    "3168 加元",
+    "1584 加元",
+    "792 加元",
+    "6336 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先求边长：指数都除以 2，得 2 × 3 × 11 = 66 m；再算周长 4 × 66 = 264 m，264 × 12 = 3168 加元。坑是指数没减半（边长算成 132），或只算了一条边的钱就交卷。",
+   "tags": [
+    "ok",
+    "pf.exponent_miscount",
+    "other",
+    "root.prime_factor_exponent_halve_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzgnlgzq",
+   "level": 3,
+   "question": "高贵林一个正方体礼盒的体积是 21952 cm³，已知 21952 = 2⁶ × 7³。妈妈要沿礼盒的每一条棱贴装饰带，正方体一共有 12 条棱。一共需要多长的装饰带？",
+   "options": [
+    "672 cm",
+    "336 cm",
+    "168 cm",
+    "28 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "棱长 = ∛21952，指数除以 3 得 2² × 7 = 28 cm；再乘 12 条棱：28 × 12 = 336 cm。坑是把 2⁶ 减半成 2³ 使棱长变成 56，或者求出棱长就停下来忘了乘 12。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkj9snzs5d2rv",
+   "level": 3,
+   "question": "小美计算 ∛1728。她先分解得到 1728 = 2⁶ × 3³，然后把 6 减半写成 2³，再从 3³ 里取一个 3，得出 2³ × 3 = 24。下面哪句话正确指出了她的问题？",
+   "options": [
+    "开立方就是把原数除以 3，应该用 1728 ÷ 3 = 576 来算",
+    "她把指数减半没错，但 3³ 的指数不该动，答案是 2³ × 3³ = 216",
+    "立方根要把指数除以 3，2⁶ 该变成 2²，答案是 2² × 3 = 12",
+    "她的指数数错了，1728 里有 9 个 2，该写成 2⁹ × 3³ 再开方"
+   ],
+   "answerIndex": 2,
+   "explain": "求立方根是把每个指数除以 3：2⁶ 变 2²、3³ 变 3，所以 ∛1728 = 2² × 3 = 12（12 × 12 × 12 = 1728）。小美把 6 减半成 3，是把平方根的做法搬到了立方根上；开立方也不等于把原数除以 3。",
+   "tags": [
+    "other",
+    "root.prime_factor_exponent_halve_wrong",
+    "ok",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkj9snz2713uz",
+   "level": 3,
+   "question": "温哥华一位家长用 7056 块小正方形瓷砖拼成一个大正方形，每块瓷砖的边长是 5 cm。已知 7056 = 2⁴ × 3² × 7²。这个大正方形的边长是多少厘米？",
+   "options": [
+    "1680 cm",
+    "210 cm",
+    "84 cm",
+    "420 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "先求每边的瓷砖块数 √7056：指数除以 2 得 2² × 3 × 7 = 84 块；每块 5 cm，所以边长 84 × 5 = 420 cm。坑是指数没减半（每边算成 336 块），或者把块数 84 直接当成厘米交上去。",
+   "tags": [
+    "root.prime_factor_exponent_halve_wrong",
+    "pf.exponent_miscount",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

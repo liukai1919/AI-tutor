@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB.FACTS20.EXTEND",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5f70ioryl4yf",
+   "level": 1,
+   "question": "心算（mental math）小口诀：8 + 7 = 15。用这个口诀，去零再补零（annex the zeros），800 + 700 = 多少？",
+   "options": [
+    "1500",
+    "150",
+    "15000",
+    "1400"
+   ],
+   "answerIndex": 0,
+   "explain": "800 是 8 个百，700 是 7 个百，合起来是 8 + 7 = 15 个百，也就是 1500。最容易踩的坑是补零的个数：两个加数各带 2 个零，答案 15 后面也补 2 个零，不是补 1 个（150）也不是补 3 个（15000）。",
+   "tags": [
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount",
+    "facts.recall_slip"
+   ]
+  },
+  {
+   "qid": "qmt5f70io04qmnx",
+   "level": 1,
+   "question": "心算小口诀：13 - 5 = 8。用这个口诀，1300 - 500 = 多少？",
+   "options": [
+    "1800",
+    "800",
+    "8000",
+    "80"
+   ],
+   "answerIndex": 1,
+   "explain": "1300 是 13 个百，减去 5 个百，剩 13 - 5 = 8 个百，也就是 800。坑一是把减号看成加号（算成 1800），坑二是补零个数弄错：原来的数各带 2 个零，答案 8 后面就补 2 个零。",
+   "tags": [
+    "other",
+    "ok",
+    "pv.annex_zeros_miscount",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5f70iom07ngx",
+   "level": 1,
+   "question": "心算小口诀：6 + 9 = 15。用这个口诀，60 + 90 = 多少？",
+   "options": [
+    "1500",
+    "140",
+    "150",
+    "15"
+   ],
+   "answerIndex": 2,
+   "explain": "60 是 6 个十，90 是 9 个十，合起来 15 个十 = 150。坑在于补零要跟原来的数一样多：这里各只带 1 个零，所以补 1 个零得 150，不是 1500；也别忘了补零（写成 15）。",
+   "tags": [
+    "pv.annex_zeros_miscount",
+    "facts.recall_slip",
+    "ok",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5f70iolmr34m",
+   "level": 1,
+   "question": "下面 4 个算式里，哪一个可以直接用口诀 7 + 8 = 15，再去零补零算出答案？",
+   "options": [
+    "7000 + 800",
+    "700 + 80",
+    "70 + 800",
+    "7000 + 8000"
+   ],
+   "answerIndex": 3,
+   "explain": "只有两个加数在同一个数位（digit 所在的位值）上时才能直接补零：7000 + 8000 都是「千」，等于 15 个千 = 15000。像 700 + 80 这种一个是百、一个是十，不能直接套口诀补零，要按位值相加（700 + 80 = 780）。",
+   "tags": [
+    "pv.mixed_places_annex",
+    "pv.mixed_places_annex",
+    "pv.mixed_places_annex",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5f70ioleoind",
+   "level": 2,
+   "question": "用心算算出：1200 - 700 = 多少？",
+   "options": [
+    "500",
+    "400",
+    "5000",
+    "600"
+   ],
+   "answerIndex": 0,
+   "explain": "12 个百减 7 个百 = 5 个百，所以 1200 - 700 = 500。常见错误是口诀本身记错（12 - 7 算成 6 或 4），或者补零补多了写成 5000。",
+   "tags": [
+    "ok",
+    "facts.recall_slip",
+    "pv.annex_zeros_miscount",
+    "facts.recall_slip"
+   ]
+  },
+  {
+   "qid": "qmt5f70iofqhpjk",
+   "level": 2,
+   "question": "用心算算出：8000 + 5000 = 多少？",
+   "options": [
+    "1300",
+    "13000",
+    "3000",
+    "130000"
+   ],
+   "answerIndex": 1,
+   "explain": "8 个千 + 5 个千 = 13 个千 = 13000。坑一是看到大数就减（算成 3000），坑二是补零：两个加数各带 3 个零，13 后面也要补 3 个零。",
+   "tags": [
+    "pv.annex_zeros_miscount",
+    "ok",
+    "other",
+    "pv.annex_zeros_miscount"
+   ]
+  },
+  {
+   "qid": "qmt5f70ioguxk9q",
+   "level": 2,
+   "question": "先算 6000 + 7000，再从得数里减去 4000。最后的结果是多少？",
+   "options": [
+    "8000",
+    "900",
+    "9000",
+    "17000"
+   ],
+   "answerIndex": 2,
+   "explain": "6 + 7 = 13，所以 6000 + 7000 = 13000；再用 13 - 4 = 9，得 9000。最容易踩的坑是把三个数全加起来（17000），或者忘了补 3 个零而写成 900。",
+   "tags": [
+    "other",
+    "pv.annex_zeros_miscount",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5f70io8ju6sz",
+   "level": 2,
+   "question": "方框里填几，算式才成立？　□ + 900 = 1600",
+   "options": [
+    "600",
+    "2500",
+    "70",
+    "700"
+   ],
+   "answerIndex": 3,
+   "explain": "倒过来想：16 个百减 9 个百 = 7 个百，所以方框里是 700（检验：700 + 900 = 1600）。坑在于看到加号就把两个数加起来（2500），或者补零补少了写成 70。",
+   "tags": [
+    "facts.recall_slip",
+    "other",
+    "pv.annex_zeros_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5f70ioex20nm",
+   "level": 3,
+   "question": "温哥华一个社区中心统计人数：这个周六来了 700 人，周日来了 800 人。上一个周末两天一共来了 1400 人。这个周末两天的总人数比上个周末多多少人？",
+   "options": [
+    "100",
+    "1000",
+    "2900",
+    "200"
+   ],
+   "answerIndex": 0,
+   "explain": "先用 7 + 8 = 15 算出这个周末：700 + 800 = 1500 人；再用 15 - 14 = 1 算出 1500 - 1400 = 100 人。坑是只做了第一步就停，或者把 1500 和 1400 加起来（2900）——题目问的是「多多少」，要用减法。",
+   "tags": [
+    "ok",
+    "pv.annex_zeros_miscount",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5f70io8txx0y",
+   "level": 3,
+   "question": "小宇说：「因为 9 + 8 = 17，所以 900 + 80 = 1700。」下面哪句话说得对？",
+   "options": [
+    "口诀记错了，9 + 8 = 16 不是 17，去掉的两个零补回去以后，答案应该是 1600",
+    "900 和 80 数位不同，不能直接给 9 + 8 补零；正确的是 900 + 80 = 980",
+    "零补少了，900 有两个零、80 有一个零，一共要补回三个零，所以答案应该是 17000",
+    "他做得对，9 + 8 = 17，再把去掉的两个零补回去，所以 900 + 80 就是 1700"
+   ],
+   "answerIndex": 1,
+   "explain": "去零再补零只有在两个数在同一个数位上才管用：900 是 9 个百，80 是 8 个十，单位不同，不能合成 17 个百。正确做法是按位值相加：900 + 80 = 980。最常见的坑就是只看首位数字 9 和 8，忘了检查它们各自代表百还是十。",
+   "tags": [
+    "other",
+    "ok",
+    "pv.mixed_places_annex",
+    "pv.mixed_places_annex"
+   ]
+  },
+  {
+   "qid": "qmt5f70io5jrvi7",
+   "level": 3,
+   "question": "BC 一所小学办旧书义卖（book fair）。第一天卖了 600 加元，第二天卖了 800 加元。学校的目标是一共筹到 2000 加元。还差多少加元才能达到目标？",
+   "options": [
+    "1400",
+    "400",
+    "600",
+    "2600"
+   ],
+   "answerIndex": 2,
+   "explain": "先用 6 + 8 = 14 算出已筹到的钱：600 + 800 = 1400 加元；再用 20 - 14 = 6 算出 2000 - 1400 = 600 加元。坑是只算到两天的总数 1400 就作答，或者把目标也加进去（2600）。",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5f70ioglwfut",
+   "level": 3,
+   "question": "一条林间步道（trail）全长 1500 米。小美先走了 700 米，休息后又走了 400 米。她还剩多少米没走？",
+   "options": [
+    "800",
+    "2600",
+    "1100",
+    "400"
+   ],
+   "answerIndex": 3,
+   "explain": "第一步用 15 - 7 = 8 得 1500 - 700 = 800 米；第二步用 8 - 4 = 4 得 800 - 400 = 400 米。坑是只减了其中一段（剩 800 或 1100），或者把三个数全加起来——已经走过的路要从全长里减掉。",
+   "tags": [
+    "word.stop_early",
+    "other",
+    "word.stop_early",
+    "ok"
+   ]
+  }
+ ]
+}

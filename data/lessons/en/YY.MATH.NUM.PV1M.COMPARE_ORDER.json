@@ -1,0 +1,87 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PV1M.COMPARE_ORDER",
+ "lang": "en",
+ "title": "Compare and order numbers to 1 000 000",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Which Big Number Is Bigger?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know what each digit is worth in a big number, all the way up to the hundred thousands place. Today we use that to answer one question: when two big numbers look almost the same, which one is bigger?",
+    "math": "",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      248900
+     ],
+     "labels": [],
+     "caption": "Two hundred forty-eight thousand nine hundred, digit by digit"
+    }
+   },
+   {
+    "say": "Here is the step. First, check how many digits each number has. If one number has more digits, it wins right away. If they have the same number of digits, start at the left and compare one place at a time. The very first place where the digits are different decides everything, and you can stop right there.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's try it. Two ski hills counted their winter visitors: two hundred forty-eight thousand nine hundred, and two hundred fifty-one thousand three hundred. Both have six digits, so we go left to right. Hundred thousands: two and two, the same, keep going. Ten thousands: four against five. Five is more, so two hundred fifty-one thousand three hundred is the bigger number. Done, we never even look at the rest.",
+    "math": "248\\,900 < 251\\,300",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      240000,
+      260000,
+      248900,
+      251300
+     ],
+     "labels": [],
+     "caption": "The jump goes to the right, so 251 300 is greater"
+    }
+   },
+   {
+    "say": "Now the trap. Someone looks at three thousand four hundred fifty-six and three thousand five hundred one, and says the first one is bigger because it has bigger digits at the end, like the five and the six. But we never compare the tail first! Both numbers have four digits. Thousands: three and three, the same. Hundreds: four against five. Five wins, so three thousand five hundred one is the bigger one. A big digit at the end can never beat a bigger digit at the front.",
+    "math": "3\\,456 < 3\\,501",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      3400,
+      3600,
+      3456,
+      3501
+     ],
+     "labels": [],
+     "caption": "3 456 sits to the left of 3 501"
+    }
+   },
+   {
+    "say": "So remember: line the numbers up, walk from left to right, and the first place where the digits differ tells you the answer. To put three or more numbers in order, just compare them two at a time the same way.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3456,
+      3501
+     ],
+     "labels": [
+      "3 456",
+      "3 501"
+     ],
+     "caption": "Same digit count, so the hundreds place decides"
+    }
+   }
+  ],
+  "answer": "Same number of digits? Compare from the left, and the first place where the digits differ wins.",
+  "practice": {
+   "question": "Two small BC towns did a population count. Riverbend has one hundred twenty-nine thousand six hundred forty people. Lakeside has one hundred twenty-nine thousand four hundred eighty people. Which town has more people, and which place value told you the answer?",
+   "answer": "Riverbend has more. Both numbers have six digits, and they match at the hundred thousands, ten thousands, and thousands places (one, two, nine). The first difference is in the hundreds place: six against four. Six is bigger, so one hundred twenty-nine thousand six hundred forty is greater than one hundred twenty-nine thousand four hundred eighty."
+  }
+ }
+}

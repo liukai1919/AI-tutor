@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.CHANGE_TO_100",
+ "lang": "en",
+ "title": "Make change to $100 by counting up or decomposing",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Making Change from $100 — Just Count Up!",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add up what you buy to find a total. Today we do the opposite job: you hand over a 100 dollar bill, and we figure out how much money comes back to you. That money is called the change.",
+    "math": "",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      100,
+      64,
+      100
+     ],
+     "labels": [],
+     "caption": "Price 64 dollars, paid 100 dollars — the change is the gap"
+    }
+   },
+   {
+    "say": "Here is the big idea. The change is the distance from the price up to the money you paid. So instead of a tricky subtraction, we just hop up the number line. A backpack at the store in Kamloops costs 64 dollars. First hop up to a friendly number, seventy. From sixty-four to seventy is six dollars.",
+    "math": "\\$64 + \\$6 = \\$70",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      60,
+      100,
+      64,
+      70
+     ],
+     "labels": [],
+     "caption": "First hop: 64 up to 70 is 6 dollars"
+    }
+   },
+   {
+    "say": "Now hop from seventy all the way up to one hundred. That is thirty dollars. So we made two hops: six dollars, then thirty dollars.",
+    "math": "\\$70 + \\$30 = \\$100",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      60,
+      100,
+      70,
+      100
+     ],
+     "labels": [],
+     "caption": "Second hop: 70 up to 100 is 30 dollars"
+    }
+   },
+   {
+    "say": "Add the two hops together: six plus thirty is thirty-six. Your change is thirty-six dollars. And here is the lovely check — the price and the change should fit together to make exactly one hundred. Sixty-four plus thirty-six is one hundred. It works!",
+    "math": "\\$6 + \\$30 = \\$36 \\quad\\text{and}\\quad \\$64 + \\$36 = \\$100",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      64,
+      36
+     ],
+     "labels": [
+      "Backpack",
+      "Change"
+     ],
+     "caption": "64 and 36 together make the 100 dollars you paid"
+    }
+   },
+   {
+    "say": "Now the mistake to watch out for. Say a book costs thirteen dollars and forty-five cents and you pay with a twenty. Some kids jump the wrong way and write seven dollars and fifty-five cents. Let us check by adding: thirteen forty-five plus seven fifty-five is twenty-one dollars — that is more than the twenty you handed over, so it cannot be right. Count up instead: from thirteen forty-five up to thirteen fifty is five cents, up to fourteen dollars is fifty cents, and up to twenty dollars is six dollars. Six dollars and fifty-five cents. Check it: thirteen forty-five plus six fifty-five is exactly twenty dollars.",
+    "math": "\\$13.45 + \\$6.55 = \\$20.00",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      13,
+      20,
+      13.45,
+      20
+     ],
+     "labels": [],
+     "caption": "Count UP from the price to the money you paid — never the other way"
+    }
+   },
+   {
+    "say": "So remember: always start at the price and hop up to the money you paid, then add your hops. And if the price plus your change makes exactly what you paid, you know you got it right.",
+    "math": "\\text{price} + \\text{change} = \\text{money paid}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Start at the price, hop UP to the money you paid, add your hops — that's the change. Check: price + change = money paid.",
+  "practice": {
+   "question": "At a shop in Vancouver, a hoodie costs 47 dollars. You pay with a 100 dollar bill. Draw your own number line from 47 to 100. Hop up to the friendly number 50 first, then hop up to 100. How much change do you get back?",
+   "answer": "53 dollars. From 47 up to 50 is 3 dollars, and from 50 up to 100 is 50 dollars. 3 plus 50 is 53. Check: 47 plus 53 is 100."
+  }
+ }
+}

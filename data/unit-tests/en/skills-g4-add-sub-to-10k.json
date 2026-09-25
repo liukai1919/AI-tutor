@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "add-sub-to-10k",
+ "lang": "en",
+ "unitName": {
+  "zh": "万以内的加减法",
+  "en": "Addition & subtraction to 10 000"
+ },
+ "provider": "claude",
+ "at": "2026-08-23",
+ "set": {
+  "title": "Addition & subtraction to 10 000 · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.FACTS20",
+    "level": 1,
+    "question": "Tam is playing a dice game at recess. She rolls 9 and then 6. Using the 'make ten' strategy, what is 9 + 6?",
+    "options": [
+     "13",
+     "14",
+     "15",
+     "16"
+    ],
+    "answerIndex": 2,
+    "explain": "Make ten first: move 1 from the 6 over to the 9, so 9 + 6 becomes 10 + 5 = 15. The usual trap is to say 16 — that happens when you turn the 9 into a 10 but forget to take that 1 away from the 6."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL",
+    "level": 1,
+    "question": "Mia works out 5 000 − 1 998 in her head. She thinks: '1 998 is almost 2 000, so 5 000 − 2 000 = 3 000.' What is the correct answer to 5 000 − 1 998?",
+    "options": [
+     "3 002",
+     "3 000",
+     "2 998",
+     "3 998"
+    ],
+    "answerIndex": 0,
+    "explain": "She took away 2 000 instead of 1 998, so she removed 2 too many — give them back: 3 000 + 2 = 3 002. The most common trap is compensating the wrong way (3 000 − 2 = 2 998); remember that taking away too much means adding back."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM",
+    "level": 1,
+    "question": "Use the column method: 3 456 + 2 789 = ?",
+    "options": [
+     "5 135",
+     "6 235",
+     "6 145",
+     "6 245"
+    ],
+    "answerIndex": 3,
+    "explain": "Add right to left and carry each time: 6+9=15 (write 5, carry 1), 5+8+1=14 (write 4, carry 1), 4+7+1=12 (write 2, carry 1), 3+2+1=6, giving 6 245. Every wrong choice here comes from dropping one of the carried digits, so always write the little 1 above the next column."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.ESTIMATE",
+    "level": 2,
+    "question": "At the Vancouver aquarium, 3 812 people visited on Saturday and 4 189 visited on Sunday. Rounding each number to the nearest hundred first, about how many people visited in the two days?",
+    "options": [
+     "7 900",
+     "8 000",
+     "7 000",
+     "8 100"
+    ],
+    "answerIndex": 1,
+    "explain": "Round each number to the nearest hundred: 3 812 → 3 800 and 4 189 → 4 200, so the estimate is 3 800 + 4 200 = 8 000. The classic trap is rounding 4 189 down to 4 100 because of the 8 — look only at the digit right after the hundreds place."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.MENTAL",
+    "level": 2,
+    "question": "A hockey arena sold 4 396 tickets in October and 2 998 tickets in November. Which line shows a correct mental method and the correct total?",
+    "options": [
+     "4 396 + 3 000 = 7 396, then take away 2 → 7 394",
+     "4 396 + 3 000 = 7 396, then add 2 → 7 398",
+     "4 396 + 2 000 = 6 396, then add 900 → 7 296",
+     "4 400 + 3 000 = 7 400, so the total is exactly 7 400"
+    ],
+    "answerIndex": 0,
+    "explain": "Round 2 998 up to the friendly 3 000, add, then take back the extra 2 you added: 7 396 − 2 = 7 394. Two traps live here — adjusting the wrong way (adding the 2 back on) and treating a rounded estimate like 7 400 as the exact answer."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.WORD",
+    "level": 2,
+    "question": "The morning ferry to Victoria carried 1 250 passengers and the afternoon ferry carried 985 passengers. How many more passengers were on the morning ferry?",
+    "options": [
+     "1 735",
+     "2 235",
+     "265",
+     "365"
+    ],
+    "answerIndex": 2,
+    "explain": "'How many more' means subtract: 1 250 − 985 = 265, regrouping through the tens and hundreds. Watch for 2 235 (adding instead of comparing) and 1 735, which comes from taking the smaller digit from the larger in each column instead of regrouping."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.WORD",
+    "level": 3,
+    "question": "A Grade 4 class in Kelowna is raising $3 000 for a new playground. They raised $1 245 at a bottle drive and $968 at a bake sale. How much more money do they still need?",
+    "options": [
+     "$2 213",
+     "$1 755",
+     "$877",
+     "$787"
+    ],
+    "answerIndex": 3,
+    "explain": "Two steps: first add what they have, $1 245 + $968 = $2 213, then subtract from the goal, $3 000 − $2 213 = $787. The biggest trap is stopping after step one and choosing $2 213, or forgetting the bake sale money and doing $3 000 − $1 245."
+   },
+   {
+    "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM",
+    "level": 3,
+    "question": "Sam works out 7 000 − 3 456 in his notebook and writes 4 456. Which sentence best explains what went wrong and gives the correct answer?",
+    "options": [
+     "He should have added, not subtracted; the answer is 10 456.",
+     "In each column he took the smaller digit from the larger one instead of regrouping across the zeros; the answer is 3 544.",
+     "He forgot to write the zeros in 7 000; the answer is 3 456.",
+     "He regrouped one time too many; the answer is 3 644."
+    ],
+    "answerIndex": 1,
+    "explain": "With zeros on top you must regroup all the way across: 7 000 becomes 6 thousands, 9 hundreds, 9 tens and 10 ones, giving 7 000 − 3 456 = 3 544. Sam did 0 − 6 = 6, 0 − 5 = 5, 0 − 4 = 4 instead, and a quick estimate (7 000 − 3 500 = 3 500) shows 4 456 is far too big."
+   }
+  ]
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "pythagorean",
+ "lang": "en",
+ "unitName": {
+  "zh": "勾股定理",
+  "en": "Pythagorean theorem"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Pythagorean theorem · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.MODEL",
+    "level": 1,
+    "question": "On grid paper Nadia draws a right triangle and builds a square on each of its three sides. The square on one leg covers 9 small squares, and the square on the other leg covers 16 small squares. What is the area of the square built on the hypotenuse?",
+    "options": [
+     "5 square units",
+     "7 square units",
+     "25 square units",
+     "144 square units"
+    ],
+    "answerIndex": 2,
+    "explain": "The two squares on the legs together fill exactly the square on the hypotenuse, so 9 + 16 = 25 square units. The usual trap is answering 5 — that is the side length of the big square, not its area — or subtracting to get 7."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.IDENTIFY",
+    "level": 1,
+    "question": "Triangle KLM is drawn tilted on the page, so no side is horizontal. The right angle is at corner L. Which side is the hypotenuse?",
+    "options": [
+     "KM",
+     "KL",
+     "LM",
+     "Whichever side is drawn lowest on the page"
+    ],
+    "answerIndex": 0,
+    "explain": "The hypotenuse is always the side opposite the right angle, so with the right angle at L it is KM — no matter how the triangle is turned. The common trap is picking the bottom or the most slanted-looking side instead of checking where the right angle sits."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+    "level": 1,
+    "question": "A right triangle has legs of 6 cm and 8 cm. What is the length of the hypotenuse?",
+    "options": [
+     "5.3 cm",
+     "10 cm",
+     "14 cm",
+     "100 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "Use c² = a² + b²: 36 + 64 = 100, so c = √100 = 10 cm. Two frequent errors are adding the legs (6 + 8 = 14) and forgetting the last step, the square root, which leaves 100."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.LEG",
+    "level": 2,
+    "question": "A 10 m ladder leans against the wall of Emma's house in Kelowna. The foot of the ladder is 6 m from the base of the wall, and the wall meets the ground at a right angle. How high up the wall does the top of the ladder reach?",
+    "options": [
+     "4 m",
+     "11.7 m",
+     "64 m",
+     "8 m"
+    ],
+    "answerIndex": 3,
+    "explain": "The ladder is the hypotenuse, so subtract squares: 10² − 6² = 100 − 36 = 64, and √64 = 8 m. The big trap is adding the squares (giving about 11.7 m), which would make the wall longer than the ladder — impossible."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.HYPOTENUSE",
+    "level": 2,
+    "question": "Sofia's rectangular vegetable plot in the school garden measures 5 m by 9 m. She stretches a string from one corner to the opposite corner. How long is the string, to one decimal place?",
+    "options": [
+     "10.3 m",
+     "14.0 m",
+     "106 m",
+     "3.7 m"
+    ],
+    "answerIndex": 0,
+    "explain": "The diagonal is the hypotenuse of a right triangle with legs 5 and 9: 25 + 81 = 106, so the string is √106 ≈ 10.3 m. Watch for stopping at 106 before taking the square root, and for adding the two sides to get 14.0 m."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.IDENTIFY",
+    "level": 2,
+    "question": "Which set of measurements could be the three side lengths of a right-angled triangle?",
+    "options": [
+     "5 cm, 7 cm, 9 cm",
+     "6 cm, 8 cm, 11 cm",
+     "9 cm, 12 cm, 15 cm",
+     "4 cm, 5 cm, 6 cm"
+    ],
+    "answerIndex": 2,
+    "explain": "Test a² + b² = c² using the longest side as c: 81 + 144 = 225 = 15², so 9, 12, 15 works. The trap is judging by how the numbers look or by adding the sides — 6 + 8 is close to 11, but 36 + 64 = 100 does not equal 121, so that triangle is not right-angled."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.APPLY",
+    "level": 3,
+    "question": "Jordan cycles 12 km east along a flat trail, then turns and cycles 5 km north to a campground, meeting the first stretch at a right angle. The park wants to build a straight path from Jordan's starting point directly to the campground. How much shorter would that straight path be than the route Jordan rode?",
+    "options": [
+     "13 km",
+     "4 km",
+     "7 km",
+     "17 km"
+    ],
+    "answerIndex": 1,
+    "explain": "Two steps: the straight path is the hypotenuse, √(144 + 25) = √169 = 13 km, and Jordan rode 12 + 5 = 17 km, so the saving is 17 − 13 = 4 km. The common trap is stopping at 13 km, which answers the length of the path rather than how much shorter it is."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.PYTH.APPLY",
+    "level": 3,
+    "question": "A 6.5 m ladder is leaning against the flat wall of a Vancouver community centre, with its foot 2.5 m out from the wall. The safety rule says the top of the ladder must reach at least 6 m up the wall to be used. Does this ladder meet the rule?",
+    "options": [
+     "No — it reaches only 4.0 m up the wall",
+     "Yes — it reaches about 7.0 m up the wall",
+     "No — it reaches only 5.5 m up the wall",
+     "Yes — it reaches exactly 6.0 m up the wall"
+    ],
+    "answerIndex": 3,
+    "explain": "The ladder is the hypotenuse, so find the missing leg by subtracting: 6.5² − 2.5² = 42.25 − 6.25 = 36, and √36 = 6.0 m, which just meets the 6 m rule. The classic mistake is adding the squares to get √48.5 ≈ 7.0 m — but the height up the wall can never be more than the ladder itself."
+   }
+  ]
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.PVBIG.CONTEXT",
+ "lang": "en",
+ "title": "Make sense of large and small numbers in science, medicine and media (populations, doses, data sizes)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Numbers, Tiny Numbers, Real Life",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to compare and round very big and very tiny numbers. Today we use that skill on real numbers you meet in the news, at the doctor's office, and on your phone. Look at these three numbers from a British Columbia news story. They are all counts of people, but they are very different sizes.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5600000,
+      2600000,
+      150000
+     ],
+     "labels": [
+      "People in B.C.",
+      "People in Metro Vancouver",
+      "People in Kelowna"
+     ],
+     "caption": "About how many people live in each place"
+    }
+   },
+   {
+    "say": "Here is the whole trick. When you meet a number in real life, ask yourself two little questions: how big is one of these, and how many of them are there? A person is one whole thing, so populations land way up in the millions. A dose of medicine is a sliver of a gram, so it lands way down in the thousandths. This ladder shows those sizes side by side.",
+    "math": "0.001 < 1 < 1000 < 1000000 < 1000000000",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.001,
+      1,
+      1000,
+      1000000,
+      1000000000
+     ],
+     "labels": [
+      "One thousandth",
+      "One",
+      "One thousand",
+      "One million",
+      "One billion"
+     ],
+     "caption": "The size ladder: from thousandths all the way up to billions"
+    }
+   },
+   {
+    "say": "Let's try it. A school newsletter says British Columbia has about five million six hundred thousand people, a class photo takes up three megabytes of space, and one drop of children's vitamin D gives about zero point zero two five milligrams. Smallest to largest, that is zero point zero two five, then three, then five million six hundred thousand. Now here is the sense-making part. What if someone mixed them up and said one drop holds five million six hundred thousand milligrams? Five million six hundred thousand milligrams is five thousand six hundred grams, which is five point six kilograms. That is heavier than a big bag of potatoes, in one little drop! So we know right away that number belongs to the people, not to the medicine.",
+    "math": "0.025 < 3 < 5600000",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.025,
+      3,
+      5600000
+     ],
+     "labels": [
+      "Vitamin D in one drop (mg)",
+      "Photo file size (MB)",
+      "People in B.C."
+     ],
+     "caption": "Same news page, three completely different sizes"
+    }
+   },
+   {
+    "say": "Here is the mistake to watch for. The bottle says zero point zero two five milligrams, but someone writes down zero point two five milligrams. It looks almost the same, just one missing zero, but zero point two five is ten times bigger than zero point zero two five. That would be ten times too much medicine. With tiny numbers, every single place after the decimal point really matters, so always read the thousandths place carefully.",
+    "math": "0.025 \\times 10 = 0.25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.025,
+      0.25
+     ],
+     "labels": [
+      "What the label really says",
+      "What was written by mistake"
+     ],
+     "caption": "One missing zero makes it ten times bigger"
+    }
+   },
+   {
+    "say": "So whenever a number pops up in a news story or on a label, pause and ask: how big is one, and how many? Then check that the size feels sensible for the real thing.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Ask 'how big is one, and how many?' — then check the size makes sense: people in millions, doses in thousandths.",
+  "practice": {
+   "question": "A news article says Canada has about forty-one million people and Prince Edward Island has about one hundred eighty thousand people. A medicine bottle in the cupboard says each tiny tablet holds zero point zero zero two grams of medicine. First, which of the three numbers is the smallest? Second, if you had one thousand of those tablets, how many grams of medicine would that be altogether?",
+   "answer": "The smallest is zero point zero zero two grams — it is not even one whole gram, while the other two are counts of people in the hundred thousands and millions. One thousand tablets hold one thousand times zero point zero zero two, which is two grams of medicine."
+  }
+ }
+}

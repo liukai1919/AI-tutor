@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.INDEP.CONCEPT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkrtilve2mexr",
+   "level": 1,
+   "question": "小林书包里有 3 支蓝笔和 2 支红笔，一共 5 支。他随机抽出一支，看完颜色后放回去（with replacement），再随机抽一支。这两次抽笔是独立事件（independent events）吗？",
+   "options": [
+    "是，放回后袋中仍是 5 支笔，第一次的结果不影响第二次",
+    "是，蓝笔和红笔被抽到的机会本来就一样大，所以独立",
+    "不是，第一次抽到蓝笔后，第二次抽到蓝笔的机会就变小了",
+    "不是，5 支笔不能平均分成两种颜色，机会本来不公平"
+   ],
+   "answerIndex": 0,
+   "explain": "放回后书包里还是 3 蓝 2 红共 5 支，第二次的可能性和第一次完全一样，所以两次独立。最容易踩的坑是以为抽过蓝笔后蓝笔就少了——只有不放回才会少。",
+   "tags": [
+    "ok",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv5gwmir",
+   "level": 1,
+   "question": "温哥华水族馆的纪念品盒里有 4 张海豚贴纸和 4 张海獭贴纸，一共 8 张。安娜随机拿一张留给自己（不放回，without replacement），接着再随机拿一张。这两次拿贴纸是独立事件吗？",
+   "options": [
+    "是，两种贴纸各 4 张，机会均等，所以两次互不影响",
+    "不是，第一张拿走后只剩 7 张，第二次的可能性变了",
+    "不是，第一次拿到海豚后，第二次就拿不到海豚了",
+    "是，不放回也算独立，因为每次都是随机拿一张贴纸"
+   ],
+   "answerIndex": 1,
+   "explain": "不放回时第一张被拿走，第二次只能从剩下的 7 张里拿，每种结果的可能性都变了，所以不独立。坑在于把「两种各 4 张、机会均等」当成独立的理由——均等说的是公平（fair），和独立是两回事。",
+   "tags": [
+    "prob.independent_means_equal",
+    "ok",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrtilvhtku9e",
+   "level": 1,
+   "question": "小杰先抛一枚公平（fair）的硬币，再掷一个标着 1 到 6 的公平骰子。关于这两个动作，下面哪句话是对的？",
+   "options": [
+    "它们不独立，因为硬币只有 2 种结果，骰子却有 6 种",
+    "它们独立，因为硬币和骰子每种结果的机会都一样大",
+    "它们是独立的，硬币结果不改变骰子出 4 的机会",
+    "它们不独立，硬币出正面后骰子就不容易出大数了"
+   ],
+   "answerIndex": 2,
+   "explain": "硬币和骰子是两个互不相干的物件，硬币是正是反都不会改变骰子出 4 的那 1/6，所以是独立事件。坑在于拿「结果个数不同」或「机会均等」当判断依据，这两条都和独立无关。",
+   "tags": [
+    "other",
+    "prob.independent_means_equal",
+    "ok",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv90qx41",
+   "level": 1,
+   "question": "社区中心的转盘平均分成 4 份，分别涂成红、黄、蓝、绿，每份一样大。玛雅转了两次，两次都停在红色。她第三次转到红色的理论可能性（theoretical probability）是多少？",
+   "options": [
+    "\\frac{1}{2}，只分成红和非红两种，机会均等",
+    "0，红色已经连着出了两次，这次不会再是红色了",
+    "\\frac{1}{3}，红色出过了，只剩黄、蓝、绿三种可能",
+    "\\frac{1}{4}，每次转都独立，前两次结果不影响这次"
+   ],
+   "answerIndex": 3,
+   "explain": "转盘没有记忆，每一次转都是独立事件，红色始终占 4 份中的 1 份，所以还是 1/4。坑在于以为红色连出两次就「用完了」，于是改写成 1/3 或 0。",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "prob.past_results_change_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv42325v",
+   "level": 2,
+   "question": "一个袋子里有 8 个大小相同的球：3 个红球、5 个蓝球。第一次摸出一个红球后不放回，第二次摸到红球的理论可能性是多少？",
+   "options": [
+    "\\frac{2}{7}，红球剩 2 个，袋里一共剩 7 个球",
+    "\\frac{3}{8}，摸球互相独立，袋里的比例没有变",
+    "0，红球刚被摸出过，第二次不可能再摸到红球",
+    "\\frac{3}{7}，总数变成 7 个，红球个数还算 3 个"
+   ],
+   "answerIndex": 0,
+   "explain": "摸走一个红球又不放回，红球剩 2 个、总数剩 7 个，所以是 2/7。坑在于只改分母忘了改分子（写成 3/7），或者当成独立事件照抄 3/8。",
+   "tags": [
+    "ok",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtilvbjk0fw",
+   "level": 2,
+   "question": "一个转盘平均分成 6 份，标着 1 到 6，每份一样大。艾玛连转两次，两次都停在 3 的理论可能性是多少？",
+   "options": [
+    "\\frac{1}{30}，第一次转到 3 后就只剩 5 种结果",
+    "\\frac{1}{36}，两次独立，\\frac{1}{6}×\\frac{1}{6}",
+    "\\frac{1}{6}，每次机会均等，转两次机会还是一样",
+    "\\frac{1}{3}，把两次的可能性相加：\\frac{1}{6}+\\frac{1}{6}"
+   ],
+   "answerIndex": 1,
+   "explain": "转盘每一次都回到完整的 6 格，两次独立，所以 1/6×1/6=1/36。坑在于以为第一次的 3 用掉了、第二次只剩 5 种（1/30），或者把两次相加得 1/3。",
+   "tags": [
+    "prob.past_results_change_outcomes",
+    "ok",
+    "prob.independent_means_equal",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkrtilvjxzdg4",
+   "level": 2,
+   "question": "袋里有 12 颗大小相同的珠子：7 颗红、5 颗白。第一次摸出一颗后不放回（without replacement），接着摸第二颗。关于这两次摸珠的样本空间（sample space），正确的说法是：",
+   "options": [
+    "两次独立，因为每次都是从同一个袋子里随机摸一颗",
+    "只要每颗珠子被摸到的机会均等，两次就是独立的",
+    "第二次只剩 11 颗可摸，可能性变了，两次不独立",
+    "第一次摸到红珠后第二次摸不到红珠，所以两次不独立"
+   ],
+   "answerIndex": 2,
+   "explain": "不放回时样本空间从 12 缩到 11，各种结果的可能性随之改变，所以两次不独立。坑有两个：把「每颗机会均等」当独立的理由，以及以为红珠出过就没了——7 颗红摸走 1 颗还剩 6 颗。",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.independent_means_equal",
+    "ok",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv6tiq9r",
+   "level": 2,
+   "question": "同一个装有 4 张卡片的盒子。做法一：抽一张，看完放回，再抽一张。做法二：抽一张，留在手里，再抽一张。下面哪句话是对的？",
+   "options": [
+    "两种做法都独立，因为每张卡片被抽到的机会都相等",
+    "两种做法都不独立，抽过的卡片第二次不会再出现",
+    "只有做法二独立，抽走一张后结果更不容易重复了",
+    "只有做法一独立，做法二第二次只剩 3 张可以选"
+   ],
+   "answerIndex": 3,
+   "explain": "放回后盒里仍是 4 张，第二次和第一次一模一样，所以做法一独立；做法二只剩 3 张，可能性变了，不独立。坑在于用「机会相等」或「抽过的不会再出现」来判断独立。",
+   "tags": [
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "prob.past_results_change_outcomes",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv00bpf8",
+   "level": 3,
+   "question": "史丹利公园活动的抽奖箱里有 20 张券，其中 5 张是免费划船券，其余是纪念徽章券。李奥先抽一张，正好是免费划船券，他把券收进口袋（不放回）。接着妹妹再抽一张。妹妹抽到免费划船券的理论可能性是多少？",
+   "options": [
+    "\\frac{4}{19}，划船券剩 4 张，券一共剩 19 张",
+    "\\frac{5}{19}，券一共剩 19 张，划船券还算 5 张",
+    "0，划船券刚被抽走过，妹妹这次不会再抽到",
+    "\\frac{5}{20}，两次互相独立，券里的比例没有改变"
+   ],
+   "answerIndex": 0,
+   "explain": "抽走 1 张划船券且不放回，划船券剩 4 张、总数剩 19 张，两个数都要改，所以是 4/19。坑在于只改总数不改张数（写成 5/19），或当成独立事件照抄 5/20。",
+   "tags": [
+    "ok",
+    "other",
+    "prob.past_results_change_outcomes",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv4iyomc",
+   "level": 3,
+   "question": "社区泳池的钥匙盒里有 10 把外观相同的钥匙，其中 2 把能打开 7 号柜。玩法 A：拿一把试完放回盒里，再拿一把；玩法 B：拿一把试完放到旁边，再拿一把。已知第一次拿的钥匙打不开 7 号柜，那么第二次拿到能开 7 号柜的钥匙，A、B 的可能性分别是多少？",
+   "options": [
+    "A、B 都是 \\frac{1}{5}，两种玩法的两次都互相独立",
+    "A 是 \\frac{1}{5}，B 是 \\frac{2}{9}，B 的机会大一点",
+    "A 是 \\frac{2}{9}，B 是 \\frac{1}{5}，放回让选择变少了",
+    "A、B 都是 \\frac{2}{9}，第一次试过的钥匙都不再算"
+   ],
+   "answerIndex": 1,
+   "explain": "放回时第二次仍从 10 把里拿，2 把能开，是 2/10=1/5；不放回时少了一把打不开的，剩 9 把、能开的仍是 2 把，是 2/9，比 1/5 大。坑在于把两种玩法都当成独立而写出同一个答案。",
+   "tags": [
+    "prob.independent_means_equal",
+    "ok",
+    "other",
+    "prob.past_results_change_outcomes"
+   ]
+  },
+  {
+   "qid": "qmtkrtilvtm2eaf",
+   "level": 3,
+   "question": "里士满冰球俱乐部用一个公平的骰子决定谁先发球，骰出 6 就由主队先发。前两场都骰出了 6。诺亚说：第三场肯定骰不出 6 了，6 已经用掉了。下面哪句评价最准确？",
+   "options": [
+    "他算错了，6 出过两次后第三次的可能性变成 \\frac{1}{4}",
+    "他说反了，连出两次说明这颗骰子偏心，会更容易出 6",
+    "每次骰都独立，骰子不记得前两次，仍然是 \\frac{1}{6}",
+    "他忘了六面机会均等，所以三场的结果一定各不相同"
+   ],
+   "answerIndex": 2,
+   "explain": "骰子每一次都是独立事件，它不会记住前两场，第三场骰出 6 依旧是 1/6。坑在于以为出过的结果这次就轮不到了，于是把答案改成 1/4 或 0。",
+   "tags": [
+    "prob.past_results_change_outcomes",
+    "other",
+    "ok",
+    "prob.independent_means_equal"
+   ]
+  },
+  {
+   "qid": "qmtkrtilv8q8ihk",
+   "level": 3,
+   "question": "学校果汁机里有 6 瓶苹果汁和 4 瓶橙汁，一共 10 瓶。艾米买走一瓶，是橙汁；管理员随即补进 1 瓶橙汁，机器又变回 6 瓶苹果汁和 4 瓶橙汁。接着本买一瓶。艾米买到橙汁和本买到橙汁，是独立事件吗？",
+   "options": [
+    "不是，艾米已经买走一瓶，机器里现在只剩 9 瓶了",
+    "是，因为苹果汁和橙汁被买到的机会本来就一样大",
+    "不是，橙汁刚被买走过，本这次更可能买到苹果汁",
+    "是，补货后回到 6 和 4，相当于放回，仍是 \\frac{2}{5}"
+   ],
+   "answerIndex": 3,
+   "explain": "买走 1 瓶橙汁又补回 1 瓶，机器回到 6 苹果 4 橙共 10 瓶，效果等于放回，本买到橙汁仍是 4/10=2/5，所以两次独立。坑在于只看到「买走了一瓶」就说剩 9 瓶，漏掉了补货这一步。",
+   "tags": [
+    "other",
+    "prob.independent_means_equal",
+    "prob.past_results_change_outcomes",
+    "ok"
+   ]
+  }
+ ]
+}

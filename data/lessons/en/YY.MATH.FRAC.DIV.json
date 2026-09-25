@@ -1,0 +1,85 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.DIV",
+ "lang": "en",
+ "title": "Divide fractions by asking how many groups fit (3/4 ÷ 1/8 = 6), then by multiplying by the reciprocal",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Dividing Fractions: How Many Fit?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to multiply fractions, and you know division means asking how many equal groups fit. Today we put those together: when someone hands you three quarters of a metre of hockey tape and the piece you need is one eighth of a metre long, how many pieces do you get?",
+    "math": "\\frac{3}{4}\\div\\frac{1}{8}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us just look. The top bar is three quarters of the tape. The bottom bar is the same tape, but cut into eighths, and three quarters covers six of those eighths. So six pieces of one eighth fit inside three quarters. The answer is six.",
+    "math": "\\frac{3}{4}=\\frac{6}{8}\\quad\\Rightarrow\\quad \\frac{3}{4}\\div\\frac{1}{8}=6",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3,
+      8,
+      6
+     ],
+     "labels": [],
+     "caption": "Top: 3/4 of the tape. Bottom: the same amount, counted in eighths — six of them."
+    }
+   },
+   {
+    "say": "Counting works, but it gets slow with uglier numbers, so here is the shortcut. Dividing by one eighth is the same as multiplying by eight over one, the reciprocal — you flip the second fraction, the divisor. Three quarters times eight over one is twenty four over four, which is six. Same answer as the picture, and that is why the rule works: each whole holds eight eighths.",
+    "math": "\\frac{3}{4}\\div\\frac{1}{8}=\\frac{3}{4}\\times\\frac{8}{1}=\\frac{24}{4}=6",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.75,
+      0.75,
+      8
+     ],
+     "labels": [],
+     "caption": "One whole cut into eighths — the dot sits at six eighths, six jumps from zero."
+    }
+   },
+   {
+    "say": "Now two traps. Some people multiply straight across and get three over thirty two, and some flip the first fraction instead and get four thirds times one eighth. Both are wrong, and the picture tells you why. Your tape is three quarters long and each piece is only one eighth — the piece is way smaller, so lots of them fit. The answer has to be bigger than one, not a tiny sliver. And careful: division is not like multiplication, you cannot swap the two numbers around. Three quarters divided by one eighth is six, but one eighth divided by three quarters is not.",
+    "math": "\\frac{3}{4}\\div\\frac{1}{8}\\neq\\frac{3}{32}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3,
+      8,
+      1
+     ],
+     "labels": [],
+     "caption": "3/4 of tape versus one 1/8 piece — the piece is small, so many fit inside."
+    }
+   },
+   {
+    "say": "So here is the whole idea in one line. Dividing by a fraction is asking how many of those pieces fit, and the fast way is to keep the first fraction, flip the second one, and multiply.",
+    "math": "\\frac{a}{b}\\div\\frac{c}{d}=\\frac{a}{b}\\times\\frac{d}{c}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To divide by a fraction, ask how many fit — or just flip the second fraction and multiply.",
+  "practice": {
+   "question": "You have two thirds of a litre of chocolate milk left, and you are pouring it into little sample cups that each hold one sixth of a litre. Picture a bar showing two thirds, then picture the same bar cut into sixths. How many cups can you fill? Show it both ways — by counting sixths, and by flipping the second fraction and multiplying.",
+   "answer": "Four cups. Two thirds is the same as four sixths, so four pieces of one sixth fit. With the shortcut: two thirds divided by one sixth equals two thirds times six over one, which is twelve over three, which is four."
+  }
+ }
+}

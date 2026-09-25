@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "exponents",
+ "lang": "zh",
+ "unitName": {
+  "zh": "指数与指数运算律",
+  "en": "Exponents & exponent laws"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "指数与指数运算律 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.EXP.MEANING",
+    "level": 1,
+    "question": "老师在白板上写下 2⁷。下面哪个同学对这个幂（power）的读法和算法都正确？",
+    "options": [
+     "2⁷ 表示 7 个 2 相加，所以等于 14",
+     "2⁷ 表示底数 2 乘以指数 7，所以等于 14",
+     "2⁷ 表示 7 个 2 相乘，所以等于 128",
+     "2⁷ 表示 2 个 7 相乘，所以等于 49"
+    ],
+    "answerIndex": 2,
+    "explain": "2⁷ 的意思是「7 个 2 连乘」：2×2×2×2×2×2×2 = 128。最常见的坑是把底数（base）和指数（exponent）直接相乘，写成 2×7 = 14。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.ZERO_ONE",
+    "level": 1,
+    "question": "用「每次除以底数」的规律填表：3³ = 27，3² = 9，3¹ = ___，3⁰ = ___。横线上依次应该填什么？",
+    "options": [
+     "3¹ = 1，3⁰ = 0",
+     "3¹ = 3，3⁰ = 0",
+     "3¹ = 1，3⁰ = 1",
+     "3¹ = 3，3⁰ = 1"
+    ],
+    "answerIndex": 3,
+    "explain": "表格每往下一行就除以底数 3：27÷3 = 9，9÷3 = 3，3÷3 = 1，所以 3¹ = 3、3⁰ = 1。最常见的坑是把 3⁰ 当成 0，但这个规律说明它只能是 1。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.PRODUCT_QUOTIENT",
+    "level": 1,
+    "question": "化简 n⁵ × n³，结果是下面哪一个？",
+    "options": [
+     "n⁸",
+     "n¹⁵",
+     "2n⁸",
+     "n²"
+    ],
+    "answerIndex": 0,
+    "explain": "同底数幂相乘，底数不变、指数相加：5 + 3 = 8，所以是 n⁸。最常见的坑是把指数也相乘写成 n¹⁵，或者错用相减写成 n²。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.POWER_OF_POWER",
+    "level": 2,
+    "question": "Richmond 一家家居店卖立方体形状的收纳箱，棱长是 3n cm。这个收纳箱的体积（volume）是多少？",
+    "options": [
+     "27n³ cm³",
+     "9n³ cm³",
+     "3n³ cm³",
+     "27n cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "立方体体积 = 棱长³ = (3n)³ = 3³ × n³ = 27n³ cm³。积的乘方要让括号里每个因数都立方，最常见的坑是漏掉系数，只把 n 立方写成 3n³。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.SIGNS",
+    "level": 2,
+    "question": "计算 (−2)³ + (−3)²，结果是多少？",
+    "options": [
+     "17",
+     "1",
+     "−17",
+     "−1"
+    ],
+    "answerIndex": 1,
+    "explain": "分开算：(−2)³ = −8（负数的奇次幂仍是负数），(−3)² = 9，相加得 −8 + 9 = 1。最常见的坑是把 (−2)³ 算成 8，误以为负号一定会消掉。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.PRODUCT_QUOTIENT",
+    "level": 2,
+    "question": "Kelowna 一个果园把苹果装箱，每箱正好装 5² 个苹果，今天一共装满了 5⁴ 箱。苹果总数用一个幂（power）表示是多少？",
+    "options": [
+     "5⁸ 个",
+     "25⁶ 个",
+     "5² 个",
+     "5⁶ 个"
+    ],
+    "answerIndex": 3,
+    "explain": "总数 = 每箱个数 × 箱数 = 5² × 5⁴，同底数相乘指数相加，得 5⁶ = 15 625 个。两个坑：把指数相乘写成 5⁸，或者把底数也乘起来写成 25⁶。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.SIMPLIFY_MIXED",
+    "level": 3,
+    "question": "Surrey 社区中心做展台，用的每块积木都是立方体，棱长 3² cm，一共用了 3⁴ 块。这些积木的总体积（volume）用一个幂表示是多少 cm³？",
+    "options": [
+     "3⁹ cm³",
+     "3¹⁰ cm³",
+     "3²⁴ cm³",
+     "9¹⁰ cm³"
+    ],
+    "answerIndex": 1,
+    "explain": "先求一块的体积：(3²)³ = 3⁶ cm³（幂的乘方，指数相乘）；再乘块数 3⁴，同底数相乘指数相加，得 3¹⁰ cm³。两个坑：把 (3²)³ 写成 3⁵，或最后一步又把指数相乘写成 3²⁴。"
+   },
+   {
+    "curriculumId": "YY.MATH.EXP.SIGNS",
+    "level": 3,
+    "question": "课堂上大家在争论：(−2)⁶ ÷ (−2)⁴ 和 −2² 的结果是不是一样？下面哪个说法完全正确？",
+    "options": [
+     "一样，都等于 4，因为负号在偶次幂里都会消掉",
+     "一样，都等于 −4，因为底数是负数结果就是负的",
+     "不一样，前者是 4，后者是 −4，负号没被平方",
+     "不一样，前者是 −4，后者是 4，括号里的负号要提出来"
+    ],
+    "answerIndex": 2,
+    "explain": "左边同底数相除指数相减：(−2)⁶ ÷ (−2)⁴ = (−2)² = 4；右边 −2² 的负号在平方外面，只有 2 被平方，等于 −4，两者不相等。最常见的坑就是把 −2² 当成 (−2)²。"
+   }
+  ]
+ }
+}

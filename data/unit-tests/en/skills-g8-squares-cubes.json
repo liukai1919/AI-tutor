@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "squares-cubes",
+ "lang": "en",
+ "unitName": {
+  "zh": "完全平方数与完全立方数",
+  "en": "Perfect squares & cubes"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Perfect squares & cubes · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.NOTATION",
+    "level": 1,
+    "question": "Nadia sees 9² written on the board. Which line shows what 9² means and its correct value?",
+    "options": [
+     "9 × 2 = 18",
+     "9 × 9 = 81",
+     "9 + 9 + 9 = 27",
+     "2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 512"
+    ],
+    "answerIndex": 1,
+    "explain": "The small 2 tells you how many times to use 9 as a factor, so 9² = 9 × 9 = 81. The most common trap is reading 9² as 9 × 2 = 18 — the exponent is a count of factors, not a multiplier."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.RECOGNIZE",
+    "level": 1,
+    "question": "Owen is laying colour tiles on his desk. Which number of tiles can be arranged into a full square array with none left over?",
+    "options": [
+     "90",
+     "72",
+     "96",
+     "81"
+    ],
+    "answerIndex": 3,
+    "explain": "A perfect square makes an n × n array: 81 = 9 × 9. Watch out for 72 = 8 × 9 — it makes a near-square rectangle, but the two sides must be equal for it to count."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.CUBE.BUILD",
+    "level": 1,
+    "question": "Priya builds a solid cube out of linking cubes with 4 cubes along every edge. Which line writes her cube correctly with an exponent and gives the number of cubes she used?",
+    "options": [
+     "4³ = 4 × 3 = 12",
+     "4² = 4 × 4 = 16",
+     "4³ = 4 × 4 × 4 = 64",
+     "3⁴ = 3 × 3 × 3 × 3 = 81"
+    ],
+    "answerIndex": 2,
+    "explain": "A cube has length, width and height, so you multiply the edge by itself three times: 4³ = 4 × 4 × 4 = 64. Two common traps are reading 4³ as 4 × 3 and flipping the base and exponent to 3⁴."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.TILES",
+    "level": 2,
+    "question": "The square patio behind Jayden's house in Surrey is covered with exactly 324 identical square tiles, with no gaps and none left over. How many tiles are along one edge of the patio?",
+    "options": [
+     "18",
+     "81",
+     "162",
+     "24"
+    ],
+    "answerIndex": 0,
+    "explain": "You need the number n with n × n = 324; since 17² = 289 and 18² = 324, one edge holds 18 tiles. Do not divide 324 by 4 or by 2 — those give a quarter or half of the tiles, not the length of a side."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+    "level": 2,
+    "question": "Sofia used a factor tree and wrote 200 = 2³ × 5². Using only this prime factorization, which statement is correct?",
+    "options": [
+     "200 is a perfect square, because 5² appears in the factorization.",
+     "200 is a perfect cube, because 2³ appears in the factorization.",
+     "200 is both a perfect square and a perfect cube.",
+     "200 is neither a perfect square nor a perfect cube."
+    ],
+    "answerIndex": 3,
+    "explain": "A number is a perfect square when every prime exponent is even, and a perfect cube when every exponent is a multiple of 3; here 2³ has an odd exponent and 5² is not a multiple of 3, so 200 is neither. The trap is checking only one prime — every exponent has to pass the test, not just one of them."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.POWERS.SQUARE_CUBE_COMPARE",
+    "level": 2,
+    "question": "For a warm-up, Ms. Chan asks the class to double 6, then square 6, then cube 6. Which row gives all three answers in that order?",
+    "options": [
+     "12, 12, 18",
+     "12, 36, 216",
+     "36, 12, 216",
+     "12, 36, 18"
+    ],
+    "answerIndex": 1,
+    "explain": "Doubling is 6 × 2 = 12, squaring is 6 × 6 = 36, and cubing is 6 × 6 × 6 = 216. The classic mistake is turning squaring into doubling (6² = 12) and cubing into tripling (6³ = 18) — the exponent counts repeated factors, not repeated addition."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.POWERS.SQUARE_CUBE_COMPARE",
+    "level": 3,
+    "question": "In the makerspace, Emma has 64 linking cubes. She says she can lay them flat as a perfect square array and also stack the same 64 cubes into a solid cube. Nate says one number cannot be both a perfect square and a perfect cube. Who is right?",
+    "options": [
+     "Nate is right — 8² = 16 and 4³ = 12, so 64 is neither.",
+     "Nate is right — 64 is a perfect cube (4³), so it cannot also be a perfect square.",
+     "Emma is right — 64 = 8 × 8 = 8² and 64 = 4 × 4 × 4 = 4³, so it is both.",
+     "Emma is right, but only because 64 is an even number, and 64 = 2 × 32."
+    ],
+    "answerIndex": 2,
+    "explain": "Being a square and being a cube are two separate tests, and 64 passes both: 8 × 8 = 64 gives the flat square, and 4 × 4 × 4 = 64 gives the solid cube. The trap is assuming a number gets only one label — check each test on its own instead of ruling one out."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+    "level": 3,
+    "question": "Liam has 72 linking cubes, and 72 = 2³ × 3². He wants to buy more sets so that his total is a whole number of times 72 and the total can be stacked into one solid cube with none left over. What is the smallest whole number he can multiply 72 by?",
+    "options": [
+     "2",
+     "9",
+     "6",
+     "3"
+    ],
+    "answerIndex": 3,
+    "explain": "For a perfect cube every prime exponent must be a multiple of 3: 2³ is already fine, but 3² needs one more factor of 3, so multiply by 3 to get 2³ × 3³ = 216 = 6³. Multiplying by 2 only makes 144, a perfect square — that is the usual mix-up — and multiplying by 9 overshoots by one extra 3."
+   }
+  ]
+ }
+}

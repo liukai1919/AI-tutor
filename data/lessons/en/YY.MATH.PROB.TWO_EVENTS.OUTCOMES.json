@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.TWO_EVENTS.OUTCOMES",
+ "lang": "en",
+ "title": "List all outcomes of two independent events with a table or tree diagram",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two Events, One Table",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list every outcome for one thing, like a spinner with three colours. Today we do it for two things happening at once — a spin and a coin flip — and the trick is to organize them in a table so nothing goes missing.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green"
+     ],
+     "caption": "One spin: three possible outcomes"
+    }
+   },
+   {
+    "say": "Here is the setup. At a school fun fair in Surrey you spin the colour spinner and flip a loonie. Put one event across the top — Red, Blue, Green — and the other event down the side — Heads and Tails. Now every single box where a row meets a column is one outcome of the whole experiment.",
+    "math": "\\text{Rows: Heads, Tails} \\quad \\text{Columns: Red, Blue, Green}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Green",
+      "Heads",
+      "Tails"
+     ],
+     "caption": "Each box holds exactly one outcome"
+    }
+   },
+   {
+    "say": "Let us read the boxes out loud. Top row: Heads and Red, Heads and Blue, Heads and Green. Bottom row: Tails and Red, Tails and Blue, Tails and Green. Count them — three in the top row, three in the bottom row, six outcomes in total. Every colour gets paired with each coin result, so nobody gets left out.",
+    "math": "(H,R)\\;(H,B)\\;(H,G)\\;(T,R)\\;(T,B)\\;(T,G)",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [],
+     "caption": "Three colours, each with two coin results, makes six outcomes"
+    }
+   },
+   {
+    "say": "Now the trap, and it is a sneaky one. Lots of people look at three spinner colours and two coin sides and write three plus two equals five. That is wrong — the table clearly shows six boxes. Adding gives you the two lists sitting side by side, but you need every pairing. And watch out, with two coins, two plus two happens to give four, which is the right answer by pure luck, so the adding habit sticks. Try it with a coin and a die: two plus six is eight, but the table has two rows and six columns, which is twelve boxes.",
+    "math": "3+2=5 \\;\\;\\text{✗} \\qquad \\text{table} \\rightarrow 6 \\;\\;\\text{✓}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2,
+      5,
+      6
+     ],
+     "labels": [
+      "Spinner colours",
+      "Coin sides",
+      "Adding (wrong)",
+      "Boxes in table"
+     ],
+     "caption": "Adding says 5, the table says 6 — trust the table"
+    }
+   },
+   {
+    "say": "So whenever two things happen together, draw the table, fill in every box, and count the boxes. The table does the remembering for you.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Two events? Make a table — one event across the top, one down the side, and count the boxes. Never add the two lists.",
+  "practice": {
+   "question": "At a Kelowna school carnival you spin a spinner with four equal sections numbered one, two, three and four, and you also flip a quarter. Draw a table with Heads and Tails as the two rows, and one, two, three, four as the four columns. Fill in every box, then say how many outcomes there are altogether.",
+   "answer": "The table has 2 rows and 4 columns, so 8 boxes and 8 outcomes: Heads-one, Heads-two, Heads-three, Heads-four, Tails-one, Tails-two, Tails-three, Tails-four. (Careful — four plus two is six, and that is not the answer.)"
+  }
+ }
+}

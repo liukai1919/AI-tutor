@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.3D.NETS.MATCH",
+ "lang": "en",
+ "title": "Match nets to prisms and cylinders and spot nets that will not fold (six squares that don't make a cube)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Will That Net Actually Fold?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to name a solid by its base, and how to draw the top, front and side views of an object. Today we do the reverse trick. Someone hands you a flat piece of cardboard with faces drawn on it, and you decide, before any folding, whether it wraps up into that solid.",
+    "math": "",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      10,
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cardboard box, 10 cm by 6 cm by 4 cm"
+    }
+   },
+   {
+    "say": "Here is the net of that same box. Do two checks. First, count the faces. A rectangular prism has six, so the net needs exactly six pieces, no more and no less. Second, look at the opposite pairs. The two ten by six faces match, the two ten by four faces match, and the two six by four faces match. Same colour means the pair that ends up facing each other, top and bottom, front and back, left and right. Six faces, three matching pairs, and you can fold it.",
+    "math": "",
+    "visual": {
+     "type": "netCuboid",
+     "nums": [
+      10,
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Six faces in three matching pairs — this one folds"
+    }
+   },
+   {
+    "say": "A cylinder plays by the same rules, it just has curves. Its net is three pieces. Two identical circles for the top and bottom, and one rectangle for the curved side. Here is the important part. When you roll that rectangle up, its long edge has to wrap exactly once around a circle. So that edge is not just any length. It is the circumference of the circle. If the rectangle is too short, you get a gap. Too long, and it overlaps. If someone shows you a net with three circles, or with a square that is way shorter than the circle it sits beside, it will not fold into a cylinder.",
+    "math": "",
+    "visual": {
+     "type": "netCylinder",
+     "nums": [
+      4,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Two circles plus one rectangle whose long side wraps the circle exactly once"
+    }
+   },
+   {
+    "say": "Now the trap. Take a chocolate bar box that is a perfect cube, ten centimetres on every edge. Its net needs six squares, all ten by ten. So a lot of people think any six connected squares will fold into a cube. Not true. Picture six squares laid out in one straight line, like a train. Try folding it. The first four wrap around beautifully and make a ring, but square five lands right on top of square one, and square six lands on square two. You get a double layer on two sides, and the top and bottom of the cube are wide open. Six squares was necessary, but it was not enough. What matters is where they are.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A cube net that works: six squares arranged in a cross, not a line"
+    }
+   },
+   {
+    "say": "Try the same thinking on a triangular prism, since this one trips people up too. A triangular prism has two triangular ends and three rectangular sides. Count them. Two plus three is five faces, not six. So if a classmate draws a net for a triangular prism with six pieces on it, you can say it is wrong without folding anything. They have one face too many. Count first, then check the shapes match up.",
+    "math": "2 + 3 = 5",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The triangular end — a prism has two of these plus three rectangles, five faces total"
+    }
+   },
+   {
+    "say": "So here is your two step routine for any net. Step one, count the faces and check the number is right for that solid. Step two, check the pieces come in the right matching pairs and are laid out so nothing lands on top of anything else. Pass both, and it folds.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Count the faces first, then check the arrangement — six squares in a row will never make a cube.",
+  "practice": {
+   "question": "Your friend is making a gift box shaped like a rectangular prism, twelve centimetres long, eight centimetres wide and five centimetres tall. Sketch its net yourself. How many faces should it have, and what are the dimensions of the three matching pairs? Then answer this: your friend instead cuts out six squares, each five centimetres by five centimetres, joined in one straight strip. Will that fold into a cube? Explain why or why not.",
+   "answer": "The gift box net has six faces in three matching pairs: two that are twelve by eight centimetres, two that are twelve by five centimetres, and two that are eight by five centimetres. The strip of six squares will NOT fold into a cube. Six squares is the right number, but the arrangement is wrong — folding the strip makes the first four squares form a ring, then the fifth and sixth squares fold back onto the first and second. That leaves two faces doubled up and the top and bottom of the cube completely open."
+  }
+ }
+}

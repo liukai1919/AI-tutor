@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.SA.FROM_NET",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqtwecpc3q19",
+   "level": 1,
+   "question": "把一个长方体纸盒沿着棱剪开、摊平，得到它的展开图（net）。要算这个盒子的表面积（surface area），需要把展开图里多少块长方形的面积加起来？",
+   "options": [
+    "6 块，展开图里六块全部加起来",
+    "7 块，因为长方体一共有 7 个顶点",
+    "3 块，只把看得见的三个面加起来",
+    "4 块，只加四周的那四个侧面"
+   ],
+   "answerIndex": 0,
+   "explain": "表面积就是所有面的面积之和，长方体剪开摊平后一定得到 6 块长方形，六块都要加。最容易踩的坑是只数看得见的 3 个面——底面和背面被挡住了，但摊平后它们照样在展开图里。",
+   "tags": [
+    "ok",
+    "solid.count_visible_only",
+    "solid.count_visible_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwecom1h8t",
+   "level": 1,
+   "question": "一个长方体礼盒的展开图上，六块长方形的面积分别是 40 cm²、40 cm²、24 cm²、24 cm²、15 cm²、15 cm²。这个礼盒的表面积（surface area）是多少？",
+   "options": [
+    "79 cm²，只加三种不同的面",
+    "158 cm²，六块面积全部相加",
+    "120 cm³，长 8、宽 5、高 3 相乘",
+    "316 cm²，三种面积和再乘以四"
+   ],
+   "answerIndex": 1,
+   "explain": "40+40+24+24+15+15＝158，表面积就是把展开图上每一块的面积加起来。写成 79 的那个只加了三种不同的面，忘了长方体的面是两两成对的。",
+   "tags": [
+    "solid.count_visible_only",
+    "ok",
+    "vol.surface_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwec205bh6",
+   "level": 1,
+   "question": "用展开图（net）来求长方体的表面积，最主要的道理是什么？",
+   "options": [
+    "展开图能一眼看出盒子里能装下多少东西",
+    "展开图只要量看得见的那几个面就够了",
+    "展开图把每个面都摊平，逐块面积相加",
+    "展开图能把十二条棱的长度全部加起来"
+   ],
+   "answerIndex": 2,
+   "explain": "表面积（surface area）的定义就是每一个面的面积之和，展开图的作用是把六个面全摊到一个平面上，方便一块一块量、一块一块加。装多少东西是体积（volume），棱长相加是另一回事，都不是表面积。",
+   "tags": [
+    "vol.surface_confuse",
+    "solid.count_visible_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwecipdi6b",
+   "level": 1,
+   "question": "一个长方体饼干盒，长 7 cm、宽 4 cm、高 3 cm。在它的展开图里，和「7 cm 乘 4 cm」一样大的长方形有几块？这几块合起来的面积是多少？",
+   "options": [
+    "1 块，28 cm²，另一块看不见不算",
+    "4 块，112 cm²，四周的都要算上",
+    "2 块，84 cm²，就是 7×4×3",
+    "2 块，56 cm²，上下正好一对"
+   ],
+   "answerIndex": 3,
+   "explain": "7×4＝28 cm² 是一块的面积，长方体的面两两成对，上面和下面各一块，所以 28×2＝56 cm²。坑在于只算一块——摊平后底面和顶面都在展开图里，都要计入表面积。",
+   "tags": [
+    "solid.count_visible_only",
+    "other",
+    "vol.surface_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqtwec7kx4xv",
+   "level": 2,
+   "question": "一个长方体的长、宽、高分别是 l、w、h。它的展开图里六块长方形的面积依次是 lw、lw、lh、lh、wh、wh。表面积可以写成下面哪个式子？",
+   "options": [
+    "2(lw + lh + wh)，六块相加",
+    "lwh，把长、宽、高三个直接相乘",
+    "lw + lh + wh，只加三种不同的面",
+    "4(l + w + h)，把十二条棱加起来"
+   ],
+   "answerIndex": 0,
+   "explain": "六块面积相加，同类的各有两块，所以是 2(lw + lh + wh)。写成 lwh 的那个算的是体积（volume）；写成 lw + lh + wh 的那个漏掉了另一半的三块面。",
+   "tags": [
+    "ok",
+    "vol.surface_confuse",
+    "solid.count_visible_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwecbx6cim",
+   "level": 2,
+   "question": "一个正方体（cube）的棱长是 s，它的展开图由六个全等的正方形组成。它的表面积是多少？",
+   "options": [
+    "s³，把棱长自己连乘三次",
+    "6s²，六个正方形面积相加",
+    "12s²，十二条棱各配一个面",
+    "3s²，只算看得见的三个面"
+   ],
+   "answerIndex": 1,
+   "explain": "每个正方形面积是 s²，展开图有六个，所以表面积是 6s²。写成 s³ 的那个是体积（volume），单位也不一样；写成 3s² 的那个只数了看得见的三个面。",
+   "tags": [
+    "vol.surface_confuse",
+    "ok",
+    "other",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqtwec0pzg9e",
+   "level": 2,
+   "question": "一个直棱柱（right prism）的底面是正方形。在它的展开图里，两块底面每块的面积是 A，四块侧面每块的面积是 B。用 A 和 B 表示这个棱柱的表面积，应该是？",
+   "options": [
+    "A × B，把两个面积相乘当体积",
+    "A + 2B，只算看得见的那三面",
+    "2A + 4B，两个底面加四个侧面",
+    "6(A + B)，认为六块面都一样"
+   ],
+   "answerIndex": 2,
+   "explain": "展开图里一共 6 块：2 块底面和 4 块侧面，面积相加就是 2A + 4B。面积之间只能相加不能相乘，相乘出来的既不是表面积也不是正确的体积。",
+   "tags": [
+    "vol.surface_confuse",
+    "solid.count_visible_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwecdvhmcw",
+   "level": 2,
+   "question": "一个三棱柱（triangular prism）的展开图由两个全等三角形和三个长方形组成。每个三角形的面积是 T，三个长方形的面积分别是 R₁、R₂、R₃。它的表面积是？",
+   "options": [
+    "T + R₁ + R₂ + R₃，只算一个三角形",
+    "T × (R₁ + R₂ + R₃)，把面积相乘",
+    "2T + 2(R₁ + R₂ + R₃)，每块都成对",
+    "2T + R₁ + R₂ + R₃，五块相加"
+   ],
+   "answerIndex": 3,
+   "explain": "三棱柱的展开图一共 5 块：两端两个三角形、中间三个长方形，全部相加得 2T + R₁ + R₂ + R₃。三角形有两个不能只算一个，而三个长方形各不相同、不用再乘 2。",
+   "tags": [
+    "solid.count_visible_only",
+    "vol.surface_confuse",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqtweck4lsyi",
+   "level": 3,
+   "question": "Surrey 一户人家有个长方体储物箱，长 100 cm、宽 50 cm、高 40 cm。他们要给整个外表面（六个面都算）贴一层保护膜，保护膜每平方米 5 加元。一共要花多少钱？（1 m² ＝ 10 000 cm²）",
+   "options": [
+    "11.00 加元，2.2 m²，六个面全部算上",
+    "1.00 加元，0.2 m³，按能装多少东西来算",
+    "8.50 加元，1.7 m²，漏掉了最下面的底面",
+    "5.50 加元，1.1 m²，只贴看得见的三个面"
+   ],
+   "answerIndex": 0,
+   "explain": "先按展开图求表面积：2×(100×50 + 100×40 + 50×40)＝2×11 000＝22 000 cm²＝2.2 m²，再乘 5 得 11.00 加元。最大的坑是把长×宽×高算成 200 000 cm³ 去收费——那是体积（volume），不是要贴膜的面积。",
+   "tags": [
+    "ok",
+    "vol.surface_confuse",
+    "other",
+    "solid.count_visible_only"
+   ]
+  },
+  {
+   "qid": "qmtkqtwech6ih0l",
+   "level": 3,
+   "question": "一个圆柱形（cylinder）保温杯，底面半径 5 cm、高 10 cm。要用贴纸包住它的整个外表面。它的展开图由两个圆和一块长方形组成，π 取 3.14。需要多少平方厘米的贴纸？",
+   "options": [
+    "314 cm²，只算侧面展开的长方形",
+    "471 cm²，两个圆加侧面全算上",
+    "392.5 cm²，只算看得见的一个圆",
+    "785 cm³，按杯子能装多少水来算"
+   ],
+   "answerIndex": 1,
+   "explain": "两个圆是 2×3.14×5²＝157 cm²，侧面摊开是长方形 2×3.14×5×10＝314 cm²，相加得 471 cm²。常见的坑是漏掉上下两个圆，或者用 πr²h 算出 785——那是体积（volume）。",
+   "tags": [
+    "other",
+    "ok",
+    "solid.count_visible_only",
+    "vol.surface_confuse"
+   ]
+  },
+  {
+   "qid": "qmtkqtweczn5n8e",
+   "level": 3,
+   "question": "小杰要算一个长方体鞋盒的表面积。鞋盒长 30 cm、宽 20 cm、高 10 cm，他把 30×20×10 算成 6000，说表面积是 6000 cm²。他错在哪里？",
+   "options": [
+    "他只是单位写错了，改成 6000 cm³ 就对",
+    "他多算了面，只有三个面看得见，应是 1100 cm²",
+    "他算的是体积，六块面相加应是 2200 cm²",
+    "他少乘了 2，再乘 2 得 12000 cm² 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "长×宽×高求的是体积（volume）；表面积要按展开图把六块面相加：2×(30×20 + 30×10 + 20×10)＝2×1100＝2200 cm²。看到 cm³ 和 cm² 的单位差别，就是在提醒你这两个量根本不是一回事。",
+   "tags": [
+    "vol.surface_confuse",
+    "solid.count_visible_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqtwecnz4jw3",
+   "level": 3,
+   "question": "学校义卖做了一批三棱柱形状的巧克力盒：两端是直角三角形，两条直角边分别是 6 cm 和 8 cm、斜边 10 cm；盒子长 15 cm。要在整个外表面包一层彩纸，需要多少平方厘米的彩纸？",
+   "options": [
+    "456 cm²，三角形按 6×8 算，没除以 2",
+    "360 cm³，按盒子能装多少来算",
+    "384 cm²，只算一个三角形加三块",
+    "408 cm²，两个三角形加三块长方形"
+   ],
+   "answerIndex": 3,
+   "explain": "两端三角形：2×(6×8÷2)＝48 cm²；三块侧面摊开合成一个长方形：(6+8+10)×15＝360 cm²；相加得 408 cm²。坑一是三角形忘了除以 2，坑二是把 24×15＝360 当答案——那是体积（volume）。",
+   "tags": [
+    "other",
+    "vol.surface_confuse",
+    "solid.count_visible_only",
+    "ok"
+   ]
+  }
+ ]
+}

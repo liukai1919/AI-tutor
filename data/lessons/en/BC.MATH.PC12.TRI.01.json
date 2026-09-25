@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC12.TRI.01",
+ "lang": "en",
+ "title": "trigonometry : functions, equations, and identities",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "The Unit Circle: Your Trigonometric GPS",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Picture this. You are at the Okanagan Summer Fair, waiting for a Ferris wheel. The wheel is a perfect circle, and for today we pretend its radius is exactly one unit. You hop on at the three o'clock position, the rightmost point, which has coordinates one, zero. The wheel starts turning counterclockwise. After it has turned forty-five degrees, where are you? Up and to the right. After ninety degrees, you are at the very top. At two-seventy degrees, you are at the bottom, right below the centre. Now here is the thing that made me fall in love with trigonometry in grade twelve: your height above the centre is one smooth number, your sideways offset is another, and both of them are locked to the angle the wheel has turned. That lock is sine and cosine. Sine is your height. Cosine is your sideways position. And it all comes from one simple circle.",
+    "math": "",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      45
+     ],
+     "labels": [],
+     "caption": "Ferris wheel position at 45°: height = sine, sideways = cosine"
+    }
+   },
+   {
+    "say": "Let me make that precise. Draw a circle of radius one, centred at the origin of a coordinate plane. An angle in standard position begins at the positive x-axis and sweeps counterclockwise. The terminal arm, which is the ray at the end of the sweep, pierces the circle at exactly one point. Read off that point's x-coordinate and y-coordinate. Cosine of the angle equals x. Sine of the angle equals y. Tangent is sine divided by cosine, or equivalently, the slope of the radius line from the origin to that point. No right-triangle juggling required. You are literally reading coordinates off a circle. That is the whole definition, and every trig table you have ever memorised is just a list of those coordinates at special angles.",
+    "math": "\\cos\\theta = x, \\quad \\sin\\theta = y, \\quad \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{y}{x}",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      60
+     ],
+     "labels": [
+      "θ"
+     ],
+     "caption": "cos θ = x, sin θ = y, tan θ = y/x"
+    }
+   },
+   {
+    "say": "Okay, first worked example, nice and clean. Find sine, cosine, and tangent of sixty degrees. You can draw the radius at sixty degrees, drop a perpendicular straight down to the x-axis, and you get a thirty-sixty-ninety triangle, the classic one. The hypotenuse is one, the short leg, which is the x-coordinate, is one-half, and the tall leg, the y-coordinate, is the square root of three over two. So cosine of sixty degrees is one-half. Sine of sixty degrees is the square root of three over two. Tangent is sine over cosine, so square root of three over two divided by one-half, which is the square root of three over two times two, which simplifies to the square root of three. Clean, right? You just read the coordinates off the circle and did one little division.",
+    "math": "\\cos 60° = \\frac{1}{2}, \\quad \\sin 60° = \\frac{\\sqrt{3}}{2}, \\quad \\tan 60° = \\frac{\\frac{\\sqrt{3}}{2}}{\\frac{1}{2}} = \\sqrt{3}",
+    "visual": {
+     "type": "rightTriangle",
+     "nums": [
+      0.5,
+      0.866
+     ],
+     "labels": [
+      "1/2",
+      "√3/2",
+      "1",
+      "60°"
+     ],
+     "caption": "30-60-90 triangle inscribed in the unit circle"
+    }
+   },
+   {
+    "say": "Now let us go to the third quadrant and make it a little spicier. Find sine, cosine, and tangent of two hundred twenty-five degrees. First, where is that? Start at the positive x-axis, sweep two hundred twenty-five degrees counterclockwise. That puts you in the third quadrant, between one hundred eighty and two hundred seventy. The reference angle, the small angle between the terminal arm and the nearest x-axis, is two hundred twenty-five minus one hundred eighty, which is forty-five degrees. In the third quadrant both x and y are negative, so sine and cosine are both negative, and tangent, being the ratio of two negatives, comes out positive. At forty-five degrees we know both coordinates are the square root of two over two. So cosine of two hundred twenty-five degrees is negative square root of two over two. Sine is also negative square root of two over two. Tangent is negative over negative, which is positive one. You can double-check: the line through the origin at two hundred twenty-five degrees has slope one, just like at forty-five degrees.",
+    "math": "\\cos 225° = -\\frac{\\sqrt{2}}{2}, \\quad \\sin 225° = -\\frac{\\sqrt{2}}{2}, \\quad \\tan 225° = \\frac{-\\frac{\\sqrt{2}}{2}}{-\\frac{\\sqrt{2}}{2}} = 1",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      225
+     ],
+     "labels": [],
+     "caption": "Q3: both sin and cos negative, tan positive. Ref angle = 45°"
+    }
+   },
+   {
+    "say": "Quick one before we stretch into graphs. What is sine of three hundred ninety degrees? You do not need a protractor. Three hundred ninety is more than a full turn of three-sixty, so you just peel off one full revolution: three hundred ninety minus three-sixty equals thirty. Three hundred ninety degrees and thirty degrees land on the exact same point on the unit circle. We call them coterminal angles. So sine of three hundred ninety degrees is the same as sine of thirty degrees, which is one-half. Cosine of three hundred ninety degrees is cosine of thirty degrees, the square root of three over two. Any angle you get by adding or subtracting whole multiples of three-sixty from a known angle gives you the same sine and cosine. It is like the minute hand on your phone watch going around and around: the position only depends on where it stops, not how many times it went around.",
+    "math": "390° - 360° = 30° \\implies \\sin 390° = \\sin 30° = \\frac{1}{2}, \\quad \\cos 390° = \\cos 30° = \\frac{\\sqrt{3}}{2}",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      390
+     ],
+     "labels": [],
+     "caption": "390° goes once around and 30° more: coterminal angles land on the same point"
+    }
+   },
+   {
+    "say": "Now here is the beautiful part that connects the circle to the wavy graphs you will be sketching in the next few weeks. Imagine you are walking around the unit circle and at every step you write down your height, the y-coordinate. If you unroll that recording onto a number line, you get the sine wave. As the angle goes from zero to three hundred sixty degrees, or zero to two pi radians, sine climbs up to one, dips back down through zero, falls to negative one, and returns to zero. It is a smooth, repeating wave with a period of two pi. Cosine is the exact same wave, just shifted to the left by a quarter turn, or pi over two radians, because cosine is the x-coordinate and that leads sine by ninety degrees. And that is why trigonometric functions model so many real rhythms: the tides in the Salish Sea, the hum of a sixty-hertz power outlet in your house, the up-and-down of a skateboarder carving a half-pipe at the Parksville skate park. They are all sine and cosine wearing different clothes.",
+    "math": "\\text{period of } \\sin x = 2\\pi, \\quad \\sin x = \\cos\\!\\left(x - \\frac{\\pi}{2}\\right)",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -6.28,
+      6.28,
+      -1.5,
+      1.5
+     ],
+     "labels": [
+      "sin(x)",
+      "cos(x)"
+     ],
+     "caption": "sin(x) and cos(x): the unit-circle coordinates unrolled into waves"
+    }
+   },
+   {
+    "say": "One more skill before we wrap up: solving a trig equation with the circle. Say two sine x minus one equals zero, for x between zero and two pi. Isolate sine: sine x equals one half. Now ask the circle: where is the height one half? The reference angle is thirty degrees, which is pi over six radians, and the height is positive in the first and second quadrants. So x equals pi over six, or x equals pi minus pi over six, which is five pi over six. Two answers in one full turn. If the question asked for all real numbers, you would add two pi n to each answer, because coterminal angles repeat the same sine forever. And here is one identity to keep in your back pocket: sine squared plus cosine squared equals one. That is just the Pythagorean theorem on the unit circle, because every point on it satisfies x squared plus y squared equals one.",
+    "math": "2\\sin x - 1 = 0 \\;\\Longrightarrow\\; \\sin x = \\tfrac{1}{2} \\;\\Longrightarrow\\; x = \\tfrac{\\pi}{6},\\ \\tfrac{5\\pi}{6} \\quad (0 \\le x < 2\\pi); \\qquad \\sin^2 x + \\cos^2 x = 1",
+    "visual": {
+     "type": "unitCircle",
+     "nums": [
+      150
+     ],
+     "labels": [],
+     "caption": "sin x = 1/2 at 30° (π/6) and at 150° (5π/6): same height, same reference angle"
+    }
+   },
+   {
+    "say": "One line to carry out of this lesson: on a unit circle, sine is the y-coordinate, cosine is the x-coordinate, and tangent is their ratio. Every special angle, every quadrant sign pattern, every coterminal shortcut, and every wavy graph you will ever sketch all trace back to that single sentence. Master the circle, and the rest of trigonometry is just reading it fluently.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Sine = y, cosine = x, tangent = y over x on the unit circle; every trig fact is a coordinate read-off.",
+  "practice": {
+   "question": "A wind-turbine blade on a hillside above Vernon, BC, has a radius of 40 metres. When the blade tip is at an angle of 135 degrees in standard position, how high above the centre of the hub is the tip? Give your answer in metres, rounded to one decimal place.",
+   "answer": "height = 40 · sin 135° = 40 · (√2 / 2) = 20√2 ≈ 28.3 metres"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 5
+ }
+}

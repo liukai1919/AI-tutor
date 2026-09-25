@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkpyz2nsunelm",
+   "level": 1,
+   "question": "方程 x/3 + 5 = 2。按逆运算（inverse operation）来做，正确的第一步是下面哪一个？",
+   "options": [
+    "两边同时减 5，得到 x/3 = −3",
+    "两边同时减 5，得到 x/3 = 7",
+    "两边同时乘 3，得到 x + 5 = 6",
+    "先把 3 除到右边，得到 x + 5 = 2/3"
+   ],
+   "answerIndex": 0,
+   "explain": "先撤掉常数（constant）5：2 − 5 = −3，所以得到 x/3 = −3，下一步两边乘 3 就得 x = −9。最大的坑是两边乘 3 时只乘了 x/3 一项、把 5 落下不管，写成 x + 5 = 6。",
+   "tags": [
+    "ok",
+    "other",
+    "eq.fraction_form_multiply_one_term",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2n0n8979",
+   "level": 1,
+   "question": "方程 2(x + 4) = −6。如果第一步选择把括号展开（distribute），方程应该变成什么？",
+   "options": [
+    "2x + 4 = −6",
+    "2x + 8 = −6",
+    "2x + 8 = −12",
+    "x + 8 = −6"
+   ],
+   "answerIndex": 1,
+   "explain": "展开括号就是把 2 分别乘给括号里的每一项：2·x + 2·4 = 2x + 8，右边 −6 不参与相乘；接着 2x = −14，x = −7。坑是只乘括号里的第一项、写成 2x + 4 = −6。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "ok",
+    "other",
+    "eq.brackets_distribute_partially"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nh9aown",
+   "level": 1,
+   "question": "解方程 3(x + 6) = −9，x 等于多少？",
+   "options": [
+    "x = −21",
+    "x = −5",
+    "x = −9",
+    "x = 3"
+   ],
+   "answerIndex": 2,
+   "explain": "两边同时除以 3 得 x + 6 = −3，再两边减 6 得 x = −9；验算（verify）3(−9 + 6) = 3·(−3) = −9。写成 3x + 6 = −9 的那种展开漏乘了括号里的 6，会错算成 −5。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.brackets_distribute_partially",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2n2gzw6d",
+   "level": 1,
+   "question": "解方程 x/2 − 7 = −10，x 等于多少？",
+   "options": [
+    "x = −34",
+    "x = 6",
+    "x = −13",
+    "x = −6"
+   ],
+   "answerIndex": 3,
+   "explain": "先两边加 7：−10 + 7 = −3，得 x/2 = −3；再两边乘 2 得 x = −6，验算 −6 ÷ 2 − 7 = −10。坑是两边乘 2 时只乘 x/2 这一项、把 −7 丢下，会得到 −13。",
+   "tags": [
+    "other",
+    "other",
+    "eq.fraction_form_multiply_one_term",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2n5tuwt3",
+   "level": 2,
+   "question": "班级活动账户现在是 x 加元（欠款记为负数）。学校把这笔钱平均分给 5 个小组，每个小组分到的数额再加上 4 加元补贴，正好是 1 加元。可以列出 x/5 + 4 = 1，x 是多少？",
+   "options": [
+    "x = −15",
+    "x = 1",
+    "x = 25",
+    "x = 5"
+   ],
+   "answerIndex": 0,
+   "explain": "两边先减 4 得 x/5 = −3，再两边乘 5 得 x = −15；验算 −15 ÷ 5 + 4 = 1。坑是两边乘 5 时只乘了 x/5、把 4 忘掉写成 x + 4 = 5，那样会得到 1。",
+   "tags": [
+    "ok",
+    "eq.fraction_form_multiply_one_term",
+    "other",
+    "eq.undo_wrong_order"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nvpfju0",
+   "level": 2,
+   "question": "用「先把两边同时除以 5」的方法解方程 5(x + 5) = −10，下面哪一个过程和答案都是对的？",
+   "options": [
+    "展开得 5x + 5 = −10，解出 x = −3",
+    "除以 5 得 x + 5 = −2，再减 5 得 x = −7",
+    "除以 5 得 x + 5 = −2，再加 5 得 x = 3",
+    "除以 5 得 x + 5 = −10，再减 5 得 x = −15"
+   ],
+   "answerIndex": 1,
+   "explain": "两边同时除以 5 时右边 −10 也要除，得 x + 5 = −2，再减 5 得 x = −7；验算 5(−7 + 5) = 5·(−2) = −10。两个常见坑：右边忘记除，或者展开时只乘第一项写成 5x + 5 = −10。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2n16k25o",
+   "level": 2,
+   "question": "小婷在图书馆的账户余额是 x 加元（欠费记为负数）。学校把这笔余额平均分成 4 份记在 4 个月上，每个月那一份再加上 3 加元的奖励，账单显示 −3 加元。列式 x/4 + 3 = −3，求 x。",
+   "options": [
+    "x = −12",
+    "x = −15",
+    "x = −24",
+    "x = 0"
+   ],
+   "answerIndex": 2,
+   "explain": "两边减 3 得 x/4 = −6，再两边乘 4 得 x = −24；验算 −24 ÷ 4 + 3 = −3。坑是乘 4 时漏了常数 3（写成 x + 3 = −12），或者干脆不管 +3 直接算 x = 4·(−3)。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "eq.fraction_form_multiply_one_term",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nivr1hy",
+   "level": 2,
+   "question": "学校冰球积分游戏规定：先给每支队补 6 分，再把补分后的分数乘 2 作为最终分。红队最终分是 −8 分，红队原来的分数 x 是多少？（列式 2(x + 6) = −8）",
+   "options": [
+    "x = −7",
+    "x = −16",
+    "x = 2",
+    "x = −10"
+   ],
+   "answerIndex": 3,
+   "explain": "两边除以 2 得 x + 6 = −4，再减 6 得 x = −10；验算 2(−10 + 6) = 2·(−4) = −8。坑是展开时只乘第一项写成 2x + 6 = −8，那会算出 −7。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "eq.undo_wrong_order",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nigjfsc",
+   "level": 3,
+   "question": "基洛纳（Kelowna）一月的某天，气象站记录了凌晨连续 3 个小时的气温，这 3 个小时气温的总和是 x°C。这 3 小时的平均气温（average）再升高 7°C，正好等于 1°C。这 3 小时气温的总和 x 是多少？",
+   "options": [
+    "−18°C",
+    "3°C",
+    "24°C",
+    "−4°C"
+   ],
+   "answerIndex": 0,
+   "explain": "平均气温是 x/3，所以方程是 x/3 + 7 = 1；两边减 7 得 x/3 = −6，再乘 3 得 x = −18，验算 −18 ÷ 3 + 7 = 1。坑是乘 3 时只乘 x/3 一项写成 x + 7 = 3，或者忽略 +7 直接把 1 乘 3。",
+   "tags": [
+    "ok",
+    "eq.undo_wrong_order",
+    "other",
+    "eq.fraction_form_multiply_one_term"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nypztxz",
+   "level": 3,
+   "question": "温哥华岛附近，一位潜水员现在的深度记作 x 米（水面下记为负数）。他先上升 8 米，接着又下潜到「上升后那个深度的 2 倍」的位置，这时深度是 −4 米。他一开始在哪个深度？",
+   "options": [
+    "−6 米",
+    "−10 米",
+    "−18 米",
+    "6 米"
+   ],
+   "answerIndex": 1,
+   "explain": "上升 8 米后是 x + 8，翻倍后是 2(x + 8) = −4；两边除以 2 得 x + 8 = −2，再减 8 得 x = −10，验算 2(−10 + 8) = −4。坑是展开时把 8 漏乘写成 2x + 8 = −4。",
+   "tags": [
+    "eq.brackets_distribute_partially",
+    "ok",
+    "eq.undo_wrong_order",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nxs7jvf",
+   "level": 3,
+   "question": "小杰解 x/3 + 5 = 2 时，第一步两边同时乘 3，写成 x + 5 = 6，最后得 x = 1。他的问题出在哪里？",
+   "options": [
+    "两边乘 3 时右边不该乘，右边要保持 2 不变",
+    "顺序错了，必须先减 5 再乘 3，先乘 3 不能用",
+    "乘 3 时漏了 5，5 也要乘 3，应得 x + 15 = 6",
+    "x/3 是除法，还原时该两边同时除以 3，不该乘"
+   ],
+   "answerIndex": 2,
+   "explain": "乘 3 必须乘给等号两边的每一项：x/3·3 + 5·3 = 2·3，也就是 x + 15 = 6，x = −9。先乘 3 这个顺序本身没问题，问题只在于漏乘了常数 5；验算 −9 ÷ 3 + 5 = 2。",
+   "tags": [
+    "other",
+    "eq.undo_wrong_order",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkpyz2nkpv3kf",
+   "level": 3,
+   "question": "小艾解 2(x + 4) = −6，她写成 2x + 4 = −6，算出 x = −5。她错在哪里？",
+   "options": [
+    "顺序错了，2x + 8 = −6 应先除以 2，得 x = −11",
+    "移项时符号弄反了，应得 2x = −2，最后解得 x = −1",
+    "右边 −6 也要乘 2，应写成 2x + 8 = −12，得 x = −10",
+    "展开时 4 没乘 2，应是 2x + 8 = −6，解得 x = −7"
+   ],
+   "answerIndex": 3,
+   "explain": "括号外的 2 要乘给括号里的每一项：2x + 8 = −6，2x = −14，x = −7，验算 2(−7 + 4) = −6。只乘第一项写成 2x + 4 就把方程改小了 4，才会得到 −5。",
+   "tags": [
+    "eq.undo_wrong_order",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

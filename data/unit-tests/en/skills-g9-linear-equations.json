@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g9",
+ "strand": "linear-equations",
+ "lang": "en",
+ "unitName": {
+  "zh": "多步一元一次方程",
+  "en": "Multi-step linear equations"
+ },
+ "provider": "claude",
+ "at": "2026-09-04",
+ "set": {
+  "title": "Multi-step linear equations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.LINEQ.BOTH_SIDES",
+    "level": 1,
+    "question": "Solve for x: 6x − 5 = 2x + 11",
+    "options": [
+     "x = 1.5",
+     "x = 4",
+     "x = −4",
+     "x = 8"
+    ],
+    "answerIndex": 1,
+    "explain": "Collect variables on one side: 6x − 2x = 4x, and move −5 across as +5, so 4x = 16 and x = 4. The usual trap is subtracting 5 from 11 instead of adding it, or writing 2x − 6x and getting a negative answer."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.DISTRIBUTE",
+    "level": 1,
+    "question": "Solve for x: 4(x + 3) = 3x + 20",
+    "options": [
+     "x = −8",
+     "x = 17",
+     "x = 32",
+     "x = 8"
+    ],
+    "answerIndex": 3,
+    "explain": "Distribute first: 4x + 12 = 3x + 20, then subtract 3x and 12 from both sides to get x = 8. Two common traps are multiplying only the x by 4 (giving 4x + 3) and moving the 12 the wrong way, which turns 20 − 12 into 20 + 12."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.PICTORIAL",
+    "level": 1,
+    "question": "A balance scale is level. The left pan holds 3 identical bags of marbles and 5 loose marbles; the right pan holds 1 of the same bags and 17 loose marbles. Which move keeps the pans level?",
+    "options": [
+     "Remove 1 bag from the left pan and 1 marble from the right pan.",
+     "Remove 5 loose marbles from the left pan and nothing else.",
+     "Remove 1 bag and 5 loose marbles, both from the left pan.",
+     "Remove 1 bag from each pan, then 5 marbles from each pan."
+    ],
+    "answerIndex": 3,
+    "explain": "The picture is 3x + 5 = x + 17, and a balance stays level only when you take away the same thing from both pans, leaving 2x = 12 so one bag holds 6 marbles. The trap is removing pieces from just one pan, which tips the scale and changes the equation."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.RATIONAL",
+    "level": 2,
+    "question": "Solve for x: x/4 + 2 = (x − 6)/3",
+    "options": [
+     "x = 48",
+     "x = 30",
+     "x = 26",
+     "x = 0"
+    ],
+    "answerIndex": 0,
+    "explain": "Multiply every term by 12 to clear denominators: 3x + 24 = 4(x − 6) = 4x − 24, so x = 48 (check: both sides equal 14). The two traps are forgetting to multiply the lone 2 by 12 and forgetting to distribute the 4 to the −6."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.VERIFY",
+    "level": 2,
+    "question": "Ravi checks x = −3 by substituting it into both sides. Which equation does x = −3 actually satisfy?",
+    "options": [
+     "4x + 5 = 2x + 1",
+     "4x − 5 = 2x + 1",
+     "4x + 5 = 2x − 1",
+     "5 − 4x = 2x + 1"
+    ],
+    "answerIndex": 2,
+    "explain": "Substitute into each side separately: 4(−3) + 5 = −7 and 2(−3) − 1 = −7, so only the third equation balances. The trap is rushing the negatives — 4(−3) is −12, not −12 dropped to 12 or 1, so evaluate one side fully before comparing."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.WORD",
+    "level": 2,
+    "question": "A rectangular garden bed at Maya's school has length (2x + 3) metres and width x metres. Its perimeter is 36 m. What is x?",
+    "options": [
+     "x = 5",
+     "x = 6",
+     "x = 7",
+     "x = 11"
+    ],
+    "answerIndex": 0,
+    "explain": "Perimeter means 2(2x + 3) + 2x = 36, so 6x + 6 = 36 and x = 5 (length 13 m, width 5 m). The most common trap is adding only one length and one width, giving 3x + 3 = 36; subtracting the 6 the wrong way is the other."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.WORD",
+    "level": 3,
+    "question": "The community centre climbing wall has two choices. Drop-in: $16 per session. Season card: $60 once, then $6 per session. Kiran will climb 10 times this season. How much less does the cheaper choice cost him?",
+    "options": [
+     "$10",
+     "$40",
+     "$60",
+     "$100"
+    ],
+    "answerIndex": 1,
+    "explain": "Write both totals: drop-in is 16(10) = $160 and the card is 60 + 6(10) = $120, so the card saves $40 (the two are equal at 16s = 60 + 6s, s = 6 sessions). The trap is forgetting to add the $60 card fee, or answering with the $10 per-session gap instead of the 10-session total."
+   },
+   {
+    "curriculumId": "YY.MATH.LINEQ.VERIFY",
+    "level": 3,
+    "question": "Jules solves 7x − 3(x − 2) = 2(x + 5) like this. Step 1: 7x − 3x − 6 = 2x + 10. Step 2: 4x − 6 = 2x + 10. Step 3: 2x = 16. Step 4: x = 8. Where does the work first go wrong?",
+    "options": [
+     "Step 2, because 7x − 3x should be combined as 10x.",
+     "Step 3, because 4x − 2x is 6x, so 6x = 16 here.",
+     "Step 1, because −3 times −2 gives +6, not −6.",
+     "Step 4, because 2x = 16 gives x = 32, not x = 8."
+    ],
+    "answerIndex": 2,
+    "explain": "Distributing −3 across (x − 2) gives −3x + 6, so the line should read 4x + 6 = 2x + 10, leading to 2x = 4 and x = 2 (check: both sides equal 14). Dropping the negative on the second term is the number one error in this unit — substitute your answer back into both sides to catch it."
+   }
+  ]
+ }
+}

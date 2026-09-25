@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RAT.MULTDIV",
+ "lang": "en",
+ "title": "Multiply and divide rational numbers, including negative fractions ((−3/4) ÷ 1/5 = −15/4)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Dividing Negative Fractions: Flip, Multiply, Then Fix the Sign",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know two things that make this easy. First, the sign rules for integers: a negative divided by a positive gives a negative, just like negative twelve divided by three is negative four. Second, dividing fractions by flipping the divisor and multiplying. Today we combine them to divide fractions when a negative sign shows up.",
+    "math": "(-12)\\div 3=-4 \\qquad \\frac{3}{4}\\div\\frac{1}{8}=\\frac{3}{4}\\times\\frac{8}{1}=6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the plan for negative three quarters divided by one fifth. Step one: decide the sign first. Negative divided by positive is negative. Step two: ignore the sign and divide three quarters by one fifth by flipping the divisor to five over one and multiplying. Step three: put the negative sign back on your answer.",
+    "math": "\\left(-\\frac{3}{4}\\right)\\div\\frac{1}{5} \\;\\to\\; \\text{sign: } (-)\\div(+)=(-)",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      3
+     ],
+     "labels": [],
+     "caption": "Three quarters: the size we are working with, before the sign"
+    }
+   },
+   {
+    "say": "Now the fraction part. Three quarters divided by one fifth means: how many fifths fit into three quarters? Flip the divisor one fifth into five over one, and multiply. Three times five is fifteen, four times one is four. That gives fifteen quarters, which is three and three quarters. It makes sense that it is bigger than three quarters, because a fifth is a small piece, so lots of them fit.",
+    "math": "\\frac{3}{4}\\div\\frac{1}{5}=\\frac{3}{4}\\times\\frac{5}{1}=\\frac{15}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      15
+     ],
+     "labels": [],
+     "caption": "Fifteen quarters is three wholes and three more quarters"
+    }
+   },
+   {
+    "say": "Step three: put the sign back. We decided at the start that negative divided by positive is negative. So the final answer is negative fifteen quarters, or negative three and three quarters. Think of it like a drop in your phone data: a debt of three quarters of a gigabyte, split into fifth-of-a-gigabyte chunks, is fifteen quarters of a chunk owed.",
+    "math": "\\left(-\\frac{3}{4}\\right)\\div\\frac{1}{5}=-\\frac{15}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      -4,
+      0,
+      -3.75,
+      -3.75,
+      4
+     ],
+     "labels": [],
+     "caption": "Negative fifteen quarters sits at negative three and three quarters"
+    }
+   },
+   {
+    "say": "Two mistakes to watch for. Mistake one: multiplying straight across without flipping. Three quarters times one fifth gives three twentieths, but that is a multiplication answer, not a division answer. Mistake two: flipping the wrong fraction. If you flip three quarters into four thirds and multiply by one fifth, you get four fifteenths, which is wrong. Always flip the second number, the divisor, never the first one.",
+    "math": "\\text{Wrong: } \\frac{3}{4}\\times\\frac{1}{5}=\\frac{3}{20} \\qquad \\text{Wrong: } \\frac{4}{3}\\times\\frac{1}{5}=\\frac{4}{15}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      4,
+      15,
+      20,
+      3
+     ],
+     "labels": [],
+     "caption": "Correct 15/4 versus the no-flip mistake 3/20: very different sizes"
+    }
+   },
+   {
+    "say": "So here is the whole move in one line: sign first, flip the divisor, multiply, sign back. Negative three quarters divided by one fifth equals negative fifteen quarters. The negative sign just rides along; the fraction work is exactly what you already know.",
+    "math": "\\left(-\\frac{3}{4}\\right)\\div\\frac{1}{5}=-\\left(\\frac{3}{4}\\times\\frac{5}{1}\\right)=-\\frac{15}{4}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Sign first, flip the divisor, multiply, then put the sign back.",
+  "practice": {
+   "question": "Your bank balance changed by negative two thirds of a dollar every day for a stretch of days, and the total change was negative four fifths of a dollar... wait, keep it simple: compute negative two thirds divided by one sixth. Then check the sign: should the answer be positive or negative?",
+   "answer": "Sign: negative divided by positive is negative. Fraction part: two thirds times six over one equals twelve thirds, which simplifies to four. Answer: negative four."
+  }
+ }
+}

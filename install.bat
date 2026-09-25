@@ -6,7 +6,7 @@ echo ================================================
 echo  Yuanyuan Math - install dependencies
 echo  (build tools + AI engine CLIs only.
 echo  Local models are NOT installed here:
-echo  Ollama and the CosyVoice voice engine are
+echo  Ollama and the local voice engines are
 echo  skipped on purpose - see README for those.)
 echo ================================================
 echo.
@@ -72,7 +72,7 @@ echo  Done.
 echo.
 echo  Skipped on purpose:
 echo   - Ollama (local model)          https://ollama.com
-echo   - CosyVoice natural voice/TTS   see README, natural-voice section
+echo   - Natural voice/TTS (zh+en)     see README, natural-voice section
 echo   - Grok Build / Codex CLIs       no scripted installer here - see their own docs
 echo.
 echo  If Claude Code / Gemini CLI were just installed, run "claude" or

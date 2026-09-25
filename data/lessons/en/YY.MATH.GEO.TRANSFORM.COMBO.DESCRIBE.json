@@ -1,0 +1,143 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.TRANSFORM.COMBO.DESCRIBE",
+ "lang": "en",
+ "title": "Describe the transformations that map a shape onto its image",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Be a Transformation Detective",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a shape and slide it, flip it, or turn it, and then draw the image. Today we do it backwards, like a detective: we look at where the shape ended up, and we say exactly what happened to it.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1,
+      1,
+      3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C"
+     ],
+     "caption": "Our starting triangle A, B, C"
+    }
+   },
+   {
+    "say": "Here is the detective checklist. First ask: is the image flipped, like looking in a mirror or a puddle? Then ask: after that flip, how far does it slide across and up or down? Then say the two moves in the order they happened. That order part is the whole secret.",
+    "math": "\\text{flip first} \\to \\text{then slide}",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      1,
+      4,
+      1,
+      1,
+      3,
+      2,
+      1,
+      -1,
+      1,
+      2,
+      3
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "Starting corners and image corners"
+    }
+   },
+   {
+    "say": "Let's solve it. Triangle A B C has corners at one comma one, four comma one, and one comma three. The image has corners at two comma one, negative one comma one, and two comma three. The image is facing the other way, so it was flipped in the y axis. Flipping A gives negative one comma one, flipping B gives negative four comma one, and flipping C gives negative one comma three.",
+    "math": "(1,1)\\to(-1,1),\\;(4,1)\\to(-4,1),\\;(1,3)\\to(-1,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -1,
+      1,
+      -4,
+      1,
+      -1,
+      3
+     ],
+     "labels": [
+      "A'",
+      "B'",
+      "C'"
+     ],
+     "caption": "After the flip in the y axis"
+    }
+   },
+   {
+    "say": "Now the slide. From negative one comma one over to two comma one is three steps to the right, and the y numbers never changed. Check the others: negative four plus three is negative one, and negative one plus three is two. All three corners land perfectly. So the answer is: reflect in the y axis, then translate three units right.",
+    "math": "(-1,1)\\to(2,1),\\;(-4,1)\\to(-1,1),\\;(-1,3)\\to(2,3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      2,
+      1,
+      -1,
+      1,
+      2,
+      3
+     ],
+     "labels": [
+      "A''",
+      "B''",
+      "C''"
+     ],
+     "caption": "After sliding 3 to the right — matches the image"
+    }
+   },
+   {
+    "say": "Here is the mistake lots of kids make: mixing up the order. If you slide three right first, A goes to four comma one, B to seven comma one, and C to four comma three. Then flipping in the y axis sends them to negative four comma one, negative seven comma one, and negative four comma three. That is nowhere near the real image. Same two moves, wrong order, wrong answer.",
+    "math": "(1,1)\\to(4,1)\\to(-4,1)\\;\\neq\\;(2,1)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      -4,
+      1,
+      -7,
+      1,
+      -4,
+      3
+     ],
+     "labels": [
+      "wrong 1",
+      "wrong 2",
+      "wrong 3"
+     ],
+     "caption": "Slide first, then flip — lands in the wrong place"
+    }
+   },
+   {
+    "say": "So when you describe a transformation, always name the flip or turn, then the slide, and always say them in the order they really happened.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Name the flip or turn first, then the slide — and always say them in the order they happened, because swapping the order gives a different image.",
+  "practice": {
+   "question": "At a community garden in Victoria, the map is a coordinate grid where each square is one metre. Amara's garden plot is a triangle with corners at one comma two, four comma two, and one comma five. The gardeners move it, and the new plot has corners at one comma negative one, four comma negative one, and one comma negative four. Draw both triangles on your own grid paper, then describe the two transformations in the right order.",
+   "answer": "Reflect the plot in the x axis, then translate it one unit up. (The flip sends the corners to one comma negative two, four comma negative two, and one comma negative five; sliding up one gives one comma negative one, four comma negative one, and one comma negative four.)"
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.BUDGET_PLAN",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtn92070oq5ilq",
+   "level": 1,
+   "question": "A monthly budget table is written out in words with four rows. Income row: allowance $80 for the month. Fixed expenses row: bus pass $28. Variable expenses row: snacks $6 each week, for 4 weeks in the month. Savings row: $16 put into a savings account. What is the total of the expense side (fixed + variable + saving)?",
+   "options": [
+    "$68",
+    "$50",
+    "$52",
+    "$12"
+   ],
+   "answerIndex": 0,
+   "explain": "Turn the weekly snack money into a monthly amount first ($6 x 4 = $24), then add every row on the expense side, including saving: $28 + $24 + $16 = $68. The most common trap is leaving the $16 saving out and answering $52 — saving is money you assign, so it belongs on the expense side of the budget.",
+   "tags": [
+    "ok",
+    "fin.period_mismatch",
+    "fin.saving_not_expense",
+    "fin.balance_misjudged"
+   ]
+  },
+  {
+   "qid": "qmtn92070ybx6ox",
+   "level": 1,
+   "question": "A monthly budget table is written out in words. Income row: $120 from babysitting. Fixed expenses rows: phone plan $20 and bus pass $30. Variable expenses row: swim drop-in $6 each week, for 4 weeks. Savings row: $22. Does this budget balance?",
+   "options": [
+    "No — expenses total $78, leaving $42 unassigned",
+    "No — expenses total $96, leaving $24 unassigned",
+    "No — expenses total $74, leaving $46 unassigned",
+    "Yes — income and expenses both come to $120 here"
+   ],
+   "answerIndex": 1,
+   "explain": "Make the swim cost monthly ($6 x 4 = $24), add all four expense rows ($20 + $30 + $24 + $22 = $96), then compare with the $120 income: $24 has no job yet, so it does not balance. A budget balances only when the two sides are equal, not when income is merely big enough.",
+   "tags": [
+    "fin.period_mismatch",
+    "ok",
+    "fin.saving_not_expense",
+    "fin.balance_misjudged"
+   ]
+  },
+  {
+   "qid": "qmtn920701lf471",
+   "level": 1,
+   "question": "A monthly budget table is written out in words. Income row: $150. Fixed expenses row: $62. Variable expenses row: lunches $12 each week, for 4 weeks. Savings row: left blank. What amount goes in the savings row so the budget balances?",
+   "options": [
+    "$110, which is what the two expense rows add to",
+    "$76, using the $12 lunch amount just one time",
+    "$40, so the expense side also totals $150",
+    "$0, since saving is not an expense-side row"
+   ],
+   "answerIndex": 2,
+   "explain": "Change lunches to a monthly amount ($12 x 4 = $48), add the spending rows ($62 + $48 = $110), then subtract from income: $150 - $110 = $40 for saving. Writing $110 in the savings row is the usual slip — that number is the spending total, not the leftover.",
+   "tags": [
+    "fin.balance_misjudged",
+    "fin.period_mismatch",
+    "ok",
+    "fin.saving_not_expense"
+   ]
+  },
+  {
+   "qid": "qmtn9207046d1ys",
+   "level": 1,
+   "question": "A monthly budget table is written out in words. Income row: $95 from dog walking. Fixed expenses rows: bus pass $30 and phone $25. Variable expenses row: snacks $6 each week, for 4 weeks. Savings row: $30. Which statement about this budget is true?",
+   "options": [
+    "It has $4 left over, so a bit more can be saved",
+    "It has $16 left over after the four rows add up",
+    "It balances, since income and expenses both are $95",
+    "It is short by $14, so one row must drop by $14"
+   ],
+   "answerIndex": 3,
+   "explain": "Snacks are $6 x 4 = $24 per month, so the expense side is $30 + $25 + $24 + $30 = $109, which is $14 more than the $95 income. Using $6 instead of $24 makes the budget look nearly balanced — always convert weekly amounts to monthly before you compare the two sides.",
+   "tags": [
+    "fin.period_mismatch",
+    "fin.saving_not_expense",
+    "fin.balance_misjudged",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn92070m985ok",
+   "level": 2,
+   "question": "A monthly budget has income $240, fixed expenses $95, variable expenses of $17 each week for 4 weeks, and saving $60. How much of the income is left unassigned?",
+   "options": [
+    "$17",
+    "$77",
+    "$68",
+    "$223"
+   ],
+   "answerIndex": 0,
+   "explain": "Variable costs are $17 x 4 = $68, so the whole expense side is $95 + $68 + $60 = $223, and $240 - $223 = $17 is unassigned. Answering $77 means the $60 saving was left off the expense side, which always makes the leftover look too big.",
+   "tags": [
+    "ok",
+    "fin.saving_not_expense",
+    "fin.period_mismatch",
+    "fin.balance_misjudged"
+   ]
+  },
+  {
+   "qid": "qmtn92070wjrkvr",
+   "level": 2,
+   "question": "A monthly budget shows income $300 with fixed expenses $140, variable expenses $85 and saving $95, so the expense side comes to $320. Which single change makes the budget balance?",
+   "options": [
+    "Move $20 from the fixed row into the saving row",
+    "Lower the variable row from $85 down to $65",
+    "Take out the $95 saving, as saving is not spending",
+    "Raise the income row by $20 to match the $320"
+   ],
+   "answerIndex": 1,
+   "explain": "The expense side is $20 too big, so shrink an expense row by $20: $85 - $20 = $65 makes the expense side $300, equal to the income. Moving money between two expense rows keeps the total at $320, and you cannot raise the income row unless you actually earn more.",
+   "tags": [
+    "fin.balance_misjudged",
+    "ok",
+    "fin.saving_not_expense",
+    "fin.balance_misjudged"
+   ]
+  },
+  {
+   "qid": "qmtn92070i3vl9h",
+   "level": 2,
+   "question": "A monthly budget is to balance exactly. Fixed expenses are $210, variable expenses are $36 each week for 4 weeks, and saving is $86. What monthly income is needed?",
+   "options": [
+    "$354",
+    "$332",
+    "$440",
+    "$526"
+   ],
+   "answerIndex": 2,
+   "explain": "Add the full expense side — $210 + ($36 x 4) + $86 = $440 — because a balanced budget has income equal to everything assigned, saving included. Leaving the $86 saving out gives $354, and using $36 only once gives $332.",
+   "tags": [
+    "fin.saving_not_expense",
+    "fin.period_mismatch",
+    "ok",
+    "fin.saving_not_expense"
+   ]
+  },
+  {
+   "qid": "qmtn92070umsxqx",
+   "level": 2,
+   "question": "Nadia budgets a month with income $180. Her fixed expenses are a bus pass $32 and guitar lessons $60, and her variable expense is bubble tea at $7 each week for 4 weeks. Everything left goes to saving. How much can she save?",
+   "options": [
+    "$0, because saving is not an expense row",
+    "$81, using the $7 bubble tea amount once",
+    "$120, which is what the three rows add to",
+    "$60, so the expense side totals $180"
+   ],
+   "answerIndex": 3,
+   "explain": "Bubble tea is $7 x 4 = $28 monthly, so the spending rows are $32 + $60 + $28 = $120 and saving takes the rest: $180 - $120 = $60. Forgetting to multiply the weekly amount by 4 leaves too much room and gives $81.",
+   "tags": [
+    "fin.saving_not_expense",
+    "fin.period_mismatch",
+    "fin.balance_misjudged",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn920709d7uqq",
+   "level": 3,
+   "question": "Ravi earns $22 every Saturday walking dogs, and this month has 4 Saturdays. He also received a one-time $95 birthday gift. His fixed expenses are phone $35 and transit pass $28, and his variable spending is $46. He wants the budget to balance with all the rest going into his savings account. How much goes to saving?",
+   "options": [
+    "$74, from $183 of income minus $109 of costs",
+    "$8, from $117 of income minus the $109 of costs",
+    "$109, the amount the three expense rows add to",
+    "$183, because saving is what the income row holds"
+   ],
+   "answerIndex": 0,
+   "explain": "Turn the weekly earnings into a monthly amount ($22 x 4 = $88), add the one-time gift for income of $183, subtract the spending rows ($35 + $28 + $46 = $109), and save the $74 that is left. The classic trap is adding one $22 Saturday to the $95 gift, which mixes a weekly amount with a monthly one.",
+   "tags": [
+    "ok",
+    "fin.period_mismatch",
+    "fin.balance_misjudged",
+    "fin.saving_not_expense"
+   ]
+  },
+  {
+   "qid": "qmtn92070bchjnn",
+   "level": 3,
+   "question": "Maya's monthly budget balanced last month: income $260, fixed expenses $120, variable expenses $80, saving $60. This month her bus pass goes up by $15. She keeps the same $260 income and still wants to save $60. What must she do so the budget balances again?",
+   "options": [
+    "Add $15 to the income row so the sides match",
+    "Cut the variable row from $80 down to $65",
+    "Move $15 from saving into the variable row",
+    "Leave it — the $60 saving covers the extra $15"
+   ],
+   "answerIndex": 1,
+   "explain": "Fixed expenses become $135, so with income $260 and saving fixed at $60, the variable row must be $260 - $135 - $60 = $65, a cut of $15. Shifting money between two expense rows leaves the expense total at $275, so the budget still does not balance.",
+   "tags": [
+    "fin.balance_misjudged",
+    "ok",
+    "fin.balance_misjudged",
+    "fin.saving_not_expense"
+   ]
+  },
+  {
+   "qid": "qmtn920707numna",
+   "level": 3,
+   "question": "Ellie's monthly budget lists income $45 from babysitting, phone $18, snacks $3 each week for 4 weeks, and saving $8. She writes: “Expenses $38, income $45 — my budget is balanced.” What is really going on?",
+   "options": [
+    "Her total is wrong: the expense side is really $29",
+    "Her total is wrong: saving does not belong there",
+    "Her total is right, but $7 is still unassigned",
+    "Nothing is wrong: $45 of income covers the $38"
+   ],
+   "answerIndex": 2,
+   "explain": "Her expense side is correct — $18 + ($3 x 4) + $8 = $38 — but $45 is not $38, so $7 of income has no job and the budget does not balance yet. Having enough income is not the same as balancing; assign the extra $7 to a row, such as saving.",
+   "tags": [
+    "fin.period_mismatch",
+    "fin.saving_not_expense",
+    "ok",
+    "fin.balance_misjudged"
+   ]
+  },
+  {
+   "qid": "qmtn92070bzk022",
+   "level": 3,
+   "question": "Theo's monthly income is a $110 allowance plus $16 each week from a paper route, with 4 weeks this month. His fixed expenses are phone $30 and transit $25, and he wants $50 to go into his savings account. The rest becomes his variable spending money. What variable amount makes the budget balance?",
+   "options": [
+    "$21, from $126 of income after the other rows",
+    "$105, which is what the other rows add up to",
+    "$119, since the $50 saving is not an expense",
+    "$69, so the expense side also totals $174"
+   ],
+   "answerIndex": 3,
+   "explain": "Income is $110 + ($16 x 4) = $174, and the other assigned rows come to $30 + $25 + $50 = $105, leaving $174 - $105 = $69 for variable spending. Two traps hide here: adding just one $16 week to the allowance, and skipping the $50 saving because it does not feel like spending.",
+   "tags": [
+    "fin.period_mismatch",
+    "fin.balance_misjudged",
+    "fin.saving_not_expense",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.AREA.TRIANGLE",
+ "lang": "en",
+ "title": "Find the area of a triangle as half a parallelogram (base × height ÷ 2)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Half of a Parallelogram: Triangle Area",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the area of a parallelogram: base times height. Today we take one small step further — what happens when we only have half of it, a triangle.",
+    "math": "A_{\\text{parallelogram}} = b \\times h",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. Take any triangle, then take a second triangle exactly the same size, flip it upside down, and slide it beside the first one. The two triangles snap together into a parallelogram! So one triangle is exactly half of that parallelogram.",
+    "math": "A_{\\text{triangle}} = \\frac{b \\times h}{2}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "One triangle: base 6 cm, dashed height 4 cm"
+    }
+   },
+   {
+    "say": "Let us use real numbers. Imagine a triangular garden flag with a base of six centimetres and a height of four centimetres. First build the whole parallelogram: six times four is twenty four square centimetres. You can count the little squares in the grid — there are twenty four.",
+    "math": "6 \\times 4 = 24",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      4,
+      6,
+      4,
+      6
+     ],
+     "labels": [],
+     "caption": "The whole parallelogram: 24 squares of 1 cm each"
+    }
+   },
+   {
+    "say": "Now cut it in half along the diagonal. The triangle is only half of those twenty four squares, so twenty four divided by two is twelve. The area of the triangle is twelve square centimetres.",
+    "math": "\\frac{6 \\times 4}{2} = \\frac{24}{2} = 12",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Half of 24 is 12 square centimetres"
+    }
+   },
+   {
+    "say": "Two traps to watch for. Trap one: stopping at twenty four. Twenty four is the whole parallelogram, not the triangle — if you forget to halve, you are claiming a whole pizza when you only got half. Trap two: using the slanted side instead of the height. The height must be the straight-up dashed line that meets the base at a square corner. The slanted side is longer, so it would make your answer too big.",
+    "math": "24 \\ne 12 \\quad \\text{(don't forget } \\div 2\\text{)}",
+    "visual": {
+     "type": "shapeTriangle",
+     "nums": [
+      6,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Use the dashed height (4 cm), never the slanted side"
+    }
+   },
+   {
+    "say": "So here is your one takeaway: a triangle is always half of a parallelogram with the same base and the same height. Multiply base times height, then cut it in half.",
+    "math": "A = \\frac{b \\times h}{2}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A triangle is half a parallelogram: base × height ÷ 2 — never forget the ÷ 2!",
+  "practice": {
+   "question": "A community garden in Kelowna has a triangular flower bed. Its base measures 10 metres and its height measures 7 metres. What is the area of the flower bed? Try sketching the triangle yourself, and mark the height as a dashed line meeting the base at a square corner.",
+   "answer": "35 square metres. First find the whole parallelogram: 10 times 7 is 70. Then halve it: 70 divided by 2 is 35 square metres."
+  }
+ }
+}

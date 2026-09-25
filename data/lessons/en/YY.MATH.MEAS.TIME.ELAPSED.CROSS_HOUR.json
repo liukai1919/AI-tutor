@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR",
+ "lang": "en",
+ "title": "Find elapsed time across hours with jumps on a time line",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Time Jumps Across the Hour",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to count minutes when the time stays inside one hour. Today we solve the trickier kind, when the clock crosses an o'clock. Your swimming lesson at the community pool starts at ten forty-five in the morning and ends at twelve twenty. How long is it?",
+    "math": "10{:}45 \\rightarrow 12{:}20",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      10,
+      45,
+      12,
+      20
+     ],
+     "labels": [],
+     "caption": "Start 10:45, finish 12:20 — how long?"
+    }
+   },
+   {
+    "say": "Here is the trick: don't jump the whole way at once. Take little hops along a time line, and the first hop always goes up to the next o'clock. From ten forty-five, hop up to eleven o'clock. That is fifteen minutes, because forty-five plus fifteen makes sixty, a full hour.",
+    "math": "10{:}45 + 15\\text{ min} = 11{:}00",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      10,
+      45,
+      11,
+      0
+     ],
+     "labels": [],
+     "caption": "Hop 1: 10:45 to 11:00 is 15 minutes"
+    }
+   },
+   {
+    "say": "Now you are standing on a nice round o'clock, so the next hop is easy. From eleven o'clock to twelve o'clock is one whole hour. On the time line that is one big jump, no counting of little minutes at all.",
+    "math": "11{:}00 + 1\\text{ h} = 12{:}00",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      10,
+      12,
+      11,
+      12
+     ],
+     "labels": [],
+     "caption": "Hop 2: one big whole-hour jump, 11 o'clock to 12 o'clock"
+    }
+   },
+   {
+    "say": "Last hop. From twelve o'clock to twelve twenty is just twenty minutes. Now add the hops together: fifteen minutes plus twenty minutes is thirty-five minutes, and we also had one whole hour. So the swimming lesson is one hour and thirty-five minutes long.",
+    "math": "15 + 60 + 20 = 95\\text{ min} = 1\\text{ h }35\\text{ min}",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      12,
+      0,
+      12,
+      20
+     ],
+     "labels": [],
+     "caption": "Hop 3: 12:00 to 12:20 is 20 minutes — total 1 h 35 min"
+    }
+   },
+   {
+    "say": "Watch out for two traps. Some kids line up twelve twenty under ten forty-five and subtract the digits, getting two hours twenty-five minutes — but that is too long, because forty-five minutes past ten is almost eleven already. And remember minutes roll over at sixty, not at one hundred, so one hour fifty minutes plus twenty minutes is not one hour seventy minutes, it is two hours ten minutes. Hopping to the o'clock first keeps you safe from both.",
+    "math": "1\\text{ h }50 + 20 = 2\\text{ h }10\\text{ min}",
+    "visual": {
+     "type": "clock",
+     "nums": [
+      10,
+      45,
+      12,
+      20
+     ],
+     "labels": [],
+     "caption": "Correct: 1 h 35 min, not 2 h 25 min"
+    }
+   },
+   {
+    "say": "So: hop to the next o'clock, jump the whole hours, then finish the last minutes, and add your hops.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Hop to the o'clock, jump the whole hours, then the last minutes — add the hops up.",
+  "practice": {
+   "question": "The ferry from Tsawwassen leaves at nine fifty in the morning and reaches Swartz Bay at eleven fifteen. Draw your own time line and take three hops: first up to ten o'clock, then the whole hour, then the last minutes. How long is the sailing?",
+   "answer": "Ten minutes, plus one hour, plus fifteen minutes — the sailing takes 1 hour 25 minutes."
+  }
+ }
+}

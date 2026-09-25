@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "roots",
+ "lang": "en",
+ "unitName": {
+  "zh": "平方根与立方根",
+  "en": "Square & cube roots"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Square & cube roots · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT",
+    "level": 1,
+    "question": "What is √144?",
+    "options": [
+     "72",
+     "12",
+     "14",
+     "24"
+    ],
+    "answerIndex": 1,
+    "explain": "A square root asks 'what number times itself gives 144?' — since 12 × 12 = 144, √144 = 12. The most common trap is halving (144 ÷ 2 = 72); taking a square root is the inverse of squaring, not dividing by 2."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.CUBE_PERFECT",
+    "level": 1,
+    "question": "Léa builds a solid cube out of 64 linking cubes. What is ∛64, the number of cubes along one edge?",
+    "options": [
+     "8",
+     "21.3",
+     "4",
+     "16"
+    ],
+    "answerIndex": 2,
+    "explain": "A cube root asks 'what number used three times gives 64?' — 4 × 4 × 4 = 64, so ∛64 = 4. Watch out for answering 8 (that is √64, the square root) or 21.3 (that is 64 ÷ 3)."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.SQUARE.ROOT_ESTIMATE",
+    "level": 1,
+    "question": "√54 lies between which two whole numbers?",
+    "options": [
+     "7 and 8",
+     "6 and 7",
+     "8 and 9",
+     "26 and 27"
+    ],
+    "answerIndex": 0,
+    "explain": "Find the nearest perfect squares below and above: 49 = 7² and 64 = 8², and 54 is between them, so √54 is between 7 and 8. The classic trap is halving 54 to get 26 and 27 — that is division, not a square root."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.SQUARE_PERFECT",
+    "level": 2,
+    "question": "A square patio is tiled with 400 small square tiles arranged 20 by 20, and 121 of them are grey. The grey part forms a smaller square. What is √(121/400), the fraction of the patio's side length that the grey square covers?",
+    "options": [
+     "121/20",
+     "11/200",
+     "60.5/200",
+     "11/20"
+    ],
+    "answerIndex": 3,
+    "explain": "For a fraction, take the square root of the top and the bottom separately: √121 = 11 and √400 = 20, so √(121/400) = 11/20. The usual slip is rooting only one part of the fraction (121/20 or 11/200) — both numerator and denominator must be rooted."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.ESTIMATE",
+    "level": 2,
+    "question": "Estimate √75 to one decimal place.",
+    "options": [
+     "8.3",
+     "8.5",
+     "8.7",
+     "8.9"
+    ],
+    "answerIndex": 2,
+    "explain": "√75 sits between √64 = 8 and √81 = 9, so test tenths: 8.6² = 73.96 and 8.7² = 75.69, and 75 is closer to 75.69, giving √75 ≈ 8.7. The trap is stopping at the first square below 75 and answering 8.6 without checking which neighbour is closer."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.PRIME_FACTOR",
+    "level": 2,
+    "question": "Using prime factors, 1225 = 5 × 5 × 7 × 7. What is √1225?",
+    "options": [
+     "12",
+     "35",
+     "49",
+     "245"
+    ],
+    "answerIndex": 1,
+    "explain": "Group the prime factors into identical pairs and take one factor from each pair: (5 × 5) and (7 × 7) give 5 × 7 = 35, so √1225 = 35. The most common mistake is adding the grouped factors (5 + 7 = 12) instead of multiplying them."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.APPLY",
+    "level": 3,
+    "question": "Nima's cube-shaped aquarium has a volume of 27 000 cm³. He wants to run a plastic strip all the way around the square rim at the top. How long a strip does he need?",
+    "options": [
+     "30 cm",
+     "120 cm",
+     "360 cm",
+     "9000 cm"
+    ],
+    "answerIndex": 1,
+    "explain": "For a cube, edge = ∛volume, and ∛27 000 = 30 cm because 30 × 30 × 30 = 27 000; the top rim is a square, so its perimeter is 4 × 30 = 120 cm. Two traps here: dividing the volume by 3 (9000 cm) instead of taking a cube root, and stopping at the edge length (30 cm) without finding the perimeter."
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.ROOT.APPLY",
+    "level": 3,
+    "question": "The square skateboard pad at Maya's Burnaby park has an area of 100 m². The city wants to rebuild it as a square pad with double the area. What will the new side length be, to one decimal place?",
+    "options": [
+     "14.1 m",
+     "14.5 m",
+     "15.0 m",
+     "20.0 m"
+    ],
+    "answerIndex": 0,
+    "explain": "Double the area first (100 × 2 = 200 m²), then take the square root: 14.1² = 198.81 and 14.2² = 201.64, so √200 ≈ 14.1 m. The big misconception is doubling the side to 20 m — that would give an area of 400 m², four times the original, because area grows with the square of the side."
+   }
+  ]
+ }
+}

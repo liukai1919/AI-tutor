@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MULT.2D_BY_2D",
+ "lang": "en",
+ "title": "Multiply 2-digit numbers by 2-digit numbers",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Two-Digit Times Two-Digit: Four Little Boxes",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to break a big number into its place value pieces and multiply one piece at a time. Today we do the same trick when both numbers have two digits, like twenty-three times fourteen. Nothing new to be scared of, we just get a few more pieces.",
+    "math": "23 \\times 14 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. Before, we split only one number. Now we split both. Twenty-three becomes twenty plus three, and fourteen becomes ten plus four. When you split a rectangle across and down, you get four little boxes instead of two.",
+    "math": "23 = 20 + 3 \\quad , \\quad 14 = 10 + 4",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      14
+     ],
+     "labels": [],
+     "caption": "Split both sides: 20 and 3 across, 10 and 4 down"
+    }
+   },
+   {
+    "say": "Let us say a Grade 5 class in Surrey is going to Science World, and each of the twenty-three kids pays fourteen dollars. Now fill in the four boxes. Twenty times ten is two hundred. Twenty times four is eighty. Three times ten is thirty. And three times four is twelve.",
+    "math": "20\\times10=200,\\; 20\\times4=80,\\; 3\\times10=30,\\; 3\\times4=12",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      14
+     ],
+     "labels": [],
+     "caption": "Four boxes: 200, 80, 30, and 12"
+    }
+   },
+   {
+    "say": "Last step, add up all four boxes. Two hundred plus eighty is two hundred eighty. Plus thirty is three hundred ten. Plus twelve is three hundred twenty-two. So the class pays three hundred twenty-two dollars.",
+    "math": "200+80+30+12=322",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      14
+     ],
+     "labels": [],
+     "caption": "200 + 80 + 30 + 12 = 322 dollars"
+    }
+   },
+   {
+    "say": "Now the mistake I see the most. Some kids only do two boxes and write twenty-three times four is ninety-two, plus twenty-three is one hundred fifteen. That is way too small. Two reasons. They forgot the boxes that use the twenty, and they forgot that the one in fourteen is not one, it is one ten. So it must be twenty-three times ten, which is two hundred thirty, not twenty-three. Every single box has to get multiplied and counted.",
+    "math": "322 \\neq 92 + 23",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      14
+     ],
+     "labels": [],
+     "caption": "All four boxes count, and the 1 in 14 means 10"
+    }
+   },
+   {
+    "say": "So remember, when both numbers have two digits, split both, multiply all four pieces, and add every piece up. Four boxes in, four boxes out.",
+    "math": "(20+3)\\times(10+4)=200+80+30+12=322",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Split both numbers by place value, multiply all four boxes, and add every single one.",
+  "practice": {
+   "question": "A Grade 5 class in Kelowna is buying reusable water bottles for a hiking trip. Each bottle costs sixteen dollars, and they need twelve bottles. Draw your own area model: split sixteen into ten and six across the top, and split twelve into ten and two down the side. Fill in all four boxes and add them up. How much do the bottles cost in total?",
+   "answer": "192 dollars. The four boxes are ten times ten equals one hundred, six times ten equals sixty, ten times two equals twenty, and six times two equals twelve. One hundred plus sixty plus twenty plus twelve equals one hundred ninety-two."
+  }
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.IDENTIFY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkq6l2vvtkwwc",
+   "level": 1,
+   "question": "一个三角形的直角在顶点 C，也就是 ∠C = 90°，三条边长分别是 6 cm、8 cm、10 cm。哪条边是斜边（hypotenuse）？",
+   "options": [
+    "10 cm 那条，因为斜边正对着直角，一定最长",
+    "8 cm 那条，因为摆歪时竖着的边就是斜边",
+    "6 cm 那条，因为它是从直角出发最短的边",
+    "都不是，斜边应是 6 + 8 = 14 cm 那条"
+   ],
+   "answerIndex": 0,
+   "explain": "斜边永远是正对着直角的那条边，也是三边中最长的，所以是 10 cm 那条。最容易踩的坑是看边画得斜不斜来猜，或把两条直角边相加当斜边。",
+   "tags": [
+    "ok",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vbbz33a",
+   "level": 1,
+   "question": "小美画的三角形斜着摆、直角朝下，三条边是 5 cm、12 cm、13 cm，直角夹在 5 cm 和 12 cm 两条边之间。下面哪句说得对？",
+   "options": [
+    "12 cm 是斜边，因为它是画面里竖着的那条",
+    "13 cm 是斜边，5 cm 和 12 cm 是直角边（legs）",
+    "斜着摆的三角形不算直角三角形，没有斜边",
+    "斜边是 5 + 12 = 17 cm，画短了要改过来"
+   ],
+   "answerIndex": 1,
+   "explain": "夹住直角的两条边（5 cm 和 12 cm）是直角边，正对直角的 13 cm 才是斜边。三角形怎么转、怎么摆都不影响这个判断，写 17 cm 的那个是把两条直角边直接相加了。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "tri.orientation_changes_type",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vr6cwdu",
+   "level": 1,
+   "question": "一个三角形的三条边是 9 cm、12 cm、15 cm。它是直角三角形（right triangle）吗？",
+   "options": [
+    "不是，因为 9 + 12 = 21，并不等于 15",
+    "不是，因为 81 + 225 = 306，不等于 144",
+    "是，因为 81 + 144 = 225，正好等于 15²",
+    "说不准，要先知道这个三角形怎么摆放"
+   ],
+   "answerIndex": 2,
+   "explain": "检验时要把最长边 15 当作 c：9² + 12² = 81 + 144 = 225 = 15²，成立所以是直角三角形。坑在于把边长直接相加，或把最长的 15 当成直角边去平方。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vmo2mwy",
+   "level": 1,
+   "question": "有人说：「3、4、5 是一组勾股数（Pythagorean triple），所以三边为 3 cm、4 cm、5 cm 的三角形一定是直角三角形。」这句话对吗？",
+   "options": [
+    "不对，因为 3 + 4 = 7，并不等于 5",
+    "对，但要把 5 cm 那条边摆成水平才算",
+    "不对，因为 9 + 25 = 34，并不等于 16",
+    "对，因为 9 + 16 = 25，满足 a² + b² = c²"
+   ],
+   "answerIndex": 3,
+   "explain": "勾股数就是满足 a² + b² = c² 的三个数：3² + 4² = 9 + 16 = 25 = 5²，所以一定是直角三角形。坑是相加边长而不是相加平方，或把最长的 5 放到等号左边当直角边。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2v5sy2vp",
+   "level": 2,
+   "question": "在 △XYZ 中，∠Y = 90°，XY = 9，YZ = 12。下面哪句说得对？",
+   "options": [
+    "斜边是 XZ，且 XZ² = 81 + 144 = 225",
+    "斜边是 XZ，长度就是 9 + 12 = 21",
+    "把三角形转 90° 后，斜边就换成 XY 了",
+    "斜边是 YZ，因为 12 比 9 长，长的就是斜边"
+   ],
+   "answerIndex": 0,
+   "explain": "斜边是正对直角 Y 的那条边 XZ，所以 XZ² = 9² + 12² = 225（XZ = 15）。坑是拿两条直角边相加当斜边，或以为把图形转个方向斜边就会换一条。",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vt6od26",
+   "level": 2,
+   "question": "在 △ABC 中，AB = 20、BC = 21、AC = 29。下面哪个判断和理由都对？",
+   "options": [
+    "不能判断，要先知道 AC 是不是画成斜的",
+    "是直角三角形，400 + 441 = 841 = 29²",
+    "不是，因为 20² + 29² = 1241，不等于 21²",
+    "不是，因为 20 + 21 = 41，并不等于 29"
+   ],
+   "answerIndex": 1,
+   "explain": "最长边 AC = 29 是斜边：20² + 21² = 400 + 441 = 841 = 29²，成立，直角在 B。坑是把 29 当直角边代进等号左边，那样怎么算都对不上。",
+   "tags": [
+    "tri.orientation_changes_type",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2v2col6c",
+   "level": 2,
+   "question": "小林知道 5、12、13 是一组勾股数，他把每个数乘 2，得到 10、24、26。这三个数还能组成直角三角形吗？",
+   "options": [
+    "不能，因为 10 + 24 = 34，并不等于 26",
+    "能，但斜边变成 24，因为它是中间那个数",
+    "能，100 + 576 = 676 = 26²，仍是直角三角形",
+    "不能，放大后要换个方向摆，直角就没了"
+   ],
+   "answerIndex": 2,
+   "explain": "勾股数整组放大若干倍仍是勾股数：10² + 24² = 100 + 576 = 676 = 26²。斜边始终是最长的 26，不会因为放大或换方向而改变。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vvksw59",
+   "level": 2,
+   "question": "直角三角形 △RST 中，∠R = 90°，RS = 7、RT = 24、ST = 25。下面哪个等式写对了？",
+   "options": [
+    "要先把三角形摆正，才知道等式怎么写",
+    "7² + 25² = 24²，因为 24 是画得最长的边",
+    "ST = 7 + 24 = 31，所以三边一定写错了",
+    "7² + 24² = 25²，因为 25 正对直角 R"
+   ],
+   "answerIndex": 3,
+   "explain": "两条直角边 RS、RT 的平方和等于斜边 ST 的平方：49 + 576 = 625 = 25²。坑是把 25 挪到左边当直角边，或用相加代替平方（7 + 24 = 31 是错的）。",
+   "tags": [
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vpfmogf",
+   "level": 3,
+   "question": "温哥华一个社区花园要做长方形苗床。工人量得相邻两条边是 12 m 和 16 m，量得对角线是 20 m。这个角是不是直角？如果是，苗床面积（area）是多少？",
+   "options": [
+    "是直角，144 + 256 = 400 = 20²，面积 192 m²",
+    "不是直角，因为 12 + 16 = 28，并不等于 20",
+    "不是直角，因为 144 + 400 ≠ 256，面积算不出",
+    "要先把苗床摆正才能判断，斜着量不算直角"
+   ],
+   "answerIndex": 0,
+   "explain": "对角线最长，所以拿 20 当斜边检验：12² + 16² = 144 + 256 = 400 = 20²，成立，是直角；再算面积 12 × 16 = 192 m²。坑是把 20 当成直角边平方，或直接把两边相加。",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "tri.orientation_changes_type"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2v9kvnj6",
+   "level": 3,
+   "question": "木工要检查一个三角形支架有没有直角。三根木条分别长 0.7 m、2.4 m 和 250 cm。下面哪个判断和理由都对？",
+   "options": [
+    "不是，因为 0.7 + 2.4 = 3.1 m，不等于 2.5 m",
+    "是，化成 70、240、250 cm 后 4900 + 57600 = 250²",
+    "不是，因为木条要按特定方向摆才会有直角",
+    "不是，把 240 cm 当斜边算，4900 + 62500 ≠ 57600"
+   ],
+   "answerIndex": 1,
+   "explain": "先统一单位：0.7 m = 70 cm，2.4 m = 240 cm，最长的 250 cm 是斜边；70² + 240² = 4900 + 57600 = 62500 = 250²，所以有直角。坑是不换单位就相加，或把 240 当斜边。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vfq245c",
+   "level": 3,
+   "question": "小昊说：边长 6 cm、8 cm、10 cm 的三角板是直角三角形；可他把这块三角板倒过来贴到墙上后，又说它现在不是直角三角形了。下面哪句评价对？",
+   "options": [
+    "他说得对，三角形换了方向，类别也跟着换",
+    "他说得对，倒过来后 8 cm 变成斜边，就不满足了",
+    "他后半句错：边长没变，6² + 8² = 10² 依然成立",
+    "他前半句就错，应先看 6 + 8 = 14 是否等于 10"
+   ],
+   "answerIndex": 2,
+   "explain": "旋转、翻转都不改变边长，6² + 8² = 36 + 64 = 100 = 10² 一直成立，所以倒过来仍是直角三角形。斜边由边长决定（永远是 10 cm 那条），不由摆放方向决定。",
+   "tags": [
+    "tri.orientation_changes_type",
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq6l2vvlla7i",
+   "level": 3,
+   "question": "班上做两面三角旗要贴进直角墙角，只有直角三角形能贴合。甲旗三边 8 cm、15 cm、17 cm，乙旗三边 9 cm、14 cm、17 cm。哪面能用？",
+   "options": [
+    "两面都能用，因为 8 + 15 和 9 + 14 都大于 17",
+    "两面都不行，把 17 当直角边算都不成立",
+    "只有乙旗，把它斜着挂就变成直角三角形",
+    "只有甲旗，因为 64 + 225 = 289 = 17²"
+   ],
+   "answerIndex": 3,
+   "explain": "两面都拿最长的 17 当斜边检验：甲旗 8² + 15² = 64 + 225 = 289 = 17² 成立；乙旗 9² + 14² = 81 + 196 = 277 ≠ 289 不成立，所以只有 8、15、17 那面能用。坑是把边长直接相加，或以为挂的方向能改变三角形类型。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "tri.orientation_changes_type",
+    "ok"
+   ]
+  }
+ ]
+}

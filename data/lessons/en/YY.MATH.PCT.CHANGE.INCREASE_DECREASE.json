@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+ "lang": "en",
+ "title": "Apply a percent increase or decrease and find the new amount (population up 3.25% → multiply by 1.0325)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Percent Increase: Landing on the New Amount",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a tricky percent of a number, like 3.25 percent of twenty-four thousand. Today we take that one step further: instead of stopping at the growth, we land on the new amount in a single multiplication.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole idea. The amount you start with is 100 percent of itself. If it grows by 3.25 percent, the new amount is 100 percent plus 3.25 percent, which is 103.25 percent. Written as a decimal, 103.25 percent is 1.0325. So one multiplication by 1.0325 does the growing for you.",
+    "math": "100\\%+3.25\\%=103.25\\%=1.0325",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      100,
+      3.25,
+      103.25
+     ],
+     "labels": [
+      "Original 100",
+      "Growth 3.25",
+      "New total 103.25"
+     ],
+     "caption": "The original bar plus a thin 3.25 piece makes 103.25 percent."
+    }
+   },
+   {
+    "say": "Let's use real numbers. Squamish has about twenty-four thousand people, and the population grows 3.25 percent in a year. The long way: 3.25 percent of twenty-four thousand is twenty-four thousand times zero point zero three two five, which is seven hundred eighty people. Add that on and you get twenty-four thousand seven hundred eighty. The one-step way: twenty-four thousand times 1.0325 equals twenty-four thousand seven hundred eighty. Same answer, one line.",
+    "math": "24000\\times 1.0325=24780",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      24000,
+      780,
+      24780
+     ],
+     "labels": [
+      "This year 24000",
+      "Growth 780",
+      "Next year 24780"
+     ],
+     "caption": "A small percent adds a small piece — but the answer is the whole bar."
+    }
+   },
+   {
+    "say": "Now the trap almost everyone falls into. Some people work out seven hundred eighty and write that as the answer. But seven hundred eighty is only the growth, not the population. The question asked how many people there are now, so the answer has to be the whole bar: twenty-four thousand seven hundred eighty. And watch that decimal too — 3.25 percent means 3.25 out of a hundred, so it is zero point zero three two five, not zero point three two five. Move the decimal point two places, always.",
+    "math": "3.25\\%=0.0325\\quad\\text{not}\\quad 0.325",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      780,
+      24780
+     ],
+     "labels": [
+      "Growth only (wrong)",
+      "New population (right)"
+     ],
+     "caption": "The growth is not the answer — the new total is."
+    }
+   },
+   {
+    "say": "A decrease works exactly the same way, you just subtract. Say a Whistler shop rented four hundred eighty snowboards last winter, and this winter rentals drop 7.5 percent. That is 100 percent minus 7.5 percent, which is 92.5 percent, or zero point nine two five. Four hundred eighty times zero point nine two five equals four hundred forty-four rentals. Notice the answer is the rentals they still have, not the thirty-six they lost.",
+    "math": "480\\times 0.925=444",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      480,
+      444
+     ],
+     "labels": [
+      "Last winter 480",
+      "This winter 444"
+     ],
+     "caption": "Down 7.5 percent means keeping 92.5 percent of the bar."
+    }
+   },
+   {
+    "say": "So here is your one move: turn the percent change into a multiplier, then multiply once. Up 3.25 percent is times 1.0325, down 7.5 percent is times 0.925, and the number that comes out is the new amount you were asked for.",
+    "math": "\\text{new}=\\text{original}\\times(1\\pm\\text{percent as a decimal})",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Turn the change into a multiplier — up 3.25 percent means times 1.0325 — and multiply once to get the new amount, not just the change.",
+  "practice": {
+   "question": "You work part time at a garden centre in Richmond, B.C. and earn $16.40 an hour. Your boss gives you a 2.5% raise. Picture a bar model: one long bar for your $16.40, with a small piece joined on the end for the raise — draw it if it helps. What is your new hourly pay?",
+   "answer": "$16.81 per hour. A 2.5% raise means 100% + 2.5% = 102.5% = 1.025, so 16.40 × 1.025 = 16.81. (The raise piece alone is only 16.40 × 0.025 = $0.41 — that is the small piece, not the whole bar.)"
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "volume-capacity",
+ "lang": "zh",
+ "unitName": {
+  "zh": "体积与容积",
+  "en": "Volume & capacity"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "体积与容积 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.COUNT_CUBES",
+    "level": 1,
+    "question": "Ava 用 1 cm³ 的小立方体搭了一个 2 × 2 × 2 的大正方体（cube）。她拍了一张照片，照片上只数得出 7 个小立方体。这个大正方体一共用了多少个小立方体？",
+    "options": [
+     "6 个",
+     "7 个",
+     "8 个",
+     "12 个"
+    ],
+    "answerIndex": 2,
+    "explain": "每层 2 × 2 = 4 个，一共 2 层，所以 4 × 2 = 8 个。最容易踩的坑是只数照片上看得见的，答成 7 个——被前面挡住的那个角上的立方体也占了空间，必须算进去。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.RECT_PRISM",
+    "level": 1,
+    "question": "一个长方体（rectangular prism）积木盒，长 5 cm、宽 3 cm、高 2 cm。它的体积是多少？",
+    "options": [
+     "30 cm³",
+     "10 cm³",
+     "62 cm²",
+     "15 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "体积 = 长 × 宽 × 高 = 5 × 3 × 2 = 30 cm³。坑一：把三个数加起来得 10；坑二：算成表面积（surface area）62 cm²。体积的单位是 cm³，看到 cm² 就知道那是面积不是体积。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+    "level": 1,
+    "question": "下面关于体积单位和容积单位的说法，哪一句是对的？",
+    "options": [
+     "1 cm³ = 10 mL",
+     "1 cm³ = 1 mL",
+     "1 mL = 1000 cm³",
+     "1 cm³ = 1 L"
+    ],
+    "answerIndex": 1,
+    "explain": "一个 1 cm³ 的空间正好能装 1 mL 的水，所以 1 cm³ = 1 mL；再往上才是 1000 mL = 1 L。最容易踩的坑是把 cm³ 和 L 直接画等号——1 L 相当于 1000 cm³，差了 1000 倍。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.REFERENTS",
+    "level": 2,
+    "question": "Maya 家的马克杯装满是 250 mL。她想用这个杯子把一个 2 L 的水壶装满，大约要倒几杯？",
+    "options": [
+     "2 杯",
+     "4 杯",
+     "8 杯",
+     "80 杯"
+    ],
+    "answerIndex": 2,
+    "explain": "先换算：2 L = 2000 mL，再算 2000 ÷ 250 = 8 杯。坑一：看到 2 L 就答 2 杯，忘了先把 L 换成 mL；坑二：只算了 1 L（1000 ÷ 250 = 4）就停下来。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.RECT_PRISM",
+    "level": 2,
+    "question": "Riley 在超市买的果汁盒是长方体，量得长 9 cm、宽 6 cm、高 20 cm。这盒果汁的体积是多少？",
+    "options": [
+     "35 cm³",
+     "108 cm³",
+     "540 cm³",
+     "1080 cm³"
+    ],
+    "answerIndex": 3,
+    "explain": "先算底面：9 × 6 = 54，再乘高：54 × 20 = 1080 cm³。坑一：把 9 + 6 + 20 加成 35；坑二：54 × 20 时只当成 × 2 少写了一个 0，答成 108。乘整十数时记得末尾补 0。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.VOL.COUNT_CUBES",
+    "level": 2,
+    "question": "Noah 用 1 cm³ 的小立方体搭了一个长方体：正面看是 4 行 3 列，从侧面看厚度是 2 个立方体。这个长方体的体积是多少？",
+    "options": [
+     "24 cm³",
+     "12 cm³",
+     "24 cm²",
+     "48 cm³"
+    ],
+    "answerIndex": 0,
+    "explain": "正面一层是 4 × 3 = 12 个，前后共 2 层，12 × 2 = 24 个，每个 1 cm³，所以体积是 24 cm³。坑一：只数正面看得见的一层，答 12；坑二：数对了个数却写成 24 cm²——立方体堆出来的是空间，单位必须是 cm³。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+    "level": 3,
+    "question": "学校养鱼角有一个长方体鱼缸，内部长 30 cm、宽 20 cm。老师往里倒水，水面高 12 cm（鱼缸比水面高）。缸里的水有多少升（L）？",
+    "options": [
+     "0.72 L",
+     "7.2 L",
+     "72 L",
+     "7200 L"
+    ],
+    "answerIndex": 1,
+    "explain": "第一步算水的体积：高要用水深 12 cm，30 × 20 × 12 = 7200 cm³；第二步换算：7200 cm³ = 7200 mL = 7200 ÷ 1000 = 7.2 L。坑一：拿鱼缸的高度当水的高度；坑二：算完 7200 就写 7200 L，忘了 mL 换 L 要除以 1000。"
+   },
+   {
+    "curriculumId": "YY.MATH.MEAS.CAPACITY.UNITS",
+    "level": 3,
+    "question": "Liam 家后院要买 1 m³ 的花土。他说：1 m = 100 cm，所以 1 m³ = 100 cm³。下面哪个判断是对的？",
+    "options": [
+     "他是对的，因为 1 m = 100 cm",
+     "错，应该是 1 m³ = 1000 cm³，因为 1 L = 1000 mL",
+     "错，应该是 1 m³ = 10 000 cm³，因为 100 × 100",
+     "错，应该是 1 m³ = 1 000 000 cm³，因为 100 × 100 × 100"
+    ],
+    "answerIndex": 3,
+    "explain": "1 m³ 是棱长 1 m 的正方体，换成厘米就是 100 cm × 100 cm × 100 cm = 1 000 000 cm³。最大的坑就是把立方单位按长度（linear）换算，只乘一次 100；只乘两次 100 得到的 10 000 是面积的换法（1 m² = 10 000 cm²）——长、宽、高三个方向都要换，所以要乘三次。"
+   }
+  ]
+ }
+}

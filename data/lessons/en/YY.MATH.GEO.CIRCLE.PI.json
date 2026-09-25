@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.CIRCLE.PI",
+ "lang": "en",
+ "title": "Discover that circumference ÷ diameter is always about 3.14 and develop C = π × d",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "The Circle Secret: Why Pi Is Always 3.14",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot a circle's diameter, the line straight across through the middle, and its circumference, the distance all the way around. Today we hunt for something amazing: how those two measurements are secretly connected, for every circle in the world.",
+    "math": "",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      3.8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A hockey puck: radius three point eight centimetres, so the diameter across is seven point six centimetres"
+    }
+   },
+   {
+    "say": "Imagine wrapping a piece of string around a hockey puck, then straightening it out on a ruler. It measures about twenty three point nine centimetres. Straight across the puck is seven point six centimetres. So here is the question: how many diameters would it take to go all the way around? Let's divide and find out. Rewrite it as two hundred thirty nine divided by seventy six, and you get about three point one four.",
+    "math": "23.9 \\div 7.6 \\approx 3.14",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      3.8
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Around: about 23.9 cm. Across: 7.6 cm. Around divided by across is about 3.14"
+    }
+   },
+   {
+    "say": "Now the cool part. Try it with other round things and the answer refuses to change. A loonie: eight point two divided by two point six is about three point one five. The puck: about three point one four. A bike wheel: two hundred seven divided by sixty six is about three point one four. Tiny coin, huge wheel, same answer every single time. Mathematicians gave that constant number a name: pi.",
+    "math": "\\frac{C}{d} \\approx 3.14 = \\pi",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8.2,
+      23.9,
+      207,
+      2.6,
+      7.6,
+      66
+     ],
+     "labels": [
+      "Loonie",
+      "Hockey puck",
+      "Bike wheel",
+      "Around (cm)",
+      "Across (cm)",
+      "Around divided by across is about 3.14 for all three"
+     ],
+     "caption": "Three very different circles, one shared secret number"
+    }
+   },
+   {
+    "say": "If going around is always about three point one four diameters, we can flip that into a shortcut. Circumference equals pi times diameter. Say your family orders a large pizza that is thirty centimetres across. The crust all the way around is three point one four times thirty, which is ninety four point two centimetres. That is almost a full metre of crust, and you never had to wrap any string.",
+    "math": "C = \\pi \\times d = 3.14 \\times 30 = 94.2",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      15
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Pizza: radius 15 cm, so diameter 30 cm and crust about 94.2 cm"
+    }
+   },
+   {
+    "say": "Here is the mistake almost everyone makes once. That pizza's radius is fifteen centimetres, and it is tempting to grab that number instead. Three point one four times fifteen is forty seven point one centimetres. But look at the picture: forty seven centimetres only takes you about halfway around the crust. Pi multiplies the whole way across, not half of it. So if you are handed the radius, double it first, then multiply.",
+    "math": "3.14 \\times 15 = 47.1 \\text{ (only half the crust!)}",
+    "visual": {
+     "type": "shapeCircle",
+     "nums": [
+      15
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Radius 15 cm gives 47.1 cm, which is only half the trip around. Double to 30 cm first"
+    }
+   },
+   {
+    "say": "So remember: every circle, big or small, is about three point one four diameters around.",
+    "math": "C = \\pi \\times d",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Every circle is about 3.14 diameters around, so C = pi times d.",
+  "practice": {
+   "question": "Your friend gets a round backyard trampoline in Surrey. Picture a circle with a radius of one point five metres, with the radius drawn from the centre out to the edge. The safety netting has to go all the way around the outside. Using three point one four for pi, how many metres of netting is needed? (Careful: you were given the radius, not the diameter.)",
+   "answer": "About 9.42 metres. First double the radius to get the diameter: one point five times two is three metres. Then C equals pi times d, so 3.14 times 3 equals 9.42 metres."
+  }
+ }
+}

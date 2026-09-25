@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g4",
+ "strand": "probability",
+ "lang": "en",
+ "unitName": {
+  "zh": "可能性",
+  "en": "Probability"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Probability · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PROB.LIKELIHOOD",
+    "level": 1,
+    "question": "Maya makes a spinner for game day at her school in Surrey. The spinner has 4 equal sections, and she colours all 4 sections blue. She gives it one spin. Landing on blue is:",
+    "options": [
+     "unlikely",
+     "equally likely",
+     "certain",
+     "impossible"
+    ],
+    "answerIndex": 2,
+    "explain": "Every section is blue, so there is no other result the arrow can land on — the event is certain. The trap is choosing 'likely' because there are 4 sections; count what the sections show, not how many there are."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.LIKELIHOOD",
+    "level": 1,
+    "question": "On a probability line, the far left is 'impossible' and the far right is 'certain'. Which event belongs exactly at the middle mark, 'equally likely'?",
+    "options": [
+     "Tossing a coin once and getting heads",
+     "Rolling a 7 on a normal 1-to-6 number cube",
+     "Pulling a red marble from a bag holding 5 red and 1 blue marble",
+     "The sun coming up tomorrow morning in Victoria"
+    ],
+    "answerIndex": 0,
+    "explain": "'Equally likely' means the two results have the same chance: a coin has one heads side and one tails side, so heads sits at the middle mark. A common trap is picking the 5-red-and-1-blue bag — that is 'likely', which sits between the middle and 'certain', not on it."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_SINGLE",
+    "level": 1,
+    "question": "A bag holds 6 red marbles, 2 yellow marbles and 1 green marble. Without looking, Jonah pulls out one marble. Which colour is he most likely to pull?",
+    "options": [
+     "yellow",
+     "green",
+     "All three colours are equally likely, because any colour could come out.",
+     "red"
+    ],
+    "answerIndex": 3,
+    "explain": "Compare how many of each colour are in the bag: 6 red beats 2 yellow and 1 green, so red is most likely. The trap is thinking every colour has the same chance just because each one is possible — possible and equally likely are not the same thing."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_SINGLE",
+    "level": 2,
+    "question": "Ella's spinner has 8 equal sections: 4 purple, 2 orange, 1 white and 1 black. She spins it once. Which statement about this spin is TRUE?",
+    "options": [
+     "Landing on purple is certain.",
+     "Landing on purple and landing on a colour that is not purple are equally likely.",
+     "Landing on black is impossible.",
+     "Landing on orange and landing on white are equally likely."
+    ],
+    "answerIndex": 1,
+    "explain": "Purple covers 4 sections and the other colours together cover 2 + 1 + 1 = 4 sections, so those two results are equally likely. Traps: black is unlikely but not impossible (there is 1 black section), and orange (2 sections) is twice as likely as white (1 section), not equal to it."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.RECORD_TALLY",
+    "level": 2,
+    "question": "Ravi spun a spinner 25 times in class in Kelowna and recorded the results with tallies. A crossed group ||||\\ stands for 5. Blue: ||||\\ ||||\\ ||| — Green: ||||\\ || — Yellow: ||||\\ . How many times did the spinner land on green?",
+    "options": [
+     "2",
+     "6",
+     "7",
+     "12"
+    ],
+    "answerIndex": 2,
+    "explain": "Read the crossed group as 5, then add the single marks: 5 + 2 = 7. Common traps are counting a crossed group as only 4 (giving 6) or forgetting the group of five and counting just the loose marks (giving 2)."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.RECORD_TALLY",
+    "level": 2,
+    "question": "Liam has a closed bag of counters and wants to find out which colour the bag has most of. He plans to do 20 draws and record them in a tally table. Which plan will give him a fair record of the experiment?",
+    "options": [
+     "Draw 1 counter, make a tally mark for its colour, put it back and shake the bag — then repeat until he has done this 20 times.",
+     "Draw 1 counter, make a tally mark for its colour, leave it on the desk, and keep drawing until he has done this 20 times.",
+     "Pour all the counters onto the desk and make one tally mark for each colour he can see.",
+     "Grab 20 counters at once and make a tally mark for each counter in his hand."
+    ],
+    "answerIndex": 0,
+    "explain": "A probability experiment needs the same bag every time, so each counter must be returned and the bag shaken before the next draw, with one tally mark per draw. The trap is leaving counters out — after each draw the bag has changed, so the 20 trials are no longer the same experiment."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.PREDICT_SINGLE",
+    "level": 3,
+    "question": "Sofia's bag holds 3 blue cubes, 5 red cubes and 4 yellow cubes. She wants to add blue cubes so that pulling a blue cube and pulling a cube that is NOT blue become equally likely. How many blue cubes must she add?",
+    "options": [
+     "1 blue cube",
+     "2 blue cubes",
+     "9 blue cubes",
+     "6 blue cubes"
+    ],
+    "answerIndex": 3,
+    "explain": "The not-blue cubes are 5 + 4 = 9, so the bag needs 9 blue cubes in total; since 3 are already there, she adds 9 − 3 = 6. The most common trap is adding 9 — that forgets the 3 blue cubes already in the bag and would make blue more likely than not-blue."
+   },
+   {
+    "curriculumId": "YY.MATH.PROB.RECORD_TALLY",
+    "level": 3,
+    "question": "A spinner has 10 equal sections: 5 green, 3 blue, 2 red. Ms. Chan's class spun it 20 times and tallied the results — green 7, blue 8, red 5. The class had predicted green would come up most often. Which conclusion is the best one?",
+    "options": [
+     "The tally table proves that blue really takes up the biggest part of the spinner.",
+     "Blue came up most often in these 20 spins, but green covers the largest part of the spinner, so over many more spins green should come up most often.",
+     "The spinner must be broken, because green did not come up the most.",
+     "Green is behind, so green is due — the very next spin will land on green."
+    ],
+    "answerIndex": 1,
+    "explain": "A prediction comes from the make-up of the spinner (5 green sections out of 10), and a short experiment of only 20 spins can easily disagree with it; more spins bring the results closer to the prediction. The big trap is thinking a colour is 'due' on the next spin — the spinner has no memory, so every spin still has 5 chances in 10 of being green."
+   }
+  ]
+ }
+}

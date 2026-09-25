@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "pc12",
+ "strand": "trigonometry",
+ "lang": "zh",
+ "unitName": {
+  "zh": "三角函数",
+  "en": "Trigonometric Functions"
+ },
+ "provider": "ollama",
+ "at": "2026-08-22",
+ "set": {
+  "title": "三角函数 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "将弧度 5π/6 转换为角度（degrees）。",
+    "options": [
+     "150°",
+     "30°",
+     "210°",
+     "120°"
+    ],
+    "answerIndex": 0,
+    "explain": "5π/6 × (180°/π) = 150°。常见错误是只取参考角 30° 而忽略该角在第二象限，或把分母 6 当成 3 算出 120°。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "求 cos(2π/3) 的值。",
+    "options": [
+     "√3/2",
+     "1/2",
+     "-√3/2",
+     "-1/2"
+    ],
+    "answerIndex": 3,
+    "explain": "2π/3 在第二象限，参考角为 π/3，cos 在第二象限为负，故 cos(2π/3) = -cos(π/3) = -1/2。最容易踩的坑是忘记第二象限的负号，或把 cos 和 sin 的特殊值搞混。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 1,
+    "question": "函数 y = 2 sin(3x) 的周期（period）是多少？",
+    "options": [
+     "2π/3",
+     "π/3",
+     "3π",
+     "2π"
+    ],
+    "answerIndex": 0,
+    "explain": "周期 = 2π / |b| = 2π/3。常见错误是把 b 乘上去得 3π（选项 C），或漏掉分子 2 只写 π/3。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "维多利亚（Victoria）港的一座灯塔，其光束上某点距水面的高度用 h(t) = 5 + 3 sin(πt/4) 建模（单位：米，t 为分钟）。该光束离水面的最大高度是多少？",
+    "options": [
+     "5 m",
+     "3 m",
+     "8 m",
+     "2 m"
+    ],
+    "answerIndex": 2,
+    "explain": "正弦最大值为 1，所以 h_max = 5 + 3(1) = 8 m。常见错误是把振幅 3 当最大高度，或只取中线 5 m，或算成最小值 5 − 3 = 2 m。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "在 0 ≤ x < 2π 范围内，解方程 2 cos x − 1 = 0。",
+    "options": [
+     "x = π/3",
+     "x = π/3 和 x = 5π/3",
+     "x = 2π/3 和 x = 4π/3",
+     "x = π/3 和 x = 2π/3"
+    ],
+    "answerIndex": 1,
+    "explain": "cos x = 1/2，参考角 π/3，cos 在第一、四象限为正，故 x = π/3 和 5π/3。最常见错误是只找到第一象限的解，或误以为 cos 在第二象限也为正（那是 sin 的规律）。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 2,
+    "question": "维多利亚（Victoria）港某天的潮高（单位：米）可建模为 h(t) = 3 sin(πt/6) + 5，t 为午夜后的小时数。潮高第一次达到最大值 8 m 是在 t 等于多少时？",
+    "options": [
+     "t = 3（凌晨 3 点）",
+     "t = 6（早上 6 点）",
+     "t = 9（早上 9 点）",
+     "t = 12（中午 12 点）"
+    ],
+    "answerIndex": 0,
+    "explain": "h 取最大值 8 时需要 sin(πt/6) = 1，即 πt/6 = π/2，解得 t = 3，也就是凌晨 3 点。常见错误：t = 6 时 sin = 0，潮高只是回到中线 5 m；t = 9 时 sin = −1，是最低潮 2 m；t = 12 才走完一整个周期。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 3,
+    "question": "一位同学解 sin(2x) = 1（0 ≤ x ≤ 2π）时只写出 x = π/4。以下哪项最准确地指出了他的问题？",
+    "options": [
+     "答案正确，π/4 是该区间内唯一解",
+     "他应该把 x 写成 π/2",
+     "方程在 [0, 2π] 内无解",
+     "他漏掉了 x = 5π/4，因为 2x = π/2 + 2π 同样满足 sin(2x) = 1"
+    ],
+    "answerIndex": 3,
+    "explain": "令 u = 2x，u ∈ [0, 4π]，sin u = 1 在 [0, 4π] 内有 u = π/2 和 5π/2 两个解，对应 x = π/4 和 5π/4。常见误区是只想到 sin = 1 在一个 2π 周期内出现一次，忘了 u 的区间已经拉长到 4π。"
+   },
+   {
+    "curriculumId": "BC.MATH.PC12.TRI.01",
+    "level": 3,
+    "question": "一位同学解 2 sin²θ + sin θ − 1 = 0（0 ≤ θ ≤ 2π）后写道：「θ = π/6 或 θ = π/2。」以下哪项最准确地指出了错误？",
+    "options": [
+     "该同学完全正确，这两个就是全部解",
+     "因式分解写错了，应拆成 (sin θ + 1)² = 0",
+     "他漏掉了 θ = 5π/6 和 θ = 3π/2；而且 θ = π/2 代入后 2(1)+1−1 = 2 ≠ 0，根本不是解",
+     "sin θ = −1 在 [0, 2π] 内无解，所以第二个因子不可能为零"
+    ],
+    "answerIndex": 2,
+    "explain": "因式分解 (2 sin θ − 1)(sin θ + 1) = 0 给出 sin θ = 1/2（θ = π/6, 5π/6）和 sin θ = −1（θ = 3π/2）。把 sin θ = 1/2 与 sin θ = 1 混淆是高频错误：π/2 处 sin = 1 不满足原方程，而第二象限的 5π/6 和第三/四象限的 3π/2 都漏了。"
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 2
+ }
+}

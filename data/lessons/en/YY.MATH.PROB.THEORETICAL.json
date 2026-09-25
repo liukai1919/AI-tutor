@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PROB.THEORETICAL",
+ "lang": "en",
+ "title": "Find the theoretical probability of a single outcome by listing all outcomes",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Spinners and Fair Shares",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write the chance of something as a fraction, like one out of four. Today we learn how to find that fraction ourselves, by listing every single thing that could happen first.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is a spinner from a game at a rainy day recess in Vancouver. Step one is to list all the outcomes. Going around, the slices are red, red, blue, green, yellow. That is five slices in total, and every slice is exactly the same size, so the arrow has the same chance of landing on any one of them.",
+    "math": "",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+     ],
+     "caption": "Five equal slices: red, red, blue, green, yellow"
+    }
+   },
+   {
+    "say": "Step two is to count. How many slices in total? Five. How many of them are green? Just one. Step three is to write it as a fraction: the number of green slices on top, and the total number of slices on the bottom. So the probability of green is one fifth. And for red, two slices are red out of five, so the probability of red is two fifths. The bottom number is always the total, never the leftovers.",
+    "math": "P(\\text{green})=\\frac{1}{5} \\qquad P(\\text{red})=\\frac{2}{5}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      2,
+      1,
+      1,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+     ],
+     "caption": "1 green out of 5 slices; 2 red out of 5 slices"
+    }
+   },
+   {
+    "say": "Now here are two mistakes I see all the time. Some kids look at the red spinner and say two red compared to three not red, so they write two over three. That is comparing part to part, and it is wrong. The bottom of the fraction must be the whole total, five, not the leftover three. So it is two fifths, not two thirds.",
+    "math": "P(\\text{red})\\neq\\frac{2}{3},\\quad P(\\text{red})=\\frac{2}{5}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      5,
+      2
+     ],
+     "labels": [],
+     "caption": "2 red parts out of 5 total parts, not out of 3"
+    }
+   },
+   {
+    "say": "Here is the second mistake. Look at this different spinner. It has three colours, but the slices are not the same size. Red takes up three parts, blue takes two parts, and yellow takes only one part. It would be wrong to say each colour is one third just because there are three colours. We must count the equal parts: six equal parts in all, so red is three sixths, blue is two sixths, and yellow is one sixth. Only count equal pieces.",
+    "math": "P(\\text{red})=\\frac{3}{6},\\ P(\\text{blue})=\\frac{2}{6},\\ P(\\text{yellow})=\\frac{1}{6}",
+    "visual": {
+     "type": "spinner",
+     "nums": [
+      3,
+      2,
+      1
+     ],
+     "labels": [
+      "red",
+      "blue",
+      "yellow"
+     ],
+     "caption": "Unequal colours, but 6 equal parts in total"
+    }
+   },
+   {
+    "say": "So remember: list every equal outcome, count the ones you want, and put that count over the total. That is your probability.",
+    "math": "P=\\frac{\\text{favourable outcomes}}{\\text{total outcomes}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "List all the equal outcomes, then put how many you want over how many there are in total.",
+  "practice": {
+   "question": "At a school fair in Kelowna, you spin a prize wheel with eight equal slices. Three slices say 'loonie', four slices say 'toonie', and one slice says 'try again'. Draw the wheel if it helps! What is the probability of landing on 'toonie'? And what is the probability of landing on 'try again'?",
+   "answer": "There are eight equal slices in total. Four of them say 'toonie', so the probability of 'toonie' is four eighths, which is the same as one half. Only one slice says 'try again', so that probability is one eighth. Careful: 'toonie' is NOT four fourths — the bottom number is always the total of eight."
+  }
+ }
+}

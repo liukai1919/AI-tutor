@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.G9.PAT.01",
+ "lang": "en",
+ "title": "operations with polynomials, of degree less than or equal to 2",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Polynomial Moves: Add, Subtract, Multiply, Divide",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You and your friend Jordan split a phone data plan. Your portion of the bill is five x dollars plus seven dollars a month, and Jordan's is two x dollars plus three dollars. When you look at the total bill together, what do you do? You combine the x-parts and you combine the plain dollar parts. Five x plus two x is seven x, and seven plus three is ten dollars. That is EXACTLY what working with polynomials is: grouping the like stuff together so you can see the whole picture clearly. Today we're adding, subtracting, multiplying, and dividing these polynomial expressions, and I promise it's way simpler than it sounds.",
+    "math": "(5x + 7) + (2x + 3) = 7x + 10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      10
+     ],
+     "labels": [
+      "x-parts: 7x",
+      "dollars: 10"
+     ],
+     "caption": "Combining like terms: 7x + 10 total"
+    }
+   },
+   {
+    "say": "Before we do any operations, let's meet the vocabulary so we all speak the same language. Look at this expression: three x squared minus x minus eight. It has three terms — that's the three chunks separated by plus or minus signs. The degree of the whole polynomial is the highest exponent on any variable, so here it's two, because of the x squared. Each term has a coefficient, which is the number sitting in front of the variable. Three is the coefficient of x squared. Negative one is the coefficient of x — yes, that one is invisible, it's just negative x. And negative eight is the constant term, the one with no variable attached. Quick heads-up: when the highest degree is one, like five x minus seven, we call that a linear expression. When the highest degree is two, like our three x squared example, we call it quadratic. You'll see both all over this unit.",
+    "math": "3x^2 - x - 8",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      1,
+      0
+     ],
+     "labels": [
+      "3x²",
+      "−x",
+      "−8"
+     ],
+     "caption": "Degree of each term (2, 1, 0) — the polynomial's degree is the highest one: 2"
+    }
+   },
+   {
+    "say": "Let's add two polynomials. We have x squared plus two x minus four, and we're adding two x squared minus three x minus four. Here's the secret, and it really is that simple: you just sort the like terms into their families. The x-squared terms go together: one x squared plus two x squared is three x squared. The x terms go together: two x minus three x is negative x. The plain numbers go together: negative four plus negative four is negative eight. Put it all back: three x squared minus x minus eight. You didn't need to invent any fancy rule. You just sorted the terms into their little groups and added up each group.",
+    "math": "(x^2 + 2x - 4) + (2x^2 - 3x - 4) = 3x^2 - x - 8",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Now subtraction, and this is where most kids trip up, so pay attention. We have five x minus seven, minus, the quantity two x plus three. The trap is that the minus sign in front of those parentheses means you flip the sign of EVERY single term inside. So plus three becomes minus three. It becomes five x minus seven minus two x minus three. Now combine your families: five x minus two x is three x. Negative seven minus three is negative ten. Answer: three x minus ten. Here's a pro tip for checking: plug in x equals one. The original, five minus seven minus two minus three, gives you negative seven. Your answer, three minus ten, also gives negative seven. They match, so you're golden. That little check saves you on the test.",
+    "math": "(5x - 7) - (2x + 3) = 5x - 7 - 2x - 3 = 3x - 10",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "5x−7−(2x+3)",
+      "3x−10"
+     ],
+     "caption": "Both sides equal after distributing the negative sign"
+    }
+   },
+   {
+    "say": "Multiplication is where it gets a tiny bit more interesting, but honestly it's just the distributive property wearing a fancy coat. We have two n times the quantity n plus seven. The rule is: send the two n to BOTH terms inside the parentheses. Two n times n gives you two n squared. Two n times seven gives you fourteen n. So the full answer is two n squared plus fourteen n. Think of it concretely as a rectangle that is two n tall and n plus seven wide. The two n by n part has area two n squared, and the two n by seven part has area fourteen n. Total: two n squared plus fourteen n. No new concept, just distribution.",
+    "math": "2n(n + 7) = 2n \\cdot n + 2n \\cdot 7 = 2n^2 + 14n",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      2,
+      14
+     ],
+     "labels": [
+      "2n² = 2n × n",
+      "14n = 2n × 7"
+     ],
+     "caption": "Distribute: 2n × n = 2n² and 2n × 7 = 14n"
+    }
+   },
+   {
+    "say": "Division is basically the reverse of the multiplication we just did. We have fifteen k squared minus ten k, all divided by five k. The trick is: you divide EACH term separately by five k. First term: fifteen k squared divided by five k. The fifteen over five is three, and one k cancels out, leaving three k. Second term: ten k divided by five k. Ten over five is two, and the k's cancel completely, leaving just two. So your answer is three k minus two. Think of it like splitting a group bill of fifteen k squared minus ten k among five k friends. Each friend covers three k minus two. You're just undistributing, that's all it is.",
+    "math": "\\frac{15k^2 - 10k}{5k} = \\frac{15k^2}{5k} - \\frac{10k}{5k} = 3k - 2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "15k² ÷ 5k → 3k",
+      "10k ÷ 5k → 2"
+     ],
+     "caption": "Divide each term by 5k to get 3k − 2"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to lock in: adding, subtracting, multiplying, and dividing polynomials is really just sorting, flipping signs, distributing, and canceling. You already know all four of those moves from regular arithmetic. You're just doing them with letters standing in for numbers instead of plain digits. That's it. You've got this, and honestly, once you do three of these, the rest just flow.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Polynomials obey the same arithmetic rules as numbers — sort like terms, flip signs, distribute, cancel. You already know how; you're just using letters now.",
+  "practice": {
+   "question": "Your family's monthly internet and phone bill is modeled by (3x² + 5x − 12) dollars, and your neighbour's is (2x² − 3x + 4) dollars, where x is the number of devices on the plan. Write the simplified expression for the combined bill.",
+   "answer": "(3x² + 5x − 12) + (2x² − 3x + 4) = 5x² + 2x − 8 dollars"
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 6
+ }
+}

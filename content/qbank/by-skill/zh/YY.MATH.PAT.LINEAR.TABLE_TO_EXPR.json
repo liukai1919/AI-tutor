@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.TABLE_TO_EXPR",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkp1h47ydl3s0",
+   "level": 1,
+   "question": "一张数值表（table of values）里，x 只取 0、5、10、15 这几个分开的数：x = 0 时 y = 7；x = 5 时 y = 27；x = 10 时 y = 47；x = 15 时 y = 67。哪个算式（expression）能生成这张表？",
+   "options": [
+    "y = 4x + 7",
+    "y = 7x + 4",
+    "y = 20x + 7",
+    "y = 4x"
+   ],
+   "answerIndex": 0,
+   "explain": "y 每行加 20，但 x 每行走了 5 步，所以每 1 步只加 20 ÷ 5 = 4；x = 0 时 y = 7，就是常数项，得 y = 4x + 7。最常踩的坑是把 20 直接当成每步的变化率，写成 y = 20x + 7。",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.x_step_ignored",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtkp1h4713h8dg",
+   "level": 1,
+   "question": "某张数值表的 x 只取 0、10、20、30：x = 0 时 y = 5；x = 10 时 y = 35；x = 20 时 y = 65；x = 30 时 y = 95。下面哪个算式和这张表说的是同一件事？",
+   "options": [
+    "y = 30x + 5",
+    "y = 3x + 5",
+    "y = 5x + 3",
+    "y = 3x"
+   ],
+   "answerIndex": 1,
+   "explain": "y 每行加 30，而 x 每行走 10 步，每 1 步加 30 ÷ 10 = 3；x = 0 时 y = 5 就是常数项（constant term），所以 y = 3x + 5。别把整行的差 30 当成每步的变化率。",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47oypgim",
+   "level": 1,
+   "question": "一张数值表：x = 0 时 y = 9；x = 5 时 y = 29；x = 10 时 y = 49；x = 15 时 y = 69。下面哪句话把这张表描述对了？",
+   "options": [
+    "x 每增加 1，y 增加 20；x = 0 时 y = 9，所以 y = 20x + 9",
+    "x 每增加 1，y 增加 9；起始值是 4，所以 y = 9x + 4",
+    "x 每增加 1，y 增加 4；x = 0 时 y = 9，所以 y = 4x + 9",
+    "由 x = 5 时 y = 29 可得 y = 6x − 1，整张表都符合"
+   ],
+   "answerIndex": 2,
+   "explain": "表里相邻两行 x 差 5、y 差 20，所以 x 每增加 1，y 只增加 4；x = 0 那行的 9 是常数项，得 y = 4x + 9。写成 y = 6x − 1 的那句只对 x = 5 那一行成立，代入 x = 10 就得 59，与 49 不符。",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkp1h4774swh9",
+   "level": 1,
+   "question": "一张数值表：x = 0 时 y = −3；x = 5 时 y = 27；x = 10 时 y = 57；x = 15 时 y = 87。哪个算式能生成这张表？",
+   "options": [
+    "y = 30x − 3",
+    "y = 6x",
+    "y = −3x + 6",
+    "y = 6x − 3"
+   ],
+   "answerIndex": 3,
+   "explain": "y 每行加 30、x 每行走 5 步，变化率是 30 ÷ 5 = 6；x = 0 时 y = −3，常数项就是 −3，所以 y = 6x − 3。常见错误是把 6 和 −3 的位置写反，或者干脆漏掉 −3。",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47w39ury",
+   "level": 2,
+   "question": "已知算式 y = 8x + 3，变量 x 只取 0、5、10、15 这四个离散的（discrete）值。按顺序排出来的 y 值应该是哪一组？",
+   "options": [
+    "3、43、83、123",
+    "0、40、80、120",
+    "3、11、19、27",
+    "8、23、38、53"
+   ],
+   "answerIndex": 0,
+   "explain": "逐个代入：x = 0 得 3，x = 5 得 43，x = 10 得 83，x = 15 得 123。注意 x 每行走 5 步，y 每行应该加 8 × 5 = 40，而不是只加 8（那就成了 3、11、19、27）。",
+   "tags": [
+    "ok",
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47rgeddz",
+   "level": 2,
+   "question": "一张数值表没有给 x = 0 那一行：x = 5 时 y = 25；x = 10 时 y = 40；x = 15 时 y = 55；x = 20 时 y = 70。哪个算式能生成这张表？",
+   "options": [
+    "y = 15x + 10",
+    "y = 3x + 10",
+    "y = 5x",
+    "y = 10x + 3"
+   ],
+   "answerIndex": 1,
+   "explain": "变化率是 15 ÷ 5 = 3；再倒推常数项：x = 5 时 3 × 5 = 15，25 − 15 = 10，所以 y = 3x + 10。写成 y = 5x 的那个只用了 x = 5、y = 25 这一个点，代入 x = 10 就得 50，和 40 对不上。",
+   "tags": [
+    "linear.x_step_ignored",
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47kn0x1k",
+   "level": 2,
+   "question": "一张数值表：x = 0 时 y = 9；x = 5 时 y = 34；x = 10 时 y = 59；x = 15 时 y = 84。先写出算式，再求 x = 30 时 y 是多少。",
+   "options": [
+    "759",
+    "275",
+    "159",
+    "150"
+   ],
+   "answerIndex": 2,
+   "explain": "变化率是 25 ÷ 5 = 5，常数项是 9，所以 y = 5x + 9；代入 x = 30 得 150 + 9 = 159。若把整行的差 25 当成变化率就会算成 759，漏掉常数项 9 则会算成 150。",
+   "tags": [
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.intercept_forgotten"
+   ]
+  },
+  {
+   "qid": "qmtkp1h472rgimt",
+   "level": 2,
+   "question": "一张数值表的 x 不是等间隔的：x = 0 时 y = 5；x = 5 时 y = 35；x = 20 时 y = 125；x = 25 时 y = 155。哪个算式能生成这张表？",
+   "options": [
+    "y = 6x",
+    "y = 30x + 5",
+    "y = 5x + 6",
+    "y = 6x + 5"
+   ],
+   "answerIndex": 3,
+   "explain": "要看 y 的差除以 x 走的步数：30 ÷ 5 = 6，90 ÷ 15 = 6，处处都是 6，所以仍是线性关系（linear relation）；常数项是 x = 0 时的 5，得 y = 6x + 5。只盯着 y 列的差 30、90 不一样就说不线性，是最常见的错。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkp1h4726oibk",
+   "level": 3,
+   "question": "温哥华一家社区中心出租皮划艇，收费表里租的小时数 t 只取整数：t = 5 小时收 57 加元；t = 10 小时收 102 加元；t = 15 小时收 147 加元；t = 20 小时收 192 加元。哪个算式表示总费用 C？",
+   "options": [
+    "C = 9t + 12",
+    "C = 45t + 12",
+    "C = 9t + 57",
+    "C = 12t + 9"
+   ],
+   "answerIndex": 0,
+   "explain": "每 5 小时多收 45 元，所以每小时 45 ÷ 5 = 9 元；再退回 t = 0：57 − 9 × 5 = 12，这 12 元是固定的开租费，所以 C = 9t + 12。写成 C = 9t + 57 的那个是把 t = 5 那行的总价当成了常数项，忘了先减掉 9 × 5。",
+   "tags": [
+    "ok",
+    "linear.x_step_ignored",
+    "linear.intercept_forgotten",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47afhg4g",
+   "level": 3,
+   "question": "小雅为买滑雪季卡存钱，每周存的钱一样多。她记的表是：第 0 周有 30 加元；第 5 周有 80 加元；第 10 周有 130 加元；第 15 周有 180 加元。她存到 430 加元是第几周？",
+   "options": [
+    "第 43 周",
+    "第 40 周",
+    "第 14 周",
+    "第 8 周"
+   ],
+   "answerIndex": 1,
+   "explain": "每 5 周多 50 元，所以每周存 10 元，开始时已有 30 元，即 y = 10w + 30；令 10w + 30 = 430，先减 30 得 10w = 400，w = 40。直接用 430 ÷ 10 = 43 的那个答案，就是忘了先减掉起始的 30 元。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "ok",
+    "linear.slope_intercept_swap",
+    "linear.x_step_ignored"
+   ]
+  },
+  {
+   "qid": "qmtkp1h47p0kzzy",
+   "level": 3,
+   "question": "一张数值表：x = 0 时 y = 6；x = 5 时 y = 26；x = 10 时 y = 46；x = 15 时 y = 66。小杰说：y 每次加 20，所以式子是 y = 20x + 6。他错在哪？",
+   "options": [
+    "他错在多写了常数 6，表里是成倍关系，应写成 y = 20x",
+    "他没错，y 列每一行的差就是 20，y = 20x + 6 是对的",
+    "20 是 x 走 5 步的总变化，每步只加 4，应写 y = 4x + 6",
+    "他把两个数写反了，起始值是 20、每步加 6，应写 y = 6x + 20"
+   ],
+   "answerIndex": 2,
+   "explain": "相邻两行 x 从 0 跳到 5，走了 5 步，y 才加 20，所以每 1 步加 20 ÷ 5 = 4，式子是 y = 4x + 6（代入 x = 10 得 46，对上了）。x 列不是 1、2、3 时，一定要先看 x 每步走多少，别把 y 列的差直接当变化率。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.x_step_ignored",
+    "ok",
+    "linear.slope_intercept_swap"
+   ]
+  },
+  {
+   "qid": "qmtkp1h4781xp5r",
+   "level": 3,
+   "question": "BC 省一个省立公园营地按晚收费，另加一次性预订费。价目表：住 5 晚共 145 加元；住 10 晚共 270 加元；住 15 晚共 395 加元；住 20 晚共 520 加元。照这个规律，住 12 晚要付多少？",
+   "options": [
+    "300 加元",
+    "348 加元",
+    "265 加元",
+    "320 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "每多 5 晚加 125 元，所以每晚 25 元；退回 0 晚：145 − 25 × 5 = 20，是预订费，即 C = 25n + 20；住 12 晚为 25 × 12 + 20 = 320 元。用 145 ÷ 5 = 29 当每晚单价（得 348 元）的做法只符合第一行，代入 10 晚就得 290，和 270 对不上。",
+   "tags": [
+    "linear.intercept_forgotten",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MULT.3D_BY_1D",
+ "lang": "en",
+ "title": "Multiply 3-digit numbers by 1-digit numbers with the standard algorithm",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Stacking Up: 3-Digit Times 1-Digit",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to break a number like two hundred fourteen into two hundreds, one ten, and four ones. Today we put that same idea into a neat stacked form, so you can multiply a three digit number by a one digit number quickly on paper.",
+    "math": "214 = 200 + 10 + 4",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      214
+     ],
+     "labels": [],
+     "caption": "Two hundred fourteen is 2 hundreds, 1 ten, and 4 ones"
+    }
+   },
+   {
+    "say": "Here is the rule. Write the big number on top and the one digit number underneath, lined up under the ones place. Then multiply from right to left: ones first, then tens, then hundreds. Every column gets multiplied, so no part is ever left out.",
+    "math": "\\begin{array}{r} 214 \\\\ \\times\\ \\ 3 \\\\ \\hline \\end{array}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us try it. A Surrey school orders three crates of apples for snack day, and each crate holds two hundred fourteen apples. Start with the ones: four times three is twelve. Twelve is one ten and two ones, so we write the two in the ones column and carry the one ten over to the tens column.",
+    "math": "4 \\times 3 = 12",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      12
+     ],
+     "labels": [],
+     "caption": "12 = 1 ten rod carried over, 2 ones stay"
+    }
+   },
+   {
+    "say": "Now the tens: one times three is three, plus the one ten we carried makes four tens. Then the hundreds: two times three is six hundreds. Reading it all together, three crates hold six hundred forty two apples.",
+    "math": "214 \\times 3 = 642",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      642
+     ],
+     "labels": [],
+     "caption": "6 hundreds, 4 tens, 2 ones"
+    }
+   },
+   {
+    "say": "Watch out for this slip. Some kids write the two in the ones place but forget the carried ten, so they get six hundred thirty two. That is ten apples short of the real answer, because the ten hiding inside the twelve just vanished. A carried digit is real, so always add it into the very next column.",
+    "math": "642 - 632 = 10",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      632,
+      642
+     ],
+     "labels": [
+      " forgot the carry",
+      "correct"
+     ],
+     "caption": "Forgetting the carry loses exactly 10"
+    }
+   },
+   {
+    "say": "So remember: multiply the ones, then the tens, then the hundreds, and carry every extra ten or hundred into the next column. Every digit gets its turn.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Multiply ones, then tens, then hundreds — and always add the carried digit into the next column.",
+  "practice": {
+   "question": "At a Kelowna farmers market, one box of blueberries weighs two hundred thirteen grams. Think of that as 2 hundreds, 1 ten, and 3 ones, and stack it up: what do four boxes weigh altogether?",
+   "answer": "852 grams. Ones: 3 times 4 is 12, so write 2 and carry 1 ten. Tens: 1 times 4 is 4, plus the carried 1 makes 5 tens. Hundreds: 2 times 4 is 8 hundreds. That gives 852."
+  }
+ }
+}

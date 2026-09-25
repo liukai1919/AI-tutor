@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.LIN.APPLY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtlzqnbaow792h",
+   "level": 1,
+   "question": "小杰在校园里匀速走向旗杆。记录如下：时间 t（秒）为 0、2、4、6、8 时，他离教学楼门口的距离 d（米）分别是 6、8、10、12、14。按这个线性关系（linear relation）继续下去，t = 10 秒时 d 是多少？",
+   "options": [
+    "16 米",
+    "4 米",
+    "10 米",
+    "70 米"
+   ],
+   "answerIndex": 0,
+   "explain": "每过 2 秒 d 增加 2 米，即每秒 1 米，而 t = 0 时已经离门口 6 米，所以 d = 6 + t，t = 10 时 d = 16。别在 d 那一行找到 10 再回头读成 t = 4，也别把起始的 6 米漏掉或者拿去乘 10。",
+   "tags": [
+    "ok",
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbavndwf8",
+   "level": 1,
+   "question": "一艘渡轮离开码头时离灯塔 4 km，之后每小时远离灯塔 2 km。用 d 表示离灯塔的距离（km），t 表示航行的小时数，这个线性关系是 d = 4 + 2t。t = 6 时 d 是多少？",
+   "options": [
+    "12 km",
+    "16 km",
+    "1 km",
+    "36 km"
+   ],
+   "answerIndex": 1,
+   "explain": "把 t = 6 代入：d = 4 + 2×6 = 16 km。起始的 4 km 只加一次，不要漏掉也不要乘 6；6 是时间 t 不是距离 d，别反过来去解 4 + 2t = 6。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbabixyc3",
+   "level": 1,
+   "question": "把「租滑雪板」的费用画成图（graph）：横轴是小时数 h，纵轴是费用 C（加元）。直线从点 (0, 12) 出发，每向右走 1 小时就向上升 $5。哪个方程（equation）描述这条直线？",
+   "options": [
+    "C = 5h",
+    "C = 17h",
+    "C = 12 + 5h",
+    "h = 12 + 5C"
+   ],
+   "answerIndex": 2,
+   "explain": "纵轴截距 12 是一次性的起始费用，每小时 5 是变化率，所以 C = 12 + 5h。12 不能漏掉，也不能和 5 合并成每小时 17；C 在纵轴、h 在横轴，两个变量的位置别写反。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbabzghgc",
+   "level": 1,
+   "question": "小安在北温徒步：出发时已经离营地 2 km，之后每小时再走 3 km，所以 d = 2 + 3t（d 是离营地的距离 km，t 是小时数）。当 d = 14 km 时，t 是多少？",
+   "options": [
+    "44 小时",
+    "2.8 小时",
+    "约 4.7 小时",
+    "4 小时"
+   ],
+   "answerIndex": 3,
+   "explain": "14 是距离 d，要解 2 + 3t = 14，得 3t = 12，t = 4。把 14 当成 t 代进去会得到 44；直接算 14 ÷ 3 是漏掉了起始的 2 km，算 14 ÷ 5 则是把起始量当成了每小时都有的量。",
+   "tags": [
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbanzr9wy",
+   "level": 2,
+   "question": "一辆网约车的费用图：横轴是里程 x（km），纵轴是费用 y（加元），直线经过 (2, 9) 和 (6, 17)。小林坐了 10 km，付给司机 $40 现金，应找回多少？",
+   "options": [
+    "$15",
+    "$20",
+    "$30",
+    "$25"
+   ],
+   "answerIndex": 0,
+   "explain": "变化率 = (17 − 9) ÷ (6 − 2) = 每 km $2，倒推 x = 0 时 y = 5（起步价），10 km 费用 = 5 + 2×10 = 25，找回 40 − 25 = 15。算出 25 别停，起步价 5 别漏；变化率是「每 km 2 元」，不是「每元 2 km」。",
+   "tags": [
+    "ok",
+    "pat.fixed_part_mishandled",
+    "lin.read_wrong_axis",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbag0d3sr",
+   "level": 2,
+   "question": "小美骑车去公园。路程–时间图（distance–time graph）：横轴是时间 t（分钟），纵轴是离家距离 d（km）。图线从 (0, 0) 直到 (20, 6)，接着从 (20, 6) 到 (30, 6) 是一段水平线（horizontal line），最后从 (30, 6) 到 (40, 9)。水平线那一段说明什么？",
+   "options": [
+    "她停了 6 分钟，离家一直是 10 km",
+    "她停了 10 分钟，离家一直是 6 km",
+    "她这 10 分钟里又往前骑了 6 km",
+    "她已到公园，6 km 就是全程终点"
+   ],
+   "answerIndex": 1,
+   "explain": "水平线表示 t 在变（20 到 30 分钟）而 d 不变（一直 6 km），也就是停了 10 分钟。6 是纵轴上的距离、10 是横轴上的时间差，别读反；后面 d 又升到 9，说明她还没到终点。",
+   "tags": [
+    "lin.read_wrong_axis",
+    "ok",
+    "pat.fixed_part_mishandled",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbarbe1gv",
+   "level": 2,
+   "question": "某小区的月水费 y（加元）和用水量 x（千升 kL）的关系是 y = 6 + 2.5x。x = 8 时对应的值和它的意思是什么？",
+   "options": [
+    "y = 20，表示用 8 kL 水时水费 $20",
+    "y = 68，表示用 8 kL 水时水费 $68",
+    "y = 26，表示用 8 kL 水时水费 $26",
+    "x = 0.8，表示水费 $8 时用了 0.8 kL"
+   ],
+   "answerIndex": 2,
+   "explain": "x 是用水量，代入得 y = 6 + 2.5×8 = 26，即用 8 kL 水费 $26。固定的 6 元只加一次，不要漏掉也不要和 2.5 合并后再乘 8；8 是 x 不是 y，别去解 6 + 2.5x = 8。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "lin.read_wrong_axis"
+   ]
+  },
+  {
+   "qid": "qmtlzqnba664b73",
+   "level": 2,
+   "question": "在路程–时间图上（横轴 t 是时间，纵轴 d 是离家距离），小凯从家骑车去朋友家，中途在便利店停了 5 分钟。停在便利店的这 5 分钟，图上应该画成什么样？（提示：想想水平线 horizontal line 和竖直线 vertical line 各表示什么）",
+   "options": [
+    "一段竖直线，这 5 分钟里 t 一直不变",
+    "一段降到 0 的线，因为停下后距离清零",
+    "一段水平线，高度是 5，因为停了 5 分钟",
+    "一段水平线，这 5 分钟里 d 一直不变"
+   ],
+   "answerIndex": 3,
+   "explain": "停下来时时间照样在走（t 增加 5），离家距离不变（d 不变），所以是一段水平线，高度就是便利店离家的距离。竖直线意味着时间不动、距离突变，这不可能；停下也不会让已经骑过的距离变回 0。",
+   "tags": [
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled",
+    "lin.read_wrong_axis",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbazbqfce",
+   "level": 3,
+   "question": "素里市两家滑板租赁店的费用画在同一张图上（横轴是小时数 h，纵轴是费用 C 加元）。A 店的直线经过 (0, 12) 和 (2, 18)；B 店的直线经过 (0, 0) 和 (2, 12)。小杰想租 6 小时，选便宜的那家，比另一家能省多少？",
+   "options": [
+    "$6",
+    "$30",
+    "$18",
+    "$54"
+   ],
+   "answerIndex": 0,
+   "explain": "A 店 C = 12 + 3h，6 小时 = 12 + 18 = $30；B 店 C = 6h，6 小时 = $36；A 便宜，省 36 − 30 = $6。算出 30 或 36 只是各自的费用，还要相减；A 店的 12 是一次性押金，不能漏也不能乘 6。",
+   "tags": [
+    "ok",
+    "word.stop_early",
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled"
+   ]
+  },
+  {
+   "qid": "qmtlzqnbakzouo2",
+   "level": 3,
+   "question": "一辆长途巴士从离温哥华市中心 3 km 的车站出发，上高速后匀速行驶。它的路程–时间图是一条直线，经过 (10, 8) 和 (30, 18)（t 是分钟，d 是离市中心的距离 km）。目的地在离市中心 43 km 处，巴士出发后多少分钟到达？",
+   "options": [
+    "86 分钟",
+    "80 分钟",
+    "24.5 分钟",
+    "50 分钟"
+   ],
+   "answerIndex": 1,
+   "explain": "变化率 = (18 − 8) ÷ (30 − 10) = 每分钟 0.5 km，t = 0 时 d = 3，所以 d = 3 + 0.5t。令 d = 43 得 0.5t = 40，t = 80 分钟。直接算 43 ÷ 0.5 漏了出发点的 3 km；从 30 分钟那个点往后算出的 50 只是剩余时间，还要加上前面的 30。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "ok",
+    "lin.read_wrong_axis",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlzqnba3h6cgs",
+   "level": 3,
+   "question": "本拿比一家健身房：办卡 $30，之后每月 $25。小雅想算 6 个月一共花多少，她列的算式是 (30 + 25) × 6 = $330。她错在哪？",
+   "options": [
+    "办卡费不算花费：25×6 = $150 才对",
+    "她没错：办卡费也按月收，$330 是对的",
+    "办卡费只付一次：30 + 25×6 = $180",
+    "月费不用乘 6：30 + 25 = $55 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "办卡费 $30 是固定起始量，在 C = 30 + 25n 里只加一次；n = 6 时 C = 30 + 150 = 180。把 30 也乘 6 会多算 $150；而 30 + 25 = 55 只是第一个月的花费，不是 6 个月的总数。",
+   "tags": [
+    "pat.fixed_part_mishandled",
+    "pat.fixed_part_mishandled",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtlzqnba7irqxq",
+   "level": 3,
+   "question": "小龙看一张路程–时间图（横轴 t 是分钟，纵轴 d 是米）：图线是从原点出发的直线，经过点 (40, 100)。他要算 1 小时能走多远，他说：「走 40 米用了 100 分钟，每米 2.5 分钟，所以 1 小时走 60 ÷ 2.5 = 24 米。」他哪里出了问题？",
+   "options": [
+    "他没错，先写的 40 就是路程，1 小时走 24 米",
+    "他漏了起始的 100 米：1 小时应走 100 + 24 = 124 米",
+    "错在多算了最后一步：每米 2.5 分钟就是答案了",
+    "横纵轴读反了：40 分钟走 100 米，1 小时走 150 米"
+   ],
+   "answerIndex": 3,
+   "explain": "点 (40, 100) 的横坐标是时间 40 分钟、纵坐标是路程 100 米，速度是每分钟 2.5 米，1 小时走 2.5×60 = 150 米。读点时先确认横轴是什么量；直线从原点出发，没有起始距离可以加。",
+   "tags": [
+    "lin.read_wrong_axis",
+    "pat.fixed_part_mishandled",
+    "word.stop_early",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.TABLE.TO_GRAPH",
+ "lang": "en",
+ "title": "Plot a table of values as points in the first quadrant",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "From Table to Dots: Plotting a Table of Values",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to fill in a table of values, and you already know how to plot a point like three across and five up. Today we join those two skills together: turning every row of a table into a dot on the grid.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is our table. At a market in Victoria, a small bag of blueberries costs two dollars. One bag costs two dollars, two bags cost four dollars, three bags cost six dollars, and four bags cost eight dollars. The top row is our across number, and the bottom row is our up number.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      2,
+      4,
+      6,
+      8
+     ],
+     "labels": [
+      "1 bag",
+      "2 bags",
+      "3 bags",
+      "4 bags",
+      "Bags across",
+      "Dollars up"
+     ],
+     "caption": "Bags of blueberries at two dollars each"
+    }
+   },
+   {
+    "say": "Now read the table one column at a time. Each column gives you a pair of numbers, and each pair becomes one dot. Two bags and four dollars becomes the ordered pair two, four. Always walk across first, then climb up. Watch our four columns turn into four dots.",
+    "math": "(1,\\ 2),\\ (2,\\ 4),\\ (3,\\ 6),\\ (4,\\ 8)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      1,
+      2,
+      2,
+      4,
+      3,
+      6,
+      4,
+      8
+     ],
+     "labels": [
+      "(1,2)",
+      "(2,4)",
+      "(3,6)",
+      "(4,8)"
+     ],
+     "caption": "Every column of the table becomes one dot"
+    }
+   },
+   {
+    "say": "Let us do the third column together, nice and slowly. It says three bags, six dollars, so the pair is three, six. Start at the corner. Walk three squares to the right along the bottom, because three is the bags number. Then climb six squares straight up, because six is the dollars number. Put your dot right there. That one dot says everything: three bags costs six dollars.",
+    "math": "(3,\\ 6)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      6
+     ],
+     "labels": [
+      "(3,6)"
+     ],
+     "caption": "Three across, then six up"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most often. Some friends get in a hurry and plot six across and three up instead. Look at the two dots — they are in totally different places! The dot at six, three would mean six bags cost only three dollars, and that is not what our table says at all. The across number always comes first, every single time. Say it with me: across, then up.",
+    "math": "(3,\\ 6)\\neq(6,\\ 3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      6,
+      6,
+      3
+     ],
+     "labels": [
+      "(3,6) correct",
+      "(6,3) oops!"
+     ],
+     "caption": "Swapping the numbers lands you somewhere completely different"
+    }
+   },
+   {
+    "say": "So remember: every row of your table is just a dot waiting to be drawn — across first, then up.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Each column of a table of values is one point: the first number walks you across, the second number climbs you up.",
+  "practice": {
+   "question": "At a farm stand in the Okanagan, apples cost four dollars per kilogram. Make a table: one kilogram costs four dollars, two kilograms cost eight dollars, and three kilograms cost twelve dollars. Draw your own first-quadrant grid, write down the three ordered pairs, and plot them.",
+   "answer": "The three ordered pairs are one, four; two, eight; and three, twelve. For one and four, walk one square across and four squares up. For two and eight, walk two across and eight up. For three and twelve, walk three across and twelve up. The three dots line up in a straight path going up to the right."
+  }
+ }
+}

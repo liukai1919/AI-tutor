@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EXPR.COMBINE_LIKE",
+ "lang": "en",
+ "title": "Simplify an expression by combining like terms before substituting (0.5n − 3n + 25 = −2.5n + 25)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Tidy Up Before You Plug In",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to substitute a number into an expression like zero point five n minus three n plus twenty five. Today we do one small thing first: tidy the expression by combining like terms, so the substitution is way less work.",
+    "math": "0.5n - 3n + 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think of a balance scale. On the left is the original expression, and on the right is the tidied one. Combining like terms does not change the value at all, so the scale stays perfectly level. We are only rewriting the same amount in a shorter way.",
+    "math": "0.5n - 3n + 25 = -2.5n + 25",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "0.5n - 3n + 25",
+      "-2.5n + 25"
+     ],
+     "caption": "Same value, shorter form — the scale stays balanced"
+    }
+   },
+   {
+    "say": "Here is the move. Zero point five n and negative three n are like terms, because they both have the same variable n. So we just add their coefficients: zero point five minus three is negative two point five. The twenty five has no n, so it is not a like term and it just comes along for the ride.",
+    "math": "0.5n - 3n = (0.5 - 3)n = -2.5n",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0
+     ],
+     "labels": [
+      "0.5n - 3n",
+      "-2.5n"
+     ],
+     "caption": "Add only the coefficients: 0.5 minus 3 is -2.5"
+    }
+   },
+   {
+    "say": "Watch out for two classic traps. Trap one: writing three n plus twenty five as twenty eight n. Test it with n equals ten: three times ten plus twenty five is fifty five, but twenty eight times ten is two hundred eighty. The scale tips hard, so they are not equal. Trap two: ignoring signs. Zero point five minus three is negative two point five, not three point five — you are starting at zero point five and going down three.",
+    "math": "3n + 25 \\neq 28n",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      -1,
+      55,
+      280
+     ],
+     "labels": [
+      "3n + 25",
+      "28n"
+     ],
+     "caption": "With n = 10: 55 on the left, 280 on the right — not equal"
+    }
+   },
+   {
+    "say": "Let us test the whole thing with n equals fourteen. The long way: zero point five times fourteen is seven, three times fourteen is forty two, so seven minus forty two plus twenty five is negative thirty five plus twenty five, which is negative ten. The tidy way: negative two point five times fourteen is negative thirty five, plus twenty five is negative ten. Same answer, half the work.",
+    "math": "-2.5(14) + 25 = -35 + 25 = -10",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      0,
+      -10,
+      -10
+     ],
+     "labels": [
+      "0.5(14) - 3(14) + 25",
+      "-2.5(14) + 25"
+     ],
+     "caption": "Both sides land on -10 — balanced"
+    }
+   },
+   {
+    "say": "So before you substitute, always scan for like terms and combine them. Fewer terms means fewer chances to slip on a sign, and you get to the answer faster.",
+    "math": "0.5n - 3n + 25 = -2.5n + 25",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Combine like terms first — the balance stays level, and substituting gets much easier.",
+  "practice": {
+   "question": "You are figuring out the money left on a prepaid transit card. The expression is one point five h minus four h plus thirty dollars, where h is the number of hours. Picture a balance scale with that long expression on the left side. Write the short, tidied expression that goes on the right side so the scale stays level, then find the value when h equals six.",
+   "answer": "The tidied expression is negative two point five h plus thirty. When h equals six, negative two point five times six is negative fifteen, and negative fifteen plus thirty is fifteen dollars. Checking the long way: one point five times six is nine, four times six is twenty four, and nine minus twenty four plus thirty is also fifteen — the scale balances."
+  }
+ }
+}

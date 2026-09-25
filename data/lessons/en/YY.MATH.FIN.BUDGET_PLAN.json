@@ -1,0 +1,113 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.BUDGET_PLAN",
+ "lang": "en",
+ "title": "Build a monthly budget with income, fixed and variable expenses and savings, and check that it balances",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Building a Monthly Budget That Balances",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list income and expenses, and how to keep a running balance from a bank statement. Today we put it all together into one monthly budget with four buckets: income, fixed expenses, variable expenses, and savings. Then we check that it balances, which means money in equals money out. Let's build one for Jordan, a Grade 9 student with a part-time job at a rec centre in Surrey.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Step one: get every number into monthly form before adding anything. Jordan earns sixty dollars a week at the rec centre. A month has about four weeks, so that is sixty times four, which is two hundred forty dollars a month. Jordan also gets a forty dollar monthly allowance. Total monthly income is two hundred forty plus forty, which is two hundred eighty dollars. Notice we converted the weekly number first, then added.",
+    "math": "60\\times 4=240,\\quad 240+40=280",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      240,
+      40,
+      280
+     ],
+     "labels": [
+      "Job: 60 per week times 4",
+      "Monthly allowance",
+      "Total monthly income"
+     ],
+     "caption": "Income side, all in monthly dollars"
+    }
+   },
+   {
+    "say": "Step two: the money out side, in three groups. Fixed expenses stay the same every month: phone plan thirty five, transit pass thirty, streaming ten. That is seventy five dollars. Variable expenses change month to month: snacks fifteen a week times four is sixty, going out with friends fifty, games twenty. That is one hundred thirty dollars. And savings, sixty dollars toward new skates. Savings sits on the money out side, because you are paying your future self. Total out is seventy five plus one hundred thirty plus sixty, which is two hundred sixty five.",
+    "math": "75+130+60=265",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      75,
+      130,
+      60
+     ],
+     "labels": [
+      "Fixed",
+      "Variable",
+      "Savings"
+     ],
+     "caption": "Money out: 75 + 130 + 60 = 265 dollars"
+    }
+   },
+   {
+    "say": "Step three: check the balance. Income is two hundred eighty, money out is two hundred sixty five. Two hundred eighty minus two hundred sixty five is fifteen. That fifteen dollars has no job yet, so the budget does not balance. To fix it, give the fifteen a job. Jordan adds it to savings, making savings seventy five. Now money out is seventy five plus one hundred thirty plus seventy five, which is two hundred eighty, exactly equal to income. Balanced. If money out had been bigger than income, we would trim a variable line like going out, not the fixed lines we cannot change.",
+    "math": "280-265=15,\\quad 75+130+75=280",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      280,
+      75,
+      130,
+      75
+     ],
+     "labels": [
+      "Income",
+      "Fixed",
+      "Variable",
+      "Savings"
+     ],
+     "caption": "After adjusting, the three out bars add to the income bar"
+    }
+   },
+   {
+    "say": "Three traps to watch. Trap one: forgetting savings. Seventy five plus one hundred thirty is two hundred five, and two hundred eighty minus two hundred five is seventy five, so it looks like seventy five dollars of free spending money. It is not free, it is the skates fund. Trap two: mixing weekly and monthly. Writing sixty plus forty equals one hundred for income is wrong, because the sixty is weekly and the forty is monthly. Trap three: calling it balanced when it is close. Income two hundred eighty and spending two hundred sixty five is not balanced, because fifteen dollars is still unassigned. Balanced means exactly equal.",
+    "math": "280\\neq 265",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      280,
+      265,
+      15
+     ],
+     "labels": [
+      "Income",
+      "Money out",
+      "Unassigned"
+     ],
+     "caption": "15 dollars unassigned means not balanced yet"
+    }
+   },
+   {
+    "say": "Here is the whole routine. Convert everything to monthly. List income. List fixed, variable, and savings as money out. Subtract. If the difference is not zero, adjust a line until income equals money out. Balanced means in equals out, with savings counted as out.",
+    "math": "\\text{Income}=\\text{Fixed}+\\text{Variable}+\\text{Savings}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Convert to monthly, count savings as money out, and adjust until income equals total out.",
+  "practice": {
+   "question": "Maya babysits for forty five dollars a week in Kelowna and gets a twenty dollar monthly allowance. Her fixed expenses are a thirty dollar phone plan and a twenty five dollar gym pass. Her variable expenses are snacks at ten dollars a week and forty dollars for outings. She plans to save thirty dollars. Make a table with columns for income, fixed, variable, savings, and total out, using four weeks in a month. Does her budget balance? If not, what one change would balance it?",
+   "answer": "Income: 45 times 4 is 180, plus 20 is 200 dollars. Fixed: 30 plus 25 is 55. Variable: 10 times 4 is 40, plus 40 is 80. Savings: 30. Total out: 55 plus 80 plus 30 is 165. Income 200 minus 165 leaves 35 dollars unassigned, so it does not balance yet. Raise savings from 30 to 65 (or add 35 to another line) so total out is 200, equal to income."
+  }
+ }
+}

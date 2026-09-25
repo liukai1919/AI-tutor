@@ -1,0 +1,124 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.STAT.MISLEADING_GRAPHS",
+ "lang": "en",
+ "title": "Detect misleading graphs and statistics: truncated axes, uneven scales, cherry-picked ranges, percents without a base",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Spotting Sneaky Graphs and Stats",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot bias in a survey, like a leading question or asking only certain people. Today we go one step further: sometimes the survey is fine, but the graph or the percent is drawn or worded in a way that fools your eyes. Your job is to be a detective and check the axis, the scale, the range, and the base before you believe anything.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is trick number one: the truncated axis. Two phone plans in Surrey give you data each month. Plan A gives 48 gigabytes and Plan B gives 50 gigabytes. In this honest chart, the y-axis starts at zero, and the two bars look almost the same, which is the truth: 50 is only two more than 48. Now imagine an ad that starts the axis at 47 instead of zero. Then Plan A would be a tiny one-unit bar and Plan B would be three units tall, so B looks three times bigger. Same numbers, totally different feeling. Always check: does the axis start at zero?",
+    "math": "50-48=2",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      48,
+      50
+     ],
+     "labels": [
+      "Plan A",
+      "Plan B"
+     ],
+     "caption": "Honest chart: axis starts at 0, so 48 and 50 look close, because they are"
+    }
+   },
+   {
+    "say": "Trick number two: comparing bar heights across graphs with different scales. Two hockey teams post their goals. Team Red's chart uses one grid line for every 2 goals, and their bar reaches the sixth line. Team Blue's chart uses one grid line for every 5 goals, and their bar reaches the fourth line. A common mistake is to say Red scored more because six lines is taller than four lines. But you have to multiply by the scale. Red: six times two is twelve goals. Blue: four times five is twenty goals. Blue actually scored more. Never compare bar heights until you have turned every bar back into real numbers.",
+    "math": "6\\times2=12,\\quad 4\\times5=20",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      5,
+      6,
+      4,
+      12,
+      20
+     ],
+     "labels": [
+      "Red",
+      "Blue",
+      "Goals per grid line",
+      "Grid lines tall",
+      "Real goals"
+     ],
+     "caption": "Same-looking bars, different scales: Blue wins 20 to 12"
+    }
+   },
+   {
+    "say": "Trick number three: a percent without a base. A friend says, this energy drink saw a two hundred percent increase in sales at our school store. Sounds massive. But ask: two hundred percent of what? If it went from one can to three cans, the increase is two cans, and two divided by one is two, which is two hundred percent. That is a giant percent on a tiny base. Meanwhile, water went from one hundred bottles to one hundred twenty bottles, which is only a twenty percent increase, but that is twenty extra bottles, way more than two extra cans. A percent is only meaningful when you know what it is a percent of.",
+    "math": "\\frac{3-1}{1}=2=200\\%",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      1,
+      3,
+      100,
+      120
+     ],
+     "labels": [
+      "Energy drink",
+      "Water",
+      "Before",
+      "After"
+     ],
+     "caption": "200 percent growth was just 2 cans; 20 percent growth was 20 bottles"
+    }
+   },
+   {
+    "say": "Trick number four: cherry-picked ranges. A game studio says, our player count is up. Their chart shows only May to July, where it climbs from ten thousand to eighteen thousand. But if you look at the full year, January started at thirty thousand and it fell all the way down before that little bounce. Showing only the part of the line that goes up is like showing only the one quiz you aced. Ask to see the whole range.",
+    "math": "",
+    "visual": {
+     "type": "statLine",
+     "nums": [
+      30,
+      26,
+      20,
+      14,
+      10,
+      14,
+      18
+     ],
+     "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul"
+     ],
+     "caption": "Players in thousands: the ad shows only May to July"
+    }
+   },
+   {
+    "say": "So here is your detective checklist for any graph or stat: Does the axis start at zero? What does one grid line stand for? Am I seeing the whole range or just a slice? And a percent of what? If any of those answers is fishy, the picture might be honest math dressed up to mislead.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Before trusting a graph or a percent, ask four things: Does the axis start at zero? What is one grid line worth? Is this the whole range? A percent of what?",
+  "practice": {
+   "question": "Two Vancouver bubble tea shops each post a bar chart of cups sold on Saturday. Shop Sweet's chart uses one grid line for every 4 cups, and its bar reaches the seventh grid line. Shop Chill's chart uses one grid line for every 10 cups, and its bar reaches the third grid line. A friend says Sweet sold way more because its bar is taller. Who really sold more cups, and by how many? Then, Chill claims a 50 percent increase in cups sold compared to last Saturday. What extra information do you need before being impressed?",
+   "answer": "Sweet: 7 times 4 equals 28 cups. Chill: 3 times 10 equals 30 cups. Chill actually sold more, by 2 cups; the friend forgot to multiply by each scale. For the 50 percent claim, you need the base: last Saturday's number of cups. If Chill sold 20 last week, 50 percent more is only 10 extra cups, so the percent alone tells you very little."
+  }
+ }
+}

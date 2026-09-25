@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkpb14mfg1v41",
+   "level": 1,
+   "question": "A discrete linear relation is plotted on a coordinate grid. Along the x-axis each square stands for 1 unit, and up the y-axis each square stands for 3 units. The four dots sit like this: at x = 0 the dot is 3 squares below the x-axis; at x = 1 it is 2 squares below; at x = 2 it is 1 square below; at x = 3 it is right on the x-axis. Which expression gives y?",
+   "options": [
+    "y = 3x − 9",
+    "y = −9x + 3",
+    "y = x − 3",
+    "y = 2x − 6"
+   ],
+   "answerIndex": 0,
+   "explain": "Each square up is worth 3, so the dots are (0, −9), (1, −6), (2, −3), (3, 0): the value at x = 0 is −9 and y rises 3 for each step right, giving y = 3x − 9. The usual trap is counting squares as 1 unit each, which produces the one that says x − 3.",
+   "tags": [
+    "ok",
+    "linear.slope_intercept_swap",
+    "graph.scale_misread",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14m286kgg",
+   "level": 1,
+   "question": "On a coordinate grid, each square across the x-axis stands for 2 units and each square up the y-axis stands for 1 unit. Four dots are plotted, one square apart across. The first dot is at x = 0 and 7 squares above the x-axis; each dot after that is 1 square to the right and 4 squares lower than the one before. Which expression gives y?",
+   "options": [
+    "y = 7x − 2",
+    "y = −2x + 7",
+    "y = x + 1",
+    "y = −4x + 7"
+   ],
+   "answerIndex": 1,
+   "explain": "The dots are (0, 7), (2, 3), (4, −1), (6, −5), so the value at x = 0 is 7 and y falls 4 over 2 units of x, a rate of −4 ÷ 2 = −2, giving y = −2x + 7. The trap is treating one square across as 1 unit of x, which gives the one that says −4x + 7.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkpb14m16gzyr",
+   "level": 1,
+   "question": "A discrete linear relation is graphed on a grid where each square across is 1 unit and each square up is 5 units. At x = 0 the dot is 2 squares above the x-axis; at x = 1 it is 1 square above; at x = 2 it is on the x-axis; at x = 3 it is 1 square below. Which expression gives y?",
+   "options": [
+    "y = 10x − 5",
+    "y = −x + 2",
+    "y = −5x + 10",
+    "y = −10x + 10"
+   ],
+   "answerIndex": 2,
+   "explain": "With 5 units per square the dots are (0, 10), (1, 5), (2, 0), (3, −5): the value at x = 0 is 10 and y drops 5 each step right, so y = −5x + 10. Reading one square as 1 unit is the common slip and gives the one that says −x + 2.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "graph.scale_misread",
+    "ok",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mlfx3nt",
+   "level": 1,
+   "question": "A relation is plotted in all four quadrants. Each square across is 1 unit and each square up is 2 units. The dots are: at x = −1, three squares below the x-axis; at x = 0, one square below; at x = 1, one square above; at x = 2, three squares above. Which expression gives y?",
+   "options": [
+    "y = −2x + 4",
+    "y = 2x − 1",
+    "y = 8x − 2",
+    "y = 4x − 2"
+   ],
+   "answerIndex": 3,
+   "explain": "Two units per square makes the dots (−1, −6), (0, −2), (1, 2), (2, 6), so the value at x = 0 is −2 and y climbs 4 for each step right: y = 4x − 2. Counting squares instead of units gives the one that says 2x − 1, and it fails at every dot.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "graph.scale_misread",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mpql0fz",
+   "level": 2,
+   "question": "Nadia graphs the money left on her bus card. Each square across stands for 1 ride and each square up stands for $2. At 0 rides the dot is 6 squares up; at 1 ride, 5 squares up; at 2 rides, 4 squares up; at 3 rides, 3 squares up. If b is the balance after r rides, which expression is right?",
+   "options": [
+    "b = −2r + 12",
+    "b = −4r + 12",
+    "b = 12r − 2",
+    "b = −r + 6"
+   ],
+   "answerIndex": 0,
+   "explain": "Each square is $2, so the balance goes 12, 10, 8, 6: it starts at $12 and drops $2 per ride, giving b = −2r + 12. Reading each square as $1 gives the one that says −r + 6, which does not match a single dot.",
+   "tags": [
+    "ok",
+    "linear.rule_from_one_point",
+    "linear.slope_intercept_swap",
+    "graph.scale_misread"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mujlsbe",
+   "level": 2,
+   "question": "Priya graphs her savings. Each square across stands for 2 weeks and each square up stands for $10. The first dot is at week 0, three squares up. The next dot is 1 square right and 5 squares up, the next is 2 squares right and 7 squares up, and the next is 3 squares right and 9 squares up. If S is her savings after w weeks, which expression is right?",
+   "options": [
+    "S = 30w + 10",
+    "S = 10w + 30",
+    "S = 20w + 30",
+    "S = 10w + 50"
+   ],
+   "answerIndex": 1,
+   "explain": "The dots are (0, 30), (2, 50), (4, 70), (6, 90): she starts with $30 and gains $20 every 2 weeks, so the rate is $10 per week and S = 10w + 30. Treating one square across as one week doubles the rate and gives the one that says 20w + 30.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "graph.scale_misread",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mbusw45",
+   "level": 2,
+   "question": "Kai's table of values for his climbing gym bill shows: 1 visit costs $26, 2 visits cost $32, 3 visits cost $38, 4 visits cost $44. The relation is discrete and linear. Which expression gives the cost C for x visits, including the fee he pays at x = 0?",
+   "options": [
+    "C = 20x + 6",
+    "C = 6x + 26",
+    "C = 6x + 20",
+    "C = 3x + 23"
+   ],
+   "answerIndex": 2,
+   "explain": "The cost rises $6 per visit, so step back once from $26 to get $20 at 0 visits: C = 6x + 20. The trap is using the first row's $26 as the value at x = 0, or picking a rule that fits only the first row and never checking the second.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "ok",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mr6j079",
+   "level": 2,
+   "question": "The dots of a discrete linear relation are plotted on a grid. Which method gives the correct expression every time?",
+   "options": [
+    "Use the y-value at x = 0 as the rate and the y-change as the constant.",
+    "Count squares between two dots and use that count as the rate.",
+    "Pick one plotted point and divide its y by its x to get the rate.",
+    "Read the y-value at x = 0, then the y-change for one step right."
+   ],
+   "answerIndex": 3,
+   "explain": "The constant is the y-value where x = 0 and the rate is how much y changes for one step right in x, and the rule must then be checked against every dot. The most common slip is calling the value at x = 0 the rate instead of the constant.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "graph.scale_misread",
+    "linear.rule_from_one_point",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mflyb7u",
+   "level": 3,
+   "question": "Leo graphs the money left on his rec-centre swim pass. Each square across stands for 1 swim and each square up stands for $3. At 0 swims the dot is 8 squares up, at 1 swim 6 squares up, and at 2 swims 4 squares up. Write the expression for the balance B after s swims, then say when the pass reaches $0.",
+   "options": [
+    "B = −6s + 24; the pass empties after 4 swims",
+    "B = −2s + 8; the pass empties after 4 swims",
+    "B = 24s − 6; the pass empties after 6 swims",
+    "B = −12s + 24; the pass empties after 2 swims"
+   ],
+   "answerIndex": 0,
+   "explain": "Three dollars per square makes the dots (0, 24), (1, 18), (2, 12), so the pass starts at $24 and loses $6 per swim: B = −6s + 24, which hits 0 when s = 4. Counting squares as dollars gives the one that says −2s + 8 — the swim count looks right but the expression does not fit the graph.",
+   "tags": [
+    "ok",
+    "graph.scale_misread",
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14m9m9l4o",
+   "level": 3,
+   "question": "Ana and Ben are graphed on the same grid, where each square across is 1 minute and each square up is 5 metres from the trailhead. Ana's dots: 0 min at 4 squares up, 1 min at 5 squares up, 2 min at 6 squares up. Ben's dots: 0 min at 6 squares up, 1 min at 5 squares up, 2 min at 4 squares up. Which statement is correct?",
+   "options": [
+    "Ana d = 20t + 5, Ben d = 30t − 5; level at 1 min",
+    "Ana d = 5t + 20, Ben d = −5t + 30; level at 1 min",
+    "Ana d = t + 4, Ben d = −t + 6; level at 1 min",
+    "Ana d = 10t + 20, Ben d = −10t + 30; level at 30 s"
+   ],
+   "answerIndex": 1,
+   "explain": "Five metres per square puts Ana at (0, 20), (1, 25), (2, 30) and Ben at (0, 30), (1, 25), (2, 20), so d = 5t + 20 and d = −5t + 30, equal at 1 minute. Using the raw square counts gives the pair that says t + 4 and −t + 6, which misses the scale entirely.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "ok",
+    "graph.scale_misread",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mur2t8i",
+   "level": 3,
+   "question": "On a grid where every square is 1 unit on both axes, Jordan's dots are at (0, −4), (1, −1), (2, 2) and (3, 5). Jordan wrote the expression y = −4x + 3. What went wrong?",
+   "options": [
+    "He read each square as 1 unit when one square is worth 3 units",
+    "Nothing is wrong; −4 must be the rate since it is the first y-value",
+    "He swapped them: −4 is the value at x = 0 and 3 is the rate",
+    "He used only the dot (1, −1), which by itself gives y = −x"
+   ],
+   "answerIndex": 2,
+   "explain": "The value at x = 0 is −4 and y climbs 3 for every step right, so the rule is y = 3x − 4. Swapping the rate with the value at x = 0 is the most common slip — test any rule on all four dots before trusting it.",
+   "tags": [
+    "graph.scale_misread",
+    "linear.slope_intercept_swap",
+    "ok",
+    "linear.rule_from_one_point"
+   ]
+  },
+  {
+   "qid": "qmtkpb14mmguab2",
+   "level": 3,
+   "question": "A community garden club graphs the total bulbs planted. Each square across stands for 1 week and each square up stands for 25 bulbs. At week 0 the dot is 2 squares up, at week 1 it is 5 squares up, and at week 2 it is 8 squares up. Write the expression for n bulbs after w weeks and predict week 6.",
+   "options": [
+    "n = 50w + 75, so week 6 has 375 bulbs",
+    "n = 150w + 50, so week 6 has 950 bulbs",
+    "n = 3w + 2, so week 6 has 20 bulbs",
+    "n = 75w + 50, so week 6 has 500 bulbs"
+   ],
+   "answerIndex": 3,
+   "explain": "With 25 bulbs per square the dots are (0, 50), (1, 125), (2, 200): 50 at week 0 and 75 more each week, so n = 75w + 50 and week 6 gives 75 × 6 + 50 = 500. Swapping the 50 and the 75 gives the one that says 50w + 75, and ignoring the scale gives 3w + 2.",
+   "tags": [
+    "linear.slope_intercept_swap",
+    "linear.rule_from_one_point",
+    "graph.scale_misread",
+    "ok"
+   ]
+  }
+ ]
+}

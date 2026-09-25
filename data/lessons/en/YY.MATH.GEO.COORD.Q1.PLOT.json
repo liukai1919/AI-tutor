@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.GEO.COORD.Q1.PLOT",
+ "lang": "en",
+ "title": "Plot and read points in the first quadrant with whole-number ordered pairs",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding Spots on a Map Grid",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to slide a shape across a grid and say how far it moved. But to slide something, you first need to know exactly where it starts! Today we learn how to name a spot on the grid using two numbers, like giving someone directions in Vancouver.",
+    "math": "",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      0
+     ],
+     "labels": [
+      "start"
+     ],
+     "caption": "Every grid has a starting corner called the origin, at zero, zero"
+    }
+   },
+   {
+    "say": "Here is the rule. A pair like three, five always means: walk three steps to the right first, then five steps up. Right first, then up. I like to say it like reading a book — you go across the page before you go down a line. The first number is called x, and it moves you sideways. The second number is called y, and it moves you up.",
+    "math": "(x,\\;y)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [
+      "P"
+     ],
+     "caption": "Point P at three, five: over three, then up five"
+    }
+   },
+   {
+    "say": "Let us try a real one together. Imagine a map of Stanley Park where each grid square is one hundred metres. The ice cream cart is at four, two. Start at the corner. Walk right four squares. Now stop, turn, and go up two squares. Put your dot there. That dot is the ice cream cart.",
+    "math": "(4,\\;2)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      2
+     ],
+     "labels": [
+      "cart"
+     ],
+     "caption": "Right four, then up two"
+    }
+   },
+   {
+    "say": "Now here is the mistake almost everybody makes. Someone reads four, two and plots it as two, four instead — up first, then over. Look at these two dots. They are in totally different places! The cart at four, two is low and far right. The dot at two, four is high and closer to the left. Same two numbers, wrong spot. So always whisper to yourself: over, then up.",
+    "math": "(4,\\;2)\\neq(2,\\;4)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      4,
+      2,
+      2,
+      4
+     ],
+     "labels": [
+      "cart (4,2) right",
+      "mixed up (2,4) wrong"
+     ],
+     "caption": "Swapping the numbers lands you somewhere else entirely"
+    }
+   },
+   {
+    "say": "Reading a point works the same way, just backwards. Say there is a dot on the grid. Drop straight down from it to the bottom line and read that number — that is your x. Then slide straight across to the side line and read that number — that is your y. For this dot, down to the bottom gives six, and across gives three. So we write six, three.",
+    "math": "(6,\\;3)",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      6,
+      3
+     ],
+     "labels": [
+      "Q"
+     ],
+     "caption": "Read across the bottom first: six, then up: three"
+    }
+   },
+   {
+    "say": "So remember, the first number always walks you across, and the second number always lifts you up. Over, then up — every single time.",
+    "math": "(x,\\;y)\\rightarrow \\text{over } x,\\ \\text{up } y",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "In an ordered pair, the first number goes over (across) and the second goes up — never swap them!",
+  "practice": {
+   "question": "On a grid map of a Richmond farmers market, each square is one metre. The berry stand is at five, one. The honey stand is at one, five. Draw a first quadrant grid going up to six in both directions, plot both stands, and then tell me: which stand is farther to the right, and which one is higher up?",
+   "answer": "The berry stand at five, one is farther to the right (it goes over five, up one). The honey stand at one, five is higher up (over one, up five). They use the same two numbers, but they land in very different spots — that is why order matters!"
+  }
+ }
+}

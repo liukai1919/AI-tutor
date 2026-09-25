@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.PV1M.DIGIT_VALUE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmt5ex40fsj7uvs",
+   "level": 1,
+   "question": "在数位表（place value chart）里，从右往左依次是个位、十位、百位、千位、万位、十万位。把 465 320 填进数位表以后，十万位（hundred thousands）上的数字是 4。这个 4 表示的值是多少？",
+   "options": [
+    "400 000",
+    "40 000",
+    "4 000 000",
+    "4"
+   ],
+   "answerIndex": 0,
+   "explain": "十万位上 1 个单位就是 100 000，所以 4 个就是 4 × 100 000 = 400 000。最容易踩的坑是只报数字本身答 4，或者 0 数错——十万位的值后面固定跟着 5 个 0。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ex40fdho2zo",
+   "level": 1,
+   "question": "数位表里，万位（ten thousands）左边紧挨着的就是十万位（hundred thousands）。10 个 10 000 合起来，正好等于 1 个多少？",
+   "options": [
+    "1 000 000",
+    "100 000",
+    "10 000",
+    "10"
+   ],
+   "answerIndex": 1,
+   "explain": "每一位上满 10 个，就换成左边那一位的 1 个，所以 10 个 10 000 换成 1 个 100 000（十万）。坑在数 0：10 000 后面有 4 个 0，往左换一位变成 5 个 0，不是 6 个。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ex40fla8kfm",
+   "level": 1,
+   "question": "有一个六位数，在数位表里是这样填的：十万位上是 3，万位上是 0，千位上是 7，百位上是 0，十位上是 0，个位上是 6。这个数写成标准式（standard form）是多少？",
+   "options": [
+    "3 706",
+    "376",
+    "307 006",
+    "3 070 006"
+   ],
+   "answerIndex": 2,
+   "explain": "从十万位到个位依次写下 3、0、7、0、0、6，就是 307 006。坑在那几个 0：0 是占位用的，一个都不能漏，漏掉就成了 3 706 或 376，每个数字的位值全都变小了。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ex40fn5raeu",
+   "level": 1,
+   "question": "250 000 填进数位表后，十万位上是 2，万位上是 5，其余各位都是 0。万位上的 5 表示的值是多少？",
+   "options": [
+    "5",
+    "5 000",
+    "500 000",
+    "50 000"
+   ],
+   "answerIndex": 3,
+   "explain": "万位上 1 个单位是 10 000，5 个就是 5 × 10 000 = 50 000。坑是只看数字答 5，或者 0 的个数写错——万位上的值后面正好跟 4 个 0。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ex40f61y8ek",
+   "level": 2,
+   "question": "把展开式 500 000 + 40 000 + 900 + 3 写成标准式，是哪个数？",
+   "options": [
+    "540 903",
+    "54 903",
+    "5 400 903",
+    "5 493"
+   ],
+   "answerIndex": 0,
+   "explain": "按数位对齐：十万位 5、万位 4、千位 0、百位 9、十位 0、个位 3，写出来是 540 903。展开式里没有千位和十位，说明这两位是 0，必须写 0 占位，不能把 5、4、9、3 直接连起来。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ex40f0hn6p8",
+   "level": 2,
+   "question": "下面哪个数里的数字 7 表示的值是 70 000？",
+   "options": [
+    "738 210",
+    "273 810",
+    "142 703",
+    "830 007"
+   ],
+   "answerIndex": 1,
+   "explain": "70 000 后面有 4 个 0，说明 7 必须站在万位上，273 810 里的 7 正好在万位。738 210 里的 7 在十万位，值是 700 000；142 703 里的 7 在百位只有 700；830 007 里的 7 在个位就只是 7。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ex40fquausd",
+   "level": 2,
+   "question": "446 000 里有两个 4：一个在十万位，一个在万位。十万位上的 4 表示的值，是万位上的 4 表示的值的多少倍？",
+   "options": [
+    "100 倍",
+    "1 倍",
+    "10 倍",
+    "1 000 倍"
+   ],
+   "answerIndex": 2,
+   "explain": "十万位的 4 表示 400 000，万位的 4 表示 40 000，400 000 ÷ 40 000 = 10，所以是 10 倍。坑是看见数字一样就以为值一样（答 1 倍）——数字相同，站的数位不同，值就差 10 倍。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ex40fxtlbul",
+   "level": 2,
+   "question": "10 个 1 000 等于 1 个 10 000，10 个 10 000 等于 1 个 100 000。那么 100 000 里面一共有多少个 1 000？",
+   "options": [
+    "10",
+    "1 000",
+    "10 000",
+    "100"
+   ],
+   "answerIndex": 3,
+   "explain": "要往上换两级：1 000 换成 10 000 用掉 10 个，10 000 换成 100 000 又要 10 个，10 × 10 = 100，所以 100 000 里有 100 个 1 000。答 10 的人只换了一级就停下了。",
+   "tags": [
+    "other",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ex40f1hforg",
+   "level": 3,
+   "question": "小明把「四十万零六十」写成了 40 060，老师说写错了。这个数正确应该写成多少？",
+   "options": [
+    "400 060",
+    "40 060",
+    "4 000 060",
+    "400 600"
+   ],
+   "answerIndex": 0,
+   "explain": "四十万是 400 000（4 站在十万位，后面 5 个 0），再加上 60，就是 400 060。小明只写了 5 位数，等于把 4 挤到了万位上，值一下子小了 10 倍；千位和百位上都得写 0 占位。",
+   "tags": [
+    "ok",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ex40flxhhou",
+   "level": 3,
+   "question": "卑诗渡轮（BC Ferries）某条航线一年运送了 682 400 名乘客。把这个数里十万位上数字表示的值，和万位上数字表示的值加起来，一共是多少？",
+   "options": [
+    "68 000",
+    "680 000",
+    "6 800 000",
+    "14"
+   ],
+   "answerIndex": 1,
+   "explain": "6 在十万位表示 600 000，8 在万位表示 80 000，600 000 + 80 000 = 680 000。最容易踩的坑是把数字当成值直接算成 6 + 8 = 14——要先把每个数字换成它所在数位上的值，再相加。",
+   "tags": [
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse"
+   ]
+  },
+  {
+   "qid": "qmt5ex40f2b3u6h",
+   "level": 3,
+   "question": "小丽说：405 000 和 45 000 里的 4 表示的值一样大，因为写出来都是 4。下面哪种说法是对的？",
+   "options": [
+    "两个 4 都只表示 4，因为数字写出来是什么就表示什么，不管它站在哪一位上，数字一样值就一样大",
+    "两个 4 都表示 40 000，因为 405 000 中间的 0 不算数，去掉后 4 也在万位上，和 45 000 一样",
+    "405 000 里的 4 表示 400 000，45 000 里的 4 表示 40 000，前者是后者的 10 倍",
+    "405 000 里的 4 表示 40 000，45 000 里的 4 表示 400 000，短的数要补的 0 更多"
+   ],
+   "answerIndex": 2,
+   "explain": "405 000 是六位数，4 站在十万位上，表示 400 000；45 000 是五位数，4 站在万位上，表示 40 000，两者相差 10 倍。数字相同不代表值相同，要看它在数位表的哪一格——405 000 中间那个 0 正是把 4 顶到十万位的关键。",
+   "tags": [
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "ok",
+    "pv.zero_placeholder"
+   ]
+  },
+  {
+   "qid": "qmt5ex40frc2vwy",
+   "level": 3,
+   "question": "本拿比（Burnaby）一个回收站把易拉罐按每袋 10 000 个打包，一天一共打包了 26 袋。这一天一共回收了多少个易拉罐？",
+   "options": [
+    "2 600 000",
+    "260",
+    "26 000",
+    "260 000"
+   ],
+   "answerIndex": 3,
+   "explain": "每 10 袋就凑成 100 000（十万），26 袋就是 26 个万，26 × 10 000 = 260 000。坑在 0 的个数：10 000 后面有 4 个 0，所以 26 后面也要跟 4 个 0，写成 26 000 少一个 0，写成 2 600 000 又多一个 0。",
+   "tags": [
+    "pv.zero_placeholder",
+    "pv.digit_value_confuse",
+    "pv.zero_placeholder",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g7",
+ "strand": "transformations-tessellations",
+ "lang": "en",
+ "unitName": {
+  "zh": "组合变换与镶嵌",
+  "en": "Transformations & tessellations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Transformations & tessellations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+    "level": 1,
+    "question": "On a coordinate grid of the school field, a marker cone sits at P(-4, 3). Mr. Chan slides it 6 units right and 5 units down. What are the coordinates of the image P'?",
+    "options": [
+     "(-10, 8)",
+     "(2, 8)",
+     "(2, -2)",
+     "(-10, -2)"
+    ],
+    "answerIndex": 2,
+    "explain": "For a translation, add to x when you move right and subtract from y when you move down: (-4 + 6, 3 - 5) = (2, -2). The usual trap is moving the wrong way — left instead of right, or up instead of down — so say the direction out loud as you change each coordinate."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+    "level": 1,
+    "question": "Point A(5, -2) is reflected in the x-axis. What are the coordinates of A'?",
+    "options": [
+     "(-5, -2)",
+     "(5, 2)",
+     "(-5, 2)",
+     "(-2, 5)"
+    ],
+    "answerIndex": 1,
+    "explain": "A reflection in the x-axis keeps x the same and flips the sign of y: (5, -2) becomes (5, 2). The most common mistake is flipping the x-coordinate instead — that is a reflection in the y-axis, a different mirror line."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TESSELLATION",
+    "level": 1,
+    "question": "Which regular polygon can tile a floor all by itself, with no gaps and no overlaps?",
+    "options": [
+     "Regular pentagon (each angle 108°)",
+     "Regular octagon (each angle 135°)",
+     "Regular decagon (each angle 144°)",
+     "Regular hexagon (each angle 120°)"
+    ],
+    "answerIndex": 3,
+    "explain": "A regular shape tessellates only when its angle divides exactly into 360°, and 360° ÷ 120° = 3 hexagons meet at each point. The trap is picking a shape whose angle 'nearly' fits, like the pentagon: 3 × 108° = 324°, which leaves a 36° gap."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.PERFORM",
+    "level": 2,
+    "question": "Aria is designing a spinning logo for her hockey team. On her grid, one corner of the logo is at B(3, 5). She rotates the logo 90° clockwise about the origin. What are the coordinates of B'?",
+    "options": [
+     "(5, -3)",
+     "(-5, 3)",
+     "(-3, -5)",
+     "(5, 3)"
+    ],
+    "answerIndex": 0,
+    "explain": "For a 90° clockwise turn about the origin, swap the coordinates and then change the sign of the new y: (3, 5) becomes (5, -3). Many students swap the numbers but forget the sign change, or turn counterclockwise by mistake — check that the image really landed in the quadrant you expect."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.DESCRIBE",
+    "level": 2,
+    "question": "Triangle DEF has vertices D(2, 1), E(5, 1) and F(2, 3). Its image has vertices D'(-2, -1), E'(-5, -1) and F'(-2, -3). Which single transformation was used?",
+    "options": [
+     "A translation of 4 units left and 2 units down",
+     "A reflection in the y-axis",
+     "A reflection in the x-axis",
+     "A rotation of 180° about the origin"
+    ],
+    "answerIndex": 3,
+    "explain": "Both coordinates of every vertex changed sign, which is exactly the rule for a 180° rotation about the origin. The classic trap is testing only D, where a translation of 4 left and 2 down also works — always check every vertex before you decide."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TESSELLATION",
+    "level": 2,
+    "question": "Liam is making a mosaic border for the community centre using regular hexagon tiles (120° angles) and equilateral triangle tiles (60° angles). At one point on the border, exactly 2 hexagons meet. How many triangles are needed to fill the rest of the space around that point?",
+    "options": [
+     "1 triangle",
+     "2 triangles",
+     "3 triangles",
+     "4 triangles"
+    ],
+    "answerIndex": 1,
+    "explain": "Angles around a point must total 360°: the hexagons use 2 × 120° = 240°, leaving 360° - 240° = 120°, and 120° ÷ 60° = 2 triangles. The common error is using 180° for a full turn instead of 360°, which gives too few triangles."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.Q4.DESCRIBE",
+    "level": 3,
+    "question": "Maya animates a salmon sticker on a grid. One point of the sticker starts at M(-3, 4). She first reflects the sticker in the x-axis, and then rotates the result 90° counterclockwise about the origin. Where does M end up?",
+    "options": [
+     "(-4, 3)",
+     "(-3, -4)",
+     "(4, -3)",
+     "(-4, -3)"
+    ],
+    "answerIndex": 2,
+    "explain": "Do the steps in order: the reflection in the x-axis sends (-3, 4) to (-3, -4), then the 90° counterclockwise rotation uses (x, y) to (-y, x), giving (4, -3). The big trap is that order matters — doing the rotation first would land the point at (-4, 3) instead."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TESSELLATION",
+    "level": 3,
+    "question": "Nadia is laying regular octagon patio stones (each angle 135°) in her Kelowna backyard. She fits exactly 2 octagons together at each meeting point, but notices a gap. What shape exactly fills that gap, and why?",
+    "options": [
+     "A square, because the gap measures 360° - 270° = 90°",
+     "An equilateral triangle, because the gap measures 180° - 135° = 45°",
+     "A regular pentagon, because the gap measures 108°",
+     "Nothing — three octagons meet exactly, so there is no gap"
+    ],
+    "answerIndex": 0,
+    "explain": "Angles around a point total 360°, so two octagons take 2 × 135° = 270° and the leftover gap is 90°, which is exactly a square corner. Two traps hide here: measuring the gap from 180° instead of 360°, and assuming octagons tessellate alone — 3 × 135° = 405°, which overlaps."
+   }
+  ]
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g8",
+ "strand": "percents-beyond-100",
+ "lang": "en",
+ "unitName": {
+  "zh": "小于 1 与大于 100 的百分数",
+  "en": "Percents below 1% and above 100%"
+ },
+ "provider": "claude",
+ "at": "2026-09-03",
+ "set": {
+  "title": "Percents below 1% and above 100% · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.PCT.BEYOND100.MEANING",
+    "level": 1,
+    "question": "Each hundredths grid is a 10 × 10 square that stands for one whole (100%). Maya fully shades 2 grids, then shades 25 of the 100 small squares on a third grid. What percent has she shaded in all?",
+    "options": [
+     "22.5%",
+     "125%",
+     "225%",
+     "2.25%"
+    ],
+    "answerIndex": 2,
+    "explain": "Each full grid is 100%, and each small square is 1%, so 100% + 100% + 25% = 225%. The trap is reading the shading as a decimal (2.25) and writing 2.25% — remember 2.25 wholes means 225 parts per hundred."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.BEYOND100.CONVERT",
+    "level": 1,
+    "question": "Write 3.25% as a decimal.",
+    "options": [
+     "0.0325",
+     "3.25",
+     "0.325",
+     "0.00325"
+    ],
+    "answerIndex": 0,
+    "explain": "Percent means 'per hundred', so divide by 100: 3.25 ÷ 100 = 0.0325 (move the decimal point 2 places left). The most common trap is moving it only one place and getting 0.325, or just dropping the % sign and leaving 3.25."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+    "level": 1,
+    "question": "What is 150% of 60?",
+    "options": [
+     "30",
+     "9 000",
+     "110",
+     "90"
+    ],
+    "answerIndex": 3,
+    "explain": "Change 150% to 1.5, then multiply: 1.5 × 60 = 90. Watch out for multiplying by 150 instead of 1.5 (9 000), or adding 50 instead of taking 50% more (110)."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.BEYOND100.CONVERT",
+    "level": 2,
+    "question": "A credit union in Kamloops pays ½% interest per year on a youth savings account. Which value is equal to ½%?",
+    "options": [
+     "0.5",
+     "1/200",
+     "1/20",
+     "0.05"
+    ],
+    "answerIndex": 1,
+    "explain": "½% = 0.5% = 0.5 ÷ 100 = 0.005 = 5/1000 = 1/200. The classic mistake is to keep the ½ or 0.5 and forget to divide by 100, or to divide only once and land on 1/20, which is really 5%."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+    "level": 2,
+    "question": "A small town on Vancouver Island has 8 400 people. Over one year the population increases by 3.25%. What is the new population?",
+    "options": [
+     "273",
+     "8 127",
+     "8 673",
+     "11 130"
+    ],
+    "answerIndex": 2,
+    "explain": "An increase of 3.25% means multiplying by 1.0325: 8 400 × 1.0325 = 8 673 (or 8 400 + 273). Two traps: stopping at the increase itself (273) and turning 3.25% into 0.325 instead of 0.0325, which gives the far-too-big 11 130."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+    "level": 2,
+    "question": "A school fundraiser in Surrey raised $1 400 000. The organizers donate ½% of the total to a local food bank. How much is donated?",
+    "options": [
+     "$7 000",
+     "$70 000",
+     "$700 000",
+     "$700"
+    ],
+    "answerIndex": 0,
+    "explain": "Write ½% as 0.005, then multiply: 0.005 × 1 400 000 = $7 000. The big trap is treating ½% as ½ (or 50%) and getting $700 000 — a percent below 1% is a tiny slice, much less than one hundredth of the total."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.CHANGE.ORIGINAL",
+    "level": 3,
+    "question": "An esports club in Kelowna grew by 150% during the school year. It now has 200 members. How many members did the club have at the start of the year?",
+    "options": [
+     "500",
+     "300",
+     "133",
+     "80"
+    ],
+    "answerIndex": 3,
+    "explain": "A 150% increase means the new amount is 250% of the original, so original × 2.5 = 200, giving 200 ÷ 2.5 = 80 members (check: 80 + 120 = 200). The most common error is dividing by 1.5 instead of 2.5, which forgets the original 100% that is still there."
+   },
+   {
+    "curriculumId": "YY.MATH.PCT.CHANGE.INCREASE_DECREASE",
+    "level": 3,
+    "question": "Owen buys a collectible hockey card for $80. In the first year its value rises 150%. In the second year the new value falls 40%. What is the card worth at the end of the two years?",
+    "options": [
+     "$168",
+     "$120",
+     "$200",
+     "$88"
+    ],
+    "answerIndex": 1,
+    "explain": "Apply the changes one at a time to the amount you have at that moment: $80 × 2.5 = $200, then $200 × 0.6 = $120. The big misconception is combining the percents first (150% − 40% = 110%) and applying that to $80 — percent changes act on different starting amounts, so they cannot simply be added or subtracted."
+   }
+  ]
+ }
+}

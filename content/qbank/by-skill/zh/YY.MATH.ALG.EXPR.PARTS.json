@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.ALG.EXPR.PARTS",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkoi122frtskq",
+   "level": 1,
+   "question": "代数式（expression）0.5n − 3n + 25 里，25 属于下面哪一类？",
+   "options": [
+    "常数项（constant），因为它不乘变量，值固定",
+    "变量（variable），因为它的数值可以变来变去",
+    "n 的系数（coefficient），因为它是式子里最大的那个数",
+    "3n 的系数，因为它排在 3n 的后面"
+   ],
+   "answerIndex": 0,
+   "explain": "系数一定是和变量相乘的那个数；25 后面没有跟任何字母，值永远是 25，所以它是常数项。最常见的坑就是看见一个孤零零的数就叫它系数。",
+   "tags": [
+    "ok",
+    "other",
+    "expr.constant_as_coefficient",
+    "expr.constant_as_coefficient"
+   ]
+  },
+  {
+   "qid": "qmtkoi122g40uc2",
+   "level": 1,
+   "question": "代数式 7x + y − 4 中，y 的系数（coefficient）是多少？",
+   "options": [
+    "0，因为 y 的前面没有写数字",
+    "1，因为 y 就是 1 个 y，那个 1 没写出来",
+    "4，因为式子末尾的数就是系数",
+    "7，因为整个式子只写出 7 这一个系数"
+   ],
+   "answerIndex": 1,
+   "explain": "字母前面不写数字时，默认是 1，所以 y 的系数是 1（写成 1 的那个）。别把「没写」当成「是 0」——系数是 0 的话这一项就消失了。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "ok",
+    "expr.constant_as_coefficient",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoi122rm1zzs",
+   "level": 1,
+   "question": "代数式 0.5n − 3n + 25 由哪些项（terms）组成？",
+   "options": [
+    "0.5、−3、25，只有数字才算项",
+    "0.5n、−3n，25 是系数不算项",
+    "0.5n、−3n、25，一共三个项",
+    "0.5n、3n、25，负号不属于项"
+   ],
+   "answerIndex": 2,
+   "explain": "项是被加号、减号隔开的每一块，减号要跟着后面那一块走，所以是 0.5n、−3n、25 三项。常数 25 也是一个项，不要把它漏掉或当成系数。",
+   "tags": [
+    "other",
+    "expr.constant_as_coefficient",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoi122dknz9i",
+   "level": 1,
+   "question": "代数式 −m + 4.5 中，m 的系数是多少？",
+   "options": [
+    "0，因为 m 的前面没有写数字",
+    "1，系数只看数字，负号不算",
+    "4.5，式子里现成的数就是系数",
+    "−1，负号连同 1 一起算作系数"
+   ],
+   "answerIndex": 3,
+   "explain": "−m 表示 −1 个 m，所以系数是 −1（带负号的那个）。两个坑：看不见数字就写 0，或者把负号丢掉只写 1。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "other",
+    "expr.constant_as_coefficient",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkoi122fiagfd",
+   "level": 2,
+   "question": "小雨用代数式 8t − t + 15 记录她做手工的时间。式子里两个含变量 t 的项，系数分别是多少？",
+   "options": [
+    "8 和 −1，因为 −t 就是 −1 个 t",
+    "8 和 1，负号是运算符不算进系数",
+    "8 和 0，t 的前面没数字所以是 0",
+    "8 和 15，t 没有系数只能用 15 代替"
+   ],
+   "answerIndex": 0,
+   "explain": "含 t 的两项是 8t 和 −t，系数是 8 和 −1（写成 −1 的那个）。15 不乘变量，是常数项，不能当系数。",
+   "tags": [
+    "ok",
+    "other",
+    "expr.coefficient_one_invisible",
+    "expr.constant_as_coefficient"
+   ]
+  },
+  {
+   "qid": "qmtkoi122vk9zwy",
+   "level": 2,
+   "question": "本拿比溜冰场：门票每人 12 元，n 位同学一起去；每人还要租一双冰鞋 1 元；全队另付 5 元预订费。总花费写成 12n + n + 5。下面说法正确的是？",
+   "options": [
+    "n 是变量，系数是 12 和 0，5 是常数项",
+    "n 是变量，系数是 12 和 1，5 是常数项",
+    "n 是变量，系数是 12 和 5，1 是常数项",
+    "12n 是变量，5 是系数，n 是常数项"
+   ],
+   "answerIndex": 1,
+   "explain": "会变的量是人数 n；12n 的系数是 12，单独的 n 表示 1 个 n，系数是 1；5 不随人数变，是常数项。别把没写出来的 1 当成 0。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "ok",
+    "expr.constant_as_coefficient",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoi12220gy8d",
+   "level": 2,
+   "question": "一个代数式恰好有三个项：x、−2.5x，以及常数项 −7。把 x 的系数和 −2.5x 的系数相加，结果是多少？",
+   "options": [
+    "−9.5，把常数项 −7 也当成系数加了进去",
+    "3.5，两个系数看作 1 和 2.5，负号不算",
+    "−1.5，两个系数是 1 和 −2.5",
+    "−2.5，x 的前面没数字所以系数是 0"
+   ],
+   "answerIndex": 2,
+   "explain": "x 的系数是 1，−2.5x 的系数是 −2.5，1 + (−2.5) = −1.5。−7 是常数项，不参与系数相加。",
+   "tags": [
+    "expr.constant_as_coefficient",
+    "other",
+    "ok",
+    "expr.coefficient_one_invisible"
+   ]
+  },
+  {
+   "qid": "qmtkoi122q9y06h",
+   "level": 2,
+   "question": "下雨天，维多利亚一个水桶里原来就有 20 厘米深的水，之后每小时又多 1 厘米。h 小时后的水深用代数式 20 + h（厘米）表示。下面说法正确的是？",
+   "options": [
+    "h 是变量，h 的系数是 0，20 是常数项",
+    "20 和 h 都是变量，式子里没有常数项",
+    "h 是变量，h 的系数是 20，1 是常数项",
+    "h 是变量，h 的系数是 1，20 是常数项"
+   ],
+   "answerIndex": 3,
+   "explain": "h 是会变的小时数；h 前面没写数字，表示 1 个 h，系数是 1；20 是一开始就有的固定水量，是常数项。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "other",
+    "expr.constant_as_coefficient",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkoi122dm29wl",
+   "level": 3,
+   "question": "素里社区中心：游泳每次 3.5 元，会员每次立减 1 元，另外每月交 20 元会员费。小杰一个月游 n 次，月花费写成 3.5n − n + 20。这个式子里所有系数的和是多少？常数项又是几？",
+   "options": [
+    "系数之和 2.5，两个系数是 3.5 和 −1；常数项 20",
+    "系数之和 4.5，两个系数是 3.5 和 1；常数项 20",
+    "系数之和 22.5，把 20 也算作系数；没有常数项",
+    "系数之和 3.5，n 前面没数字不算系数；常数项 20"
+   ],
+   "answerIndex": 0,
+   "explain": "先认出系数：3.5n 的系数是 3.5，−n 的系数是 −1，相加得 2.5；20 不乘 n，是常数项。踩坑处是把 −n 的系数写成 0 或漏掉负号写成 1。",
+   "tags": [
+    "ok",
+    "other",
+    "expr.constant_as_coefficient",
+    "expr.coefficient_one_invisible"
+   ]
+  },
+  {
+   "qid": "qmtkoi122fy853h",
+   "level": 3,
+   "question": "三位同学在校园义卖爆米花：Ava 卖了 x 袋，Ben 比 Ava 少卖 2 袋，Cody 卖了 4 袋。把三人总袋数列成代数式并合并同类项后，x 的系数和常数项分别是多少？",
+   "options": [
+    "x 的系数是 0，常数项是 2",
+    "x 的系数是 2，常数项是 2",
+    "x 的系数是 4，常数项是 2",
+    "x 的系数是 2，常数项是 6"
+   ],
+   "answerIndex": 1,
+   "explain": "总数是 x + (x − 2) + 4 = 2x + 2，所以 x 的系数是 2，常数项是 2。注意 −2 + 4 = 2，不是 6；Cody 的 4 是固定袋数，不是 x 的系数。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "ok",
+    "expr.constant_as_coefficient",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoi122b6nw23",
+   "level": 3,
+   "question": "小美看着代数式 n − 3n + 25 说：n 的前面什么都没有，所以 n 的系数是 0；25 才是这个式子的系数。她的说法错在哪里？",
+   "options": [
+    "n 前面没写数，系数确实是 0；但 25 是常数项，不是系数",
+    "25 确实是系数，因为它是式子里最大的那个数；n 的系数是 1",
+    "n 的系数是 1，−3n 的系数是 −3，25 是常数项",
+    "n 的系数是 1，−3n 的系数是 3，负号只是运算符号"
+   ],
+   "answerIndex": 2,
+   "explain": "字母前面没写数字表示 1，不是 0；而 25 后面不带变量，是常数项。所以系数只有 1 和 −3，且 −3n 的负号必须跟着系数走。",
+   "tags": [
+    "expr.coefficient_one_invisible",
+    "expr.constant_as_coefficient",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkoi122cczy5d",
+   "level": 3,
+   "question": "素里一家咖啡店：热可可每杯 4 元，Maya 买了 n 杯；自带杯子每杯退 1 元；她还一次性放了 6 元进小费罐。花费写成 4n − n + 6。这个式子有几个项？含变量的项的系数之和是多少？",
+   "options": [
+    "3 个项，含变量项的系数之和是 5",
+    "2 个项，含变量项的系数之和是 10",
+    "3 个项，含变量项的系数之和是 4",
+    "3 个项，含变量项的系数之和是 3"
+   ],
+   "answerIndex": 3,
+   "explain": "被加减号分开的有 4n、−n、6 三项；含变量的是 4n 和 −n，系数 4 + (−1) = 3。6 是常数项，既不算系数，也不能把它从项里删掉。",
+   "tags": [
+    "other",
+    "expr.constant_as_coefficient",
+    "expr.coefficient_one_invisible",
+    "ok"
+   ]
+  }
+ ]
+}

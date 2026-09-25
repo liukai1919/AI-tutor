@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.STAT.CRITIQUE",
+ "lang": "en",
+ "title": "Critique a real data set or news claim (Statistics Canada, First Peoples water quality) and propose a fairer way to collect or display it",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Who Got Counted? Checking a Water-Quality Claim",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to catch a sneaky graph: a chopped axis, an uneven scale, a cherry-picked range. Today we go one level up. We take a real-style news claim about drinking water in First Nations communities and ask two questions: who actually got counted, and what is this a percent of? Then we propose a fairer way to collect and show the data.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Imagine this headline: ‘Survey of one thousand Canadians finds ninety-two percent say their tap water is safe.’ One thousand people sounds solid, right? But look at where those one thousand came from: eight hundred fifty in big cities like Vancouver, one hundred thirty in small towns, and only twenty living in on-reserve communities, the exact places with long-term water advisories. A big sample does not fix a lopsided sample. If you leave out the people the story is about, one thousand voices still give the wrong picture.",
+    "math": "92\\% \\text{ of } 1000 = 920 \\text{ people}",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      850,
+      130,
+      20
+     ],
+     "labels": [
+      "Big cities",
+      "Small towns",
+      "On-reserve communities"
+     ],
+     "caption": "Where the 1000 surveyed people live: only 20 are on-reserve"
+    }
+   },
+   {
+    "say": "Now split that same ninety-two percent by group and the story changes. About ninety-four percent of the city people said safe, about eighty-five percent in small towns, but only sixty percent in on-reserve communities. Mixing everything together hid the sixty. Let me check: ninety-four percent of eight hundred fifty is about seven hundred ninety-nine, eighty-five percent of one hundred thirty is about one hundred ten, sixty percent of twenty is twelve. That adds to about nine hundred twenty-one out of one thousand, which rounds to ninety-two percent. Same data, but the breakdown is the honest display.",
+    "math": "799+110+12 \\approx 921 \\Rightarrow 92\\%",
+    "visual": {
+     "type": "statBar",
+     "nums": [
+      94,
+      85,
+      60
+     ],
+     "labels": [
+      "Big cities",
+      "Small towns",
+      "On-reserve"
+     ],
+     "caption": "Percent saying water is safe, by group"
+    }
+   },
+   {
+    "say": "Here is a second trap: a percent with no base. Another headline says ‘Communities with clean water up two hundred percent!’ True, but check the numbers. One community was fixed before, now three are. Going from one to three is plus two hundred percent. Meanwhile twelve of the fifteen communities are still on an advisory. Twelve out of fifteen is eighty percent still waiting. Always ask: two hundred percent of what? Of one. The fair display shows the counts, not just the percent.",
+    "math": "\\frac{3-1}{1}=200\\% \\quad \\text{but} \\quad \\frac{12}{15}=80\\% \\text{ still waiting}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      3,
+      12
+     ],
+     "labels": [
+      "Fixed before",
+      "Fixed now",
+      "Still on advisory"
+     ],
+     "caption": "Counts tell the story the percent skipped"
+    }
+   },
+   {
+    "say": "Third trap: reaching for the mean automatically. Say five communities have waited these many days for clean water: ten, twenty, thirty, forty, and four hundred. Add them: five hundred. Divide by five: the mean is one hundred days. But four of the five communities waited well under one hundred, and one waited four hundred. The mean describes nobody. The median, thirty days, describes the typical community but hides the one stuck for four hundred days. The fair move is to show every community, or report the median and point out the outlier by name.",
+    "math": "\\bar{x}=\\frac{10+20+30+40+400}{5}=100, \\quad \\text{median}=30",
+    "visual": {
+     "type": "average",
+     "nums": [
+      10,
+      20,
+      30,
+      40,
+      400
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "caption": "Days on advisory; red dashed line is the mean of 100"
+    }
+   },
+   {
+    "say": "So here is the fairer plan you could propose. To collect: use the actual advisory records from the government, not an online opinion poll, and make sure on-reserve communities are sampled on purpose, not left to chance. To display: show counts beside every percent, keep the axis starting at zero, break results down by group, and show every community instead of one average. Takeaway: a fair statistic answers who was counted and percent of what, before it answers how much.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Before you trust a number, ask: who was counted, and percent of what?",
+  "practice": {
+   "question": "A Kelowna news site says ‘Bike lane use is up three hundred percent!’ The city counted five riders on a rainy Tuesday in January and twenty riders on a sunny Saturday in July. Name two problems with this claim, then propose a fairer way to collect and display the data.",
+   "answer": "Problems: the base is tiny, five riders to twenty is plus three hundred percent but only fifteen extra people; and the two days are cherry-picked, a winter weekday versus a summer weekend, so weather and day type cause the change, not the bike lane. Fairer: count riders on the same weekday and the same time every week for a whole year, then show the actual monthly counts on a bar chart with the axis starting at zero, and report the counts next to any percent."
+  }
+ }
+}

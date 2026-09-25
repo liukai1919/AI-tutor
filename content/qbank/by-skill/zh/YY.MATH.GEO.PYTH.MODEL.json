@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.PYTH.MODEL",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkq15co4w7dwy",
+   "level": 1,
+   "question": "在方格纸上画一个直角三角形（right triangle），两条直角边都沿着格线。以其中一条直角边（leg）为边画的正方形正好盖住 9 个小方格，以另一条直角边为边画的正方形正好盖住 16 个小方格。那么以斜边（hypotenuse）为边画的正方形会盖住多少个小方格？",
+   "options": [
+    "25 个小方格",
+    "9 个小方格",
+    "7 个小方格",
+    "16 个小方格"
+   ],
+   "answerIndex": 0,
+   "explain": "勾股定理说的是面积关系：两条直角边上的正方形面积加起来等于斜边上的正方形面积，9 + 16 = 25。最常见的坑是把边长直接相加（3 + 4 = 7），可格子数是面积，不是边长。",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq15cohifzr8",
+   "level": 1,
+   "question": "方格纸上有一个直角三角形，两条直角边上各画一个正方形，一个盖住 25 个小方格，另一个盖住 144 个小方格。以斜边为边画的正方形会盖住多少个小方格？",
+   "options": [
+    "17 个小方格",
+    "169 个小方格",
+    "144 个小方格",
+    "119 个小方格"
+   ],
+   "answerIndex": 1,
+   "explain": "两个直角边上的正方形面积相加就是斜边上正方形的面积：25 + 144 = 169。写 17 的那个是把边长 5 和 12 相加了；面积要加面积，不能加边长。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq15co18x84s",
+   "level": 1,
+   "question": "方格纸上一个直角三角形，斜边上画的正方形盖住 100 个小方格，其中一条直角边上画的正方形盖住 36 个小方格。另一条直角边上画的正方形盖住多少个小方格？",
+   "options": [
+    "136 个小方格",
+    "4 个小方格",
+    "64 个小方格",
+    "8 个小方格"
+   ],
+   "answerIndex": 2,
+   "explain": "斜边上的正方形最大，两个直角边上的正方形合起来才等于它，所以另一个是 100 − 36 = 64。写 136 的那个把斜边也当成了直角边去相加；斜边上的正方形永远是三个里最大的那个。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq15coau9pwv",
+   "level": 1,
+   "question": "在方格纸上画的一个直角三角形，三条边上各画了一个正方形，盖住的小方格数分别是 36、64、100。按照「两条直角边上的正方形面积加起来等于斜边上的正方形面积」，哪个正方形画在斜边上？",
+   "options": [
+    "面积 64 的那个，因为它比 36 大，更贴着直角",
+    "三个都不是，因为 6 + 8 = 14 才是斜边长",
+    "面积 36 的那个，因为最短的边正对着直角",
+    "面积 100 的那个，因为 36 + 64 正好等于 100"
+   ],
+   "answerIndex": 3,
+   "explain": "先看面积能不能对上：36 + 64 = 100，所以面积 100 的正方形画在斜边上。斜边是直角对面的那条边，一定是最长的，别因为哪条边看起来更粗更长就认它。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq15co296i4p",
+   "level": 2,
+   "question": "直角三角形 ABC 中，∠C = 90°，两条直角边分别长 9 cm 和 40 cm。以斜边为边作一个正方形，这个正方形的面积（area）是多少？",
+   "options": [
+    "1681 cm²",
+    "1600 cm²",
+    "49 cm²",
+    "2401 cm²"
+   ],
+   "answerIndex": 0,
+   "explain": "两条直角边上正方形的面积是 9 × 9 = 81 和 40 × 40 = 1600，加起来 1681 cm² 就是斜边上正方形的面积。写 2401 的那个先把 9 + 40 = 49 当成了斜边；相加的是面积，不是边长。",
+   "tags": [
+    "ok",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq15co70eetq",
+   "level": 2,
+   "question": "一个直角三角形，斜边上的正方形面积是 400 cm²，其中一条直角边上的正方形面积是 256 cm²。另一条直角边上的正方形面积是多少？",
+   "options": [
+    "656 cm²",
+    "144 cm²",
+    "4 cm²",
+    "12 cm²"
+   ],
+   "answerIndex": 1,
+   "explain": "两条直角边上的正方形合起来等于斜边上的，所以缺的那个是 400 − 256 = 144 cm²。写 656 的那个把 400 当成了直角边上的面积去相加；题目问的是面积，12 是边长不是答案。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "ok",
+    "pyth.add_sides_not_squares",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq15co61097p",
+   "level": 2,
+   "question": "一个直角三角形，两条直角边上的正方形面积分别是 49 cm² 和 576 cm²。这个三角形的斜边有多长？",
+   "options": [
+    "24 cm",
+    "31 cm",
+    "25 cm",
+    "625 cm"
+   ],
+   "answerIndex": 2,
+   "explain": "斜边上正方形的面积是 49 + 576 = 625 cm²，再想哪个完全平方数（perfect square）是 625，25 × 25 = 625，所以斜边 25 cm。写 625 的那个停在了面积上没换回边长。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq15coye9v09",
+   "level": 2,
+   "question": "直角三角形 PQR 中，∠Q = 90°。下面哪个式子正确表达了「两条直角边上的正方形面积之和等于斜边上的正方形面积」？",
+   "options": [
+    "PQ + QR = PR",
+    "PQ² + PR² = QR²",
+    "QR² + PR² = PQ²",
+    "PQ² + QR² = PR²"
+   ],
+   "answerIndex": 3,
+   "explain": "∠Q 是直角，所以直角边是 PQ 和 QR，斜边是它对面的 PR，面积关系写成 PQ² + QR² = PR²。坑在于三角形字母一换就找错斜边：斜边永远是直角对面那条，平方项要单独放在等号一边。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "pyth.hypotenuse_misidentified",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkq15coyk0411",
+   "level": 3,
+   "question": "温哥华一个社区花园里有一块直角三角形的地，两条直角边分别长 60 m 和 80 m。园艺组想沿着斜边那条边装一道围栏，围栏每米 12 加元。装完这道围栏一共要花多少钱？",
+   "options": [
+    "1200 加元",
+    "1680 加元",
+    "960 加元",
+    "120000 加元"
+   ],
+   "answerIndex": 0,
+   "explain": "先用面积关系求斜边：3600 + 6400 = 10000，边长 100 m；再算 100 × 12 = 1200 加元。写 1680 的那个用 60 + 80 = 140 当斜边了；10000 是正方形的面积，不能直接拿去乘单价。",
+   "tags": [
+    "ok",
+    "pyth.add_sides_not_squares",
+    "pyth.hypotenuse_misidentified",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkq15co1kx3lw",
+   "level": 3,
+   "question": "学校操场上要给一块直角三角形草地的三条边各配一个正方形花坛，全部用边长 1 m 的方砖铺满。已知两条直角边上的正方形分别用了 225 块和 400 块方砖。斜边上的正方形要用多少块方砖？斜边有多长？",
+   "options": [
+    "1225 块，斜边 35 m",
+    "625 块，斜边 25 m",
+    "175 块，斜边约 13 m",
+    "400 块，斜边 20 m"
+   ],
+   "answerIndex": 1,
+   "explain": "每块砖 1 m²，所以砖数就是面积：225 + 400 = 625 块；再求边长，25 × 25 = 625，斜边 25 m。写 1225 的那个先把边长 15 + 20 = 35 相加了，那是边长的错加法，面积才是能相加的量。",
+   "tags": [
+    "pyth.add_sides_not_squares",
+    "ok",
+    "other",
+    "pyth.hypotenuse_misidentified"
+   ]
+  },
+  {
+   "qid": "qmtkq15co228330",
+   "level": 3,
+   "question": "小雨说：「这个直角三角形的两条直角边是 5 cm 和 12 cm，所以斜边是 17 cm，因为 5 + 12 = 17。」她的想法错在哪里？",
+   "options": [
+    "12 cm 是最长的边，应当作斜边，第三条边约 10.9 cm",
+    "她该用减法，两条直角边要相减：12 − 5 = 7 cm 才是斜边",
+    "加的是边上正方形的面积：25 + 144 = 169，斜边是 13 cm",
+    "她相加的思路没错，只是忘了斜边上的正方形面积是 17² = 289"
+   ],
+   "answerIndex": 2,
+   "explain": "勾股定理相加的是三条边上正方形的面积，不是边长：25 + 144 = 169，再还原成边长 13 cm。检验一下也知道 17 不对——直角边 5 和 12 撑不出 17 那么长的一条边。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok",
+    "pyth.add_sides_not_squares"
+   ]
+  },
+  {
+   "qid": "qmtkq15cowkv96w",
+   "level": 3,
+   "question": "阿哲把一个直角三角形转了个方向摆放，直角朝上。三条边上正方形的面积分别是 100、576、676。他说：「转过来以后，摆在最下面的那条长 24 的边就变成斜边了。」下面哪句说得对？",
+   "options": [
+    "他说得对，最下面那条边就是斜边，面积 576 画在它上面",
+    "斜边是最短的那条，所以面积 100 的正方形才画在斜边上",
+    "斜边应是 10 + 24 = 34，三个面积里没有 34² = 1156",
+    "斜边永远对着直角，跟怎么摆无关：100 + 576 = 676"
+   ],
+   "answerIndex": 3,
+   "explain": "斜边由直角的位置决定——它永远是直角对面那条边，把图转过来也不会变；用面积验证：100 + 576 = 676，所以 676 那个正方形在斜边上。别用「在下面」或「看起来最长」来认斜边。",
+   "tags": [
+    "pyth.hypotenuse_misidentified",
+    "pyth.hypotenuse_misidentified",
+    "pyth.add_sides_not_squares",
+    "ok"
+   ]
+  }
+ ]
+}

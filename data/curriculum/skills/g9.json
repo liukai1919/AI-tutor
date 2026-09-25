@@ -1,0 +1,1117 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 9,
+  "standardsFile": "bc/grade-9.json",
+  "topics": [
+    {
+      "id": "rational-operations",
+      "zh": "有理数的四则运算",
+      "en": "Operations with rational numbers",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G9.FLU.01"
+      ]
+    },
+    {
+      "id": "exponents",
+      "zh": "指数与指数运算律",
+      "en": "Exponents & exponent laws",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G9.NUM.01"
+      ]
+    },
+    {
+      "id": "polynomials",
+      "zh": "多项式",
+      "en": "Polynomials",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G9.PAT.01"
+      ]
+    },
+    {
+      "id": "linear-equations",
+      "zh": "多步一元一次方程",
+      "en": "Multi-step linear equations",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G9.PAT.03"
+      ]
+    },
+    {
+      "id": "linear-relations",
+      "zh": "二元线性关系",
+      "en": "Two-variable linear relations",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G9.PAT.02"
+      ]
+    },
+    {
+      "id": "similarity-scale",
+      "zh": "比例尺图与相似形",
+      "en": "Scale diagrams & similar shapes",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G9.GEO.01"
+      ]
+    },
+    {
+      "id": "statistics-society",
+      "zh": "社会中的统计",
+      "en": "Statistics in society",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G9.DAT.01"
+      ]
+    },
+    {
+      "id": "budgets-transactions",
+      "zh": "理财：预算与收支",
+      "en": "Financial literacy: budgets & transactions",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G9.NUM.02"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.RAT.CONCEPT",
+      "topic": "rational-operations",
+      "type": "concept",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Recognize rational numbers (fractions, decimals, integers, positive and negative) and place them on a number line",
+      "zh": "认识有理数（分数、小数、整数，正负都有）并在数轴上定位",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.INT.CONCEPT",
+        "YY.MATH.REL.COMPARE_ORDER"
+      ],
+      "misc": [
+        "int.negative_bigger_magnitude",
+        "rat.negative_fraction_sign_position"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.RAT.COMPARE_ORDER",
+      "topic": "rational-operations",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order rational numbers written in mixed forms (−0.75, −2/3, −1/2, 0.6)",
+      "zh": "比较和排序不同形式的有理数（−0.75、−2/3、−1/2、0.6）",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.RAT.CONCEPT"
+      ],
+      "misc": [
+        "int.negative_bigger_magnitude",
+        "frac.bigger_denominator_bigger"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.RAT.ADDSUB",
+      "topic": "rational-operations",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add and subtract rational numbers, combining the integer sign rules with fraction and decimal skills (−3/4 + 1/6)",
+      "zh": "有理数加减：整数的符号规则加上分数、小数的功夫（−3/4 + 1/6）",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.INT.SUBTRACT",
+        "YY.MATH.FRAC.ADDSUB.UNLIKE",
+        "YY.MATH.DEC.OPS.MIXED"
+      ],
+      "misc": [
+        "int.add_ignore_sign",
+        "int.subtract_negative",
+        "frac.add_denominators"
+      ],
+      "hints": "numberLine、fractionBar"
+    },
+    {
+      "id": "YY.MATH.RAT.MULTDIV",
+      "topic": "rational-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Multiply and divide rational numbers, including negative fractions ((−3/4) ÷ 1/5 = −15/4)",
+      "zh": "有理数乘除，含负分数（(−3/4) ÷ 1/5 = −15/4）",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.INT.MULT_DIV",
+        "YY.MATH.FRAC.DIV"
+      ],
+      "misc": [
+        "int.sign_rules_to_addition",
+        "frac.div_no_flip",
+        "frac.div_flip_wrong_fraction"
+      ],
+      "hints": "fractionBar"
+    },
+    {
+      "id": "YY.MATH.RAT.POWERS",
+      "topic": "rational-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Evaluate powers of rational numbers and tell (−3)² from −3² and (4/5)² from 4/5²",
+      "zh": "有理数的乘方：分清 (−3)² 和 −3²、(4/5)² 和 4/5²",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.RAT.MULTDIV",
+        "YY.MATH.NUM.CUBE.BUILD"
+      ],
+      "misc": [
+        "rat.negative_base_bracket",
+        "rat.fraction_power_one_part",
+        "sq.square_as_double"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.RAT.ORDER_OPS",
+      "topic": "rational-operations",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Use the order of operations with rational numbers, brackets and exponents (1 − 2 × (4/5)²)",
+      "zh": "有理数的混合运算，含括号和乘方（1 − 2 × (4/5)²）",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.RAT.POWERS",
+        "YY.MATH.RAT.ADDSUB",
+        "YY.MATH.FRAC.ORDER_OPS"
+      ],
+      "misc": [
+        "order.left_to_right",
+        "order.ignore_brackets",
+        "rat.exponent_after_multiply"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.RAT.WORD",
+      "topic": "rational-operations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "numberLine"
+      ],
+      "en": "Solve problems with rational numbers in context (average temperatures, account balances, elevation changes, paddle dimensions)",
+      "zh": "有理数应用题（平均气温、账户余额、海拔变化、划桨尺寸）",
+      "primary": "BC.MATH.G9.FLU.01",
+      "prereq": [
+        "YY.MATH.RAT.ORDER_OPS"
+      ],
+      "misc": [
+        "word.stop_early",
+        "int.subtract_negative",
+        "word.keyword_trap"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.EXP.MEANING",
+      "topic": "exponents",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Read and expand powers with whole-number exponents, including variable bases (2⁷ = 128, n⁴ = n × n × n × n)",
+      "zh": "认识非负整数指数的幂，底数可以是字母（2⁷ = 128，n⁴ = n × n × n × n）",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.CUBE.BUILD",
+        "YY.MATH.ALG.EXPR.PARTS"
+      ],
+      "misc": [
+        "exp.multiply_base_by_exponent",
+        "sq.square_as_double"
+      ],
+      "hints": "areaGrid、solidCube"
+    },
+    {
+      "id": "YY.MATH.EXP.PRODUCT_QUOTIENT",
+      "topic": "exponents",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "areaModel"
+      ],
+      "en": "Multiply and divide powers with the same base by adding or subtracting the exponents (n⁵ × n³ = n⁸, y⁷ ÷ y³ = y⁴)",
+      "zh": "同底数幂的乘除：指数相加、相减（n⁵ × n³ = n⁸，y⁷ ÷ y³ = y⁴）",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.EXP.MEANING"
+      ],
+      "misc": [
+        "exp.multiply_exponents_for_product",
+        "exp.add_bases"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.EXP.POWER_OF_POWER",
+      "topic": "exponents",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Simplify a power of a power, of a product and of a quotient ((3²)⁴ = 3⁸, (5n)³ = 125n³, (m/n)⁵ = m⁵/n⁵)",
+      "zh": "幂的乘方、积的乘方、商的乘方（(3²)⁴ = 3⁸，(5n)³ = 125n³，(m/n)⁵ = m⁵/n⁵）",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.EXP.PRODUCT_QUOTIENT"
+      ],
+      "misc": [
+        "exp.power_of_power_add",
+        "exp.coefficient_not_raised"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.EXP.ZERO_ONE",
+      "topic": "exponents",
+      "type": "concept",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Explain with the divide-by-the-base pattern why any nonzero base to the exponent 0 is 1 and to the exponent 1 is itself (6⁰ = 1, m¹ = m)",
+      "zh": "用「每次除以底数」的规律说明为什么 6⁰ = 1、m¹ = m",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.EXP.PRODUCT_QUOTIENT"
+      ],
+      "misc": [
+        "exp.zero_exponent_zero",
+        "exp.one_exponent_one"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.EXP.SIGNS",
+      "topic": "exponents",
+      "type": "reason",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Evaluate powers with negative bases and explain why (−3)² ≠ −3² and (−2)³ is negative",
+      "zh": "负底数的幂：说清为什么 (−3)² ≠ −3²、(−2)³ 是负的",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.EXP.MEANING",
+        "YY.MATH.RAT.POWERS"
+      ],
+      "misc": [
+        "rat.negative_base_bracket",
+        "exp.odd_power_negative_positive"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.EXP.SIMPLIFY_MIXED",
+      "topic": "exponents",
+      "type": "procedure",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Simplify expressions that combine several exponent laws, keeping exponents whole numbers (2³ × 2⁵ ÷ 2⁴; (x²y)³ × x)",
+      "zh": "综合运用几条指数律化简，指数保持非负整数（2³ × 2⁵ ÷ 2⁴；(x²y)³ × x）",
+      "primary": "BC.MATH.G9.NUM.01",
+      "prereq": [
+        "YY.MATH.EXP.POWER_OF_POWER",
+        "YY.MATH.EXP.ZERO_ONE"
+      ],
+      "misc": [
+        "exp.multiply_exponents_for_product",
+        "exp.power_of_power_add",
+        "exp.add_bases"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.PARTS",
+      "topic": "polynomials",
+      "type": "concept",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Describe a polynomial by its variables, degree, number of terms, coefficients and constant term; name monomials, binomials and trinomials",
+      "zh": "说出多项式的变量、次数、项数、系数和常数项；认识单项式、二项式、三项式",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.ALG.EXPR.PARTS",
+        "YY.MATH.EXP.MEANING"
+      ],
+      "misc": [
+        "poly.degree_is_term_count",
+        "expr.constant_as_coefficient",
+        "expr.coefficient_one_invisible"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.TILES",
+      "topic": "polynomials",
+      "type": "represent",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Model polynomials with algebra tiles (x², x and unit tiles, positive and negative) and read the expression from a tile picture",
+      "zh": "用代数砖表示多项式（x² 砖、x 砖、单位砖，分正负），能从砖图读出式子",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.PARTS",
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.MODEL"
+      ],
+      "misc": [
+        "poly.tile_x2_as_2x",
+        "poly.zero_pair_missed"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.ADD",
+      "topic": "polynomials",
+      "type": "procedure",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Add polynomials by collecting like terms ((x² + 2x − 4) + (2x² − 3x − 4) = 3x² − x − 8)",
+      "zh": "多项式加法：合并同类项（(x² + 2x − 4) + (2x² − 3x − 4) = 3x² − x − 8）",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.TILES",
+        "YY.MATH.ALG.EXPR.COMBINE_LIKE"
+      ],
+      "misc": [
+        "expr.combine_unlike_terms",
+        "poly.add_exponents_when_adding"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.SUBTRACT",
+      "topic": "polynomials",
+      "type": "procedure",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Subtract polynomials by adding the opposite of every term ((5x − 7) − (2x + 3) = 3x − 10)",
+      "zh": "多项式减法：把后面每一项都变号再加（(5x − 7) − (2x + 3) = 3x − 10）",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.ADD"
+      ],
+      "misc": [
+        "poly.subtract_first_term_only",
+        "int.subtract_negative"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.MULT_MONOMIAL",
+      "topic": "polynomials",
+      "type": "procedure",
+      "rep": [
+        "areaModel",
+        "symbolic"
+      ],
+      "en": "Multiply a polynomial by a monomial with an area model and the distributive property (2n(n + 7) = 2n² + 14n)",
+      "zh": "单项式乘多项式：面积模型和分配律（2n(n + 7) = 2n² + 14n）",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.ADD",
+        "YY.MATH.EXP.PRODUCT_QUOTIENT"
+      ],
+      "misc": [
+        "eq.brackets_distribute_partially",
+        "poly.mult_monomial_exponent_wrong",
+        "exp.multiply_exponents_for_product"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.DIV_MONOMIAL",
+      "topic": "polynomials",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "areaModel"
+      ],
+      "en": "Divide a polynomial by a monomial term by term ((15k² − 10k) ÷ 5k = 3k − 2)",
+      "zh": "多项式除以单项式：逐项除（(15k² − 10k) ÷ 5k = 3k − 2）",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.MULT_MONOMIAL"
+      ],
+      "misc": [
+        "poly.divide_first_term_only",
+        "poly.div_cancel_to_zero"
+      ],
+      "hints": "areaModel"
+    },
+    {
+      "id": "YY.MATH.POLY.APPLY",
+      "topic": "polynomials",
+      "type": "apply",
+      "rep": [
+        "context",
+        "areaModel"
+      ],
+      "en": "Use polynomials to model perimeter, area and cost situations, then simplify (perimeter of a rectangle with sides 2x + 3 and x − 1)",
+      "zh": "用多项式描述周长、面积、费用情境并化简（边长 2x + 3 和 x − 1 的长方形周长）",
+      "primary": "BC.MATH.G9.PAT.01",
+      "prereq": [
+        "YY.MATH.POLY.SUBTRACT",
+        "YY.MATH.POLY.MULT_MONOMIAL"
+      ],
+      "misc": [
+        "expr.combine_unlike_terms",
+        "perim.forget_hidden_side",
+        "area.add_sides"
+      ],
+      "hints": "areaModel、shapeRect"
+    },
+    {
+      "id": "YY.MATH.LINEQ.DISTRIBUTE",
+      "topic": "linear-equations",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Solve equations that need the distributive property first (3(x − 4) = 2x + 1)",
+      "zh": "先去括号再解方程（3(x − 4) = 2x + 1）",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.OTHER_FORMS",
+        "YY.MATH.POLY.MULT_MONOMIAL"
+      ],
+      "misc": [
+        "eq.brackets_distribute_partially",
+        "eq.operate_one_side"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.LINEQ.BOTH_SIDES",
+      "topic": "linear-equations",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Solve equations with the variable on both sides by collecting variable terms on one side (5x − 2 = 2x + 7)",
+      "zh": "等号两边都有未知数：把未知数集中到一边（5x − 2 = 2x + 7）",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.SOLVE",
+        "YY.MATH.LINEQ.DISTRIBUTE"
+      ],
+      "misc": [
+        "eq.move_term_keep_sign",
+        "expr.combine_unlike_terms",
+        "eq.operate_one_side"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.LINEQ.RATIONAL",
+      "topic": "linear-equations",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "balance"
+      ],
+      "en": "Solve equations with fraction or decimal coefficients by clearing denominators first (1 + 2x = 3 − 2/3(x + 6))",
+      "zh": "系数是分数或小数的方程：先去分母（1 + 2x = 3 − 2/3(x + 6)）",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.LINEQ.BOTH_SIDES",
+        "YY.MATH.RAT.MULTDIV"
+      ],
+      "misc": [
+        "eq.fraction_form_multiply_one_term",
+        "eq.brackets_distribute_partially",
+        "eq.negative_coefficient_sign_lost"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.LINEQ.PICTORIAL",
+      "topic": "linear-equations",
+      "type": "represent",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Show a multi-step solution with a balance or algebra-tile picture, keeping both sides equal at every step",
+      "zh": "用天平或代数砖画出多步解方程的过程，每一步两边都保持相等",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.LINEQ.BOTH_SIDES"
+      ],
+      "misc": [
+        "eq.operate_one_side",
+        "poly.zero_pair_missed"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.LINEQ.VERIFY",
+      "topic": "linear-equations",
+      "type": "reason",
+      "rep": [
+        "symbolic"
+      ],
+      "en": "Verify a rational solution by substituting into both sides, and find the step where a wrong solution went off track",
+      "zh": "把有理数解代回方程两边验算，并找出错解错在哪一步",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.LINEQ.RATIONAL"
+      ],
+      "misc": [
+        "eq.verify_not_exact",
+        "eq.verify_stop_before_constant",
+        "expr.substitute_negative_no_brackets"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.LINEQ.WORD",
+      "topic": "linear-equations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Write and solve multi-step equations from situations (when two phone plans cost the same, consecutive numbers, a perimeter given as an expression)",
+      "zh": "从情境列多步方程并求解（两种手机套餐何时一样贵、连续整数、周长用式子给出）",
+      "primary": "BC.MATH.G9.PAT.03",
+      "prereq": [
+        "YY.MATH.LINEQ.VERIFY",
+        "YY.MATH.ALG.EQ.TWOSTEP_INT.WORD"
+      ],
+      "misc": [
+        "pat.fixed_part_mishandled",
+        "eq.coeff_as_addend",
+        "word.stop_early"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.LIN.CONTINUOUS",
+      "topic": "linear-relations",
+      "type": "concept",
+      "rep": [
+        "coordGrid",
+        "context"
+      ],
+      "en": "Tell continuous from discrete linear relations and decide when the points should be joined (time vs. tickets)",
+      "zh": "区分连续和离散的线性关系，判断什么时候该把点连成线（时间 vs 票数）",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.GRAPH_Q4"
+      ],
+      "misc": [
+        "linear.connect_discrete_points",
+        "lin.continuous_left_as_dots"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.LIN.GRAPH_TABLE",
+      "topic": "linear-relations",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "coordGrid"
+      ],
+      "en": "Make a table of values with rational inputs and graph the line, choosing axis scales that fit rational coordinates",
+      "zh": "用有理数输入列数值表并画出直线，坐标轴刻度按有理数坐标来选",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.EXPR_TO_TABLE",
+        "YY.MATH.GEO.COORD.Q4.SCALE"
+      ],
+      "misc": [
+        "graph.scale_misread",
+        "coord.xy_swap",
+        "linear.x_step_ignored"
+      ],
+      "hints": "coordGrid、dataTable"
+    },
+    {
+      "id": "YY.MATH.LIN.HORIZ_VERT",
+      "topic": "linear-relations",
+      "type": "concept",
+      "rep": [
+        "coordGrid",
+        "symbolic"
+      ],
+      "en": "Recognize and graph horizontal and vertical lines (y = 3, x = −2) and explain why their equations have only one variable",
+      "zh": "认识并画出水平线和竖直线（y = 3、x = −2），说明为什么它们的方程只有一个变量",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.LIN.GRAPH_TABLE"
+      ],
+      "misc": [
+        "lin.horizontal_vertical_swap",
+        "coord.xy_swap"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.LIN.INTERPOLATE",
+      "topic": "linear-relations",
+      "type": "procedure",
+      "rep": [
+        "coordGrid",
+        "dataTable"
+      ],
+      "en": "Interpolate: read an approximate value between known points on a line graph",
+      "zh": "内插：在已知点之间从图上读出近似值",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.LIN.GRAPH_TABLE"
+      ],
+      "misc": [
+        "graph.scale_misread",
+        "lin.read_wrong_axis"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.LIN.EXTRAPOLATE",
+      "topic": "linear-relations",
+      "type": "reason",
+      "rep": [
+        "coordGrid",
+        "dataTable"
+      ],
+      "en": "Extrapolate beyond the data by extending the line, and judge whether the prediction makes sense (canoe journey daily checks)",
+      "zh": "外推：延长直线预测数据以外的值，并判断预测合不合理（独木舟行程的每日核对）",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.LIN.INTERPOLATE"
+      ],
+      "misc": [
+        "graph.extrapolate_step_count",
+        "lin.extrapolate_beyond_sense"
+      ],
+      "hints": "coordGrid"
+    },
+    {
+      "id": "YY.MATH.LIN.ANALYZE",
+      "topic": "linear-relations",
+      "type": "reason",
+      "rep": [
+        "coordGrid",
+        "symbolic"
+      ],
+      "en": "Analyze a linear graph: the rate of change as slope, what the y-intercept means, and how the equation shows both (y = 2.5x + 10)",
+      "zh": "分析线性图象：变化率就是斜率、y 截距的含义、方程怎么同时体现两者（y = 2.5x + 10）",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.LINEAR.GRAPH_TO_EXPR",
+        "YY.MATH.LIN.GRAPH_TABLE"
+      ],
+      "misc": [
+        "linear.slope_intercept_swap",
+        "linear.intercept_misread",
+        "lin.slope_rise_run_swap"
+      ],
+      "hints": "coordGrid、funcGraph"
+    },
+    {
+      "id": "YY.MATH.LIN.APPLY",
+      "topic": "linear-relations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "coordGrid"
+      ],
+      "en": "Model a real situation with a two-variable linear relation and use the graph to answer questions (distance–time, cost–usage)",
+      "zh": "用二元线性关系描述真实情境，用图回答问题（路程–时间、费用–用量）",
+      "primary": "BC.MATH.G9.PAT.02",
+      "prereq": [
+        "YY.MATH.LIN.EXTRAPOLATE",
+        "YY.MATH.LIN.ANALYZE",
+        "YY.MATH.PAT.LINEAR.APPLY"
+      ],
+      "misc": [
+        "pat.fixed_part_mishandled",
+        "lin.read_wrong_axis",
+        "word.stop_early"
+      ],
+      "hints": "coordGrid、dataTable"
+    },
+    {
+      "id": "YY.MATH.SIM.UNIT_CONVERT",
+      "topic": "similarity-scale",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Convert between metric length units (mm, cm, m, km) including decimals, as needed for scale work",
+      "zh": "公制长度单位换算（mm、cm、m、km，含小数），为比例尺做准备",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.DEC.MULTDIV.WORD",
+        "YY.MATH.MEAS.CAPACITY.UNITS"
+      ],
+      "misc": [
+        "unit.convert_wrong_direction",
+        "unit.metric_factor_wrong"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.SIM.SCALE_FACTOR",
+      "topic": "similarity-scale",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Understand scale factor as image ÷ original: greater than 1 enlarges, between 0 and 1 reduces; read scales such as 1 : 50",
+      "zh": "认识比例系数 = 像 ÷ 原：大于 1 放大、0 到 1 之间缩小；读懂 1 : 50 这样的比例尺",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.RATIO.EQUIVALENT",
+        "YY.MATH.PROPORTION.SOLVE"
+      ],
+      "misc": [
+        "sim.scale_factor_inverted",
+        "sim.scale_add_not_multiply"
+      ],
+      "hints": "areaGrid"
+    },
+    {
+      "id": "YY.MATH.SIM.SCALE_DRAW",
+      "topic": "similarity-scale",
+      "type": "procedure",
+      "rep": [
+        "areaGrid",
+        "shapeRect"
+      ],
+      "en": "Draw an enlargement or reduction of a 2D shape to a given scale on grid paper, and find real lengths from a scale diagram",
+      "zh": "在方格纸上按给定比例尺放大或缩小平面图形；从比例尺图求真实长度",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.SIM.SCALE_FACTOR",
+        "YY.MATH.SIM.UNIT_CONVERT"
+      ],
+      "misc": [
+        "sim.scale_add_not_multiply",
+        "sim.scale_factor_inverted",
+        "unit.convert_wrong_direction"
+      ],
+      "hints": "areaGrid、shapeRect"
+    },
+    {
+      "id": "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+      "topic": "similarity-scale",
+      "type": "reason",
+      "rep": [
+        "triangle",
+        "symbolic"
+      ],
+      "en": "Decide whether two triangles are similar by matching equal angles and checking that corresponding sides share one ratio",
+      "zh": "判断两个三角形是否相似：对应角相等、对应边的比相同",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.GEO.TRI.CLASSIFY_BOTH",
+        "YY.MATH.GEO.ANGLE.IN_POLYGONS",
+        "YY.MATH.SIM.SCALE_FACTOR"
+      ],
+      "misc": [
+        "sim.corresponding_sides_mismatched",
+        "sim.similar_means_congruent"
+      ],
+      "hints": "triangle"
+    },
+    {
+      "id": "YY.MATH.SIM.MISSING_SIDE",
+      "topic": "similarity-scale",
+      "type": "procedure",
+      "rep": [
+        "triangle",
+        "symbolic"
+      ],
+      "en": "Find a missing side in similar triangles or polygons using a proportion or the scale factor",
+      "zh": "用比例或比例系数求相似三角形、相似多边形的未知边",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.SIM.TRIANGLES_IDENTIFY",
+        "YY.MATH.PROPORTION.SOLVE"
+      ],
+      "misc": [
+        "sim.corresponding_sides_mismatched",
+        "prop.cross_multiply_wrong_pair",
+        "sim.scale_add_not_multiply"
+      ],
+      "hints": "triangle"
+    },
+    {
+      "id": "YY.MATH.SIM.INDIRECT_MEASURE",
+      "topic": "similarity-scale",
+      "type": "apply",
+      "rep": [
+        "context",
+        "triangle"
+      ],
+      "en": "Use similar triangles to measure indirectly: heights from shadows, river widths, longhouse models, mural enlargements",
+      "zh": "用相似三角形间接测量：用影子求高度、河宽、长屋模型、壁画放大",
+      "primary": "BC.MATH.G9.GEO.01",
+      "prereq": [
+        "YY.MATH.SIM.MISSING_SIDE",
+        "YY.MATH.SIM.SCALE_DRAW"
+      ],
+      "misc": [
+        "sim.corresponding_sides_mismatched",
+        "unit.convert_wrong_direction",
+        "word.stop_early"
+      ],
+      "hints": "triangle"
+    },
+    {
+      "id": "YY.MATH.STAT.POP_SAMPLE",
+      "topic": "statistics-society",
+      "type": "concept",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Tell a population from a sample and explain when sampling is the sensible choice (cost, time, destructive tests)",
+      "zh": "区分总体与样本，说明什么时候该抽样（成本、时间、破坏性检测）",
+      "primary": "BC.MATH.G9.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CENTRAL.APPLY"
+      ],
+      "misc": [
+        "stat.sample_is_population",
+        "stat.census_always_possible"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.STAT.SAMPLING_METHODS",
+      "topic": "statistics-society",
+      "type": "concept",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Compare sampling techniques (random, systematic, stratified, convenience, voluntary) and pick one that avoids bias",
+      "zh": "比较抽样方法（随机、系统、分层、方便、自愿），选一种能避免偏差的",
+      "primary": "BC.MATH.G9.DAT.01",
+      "prereq": [
+        "YY.MATH.STAT.POP_SAMPLE"
+      ],
+      "misc": [
+        "stat.convenience_as_random",
+        "stat.volunteer_unbiased"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.STAT.BIAS",
+      "topic": "statistics-society",
+      "type": "reason",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Spot bias in a survey: leading questions, loaded language, who was asked, timing, privacy and cultural sensitivity",
+      "zh": "找出调查里的偏差：诱导性提问、带倾向的用语、问了谁、时机、隐私与文化敏感性",
+      "primary": "BC.MATH.G9.DAT.01",
+      "prereq": [
+        "YY.MATH.STAT.SAMPLING_METHODS"
+      ],
+      "misc": [
+        "stat.leading_question_fine",
+        "stat.large_sample_removes_bias"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.STAT.MISLEADING_GRAPHS",
+      "topic": "statistics-society",
+      "type": "reason",
+      "rep": [
+        "statBar",
+        "dataTable"
+      ],
+      "en": "Detect misleading graphs and statistics: truncated axes, uneven scales, cherry-picked ranges, percents without a base",
+      "zh": "识破误导性图表和统计：截断的坐标轴、不均匀的刻度、挑着选的区间、没说基数的百分比",
+      "primary": "BC.MATH.G9.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CENTRAL.COMPARE",
+        "YY.MATH.STAT.BIAS"
+      ],
+      "misc": [
+        "graph.compare_bars_ignore_scale",
+        "graph.scale_misread",
+        "stat.percent_without_base"
+      ],
+      "hints": "statBar、statLine"
+    },
+    {
+      "id": "YY.MATH.STAT.CRITIQUE",
+      "topic": "statistics-society",
+      "type": "apply",
+      "rep": [
+        "context",
+        "statBar"
+      ],
+      "en": "Critique a real data set or news claim (Statistics Canada, First Peoples water quality) and propose a fairer way to collect or display it",
+      "zh": "评析一组真实数据或新闻结论（加拿大统计局、原住民社区水质），提出更公平的收集或呈现方式",
+      "primary": "BC.MATH.G9.DAT.01",
+      "prereq": [
+        "YY.MATH.STAT.MISLEADING_GRAPHS"
+      ],
+      "misc": [
+        "stat.large_sample_removes_bias",
+        "central.mean_always_best",
+        "stat.percent_without_base"
+      ],
+      "hints": "statBar、pieChart"
+    },
+    {
+      "id": "YY.MATH.FIN.BANKING",
+      "topic": "budgets-transactions",
+      "type": "concept",
+      "rep": [
+        "dataTable",
+        "context"
+      ],
+      "en": "Read a bank statement (deposits, withdrawals, debit, fees, running balance) and keep a balance from a list of transactions",
+      "zh": "看懂银行对账单（存款、取款、借记、手续费、余额），根据一串交易算出余额",
+      "primary": "BC.MATH.G9.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.BUDGET.INCOME_EXPENSE",
+        "YY.MATH.RAT.ADDSUB"
+      ],
+      "misc": [
+        "fin.income_expense_mixed",
+        "fin.fee_ignored",
+        "int.subtract_negative"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.SIMPLE_INTEREST",
+      "topic": "budgets-transactions",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Compute simple interest I = P × r × t with the rate as a decimal and time in years (months as a fraction of a year)",
+      "zh": "用 I = P × r × t 算单利：利率化成小数、时间按年算（月份换成年的分数）",
+      "primary": "BC.MATH.G9.NUM.02",
+      "prereq": [
+        "YY.MATH.PCT.BEYOND100.OF_NUMBER",
+        "YY.MATH.PCT.CHANGE.INCREASE_DECREASE"
+      ],
+      "misc": [
+        "fin.interest_rate_not_decimal",
+        "fin.months_as_years",
+        "pct.increase_not_added"
+      ],
+      "hints": "dataTable、barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.SAVINGS_GROWTH",
+      "topic": "budgets-transactions",
+      "type": "reason",
+      "rep": [
+        "dataTable",
+        "statLine"
+      ],
+      "en": "Compare savings options: how principal, rate and time each change the interest, and total = principal + interest",
+      "zh": "比较储蓄方案：本金、利率、时间各自怎么影响利息；到期总额 = 本金 + 利息",
+      "primary": "BC.MATH.G9.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.SIMPLE_INTEREST"
+      ],
+      "misc": [
+        "fin.interest_as_total",
+        "fin.months_as_years"
+      ],
+      "hints": "dataTable、statLine"
+    },
+    {
+      "id": "YY.MATH.FIN.BUDGET_PLAN",
+      "topic": "budgets-transactions",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "barModel"
+      ],
+      "en": "Build a monthly budget with income, fixed and variable expenses and savings, and check that it balances",
+      "zh": "做一份月度预算：收入、固定支出、变动支出、储蓄，核对是否平衡",
+      "primary": "BC.MATH.G9.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.BUDGET.INCOME_EXPENSE",
+        "YY.MATH.FIN.BANKING"
+      ],
+      "misc": [
+        "fin.saving_not_expense",
+        "fin.period_mismatch",
+        "fin.balance_misjudged"
+      ],
+      "hints": "dataTable、barModel"
+    },
+    {
+      "id": "YY.MATH.FIN.PLANNED_PURCHASE",
+      "topic": "budgets-transactions",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Plan a purchase or event (hosting a First Peoples gathering, buying a phone): compare saving up with paying over time, and adjust the budget",
+      "zh": "为一次购买或活动做计划（举办原住民聚会、买手机）：比较攒够再买和分期付，并调整预算",
+      "primary": "BC.MATH.G9.NUM.02",
+      "prereq": [
+        "YY.MATH.FIN.BUDGET_PLAN",
+        "YY.MATH.FIN.SAVINGS_GROWTH",
+        "YY.MATH.FIN.BEST_BUY.DECIDE"
+      ],
+      "misc": [
+        "fin.save_ignore_existing",
+        "fin.interest_as_total",
+        "word.stop_early"
+      ],
+      "hints": "dataTable"
+    }
+  ]
+}

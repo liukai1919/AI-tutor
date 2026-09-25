@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.PARTS",
+ "lang": "en",
+ "title": "Describe a polynomial by its variables, degree, number of terms, coefficients and constant term; name monomials, binomials and trinomials",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Give a Polynomial Its ID Card",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to spot terms, coefficients, variables and constants in an expression, and you know that x squared means x times x. Today we put all of that together to write a full 'ID card' for a polynomial, using this one: x squared plus six x plus nine. By the end you will be able to describe any polynomial in five quick facts and give it its proper name.",
+    "math": "x^2+6x+9",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Fact one: how many terms. Terms are the pieces joined by plus or minus signs. Picture algebra tiles: one big square tile that is x by x, six strip tiles that are x by one, and nine little one by one squares. Each kind of tile is one term, so x squared plus six x plus nine has three terms. Three terms makes it a trinomial. One term would be a monomial, like six x on its own, and two terms would be a binomial, like x squared plus nine.",
+    "math": "x^2+6x+9 \\quad \\rightarrow \\quad 3 \\text{ terms: trinomial}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      6,
+      9
+     ],
+     "labels": [
+      "x² tiles",
+      "x tiles",
+      "1 tiles"
+     ],
+     "caption": "Three kinds of tiles, so three terms: 1 square, 6 strips, 9 unit squares."
+    }
+   },
+   {
+    "say": "Fact two: the degree. The degree is the biggest exponent on the variable. Look at the tiles as an area model and pretend x is ten. The big square is x times x, so its exponent is two. Each strip is x times one, exponent one. The nine little squares have no x at all, exponent zero. The highest exponent is two, so this polynomial has degree two. You can feel why: x squared is a two dimensional square, x is just a one dimensional strip.",
+    "math": "x^2 = x \\cdot x \\quad \\text{highest exponent } = 2 \\quad \\rightarrow \\quad \\text{degree } 2",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      13,
+      13
+     ],
+     "labels": [],
+     "caption": "Pretend x is 10. The 100 square is x squared, the two 30 strips are 3x and 3x (six x strips), and the 9 corner is the constant."
+    }
+   },
+   {
+    "say": "Facts three, four and five: variable, coefficients and constant term. The variable is x, the letter that can change. A coefficient is the number in front of a variable. For six x, the coefficient is six, because there are six strips. For x squared, there is an invisible one in front: one x squared, one square tile. So the coefficients are one and six. The nine has no variable attached, so it is not a coefficient. It is the constant term: the part that stays the same no matter what x is.",
+    "math": "\\textcolor{blue}{1}x^2+\\textcolor{blue}{6}x+\\textcolor{red}{9}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      6,
+      9,
+      2,
+      1,
+      0
+     ],
+     "labels": [
+      "x²",
+      "6x",
+      "9",
+      "number part",
+      "exponent of x"
+     ],
+     "caption": "Number part of each term and its exponent. The 1 in front of x squared is invisible but real; the 9 stands alone as the constant."
+    }
+   },
+   {
+    "say": "Three traps to avoid. Trap one: three terms does not mean degree three. Terms count the pieces, degree looks at the biggest exponent. Here we have three terms but degree two. Trap two: do not call nine a coefficient. A coefficient sits in front of a variable, and nine has no variable, so it is the constant term. Trap three: never say the coefficient of x squared is zero. If it were zero, the whole term would vanish. When you see no number, the coefficient is one.",
+    "math": "\\text{terms: } 3 \\neq \\text{degree: } 2, \\qquad x^2 = 1x^2 \\ (\\text{not } 0x^2)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "number of terms",
+      "degree"
+     ],
+     "caption": "Two different questions, two different answers: 3 terms, degree 2."
+    }
+   },
+   {
+    "say": "Here is the finished ID card for x squared plus six x plus nine. Variable: x. Degree: two. Number of terms: three, so it is a trinomial. Coefficients: one and six. Constant term: nine. Any time you meet a polynomial, run through these five facts in the same order and you have described it completely.",
+    "math": "x^2+6x+9: \\ \\text{variable } x, \\ \\text{degree } 2, \\ 3 \\text{ terms (trinomial)}, \\ \\text{coefficients } 1, 6, \\ \\text{constant } 9",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Terms count the pieces you add, degree is the biggest exponent, a coefficient is the number in front of a variable, and the constant is the number standing alone.",
+  "practice": {
+   "question": "You are painting a mural on a school wall in Surrey, measured in metres. Draw your own area model: one square that is x by x, then three strips that are each one by x, then two small one by one squares. Write the total area as a polynomial. Then give its ID card: the variable, the degree, the number of terms, the coefficients, the constant term, and its name (monomial, binomial or trinomial).",
+   "answer": "Total area is x squared plus three x plus two. Variable: x. Degree: 2 (the biggest exponent). Number of terms: 3, so it is a trinomial. Coefficients: 1 (the invisible one in front of x squared) and 3. Constant term: 2."
+  }
+ }
+}

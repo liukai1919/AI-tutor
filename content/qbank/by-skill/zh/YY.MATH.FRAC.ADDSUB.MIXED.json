@@ -1,0 +1,272 @@
+{
+ "id": "YY.MATH.FRAC.ADDSUB.MIXED",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkjznxo46a4fo",
+   "level": 1,
+   "question": "一条数轴从 0 标到 5，相邻两个整数之间平均分成 5 等份，所以每一小格是 1/5。一只青蛙站在 4 1/5 这个位置，向左跳了 1 3/5。它落在数轴上的哪个位置？",
+   "options": [
+    "2 3/5",
+    "3 2/5",
+    "2 2/5",
+    "3 1/5"
+   ],
+   "answerIndex": 0,
+   "explain": "1/5 不够减 3/5，要从整数 4 借 1（也就是 5/5），变成 3 6/5：6/5 − 3/5 = 3/5，3 − 1 = 2，得 2 3/5。写成 3 2/5 的那个是分数部分不够减就倒过来算成 3/5 − 1/5，这是最常见的坑。",
+   "tags": [
+    "ok",
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkjznxouej37s",
+   "level": 1,
+   "question": "一条数轴从 0 标到 5，相邻两个整数之间平均分成 8 等份，所以每一小格是 1/8。A 点在 1 3/8，B 点在 4 1/8。从 A 到 B 的距离是多少？",
+   "options": [
+    "3 1/8",
+    "2 3/4",
+    "5 1/2",
+    "3 1/4"
+   ],
+   "answerIndex": 1,
+   "explain": "距离就是 4 1/8 − 1 3/8：1/8 不够减 3/8，借 1 变成 3 9/8，9/8 − 3/8 = 6/8，3 − 1 = 2，化成最简分数（lowest terms）是 2 3/4。写成 3 1/4 的那个把分数部分倒过来减了。",
+   "tags": [
+    "mixed.improper_convert_wrong",
+    "ok",
+    "other",
+    "mixed.subtract_parts_reversed"
+   ]
+  },
+  {
+   "qid": "qmtkjznxo4hdr2f",
+   "level": 1,
+   "question": "一条数轴从 0 标到 6，相邻两个整数之间平均分成 6 等份，所以每一小格是 1/6。一只蚂蚁从某个位置出发，向右爬了 2 5/6，最后停在 5 1/6 处。它出发的位置是哪里？",
+   "options": [
+    "3 2/3",
+    "3 1/3",
+    "2 1/3",
+    "2 1/6"
+   ],
+   "answerIndex": 2,
+   "explain": "倒着想：出发点 = 5 1/6 − 2 5/6。1/6 不够减，借 1 变成 4 7/6，7/6 − 5/6 = 2/6，4 − 2 = 2，化简得 2 1/3。写成 3 2/3 的那个是把 5/6 − 1/6 倒着算的结果。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "other",
+    "ok",
+    "mixed.improper_convert_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkjznxoduhnsc",
+   "level": 2,
+   "question": "计算：5 2/9 − 2 7/9，结果写成最简分数（lowest terms）形式的带分数。",
+   "options": [
+    "2 5/9",
+    "3 5/9",
+    "2 2/9",
+    "2 4/9"
+   ],
+   "answerIndex": 3,
+   "explain": "2/9 不够减 7/9，从 5 借 1，而这个 1 等于 9/9，得 4 11/9：11/9 − 7/9 = 4/9，4 − 2 = 2，答案 2 4/9。写成 2 5/9 的那个把借来的 1 当成了 10；写成 3 5/9 的那个是分数部分倒着减。",
+   "tags": [
+    "other",
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjznxoyq18pw",
+   "level": 2,
+   "question": "计算：4 1/3 − 1 3/4。",
+   "options": [
+    "2 7/12",
+    "3 5/12",
+    "3 1/3",
+    "2 5/12"
+   ],
+   "answerIndex": 0,
+   "explain": "先通分成 4 4/12 − 1 9/12，4/12 不够减，借 1（12/12）得 3 16/12：16/12 − 9/12 = 7/12，3 − 1 = 2，答案 2 7/12。写成 3 5/12 的那个是把 9/12 − 4/12 倒过来算了。",
+   "tags": [
+    "ok",
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkjznxo6nslv0",
+   "level": 2,
+   "question": "计算：3 5/8 + 2 3/4，结果写成带分数（mixed number）。",
+   "options": [
+    "5 11/8",
+    "6 3/8",
+    "5 3/4",
+    "5 8/12"
+   ],
+   "answerIndex": 1,
+   "explain": "通分后 3 5/8 + 2 6/8 = 5 11/8，而 11/8 = 1 3/8，要向整数进 1，得 6 3/8。写成 5 11/8 的那个算对了却停在假分数上，答案必须把超过 1 的部分进位；分子分母各自相加得到 8/12 是另一个常见错误。",
+   "tags": [
+    "other",
+    "ok",
+    "mixed.improper_convert_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkjznxo2swh8z",
+   "level": 2,
+   "question": "一个数加上 1 5/6 后等于 4 1/3。这个数是多少？",
+   "options": [
+    "3 1/2",
+    "2 1/3",
+    "2 1/2",
+    "3 1/3"
+   ],
+   "answerIndex": 2,
+   "explain": "这个数 = 4 1/3 − 1 5/6 = 4 2/6 − 1 5/6；2/6 不够减，借 1 得 3 8/6，8/6 − 5/6 = 3/6，3 − 1 = 2，化简得 2 1/2。通分时分子要跟着一起变，只把分母改成 6 会算出 2 1/3。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "other",
+    "ok",
+    "mixed.improper_convert_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkjznxo0lstwt",
+   "level": 3,
+   "question": "露营时小欣有一根 5 1/8 米长的绳子。她先剪下 1 3/4 米当晾衣绳，又剪下 1 1/2 米绑帐篷。绳子还剩多少米？",
+   "options": [
+    "3 1/8 米",
+    "1 3/4 米",
+    "3 3/8 米",
+    "1 7/8 米"
+   ],
+   "answerIndex": 3,
+   "explain": "第一步 5 1/8 − 1 6/8 = 4 9/8 − 1 6/8 = 3 3/8；第二步 3 3/8 − 1 4/8 = 2 11/8 − 1 4/8 = 1 7/8。停在 3 3/8 的那个只减了第一段绳子，而且要记住每一步分数不够减都得重新借 1。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkjznxopbopd5",
+   "level": 3,
+   "question": "玛雅走一条 8 km 的 BC 徒步路线，上午走了 3 2/5 km，下午又走了 2 4/5 km。她还剩多少 km 没走？",
+   "options": [
+    "1 4/5 km",
+    "2 1/5 km",
+    "1 1/5 km",
+    "2 3/5 km"
+   ],
+   "answerIndex": 0,
+   "explain": "先加：3 2/5 + 2 4/5 = 5 6/5 = 6 1/5；再减：8 = 7 5/5，7 5/5 − 6 1/5 = 1 4/5。整数 8 没有分数部分，必须先借 1 变成 7 5/5；直接写 2 1/5 是把 1/5 抄下来当答案，并没有真的减。",
+   "tags": [
+    "ok",
+    "mixed.subtract_parts_reversed",
+    "other",
+    "mixed.improper_convert_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkjznxoxt8mx9",
+   "level": 3,
+   "question": "杰森计算 6 1/5 − 2 3/5，写出的答案是 4 2/5。下面哪个说法是对的？",
+   "options": [
+    "对的；分数部分不够减时可以反过来算 3/5 − 1/5，所以得 4 2/5。",
+    "错了；1/5 不够减，从 6 借 1 变成 5 6/5，答案是 3 3/5。",
+    "错了；退位时分子要加 10，写成 5 11/5，所以答案是 3 8/5。",
+    "错了；6 1/5 要写成 30/5、2 3/5 写成 10/5，所以答案应该是 4。"
+   ],
+   "answerIndex": 1,
+   "explain": "1/5 不够减 3/5，要退位（regrouping）：6 1/5 = 5 6/5，6/5 − 3/5 = 3/5，5 − 2 = 3，答案 3 3/5。4 2/5 是把 3/5 − 1/5 倒着算出来的；另外借来的 1 等于 5/5 不是 10，带分数化假分数也要乘完再加分子。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "ok",
+    "other",
+    "mixed.improper_convert_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkjznxolghjc7",
+   "level": 3,
+   "question": "妈妈烤松饼前罐子里有 5 1/6 杯面粉，烤松饼用掉 2 5/6 杯，之后她又从超市买回 1 1/2 杯倒进罐子。现在罐子里有多少杯面粉？",
+   "options": [
+    "4 2/3 杯",
+    "5 1/6 杯",
+    "3 5/6 杯",
+    "3 1/3 杯"
+   ],
+   "answerIndex": 2,
+   "explain": "第一步 5 1/6 − 2 5/6：借 1 得 4 7/6，7/6 − 5/6 = 2/6，4 − 2 = 2，剩 2 1/3 杯；第二步 2 1/3 + 1 1/2 = 2 2/6 + 1 3/6 = 3 5/6 杯。得到 5 1/6 的那个第一步把 5/6 − 1/6 倒过来算了。",
+   "tags": [
+    "mixed.improper_convert_wrong",
+    "mixed.subtract_parts_reversed",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtko9grfzo2cqd",
+   "level": 1,
+   "question": "一条数轴从 0 标到 5，相邻两个整数之间平均分成 4 等份，所以每一小格是 1/4。一颗棋子放在 4 1/4 这个位置，向左移动 2 3/4。它现在停在数轴上的哪个位置？",
+   "options": [
+    "数轴上的 2 1/2 处",
+    "数轴上的 2 1/4 处",
+    "数轴上的 2 处",
+    "数轴上的 1 1/2 处"
+   ],
+   "answerIndex": 3,
+   "explain": "1/4 不够减 3/4，要从整数借 1（regrouping）：4 1/4 = 3 5/4，5/4 − 3/4 = 2/4 = 1/2，整数 3 − 2 = 1，所以停在 1 1/2。最常踩的坑是把分数部分反过来减（3/4 − 1/4）得到 2 1/2，或者把带分数（mixed number）化成假分数时只乘不加，把 4 1/4 写成 16/4。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "mixed.improper_convert_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtko9grfhgowsi",
+   "level": 1,
+   "question": "一条数轴从 0 标到 6，相邻两个整数之间平均分成 3 等份，所以每一小格是 1/3。C 点在 2 2/3，D 点在 5 1/3。从 C 走到 D，一共走了多长？",
+   "options": [
+    "2 2/3 个单位长度",
+    "3 1/3 个单位长度",
+    "2 1/3 个单位长度",
+    "3 个单位长度"
+   ],
+   "answerIndex": 0,
+   "explain": "距离就是 5 1/3 − 2 2/3。1/3 不够减 2/3，从整数借 1：5 1/3 = 4 4/3，4/3 − 2/3 = 2/3，4 − 2 = 2，得 2 2/3。最常踩的坑是分数部分不够减就反过来减（2/3 − 1/3）而写成 3 1/3，或者化假分数时只乘不加，把 5 1/3 当成 15/3。",
+   "tags": [
+    "ok",
+    "mixed.subtract_parts_reversed",
+    "mixed.improper_convert_wrong",
+    "mixed.improper_convert_wrong"
+   ]
+  },
+  {
+   "qid": "qmtko9grfjmz0er",
+   "level": 1,
+   "question": "一条数轴从 0 标到 4，相邻两个整数之间平均分成 8 等份，所以每一小格是 1/8。一枚硬币放在 3 1/8 处，要把它移到 1 7/8 处。它需要向左移动多少？",
+   "options": [
+    "2 3/4 个单位",
+    "1 1/4 个单位",
+    "2 1/8 个单位",
+    "2 个单位"
+   ],
+   "answerIndex": 1,
+   "explain": "要移动的量是 3 1/8 − 1 7/8。1/8 不够减 7/8，从整数借 1：3 1/8 = 2 9/8，9/8 − 7/8 = 2/8 = 1/4，2 − 1 = 1，所以是 1 1/4。最常踩的坑是分数部分反过来减（7/8 − 1/8）得到 2 3/4，或者把 3 1/8 化假分数时只乘不加写成 24/8。",
+   "tags": [
+    "mixed.subtract_parts_reversed",
+    "ok",
+    "mixed.improper_convert_wrong",
+    "mixed.improper_convert_wrong"
+   ]
+  }
+ ]
+}

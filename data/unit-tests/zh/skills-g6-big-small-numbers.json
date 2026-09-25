@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "big-small-numbers",
+ "lang": "zh",
+ "unitName": {
+  "zh": "从千分位到十亿",
+  "en": "Numbers from thousandths to billions"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "从千分位到十亿 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 1,
+    "question": "温哥华某年接待游客 12 405 000 人次。这个数里的数字 4 表示多少？",
+    "options": [
+     "4 000",
+     "40 000",
+     "400 000",
+     "4 000 000"
+    ],
+    "answerIndex": 2,
+    "explain": "从右往左数位（place）：个、十、百、千、万、十万，4 落在十万位（hundred thousands），所以表示 400 000。坑在于数位数错——中间那些 0 要一个一个数过去，不能凭数字长短猜。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 1,
+    "question": "下面哪个数读作「六百零三点零五」（six hundred three and five hundredths）？",
+    "options": [
+     "603.05",
+     "630.05",
+     "603.5",
+     "63.05"
+    ],
+    "answerIndex": 0,
+    "explain": "六百零三写成 603；「点零五」说明十分位是 0、百分位（hundredths）是 5，合起来是 603.05。最常踩的坑是把「零五」直接写成 .5，把占位的 0 漏掉了。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 1,
+    "question": "科学课上同学们称了四粒种子的质量：0.375 g、0.4 g、0.09 g、0.28 g。哪一粒最重？",
+    "options": [
+     "0.375 g",
+     "0.4 g",
+     "0.09 g",
+     "0.28 g"
+    ],
+    "answerIndex": 1,
+    "explain": "比较小数先看最高的那一位：十分位分别是 3、4、0、2，4 最大，所以 0.4 g 最重。坑在于以为小数位数越多越大，把 0.375 当成最大——可以补成 0.400、0.375、0.090、0.280 再比，位数一样就不容易看错。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 2,
+    "question": "素里（Surrey）市某次统计的人口是 568 322 人。把它四舍五入（round）到最近的十万位，是多少？",
+    "options": [
+     "500 000",
+     "568 000",
+     "570 000",
+     "600 000"
+    ],
+    "answerIndex": 3,
+    "explain": "凑整到十万位，就看它右边一位（万位）：万位是 6，满 5 要进位，所以 5 十万变成 6 十万，得 600 000。常见坑是只把后面的数字换成 0 却忘了进位，写成 500 000，或者凑错了位（凑到了千位得 568 000）。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.READ_WRITE",
+    "level": 2,
+    "question": "一个数的展开式（expanded form）是 3 000 000 + 400 000 + 60 + 0.08。这个数的标准式是多少？",
+    "options": [
+     "3 460 060.08",
+     "340 060.08",
+     "3 400 060.08",
+     "3 400 060.8"
+    ],
+    "answerIndex": 2,
+    "explain": "把每一位对号入座：百万位 3、十万位 4，万位和千位没有就写 0，十位 6、个位 0，十分位 0、百分位 8，得 3 400 060.08。坑在于展开式里没出现的数位偷偷漏掉不写 0，或把 0.08 当成 0.8 写在十分位上。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.CONTEXT",
+    "level": 2,
+    "question": "六年级同学把毕业旅行的照片存进云盘，一共 2 500 000 KB。已知 1 GB = 1 000 000 KB，这些照片大约是多少 GB？",
+    "options": [
+     "0.25 GB",
+     "2.5 GB",
+     "25 GB",
+     "250 GB"
+    ],
+    "answerIndex": 1,
+    "explain": "2 500 000 KB ÷ 1 000 000 = 2.5，所以大约 2.5 GB。坑在于单位换算时小数点移错位——除以一百万要往左移 6 位，少移或多移就会得到 25 GB 或 0.25 GB。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.COMPARE_ORDER",
+    "level": 3,
+    "question": "本地新闻说：某小镇的人口四舍五入到最近的千位（nearest thousand）后是 34 000 人。下面哪个可能是这个小镇真实的人口？",
+    "options": [
+     "33 400 人",
+     "34 500 人",
+     "34 620 人",
+     "33 500 人"
+    ],
+    "answerIndex": 3,
+    "explain": "要凑成 34 000，真实人口必须落在 33 500 到 34 499 之间：33 500 的百位是 5，进位后正好是 34 000。坑在于反过来想——33 400 会凑成 33 000，而 34 500 和 34 620 都会进位成 35 000，全都不符合。"
+   },
+   {
+    "curriculumId": "YY.MATH.NUM.PVBIG.CONTEXT",
+    "level": 3,
+    "question": "小雨的平板还剩 4 GB 空间。她想存三样东西：一段科学课视频 2.5 GB、一批照片 850 MB、一段访谈录音 0.6 GB。已知 1 GB = 1 000 MB，她能全部存下吗？",
+    "options": [
+     "能装下，还会剩下约 0.05 GB",
+     "不能装下，会超出约 849.1 GB",
+     "能装下，还会剩下约 0.82 GB",
+     "不能装下，正好差 0.05 GB"
+    ],
+    "answerIndex": 0,
+    "explain": "先统一单位：850 MB = 0.85 GB，三样合计 2.5 + 0.85 + 0.6 = 3.95 GB，比 4 GB 少 0.05 GB，所以刚好装得下。坑在于不换单位就直接加（把 850 MB 当成 850 GB），或者换算时小数点移错位，把 850 MB 写成 0.085 GB。"
+   }
+  ]
+ }
+}

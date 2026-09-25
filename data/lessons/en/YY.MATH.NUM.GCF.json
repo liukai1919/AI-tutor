@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.GCF",
+ "lang": "en",
+ "title": "Find the greatest common factor of two numbers (listing, Venn diagram, prime factors)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Greatest Common Factor",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to list all the factors of a number using factor pairs. Today we take one small step further: when we have two numbers, we look for the biggest factor they both share. That is called the greatest common factor, or G C F for short. Think of it like two friends sharing snacks and finding the biggest fair share.",
+    "math": "\\text{GCF}(12,18)=\\;?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's try twelve and eighteen. First, list the factors of twelve: one, two, three, four, six, twelve. Now eighteen: one, two, three, six, nine, eighteen. Next, look for the numbers that appear in both lists. Those are one, two, three, and six. Last step, pick the greatest one. Six. So the G C F of twelve and eighteen is six. Each step matters: listing finds every option, matching keeps only the shared ones, and picking the biggest is what the word greatest is asking for.",
+    "math": "12:\\;1,2,3,4,6,12\\qquad 18:\\;1,2,3,6,9,18",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      6,
+      4,
+      2,
+      18,
+      9,
+      6,
+      3
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "6",
+      "12 shared by",
+      "18 shared by"
+     ],
+     "caption": "Both 12 and 18 divide evenly by 1, 2, 3 and 6 — and 6 is the biggest"
+    }
+   },
+   {
+    "say": "Here is a quicker way using prime factors, which you already know how to find. Twelve is two times two times three. Eighteen is two times three times three. Now count each prime in both numbers and take the smaller count. Twelve has two twos, eighteen has one two, so we take one two. Twelve has one three, eighteen has two threes, so we take one three. Two times three is six. Same answer, six. It works because we can only share as many of each prime as the stingier number has.",
+    "math": "12=2^2\\times 3,\\quad 18=2\\times 3^2\\;\\Rightarrow\\;\\text{GCF}=2\\times 3=6",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      1,
+      1,
+      2
+     ],
+     "labels": [
+      "how many 2s",
+      "how many 3s",
+      "12 = 2 x 2 x 3",
+      "18 = 2 x 3 x 3"
+     ],
+     "caption": "Take the smaller count in each column: one 2 and one 3, so 2 x 3 = 6"
+    }
+   },
+   {
+    "say": "Now two slip ups to watch for. Some kids answer thirty six. But thirty six is bigger than both twelve and eighteen, and a factor can never be bigger than the number it goes into, so thirty six cannot possibly be the G C F. If your answer is bigger than the smaller number, you have gone the wrong way. The other slip up is stopping at three. Three really is a common factor, so it feels right, but it is not the greatest one. Always read your whole list of common factors and take the last, biggest one: six.",
+    "math": "\\text{GCF}(12,18)=6\\;\\;(\\text{not }3,\\;\\text{not }36)",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      1,
+      2,
+      3,
+      6
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "6"
+     ],
+     "caption": "The common factors of 12 and 18 — take the tallest bar, 6"
+    }
+   },
+   {
+    "say": "So remember: list the factors, keep the ones both numbers share, and take the biggest one. That is the greatest common factor.",
+    "math": "\\text{GCF}(12,18)=6",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "List the factors of both numbers, keep the shared ones, take the biggest — GCF of 12 and 18 is 6.",
+  "practice": {
+   "question": "Ms. Yuanyuan has two ribbons for a class craft. One is twenty four centimetres long and the other is thirty six centimetres long. She wants to cut both ribbons into equal pieces with nothing left over, and she wants the pieces to be as long as possible. Write out the factors of twenty four, then the factors of thirty six, and find their greatest common factor. How long is each piece?",
+   "answer": "Each piece is twelve centimetres long. Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Shared factors: 1, 2, 3, 4, 6, 12 — the greatest is 12."
+  }
+ }
+}

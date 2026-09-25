@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ESTIMATE",
+ "lang": "en",
+ "title": "Estimate sums and differences and judge whether an answer is reasonable",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Is That Answer Reasonable? Estimating Big Sums",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to round a big number to a place, like rounding to the nearest hundred thousand. Today we use that skill for something really handy: guessing an answer before we work it out, so we can tell if our final answer makes sense.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Take each big number and slide it to the nearest friendly number, then add or subtract those friendly numbers in your head. Watch four hundred eighty-six thousand three hundred. It sits past the middle, so it slides up to five hundred thousand.",
+    "math": "486{,}300 \\approx 500{,}000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      400000,
+      500000,
+      486300,
+      500000
+     ],
+     "labels": [],
+     "caption": "486,300 slides up to 500,000"
+    }
+   },
+   {
+    "say": "Now a real one. A B C town spent four hundred eighty-six thousand three hundred dollars on a new pool, and two hundred ninety-one thousand seven hundred dollars on a playground. Round both: five hundred thousand plus three hundred thousand is eight hundred thousand. So the total should be somewhere near eight hundred thousand dollars.",
+    "math": "486{,}300+291{,}700 \\approx 500{,}000+300{,}000=800{,}000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1000000,
+      800000
+     ],
+     "labels": [],
+     "caption": "Our estimate: about $800,000"
+    }
+   },
+   {
+    "say": "The town's exact total is seven hundred seventy-eight thousand dollars. Is that reasonable? Look how close it sits to our estimate of eight hundred thousand — they are neighbours on the number line. Yes, that answer is reasonable.",
+    "math": "778{,}000 \\approx 800{,}000 \\ \\checkmark",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      700000,
+      900000,
+      778000,
+      800000
+     ],
+     "labels": [],
+     "caption": "778,000 and our estimate 800,000 are close neighbours"
+    }
+   },
+   {
+    "say": "Now a mistake to catch. A charity had sixty-one thousand four hundred eighty dollars and spent twenty-nine thousand seven hundred fifty dollars. A student wrote forty-eight thousand three hundred thirty. Estimate first: sixty thousand take away thirty thousand is thirty thousand. Forty-eight thousand is nowhere near thirty thousand, so something went wrong. The student took the smaller digit from the bigger one in each column instead of regrouping. The true answer is thirty-one thousand seven hundred thirty — right beside our estimate.",
+    "math": "61{,}480-29{,}750 \\approx 60{,}000-30{,}000=30{,}000",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      60000,
+      30000,
+      48330
+     ],
+     "labels": [],
+     "caption": "Estimate 30,000 vs the claimed 48,330 — way too far apart"
+    }
+   },
+   {
+    "say": "So before you trust an answer, round the numbers, do the easy math in your head, and ask: is my answer close to that? If it is far away, go back and check.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Round first, estimate in your head, then ask: is my answer close to my estimate?",
+  "practice": {
+   "question": "A Kelowna school raised two hundred sixty-eight thousand four hundred dollars in the fall and four hundred thirty-one thousand seven hundred dollars in the spring. Round each amount to the nearest hundred thousand and estimate the total. Then a student says the exact total is seven hundred thousand one hundred dollars. Is that reasonable?",
+   "answer": "Estimate: 300,000 + 400,000 = 700,000 dollars. The student's answer of 700,100 dollars is right beside the estimate, so yes, it is reasonable."
+  }
+ }
+}

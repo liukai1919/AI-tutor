@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROPORTION.SOLVE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkmzx8ednlbj7",
+   "level": 1,
+   "question": "一条丝带被平均分成 5 段，其中 2 段涂成蓝色。另一条更长的丝带按相同的比（ratio）涂色，它被平均分成 40 段，蓝色部分有 x 段。根据比例（proportion）2/5 = x/40，x 是多少？",
+   "options": [
+    "16 段",
+    "100 段",
+    "37 段",
+    "80 段"
+   ],
+   "answerIndex": 0,
+   "explain": "两个分母 5 和 40 差 8 倍（40 ÷ 5 = 8），所以分子也要乘 8：x = 2 × 8 = 16；用交叉相乘（cross-products）就是 5x = 2 × 40。最常见的坑是看到 5 加 35 变成 40，就把 2 也加 35 得 37——放大比只能乘，不能加。",
+   "tags": [
+    "ok",
+    "prop.cross_multiply_wrong_pair",
+    "ratio.add_to_scale",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8eb33yvb",
+   "level": 1,
+   "question": "一块饼干面团被平均切成 4 份，其中 3 份撒了巧克力。另一块更大的面团按相同的比切成 24 份，撒巧克力的有 x 份。解比例 3/4 = x/24，x 是多少？",
+   "options": [
+    "32 份",
+    "18 份",
+    "23 份",
+    "72 份"
+   ],
+   "answerIndex": 1,
+   "explain": "24 ÷ 4 = 6，倍数是 6，所以 x = 3 × 6 = 18；交叉相乘写成 4x = 3 × 24 = 72，再除以 4 也得 18。写成 32 的那个是把 x 和 3 配错了对（算成 4 × 24 ÷ 3），交叉相乘时 x 必须和它对角的数相乘。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "ok",
+    "ratio.add_to_scale",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8eyzkc3y",
+   "level": 1,
+   "question": "一条跑道被平均分成 7 段，其中 2 段刷成红色。另一条更长的跑道按相同的比刷色，被平均分成 28 段，红色有 x 段。解比例 2/7 = x/28，x 是多少？",
+   "options": [
+    "98 段",
+    "23 段",
+    "8 段",
+    "56 段"
+   ],
+   "answerIndex": 2,
+   "explain": "28 ÷ 7 = 4，两边同乘 4，x = 2 × 4 = 8；交叉相乘是 7x = 2 × 28 = 56，x = 8。写成 56 的那个只做了交叉相乘、忘了再除以 7，别漏掉最后一步除法。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "ratio.add_to_scale",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8e8q4lh4",
+   "level": 1,
+   "question": "一板巧克力被平均掰成 6 块，其中 5 块是黑巧克力。另一板更大的巧克力按相同的比制作，被平均掰成 30 块，黑巧克力有 x 块。解比例 5/6 = x/30，x 是多少？",
+   "options": [
+    "36 块",
+    "150 块",
+    "29 块",
+    "25 块"
+   ],
+   "answerIndex": 3,
+   "explain": "30 ÷ 6 = 5，所以 x = 5 × 5 = 25；交叉相乘是 6x = 5 × 30 = 150，x = 25。写成 29 的那个把 6 加 24 变 30 的加法搬到了分子上——等值比靠乘同一个倍数，不是加同一个数。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "other",
+    "ratio.add_to_scale",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8echz9o6",
+   "level": 2,
+   "question": "解比例 4/12 = 6/x，x 是多少？",
+   "options": [
+    "18",
+    "14",
+    "8",
+    "2"
+   ],
+   "answerIndex": 0,
+   "explain": "分子 4 乘 1.5 得 6，所以分母也乘 1.5：x = 12 × 1.5 = 18；交叉相乘就是 4x = 12 × 6 = 72，x = 18。写成 8 或 2 的都是配错了对——x 只能和跟它对角的那个数相乘，也就是 4。",
+   "tags": [
+    "ok",
+    "ratio.add_to_scale",
+    "prop.cross_multiply_wrong_pair",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8esl56gp",
+   "level": 2,
+   "question": "解比例 x/36 = 3/4，x 是多少？",
+   "options": [
+    "48",
+    "27",
+    "35",
+    "9"
+   ],
+   "answerIndex": 1,
+   "explain": "36 ÷ 4 = 9，两边同乘 9，x = 3 × 9 = 27；交叉相乘是 4x = 3 × 36 = 108，x = 27。写成 9 的那个只算出了倍数就停手，倍数还要乘回 3；写成 48 的那个是把 36 和 4 配成了一对。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "ok",
+    "ratio.add_to_scale",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8egnkd6j",
+   "level": 2,
+   "question": "学校的打印机每 4 分钟印 6 页。按同样的速度，印 54 页需要多少分钟？",
+   "options": [
+    "81 分钟",
+    "52 分钟",
+    "36 分钟",
+    "9 分钟"
+   ],
+   "answerIndex": 2,
+   "explain": "列比例 4/6 = x/54（分钟对分钟、页对页），交叉相乘 6x = 4 × 54 = 216，x = 36 分钟；也可以看 54 ÷ 6 = 9，再 4 × 9 = 36。写成 81 的那个把 x 和 4 配错了对，列比例后一定要让 x 乘对角的数。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "ratio.add_to_scale",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8e7wlkws",
+   "level": 2,
+   "question": "要解比例 x/8 = 21/56，下面哪个用交叉相乘（cross-products）写出的方程（equation）是正确的？",
+   "options": [
+    "8x = 21 × 56",
+    "21x = 8 × 56",
+    "x = 21 + 48",
+    "56x = 8 × 21"
+   ],
+   "answerIndex": 3,
+   "explain": "交叉相乘要让 x 乘它对角的数：x 在左上，对角是 56，所以 56x = 8 × 21 = 168，x = 3；用倍数看也一样，8 × 7 = 56，所以 21 ÷ 7 = 3。写成 x = 21 + 48 的那个用了加法找等值比，比只能按倍数缩放。",
+   "tags": [
+    "prop.cross_multiply_wrong_pair",
+    "prop.cross_multiply_wrong_pair",
+    "ratio.add_to_scale",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8ew04gfe",
+   "level": 3,
+   "question": "温哥华一家面包店做全麦面包，面粉与水的质量比（ratio）是 4:3。今天师傅用了 24 kg 面粉，并按这个比加水。面粉和水加起来一共是多少 kg？",
+   "options": [
+    "42 kg",
+    "47 kg",
+    "56 kg",
+    "18 kg"
+   ],
+   "answerIndex": 0,
+   "explain": "先列比例 4/3 = 24/x，交叉相乘 4x = 3 × 24 = 72，水是 18 kg；第二步别忘了加面粉：24 + 18 = 42 kg。只写 18 kg 的那个漏了第二步，写成 56 kg 的那个把 24 和 4 配成一对算出了 32 kg 水。",
+   "tags": [
+    "ok",
+    "ratio.add_to_scale",
+    "prop.cross_multiply_wrong_pair",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8egs68vf",
+   "level": 3,
+   "question": "从 Surrey 坐 SkyTrain 去看球赛，列车每 3 分钟行驶 2 km。这段路一共 18 km，下车后还要步行 4 分钟才到球场。全程一共需要多少分钟？",
+   "options": [
+    "23 分钟",
+    "31 分钟",
+    "16 分钟",
+    "27 分钟"
+   ],
+   "answerIndex": 1,
+   "explain": "列比例 3/2 = x/18（分钟对分钟、km 对 km），交叉相乘 2x = 3 × 18 = 54，坐车 27 分钟，再加步行 4 分钟得 31 分钟。写成 27 分钟的那个忘了最后一步加法；写成 23 分钟的那个把 2 加 16 变 18 的加法搬到了时间上。",
+   "tags": [
+    "ratio.add_to_scale",
+    "ok",
+    "prop.cross_multiply_wrong_pair",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8eumzyy1",
+   "level": 3,
+   "question": "解 3/8 = x/56 时，一位同学写成 x = 8 × 56 ÷ 3，算得约 149.3。他错在哪里？",
+   "options": [
+    "放大比要用加法，8 加 48 得 56，所以 x 是 3 加 48，等于 51。",
+    "他的配对没问题，只要把结果四舍五入写成 149 就算做对了。",
+    "他把 x 和 3 配错了对，正确写法是 8x = 3 × 56，x = 21。",
+    "应该改成 x 等于 3 乘 8 再除以 56，算出来约 0.43 才对。"
+   ],
+   "answerIndex": 2,
+   "explain": "交叉相乘时 x 只能乘它对角的数 8，得 8x = 3 × 56 = 168，x = 21；用倍数检验：8 × 7 = 56，所以 3 × 7 = 21。x 比 3 大一点点是合理的，149.3 这种一眼过大的结果就是配错对的信号。",
+   "tags": [
+    "ratio.add_to_scale",
+    "other",
+    "ok",
+    "prop.cross_multiply_wrong_pair"
+   ]
+  },
+  {
+   "qid": "qmtkmzx8ektji2l",
+   "level": 3,
+   "question": "一张骑行地图上，4 cm 代表实际 5 km。小林量得从家到湖边在地图上是 20 cm。他骑车去湖边，再原路骑回家，一共要骑多少 km？",
+   "options": [
+    "25 km",
+    "32 km",
+    "42 km",
+    "50 km"
+   ],
+   "answerIndex": 3,
+   "explain": "先列比例 4/5 = 20/x，交叉相乘 4x = 5 × 20 = 100，单程 25 km；往返要乘 2，得 50 km。只写 25 km 的那个漏了往返这一步；写成 32 km 的那个把 20 和 4 配成一对，单程算成了 16 km。",
+   "tags": [
+    "other",
+    "prop.cross_multiply_wrong_pair",
+    "ratio.add_to_scale",
+    "ok"
+   ]
+  }
+ ]
+}

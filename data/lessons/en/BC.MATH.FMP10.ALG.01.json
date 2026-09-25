@@ -1,0 +1,171 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.ALG.01",
+ "lang": "en",
+ "title": "operations on powers with integral exponents",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Exponents: The Rules for Those Little Numbers Up Top",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Imagine you're saving for university. You stash a hundred dollars into a savings account that earns five percent interest each year. After one year you have one hundred times one point zero five, which is one hundred five dollars. After two years, you multiply by one point zero five again, so it's one hundred times one point zero five, times one point zero five. That little 'two' sitting up in the corner? That's an exponent, and it's a shortcut for 'multiply by one point zero five, two times.' Today we're going to learn all the rules for working with those little numbers up top — positive ones, negative ones, and how they combine when you multiply, divide, or nest them.",
+    "math": "100 \\times (1.05)^2 = 100 \\times 1.1025 = 110.25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      100,
+      105,
+      110.25,
+      115.76
+     ],
+     "labels": [
+      "Year 0",
+      "Year 1",
+      "Year 2",
+      "Year 3"
+     ],
+     "caption": "Your savings grows by multiplying 1.05 each year — the exponent counts the years."
+    }
+   },
+   {
+    "say": "Let's lock in what exponents actually mean by watching the pattern with the number two. Two to the third is two times two times two, which is eight. Two to the second is two times two, which is four. Two to the first is just two. Now here's where it gets interesting: two to the zero power is one. And two to the negative one? That's one half. Two to the negative two is one quarter. See the pattern? Every time the exponent drops by one, you divide by two. A negative exponent doesn't mean 'a negative number' — it just means 'flip to the other side of the fraction.' Two to the negative two is one over two squared, which is one over four.",
+    "math": "2^3=8,\\; 2^2=4,\\; 2^1=2,\\; 2^0=1,\\; 2^{-1}=\\frac{1}{2},\\; 2^{-2}=\\frac{1}{4}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      2,
+      1,
+      0,
+      -1,
+      -2,
+      8,
+      4,
+      2,
+      1,
+      0.5,
+      0.25
+     ],
+     "labels": [
+      "2³",
+      "2²",
+      "2¹",
+      "2⁰",
+      "2⁻¹",
+      "2⁻²",
+      "Exponent",
+      "Value"
+     ],
+     "caption": "As the exponent decreases by 1, you divide by 2 each step. Negative exponents = reciprocals."
+    }
+   },
+   {
+    "say": "Here are the three workhorse rules you'll reach for every single day in this unit. Product rule: same base, multiplying? Add the exponents. Quotient rule: same base, dividing? Subtract the exponents. Power rule: a power raised to another power? Multiply the exponents. Notice the first two rules need the same base. And the power rule works even when there's a number in front, like two times x cubed, all squared — you square the two and double the exponent on x.",
+    "math": "a^m \\cdot a^n = a^{m+n} \\qquad \\frac{a^m}{a^n} = a^{m-n} \\qquad \\left(a^m\\right)^n = a^{m \\cdot n}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      3,
+      6,
+      32,
+      8,
+      64
+     ],
+     "labels": [
+      "2³·2²",
+      "2⁵÷2²",
+      "(2²)³",
+      "Exponent",
+      "Value"
+     ],
+     "caption": "Product rule: 3+2=5. Quotient rule: 5−2=3. Power rule: 2×3=6. Each law tells you the exponent on 2."
+    }
+   },
+   {
+    "say": "Let's try a quick one together. Simplify three to the fourth power, times three to the negative second power. Same base, so product rule: add the exponents. Four plus negative two is two. So the answer is three squared, which is nine. Let's double-check by expanding everything out: three to the fourth is eighty-one, and three to the negative second is one ninth. Eighty-one times one ninth is nine. Perfect match. You just used a negative exponent and a product rule in one line.",
+    "math": "3^4 \\cdot 3^{-2} = 3^{4+(-2)} = 3^2 = 9",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      -2,
+      2,
+      81,
+      0.11,
+      9
+     ],
+     "labels": [
+      "3⁴",
+      "3⁻²",
+      "3⁴·3⁻²",
+      "Exponent",
+      "Value"
+     ],
+     "caption": "Add exponents (product rule), then evaluate. Check by expanding: 81 × 1/9 = 9 (1/9 ≈ 0.11)."
+    }
+   },
+   {
+    "say": "Now let's level up a bit. Simplify: two times x cubed, all squared, times x to the negative first, all cubed. Step one: apply the power rule to each chunk. Two times x cubed, squared, becomes four times x to the sixth. And x to the negative first, cubed, becomes x to the negative third. Step two: now we have four times x to the sixth, times x to the negative third. Same base x, so product rule: six plus negative three is three. Final answer: four times x cubed. Two rules, two steps, done.",
+    "math": "\\left(2x^3\\right)^2 \\cdot \\left(x^{-1}\\right)^3 = 4x^6 \\cdot x^{-3} = 4x^{6+(-3)} = 4x^3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4,
+      1,
+      4,
+      6,
+      -3,
+      3
+     ],
+     "labels": [
+      "(2x³)²",
+      "(x⁻¹)³",
+      "4x³",
+      "Coefficient",
+      "x exponent"
+     ],
+     "caption": "Power rule first, then product rule. (2x³)² → 4x⁶; (x⁻¹)³ → x⁻³; then 4x⁶·x⁻³ = 4x³."
+    }
+   },
+   {
+    "say": "One last habit to build. When exponents sit next to other operations, always do the powers first, before you multiply, divide, add, or subtract. So two plus three squared means two plus nine, which is eleven — not five squared, which would be twenty-five. In exponent work, the little number up top gets handled early, just like BEDMAS reminds us. If brackets are around the whole thing, then sure, do the brackets first and then apply the exponent to the result.",
+    "math": "2 + 3^2 = 2 + 9 = 11 \\;\\;\\;\\;\\; (2+3)^2 = 5^2 = 25",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      11,
+      25
+     ],
+     "labels": [
+      "2 + 3²",
+      "(2 + 3)²"
+     ],
+     "caption": "Exponents beat +, −, ×, ÷. Brackets override everything."
+    }
+   },
+   {
+    "say": "Here's your one-sentence cheat sheet to carry into the next unit: positive exponent means multiply that many times, negative exponent means flip to the denominator, same base means add or subtract the exponents, and a power to a power means multiply them — and always respect the order of operations. You've got this, and honestly, once these rules click, polynomials feel a lot less scary.",
+    "math": "a^{-n}=\\frac{1}{a^n} \\qquad a^m \\cdot a^n = a^{m+n} \\qquad \\left(a^m\\right)^n = a^{m \\cdot n}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Positive exponent = multiply, negative = flip to the bottom, same base = add or subtract, power to a power = multiply. Always do exponents first.",
+  "practice": {
+   "question": "You're comparing two cell-phone data plans. Plan A's per-gigabyte cost is modelled by the expression 7 cubed times 7 to the negative second power, times 7 to the negative first power, all in dollars. Simplify using the exponent rules to find the actual per-gigabyte rate.",
+   "answer": "7^3 × 7^(−2) × 7^(−1) = 7^(3+(−2)+(−1)) = 7^0 = 1 dollar per gigabyte."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 8
+ }
+}

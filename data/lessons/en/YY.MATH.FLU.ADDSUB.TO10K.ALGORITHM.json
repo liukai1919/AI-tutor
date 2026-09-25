@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO10K.ALGORITHM",
+ "lang": "en",
+ "title": "Add and subtract to 10 000 with regrouping (column method)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Numbers, One Column at a Time",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add friendly numbers in your head, like two thousand plus three thousand. But when the numbers are messy, like three thousand four hundred eighty-six plus two thousand seven hundred fifty-nine, your head gets tired. Today we learn the column way, and the one trick that makes it work: regrouping.",
+    "math": "3486 + 2759 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the whole secret. We stack the numbers so ones sit under ones, tens under tens, hundreds under hundreds. Then we start at the ones and work to the left. If a column ever makes ten or more, we cannot squeeze two digits into one box, so we trade. Look: six ones plus nine ones is fifteen ones. Fifteen ones is one ten and five ones. We write the five and carry the one ten over to the tens column, because that little one really means one whole ten.",
+    "math": "6 + 9 = 15 \\rightarrow 1 \\text{ ten} + 5 \\text{ ones}",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      15
+     ],
+     "labels": [],
+     "caption": "Fifteen ones become one ten rod and five little cubes"
+    }
+   },
+   {
+    "say": "Now the whole thing. Ones: six plus nine is fifteen, write five, carry one. Tens: eight plus five is thirteen, plus the carried one is fourteen, write four, carry one. Hundreds: four plus seven is eleven, plus the carried one is twelve, write two, carry one. Thousands: three plus two is five, plus the carried one is six. The answer is six thousand two hundred forty-five.",
+    "math": "3486 + 2759 = 6245",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      6245
+     ],
+     "labels": [],
+     "caption": "Six thousands, two hundreds, four tens, five ones"
+    }
+   },
+   {
+    "say": "Subtracting works the same way backwards, and zeros are the tricky part. Try five thousand minus two thousand seven hundred sixty-four. In the ones you have zero and need four, so you go borrowing. The tens and hundreds are zero too, so you borrow all the way from the five thousands: it becomes four thousands, nine hundreds, nine tens, and ten ones. Now ten take away four is six, nine take away six is three, nine take away seven is two, and four take away two is two. The answer is two thousand two hundred thirty-six.",
+    "math": "5000 - 2764 = 2236",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      5000,
+      5000,
+      2236
+     ],
+     "labels": [],
+     "caption": "Jumping back two thousand seven hundred sixty-four from five thousand"
+    }
+   },
+   {
+    "say": "Here is the mistake I see most, and I want you to catch it. In four thousand one hundred fifty-two minus one thousand two hundred eighty-seven, the top ones digit is two and the bottom is seven. Some kids flip it and do seven take away two, and get three thousand one hundred thirty-five. That is not allowed! The top number is the one we are taking from, so we must borrow: twelve take away seven is five, then four take away eight needs another borrow, and so on. The correct answer is two thousand eight hundred sixty-five. A quick check: two thousand eight hundred sixty-five plus one thousand two hundred eighty-seven really is four thousand one hundred fifty-two.",
+    "math": "4152 - 1287 = 2865",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      2865
+     ],
+     "labels": [],
+     "caption": "The correct answer: two thousands, eight hundreds, six tens, five ones"
+    }
+   },
+   {
+    "say": "So remember: line up the places, start at the ones, and whenever a column overflows or runs short, trade ten for one or one for ten. Neat columns plus honest trading equals the right answer, every time.",
+    "math": "10 \\text{ ones} = 1 \\text{ ten}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Line up the places, start at the ones, and trade: ten ones make one ten, and one ten breaks into ten ones.",
+  "practice": {
+   "question": "Your school's pizza fundraiser raised two thousand six hundred seventy-five dollars in September and one thousand four hundred fifty-eight dollars in October. Write the two amounts in columns, ones under ones, and add them with regrouping. How many dollars did the school raise altogether?",
+   "answer": "Four thousand one hundred thirty-three dollars. Ones: five plus eight is thirteen, write three carry one. Tens: seven plus five plus one is thirteen, write three carry one. Hundreds: six plus four plus one is eleven, write one carry one. Thousands: two plus one plus one is four."
+  }
+ }
+}

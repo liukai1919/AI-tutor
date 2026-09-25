@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.DIV_MONOMIAL",
+ "lang": "en",
+ "title": "Divide a polynomial by a monomial term by term ((15k² − 10k) ÷ 5k = 3k − 2)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Dividing a Polynomial by a Monomial, Term by Term",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to multiply a monomial by a polynomial with an area model: two n times the quantity n plus seven gives two n squared plus fourteen n. Today we go backwards. If you know the total area of a rectangle and one side, division finds the other side. Our job: fifteen k squared minus ten k, divided by five k.",
+    "math": "(15k^2-10k)\\div 5k = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the one big rule. When you divide a polynomial by a monomial, the monomial divides every single term, not just the first one. Think of splitting a bill with friends: if a fifteen dollar pizza and a ten dollar order of wings are shared by five people, you divide the pizza cost by five and the wings cost by five. Each part gets divided. Same idea here: five k divides the fifteen k squared, and five k also divides the ten k.",
+    "math": "\\frac{15k^2-10k}{5k}=\\frac{15k^2}{5k}-\\frac{10k}{5k}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      3,
+      2
+     ],
+     "labels": [
+      "Pizza $15 ÷ 5",
+      "Wings $10 ÷ 5"
+     ],
+     "caption": "Each part of the bill gets divided by 5: three dollars plus two dollars each"
+    }
+   },
+   {
+    "say": "Now do each little division. First term: fifteen k squared divided by five k. Numbers first: fifteen divided by five is three. Letters next: k squared divided by k is k. So the first term becomes three k. Look at the picture: a rectangle five k tall and three k wide has area fifteen k squared, so fifteen k squared divided by five k really is three k. Second term: ten k divided by five k. Ten divided by five is two, and k divided by k is one. So the second term becomes two. Put it back together with the minus sign: three k minus two.",
+    "math": "\\frac{15k^2}{5k}=3k,\\quad \\frac{10k}{5k}=2,\\quad \\text{so } 3k-2",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      3,
+      5
+     ],
+     "labels": [
+      "k"
+     ],
+     "caption": "Area 15k² with height 5k means the missing width is 3k"
+    }
+   },
+   {
+    "say": "Here is the most common slip. Some people divide only the first term and write three k minus ten k. Let us check it by multiplying back. Five k times the quantity three k minus ten k gives fifteen k squared minus fifty k squared. That is nowhere near fifteen k squared minus ten k, so the scale does not balance. The ten k never got divided. Remember, every term gets the division.",
+    "math": "5k(3k-10k)=15k^2-50k^2\\neq 15k^2-10k",
+    "visual": {
+     "type": "balance",
+     "nums": [
+      1
+     ],
+     "labels": [
+      "5k(3k − 10k)",
+      "15k² − 10k"
+     ],
+     "caption": "Multiplying the wrong answer back does not give the original, so the scale tips"
+    }
+   },
+   {
+    "say": "Second slip: some people look at ten k divided by five k and say it cancels to zero. Not quite. Ten divided by five is two, and k divided by k is one, because anything divided by itself is one, not zero. Picture ten dollars shared by five friends: everybody gets two dollars, nobody gets zero. So ten k divided by five k is two, and the answer keeps that minus two.",
+    "math": "\\frac{10k}{5k}=\\frac{10}{5}\\cdot\\frac{k}{k}=2\\cdot 1=2",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      5,
+      2
+     ],
+     "labels": [],
+     "caption": "10 shared into 5 groups is 2 each, never 0"
+    }
+   },
+   {
+    "say": "Always finish with a quick check. Multiply five k by the quantity three k minus two: fifteen k squared minus ten k. That is exactly what we started with, so three k minus two is right. You can even test a number: let k be two. Then the area is fifteen times four minus twenty, which is forty, the height is ten, and forty divided by ten is four, which matches three times two minus two. So here is the takeaway: when you divide a polynomial by a monomial, divide every term, coefficients first, letters second, and multiply back to check.",
+    "math": "5k(3k-2)=15k^2-10k\\ \\checkmark",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      4,
+      10
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "When k = 2: height 10, area 40, so the width is 40 ÷ 10 = 4 = 3(2) − 2"
+    }
+   }
+  ],
+  "answer": "Divide EVERY term by the monomial: (15k² − 10k) ÷ 5k = 3k − 2",
+  "practice": {
+   "question": "A rectangular garden bed at a Burnaby community garden has an area of twelve x squared plus eight x square metres, and its width is four x metres. Divide term by term to find its length. Then multiply back to check your answer.",
+   "answer": "Length is three x plus two metres: 12x² ÷ 4x = 3x, and 8x ÷ 4x = 2. Check: 4x(3x + 2) = 12x² + 8x."
+  }
+ }
+}

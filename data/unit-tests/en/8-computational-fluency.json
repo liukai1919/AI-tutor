@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "grade": "8",
+ "strand": "computational-fluency",
+ "lang": "en",
+ "unitName": {
+  "zh": "运算熟练",
+  "en": "Computational Fluency"
+ },
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "set": {
+  "title": "Computational Fluency · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 1,
+    "question": "What is 3/8 + 1/4?",
+    "options": [
+     "4/8",
+     "5/8",
+     "4/12",
+     "5/12"
+    ],
+    "answerIndex": 1,
+    "explain": "Convert 1/4 to 2/8, then add numerators: 3/8 + 2/8 = 5/8. The most common trap is adding the denominators as well (giving 4/12) or just adding the original numerators (giving 4/8)."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 1,
+    "question": "What is 2/7 × 3/4?",
+    "options": [
+     "5/11",
+     "6/11",
+     "5/28",
+     "3/14"
+    ],
+    "answerIndex": 3,
+    "explain": "Multiply straight across: (2×3)/(7×4) = 6/28, then simplify by dividing top and bottom by 2 to get 3/14. A frequent mistake is to add the numerators and denominators separately instead of multiplying them."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 1,
+    "question": "What is 1/2 ÷ 1/4?",
+    "options": [
+     "2",
+     "1/8",
+     "1/4",
+     "1/2"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide by multiplying by the reciprocal: 1/2 × 4/1 = 4/2 = 2. The most common error is to multiply the two fractions directly (1/2 × 1/4 = 1/8) instead of flipping the divisor first."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 2,
+    "question": "At a BC music camp, a student reads a rhythm pattern written as 2/4 + 1/4 × 3/4 beats. Following the correct order of operations, how many beats does the pattern contain?",
+    "options": [
+     "9/16",
+     "3/4",
+     "11/16",
+     "3/16"
+    ],
+    "answerIndex": 2,
+    "explain": "Multiply before adding: 1/4 × 3/4 = 3/16, then 2/4 + 3/16 = 8/16 + 3/16 = 11/16. The classic trap is to work left-to-right, adding 2/4 + 1/4 first and getting 9/16."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 2,
+    "question": "At a BC math camp, a student has a 3/4 m strip of Cuisenaire rod. She cuts off 2/5 m for a drum frame and another 1/4 m for a handle. How many metres of rod remain?",
+    "options": [
+     "7/20 m",
+     "1/10 m",
+     "1/2 m",
+     "13/20 m"
+    ],
+    "answerIndex": 1,
+    "explain": "Use the LCD of 20: 15/20 − 8/20 − 5/20 = 2/20 = 1/10 m. A common slip is to subtract only one piece (giving 7/20 or 1/2) or to add the two cut pieces together instead of subtracting them from the whole."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 2,
+    "question": "A student at a BC summer camp has 3/4 of a bag of drum sticks. She splits them equally among 3 friends. What fraction of the full bag does each friend receive?",
+    "options": [
+     "1/4",
+     "9/4",
+     "3/4",
+     "4/3"
+    ],
+    "answerIndex": 0,
+    "explain": "Divide: 3/4 ÷ 3 = 3/4 × 1/3 = 3/12 = 1/4. The most frequent mistake is to multiply by 3 (giving 9/4) instead of dividing, or to flip the fraction incorrectly to 4/3."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 3,
+    "question": "A music teacher at a BC school is programming a drum sequencer. The tempo calculation requires evaluating (3/4 – 1/2) ÷ 1/6. What is the result?",
+    "options": [
+     "1/24",
+     "6",
+     "3/2",
+     "7/12"
+    ],
+    "answerIndex": 2,
+    "explain": "Work inside the brackets first: 3/4 − 1/2 = 1/4, then divide by multiplying by the reciprocal: 1/4 × 6/1 = 6/4 = 3/2. The two most common errors are multiplying by 1/6 instead of dividing (giving 1/24) and subtracting numerators and denominators separately inside the brackets (giving 6)."
+   },
+   {
+    "curriculumId": "BC.MATH.G8.FLU.01",
+    "level": 3,
+    "question": "A Grade 8 student in a BC classroom is asked to simplify 2/3 ÷ 4/5. Which option shows the correct result?",
+    "options": [
+     "8/15",
+     "3/4",
+     "15/8",
+     "5/6"
+    ],
+    "answerIndex": 3,
+    "explain": "Flip only the divisor and multiply: 2/3 × 5/4 = 10/12 = 5/6. The single biggest misconception is to multiply straight across without flipping (getting 8/15) or to flip both fractions (getting 15/8). Only the second fraction changes."
+   }
+  ]
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 0
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.ROOT.SQUARE_PERFECT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkip33std49zc",
+   "level": 1,
+   "question": "在方格纸（grid paper）上，用完全一样的小方格拼成一个大正方形，一共用了 196 个小方格，每一行和每一列的小方格个数都相同。这个大正方形每边上有多少个小方格？",
+   "options": [
+    "14 个",
+    "98 个",
+    "49 个",
+    "13 个"
+   ],
+   "answerIndex": 0,
+   "explain": "每边的个数就是 196 的平方根（square root）：14 × 14 = 196，所以每边 14 个。最容易踩的坑是把开平方当成除以 2，写成 196 ÷ 2 = 98。",
+   "tags": [
+    "ok",
+    "sq.root_as_half",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkip33sv05ufo",
+   "level": 1,
+   "question": "方格纸上有一个大正方形，被平均分成 100 个同样大的小方格。其中涂色的部分自己也是一个正方形，正好由 36 个小方格组成。涂色正方形的边长是大正方形边长的几分之几？",
+   "options": [
+    "6/100",
+    "6/10",
+    "18/50",
+    "36/10"
+   ],
+   "answerIndex": 1,
+   "explain": "分数开平方要分子（numerator）和分母（denominator）各开一次：√36 = 6，√100 = 10，所以是 6/10（约分后 3/5）。最常见的错是只开一边，把答案写成 36/10 或 6/100。",
+   "tags": [
+    "root.fraction_root_one_part",
+    "ok",
+    "sq.root_as_half",
+    "root.fraction_root_one_part"
+   ]
+  },
+  {
+   "qid": "qmtkip33s1lxzi5",
+   "level": 1,
+   "question": "小雨在方格纸上涂出一个正方形图案，这个图案正好盖住 324 个小方格，每行每列的小方格个数相同。这个正方形每边上有多少个小方格？",
+   "options": [
+    "36 个",
+    "162 个",
+    "18 个",
+    "19 个"
+   ],
+   "answerIndex": 2,
+   "explain": "因为 18 × 18 = 324，所以 √324 = 18，每边 18 个小方格。坑在于把根号（radical sign √）当成除以 2，算成 324 ÷ 2 = 162。",
+   "tags": [
+    "other",
+    "sq.root_as_half",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkip33sclumin",
+   "level": 1,
+   "question": "方格纸上的一个大正方形由 196 个同样大的小方格拼成，它里面涂色的部分也是一个正方形，由 25 个小方格组成。涂色正方形的边长是大正方形边长的几分之几？",
+   "options": [
+    "25/14",
+    "5/196",
+    "5/98",
+    "5/14"
+   ],
+   "answerIndex": 3,
+   "explain": "两个正方形的边长分别是 √25 = 5 和 √196 = 14，所以比是 5/14。坑是分母只除以 2（写成 5/98）或者分母干脆不开方。",
+   "tags": [
+    "root.fraction_root_one_part",
+    "root.fraction_root_one_part",
+    "sq.root_as_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkip33sfx0mto",
+   "level": 2,
+   "question": "计算 √(49/121) 的值。",
+   "options": [
+    "7/11",
+    "49/11",
+    "11/7",
+    "7/121"
+   ],
+   "answerIndex": 0,
+   "explain": "分子分母各开一次方：√49 = 7，√121 = 11，答案是 7/11。坑是只开一边（留着 49 或 121），或者把分子分母的位置写反。",
+   "tags": [
+    "ok",
+    "root.fraction_root_one_part",
+    "other",
+    "root.fraction_root_one_part"
+   ]
+  },
+  {
+   "qid": "qmtkip33s0c4ori",
+   "level": 2,
+   "question": "一张正方形便利贴的面积是 144 平方厘米。它的边长（side length）是多少厘米？",
+   "options": [
+    "72 厘米",
+    "12 厘米",
+    "36 厘米",
+    "14 厘米"
+   ],
+   "answerIndex": 1,
+   "explain": "正方形面积 = 边长 × 边长，所以边长 = √144 = 12 厘米，因为 12 × 12 = 144。坑是把开平方当成除以 2，算成 72 厘米。",
+   "tags": [
+    "sq.root_as_half",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkip33sgim2kf",
+   "level": 2,
+   "question": "计算 √(100/361) 的值。",
+   "options": [
+    "10/361",
+    "100/19",
+    "10/19",
+    "10/21"
+   ],
+   "answerIndex": 2,
+   "explain": "√100 = 10，√361 = 19（19 × 19 = 361），所以答案是 10/19。坑是分母不开方就照抄，或把 √361 猜成 21（21 × 21 = 441，太大了）。",
+   "tags": [
+    "root.fraction_root_one_part",
+    "root.fraction_root_one_part",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkip33s16do8w",
+   "level": 2,
+   "question": "一块正方形瓷砖的面积是 9/64 平方米。这块瓷砖的边长是多少米？",
+   "options": [
+    "9/8 米",
+    "3/64 米",
+    "3/32 米",
+    "3/8 米"
+   ],
+   "answerIndex": 3,
+   "explain": "边长 = √(9/64)，分子分母各开方：√9 = 3，√64 = 8，所以是写成 3/8 的那个。坑是分母用 64 ÷ 2 = 32，或者分母不开方直接留 64。",
+   "tags": [
+    "root.fraction_root_one_part",
+    "root.fraction_root_one_part",
+    "sq.root_as_half",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkip33sar9uq6",
+   "level": 3,
+   "question": "学校门口用 256 块完全一样的正方形小地砖，正好拼成一个大正方形，每行每列的块数相同。每块小地砖的边长是 25 厘米。这个大正方形的边长是多少米？",
+   "options": [
+    "4 米",
+    "32 米",
+    "16 米",
+    "40 米"
+   ],
+   "answerIndex": 0,
+   "explain": "第一步求每边的块数 √256 = 16；第二步 16 × 25 = 400 厘米 = 4 米。坑是把 √256 当成 256 ÷ 2 = 128，或者换算时把 400 厘米写成 40 米。",
+   "tags": [
+    "ok",
+    "sq.root_as_half",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkip33slju2fl",
+   "level": 3,
+   "question": "一块正方形地砖的面积是 9/16 平方米。工人把 8 块这样的地砖并排贴成一条直线，这条直线一共有多长？",
+   "options": [
+    "9 米",
+    "6 米",
+    "3 米",
+    "1.5 米"
+   ],
+   "answerIndex": 1,
+   "explain": "先开方求边长：√(9/16) = 3/4 米；再乘块数 8 × 3/4 = 6 米。坑是分母没开方（3/16）或分母只除以 2（3/8），边长一错后面全错。",
+   "tags": [
+    "root.fraction_root_one_part",
+    "ok",
+    "sq.root_as_half",
+    "root.fraction_root_one_part"
+   ]
+  },
+  {
+   "qid": "qmtkip33sg4dk30",
+   "level": 3,
+   "question": "Noah 计算 √(100/144)，他写成 10/72，理由是分子开方、分母除以 2。下面哪句话说得对？",
+   "options": [
+    "分子错了：√100 = 50，答案应是 50/72",
+    "分母不用开方，直接保留 144，答案是 10/144",
+    "分母也要开方：√144 = 12，答案是 10/12",
+    "分子不用开方，直接保留 100，答案是 100/12"
+   ],
+   "answerIndex": 2,
+   "explain": "分数开平方时分子和分母都要开方：√100 = 10，√144 = 12，所以是 10/12（约分后 5/6）。除以 2 不是开方，144 ÷ 2 = 72 与 12 × 12 = 144 完全是两回事。",
+   "tags": [
+    "sq.root_as_half",
+    "root.fraction_root_one_part",
+    "ok",
+    "root.fraction_root_one_part"
+   ]
+  },
+  {
+   "qid": "qmtkip33schecfs",
+   "level": 3,
+   "question": "一块正方形菜园的面积是 196 平方米，四周要围一圈栅栏，栅栏每米 12 加元。围完这一圈一共要花多少加元？",
+   "options": [
+    "2352 加元",
+    "4704 加元",
+    "168 加元",
+    "672 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "先开方求边长 √196 = 14 米，再算周长（perimeter）4 × 14 = 56 米，最后 56 × 12 = 672 加元。坑是把 √196 当成 98，或者只算一条边 14 × 12 = 168。",
+   "tags": [
+    "other",
+    "sq.root_as_half",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

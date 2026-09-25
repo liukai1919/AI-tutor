@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.SIM.INDIRECT_MEASURE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtn8ejcspof9xa",
+   "level": 1,
+   "question": "课间在 Kelowna 的操场上，Maya 把一根 200 cm 高的直杆竖在地上，量得杆的影子长 5 m。同一时刻，旗杆的影子长 20 m。杆和它的影子、旗杆和它的影子组成两个相似三角形（similar triangles）。旗杆有多高？",
+   "options": [
+    "8 m",
+    "80 m",
+    "50 m",
+    "4 m"
+   ],
+   "answerIndex": 0,
+   "explain": "先把 200 cm 换成 2 m，再用对应边配对：2÷5 = 0.4，旗杆高 = 20 × 0.4 = 8 m。最常踩的坑是把对应边配反，写成 2/5 = 20/h 得到 50 m。",
+   "tags": [
+    "ok",
+    "unit.convert_wrong_direction",
+    "sim.corresponding_sides_mismatched",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcs8ytmd0",
+   "level": 1,
+   "question": "美术课上 Ravi 画了一张长方形草图（sketch）：长 12 cm，高 8 cm。学校要把它按同一比例放大（enlargement）成走廊壁画，壁画的长是 3 m。壁画的高是多少米？",
+   "options": [
+    "25 m",
+    "2 m",
+    "4.5 m",
+    "20 m"
+   ],
+   "answerIndex": 1,
+   "explain": "3 m = 300 cm，比例系数（scale factor）= 300 ÷ 12 = 25，高 = 8 × 25 = 200 cm = 2 m。写成 25 m 的那个只是把比例系数当成了答案，还没乘上草图的高。",
+   "tags": [
+    "word.stop_early",
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsfoi1iz",
+   "level": 1,
+   "question": "北温一个文化中心摆着一个长屋模型（longhouse model），模型和真实长屋相似。模型高 30 cm、长 45 cm，真实长屋长 18 m。真实长屋有多高？",
+   "options": [
+    "27 m",
+    "40 m",
+    "12 m",
+    "120 m"
+   ],
+   "answerIndex": 2,
+   "explain": "高配高、长配长：30/45 = h/18，所以 h = 18 × 30 ÷ 45 = 12 m。写成 27 m 的那个把对应边配反了（用 30/45 = 18/h），高和长张冠李戴。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "word.stop_early",
+    "ok",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsetjfc1",
+   "level": 1,
+   "question": "Jonah 在 Chilliwack 河边用两个相似三角形量河宽。小三角形靠河的一边量得 400 cm，沿岸的一边量得 10 m；大三角形沿岸的对应边是 30 m，它靠河的那条边就是河宽。河宽是多少？",
+   "options": [
+    "120 m",
+    "3 m",
+    "75 m",
+    "12 m"
+   ],
+   "answerIndex": 3,
+   "explain": "400 cm = 4 m，沿岸边放大了 30 ÷ 10 = 3 倍，所以河宽 = 4 × 3 = 12 m。只写 3 的那个停在了比例系数上，还没用它去乘靠河的边。",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "word.stop_early",
+    "sim.corresponding_sides_mismatched",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsgzm847",
+   "level": 2,
+   "question": "一个长屋模型和真实长屋相似：模型长 45 cm、高 15 cm，真实长屋长 18 m。真实长屋的屋顶上还要竖一根 1.2 m 高的雕柱，柱顶离地面多高？",
+   "options": [
+    "7.2 m",
+    "55.2 m",
+    "6 m",
+    "1.8 m"
+   ],
+   "answerIndex": 0,
+   "explain": "18 m = 1800 cm，比例系数 = 1800 ÷ 45 = 40，真实高 = 15 × 40 = 600 cm = 6 m，再加雕柱 1.2 m 得 7.2 m。答 6 m 的那个只算到屋顶就停了，忘了最后一步。",
+   "tags": [
+    "ok",
+    "sim.corresponding_sides_mismatched",
+    "word.stop_early",
+    "unit.convert_wrong_direction"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcszb9q19",
+   "level": 2,
+   "question": "一张草图长 15 cm、高 9 cm，按同一比例放大成走廊壁画，壁画的长是 4.5 m。壁画四周要贴一圈木边条，壁画的周长（perimeter）是多少米？",
+   "options": [
+    "24 m",
+    "14.4 m",
+    "144 m",
+    "2.7 m"
+   ],
+   "answerIndex": 1,
+   "explain": "4.5 m = 450 cm，比例系数 = 450 ÷ 15 = 30，壁画高 = 9 × 30 = 270 cm = 2.7 m，周长 = 2 ×（4.5 + 2.7）= 14.4 m。答 2.7 m 的那个算出高就交卷了，题目要的是一圈的长度。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "unit.convert_wrong_direction",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsbsdpw4",
+   "level": 2,
+   "question": "Nadia 用两个相似三角形量一条河的宽度。小三角形靠河的一边是 500 cm，沿岸的一边是 8 m；大三角形沿岸的对应边是 40 m，它靠河的那条边就是河宽。她要拉一条比河宽再长 4 m 的绳子横过河，绳子要多长？",
+   "options": [
+    "68 m",
+    "254 m",
+    "29 m",
+    "25 m"
+   ],
+   "answerIndex": 2,
+   "explain": "500 cm = 5 m，5/8 = x/40 得河宽 25 m，绳子 = 25 + 4 = 29 m。答 25 m 的那个停在河宽这一步；把 500 cm 当成 50 m 会算出 254 m，单位换算方向反了。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "unit.convert_wrong_direction",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsl8ue8s",
+   "level": 2,
+   "question": "同一时刻，一根 1.2 m 高的标杆影子长 80 cm，旁边一栋房子的影子长 6 m。房子屋顶上还立着一根 2 m 高的天线，天线顶端离地面多高？",
+   "options": [
+    "6 m",
+    "2.9 m",
+    "9 m",
+    "11 m"
+   ],
+   "answerIndex": 3,
+   "explain": "80 cm = 0.8 m，1.2/0.8 = h/6 得房高 9 m，再加天线 2 m 得 11 m。答 9 m 的那个把中间的房高当成了最终答案。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "unit.convert_wrong_direction",
+    "word.stop_early",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcszo9a2w",
+   "level": 3,
+   "question": "Nanaimo 一栋公寓楼的影子长 27 m。同一时刻，一根 150 cm 高的标杆影子长 2.5 m。这栋楼一共 6 层，每层一样高。每层楼有多高？",
+   "options": [
+    "2.7 m",
+    "27 m",
+    "16.2 m",
+    "7.5 m"
+   ],
+   "answerIndex": 0,
+   "explain": "150 cm = 1.5 m，1.5/2.5 = h/27 得楼高 16.2 m，再除以 6 层得每层 2.7 m。写 16.2 m 的那个算到整栋楼高就停了，没除以层数。",
+   "tags": [
+    "ok",
+    "unit.convert_wrong_direction",
+    "word.stop_early",
+    "sim.corresponding_sides_mismatched"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcshc14z8",
+   "level": 3,
+   "question": "Priya 在 Kamloops 河边用两个相似三角形量河宽。小三角形靠河的一边是 8 m，沿岸的一边是 12 m；大三角形沿岸的对应边量得 3000 cm，它靠河的那条边是从 Priya 站的点连到对岸。Priya 站的点离水边还有 4 m。水面的宽度是多少？",
+   "options": [
+    "41 m",
+    "16 m",
+    "196 m",
+    "20 m"
+   ],
+   "answerIndex": 1,
+   "explain": "3000 cm = 30 m，比例系数 = 30 ÷ 12 = 2.5，站点到对岸 = 8 × 2.5 = 20 m，再减去岸上的 4 m，水面宽 16 m。答 20 m 的那个忘了她并不是站在水边。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "unit.convert_wrong_direction",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsxf40i7",
+   "level": 3,
+   "question": "Liam 用影子测树高：他身高 1.5 m，影子长 2 m，同一时刻大树的影子长 10 m。他写下 1.5/2 = 10/h，算出树高约 13.3 m。他错在哪里？",
+   "options": [
+    "他单位没统一：树影 10 m 要先换成 100 cm 再算才对",
+    "他把人和树配反了：应该写 2/1.5 = h/10，树高 13.3 m",
+    "他把对应边配反了：应该写 1.5/2 = h/10，树高 7.5 m",
+    "他只算了一半：13.3 m 还要减去自己的身高 1.5 m 才对"
+   ],
+   "answerIndex": 2,
+   "explain": "人高配树高、人影配树影，正确的比例是 1.5/2 = h/10，树高 7.5 m。他把树影 10 放到了分子上，等于让短边去对长边，答案才被放大成 13.3 m。",
+   "tags": [
+    "unit.convert_wrong_direction",
+    "sim.corresponding_sides_mismatched",
+    "ok",
+    "word.stop_early"
+   ]
+  },
+  {
+   "qid": "qmtn8ejcsn27o6r",
+   "level": 3,
+   "question": "Ava 的草图长 30 cm、高 20 cm，要按同一比例放大成走廊壁画，壁画的长是 450 cm。颜料每平方米 12 加元，涂满整幅壁画要花多少钱？",
+   "options": [
+    "364.50 加元",
+    "16 200.00 加元",
+    "13.50 加元",
+    "162.00 加元"
+   ],
+   "answerIndex": 3,
+   "explain": "比例系数 = 450 ÷ 30 = 15，壁画高 = 20 × 15 = 300 cm，所以壁画是 4.5 m × 3 m = 13.5 平方米，花费 13.5 × 12 = 162 加元。写 13.50 加元的那个把面积当成了钱数。",
+   "tags": [
+    "sim.corresponding_sides_mismatched",
+    "unit.convert_wrong_direction",
+    "word.stop_early",
+    "ok"
+   ]
+  }
+ ]
+}

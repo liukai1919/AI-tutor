@@ -1,0 +1,80 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.REL.FRAC_TO_DEC",
+ "lang": "en",
+ "title": "Convert a fraction to a decimal by dividing the numerator by the denominator",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Turning Any Fraction Into a Decimal",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know the easy ones: seven tenths is just zero point seven, because tenths and hundredths slide straight onto a grid. But what about a fraction like three eighths? There is no eighths grid, so today you get one reliable trick that works on every fraction.",
+    "math": "\\frac{7}{10}=0.7",
+    "visual": {
+     "type": "hundredthsGrid",
+     "nums": [
+      70
+     ],
+     "labels": [],
+     "caption": "Seven tenths is 70 out of 100 squares, or 0.7"
+    }
+   },
+   {
+    "say": "Here is the whole idea: that little fraction bar is a division sign in disguise. Three eighths really means three whole things shared equally among eight people. So to get the decimal, you divide the top number by the bottom number. Top goes inside, bottom goes outside.",
+    "math": "\\frac{3}{8}=3\\div 8",
+    "visual": {
+     "type": "pie",
+     "nums": [
+      8,
+      3
+     ],
+     "labels": [],
+     "caption": "Three eighths of a pizza: 3 slices out of 8"
+    }
+   },
+   {
+    "say": "Let's do it. Three divided by eight. Eight does not fit into three, so write zero point, then add zeros after the three to make three point zero zero zero. Eight goes into thirty three times, that is twenty four, leaving six. Eight goes into sixty seven times, that is fifty six, leaving four. Eight goes into forty exactly five times. So three eighths equals zero point three seven five.",
+    "math": "3\\div 8=0.375",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      0.375
+     ],
+     "labels": [],
+     "caption": "0.375 — three tenths, seven hundredths, five thousandths"
+    }
+   },
+   {
+    "say": "Now two traps. Trap one: copying the digits and writing zero point three eight. That is just the numbers wearing a costume — try it on one half and you would get zero point one two, which is nonsense, because one half is zero point five. Trap two: dividing the wrong way, eight divided by three. That gives about two point six seven, and three slices of pizza out of eight can never be more than two whole pizzas! Three eighths is less than half, so its decimal must be less than zero point five.",
+    "math": "\\frac{3}{8}\\ne 0.38,\\qquad \\frac{3}{8}\\ne 8\\div 3",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.375
+     ],
+     "labels": [],
+     "caption": "0.375 sits just below the halfway mark — exactly where three eighths belongs"
+    }
+   },
+   {
+    "say": "So whenever a fraction looks unfriendly, just read the bar as divide, put the top number inside, and keep adding zeros until the division finishes. Then do a quick sanity check: if the fraction is less than one, the decimal must be less than one too.",
+    "math": "\\frac{a}{b}=a\\div b",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The fraction bar means divide: top number divided by bottom number gives the decimal.",
+  "practice": {
+   "question": "Four friends in Kelowna share one large pizza equally, so each person gets one fourth of it. Picture a ten by ten grid where all one hundred little squares together stand for one whole pizza — draw it yourself if you like. First turn one fourth into a decimal by dividing one by four, then say how many of the one hundred squares you would shade to show that decimal.",
+   "answer": "One divided by four is 0.25, so you would shade 25 of the 100 squares — a quarter of the grid."
+  }
+ }
+}

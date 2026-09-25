@@ -1,0 +1,155 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.FMP10.ALG.02",
+ "lang": "en",
+ "title": "prime factorization",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Prime Factorization – A Number's Building Blocks",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You just finished a quiz and you got twelve out of eighteen right. You're a little bummed, thinking, 'Only twelve out of eighteen.' But your friend glances at it and says, 'Hey, that's actually two out of three. Way better than it looks.' And you're like, how did you do that so fast? They didn't just guess. They broke both numbers down into their smallest building blocks, spotted what was shared, and cancelled it out. That little trick is called prime factorization, and it's the workhorse behind simplifying fractions, finding common multiples, and a ton of algebra you'll hit this year. Let's learn how to do it for any number, no guessing required.",
+    "math": "\\frac{12}{18}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      18,
+      12
+     ],
+     "labels": [
+      "12 out of 18"
+     ],
+     "caption": "Your quiz score: 12 shaded out of 18 total."
+    }
+   },
+   {
+    "say": "First, quick vocabulary so we're on the same page. A prime number is a whole number bigger than one whose only factors are one and itself. Two is prime. Three is prime. Five, seven, eleven, thirteen, seventeen, nineteen, twenty-three, twenty-nine, thirty-one, thirty-seven, forty-one, forty-three, forty-seven, fifty-three — all prime. But four is NOT prime, because two times two makes four. Six is not prime, because two times three makes six. Nine is not prime, because three times three makes nine. See the pattern? If you can split it into two smaller whole numbers, it's not prime. Keep that list of small primes in your back pocket: two, three, five, seven, eleven, thirteen. You'll be using them constantly.",
+    "math": "",
+    "visual": {
+     "type": "hundredChart",
+     "nums": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53
+     ],
+     "labels": [
+      "Primes up to 53"
+     ],
+     "caption": "The circled numbers are the primes — they have no smaller factors hiding inside them."
+    }
+   },
+   {
+    "say": "Now, what does prime factorization actually mean? It means you take a whole number and keep breaking it apart until every single piece is prime. You're not stopping at 'two times six.' Six is not prime, so you keep splitting. You're not stopping at 'three times four.' Four is not prime. You keep going until the only numbers in your little multiplication chain are primes. The rule is simple: no composites allowed in the final answer. Every number, no matter how big, has exactly one such list of primes. That's a theorem, and it means you'll always get the same answer no matter which prime you try first.",
+    "math": "\\text{prime factorization: } n = p_1 \\times p_2 \\times \\cdots \\times p_k \\quad (\\text{all } p_i \\text{ prime})",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's do our first example: twelve. I ask myself, what is the smallest prime that divides into twelve? Two does. Twelve divided by two is six. Write that down: twelve equals two times six. Now, is six prime? No, two times three makes six. So I divide six by two again and get three. Is three prime? Yes! We stop right there. So the full factorization of twelve is two times two times three. That's it. You broke it all the way down to primes. Quick check: two times two is four, four times three is twelve. We got it back. Good habit — always multiply your primes back together to confirm.",
+    "math": "12 = 2 \\times 6 = 2 \\times 2 \\times 3",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      12,
+      6,
+      3,
+      1
+     ],
+     "labels": [
+      "Start",
+      "÷ 2",
+      "÷ 2",
+      "÷ 3"
+     ],
+     "caption": "Each column divides by a prime until you reach 1."
+    }
+   },
+   {
+    "say": "Now a slightly bigger one: sixty. Smallest prime into sixty? Two. Sixty over two is thirty. Is thirty prime? No. Smallest prime into thirty? Two again. Thirty over two is fifteen. Fifteen — prime? No, because three times five makes fifteen. So I divide fifteen by three and get five. Five is prime. Stop. So sixty equals two times two times three times five. Let me check: two times two is four, four times three is twelve, twelve times five is sixty. Perfect, we're back where we started. Notice that I always grabbed the smallest available prime. You could have started with three first and still ended up with the same four primes — the order doesn't matter, the list does.",
+    "math": "60 = 2 \\times 30 = 2 \\times 2 \\times 15 = 2 \\times 2 \\times 3 \\times 5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      60,
+      30,
+      15,
+      5,
+      1
+     ],
+     "labels": [
+      "Start",
+      "÷ 2",
+      "÷ 2",
+      "÷ 3",
+      "÷ 5"
+     ],
+     "caption": "Successive division by primes: 60 → 30 → 15 → 5."
+    }
+   },
+   {
+    "say": "Now here's where we make it look clean. In twelve we had two appearing twice, so instead of writing two times two times three, we write two to the power of two, times three. That little exponent just means 'two shows up two times.' For sixty, it's two to the power of two times three times five. If a prime only shows up once — like three in twelve, or five in sixty — you just write the number by itself with no exponent, because anything to the power of one is just itself. This compact form is what you'll see in textbooks and what your teacher will expect on a test. One more bonus: once you have the primes, you can list every factor of the number too — just multiply together any selection of them. From two times two times three you get one, two, three, four, six, and twelve: all six factors of twelve.",
+    "math": "12 = 2^{2} \\times 3 \\qquad\\qquad 60 = 2^{2} \\times 3 \\times 5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Alright, let's loop back to your quiz score, because this is where prime factorization actually pays off. Twelve out of eighteen. I factor the top: two to the power of two times three. I factor the bottom: two times three to the power of two. Now I look for what they share. Both have a two. Both have a three. Two times three is six, and that's the greatest common factor. I cancel that shared six from top and bottom. Twelve over six is two. Eighteen over six is three. I'm left with two out of three. Prime factorization is how I found that shared six without just trying random numbers. It's the reliable, systematic way to simplify any fraction, no matter how big the numbers get.",
+    "math": "\\frac{12}{18} = \\frac{2 \\times 2 \\times 3}{2 \\times 3 \\times 3} = \\frac{\\cancel{6} \\times 2}{\\cancel{6} \\times 3} = \\frac{2}{3}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      18,
+      12
+     ],
+     "labels": [
+      "12/18 simplifies to 2/3"
+     ],
+     "caption": "Cancel the shared factors (2 and 3) to get the simplest form."
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to carry with you: prime factorization breaks a number into its prime building blocks, and once you have those blocks for two numbers, you can see exactly what they share. That shared part is your greatest common factor, and it's the key to simplifying fractions, finding least common multiples, and a whole lot of algebra coming up this year. You do not need to memorize a long list of primes — you just need two, three, five, seven, eleven, and the habit of always dividing by the smallest prime you can. That's the whole method. You've got this.",
+    "math": "\\boxed{\\text{Every number } > 1 \\text{ has exactly one prime factorization.}}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Prime factorization breaks a number into its prime building blocks — and those blocks reveal exactly what two numbers share, so you can simplify, compare, and solve without guessing.",
+  "practice": {
+   "question": "You and your friend are splitting the cost of a group movie night. Your share is $48 and your friend's share is $72. Use prime factorization to find the greatest common factor of 48 and 72, then express your friend's share as a simplified fraction of the total ($120).",
+   "answer": "48 = 2⁴ × 3 and 72 = 2³ × 3². GCF = 2³ × 3 = 24. Your friend's share: 72/120. Factor: 72 = 2³ × 3², 120 = 2³ × 3 × 5. GCF of 72 and 120 = 2³ × 3 = 24. So 72/120 = 3/5. Your friend pays three-fifths of the total."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 4
+ }
+}

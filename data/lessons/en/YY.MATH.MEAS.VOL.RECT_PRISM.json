@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.VOL.RECT_PRISM",
+ "lang": "en",
+ "title": "Find the volume of a rectangular prism with length × width × height",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "The Volume Shortcut: Length Times Width Times Height",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to count unit cubes to find volume, and you know the area of a rectangle is length times width. Today we take a shortcut, so you never have to count all those little cubes one by one again.",
+    "math": "A = l \\times w",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      5,
+      3
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "The bottom of a box: 5 cm by 3 cm"
+    }
+   },
+   {
+    "say": "Here is the idea. Picture a box sitting on your desk. The bottom floor of the box holds one flat layer of centimetre cubes, and length times width tells you how many cubes are in that one layer. Then the height tells you how many layers are stacked on top of each other. So you multiply all three: length times width times height.",
+    "math": "V = l \\times w \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "A box: 5 cm long, 3 cm wide, 4 cm tall"
+    }
+   },
+   {
+    "say": "Let's do it with this box, which could be a little gift box from a shop on Robson Street. It is 5 centimetres long, 3 centimetres wide, and 4 centimetres tall. First the bottom layer: 5 times 3 is 15 cubes. Then stack it up: 4 layers of 15 cubes is 60 cubes. So the volume is 60 cubic centimetres.",
+    "math": "V = 5 \\times 3 \\times 4 = 60\\ \\text{cm}^3",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "15 cubes in each layer, 4 layers, 60 cubes in all"
+    }
+   },
+   {
+    "say": "Now here is the mistake I want you to dodge. Some kids see a box and start figuring out how much wrapping paper covers the outside. That is surface area, and it is a different question. Volume is about what fits inside, like how much juice or how many cubes fill it up. Your units are a great clue: volume answers end in cubic centimetres, because you are counting cubes.",
+    "math": "60\\ \\text{cm}^3 \\ne 94\\ \\text{cm}^2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So whenever you meet a rectangular prism, just find the three edge lengths and multiply them together, and finish with cubic units. Length times width times height, every time.",
+    "math": "V = l \\times w \\times h",
+    "visual": {
+     "type": "solidCuboid",
+     "nums": [
+      5,
+      3,
+      4
+     ],
+     "labels": [
+      "cm"
+     ],
+     "caption": "Volume equals length times width times height"
+    }
+   }
+  ],
+  "answer": "Volume of a rectangular prism equals length times width times height — and the answer is always in cubic units.",
+  "practice": {
+   "question": "A carton of apple juice from the grocery store is shaped like a rectangular prism. It is 8 centimetres long, 5 centimetres wide, and 10 centimetres tall. What is its volume? (Try sketching the box first and labelling the three edges.)",
+   "answer": "400 cubic centimetres, because 8 times 5 is 40, and 40 times 10 is 400."
+  }
+ }
+}

@@ -1,0 +1,162 @@
+{
+ "id": "BC.MATH.PC11.TRI.01",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt3jlm6o5rboo6",
+   "level": 1,
+   "question": "What is one coterminal angle for 300°?",
+   "options": [
+    "60°",
+    "360°",
+    "-60°",
+    "240°"
+   ],
+   "answerIndex": 2,
+   "explain": "Subtract 360° from 300° to get -60°. The trap is picking 60°, which is the reference angle, not a coterminal angle."
+  },
+  {
+   "qid": "qmt3jlm6oy1xbvz",
+   "level": 1,
+   "question": "What is the exact value of cos 60°?",
+   "options": [
+    "√3/2",
+    "√2/2",
+    "1",
+    "1/2"
+   ],
+   "answerIndex": 3,
+   "explain": "In the 30-60-90 triangle, cos 60° = adjacent/hypotenuse = 1/2. A common trap is confusing it with sin 60° = √3/2."
+  },
+  {
+   "qid": "qmt3jlm6ojtr9dw",
+   "level": 1,
+   "question": "What is the reference angle for 150°?",
+   "options": [
+    "60°",
+    "150°",
+    "30°",
+    "210°"
+   ],
+   "answerIndex": 2,
+   "explain": "150° is in Quadrant II, so the reference angle is 180° - 150° = 30°. The trap is reporting the angle itself (150°) or using the wrong subtraction."
+  },
+  {
+   "qid": "qmt3jlm6o8yrd8l",
+   "level": 1,
+   "question": "An angle θ is in standard position and its terminal arm passes through the point (3, 4). What is sin θ?",
+   "options": [
+    "3/5",
+    "4/3",
+    "3/4",
+    "4/5"
+   ],
+   "answerIndex": 3,
+   "explain": "Compute r = √(3² + 4²) = 5, then sin θ = y/r = 4/5. The trap is using 3/5 (that is cos θ) or 4/3 (that is tan θ)."
+  },
+  {
+   "qid": "qmt3jlm6o4r8gtb",
+   "level": 2,
+   "question": "In a triangle, angle A = 45°, side a = 8, and angle B = 30°. Using the Sine Law, what is side b?",
+   "options": [
+    "8√2",
+    "4√2",
+    "4",
+    "8"
+   ],
+   "answerIndex": 1,
+   "explain": "Sine Law: a/sin A = b/sin B, so b = 8·sin 30°/sin 45° = 8(1/2)/(√2/2) = 4√2. The trap is swapping a and b, which gives 8√2."
+  },
+  {
+   "qid": "qmt3jlm6ovywwx6",
+   "level": 2,
+   "question": "A hiker on a trail in the Coast Mountains walks 5 km to a junction, then takes an 8 km trail that makes a 60° angle with the first trail. How far is the hiker from the starting point?",
+   "options": [
+    "5 km",
+    "3 km",
+    "7 km",
+    "√89 km"
+   ],
+   "answerIndex": 2,
+   "explain": "Cosine Law: c² = 5² + 8² - 2(5)(8)cos 60° = 25 + 64 - 40 = 49, so c = 7 km. The trap is forgetting the -2ab cos C term and getting √89."
+  },
+  {
+   "qid": "qmt3jlm6odhscm1",
+   "level": 2,
+   "question": "A wind turbine on a rooftop in Vancouver makes 3 complete rotations and then stops at 120°. What is the total angle of rotation?",
+   "options": [
+    "840°",
+    "1200°",
+    "480°",
+    "1080°"
+   ],
+   "answerIndex": 1,
+   "explain": "Total angle = 3 × 360° + 120° = 1200°. The trap is multiplying by 2 instead of 3 (giving 840°) or forgetting the extra 120° (giving 1080°)."
+  },
+  {
+   "qid": "qmt3jlm6ouvze3i",
+   "level": 2,
+   "question": "In a triangle, side a = 5, side b = 10, and angle A = 30°. Using the Sine Law, what is angle B?",
+   "options": [
+    "90°",
+    "60°",
+    "120°",
+    "30°"
+   ],
+   "answerIndex": 0,
+   "explain": "Sine Law: sin B = b·sin A/a = 10(1/2)/5 = 1, so B = 90°. The trap is reporting angle C (60°) or simply copying angle A (30°)."
+  },
+  {
+   "qid": "qmt3jlm6p1sd5la",
+   "level": 3,
+   "question": "A rescue team at point A spots a stranded kayaker 200 m away. The angle at A is 35°. The kayaker reports being 150 m from a lighthouse at point C. How many distinct triangle configurations (i.e., possible positions of the lighthouse) satisfy these measurements?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answerIndex": 2,
+   "explain": "This is the ambiguous SSA case: the known angle A (35°) is opposite the 150 m side, and the 200 m side is adjacent to it. Compute h = 200·sin 35° ≈ 114.7 m. Since h < 150 < 200, the 150 m side can swing to two different positions, so two triangles exist. The trap is assuming only one triangle is possible."
+  },
+  {
+   "qid": "qmt3jlm6p1a1ww2",
+   "level": 3,
+   "question": "Solve sin θ = -1/2 for 0° ≤ θ ≤ 360°. What are all the solutions?",
+   "options": [
+    "30° and 150°",
+    "210° and 330°",
+    "210° and 150°",
+    "330° and 30°"
+   ],
+   "answerIndex": 1,
+   "explain": "Sine is negative in QIII and QIV. Reference angle is 30°, so θ = 180°+30° = 210° and θ = 360°-30° = 330°. The trap is using the positive solutions (30°, 150°) by ignoring the minus sign."
+  },
+  {
+   "qid": "qmt3jlm6pcj3to0",
+   "level": 3,
+   "question": "Solve cos θ = -√3/2 for 0° ≤ θ ≤ 360°. What are all the solutions?",
+   "options": [
+    "30° and 330°",
+    "150° and 330°",
+    "150° and 210°",
+    "30° and 210°"
+   ],
+   "answerIndex": 2,
+   "explain": "The reference angle is 30° (since cos 30° = √3/2). Cosine is negative in QII and QIII, so θ = 180°-30° = 150° and θ = 180°+30° = 210°. The trap is placing solutions in QI/QIV where cosine is positive."
+  },
+  {
+   "qid": "qmt3jlm6pyx2ff7",
+   "level": 3,
+   "question": "A Ferris wheel at the Vancouver Seawall has a radius of 10 m and its centre is 12 m above the ground. The height of a passenger is modelled by h(t) = 10 sin(30t) + 12, where t is in seconds and the angle is in degrees. At what first positive time t is the passenger exactly 17 m above the ground?",
+   "options": [
+    "5 s",
+    "1 s",
+    "6 s",
+    "10 s"
+   ],
+   "answerIndex": 1,
+   "explain": "Set 10 sin(30t°)+12 = 17, giving sin(30t°) = 1/2, so 30t° = 30° and t = 1 s. The trap is choosing the second solution (30t° = 150°, t = 5 s) instead of the first positive one."
+  }
+ ]
+}

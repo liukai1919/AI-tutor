@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.ADDSUB.TO1M.ALGORITHM",
+ "lang": "en",
+ "title": "Add and subtract multi-digit numbers with regrouping across several places",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Big Numbers, Same Trading Trick",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to stack numbers up to ten thousand and carry or borrow. Today we do the exact same thing with even bigger numbers, like thirty-four thousand five hundred eighty-six, where you might have to trade in more than one place.",
+    "math": "34\\,586 + 27\\,845 = ?",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      34586
+     ],
+     "labels": [],
+     "caption": "Every digit still sits in its own place: ten thousands, thousands, hundreds, tens, ones."
+    }
+   },
+   {
+    "say": "Here is the one rule that does all the work. Whenever a column gives you ten or more, you trade ten of them for one of the next place. Look at thirteen ones: ten of those ones become one ten, and three ones stay behind. That is why we write the three and carry the one.",
+    "math": "13 = 1\\ \\text{ten} + 3\\ \\text{ones}",
+    "visual": {
+     "type": "baseTen",
+     "nums": [
+      13
+     ],
+     "labels": [],
+     "caption": "Thirteen ones trade into one ten rod and three little ones."
+    }
+   },
+   {
+    "say": "Let us add. Imagine two BC towns: thirty-four thousand five hundred eighty-six people in one, twenty-seven thousand eight hundred forty-five in the other. Start on the right. Six plus five is eleven, so write one and carry one. Eight plus four plus that one is thirteen, write three and carry one. Five plus eight plus one is fourteen, write four and carry one. Four plus seven plus one is twelve, write two and carry one. Three plus two plus one is six. The total is sixty-two thousand four hundred thirty-one.",
+    "math": "34\\,586 + 27\\,845 = 62\\,431",
+    "visual": {
+     "type": "placeValue",
+     "nums": [
+      62431
+     ],
+     "labels": [],
+     "caption": "The answer: 6 ten thousands, 2 thousands, 4 hundreds, 3 tens, 1 one."
+    }
+   },
+   {
+    "say": "Subtracting works the same way, just backwards. Say a trail fund has forty thousand dollars and twelve thousand six hundred seventy-five dollars gets spent. All those zeros have nothing to lend, so we open up the big number: forty thousand is the same as three ten thousands, nine thousands, nine hundreds, nine tens, and ten ones. Now every column is easy. Ten take away five is five, nine take away seven is two, nine take away six is three, nine take away two is seven, three take away one is two. Twenty-seven thousand three hundred twenty-five dollars is left.",
+    "math": "40\\,000 - 12\\,675 = 27\\,325",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      40000,
+      12675,
+      40000
+     ],
+     "labels": [],
+     "caption": "The jump from 12,675 up to 40,000 is 27,325."
+    }
+   },
+   {
+    "say": "Here is the trap I want you to dodge. Some kids see zero on top and five underneath, and just flip it around to do five take away zero. That gives thirty-two thousand six hundred seventy-five, which is way too big. Check it by adding back: thirty-two thousand six hundred seventy-five plus twelve thousand six hundred seventy-five is forty-five thousand three hundred fifty, not forty thousand. Never flip a column. If the top digit is too small, go borrow next door. And when you add, never leave a carry sitting there, or your answer ends up ten or a hundred short.",
+    "math": "40\\,000-12\\,675 \\ne 32\\,675",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      32675,
+      27325
+     ],
+     "labels": [
+      "Flipping the digits",
+      "Borrowing properly"
+     ],
+     "caption": "The flipped answer is far too big — always borrow instead."
+    }
+   },
+   {
+    "say": "So remember: work from right to left, and whenever a place is too full or too small, trade with the neighbour next door.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Go right to left, and trade with the place next door: ten of one place always makes one of the next.",
+  "practice": {
+   "question": "A recycling depot in Kelowna collected twenty-three thousand six hundred eighty-seven bottles in June and thirty-eight thousand four hundred fifty-nine bottles in July. Stack them in columns and add. How many bottles altogether?",
+   "answer": "62,146 bottles. (7 plus 9 is 16, write 6 carry 1; 8 plus 5 plus 1 is 14, write 4 carry 1; 6 plus 4 plus 1 is 11, write 1 carry 1; 3 plus 8 plus 1 is 12, write 2 carry 1; 2 plus 3 plus 1 is 6.)"
+  }
+ }
+}

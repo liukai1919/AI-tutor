@@ -1,0 +1,108 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.STAT.POP_SAMPLE",
+ "lang": "en",
+ "title": "Tell a population from a sample and explain when sampling is the sensible choice (cost, time, destructive tests)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Population or Sample? When Checking Everyone Is Not Worth It",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to take a set of numbers, like a class survey or a season of basketball stats, and find the mean, median and mode. Today we ask a question that comes before any of that: whose numbers are these? Were they collected from everyone we care about, or just from some of them? That difference has two names, population and sample, and knowing which one you have changes what you are allowed to say about the results.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here are the two words. The population is the entire group you want to know about. The sample is the smaller part of that group you actually collect data from. Say your school in Surrey has one thousand two hundred students and you want to know how many hours a week they spend gaming. All one thousand two hundred students are the population. If you survey sixty students in the cafeteria, those sixty are your sample. Same question, but one is the whole group and one is a slice of it.",
+    "math": "\\text{Population} = 1200 \\text{ students}, \\quad \\text{Sample} = 60 \\text{ students}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1200,
+      60
+     ],
+     "labels": [
+      "Group",
+      "Who is in it",
+      "How many"
+     ],
+     "caption": "Row one: population, every student at the school, twelve hundred. Row two: sample, the students asked in the cafeteria, sixty."
+    }
+   },
+   {
+    "say": "So why not just ask everyone every time? Three good reasons. Cost: mailing a survey to every household in B C costs millions of dollars, while a sample of two thousand households costs far less. Time: asking every gamer in Canada their favourite game would take years, but a sample of five hundred can be done in a week. And destructive testing: if a company wants to know how long its phone batteries last, it has to run them until they die. Test every battery and you have nothing left to sell. So they test a sample of, say, fifty out of a batch of ten thousand. Sampling is not lazy. Often it is the only sensible option.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2000000,
+      2000,
+      10000,
+      50
+     ],
+     "labels": [
+      "Reason to sample",
+      "Population",
+      "Sample size"
+     ],
+     "caption": "Row one: cost and time, all two million B C households versus a sample of two thousand. Row two: destructive test, ten thousand batteries versus fifty tested."
+    }
+   },
+   {
+    "say": "Now the mistake almost everyone makes at first. Back to the gaming survey. Of the sixty students you asked, forty two said they game more than ten hours a week. That is seventy percent, since forty two divided by sixty equals zero point seven. The tempting sentence is: seventy percent of the school games more than ten hours a week. But hold on. You asked sixty people, not one thousand two hundred. Seventy percent is a fact about your sample. For the whole school it is only an estimate, and a shaky one if you only asked in the cafeteria, where gamers might hang out more or less than average. The honest sentence is: about seventy percent of the students we surveyed game more than ten hours, so it is probably somewhere near that for the school. Sample results describe the sample. They only point toward the population.",
+    "math": "\\frac{42}{60} = 0.70 = 70\\%",
+    "visual": {
+     "type": "pieChart",
+     "nums": [
+      42,
+      18
+     ],
+     "labels": [
+      "More than 10 hours",
+      "10 hours or less"
+     ],
+     "caption": "The sixty students surveyed: forty two gamed more than ten hours a week, eighteen did not. This pie is about the sample, not the whole school."
+    }
+   },
+   {
+    "say": "One more trap: thinking you can always just check everyone if you try hard enough. Imagine Tim Hortons wants to know if their new muffin recipe tastes good. You cannot taste every muffin, because tasting it means eating it, and then there is no muffin to sell. Or a fish study in the Fraser River: nobody can count every salmon. When the population is huge, spread out, or gets used up by the test itself, a census, which means checking every single member, is not just expensive. It is impossible. The right move is a well chosen sample.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0,
+      1
+     ],
+     "labels": [
+      "Situation",
+      "Census possible?",
+      "Best choice"
+     ],
+     "caption": "Row one: taste testing muffins, census not possible since the test eats the item, use a sample. Row two: surveying your twenty eight classmates about lunch, census is easy, just ask everyone."
+    }
+   },
+   {
+    "say": "So here is the whole idea in one breath. The population is everyone you want to know about. The sample is the part you actually measure. Use a sample when a census would cost too much, take too long, or destroy what you are testing. And whenever you report a sample result, say so out loud: this is what our sample showed, and it gives us an estimate for the group, not a guarantee.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Population is everyone you care about; a sample is the part you measure. Sample when a census costs too much, takes too long, or destroys the item, and remember a sample result is only an estimate.",
+  "practice": {
+   "question": "A Vancouver bakery makes eight hundred loaves of sourdough each morning. To check quality, the baker cuts open and tastes twelve loaves. Name the population and the sample. Then explain in one sentence why the baker does not test all eight hundred loaves. Finally, if two of the twelve loaves were underbaked, is it correct to say exactly one sixth of the eight hundred loaves are underbaked? Explain.",
+   "answer": "The population is all eight hundred loaves baked that morning; the sample is the twelve loaves cut open. Testing is destructive: a loaf cut open and tasted cannot be sold, so tasting all eight hundred would leave nothing to sell. Two out of twelve is one sixth, but that describes only the sample. It gives an estimate that roughly one sixth of the batch might be underbaked, not an exact fact about all eight hundred loaves."
+  }
+ }
+}

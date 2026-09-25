@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.PRODUCT_QUOTIENT",
+ "lang": "en",
+ "title": "Multiply and divide powers with the same base by adding or subtracting the exponents (n⁵ × n³ = n⁸, y⁷ ÷ y³ = y⁴)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Same Base? Just Add or Subtract the Exponents",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to expand a power, like n to the fourth means n times n times n times n. Today we use that to solve one thing: what happens when you multiply or divide two powers that have the same base. Think of it like stacking up boosts in a video game, where the exponent counts how many boosts you have.",
+    "math": "n^4 = n \\times n \\times n \\times n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let us expand n to the fifth times n to the third. That is five n's multiplied together, then three more n's multiplied on. Count them all up: five plus three is eight n's in a row. So n to the fifth times n to the third equals n to the eighth. Multiplying with the same base means you add the exponents.",
+    "math": "n^5 \\times n^3 = (n \\cdot n \\cdot n \\cdot n \\cdot n)(n \\cdot n \\cdot n) = n^{5+3} = n^8",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      2,
+      5,
+      3
+     ],
+     "labels": [],
+     "caption": "Five n's in one group plus three more n's: 5 + 3 = 8 factors of n"
+    }
+   },
+   {
+    "say": "Here is why adding works, using an area model with real numbers. Two to the third is eight, and two to the second is four. Picture a rectangle that is eight wide by four tall. Its area is thirty-two, and thirty-two is two to the fifth. So two to the third times two to the second equals two to the five, because three plus two is five. The base stays two the whole time.",
+    "math": "2^3 \\times 2^2 = 8 \\times 4 = 32 = 2^5",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      8,
+      4
+     ],
+     "labels": [],
+     "caption": "An 8 by 4 rectangle: 2³ × 2² has area 32, which is 2⁵"
+    }
+   },
+   {
+    "say": "Now dividing. Take y to the seventh divided by y to the third. Write out seven y's on top and three y's on the bottom. Each y on the bottom cancels one y on top, so three pairs cancel. Seven take away three leaves four y's on top. So y to the seventh divided by y to the third equals y to the fourth. Dividing with the same base means you subtract the exponents.",
+    "math": "\\frac{y^7}{y^3} = \\frac{y \\cdot y \\cdot y \\cdot y \\cdot y \\cdot y \\cdot y}{y \\cdot y \\cdot y} = y^{7-3} = y^4",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      7,
+      3,
+      4
+     ],
+     "labels": [
+      "y⁷ has 7 factors",
+      "y³ cancels 3",
+      "y⁴ is left"
+     ],
+     "caption": "Seven factors of y, cancel three, four remain"
+    }
+   },
+   {
+    "say": "Two mistakes to watch for. First, some people multiply the exponents and write n to the fifth times n to the third equals n to the fifteenth. But we counted only eight n's, not fifteen, so that is wrong. Second, some people add the bases too and write two cubed times two to the fourth equals four to the seventh. Check it: two cubed is eight, two to the fourth is sixteen, and eight times sixteen is one hundred twenty-eight, which is two to the seventh. Four to the seventh is over sixteen thousand, way off. The base never changes.",
+    "math": "2^3 \\times 2^4 = 8 \\times 16 = 128 = 2^7 \\quad (\\text{not } 4^7)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      128,
+      16384
+     ],
+     "labels": [
+      "2⁷ (correct)",
+      "4⁷ (wrong)"
+     ],
+     "caption": "8 × 16 = 128 matches 2⁷, not 4⁷"
+    }
+   },
+   {
+    "say": "One line to remember: same base, keep the base. Multiplying? Add the exponents. Dividing? Subtract the exponents. That is the whole trick.",
+    "math": "a^m \\times a^n = a^{m+n} \\qquad a^m \\div a^n = a^{m-n}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Same base: multiply → add exponents, divide → subtract exponents. The base stays the same.",
+  "practice": {
+   "question": "Your phone plan data is modelled with powers of ten. Simplify each one, keeping the base. Part A: ten to the sixth times ten to the second. Part B: x to the ninth divided by x to the fourth. Part C: three to the fifth times three squared, and then also give the actual number.",
+   "answer": "Part A: ten to the eighth. Part B: x to the fifth. Part C: three to the seventh, which is two thousand one hundred eighty-seven."
+  }
+ }
+}

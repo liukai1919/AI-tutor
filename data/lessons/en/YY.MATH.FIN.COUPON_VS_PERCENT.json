@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FIN.COUPON_VS_PERCENT",
+ "lang": "en",
+ "title": "Compare a dollar-off coupon with a percent-off discount and decide which saves more on a given price",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Coupon or Percent Off — Which Saves More?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a discount and a sale price. Today we use that skill to judge two deals: a dollar off coupon and a percent off sign, and decide which one actually saves you more money.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. A coupon is already in dollars, but a percent is not — a percent is a share of the price. So before you compare, turn the percent into dollars. Say a hoodie at the mall costs sixty dollars and the sign says twenty five percent off. Twenty five percent means a quarter of the price, and a quarter of sixty dollars is fifteen dollars.",
+    "math": "25\\% \\text{ of } 60 = 0.25 \\times 60 = 15",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      60,
+      15
+     ],
+     "labels": [
+      "Full price 60",
+      "25% off saves 15"
+     ],
+     "caption": "Twenty five percent of sixty dollars is fifteen dollars saved"
+    }
+   },
+   {
+    "say": "Now both deals are in dollars, so we can compare fairly. The coupon takes off twelve dollars. The percent off takes off fifteen dollars. Fifteen is bigger than twelve, so the twenty five percent off saves more. Check it with sale prices: sixty minus twelve is forty eight dollars, and sixty minus fifteen is forty five dollars. Forty five is cheaper, so it agrees.",
+    "math": "15 > 12 \\quad\\Rightarrow\\quad 60-15 = 45 < 48",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      15
+     ],
+     "labels": [
+      "12 dollar coupon",
+      "25% off"
+     ],
+     "caption": "Dollars saved by each deal on a sixty dollar hoodie"
+    }
+   },
+   {
+    "say": "Watch out for two traps. First, twenty five percent off is not twenty five dollars off — the percent depends on the price, and here it is only fifteen dollars. Second, fifteen dollars is what you save, not what you pay. If someone asks for the sale price, keep going and subtract: sixty minus fifteen is forty five dollars.",
+    "math": "25\\% \\neq 25 \\text{ dollars};\\quad \\text{saving } 15 \\neq \\text{ price } 45",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      25,
+      15
+     ],
+     "labels": [
+      "Wrong: 25 off",
+      "Right: 15 off"
+     ],
+     "caption": "The mistake of reading twenty five percent as twenty five dollars"
+    }
+   },
+   {
+    "say": "Here is the part that makes you sound smart. The winner can flip depending on the price. If the hoodie were only forty dollars, then twenty five percent off saves ten dollars, and now the twelve dollar coupon is the better deal. A percent grows with the price, but a coupon stays the same, so you must always test it on the actual price.",
+    "math": "0.25 \\times 40 = 10 < 12",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      10
+     ],
+     "labels": [
+      "12 dollar coupon",
+      "25% of 40"
+     ],
+     "caption": "On a forty dollar item the coupon now saves more"
+    }
+   },
+   {
+    "say": "So the whole move is this: change the percent into dollars saved, then compare the two savings, and only then subtract if you want the price you pay.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Turn the percent into dollars saved, then compare — the bigger saving wins.",
+  "practice": {
+   "question": "A skateboard deck in Kelowna costs eighty dollars. You can use a coupon for eighteen dollars off, or take the store sign that says twenty percent off. Which deal saves more, and what do you pay with the better one?",
+   "answer": "Twenty percent of eighty dollars is sixteen dollars saved. The coupon saves eighteen dollars, which is more, so use the coupon: eighty minus eighteen means you pay sixty two dollars."
+  }
+ }
+}

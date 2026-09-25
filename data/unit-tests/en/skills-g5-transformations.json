@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g5",
+ "strand": "transformations",
+ "lang": "en",
+ "unitName": {
+  "zh": "平移、翻折、旋转",
+  "en": "Single transformations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "Single transformations · Unit Test",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.TRANSLATE",
+    "level": 1,
+    "question": "On a coordinate grid, a sticker on Maya's map is at the point (5, 6). She slides it 3 units right and 2 units down. Where is the sticker now?",
+    "options": [
+     "(8, 8)",
+     "(2, 4)",
+     "(8, 4)",
+     "(7, 3)"
+    ],
+    "answerIndex": 2,
+    "explain": "Right adds to the first number and down subtracts from the second: 5 + 3 = 8 and 6 − 2 = 4, so the sticker lands at (8, 4). The most common trap is moving up instead of down (giving (8, 8)) — remember that down always makes the second number smaller."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.REFLECT",
+    "level": 1,
+    "question": "A dot is at (2, 4) on a grid. It is flipped over the vertical mirror line that passes through x = 5. Where does the image of the dot land?",
+    "options": [
+     "(5, 4)",
+     "(7, 4)",
+     "(2, 6)",
+     "(8, 4)"
+    ],
+    "answerIndex": 3,
+    "explain": "Count the distance from the dot to the mirror line (5 − 2 = 3), then count the same 3 squares on the other side: 5 + 3 = 8, so the image is (8, 4), at the same height. The classic mistake is stopping short at (7, 4) or landing right on the mirror line — the image must be exactly as far from the line as the original."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.ROTATE",
+    "level": 1,
+    "question": "On a trail sign at Stanley Park, an arrow points straight up (north). The sign is turned a quarter turn clockwise. Which way does the arrow point now?",
+    "options": [
+     "Straight down (south)",
+     "Straight right (east)",
+     "Straight left (west)",
+     "Straight up (north), unchanged"
+    ],
+    "answerIndex": 1,
+    "explain": "Clockwise follows the way clock hands move, so a quarter turn takes an arrow from up (12 o'clock) to right (3 o'clock), which is east. The usual trap is turning counter-clockwise by mistake and answering west, or using a half turn and answering south."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.TRANSLATE",
+    "level": 2,
+    "question": "A garden plot at Riley's school is drawn on a grid with corners (1, 2), (4, 2), (4, 4) and (1, 4). The class slides the whole plot so that the corner (1, 2) moves to (6, 5). Where does the corner (4, 4) end up?",
+    "options": [
+     "(7, 9)",
+     "(9, 7)",
+     "(10, 8)",
+     "(9, 1)"
+    ],
+    "answerIndex": 1,
+    "explain": "First find the slide from one matching pair of corners: (1, 2) to (6, 5) is 5 right and 3 up, then apply that same slide to every corner, so (4, 4) becomes (4 + 5, 4 + 3) = (9, 7). The common trap is mixing up which number goes with which direction and answering (7, 9) — the 5 always goes with the across move and the 3 with the up move."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.REFLECT",
+    "level": 2,
+    "question": "For a science-fair poster, Jun draws half a butterfly on grid paper and flips it over the horizontal mirror line y = 3 to make the other half. One wing tip is at (4, 5). Where is the matching wing tip on the flipped half?",
+    "options": [
+     "(4, 1)",
+     "(4, 2)",
+     "(4, 3)",
+     "(2, 5)"
+    ],
+    "answerIndex": 0,
+    "explain": "The wing tip is 2 squares above the mirror line (5 − 3 = 2), so its match is 2 squares below: 3 − 2 = 1, giving (4, 1) with the across number unchanged. Two common traps are landing on the line itself at (4, 3) and flipping side-to-side instead of up-and-down — a horizontal mirror line only changes the second number."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.IDENTIFY",
+    "level": 2,
+    "question": "A triangle has corners at (2, 1), (5, 1) and (2, 3). Its image has corners at (8, 1), (5, 1) and (8, 3). Which single transformation moves the triangle onto its image?",
+    "options": [
+     "A slide 6 units right",
+     "A quarter turn clockwise about (5, 1)",
+     "A slide 3 units right",
+     "A flip over the vertical line through x = 5"
+    ],
+    "answerIndex": 3,
+    "explain": "Test every corner, not just one: each corner keeps its height and lands as far to the right of x = 5 as it started to the left (2 goes to 8, 5 stays at 5), so it is a flip over that vertical line. The big trap is checking only the corner (2, 1), which moved 6 right, and calling it a slide — but a slide would send (5, 1) to (11, 1), which is not on the image."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.ROTATE",
+    "level": 3,
+    "question": "A garden sprinkler in Sofia's backyard sits at (5, 5) on a grid, and its nozzle points to the spot (5, 8). The sprinkler turns a quarter turn clockwise every 15 minutes. Where is the nozzle spot after 30 minutes?",
+    "options": [
+     "(5, 2)",
+     "(8, 5)",
+     "(2, 5)",
+     "(5, 8)"
+    ],
+    "answerIndex": 0,
+    "explain": "Thirty minutes is two 15-minute quarter turns, and two quarter turns make a half turn, so the nozzle swings from 3 squares above the centre to 3 squares below: 5 − 3 = 2, giving (5, 2). The most common trap is doing only one quarter turn and answering (8, 5), or forgetting that clockwise from up goes right first, not left."
+   },
+   {
+    "curriculumId": "YY.MATH.GEO.TRANSFORM.IDENTIFY",
+    "level": 3,
+    "question": "On grid paper, a triangle has corners A(2, 2), B(5, 2) and C(2, 4). After one move, the image corners are A'(8, 6), B'(5, 6) and C'(8, 4). Amir says the shape was flipped because it looks turned over. Which single transformation really maps the triangle onto its image?",
+    "options": [
+     "A slide 6 units right and 4 units up",
+     "A flip over the horizontal line y = 4",
+     "A half turn about the point (5, 4)",
+     "A flip over the vertical line through x = 5"
+    ],
+    "answerIndex": 2,
+    "explain": "Check all three corners against the centre (5, 4): each image corner is the same distance from that point but on the exact opposite side (A is 3 left and 2 down, A' is 3 right and 2 up), which is a half turn. The trap is that each wrong choice works for one corner only — a slide sends B to (11, 6) and a flip over x = 5 sends A to (8, 2), so a transformation must match every corner before you name it."
+   }
+  ]
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.NUM.GCF_LCM.APPLY",
+ "lang": "en",
+ "title": "Solve problems with GCF and LCM (equal groups, repeating events, simplifying fractions)",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "GCF or LCM? Reading the Story",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find the greatest common factor and the least common multiple of two numbers. Today's little step is different: it is learning to read a story problem and decide which one the story is asking for.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the one question that tells you. Ask yourself: am I breaking things apart into equal groups, or am I waiting for two repeating things to line up? Breaking apart into equal groups means greatest common factor. Two things repeating until they meet means least common multiple. Look at this table: for our school bake sale we have twenty-four granola bars and thirty-six juice boxes, and we want to pack identical treat bags. We are breaking things apart, so this one is greatest common factor.",
+    "math": "\\text{GCF}(24,36)",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      24,
+      36
+     ],
+     "labels": [
+      "Granola bars",
+      "Juice boxes"
+     ],
+     "caption": "Breaking things apart into equal bags → greatest common factor"
+    }
+   },
+   {
+    "say": "So let's finish it. The greatest common factor of twenty-four and thirty-six is twelve, so we can make twelve treat bags. Twenty-four granola bars shared into twelve bags is two bars each, and thirty-six juice boxes shared into twelve bags is three juice boxes each. Every bag is exactly the same, and nothing is left over.",
+    "math": "\\text{GCF}(24,36)=12",
+    "visual": {
+     "type": "groups",
+     "nums": [
+      12,
+      5
+     ],
+     "labels": [],
+     "caption": "12 bags, each with 5 things: 2 granola bars + 3 juice boxes"
+    }
+   },
+   {
+    "say": "Now a repeating story. At a bus stop in Burnaby, the number eight bus comes every eight minutes and the number twelve bus comes every twelve minutes. They both just left together. When will they both be at the stop again? Nothing is being shared out here, things are repeating, so this is least common multiple. Count with me: eight, sixteen, twenty-four for one bus, and twelve, twenty-four for the other. They meet at twenty-four minutes.",
+    "math": "\\text{LCM}(8,12)=24",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      8,
+      16,
+      24,
+      12,
+      24,
+      36
+     ],
+     "labels": [
+      "1st",
+      "2nd",
+      "3rd",
+      "Bus A (every 8 min)",
+      "Bus B (every 12 min)",
+      "Minutes"
+     ],
+     "caption": "Both buses land on 24 minutes"
+    }
+   },
+   {
+    "say": "Here is the mix-up almost everyone makes: swapping the two. Imagine someone reads the treat bag story and answers seventy-two bags, because seventy-two is the least common multiple of twenty-four and thirty-six. Stop and picture it. We only have twenty-four granola bars, so we could never fill seventy-two bags. A greatest common factor answer is always small, never bigger than the smaller number. A least common multiple answer is always big, never smaller than the bigger number. If your answer feels the wrong size, you probably grabbed the wrong tool.",
+    "math": "\\text{GCF}(4,6)=2 \\quad \\text{not } 12",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      24,
+      72
+     ],
+     "labels": [
+      "GCF = 12 bags",
+      "We only have 24 bars",
+      "Wrong: 72 bags"
+     ],
+     "caption": "72 bags is way too big — that is the LCM sneaking in"
+    }
+   },
+   {
+    "say": "So remember: sharing things out into equal groups asks for the greatest common factor, and things repeating until they line up asks for the least common multiple.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Equal groups → GCF (a small answer). Repeating until they meet → LCM (a big answer).",
+  "practice": {
+   "question": "At a farmers market in Kelowna you have eighteen apples and thirty mini muffins, and you want to fill identical snack boxes using every single one. First decide: is this a greatest common factor problem or a least common multiple problem? Then find the largest number of boxes you can make, and say how many apples and how many muffins go in each box. Try drawing the boxes yourself if it helps.",
+   "answer": "It is a greatest common factor problem, because you are sharing things out into equal groups. The greatest common factor of eighteen and thirty is six, so you can make six boxes, with three apples and five mini muffins in each one."
+  }
+ }
+}

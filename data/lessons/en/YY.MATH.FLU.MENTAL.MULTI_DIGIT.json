@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FLU.MENTAL.MULTI_DIGIT",
+ "lang": "en",
+ "title": "Multiply and divide mentally with strategies like double-double (23 × 4) and halving",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Double-Double: Multiplying by 4 in Your Head",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to double a number fast, like turning twenty three into forty six. Today we use that one skill to multiply by four in your head, with no pencil at all.",
+    "math": "23 \\times 4 = ?",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the trick. Four is just two twos, so multiplying by four is the same as doubling, and then doubling again. Watch twenty three. Double it and you get forty six. Double forty six and you get ninety two. So twenty three times four is ninety two.",
+    "math": "23 \\xrightarrow{\\times 2} 46 \\xrightarrow{\\times 2} 92",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      100,
+      46,
+      92
+     ],
+     "labels": [],
+     "caption": "First jump: 23 doubled is 46. Second jump: 46 doubled is 92."
+    }
+   },
+   {
+    "say": "Let us check that ninety two is really right. Split twenty three into twenty and three. Twenty times four is eighty, and three times four is twelve. Eighty plus twelve is ninety two. Same answer, so double double really works.",
+    "math": "23 \\times 4 = (20 \\times 4) + (3 \\times 4) = 80 + 12 = 92",
+    "visual": {
+     "type": "areaModel",
+     "nums": [
+      23,
+      4
+     ],
+     "labels": [],
+     "caption": "20 times 4 is 80, and 3 times 4 is 12. Together that is 92."
+    }
+   },
+   {
+    "say": "Halving is the same trick walking backwards, and it is perfect for dividing by four. Say ninety six dollars from a bottle drive is shared by four kids. Half of ninety six is forty eight, and half of forty eight is twenty four. Each kid gets twenty four dollars.",
+    "math": "96 \\xrightarrow{\\div 2} 48 \\xrightarrow{\\div 2} 24",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      96,
+      48,
+      24
+     ],
+     "labels": [
+      "96 total",
+      "half is 48",
+      "half again is 24"
+     ],
+     "caption": "Halve twice to divide by four."
+    }
+   },
+   {
+    "say": "Here is the slip lots of kids make. They double both numbers and write twenty three times four becomes forty six times eight. But that is way too big, because they doubled the whole problem twice over. Remember, only the twenty three gets doubled. The four is what tells you to double it two times, so the four just quietly disappears.",
+    "math": "23 \\times 4 = 46 \\times 2 = 92 \\quad \\text{not} \\quad 46 \\times 8",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "So whenever you see times four, double and double again. Whenever you see divided by four, halve and halve again. Your head is faster than a calculator now.",
+    "math": "\\times 4 = \\text{double, double} \\qquad \\div 4 = \\text{halve, halve}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Times four means double it twice; divided by four means halve it twice.",
+  "practice": {
+   "question": "Four friends each buy a monthly bus pass that costs twenty six dollars. Use double double in your head to find the total cost. Then use halving twice to find one quarter of eighty four metres of ribbon.",
+   "answer": "Twenty six doubled is fifty two, and fifty two doubled is one hundred four, so the passes cost 104 dollars. Half of eighty four is forty two, and half of forty two is twenty one, so one quarter of the ribbon is 21 metres."
+  }
+ }
+}

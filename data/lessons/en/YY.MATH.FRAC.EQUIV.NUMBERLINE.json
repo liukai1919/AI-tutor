@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.FRAC.EQUIV.NUMBERLINE",
+ "lang": "en",
+ "title": "Show that equivalent fractions land on the same point of a number line",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Same Spot on the Number Line",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that one half and two quarters shade the same amount of a fraction bar. Today we do one small thing with that idea: we show that equivalent fractions also sit on exactly the same point of a number line.",
+    "math": "\\frac{1}{2}=\\frac{2}{4}",
+    "visual": {
+     "type": "fractionBar",
+     "nums": [
+      2,
+      1,
+      4,
+      2
+     ],
+     "labels": [],
+     "caption": "You already know these two bars shade the same amount"
+    }
+   },
+   {
+    "say": "Here is a number line from zero to one. The big secret is this: we count equal jumps, not lines. To show one half, we cut the whole trip into two equal jumps, and one half is where we land after one jump.",
+    "math": "\\frac{1}{2}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "Two equal jumps from 0 to 1; one jump lands on one half"
+    }
+   },
+   {
+    "say": "Now let's take the very same trip, but cut it into four equal jumps instead. Two of those little jumps take us to two quarters. Look where we land, it is the exact same point as one half. Same spot means same size, so one half and two quarters are equivalent.",
+    "math": "\\frac{1}{2}=\\frac{2}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "Four equal jumps; two jumps land on the same point as one half"
+    }
+   },
+   {
+    "say": "Let's try another pair. Imagine one kilometre of the seawall. Cut it into three equal jumps, and two jumps takes us to two thirds. Now cut the same kilometre into six equal jumps, and four of those little jumps land right on top of two thirds. So two thirds and four sixths are the same point, and the same distance.",
+    "math": "\\frac{2}{3}=\\frac{4}{6}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.6667
+     ],
+     "labels": [],
+     "caption": "Two thirds and four sixths land on the very same point"
+    }
+   },
+   {
+    "say": "Here is the mistake I see a lot. When a line from zero to one is cut into quarters, some kids count the lines and put three quarters on the third line. But the line at zero is the starting line, not a jump! Counting lines lands you on two quarters, which is one half. Count jumps instead, and three jumps takes you to the correct spot for three quarters.",
+    "math": "\\frac{3}{4}\\neq\\frac{2}{4}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5,
+      0.75
+     ],
+     "labels": [],
+     "caption": "Counting lines lands on one half; counting three jumps lands on three quarters"
+    }
+   },
+   {
+    "say": "So remember, count the jumps, not the lines. If two fractions land on the same point, they are equivalent, no matter how many pieces we chopped the line into.",
+    "math": "\\frac{1}{2}=\\frac{2}{4}=\\frac{3}{6}",
+    "visual": {
+     "type": "numberLine",
+     "nums": [
+      0,
+      1,
+      0.5
+     ],
+     "labels": [],
+     "caption": "One half, two quarters and three sixths all share one point"
+    }
+   }
+  ],
+  "answer": "Equivalent fractions land on the exact same point of the number line, so count equal jumps, never the tick lines.",
+  "practice": {
+   "question": "Draw a number line from zero metres to one metre. Cut it into five equal jumps and mark where three fifths lands. Now draw a second line from zero to one metre right underneath, and cut that one into ten equal jumps. How many of those small jumps land on exactly the same point as three fifths, and what fraction is that?",
+   "answer": "Six jumps. Three fifths and six tenths land on the same point, so three fifths equals six tenths."
+  }
+ }
+}

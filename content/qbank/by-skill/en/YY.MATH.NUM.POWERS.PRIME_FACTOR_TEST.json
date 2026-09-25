@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.POWERS.PRIME_FACTOR_TEST",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmtkicoxeb0943a",
+   "level": 1,
+   "question": "Ravi writes 324 as a product of primes: 324 = 2 × 2 × 3 × 3 × 3 × 3, so the prime 2 appears twice and the prime 3 appears four times, giving 324 = 2² × 3⁴. Which statement about 324 is true?",
+   "options": [
+    "It is a perfect square, because both exponents 2 and 4 are even.",
+    "It is a perfect cube, because the exponents 2 and 4 are both even.",
+    "It is neither, because 324 = 4 × 81 is not written in primes.",
+    "It is neither, because 3 × 3 × 3 × 3 counts as 3³, an odd power."
+   ],
+   "answerIndex": 0,
+   "explain": "A number is a perfect square when every exponent in its prime factorization is even; here 2 and 4 are both even, so 324 = (2 × 3²)² = 18². The trap is using the even test for cubes — cubes need exponents that are multiples of 3.",
+   "tags": [
+    "ok",
+    "powers.cube_test_even_exponent",
+    "pf.stop_at_composite",
+    "pf.exponent_miscount"
+   ]
+  },
+  {
+   "qid": "qmtkicoxeow03f6",
+   "level": 1,
+   "question": "216 = 2 × 2 × 2 × 3 × 3 × 3, so the prime 2 appears three times and the prime 3 appears three times: 216 = 2³ × 3³. Which statement about 216 is true?",
+   "options": [
+    "It is not a cube, because the exponents 3 and 3 are odd, not even.",
+    "It is a cube, because each exponent, 3 and 3, is divisible by 3.",
+    "It is not a cube, because 2 × 2 × 2 counts as 2², not 2³.",
+    "It is not a cube, because 216 = 8 × 27, which are not primes."
+   ],
+   "answerIndex": 1,
+   "explain": "For a perfect cube, every exponent must be a multiple of 3; both are 3, so 216 = (2 × 3)³ = 6³. Count the repeated factors carefully — three 2s means 2³, not 2².",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "ok",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxeur82w0",
+   "level": 1,
+   "question": "1 600 = 2 × 2 × 2 × 2 × 2 × 2 × 5 × 5, so the prime 2 appears six times and the prime 5 appears twice: 1 600 = 2⁶ × 5². Which statement about 1 600 is true?",
+   "options": [
+    "It is both a square and a cube, because 6 and 2 are both even.",
+    "It is not a square, because 5 × 5 counts as 5¹, an odd exponent.",
+    "It is a square, not a cube, since 2 is not a multiple of 3.",
+    "It is not a square, because 1 600 = 16 × 100 uses no primes."
+   ],
+   "answerIndex": 2,
+   "explain": "Even exponents (6 and 2) make it a perfect square, 40², but a cube needs every exponent to divide by 3, and 2 does not. Even exponents alone never prove a cube.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxe9ok6c4",
+   "level": 1,
+   "question": "144 = 2 × 2 × 2 × 2 × 3 × 3, so the prime 2 appears four times and the prime 3 appears twice: 144 = 2⁴ × 3². Is 144 a perfect cube?",
+   "options": [
+    "Yes, because 4 and 2 are both even numbers.",
+    "Yes, because 2 × 2 × 2 × 2 counts as 2³ here.",
+    "Yes, because 144 = 4 × 36, both perfect powers.",
+    "No, because 4 and 2 are not multiples of 3."
+   ],
+   "answerIndex": 3,
+   "explain": "The cube test is exponents divisible by 3; 4 and 2 both fail, so 144 is a square (12²) but not a cube. Even exponents are the square test, not the cube test.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkicoxeit44dn",
+   "level": 2,
+   "question": "The prime factorization of 729 000 is 2³ × 3⁶ × 5³. Which statement is true?",
+   "options": [
+    "It is a cube, because every exponent is a multiple of 3.",
+    "It is not a cube, because 3, 6 and 3 are not all even.",
+    "It is not a cube, because 5 × 5 × 5 counts as 5², not 5³.",
+    "It is not a cube, because 729 000 = 729 × 1000, not primes."
+   ],
+   "answerIndex": 0,
+   "explain": "Divide each exponent by 3: 3, 6 and 3 all divide evenly, so 729 000 = (2 × 3² × 5)³ = 90³. Do not switch to the even test — 3 is odd yet still a multiple of 3.",
+   "tags": [
+    "ok",
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxexrc0q5",
+   "level": 2,
+   "question": "Priya has 400 linking cubes and wants to build one large solid cube with none left over. The prime factorization of 400 is 2⁴ × 5². Can she do it?",
+   "options": [
+    "Yes, since 4 and 2 are both even exponents.",
+    "No, since 4 and 2 are not multiples of 3.",
+    "Yes, since 2 × 2 × 2 × 2 gives 2³ exactly.",
+    "Yes, since 400 = 8 × 50 and 8 is a cube."
+   ],
+   "answerIndex": 1,
+   "explain": "A solid cube needs every exponent in the prime factorization to be a multiple of 3, and neither 4 nor 2 is, so some cubes are always left over. Even exponents only tell you 400 is a perfect square (20²).",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "ok",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxevyt2vw",
+   "level": 2,
+   "question": "Ben factors 5 184 into primes and gets 5 184 = 2⁶ × 3⁴. He wants to say whether it is a perfect square, a perfect cube, both, or neither. Which is right?",
+   "options": [
+    "Both — 6 and 4 are even, so it is a square and also a cube.",
+    "Neither — 3 × 3 × 3 × 3 counts as 3³, which is an odd power.",
+    "Square only — 6 and 4 are even; 4 is not a multiple of 3.",
+    "Cube only — 5 184 = 64 × 81, and 64 is a perfect cube."
+   ],
+   "answerIndex": 2,
+   "explain": "Run the two tests separately: all exponents even gives the square 72², but 4 is not a multiple of 3, so it is not a cube. One test passing does not make the other pass.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxewcwwkv",
+   "level": 2,
+   "question": "Leo factors 1 728 into primes and writes 1 728 = 2⁶ × 3³. Which statement is true?",
+   "options": [
+    "Neither, because a cube needs even exponents and 3 is odd.",
+    "Neither, because 3 × 3 × 3 counts as 3², not a multiple of 3.",
+    "Both, because 1 728 = 144 × 12 and 144 is a perfect square.",
+    "A cube but not a square: 3 is odd but a multiple of 3."
+   ],
+   "answerIndex": 3,
+   "explain": "Both exponents divide by 3, so 1 728 = (2² × 3)³ = 12³, but the odd exponent 3 breaks the square test. Odd and 'not a multiple of 3' are different things.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkicoxe2lk5rz",
+   "level": 3,
+   "question": "For a class art project Amara has 8 100 identical unit cubes. She factors 8 100 = 2² × 3⁴ × 5² and asks two things: could the cubes cover the floor in a perfect square array, and could they be stacked into one solid cube using all of them?",
+   "options": [
+    "Yes to a 90 × 90 square, but no to a solid cube.",
+    "Neither works, since 3 × 3 × 3 × 3 counts as 3³.",
+    "Both work, since 2, 4 and 2 are all even numbers.",
+    "A cube only, since 8 100 = 27 × 300 and 27 is a cube."
+   ],
+   "answerIndex": 0,
+   "explain": "All exponents even means a square, and halving them gives 2 × 3² × 5 = 90, so 90 × 90 works; the cube test fails because 2, 4 and 2 are not multiples of 3. Even exponents answer the square question only.",
+   "tags": [
+    "ok",
+    "pf.exponent_miscount",
+    "powers.cube_test_even_exponent",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxeic98lw",
+   "level": 3,
+   "question": "A Grade 8 class collected 2 025 bottle caps for a mosaic and wants a square array with the same number of rows as columns, using every cap. They factor 2 025 = 3⁴ × 5². Will it work?",
+   "options": [
+    "Yes — even exponents, so it is a cube: 15 × 15 × 15.",
+    "Yes — every exponent is even, so 45 rows of 45.",
+    "No — 3 × 3 × 3 × 3 counts as 3³, which is odd.",
+    "No — 2 025 = 25 × 81, so the primes are not finished."
+   ],
+   "answerIndex": 1,
+   "explain": "Even exponents mean a perfect square; halve each one to get the side, 3² × 5 = 45, so 45 rows of 45 caps. Even exponents do not also make a cube — that needs exponents divisible by 3.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "ok",
+    "pf.exponent_miscount",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxenqzf75",
+   "level": 3,
+   "question": "Tessa checks whether 2 916 is a perfect cube. She writes 2 916 = 2² × 3⁶ and concludes: 'both exponents are even, so 2 916 is a perfect cube.' What is wrong with her reasoning?",
+   "options": [
+    "Nothing is wrong; even exponents always show a perfect cube.",
+    "Her exponents are miscounted; 3⁶ should be written 3⁵.",
+    "A cube needs exponents that are multiples of 3; 2 is not.",
+    "She should have stopped at 2 916 = 4 × 729 and checked."
+   ],
+   "answerIndex": 2,
+   "explain": "Even exponents test for squares, so 2 916 = 54², but the cube test asks whether each exponent divides by 3, and 2 does not. Keep the two tests apart: even for squares, multiples of 3 for cubes.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.exponent_miscount",
+    "ok",
+    "pf.stop_at_composite"
+   ]
+  },
+  {
+   "qid": "qmtkicoxelhr9d1",
+   "level": 3,
+   "question": "A Victoria community centre has 2 744 small clay cubes and wants one solid cube built from all of them. A student factors 2 744 = 2³ × 7³. Is it possible, and how long is each edge?",
+   "options": [
+    "No — the exponents 3 and 3 are odd, not even.",
+    "Yes — 2 744 = 8 × 343, so the edge length is 24.",
+    "No — 2 × 2 × 2 counts as 2², so there are too few.",
+    "Yes — both exponents divide by 3; the edge is 14."
+   ],
+   "answerIndex": 3,
+   "explain": "Every exponent is a multiple of 3, so divide each by 3 to build the edge: 2 × 7 = 14, and 14³ = 2 744. Odd exponents can still be multiples of 3 — do not use the even test on cubes.",
+   "tags": [
+    "powers.cube_test_even_exponent",
+    "pf.stop_at_composite",
+    "pf.exponent_miscount",
+    "ok"
+   ]
+  }
+ ]
+}

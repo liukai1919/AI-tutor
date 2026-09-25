@@ -1,0 +1,141 @@
+{
+ "v": 1,
+ "curriculumId": "BC.MATH.PC11.QUA.01",
+ "lang": "en",
+ "title": "quadratic functions and equations",
+ "provider": "ollama",
+ "at": "2026-08-21",
+ "lesson": {
+  "title": "Quadratic Functions & Equations – Your Parabola Toolkit",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "Okay, picture this. You're at a park in Burnaby, and you toss a ball straight up into the air. You time it with your phone. At zero seconds, the ball is at ground level. One second in, it's about twelve metres up. Two seconds, it's at its peak, sixteen metres. Three seconds, it's coming back down at twelve. Four seconds, it hits the ground. If I plotted those points on a graph, I wouldn't get a straight line. I'd get a smooth, symmetrical curve, an upside-down U. That curve has a name: a parabola, and the equation behind it is a quadratic function. In this lesson, we're going to learn what makes a quadratic tick, how to read its graph, and how to solve the equations that go with it.",
+    "math": "f(t) = -4t^2 + 16t",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -0.5,
+      4.5,
+      -1,
+      18
+     ],
+     "labels": [
+      "-4*x^2+16*x"
+     ],
+     "caption": "Height of a ball over time – a parabola"
+    }
+   },
+   {
+    "say": "So what is a quadratic function, exactly? At its core, it's any function where the highest power of x is two. The standard form is f of x equals a x squared plus b x plus c, where a is not zero. That little a tells you which way the parabola opens: positive a means it opens up like a smile, negative a means it opens down like a frown. The vertex is the turning point, the very top or very bottom of the curve. There's also an axis of symmetry, a vertical line right through the vertex that splits the parabola into two mirror-image halves. The y-intercept is where the curve crosses the y-axis, and the x-intercepts, if they exist, are where it crosses the x-axis. The domain is all real numbers, and the range is either y greater than or equal to the vertex y-value, or y less than or equal to it, depending on which way it opens.",
+    "math": "f(x) = ax^2 + bx + c, \\quad a \\neq 0",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -4,
+      4,
+      -8,
+      8
+     ],
+     "labels": [
+      "x^2",
+      "-x^2"
+     ],
+     "caption": "Upward vs. downward parabola"
+    }
+   },
+   {
+    "say": "Let's work through a concrete example. Take f of x equals x squared minus four x plus three. First, the vertex. The x-coordinate of the vertex is negative b over two a, so that's negative minus four over two times one, which is four over two, which is two. Plug that back in: two squared minus four times two plus three, that's four minus eight plus three, which is negative one. So the vertex is at the point two, negative one. Since a is positive, this opens upward, and negative one is the minimum value of the function. The axis of symmetry is the vertical line x equals two. The y-intercept: set x to zero, we get three. For the x-intercepts, we set the function equal to zero: x squared minus four x plus three equals zero. This factors as x minus one times x minus three equals zero, so x equals one or x equals three. The domain is all real numbers, and the range is y greater than or equal to negative one.",
+    "math": "f(x) = x^2 - 4x + 3; \\quad x_v = \\frac{-b}{2a} = \\frac{4}{2} = 2; \\quad f(2) = 4 - 8 + 3 = -1",
+    "visual": {
+     "type": "coordGrid",
+     "nums": [
+      0,
+      3,
+      1,
+      0,
+      2,
+      -1,
+      3,
+      0,
+      4,
+      3
+     ],
+     "labels": [
+      "yint",
+      "xint",
+      "vtx",
+      "xint",
+      "sym"
+     ],
+     "caption": "Key features of x² − 4x + 3"
+    }
+   },
+   {
+    "say": "Now let's talk about transformations, because this is how you can quickly read a quadratic without doing any heavy algebra. Start with the parent function, y equals x squared, a basic upward parabola with its vertex at the origin. Now look at f of x equals two times x minus three squared plus one. There are three things happening here. The minus three inside the parentheses shifts the graph three units to the right. The plus one on the outside shifts it up one unit. And the two out front stretches it vertically by a factor of two, making the parabola narrower. So the vertex is at three, one. The axis of symmetry is x equals three. If you set it equal to zero to find x-intercepts, you get two times x minus three squared plus one equals zero, which means x minus three squared equals negative one half. You can't square a real number and get a negative result, so there are no real x-intercepts. The graph floats above the x-axis and never touches it.",
+    "math": "f(x) = 2(x-3)^2 + 1; \\quad \\text{vertex } (3,\\,1); \\quad 2(x-3)^2 + 1 = 0 \\;\\Longrightarrow\\; (x-3)^2 = -\\tfrac{1}{2} \\text{ (no real soln)}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      7,
+      -1,
+      12
+     ],
+     "labels": [
+      "x^2",
+      "2*(x-3)^2+1"
+     ],
+     "caption": "Parent parabola vs. transformed parabola"
+    }
+   },
+   {
+    "say": "Here's the big connection that ties functions and equations together. When we ask, solve f of x equals zero, we are literally asking: where does the graph cross the x-axis? So every method for solving a quadratic equation is really just a different way to find the x-intercepts. We've got three main tools. First, factoring: if the quadratic splits nicely into two binomials, this is the fastest route. Second, completing the square: you rearrange the equation into vertex form, and you can read the vertex and solve from there. Third, the quadratic formula: x equals negative b plus or minus the square root of b squared minus four a c, all over two a. This one always works, no matter what the numbers are. The expression under the square root, b squared minus four a c, is called the discriminant. If it's positive, you get two real solutions. If it's zero, exactly one solution. If it's negative, no real solutions, which is exactly what happened in our last example with that parabola floating above the axis.",
+    "math": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Let's put it all together with a slightly harder equation: two x squared minus five x minus three equals zero. First, let's try factoring. We need two numbers that multiply to a times c, which is two times negative three, so negative six, and add to b, which is negative five. Those numbers are negative six and one. Rewrite the middle term: two x squared minus six x plus x minus three equals zero. Group the pairs: two x times x minus three, plus one times x minus three. Both groups share a factor of x minus three, so it factors to x minus three times two x plus one equals zero. Setting each factor to zero: x minus three equals zero gives x equals three, and two x plus one equals zero gives x equals negative one half. Let's verify with the quadratic formula. a is two, b is negative five, c is negative three. x equals five plus or minus the square root of twenty-five plus twenty-four, all over four. That's five plus or minus the square root of forty-nine, over four. The square root of forty-nine is seven. So x equals five plus seven over four, which is three, or five minus seven over four, which is negative one half. Both methods agree. And if you graph the function two x squared minus five x minus three, the curve crosses the x-axis at exactly negative one half and three.",
+    "math": "2x^2-5x-3=0;\\quad (2x+1)(x-3)=0;\\quad x=3\\;\\text{or}\\;x=-\\tfrac{1}{2};\\quad \\checkmark\\;\\frac{5\\pm 7}{4}",
+    "visual": {
+     "type": "funcGraph",
+     "nums": [
+      -1,
+      4,
+      -7,
+      6
+     ],
+     "labels": [
+      "2*x^2-5*x-3"
+     ],
+     "caption": "2x² − 5x − 3 crosses the x-axis at −½ and 3"
+    }
+   },
+   {
+    "say": "Here's your one-line takeaway to carry out of this lesson: a quadratic function is a smooth curve where the highest power of x is two, and solving its equation is nothing more than finding where that curve crosses the x-axis. Whether you factor, complete the square, or crank out the quadratic formula, you are all doing the same thing. You just picked a different tool for the job. And now you've got all three sitting in your toolbox, ready for whichever problem walks in.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "A quadratic is just a curve whose highest power is x², and solving its equation means finding where that curve crosses the x-axis — factor, complete the square, or use the formula; they all get you the same points.",
+  "practice": {
+   "question": "A trampoline in a backyard in Abbotsford is modelled by h(t) = −4.9t² + 19.6t, where h is the height in metres and t is time in seconds. (a) What is the maximum height the jumper reaches? (b) How long is the jumper in the air (from take-off to landing)?",
+   "answer": "(a) Vertex at t = 19.6 ÷ 9.8 = 2 s; h(2) = −4.9(4) + 19.6(2) = −19.6 + 39.2 = 19.6 m. (b) Set h(t) = 0: t(−4.9t + 19.6) = 0, so t = 0 or t = 19.6 ÷ 4.9 = 4 s. The jumper is in the air for 4 seconds."
+  }
+ },
+ "review": {
+  "by": "claude",
+  "at": "2026-08-21",
+  "changes": 3
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.GEO.3D.NETS.MATCH",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkqlcbioda7rt",
+   "level": 1,
+   "question": "关于长方体（rectangular prism）的展开图（net），下面哪种说法是对的？",
+   "options": [
+    "展开图有 6 个长方形面，相对的面完全一样",
+    "展开图有 8 个长方形面，长方体有 8 个顶点",
+    "展开图有 5 个长方形面，盒子的顶面不用画",
+    "6 个正方形连成一排，也能折成长方体盒子"
+   ],
+   "answerIndex": 0,
+   "explain": "长方体有 6 个面，展开图就要有 6 个长方形，而且相对的面成对出现、大小相同。常见的坑是以为顶面可以省掉（那就折成没盖的盒子了），或者把顶点数 8 当成面数。",
+   "tags": [
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "nets.any_six_squares_fold"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbigvnpqv",
+   "level": 1,
+   "question": "一个长方体礼盒长 20 cm、宽 10 cm、高 5 cm。在它的展开图（net）里，20 cm × 10 cm 的长方形一共要画几个？",
+   "options": [
+    "1 个，因为盒底只有那一块",
+    "2 个，因为上下两个底面一样大",
+    "4 个，因为围一圈的侧面都这么大",
+    "6 个，因为展开图 6 个面都一样"
+   ],
+   "answerIndex": 1,
+   "explain": "长方体的面两两相对且相同：20×10 是上下底面这一对，所以画 2 个；20×5 和 10×5 也各画 2 个，合起来 6 个面。坑在于只画 1 个 20×10，折起来就少了盖子。",
+   "tags": [
+    "nets.face_count_wrong",
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbi9grvu4",
+   "level": 1,
+   "question": "一个展开图由 6 个长方形组成：2 个 8 cm×5 cm、2 个 8 cm×3 cm、2 个 5 cm×3 cm。它折起来是什么立体图形（3D object）？",
+   "options": [
+    "三棱柱，因为它的展开图也有 6 个面",
+    "棱长 8 cm 的正方体，因为一共有 6 个面",
+    "长 8 cm、宽 5 cm、高 3 cm 的长方体",
+    "四棱锥，因为其中 4 个面可以当侧面"
+   ],
+   "answerIndex": 2,
+   "explain": "六个面正好配成三对相同的长方形，说明长、宽、高分别是 8、5、3 的长方体。坑在于看到 6 个面就说是正方体——正方体的 6 个面必须都是全等的正方形。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.any_six_squares_fold",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbidjl3l8",
+   "level": 1,
+   "question": "把 6 个完全一样的正方形边挨边排成一行（1 行 6 列），这样的图形能折成正方体吗？",
+   "options": [
+    "能，正方形数量正好 6 个，够用了",
+    "能，6 个正方形连在一起怎么排都行",
+    "不能，正方体展开图要用 8 个正方形",
+    "不能，前 4 个绕成一圈，另 2 个会重叠"
+   ],
+   "answerIndex": 3,
+   "explain": "折的时候连续 4 个正方形正好绕成侧面一圈，第 5 个就转回到第 1 个的位置上重叠，上下底面反而空着。记住：6 个面只是必要条件，还要看排法。",
+   "tags": [
+    "nets.any_six_squares_fold",
+    "nets.any_six_squares_fold",
+    "nets.face_count_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbixe660b",
+   "level": 2,
+   "question": "一个圆柱（cylinder）的展开图（net）由哪些部分组成？",
+   "options": [
+    "2 个全等的圆和 1 个长方形，长方形的长等于圆的周长",
+    "1 个圆和 1 个长方形，因为圆柱只有下面一个底面",
+    "2 个全等的圆和 2 个长方形，侧面要分成前后两块",
+    "2 个全等的圆和 1 个长方形，长方形的长等于圆的直径"
+   ],
+   "answerIndex": 0,
+   "explain": "圆柱有上下两个底面圆和一个侧面；侧面剪开摊平是一个长方形，它的长要正好绕底面一圈，等于底面周长（circumference）2πr，宽就是圆柱的高。坑是把直径当成绕一圈的长度，或只剪 1 个圆。",
+   "tags": [
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbi8jjgvo",
+   "level": 2,
+   "question": "某个展开图由 2 个全等三角形和 4 个长方形组成，一共 6 块。它能折成三棱柱（triangular prism）吗？",
+   "options": [
+    "能，三棱柱一共 6 个面，正好凑够 6 块",
+    "不能，三棱柱只有 5 个面，长方形应 3 个",
+    "能，多出来的那个长方形可以铺在底下",
+    "不能，三棱柱要 3 个三角形和 3 个长方形"
+   ],
+   "answerIndex": 1,
+   "explain": "数面的方法：底面是三角形（3 条边）就有 3 个侧面长方形，再加上下 2 个三角形底面，一共 5 个面。多出一个长方形就折不拢，一定会有面重叠。",
+   "tags": [
+    "nets.face_count_wrong",
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbiwap0l2",
+   "level": 2,
+   "question": "6 个完全一样的正方形拼成一个 2 行 3 列的大长方形。它能折成正方体吗？",
+   "options": [
+    "能，只要 6 个正方形边挨边连着就能折",
+    "能，一共 6 格，正方体正好需要 6 个面",
+    "不能，里面有 2×2 的方块，折起来会重叠",
+    "不能，2 行 3 列只能折成长方体不是正方体"
+   ],
+   "answerIndex": 2,
+   "explain": "动手折：一行 3 个围起来后，第二行的正方形会盖到已经用掉的位置，出现重叠，同时还缺面。判断口诀是展开图里不能出现 2×2 的四方块。坑是「格子数够了就一定能折」。",
+   "tags": [
+    "nets.any_six_squares_fold",
+    "nets.any_six_squares_fold",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbiy9x5ag",
+   "level": 2,
+   "question": "一个展开图由 2 个全等的梯形和 4 个长方形组成。它折起来是什么立体图形？",
+   "options": [
+    "正方体，因为展开图正好凑够 6 个面",
+    "三棱柱，因为三棱柱一共就是 6 个面",
+    "四棱锥，因为它有 4 个长方形侧面",
+    "四棱柱，两个梯形是上下两个底面"
+   ],
+   "answerIndex": 3,
+   "explain": "底面是梯形（四边形，4 条边）→ 侧面就有 4 个长方形，加上下 2 个梯形底面共 6 个面，所以是四棱柱。坑是看到 6 个面就说正方体，或把三棱柱记成 6 个面（其实是 5 个）。",
+   "tags": [
+    "nets.any_six_squares_fold",
+    "nets.face_count_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbijw67rr",
+   "level": 3,
+   "question": "温哥华一家茶店要做圆柱形茶叶罐，底面半径 5 cm，高 12 cm，有底也有盖。设计包装纸的展开图时（π 取 3.14），下面哪种裁法是对的？",
+   "options": [
+    "侧面长方形 31.4 cm × 12 cm，再剪 2 个半径 5 cm 的圆",
+    "侧面长方形 15.7 cm × 12 cm，再剪 2 个半径 5 cm 的圆",
+    "侧面长方形 31.4 cm × 12 cm，再剪 1 个半径 5 cm 的圆",
+    "侧面长方形 31.4 cm × 12 cm，再剪 4 个半径 5 cm 的圆"
+   ],
+   "answerIndex": 0,
+   "explain": "两步：侧面摊平后长方形的长要绕底面一圈，等于周长 2πr = 2 × 3.14 × 5 = 31.4 cm，宽就是罐高 12 cm；有底有盖所以另外要 2 个圆。坑是把长算成 πr = 15.7 cm，或只剪 1 个圆。",
+   "tags": [
+    "ok",
+    "other",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbi20i512",
+   "level": 3,
+   "question": "在 Golden Ears 露营的帐篷是三棱柱形：两端各是一块三角形，其余是长方形。地面那一块用地垫，不做防水布，其他面都要。要裁几块防水布？",
+   "options": [
+    "5 块——2 个三角形和 3 个长方形，每个面都要做",
+    "4 块——2 个三角形和 2 个长方形，去掉地面那块",
+    "6 块——2 个三角形和 4 个长方形，三棱柱 6 个面",
+    "3 块——1 个三角形和 2 个长方形，两端算成 1 块"
+   ],
+   "answerIndex": 1,
+   "explain": "两步：先数三棱柱的面，2 个三角形底面加 3 个长方形侧面共 5 个；再去掉不做的地面长方形，剩 4 块。坑是把三棱柱记成 6 个面，或忘了两端是分开的 2 块。",
+   "tags": [
+    "other",
+    "ok",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbi1o24e6",
+   "level": 3,
+   "question": "手工课上 Mateo 说：「我剪了 6 个一模一样的正方形，只要把它们边挨边连成一片，怎么排都能折成正方体，因为正方体正好有 6 个面。」他的问题在哪？",
+   "options": [
+    "他没错，6 个正方形连成一片就一定折得成",
+    "他错了，正方体要 8 个正方形，它有 8 个顶点",
+    "他错了，面数够只是第一步，排法不对会重叠",
+    "他错了，正方体的面得用长方形，正方形不行"
+   ],
+   "answerIndex": 2,
+   "explain": "6 个正方形只是必要条件：排成一行 6 个、或 2 行 3 列，折的时候都会有面重叠、有位置空着。能折成正方体的排法只有 11 种，它们都不含 2×2 的方块，也不会有连续 5 个排成一条。",
+   "tags": [
+    "nets.any_six_squares_fold",
+    "nets.face_count_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkqlcbix93vff",
+   "level": 3,
+   "question": "手工课要做一个长方体收纳盒，长 12 cm、宽 8 cm、高 6 cm，顶面开口没有盖子。按展开图裁卡纸，至少要多少平方厘米？",
+   "options": [
+    "432 cm²，因为要把 6 个面都算上",
+    "240 cm²，因为只算围一圈的 4 个侧面",
+    "216 cm²，三种面各算 1 个就够了",
+    "336 cm²，底面 96 加 4 个侧面 240"
+   ],
+   "answerIndex": 3,
+   "explain": "两步：没有盖子，展开图只有 5 个面——底面 12×8 = 96，前后 12×6 各 72，左右 8×6 各 48，合计 96 + 144 + 96 = 336 cm²。坑是照搬 6 个面的表面积 432 cm²，或只算侧面漏掉底面。",
+   "tags": [
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "nets.face_count_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.POWERS.SQUARE_CUBE_COMPARE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkikfr8rmt8pt",
+   "level": 1,
+   "question": "指数（exponent）告诉我们有几个相同的数在相乘：4³ 就是三个 4 相乘，4² 就是两个 4 相乘。下面哪一句话是对的？",
+   "options": [
+    "4³ = 64，4² = 16",
+    "4³ = 64，4² = 8",
+    "4³ = 12，4² = 16",
+    "4³ = 12，4² = 8"
+   ],
+   "answerIndex": 0,
+   "explain": "4³ = 4 × 4 × 4 = 64，4² = 4 × 4 = 16。最常踩的坑是把立方当成乘 3（写 12 的那个）、把平方当成乘 2（写 8 的那个）。",
+   "tags": [
+    "ok",
+    "sq.square_as_double",
+    "cube.cube_as_triple",
+    "cube.cube_as_triple"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8s90pz0",
+   "level": 1,
+   "question": "下面四句话里只有一句是对的，是哪一句？",
+   "options": [
+    "5² = 10，因为 5 × 2",
+    "5² = 25，因为 5 × 5",
+    "5³ = 15，因为 5 × 3",
+    "10 很整，所以是完全平方数"
+   ],
+   "answerIndex": 1,
+   "explain": "平方（squared）是自己乘自己：5² = 5 × 5 = 25；立方（cubed）是三个自己相乘：5³ = 125，不是 5 × 3。10 看着整，但 3² = 9、4² = 16，中间没有 10。",
+   "tags": [
+    "sq.square_as_double",
+    "ok",
+    "cube.cube_as_triple",
+    "sq.looks_square"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8orwlvc",
+   "level": 1,
+   "question": "已知 8 × 8 = 64，并且 4 × 4 × 4 = 64。根据这两个算式，关于 64 下面哪句话正确？",
+   "options": [
+    "64 不是完全立方数，因为立方是乘 3",
+    "64 不是完全平方数，因为平方是乘 2",
+    "64 既是完全平方数，也是完全立方数",
+    "64 是完全平方数，因为它看着很整"
+   ],
+   "answerIndex": 2,
+   "explain": "8 × 8 = 64 说明 64 是完全平方数（perfect square），4 × 4 × 4 = 64 说明它同时是完全立方数（perfect cube），两种身份可以并存。平方不是乘 2、立方不是乘 3。",
+   "tags": [
+    "cube.cube_as_triple",
+    "sq.square_as_double",
+    "ok",
+    "sq.looks_square"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8x3tt1l",
+   "level": 1,
+   "question": "下面哪一个数是完全平方数（perfect square）？",
+   "options": [
+    "50",
+    "14",
+    "12",
+    "49"
+   ],
+   "answerIndex": 3,
+   "explain": "49 = 7 × 7，所以它是完全平方数。14 只是 7 的两倍、12 只是 4 的三倍，都不是某个整数自乘来的；50 看着整，但 7² = 49、8² = 64，中间没有 50。",
+   "tags": [
+    "sq.looks_square",
+    "sq.square_as_double",
+    "cube.cube_as_triple",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8q7ex6w",
+   "level": 2,
+   "question": "下面哪个数既是完全平方数又是完全立方数？括号里是同学写的理由。",
+   "options": [
+    "64（8² 和 4³ 都是 64）",
+    "12（4³ = 12，4 的三倍）",
+    "20（10² = 20，10 的两倍）",
+    "100（100 看着很整齐）"
+   ],
+   "answerIndex": 0,
+   "explain": "64 = 8 × 8 = 8²，也 = 4 × 4 × 4 = 4³，所以两种身份都有。100 确实是 10² 但不是立方数，而写 20 和 12 的理由分别把平方当成乘 2、把立方当成乘 3。",
+   "tags": [
+    "ok",
+    "cube.cube_as_triple",
+    "sq.square_as_double",
+    "sq.looks_square"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8dv10hf",
+   "level": 2,
+   "question": "小雅在 Surrey 的家里用方糖堆一个正方体，每条棱上放 4 块方糖，整个正方体用掉的方糖数正好是 4³ 块。她一共用了多少块方糖？",
+   "options": [
+    "12",
+    "64",
+    "16",
+    "8"
+   ],
+   "answerIndex": 1,
+   "explain": "一层是 4 × 4 = 16 块，一共 4 层，16 × 4 = 64，也就是 4³ = 64。答 12 的把立方当成 4 × 3，答 16 的只算了一层。",
+   "tags": [
+    "cube.cube_as_triple",
+    "ok",
+    "other",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8zkemmu",
+   "level": 2,
+   "question": "当 n = 6 时，下面关于 n²（n squared）和 2n 的说法，哪一句是对的？",
+   "options": [
+    "n² = 12，2n = 12，相等",
+    "n³ = 18，n² = 12，相等",
+    "n² = 36，2n = 12，不等",
+    "n² = 36，2n = 36，相等"
+   ],
+   "answerIndex": 2,
+   "explain": "n² = 6 × 6 = 36，而 2n = 2 × 6 = 12，两者差得很远。只有 n = 2 时 n² 才碰巧等于 2n，千万别把平方当成翻倍。",
+   "tags": [
+    "sq.square_as_double",
+    "cube.cube_as_triple",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkikfr85dox9p",
+   "level": 2,
+   "question": "先算出 6²，再算出 6 的两倍，这两个结果相差多少？",
+   "options": [
+    "0",
+    "30",
+    "18",
+    "24"
+   ],
+   "answerIndex": 3,
+   "explain": "6² = 6 × 6 = 36，6 的两倍是 12，36 − 12 = 24。答 0 的人把平方当成了翻倍，答 18 的人用了 6 × 3。",
+   "tags": [
+    "sq.square_as_double",
+    "other",
+    "cube.cube_as_triple",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8gl80wx",
+   "level": 3,
+   "question": "阿宇说：因为 4³ = 12，而 12 不是完全平方数，所以 64 不可能既是平方数又是立方数。他的问题出在哪里？",
+   "options": [
+    "他错了，4³ 表示三个 4 相乘",
+    "他说得对，因为 64 长得很整",
+    "4³ = 12 对，12 也是平方数",
+    "4³ = 12 对，错在 8² = 16"
+   ],
+   "answerIndex": 0,
+   "explain": "4³ = 4 × 4 × 4 = 64，不是 4 × 3 = 12；而 8 × 8 也等于 64，所以 64 既是完全平方数又是完全立方数。指数写在右上角，是相乘的个数，不是乘上去的倍数。",
+   "tags": [
+    "ok",
+    "sq.looks_square",
+    "cube.cube_as_triple",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtkikfr87x5qpk",
+   "level": 3,
+   "question": "温哥华一家店做正方体（cube）形的枫糖礼盒，棱长 4 cm，里面正好装下 64 块边长 1 cm 的小方糖。店里还想做一个正方形托盘，面积（area）也正好是 64 平方厘米。这个托盘的边长应该是多少？",
+   "options": [
+    "32 cm",
+    "8 cm",
+    "12 cm",
+    "4 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "正方形面积是边长自乘，8 × 8 = 64，所以边长是 8 cm；这也说明 64 既是 4³ 又是 8²。写 32 的把平方当成乘 2，写 12 的把立方当成乘 3。",
+   "tags": [
+    "sq.square_as_double",
+    "ok",
+    "cube.cube_as_triple",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8405zsn",
+   "level": 3,
+   "question": "兰里（Langley）一所学校的科学展上，同学们用一样大的小方块堆了一个每条棱 3 块的大正方体。展览结束后，老师想把这些方块全部铺在桌面上拼成一个正方形，每边块数相同、不多不少。能拼成吗？",
+   "options": [
+    "能，边长 9 块，因为 27 ÷ 3 = 9",
+    "能，因为 27 很整齐，一定是平方数",
+    "不能，27 不是完全平方数，铺不满",
+    "能，边长 13.5 块，因为 27 ÷ 2"
+   ],
+   "answerIndex": 2,
+   "explain": "方块总数是 3 × 3 × 3 = 27，是完全立方数；但 5² = 25、6² = 36，中间没有 27，所以拼不成正方形。求边长要找自乘得 27 的整数，不是把 27 除以 3 或除以 2。",
+   "tags": [
+    "cube.cube_as_triple",
+    "sq.looks_square",
+    "ok",
+    "sq.square_as_double"
+   ]
+  },
+  {
+   "qid": "qmtkikfr8np7i2h",
+   "level": 3,
+   "question": "基隆拿（Kelowna）社区花园收到 64 块一模一样的小方块。园丁既想把它们平铺成一个大正方形，也想把它们叠成一个大正方体，两次都要正好用完。大正方形每边几块？大正方体每边几块？",
+   "options": [
+    "正方形每边 8 块，正方体每边 21 块",
+    "正方形每边 8 块，正方体每边 8 块",
+    "正方形每边 32 块，正方体每边 4 块",
+    "正方形每边 8 块，正方体每边 4 块"
+   ],
+   "answerIndex": 3,
+   "explain": "8 × 8 = 64，所以正方形每边 8 块；4 × 4 × 4 = 64，所以正方体每边 4 块——同一个 64 有平方和立方两种身份。写 21 块的把立方根当成除以 3，写 32 块的把平方当成乘 2。",
+   "tags": [
+    "cube.cube_as_triple",
+    "other",
+    "sq.square_as_double",
+    "ok"
+   ]
+  }
+ ]
+}

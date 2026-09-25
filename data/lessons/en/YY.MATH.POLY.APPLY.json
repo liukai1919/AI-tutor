@@ -1,0 +1,110 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.POLY.APPLY",
+ "lang": "en",
+ "title": "Use polynomials to model perimeter, area and cost situations, then simplify (perimeter of a rectangle with sides 2x + 3 and x − 1)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Fencing a Rectangle with Polynomials",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add and subtract polynomials and how to multiply a bracket by a number using the distributive property. Today we use those skills for something real: writing the perimeter of a rectangle whose sides are polynomials, like a backyard garden in Surrey with length two x plus three metres and width x minus one metres. Perimeter just means the total distance around the outside, so it is the length of fence you would need to buy.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Picture the garden. A rectangle has four sides: two lengths and two widths. So the perimeter is two times the length plus two times the width. The length is two x plus three, and the width is x minus one. That gives perimeter equals two times the quantity two x plus three, plus two times the quantity x minus one. The x is a variable, so the same formula works no matter what size the garden ends up being.",
+    "math": "P = 2(2x+3) + 2(x-1)",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      13,
+      4
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Length 2x + 3, width x − 1. Drawn here for x = 5, so 13 m by 4 m."
+    }
+   },
+   {
+    "say": "Now distribute, just like you did with two n times the quantity n plus seven. Two times two x plus three is four x plus six. Two times x minus one is two x minus two. So the perimeter becomes four x plus six plus two x minus two. You can think of it as laying all four sides end to end in one straight line.",
+    "math": "P = 4x + 6 + 2x - 2",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      13,
+      4,
+      13,
+      4
+     ],
+     "labels": [
+      "2x + 3",
+      "x − 1",
+      "2x + 3",
+      "x − 1"
+     ],
+     "caption": "The four sides laid end to end (shown for x = 5). Notice two long and two short."
+    }
+   },
+   {
+    "say": "Last step: collect like terms. The x terms go together: four x plus two x is six x. The plain numbers go together: six minus two is four. So the perimeter is six x plus four. Let us check it with a real number. If x is five, the sides are thirteen metres and four metres. Adding all four sides: thirteen plus four plus thirteen plus four is thirty four. And six times five plus four is also thirty four. It matches, so the polynomial is right.",
+    "math": "P = 6x + 4",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      13,
+      4,
+      34
+     ],
+     "labels": [
+      "x",
+      "2x + 3",
+      "x − 1",
+      "Perimeter 6x + 4"
+     ],
+     "caption": "Check with x = 5: the four sides add to 34 m, and 6(5) + 4 = 34 m too."
+    }
+   },
+   {
+    "say": "Two mistakes to watch for. First, some people squash six x plus four into ten x. That is wrong, because six x is x tiles and four is unit tiles. They are unlike terms and cannot be combined, just like six loonies and four toonies are not ten of the same coin. Second, some people only add the two labelled sides, two x plus three plus x minus one, and get three x plus two. But that is only half the fence! The other two sides are still there even though the picture does not label them. Always count all four sides.",
+    "math": "6x + 4 \\neq 10x, \\quad 3x + 2 \\text{ is only half}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      17,
+      34
+     ],
+     "labels": [
+      "Only 2 sides: 3x + 2",
+      "All 4 sides: 6x + 4"
+     ],
+     "caption": "For x = 5: adding just two sides gives 17 m, but the real fence is 34 m."
+    }
+   },
+   {
+    "say": "Here is the whole idea in one line. To model a perimeter with polynomials, write two times length plus two times width, distribute the twos, then collect the like terms and only the like terms. For sides two x plus three and x minus one, the perimeter is six x plus four. And if fencing costs, say, twelve dollars a metre, you would multiply that whole perimeter by twelve to get the cost. Same skill, one more step.",
+    "math": "P = 2(2x+3) + 2(x-1) = 6x + 4",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Perimeter = 2(length) + 2(width): distribute, collect like terms. 2(2x + 3) + 2(x − 1) = 6x + 4.",
+  "practice": {
+   "question": "A rectangular practice mat at a Burnaby skate park has a length of three x plus two metres and a width of x plus four metres. Write a simplified polynomial for the perimeter of the mat. Then find the perimeter in metres if x is three.",
+   "answer": "P = 2(3x + 2) + 2(x + 4) = 6x + 4 + 2x + 8 = 8x + 12. When x = 3: 8(3) + 12 = 36 m. Check: sides are 11 m and 7 m, and 11 + 7 + 11 + 7 = 36 m."
+  }
+ }
+}

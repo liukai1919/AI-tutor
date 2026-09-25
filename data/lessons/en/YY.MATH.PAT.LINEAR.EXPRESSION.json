@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.PAT.LINEAR.EXPRESSION",
+ "lang": "en",
+ "title": "Write the expression for a linear relation (3n + 2) and evaluate it",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Meet the Rule 3n plus 2",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to look at a pattern like three, five, seven and write it as two n plus one. Today we take that same skill and use a new rule, three n plus two, so you can jump straight to any term without counting your way there.",
+    "math": "3n+2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Think about Ravi saving up for new soccer cleats. He already has two dollars in his jar, and every week he adds three more dollars. The three is the part that repeats each week, so it gets multiplied by n, the week number. The two is what he started with, so it just sits at the end. That is three n plus two.",
+    "math": "3n+2",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      8,
+      11,
+      14
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "Week n",
+      "Dollars in jar"
+     ],
+     "caption": "Week 1 gives 3 times 1 plus 2 equals 5, week 2 gives 3 times 2 plus 2 equals 8, and so on"
+    }
+   },
+   {
+    "say": "Now let us evaluate it. Evaluate just means put a number in for n and work it out. For week ten, replace n with ten. Three times ten is thirty, and thirty plus two is thirty two. So Ravi has thirty two dollars after ten weeks.",
+    "math": "3(10)+2=30+2=32",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      30,
+      2
+     ],
+     "labels": [
+      "3 times 10",
+      "start of 2"
+     ],
+     "caption": "Thirty from the weekly savings, plus the two he began with, makes 32 dollars"
+    }
+   },
+   {
+    "say": "Here is where lots of students get stuck. To find week fifty, they add three, fifty times, one line at a time. That takes forever and it is easy to slip up. The expression is a shortcut. Just put fifty in for n. Three times fifty is one hundred fifty, plus two is one hundred fifty two dollars. One line, done.",
+    "math": "3(50)+2=150+2=152",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      1,
+      10,
+      50,
+      5,
+      32,
+      152
+     ],
+     "labels": [
+      "1",
+      "10",
+      "50",
+      "Week n",
+      "Dollars in jar"
+     ],
+     "caption": "You can leap straight to week 50 — no counting up needed"
+    }
+   },
+   {
+    "say": "One more trap to watch for. Some people read three n plus two as “start at three and add two each time”, which would give three, five, seven. But that is the wrong way around. Check it with week one. Three times one plus two is five, not three. The number stuck to the n is what gets added each time, and the number on its own is the starting amount.",
+    "math": "3(1)+2=5",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      3,
+      5,
+      7,
+      5,
+      8,
+      11
+     ],
+     "labels": [
+      "1",
+      "2",
+      "3",
+      "Mixed up: start 3, add 2",
+      "Correct: 3n plus 2"
+     ],
+     "caption": "The two rows do not match — the number beside n is the change, the lonely number is the start"
+    }
+   },
+   {
+    "say": "So remember, in three n plus two the three rides with n because it repeats, and the two is where you began. Swap in any n and you get that term straight away.",
+    "math": "3n+2",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "In 3n + 2, the 3 is what is added each time and the 2 is the starting amount — swap in any n to jump straight to that term.",
+  "practice": {
+   "question": "A transit app charges a two dollar base fare plus three dollars for every zone you travel. Write an expression for the cost of a trip through n zones, then find the cost for a seven zone trip.",
+   "answer": "The expression is 3n + 2. For seven zones: 3 times 7 is 21, and 21 plus 2 is 23, so the trip costs 23 dollars."
+  }
+ }
+}

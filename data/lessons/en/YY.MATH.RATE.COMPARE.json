@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.RATE.COMPARE",
+ "lang": "en",
+ "title": "Compare rates by converting to the same unit rate (who is faster: 5 km in 24 min or 3 km in 15 min?)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Who's Actually Faster? Use Unit Rates",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to find a unit rate, like two hundred forty kilometres in three hours being eighty kilometres per hour. Today we use that same trick for something new: deciding who is faster when the distances and the times are both different.",
+    "math": "",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      5,
+      24,
+      3,
+      15
+     ],
+     "labels": [
+      "Runner",
+      "Distance",
+      "Time"
+     ],
+     "caption": "Ali ran 5 km in 24 min; Bea ran 3 km in 15 min"
+    }
+   },
+   {
+    "say": "Here is the honest problem. Ali ran farther, but she also ran for longer. Bea ran a shorter distance, but she finished sooner. Neither number by itself settles it, because we are comparing two things that were measured on different terms. So we make them fair: we ask each runner the exact same question, how many minutes did one kilometre take you?",
+    "math": "\\text{minutes per km} = \\frac{\\text{minutes}}{\\text{kilometres}}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      24,
+      5,
+      15,
+      3
+     ],
+     "labels": [
+      "Runner",
+      "Time (min)",
+      "Distance (km)"
+     ],
+     "caption": "Time goes on top, distance on the bottom — minutes per 1 km"
+    }
+   },
+   {
+    "say": "Let's do the arithmetic. For Ali, twenty four minutes divided by five kilometres is four point eight minutes for every kilometre. For Bea, fifteen minutes divided by three kilometres is exactly five minutes for every kilometre. Now the two numbers are finally talking about the same thing, so we can line them up.",
+    "math": "\\frac{24}{5}=4.8 \\qquad \\frac{15}{3}=5",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      4.8,
+      5
+     ],
+     "labels": [
+      "Ali",
+      "Bea"
+     ],
+     "caption": "Minutes needed for one kilometre — shorter bar is faster"
+    }
+   },
+   {
+    "say": "Now the judging part, and read this carefully. We are measuring minutes per kilometre, so a smaller number means faster, because Ali spends less time on each kilometre. Four point eight is less than five, so Ali is faster. And notice how thin that margin is — only zero point two of a minute per kilometre, which is twelve seconds. You would never have spotted that just by eyeballing the raw numbers.",
+    "math": "4.8 < 5 \\;\\Rightarrow\\; \\text{Ali is faster}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      4.8,
+      1,
+      5,
+      2
+     ],
+     "labels": [
+      "Runner",
+      "Min per 1 km",
+      "Verdict"
+     ],
+     "caption": "Ali 4.8 min per km ranks 1st; Bea 5 min per km ranks 2nd"
+    }
+   },
+   {
+    "say": "Two traps to dodge. First trap: saying Ali is faster because five kilometres is more than three kilometres. That is comparing totals, and totals ignore the clock completely — if I walk ten kilometres in three hours I have gone farther than a sprinter, but nobody would call me faster. Second trap: flipping the division, like five divided by twenty four. That does give a real rate, kilometres per minute, but if you write it under the label minutes per kilometre your comparison is upside down. Whichever unit you choose, use the same one for both runners, and say out loud whether bigger or smaller wins.",
+    "math": "\\frac{5}{24}\\approx 0.208 \\quad \\frac{3}{15}=0.2 \\;\\Rightarrow\\; \\text{Ali still faster}",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      0.208,
+      4.8,
+      0.2,
+      5
+     ],
+     "labels": [
+      "Runner",
+      "Km per min",
+      "Min per km"
+     ],
+     "caption": "Either unit works: bigger km per min, or smaller min per km — Ali wins both"
+    }
+   },
+   {
+    "say": "So the whole move is this: turn each one into a unit rate, then judge. Same unit for both, and always check which direction means faster.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "To compare rates, convert both to the same unit rate — then remember: fewer minutes per km means faster.",
+  "practice": {
+   "question": "Two friends are biking the seawall. Make a small table with three columns: Name, Distance, and Time. Row one: Devon, 12 km, 40 min. Row two: Priya, 9 km, 27 min. Add a fourth column called Minutes per km, work out each one, and say who is faster and how you know.",
+   "answer": "Devon: 40 divided by 12 is about 3.33 minutes per km. Priya: 27 divided by 9 is exactly 3 minutes per km. Priya is faster, because she needs fewer minutes to cover one kilometre — even though Devon rode the longer distance."
+  }
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.EXP.MEANING",
+ "lang": "en",
+ "title": "Read and expand powers with whole-number exponents, including variable bases (2⁷ = 128, n⁴ = n × n × n × n)",
+ "provider": "claude",
+ "at": "2026-09-03",
+ "lesson": {
+  "title": "Reading Powers: What Does 2 to the Seventh Really Mean?",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know that four cubed means four times four times four, which is sixty-four, because you built it with linking cubes. Today we take that same idea one step further: reading any power, like two to the seventh or n to the fourth, and writing out exactly what it means.",
+    "math": "4^3 = 4 \\times 4 \\times 4 = 64",
+    "visual": {
+     "type": "solidCube",
+     "nums": [
+      4
+     ],
+     "labels": [
+      "units"
+     ],
+     "caption": "4 cubed: a 4 by 4 by 4 cube has 64 little cubes"
+    }
+   },
+   {
+    "say": "Here is the rule. In a power, the big number is the base and the little raised number is the exponent. The exponent is a counter. It tells you how many copies of the base to multiply together. Not add. Not multiply by the exponent. Just how many copies.",
+    "math": "\\text{base}^{\\text{exponent}} = \\underbrace{\\text{base} \\times \\text{base} \\times \\cdots}_{\\text{exponent copies}}",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      5,
+      5,
+      5,
+      5
+     ],
+     "labels": [],
+     "caption": "5 squared: five rows of five is 25 squares, not 10"
+    }
+   },
+   {
+    "say": "Let's do two to the seventh. The base is two, the exponent is seven, so we write seven twos multiplied together. Now double as we go: two, four, eight, sixteen, thirty-two, sixty-four, one hundred twenty-eight. So two to the seventh equals one hundred twenty-eight. Think of a phone plan that doubles your data every month for seven months. It grows fast.",
+    "math": "2^7 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 128",
+    "visual": {
+     "type": "dataTable",
+     "nums": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+     ],
+     "labels": [
+      "2^1",
+      "2^2",
+      "2^3",
+      "2^4",
+      "2^5",
+      "2^6",
+      "2^7"
+     ],
+     "caption": "Each step multiplies by 2 again. Seven steps lands on 128."
+    }
+   },
+   {
+    "say": "Now here is the trap a lot of people fall into. Some students see two to the seventh and think two times seven, which is fourteen. But the exponent is not a number you multiply by. It is a count of how many twos. Same thing with three squared. It is not three doubled, which would be six. It is three times three, which is nine. Look at the grid: three rows of three is nine squares, not six.",
+    "math": "2^7 \\neq 14, \\quad 3^2 = 3 \\times 3 = 9 \\neq 6",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      3,
+      3,
+      3,
+      3
+     ],
+     "labels": [],
+     "caption": "3 squared is a 3 by 3 grid: 9 squares, not 6"
+    }
+   },
+   {
+    "say": "The exact same rule works when the base is a letter. Say your part-time allowance is n dollars a week and you have n to the fourth. That just means four copies of n multiplied together. It is not four n, because four n means adding n four times. And n squared means n times n, not two n. The exponent counts multiplications, whether the base is a number or a variable.",
+    "math": "n^4 = n \\times n \\times n \\times n",
+    "visual": {
+     "type": "areaGrid",
+     "nums": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "labels": [],
+     "caption": "n squared: a square with side n. If n is 6, that is 36, not 12."
+    }
+   },
+   {
+    "say": "So the one thing to remember: the exponent is a counter. Two to the seventh means seven twos multiplied, giving one hundred twenty-eight. N to the fourth means four n's multiplied. Base times base times base, as many times as the exponent says.",
+    "math": "2^7 = 128, \\qquad n^4 = n \\times n \\times n \\times n",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The exponent is a counter: it tells you how many copies of the base to multiply together.",
+  "practice": {
+   "question": "A community garden in Kelowna is laid out as a square grid with 7 rows and 7 columns of one-metre plots, so its area in square metres is 7 squared. (a) Write 7 squared as a repeated multiplication and find the area. (b) A friend says the answer is 14. Explain what mistake they made. (c) Write out what m to the fifth means as a repeated multiplication.",
+   "answer": "(a) 7 squared = 7 × 7 = 49 square metres. (b) They multiplied the base by the exponent (7 × 2). The exponent 2 means two copies of 7 multiplied, not 7 times 2. (c) m to the fifth = m × m × m × m × m."
+  }
+ }
+}

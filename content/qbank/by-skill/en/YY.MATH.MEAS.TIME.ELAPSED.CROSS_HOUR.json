@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.MEAS.TIME.ELAPSED.CROSS_HOUR",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5iwknybjoamw",
+   "level": 1,
+   "question": "A time line is drawn with three jumps on it. It starts at 2:45 and the first jump lands on 3:00 (a jump of 15 minutes). The second jump goes from 3:00 to 4:00 (a jump of 1 hour). The third jump goes from 4:00 to 4:20 (a jump of 20 minutes). What is the total elapsed time from 2:45 to 4:20?",
+   "options": [
+    "1 h 35 min",
+    "1 h 15 min",
+    "2 h 25 min",
+    "2 h 15 min"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the jumps: 15 min + 1 h + 20 min = 1 h 35 min. The common trap is subtracting the digits (4:20 − 2:45 gives a fake 2 h 25 min); minutes are counted in 60s, so always hop to the next whole hour first.",
+   "tags": [
+    "ok",
+    "other",
+    "time.elapsed_cross_hour",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5iwknyi4c3d1",
+   "level": 1,
+   "question": "On a time line, a jump goes from 7:50 a.m. to 8:00 a.m. (10 minutes), then a jump from 8:00 a.m. to 9:00 a.m. (1 hour), then a jump from 9:00 a.m. to 9:10 a.m. (10 minutes). How long is the whole duration shown on the time line?",
+   "options": [
+    "2 h 40 min",
+    "1 h 20 min",
+    "2 h",
+    "1 h 10 min"
+   ],
+   "answerIndex": 1,
+   "explain": "10 min + 1 h + 10 min = 1 h 20 min. Watch the first jump: from 7:50 to 8:00 is only 10 minutes, not 50 minutes, because an hour has 60 minutes and not 100.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "ok",
+    "time.base_100",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5iwknyobuncu",
+   "level": 1,
+   "question": "A time line starts at 10:40 and ends at 12:25. It is broken into three jumps: 10:40 to 11:00, then 11:00 to 12:00, then 12:00 to 12:25. The jumps are worth 20 minutes, 1 hour, and 25 minutes. What is the elapsed time?",
+   "options": [
+    "2 h 15 min",
+    "2 h 25 min",
+    "1 h 45 min",
+    "1 h 25 min"
+   ],
+   "answerIndex": 2,
+   "explain": "20 min + 1 h + 25 min = 45 min + 1 h = 1 h 45 min. A common trap is treating 10:40 to 11:00 as 60 minutes; it is 60 − 40 = 20 minutes, because the hour is finished at 60.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "time.base_100",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5iwknyl5r4mf",
+   "level": 1,
+   "question": "A time line for a swim lesson has three jumps. Jump 1 goes from 3:55 to 4:00 and is worth 5 minutes. Jump 2 goes from 4:00 to 5:00 and is worth 1 hour. Jump 3 goes from 5:00 to 5:45 and is worth 45 minutes. How long is the swim lesson?",
+   "options": [
+    "2 h 30 min",
+    "2 h 10 min",
+    "50 min",
+    "1 h 50 min"
+   ],
+   "answerIndex": 3,
+   "explain": "Add every jump, including the whole-hour one: 5 min + 1 h + 45 min = 1 h 50 min. Children often drop the 1-hour jump and answer 50 min, or count 3:55 to 4:00 as 45 min instead of 5 min.",
+   "tags": [
+    "time.base_100",
+    "time.elapsed_cross_hour",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5iwkny5568wc",
+   "level": 2,
+   "question": "The bus from Coquitlam leaves at 4:25 p.m. and arrives at 6:05 p.m. How long is the bus ride?",
+   "options": [
+    "1 h 40 min",
+    "2 h 20 min",
+    "1 h 80 min",
+    "1 h 35 min"
+   ],
+   "answerIndex": 0,
+   "explain": "Jump 4:25 to 5:00 (35 min), 5:00 to 6:00 (1 h), 6:00 to 6:05 (5 min): 35 + 5 = 40 min, so 1 h 40 min. The trap is borrowing 100 minutes from the hour instead of 60, which gives the impossible 1 h 80 min.",
+   "tags": [
+    "ok",
+    "time.elapsed_cross_hour",
+    "time.base_100",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5iwknyxqxlkp",
+   "level": 2,
+   "question": "Which method correctly finds the elapsed time from 7:50 p.m. to 9:15 p.m.?",
+   "options": [
+    "Jump 7:50 to 9:50 (2 h), then take away 15 min, giving 1 h 45 min",
+    "Jump 7:50 to 8:00 (10 min), 8:00 to 9:00 (1 h), 9:00 to 9:15 (15 min), giving 1 h 25 min",
+    "Write 9:15 above 7:50 and subtract each column, giving 2 h 35 min",
+    "Jump 7:50 to 8:00 as 50 min (since 50 + 50 = 100), then 1 h, then 15 min, giving 2 h 5 min"
+   ],
+   "answerIndex": 1,
+   "explain": "Hop to the next whole hour, then count whole hours, then the leftover minutes: 10 min + 1 h + 15 min = 1 h 25 min. Column subtraction of clock digits is the classic trap, because 15 minutes cannot be taken from 50 minutes that way.",
+   "tags": [
+    "other",
+    "ok",
+    "time.elapsed_cross_hour",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5iwknysvqtar",
+   "level": 2,
+   "question": "A movie starts at 6:50 p.m. and ends at 8:35 p.m. How long is the movie?",
+   "options": [
+    "2 h 25 min",
+    "2 h 15 min",
+    "1 h 45 min",
+    "1 h 25 min"
+   ],
+   "answerIndex": 2,
+   "explain": "Jump 6:50 to 7:00 (10 min), 7:00 to 8:00 (1 h), 8:00 to 8:35 (35 min): 10 + 35 = 45 min, so 1 h 45 min. Subtracting the clock digits (50 − 35) gives a fake 2 h 15 min, because the minutes cross into a new hour.",
+   "tags": [
+    "time.base_100",
+    "time.elapsed_cross_hour",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt7hvb6w1l8r5d",
+   "level": 2,
+   "question": "Public skating at the Kamloops rink runs from 5:40 p.m. to 7:10 p.m. How long is the skating session?",
+   "options": [
+    "2 h 30 min",
+    "1 h 70 min",
+    "1 h 20 min",
+    "1 h 30 min"
+   ],
+   "answerIndex": 3,
+   "explain": "Jump 5:40 to 6:00 (20 min), 6:00 to 7:00 (1 h), 7:00 to 7:10 (10 min): 20 + 10 = 30 min, so 1 h 30 min. Subtracting the clock digits (40 − 10) gives a fake 2 h 30 min, borrowing 100 minutes invents the impossible 1 h 70 min — an hour only holds 60 — and 1 h 20 min drops the last 10-minute jump.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "time.base_100",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5iwknyb7md2y",
+   "level": 3,
+   "question": "Noah's swim class runs from 4:50 p.m. to 6:35 p.m. His sister's class runs from 5:15 p.m. to 6:45 p.m. How much longer is Noah's class than his sister's class?",
+   "options": [
+    "45 min",
+    "25 min",
+    "55 min",
+    "15 min"
+   ],
+   "answerIndex": 3,
+   "explain": "Noah: 10 min + 1 h + 35 min = 1 h 45 min; his sister: 45 min + 45 min = 1 h 30 min; the difference is 15 min. The trap is subtracting clock digits for Noah's class, which turns 1 h 45 min into a fake 2 h 15 min and makes the gap look like 45 min.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "other",
+    "time.base_100",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5iwknytgvj6e",
+   "level": 3,
+   "question": "Ava says the time from 7:45 a.m. to 9:20 a.m. is 2 hours 25 minutes, because 9 − 7 = 2 and 45 − 20 = 25. Which statement is correct?",
+   "options": [
+    "She subtracted the minute digits the wrong way across the hour; the duration is 1 h 35 min.",
+    "She forgot that an hour holds 100 minutes, so the answer must be worked in hundreds; it is 2 h 15 min.",
+    "Nothing is wrong; subtracting the hours and the minutes separately really gives 2 h 25 min.",
+    "She should have borrowed 100 minutes from the hour before subtracting; the duration is 1 h 75 min."
+   ],
+   "answerIndex": 0,
+   "explain": "Because 20 minutes is less than 45 minutes, you cannot subtract the columns; jump 7:45 to 8:00 (15 min), 8:00 to 9:00 (1 h), 9:00 to 9:20 (20 min), giving 1 h 35 min. Remember an hour is 60 minutes, so any borrowing takes 60, never 100.",
+   "tags": [
+    "ok",
+    "time.base_100",
+    "time.elapsed_cross_hour",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5iwkny0z5g3m",
+   "level": 3,
+   "question": "A class bus leaves the school at 8:40 a.m. and reaches the aquarium at 10:15 a.m. The class stays 2 h 30 min, and the ride back takes exactly as long as the ride there. How long is the whole trip, from leaving school to returning?",
+   "options": [
+    "7 h 20 min",
+    "5 h 40 min",
+    "4 h 5 min",
+    "7 h"
+   ],
+   "answerIndex": 1,
+   "explain": "Each ride is 20 min + 1 h + 15 min = 1 h 35 min, so 1 h 35 min + 1 h 35 min = 3 h 10 min, plus 2 h 30 min = 5 h 40 min. The trap is subtracting 10:15 − 8:40 digit by digit to get a fake 2 h 25 min per ride, which stretches the whole trip by nearly two hours.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "ok",
+    "other",
+    "time.base_100"
+   ]
+  },
+  {
+   "qid": "qmt5iwknygmc5j6",
+   "level": 3,
+   "question": "The community library closes at 5:30 p.m. Emma starts her science project there at 3:45 p.m. and needs 2 hours of work time. Which statement is true?",
+   "options": [
+    "Yes — she has 2 h 15 min, which is 15 min more than she needs.",
+    "No — she has 1 h 15 min, so she is 45 min short.",
+    "No — she has 1 h 45 min, so she is 15 min short.",
+    "Yes — she has 2 h 25 min, which is 25 min more than she needs."
+   ],
+   "answerIndex": 2,
+   "explain": "Jump 3:45 to 4:00 (15 min), 4:00 to 5:00 (1 h), 5:00 to 5:30 (30 min): 15 + 30 = 45 min, so 1 h 45 min, which is 15 min less than the 2 hours she needs. Subtracting clock digits gives a fake 2 h 15 min and would wrongly tell Emma she has time to spare.",
+   "tags": [
+    "time.elapsed_cross_hour",
+    "other",
+    "ok",
+    "time.base_100"
+   ]
+  }
+ ]
+}

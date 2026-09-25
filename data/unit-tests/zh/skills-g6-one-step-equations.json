@@ -1,0 +1,121 @@
+{
+ "v": 1,
+ "grade": "skills-g6",
+ "strand": "one-step-equations",
+ "lang": "zh",
+ "unitName": {
+  "zh": "一步方程",
+  "en": "One-step equations"
+ },
+ "provider": "claude",
+ "at": "2026-08-24",
+ "set": {
+  "title": "一步方程 · 单元测试",
+  "questions": [
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.BALANCE",
+    "level": 1,
+    "question": "一台天平保持平衡：左盘放着一个写有 x 的袋子和 4 个 1 g 砝码，右盘放着 12 个 1 g 砝码。要让袋子单独留在左盘、同时天平仍然平衡，下一步应该怎么做？",
+    "options": [
+     "只把左盘的 4 个砝码拿走",
+     "左盘拿走 4 个砝码，右盘再加上 4 个砝码",
+     "两个盘各拿走 4 个砝码",
+     "两个盘各拿走 12 个砝码"
+    ],
+    "answerIndex": 2,
+    "explain": "等式守恒（keep the equation balanced）的意思是：一边做什么，另一边就要做同样的事，所以两盘各拿走 4 个，得到 x = 8。最容易踩的坑是只动左边（x + 4 = 12 → x = 12），那样天平就歪了，等式也不再成立。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+    "level": 1,
+    "question": "解方程 5m = 45，m 等于多少？",
+    "options": [
+     "m = 40",
+     "m = 9",
+     "m = 50",
+     "m = 225"
+    ],
+    "answerIndex": 1,
+    "explain": "5m 表示 5 × m，要去掉系数（coefficient）5 就两边同除以 5：45 ÷ 5 = 9。最常见的错是用减法去掉系数（45 − 5 = 40），乘法只能用除法这个逆运算来还原。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.CHECK",
+    "level": 1,
+    "question": "解方程 x + 7 = 15，并把答案代回原式检查。x 等于多少？",
+    "options": [
+     "x = 22",
+     "x = 105",
+     "x = 7",
+     "x = 8"
+    ],
+    "answerIndex": 3,
+    "explain": "两边同减 7：x = 15 − 7 = 8；代入验算（check by substitution）8 + 7 = 15 ✓。最容易踩的坑是逆运算用反了，把两个数加起来写成 x = 22，代回去 22 + 7 = 29，一验算就知道不对。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.WORD",
+    "level": 2,
+    "question": "Maya 在本拿比的溜冰场，口袋里原来有一些钱。她买了一杯 $4.75 的热巧克力后，还剩 $3.60。她原来有多少钱？",
+    "options": [
+     "$8.35",
+     "$7.35",
+     "$1.15",
+     "$8.45"
+    ],
+    "answerIndex": 0,
+    "explain": "设原来有 x 元，情境是「原有 − 花掉 = 剩下」，即 x − 4.75 = 3.60，两边同加 4.75 得 x = 8.35。$7.35 是小数相加时忘了进位，$1.15 是把两个数减反了方向。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.COEFF",
+    "level": 2,
+    "question": "一家人买了 4 张 BC Lions 的球票，一共花了 $54.00，每张票价钱一样。设每张票 t 元，t 是多少？",
+    "options": [
+     "$50.00",
+     "$58.00",
+     "$13.50",
+     "$216.00"
+    ],
+    "answerIndex": 2,
+    "explain": "4 张同价的票列成 4t = 54，两边同除以 4：54 ÷ 4 = 13.50。坑在于看到系数就想减（54 − 4 = 50）或者顺手乘（54 × 4 = 216）；4t 是乘法，只能用除法还原。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.CHECK",
+    "level": 2,
+    "question": "下面四个方程中，哪一个的解是 x = 8？（把 8 代进去检查）",
+    "options": [
+     "x + 6 = 14",
+     "x − 6 = 14",
+     "6x = 14",
+     "x ÷ 6 = 14"
+    ],
+    "answerIndex": 0,
+    "explain": "把 x = 8 逐个代入：8 + 6 = 14 ✓；而 x − 6 = 14 的解是 20，6x = 14 的解不是整数，x ÷ 6 = 14 的解是 84。代入验算（substitution）是自己检查答案最快的办法，不用重解一遍。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.ONESTEP.WORD",
+    "level": 3,
+    "question": "在阿伯茨福德（Abbotsford）的蓝莓园，Nora 摘了 5 盒一样重的蓝莓，全部放进一个 0.4 kg 的空篮子里，连篮子一共重 3.4 kg。每盒蓝莓重多少克（gram）？",
+    "options": [
+     "680 g",
+     "600 g",
+     "3000 g",
+     "60 g"
+    ],
+    "answerIndex": 1,
+    "explain": "先减掉篮子：3.4 − 0.4 = 3.0 kg 是 5 盒蓝莓的重量；再解 5b = 3.0，得 b = 0.6 kg = 600 g。坑有两个：忘了先减篮子（3.4 ÷ 5 = 680 g），以及单位没换算好（1 kg = 1000 g，0.6 kg 是 600 g 不是 60 g）。"
+   },
+   {
+    "curriculumId": "YY.MATH.ALG.EQ.BALANCE",
+    "level": 3,
+    "question": "Liam 解方程 6h = 42，他这样写：6h = 42 → h = 42 − 6 = 36。下面哪个判断是对的？",
+    "options": [
+     "他方法没问题，只是算错了，正确答案应该是 h = 48",
+     "他忘了右边也要减 6，正确答案是 h = 30",
+     "他应该两边同乘 6，正确答案是 h = 252",
+     "6h 表示 6 × h，要两边同除以 6，正确答案是 h = 7"
+    ],
+    "answerIndex": 3,
+    "explain": "h 和 6 之间是乘法，还原乘法要用除法：两边同除以 6，h = 42 ÷ 6 = 7，代入验算 6 × 7 = 42 ✓。Liam 的错误是把系数当成了加上去的数（6h 看成 6 + h），这是本单元最常见的坑；注意「两边做同样的事」不能救错方法，用错运算再平衡也还是错的。"
+   }
+  ]
+ }
+}

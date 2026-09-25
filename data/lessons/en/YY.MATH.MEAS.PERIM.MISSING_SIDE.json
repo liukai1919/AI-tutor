@@ -1,0 +1,102 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.MEAS.PERIM.MISSING_SIDE",
+ "lang": "en",
+ "title": "Find a missing side length when the perimeter is known",
+ "provider": "claude",
+ "at": "2026-08-23",
+ "lesson": {
+  "title": "Finding the Missing Side When You Know the Perimeter",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to add up all the sides of a shape to find the perimeter. Today we flip it around: someone tells us the perimeter, one side is hidden, and we work backwards to find it.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the big idea. Perimeter is the whole walk around the shape. So all the sides together must add up to the perimeter. If one side is missing, we add the sides we can see, then take that away from the perimeter. Whatever is left over must be the hidden side.",
+    "math": "\\text{missing side} = \\text{perimeter} - \\text{the sides we know}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      24,
+      17,
+      7
+     ],
+     "labels": [
+      "Perimeter",
+      "Sides we know",
+      "Missing side"
+     ],
+     "caption": "The whole perimeter bar splits into the part we know and the part we are hunting for"
+    }
+   },
+   {
+    "say": "Let us try one. Priya is making a rectangular garden bed in her Surrey backyard. She has twenty four metres of edging, and she uses every single centimetre of it, so the perimeter is twenty four metres. The long sides are nine metres each, but she forgot how wide the bed is. A rectangle has four sides: nine, nine, and then two equal short sides. Nine plus nine is eighteen. Twenty four take away eighteen leaves six metres for the two short sides together. Those two short sides are equal, so each one is three metres.",
+    "math": "24-(9+9)=6,\\quad 6\\div 2=3",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      9,
+      3
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Perimeter 24 m: the long sides are 9 m, so each short side is 3 m"
+    }
+   },
+   {
+    "say": "Now let us check our thinking, because good mathematicians always test their answer. Walk around Priya's garden: nine plus three plus nine plus three. Nine plus three is twelve, and twelve plus twelve is twenty four. It matches the perimeter she was given, so three metres is right.",
+    "math": "9+3+9+3=24\\ \\checkmark",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      9,
+      3
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "Walk all the way around: 9 + 3 + 9 + 3 = 24 m"
+    }
+   },
+   {
+    "say": "Here is a mistake lots of kids make. Some say the missing side is six metres, because twenty four take away eighteen is six. But six was the leftover for both short sides, not just one. If we tried six, the walk around would be nine plus six plus nine plus six, which is thirty. That is way more than twenty four, so we know six is too big. Always ask yourself: is this leftover for one side, or for more than one?",
+    "math": "9+6+9+6=30\\neq 24",
+    "visual": {
+     "type": "shapeRect",
+     "nums": [
+      9,
+      6
+     ],
+     "labels": [
+      "m"
+     ],
+     "caption": "If the short side were 6 m, the perimeter would be 30 m — too big!"
+    }
+   },
+   {
+    "say": "So here is what to remember: take the perimeter, subtract the sides you know, and if the leftover belongs to more than one equal side, share it out fairly.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "Perimeter minus the sides you know equals what is left — then share that leftover among the missing sides.",
+  "practice": {
+   "question": "Liam is putting ribbon around a rectangular poster for his class project in Kelowna. He uses exactly 30 centimetres of ribbon all the way around, so the perimeter is 30 centimetres. The top and bottom of the poster are each 10 centimetres long. How long is each of the two side edges? Try drawing the rectangle yourself and labelling the sides you know.",
+   "answer": "5 centimetres. The top and bottom together are 10 plus 10, which is 20 centimetres. Take 20 away from 30 and 10 centimetres is left for the two side edges together. Share that fairly: 10 divided by 2 is 5 centimetres each. Check it: 10 plus 5 plus 10 plus 5 equals 30. It works!"
+  }
+ }
+}

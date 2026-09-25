@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.DIV.2D3D_BY_1D",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmt5ampmr3kui6j",
+   "level": 1,
+   "question": "A Grade 4 class in Kelowna has 96 pencil crayons. The teacher shares them equally among 3 supply bins, so every bin gets the same number. How many pencil crayons go in each bin?",
+   "options": [
+    "32",
+    "23",
+    "33",
+    "39"
+   ],
+   "answerIndex": 0,
+   "explain": "Break 96 into 90 and 6: 90 ÷ 3 = 30 and 6 ÷ 3 = 2, so each bin gets 30 + 2 = 32. A common trap is writing the digits in the wrong order and answering 23 — always check by multiplying back: 3 × 32 = 96.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrest685",
+   "level": 1,
+   "question": "Mei has 72 markers. She keeps taking away 6 markers at a time to make groups of 6, and she stops when there are 0 markers left. How many equal groups of 6 does she make?",
+   "options": [
+    "6",
+    "12",
+    "11",
+    "66"
+   ],
+   "answerIndex": 1,
+   "explain": "Repeated subtraction counts how many times you take the group size away: 6 × 10 = 60 leaves 12, and 12 is 2 more sixes, so 10 + 2 = 12 groups. A common trap is subtracting 6 only once and answering 66 — you must keep subtracting until nothing is left.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrk0das6",
+   "level": 1,
+   "question": "A librarian has 150 books and puts exactly 5 books on each shelf. She works in big chunks: she takes away 50 books (that is 10 shelves), then another 50 books (10 more shelves), then the last 50 books (10 more shelves), and 0 books are left. How many shelves does she fill?",
+   "options": [
+    "3",
+    "35",
+    "30",
+    "300"
+   ],
+   "answerIndex": 2,
+   "explain": "With partial quotients you add up the number of groups, not the number of subtractions: 10 + 10 + 10 = 30 shelves. A common trap is counting the three chunks and answering 3 — each chunk was worth 10 shelves.",
+   "tags": [
+    "div.partial_quotient_combine",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmr3dm15v",
+   "level": 1,
+   "question": "Sam has 47 marbles. He shares them into 4 equal groups and keeps any marbles that are left over. How many marbles are in each group, and how many are left over?",
+   "options": [
+    "10 in each group, 7 left over",
+    "11 in each group, 4 left over",
+    "12 in each group, 1 left over",
+    "11 in each group, 3 left over"
+   ],
+   "answerIndex": 3,
+   "explain": "Take away 4 × 10 = 40, leaving 7; 7 holds one more four, so 11 in each group with 3 left over. A common trap is stopping at 10 groups with 7 left over — if the leftover is still as big as the divisor, you can make another group, so the remainder must be smaller than 4.",
+   "tags": [
+    "div.remainder_larger_than_divisor",
+    "div.remainder_larger_than_divisor",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrz5v5fo",
+   "level": 2,
+   "question": "Use partial quotients to find 375 ÷ 5. Which answer is correct?",
+   "options": [
+    "75",
+    "76",
+    "70 r 25",
+    "80"
+   ],
+   "answerIndex": 0,
+   "explain": "Subtract 5 × 70 = 350, leaving 25, and 25 is exactly 5 more fives, so the quotient is 70 + 5 = 75. A common trap is stopping too soon and answering 70 r 25 — a remainder must always be smaller than the divisor.",
+   "tags": [
+    "ok",
+    "other",
+    "div.remainder_larger_than_divisor",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmr6zkrwh",
+   "level": 2,
+   "question": "Ravi finds 156 ÷ 6 like this: 156 − 60 (that is 10 sixes) = 96, then 96 − 60 (10 more sixes) = 36, then 36 − 36 (6 sixes) = 0. What is 156 ÷ 6?",
+   "options": [
+    "56",
+    "26",
+    "16",
+    "20 r 36"
+   ],
+   "answerIndex": 1,
+   "explain": "Add the number of sixes taken out each time: 10 + 10 + 6 = 26, and 6 × 26 = 156 checks it. A common trap is adding the amounts subtracted instead of the group counts (10 + 10 + 36) and answering 56.",
+   "tags": [
+    "div.partial_quotient_combine",
+    "ok",
+    "div.partial_quotient_combine",
+    "div.remainder_larger_than_divisor"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrjnme01",
+   "level": 2,
+   "question": "Mrs. Chan spends $174 on 6 identical hoodies for the school choir. Each hoodie costs the same amount. How much does one hoodie cost?",
+   "options": [
+    "$24",
+    "$19",
+    "$29",
+    "$39"
+   ],
+   "answerIndex": 2,
+   "explain": "Take out 6 × 20 = 120, leaving 54, and 54 ÷ 6 = 9, so 20 + 9 = $29 each. A common trap is losing one of the tens and answering $19 — check with 6 × 29 = 174.",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrz3o1lb",
+   "level": 2,
+   "question": "A rectangular vegetable plot at a community garden has an area of 245 square metres. One side of the plot measures 5 m. How long is the other side?",
+   "options": [
+    "40 m",
+    "240 m",
+    "44 m",
+    "49 m"
+   ],
+   "answerIndex": 3,
+   "explain": "Area ÷ one side = the other side, so 245 ÷ 5: take out 5 × 40 = 200, leaving 45, and 45 ÷ 5 = 9, giving 40 + 9 = 49 m. A common trap is stopping after the first chunk and answering 40 m, or subtracting 5 instead of dividing and answering 240 m.",
+   "tags": [
+    "div.partial_quotient_combine",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrol3tr9",
+   "level": 3,
+   "question": "138 students from a Surrey school are going to Science World. Each van can carry 8 students, and every student must ride. What is the smallest number of vans the school needs?",
+   "options": [
+    "18 vans",
+    "17 vans, and 2 students are left behind",
+    "17 vans",
+    "20 vans"
+   ],
+   "answerIndex": 0,
+   "explain": "138 ÷ 8 gives 17 with 2 left over (8 × 17 = 136), and those 2 students still need a ride, so you round up to 18 vans. A common trap is answering 17 and ignoring the remainder — always ask what the leftover means in the story.",
+   "tags": [
+    "ok",
+    "div.remainder_ignore",
+    "div.remainder_ignore",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrd2ld37",
+   "level": 3,
+   "question": "Liam has $92 saved. He spends $20 on a book at the school book fair, then shares the money that is left equally among his 4 younger cousins. How much does each cousin get?",
+   "options": [
+    "$23",
+    "$18",
+    "$22",
+    "$17"
+   ],
+   "answerIndex": 1,
+   "explain": "Subtract first, then divide: 92 − 20 = 72, and 72 ÷ 4 = 18 (4 × 10 = 40, leaving 32, and 32 ÷ 4 = 8, so 10 + 8 = 18). A common trap is dividing $92 by 4 and answering $23, which forgets the book he bought.",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrdecx0g",
+   "level": 3,
+   "question": "Ava works out 216 ÷ 4 with partial quotients. She subtracts 4 × 50 = 200, leaving 16, then subtracts 4 × 4 = 16, leaving 0. She writes her answer as 50 + 16 = 66. What is the correct quotient?",
+   "options": [
+    "66",
+    "50 r 16",
+    "54",
+    "64"
+   ],
+   "answerIndex": 2,
+   "explain": "In partial quotients you add the number of groups you pulled out, so 50 + 4 = 54, and 4 × 54 = 216 proves it. Ava's mistake is adding the amount she subtracted (16) instead of the 4 groups it stood for.",
+   "tags": [
+    "div.partial_quotient_combine",
+    "div.remainder_larger_than_divisor",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmt5ampmrdwxz4b",
+   "level": 3,
+   "question": "A tree-planting crew on Vancouver Island has 618 seedlings to share equally among 6 volunteers, with none left over. How many seedlings does each volunteer plant?",
+   "options": [
+    "13",
+    "130",
+    "108",
+    "103"
+   ],
+   "answerIndex": 3,
+   "explain": "Take out 6 × 100 = 600, leaving 18, and 18 ÷ 6 = 3, so each volunteer gets 100 + 3 = 103. A common trap is dropping the middle zero and answering 13 — 6 × 13 is only 78, far too small, so estimating first tells you the answer must be near 100.",
+   "tags": [
+    "div.quotient_zero_skip",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

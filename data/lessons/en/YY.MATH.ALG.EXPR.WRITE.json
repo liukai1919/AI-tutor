@@ -1,0 +1,115 @@
+{
+ "v": 1,
+ "curriculumId": "YY.MATH.ALG.EXPR.WRITE",
+ "lang": "en",
+ "title": "Write an expression to describe a relationship (n tickets at $12 plus a $5 fee = 12n + 5)",
+ "provider": "claude",
+ "at": "2026-09-02",
+ "lesson": {
+  "title": "Turning a Ticket Deal Into an Expression",
+  "isMath": true,
+  "steps": [
+   {
+    "say": "You already know how to write an expression for a pattern, like two n plus one for three, five, seven. Today we do the same thing, but starting from a real story instead of a list of numbers.",
+    "math": "",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   },
+   {
+    "say": "Here is the story. You are buying tickets for a Whitecaps game online. Each ticket costs twelve dollars, and the website charges one flat booking fee of five dollars for the whole order, no matter how many tickets you buy. The number of tickets is unknown, so we call it n.",
+    "math": "",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      12,
+      12,
+      5
+     ],
+     "labels": [
+      "Ticket 1",
+      "Ticket 2",
+      "Ticket 3",
+      "Fee"
+     ],
+     "caption": "Three tickets at $12 each, then one single $5 fee on the end"
+    }
+   },
+   {
+    "say": "Look at the bar picture. The twelve dollar blocks repeat once for every ticket, so together they are twelve times n, which we write as twelve n. The five dollar fee block appears only once, so we just add five on the end. That gives us twelve n plus five.",
+    "math": "12n + 5",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      12,
+      12,
+      12,
+      12,
+      5
+     ],
+     "labels": [
+      "$12",
+      "$12",
+      "$12",
+      "...n of these",
+      "Fee $5"
+     ],
+     "caption": "The $12 block repeats n times; the $5 block never repeats"
+    }
+   },
+   {
+    "say": "Let us test it with real numbers. Say you buy four tickets, so n equals four. Twelve times four is forty eight dollars for the tickets, and then we add the five dollar fee, which gives fifty three dollars. Four tickets cost fifty three dollars, and that matches the picture.",
+    "math": "12(4) + 5 = 48 + 5 = 53",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      48,
+      5
+     ],
+     "labels": [
+      "4 tickets: $48",
+      "Fee: $5"
+     ],
+     "caption": "$48 of tickets plus the single $5 fee makes $53"
+    }
+   },
+   {
+    "say": "Now here are two traps I want you to dodge. The first trap is reading twelve n as twelve plus n, which would give four plus twelve plus five, only twenty one dollars. That is way too cheap, because twelve n means twelve for each ticket, not twelve once. The second trap is forgetting the five altogether and answering forty eight. The fee is still on your bill, so the plus five must stay.",
+    "math": "12+4+5 = 21 \\;\\text{✗} \\quad 48 \\;\\text{✗} \\quad 53 \\;\\text{✓}",
+    "visual": {
+     "type": "barModel",
+     "nums": [
+      21,
+      48,
+      53
+     ],
+     "labels": [
+      "Wrong: 12+n+5",
+      "Wrong: fee dropped",
+      "Correct: 12n+5"
+     ],
+     "caption": "Only the third bar pays for four tickets and the fee"
+    }
+   },
+   {
+    "say": "So whenever something repeats, that becomes the coefficient times the variable, and whenever something happens just once, that becomes the number you add on the end.",
+    "math": "12n + 5",
+    "visual": {
+     "type": "none",
+     "nums": [],
+     "labels": [],
+     "caption": ""
+    }
+   }
+  ],
+  "answer": "The part that repeats becomes 12n; the one-time fee becomes + 5.",
+  "practice": {
+   "question": "You rent a paddleboard at Kits Beach. It costs 9 dollars for each hour, plus a one-time 4 dollar life jacket charge for the whole rental. Let h be the number of hours. Write an expression for the total cost, then find the cost for 6 hours.",
+   "answer": "The expression is 9h + 4. For 6 hours: 9 times 6 is 54, plus 4 is 58 dollars."
+  }
+ }
+}

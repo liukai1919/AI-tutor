@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.ROOT.CUBE_PERFECT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmtkix0cdap3e9o",
+   "level": 1,
+   "question": "用一模一样的小方块搭成一个实心正方体（cube），一共用了 27 个小方块，一块也没剩。这个正方体每条棱（edge）上排了多少个小方块？",
+   "options": [
+    "3 个，因为 3×3×3=27",
+    "9 个，因为 27÷3=9",
+    "5 个，因为 5×5≈27",
+    "81 个，因为 27×3=81"
+   ],
+   "answerIndex": 0,
+   "explain": "每条棱上的个数就是 27 的立方根（cube root）：3×3×3=27，所以是 3 个。最容易踩的坑是把 27 除以 3 得 9——验算一下 9×9×9=729，远大于 27。",
+   "tags": [
+    "ok",
+    "root.cube_root_as_third",
+    "root.cube_root_as_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cddgs88z",
+   "level": 1,
+   "question": "课堂上同学们把 125 个完全一样的小方块搭成一个实心正方体，正好用完。每条棱上有多少个小方块？",
+   "options": [
+    "25 个，因为 25×5=125",
+    "5 个，因为 5×5×5=125",
+    "11 个，因为 11×11≈125",
+    "42 个，因为 125÷3≈42"
+   ],
+   "answerIndex": 1,
+   "explain": "求 125 的立方根：5×5×5=125，所以每条棱 5 个。写 11 的那个是按平方根去凑数——立方根要自乘三次，不是两次。",
+   "tags": [
+    "other",
+    "ok",
+    "root.cube_root_as_square_root",
+    "root.cube_root_as_third"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdgidpwj",
+   "level": 1,
+   "question": "一个实心正方体是用 343 个相同的小方块搭成的，没有多余的方块。它每条棱上有多少个小方块？",
+   "options": [
+    "114 个，因为 343÷3≈114",
+    "19 个，因为 19×19≈343",
+    "7 个，因为 7×7×7=343",
+    "49 个，因为 7×7=49"
+   ],
+   "answerIndex": 2,
+   "explain": "7×7×7=343，所以每条棱上是 7 个小方块。写 49 的那个把 7 又平方了一次；把 343 除以 3 更不行，开立方不是除以 3。",
+   "tags": [
+    "root.cube_root_as_third",
+    "root.cube_root_as_square_root",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cd9e8t3q",
+   "level": 1,
+   "question": "一个实心正方体是用 216 个一模一样的小方块搭成的，正好用完。要算出每条棱（edge）上有多少个小方块，下面哪种做法是对的？",
+   "options": [
+    "求 216 的平方根，因为开方都一样算",
+    "把 216 除以 3，因为立方就是乘 3",
+    "把 216 乘 3，因为要还原成立方",
+    "求 216 的立方根，因为 6×6×6=216"
+   ],
+   "answerIndex": 3,
+   "explain": "方块总数等于棱长自乘三次，所以要反过来求立方根：6×6×6=216，每条棱 6 个。除以 3 只是把数变小，并不是立方的逆运算。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "root.cube_root_as_third",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkix0cd8sh57j",
+   "level": 2,
+   "question": "计算 ∛512 的值。",
+   "options": [
+    "8，因为 8×8×8=512",
+    "64，因为 512÷8=64",
+    "171，因为 512÷3≈171",
+    "23，因为 23×23≈512"
+   ],
+   "answerIndex": 0,
+   "explain": "立方根问的是「哪个数自乘三次得 512」：8×8×8=512。写 23 的那个用的是平方根思路，写 171 的那个把开立方当成了除以 3。",
+   "tags": [
+    "ok",
+    "other",
+    "root.cube_root_as_third",
+    "root.cube_root_as_square_root"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdczst7z",
+   "level": 2,
+   "question": "计算 ∛(64/729)，其中分子和分母都是完全立方数（perfect cube）。",
+   "options": [
+    "8/27，因为 8²=64、27²=729",
+    "4/9，因为 4³=64、9³=729",
+    "4/27，因为分母用了 27×27=729",
+    "16/81，因为 4²=16、9²=81"
+   ],
+   "answerIndex": 1,
+   "explain": "分子分母分别开立方：4×4×4=64、9×9×9=729，所以结果是 4/9。写成 8/27 的那个是把上下都开了平方根，指数（exponent）用错了。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "ok",
+    "root.cube_root_as_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdb42d81",
+   "level": 2,
+   "question": "下面哪个算式的结果正好是 12？",
+   "options": [
+    "∛144，因为 12×12=144",
+    "∛36，因为 36÷3=12",
+    "∛1728，因为 12³=1728",
+    "∛24，因为 24÷2=12"
+   ],
+   "answerIndex": 2,
+   "explain": "12×12×12=1728，所以 ∛1728=12。144 只是 12 的平方，用它开立方得不到 12；靠除以 3 或除以 2 凑出来的更不是立方根。",
+   "tags": [
+    "root.cube_root_as_square_root",
+    "root.cube_root_as_third",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdzt5ks3",
+   "level": 2,
+   "question": "已知 ∛n = 10，那么 n 是多少？",
+   "options": [
+    "30，因为 10×3=30",
+    "100，因为 10×10=100",
+    "10000，因为 10 连乘了 4 次",
+    "1000，因为 10³=1000"
+   ],
+   "answerIndex": 3,
+   "explain": "∛n=10 就是说 n 由 10 自乘三次得到：10×10×10=1000。写 100 的那个只乘了两次（那是平方），写 30 的那个把立方当成了乘 3。",
+   "tags": [
+    "root.cube_root_as_third",
+    "root.cube_root_as_square_root",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdzyikw4",
+   "level": 3,
+   "question": "素里（Surrey）一家文具店卖两种正方体形状的礼盒：小号的容积（volume）是 64 cm³，大号的容积是 729 cm³。大号礼盒的棱长比小号长多少 cm？",
+   "options": [
+    "5 cm，因为 9−4=5",
+    "665 cm，因为 729−64=665",
+    "19 cm，因为 27−8=19",
+    "239 cm，因为 243−4=239"
+   ],
+   "answerIndex": 0,
+   "explain": "先分别开立方求棱长：∛64=4 cm、∛729=9 cm，相差 9−4=5 cm。坑一是把两个体积直接相减，坑二是把 729 按平方根算成 27。",
+   "tags": [
+    "ok",
+    "other",
+    "root.cube_root_as_square_root",
+    "root.cube_root_as_third"
+   ]
+  },
+  {
+   "qid": "qmtkix0cd9i883h",
+   "level": 3,
+   "question": "本拿比（Burnaby）一个正方体形状的储物箱，容积是 4096 cm³。妈妈把书竖着放进去，只堆到箱子高度的一半。书堆了多高？",
+   "options": [
+    "2048 cm，因为 4096÷2=2048",
+    "8 cm，因为棱长 16 cm，一半是 8 cm",
+    "32 cm，因为棱长 64 cm，一半是 32 cm",
+    "16 cm，因为棱长就是 16 cm"
+   ],
+   "answerIndex": 1,
+   "explain": "第一步开立方求棱长：16×16×16=4096，棱长 16 cm；第二步取一半得 8 cm。把体积 4096 直接除以 2，或把 4096 开成平方根 64，都会算错。",
+   "tags": [
+    "other",
+    "ok",
+    "root.cube_root_as_square_root",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdgkr1g1",
+   "level": 3,
+   "question": "艾玛在作业上写：∛27 = 9，她说「开立方就是除以 3」。下面哪个说法是对的？",
+   "options": [
+    "她算对了，因为 27÷3=9 正是开立方",
+    "她错了，应该算 27 的平方根，约 5",
+    "她错了，因为 3×3×3=27，得 3",
+    "她错了，∛27 应是 81，因为 27×3=81"
+   ],
+   "answerIndex": 2,
+   "explain": "立方根是立方的逆运算，要找「自乘三次等于 27」的数：3×3×3=27，所以 ∛27=3。除以 3 得 9 看着顺手，但验算 9×9×9=729，比 27 大太多了。",
+   "tags": [
+    "root.cube_root_as_third",
+    "root.cube_root_as_square_root",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmtkix0cdjsxgus",
+   "level": 3,
+   "question": "杰森写道：一个正方体的体积是 64 cm³，所以它的棱长是 8 cm。他的问题出在哪里？",
+   "options": [
+    "他错了，棱长应是 16 cm，因为 64÷4=16",
+    "他没错，因为 8×8=64，棱长就是 8 cm",
+    "他错了，棱长应约 21 cm，因为 64÷3≈21",
+    "他把立方根当成了平方根，棱长应是 4 cm"
+   ],
+   "answerIndex": 3,
+   "explain": "体积 64 cm³ 的正方体，棱长要开立方：4×4×4=64，所以是 4 cm。8×8=64 求的是平方根（square root），少乘了一次，这是最常见的错。",
+   "tags": [
+    "other",
+    "root.cube_root_as_square_root",
+    "root.cube_root_as_third",
+    "ok"
+   ]
+  }
+ ]
+}
