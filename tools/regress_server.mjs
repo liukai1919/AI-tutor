@@ -162,7 +162,8 @@ async function main() {
     // #23 起题目答案不下发、作答走 /api/quiz/answer 记在票里；这里答 3 题（选 A，对错无所谓），结算按票里的 3 条记
     const results = [];
     for (let i = 0; i < 3 && (i === 0 ? qs.body.question : results[i - 1].next); i++) {
-      const a = await call("POST", "/api/quiz/answer", { session: qs.body.session, picked: 0 });
+      const q = i === 0 ? qs.body.question : results[i - 1].next;   // 作答带 qid（#23 复审）
+      const a = await call("POST", "/api/quiz/answer", { session: qs.body.session, qid: q.qid, picked: 0 });
       if (a.status !== 200) break;
       results.push(a.body);
       if (a.body.finished) break;

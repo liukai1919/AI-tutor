@@ -28,6 +28,9 @@ bl = Q.pickSession(usedBank, ident);
 check("fresh one first, then used by oldest usedAt", bl[1].join() === "L1-5,L1-4,L1-3,L1-2", bl[1]);
 bl = Q.pickSession({ questions: [mk(1, 0), mk(3, 0)] }, ident);
 check("a level with no questions yields an empty list", bl[1].length === 1 && bl[2].length === 0 && bl[3].length === 1, bl);
+/* 作答按 qid 认题（#23 复审）：同一场里一个 qid 只能出现一次，否则重放和「下一题恰好同 qid」分不开 */
+bl = Q.pickSession({ questions: [mk(1, 0), mk(1, 0), mk(2, 0, { qid: "L1-0" }), mk(2, 1), mk(3, 0), mk(3, 1, { qid: "" })] }, ident);
+check("a qid appears at most once per session; questions without qid are skipped", bl[1].join() === "L1-0" && bl[2].join() === "L2-1" && bl[3].join() === "L3-0", bl);
 
 console.log("nextQuestion: borrow order");
 check("borrowOrder", Q.borrowOrder(1).join() === "1,2,3" && Q.borrowOrder(2).join() === "2,1,3" && Q.borrowOrder(3).join() === "3,2,1");

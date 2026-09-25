@@ -1979,11 +1979,14 @@ function unitTestSummary(r) {
  * 出一批题要跑一次 AI，所以生成后永久保存（qbank.json，原子写同 progress.json）。
  * 做过的题打 usedAt，优先给没做过的题；不够自动补，封顶后按最久没做过复用。 */
 const QBANK_FILE = path.join(DATA_ROOT, "qbank.json");
-let qbank = {};   // "curriculumId|lang" -> { questions: [{qid, level, question, options, answerIndex, explain, usedAt}] }
+/* 容器对象全程只有这一个（const）：Action 层、Agent Tool、module.exports 都拿着它的引用，
+ * 清库只能原地清空（qbankClear），整个换掉会让它们还读旧题库（#24 复审：清库后新题一答就 staleSession）。 */
+const qbank = {};   // "curriculumId|lang" -> { questions: [{qid, level, question, options, answerIndex, explain, usedAt}] }
 try {
   const b = JSON.parse(fs.readFileSync(QBANK_FILE, "utf8"));
-  if (b && typeof b === "object" && !Array.isArray(b)) qbank = b;
+  if (b && typeof b === "object" && !Array.isArray(b)) Object.assign(qbank, b);
 } catch (_) { /* 还没有题库 */ }
+function qbankClear() { for (const k of Object.keys(qbank)) delete qbank[k]; }
 
 function qbankSave() {
   try {
@@ -2909,7 +2912,7 @@ const server = http.createServer(async (req, res) => {
     }
     if (url.pathname === "/api/qbank" && req.method === "DELETE") {
       if (!allow(req, res, "parent")) return;
-      qbank = {};
+      qbankClear();   // 原地清空，不换对象（见 qbank 定义处）
       qbankSave();
       console.log("[quiz] question bank cleared (it is shared by the whole family)");
       return send(res, 200, { ok: true });
