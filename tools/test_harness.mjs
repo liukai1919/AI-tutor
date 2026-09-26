@@ -273,7 +273,7 @@ console.log("context and odd registries");
   check("large observations are truncated before going back to the model", obs.ok && obs.truncated === true && JSON.stringify(obs).length < 5000, JSON.stringify(obs).length);
 }
 
-/* ---- 独立复审（build/review-20260925/phase3-root-review-feedback.md）指出的边界，逐条钉住 ---- */
+/* ---- 异常输入、取消与截止时间的边界回归 ---- */
 console.log("review: cancellation / budget checked before any invocation");
 reg.register({ name: "t.write", description: "fast write", parameters: { type: "object" }, roles: ["student"], risk: "write", timeoutMs: 100, run: () => { count("t.write"); return "wrote"; } });
 {
