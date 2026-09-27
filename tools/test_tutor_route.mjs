@@ -6,6 +6,8 @@
  *
  * 另有 service 层（readSettings / 回包白名单）的纯单测，放在最后。
  */
+import fs from "node:fs";
+import path from "node:path";
 import { createRequire } from "node:module";
 import { loadIsolatedServer, quiet } from "./lib/inproc_server.mjs";
 import { makeChecker } from "./lib/isolated_server.mjs";
@@ -32,6 +34,10 @@ const defaultBehavior = (isClassifier, t) => {
   if (!obs) return { type: "tool_call", tool: "calculator.evaluate", input: { expression: "12*3" } };
   return { type: "final", output: { kind: "answer", text: "12 × 3 = " + obs.result.value, scope: "math", checks: [{ expression: "12*3", value: obs.result.value }] } };
 };
+/* 别的引擎一律换成会抛错的桩：GET /api/providers 会跑真实的 detectProviders，本机装了的引擎会被标成可用，
+ * 选路一旦落到它们身上就是真实调用（花钱）。这里保证绝不会发生，并记下来断言 */
+const realEngineAttempts = [];
+for (const id of Object.keys(S.ADAPTERS)) if (id !== "claude") S.ADAPTERS[id] = async () => { realEngineAttempts.push(id); throw new Error("test: real engine " + id + " must not be called"); };
 S.ADAPTERS.claude = async (sys, question, imageB64, mediaType, lang, opts) => {
   const isClassifier = sys.startsWith(CLASSIFIER_SYSTEM);
   const t = JSON.parse(question.slice(LEGACY_TRANSCRIPT_PREFIX.length));
@@ -66,18 +72,42 @@ try {
   const tokA = (await call("POST", "/api/auth/login", { kidId: kidA, pin: "1111" })).body.token;
   const tokB = (await call("POST", "/api/auth/login", { kidId: kidB, pin: "2222" })).body.token;
 
-  console.log("disabled by default");
-  check("config default: tutorAgent.enabled is false", S.cfg.tutorAgent && S.cfg.tutorAgent.enabled === false, S.cfg.tutorAgent);
+  console.log("server switch (config.tutorAgent.enabled)");
+  check("config default: server switch allows (enabled true)", S.cfg.tutorAgent && S.cfg.tutorAgent.enabled === true, S.cfg.tutorAgent);
+  S.cfg.tutorAgent.enabled = false;
   let r = await ask(tokA, { question: "What is 12 times 3?", lang: "en" });
-  check("disabled → 404 tutorDisabled", r.status === 404 && r.body.tutorDisabled === true, r);
+  check("server switch off → 404 tutorDisabled", r.status === 404 && r.body.tutorDisabled === true, r);
   r = await ask("", { question: "What is 12 times 3?" });
-  check("disabled answers 404 before auth (no 401 probe)", r.status === 404, r);
+  check("server switch off answers 404 before auth (no 401 probe)", r.status === 404, r);
   S.cfg.tutorAgent.enabled = "true";
   r = await ask(tokA, { question: "What is 12 times 3?" });
   check("only enabled === true counts (string \"true\" stays off)", r.status === 404, r);
-  check("no engine calls while disabled", calls.length === 0, calls.length);
-
   S.cfg.tutorAgent.enabled = true;
+
+  console.log("family switch (off by default)");
+  r = await ask(tokA, { question: "What is 12 times 3?", lang: "en" });
+  check("family has not turned it on → 403 tutorOff", r.status === 403 && r.body.tutorOff === true, r);
+  r = await ask(parentTok, { question: "What is 12 times 3?", lang: "en" });
+  check("… for the parent too", r.status === 403 && r.body.tutorOff === true, r);
+  let pv = (await call("GET", "/api/providers", undefined, tokA)).body.tutor;
+  check("/api/providers: tutor unavailable, defaults enabled:false kidMode:hint", pv && pv.available === false && pv.enabled === false && pv.kidMode === "hint" && pv.serverAllowed === true, pv);
+  check("no engine calls while off", calls.length === 0, calls.length);
+  r = await call("GET", "/api/tutor/settings", undefined, tokA);
+  check("student cannot read family settings (403 parentRequired)", r.status === 403 && r.body.parentRequired, r);
+  r = await call("POST", "/api/tutor/settings", { enabled: true }, tokA);
+  check("student cannot change family settings", r.status === 403, r);
+  for (const bad of [{}, { enabled: "yes" }, { kidMode: "full" }, { enabled: true, extra: 1 }, [], "x"]) {
+    r = await call("POST", "/api/tutor/settings", bad, parentTok);
+    check("bad settings body " + JSON.stringify(bad) + " → 400", r.status === 400 && r.body.code === "INVALID_INPUT", r);
+  }
+  r = await call("POST", "/api/tutor/settings", { enabled: true, kidMode: "answer" }, parentTok);
+  check("parent turns it on with kidMode answer", r.status === 200 && r.body.enabled === true && r.body.kidMode === "answer" && r.body.serverAllowed === true, r);
+  const famFile = path.join(srv.DATA, "data", "families.json");
+  const fam = JSON.parse(fs.readFileSync(famFile, "utf8"));
+  check("settings are on disk in data/families.json", Object.values(fam).some(f => f.tutor && f.tutor.enabled === true && f.tutor.kidMode === "answer"), fam);
+  pv = (await call("GET", "/api/providers", undefined, tokA)).body.tutor;
+  check("/api/providers now says available for the kid", pv.available === true && pv.kidMode === "answer", pv);
+
   console.log("enabled: auth and body");
   r = await ask("", { question: "What is 12 times 3?" });
   check("no session → 401", r.status === 401 && r.body.authRequired === true, r);
@@ -109,7 +139,7 @@ try {
   check("server logs one [tutor] line per ask with engine / outcome only, never the question", tutorLines.length === 1 && /^\[tutor\] claude en answer \(model\/math\)$/.test(tutorLines[0]) && !logged.lines.join("\n").includes("12 times 3"), logged.lines);
   check("the tool trace line is there but no log line carries the kid id or name", logged.lines.some(l => /^\[tool\] calculator\.evaluate ok \d+ms \(tutor\)/.test(l)) && !logged.lines.some(l => l.includes(kidA) || l.includes("Zelda")), logged.lines);
   check("200 answer with the verified text", r.status === 200 && r.body.kind === "answer" && r.body.text === "12 × 3 = 36" && r.body.lang === "en", r);
-  check("response is whitelisted: kind / text / lang only", Object.keys(r.body).sort().join() === "kind,lang,text", Object.keys(r.body));
+  check("response is whitelisted: kind / text / lang + transcript id", Object.keys(r.body).sort().join() === "id,kind,lang,text", Object.keys(r.body));
   check("three engine calls: classify, tool_call, final", calls.length === 3 && calls[0].isClassifier && !calls[1].isClassifier && !calls[2].isClassifier, calls.map(c => c.isClassifier));
   check("engine lang follows the request", calls.every(c => c.lang === "en"));
   check("ledger: tutor:classify then two tutor rows on claude", ledgerTasks(led).join() === "tutor:classify:claude:true,tutor:claude:true,tutor:claude:true", ledgerTasks(led));
@@ -124,7 +154,7 @@ try {
   r = await quiet(() => ask(tokA, { question: "1/2 和 2/4 哪个大？", mode: "hint" })).then(x => x.value);
   check("mode hint → 200 hint, lang defaults to zh", r.status === 200 && r.body.kind === "hint" && r.body.lang === "zh" && calls.every(c => c.lang === "zh"), r);
   r = await quiet(() => ask(tokA, { question: "1/2 和 2/4 哪个大？", strategy: "give-hint" })).then(x => x.value);
-  check("strategy give-hint forces hint and is echoed", r.status === 200 && r.body.kind === "hint" && r.body.strategy === "give-hint" && Object.keys(r.body).sort().join() === "kind,lang,strategy,text", r);
+  check("strategy give-hint forces hint and is echoed", r.status === 200 && r.body.kind === "hint" && r.body.strategy === "give-hint" && Object.keys(r.body).sort().join() === "id,kind,lang,strategy,text", r);
   const tutorCall = calls.filter(c => !c.isClassifier).at(-1);
   check("the give-hint Skill instructions reached the engine system prompt", tutorCall.sys.includes(getSkill("give-hint").instructions) && JSON.stringify(tutorCall.t.messages[0]).includes("give-hint"), tutorCall.t.messages[0]);
   calls.length = 0;
@@ -193,6 +223,8 @@ try {
   r = await first;
   check("first ask completes normally after release", r.status === 200 && r.body.kind === "answer", r);
 
+  const chatsC = async () => (await call("GET", "/api/tutor/history", undefined, kidC)).body.items.length;
+  const beforeAbort = await chatsC();
   const ac = new AbortController();
   const aborted = ask(kidC, { question: "What is 12 times 3?", lang: "en" }, { signal: ac.signal }).catch(e => ({ aborted: e.name }));
   for (let i = 0; i < 50 && !release; i++) await sleep(10);
@@ -201,20 +233,100 @@ try {
   const ar = await aborted;
   check("client side sees the abort", ar.aborted === "AbortError", ar);
   await sleep(50);
+  check("a disconnected ask leaves no transcript record", (await chatsC()) === beforeAbort, { beforeAbort });
   behavior = null;
   r = await quiet(() => ask(kidC, { question: "What is 12 times 3?", lang: "en" })).then(x => x.value);
   check("after the disconnect the account is no longer busy (ask was cancelled server-side)", r.status === 200 && r.body.kind === "answer", r);
   if (release) release();   // 迟到的引擎结果：不采用、不应有未处理拒绝
 
   console.log("no engine / demo mode");
-  S.detected.claude = { available: false };
+  const savedDetected = Object.assign({}, S.detected);
+  for (const id of Object.keys(S.ADAPTERS)) S.detected[id] = { available: false };
   r = await ask(kidC, { question: "What is 12 times 3?", lang: "en" });
   check("no available engine → 503 NO_ENGINE", r.status === 503 && r.body.code === "NO_ENGINE", r);
-  S.detected.claude = { available: true, bin: "stub-claude" };
+  Object.assign(S.detected, savedDetected, { claude: { available: true, bin: "stub-claude" } });
   process.env.YY_DEMO = "1";
   r = await ask(kidC, { question: "What is 12 times 3?", lang: "en" });
   check("YY_DEMO → 404 even when enabled", r.status === 404 && r.body.tutorDisabled === true, r);
   delete process.env.YY_DEMO;
+
+  console.log("kid mode: hint only (#55)");
+  S.cfg.tutorAgent.perMinute = 120;
+  const userMsg = c => JSON.parse(c.t.messages[0].content);
+  r = await call("POST", "/api/tutor/settings", { kidMode: "hint" }, parentTok);
+  check("parent switches kids to hint only (partial update keeps enabled)", r.status === 200 && r.body.enabled === true && r.body.kidMode === "hint", r);
+  calls.length = 0;
+  behavior = (isC) => isC ? { type: "final", output: { label: "math", reason: "x" } } : { type: "final", output: { kind: "hint", text: "Try splitting 12 into 10 and 2.", scope: "math" } };
+  r = await quiet(() => ask(tokA, { question: "What is 12 times 3?", lang: "en", mode: "answer" })).then(x => x.value);
+  const tutorTurns = calls.filter(c => !c.isClassifier);
+  check("kid asked for answer but the engine was told mode hint", r.status === 200 && r.body.kind === "hint" && tutorTurns.length === 1 && userMsg(tutorTurns[0]).mode === "hint", { r, m: tutorTurns.map(userMsg) });
+  const hintId = r.body.id;
+  check("response carries the transcript record id", typeof hintId === "string" && hintId.length > 6, r.body);
+  calls.length = 0;
+  behavior = null;
+  r = await quiet(() => ask(parentTok, { question: "What is 12 times 3?", lang: "en", mode: "answer", kid: kidA })).then(x => x.value);
+  check("parent is not forced to hint", r.status === 200 && r.body.kind === "answer" && userMsg(calls.filter(c => !c.isClassifier)[0]).mode === "answer", r);
+  const parentRecId = r.body.id;
+
+  console.log("transcript (#55)");
+  let hist = (await call("GET", "/api/tutor/history", undefined, tokA)).body.items;
+  check("kid sees own history, newest first: parent's question on top, then the forced hint", hist[0].id === parentRecId && hist[0].by === "parent" && hist[1].id === hintId && hist[1].by === "student", hist.slice(0, 2));
+  check("hint-only family: the kid sees the parent-asked full answer with its text withheld", hist[0].kind === "answer" && hist[0].text === "" && hist[0].hidden === true, hist[0]);
+  const parentView = (await call("GET", "/api/tutor/history?kid=" + kidA, undefined, parentTok)).body.items;
+  check("… the parent still sees that answer in full", parentView[0].id === parentRecId && parentView[0].text.length > 0 && !parentView[0].hidden, parentView[0]);
+  check("record keeps full question + reply text, kind, mode, lang", hist[1].question === "What is 12 times 3?" && hist[1].text === "Try splitting 12 into 10 and 2." && hist[1].kind === "hint" && hist[1].mode === "hint" && hist[1].lang === "en" && typeof hist[1].time === "number", hist[1]);
+  check("refusals and errors are recorded too", hist.some(h => h.kind === "refusal") && hist.some(h => h.kind === "error" && h.code), hist.map(h => h.kind));
+  check("rejected (400) asks are not recorded", !hist.some(h => h.question === "   " || h.question.length > 2000));
+  const onDisk = JSON.parse(fs.readFileSync(path.join(srv.DATA, "data", "kids", kidA, "tutor-chats.json"), "utf8"));
+  check("transcript is on disk in data/kids/<kid>/tutor-chats.json", onDisk.length === hist.length && onDisk[0].id === parentRecId);
+  const histB = (await call("GET", "/api/tutor/history?kid=" + kidA, undefined, tokB)).body.items;
+  check("kid B asking for ?kid=<A> still only gets B's own history", !histB.some(h => h.id === hintId || h.id === parentRecId), histB.length);
+  r = await call("GET", "/api/tutor/history", undefined, parentTok);
+  check("parent with two kids must pick one (400 kidRequired)", r.status === 400 && r.body.kidRequired, r);
+  check("parent asking with no kid picked left no record under either kid", ![...hist, ...histB].some(h => h.by === "parent" && h.id !== parentRecId));
+  r = await call("DELETE", "/api/tutor/history?id=" + hintId, undefined, tokA);
+  check("kid cannot delete (403)", r.status === 403, r);
+  r = await call("DELETE", `/api/tutor/history?kid=${kidA}&id=${hintId}`, undefined, parentTok);
+  check("parent deletes one record", r.status === 200 && r.body.removed === 1, r);
+  r = await call("DELETE", `/api/tutor/history?kid=${kidA}&id=nope123`, undefined, parentTok);
+  check("unknown record id → 404", r.status === 404, r);
+  hist = (await call("GET", "/api/tutor/history?kid=" + kidA, undefined, parentTok)).body.items;
+  check("… it is gone, the rest stay", !hist.some(h => h.id === hintId) && hist.some(h => h.id === parentRecId), hist.length);
+  r = await call("DELETE", "/api/tutor/history?kid=" + kidA, undefined, parentTok);
+  check("parent clears all", r.status === 200 && r.body.removed === hist.length, r);
+  check("… empty in memory and on disk", (await call("GET", "/api/tutor/history", undefined, tokA)).body.items.length === 0 && JSON.parse(fs.readFileSync(path.join(srv.DATA, "data", "kids", kidA, "tutor-chats.json"), "utf8")).length === 0);
+  r = await call("POST", "/api/tutor/settings", { enabled: false }, parentTok);
+  r = await call("GET", "/api/tutor/history", undefined, tokB);
+  check("history stays readable after the family turns the feature off", r.status === 200 && Array.isArray(r.body.items), r);
+  r = await ask(tokB, inj);
+  check("… but asking is 403 again", r.status === 403 && r.body.tutorOff, r);
+  await call("POST", "/api/tutor/settings", { enabled: true }, parentTok);
+
+  console.log("other family (#55)");
+  S.cfg.registrationCode = "iso2";
+  const reg2 = await quiet(() => call("POST", "/api/auth/register", { username: "otherfam", password: "other12345", name: "O", code: "iso2", registrationCode: "iso2" })).then(x => x.value);
+  if (reg2.status === 200) {
+    const tok2 = reg2.body.token;
+    pv = (await call("GET", "/api/providers", undefined, tok2)).body.tutor;
+    check("another family's switch is independent (still off)", pv.available === false && pv.enabled === false, pv);
+    r = await call("GET", "/api/tutor/history?kid=" + kidA, undefined, tok2);
+    check("another family's parent cannot read our kid's history", r.status === 400 && r.body.kidRequired, r);
+    r = await call("DELETE", "/api/tutor/history?kid=" + kidA, undefined, tok2);
+    check("… nor delete it", r.status === 400, r);
+  } else check("second family registration for the isolation checks", false, reg2);
+
+  console.log("cap at 200 (#55)");
+  const kidD = await (async () => {
+    await quiet(() => call("POST", "/api/kids", { name: "Dot", pin: "4444" }, parentTok));
+    return (await call("GET", "/api/auth/profiles")).body.kids.find(k => k.name === "Dot").id;
+  })();
+  const seed = Array.from({ length: 200 }, (_, i) => ({ id: "seed" + i, time: i, by: "student", lang: "en", mode: "hint", kind: "refusal", question: "old " + i, text: "t" }));
+  fs.mkdirSync(path.join(srv.DATA, "data", "kids", kidD), { recursive: true });
+  fs.writeFileSync(path.join(srv.DATA, "data", "kids", kidD, "tutor-chats.json"), JSON.stringify(seed));
+  const tokD = (await call("POST", "/api/auth/login", { kidId: kidD, pin: "4444" })).body.token;
+  r = await quiet(() => ask(tokD, inj)).then(x => x.value);
+  hist = (await call("GET", "/api/tutor/history", undefined, tokD)).body.items;
+  check("201st record drops the oldest: still 200, new one first, newest seed0 kept, oldest seed199 gone", hist.length === 200 && hist[0].id === r.body.id && hist[1].id === "seed0" && !hist.some(h => h.id === "seed199"), { n: hist.length, first: hist[0] && hist[0].id });
 
   console.log("service unit");
   check("readSettings: defaults for missing / malformed values", JSON.stringify(readSettings(undefined)) === JSON.stringify(TUTOR_SERVICE_DEFAULTS) && readSettings({ perMinute: 0, stepTimeoutMs: "1", totalTimeoutMs: 1e12 }).perMinute === 6);
@@ -225,6 +337,7 @@ try {
   check("array body → 400", (await svc.ask({ userId: "u2", role: "student", kidId: null }, [])).status === 400);
 
   await sleep(20);
+  check("no real engine adapter was ever invoked", realEngineAttempts.length === 0, realEngineAttempts);
   check("no unhandled rejections", unhandled.length === 0, unhandled.map(e => String(e && e.message || e)));
 } finally {
   S.server.closeAllConnections();

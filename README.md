@@ -105,8 +105,8 @@ browser (default http://localhost:8434). To use it on a phone or tablet on the s
   },                         //   randomly truncated Chinese strings; the prompt + validation path is more reliable
   "anthropic": { "apiKey": "", "model": "claude-opus-5" },
   "openai": { "baseUrl": "", "apiKey": "", "model": "" },  // for OpenAI-compatible services like OpenRouter/xAI
-  "tutorAgent": { "enabled": false, "perMinute": 6 },  // experimental math Q&A API POST /api/tutor/ask (no UI yet);
-                             //   engine via providerByTask.tutor; see docs/tutor-harness.md §5
+  "tutorAgent": { "enabled": true, "perMinute": 6 },  // "Ask a tutor" (experimental): false switches it off server-wide; otherwise each
+                             //   family turns it on in ⚙️ (off by default). Engine via providerByTask.tutor; see docs/tutor-harness.md §5
   "tts": { ... }               // natural voice (optional), see the "Natural Voice" section below
 }
 ```

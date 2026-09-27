@@ -1,6 +1,6 @@
 # Tutor Harness 与只答学术问题的 TutorAgent（#28，#19 Phase 3）
 
-状态：后端模块和回放 eval；#53（Phase 9a）起 server.js 有一个**默认关闭**的 `POST /api/tutor/ask`（§5），**没有孩子端聊天界面**。现有固定流程（讲课、闯关、单元卷、FSA、报告）和 `lib/actions/_engine.js` 的 `generateOnce` 一行没动。
+状态：后端模块和回放 eval；#53（Phase 9a）起 server.js 有 `POST /api/tutor/ask`，#55（Phase 9b）起有「问老师」界面（每个家庭默认关，家长在 ⚙️ 打开，§5）。现有固定流程（讲课、闯关、单元卷、FSA、报告）和 `lib/actions/_engine.js` 的 `generateOnce` 一行没动。
 
 ```
 lib/ai/harness/index.js    单智能体循环 createHarness
@@ -177,22 +177,27 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 - **模型接缝（Phase 8，#40）**：`lib/ai/models` 的 `createModelRouter` 把一个能力 intent（fast / reasoning / vision / cheap / local / privacy-sensitive）绑成 `{ next(req) }`，直接当 `model` / `classifierModel` 传进来；
   `createLegacyProvider` 把 `runEngine` 包成 provider：`system` 原样后接固定的 transcript + 回合说明（契约放在 system 里，七个适配器都会发出去）、`messages` / `tools` 作为 JSON 数据，回合形状仍由本 Harness 判（修复语义不变），记账照走 `runEngine`（任务名显式注入，如 `tutor`、`tutor:classify`）。
   Harness / TutorAgent 没有改动；Router 调用后失败不换商，重试仍只由 `modelRetries` 管。**还没接 server.js / HTTP**。契约、硬约束、取消边界见 `docs/model-routing.md`。
-- 暴露给孩子前还需要：~~路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）~~（#53 已做，默认关，见 §5）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
+- 暴露给孩子前还需要：~~路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）~~（#53 已做）、~~界面、家长可见的对话记录与开关~~（#55 已做，每个家庭默认关，见 §5）、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
 - Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略：Phase 6 工作流按阶段选（见下），路由 / 家长设置还没接；Phase 5（Memory，#34）：`lib/ai/memory` 已有临时 Session、白名单 Learning Events 和纯投影 Student Memory（见 `docs/tutor-memory.md`），但 Harness / TutorAgent 都没接：工具名单不变，模型拿不到 store，也看不到学习状态；以后要把 Session 或 Student Memory 交给模型（只读工具或提示词里的字段），先定给哪些字段、家长开关和隐私边界，写事件仍只由可信调用方做，给 TutorAgent 加只读的 `student.getProgress` 同理；Phase 6（结构化辅导流程，#36）：`lib/ai/workflows` 的 Diagnose → Teach → Practice → Evaluate → Adapt 状态机（见 `docs/tutor-workflow.md`）按阶段替 TutorAgent 选 `strategy`（explain-concept / socratic-teaching / give-hint / diagnose-error），只通过公开的 `ask` 调用，门控、工具名单、结果校验不变；TutorAgent 的文字只给孩子看，不参与判分和阶段转换，学习事件由工作流经 memory 写；Phase 7（Verifier，#38）：`lib/ai/verification`——TutorAgent 的结果校验规则抽到 `verifyResponse`（旧文案逐字不变）并加了正文算术等式和可信上下文规则，
 工作流有确定性答案 grader 和步骤后置条件，见 `docs/tutor-verification.md`；Phase 8（模型抽象，#40）：上面的 Router 与旧引擎桥，见 `docs/model-routing.md`。
 
-## 5. HTTP 接入：`POST /api/tutor/ask`（#53，Phase 9a）
+## 5. HTTP 接入与「问老师」界面（#53 Phase 9a，#55 Phase 9b）
 
 ```
 lib/ai/tutor/service.js      createTutorService：选引擎、按 (引擎, 语言) 懒建 Router + TutorAgent、限速、在途互斥、回包白名单
 server.js                    路由本身：开关 → allow → 读 body → actx → service.ask；客户端断开就 abort
-tools/test_tutor_route.mjs   进程内隔离实例 + 桩 claude 适配器的 HTTP 回归（53 项）
+lib/ai/tutor/prefs.js        家庭设置与对话记录的纯函数（#55）
+public/index.html            「问老师」标签页 + ⚙️ 家长区块（#55）
+tools/test_tutor_route.mjs   进程内隔离实例 + 桩 claude 适配器的 HTTP 回归（95 项；其余引擎换成会抛错的桩，/api/providers 的真实探测也调不到它们）
 ```
 
-**开关**：`config.json` 里 `tutorAgent.enabled === true` 才开（字符串 `"true"` 不算），`YY_DEMO` 下永远关。关着时 404 `{ tutorDisabled:true }`，在鉴权之前就回，不调模型。
+**两道开关**（#55 起）：
+
+1. **服务器总闸** `config.json` 的 `tutorAgent.enabled`：默认 `true`（允许）；只认 `true`，写 `false`（或字符串 `"true"` 之类）整台服务器都没有这个功能——404 `{ tutorDisabled:true }`，在鉴权之前就回，不调模型。`YY_DEMO` 下永远关。
+2. **家庭开关**（家长在 ⚙️「问老师（实验）」里勾选，存 `data/families.json`）：每个家庭**默认关**。关着时 `/api/tutor/ask` 回 403 `{ tutorOff:true }`，孩子端看不到入口。
 
 ```jsonc
-"tutorAgent": { "enabled": false, "perMinute": 6, "stepTimeoutMs": 120000, "totalTimeoutMs": 300000 }
+"tutorAgent": { "enabled": true, "perMinute": 6, "stepTimeoutMs": 120000, "totalTimeoutMs": 300000 }
 ```
 
 数值不合规（非整数、越界）按默认处理，不报错；`stepTimeoutMs` 不会超过 `totalTimeoutMs`。
@@ -205,9 +210,9 @@ tools/test_tutor_route.mjs   进程内隔离实例 + 桩 claude 适配器的 HTT
 
 只认这五个字段，多余字段或类型不对 → 400。`lang` 只能 zh / en（缺省 zh，别的值 → 400）；`mode` / `strategy` 的取值和 `question` 的长度由 TutorAgent 校验（§2），不合规 → 400。
 `kid` 只给家长用，照 `resolveKid` 规则；家长有多个孩子又没指定、或指定了不是自己家的孩子时 ctx.kidId 为 null（不报错）——TutorAgent 的两个只读工具都不需要孩子。
-`mode` / `strategy` 由请求方自己选，**孩子也能选**：发 `mode:"answer"` 就绕开了「只给提示」。9a 默认关、没有界面，所以暂不收紧；开放给孩子之前要按角色或家长设置限定。
+**孩子模式**（家庭设置 `kidMode`）：`hint`（默认）= 学生的请求一律强制 `mode:"hint"`（请求里写 `answer` 也没用；hint 对任何教学策略都只出提示），界面上也不给「讲解」选项；`answer` = 孩子可以自己选。家长自己问不受限。`strategy` 仍由请求方选（界面不发）。
 
-**回包**（白名单）：`{ kind, text, lang, strategy?, code? }`
+**回包**（白名单）：`{ kind, text, lang, strategy?, code?, id? }`；`id` 是这次写进对话记录的那条（有孩子上下文、HTTP 200 时才有），落盘失败时多 `saveFailed / warning`（内容照给，后台重试）。
 
 | 情况 | HTTP | body |
 |---|---|---|
@@ -236,4 +241,28 @@ checks、工具调用、步数、门控细节、verification、runId 都不给�
 - 单步时限只由 Harness 的 `stepTimeoutMs` 管（CLI 引擎一次几十秒很正常，默认 120 秒，Harness 自己的默认是 30 秒）；Router 的时限设成 `totalTimeoutMs`，避免 Router 的超时先到被 Harness 当成模型失败再重试一次。
 - 没有真实模型的质量评测：测试用桩引擎，只证明路由、门控、限速、白名单和取消收口。
 
-**开放给孩子之前还缺**（另立任务，需要用户确认）：孩子端界面；家长可见的对话记录与开关（现在只进用量账本，不存问答内容）；带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；工作流（Diagnose → … → Adapt）的 HTTP；Student Memory 给不给模型、给哪些字段。
+### 5.1 家庭设置与对话记录（#55）
+
+| 接口 | 谁 | 做什么 |
+|---|---|---|
+| `GET /api/tutor/settings` | 家长 | `{ enabled, kidMode, serverAllowed }` |
+| `POST /api/tutor/settings` | 家长 | body 只认 `enabled`（布尔）/ `kidMode`（hint | answer），至少一个；部分更新；落盘失败 500 且内存回滚 |
+| `GET /api/tutor/history` | 孩子 / 家长 | 孩子只看自己的（`?kid=` 无效）；家长看 `?kid=` 指定的孩子（只有一个孩子时可省）。功能关着也能看 |
+| `DELETE /api/tutor/history` | 家长 | `?id=` 删一条（不存在 404），不带删全部；功能关着也能删 |
+| `GET /api/providers` | 所有登录者 | 多一个 `tutor: { available, serverAllowed, enabled, kidMode }`，界面据此显示入口 |
+
+- **记什么**：`data/kids/<kid>/tutor-chats.json`，最近 200 条，新的在前：`{ id, time, by: student|parent, lang, mode, strategy?, kind, question, text, code? }`——问题和回答**全文**（家长要看）。拒答 / 安全 / 出错也记（text 是固定模板）；400 的请求、客户端中途断开的不记；家长没选孩子（多孩子、不带 kid）时不记。
+- 家长替孩子问（带 `kid`）记在那个孩子名下，`by:"parent"`，孩子也看得到；但家里设的是 `kidMode:"hint"` 时，孩子拉记录拿到的完整讲解（`kind:"answer"`）正文为空、带 `hidden:true`，界面显示「这里不显示」（家长看得到全文）。
+- `mode` 记的是实际输出模式（give-hint / socratic-teaching 也记 hint）。问的过程中孩子账号被删了就不记（不在归档外重建目录）。
+- `data/families.json` 在 .gitignore 里，首次启动从 app 目录迁数据时一并带上；读不了 / 坏了按全关处理并打日志。
+- 设置里「清空全部记录」一并删问答记录；删孩子账号时整个目录照旧归档。
+
+### 5.2 界面
+
+- 「问老师」标签页（`serverInfo.tutor.available` 为真才出现）：对话按时间顺序，提示 / 讲解 / 拒答分色；Ctrl/⌘+Enter 发送；429（BUSY / 限额）、503、403 tutorOff 各有提示，tutorOff 时重拉 `/api/providers` 收起入口。
+- 孩子 + `kidMode:hint`：没有模式选择；家长或 `kidMode:answer`：「只给提示 / 讲解答案」下拉。
+- 家长在这一页看当前选中孩子的记录，每条可删，另有「清空记录」；换孩子自动换记录。换人（切换用户、家长门进出）时清空列表和输入框再重拉，迟到的回包按「账号|角色|孩子」对不上号就丢掉。
+- ⚙️ 家长区块「问老师（实验）」：开关 + 孩子模式，改了立刻存服务器（不等弹窗的「保存」）；服务器总闸关着时两项都禁用并说明原因。
+- 中英文案齐全；375px 窄屏无横向滚动（页头按钮在英文下原本就会溢出，和本功能无关，另开任务）。
+
+**还缺**（另立任务，需要用户确认）：带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；工作流（Diagnose → … → Adapt）的 HTTP；Student Memory 给不给模型、给哪些字段；拍照提问；回答里的数学排版（现在是纯文本）。
