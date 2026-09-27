@@ -36,6 +36,19 @@
     box-shadow:var(--shadow);font-size:20px;display:grid;place-items:center;color:var(--ink)}
   .iconbtn:active{transform:scale(.94)}
   .iconbtn.txt{font-size:14px;font-weight:800}
+  /* 手机窄屏：英文 logo「Yuanyuan Math」比中文宽，五个图标按钮 + logo 在 375 下会把整页撑出横向滚动。
+   * 按钮收小一号；logo 可以收缩 —— 名字按词换行、副标题单行省略；
+   * 实在放不下（320 宽又多了 📊）就让整排按钮换到 logo 下面一行，不挤出屏外。 */
+  @media (max-width:480px){
+    header{flex-wrap:wrap;gap:8px}
+    .logo{flex:1 1 0;min-width:120px;gap:8px;font-size:16px;letter-spacing:0;line-height:1.15}
+    .logo .pi{width:34px;height:34px;border-radius:10px;font-size:19px;flex-shrink:0}
+    .logo>div:last-child{min-width:0;overflow-wrap:anywhere}
+    .logo small{margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .hbtns{gap:4px;margin-left:auto}
+    .iconbtn{width:36px;height:36px;border-radius:12px;font-size:18px}
+    .iconbtn.txt{font-size:13px}
+  }
   .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;border:2px solid #fff}
   .hidden{display:none!important}
 
