@@ -2143,6 +2143,16 @@ function qbankPlayable(itemId, lang) {
  * 硬校验和审稿回调 judge(batch, { brief, ... })——两次尝试也是同一份，不会各自从磁盘重建。
  * 硬校验不过的题在送审和入库之前就被拒掉。只认一个参数的老 judge 照常用（多出的参数它不看）。
  * zh：老路径一字不变，judge 仍然只收到 batch 一个参数。 */
+/* 英文出题请求（提示词 + schema + 格式说明），ensureQuizBank 的英文分支和 v2 的 qbankGenerateV2 用同一份（#45 抽出，内容不变）。
+ * brief 必须是这道题的冻结 TeachingBrief；zh 不走这里。 */
+function qbankEnRequest(item, gradeData, needs, existingStems, brief) {
+  const skillTags = isSkillsData(gradeData) && ((item.skill || {}).misc || []).length;
+  return {
+    sys: qbankPrompt(item, gradeData, "en", needs, existingStems, brief),
+    msg: "Please write this batch of questions.",
+    opts: { schema: QB.englishQbankSchema(QBANK_SCHEMA, brief), hint: QB.englishQbankHint((skillTags ? QBANK_HINT_SKILL : QBANK_HINT).en, brief) }
+  };
+}
 async function ensureQuizBank(item, gradeData, lang, providerId, task, judge, extra) {
   task = task || "quiz";
   const key = qbankKey(item.id, lang);
@@ -2156,8 +2166,9 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task, judge, ex
   const total = Object.values(needs).reduce((a, b) => a + b, 0);
   const en = lang === "en";
   const brief = en ? qbankBriefCheck((extra && extra.brief) || qbankBriefFor(item, gradeData), item, gradeData, "ensureQuizBank") : null;
+  const enReq = en ? qbankEnRequest(item, gradeData, needs, bank.questions.map(q => q.question), brief) : null;
   const sys = en
-    ? qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question), brief)
+    ? enReq.sys
     : qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
   const msg = L(lang, "请出这批题。", "Please write this batch of questions.");
   /* 技能层题库：干扰项要打误区标签，格式说明和校验白名单都跟着换 */
@@ -2170,7 +2181,7 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task, judge, ex
    * 但数学错误率暴涨——审稿在 74 次尝试里拒了 30 次（标错答案、两个选项都对、题干自相矛盾）；
    * 开着思考的样本凡是解析成功的全都过审。格式问题改由 repairJson 兜（值后多粘引号那条）。 */
   const opts = en
-    ? { schema: QB.englishQbankSchema(QBANK_SCHEMA, brief), hint: QB.englishQbankHint((skillTags ? QBANK_HINT_SKILL : QBANK_HINT).en, brief) }
+    ? enReq.opts
     : { schema: QBANK_SCHEMA, hint: (skillTags ? QBANK_HINT_SKILL : QBANK_HINT)[lang] };
   const t0 = Date.now();
   console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}${en ? " brief=" + brief.briefId : ""}`);
@@ -2362,6 +2373,21 @@ function qbankReviewV2(item, gradeData, o) {
   const brief = qbankBriefCheck(o.brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankReviewV2");
   const deps = qbankReviewDepsV2(item, gradeData, o);
   return QB.runReviewV2({ brief, raw: o.raw || null, resume: o.resume || null, audit: o.audit || null, deps, opts: Object.assign({}, o.opts, { bankKey: deps.bankKey }) });
+}
+/* v2 出题（#45，pregen --review v2）：只生成、不入库——和 ensureQuizBank 英文分支同一份请求（qbankEnRequest），
+ * 引擎输出原样交给 qbankReviewV2 的 raw（硬校验、暂存、审稿、修复、发布都在协调器里）。
+ * o = { brief?, needs: {1..3: 道数}, task?（账本任务名，默认 pregen:quiz） }；输出不是 { questions: [...] } 算这次调用失败（照常记账）。 */
+function qbankGenerateV2(item, gradeData, providerId, o) {
+  o = o || {};
+  const brief = qbankBriefCheck(o.brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankGenerateV2");
+  const needs = {};
+  for (const lv of [1, 2, 3]) if (o.needs && Number.isInteger(o.needs[lv]) && o.needs[lv] > 0) needs[lv] = o.needs[lv];
+  if (!Object.keys(needs).length) throw new Error("qbankGenerateV2: nothing requested");
+  const req = qbankEnRequest(item, gradeData, needs, qbankLive(qbankKey(item.id, "en")).map(q => q.question), brief);
+  return runEngine(providerId, o.task || "pregen:quiz", req.sys, req.msg, null, null, "en", req.opts, x => {
+    if (!x || typeof x !== "object" || Array.isArray(x) || !Array.isArray(x.questions)) throw new Error("出题格式不对");
+    return x;
+  });
 }
 
 function shuffleArr(a) {
@@ -3243,7 +3269,8 @@ module.exports = {
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
   qbankBriefFor, validateQbankBatch, validateQbankBatchEn,
-  qbankBaseV2, qbankStageV2, qbankPublishV2, qbankReviewStore, qbankReviewDepsV2, qbankReviewV2,
+  qbankBaseV2, qbankStageV2, qbankPublishV2, qbankReviewStore, qbankReviewDepsV2, qbankReviewV2, qbankGenerateV2, qbankEnRequest,
+  QUIZ_PER_LEVEL_NEW, QUIZ_LEVEL_CAP, QUIZ_SESSION_PER_LEVEL,
   ttsId, ttsIdWith, ttsDaemonUrl, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,

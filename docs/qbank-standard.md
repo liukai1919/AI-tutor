@@ -129,10 +129,14 @@
   不过的题整道不要——不删图留题、不进审稿、不进题库。合法的 `visual` / `tags` / `qid` 原样保留（技能题库误区登记为空时 `ok` / `other` 也保留）。
   审稿回调拿到的是冻结副本，入库的是硬校验通过的那一份。
 - 硬校验只报它能确定的；图文语义是否一致、数学对不对、和课文是否对齐、干扰项是否真对应所标误区，由审稿负责。
-- **逐题审稿 v2**（#44，`lib/ai/qbank/review.js` / `coordinator.js` / `store.js` + server 接缝；**还没接进 pregen / audit**，那是 #45）：
+- **逐题审稿 v2**（#44，`lib/ai/qbank/review.js` / `coordinator.js` / `store.js` + server 接缝；命令行 `--review v2` 见下一条）：
   每道题先逐个选项求解，再对 9 项检查逐项给 pass / fail / n/a / not_verified 和证据，问题写成可执行的发现（类别 / 字段 / 证据 / 原因 / 建议修法），
   结论 pass / revise / needs-human；没有图、没有 tags 不能豁免答案、干扰项、题目自足这些通用检查；模型确认不了就 needs-human；响应格式不对不会退回成 v1 的通过。
   缺课文时课文对齐只能是 not_verified（整体仍可 pass，但不叫「课题一致」）——审稿结论是模型意见，不是人工审核，报告里 `humanApproval` 永远是 `none`。
   只修 revise 的题（保 qid / draftId / 难度，最多 3 轮，修完重跑硬校验和审稿）；needs-human、耗尽、出错、超时、硬校验不过的**新题**留在
   `DATA_ROOT/qbank-review/drafts/`，不进题库（**已有题**审不过只是不写新版本，原题仍在题库、仍会被导出——B 不下架，v2 导出怎么处理归 #45）。旁路记录不含 usedAt。审稿记录绑定**实际发布对象**（选项打散、发 qid 之后）的内容哈希、brief / 课文 / 规则 / rubric 哈希和审稿引擎，
   题库里已有的题也要有当前版本的证据；记录写不进去就不发布，题库写盘失败内存也不改。详见 [qbank-pipeline-plan.md](qbank-pipeline-plan.md) §2。
+- **命令行 `--review v2`**（#45）：`pregen` / `audit_qbank` / `export_apple` 加 `--review v2 --skill <原样的条目 id>`，只做点名的英文题库，不默认跑整套；显式点名 / 配置的引擎不可用就报错。
+  「算不算审过」只有一个口径（`lib/ai/qbank/evidence.js` 的 `currentEvidence`）：当前审稿引擎身份对此刻内容 + brief / 课文 / 规则 / rubric 的有效非 dry pass，且没有更新的不过；
+  老的「题库满了」和 `audit-report.jsonl` 不算，dry 不算，模型不确定的审稿引擎不算。`export_apple --review v2` 只导出这样的题（白名单字段），审不过的老题留在题库、默认导出照旧带着。
+  命令、退出码与边界见 [qbank-pipeline-plan.md](qbank-pipeline-plan.md) §3；试点清单见 [qbank-v2-pilot.md](qbank-v2-pilot.md)。
