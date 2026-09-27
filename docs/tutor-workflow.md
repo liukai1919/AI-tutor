@@ -293,3 +293,12 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
 - **错误码**：WorkflowError → INVALID_INPUT / INVALID_CTX 400、NOT_FOUND 404、ILLEGAL_COMMAND / STALE / COMMAND_CONFLICT / PENDING_OPERATION 409、BUSY / LIMIT / CAPACITY 429，其它 500（`{ error, code }`）；
   一步试过但没成功（拒答、评分失败、写失败……）是 200 + `ok:false`（§3）。
 - 工作流状态仍只在进程内存（重启即丢、多实例不共享）；限速表、每家名额表同样。孩子能从首课 reply 的 kind（answer / hint）间接看出策略。
+
+## 10. 界面「和老师一起练」（#63）
+
+- 入口：大纲课课末「⚡ 闯关练习」下面的「🧑‍🏫 和老师一起练」，只在 `/api/providers` 的 `tutor.workflow` 为真时出现（服务器三道闸 + 家庭开关都开）。
+- 卡片 `#wfCard`（专注模式全宽，同闯关）。前端不自己判任何东西，只看 view：diagnose / teach / evaluate / adapt 自动发；practice 等「开始练习 / 下一题」；answer 等孩子作答（输入框 + 「提交」，`allowed` 里有 hint 才有「要个提示」）。
+- 老师的话（小课、提示、补救）一个气泡，过 `public/rich-text.js` 排版；题面同样。对 / 看不懂 / 不太对的反馈在最上面，「不太对」一直留到补救提示和再答。
+- 每条命令一个 commandId；失败（HTTP 错误或 `ok:false`）显示原因或固定模板 + 「再试一次」，原样重发同一条。404（过期 / 被关）→ 提示重新开始；429 / 503 有各自文案。
+- 孩子和语言在开局时定死（家长替选中的孩子练，命令一直带那个 kid）；迟到的回包按这一场的对象认。✕ 退出时对还在进行的工作流发 DELETE（练过题会先确认）；做完的留给 TTL。
+- 不显示策略；不接进度 / 报告；「清空全部」不清学习事件（仍待做）。
