@@ -1,6 +1,6 @@
 # 结构化辅导工作流：Diagnose → Teach → Practice → Evaluate → Adapt（#36，#19 Phase 6）
 
-状态：后端模块 + 单测 / 组合测试。**没有 HTTP 路由、没有界面、server.js 没有实例化它**；不连真实模型、不联网、不读写任何现有孩子数据。
+状态：后端模块 + 单测 / 组合测试。**#61（Phase 9d）起有 HTTP 路由（§9），服务器开关默认关**；还没有界面。模块本身不连真实模型、不联网、不读写任何现有孩子数据（路由的学习事件单独存在 `data/kids/<kid>/learning/`）。
 学习事件只经 Phase 5 的 `memory.appendEvent` 写入；TutorAgent、Skill 目录、Harness、memory 的源码一行没改。
 **#38（Phase 7）起**：每步结果发布前跑后置条件（§3、§5）；TutorAgent 请求带本地验证上下文、回复再本地复核（§6）；可以用 `createAnswerGrader()` 作 grader（§4.2）。
 详见 `docs/tutor-verification.md`。
@@ -248,4 +248,38 @@ node tools/test_verification.mjs        # #38：后置条件反例、确定性 g
 - 卡住的 memory 写入没有时限（见 §5「时限与 TTL」）：工作流一直 BUSY、不过期，只能 close。TutorAgent 最长 tutorTimeoutMs、适配器最长 adapterTimeoutMs，这段时间里该工作流 BUSY。
 - socratic-teaching 首课不记任何事件（现有事件表没有「引导提问」）；Student Memory 里因此看不到这类互动。
 - 活跃上限是进程级的；done 的工作流在 close 或过期前仍占名额。每个工作流缓存已成功命令的结果（上限 maxCommands 条），最坏内存约 maxWorkflows × maxCommands × 视图大小（默认配置下为几十 MB 量级）。
-- 没有 HTTP、界面、家长可见记录、家庭隐私设置；把工作流接到路由前需要 `allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用，并确定 `plan.strategy` / 计数是否给孩子看。
+- 没有界面和家长可见的学习事件记录；HTTP 接入见 §9（开关默认关，孩子看不到 `plan.strategy`）。
+
+## 9. HTTP 接入（#61，#19 Phase 9d）
+
+```
+lib/ai/workflows/service.js         createWorkflowService：练习题筛选、确定性评分、按孩子分的 memory、限速、引擎检查、视图裁剪、错误码 → HTTP
+server.js                           路由：开关 → allow → 家庭开关 → 孩子 → 话题（课程条目）→ workflowService
+lib/ai/tutor/service.js             多了 agentAsk / engineReady：和「问老师」同一套选引擎和 agent 缓存
+tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 回归（82 项；其余引擎换成抛错桩，断言零调用）
+```
+
+**开关**：`config.tutorWorkflow.enabled`（默认 `false`，只认 `true`）且问老师的服务器总闸 `tutorAgent.enabled` 开、且 `YY_DEMO` 没设，否则 404 `workflowDisabled`（鉴权之前）；
+家庭「问老师」没开 → 403 `tutorOff`。`/api/providers` 的 `tutor.workflow` 是这几项合起来的结果（给以后的界面用）。
+
+| 方法 | 路径 | body / 参数 | 回包 |
+|---|---|---|---|
+| POST | `/api/tutor/workflow` | `{ curriculumId, lang, commandId, kid? }` | view |
+| GET | `/api/tutor/workflow/:id` | `?kid=` | view |
+| POST | `/api/tutor/workflow/:id/command` | `{ type, commandId, expectedVersion?, questionId?, answer?, kid? }` | `{ ok, code, detail, view, reply }`（§3） |
+| DELETE | `/api/tutor/workflow/:id` | `?kid=` | view（closed） |
+
+- **所有者**：ctx = `{ userId: familyId, kidId, role }`，家长和孩子看同一个孩子的同一组工作流和学习事件；家长必须指定孩子（沿用 400 `kidRequired`），孩子的 `kid` 参数被忽略。
+- **话题**：服务端按 `curriculumId` 从课程条目取 `title`（条目的 zh / en 名）和 `goal`（前两条 elaborations，没有就用名字），截到 120 / 300 字；未知条目 → 400。
+- **练习题**（`practiceFrom`）：只用随包 / 已有题库（`qbankPlayable`），**不现出题**。只收：qid 合事件 id 规则、没有 `visual`、2–6 个选项、正确选项能按 number.js 解析成一个数、别的选项没有和它等值的。
+  题目 = 题干 + 「A. … B. …」选项 + 「写出你算出的数（不要写字母）」；答案键 = 正确选项原文，只进 grader 和本地复核。这个话题一道合格题都没有 → 409 `noPractice`；做着做着用完 → PRACTICE_FAILED。
+  提示 / 补救步交给模型的问题里有题面（含选项），所以模型看得到正确选项在其中；「hint 不许显式说出答案键」由 #38 的本地复核拦。
+- **评分**：`createAnswerGrader()`；写字母、带单位、写法不同（`0.50` 对 `0.5`）都是 uncertain，换下一题、不算错。从不给误因。
+- **学习事件**：每个孩子一个 `createMemory` + `createFileStore`，rootDir = `data/kids/<kid>/learning/`（第一次用时建）。孩子被删时随整个目录归档为 `_deleted-…`；已删的孩子不会被重建目录（memory 读写 → STORE_FAILED `STORE_IO`）。
+  「清空全部记录」现在**不清**这里（界面片一起做）。进度 / 报告 / 掌握度都不读它。
+- **模型**：`tutorService.agentAsk` 按 `providerByTask.tutor` → provider → 自动顺序选引擎，账本任务名仍是 `tutor` / `tutor:classify`。家庭「孩子只给提示」**不强制**到工作流：首课 explain-concept 要讲解（answer 模式），但工作流从不把答案键交给模型，提示 / 补救步本来就强制 hint。
+- **限速 / 引擎**：teach / hint（会调模型的命令）先查引擎（没有 → 503 `noEngine`，不执行）和每账号每分钟 `tutorWorkflow.perMinute`（默认 6，429 `RATE_LIMITED`）；原样重发挂起的那条命令不查（不再问模型）。其它命令和 GET 不限。
+- **孩子看的 view** 去掉 `plan`；家长原样。回包里仍没有答案键、作答文本、模型原文、title / goal。
+- **错误码**：WorkflowError → INVALID_INPUT / INVALID_CTX 400、NOT_FOUND 404、ILLEGAL_COMMAND / STALE / COMMAND_CONFLICT / PENDING_OPERATION 409、BUSY / LIMIT / CAPACITY 429，其它 500（`{ error, code }`）；
+  一步试过但没成功（拒答、评分失败、写失败……）是 200 + `ok:false`（§3）。
+- 工作流状态仍只在进程内存（重启即丢、多实例不共享）；限速表同样。
