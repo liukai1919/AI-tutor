@@ -15,12 +15,43 @@
  *   F  权限边界：孩子碰家长接口 403 parentRequired；家长多孩子不指定 kid 400 kidRequired；孩子之间数据隔离
  *   G  无引擎时：自由提问 / FSA / 完整报告明确 503，不是崩溃
  *   H  重启后与磁盘一致
+ *   I  自然语音：测试自己起的假 TTS 守护进程（只在 127.0.0.1，不合成）——逐条按请求顺序答复、成功 / 失败各归各位、音频原样回放；
+ *      config 关掉 tts 时明确 {enabled:false}。不连任何真实守护进程
  *
  * 前提：data/lessons/en、data/unit-tests/en/4-number.json 和入库的 demo/qbank.json（只用它，不读根目录个人题库；
  * 缺了 launch 直接报错）。拷进来的题库里没有可用条目时 C 组跳过。
  */
+import fs from "node:fs";
+import http from "node:http";
 import path from "node:path";
-import { launch, makeChecker } from "./lib/isolated_server.mjs";
+import { launch, makeChecker, sleep, ROOT } from "./lib/isolated_server.mjs";
+
+/* 仓库 data/voice 里有没有 server.js 认的预烘语音文件（同一条规则：扩展名 + 40 位 sha1 文件名）；只看目录列表 */
+const VOICE_PACK = (() => {
+  try {
+    return fs.readdirSync(path.join(ROOT, "data", "voice")).some(f => {
+      const ext = path.extname(f).toLowerCase();
+      return [".m4a", ".mp3", ".ogg", ".wav"].includes(ext) && /^[a-f0-9]{40}$/.test(path.basename(f, ext));
+    });
+  } catch (_) { return false; }
+})();
+const TTS_PROBE = "yy smoke tts probe 7c1e";   // 不会出现在任何语音包里的句子
+
+/* 假守护进程：POST /synth，正文里带 "daemon fails" 的回 503，其余回一段固定字节当 wav；每次调用都记下来 */
+const STUB_WAV = Buffer.from("RIFF0000WAVEfmt yy-smoke-stub-clip");
+const synthCalls = [];
+const daemon = http.createServer((req, res) => {
+  const chunks = [];
+  req.on("data", c => chunks.push(c));
+  req.on("end", () => {
+    let b = {}; try { b = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch (_) {}
+    synthCalls.push({ path: req.method + " " + req.url, lang: b.lang, text: b.text });
+    if (String(b.text || "").includes("daemon fails")) { res.writeHead(503); return res.end("stub says no"); }
+    res.writeHead(200, { "content-type": "audio/wav" }); res.end(STUB_WAV);
+  });
+});
+await new Promise(r => daemon.listen(0, "127.0.0.1", r));
+const daemonBase = "http://127.0.0.1:" + daemon.address().port;
 
 const { check, summary } = makeChecker();
 const srv = await launch({ prefix: "yy-smoke-" });
@@ -188,8 +219,13 @@ try {
   check("FSA -> 503 (no pack exists for FSA)", r.status === 503, r);
   r = await srv.call("POST", "/api/report/full", { grade: 4, lang: "en", kid: fam.kids.A }, fam.parentTok);
   check("full report -> 503", r.status === 503, r);
-  r = await srv.call("POST", "/api/tts", { lang: "en", items: [{ text: "hello", lang: "en" }] });
-  check("tts: answers per item in order (daemon absent -> failed state, not an error)", r.status === 200 && Array.isArray(r.body.items) && r.body.items.length === 1 && ["pending", "ready", "failed"].includes(r.body.items[0].state), r.body);
+  /* 没有合成引擎时 /api/tts 的答复取决于仓库 data/voice 有没有预烘语音包（server.js 的 voicePack 读 ROOT，不读 YY_DATA_DIR；
+   * 包不入库，纯 Git checkout 里没有）。按本机实际有没有包断言确切的那一种，引擎在场的情形见 I 组的假守护进程 */
+  r = await srv.call("POST", "/api/tts", { lang: "en", items: [{ text: TTS_PROBE + " no engine", lang: "en" }] });
+  if (VOICE_PACK) check("tts, no engine, voice pack present: enabled, text outside the pack -> failed (not an error)",
+    r.status === 200 && r.body.enabled === true && Array.isArray(r.body.items) && r.body.items.length === 1 && r.body.items[0].state === "failed", r.body);
+  else check("tts, no engine, no voice pack: honest {enabled:false, items:[]}",
+    r.status === 200 && JSON.stringify(r.body) === JSON.stringify({ enabled: false, items: [] }), r.body);
   r = await srv.call("GET", "/api/visual-contract", undefined, "");
   check("visual contract served (v3 types)", r.status === 200 && r.body.version >= 3 && r.body.types && Object.keys(r.body.types).length >= 39, r.body && r.body.version);
   check("server process still alive", !srv.child.exited);
@@ -202,6 +238,39 @@ try {
   r = await srv.call("GET", "/api/unit-test/sets?grade=4");
   check("unit test archive survives a restart", r.status === 200 && r.body.items.length === 1);
 
+  console.log("I  natural voice through a stub daemon the test controls (no real engine)");
+  const cfgFile = path.join(srv.DATA, "config.json");
+  fs.writeFileSync(cfgFile, JSON.stringify({ tts: { url: { en: daemonBase } } }));   // 只配英文；中文没地址
+  await srv.restart();
+  const ttsItems = [{ text: TTS_PROBE + " ok", lang: "en" }, { text: TTS_PROBE + " daemon fails", lang: "en" }, { text: TTS_PROBE + " 中文没有守护进程", lang: "zh" }];
+  r = await srv.call("POST", "/api/tts", { lang: "en", items: ttsItems });
+  const ids = (r.body.items || []).map(x => x.id);
+  check("tts: enabled, one pending entry per item, distinct ids, audio urls",
+    r.status === 200 && r.body.enabled === true && ids.length === 3 && new Set(ids).size === 3
+    && r.body.items.every(x => x.state === "pending" && /^[a-f0-9]{40}$/.test(x.id) && x.url === "/api/tts/audio/" + x.id + ".wav"), r.body);
+  let tts = r.body;
+  for (let i = 0; i < 100 && (tts.items || []).some(x => x.state === "pending"); i++) {
+    await sleep(100);
+    tts = (await srv.call("POST", "/api/tts", { lang: "en", items: ttsItems })).body;
+  }
+  check("tts: answers per item in request order: ok -> ready, daemon error -> failed (not an error), unconfigured zh -> failed",
+    JSON.stringify((tts.items || []).map(x => [x.id, x.state])) === JSON.stringify([[ids[0], "ready"], [ids[1], "failed"], [ids[2], "failed"]]), tts);
+  check("tts: stub daemon got exactly the two English texts, in order; nothing for zh",
+    JSON.stringify(synthCalls.map(c => [c.path, c.lang, c.text])) === JSON.stringify([["POST /synth", "en", ttsItems[0].text], ["POST /synth", "en", ttsItems[1].text]]), synthCalls);
+  let a = await fetch(srv.base + "/api/tts/audio/" + ids[0] + ".wav");
+  const clip = Buffer.from(await a.arrayBuffer());
+  check("tts audio: the synthesized clip is served back byte for byte", a.status === 200 && /audio\/wav/.test(a.headers.get("content-type") || "") && clip.equals(STUB_WAV), { status: a.status, bytes: clip.length });
+  a = await fetch(srv.base + "/api/tts/audio/" + ids[1] + ".wav");
+  await a.arrayBuffer();
+  check("tts audio: the failed item has no clip -> 404", a.status === 404, a.status);
+  fs.writeFileSync(cfgFile, JSON.stringify({ tts: { enabled: false, url: { en: daemonBase } } }));
+  await srv.restart();
+  const callsBefore = synthCalls.length;
+  r = await srv.call("POST", "/api/tts", { lang: "en", items: [{ text: TTS_PROBE + " disabled", lang: "en" }] });
+  await sleep(300);
+  check("tts disabled in config: {enabled:false, items:[]} and nothing sent to the daemon",
+    r.status === 200 && JSON.stringify(r.body) === JSON.stringify({ enabled: false, items: [] }) && synthCalls.length === callsBefore, { body: r.body, calls: synthCalls.length - callsBefore });
+
   exitCode = summary() ? 0 : 1;
 } catch (e) {
   console.error("\nsmoke aborted:", e && e.stack || e);
@@ -209,5 +278,6 @@ try {
 } finally {
   await srv.stop();
   srv.cleanup();
+  daemon.close();
 }
 process.exit(exitCode);
