@@ -2216,6 +2216,154 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task, judge, ex
   return bank;
 }
 
+/* ---------------- 英文题库逐题审稿 v2：暂存 / 发布 / 旁路存储接缝（#44） ----------------
+ * 编排在 lib/ai/qbank/coordinator.js（runReviewV2）；这里只把真实的题库规则和持久化交给它：
+ *   - 暂存：真实 qbankMerge（去重、每级封顶、qbankSpread 重排选项和 tags、发 qid），但作用在题库的深拷贝上，
+ *     一道一道并（和整批并等价），拿到的就是将来要发布的那个对象——之后哈希、审稿、发布都是它，不再 merge 第二次。
+ *   - 发布：先核对题库指纹（暂存之后题库变了就不发）、先把整份新题库原子写盘（写 / 改名失败直接抛，不吞），
+ *     磁盘成功之后才改内存。老的 qbankSave（吞错误）和 ensureQuizBank（先改内存）不动，v2 不经过它们。
+ *   - 审稿记录 / draft / 报告：DATA_ROOT/qbank-review/（QB.createReviewStore），不进 qbank.json、不进孩子目录。
+ * 默认路径（v1 审稿、zh）完全不变；这些接缝只在显式调用时用（#45 接 pregen / audit）。 */
+const qbankClone = v => JSON.parse(JSON.stringify(v));
+const qbankLive = key => (qbank[key] && Array.isArray(qbank[key].questions)) ? qbank[key].questions : [];
+function qbankBaseV2(key) {
+  const qs = qbankLive(key);
+  return {
+    fingerprint: QB.bankFingerprint(qs), qids: qs.map(q => q.qid).filter(Boolean),
+    hashes: Object.fromEntries(qs.filter(q => q.qid).map(q => [q.qid, QB.contentHash(q)])),
+    questions: qbankClone(qs)   // 拷贝：审已有题（audit）用，改它动不了题库
+  };
+}
+function qbankBankChanged() { return Object.assign(new Error("qbank changed since the batch was staged"), { code: "BANK_CHANGED" }); }
+/* 新题：qbankMerge 的新题路径（去重、封顶、qbankSpread、发 qid）；qid 已在题库：qbankMerge 的同 qid 路径（只换内容字段、保 level / usedAt）。
+ * 同一个 qid 在 extra（同批别的候选）里已经有了 → 丢弃，不让两份内容占一个 qid。 */
+function qbankStageV2(key, items, opts) {
+  const o = opts || {};
+  const live = qbankLive(key);
+  if (o.baseFingerprint && QB.bankFingerprint(live) !== o.baseFingerprint) throw qbankBankChanged();
+  const extra = o.extra || [];
+  const work = { questions: qbankClone(live).concat(qbankClone(extra)) };
+  const candidates = [], dropped = [];
+  (items || []).forEach((q, index) => {
+    const qid = q && typeof q.qid === "string" ? q.qid : null;
+    if (qid && extra.some(x => x.qid === qid)) { dropped.push({ index, reason: "qid repeated in this batch" }); return; }
+    if (qid && live.some(x => x.qid === qid)) {
+      qbankMerge(work, [qbankClone(q)]);
+      candidates.push(qbankClone(work.questions.find(x => x.qid === qid)));
+      return;
+    }
+    const n = work.questions.length;
+    const r = qbankMerge(work, [qbankClone(q)]);
+    if (r.added === 1 && work.questions.length === n + 1) candidates.push(qbankClone(work.questions[n]));
+    else dropped.push({ index, reason: "duplicate stem or level cap" });
+  });
+  return { candidates, dropped };
+}
+/* 整份题库原子写：失败就抛（并清掉 tmp），调用方据此不改内存。fsOps 只给测试注入写 / 改名故障用 */
+function qbankWriteDurable(next, fsOps) {
+  const o = fsOps || fs;
+  const tmp = QBANK_FILE + ".v2-" + process.pid + ".tmp";
+  try {
+    o.writeFileSync(tmp, JSON.stringify(next), "utf8");
+    o.renameSync(tmp, QBANK_FILE);
+  } catch (e) {
+    try { fs.unlinkSync(tmp); } catch (_) { /* 没写出来 */ }
+    throw e;
+  }
+}
+/* modes[i]："new" = 追加（qid 不能已在题库）；"replace" = 原地替换题库里同 qid 的题（必须在），usedAt 取发布这一刻题库里的值。
+ * 调用方已经按同一个指纹核对过要替换的是哪个版本；指纹对不上就整批拒绝。 */
+function qbankPublishV2(key, candidates, opts) {
+  const o = opts || {};
+  const live = qbankLive(key);
+  if (QB.bankFingerprint(live) !== o.baseFingerprint) throw qbankBankChanged();
+  const list = candidates || [];
+  const modes = o.modes || list.map(() => "new");
+  const at = new Map(live.map((q, i) => [q.qid, i]));
+  const next = live.slice(), plan = [], touched = new Set();
+  list.forEach((c, i) => {
+    if (!c || typeof c.qid !== "string" || !c.qid) throw new Error("qbankPublishV2: candidate without qid");
+    if (touched.has(c.qid)) throw new Error("qbankPublishV2: qid " + c.qid + " given twice");
+    touched.add(c.qid);
+    const idx = at.get(c.qid);
+    if (modes[i] === "replace") {
+      if (idx === undefined) throw new Error("qbankPublishV2: qid " + c.qid + " to replace is not in the bank");
+      const rep = qbankClone(c);
+      if (live[idx].usedAt === undefined) delete rep.usedAt; else rep.usedAt = live[idx].usedAt;
+      next[idx] = rep; plan.push({ idx, rep });
+    } else {
+      if (idx !== undefined) throw new Error("qbankPublishV2: qid " + c.qid + " is already in the bank");
+      /* 新题的做题状态从 0 起（和 qbankMerge 一样）；draft 里不存 usedAt，续跑发布时在这里补上 */
+      const add = Object.assign(qbankClone(c), { usedAt: 0 });
+      next.push(add); plan.push({ idx: -1, rep: add });
+    }
+  });
+  if (!plan.length) return { published: [] };
+  qbankWriteDurable(Object.assign({}, qbank, { [key]: Object.assign({}, qbank[key] || {}, { questions: next }) }), o.fsOps);
+  /* 磁盘已经是新题库了，才改内存（同一个容器对象，Action 层 / Tool 拿着它的引用；替换的题原地改，和 qbankMerge 一样） */
+  const bank = qbank[key] || (qbank[key] = { questions: [] });
+  if (!Array.isArray(bank.questions)) bank.questions = [];
+  for (const { idx, rep } of plan) {
+    if (idx < 0) { bank.questions.push(rep); continue; }
+    const cur = bank.questions[idx];
+    for (const k of Object.keys(cur)) if (!(k in rep)) delete cur[k];
+    Object.assign(cur, rep);
+  }
+  return { published: list.map(c => c.qid) };
+}
+function qbankReviewStore(fsOps) { return QB.createReviewStore({ root: DATA_ROOT, fs: fsOps || fs }); }
+/* 协调器要的依赖：审稿 / 修复走现有 runEngine（选路、账本不变；本身不开新的网络客户端），暂存 / 发布 / 存储走上面的接缝。
+ * runEngine 的适配器不认 signal：超时 / 取消后引擎可能还在跑（照样记账），协调器只是不采用它的结果。
+ * o = { judgeProvider, repairProvider?, judgeModel?, repairModel?（注入引擎的声明身份）, judgeTask?, repairTask?, fsOps? } */
+function qbankReviewDepsV2(item, gradeData, o) {
+  o = o || {};
+  const judgeProv = o.judgeProvider, repairProv = o.repairProvider || o.judgeProvider;
+  for (const p of [judgeProv, repairProv]) if (!p || typeof ADAPTERS[p] !== "function") throw new Error("qbankReviewDepsV2: unknown engine " + JSON.stringify(p));
+  const key = qbankKey(item.id, "en");
+  const call = (prov, task) => req => runEngine(prov, task, req.sys, req.msg, null, null, "en", { schema: req.schema, hint: req.hint, signal: req.signal });
+  return {
+    bankKey: key,
+    engine: { judge: qbankEngineIdentityV2(judgeProv, o.judgeModel), repair: qbankEngineIdentityV2(repairProv, o.repairModel) },
+    judge: call(judgeProv, o.judgeTask || "judge:quiz"),
+    repair: call(repairProv, o.repairTask || "quiz:repair"),
+    base: () => qbankBaseV2(key),
+    stage: (items, so) => qbankStageV2(key, items, so),
+    publish: (cands, po) => qbankPublishV2(key, cands, Object.assign({}, po, { fsOps: o.fsOps })),
+    store: qbankReviewStore(o.fsOps),
+    checkVisual,
+    allowedTags: isSkillsData(gradeData) && item.skill ? new Set((item.skill.misc || []).map(m => m.id)) : null
+  };
+}
+/* 审稿记录绑定的引擎身份：只写能确定的模型和影响输出的设置，照各适配器实际怎么调来（不改 engineModel / v1 路由）。
+ * claude CLI：config 指定了 model 就是它（外加 --effort）；没指定时用的是 CLI 自己的默认模型——我们不知道是哪个，
+ * 记 model:null / exact:false，这种结论落盘但不复用。anthropic 适配器没配 model 时写死 claude-opus-5；openai 用 config；
+ * ollama 用探测到的模型；gemini / codex / grok 不传模型参数 → 未知。
+ * declaredModel 只给注入的引擎（测试替身等，不是内置的 7 个适配器）用：内置引擎的身份一律按它实际的配置算，声明盖不住配置的变化。 */
+const QBANK_BUILTIN_ENGINES = ["ollama", "grok", "claude", "gemini", "codex", "anthropic", "openai"];
+function qbankEngineIdentityV2(provider, declaredModel) {
+  if (declaredModel && !QBANK_BUILTIN_ENGINES.includes(provider)) return { provider, model: String(declaredModel), exact: true };
+  const unknown = { provider, model: null, exact: false };
+  if (provider === "claude") {
+    const cc = cfg.claude || {};
+    if (!cc.model) return unknown;
+    const id = { provider, model: String(cc.model), exact: true };
+    if (cc.effort && /^(low|medium|high|xhigh|max)$/.test(cc.effort)) id.settings = { effort: String(cc.effort) };
+    return id;
+  }
+  if (provider === "anthropic") return { provider, model: String((cfg.anthropic && cfg.anthropic.model) || "claude-opus-5"), exact: true };
+  if (provider === "openai") return cfg.openai && cfg.openai.model ? { provider, model: String(cfg.openai.model), exact: true } : unknown;
+  if (provider === "ollama") return detected.ollama && detected.ollama.model ? { provider, model: String(detected.ollama.model), exact: true } : unknown;
+  return unknown;
+}
+/* 一次英文 v2 审稿 + 发布：o = { raw | resume | audit, judgeProvider, repairProvider?, brief?, fsOps?, opts? }。
+ * brief 不给就现建（给了必须是这道题这个视图的原样 brief）；opts 传给 runReviewV2（dry / maxRepairRounds / timeoutMs / signal）。 */
+function qbankReviewV2(item, gradeData, o) {
+  o = o || {};
+  const brief = qbankBriefCheck(o.brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankReviewV2");
+  const deps = qbankReviewDepsV2(item, gradeData, o);
+  return QB.runReviewV2({ brief, raw: o.raw || null, resume: o.resume || null, audit: o.audit || null, deps, opts: Object.assign({}, o.opts, { bankKey: deps.bankKey }) });
+}
+
 function shuffleArr(a) {
   a = a.slice();
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
@@ -3095,6 +3243,7 @@ module.exports = {
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
   qbankBriefFor, validateQbankBatch, validateQbankBatchEn,
+  qbankBaseV2, qbankStageV2, qbankPublishV2, qbankReviewStore, qbankReviewDepsV2, qbankReviewV2,
   ttsId, ttsIdWith, ttsDaemonUrl, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,
