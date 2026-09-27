@@ -385,6 +385,35 @@ try {
   check("memory gone (deleted kid) → diagnose resolves ok:false STORE_FAILED STORE_IO", s2.status === 200 && s2.body.ok === false && s2.body.code === "STORE_FAILED" && s2.body.detail === "STORE_IO", s2);
   check("start without a topic → 400", (await svc.start(uctx, { commandId: "s2" }, {})).status === 400);
 
+  /* 每家账上最多 20 个：做完的不挡别人，满了从最早做完的开始关（1 道题的话题，一个工作流一轮就完） */
+  const { createMemory } = require("../lib/ai/memory/index.js");
+  const docs = new Map();
+  const memStore = {
+    read: async owner => docs.get(JSON.stringify(owner)) || null,
+    update: async (owner, transform) => { const d = transform(docs.get(JSON.stringify(owner)) || null); if (d) docs.set(JSON.stringify(owner), d); return { doc: d, written: !!d }; },
+  };
+  const mem = createMemory({ store: memStore });
+  const svc2 = createWorkflowService({
+    tutor: { ask: async (c, req) => (req.mode === "hint" ? { ok: true, kind: "hint", text: "What does each digit stand for?" } : { ok: true, kind: "answer", text: "Place value tells what each digit is worth." }) },
+    engineReady: () => true, memoryFor: () => mem, bankFor: () => ({ questions: [good[0]] }), settings: () => ({ perMinute: 120 }),
+  });
+  const ids = [];
+  let loopOk = true;
+  for (let i = 0; i < 21; i++) {
+    const st = await svc2.start(uctx, { commandId: "e" + i, lang: "en" }, { topic });
+    const id = st.body.workflowId;
+    ids.push(id);
+    let last;
+    for (const c of [{ type: "diagnose" }, { type: "teach" }, { type: "practice" }]) last = await svc2.send(uctx, id, Object.assign({ commandId: id + c.type }, c), { accountId: "a" });
+    last = await svc2.send(uctx, id, { type: "submit", commandId: id + "s", questionId: "wq1", answer: "12" }, { accountId: "a" });
+    await svc2.send(uctx, id, { type: "evaluate", commandId: id + "e" }, { accountId: "a" });
+    last = await svc2.send(uctx, id, { type: "adapt", commandId: id + "a" }, { accountId: "a" });
+    if (!(st.status === 200 && last.body.view.status === "completed")) { loopOk = false; check("eviction loop step " + i, false, { st, last }); break; }
+  }
+  check("21 one-round workflows in a row for one kid all start and complete (finished ones don't count toward per-child 3)", loopOk);
+  const listed2 = (await svc2.list(uctx)).body.items;
+  check("… the family keeps at most 20 tracked: the oldest finished one was closed", listed2.length === 20 && !listed2.some(x => x.workflowId === ids[0]) && (await svc2.get(uctx, ids[0])).status === 404 && (await svc2.get(uctx, ids[1])).status === 200, listed2.length);
+
   check("no real engine adapter was ever invoked", realEngineAttempts.length === 0, realEngineAttempts);
   check("no unhandled rejections", unhandled.length === 0, unhandled.map(e => String(e && e.message || e)));
 } finally {
