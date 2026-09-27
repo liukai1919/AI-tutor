@@ -3,12 +3,13 @@
  *   formatRichText(s, { katex })  → 安全的 HTML 字符串
  *
  * 模型回答是纯文本，但常夹着 LaTeX 公式和 Markdown 粗体：
- *   - \( … \) / $ … $ 行内公式，\[ … \] / $$ … $$ 独立公式 → KaTeX（不开 trust，\href 之类不会变成链接）；
- *     KaTeX 没加载或公式有错 → 原样转义显示，不会炸；
+ *   - \( … \) / $ … $ 行内公式，\[ … \] / $$ … $$ 独立公式 → KaTeX（不开 trust，\href 之类不会变成链接；
+ *     maxSize / maxExpand 收紧，\rule{9999em} 或宏展开炸弹撑不破页面）；KaTeX 没加载或公式有错 → 原样转义显示；
  *   - **粗体** → <b>，可以包着公式；单独的 * 不处理；
  *   - 其余一律转义，换行原样保留（气泡是 pre-wrap）。
- * 钱数里的 $ 不当公式：开头 $ 后面紧跟空白、结尾 $ 前面是空白或后面紧跟数字的都不算（Pandoc 同款规则），
- * 行内公式不跨行。所以「$3 和 $4」「$5+$3=$8」都按文字显示。
+ * $ … $ 要和钱数分开（isInlineMath）：行内不跨行；\$ 是字面的 $；结尾 $ 后面紧跟数字的不算；
+ * 两头贴空白的（「$3 and $4」）只有里面有 \命令 / ^ / _ / { 才算（「$ \frac{1}{2} $」）；
+ * 数字开头又夹着中文或全角标点的（「每本书$4，设总价为$y$元」）是钱数，跳过这个 $ 接着往后找。
  * 题库的 mathText（public/index.html）是另一套，别混用：那边题目文字不认粗体。
  */
 (function (root, factory) {
@@ -17,10 +18,23 @@
   else root.YYRichText = api;
 })(typeof self !== "undefined" ? self : this, function () {
   const esc = x => String(x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  /* 顺序即优先级：先认 \[ \] 和 $$，再认行内；$$ 必须排在 $ 前面 */
-  const MATH = /\\\[([\s\S]+?)\\\]|\$\$([\s\S]+?)\$\$|\\\((.+?)\\\)|\$(?=\S)([^$\n]*?\S)\$(?!\d)/g;
+  /* 顺序即优先级：先认 \[ \] 和 $$，再认行内；$$ 必须排在 $ 前面。行内 $ 的取舍在 isInlineMath */
+  const MATH = /\\\[([\s\S]+?)\\\]|\$\$([\s\S]+?)\$\$|\\\((.+?)\\\)|\$([^$\n]+?)\$/g;
   const BOLD = /\*\*(?=\S)([^\n]*?\S)\*\*/g;
-  const MARK_A = "\uE000", MARK_B = "\uE001";   // 私用区字符当占位符，输入里原有的先删掉
+  const CJK = /[　-〿㐀-鿿豈-﫿＀-￯]/;
+  const MARK_A = "", MARK_B = "";   // 私用区字符当占位符，输入里原有的先删掉
+  const MARKS = new RegExp(MARK_A + "(\\d+)" + MARK_B, "g");
+
+  function isInlineMath(s, m) {
+    const tex = m[4], after = s[m.index + m[0].length];
+    if (m.index > 0 && s[m.index - 1] === "\\") return false;       // \$5：字面的 $
+    if (/\\$/.test(tex)) return false;                                // …\$：结尾那个 $ 是字面的
+    if (after && /\d/.test(after)) return false;                      // $5+$3：结尾 $ 后面是数字
+    if (!tex.trim()) return false;
+    if (/^\s|\s$/.test(tex) && !/\\[a-zA-Z]|[\^_{]/.test(tex)) return false;   // $3 and $4
+    if (/^\d/.test(tex) && CJK.test(tex)) return false;               // 每本书$4，设总价为$
+    return true;
+  }
 
   function renderTex(katex, tex, display, raw) {
     if (katex && typeof katex.renderToString === "function") {
@@ -39,13 +53,14 @@
     let text = "", last = 0, m;
     MATH.lastIndex = 0;
     while ((m = MATH.exec(s))) {
+      if (m[4] != null && !isInlineMath(s, m)) { MATH.lastIndex = m.index + 1; continue; }   // 这个 $ 当文字，从下一个字符接着找
       const display = m[1] != null || m[2] != null;
       const tex = m[1] != null ? m[1] : m[2] != null ? m[2] : m[3] != null ? m[3] : m[4];
       let before = s.slice(last, m.index);
       let end = m.index + m[0].length;
       if (display) {   // 独立公式本身是块，紧挨着的一个换行吃掉，免得多空一行
-        before = before.replace(/\n$/, "");
-        if (s[end] === "\n") end++;
+        before = before.replace(/\r?\n$/, "");
+        if (s[end] === "\r" && s[end + 1] === "\n") end += 2; else if (s[end] === "\n") end++;
       }
       text += before + MARK_A + parts.length + MARK_B;
       parts.push(tex.trim() ? renderTex(katex, tex, display, m[0]) : esc(m[0]));
@@ -54,7 +69,7 @@
     text += s.slice(last);
     return esc(text)
       .replace(BOLD, (_, inner) => "<b>" + inner + "</b>")
-      .replace(new RegExp(MARK_A + "(\\d+)" + MARK_B, "g"), (_, i) => parts[Number(i)]);
+      .replace(MARKS, (_, i) => parts[Number(i)]);
   }
 
   return { formatRichText };

@@ -53,6 +53,22 @@ check("$12.50 each, $25 total", f("$12.50 each, so $25 total") === "$12.50 each,
 check("inline $ never spans lines", f("$3 for one\nand 4$ more") === "$3 for one\nand 4$ more");
 check("inline \\( never spans lines", f("\\(a\nb\\)") === "\\(a\nb\\)");
 check("money next to real formula", f("It costs $5, so $x=5$.") === "It costs $5, so <K>x=5</K>.", f("It costs $5, so $x=5$."));
+/* 复核（#59）复现的几条：中文不带空格的钱数、\$ 转义、钱数后面同一行有 $$ */
+const zhMoney = f("每本书$4，设总价为$y$元");
+check("zh money without spaces is skipped, the real formula after it still renders", zhMoney === "每本书$4，设总价为<K>y</K>元", zhMoney);
+check("zh money pair stays text", f("一支铅笔$3，两支$6。") === "一支铅笔$3，两支$6。");
+check("zh digits + formula without CJK still math", f("面积是$3\\times4=12$平方厘米") === "面积是<K>3\\times4=12</K>平方厘米");
+check("math may contain Chinese when it does not start with a digit", f("$面积=3\\times4$") === "<K>面积=3\\times4</K>");
+const dd = f("$5 and $$x$$");
+check("money then $$display$$ on the same line", dd === "$5 and <K d>x</K>", dd);
+check("\\$ is a literal dollar, never an opener", f("costs \\$5 and \\$x\\$") === "costs \\$5 and \\$x\\$");
+check("closing $ escaped by a backslash is not a closer", f("The answer is $\\$5$.") === "The answer is $\\$5$.");
+check("US$5 and $x$", f("US$5 and $x$") === "US$5 and <K>x</K>");
+check("$5/$10 and $5-$10 stay text", f("$5/$10, $5-$10") === "$5/$10, $5-$10");
+check("$12$ (a bare number) is still math", f("答案是 $12$。") === "答案是 <K>12</K>。");
+check("padded formula with a command renders", f("$ \\frac{1}{2} $ 和 $ x^2 $") === "<K> \\frac{1}{2} </K> 和 <K> x^2 </K>");
+check("padded plain text between dollars stays text", f("$ x = 5 $") === "$ x = 5 $");
+check("CRLF around display math: both chars eaten", f("a\r\n$$x$$\r\nb") === "a<K d>x</K>b");
 
 console.log("fallback");
 check("katex error -> raw text escaped", f("看 $\\BAD<x$ 这里") === "看 $\\BAD&lt;x$ 这里");
