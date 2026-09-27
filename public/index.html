@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
 <script src="visual-check.js"></script>
+<script src="rich-text.js"></script>
 <style>
   :root{
     --bg:#fff7ee; --card:#ffffff; --ink:#3a2f2a; --muted:#8a7d74;
@@ -158,6 +159,9 @@
   .tMsg.a{align-self:flex-start;background:#fff;border:2px solid #e6ecff}
   .tMsg.a.hint{border-color:#ffe2b8}
   .tMsg.a.refusal,.tMsg.a.safety,.tMsg.a.error{border-color:#f0e4d8;color:var(--muted)}
+  /* 公式（#59）：独立公式太宽就在气泡里横向滚，不把气泡撑出屏幕 */
+  .tMsg .katex{font-size:1.08em}
+  .tMsg .katex-display{margin:6px 0;overflow-x:auto;overflow-y:hidden;padding:2px 0}
   .tMeta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);margin-top:4px}
   .tMeta:empty{display:none}
   .tMeta .tDel{margin-left:auto;border:none;background:none;color:var(--muted);cursor:pointer;font-size:12px;padding:0 2px}
@@ -3424,6 +3428,8 @@ function tutorIdentityChanged(){
 function tutorInfo(){ return serverInfo.tutor||{}; }
 function tutorAvailable(){ return !!tutorInfo().available; }
 function tutorCanChoose(){ return myRole==="parent" || tutorInfo().kidMode==="answer"; }
+/* 问答气泡的公式 / 粗体（#59，public/rich-text.js）；那个文件没加载到就退回纯文本 */
+function tutorRich(s){ return window.YYRichText ? YYRichText.formatRichText(s,{ katex:window.katex }) : escapeHtml(s==null?"":s); }
 function renderTutor(){
   const parent=myRole==="parent";
   $("tutorMode").classList.toggle("hidden", !tutorCanChoose());
@@ -3436,8 +3442,8 @@ function renderTutor(){
     const who=it.by==="parent" ? " · "+t("tutorByParent") : "";
     const kind=it.kind==="hint" ? " · "+t("tutorKindHint") : it.kind==="answer" ? " · "+t("tutorKindAnswer") : "";
     const del=parent && !String(it.id).startsWith("local") ? `<button class="tDel" data-id="${escapeHtml(it.id)}">${escapeHtml(t("tutorDel"))}</button>` : "";
-    h+=`<div class="tMsg q">${escapeHtml(it.question)}<div class="tMeta">${escapeHtml(fmtHistTime(it.time)+who)}</div></div>`
-      +`<div class="tMsg a ${escapeHtml(it.kind||"")}">${escapeHtml(it.hidden?t("tutorHidden"):it.text)}<div class="tMeta">${escapeHtml(kind.replace(/^ · /,""))}${del}</div></div>`;
+    h+=`<div class="tMsg q">${tutorRich(it.question)}<div class="tMeta">${escapeHtml(fmtHistTime(it.time)+who)}</div></div>`
+      +`<div class="tMsg a ${escapeHtml(it.kind||"")}">${it.hidden?escapeHtml(t("tutorHidden")):tutorRich(it.text)}<div class="tMeta">${escapeHtml(kind.replace(/^ · /,""))}${del}</div></div>`;
   }
   log.innerHTML=h;
   log.querySelectorAll(".tDel").forEach(b=>b.onclick=()=>tutorDelete(b.dataset.id));

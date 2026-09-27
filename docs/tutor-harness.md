@@ -188,6 +188,7 @@ lib/ai/tutor/service.js      createTutorService：选引擎、按 (引擎, 语�
 server.js                    路由本身：开关 → allow → 读 body → actx → service.ask；客户端断开就 abort
 lib/ai/tutor/prefs.js        家庭设置与对话记录的纯函数（#55）
 public/index.html            「问老师」标签页 + ⚙️ 家长区块（#55）
+public/rich-text.js          问答气泡的公式 / 粗体排版（#59，浏览器和 node 共用；单测 tools/test_rich_text.mjs）
 tools/test_tutor_route.mjs   进程内隔离实例 + 桩 claude 适配器的 HTTP 回归（95 项；其余引擎换成会抛错的桩，/api/providers 的真实探测也调不到它们）
 ```
 
@@ -264,5 +265,6 @@ checks、工具调用、步数、门控细节、verification、runId 都不给�
 - 家长在这一页看当前选中孩子的记录，每条可删，另有「清空记录」；换孩子自动换记录。换人（切换用户、家长门进出）时清空列表和输入框再重拉，迟到的回包按「账号|角色|孩子」对不上号就丢掉。
 - ⚙️ 家长区块「问老师（实验）」：开关 + 孩子模式，改了立刻存服务器（不等弹窗的「保存」）；服务器总闸关着时两项都禁用并说明原因。
 - 中英文案齐全；375px 窄屏无横向滚动（页头按钮在英文下原本就会溢出，和本功能无关，另开任务）。
+- 数学排版（#59）：问题和回答气泡都过 `public/rich-text.js` 的 `formatRichText`（浏览器和 node 共用，单测 `tools/test_rich_text.mjs`）。`\( \)` / `$ $` 行内、`\[ \]` / `$$ $$` 独立公式交给 KaTeX（`throwOnError:true` 接住后原样显示，不开 trust），`**粗体**` 变 `<b>`，其余转义、换行保留；钱数的 `$`（`$3 and $4`）按 Pandoc 规则不当公式。独立公式太宽在气泡里横向滚。只是显示层：提示词（sha256 钉着）、服务端校验、存下来的对话原文都没变。题库的 `mathText` 是另一套，没动。
 
-**还缺**（另立任务，需要用户确认）：带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；工作流（Diagnose → … → Adapt）的 HTTP；Student Memory 给不给模型、给哪些字段；拍照提问；回答里的数学排版（现在是纯文本）。
+**还缺**（另立任务，需要用户确认）：带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；工作流（Diagnose → … → Adapt）的 HTTP；Student Memory 给不给模型、给哪些字段；拍照提问。
