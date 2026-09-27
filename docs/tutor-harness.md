@@ -174,7 +174,9 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 ## 4. 与现有代码的接缝和后续
 
 - `generateOnce` 与六类固定任务不迁入 Harness（issue 写的是「若迁入」，本阶段取不迁，契约零风险）。以后要迁时，一个「单回合、零工具、validateFinal = 现有 validateX、modelRetries = 1」的 Harness run 就是它的等价物，但必须保留提示词、重试次数和 `kidTxn(keep)` 落盘在事务外的边界。
-- **还没有真实模型适配器**：要接 `runEngine` 时写一个 `model.next(req)`：把 `system` / `messages` / `tools` 拼成提示词，用 `TURN_FORMAT` 要求单个 JSON 回合，`extractJson` 解析，记账走 `runEngine`（任务名需要加进 `TASKS`，如 `tutor`、`tutor:classify`）。这是 Phase 8 的活。
+- **模型接缝（Phase 8，#40）**：`lib/ai/models` 的 `createModelRouter` 把一个能力 intent（fast / reasoning / vision / cheap / local / privacy-sensitive）绑成 `{ next(req) }`，直接当 `model` / `classifierModel` 传进来；
+  `createLegacyProvider` 把 `runEngine` 包成 provider：`system` 原样后接固定的 transcript + 回合说明（契约放在 system 里，七个适配器都会发出去）、`messages` / `tools` 作为 JSON 数据，回合形状仍由本 Harness 判（修复语义不变），记账照走 `runEngine`（任务名显式注入，如 `tutor`、`tutor:classify`）。
+  Harness / TutorAgent 没有改动；Router 调用后失败不换商，重试仍只由 `modelRetries` 管。**还没接 server.js / HTTP**。契约、硬约束、取消边界见 `docs/model-routing.md`。
 - 暴露给孩子前还需要：路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
 - Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略：Phase 6 工作流按阶段选（见下），路由 / 家长设置还没接；Phase 5（Memory，#34）：`lib/ai/memory` 已有临时 Session、白名单 Learning Events 和纯投影 Student Memory（见 `docs/tutor-memory.md`），但 Harness / TutorAgent 都没接：工具名单不变，模型拿不到 store，也看不到学习状态；以后要把 Session 或 Student Memory 交给模型（只读工具或提示词里的字段），先定给哪些字段、家长开关和隐私边界，写事件仍只由可信调用方做，给 TutorAgent 加只读的 `student.getProgress` 同理；Phase 6（结构化辅导流程，#36）：`lib/ai/workflows` 的 Diagnose → Teach → Practice → Evaluate → Adapt 状态机（见 `docs/tutor-workflow.md`）按阶段替 TutorAgent 选 `strategy`（explain-concept / socratic-teaching / give-hint / diagnose-error），只通过公开的 `ask` 调用，门控、工具名单、结果校验不变；TutorAgent 的文字只给孩子看，不参与判分和阶段转换，学习事件由工作流经 memory 写；Phase 7（Verifier，#38）：`lib/ai/verification`——TutorAgent 的结果校验规则抽到 `verifyResponse`（旧文案逐字不变）并加了正文算术等式和可信上下文规则，
-工作流有确定性答案 grader 和步骤后置条件，见 `docs/tutor-verification.md`；Phase 8（模型抽象）：上面的适配器和按能力路由。
+工作流有确定性答案 grader 和步骤后置条件，见 `docs/tutor-verification.md`；Phase 8（模型抽象，#40）：上面的 Router 与旧引擎桥，见 `docs/model-routing.md`。
