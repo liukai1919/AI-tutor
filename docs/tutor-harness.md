@@ -5,11 +5,12 @@
 ```
 lib/ai/harness/index.js    单智能体循环 createHarness
 lib/ai/harness/replay.js   确定性回放 Provider createReplayModel
-lib/ai/skills/index.js     内置教学 Skill 目录（#30，Phase 4a）：TutorAgent 两段提示词的来源
+lib/ai/skills/index.js     内置教学 Skill 目录（#30，Phase 4a；教学策略 #31，Phase 4b）：TutorAgent 两段提示词的来源
 lib/ai/tutor/index.js      TutorAgent：预闸 + 语义分类接缝 + Harness + 结构化校验
 tools/test_harness.mjs     Harness 单测（72 项）
 tools/eval_tutor.mjs       TutorAgent 回放 eval（68 项，其中 46 条中英用例在 tools/fixtures/tutor_eval.json）
-tools/test_skills.mjs      Skill 目录单测 + 真实 TutorAgent 两段请求核对（47 项）
+tools/test_skills.mjs      Skill 目录单测 + 真实 TutorAgent 两段请求核对（50 项）
+tools/test_tutor_strategies.mjs  教学策略选择 / 快照 / hint 优先 / 门控与权限 + 中英回放（136 项，其中 19 条在 tools/fixtures/tutor_strategies.json）
 ```
 
 这几个脚本都不起服务器、不读 `data/`、不调任何真实模型，零成本。
@@ -67,11 +68,11 @@ Harness **从不自动重试工具**；读工具失败后模型可以自己再�
 ```js
 const { createTutorAgent } = require("./lib/ai/tutor/index.js");
 const agent = createTutorAgent({ registry, model, classifierModel, maxSteps, stepTimeoutMs, totalTimeoutMs, onTrace, onTraceError });
-const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "hint", signal });
-// r = { ok, kind: answer|hint|refusal|safety|error, text, gate:{ stage, label, rule? }, steps, calls, checks?, error? }
+const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "hint", strategy, signal });   // strategy 可选（#31，见 §2.2）
+// r = { ok, kind: answer|hint|refusal|safety|error, text, gate:{ stage, label, rule? }, steps, calls, checks?, error?, strategy? }
 ```
 
-- `ctx` 由可信调用方给（将来的路由：`allow` → `resolveKid` → `actx`），和 Action / Tool 同一个形状。`ask` 在公开入口**同步**取 ctx 和请求字段（question / lang / mode / signal）的快照，分类和作答两段都用它；调用方拿到 promise 后同一个 tick 里或中途改自己手里的对象，都不影响这次 ask 和任何工具调用。
+- `ctx` 由可信调用方给（将来的路由：`allow` → `resolveKid` → `actx`），和 Action / Tool 同一个形状。`ask` 在公开入口**同步**取 ctx 和请求字段（question / lang / mode / strategy / signal）的快照，每个字段只读一次，分类和作答两段都用它；调用方拿到 promise 后同一个 tick 里或中途改自己手里的对象，都不影响这次 ask 和任何工具调用。
 - **可用工具只有两个，都是只读**：`calculator.evaluate`（确定性算术）、`curriculum.findTopic`（查大纲条目，不碰孩子数据）。registry 里其余 11 个工具（含 `questions.*` 写入 / 花钱、`student.*` 孩子数据、`learning.getReport` 家长专用）一个不给。
 - `ask` 永远 resolve；拒答、安全提示、出错的正文都是固定中英模板（`TEXTS`），模型的自由文本只在 `answer` / `hint` 时给孩子。
 - `lang` 未知时按 zh；`question` 1–2000 字符；`mode` 只能 answer / hint。
@@ -94,9 +95,10 @@ const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "
 ```js
 const { getSkill, listSkills, composeSkills, selectTutorSkills, SkillError } = require("./lib/ai/skills/index.js");
 getSkill("math-tutor");                  // 冻结的 { id, version, stage, base, description, instructions }；未知 → null
-listSkills();                            // 每次新数组：[math-tutor, math-scope-classifier]
+listSkills();                            // 每次新数组：[math-tutor, math-scope-classifier, 7 个教学策略]
 composeSkills(["math-tutor"]);           // 冻结的 { stage, ids, skills:[{id,version}], system }
-selectTutorSkills();                     // 冻结的 { tutor, classifier }，TutorAgent 构造时取一次
+selectTutorSkills();                     // 冻结的 { tutor, classifier, strategy:null, mode:"answer" }，TutorAgent 构造时取一次
+selectTutorSkills({ strategy, mode });   // #31：按策略 / 模式选组合，见 §2.2
 ```
 
 | Skill | stage | 用在哪 |
@@ -106,10 +108,42 @@ selectTutorSkills();                     // 冻结的 { tutor, classifier }，Tu
 
 - **Skill 只是文本**：没有函数、工具名单、权限字段。TutorAgent 能调哪两个工具、预闸 / 分类 / 结果校验怎么判、拒答用哪条模板、身份快照、取消和共享总时限，全部还在 `lib/ai/tutor` 与 `lib/ai/harness`，换哪个 Skill 都不会多给能力。
 - **目录不可污染**：内部用 `Map` 查找，`"__proto__"` / `"toString"` 这类原型链名字、`Object.prototype` 上后加的属性都查不到；Skill 对象冻结，`listSkills` 每次返回新数组，`composeSkills` 的结果深冻结。
-- **组合规则**：`ids` 必须是真数组、1–32 个、元素全是字符串（空位、数组样对象、Set 都拒绝，只按下标读一遍）；去重保序；恰好一个 base Skill 且排第一；所有 Skill 同一个 stage。`system` = 按顺序空行拼接，单个 Skill 时就是原文。错误是带 `code` 的 `SkillError`：`INVALID_SKILLS` / `UNKNOWN_SKILL` / `INVALID_COMPOSITION` / `INVALID_OPTIONS`；读数组时的意外（撤销的 Proxy、getter 抛错）也收成 `INVALID_SKILLS`，错误信息只回显形如 `math-tutor` 的普通 id。
-- `selectTutorSkills` 本片**不接受任何选项**：只认不传或没有任何自有键（含 Symbol、不可枚举）的纯对象，数组、Date、原型上带字段的对象都 `INVALID_OPTIONS`，不悄悄忽略。两段组合在模块加载时就组好冻结，每次返回同一份；按教学策略（提示、讲解、苏格拉底、错误诊断……）选择组合是 #31。
-- `createTutorAgent` 返回的对象多了 `skills: { tutor: [...ids], classifier: [...ids] }`（副本），方便 trace / 调试；`ask` 的入参和结果不变。
+- **组合规则**：`ids` 必须是真数组、1–32 个、元素全是字符串（空位、数组样对象、Set 都拒绝，只按下标读一遍）；去重保序；恰好一个 base Skill 且排第一；所有 Skill 同一个 stage。`system` = 按顺序空行拼接，单个 Skill 时就是原文。错误是带 `code` 的 `SkillError`：`INVALID_SKILLS` / `UNKNOWN_SKILL` / `INVALID_COMPOSITION` / `INVALID_OPTIONS`；读数组时的意外（撤销的 Proxy、getter 抛错，包括调用方自己抛出的 `SkillError`）一律收成我们自己的 `INVALID_SKILLS`，不透传外部的 code / message；错误信息只回显形如 `math-tutor` 的普通 id。
+- `selectTutorSkills` 的选项（#31 起）只认 `{ strategy, mode }`，细节见 §2.2；不传、`{}`、null 原型的 `{}` 都返回同一份默认组合（与 #30 相同）。
+- `createTutorAgent` 返回的对象多了 `skills: { tutor: [...ids], classifier: [...ids] }`（副本，永远是默认组合，不反映某次 ask 的策略），方便 trace / 调试。
 - 兼容性由 `tools/test_skills.mjs` 守：两份提示词和 `TURN_FORMAT` 的 sha256 钉在 fe2bdda 的值上，真实 TutorAgent 的分类请求、每个作答请求（含 hint 被退回后的修复回合）的 `system` 都核对到目录原文，answer / hint 回放结果和工具权限与 Phase 3 相同；另用 require.cache 换上桩目录重新加载 tutor，桩里的标记文本必须出现在两段请求里，证明 system 确实取自目录（tutor 退回内联常量会让这条失败）。
+
+### 2.2 教学策略（#31，Phase 4b）
+
+```js
+const { TUTOR_STRATEGIES } = require("./lib/ai/skills/index.js");
+// ["math-tutor", "give-hint", "explain-concept", "socratic-teaching", "diagnose-error", "practice-generator", "evaluate-answer", "curriculum-navigation"]
+await agent.ask(ctx, { question, lang, mode, strategy: "diagnose-error" });
+```
+
+| strategy | tutor 段组合 | 实际输出模式 | 指令要点 |
+|---|---|---|---|
+| 不传 | `math-tutor` | `mode`（默认 answer） | 与 Phase 3 逐字相同：system、user 消息 `{question, lang, mode}`、结果形状都不变 |
+| `math-tutor` | `math-tutor` | `mode` | 显式只用 base；user 消息多一个 `strategy` 字段 |
+| `give-hint` | `math-tutor` + `give-hint` | **总是 hint** | 只给一个提示 / 下一步，不给最终答案 |
+| `explain-concept` | + `explain-concept` | `mode` | 讲概念和方法为什么成立，一个小例子；hint 模式只讲概念、不算到孩子的结果 |
+| `socratic-teaching` | + `socratic-teaching` | **总是 hint** | 一次只问一个引导问题，不替孩子做 |
+| `diagnose-error` | + `diagnose-error` | `mode` | 五类误因（#31 指定）：concept / calculation / reading / careless / prerequisite gap；先用计算器复算孩子的数；不凭一道错题就判「粗心」（要孩子的过程里同一步在别处做对过）；证据不足明确说「还不确定」并追问题目和步骤 |
+| `practice-generator` | + `practice-generator` | `mode` | 1–3 道同技能练习，不附答案 / 解答；题里的数照 base 规则核算，`checks` 只放本次写出的数，不把练习答案放进 `checks` 或正文；不保存到任何题库、闯关或进度 |
+| `evaluate-answer` | + `evaluate-answer` | `mode` | 用计算器复算孩子的答案再判对错；不记分、不改进度 |
+| `curriculum-navigation` | + `curriculum-navigation` | `mode` | 只用 `curriculum.findTopic` 查给定 id，不编造条目 / 先修；看不到孩子的进度 |
+
+- **选择契约**：`selectTutorSkills(opts)` 的 `opts` 只能是不传或纯对象（原型为 `Object.prototype` 或 null），自有键只能是字符串 `strategy` / `mode`，且必须是可枚举的数据属性（getter 不执行，直接拒绝）；多余键、Symbol、不可枚举、数组、Date、Map、类实例、原型上的字段、读时抛错的 Proxy（包括它抛出伪造的 `SkillError`）都是我们自己的 `INVALID_OPTIONS`。`strategy` 为 `undefined` 等于不传；null、非字符串、未知 id（含 `math-scope-classifier`、`__proto__`、大小写或空格变体）都拒绝。`mode` 只能 answer / hint。结果 `{ tutor, classifier, strategy, mode }` 深冻结，所有组合在模块加载时组好，同一 (strategy, mode) 每次返回同一份；`classifier` 永远是 `math-scope-classifier`。读选项时不走原型链，`Object.prototype.strategy` 被污染也不影响。
+- **TutorAgent 接入**：`strategy` 与 `mode` 一起在公开入口同步快照（只认 `req` 的自有 `strategy` 属性，只读一次）；未知值在预闸和任何模型调用之前返回 `kind:"error"`、`INVALID_INPUT`（stage input）。选中的组合只决定 tutor 段的 system 和实际输出模式，user 消息为 `{question, lang, mode:<实际模式>, strategy}`；结果和 `kind:"tutor"` trace 多一个 `strategy` 字段。agent 上不存「当前策略」，同一个 agent 的并发请求各自按自己的快照走（测试里错开发起、交错结算的 10 个并发请求逐一核对）。
+- **hint 优先**：`give-hint`、`socratic-teaching` 不论 `mode` 都按 hint 输出；`mode:"hint"` 对任何策略都按 hint 输出。落实在结构校验上（`kind:"answer"` 被退回重写），不是只靠提示词。
+- **能力不变**：每个策略下预闸（注入 / 安全求助）、语义分类、非 math scope 只能拒答、拒答换固定模板、正文规则复查与禁链接、`checks` 计算器复算、共享总时限（另有确定性时钟用例钉住「分类之后不重新起算截止时间」）、工具名单（仍只有两个只读工具；写 / 花钱 / 孩子数据 / 家长专用工具一律 `TOOL_NOT_ALLOWED`、不进 registry）、registry 收到的 ctx 都与不传策略时相同，`test_tutor_strategies.mjs` 对 8 个策略逐一核对。练习 / 评价 / 课程导航「只读不写学习状态」由工具名单保证：它们本来就拿不到任何写工具。
+- **边界（重要）**：7 段教学指令只是提示词。测试里对指令文本的断言只证明「要求写进去了」，**不等于 verifier**：
+  - hint 输出只能拦住 `kind:"answer"`；提示正文里用自然语言把答案说出来（「答案是 888」写在 hint 里）没有确定性检查能发现。
+  - `diagnose-error` 选的误因对不对、证据够不够由模型判断，没有 verifier；回放只证明「还不确定」这类回答能原样走通管线。
+  - `practice-generator` 是否真的没附答案、题目难度是否合适，没有检查；`checks` 只复算写进去的算式，发现不了正文里没列进 `checks` 的数，也发现不了模型把练习答案写进 `checks`。策略文本不豁免 base 的核算规则（测试守着：任何策略都不许出现免核算的说法，每个组合里 base 第 2 条逐字都在）。
+  - `diagnose-error` 的五类是提示词里的分类表；结果 schema 没有「误因」字段，模型选没选、选得对不对都不做结构校验。
+  - `curriculum-navigation` 说的先修 / 后续关系若不是 `curriculum.findTopic` 返回的，运行时没有检查。回放测试另有一条只针对 fixture 的核对：正文里出现的条目 id、`groundedIn` 列的说法必须来自问题或工具回包，没有依据的「先修 / 下一步」说法必须同时说明查不到（先修样例用合成条目 `SYN.MATH.G5.DEC3` 的 `skill.prereq`）。
+  - 回放 fixture（`tools/fixtures/tutor_strategies.json`，19 条，8 个策略各至少一条中文、一条英文）用的是写好的模型输出，验证的是策略选择、门控、工具权限和结果收口，不衡量真实模型是否遵守教学指令。
 
 ## 3. 回放与 eval
 
@@ -119,6 +153,8 @@ selectTutorSkills();                     // 冻结的 { tutor, classifier }，Tu
 node tools/test_harness.mjs
 node tools/eval_tutor.mjs            # 全部
 node tools/eval_tutor.mjs --only zh-privilege-escalation
+node tools/test_skills.mjs
+node tools/test_tutor_strategies.mjs
 ```
 
 eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记失败），外面套一层 spy 记录每次 invoke 的工具名、ctx、risk。每条用例断言 kind / gate / 模板文案 / 错误码 / registry 实际收到的工具序列 / 模型与分类器调用次数，并对所有用例检查不变量：只有两个只读工具到过 registry、registry 收到的 ctx 与调用方一致、预闸拒答零模型零工具、tutor 作答前一定有过分类调用且分类请求不带工具、超时 / 取消 500ms 内收口、全程无未处理拒绝、Action 零调用。
@@ -132,4 +168,4 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 - `generateOnce` 与六类固定任务不迁入 Harness（issue 写的是「若迁入」，本阶段取不迁，契约零风险）。以后要迁时，一个「单回合、零工具、validateFinal = 现有 validateX、modelRetries = 1」的 Harness run 就是它的等价物，但必须保留提示词、重试次数和 `kidTxn(keep)` 落盘在事务外的边界。
 - **还没有真实模型适配器**：要接 `runEngine` 时写一个 `model.next(req)`：把 `system` / `messages` / `tools` 拼成提示词，用 `TURN_FORMAT` 要求单个 JSON 回合，`extractJson` 解析，记账走 `runEngine`（任务名需要加进 `TASKS`，如 `tutor`、`tutor:classify`）。这是 Phase 8 的活。
 - 暴露给孩子前还需要：路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
-- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合在 #31；Phase 5（Memory）：给 TutorAgent 加只读的 `student.getProgress` 前要先定隐私边界；Phase 6（结构化辅导流程）：把 hint → answer 升级做成状态机；Phase 7（Verifier）：checks 复算是雏形；Phase 8（模型抽象）：上面的适配器和按能力路由。
+- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略（路由 / 家长设置 / 将来的 Phase 6 状态机）还没接；Phase 5（Memory）：给 TutorAgent 加只读的 `student.getProgress` 前要先定隐私边界；Phase 6（结构化辅导流程）：把 hint → answer 升级做成状态机；Phase 7（Verifier）：checks 复算是雏形；Phase 8（模型抽象）：上面的适配器和按能力路由。
