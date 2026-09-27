@@ -197,6 +197,8 @@ node tools/test_memory_store.mjs    # 153 项（含独立复核回归 F2 / F8–
 - 每次读和追加都重读并重放整份文档（O(n)，n ≤ 10000 时可接受；服务路径上文件 store 和服务各重放一次）；没有分页 / 归档。事件满了只能明确失败，没有滚动或压缩策略。
 - 没有删除 / 更正事件的 API（没有「取消掌握」事件）；家长可见、导出、删除孩子数据留到接路由时一起定。
 - Session 活跃上限是全局的，一个所有者可以占满；没有按所有者限额。Session 只在一个服务实例的内存里，多实例 / 重启不共享。
-- stage 只是记录字段，不做流程校验；Session 文本的内容不做审查。
+- stage 只是记录字段，不做流程校验；Session 文本的内容不做审查。Phase 6 的结构化工作流（#36，`docs/tutor-workflow.md`）不用 Session Memory：
+  它自己的进程内状态就是那次辅导的临时记录，流程转换在 `lib/ai/workflows/machine.js`；它只调 `appendEvent`（事件 id 由 workflowId 派生，重试靠 §3.2 的 eventId 去重）
+  和 `getStudentMemory`（只在服务内部选教学策略，不交给模型），从不写 `topic_mastered`。
 - 事件的语义正确性（这次到底算不算「讲解了概念」、误因选得对不对）由可信调用方负责，本模块只保证结构、关联和幂等。
 - 没有 HTTP、界面、Tutor 工具；TutorAgent 看不到学习状态。把 Student Memory 交给模型前需要先定隐私边界（给什么字段、家长开关），见 docs/tutor-harness.md §4。
