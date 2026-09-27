@@ -360,6 +360,8 @@
           overscroll-behavior:contain;padding:8px;margin:-8px}
     .rail .card{padding:16px}
     .rail .tabs{margin:0}
+    /* 340 的边条里两个标签各约 158px，15px 字「Explain a problem」刚好折行 —— 稍收字号和左右内边距 */
+    .rail .tabbtn{font-size:14px;padding:12px 6px}
     .rail .hi{font-size:18px}
     .rail .sub{font-size:13px;margin-bottom:10px}
     .rail textarea{min-height:96px}
@@ -1056,7 +1058,7 @@ const I18N = {
     clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets, quiz banks and Ask-a-tutor history will be deleted. This cannot be undone!",
     clearDone:"Cleared ✓",
     cancel:"Cancel", save:"Save",
-    tabAsk:"Ask a question", tabLearn:"Learn (BC)", tabTutor:"Ask a tutor",
+    tabAsk:"Explain a problem", tabLearn:"Learn (BC)", tabTutor:"Ask a tutor",
     tutorTitle:"Ask Yuanyuan", tutorPh:"e.g. Why are 1/2 and 2/4 the same size?",
     tutorSubHint:"Type a math question. You'll get a hint so you can work it out yourself.", tutorSubAnswer:"Type a math question. Ask for just a hint, or a full explanation.",
     tutorSubParent:"This is {name}'s question history. You can also ask on their behalf — it's saved as \"asked by parent\".",
