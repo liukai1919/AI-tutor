@@ -83,6 +83,8 @@ Windows 直接双击 `start.bat` 也行。然后浏览器打开终端里显示�
   },                         //   会随机截断中文字符串，「提示词说明格式 + 校验重试」这条路更稳
   "anthropic": { "apiKey": "", "model": "claude-opus-5" },
   "openai": { "baseUrl": "", "apiKey": "", "model": "" },  // OpenRouter/xAI 等 OpenAI 兼容服务
+  "tutorAgent": { "enabled": false, "perMinute": 6 },  // 实验中的数学问答接口 POST /api/tutor/ask（还没有界面）；
+                             //   引擎走 providerByTask.tutor，见 docs/tutor-harness.md §5
   "tts": { ... }               // 自然语音（可选），见下面「自然语音」一节
 }
 ```
