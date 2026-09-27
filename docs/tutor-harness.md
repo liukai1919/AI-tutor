@@ -1,6 +1,6 @@
 # Tutor Harness 与只答学术问题的 TutorAgent（#28，#19 Phase 3）
 
-状态：后端模块和回放 eval。**没有 HTTP 路由、没有孩子端聊天界面、server.js 没有实例化它**，现有固定流程（讲课、闯关、单元卷、FSA、报告）和 `lib/actions/_engine.js` 的 `generateOnce` 一行没动。
+状态：后端模块和回放 eval；#53（Phase 9a）起 server.js 有一个**默认关闭**的 `POST /api/tutor/ask`（§5），**没有孩子端聊天界面**。现有固定流程（讲课、闯关、单元卷、FSA、报告）和 `lib/actions/_engine.js` 的 `generateOnce` 一行没动。
 
 ```
 lib/ai/harness/index.js    单智能体循环 createHarness
@@ -177,6 +177,63 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 - **模型接缝（Phase 8，#40）**：`lib/ai/models` 的 `createModelRouter` 把一个能力 intent（fast / reasoning / vision / cheap / local / privacy-sensitive）绑成 `{ next(req) }`，直接当 `model` / `classifierModel` 传进来；
   `createLegacyProvider` 把 `runEngine` 包成 provider：`system` 原样后接固定的 transcript + 回合说明（契约放在 system 里，七个适配器都会发出去）、`messages` / `tools` 作为 JSON 数据，回合形状仍由本 Harness 判（修复语义不变），记账照走 `runEngine`（任务名显式注入，如 `tutor`、`tutor:classify`）。
   Harness / TutorAgent 没有改动；Router 调用后失败不换商，重试仍只由 `modelRetries` 管。**还没接 server.js / HTTP**。契约、硬约束、取消边界见 `docs/model-routing.md`。
-- 暴露给孩子前还需要：路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
+- 暴露给孩子前还需要：~~路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）~~（#53 已做，默认关，见 §5）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
 - Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略：Phase 6 工作流按阶段选（见下），路由 / 家长设置还没接；Phase 5（Memory，#34）：`lib/ai/memory` 已有临时 Session、白名单 Learning Events 和纯投影 Student Memory（见 `docs/tutor-memory.md`），但 Harness / TutorAgent 都没接：工具名单不变，模型拿不到 store，也看不到学习状态；以后要把 Session 或 Student Memory 交给模型（只读工具或提示词里的字段），先定给哪些字段、家长开关和隐私边界，写事件仍只由可信调用方做，给 TutorAgent 加只读的 `student.getProgress` 同理；Phase 6（结构化辅导流程，#36）：`lib/ai/workflows` 的 Diagnose → Teach → Practice → Evaluate → Adapt 状态机（见 `docs/tutor-workflow.md`）按阶段替 TutorAgent 选 `strategy`（explain-concept / socratic-teaching / give-hint / diagnose-error），只通过公开的 `ask` 调用，门控、工具名单、结果校验不变；TutorAgent 的文字只给孩子看，不参与判分和阶段转换，学习事件由工作流经 memory 写；Phase 7（Verifier，#38）：`lib/ai/verification`——TutorAgent 的结果校验规则抽到 `verifyResponse`（旧文案逐字不变）并加了正文算术等式和可信上下文规则，
 工作流有确定性答案 grader 和步骤后置条件，见 `docs/tutor-verification.md`；Phase 8（模型抽象，#40）：上面的 Router 与旧引擎桥，见 `docs/model-routing.md`。
+
+## 5. HTTP 接入：`POST /api/tutor/ask`（#53，Phase 9a）
+
+```
+lib/ai/tutor/service.js      createTutorService：选引擎、按 (引擎, 语言) 懒建 Router + TutorAgent、限速、在途互斥、回包白名单
+server.js                    路由本身：开关 → allow → 读 body → actx → service.ask；客户端断开就 abort
+tools/test_tutor_route.mjs   进程内隔离实例 + 桩 claude 适配器的 HTTP 回归（53 项）
+```
+
+**开关**：`config.json` 里 `tutorAgent.enabled === true` 才开（字符串 `"true"` 不算），`YY_DEMO` 下永远关。关着时 404 `{ tutorDisabled:true }`，在鉴权之前就回，不调模型。
+
+```jsonc
+"tutorAgent": { "enabled": false, "perMinute": 6, "stepTimeoutMs": 120000, "totalTimeoutMs": 300000 }
+```
+
+数值不合规（非整数、越界）按默认处理，不报错；`stepTimeoutMs` 不会超过 `totalTimeoutMs`。
+
+**请求**（学生或家长登录，`x-session` 头；body ≤ 16 KB）：
+
+```json
+{ "question": "What is 12 times 3?", "lang": "en", "mode": "answer", "strategy": "give-hint", "kid": "k..." }
+```
+
+只认这五个字段，多余字段或类型不对 → 400。`lang` 只能 zh / en（缺省 zh，别的值 → 400）；`mode` / `strategy` 的取值和 `question` 的长度由 TutorAgent 校验（§2），不合规 → 400。
+`kid` 只给家长用，照 `resolveKid` 规则；家长有多个孩子又没指定、或指定了不是自己家的孩子时 ctx.kidId 为 null（不报错）——TutorAgent 的两个只读工具都不需要孩子。
+`mode` / `strategy` 由请求方自己选，**孩子也能选**：发 `mode:"answer"` 就绕开了「只给提示」。9a 默认关、没有界面，所以暂不收紧；开放给孩子之前要按角色或家长设置限定。
+
+**回包**（白名单）：`{ kind, text, lang, strategy?, code? }`
+
+| 情况 | HTTP | body |
+|---|---|---|
+| answer / hint | 200 | `kind` + 模型正文（已过 §2 的结构校验与计算器复算） |
+| refusal / safety（预闸、分类器、模型 scope） | 200 | 固定模板 |
+| TutorAgent 出错（引擎失败、超时、取消、校验重试用完） | 200 | `kind:"error"` + 固定模板 + `code`（MODEL_ERROR / TIMEOUT / …） |
+| TutorAgent 的 INVALID_INPUT / INVALID_CTX | 400 | 同上 |
+| body 不是 JSON、字段不对 | 400 | `{ error, code:"INVALID_INPUT" }` |
+| 同一账号已有一个在途 | 429 | `{ code:"BUSY" }` |
+| 超过每分钟 `perMinute` 次 | 429 | `{ code:"RATE_LIMITED" }` |
+| 没有可用引擎 | 503 | `{ code:"NO_ENGINE" }` |
+
+checks、工具调用、步数、门控细节、verification、runId 都不给客户端。
+
+**模型接入**：`pickProvider(null, "tutor")`——家长可以用 `providerByTask.tutor` 指定引擎，否则照全局 `provider` / 自动顺序（不可用就往后落，和其它任务一样）。
+每个 (引擎, stepTimeoutMs, totalTimeoutMs, 语言) 第一次用到时建一对 `createLegacyProvider`（作答 task `tutor`、分类 task `tutor:classify`，都记进用量账本）和一个 `createModelRouter`
+（`reasoning` → 作答、`fast` → 分类），再建 TutorAgent；之后复用。桥调用前问一次 `detected[engine].available`。
+
+**日志**：每次 ask 一行 `[tutor] <引擎> <语言> <结果> [code] (<stage>/<label>)`；每次工具调用一行 `[tool] <工具> ok|fail:<code> <ms>ms (tutor) trace=<id>`（问答用自己的一份登记表，不像默认 trace 那样打印 `kid=`）。没有问题原文、没有账号 / 孩子信息。
+
+**限制（诚实版）**
+
+- **取消不了已经发出的引擎调用**：客户端断开 / 超时后 ask 立即收口、在途互斥随之释放，但 `runEngine` 不收 signal，底层 CLI 进程或 HTTP 请求会跑到自己的超时，照样花钱、照样记账。断开后马上再问，可能两次引擎调用同时在跑；每分钟限额是唯一的花费上界。
+- 限速和在途表都在进程内存：重启清零，多实例不共享；按账号计，不按家庭计。
+- 一次 ask 最坏约 16 次引擎调用：分类 Harness（maxSteps 2，失败重试 1 次）最多 4 次，作答 Harness（maxSteps 6，每回合失败重试 1 次）最多 12 次；每次都是完整的引擎调用。花费上界 ≈ `perMinute` × 16 / 分钟 / 账号，再加上每次断开 / 超时后最多一次跑完才停的孤儿调用。
+- 单步时限只由 Harness 的 `stepTimeoutMs` 管（CLI 引擎一次几十秒很正常，默认 120 秒，Harness 自己的默认是 30 秒）；Router 的时限设成 `totalTimeoutMs`，避免 Router 的超时先到被 Harness 当成模型失败再重试一次。
+- 没有真实模型的质量评测：测试用桩引擎，只证明路由、门控、限速、白名单和取消收口。
+
+**开放给孩子之前还缺**（另立任务，需要用户确认）：孩子端界面；家长可见的对话记录与开关（现在只进用量账本，不存问答内容）；带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；工作流（Diagnose → … → Adapt）的 HTTP；Student Memory 给不给模型、给哪些字段。

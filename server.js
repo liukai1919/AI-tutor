@@ -100,6 +100,9 @@ const DEFAULT_CONFIG = {
   claude: { model: "claude-opus-5", effort: "high" },
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
+  /* 数学问答 TutorAgent 的 HTTP 入口 POST /api/tutor/ask（#53）。默认关：还没有界面、家长看不到对话记录。
+   * 引擎按 providerByTask.tutor → provider → 自动顺序选；perMinute = 每个账号每分钟能问几次。见 docs/tutor-harness.md §5 */
+  tutorAgent: { enabled: false, perMinute: 6, stepTimeoutMs: 120000, totalTimeoutMs: 300000 },
   tts: {
     /* 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
      * url 可以是一个地址（所有语言都发它），也可以按语言分开配 —— 现在的分工就是后者：
@@ -2816,8 +2819,19 @@ const actions = require("./lib/actions/index.js").create({
   log: console.log,
 });
 /* Agent Tool 登记表（lib/ai/tools/，#26）：Action 包成带 schema / 角色 / 超时 / 归一化错误 / trace 的 Tool。
- * Phase 3 的 TutorAgent 从这里拿工具；现在没有路由用它，只在启动时组装一次让接线错误早暴露。 */
+ * 现在没有路由用它（/api/tutor/ask 另建一份 trace 不带孩子 id 的，见下），只在启动时组装一次让接线错误早暴露。 */
 const agentTools = require("./lib/ai/tools/index.js").createTools({ actions, findCurriculumItem, log: console.log });
+/* TutorAgent 的 HTTP 接缝（#53）：选引擎、按引擎 × 语言懒建 agent、限速、回包白名单都在 lib/ai/tutor/service.js。
+ * 路由默认关（cfg.tutorAgent.enabled），YY_DEMO 下永远关 */
+const tutorService = require("./lib/ai/tutor/service.js").createTutorService({
+  /* 自己一份登记表：默认的 [tool] trace 会打印 kid=<id>，问答日志不带账号信息 */
+  registry: require("./lib/ai/tools/index.js").createTools({ actions, findCurriculumItem,
+    onTrace: t => console.log(`[tool] ${t.tool} ${t.ok ? "ok" : "fail:" + t.code} ${t.ms}ms (tutor) trace=${t.traceId}`) }),
+  runEngine, pickProvider,
+  isAvailable: id => !!(detected[id] && detected[id].available),
+  settings: () => cfg.tutorAgent, log: (...m) => console.log(...m),
+});
+const tutorEnabled = () => !process.env.YY_DEMO && !!(cfg.tutorAgent && cfg.tutorAgent.enabled === true);
 /* 孩子上下文：resolveKid 可能给 null，原样传给 Action，由它决定要不要孩子（kidRequired 400 由 Action 抛） */
 const actx = (a, kidRaw) => ({ kidId: resolveKid(a, kidRaw), role: a.role, userId: a.user.id });
 async function runAction(res, fn) {
@@ -2986,6 +3000,20 @@ const server = http.createServer(async (req, res) => {
       };
       if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
       return send(res, 200, resp);
+    }
+
+    /* 数学问答（#53）：关着就 404 tutorDisabled（鉴权之前就回，不调模型）。
+     * 开着：allow → resolveKid → ctx，其余交给 tutorService；客户端断开就 abort 这次 ask */
+    if (url.pathname === "/api/tutor/ask" && req.method === "POST") {
+      if (!tutorEnabled()) return send(res, 404, { error: "Not found", tutorDisabled: true });
+      const a = allow(req, res, "student"); if (!a) return;
+      let body;
+      try { body = JSON.parse((await readBody(req, 16 * 1024)).toString("utf8")); }
+      catch (_) { return send(res, 400, { error: "请求格式不对 / Malformed request", code: "INVALID_INPUT" }); }
+      const ac = new AbortController();
+      res.on("close", () => { if (!res.writableFinished) ac.abort(); });
+      const r = await tutorService.ask(actx(a, body && body.kid), body, { signal: ac.signal });
+      return send(res, r.status, r.body);
     }
 
     /* 用量账本（家长专属）：讲课/出题/报告各花了多少次调用、token、时间、美元，
