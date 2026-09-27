@@ -801,6 +801,10 @@ function validateUnitTest(set, gradeData, strand, count) {
 const Q = require("./lib/domain/quiz.js");
 const QUIZ_PER_LEVEL_NEW = Q.PER_LEVEL_NEW, QUIZ_LEVEL_CAP = Q.LEVEL_CAP, QUIZ_SESSION_PER_LEVEL = Q.SESSION_PER_LEVEL;
 const QUIZ_MAX_QUESTIONS = Q.MAX_QUESTIONS, QUIZ_PASS_NEED = Q.PASS_NEED, QUIZ_TOP_LEVEL = Q.TOP_LEVEL;
+/* 英文出题链（#43）：TeachingBrief + 题图硬校验在 lib/ai/qbank（纯模块），契约规则用渲染端同一个 checkVisual。
+ * 这里只做薄接缝：读已跟踪的契约 / 课文原文交给模块。zh 不走这条路（冻结）。 */
+const QB = require("./lib/ai/qbank/index.js");
+const { checkVisual } = require("./public/visual-check.js");
 
 const QBANK_SCHEMA = {
   type: "object", additionalProperties: false,
@@ -838,7 +842,51 @@ const QBANK_HINT_SKILL = {
   en: QBANK_HINT.en.replace('"explain":"..."}]}', '"explain":"...","tags":["ok","misconception-id","misconception-id","misconception-id"]}]}')
 };
 
-function qbankPrompt(item, gradeData, lang, needs, existingStems) {
+/* 英文出题 / 审稿共用的 TeachingBrief（#43）：薄接缝，只读已跟踪的文件交给纯模块 lib/ai/qbank。
+ * 契约、课文每次现读原文（不用启动时的缓存），brief 的哈希对应的就是此刻磁盘上的那份。
+ * 课文存在不代表人工审过，模块里一律记 humanReview:"unknown"。 */
+const VISUAL_CONTRACT_REL = "data/curriculum/visual-contract.json";
+function readTrackedText(rel) {
+  try { return { path: rel, raw: fs.readFileSync(path.join(ROOT, rel), "utf8") }; }
+  catch (e) { return e.code === "ENOENT" ? { path: rel, missing: true } : { path: rel, error: e.message }; }
+}
+function qbankBriefFor(item, gradeData) {
+  const sk = isSkillsData(gradeData) && item.skill ? item.skill : null;
+  const strand = (gradeData.strandDefs || STRANDS).find(s => s[0] === item.strand) || ["", item.strand, item.strand];
+  const want = qbankBriefExpect(item, gradeData);
+  return QB.buildTeachingBrief({
+    lang: "en",
+    item: sk ? item : Object.assign({}, item, { skill: undefined }),
+    context: { kind: want.kind, grade: want.grade, topic: { id: item.strand, en: strand[2] } },
+    skillType: sk ? (SKILL_TYPE[sk.type] || null) : null,
+    /* 图谱里把本技能列为先修的技能：课程结构事实，不是对孩子学过什么的判断 */
+    dependents: sk ? [...skillIndex.values()].filter(s => (s.prereq || []).includes(item.id)).map(s => ({ id: s.id, en: s.en, grade: s.grade })) : [],
+    terms: itemTerms(item),
+    visualContract: readTrackedText(VISUAL_CONTRACT_REL),
+    lesson: /^[A-Za-z0-9._-]+$/.test(item.id) ? readTrackedText("data/lessons/en/" + item.id + ".json") : null
+  });
+}
+/* 这道题该配哪份 brief：条目 id、年级、条目种类、主题（同一技能 id 在别的年级视图里当复习题时主题/年级不同）。
+ * 显式传进来的 brief（ensureQuizBank 的 extra.brief、qbankPrompt / judgeQuizPrompt 的参数）都要对上，
+ * 而且必须是 buildTeachingBrief 的原样产物（整棵冻结、哈希对得上），不然同一个 briefId 证明不了是同一份内容。 */
+function qbankBriefExpect(item, gradeData) {
+  const sk = isSkillsData(gradeData) && item.skill;
+  return {
+    lang: "en", itemId: String(item.id || "").trim(),
+    grade: gradeData.grade == null ? null : gradeData.grade,
+    kind: sk ? "skill" : isCourseData(gradeData) ? "course" : gradeData.type === "book" ? "book" : "standard",
+    topicId: String(item.strand == null ? "" : item.strand).trim() || null
+  };
+}
+function qbankBriefCheck(brief, item, gradeData, where) {
+  const why = QB.briefMismatch(brief, qbankBriefExpect(item, gradeData));
+  if (why) throw new Error(where + ": TeachingBrief does not belong to " + item.id + " — " + why);
+  return brief;
+}
+
+/* brief：英文出题用的 TeachingBrief（ensureQuizBank 建一次，出题和审稿都用这同一个对象）；
+ * 不传就现建一份。zh 完全不看它（zh 冻结，提示词一字不动）。 */
+function qbankPrompt(item, gradeData, lang, needs, existingStems, brief) {
   const g = gradeData.grade;
   const strand = (gradeData.strandDefs || STRANDS).find(s => s[0] === item.strand) || ["", item.strand, item.strand];
   const wants = [1, 2, 3].filter(lv => needs[lv]);
@@ -849,48 +897,11 @@ function qbankPrompt(item, gradeData, lang, needs, existingStems) {
   const isSkills = isSkillsData(gradeData);
   const sk = isSkills ? (item.skill || {}) : null;
   const trap = distractorHint(gradeData, lang);
-  /* 技能层出题的额外约束（设计文档 §3.3 / §6）：L1 必须用这个技能的第一种表示，
-   * L3 的干扰项要逐个打在登记在册的误区上。用数组拼而不是层层嵌套模板——这段要经常改。 */
-  const skillRules = (() => {
-    if (!isSkills) return "";
-    const en = lang === "en";
-    const ty = SKILL_TYPE[sk.type] || {};
-    const rep0 = (sk.rep || [])[0] || "symbolic";
-    const L = [""];
-    L.push(en
-      ? "This is ONE small skill, not a whole standard — keep every question inside it."
-      : "这是一个**小技能**，不是一整条大纲内容——每道题都要落在这一小步里面。");
-    L.push(en
-      ? `- Skill type: ${ty.en || sk.type} — ${ty.teachEn || ""}.`
-      : `- 技能类型：${ty.zh || sk.type}——${ty.teachZh || ""}。`);
-    L.push(en
-      /* 注意：闯关题是纯文字四选一，没有配图字段。所以「用某种表示出题」= 用文字把那个模型
-       * 说清楚（几等份、涂了几份），而不是让孩子去看一张不存在的图。2026-08-22 审稿抓到过
-       * 「Look at the fraction bar below」这种引用不存在图形的题，就是这句话没写清楚导致的。 */
-      ? `- Level 1 must be framed around the "${rep0}" model, described ENTIRELY IN WORDS: there is no picture, so state every number the child needs (how many equal parts, how many are shaded, what the whole is). Never write "look at the diagram/figure/bar below" or refer to an image — the question must be fully answerable from its own text. Level 2 may move to bare symbols; Level 3 is a context or misconception question.`
-      : `- L1 要围绕「${SKILL_REP_ZH[rep0] || rep0}」这个模型出，但必须**全部用文字说清楚**：题目里没有图，所以要把孩子需要的数都写出来（平均分成几份、涂了几份、整体是什么）。绝对不要写「看下面的图/分数条」之类引用图形的话——光读题干就要能答。L2 可以转到纯符号；L3 出情境题或误区辨析题。`);
-    L.push(en
-      ? `- The standard this skill belongs to (context only, do not test the rest of it): ${sk.standardEn || "—"}`
-      : `- 这个技能所属的大纲条目（只作背景，别把整条都考了）：${sk.standardEn || "—"}${sk.standardZh ? "（" + sk.standardZh + "）" : ""}`);
-    if ((sk.prereq || []).length) L.push(en
-      ? `- The child already has these prerequisites — you may use them, but they must not be the point being tested: ${sk.prereq.map(p => p.en).join("; ")}`
-      : `- 孩子已经会的先修（可以用，但考点不能落在它们身上）：${sk.prereq.map(p => p.zh).join("；")}`);
-    if ((sk.misc || []).length) {
-      L.push(en
-        ? "- Build distractors on THESE registered misconceptions, and tag each option with the id:"
-        : "- 干扰项请**逐个**建立在下面这些登记在册的误区上，并给每个选项打标签：");
-      for (const m of sk.misc) L.push(en
-        ? `  · ${m.id} — ${m.en} (looks like: ${m.pattern})`
-        : `  · ${m.id} —— ${m.zh}（长这样：${m.pattern}）`);
-      L.push(en
-        ? `- Also output "tags": an array of 4 strings, one per option in the same order — "ok" for the correct option, and the misconception id for each distractor. Use "other" only if a distractor genuinely matches none of the ids above.`
-        : `- 另外输出 "tags"：4 个字符串的数组，顺序和 options 一一对应——正确项写 "ok"，每个干扰项写它对应的误区 id。实在对不上上面任何一个才写 "other"。`);
-    }
-    return L.join("\n");
-  })();
   if (lang === "en") {
-    const elab = isSkills ? "" : (item.elaborations || []).map(e => "- " + e.en).join("\n");   // 技能层由 skillRules 讲，别重复一遍
-    const terms = itemTerms(item).map(tm => tm.en).join(", ");
+    /* 教学要求全部来自 brief（目标 / 先修 / 图谱后继 / 误区 / 难度 / 题图规则 / 课文），和审稿器读的是同一个对象。
+     * 以前这里写死「there is no picture」——题库没有 visual 字段时的权宜之计；契约 v3 起题目可以带题图，
+     * 能不能带、带哪几种由 brief.visual.allowed 决定（技能表示 ∩ 契约的题图类型）。 */
+    const b = qbankBriefCheck(brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankPrompt");
     const who = isSkills
       ? `You are a BC math teacher building a question bank for ONE small skill (Grade ${g}, topic "${strand[2]}").`
       : isBook
@@ -900,15 +911,9 @@ function qbankPrompt(item, gradeData, lang, needs, existingStems) {
       : `You are a BC math teacher building a question bank for ONE Grade ${g} topic ("${strand[2]}" strand).`;
     return `${who} The child just watched a lesson on it and now answers questions one at a time — right answers raise the difficulty, like the SAT. Write ${total} original multiple-choice questions: ${wants.map(lv => `${needs[lv]} at Level ${lv}`).join(", ")}.
 
-${isSkills ? "The skill" : isBook ? "The section" : "The topic (official wording)"}: ${item.en}${elab ? `
-What it covers:
-${elab}` : ""}${terms ? `
-Key terms: ${terms}` : ""}${skillRules}
+${isSkills ? "The skill" : isBook ? "The section" : "The topic (official wording)"}: ${item.en}
 
-Difficulty levels:
-- Level 1 (warm-up): one step, direct use of the concept just taught; short stem, no or minimal context. Checks "did you get it".
-- Level 2 (level-up): standard textbook difficulty, 1-2 steps, a small real-life context or choosing the right method. Checks "can you use it".
-- Level 3 (challenge): FSA-style — a real-life scenario needing at least two reasoning steps, or a question built around the most common misconception in this topic. Checks "is it solid".
+${QB.renderGeneratorBrief(b)}
 
 Iron rules:
 1. Test ONLY this ${isSkills ? "one small skill" : "topic"}. Earlier skills may appear naturally, but the point being tested must be this ${isSkills ? "skill" : "topic"}.
@@ -920,8 +925,29 @@ Iron rules:
    Never refer to an option by position ("option B", "the third choice") — options get reordered; name the content instead ("the one that says 3/8").
 7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
 ${avoid.map(s => "- " + s).join("\n")}` : ""}.
-8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.`;
+8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.
+9. Pictures: a question either carries a valid "visual" as described in the brief, or is fully answerable from its own text. A question that breaks a picture rule is thrown away, not repaired.`;
   }
+  /* 技能层出题的额外约束（设计文档 §3.3 / §6）：L1 必须用这个技能的第一种表示，
+   * L3 的干扰项要逐个打在登记在册的误区上。用数组拼而不是层层嵌套模板——这段要经常改。
+   * （只剩 zh：英文的同一组约束由 TeachingBrief 渲染，见上面。） */
+  const skillRules = (() => {
+    if (!isSkills) return "";
+    const ty = SKILL_TYPE[sk.type] || {};
+    const rep0 = (sk.rep || [])[0] || "symbolic";
+    const L = [""];
+    L.push("这是一个**小技能**，不是一整条大纲内容——每道题都要落在这一小步里面。");
+    L.push(`- 技能类型：${ty.zh || sk.type}——${ty.teachZh || ""}。`);
+    L.push(`- L1 要围绕「${SKILL_REP_ZH[rep0] || rep0}」这个模型出，但必须**全部用文字说清楚**：题目里没有图，所以要把孩子需要的数都写出来（平均分成几份、涂了几份、整体是什么）。绝对不要写「看下面的图/分数条」之类引用图形的话——光读题干就要能答。L2 可以转到纯符号；L3 出情境题或误区辨析题。`);
+    L.push(`- 这个技能所属的大纲条目（只作背景，别把整条都考了）：${sk.standardEn || "—"}${sk.standardZh ? "（" + sk.standardZh + "）" : ""}`);
+    if ((sk.prereq || []).length) L.push(`- 孩子已经会的先修（可以用，但考点不能落在它们身上）：${sk.prereq.map(p => p.zh).join("；")}`);
+    if ((sk.misc || []).length) {
+      L.push("- 干扰项请**逐个**建立在下面这些登记在册的误区上，并给每个选项打标签：");
+      for (const m of sk.misc) L.push(`  · ${m.id} —— ${m.zh}（长这样：${m.pattern}）`);
+      L.push(`- 另外输出 "tags"：4 个字符串的数组，顺序和 options 一一对应——正确项写 "ok"，每个干扰项写它对应的误区 id。实在对不上上面任何一个才写 "other"。`);
+    }
+    return L.join("\n");
+  })();
   const elab = isSkills ? "" : (item.elaborations || []).map(e => "- " + (e.zh || e.en)).join("\n");   // 技能层由 skillRules 讲，别重复一遍
   const terms = itemTerms(item).map(tm => `${tm.en}=${tm.zh}`).join("、");
   const whoZh = isSkills
@@ -962,7 +988,10 @@ ${avoid.map(s => "- " + s).join("\n")}` : ""}。
 const unlitNewline = s => String(s == null ? "" : s).replace(/\\n/g, "\n");
 /* allowedTags：技能层题库传该技能的误区 id 集合，干扰项标签必须落在里面（"ok"/"other" 永远允许）。
  * 标签只喂诊断/回补，判分完全不看它——所以标签不合格只丢标签，绝不因此丢掉一道好题。 */
-function validateQbankBatch(raw, requested, allowedTags) {
+function validateQbankBatch(raw, requested, allowedTags, ctx) {
+  /* ctx（英文出题链显式传，#43）= { brief, existingQids }：走 lib/ai/qbank 的硬校验，合法 visual / tags / qid 保留，
+   * 硬规则不过的题整道不要（不删图留题）。不传 ctx = 下面的老行为，zh 和老调用方一字不变。 */
+  if (ctx) return validateQbankBatchEn(raw, requested, Object.assign({}, ctx, { allowedTags })).accepted;
   if (!raw || typeof raw !== "object") throw new Error("出题格式不对");
   const qs = (Array.isArray(raw.questions) ? raw.questions : []).map(q => {
     if (!q || typeof q !== "object") return null;
@@ -989,6 +1018,12 @@ function validateQbankBatch(raw, requested, allowedTags) {
   }).filter(Boolean);
   if (qs.length < Math.max(3, Math.ceil(requested * 0.5))) throw new Error("有效题目太少");
   return qs;
+}
+/* 英文批次的完整校验结果 { accepted, rejected, warnings, coverage, briefId }；题图规则用渲染端同一个 checkVisual */
+function validateQbankBatchEn(raw, requested, ctx) {
+  return QB.validateEnglishQbankBatch(raw, requested, {
+    brief: ctx.brief, checkVisual, allowedTags: ctx.allowedTags || null, existingQids: ctx.existingQids || []
+  });
 }
 
 /* ---------------- 构建期审稿（pregen --judge） ----------------
@@ -1059,7 +1094,23 @@ function judgeLessonPrompt(item, gradeData, lesson, lang) {
                        "Lesson under review (JSON; steps are the walkthrough, practice is the follow-up exercise):\n")
     + JSON.stringify(lesson);
 }
-function judgeQuizPrompt(item, gradeData, questions, lang) {
+/* brief（可选，#43）：英文出题时 ensureQuizBank 交给审稿回调的同一个 TeachingBrief。给了就把它和完整题目
+ * （qid / tags / visual 原样）一起送审；输出格式仍是 v1 的 pass/problems/bad（逐题 v2 是 #44）。
+ * 不给 brief 或 zh = 老提示词，一字不变。 */
+function judgeQuizPrompt(item, gradeData, questions, lang, brief) {
+  if (lang === "en" && brief) {
+    qbankBriefCheck(brief, item, gradeData, "judgeQuizPrompt");
+    return judgeCommon(lang, gradeData)
+      + "\n\nCurriculum item (" + gradeTag(gradeData) + "): " + item.en
+      + "\n\nThe generator wrote these questions from the teaching brief below; review against the SAME brief (" + brief.briefId + ").\n"
+      + QB.renderJudgeBrief(brief)
+      + "\n\nAlso fail a question when: it tests something outside the brief's goal or makes an out-of-scope skill the point; a distractor's tag names a misconception the distractor does not show;"
+      + " its visual disagrees with the stem or explanation (numbers, wholes, units, scale) or prints the answer; or it needs a picture it does not carry."
+      + " Automatic checks already enforced the picture contract, captions and a few fixed phrases; they cannot judge meaning."
+      + (brief.lesson.status === "present" ? "" : " The lesson is " + brief.lesson.status + ": do not claim the questions match the lesson.")
+      + "\n\nMultiple-choice questions under review (JSON; answerIndex marks the correct option; qid, when present, identifies the question; tags label each option in order; visual, when present, is the picture shown with the question, drawn by the conventions above):\n"
+      + JSON.stringify(questions);
+  }
   return judgeCommon(lang, gradeData)
     + "\n\n" + L(lang, "知识点（", "Curriculum item (") + gradeTag(gradeData) + "）：" + item.zh + " / " + item.en
     + "\n\n" + L(lang, "待审的选择题（JSON，answerIndex 指向 options 里标为正确的那项）：\n",
@@ -2088,7 +2139,11 @@ function qbankPlayable(itemId, lang) {
 /* judge（可选，pregen --judge 用）：拿到一批新题先送审，没过就抛错——
  * 正好落进下面「失败重试一次」的既有路径：重新生成一批、再审一次。
  * 审没过的批次绝不 merge 进题库。 */
-async function ensureQuizBank(item, gradeData, lang, providerId, task, judge) {
+/* 英文（#43）：TeachingBrief 在这里建一次（或由 extra.brief 显式给），同一个冻结对象喂出题提示词、schema/格式说明、
+ * 硬校验和审稿回调 judge(batch, { brief, ... })——两次尝试也是同一份，不会各自从磁盘重建。
+ * 硬校验不过的题在送审和入库之前就被拒掉。只认一个参数的老 judge 照常用（多出的参数它不看）。
+ * zh：老路径一字不变，judge 仍然只收到 batch 一个参数。 */
+async function ensureQuizBank(item, gradeData, lang, providerId, task, judge, extra) {
   task = task || "quiz";
   const key = qbankKey(item.id, lang);
   const bank = qbank[key] || (qbank[key] = { questions: [] });
@@ -2099,22 +2154,39 @@ async function ensureQuizBank(item, gradeData, lang, providerId, task, judge) {
   }
   if (!Object.keys(needs).length) { ledgerAdd({ task, provider: "bank", lang, ms: 0, ok: true }); return bank; }
   const total = Object.values(needs).reduce((a, b) => a + b, 0);
-  const sys = qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
+  const en = lang === "en";
+  const brief = en ? qbankBriefCheck((extra && extra.brief) || qbankBriefFor(item, gradeData), item, gradeData, "ensureQuizBank") : null;
+  const sys = en
+    ? qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question), brief)
+    : qbankPrompt(item, gradeData, lang, needs, bank.questions.map(q => q.question));
   const msg = L(lang, "请出这批题。", "Please write this batch of questions.");
   /* 技能层题库：干扰项要打误区标签，格式说明和校验白名单都跟着换 */
   const skillTags = isSkillsData(gradeData) && ((item.skill || {}).misc || []).length
     ? new Set(item.skill.misc.map(m => m.id)) : null;
+  /* 英文校验的标签白名单：技能条目一律给（误区登记表为空也给空集合），这样合法的 ok / other 不会被当成「没有标签」丢掉；
+   * 非技能条目没有 tags 字段。zh 仍用上面的 skillTags（老行为）。 */
+  const enTags = en && isSkillsData(gradeData) && item.skill ? new Set((item.skill.misc || []).map(m => m.id)) : null;
   /* 出题保持思考开着（跟 config 走）：2026-08-22 实测，关掉思考 JSON 是干净了，
    * 但数学错误率暴涨——审稿在 74 次尝试里拒了 30 次（标错答案、两个选项都对、题干自相矛盾）；
    * 开着思考的样本凡是解析成功的全都过审。格式问题改由 repairJson 兜（值后多粘引号那条）。 */
-  const opts = { schema: QBANK_SCHEMA, hint: (skillTags ? QBANK_HINT_SKILL : QBANK_HINT)[lang] };
+  const opts = en
+    ? { schema: QB.englishQbankSchema(QBANK_SCHEMA, brief), hint: QB.englishQbankHint((skillTags ? QBANK_HINT_SKILL : QBANK_HINT).en, brief) }
+    : { schema: QBANK_SCHEMA, hint: (skillTags ? QBANK_HINT_SKILL : QBANK_HINT)[lang] };
   const t0 = Date.now();
-  console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}`);
+  console.log(`[quiz] engine=${providerId} topic=${item.id} lang=${lang} need=${[1, 2, 3].filter(l => needs[l]).map(l => `L${l}×${needs[l]}`).join(",")}${en ? " brief=" + brief.briefId : ""}`);
   const attempt = async () => {
-    const batch = await runEngine(providerId, task, sys, msg, null, null, lang, opts, x => validateQbankBatch(x, total, skillTags));
+    let report = null;
+    const batch = await runEngine(providerId, task, sys, msg, null, null, lang, opts, en
+      ? x => (report = validateQbankBatchEn(x, total, { brief, allowedTags: enTags, existingQids: bank.questions.map(q => q.qid).filter(Boolean) })).accepted
+      : x => validateQbankBatch(x, total, skillTags));
+    if (report && report.rejected.length) console.log(`[quiz] hard checks rejected ${report.rejected.length}/${report.rejected.length + batch.length} for ${item.id} en (brief ${brief.briefId}): `
+      + report.rejected.map(r => r.findings.map(f => f.code).join("+")).join(", ").slice(0, 200));
     let keep = batch;
     if (judge) {
-      const v = await judge(batch);
+      /* 英文：审稿回调拿冻结的副本，入库的仍是硬校验过的这份 batch——回调改了它手里的题也进不了题库 */
+      const v = await (en
+        ? judge(QB.frozenCopy(batch), { lang, itemId: item.id, brief, briefId: brief.briefId, hardChecks: QB.frozenCopy({ rejected: report.rejected, coverage: report.coverage }) })
+        : judge(batch));
       if (!v.pass) {
         /* 按题剔除：审稿人指了序号就只丢那几道，其余照收。
          * 指不出序号（老审稿人/格式不对）才退回整批作废的老行为。 */
@@ -3022,6 +3094,7 @@ module.exports = {
   curriculum, curriculumGrades, curriculumCourses, curriculumBooks, curriculumSkillsPreviews, isCourseData, findCurriculumItem, extractJson,
   systemPromptTeach, validateLesson,
   qbank, qbankKey, qbankSave, ensureQuizBank, qbankPlayable, qbankPrompt, QBANK_HINT,
+  qbankBriefFor, validateQbankBatch, validateQbankBatchEn,
   ttsId, ttsIdWith, ttsDaemonUrl, ttsSpeakable, LESSON_PACK_DIR, VOICE_PACK_DIR, UNIT_PACK_DIR, TTS_CACHE,
   STRANDS, unitTestPrompt, validateUnitTest, UNIT_TEST_SCHEMA, UNIT_TEST_HINT, unitPackGet,
   JUDGE_SCHEMA, JUDGE_HINT, JUDGE_HINT_QUIZ, judgeLessonPrompt, judgeQuizPrompt, judgeUnitPrompt, validateJudge,

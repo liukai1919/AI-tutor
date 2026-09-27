@@ -113,3 +113,19 @@
 - **单元卷同样适用**：`data/unit-tests/<lang>/*.json` 的 `set.questions[]` 和闯关题同构，`/api/unit-test` 原样下发；
   `node tools/curriculum/visual_check.mjs --unit-tests` 是单元卷侧的 preflight（issue #6 起，zh 冻结只动 en）。
 - 服务端 `/api/quiz/session` 原样下发 `visual`；Apple 端不认识的 `type`（目前 `pictograph`）降级成无图，题干仍能作答。
+
+## 8. 英文出题链：TeachingBrief 与题图硬校验（2026-09-26 起，#43）
+
+只管**英文**新生成的题；zh 出题链冻结不动，存量题库不重跑。细节与后续切片见 [qbank-pipeline-plan.md](qbank-pipeline-plan.md) §1。
+
+- **TeachingBrief**（`lib/ai/qbank/brief.js`）：出题器和审稿器读同一个冻结对象、印同一个 `briefId`。内容全部来自已有事实——技能图谱
+  （目标、类型、表示、先修、把本技能列为先修的后继）、误区登记表、大纲原文、图形契约、`data/lessons/en/<id>.json` 课文原文；缺什么记缺什么，
+  不编标准、不推断孩子学过什么。课文文件存在不等于人工审过（`humanReview: "unknown"`）；缺课文时审稿不能说「和课文一致」。
+- **题图可选**：能带的类型 = 技能 `rep` ∩ 契约 `capabilities.questionVisual.types`（非技能条目 = 全部题图类型）；一种都对不上的技能不带图、题干必须自足。
+  §7 的红线原样进提示词。
+- **硬校验**（`lib/ai/qbank/validate.js`，送审和入库之前）：契约（`public/visual-check.js` 同一份实现）、字段形状、caption 必填、类型是否允许、
+  题干念图、题干指着一张不存在的图（固定短语）、内部图型名、图注 / 标签明写「the answer is …」、qid 冲突、字段类型（整数下标 / 难度不再悄悄四舍五入，
+  对象 / 数组不再被转成字符串）。契约缺失、读不动或某种图型的规格残缺时，带这种图的题一律拒——渲染端拿不到规则就放行的降级口径出题链不继承。
+  不过的题整道不要——不删图留题、不进审稿、不进题库。合法的 `visual` / `tags` / `qid` 原样保留（技能题库误区登记为空时 `ok` / `other` 也保留）。
+  审稿回调拿到的是冻结副本，入库的是硬校验通过的那一份。
+- 硬校验只报它能确定的；图文语义是否一致、数学对不对、和课文是否对齐、干扰项是否真对应所标误区，由审稿负责（逐题 v2 审稿是 #44，尚未实现）。

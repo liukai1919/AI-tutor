@@ -185,7 +185,8 @@ function mkJudges(prov) {
   };
   return {
     teach: (j, lesson) => call("teach", S.judgeLessonPrompt(j.item, j.data, lesson, j.lang), j.lang),
-    quiz: (j, batch) => call("quiz", S.judgeQuizPrompt(j.item, j.data, batch, j.lang), j.lang),
+    // ctx.brief：英文出题时 ensureQuizBank 交过来的同一个 TeachingBrief（#43），审稿和出题读同一份；zh 没有 ctx
+    quiz: (j, batch, ctx) => call("quiz", S.judgeQuizPrompt(j.item, j.data, batch, j.lang, ctx && ctx.brief), j.lang),
     unit: (j, set) => call("unit", S.judgeUnitPrompt(j.data, j.strand, set, j.lang), j.lang)
   };
 }
@@ -362,7 +363,7 @@ async function main() {
     await pool(todoQuiz, CONCURRENCY, async j => {
       if (stop) return;
       try {
-        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, prov.quiz, "pregen:quiz", judges ? b => judges.quiz(j, b) : null);
+        const bank = await S.ensureQuizBank(j.item, j.data, j.lang, prov.quiz, "pregen:quiz", judges ? (b, ctx) => judges.quiz(j, b, ctx) : null);
         stats.quizOk++;
         tick("题", j, bank.questions.length + " 道");
       } catch (e) {
