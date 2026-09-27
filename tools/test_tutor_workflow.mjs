@@ -205,7 +205,8 @@ function world(opts = {}) {
   const clock = { t: 1000000 };
   const memory = createMemory({ store, now: () => clock.t });
   const w = { store, clock, memory, tutorCalls: [], practiceCalls: [], graderCalls: [], traces: [], results: [] };
-  w.tutorImpl = req => ({ ok: true, kind: req.mode === "hint" ? "hint" : "answer", text: "TUTORTEXT " + req.strategy, gate: { stage: "model", label: "math" }, steps: 2, calls: [] });
+  /* #38：socratic-teaching 的回复要过工作流的本地复核（必须是问句），合成回复在这一种策略下带问号 */
+  w.tutorImpl = req => ({ ok: true, kind: req.mode === "hint" ? "hint" : "answer", text: "TUTORTEXT " + req.strategy + (req.strategy === "socratic-teaching" ? "?" : ""), gate: { stage: "model", label: "math" }, steps: 2, calls: [] });
   w.practiceImpl = req => ({ questionId: "Q" + req.round, topicId: req.topicId, prompt: `PROMPT what is ${req.round} + 4?`, answerKey: KEY(req.round + 4) });
   w.graderImpl = req => (req.answerKey && req.answer === req.answerKey.slice(10) ? { outcome: "correct" } : { outcome: "wrong", mistake: "calculation" });
   const tutor = { ask(ctx, req) { w.tutorCalls.push({ ctx: Object.assign({}, ctx), req: { question: req.question, lang: req.lang, mode: req.mode, strategy: req.strategy }, signal: req.signal }); return w.tutorImpl(req, ctx); } };

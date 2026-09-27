@@ -2,6 +2,8 @@
 
 状态：后端模块 + 单测 / 组合测试。**没有 HTTP 路由、没有界面、server.js 没有实例化它**；不连真实模型、不联网、不读写任何现有孩子数据。
 学习事件只经 Phase 5 的 `memory.appendEvent` 写入；TutorAgent、Skill 目录、Harness、memory 的源码一行没改。
+**#38（Phase 7）起**：每步结果发布前跑后置条件（§3、§5）；TutorAgent 请求带本地验证上下文、回复再本地复核（§6）；可以用 `createAnswerGrader()` 作 grader（§4.2）。
+详见 `docs/tutor-verification.md`。
 
 ```
 lib/ai/workflows/errors.js    WorkflowError + 读外部值（复用 memory/errors.js 的严格读取）
@@ -98,18 +100,20 @@ socratic-teaching 首课是一个引导问题，不算「讲解了概念」；�
 ## 3. 返回值与错误
 
 - **view**（深冻结的新对象）：
-  `{ workflowId, version, status: active|completed|ended|closed, phase, stage, teachMode: lesson|remediate|null, topicId, lang, limits:{maxRounds,targetCorrect,maxAttempts,maxHints}, plan:{strategy}|null, round, correct, wrong, uncertain, question:{questionId,prompt,attempts,hints}|null, evaluation:{attemptId,outcome,mistake?}|null, pending:{type,commandId}|null, outcome: goal-reached|round-limit|null, allowed:[当前可发的命令], createdAt, updatedAt, expiresAt }`。
+  `{ workflowId, version, status: active|completed|ended|closed|failed, phase, stage, teachMode: lesson|remediate|null, topicId, lang, limits:{maxRounds,targetCorrect,maxAttempts,maxHints}, plan:{strategy}|null, round, correct, wrong, uncertain, question:{questionId,prompt,attempts,hints}|null, evaluation:{attemptId,outcome,mistake?}|null, pending:{type,commandId}|null, outcome: goal-reached|round-limit|null, allowed:[当前可发的命令], createdAt, updatedAt, expiresAt }`。
   `pending` 给出必须原样重发的那条命令的类型和 commandId（§5）。
   没有答案键、作答文本、模型原文、title / goal、学生历史。`plan.strategy` 会间接反映历史好坏（只有两个取值），调用方如需对孩子隐藏请不要展示。
 - **send 的结果**（深冻结）：`{ ok, code, detail, view, reply }`。
   - `ok:true`：`code` / `detail` 为 null；`reply` = 要给孩子看的 `{ kind: answer|hint, text }`（lesson / hint / remediate），其它步为 null。
-  - `ok:false`：这一步试过了但没成功，阶段不前进。`reply` 为 TutorAgent 的**固定模板**（拒答 / 安全 / 出错，不透传模型自由文本）或 null；`detail` 只在 STORE_FAILED 时给 memory 的错误码（如 `STORE_IO`、`CAPACITY`、`BAD_PROJECTION`）。
+  - `ok:false`：这一步试过了但没成功，阶段不前进。`reply` 为 TutorAgent 的**固定模板**（拒答 / 安全 / 出错，不透传模型自由文本）或 null；`detail` 在 STORE_FAILED 时给 memory 的错误码（如 `STORE_IO`、`CAPACITY`、`BAD_PROJECTION`），
+    TUTOR_ERROR 由本地复核拒掉时为 `VERIFICATION`，INVARIANT_FAILED 时为违反的类别（`STATE` / `TRANSITION` / `COUNTERS` / `ASSOCIATION` / `COMPLETION`），其它为 null。
 
 | code（resolve，ok:false） | 何时 |
 |---|---|
 | TUTOR_REFUSED | TutorAgent 拒答（预闸 / 分类器 / 模型 scope 非 math）；reply = 对应拒答模板 |
 | TUTOR_SAFETY | TutorAgent 安全响应；或 submit 的作答命中 TutorAgent 的确定性自伤求助规则（此时不评分、不记尝试） |
-| TUTOR_ERROR | TutorAgent 出错（模型错误 / 它自己的超时 / 结果不合格）、结果形状不对、kind 与本步策略不符（如 hint 步回来 answer、explain-concept 首课回来 hint） |
+| TUTOR_ERROR | TutorAgent 出错（模型错误 / 它自己的超时 / 结果不合格，含 #38 验证规则重试用完）、结果形状不对、kind 与本步策略不符（如 hint 步回来 answer、explain-concept 首课回来 hint）；拿回的文字没过工作流的本地复核（显式算术等式为假、hint 步显式说出答案键、socratic 步不是问句）→ `detail: VERIFICATION` |
+| INVARIANT_FAILED | #38：这一步结束后的状态没过后置条件（阶段转换 / 计数 / 题目–尝试–评分关联 / 结束条件）。结果不发布为成功、不缓存；工作流 status `failed`、`outcome` null，并被移出会话表（之后 get / send → NOT_FOUND）；这一步里已写的事件**不撤销** |
 | TUTOR_TIMEOUT | 超过 tutorTimeoutMs 还没回来：交给它的 signal 被 abort，迟到的结果丢弃（late trace） |
 | PRACTICE_FAILED / PRACTICE_TIMEOUT / PRACTICE_INVALID | 题目接口抛错或 reject / 超时 / 回包不合契约 |
 | GRADER_FAILED / GRADER_TIMEOUT / GRADER_INVALID | 评分接口抛错或 reject / 超时 / 回包不合契约 |
@@ -148,6 +152,8 @@ socratic-teaching 首课是一个引导问题，不算「讲解了概念」；�
 - 回包恰好 `{ outcome: "correct"|"wrong"|"uncertain", mistake? }`；`mistake` 只能随 `wrong` 出现，且 ∈ concept / calculation / reading / careless / prerequisite-gap。
   其它任何形状（多余字段如 score / feedback、大小写不同、字符串 "correct"、null、getter、类实例）→ GRADER_INVALID，**不猜对错、不猜误因**。
 - **从不根据 TutorAgent 的文字判分**：TutorAgent 在工作流里只负责讲解 / 提示 / 诊断反馈，它说的「对 / 错」不进入任何状态。
+- **内置确定性 grader（#38）**：`require("./lib/ai/verification/index.js").createAnswerGrader()` 可以直接传给 `grader`：只比较受支持的数字（整数 / 小数 / 分数 / 带分数，精确有理数），
+  值不同 → wrong、同值同写法 → correct，其它（值同写法不同、单位、代数、文字、答案键缺失或不支持）→ uncertain；**从不给 mistake**。见 `docs/tutor-verification.md` §2。
 - `uncertain` 是合法的结论：不写结果事件（Phase 5 投影里这次尝试保持 `unsettled`），`uncertain` 计数 + 1，Adapt 换下一题。
 
 ## 5. 幂等、并发、失败与重试
@@ -199,6 +205,11 @@ TutorAgent 收到的 `question` 只由固定模板 + 下面这些字段拼成（
 
 - **不会**交给模型：answerKey、Student Memory / 历史投影、其它话题、偏好、旧 attemptId、topicId、userId / kidId（ctx 只作为 TutorAgent 的 ctx 参数，Harness 不放进模型请求）。
   组合测试逐条检查回放模型收到的全部请求（system + messages）。
+- **本地验证上下文（#38）**：交给 TutorAgent 的请求多一个 `verify = { topicId, answerKey? }`（hint / remediate 步带当前题的答案键）。TutorAgent 只在结果校验里用它
+  （hint 步显式说出答案键、正文里出现不是本话题也没查过的课程 id → 退回模型重写），**不放进模型请求、trace、错误信息**；`test_verification.mjs` / `eval_verification.mjs` 逐条核对。
+  也就是说答案键现在除 grader 外还交给了**本进程内**的 TutorAgent 校验代码；注入的 tutor 必须是可信的本地实现。
+- 拿回来的文字工作流再本地复核一次（注入的 tutor 未必是真 TutorAgent）：显式算术等式为假、hint 步显式说出答案键、socratic-teaching 步不是问句 → TUTOR_ERROR / VERIFICATION，
+  固定出错模板，不前进、可原样重发。（兼容性：以前注入的 tutor 在 socratic 步回非问句也会前进；片 1 的合成 tutor 为此在 socratic-teaching 下回复末尾加了问号。）
 - TutorAgent 的门控不变：每次都过预闸 + 语义分类 + 结构化结果校验，工具仍只有两个只读工具；工作流不给 TutorAgent 任何新工具，也不把 store / appendEvent 交给模型。
 - Diagnose 读投影只在服务内部用于选策略，不存、不外传。
 - 学习事件里只有 Phase 5 白名单字段（标识、类型、时间、有限枚举）；题面、作答、模型文字都不落盘。
@@ -209,7 +220,8 @@ TutorAgent 收到的 `question` 只由固定模板 + 下面这些字段拼成（
 ## 7. 测试
 
 ```
-node tools/test_tutor_workflow.mjs      # 222 项
+node tools/test_tutor_workflow.mjs      # 233 项
+node tools/test_verification.mjs        # #38：后置条件反例、确定性 grader、本地复核在真实工作流 + memory + TutorAgent 上的路径
 ```
 
 - 片 1（合成适配器 + 真实 createMemory + 内存桩 store）：49 格命令表、Adapt / Diagnose 决策表、命令与启动参数拒绝面、适配器回包拒绝面；
@@ -227,8 +239,11 @@ node tools/test_tutor_workflow.mjs      # 222 项
 - **进程内、不可恢复**：工作流状态只在一个服务实例的内存里；进程重启 / 多实例都看不到，旧 workflowId → NOT_FOUND，挂起的副作用丢失（已写入的学习事件不丢）。
   重启后若旧工作流有一个已写 `question_attempt` 但没结果的尝试，它在投影里永远是 unsettled。
 - **没有跨模块事务**：TutorAgent 调用、适配器调用和事件写入是分开的步骤；靠稳定 eventId + 挂起重试做到「每个副作用至多记一次」，不是原子提交。close 时在途写入可能仍完成。
-- **评分只信注入的 grader**：没有内置判分；grader 的正确性、答案键是否被题面泄露（prompt 里写了答案）不在本模块检查范围。Phase 7 负责 verifier。
-- **TutorAgent 的文字没有 verifier**：hint / remediate 里用自然语言说出答案、诊断是否准确，仍只有 TutorAgent 已有的结构校验（见 docs/tutor-harness.md §2.2 边界）。
+- **评分只信注入的 grader**：#38 提供了确定性的 `createAnswerGrader`（只覆盖数字答案，其余一律 uncertain），但工作流不强制用它；答案键是否被题面泄露（prompt 里写了答案）不在检查范围。
+- **TutorAgent 的文字只有规则级验证**：#38 起 hint / remediate 里「= 答案」「答案是 …」这类显式形式、假的显式算术等式会被拦下（数字答案键才覆盖）；
+  换个说法说出答案、诊断是否准确、讲解的非算术部分仍没有 verifier（见 `docs/tutor-verification.md` 覆盖表）。
+- **后置条件失败不回滚**：INVARIANT_FAILED 时这一步已经交给 memory 的事件照原样保留（例如 evaluate 已记 `answer_correct` 而 adapt 失败）；工作流被终止、不宣称完成。
+  后置条件是对本模块实现的独立检查，正常情况下不应触发；触发说明代码有 bug，应当排查而不是重试。
   remediate 会把孩子本次作答交给模型（有长度上限）；作答只在提交时过确定性自伤求助预闸，其它内容照原样作为数据交给评分器和 remediate。
 - 卡住的 memory 写入没有时限（见 §5「时限与 TTL」）：工作流一直 BUSY、不过期，只能 close。TutorAgent 最长 tutorTimeoutMs、适配器最长 adapterTimeoutMs，这段时间里该工作流 BUSY。
 - socratic-teaching 首课不记任何事件（现有事件表没有「引导提问」）；Student Memory 里因此看不到这类互动。

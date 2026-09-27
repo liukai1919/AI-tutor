@@ -6,7 +6,7 @@
 lib/ai/harness/index.js    单智能体循环 createHarness
 lib/ai/harness/replay.js   确定性回放 Provider createReplayModel
 lib/ai/skills/index.js     内置教学 Skill 目录（#30，Phase 4a；教学策略 #31，Phase 4b）：TutorAgent 两段提示词的来源
-lib/ai/tutor/index.js      TutorAgent：预闸 + 语义分类接缝 + Harness + 结构化校验
+lib/ai/tutor/index.js      TutorAgent：预闸 + 语义分类接缝 + Harness + 结构化校验（schema 在这里，其余规则在 lib/ai/verification，#38）
 tools/test_harness.mjs     Harness 单测（72 项）
 tools/eval_tutor.mjs       TutorAgent 回放 eval（68 项，其中 46 条中英用例在 tools/fixtures/tutor_eval.json）
 tools/test_skills.mjs      Skill 目录单测 + 真实 TutorAgent 两段请求核对（50 项）
@@ -42,6 +42,8 @@ const r = await h.run({ ctx, model, system, input, validateFinal, signal, deadli
   其它字段一律不读（回合里写 `ctx` 没用）。整个回合必须是**纯 JSON 值**（有限数字、纯对象 / 数组、无环；不能有函数、BigInt、undefined、NaN、类实例），否则按 `BAD_MODEL_OUTPUT` 处理，不会被序列化悄悄改掉（NaN 变 null、函数被丢掉）再塞进 Tool 入参。
 - **messages**：`user`（input）→ `assistant`（toolCall / final）→ `tool`（observation：`{ ok, result | error, truncated? }`，超过 4000 字符只给 preview）→ `harness`（`BAD_MODEL_OUTPUT` / `INVALID_FINAL` 的说明，让模型修）。
 - **ctx** 由调用方注入，run 开始时拷贝冻结成 `{ kidId, role, userId }`；role 只能是 student / parent。之后调用方再改原对象、模型回合里写什么都不影响。
+- **validateFinal(output, info)**：`info = { calls, steps, evidence }`。`evidence`（#38，纯增量）是本 run 里成功、且结果没被截断的工具调用 `[{ tool, input, result }]` 的深拷贝——
+  和模型在 observation 里看到的是同一份数据，给「声明要有证据」的检查用（见 `docs/tutor-verification.md`）。
 
 ### 工具调用规则
 
@@ -68,9 +70,13 @@ Harness **从不自动重试工具**；读工具失败后模型可以自己再�
 ```js
 const { createTutorAgent } = require("./lib/ai/tutor/index.js");
 const agent = createTutorAgent({ registry, model, classifierModel, maxSteps, stepTimeoutMs, totalTimeoutMs, onTrace, onTraceError });
-const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "hint", strategy, signal });   // strategy 可选（#31，见 §2.2）
-// r = { ok, kind: answer|hint|refusal|safety|error, text, gate:{ stage, label, rule? }, steps, calls, checks?, error?, strategy? }
+const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "hint", strategy, verify, signal });   // strategy 可选（#31，见 §2.2）；verify 可选（#38）
+// r = { ok, kind: answer|hint|refusal|safety|error, text, gate:{ stage, label, rule? }, steps, calls, checks?, error?, strategy?, verification? }
 ```
+
+- `verify`（#38，可选）：可信调用方给的本地验证上下文 `{ topicId?, allowedTopicIds?, answerKey? }`，公开入口同步严格读取（只认自有数据属性、getter 不执行、多余键拒绝），
+  不合契约 → `INVALID_INPUT`（stage input，不调模型，错误信息不回显内容）。它**只交给结果校验**，不进模型请求、system、trace、错误信息；
+  传了 verify 的 answer / hint 结果多一个冻结的 `verification` 覆盖摘要。不传时请求、提示词、结果形状与之前逐字相同。规则见 `docs/tutor-verification.md`。
 
 - `ctx` 由可信调用方给（将来的路由：`allow` → `resolveKid` → `actx`），和 Action / Tool 同一个形状。`ask` 在公开入口**同步**取 ctx 和请求字段（question / lang / mode / strategy / signal）的快照，每个字段只读一次，分类和作答两段都用它；调用方拿到 promise 后同一个 tick 里或中途改自己手里的对象，都不影响这次 ask 和任何工具调用。
 - **可用工具只有两个，都是只读**：`calculator.evaluate`（确定性算术）、`curriculum.findTopic`（查大纲条目，不碰孩子数据）。registry 里其余 11 个工具（含 `questions.*` 写入 / 花钱、`student.*` 孩子数据、`learning.getReport` 家长专用）一个不给。
@@ -84,7 +90,7 @@ const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "
 | 0 输入 | ctx / question / mode 校验 | `error`（INVALID_CTX / INVALID_INPUT），不调模型 | — |
 | 1 确定性预闸 `classifyScope` | 中英正则：安全求助 → 提示注入 → 非学术**请求**；再看有没有数学信号。NFKC、去零宽字符，中文规则在去空白后的文本上匹配 | `safety` / `refusal`（数学 + 越界请求 = mixed，也拒），不调模型、不调工具 | 只认写进规则的说法；换个说法、错别字、别的语言就漏。针对「请求」而不是名词，所以应用题里的游戏 / 电影不会被误拒，但也意味着只提名词的闲聊要靠下一层 |
 | 2 语义分类（每次都跑）`classifierModel` | 同一个 Harness、零工具、分类提示词，模型只输出 `{ label, reason }`，label ∈ math / other_academic / non_academic / mixed / injection / unsafe，schema 校验。**没给 `classifierModel` 时用主模型单独做一次分类调用**，不存在「命中数学关键词就直接回答」的路径 | 非 math 一律拒答（other_academic 用「只辅导数学」模板）；分类失败 / 超时 / 输出不合格 → `error`（fail closed） | LLM 语义判断会错，也可能被精心构造的输入骗过；用同一个模型分类和作答，两步可能被同一段输入一起带偏。eval 只证明**管线**按标签正确收口，不衡量分类准确率 |
-| 3 结构化结果校验 | final 必须 `{ kind, text, scope, checks? }`；非 math scope 只能 refusal；hint 模式不许 answer；正文再过预闸规则、禁止链接；`checks` 用 calculator 复算（相对误差 1e-9） | 不合格 → 退回模型重写（最多 2 次），仍不合格 → `error`；refusal 换成模板 | 正文检查同样是规则；没写进 checks 的数字不会被复算；数学讲解本身对不对（非算术部分）没有 verifier |
+| 3 结构化结果校验 | final 必须 `{ kind, text, scope, checks? }`；非 math scope 只能 refusal；hint 模式不许 answer；正文再过预闸规则、禁止链接；`checks` 用 calculator 复算（相对误差 1e-9）；#38 起正文里**显式、边界干净**的纯算术等式按精确有理数核对（不传 verify 也生效）；传了 verify 再查课程 id 证据、计算器声明、hint 显式泄露答案键、socratic 问句 | 不合格 → 退回模型重写（最多 2 次），仍不合格 → `error`；refusal 换成模板 | 正文检查同样是规则；边界不干净的等式（「15% of 80 = 12」「2x + 3 = 11」）不检查；数学讲解本身对不对（非算术部分）没有 verifier，见 `docs/tutor-verification.md` 的覆盖表 |
 
 「学术」在本阶段按 #19 的决定取最窄：只辅导数学；其它学科礼貌拒答并引导回数学。放宽只需改 `REFUSAL_TEMPLATE` 和提示词。
 
@@ -138,7 +144,9 @@ await agent.ask(ctx, { question, lang, mode, strategy: "diagnose-error" });
 - **hint 优先**：`give-hint`、`socratic-teaching` 不论 `mode` 都按 hint 输出；`mode:"hint"` 对任何策略都按 hint 输出。落实在结构校验上（`kind:"answer"` 被退回重写），不是只靠提示词。
 - **能力不变**：每个策略下预闸（注入 / 安全求助）、语义分类、非 math scope 只能拒答、拒答换固定模板、正文规则复查与禁链接、`checks` 计算器复算、共享总时限（另有确定性时钟用例钉住「分类之后不重新起算截止时间」）、工具名单（仍只有两个只读工具；写 / 花钱 / 孩子数据 / 家长专用工具一律 `TOOL_NOT_ALLOWED`、不进 registry）、registry 收到的 ctx 都与不传策略时相同，`test_tutor_strategies.mjs` 对 8 个策略逐一核对。练习 / 评价 / 课程导航「只读不写学习状态」由工具名单保证：它们本来就拿不到任何写工具。
 - **边界（重要）**：7 段教学指令只是提示词。测试里对指令文本的断言只证明「要求写进去了」，**不等于 verifier**：
-  - hint 输出只能拦住 `kind:"answer"`；提示正文里用自然语言把答案说出来（「答案是 888」写在 hint 里）没有确定性检查能发现。
+  - hint 输出只能拦住 `kind:"answer"`；提示正文里用自然语言把答案说出来（「答案是 888」写在 hint 里），只有调用方用 `verify.answerKey` 给了可解析的数字答案键时，
+    才按 `docs/tutor-verification.md` 列出的显式形式（「= 答案」「答案是 / the answer is / 等于 / equals 答案」…）拦下；别的说法、非数字答案键仍发现不了。
+  - socratic-teaching 只在传了 verify 时强制「正文含问号」；引导问题的质量没有检查。
   - `diagnose-error` 选的误因对不对、证据够不够由模型判断，没有 verifier；回放只证明「还不确定」这类回答能原样走通管线。
   - `practice-generator` 是否真的没附答案、题目难度是否合适，没有检查；`checks` 只复算写进去的算式，发现不了正文里没列进 `checks` 的数，也发现不了模型把练习答案写进 `checks`。策略文本不豁免 base 的核算规则（测试守着：任何策略都不许出现免核算的说法，每个组合里 base 第 2 条逐字都在）。
   - `diagnose-error` 的五类是提示词里的分类表；结果 schema 没有「误因」字段，模型选没选、选得对不对都不做结构校验。
@@ -168,4 +176,5 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 - `generateOnce` 与六类固定任务不迁入 Harness（issue 写的是「若迁入」，本阶段取不迁，契约零风险）。以后要迁时，一个「单回合、零工具、validateFinal = 现有 validateX、modelRetries = 1」的 Harness run 就是它的等价物，但必须保留提示词、重试次数和 `kidTxn(keep)` 落盘在事务外的边界。
 - **还没有真实模型适配器**：要接 `runEngine` 时写一个 `model.next(req)`：把 `system` / `messages` / `tools` 拼成提示词，用 `TURN_FORMAT` 要求单个 JSON 回合，`extractJson` 解析，记账走 `runEngine`（任务名需要加进 `TASKS`，如 `tutor`、`tutor:classify`）。这是 Phase 8 的活。
 - 暴露给孩子前还需要：路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
-- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略：Phase 6 工作流按阶段选（见下），路由 / 家长设置还没接；Phase 5（Memory，#34）：`lib/ai/memory` 已有临时 Session、白名单 Learning Events 和纯投影 Student Memory（见 `docs/tutor-memory.md`），但 Harness / TutorAgent 都没接：工具名单不变，模型拿不到 store，也看不到学习状态；以后要把 Session 或 Student Memory 交给模型（只读工具或提示词里的字段），先定给哪些字段、家长开关和隐私边界，写事件仍只由可信调用方做，给 TutorAgent 加只读的 `student.getProgress` 同理；Phase 6（结构化辅导流程，#36）：`lib/ai/workflows` 的 Diagnose → Teach → Practice → Evaluate → Adapt 状态机（见 `docs/tutor-workflow.md`）按阶段替 TutorAgent 选 `strategy`（explain-concept / socratic-teaching / give-hint / diagnose-error），只通过公开的 `ask` 调用，门控、工具名单、结果校验不变；TutorAgent 的文字只给孩子看，不参与判分和阶段转换，学习事件由工作流经 memory 写；Phase 7（Verifier）：checks 复算是雏形；Phase 8（模型抽象）：上面的适配器和按能力路由。
+- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合见 §2.2（#31）；谁来选策略：Phase 6 工作流按阶段选（见下），路由 / 家长设置还没接；Phase 5（Memory，#34）：`lib/ai/memory` 已有临时 Session、白名单 Learning Events 和纯投影 Student Memory（见 `docs/tutor-memory.md`），但 Harness / TutorAgent 都没接：工具名单不变，模型拿不到 store，也看不到学习状态；以后要把 Session 或 Student Memory 交给模型（只读工具或提示词里的字段），先定给哪些字段、家长开关和隐私边界，写事件仍只由可信调用方做，给 TutorAgent 加只读的 `student.getProgress` 同理；Phase 6（结构化辅导流程，#36）：`lib/ai/workflows` 的 Diagnose → Teach → Practice → Evaluate → Adapt 状态机（见 `docs/tutor-workflow.md`）按阶段替 TutorAgent 选 `strategy`（explain-concept / socratic-teaching / give-hint / diagnose-error），只通过公开的 `ask` 调用，门控、工具名单、结果校验不变；TutorAgent 的文字只给孩子看，不参与判分和阶段转换，学习事件由工作流经 memory 写；Phase 7（Verifier，#38）：`lib/ai/verification`——TutorAgent 的结果校验规则抽到 `verifyResponse`（旧文案逐字不变）并加了正文算术等式和可信上下文规则，
+工作流有确定性答案 grader 和步骤后置条件，见 `docs/tutor-verification.md`；Phase 8（模型抽象）：上面的适配器和按能力路由。
