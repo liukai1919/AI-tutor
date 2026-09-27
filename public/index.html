@@ -4243,6 +4243,7 @@ $("quizGoBtn").onclick=()=>{ if(lessonCurriculumId) startQuiz(lessonCurriculumId
  *   diagnose / teach / evaluate / adapt 自动发；practice 等「开始练习 / 下一题」；answer 等孩子作答（或要提示）。
  * 每条命令一个 commandId，失败重试原样重发同一条（服务端按 commandId 幂等：成功过的回同一个结果、挂起的只重写事件）。
  * 孩子 / 语言在开局时定死（kid 跟着命令走，换了孩子旧工作流就不是 TA 的了）；迟到的回包按 wf 对象认，不是当前这一场就丢。 */
+const WF_IDLE_MS=5*60*1000;   // 名额满时，闲了这么久的「还在进行」才当成被丢下的关掉
 let wf=null;   // { id, cid, lang, kid, view, say:{kind,text}|null, fb:html, busy, cmds:{commandId→重发函数}, again, draft, startId }
 const wfNewId=()=>"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,10);
 const withKidParam=(p,kid)=>kid ? p+(p.includes("?")?"&":"?")+"kid="+encodeURIComponent(kid) : p;
@@ -4268,7 +4269,7 @@ $("wfQuit").onclick=()=>{
 };
 $("wfGoBtn").onclick=()=>{ if(lessonCurriculumId) wfStart(lessonCurriculumId); };
 /* 切界面语言：工作流本身的语言开局时定死，这里只重画界面文案 */
-function wfLangChanged(){ if(wf){ $("wfTitle").textContent=wfTitleText(wf.cid); wfRender(); } }
+function wfLangChanged(){ if(wf){ $("wfTitle").textContent=wfTitleText(wf.cid); wfRender(wf.busy ? t(wf.id ? "wfThinking" : "wfStarting") : undefined); } }
 
 /* 开局。startId：重试同一次开局时沿用（服务端按它幂等，回包丢了重试不会多开一个）。
  * 429 CAPACITY（这个孩子 3 个 / 这家 6 个还开着）：界面没有「接着做」，开着的多半是关页面 / 掉线留下的——关掉这个孩子开着的再开一次 */
@@ -4282,18 +4283,22 @@ async function wfStart(cid, startId, cleaned){
   try{
     v=await api("/api/tutor/workflow",{ method:"POST", body:Object.assign({ curriculumId:cid, lang:s.lang, commandId:s.startId }, s.kid?{ kid:s.kid }:{}) });
   }catch(err){
-    if(wf!==s || err.silent) return;
+    if(wf!==s) return;
+    if(err.silent){ s.busy=false; s.fb=wfErrHtml("", ()=>wfStart(cid, cfg.lang===s.lang ? s.startId : null)); return wfRender(); }   // 401 等：已经弹过登录，别停在「准备中」
     const code=err.data&&err.data.code;
-    if(code==="CAPACITY" && !cleaned){
+    if(code==="CAPACITY" && !cleaned && /per child/.test(String(err.data && err.data.error))){
+      let closed=0;
       try{
         const items=(await api(withKidParam("/api/tutor/workflow", s.kid))).items||[];
-        await Promise.all(items.filter(x=>x.status==="active").map(x=>wfClose(x.workflowId, s.kid)));
+        const idle=items.filter(x=>x.status==="active" && Date.now()-x.updatedAt > WF_IDLE_MS);
+        await Promise.all(idle.map(x=>wfClose(x.workflowId, s.kid)));
+        closed=idle.length;
       }catch(_){ /* 清不掉就照常报错 */ }
-      if(wf===s) return wfStart(cid, null, true);
-      return;
+      if(wf===s && closed) return wfStart(cid, null, true);
+      if(wf!==s) return;
     }
     s.busy=false;
-    s.fb = code==="NO_PRACTICE" || err.status===400 ? wfErrHtml(wfErrMsg(err), null) : wfErrHtml(wfErrMsg(err), ()=>wfStart(cid, s.startId));
+    s.fb = code==="NO_PRACTICE" || err.status===400 ? wfErrHtml(wfErrMsg(err), null) : wfErrHtml(wfErrMsg(err), ()=>wfStart(cid, cfg.lang===s.lang ? s.startId : null));
     wfRender();
     return;
   }
@@ -4311,8 +4316,9 @@ async function wfSend(s, cmd, again){
   let r;
   try{ r=await api("/api/tutor/workflow/"+s.id+"/command",{ method:"POST", body:Object.assign({}, cmd, s.kid?{ kid:s.kid }:{}) }); }
   catch(err){
-    if(wf!==s || err.silent) return null;
+    if(wf!==s) return null;
     s.busy=false;
+    if(err.silent){ s.fb=wfErrHtml("", again); wfRender(); return null; }   // 401 等：登录框已经弹了，登回来点「再试一次」原样重发
     if(err.status===404){ s.view=null; s.say=null; s.fb=wfErrHtml(t("wfGone"), ()=>wfStart(s.cid), t("wfAgain")); }
     else if(err.status===409) s.fb=wfErrHtml(t("wfOutOfSync"), ()=>wfRefresh(s));
     else s.fb=wfErrHtml(wfErrMsg(err), again);
@@ -4338,7 +4344,7 @@ async function wfRefresh(s){
   if(s!==wf) return;
   s.busy=true; wfRender(t("wfThinking"));
   try{ s.view=await api(withKidParam("/api/tutor/workflow/"+s.id, s.kid)); }
-  catch(err){ if(wf!==s || err.silent) return; s.busy=false; s.view=null; s.fb=wfErrHtml(t("wfGone"), ()=>wfStart(s.cid), t("wfAgain")); return wfRender(); }
+  catch(err){ if(wf!==s) return; s.busy=false; if(err.silent){ s.fb=wfErrHtml("", ()=>wfRefresh(s)); return wfRender(); } s.view=null; s.fb=wfErrHtml(t("wfGone"), ()=>wfStart(s.cid), t("wfAgain")); return wfRender(); }
   if(wf!==s) return;
   s.busy=false; s.fb="";
   wfAuto();
@@ -4400,7 +4406,8 @@ function wfRender(busyText){
   const v=s.view, box=$("wfBody");
   $("wfBadge").textContent = v && v.limits ? `✓ ${v.correct||0} / ${v.limits.targetCorrect}` : "";
   const pendingGo = v && v.pending ? s.cmds[v.pending.commandId] : null;
-  if(v && v.pending && !busyText && !s.fb) s.fb=wfErrHtml(t("wfSaveFail"), pendingGo || (()=>wfRefresh(s)));
+  if(v && v.pending && !busyText && !s.fb)
+    s.fb = pendingGo ? wfErrHtml(t("wfSaveFail"), pendingGo) : wfErrHtml(t("wfOutOfSync"), ()=>wfStart(s.cid), t("wfAgain"));
   let h=s.fb?`<div id="wfFb">${s.fb}</div>`:"";   // 反馈在最上：「不太对，我们看看…」后面紧跟老师的补救提示
   if(s.say) h+=`<div class="wfSay ${s.say.kind||""}"><span class="who">${escapeHtml(t("wfWho"))}</span>${tutorRich(s.say.text)}</div>`;
   const q=v && v.question;
