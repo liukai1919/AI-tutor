@@ -5,11 +5,10 @@
  *   - 临时目录当 YY_DATA_DIR（跑完删掉），预写 .migrated-from-app 跳过「从 app 目录接管旧数据」；
  *   - YY_DEMO=1：不探测、不启用任何 AI 引擎，只吃随包的课程包 / 卷包 / 题库；
  *   - 随机空闲端口；
- *   - 题库优先拷仓库根目录的 qbank.json（本机有），没有就拷 demo/qbank.json（入库的 BC.* 种子）；
+ *   - 题库只拷入库的 demo/qbank.json（BC.* 种子），不读仓库根目录的个人题库；缺了直接报错（见 ./test_fixtures.mjs）；
  *   - REGISTRATION_CODE=iso，让测试能注册第二个家庭（服务器默认只放第一位家长自助注册）。
  *
- * 和 tools/regress_server.mjs 里的那套是同一思路，抽出来是为了让新脚本别再复制一遍。
- * regress_server.mjs 本身没动。
+ * 数据目录的准备和 tools/regress_server.mjs、tools/test_quiz_flow.mjs 共用 ./test_fixtures.mjs。
  */
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -17,6 +16,7 @@ import os from "node:os";
 import net from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { prepareIsolatedDataDir } from "./test_fixtures.mjs";
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -28,13 +28,9 @@ const freePort = () => new Promise((res, rej) => {
 export async function launch(opts = {}) {
   const prefix = opts.prefix || "yy-iso-";
   const DATA = fs.mkdtempSync(path.join(os.tmpdir(), prefix));
-  fs.mkdirSync(path.join(DATA, "data"), { recursive: true });
-  fs.writeFileSync(path.join(DATA, ".migrated-from-app"), prefix + "\n");
-  fs.writeFileSync(path.join(DATA, "config.json"), "{}\n");
-  let qbankFrom = null;
-  for (const cand of [path.join(ROOT, "qbank.json"), path.join(ROOT, "demo", "qbank.json")]) {
-    if (fs.existsSync(cand)) { fs.cpSync(cand, path.join(DATA, "qbank.json")); qbankFrom = cand; break; }
-  }
+  let qbankFrom;
+  try { qbankFrom = prepareIsolatedDataDir(DATA, { marker: prefix }).from; }
+  catch (e) { fs.rmSync(DATA, { recursive: true, force: true }); throw e; }
   const PORT = await freePort();
   const base = `http://127.0.0.1:${PORT}`;
   const env = { ...process.env, YY_DATA_DIR: DATA, PORT: String(PORT), YY_DEMO: "1", YY_SAVE_RETRY_MS: "300", REGISTRATION_CODE: "iso", ...(opts.env || {}) };

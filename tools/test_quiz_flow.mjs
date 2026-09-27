@@ -17,6 +17,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { createRequire } from "node:module";
 import { launch, makeChecker, ROOT, sleep } from "./lib/isolated_server.mjs";
+import { prepareIsolatedDataDir } from "./lib/test_fixtures.mjs";
 
 const { check, summary } = makeChecker();
 const until = async (fn, ms = 5000) => { for (let i = 0; i < ms / 20; i++) { if (await fn()) return true; await sleep(20); } return false; };
@@ -342,10 +343,7 @@ try {
 console.log("D  in-process server.js: clear, regenerate (deterministic stub), play");
 const DATA = fs.mkdtempSync(path.join(os.tmpdir(), "yy-quizflow-inproc-"));
 try {
-  fs.mkdirSync(path.join(DATA, "data"), { recursive: true });
-  fs.writeFileSync(path.join(DATA, ".migrated-from-app"), "quizflow\n");
-  fs.writeFileSync(path.join(DATA, "config.json"), "{}\n");
-  for (const cand of [path.join(ROOT, "qbank.json"), path.join(ROOT, "demo", "qbank.json")]) if (fs.existsSync(cand)) { fs.cpSync(cand, path.join(DATA, "qbank.json")); break; }
+  prepareIsolatedDataDir(DATA, { marker: "quizflow" });
   Object.assign(process.env, { YY_DATA_DIR: DATA, YY_DEMO: "1", YY_SAVE_RETRY_MS: "300", REGISTRATION_CODE: "iso" });
   const require = createRequire(import.meta.url);
   const log = console.log; console.log = () => {};   // server.js 启动日志太吵

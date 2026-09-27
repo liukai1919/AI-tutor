@@ -16,8 +16,8 @@
  *   G  无引擎时：自由提问 / FSA / 完整报告明确 503，不是崩溃
  *   H  重启后与磁盘一致
  *
- * 前提：data/lessons/en、data/unit-tests/en/4-number.json 和一份题库（根目录 qbank.json 或 demo/qbank.json）。
- * 缺题库时 C 组跳过。
+ * 前提：data/lessons/en、data/unit-tests/en/4-number.json 和入库的 demo/qbank.json（只用它，不读根目录个人题库；
+ * 缺了 launch 直接报错）。拷进来的题库里没有可用条目时 C 组跳过。
  */
 import path from "node:path";
 import { launch, makeChecker } from "./lib/isolated_server.mjs";
