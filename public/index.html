@@ -870,10 +870,10 @@ const I18N = {
     coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学", skillsGroup:"🧩 技能图谱预览（设计草稿）",
     fixNotHere:"要补的那个技能在别的年级，先切过去再练。",
     dataLabel:"学习数据",
-    dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库和问答记录一起删掉。",
+    dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库、问答记录和「和老师一起练」的记录一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
     clearProgressConfirm:"确定清空学习进度吗？\n\n所有知识点会变回「还没学」，家长报告归零。\n讲过的课、FSA 卷和闯关题库保留，仍可重播 / 重做。",
-    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷、闯关题库和问答记录会全部删除，不可恢复！",
+    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷、闯关题库、问答记录和「和老师一起练」的记录会全部删除，不可恢复！",
     clearDone:"已清空 ✓",
     cancel:"取消", save:"保存",
     tabAsk:"出题讲课", tabLearn:"跟大纲学", tabTutor:"问老师",
@@ -1094,10 +1094,10 @@ const I18N = {
     coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books", skillsGroup:"🧩 Skill graph preview (design draft)",
     fixNotHere:"That skill lives in another grade — switch to it first.",
     dataLabel:"Learning data",
-    dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too, plus Ask-a-tutor history.",
+    dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too, plus Ask-a-tutor history and tutor-practice records.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
     clearProgressConfirm:"Reset all learning progress?\n\nEvery topic goes back to New and the parent report resets.\nSaved lessons, FSA sets and quiz banks are kept — still replayable.",
-    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets, quiz banks and Ask-a-tutor history will be deleted. This cannot be undone!",
+    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets, quiz banks, Ask-a-tutor history and tutor-practice records will be deleted. This cannot be undone!",
     clearDone:"Cleared ✓",
     cancel:"Cancel", save:"Save",
     tabAsk:"Explain a problem", tabLearn:"Learn (BC)", tabTutor:"Ask a tutor",
@@ -4862,7 +4862,7 @@ async function clearData(all){
   try{
     const del=p=>api(withKid(p),{method:"DELETE"}).catch(err=>{ if(err.status!==404) throw err; });
     await del("/api/progress");
-    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/unit-test/sets"); await del("/api/qbank"); await del("/api/tutor/history"); }
+    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/unit-test/sets"); await del("/api/qbank"); await del("/api/tutor/history"); await del("/api/tutor/learning"); }
     const old=t(all?"clearAll":"clearProgress");
     btn.textContent=t("clearDone");
     setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);

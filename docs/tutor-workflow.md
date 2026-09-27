@@ -279,7 +279,7 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
   换个说法的泄露（「再看看第二个」）仍拦不住，和孩子在「问老师」里贴一道带选项的题是同一个限度。
 - **评分**：`createAnswerGrader()`；写字母、带单位、写法不同（`0.50` 对 `0.5`）都是 uncertain，换下一题、不算错。从不给误因。
 - **学习事件**：每个孩子一个 `createMemory` + `createFileStore`，rootDir = `data/kids/<kid>/learning/`（第一次用时建）。孩子被删时随整个目录归档为 `_deleted-…`；已删的孩子不会被重建目录（memory 读写 → STORE_FAILED `STORE_IO`）。
-  「清空全部记录」现在**不清**这里（界面片一起做）。进度 / 报告 / 掌握度都不读它。
+  「清空全部记录」经 `DELETE /api/tutor/learning?kid=`（家长专属，#63，**不看工作流开关**）先关掉这个孩子的工作流再删这里的文件。进度 / 报告 / 掌握度都不读它。
 - **模型**：`tutorService.agentAsk` 按 `providerByTask.tutor` → provider → 自动顺序选引擎，账本任务名仍是 `tutor` / `tutor:classify`。家庭「孩子只给提示」**不强制**到工作流：首课 explain-concept 要讲解（answer 模式），但工作流从不把答案键交给模型，提示 / 补救步本来就强制 hint。
 - **限速 / 引擎**：只有**真的会问模型**的 teach / hint 才先查引擎（没有 → 503 `noEngine`，不执行）并扣每账号每分钟 `tutorWorkflow.perMinute`（默认 6，429 `RATE_LIMITED`）。
   不扣也不查的（`willAskModel`）：已经成功过的命令原样重放（拿缓存）、这个工作流有命令在途（BUSY / 双击共享）、有挂起（原命令重发不再问模型，别的命令 PENDING_OPERATION）、
@@ -301,4 +301,4 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
 - 老师的话（小课、提示、补救）一个气泡，过 `public/rich-text.js` 排版；题面同样。对 / 看不懂 / 不太对的反馈在最上面，「不太对」一直留到补救提示和再答。
 - 每条命令一个 commandId；失败（HTTP 错误或 `ok:false`）显示原因或固定模板 + 「再试一次」，原样重发同一条。404（过期 / 被关）→ 提示重新开始；429 / 503 有各自文案。
 - 孩子和语言在开局时定死（家长替选中的孩子练，命令一直带那个 kid）；迟到的回包按这一场的对象认。✕ 退出时对还在进行的工作流发 DELETE（练过题会先确认）；做完的留给 TTL。
-- 不显示策略；不接进度 / 报告；「清空全部」不清学习事件（仍待做）。
+- 不显示策略；不接进度 / 报告。⚙️「清空全部」连学习事件一起删（`DELETE /api/tutor/learning`）。
