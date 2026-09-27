@@ -5,12 +5,14 @@
 ```
 lib/ai/harness/index.js    单智能体循环 createHarness
 lib/ai/harness/replay.js   确定性回放 Provider createReplayModel
+lib/ai/skills/index.js     内置教学 Skill 目录（#30，Phase 4a）：TutorAgent 两段提示词的来源
 lib/ai/tutor/index.js      TutorAgent：预闸 + 语义分类接缝 + Harness + 结构化校验
 tools/test_harness.mjs     Harness 单测（72 项）
 tools/eval_tutor.mjs       TutorAgent 回放 eval（68 项，其中 46 条中英用例在 tools/fixtures/tutor_eval.json）
+tools/test_skills.mjs      Skill 目录单测 + 真实 TutorAgent 两段请求核对（47 项）
 ```
 
-两个脚本都不起服务器、不读 `data/`、不调任何真实模型，零成本。
+这几个脚本都不起服务器、不读 `data/`、不调任何真实模型，零成本。
 
 ## 1. Harness 入口契约
 
@@ -85,7 +87,29 @@ const r = await agent.ask(ctx, { question, lang: "zh" | "en", mode: "answer" | "
 
 「学术」在本阶段按 #19 的决定取最窄：只辅导数学；其它学科礼貌拒答并引导回数学。放宽只需改 `REFUSAL_TEMPLATE` 和提示词。
 
-提示词见 `TUTOR_SYSTEM` / `CLASSIFIER_SYSTEM`：问题放在 user 消息的 JSON 字段里当数据，工具结果也是数据。
+提示词见 `TUTOR_SYSTEM` / `CLASSIFIER_SYSTEM`：问题放在 user 消息的 JSON 字段里当数据，工具结果也是数据。两份原文从 #30 起放在 Skill 目录里（见 §2.1），tutor 模块照旧导出这两个名字，内容与 Phase 3 逐字相同。
+
+### 2.1 内置 Skill 目录（#30，Phase 4a）
+
+```js
+const { getSkill, listSkills, composeSkills, selectTutorSkills, SkillError } = require("./lib/ai/skills/index.js");
+getSkill("math-tutor");                  // 冻结的 { id, version, stage, base, description, instructions }；未知 → null
+listSkills();                            // 每次新数组：[math-tutor, math-scope-classifier]
+composeSkills(["math-tutor"]);           // 冻结的 { stage, ids, skills:[{id,version}], system }
+selectTutorSkills();                     // 冻结的 { tutor, classifier }，TutorAgent 构造时取一次
+```
+
+| Skill | stage | 用在哪 |
+|---|---|---|
+| `math-tutor` v1 | tutor | Harness 作答回合的 system（= `TUTOR_SYSTEM`） |
+| `math-scope-classifier` v1 | classifier | 每次作答前语义分类的 system（= `CLASSIFIER_SYSTEM`） |
+
+- **Skill 只是文本**：没有函数、工具名单、权限字段。TutorAgent 能调哪两个工具、预闸 / 分类 / 结果校验怎么判、拒答用哪条模板、身份快照、取消和共享总时限，全部还在 `lib/ai/tutor` 与 `lib/ai/harness`，换哪个 Skill 都不会多给能力。
+- **目录不可污染**：内部用 `Map` 查找，`"__proto__"` / `"toString"` 这类原型链名字、`Object.prototype` 上后加的属性都查不到；Skill 对象冻结，`listSkills` 每次返回新数组，`composeSkills` 的结果深冻结。
+- **组合规则**：`ids` 必须是真数组、1–32 个、元素全是字符串（空位、数组样对象、Set 都拒绝，只按下标读一遍）；去重保序；恰好一个 base Skill 且排第一；所有 Skill 同一个 stage。`system` = 按顺序空行拼接，单个 Skill 时就是原文。错误是带 `code` 的 `SkillError`：`INVALID_SKILLS` / `UNKNOWN_SKILL` / `INVALID_COMPOSITION` / `INVALID_OPTIONS`；读数组时的意外（撤销的 Proxy、getter 抛错）也收成 `INVALID_SKILLS`，错误信息只回显形如 `math-tutor` 的普通 id。
+- `selectTutorSkills` 本片**不接受任何选项**：只认不传或没有任何自有键（含 Symbol、不可枚举）的纯对象，数组、Date、原型上带字段的对象都 `INVALID_OPTIONS`，不悄悄忽略。两段组合在模块加载时就组好冻结，每次返回同一份；按教学策略（提示、讲解、苏格拉底、错误诊断……）选择组合是 #31。
+- `createTutorAgent` 返回的对象多了 `skills: { tutor: [...ids], classifier: [...ids] }`（副本），方便 trace / 调试；`ask` 的入参和结果不变。
+- 兼容性由 `tools/test_skills.mjs` 守：两份提示词和 `TURN_FORMAT` 的 sha256 钉在 fe2bdda 的值上，真实 TutorAgent 的分类请求、每个作答请求（含 hint 被退回后的修复回合）的 `system` 都核对到目录原文，answer / hint 回放结果和工具权限与 Phase 3 相同；另用 require.cache 换上桩目录重新加载 tutor，桩里的标记文本必须出现在两段请求里，证明 system 确实取自目录（tutor 退回内联常量会让这条失败）。
 
 ## 3. 回放与 eval
 
@@ -108,4 +132,4 @@ eval 用真实 `createTools` 注册表（桩 Action：任何 Action 被调都记
 - `generateOnce` 与六类固定任务不迁入 Harness（issue 写的是「若迁入」，本阶段取不迁，契约零风险）。以后要迁时，一个「单回合、零工具、validateFinal = 现有 validateX、modelRetries = 1」的 Harness run 就是它的等价物，但必须保留提示词、重试次数和 `kidTxn(keep)` 落盘在事务外的边界。
 - **还没有真实模型适配器**：要接 `runEngine` 时写一个 `model.next(req)`：把 `system` / `messages` / `tools` 拼成提示词，用 `TURN_FORMAT` 要求单个 JSON 回合，`extractJson` 解析，记账走 `runEngine`（任务名需要加进 `TASKS`，如 `tutor`、`tutor:classify`）。这是 Phase 8 的活。
 - 暴露给孩子前还需要：路由（`allow` + `resolveKid` 注入 ctx、限速、`YY_DEMO` 下禁用）、界面、家长可见的对话记录与开关、离线的分类质量评测（带人工标注的中英问题集），以及用户确认。
-- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 可以变成第一对 Skill；Phase 5（Memory）：给 TutorAgent 加只读的 `student.getProgress` 前要先定隐私边界；Phase 6（结构化辅导流程）：把 hint → answer 升级做成状态机；Phase 7（Verifier）：checks 复算是雏形；Phase 8（模型抽象）：上面的适配器和按能力路由。
+- Phase 4（Skills）：TUTOR_SYSTEM / CLASSIFIER_SYSTEM 已是第一对 Skill（#30，§2.1），按教学策略组合在 #31；Phase 5（Memory）：给 TutorAgent 加只读的 `student.getProgress` 前要先定隐私边界；Phase 6（结构化辅导流程）：把 hint → answer 升级做成状态机；Phase 7（Verifier）：checks 复算是雏形；Phase 8（模型抽象）：上面的适配器和按能力路由。
