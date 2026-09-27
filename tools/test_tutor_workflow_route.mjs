@@ -81,7 +81,8 @@ async function call(method, p, body, tok) {
 let seq = 0;
 const cid = () => "c" + (++seq);
 const start = (tok, extra) => call("POST", "/api/tutor/workflow", Object.assign({ curriculumId: CID, lang: "en", commandId: cid() }, extra || {}), tok);
-const cmd = (tok, w, body) => call("POST", `/api/tutor/workflow/${w}/command`, Object.assign({ commandId: cid() }, body), tok);
+let lastCmd = null;
+const cmd = (tok, w, body) => { lastCmd = Object.assign({ commandId: cid() }, body); return call("POST", `/api/tutor/workflow/${w}/command`, lastCmd, tok); };
 const learningFile = (familyId, kidId) =>
   path.join(srv.DATA, "data", "kids", kidId, "learning", crypto.createHash("sha256").update(JSON.stringify([familyId, kidId])).digest("hex") + ".json");
 
@@ -241,10 +242,13 @@ try {
   check("practice prompts list the choices without letters and ask for the number", askedPrompts.every(p => /\nChoices:\n• .+\n• /.test(p) && /Type the number\.$/.test(p) && !/\n[A-F]\. /.test(p)), askedPrompts);
   check("only eligible questions were used, none twice", askedPrompts.length === new Set(askedPrompts).size && askedPrompts.every(p => good.some(g => p.startsWith(g.question))), askedPrompts);
   check("limits: 5 rounds (6 eligible questions), target 3", v.limits.maxRounds === 5 && v.limits.targetCorrect === 3, v.limits);
+  const finalCmd = lastCmd;
+  r = await call("POST", `/api/tutor/workflow/${w}/command`, finalCmd, tokA);
+  check("replaying the final adapt (lost response / double click) → the same completed view", r.status === 200 && r.body.ok && r.body.view.status === "completed" && r.body.view.version === v.version, r);
+  r = await call("GET", `/api/tutor/workflow/${w}?kid=${kidA}`, undefined, parentTok);
+  check("a finished workflow stays readable (parent reloads after the kid finishes)", r.status === 200 && r.body.status === "completed" && r.body.correct === 3, r);
   r = await cmd(tokA, w, { type: "practice" });
-  check("a finished workflow is closed right away: next command → 404", r.status === 404 && r.body.code === "NOT_FOUND", r);
-  r = await call("GET", `/api/tutor/workflow/${w}`, undefined, tokA);
-  check("… and GET → 404 (the final view came back with the last command)", r.status === 404, r);
+  check("… but takes no more commands (409 ILLEGAL_COMMAND)", r.status === 409 && r.body.code === "ILLEGAL_COMMAND", r);
 
   console.log("learning events on disk");
   const lf = learningFile(familyId, kidA);
@@ -304,7 +308,13 @@ try {
   const extra = [];
   for (let i = 0; i < 2; i++) extra.push((await start(tokA)).body.workflowId);
   r = await start(tokA);
-  check("a 4th active workflow for the same kid → 429 CAPACITY", r.status === 429 && r.body.code === "CAPACITY", r);
+  check("a 4th active workflow for the same kid → 429 CAPACITY (per child; the finished one doesn't count)", r.status === 429 && r.body.code === "CAPACITY" && /per child/.test(r.body.error), r);
+  r = await call("GET", `/api/tutor/workflow?kid=${kidA}`, undefined, parentTok);
+  const listed = r.body.items || [];
+  check("GET /api/tutor/workflow lists the kid's workflows, newest first, finished one included", r.status === 200 && listed.length === 4 && listed.some(x => x.workflowId === w && x.status === "completed") && listed.every((x, i) => i === 0 || listed[i - 1].createdAt >= x.createdAt), listed.map(x => [x.workflowId, x.status]));
+  check("… parent sees plan, kid does not", listed.every(x => "plan" in x) && ((await call("GET", "/api/tutor/workflow", undefined, tokA)).body.items || []).every(x => !("plan" in x)));
+  r = await call("GET", "/api/tutor/workflow", undefined, tokC);
+  check("… a sibling only sees their own", r.status === 200 && r.body.items.every(x => x.workflowId !== w), r.body.items && r.body.items.length);
   /* 这一家现在活跃：A 3 个 + C 1 个 = 4；再给 D 开 2 个到 6，第 7 个（D 自己只有 2 个）被每家上限拦 */
   const dIds = [];
   for (let i = 0; i < 2; i++) { r = await start(tokD); dIds.push(r.body.workflowId); check("D workflow " + (i + 1), r.status === 200, r); }
@@ -322,8 +332,18 @@ try {
   for (const x of extra) await call("DELETE", `/api/tutor/workflow/${x}?kid=${kidA}`, undefined, parentTok);
 
   console.log("deleted kid");
+  /* 把这一家塞满：D 3 个 + C 2 个 + B 1 个 = 6，C 第 3 个被每家上限拦；删掉 D 之后名额立刻回来 */
+  for (let i = 0; i < 3; i++) await start(tokD);
+  for (let i = 0; i < 2; i++) await start(tokC);
   r = await start(tokB);
   const wb = r.body.workflowId;
+  r = await start(tokC);
+  check("family full (6 active) → C's 3rd start refused", r.status === 429 && /per family/.test(r.body.error), r);
+  r = await quiet(() => call("DELETE", "/api/kids/" + kidD, undefined, parentTok)).then(x => x.value);
+  check("parent deletes kid D", r.status === 200, r);
+  await new Promise(res => setTimeout(res, 30));
+  r = await start(tokC);
+  check("… D's abandoned workflows were closed with the kid: C can start again", r.status === 200, r);
   await cmd(tokB, wb, { type: "diagnose" });
   r = await cmd(tokB, wb, { type: "teach" });
   check("kid B's lesson recorded", r.status === 200 && r.body.ok && fs.existsSync(learningFile(familyId, kidB)), r);

@@ -256,7 +256,7 @@ node tools/test_verification.mjs        # #38：后置条件反例、确定性 g
 lib/ai/workflows/service.js         createWorkflowService：练习题筛选、确定性评分、按孩子分的 memory、限速、引擎检查、视图裁剪、错误码 → HTTP
 server.js                           路由：开关 → allow → 家庭开关 → 孩子 → 话题（课程条目）→ workflowService
 lib/ai/tutor/service.js             多了 agentAsk / engineReady：和「问老师」同一套选引擎和 agent 缓存
-tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 回归（95 项；其余引擎换成抛错桩，断言零调用）
+tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 回归（102 项；其余引擎换成抛错桩，断言零调用）
 ```
 
 **开关**：`config.tutorWorkflow.enabled`（默认 `false`，只认 `true`）且问老师的服务器总闸 `tutorAgent.enabled` 开、且 `YY_DEMO` 没设，否则 404 `workflowDisabled`（鉴权之前）；
@@ -265,6 +265,7 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
 | 方法 | 路径 | body / 参数 | 回包 |
 |---|---|---|---|
 | POST | `/api/tutor/workflow` | `{ curriculumId, lang, commandId, kid? }` | view |
+| GET | `/api/tutor/workflow` | `?kid=` | `{ items:[view] }`：这个孩子还在表里的（含做完未过期的），新的在前 |
 | GET | `/api/tutor/workflow/:id` | `?kid=` | view |
 | POST | `/api/tutor/workflow/:id/command` | `{ type, commandId, expectedVersion?, questionId?, answer?, kid? }` | `{ ok, code, detail, view, reply }`（§3） |
 | DELETE | `/api/tutor/workflow/:id` | `?kid=` | view（closed） |
@@ -283,8 +284,10 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
 - **限速 / 引擎**：只有**真的会问模型**的 teach / hint 才先查引擎（没有 → 503 `noEngine`，不执行）并扣每账号每分钟 `tutorWorkflow.perMinute`（默认 6，429 `RATE_LIMITED`）。
   不扣也不查的（`willAskModel`）：已经成功过的命令原样重放（拿缓存）、这个工作流有命令在途（BUSY / 双击共享）、有挂起（原命令重发不再问模型，别的命令 PENDING_OPERATION）、
   当前不允许 / 提示用完、expectedVersion 或 questionId 对不上、带了这类命令不收的字段。其它命令和 GET 不限。
-- **名额**：工作流模块自己每个孩子 3 个、整个进程 100 个；这里另加**每家同时 6 个**（429 `CAPACITY`，`per family`），免得一家开很多孩子占满进程名额。
-  一步之后 status 不再是 active（completed / ended）就**立即关掉**，不占名额；最后的 view 就在那次回包里，之后 GET / 命令 → 404。
+- **名额**（429 `CAPACITY`）：只数 **active** 的——每个孩子 3 个（`per child`）、每家 6 个（`per family`，免得一家开很多孩子占满）、整个进程账上 500 个（含做完未过期的，只防失控）。
+  工作流模块自己的名额（原本每个孩子 3、进程 100，连做完的也算）在这里放宽到 100 / 2000，由上面这几条代替。
+  做完的（completed / ended）不占名额，但**照样能读、能原样重放**（丢了回包、双击最后一步、家长刚好这时刷新都拿得到最后的 view），直到 TTL 过期或被关掉。
+  没人管的工作流：`GET /api/tutor/workflow?kid=` 列出来再 DELETE；删孩子时服务端关掉 TA 的全部工作流（`dropKid`），名额立刻还给这一家。
 - **孩子看的 view** 去掉 `plan`；家长原样。回包里仍没有答案键、作答文本、模型原文、title / goal。
 - **错误码**：WorkflowError → INVALID_INPUT / INVALID_CTX 400、NOT_FOUND 404、ILLEGAL_COMMAND / STALE / COMMAND_CONFLICT / PENDING_OPERATION 409、BUSY / LIMIT / CAPACITY 429，其它 500（`{ error, code }`）；
   一步试过但没成功（拒答、评分失败、写失败……）是 200 + `ok:false`（§3）。

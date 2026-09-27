@@ -3053,6 +3053,7 @@ const server = http.createServer(async (req, res) => {
       usersCommit(() => { users = users.filter(u => u.id !== kid.id); });
       sessionsDropUser(kid.id);
       kidData.delete(kid.id);
+      workflowService.dropKid(String(kid.familyId), kid.id).catch(() => {});   // #61：关掉 TA 的辅导工作流，名额还给这一家
       try {
         if (fs.existsSync(kidDir(kid.id))) fs.renameSync(kidDir(kid.id), path.join(KIDS_DIR, `_deleted-${kid.id}-${Date.now().toString(36)}`));
       } catch (e) { console.log("[auth] could not archive the kid's data: " + e.message); }
@@ -3150,13 +3151,14 @@ const server = http.createServer(async (req, res) => {
 
     /* 辅导工作流（#61）：关着就 404 workflowDisabled（鉴权之前就回）。开着：allow → 家庭开关 → 孩子 → workflowService。
      *   POST   /api/tutor/workflow               { curriculumId, lang, commandId, kid? } → view
+     *   GET    /api/tutor/workflow?kid=                                                  → { items:[view] }（这个孩子还在表里的，新的在前）
      *   GET    /api/tutor/workflow/:id?kid=                                               → view
      *   POST   /api/tutor/workflow/:id/command   { type, commandId, expectedVersion?, questionId?, answer?, kid? } → { ok, code, detail, view, reply }
      *   DELETE /api/tutor/workflow/:id?kid=                                               → view（closed） */
     const wfm = url.pathname.match(/^\/api\/tutor\/workflow(?:\/([^/]+)(\/command)?)?$/);
     if (wfm) {
       const [, wid, isCmd] = wfm;
-      const okMethod = !wid ? req.method === "POST" : isCmd ? req.method === "POST" : (req.method === "GET" || req.method === "DELETE");
+      const okMethod = !wid ? (req.method === "POST" || req.method === "GET") : isCmd ? req.method === "POST" : (req.method === "GET" || req.method === "DELETE");
       if (!workflowEnabled()) return send(res, 404, { error: "Not found", workflowDisabled: true });   // 关着时连 405 都不回，不暴露路由
       if (!okMethod) return send(res, 405, { error: "Method not allowed" });
       const a = allow(req, res, "student"); if (!a) return;
@@ -3169,7 +3171,8 @@ const server = http.createServer(async (req, res) => {
       const ctx = wctx(a, req.method === "POST" ? body && body.kid : url.searchParams.get("kid"));
       if (!ctx.kidId) return send(res, 400, NEED_KID_MSG);
       let r;
-      if (!wid) {
+      if (!wid && req.method === "GET") r = await workflowService.list(ctx);
+      else if (!wid) {
         const lang = body && body.lang === "en" ? "en" : "zh";
         const topic = workflowTopic(body && body.curriculumId, lang);
         if (!topic) return send(res, 400, UNKNOWN_ITEM_MSG);
