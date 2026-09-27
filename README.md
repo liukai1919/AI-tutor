@@ -176,9 +176,10 @@ Set up a local voice engine on the server machine and lessons switch to a natura
 | Chinese | [CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice), `tools/tts_server.py` | zero_shot imitation of a reference recording |
 | English | [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), `tools/kokoro_tts_server.py` | public preset voice `af_heart`, no reference audio |
 
-So the two languages don't share a voice. Also, **audio that was already generated is never regenerated**,
-and English only switched engines on 2026-09-16 — so **English lessons mix two voices** (the older clips are
-CosyVoice). That's a deliberate trade-off: regenerating would mean redoing nearly 6,000 clips.
+So the two languages don't share a voice. English switched engines on 2026-09-16, and on 2026-09-27 all
+3,000 pre-baked English clips were regenerated with `af_heart` (the same voice as the readalong project), so
+English lessons now use a single voice. The file names didn't change, since the hash is unchanged. Chinese
+stays on CosyVoice.
 
 ### Chinese: CosyVoice 2
 

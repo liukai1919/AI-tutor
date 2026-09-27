@@ -146,9 +146,9 @@ AI 只负责基于这些数字写叙事。生成一份约 1-2 分钟（走一次
 | 中文 | [CosyVoice 2](https://github.com/FunAudioLLM/CosyVoice)，`tools/tts_server.py` | zero_shot 模仿一段参考录音 |
 | 英文 | [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)，`tools/kokoro_tts_server.py` | 公开预置音色 `af_heart`，不需要参考音 |
 
-所以中英文不是同一个声音。另外**以前生成过的音频一律不重新生成**，而英文是 2026-09-16 之后
-才换的引擎——**英文课里会同时听到新旧两种声音**（老的那些是 CosyVoice 的），这是明知的取舍：
-重新生成意味着近 6000 条全部重来。
+所以中英文不是同一个声音。英文 2026-09-16 换了引擎，2026-09-27 又把预烘的 3000 句英文
+全部用 `af_heart`（和 readalong 同一个声音）重新生成，英文课现在只有一个声音；哈希没变，
+文件名也不变。中文仍是 CosyVoice。
 
 ### 中文：CosyVoice 2
 
