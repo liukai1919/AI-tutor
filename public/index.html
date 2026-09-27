@@ -111,6 +111,8 @@
   .field input,.field select{width:100%;border:2px solid var(--line);border-radius:14px;padding:12px 14px;
     font-size:16px;font-family:inherit;background:var(--soft);outline:none;color:var(--ink)}
   .field input:focus,.field select:focus{border-color:var(--brand)}
+  .field label.checkRow{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink);cursor:pointer;margin:0}
+  .field label.checkRow input{width:20px;height:20px;padding:0;margin:0;flex:0 0 auto;accent-color:var(--brand)}
   .help{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
   .modalRow{display:flex;gap:10px;margin-top:20px}
   .err{background:#fff0f0;border:2px solid #ffd0d0;color:#c0392b;border-radius:14px;padding:12px 14px;font-size:14px;margin-top:14px}
@@ -135,6 +137,21 @@
   .tabs{display:flex;gap:8px;margin:0 0 12px}
   .tabbtn{flex:1;border:2px solid var(--line);background:#fff;border-radius:16px;padding:12px 10px;font-size:15px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
   .tabbtn.on{border-color:var(--brand);color:var(--ink);background:var(--soft)}
+  /* 问老师（#55）：一问一答的对话列表，新的在下面；家长看得到「家长问」和删除 */
+  .tutorLog{display:flex;flex-direction:column;gap:10px;max-height:52vh;overflow-y:auto;margin:0 0 12px;padding:2px}
+  .tutorLog:empty{display:none}
+  .tMsg{max-width:88%;border-radius:16px;padding:10px 13px;font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+  .tMsg.q{align-self:flex-end;background:var(--soft);border:2px solid var(--line)}
+  .tMsg.a{align-self:flex-start;background:#fff;border:2px solid #e6ecff}
+  .tMsg.a.hint{border-color:#ffe2b8}
+  .tMsg.a.refusal,.tMsg.a.safety,.tMsg.a.error{border-color:#f0e4d8;color:var(--muted)}
+  .tMeta{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);margin-top:4px}
+  .tMeta:empty{display:none}
+  .tMeta .tDel{margin-left:auto;border:none;background:none;color:var(--muted);cursor:pointer;font-size:12px;padding:0 2px}
+  .tMeta .tDel:hover{color:var(--bad)}
+  .tutorTools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tutorTools select{border:2px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;background:#fff;color:var(--ink)}
+  #tutorQ{min-height:70px}
   .learnGradeSel{border:2px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;font-weight:700;background:var(--soft);color:var(--ink);outline:none}
   /* 自绘下拉：原生弹层是系统画的（白底蓝高亮），宽度还按最长选项撑——
      「Foundations of Mathematics and Pre-calculus 10」一条就能把它顶出卡片。这里只换看得见的那层。 */
@@ -410,6 +427,7 @@
   <div class="tabs hidden" id="modeTabs">
     <button class="tabbtn on" id="tabAsk" data-i18n="tabAsk">出题讲课</button>
     <button class="tabbtn" id="tabLearn" data-i18n="tabLearn">跟大纲学</button>
+    <button class="tabbtn hidden" id="tabTutor" data-i18n="tabTutor">问老师</button>
   </div>
 
   <!-- 输入区 -->
@@ -453,6 +471,27 @@
     <div id="fsaSaved" class="hidden" style="margin:0 0 12px"></div>
     <div id="learnList"></div>
     <div class="help" id="learnSource" style="text-align:center;margin-top:14px"></div>
+  </section>
+
+  <!-- 问老师（#55）：家庭在 ⚙️ 打开后才出现；孩子默认只拿到提示，家长能看能删记录 -->
+  <section class="card hidden" id="tutorCard">
+    <div class="row" style="justify-content:space-between;margin:0 0 4px">
+      <h2 class="hi" style="margin:0" data-i18n="tutorTitle">问问圆圆老师</h2>
+      <button class="btn ghost hidden" id="tutorClear" style="padding:7px 11px;font-size:13px" data-i18n="tutorClear">清空记录</button>
+    </div>
+    <p class="sub" id="tutorSub" style="margin-bottom:10px"></p>
+    <div class="tutorLog" id="tutorLog" aria-live="polite"></div>
+    <p class="help hidden" id="tutorEmpty" style="margin:0 0 10px"></p>
+    <textarea id="tutorQ" maxlength="2000" data-i18n-ph="tutorPh" placeholder="比如：为什么 1/2 和 2/4 一样大？"></textarea>
+    <div class="row tutorTools" style="margin-top:10px">
+      <select id="tutorMode" class="hidden" aria-label="mode">
+        <option value="hint" data-i18n="tutorModeHint">只给提示</option>
+        <option value="answer" data-i18n="tutorModeAnswer">讲解答案</option>
+      </select>
+      <div class="spacer"></div>
+      <button class="btn" id="tutorGo" data-i18n="tutorGo">问一问 ✨</button>
+    </div>
+    <div class="err hidden" id="tutorErr"></div>
   </section>
 
   </div><!-- /rail -->
@@ -592,6 +631,19 @@
       <div class="engineList" id="engineList"></div>
       <div class="help" data-i18n="engineHelp">列表由家里的服务器自动检测。灰色的表示那台机器上没装。</div>
       <button class="btn ghost" id="usageBtn" style="margin-top:8px;padding:10px 12px;font-size:14px">📒 <span data-i18n="usageTitle">用量账本</span></button>
+    </div>
+
+    <!-- 问老师（#55）：家庭级、存在服务器上，改了立刻生效（不等下面的「保存」） -->
+    <div class="field hidden" id="tutorField">
+      <label data-i18n="tutorFieldLabel">问老师（实验）</label>
+      <label class="checkRow">
+        <input type="checkbox" id="tutorOn" /> <span data-i18n="tutorOnLabel">让孩子可以打字问数学问题</span>
+      </label>
+      <select id="tutorKidMode" style="margin-top:8px">
+        <option value="hint" data-i18n="tutorKidHint">孩子问时只给提示（推荐）</option>
+        <option value="answer" data-i18n="tutorKidAnswer">孩子可以要完整讲解</option>
+      </select>
+      <div class="help" id="tutorFieldHelp" data-i18n="tutorFieldHelp">问答全文存在服务器上，家长在「问老师」页能看、能删。每个账号每分钟最多问几次。</div>
     </div>
 
     <div class="field hidden" id="dataField">
@@ -770,13 +822,23 @@ const I18N = {
     coursesGroup:"高中课程（BC 10-12 年级）", booksGroup:"跟教材学", skillsGroup:"🧩 技能图谱预览（设计草稿）",
     fixNotHere:"要补的那个技能在别的年级，先切过去再练。",
     dataLabel:"学习数据",
-    dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库一起删掉。",
+    dataHelp:"清空进度只把状态点归零，讲过的课、FSA 卷和闯关题库保留；清空全部会连课、卷、题库和问答记录一起删掉。",
     clearProgress:"清空学习进度", clearAll:"清空全部记录",
     clearProgressConfirm:"确定清空学习进度吗？\n\n所有知识点会变回「还没学」，家长报告归零。\n讲过的课、FSA 卷和闯关题库保留，仍可重播 / 重做。",
-    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷、闯关题库会全部删除，不可恢复！",
+    clearAllConfirm:"确定清空全部记录吗？\n\n学习进度、讲课历史、FSA 卷、闯关题库和问答记录会全部删除，不可恢复！",
     clearDone:"已清空 ✓",
     cancel:"取消", save:"保存",
-    tabAsk:"出题讲课", tabLearn:"跟大纲学",
+    tabAsk:"出题讲课", tabLearn:"跟大纲学", tabTutor:"问老师",
+    tutorTitle:"问问圆圆老师", tutorPh:"比如：为什么 1/2 和 2/4 一样大？",
+    tutorSubHint:"打字问一道数学题。老师会给你提示，帮你自己想出来。", tutorSubAnswer:"打字问一道数学题。可以只要提示，也可以要完整讲解。",
+    tutorSubParent:"这里是 {name} 的问答记录。你也可以替 TA 问，会记成「家长问」。",
+    tutorModeHint:"只给提示", tutorModeAnswer:"讲解答案", tutorGo:"问一问 ✨", tutorThinking:"老师在想…",
+    tutorEmpty:"还没有问过问题。", tutorClear:"清空记录", tutorClearConfirm:"删掉 {name} 的全部问答记录？删了就找不回来了。",
+    tutorDelConfirm:"删掉这一条问答？", tutorDel:"删除", tutorByParent:"家长问", tutorKindHint:"提示", tutorKindAnswer:"讲解",
+    tutorBusy:"上一个问题还在想，等它答完再问。", tutorRate:"问得太快啦，歇一分钟再问。", tutorNoEngine:"现在没有可用的 AI 引擎，请家长检查设置。",
+    tutorOffNow:"「问老师」已被家长关掉了。", tutorPickKid:"先在设置里选一个孩子，再看 TA 的问答记录。",
+    tutorFieldLabel:"问老师（实验）", tutorOnLabel:"让孩子可以打字问数学问题", tutorKidHint:"孩子问时只给提示（推荐）", tutorKidAnswer:"孩子可以要完整讲解",
+    tutorFieldHelp:"问答全文存在服务器上，家长在「问老师」页能看、能删。每个账号每分钟最多问几次。", tutorSaved:"已保存", tutorHidden:"（家长问到的完整讲解。家里设的是「只给提示」，这里不显示。）", tutorServerOff:"这台服务器关掉了「问老师」（config.json 的 tutorAgent.enabled）。",
     learnTitle:"跟着 BC 大纲学",
     learnSub:"这学期该学的都在这里。点一条，圆圆老师开讲。",
     learnLoading:"正在打开大纲…",
@@ -975,13 +1037,23 @@ const I18N = {
     coursesGroup:"High school courses (BC Grades 10-12)", booksGroup:"Books", skillsGroup:"🧩 Skill graph preview (design draft)",
     fixNotHere:"That skill lives in another grade — switch to it first.",
     dataLabel:"Learning data",
-    dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too.",
+    dataHelp:"Reset progress only clears the status dots — saved lessons, FSA sets and quiz banks are kept. Erase all deletes those too, plus Ask-a-tutor history.",
     clearProgress:"Reset progress", clearAll:"Erase all records",
     clearProgressConfirm:"Reset all learning progress?\n\nEvery topic goes back to New and the parent report resets.\nSaved lessons, FSA sets and quiz banks are kept — still replayable.",
-    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets and quiz banks will be deleted. This cannot be undone!",
+    clearAllConfirm:"Erase ALL records?\n\nProgress, lesson history, FSA sets, quiz banks and Ask-a-tutor history will be deleted. This cannot be undone!",
     clearDone:"Cleared ✓",
     cancel:"Cancel", save:"Save",
-    tabAsk:"Ask a question", tabLearn:"Learn (BC)",
+    tabAsk:"Ask a question", tabLearn:"Learn (BC)", tabTutor:"Ask a tutor",
+    tutorTitle:"Ask Yuanyuan", tutorPh:"e.g. Why are 1/2 and 2/4 the same size?",
+    tutorSubHint:"Type a math question. You'll get a hint so you can work it out yourself.", tutorSubAnswer:"Type a math question. Ask for just a hint, or a full explanation.",
+    tutorSubParent:"This is {name}'s question history. You can also ask on their behalf — it's saved as \"asked by parent\".",
+    tutorModeHint:"Hint only", tutorModeAnswer:"Explain it", tutorGo:"Ask ✨", tutorThinking:"Thinking…",
+    tutorEmpty:"No questions yet.", tutorClear:"Clear history", tutorClearConfirm:"Delete all of {name}'s questions and answers? This can't be undone.",
+    tutorDelConfirm:"Delete this question and answer?", tutorDel:"Delete", tutorByParent:"asked by parent", tutorKindHint:"hint", tutorKindAnswer:"explanation",
+    tutorBusy:"Still working on your last question — wait for it to finish.", tutorRate:"That's a lot of questions — take a one-minute break.", tutorNoEngine:"No AI engine is available right now — ask a parent to check Settings.",
+    tutorOffNow:"A parent has turned Ask-a-tutor off.", tutorPickKid:"Pick a child in Settings first to see their questions.",
+    tutorFieldLabel:"Ask a tutor (experimental)", tutorOnLabel:"Let kids type math questions", tutorKidHint:"Kids get hints only (recommended)", tutorKidAnswer:"Kids may ask for full explanations",
+    tutorFieldHelp:"Questions and answers are saved on the server; parents can read and delete them on the Ask-a-tutor tab. Each account can ask a few times per minute.", tutorSaved:"Saved", tutorHidden:"(A full explanation a parent asked for. Your family is set to hints only, so it isn't shown here.)", tutorServerOff:"This server has Ask-a-tutor switched off (tutorAgent.enabled in config.json).",
     learnTitle:"Learn along the BC curriculum",
     learnSub:"Everything this term covers, in one list. Tap a topic and Ms. Yuanyuan starts the lesson.",
     learnLoading:"Opening the curriculum…",
@@ -1157,9 +1229,11 @@ function syncLayout(){
     updateTabs();
     inputCard.classList.toggle("hidden", view!=="ask");
     $("learnCard").classList.toggle("hidden", view!=="learn");
+    $("tutorCard").classList.toggle("hidden", view!=="tutor");
   }else{
     inputCard.classList.add("hidden");
     $("learnCard").classList.add("hidden");
+    $("tutorCard").classList.add("hidden");
     $("modeTabs").classList.add("hidden");
   }
 }
@@ -1181,6 +1255,7 @@ function applyLang(){
   updateEngineBadge();
   renderLegend();
   if(view==="learn" && !$("learnCard").classList.contains("hidden")) loadLearn();   // 换语言重画清单
+  if(view==="tutor" && !$("tutorCard").classList.contains("hidden")) renderTutor();
   if(!$("reportModal").classList.contains("hidden")) openReport();                  // 换语言重画报告
   if(!$("usageModal").classList.contains("hidden")) loadUsage();                    // 换语言重画账本
   // 正在看的内容也得跟着换，不然界面换了题目还是原来的语言：
@@ -1347,7 +1422,7 @@ async function api(path, opts){
     openParentGate();
     throw Object.assign(new Error(t("needParent")),{silent:true,status:403});
   }
-  if(r.status===429) throw Object.assign(new Error(t("tooMany")),{status:429});
+  if(r.status===429) throw Object.assign(new Error(t("tooMany")),{status:429,data});
   if(data.saveFailed){
     // 500 = 这一步没记上（服务端已回滚，可以重试）；200 = 内容照给、但还没落盘（服务端在后台重试）
     showSaveNotice(r.ok ? data.warning : data.error);
@@ -1375,6 +1450,7 @@ async function refreshAuth(){
     applyRoleUI();
     updateEngineBadge();
     updateTabs();
+    tutorIdentityChanged();   // 换了人（切换用户 / 家长门进出）：别让下一个人看到上一个人的问答和草稿
     buildGradeOptions();   // 书籍列表随 /api/providers 到达，重建下拉让「📚 教材」出现
     applyKidName();
     return true;
@@ -1561,6 +1637,7 @@ function applyRoleUI(){
   if(gated) $("parentBarName").textContent=me?me.name:"";
   $("engineField").classList.toggle("hidden", !parent);
   $("dataField").classList.toggle("hidden", !parent);
+  $("tutorField").classList.toggle("hidden", !parent);
   $("kidsField").classList.toggle("hidden", !parent);
   $("curKidField").classList.toggle("hidden", !(parent&&myKids.length>1));
   buildKidSelectors();
@@ -1581,6 +1658,7 @@ function setCurKid(id, rerender){
   if(gateToken()){ try{ sessionStorage.setItem(GATE_KID_SS,id); }catch(_){} }
   else { cfg.curKid=id; saveCfg(); }
   buildKidSelectors(); applyKidName();
+  if(view==="tutor" && !$("tutorCard").classList.contains("hidden")) loadTutor();   // 家长换了孩子：换成 TA 的问答记录
   if(rerender) rerender();
 }
 $("curKidSel").onchange=()=>setCurKid($("curKidSel").value);
@@ -1591,10 +1669,14 @@ $("histKid").onchange=()=>setCurKid($("histKid").value,()=>openHistory());
  * 📊 对学生也显示：点开走家长门。 */
 function updateTabs(){
   const has=(serverInfo.curriculumGrades||[]).length>0;
+  const tutor=tutorAvailable();
   const inLesson=!playerCard.classList.contains("hidden");
-  $("modeTabs").classList.toggle("hidden", !has || (inLesson && !isSplit()));   // 分栏时左栏是导航，讲课中也留着
+  $("tabLearn").classList.toggle("hidden", !has);
+  $("tabTutor").classList.toggle("hidden", !tutor);
+  $("modeTabs").classList.toggle("hidden", !(has||tutor) || (inLesson && !isSplit()));   // 分栏时左栏是导航，讲课中也留着
   $("reportBtn").classList.toggle("hidden", !has);
   if(!has && view==="learn") switchView("ask");
+  if(!tutor && view==="tutor") switchView("ask");
 }
 function providerLabel(p){
   if(p==="pack") return t("packLabel");   // 这节课来自随附课程包，不是现场生成的
@@ -3178,6 +3260,7 @@ function startLesson(l, lang, curriculumId){
   if(!isSplit()){          // 分栏时左栏留着：讲课只占右边，随时能点下一条
     inputCard.classList.add("hidden");
     $("learnCard").classList.add("hidden");
+    $("tutorCard").classList.add("hidden");
     $("modeTabs").classList.add("hidden");
   }
   $("fsaCard").classList.add("hidden");
@@ -3299,12 +3382,119 @@ function switchView(v){
   view=v;
   $("tabAsk").classList.toggle("on", v==="ask");
   $("tabLearn").classList.toggle("on", v==="learn");
+  $("tabTutor").classList.toggle("on", v==="tutor");
   inputCard.classList.toggle("hidden", v!=="ask");
   $("learnCard").classList.toggle("hidden", v!=="learn");
+  $("tutorCard").classList.toggle("hidden", v!=="tutor");
   if(v==="learn") loadLearn();
+  if(v==="tutor") loadTutor();
 }
 $("tabAsk").onclick=()=>switchView("ask");
 $("tabLearn").onclick=()=>switchView("learn");
+$("tabTutor").onclick=()=>switchView("tutor");
+
+/* ---------- 问老师（#55） ----------
+ * 服务端说了算：能不能问（serverInfo.tutor.available）、孩子是不是只给提示（kidMode）都来自 /api/providers，
+ * 孩子在 hint 模式下前端不给「讲解」选项，服务端另外强制 mode:"hint"。记录在服务器上，新的在前；这里倒过来按对话顺序画。 */
+let tutorItems=[];      // /api/tutor/history 的记录
+let tutorSending=false;
+let tutorGen=0;         // 每次换人 / 换孩子 / 重新拉取 +1：迟到的回包对不上号就丢掉
+let tutorWho="";        // 上次画的是谁的视角（账号|角色|孩子）
+function tutorKey(){ return (me?me.id:"")+"|"+(myRole||"")+"|"+curKid(); }
+function tutorIdentityChanged(){
+  const k=tutorKey(); if(k===tutorWho) return;
+  tutorWho=k; tutorGen++; tutorItems=[]; $("tutorQ").value=""; tutorErr("");
+  if(view==="tutor" && !$("tutorCard").classList.contains("hidden")) loadTutor(); else renderTutor();
+}
+function tutorInfo(){ return serverInfo.tutor||{}; }
+function tutorAvailable(){ return !!tutorInfo().available; }
+function tutorCanChoose(){ return myRole==="parent" || tutorInfo().kidMode==="answer"; }
+function renderTutor(){
+  const parent=myRole==="parent";
+  $("tutorMode").classList.toggle("hidden", !tutorCanChoose());
+  $("tutorSub").textContent = parent ? t("tutorSubParent").replace("{name}", kidDisplayName()||"—")
+    : t(tutorCanChoose()?"tutorSubAnswer":"tutorSubHint");
+  $("tutorClear").classList.toggle("hidden", !(parent && tutorItems.length));
+  const log=$("tutorLog");
+  let h="";
+  for(const it of tutorItems.slice().reverse()){
+    const who=it.by==="parent" ? " · "+t("tutorByParent") : "";
+    const kind=it.kind==="hint" ? " · "+t("tutorKindHint") : it.kind==="answer" ? " · "+t("tutorKindAnswer") : "";
+    const del=parent && !String(it.id).startsWith("local") ? `<button class="tDel" data-id="${escapeHtml(it.id)}">${escapeHtml(t("tutorDel"))}</button>` : "";
+    h+=`<div class="tMsg q">${escapeHtml(it.question)}<div class="tMeta">${escapeHtml(fmtHistTime(it.time)+who)}</div></div>`
+      +`<div class="tMsg a ${escapeHtml(it.kind||"")}">${escapeHtml(it.hidden?t("tutorHidden"):it.text)}<div class="tMeta">${escapeHtml(kind.replace(/^ · /,""))}${del}</div></div>`;
+  }
+  log.innerHTML=h;
+  log.querySelectorAll(".tDel").forEach(b=>b.onclick=()=>tutorDelete(b.dataset.id));
+  const empty=$("tutorEmpty");
+  empty.textContent = parent && !curKid() ? t("tutorPickKid") : t("tutorEmpty");
+  empty.classList.toggle("hidden", tutorItems.length>0);
+  log.scrollTop=log.scrollHeight;
+}
+function tutorErr(msg){ const e=$("tutorErr"); e.textContent=msg||""; e.classList.toggle("hidden", !msg); }
+async function loadTutor(){
+  tutorErr("");
+  if(myRole==="parent" && !curKid()){ tutorItems=[]; renderTutor(); return; }
+  const gen=++tutorGen; tutorWho=tutorKey();
+  try{ const items=(await api(withKid("/api/tutor/history"))).items||[]; if(gen!==tutorGen) return; tutorItems=items; }
+  catch(err){ if(gen!==tutorGen) return; if(!err.silent) tutorErr(err.message); }
+  renderTutor();
+}
+async function sendTutor(){
+  const q=$("tutorQ").value.trim();
+  if(!q || tutorSending) return;
+  tutorSending=true; tutorErr("");
+  const go=$("tutorGo"); go.disabled=true; go.textContent=t("tutorThinking");
+  const body=Object.assign({ question:q, lang:cfg.lang }, tutorCanChoose()?{ mode:$("tutorMode").value }:{}, kidBody());
+  const who=tutorKey();
+  try{
+    const d=await api("/api/tutor/ask",{ method:"POST", body });
+    if(who!==tutorKey()) return;   // 等回答的时候换了人 / 换了孩子：这条不属于现在这一页（服务端已按当时的孩子记好）
+    $("tutorQ").value="";
+    tutorItems.unshift({ id:d.id||("local"+Date.now()), time:Date.now(), by:myRole==="parent"?"parent":"student",
+      question:q, kind:d.kind, text:d.text, lang:d.lang });
+    renderTutor();
+  }catch(err){
+    if(err.silent) return;
+    const code=err.data&&err.data.code;
+    if(err.data&&err.data.tutorOff){ alert(t("tutorOffNow")); refreshAuth(); }   // refreshAuth 会收起这一页，所以不写进页内的错误条
+    else tutorErr(err.status===429 ? t(code==="BUSY"?"tutorBusy":"tutorRate") : code==="NO_ENGINE" ? t("tutorNoEngine") : pickLangMsg(err.message));
+  }finally{
+    tutorSending=false; go.disabled=false; go.textContent=t("tutorGo");
+  }
+}
+async function tutorDelete(id){
+  if(!confirm(t("tutorDelConfirm"))) return;
+  try{ await api(withKid("/api/tutor/history?id="+encodeURIComponent(id)),{ method:"DELETE" }); tutorItems=tutorItems.filter(x=>x.id!==id); renderTutor(); }
+  catch(err){ if(!err.silent) tutorErr(pickLangMsg(err.message)); }
+}
+$("tutorGo").onclick=sendTutor;
+$("tutorQ").addEventListener("keydown",e=>{ if(e.key==="Enter" && (e.ctrlKey||e.metaKey)){ e.preventDefault(); sendTutor(); } });
+$("tutorClear").onclick=async()=>{
+  if(!confirm(t("tutorClearConfirm").replace("{name}", kidDisplayName()||"—"))) return;
+  try{ await api(withKid("/api/tutor/history"),{ method:"DELETE" }); tutorItems=[]; renderTutor(); }
+  catch(err){ if(!err.silent) tutorErr(pickLangMsg(err.message)); }
+};
+/* ⚙️ 家长区块：家庭级设置，改了立刻存服务器（不等弹窗的「保存」） */
+function renderTutorField(){
+  const ti=tutorInfo();
+  $("tutorOn").checked=!!ti.enabled;
+  $("tutorKidMode").value=ti.kidMode==="answer"?"answer":"hint";
+  $("tutorOn").disabled=$("tutorKidMode").disabled=ti.serverAllowed===false;
+  $("tutorFieldHelp").textContent=t(ti.serverAllowed===false?"tutorServerOff":"tutorFieldHelp");
+}
+async function saveTutorField(patch){
+  try{
+    const d=await api("/api/tutor/settings",{ method:"POST", body:patch });
+    serverInfo.tutor=Object.assign({}, serverInfo.tutor, d, { available: !!(d.enabled && d.serverAllowed) });
+    $("tutorFieldHelp").textContent=t("tutorSaved");
+    setTimeout(()=>{ $("tutorFieldHelp").textContent=t("tutorFieldHelp"); },1500);
+    updateTabs();
+    if(view==="tutor" && !$("tutorCard").classList.contains("hidden")) renderTutor();
+  }catch(err){ renderTutorField(); if(!err.silent) alert(pickLangMsg(err.message)||t("genericErr")); }
+}
+$("tutorOn").onchange=()=>saveTutorField({ enabled:$("tutorOn").checked });
+$("tutorKidMode").onchange=()=>saveTutorField({ kidMode:$("tutorKidMode").value });
 $("learnGrade").onchange=()=>{
   cfg.gradeCode=$("learnGrade").value; saveCfg();
   buildGradeOptions();   // 同步设置弹窗里的年级下拉
@@ -4216,7 +4406,8 @@ function openSettings(errMsg){
   $("grade").value=effectiveGradeCode();
   $("langSel").value=cfg.lang;
   renderEngineList();
-  applyRoleUI();   // 家长专属区块的显隐 + 孩子列表
+  applyRoleUI();
+  renderTutorField();   // 家长专属区块的显隐 + 孩子列表
   const eb=$("settingsErr");
   if(errMsg){ eb.textContent=errMsg; eb.classList.remove("hidden"); } else { eb.classList.add("hidden"); }
   settings.classList.remove("hidden");
@@ -4379,7 +4570,7 @@ async function clearData(all){
   try{
     const del=p=>api(withKid(p),{method:"DELETE"}).catch(err=>{ if(err.status!==404) throw err; });
     await del("/api/progress");
-    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/unit-test/sets"); await del("/api/qbank"); }
+    if(all){ await del("/api/history"); await del("/api/fsa/sets"); await del("/api/unit-test/sets"); await del("/api/qbank"); await del("/api/tutor/history"); }
     const old=t(all?"clearAll":"clearProgress");
     btn.textContent=t("clearDone");
     setTimeout(()=>{ btn.textContent=old; btn.disabled=false; },1500);

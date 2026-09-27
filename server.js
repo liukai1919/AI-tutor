@@ -49,7 +49,7 @@ if (DATA_ROOT !== ROOT) {
   if (!fs.existsSync(migratedFlag)) {
     const carry = [
       "config.json", "qbank.json", "tts-cache",
-      path.join("data", "users.json"), path.join("data", "sessions.json"), path.join("data", "kids"),
+      path.join("data", "users.json"), path.join("data", "sessions.json"), path.join("data", "families.json"), path.join("data", "kids"),
       "history.json", "progress.json", "fsa-sets.json"   // 远古单用户版留在根目录的单例
     ];
     let copied = 0, failed = 0;
@@ -100,9 +100,10 @@ const DEFAULT_CONFIG = {
   claude: { model: "claude-opus-5", effort: "high" },
   anthropic: { apiKey: "", model: "claude-opus-5" },
   openai: { baseUrl: "", apiKey: "", model: "" },  // OpenAI 兼容（OpenRouter / xAI API 等）
-  /* 数学问答 TutorAgent 的 HTTP 入口 POST /api/tutor/ask（#53）。默认关：还没有界面、家长看不到对话记录。
-   * 引擎按 providerByTask.tutor → provider → 自动顺序选；perMinute = 每个账号每分钟能问几次。见 docs/tutor-harness.md §5 */
-  tutorAgent: { enabled: false, perMinute: 6, stepTimeoutMs: 120000, totalTimeoutMs: 300000 },
+  /* 「问老师」TutorAgent（#53 / #55）。enabled 是服务器总闸：true = 允许各家家长在 ⚙️ 里自己打开（每个家庭默认关），
+   * false = 整台服务器都没有这个功能。引擎按 providerByTask.tutor → provider → 自动顺序选；
+   * perMinute = 每个账号每分钟能问几次。见 docs/tutor-harness.md §5 */
+  tutorAgent: { enabled: true, perMinute: 6, stepTimeoutMs: 120000, totalTimeoutMs: 300000 },
   tts: {
     /* 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
      * url 可以是一个地址（所有语言都发它），也可以按语言分开配 —— 现在的分工就是后者：
@@ -1418,6 +1419,7 @@ function ttsStates(reqItems, defLang) {
  *   progress.json  知识点进度（taught/right/wrong/solid…）
  *   fsa-sets.json  FSA 模拟卷 + 每次成绩                   上限 100
  *   reports.json   家长生成的完整学习报告                   上限 50
+ *   tutor-chats.json「问老师」的问答全文（家长可看可删，#55）  上限 200
  * qbank.json（闯关题库）仍是全局共享：题按知识点缓存，多孩子复用省 LLM 费用。
  * 全部沿用原子写（.tmp + rename）。旧版根目录的三个单例文件在创建第一个孩子时自动迁入。 */
 const KIDS_DIR = path.join(DATA_ROOT, "data", "kids");
@@ -1425,8 +1427,8 @@ const HISTORY_MAX = 500;
 const FSA_SETS_MAX = 100;
 const UNIT_TESTS_MAX = 100;
 const REPORTS_MAX = 50;
-const KID_FILES = { history: [], progress: {}, fsaSets: [], unitTests: [], reports: [] };
-const KID_FILE_NAMES = { history: "history.json", progress: "progress.json", fsaSets: "fsa-sets.json", unitTests: "unit-tests.json", reports: "reports.json" };
+const KID_FILES = { history: [], progress: {}, fsaSets: [], unitTests: [], reports: [], tutorChats: [] };
+const KID_FILE_NAMES = { history: "history.json", progress: "progress.json", fsaSets: "fsa-sets.json", unitTests: "unit-tests.json", reports: "reports.json", tutorChats: "tutor-chats.json" };
 const kidData = new Map();   // kidId -> { history:[], progress:{}, fsaSets:[], unitTests:[], reports:[] }
 
 function kidDir(kidId) { return path.join(KIDS_DIR, String(kidId)); }
@@ -2493,6 +2495,35 @@ function sessionsSave() {
   } catch (e) { console.log("[sessions] could not save: " + e.message); }
 }
 
+/* 家庭级设置（#55）：目前只有「问老师」的开关和孩子模式（lib/ai/tutor/prefs.js）。
+ * 和账号一样存不下就抛：家长点了「关」却没落盘，重启后又开了，这不能算成功。 */
+const { readTutorPrefs, patchTutorPrefs, chatRecord, TUTOR_CHATS_MAX } = require("./lib/ai/tutor/prefs.js");
+const FAMILIES_FILE = path.join(DATA_ROOT, "data", "families.json");
+let families = {};   // familyId -> { tutor: { enabled, kidMode } }
+try {
+  const f = JSON.parse(fs.readFileSync(FAMILIES_FILE, "utf8"));
+  if (f && typeof f === "object" && !Array.isArray(f)) families = f;
+  else console.log("[families] data/families.json is not an object — ignoring it (every family's Ask-a-tutor stays off)");
+} catch (e) {
+  /* 还没有任何家庭设置：全按默认（问老师关）。文件在但读不了 / 坏了也按默认（宁关勿开），但要吭一声：下一次保存会覆盖它 */
+  if (e.code !== "ENOENT") console.log("[families] could not read data/families.json (" + e.message + ") — every family's Ask-a-tutor stays off until a parent saves again");
+}
+function familyTutorPrefs(familyId) { return readTutorPrefs(families[familyId] && families[familyId].tutor); }
+function familyTutorSave(familyId, prefs) {
+  const had = Object.prototype.hasOwnProperty.call(families, familyId), before = families[familyId];
+  families[familyId] = Object.assign({}, before, { tutor: prefs });
+  try {
+    fs.mkdirSync(path.dirname(FAMILIES_FILE), { recursive: true });
+    const tmp = FAMILIES_FILE + ".tmp";
+    fs.writeFileSync(tmp, JSON.stringify(families), "utf8");
+    fs.renameSync(tmp, FAMILIES_FILE);
+  } catch (e) {
+    if (had) families[familyId] = before; else delete families[familyId];
+    console.log("[families] save failed, in-memory change rolled back: " + e.message);
+    throw Object.assign(new Error(SAVE_FAIL_MSG), { status: 500, saveFailed: true });
+  }
+}
+
 function hashSecret(secret, salt) { return crypto.scryptSync(String(secret), salt, 32).toString("hex"); }
 function makeCred(secret) {
   const salt = crypto.randomBytes(16).toString("hex");
@@ -2831,7 +2862,10 @@ const tutorService = require("./lib/ai/tutor/service.js").createTutorService({
   isAvailable: id => !!(detected[id] && detected[id].available),
   settings: () => cfg.tutorAgent, log: (...m) => console.log(...m),
 });
+/* 服务器总闸（config.tutorAgent.enabled，只认 true）；每个家庭另有自己的开关（familyTutorPrefs），两个都开才能问 */
 const tutorEnabled = () => !process.env.YY_DEMO && !!(cfg.tutorAgent && cfg.tutorAgent.enabled === true);
+const tutorOpenFor = a => tutorEnabled() && familyTutorPrefs(a.user.familyId).enabled;
+const TUTOR_OFF_MSG = { error: "「问老师」还没打开，请家长在设置里打开 / Ask-a-tutor is off — a parent can turn it on in Settings", tutorOff: true };
 /* 孩子上下文：resolveKid 可能给 null，原样传给 Action，由它决定要不要孩子（kidRequired 400 由 Action 抛） */
 const actx = (a, kidRaw) => ({ kidId: resolveKid(a, kidRaw), role: a.role, userId: a.user.id });
 async function runAction(res, fn) {
@@ -2996,7 +3030,9 @@ const server = http.createServer(async (req, res) => {
         packedLessons: lessonPackCount(), packedUnitTests: unitPackCount(),
         curriculumGrades: curriculumGrades(), curriculumCourses: curriculumCourses(), curriculumBooks: curriculumBooks(),
         curriculumSkillsPreviews: curriculumSkillsPreviews(),
-        role: a.role, user: publicUser(a.user)
+        role: a.role, user: publicUser(a.user),
+        /* 「问老师」入口（#55）：available = 服务器总闸和本家庭开关都开；kidMode 决定孩子端有没有「讲解」选项 */
+        tutor: Object.assign({ available: tutorOpenFor(a), serverAllowed: tutorEnabled() }, familyTutorPrefs(a.user.familyId))
       };
       if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
       return send(res, 200, resp);
@@ -3007,13 +3043,65 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/tutor/ask" && req.method === "POST") {
       if (!tutorEnabled()) return send(res, 404, { error: "Not found", tutorDisabled: true });
       const a = allow(req, res, "student"); if (!a) return;
+      if (!tutorOpenFor(a)) return send(res, 403, TUTOR_OFF_MSG);
       let body;
       try { body = JSON.parse((await readBody(req, 16 * 1024)).toString("utf8")); }
       catch (_) { return send(res, 400, { error: "请求格式不对 / Malformed request", code: "INVALID_INPUT" }); }
+      const ctx = actx(a, body && body.kid);
+      /* 孩子问、家里设的是「只给提示」→ 强制 hint（任何教学策略下 TutorAgent 都只出提示）；家长自己问不受限 */
+      const forceMode = a.role === "student" && familyTutorPrefs(a.user.familyId).kidMode === "hint" ? "hint" : undefined;
       const ac = new AbortController();
       res.on("close", () => { if (!res.writableFinished) ac.abort(); });
-      const r = await tutorService.ask(actx(a, body && body.kid), body, { signal: ac.signal });
-      return send(res, r.status, r.body);
+      const r = await tutorService.ask(ctx, body, { signal: ac.signal, forceMode });
+      /* 对话记录（#55）：真的问到了（200）且有孩子上下文才记；存不下也照样把回答给出去（keep + saveWarn） */
+      let saveErr = null;
+      /* userById：问的这几分钟里家长可能删了这个孩子，别在归档之外重建 TA 的目录 */
+      if (r.status === 200 && ctx.kidId && !ac.signal.aborted && userById(ctx.kidId)) {
+        const rec = chatRecord({ id: newRecId(), time: Date.now(), role: a.role, question: r.asked.question, reply: r.body, mode: r.asked.mode });
+        saveErr = kidTxn(() => {
+          const list = kd(ctx.kidId).tutorChats;
+          list.unshift(rec);
+          if (list.length > TUTOR_CHATS_MAX) list.length = TUTOR_CHATS_MAX;
+          kidSave(ctx.kidId, "tutorChats");
+        }, { keep: true });
+        r.body.id = rec.id;
+      }
+      return send(res, r.status, Object.assign(r.body, saveWarn(saveErr)));
+    }
+
+    /* 「问老师」家庭设置（#55，家长）：{ enabled, kidMode }；serverAllowed = 服务器总闸 */
+    if (url.pathname === "/api/tutor/settings" && (req.method === "GET" || req.method === "POST")) {
+      const a = allow(req, res, "parent"); if (!a) return;
+      if (req.method === "POST") {
+        let body;
+        try { body = JSON.parse((await readBody(req, 4 * 1024)).toString("utf8")); } catch (_) { body = null; }
+        const next = patchTutorPrefs(familyTutorPrefs(a.user.familyId), body);
+        if (!next) return send(res, 400, { error: "请求格式不对 / Malformed request", code: "INVALID_INPUT" });
+        familyTutorSave(a.user.familyId, next);
+      }
+      return send(res, 200, Object.assign(familyTutorPrefs(a.user.familyId), { serverAllowed: tutorEnabled() }));
+    }
+
+    /* 「问老师」对话记录（#55）：孩子看自己的、家长看选中的孩子（?kid=）；删只给家长（?id= 删一条，不带删全部）。
+     * 功能关着也能看 / 删已有的记录（家长关掉之后还得能清） */
+    if (url.pathname === "/api/tutor/history" && (req.method === "GET" || req.method === "DELETE")) {
+      const a = allow(req, res, req.method === "DELETE" ? "parent" : "student"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      if (req.method === "GET") {
+        /* 家里设的是「只给提示」时，孩子看不到家长替 TA 问来的完整讲解正文（家长自己看得到） */
+        const hideAnswers = a.role === "student" && familyTutorPrefs(a.user.familyId).kidMode === "hint";
+        const items = hideAnswers
+          ? kd(kidId).tutorChats.map(x => x.kind === "answer" ? Object.assign({}, x, { text: "", hidden: true }) : x)
+          : kd(kidId).tutorChats;
+        return send(res, 200, { items });
+      }
+      const id = url.searchParams.get("id");
+      const list = kd(kidId).tutorChats;
+      const keep = id ? list.filter(x => x.id !== id) : [];
+      if (id && keep.length === list.length) return send(res, 404, { error: "Not found" });
+      kidTxn(() => { kd(kidId).tutorChats = keep; kidSave(kidId, "tutorChats"); });
+      return send(res, 200, { ok: true, removed: list.length - keep.length });
     }
 
     /* 用量账本（家长专属）：讲课/出题/报告各花了多少次调用、token、时间、美元，
