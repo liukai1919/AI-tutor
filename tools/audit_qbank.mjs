@@ -19,13 +19,33 @@
  *      ensureQuizBank 只给「没做过的题不足 4 道」的难度级补题，所以没被剔的题库不会动
  *
  * 账本任务名 audit:quiz，和生成时的 judge:quiz 分开记。
+ *
+ * 英文逐题审稿 v2（#45；不带 --review v2 时上面的老行为一字不变）：
+ *   node tools/audit_qbank.mjs --review v2 --skill YY.MATH.FRAC.EQUIV.VISUAL --judge claude
+ *     只审 --skill 点名条目的英文题库（原样的条目 id，逗号分隔；不认识 / 没有英文题库 → 报错）。
+ *     续跑能接着做的 draft → 题库里没有「当前版本证据」（此刻内容 + brief / 课文 / 规则 / rubric + 这个审稿引擎的有效非 dry pass）
+ *     的已有题逐题送审 → revise 的有限修复、复审 → 通过的修复版原地替换（保 qid 和孩子的 usedAt）。
+ *     审不过（needs-human / 耗尽 / 出错 / 超时 / 硬校验不过）的已有题**留在题库里不删**，只是没有当前通过证据：
+ *     默认导出照旧带着它，`export_apple --review v2` 不导出它。audit-report.jsonl 在 v2 里不用、不算已审。
+ *   可选：--judge [<引擎>]（也是修复引擎；点名 / 配了路由就必须可用）  --concurrency N（1-6）  --review-timeout 秒
+ *         --dry（真的送审，结论记在 qbank-review/dry/，不改题库、以后的正式运行不复用）
+ *     不能和 --prefix / --limit / --provider 一起用。账本任务名 judge:quiz / quiz:repair。
+ *   退出码：0 = 点名题库的每道题都有当前通过证据；1 = 有故障（旁路记录 / 题库写盘 / 发布失败等）；2 = 没故障但没做完。
  */
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { parseCli, failArgs, exitWhenDone, runAuditV2 } from "./lib/qbank_v2_cli.mjs";
+
+/* 先查参数再加载 server.js（--review / --skill 的检查见 qbank_v2_cli.mjs） */
+const CLI = parseCli(process.argv.slice(2), "audit");
+if (CLI.errors.length) { failArgs(CLI.errors, "用法见 tools/audit_qbank.mjs 文件头。"); process.exit(1); }
 
 const require = createRequire(import.meta.url);
 const S = require("../server.js");
+if (CLI.review === "v2") exitWhenDone(await runAuditV2(S, require("../lib/ai/qbank/index.js"), CLI.v2));
+/* 下面是老流程（v1）：v2 不经过 */
+else await (async () => {
 
 const argv = process.argv.slice(2);
 const flag = n => argv.includes("--" + n);
@@ -105,3 +125,4 @@ console.log(`审了 ${stats.banks} 份：通过 ${stats.pass}，不过 ${stats.f
 console.log(`报告：${REPORT}`);
 if (!DRY && stats.dropped) console.log("下一步补齐缺口：node tools/pregen.mjs --only quiz --force --provider claude --judge");
 process.exit(0);
+})();

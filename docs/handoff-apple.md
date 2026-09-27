@@ -110,7 +110,7 @@ App 里 G4–G7 选年级即进技能视图；老的 69 节条目课降级成每
 }
 ```
 
-`tags` 和 `options` 位置对齐：正确项 `ok`，干扰项是误区 id（或 `other`）。**tags 不能下发给客户端**——`ok` 的位置就是答案。判分不看 tags，只有回补逻辑用。
+`tags` 和 `options` 位置对齐：正确项 `ok`，干扰项是误区 id（或 `other`）。内容包是离线维护 / 内容包，**按原样保留 tags**（和 qid、visual）；**孩子作答的界面 / 接口不能在作答前展示或下发 tags**——`ok` 的位置就是答案。判分不看 tags，只有判分后的误区诊断 / 回补用。Node 端的答题 HTTP（`/api/quiz/session`）本来就不下发 `answerIndex` / `explain` / `tags`，由服务端判分（qbank-standard §4）。
 
 **`visual`（2026-09-05 起，回应 issue #5）**：读图题多一个可选题图，结构和 `steps[].visual` 一样，外加可选 `step`（一格 / 一个符号代表多少）：
 

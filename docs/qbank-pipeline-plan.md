@@ -18,9 +18,9 @@
 |---|---|---|---|
 | 前置 | #42 | 隔离测试只用已跟踪的 `demo/qbank.json`（`tools/lib/test_fixtures.mjs`），不再拿根目录个人题库兜底 | 已实现，Review（PR #46） |
 | **A** | **#43** | 共用 `TeachingBrief` + 英文题图硬校验，server 薄接缝，zh 冻结 | **已实现，独立复核通过，交付 Review（见 §1）** |
-| B | #44 | 逐题 v2 审稿（pass / revise / needs-human）、报告、有限修复、稳定 draftId | **已实现，独立复核通过，交付 Review**（§2）；只有模块与 server 接缝，没接进命令行 |
-| C | #45 | pregen / audit 生产接线（选技能、`--review v2`、按 reviewKey 续跑）+ 隔离端到端 | **未实现**（§3） |
-| D | — | 真实 3 技能试点与人工终审 | **未执行**（§4）；A–C 交付后父 #8 仍不能 Done |
+| B | #44 | 逐题 v2 审稿（pass / revise / needs-human）、报告、有限修复、稳定 draftId | **已实现，独立复核通过，交付 Review**（§2）；模块与 server 接缝（命令行接线在 C） |
+| C | #45 | pregen / audit / export 生产接线（选技能、`--review v2`、按当前版本证据续跑、v2 导出资格）+ 隔离端到端 | **已实现，独立复核通过，交付 Review**（§3）；没有做任何真实运行 |
+| D | — | 真实 3 技能试点与人工终审 | **未执行**（§4，清单见 [qbank-v2-pilot.md](qbank-v2-pilot.md)）；A–C 交付后父 #8 仍不能 Done |
 
 ---
 
@@ -92,7 +92,7 @@
 
 ## 2. B：逐题审稿 v2、报告与有限修复（#44，已实现，待复核）
 
-依赖 A。**只做了模块和 server 接缝**，pregen / audit 还没有 `--review v2`（#45）；默认路径（v1 审稿、`ensureQuizBank`、zh）一字不变。
+依赖 A。本节是模块和 server 接缝；命令行接线（`--review v2`）见 §3（#45）。默认路径（v1 审稿、`ensureQuizBank`、zh）一字不变。
 
 ### 2.1 模块（`lib/ai/qbank/`，纯编排，副作用全部注入）
 
@@ -146,7 +146,7 @@
   - 超时 / 取消：每次调用只在计时器之前接收一次结果，迟到的完成被丢弃（测试里迟到的 pass 什么都没发、什么都没写）；外部 `signal` 取消后不发布。
     **限制**：`runEngine` 的适配器不认 signal，超时后引擎进程 / 请求可能继续跑、继续记账，只是结果不用。
   - **已有题审不过时题库里的原题不动**：`audit` 审出 needs-human / error / 超时 / 耗尽 / hard_failed，B 只是不写新版本、把结论和 draft 落盘——
-    原来那道题**仍在题库里、仍会被现有导出带走**。B 不删题、不下架；「当前不合格的已有题」在 v2 导出里怎么处理是 #45 要定的流程，这里不宣称它们已被排除。
+    原来那道题**仍在题库里、仍会被默认导出带走**。B 不删题、不下架；#45 定的流程：`export_apple --review v2` 不导出没有当前通过证据的题（§3.3 / §3.4），默认导出不变。
   - 旁路记录（审稿记录 / draft / 报告）里的题目一律是白名单内容，**不含 usedAt 或任何家庭 / 孩子字段**；新题追加时 usedAt 由发布接缝置 0，替换时取题库当时的值。
   - dry：记录写在 `dry/` 下、`publication: dry-run`、不复用任何记录；正式运行从不读 dry 记录。
   - 续跑（`resume`）：只收本条目 / 本题库的 draft；题库指纹没变 → 原对象；变了 → 带原 qid 重新暂存（内容变了就重审）；
@@ -166,7 +166,7 @@
   gemini / codex / grok 不传模型参数 → 未知。注入的引擎（测试替身）由调用方用 `judgeModel` / `repairModel` 声明；**对内置的 7 个引擎声明无效**，身份一律按实际配置算。
 - **并发约定**：指纹只算这一个题库、不含 `usedAt`（孩子做题不会让发布失败，替换时用发布那一刻的 usedAt）；整份 `qbank.json` 在发布时同步地从**当时的内存题库**生成，
   别的题库在审稿期间完成的写入不会被旧快照盖掉（有交错测试）。同一题库并发两次 v2：后发布的那次指纹对不上 → `publish_failed`，续跑会按新题库重新暂存。
-  **跨进程不协调**：同一个 `DATA_ROOT` 的 `qbank.json` 只能有一个进程在写（和现有的 server / pregen 约定一样）；#45 接 CLI 时要在同一进程里串行调用或沿用这个约定。
+  **跨进程不协调**：同一个 `DATA_ROOT` 的 `qbank.json` 只能有一个进程在写（和现有的 server / pregen 约定一样）；#45 的命令行在一个进程里按条目并发、同一题库不会同时跑两份，沿用这个约定。
 - 旁路目录不进 `qbank.json`、不进孩子目录；`tools/pack.mjs` 按显式清单拷文件，带不进安装包；源码模式下落在仓库根，已加进 `.gitignore`。
 
 ### 2.3 验证与边界
@@ -182,19 +182,98 @@
 
 **这些测试只证明编排对假引擎是对的**：合成的审稿结论是手写的，证明不了任何真实审稿引擎能发现这些错误，也证明不了题目在教学上正确。真实质量要看 D 的试点和人工终审。
 
-## 3. C：生产脚本接线与隔离端到端（#45，未实现）
+## 3. C：生产脚本接线与隔离端到端（#45，已实现，待复核）
 
-依赖 B。**尚未实现**，以 #45 为准（生产路径必须走 `qbankReviewV2` / `runReviewV2` 的发布接缝，不能在老的 `ensureQuizBank` / `audit_qbank` 路径上加元数据冒充）：
+依赖 B。生产路径全部走 B 的 `qbankReviewV2` / `runReviewV2`（暂存、审稿、修复、发布、旁路记录），没有在老的 `ensureQuizBank` / `audit_qbank` 路径上加元数据冒充。
+**不带 `--review v2` 时三个脚本的老行为不变**（`tools/test_qbank_cli_v1_regress.mjs` 对照改动前录的输出与落盘结果逐字比对；唯一有意的改动是导出 manifest 里 tags 那条说明，见 3.4）。
 
-- `pregen` / `audit_qbank` 支持选技能与 `--review v2`，原 v1 / zh 行为保留；续跑按有效 reviewKey（内容 + brief + 规则）而不是题库 key。
-- 端到端测：生成 → 校验 → 审稿 → 有限修复 → 存储 → export，全在临时目录，不写 Apple 真实 content、不同步仓库。
-- **导出现状**（核对过当前代码）：`export_apple` 只剥 `usedAt`，离线维护包保留 `tags` / `visual` / `qid`；这不改变孩子端答题 HTTP 的边界——`/api/quiz/session` 不下发答案 / 解析 / tags，由服务端判分（qbank-standard §4）。旧文档里「tags 永远不下发」说的是答题 API，不是离线维护包；C 只澄清文档，不自行删字段。
+### 3.1 命令（空格分隔写法；`--review=v2` 这类等号写法直接报错）
+
+```
+node tools/pregen.mjs      --review v2 --skill <id>[,<id>…] [--provider <引擎>] [--judge [<引擎>]] [--concurrency 1-8] [--review-timeout 秒] [--dry]
+node tools/audit_qbank.mjs --review v2 --skill <id>[,<id>…] [--judge [<引擎>]] [--concurrency 1-6] [--review-timeout 秒] [--dry]
+node tools/export_apple.mjs --review v2 --skill <id>[,<id>…] [--judge <引擎>] --out <目录> [--no-voice] [--dry]
+node tools/pregen.mjs      --review v1 --skill <id>[,<id>…] [老流程的其它开关]     # 老流程只做点名条目（试点对照组）
+```
+
+- `--review v1 --skill`：**老流程**（`ensureQuizBank` + 老 `--judge`）只做点名条目的课和题库、不做单元卷，给试点对照组用；不能和 `--grades / --books / --no-skills / --skills / --core / --pilot / --limit` 一起用，
+  `--only` 只能是 all / lessons / quiz、`--langs` 只能是 zh / en（写错就报错，不会变成「0 个任务、退出 0」）。
+  不写 `--review` 时 `--skill` 仍然报错，老默认一字不变。
+
+- **选条目**：`--skill` 收原样的条目 id（逗号分隔，区分大小写）；没有 `--skill`、不认识的 id、重复 id、空值都在调模型之前报错，**v2 绝不默认跑整套大纲**。
+  技能在别的年级主题里当复习题会再出现一次（`reviewFrom > 0`），v2 固定用它自己年级那份视图（brief 的年级 / 主题跟着它）；BC 大纲条目只有一份视图。
+- **只做英文闯关题库**：pregen 的 `--langs` 只能是 en、`--only` 只能是 quiz（都可以不写）；`--grades / --books / --no-skills / --skills / --core / --pilot / --limit / --force / --unit-count`、
+  audit 的 `--prefix / --limit / --provider`、任何没列出的开关都和 v2 冲突，报错。老的裸 `--skills` 开关照旧可用；`--skills <id>`（老解析器会扔掉 id、照样跑全部）现在任何模式都报错。
+  `--skill` / `--review-timeout` 不带 `--review v2` 报错；`--review` 重复（不管先写哪个值）报错。以上检查都在加载 server.js 之前做完。
+- **引擎**（选路仍是现有的 `pickProvider` / `runEngine`，只是显式要求必须兑现）：`--provider`（出题，路由键 `pregen:quiz`）、`--judge`（审稿，路由键 `judge:quiz`）。
+  命令行点名 > `config.providerByTask[任务]` > `config.provider`，**最先出现的那个不可用就报错**，不像老 `pickProvider` 那样悄悄往后落；什么都没指定才按自动顺序挑。
+  修复用审稿引擎（B 的默认）。账本任务名：pregen 的出题 `pregen:quiz`、审稿 `judge:quiz`，audit 的审稿沿用老 audit 的 `audit:quiz`，修复 `quiz:repair`。
+  审稿引擎身份按 server 的实际配置解析（claude = `config.claude.model` + `effort`）；模型不确定（比如把 claude 的 model 清空）时照样能跑，但结论**永远不复用、也不能给导出作证**（开跑时会提示）。
+
+### 3.2 每个条目怎么跑（`tools/lib/qbank_v2_cli.mjs` 的 `runItemV2`）
+
+1. **续跑**能接着做的正式 draft（`passed` 但没发出去的、`error` / `timeout` / `cancelled` / `stale`）；`needs_human` / `exhausted` / `hard_failed` / `hard_rejected` / `staging_dropped` 留给人，不自动重送。
+   协调器拒收的 draft（它要替换的题库版本已经变了、qid 撞了、暂存丢弃）标成 `superseded`（记下原状态和原因，内容留着给人看），**不再遮挡题库里的现行版本**，也不会每次都再续一遍。
+2. **审已有题**：题库里每道题按唯一口径 `QB.currentEvidence` 判断（`lib/ai/qbank/evidence.js`，协调器复用、导出也是它）——
+   - `certified`：**当前审稿引擎身份**对这道题此刻这个版本（内容 + brief / 课文 / 规则 / rubric）有有效非 dry pass，且没有任何（模型确定的）引擎对同一版本**更新的**有效不过（同一时刻按不过算；更早的不过已被这次 pass 取代）；
+   - `held`：当前引擎对这个版本判了 revise / needs-human，或被更新的不过否决——不自动重送，等人工或改内容；
+   - `unverified`：没有有效记录（没审过、内容 / 课文 / 规则 / rubric / 引擎 / 模型 / effort 变了、记录残缺或被改过、只有 dry 记录）→ 送审。
+   「有效」= 组成部分逐项重算相同、reviewKey 自洽、存的题目对得上、**三种结论都用同一个严格解析器重验**（残缺的 needs-human 不算定论）。
+   **老的「题库满了」（`quizDone`）和 `audit-report.jsonl` 在 v2 里既不读也不写，证明不了任何题。**
+   本轮续跑真正接手的 qid 不再重复送审。
+3. **出新题**（仅 pregen）：通过数不足 4 道的级别各要 4 道（每级封顶 12，和老规则一致），一次运行一批；出题引擎失败重试一次。
+   生成用和 `ensureQuizBank` 英文分支同一份请求（抽出成 `qbankEnRequest`，内容不变）经 `qbankGenerateV2` 只生成不入库，原样交给协调器：硬校验 → 暂存 → 审稿 → 只修 revise → 通过的才发布。
+4. 每个条目打印每次协调器运行的状态、逐状态计数、新增 / 替换 / 未改仍有效 / 复用记录、扣下的候选、**报告文件路径**，以及题库每级「当前审过 / 总数」。
+
+**退出码**：`1` = 有故障（旁路记录 / draft / 报告写盘失败、题库写盘或发布失败、发布后收尾写入失败、旁路读不动、意外异常）；
+`2` = 没故障但没做完（题库不齐、已有题没有当前通过证据，或有调用超时 / 出错 / 畸形结论要重试）；`0` = 点名的条目都齐了。
+被扣下等人工的**新候选题**（needs-human / 耗尽 / 硬校验不过）只报数、draft 留在 `qbank-review/drafts/`：题库已经齐了就不算没做完（它们本来就不会发布）。
+`--dry`：pregen = 只列计划（不调模型、不写任何文件），读不动旁路 → 1；audit = 真的送审，结论记在 `qbank-review/dry/`，不改题库、以后的正式运行和导出都不认；
+dry 只免掉「没发布 / 不齐」，dry 里的超时 / 出错 / 畸形结论照样是 2、读写故障照样是 1。
+
+### 3.3 已有题审不过怎么办（B 契约之上的明确流程）
+
+- **题库里的原题不删、不下架**：audit 审出 needs-human / 耗尽 / 出错 / 超时 / 硬校验不过，只是没有当前通过证据；原题仍在 `qbank.json`、孩子照常能做到、**默认导出照样带着它**。
+  修复通过的原地替换（保 qid、保孩子的 usedAt）。
+- **v2 导出不带它**（见 3.4），直到有人改了内容（新版本重审通过）或当前审稿引擎对这个版本给出 pass 且之后没有更新的不过。
+
+### 3.4 导出（`tools/export_apple.mjs`）
+
+- 默认导出不变：每题只剥 `usedAt`，离线内容 / 维护包保留 `qid` / `tags` / `visual`。
+- `--review v2 --skill …`：点名条目的**英文**题库只导出 `currentEvidence` 判为 `certified` 的题，证明它的是 `--judge`（或 `config.providerByTask["judge:quiz"]` / `config.provider`）
+  这个审稿引擎**此刻的身份**——claude 换了 model 或 effort，旧 pass 就不再算；导出不探测引擎（ollama 的模型要探测才知道 → 不确定）；**模型不确定的引擎证明不了任何题**。
+  字段 = 审稿白名单（qid / level / question / options / answerIndex / explain / tags / visual），不带 usedAt、draftId、审稿元数据；`qbank-review/` 旁路文件不进包。
+  某一级一道合格的都没有 → 这份题库整份不导出（manifest `qbankReview.banks[key].withheld` 写原因），退出码 2。没点名的题库和中文题库按默认规则导出。
+  manifest 多一个 `qbankReview`（审稿引擎身份、规则、每个题库的导出 / 排除计数，`humanApproval: "none"`），不含 draftId / reviewKey / runId。
+- **预检在删输出目录之前做完**：选条目、审稿引擎、读全部正式审稿记录（有读不动的 → 退出码 1，坏记录可能正好是某道题最新的「不过」）、逐题判资格；任何一步出错，上一份导出原样留着。
+- **输出目录保护（所有模式）**：`--out` 是源码根 / 数据根或它们的上级、或落在 `data/`、课程 / 单元卷 / 语音包、用户数据、`qbank-review/`、语音缓存里 → 报错，不删。
+- **tags 的边界**：离线内容包里保留 tags（判分后的误区诊断 / 回补要用）；孩子作答的界面 / 接口不能在作答前展示或下发 tags。Node 端的答题 HTTP（`/api/quiz/session`）本来就不下发
+  `answerIndex` / `explain` / `tags`（qbank-standard §4）。manifest 和 `docs/handoff-apple.md` 里原来「tags 绝不能下发给客户端」的说法已改成这个区分，字段一个没删。
+
+### 3.5 验证
+
+| 测试 | 内容 |
+|---|---|
+| `tools/test_qbank_cli_v2.mjs` | **真实脚本子进程**（pregen / audit_qbank / export_apple），临时 DATA_ROOT，假引擎经 `tools/lib/cli_stub_preload.mjs` 注入（内置 7 个适配器全部换成一调就抛错、探测换成空操作；预载器在加载 server.js 之前拒绝未初始化 / 不在临时目录的数据目录）。参数 / 选条目 / 引擎显式校验都在探测和调模型之前失败且不写文件；路由到配置的审稿引擎、内置名 claude 的身份（钉 model 复用、换 effort / model / 清空 model 导出不认、未知模型的旧 pass 和旧 needs-human 都重审）；生成 → 硬校验（缺图、不允许的图扣下）→ 审稿 → revise 修复复审 → 发布，审稿人看到的就是发布的（逐字段）、出题 / 审稿 / 修复同一个 brief；needs-human / 畸形结论 / 超时不发布；多次运行续跑（同 draftId / qid，只发布一次）；内容 / 课文 / 规则 / 审稿引擎变了重审、改回去不重审；导出字段往返、过时版本对照、另一个审稿引擎的更新 needs-human 否决；已有题审不过留在题库、默认导出带、v2 导出不带、修好的原地替换保 usedAt；dry 与正式分开、dry 超时非零；报告写失败 / 题库写失败 / 写完即崩的重启；过时 draft 不遮挡现行版本；两个条目并发不丢写入；导出 withheld、坏记录、输出目录保护 |
+| `tools/test_qbank_evidence.mjs` | `matchRecord` / `latestVerdict` / `currentEvidence` 逐条（dry、种类、组成部分、key 自洽、存的题目、三种结论重验、未知模型、更早 / 更新 / 同时刻的不过）、`store.listRecords` 报出坏文件、`exportV2Bank`、参数与选条目、`strictEngine`、输出目录保护（只用临时假根目录） |
+| `tools/test_qbank_cli_v1_regress.mjs` | 改动前（30752f2）录的老命令行输出 / 题库 / 审稿报告 / 导出文件哈希，逐字比对 |
+
+**这些测试只证明编排对假引擎是对的**：审稿结论由脚本按题干标记写死，证明不了任何真实审稿引擎能发现这些错误，也证明不了题目在教学上正确。真实质量要看 D。
+
+### 3.6 限制
+
+- 审稿模型不确定的引擎（claude 不钉 model、gemini / codex / grok、没探测的 ollama）：能跑、能发布本次审过的题，但每次都重审已有题，导出不认。
+- 白名单外还带别的字段的老题（内容哈希算进去了、记录里的题是白名单）拿不到可复用的证据、也不会被 v2 导出——要先人工清理字段。
+- `superseded` 的 draft 和 needs-human / 耗尽的 draft 一样只留给人看，没有自动清理。
+- 同一个 `DATA_ROOT` 仍只能有一个进程在写（B 的约定）；v2 命令行按条目并发、同一题库不会同时跑两份。
+- 超时后引擎调用可能还在后台跑、照样记账（B 的限制）；命令行结束时最多再等 3 秒就退出，不被挂着的调用拖住。
 
 ## 4. D：真实试点（未执行）
 
 A–C 交付后才考虑，需另行授权；当前只开发隔离代码与试点清单，**不把回放测试当真实质量结论**，不自动访问真实题库 / 家庭配置，不发起付费生成。
 
-- 候选（旧计划核对过、待重新确认）：`YY.MATH.FRAC.EQUIV.VISUAL`（表示是图、存量题零图）、`YY.MATH.DATA.LINE.READ`（issue #5 起源）、`YY.MATH.FLU.MULTDIV.WORD`（多步应用题、barModel 不是题图类型 → 考「不机械配图」）。
+- 候选（已在已跟踪的技能图谱里核对：g5 / g6 / g5）：`YY.MATH.FRAC.EQUIV.VISUAL`（技能的表示本身是图）、`YY.MATH.DATA.LINE.READ`（issue #5 起源）、`YY.MATH.FLU.MULTDIV.WORD`（多步应用题、barModel 不是题图类型 → 考「不机械配图」）。
+- 具体步骤、命令、对照组方法和人工验收模板：[qbank-v2-pilot.md](qbank-v2-pilot.md)（全部**未执行**）。
 - 对照口径：同技能、同数量、可比引擎，A 臂现有 `--judge`、B 臂新管线；记录人工确认的剩余错误、误报、修改量、调用数、时长；未跑的写「未跑」。
 - 真实生成、人工逐题终审、网页版作答 / 讲评检查、导出同步，都由维护者按当时的流程显式执行，不写进 agent 的自动步骤。
 

@@ -28,10 +28,35 @@
  *   node tools/pregen.mjs --dry              # 只列要做什么，不真跑
  *
  * 断点续跑：已有的默认跳过，中途 Ctrl-C 再跑一次接着做。
+ *
+ * 英文逐题审稿 v2（#45；不带 --review v2 时上面的老行为一字不变）：
+ *   node tools/pregen.mjs --review v2 --skill YY.MATH.FRAC.EQUIV.VISUAL,YY.MATH.DATA.LINE.READ --judge claude
+ *     只做 --skill 点名的条目（原样的条目 id，逗号分隔；没点名 / 不认识 / 重复 → 报错，绝不默认跑整套），只做英文闯关题库。
+ *     每个条目：续跑能接着做的 draft → 审题库里没有「当前版本证据」的已有题 → 通过数不足 4 道的级别出一批新题
+ *     → 硬校验 → 逐题审稿 → 只修 revise 的题（有上限）→ 通过的才进题库；审稿记录 / draft / 报告在 DATA_ROOT/qbank-review/。
+ *     「当前版本证据」= 这道题此刻的内容 + brief / 课文 / 规则 / rubric + 这个审稿引擎的有效非 dry pass；老的「题库满了」不算。
+ *   可选：--provider <引擎>（出题）  --judge [<引擎>]（审稿和修复；裸 --judge / 不写 = config.providerByTask["judge:quiz"] 或自动）
+ *         --concurrency N（1-8，按条目并发）  --review-timeout 秒（每次审稿 / 修复调用，默认 180）  --dry（只列计划：不调模型、不写文件）
+ *     点名的引擎、config 里配的路由必须真的可用，不可用就报错，不悄悄换人。
+ *     不能和 --grades / --books / --no-skills / --skills / --core / --pilot / --limit / --force / --unit-count 一起用；
+ *     --langs 只能是 en、--only 只能是 quiz（不写也行）。
+ *   退出码：0 = 点名的条目都齐了；1 = 有故障（旁路记录 / 题库写盘 / 发布失败等，先查）；2 = 没故障但没做完（有题要重试 / 题库不齐）。
+ *
+ * 老流程也能只做点名条目（试点对照组用；不写 --review 仍不认 --skill）：
+ *   node tools/pregen.mjs --review v1 --skill YY.MATH.FRAC.EQUIV.VISUAL --only quiz --langs en --provider claude --judge claude
+ *     课和题库只做这些条目，不做单元卷；不能和 --grades / --books / --no-skills / --skills / --core / --pilot / --limit 一起用，
+ *     --only 只能是 all / lessons / quiz，--langs 只能是 zh / en。
  */
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
+
+import { parseCli, failArgs, exitWhenDone, runPregenV2, resolveSelection } from "./lib/qbank_v2_cli.mjs";
+
+/* 先查参数再加载 server.js：写错的参数不加载题库、不探测引擎（--review / --skill 的检查见 qbank_v2_cli.mjs） */
+const CLI = parseCli(process.argv.slice(2), "pregen");
+if (CLI.errors.length) { failArgs(CLI.errors, "用法见 tools/pregen.mjs 文件头。"); process.exit(1); }
+const V2 = CLI.review === "v2";
 
 const require = createRequire(import.meta.url);
 const S = require("../server.js");   // 只借提示词和引擎适配器，require 进来不会监听端口
@@ -95,6 +120,15 @@ for (const data of sources()) {
     for (const lang of LANGS) unitJobs.push({ data, gradeKey, strand, def, lang });
   }
 }
+/* --review v1 --skill：老流程只做点名条目的课和题库（原样的条目 id，技能取它自己年级那份视图），不做单元卷——
+ * 试点对照组要和 v2 同一批技能、同样的量。不带 --skill 时这里什么都不做。 */
+const V1_SEL = CLI.v1 ? resolveSelection(S, CLI.v1.skills) : null;
+if (V1_SEL && V1_SEL.errors.length) { failArgs(V1_SEL.errors); process.exit(1); }
+if (V1_SEL) {
+  const keep = new Set(V1_SEL.selected.map(x => x.item));
+  jobs.splice(0, jobs.length, ...jobs.filter(j => keep.has(j.item)));
+  unitJobs.length = 0;
+}
 const unitFile = (gradeKey, strand, lang) => path.join(S.UNIT_PACK_DIR, lang, gradeKey + "-" + strand + ".json");
 /* done 判定从「能用」收紧为「完整」（2026-08-24 审计）：主题卷要满 8 题且 3/3/2，课程的练习要成对，
  * 题库每级要满 4 道。运行时的宽松判定（unitPackGet/qbankPlayable）保持不动——已经发出去的安装包
@@ -131,9 +165,9 @@ const cap = a => LIMIT ? a.slice(0, LIMIT) : a;
 const ONLY_CORE = flag("core");
 const ONLY_PILOT = flag("pilot");
 const skillOk = j => !j.item.skill || ((!ONLY_CORE || j.item.skill.core !== false) && (!ONLY_PILOT || !!j.item.skill.diag));
-const todoLessons = cap(doLessons ? jobs.filter(j => skillOk(j) && (FORCE || !lessonDone(j))) : []);
-const todoQuiz = cap(doQuiz ? jobs.filter(j => skillOk(j) && (FORCE || !quizDone(j))) : []);
-const todoUnit = cap(doUnit ? unitJobs.filter(j => FORCE || !unitDone(j)) : []);
+const todoLessons = V2 ? [] : cap(doLessons ? jobs.filter(j => skillOk(j) && (FORCE || !lessonDone(j))) : []);
+const todoQuiz = V2 ? [] : cap(doQuiz ? jobs.filter(j => skillOk(j) && (FORCE || !quizDone(j))) : []);
+const todoUnit = V2 ? [] : cap(doUnit ? unitJobs.filter(j => FORCE || !unitDone(j)) : []);
 
 /* ---------------- 小工具 ---------------- */
 function writeJson(file, obj) {
@@ -268,6 +302,8 @@ async function genUnit(j, provider) {
 
 /* ---------------- 主流程 ---------------- */
 async function main() {
+  /* --review v2：只做点名的英文题库，走 #44 的逐题审稿（qbank_v2_cli.mjs）；下面的老流程不经过 */
+  if (V2) { exitWhenDone(await runPregenV2(S, require("../lib/ai/qbank/index.js"), CLI.v2)); return; }
   await S.detectProviders();
   // 三类任务各自走路由（config.providerByTask 的 pregen:* 键）；--provider 一刀切压过路由
   const cli = opt("provider", null);
@@ -317,7 +353,7 @@ async function main() {
     if (jp.teach === prov.teach && jp.quiz === prov.quiz && jp.unit === prov.unit)
       console.log("          （审稿和生成是同一个引擎：自审也能拦低级错，但换个更强的引擎审更稳）");
   }
-  console.log("范围:     " + sources().map(sourceTag).join("、")
+  console.log("范围:     " + (V1_SEL ? "只做点名条目 " + V1_SEL.selected.map(x => x.id).join("、") : sources().map(sourceTag).join("、"))
     + "   语言 " + LANGS.join("+") + "   并发 " + CONCURRENCY);
   console.log("课程:     " + (doLessons ? todoLessons.length + " 节要生成（共 " + jobs.length + " 节，其余已有）" : "跳过"));
   console.log("题库:     " + (doQuiz ? todoQuiz.length + " 组要生成（共 " + jobs.length + " 组，其余已有）" : "跳过"));
