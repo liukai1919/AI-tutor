@@ -68,6 +68,12 @@ check("$5/$10 and $5-$10 stay text", f("$5/$10, $5-$10") === "$5/$10, $5-$10");
 check("$12$ (a bare number) is still math", f("答案是 $12$。") === "答案是 <K>12</K>。");
 check("padded formula with a command renders", f("$ \\frac{1}{2} $ 和 $ x^2 $") === "<K> \\frac{1}{2} </K> 和 <K> x^2 </K>");
 check("padded plain text between dollars stays text", f("$ x = 5 $") === "$ x = 5 $");
+/* 二次复核（#59）：\text{} 里的中文单位、只贴一边空白的钱数吞掉后面的公式、钱数紧跟标点 */
+check("CJK units inside \\text{} still math", f("$12\\text{平方厘米}$ 和 $3\\text{个}+2\\text{个}=5\\text{个}$") === "<K>12\\text{平方厘米}</K> 和 <K>3\\text{个}+2\\text{个}=5\\text{个}</K>");
+const swallow = f("It costs $5. Half is \\(\\frac{5}{2}\\) and $y$");
+check("one-side-padded money does not swallow later formulas", swallow === "It costs $5. Half is <K>\\frac{5}{2}</K> and <K>y</K>", swallow);
+check("… also with _ in between", f("costs $5 for item_1 and $x$") === "costs $5 for item_1 and <K>x</K>");
+check("money followed by punctuation then a formula", f("$5,$x$ and $5.$y$") === "$5,<K>x</K> and $5.<K>y</K>", f("$5,$x$ and $5.$y$"));
 check("CRLF around display math: both chars eaten", f("a\r\n$$x$$\r\nb") === "a<K d>x</K>b");
 
 console.log("fallback");

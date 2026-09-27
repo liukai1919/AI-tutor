@@ -8,8 +8,9 @@
  *   - **粗体** → <b>，可以包着公式；单独的 * 不处理；
  *   - 其余一律转义，换行原样保留（气泡是 pre-wrap）。
  * $ … $ 要和钱数分开（isInlineMath）：行内不跨行；\$ 是字面的 $；结尾 $ 后面紧跟数字的不算；
- * 两头贴空白的（「$3 and $4」）只有里面有 \命令 / ^ / _ / { 才算（「$ \frac{1}{2} $」）；
- * 数字开头又夹着中文或全角标点的（「每本书$4，设总价为$y$元」）是钱数，跳过这个 $ 接着往后找。
+ * 贴空白的只有两边都贴、里面又有 \命令 / ^ / _ / { 才算（「$ \frac{1}{2} $」），只贴一边的（「$3 and $4」）不算；
+ * 数字开头又夹着中文或全角标点的（「每本书$4，设总价为$y$元」，\text{} 里的中文单位不算）、或以标点结尾的（「$5,$x$」）
+ * 是钱数，跳过这个 $ 接着往后找。
  * 题库的 mathText（public/index.html）是另一套，别混用：那边题目文字不认粗体。
  */
 (function (root, factory) {
@@ -31,8 +32,14 @@
     if (/\\$/.test(tex)) return false;                                // …\$：结尾那个 $ 是字面的
     if (after && /\d/.test(after)) return false;                      // $5+$3：结尾 $ 后面是数字
     if (!tex.trim()) return false;
-    if (/^\s|\s$/.test(tex) && !/\\[a-zA-Z]|[\^_{]/.test(tex)) return false;   // $3 and $4
-    if (/^\d/.test(tex) && CJK.test(tex)) return false;               // 每本书$4，设总价为$
+    const lead = /^\s/.test(tex), trail = /\s$/.test(tex);
+    if (lead || trail) {   // $3 and $4 只贴一边；「$ \frac{1}{2} $」两边都贴而且有命令才算
+      if (!(lead && trail && /\\[a-zA-Z]|[\^_{]/.test(tex))) return false;
+    }
+    if (/^\d/.test(tex)) {
+      if (CJK.test(tex.replace(/\\(?:text|mathrm|mbox)\{[^{}]*\}/g, ""))) return false;   // 每本书$4，设总价为$；$12\text{平方厘米}$ 照样是公式
+      if (/[,.!?;:]$/.test(tex)) return false;                        // $5,$x$：钱数后面紧跟标点
+    }
     return true;
   }
 
