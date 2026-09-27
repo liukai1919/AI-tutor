@@ -92,18 +92,97 @@ r = await A.quiz.start(kid, { curriculumId: "BC.MATH.G4.NUM.01", lang: "en" });
 check("start -> session/rules/level 1/n 1/first question without answer", typeof r.session === "string" && r.rules.passNeed === 2 && r.level === 1 && r.n === 1 && r.question.qid === "q10" && !("answerIndex" in r.question), r);
 check("bank hit recorded in the ledger as provider=bank", ledger.length === 1 && ledger[0].provider === "bank");
 const sid = r.session;
-check("answer: someone else's ticket -> 400 staleSession", fails(() => A.quiz.answer({ ...kid, userId: "other" }, { session: sid, picked: 0 }), 400, "staleSession"));
-check("answer: bad index -> 400", fails(() => A.quiz.answer(kid, { session: sid, picked: 7 }), 400));
-r = A.quiz.answer(kid, { session: sid, picked: 0 });
-check("answer q10 right -> correct, answerIndex/explain revealed, level 2, next is L2", r.correct === true && r.answerIndex === 0 && r.explain === "why" && r.level === 2 && r.next.qid === "q20" && r.finished === false, r);
-r = A.quiz.answer(kid, { session: sid, picked: 3 });
-check("answer q20 wrong -> back to level 1", r.correct === false && r.level === 1 && r.next.level === 1);
+const ticket = () => quizOpen.get(sid).state;
+check("answer: someone else's ticket -> 400 staleSession", fails(() => A.quiz.answer({ ...kid, userId: "other" }, { session: sid, qid: "q10", picked: 0 }), 400, "staleSession"));
+check("answer: bad index -> 400", fails(() => A.quiz.answer(kid, { session: sid, qid: "q10", picked: 7 }), 400));
+/* #23 复审：答题必须带 qid（当前题），缺了不许退回「答当前那题」的旧行为 */
+check("answer: no qid -> 400 needQid, nothing consumed", fails(() => A.quiz.answer(kid, { session: sid, picked: 0 }), 400, "needQid") && ticket().results.length === 0 && ticket().cur === "q10");
+check("answer: qid that isn't the current question -> 409 staleQuestion, nothing consumed", fails(() => A.quiz.answer(kid, { session: sid, qid: "q20", picked: 0 }), 409, "staleQuestion") && ticket().results.length === 0 && ticket().cur === "q10");
+r = A.quiz.answer(kid, { session: sid, qid: "q10", picked: 0 });
+check("answer q10 right -> correct, answerIndex/explain revealed, level 2, next is L2", r.correct === true && r.answerIndex === 0 && r.explain === "why" && r.level === 2 && r.next.qid === "q20" && r.finished === false && r.picked === 0 && !r.replay, r);
+const first = r;
+/* 回包丢了、同一请求原样重放：原样回第一次的结果，不当成下一题（q20）作答 */
+r = A.quiz.answer(kid, { session: sid, qid: "q10", picked: 0 });
+check("replay of q10 -> same reply marked replay, ticket not advanced", r.replay === true && r.correct === true && r.next.qid === "q20" && r.n === first.n && ticket().results.length === 1 && ticket().cur === "q20" && ticket().answered === false, { r, st: ticket() });
+r = A.quiz.answer(kid, { session: sid, qid: "q10", picked: 2 });
+check("replay of q10 with another pick -> still the first recorded pick, not re-judged", r.replay === true && r.picked === 0 && r.correct === true && ticket().results.length === 1 && ticket().results[0].picked === 0, r);
+r = A.quiz.answer(kid, { session: sid, qid: "q20", picked: 3 });
+check("answer q20 wrong -> back to level 1", r.correct === false && r.level === 1 && r.next.level === 1 && !r.replay && ticket().results.length === 2);
+check("answer: an older question (q10, not the last one) -> 409 staleQuestion", fails(() => A.quiz.answer(kid, { session: sid, qid: "q10", picked: 0 }), 409, "staleQuestion") && ticket().results.length === 2);
 check("finish: unknown item -> 400", fails(() => A.quiz.finish(kid, { session: sid, curriculumId: "nope" }), 400));
 check("finish: no kid -> 400 kidRequired", fails(() => A.quiz.finish(parentNoKid, { session: sid, curriculumId: "BC.MATH.G4.NUM.01" }), 400, "kidRequired"));
 r = A.quiz.finish(kid, { session: sid, curriculumId: "BC.MATH.G4.NUM.01" });
 check("finish -> {ok, passed:false, right 1, total 2, status, level}, usedAt stamped, qbank saved", r.ok === true && r.passed === false && r.right === 1 && r.total === 2 && r.status === "seen" && qbank["BC.MATH.G4.NUM.01|en"].questions[0].usedAt === undefined ? false : (qbank["BC.MATH.G4.NUM.01|en"].questions.find(q => q.qid === "q10").usedAt > 0 && saved.includes("qbank")), r);
 check("finish again -> 400 staleSession (one-shot)", fails(() => A.quiz.finish(kid, { session: sid, curriculumId: "BC.MATH.G4.NUM.01" }), 400, "staleSession"));
-check("answer after settle -> 400 staleSession", fails(() => A.quiz.answer(kid, { session: sid, picked: 0 }), 400, "staleSession"));
+check("answer after settle -> 400 staleSession", fails(() => A.quiz.answer(kid, { session: sid, qid: "q10", picked: 0 }), 400, "staleSession"));
+
+/* 最后一题的回包丢了：重放拿回 finished 的那次结果，而不是 400 finished */
+{
+  const bank = { questions: [1, 2, 3].flatMap(lv => [0, 1].map(i => mk(lv, i))) };
+  const D = create({ ...deps, qbank: { "BC.MATH.G4.NUM.02|en": bank }, qbankPlayable: (id, lang) => id === "BC.MATH.G4.NUM.02" ? bank : null });
+  const k8 = { kidId: "k8", role: "student", userId: "k8" };   // 别动 k1 的进度（后面 report 组要用）
+  const s = await D.quiz.start(k8, { curriculumId: "BC.MATH.G4.NUM.02", lang: "en" });
+  let cur = s.question, last, lastQid;
+  while (cur) { lastQid = cur.qid; last = D.quiz.answer(k8, { session: s.session, qid: cur.qid, picked: bank.questions.find(q => q.qid === cur.qid).answerIndex }); cur = last.next; }
+  const again = D.quiz.answer(k8, { session: s.session, qid: lastQid, picked: 0 });
+  check("replay of the finishing answer -> same finished reply", last.finished === true && again.replay === true && again.finished === true && again.topRight === last.topRight && quizOpen.get(s.session).state.results.length === 4, { last, again });
+  const fin = D.quiz.finish(k8, { session: s.session, curriculumId: "BC.MATH.G4.NUM.02" });
+  check("…and settles exactly the 4 answers once", fin.total === 4 && fin.right === 4 && fin.passed === true, fin);
+}
+
+/* #24 复审：DELETE /api/qbank 之后题库对象可能被整个换掉（或原地清空）。Action 不能攥着开局时那个对象：
+ * 清库后旧票的题不在新库里 → answer 400 staleSession、finish 什么都不记；新生成的题开局后能正常答、能结算。 */
+{
+  /* 契约：题库容器对象全程不换（server.js 的 const qbank + qbankClear 原地清空），create() 会浅拷 deps，
+   * 所以「整个换对象」不是支持的用法；server 那一侧由 test_quiz_flow D 组用真实 server.js 钉住 */
+  const live = { qbank: { "BC.MATH.G4.NUM.01|en": { questions: [1, 2, 3].flatMap(lv => [0, 1, 2, 3].map(i => mk(lv, i))) } } };
+  const D = create({ ...deps, qbank: live.qbank, qbankPlayable: (id, lang) => live.qbank[id + "|" + lang] || null });
+  const bucketBefore = JSON.stringify(deps.kd("k9").progress);
+  const k9 = { kidId: "k9", role: "student", userId: "k9" };
+  const old = await D.quiz.start(k9, { curriculumId: "BC.MATH.G4.NUM.01", lang: "en" });
+  for (const k of Object.keys(live.qbank)) delete live.qbank[k];   // 家长清库：同一个容器原地清空
+  check("after clear: old ticket answer -> 400 staleSession", fails(() => D.quiz.answer(k9, { session: old.session, qid: old.question.qid, picked: 0 }), 400, "staleSession"));
+  // 确定性桩代替引擎：往当前题库里「生成」一批新 qid
+  live.qbank["BC.MATH.G4.NUM.01|en"] = { questions: [1, 2, 3].flatMap(lv => [0, 1, 2, 3].map(i => ({ ...mk(lv, i), qid: "NEW" + lv + i }))) };
+  const fresh = await D.quiz.start(k9, { curriculumId: "BC.MATH.G4.NUM.01", lang: "en" });
+  let a;
+  try { a = D.quiz.answer(k9, { session: fresh.session, qid: fresh.question.qid, picked: 0 }); } catch (e) { a = { status: e.status, ...e.body }; }
+  check("after clear + regenerate: new question answerable", fresh.question.qid === "NEW10" && a.correct === true && a.next && a.next.qid === "NEW20", a);
+  const f1 = D.quiz.finish(k9, { session: old.session, curriculumId: "BC.MATH.G4.NUM.01" });
+  check("old ticket settles nothing from the old bank", f1.total === 0 && f1.right === 0, f1);
+  const f2 = D.quiz.finish(k9, { session: fresh.session, curriculumId: "BC.MATH.G4.NUM.01" });
+  check("new ticket settles its answer from the new bank", f2.total === 1 && f2.right === 1 && live.qbank["BC.MATH.G4.NUM.01|en"].questions.find(q => q.qid === "NEW10").usedAt > 0 && deps.kd("k9").progress["BC.MATH.G4.NUM.01"].right === 1, { f2, bucketBefore });
+}
+
+/* #24 二次复审：先答一题 → 家长清库 → 同 qid 重放。重放不能拿清库前缓存的回包冒充当前题库（应 400 staleSession），
+ * 结算不记旧库成绩；清库前的正常重放仍然只记一次；清库后新题照常能答 */
+{
+  const live = { "BC.MATH.G4.NUM.01|en": { questions: [1, 2, 3].flatMap(lv => [0, 1, 2, 3].map(i => mk(lv, i))) } };
+  const D = create({ ...deps, qbank: live, qbankPlayable: (id, lang) => live[id + "|" + lang] || null });
+  const k7 = { kidId: "k7", role: "student", userId: "k7" };
+  const s = await D.quiz.start(k7, { curriculumId: "BC.MATH.G4.NUM.01", lang: "en" });
+  const st = () => quizOpen.get(s.session).state;
+  const a = D.quiz.answer(k7, { session: s.session, qid: s.question.qid, picked: 0 });
+  const rp = D.quiz.answer(k7, { session: s.session, qid: s.question.qid, picked: 0 });
+  const rp2 = D.quiz.answer(k7, { session: s.session, qid: s.question.qid, picked: 2 });
+  check("before clear: replays (same / other pick) succeed, one answer recorded", a.correct === true && rp.replay === true && rp2.replay === true && rp2.picked === 0 && st().results.length === 1, { rp, rp2 });
+  for (const k of Object.keys(live)) delete live[k];   // 家长清库
+  const err = fn => { try { fn(); return null; } catch (e) { return e instanceof ActionError ? { status: e.status, ...e.body } : { thrown: String(e) }; } };
+  const e1 = err(() => D.quiz.answer(k7, { session: s.session, qid: s.question.qid, picked: 0 }));
+  const e2 = err(() => D.quiz.answer(k7, { session: s.session, qid: s.question.qid, picked: 3 }));
+  check("after clear: replay (same pick) -> 400 staleSession, no cached old-bank reply", e1 && e1.status === 400 && e1.staleSession === true && !("answerIndex" in e1), e1);
+  check("after clear: replay (other pick) -> 400 staleSession", e2 && e2.status === 400 && e2.staleSession === true, e2);
+  const e3 = err(() => D.quiz.answer(k7, { session: s.session, qid: a.next.qid, picked: 0 }));
+  check("after clear: the ticket's next question -> 400 staleSession too", e3 && e3.status === 400 && e3.staleSession === true, e3);
+  const f = D.quiz.finish(k7, { session: s.session, curriculumId: "BC.MATH.G4.NUM.01" });
+  check("after clear: finish records nothing from the old bank", f.total === 0 && f.right === 0 && !(deps.kd("k7").progress["BC.MATH.G4.NUM.01"] || {}).right, f);
+  live["BC.MATH.G4.NUM.01|en"] = { questions: [1, 2, 3].flatMap(lv => [0, 1, 2, 3].map(i => ({ ...mk(lv, i), qid: "R" + lv + i }))) };
+  const n = await D.quiz.start(k7, { curriculumId: "BC.MATH.G4.NUM.01", lang: "en" });
+  const na = D.quiz.answer(k7, { session: n.session, qid: n.question.qid, picked: 0 });
+  const nr = D.quiz.answer(k7, { session: n.session, qid: n.question.qid, picked: 0 });
+  const nf = D.quiz.finish(k7, { session: n.session, curriculumId: "BC.MATH.G4.NUM.01" });
+  check("after clear + regenerate: new question answers, its replay works, settles once", n.question.qid === "R10" && na.correct === true && nr.replay === true && nf.total === 1 && nf.right === 1, { na, nr, nf });
+}
 
 /* ---------- 第二片（#25）：history / fsa / unitTest / report / lesson ---------- */
 const ids = { n: 0 };

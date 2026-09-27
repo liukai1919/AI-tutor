@@ -1190,10 +1190,7 @@ function applyLang(){
   if(!playerCard.classList.contains("hidden") && lesson && lessonCurriculumId && lessonLang!==cfg.lang){
     startTeach(learnIndex[lessonCurriculumId]||{ id:lessonCurriculumId });
   }
-  if(quiz && !quiz.done && quiz.lang!==cfg.lang){
-    quizSettleSilently();   // 已答的按原语言凭票结算
-    startQuiz(quiz.cid);
-  }
+  quizLangChanged();
 }
 /* 首屏问候里的名字：孩子 = 自己的账号名；家长 = 当前选中的孩子 */
 function kidDisplayName(){
@@ -3784,33 +3781,52 @@ async function deleteUnitTest(id){
  * 从 L1 起步：对升一级、错降一级；★★★ 答对 2 题通关，8 题内没通关下次再来。
  * 2026-09-25（#23）起规则全在服务端：/api/quiz/session 发场次票和第一题，
  * /api/quiz/answer 判分并给下一题（答案和讲解答完才下来），/api/quiz/finish 凭票结算。
- * 前端不再持有题包，也不再自己判通关。规则常量和出题标准见 docs/qbank-standard.md。 */
-let quiz=null;   // { cid, lang, sid, cur, level, n, topRight, right, total, rules, busy, done }
+ * 前端不再持有题包，也不再自己判通关。规则常量和出题标准见 docs/qbank-standard.md。
+ * 作答带 qid：回包丢了重交同一题，服务端认得出是重放，原样回上次的结果（不会当成下一题）。
+ * sent / inflight：交出去的答案可能已经记在票上了（哪怕回包还没到或丢了），退出 / 切语言要等它落地再凭票结算。 */
+let quiz=null;   // { cid, lang, sid, cur, level, n, topRight, right, total, rules, busy, done, sent, inflight }
+/* 开局请求按代次认：每次 startQuiz 代次 +1，语言在发请求那一刻定死；回包回来时代次已经不是最新（又开了一局、
+ * 快速来回切了语言、或者已经退出）就丢掉，过时的开局既不能盖掉最新场次，也不能把退出了的闯关重新打开。
+ * quizStarting = 在路上的那次开局 { seq, cid, lang }（切语言要知道「正在开的是哪种语言」）。 */
+let quizStartSeq=0, quizStarting=null;
 
 async function startQuiz(cid){
+  const lang=cfg.lang, seq=++quizStartSeq;
+  quizStarting={ seq, cid, lang };
   showLoading();
   $("loadSub").textContent=t("quizGenSub");
+  let data=null, err=null;
   try{
-    const data=await api("/api/quiz/session",{method:"POST",
-      body:Object.assign({ curriculumId:cid, lang:cfg.lang, provider:cfg.provider }, kidBody())});
+    data=await api("/api/quiz/session",{method:"POST",
+      body:Object.assign({ curriculumId:cid, lang, provider:cfg.provider }, kidBody())});
     if(!data.question) throw new Error(t("genericErr"));
-    hideLoading();
-    enterQuiz(cid, data);
-  }catch(err){ hideLoading(); if(!err.silent) alert(err.message||t("genericErr")); }
+  }catch(e){ err=e; }
+  if(seq!==quizStartSeq){ if(!quizStarting) hideLoading(); return; }   // 过时的开局：票没人答，过期自己作废
+  quizStarting=null;
+  hideLoading();
+  if(err){
+    // 切语言重开没成功：旧场次已经按原语言结掉（done），别让孩子停在点不动的旧题上，回清单
+    if(quiz&&quiz.done) quizExit();
+    if(!err.silent) alert(err.message||t("genericErr"));
+    return;
+  }
+  enterQuiz(cid, data, lang);
 }
 
-function enterQuiz(cid, data){
+function enterQuiz(cid, data, lang){
   closeLesson();   // 课末进闯关是收尾；分栏下从清单直接进也可能正上着课，一律收干净
+  lang=lang||cfg.lang;   // 场次语言 = 开局请求的语言（不是回包到达时的界面语言）
   // sid：服务端发的场次票；cur：服务端给的当前题（没有答案）；level/n 也由服务端说了算
-  quiz={ cid, lang:cfg.lang, sid:data.session||"", cur:data.question, level:data.level||1, n:data.n||1,
-         topRight:0, right:0, total:0, rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), busy:false, done:false };
+  quiz={ cid, lang, sid:data.session||"", cur:data.question, level:data.level||1, n:data.n||1,
+         topRight:0, right:0, total:0, rules:Object.assign({maxQuestions:8,passNeed:2,topLevel:3}, data.rules||{}), busy:false, done:false,
+         sent:0, inflight:null };
   setFocus(true);          // 闯关全宽，收起左栏
   $("learnCard").classList.add("hidden");
   $("modeTabs").classList.add("hidden");
   $("fsaCard").classList.add("hidden");
   $("quizCard").classList.remove("hidden");
   const it=learnIndex[cid];
-  $("quizTitle").textContent="⚡ "+(it ? (cfg.lang==="en"?it.en:(it.zh||it.en)) : t("quizTitle"));
+  $("quizTitle").textContent="⚡ "+(it ? (lang==="en"?it.en:(it.zh||it.en)) : t("quizTitle"));
   renderQuizQ();
 }
 
@@ -3838,33 +3854,36 @@ function renderQuizQ(){
 }
 
 async function answerQuiz(i){
-  if(!quiz||quiz.busy||quiz.done) return;
-  quiz.busy=true;
-  const q=quiz.cur;
+  const s=quiz;   // 这一场；等回包期间可能退出了 / 切语言换了新场次，回来只认它
+  if(!s||s.busy||s.done) return;
+  s.busy=true;
+  const q=s.cur;
   const btns=[...$("quizBody").querySelectorAll(".fsaOpt")];
   btns.forEach(b=>b.disabled=true);
+  s.sent++;   // 交出去就可能已经记在票上了，退出时要凭票结算（见 quizSettleSilently）
   let d;
   try{
-    d=await api("/api/quiz/answer",{method:"POST", body:{ session:quiz.sid, picked:i }});
+    d=await (s.inflight=api("/api/quiz/answer",{method:"POST", body:{ session:s.sid, qid:q.qid, picked:i }}));
   }catch(err){
-    if(!quiz) return;
-    quiz.busy=false;
-    btns.forEach(b=>b.disabled=false);   // 网络抖一下：让孩子再点一次，服务端一题只记一次
+    if(quiz!==s||s.done) return;
+    s.busy=false;
+    btns.forEach(b=>b.disabled=false);   // 网络抖一下：让孩子再点一次；带着 qid，服务端认得出是同一题，回的是第一次记下的结果
     if(!err.silent) alert(err.message||t("genericErr"));
     return;
   }
-  if(!quiz||quiz.cur!==q) return;   // 等待期间退出了 / 切了语言重开
+  if(quiz!==s||s.done||s.cur!==q) return;   // 等待期间退出了 / 切了语言重开：迟到的回包不碰新场次
+  const picked=Number.isInteger(d.picked)?d.picked:i;   // 重放时服务端回的是第一次记下的选项
   const ok=!!d.correct;
-  quiz.total++; if(ok) quiz.right++;
-  quiz.topRight=d.topRight||0;
+  s.total++; if(ok) s.right++;
+  s.topRight=d.topRight||0;
   const finished=!!d.finished;
   const advance=()=>{
-    if(!quiz||quiz.done||quiz.cur!==q) return;
+    if(quiz!==s||s.done||s.cur!==q) return;
     if(finished) return finishQuiz();
-    quiz.cur=d.next; quiz.level=d.level||quiz.level; quiz.n=d.n||(quiz.n+1); quiz.busy=false;
+    s.cur=d.next; s.level=d.level||s.level; s.n=d.n||(s.n+1); s.busy=false;
     renderQuizQ();
   };
-  btns.forEach((b,bi)=>{ if(bi===d.answerIndex) b.classList.add("correct"); else if(bi===i) b.classList.add("wrong"); });
+  btns.forEach((b,bi)=>{ if(bi===d.answerIndex) b.classList.add("correct"); else if(bi===picked) b.classList.add("wrong"); });
   const fb=$("quizFb");
   if(ok){
     const msgs=t("quizRightMsgs");
@@ -3880,17 +3899,18 @@ async function answerQuiz(i){
 }
 
 async function finishQuiz(){
-  if(!quiz||quiz.done) return;
-  quiz.done=true;
-  let passed=false, right=quiz.right, total=quiz.total, saveFail=false;
+  const s=quiz;
+  if(!s||s.done) return;
+  s.done=true;
+  let passed=false, right=s.right, total=s.total, saveFail=false;
   try{
     const d=await api("/api/quiz/finish",{method:"POST",
-      body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, session:quiz.sid }, kidBody())});
+      body:Object.assign({ curriculumId:s.cid, lang:s.lang, session:s.sid }, kidBody())});
     passed=!!d.passed;   // 通关判定只认服务器；没结算上就不算通关（以前用本地 topRight 兜底会显示假通关）
     if(typeof d.right==="number") right=d.right;
     if(typeof d.total==="number") total=d.total;
   }catch(_){ saveFail=true; }
-  if(!quiz) return;      // 结算等待期间被退出
+  if(quiz!==s) return;      // 结算等待期间被退出 / 换了场次
   renderQuizResult(passed, right, total, saveFail);
 }
 
@@ -3914,14 +3934,31 @@ function renderQuizResult(passed, right, total, saveFail){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* 中途收场：已答的照记（服务端票里有），凭票结算即可。lang 用开局时的：切过界面语言后 cfg.lang 会对不上号 */
+/* 中途收场：已答的照记（服务端票里有），凭票结算即可。lang 用开局时的：切过界面语言后 cfg.lang 会对不上号。
+ * 看 sent 不看 total：第一题交出去、回包还在路上时 total 还是 0，但服务端可能已经记上了。
+ * 有答案在路上就等它落地（成功失败都行）再结算，不然 finish 可能抢在 answer 前头、那一题就丢了。
+ * done 立刻置上：这一场到此为止，迟到的回包不再动它，连点退出 / 连切语言也只结一次。 */
 function quizSettleSilently(){
-  if(!quiz||quiz.done||!quiz.total) return;
-  api("/api/quiz/finish",{method:"POST",
-    body:Object.assign({ curriculumId:quiz.cid, lang:quiz.lang, session:quiz.sid }, kidBody())}).catch(()=>{});
-  quiz.total=0;   // 新会话到达前又切一次语言也不会重复结算
+  const s=quiz;
+  if(!s||s.done) return null;
+  s.done=true;
+  if(!s.sent) return null;   // 一题都没交过：票里是空的
+  const body=Object.assign({ curriculumId:s.cid, lang:s.lang, session:s.sid }, kidBody());
+  return Promise.resolve(s.inflight).catch(()=>{})
+    .then(()=>api("/api/quiz/finish",{method:"POST", body})).catch(()=>{});
 }
-function quizExitSilent(){ quiz=null; $("quizCard").classList.add("hidden"); setFocus(false); }
+/* 切界面语言：先按原语言把这一场结掉（同中途退出），再用新语言重开一局（题库按语言分桶，qid 对不上号）。
+ * 正在开局（上一次切语言的开局还没回来）就拿那次开局的语言比：en → zh → en 快速来回切，
+ * 第二次也要重开一局 en，并让在路上的 zh 开局作废（代次，见 startQuiz）；旧场次只结一次（done）。 */
+function quizLangChanged(){
+  const cur=quizStarting || (quiz && !quiz.done ? quiz : null);
+  if(!cur || cur.lang===cfg.lang) return;
+  const cid=cur.cid;
+  quizSettleSilently();   // 还没结的就结；已经结过（done）什么都不做
+  startQuiz(cid);
+}
+/* 退出同时作废在路上的开局：迟到的开局回包不会把已经退出的闯关重新打开 */
+function quizExitSilent(){ quiz=null; quizStarting=null; quizStartSeq++; $("quizCard").classList.add("hidden"); setFocus(false); }
 function quizExit(){
   quizExitSilent();
   if(lessonReturnTo==="fsa"&&fsa){ lessonReturnTo=""; setFocus(true); $("fsaCard").classList.remove("hidden"); }  // FSA 错题→讲解→闯关的回路
@@ -3930,7 +3967,7 @@ function quizExit(){
 }
 $("quizQuit").onclick=()=>{
   if(!quiz) return quizExit();
-  if(!quiz.done && quiz.total){
+  if(!quiz.done && quiz.sent){
     if(!confirm(t("quizQuitConfirm"))) return;
     quizSettleSilently();   // 服务器按题库难度判，不会误判通关
   }
