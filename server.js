@@ -3157,8 +3157,8 @@ const server = http.createServer(async (req, res) => {
     if (wfm) {
       const [, wid, isCmd] = wfm;
       const okMethod = !wid ? req.method === "POST" : isCmd ? req.method === "POST" : (req.method === "GET" || req.method === "DELETE");
+      if (!workflowEnabled()) return send(res, 404, { error: "Not found", workflowDisabled: true });   // 关着时连 405 都不回，不暴露路由
       if (!okMethod) return send(res, 405, { error: "Method not allowed" });
-      if (!workflowEnabled()) return send(res, 404, { error: "Not found", workflowDisabled: true });
       const a = allow(req, res, "student"); if (!a) return;
       if (!tutorOpenFor(a)) return send(res, 403, TUTOR_OFF_MSG);
       let body = {};

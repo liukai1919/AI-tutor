@@ -47,7 +47,7 @@ const markOnlyStubAvailable = () => {
 markOnlyStubAvailable();
 
 /* ---- 合成题库：6 道合格（数字答案），另有 5 道各不合格一种 ---- */
-const CID = "BC.MATH.G4.NUM.01", CID_EMPTY = "BC.MATH.G4.NUM.02";
+const CID = "BC.MATH.G4.NUM.01", CID_EMPTY = "BC.MATH.G4.NUM.02", CID_FEW = "BC.MATH.G4.NUM.03";
 const good = [
   ["wq1", 1, "What is 7 + 5?", ["10", "12", "14", "16"], 1],
   ["wq2", 1, "What is 20 - 8?", ["11", "13", "12", "14"], 2],
@@ -64,6 +64,7 @@ const bad = [
   { qid: "wx5", level: 2, question: "2+2?", options: ["4", "5"], answerIndex: 7 },                                               // 下标越界
 ];
 S.qbank[S.qbankKey(CID, "en")] = { questions: good.concat(bad) };
+S.qbank[S.qbankKey(CID_FEW, "en")] = { questions: [good[0], Object.assign({}, good[2], { level: 2 }), Object.assign({}, bad[1], { level: 3 })] };
 S.qbank[S.qbankKey(CID_EMPTY, "en")] = { questions: bad.map((q, i) => Object.assign({}, q, { level: 1 + (i % 3) })) };   // 三级都有题，但一道合格的都没有
 const keyOf = qid => { const q = good.find(x => x.qid === qid); return q && q.options[q.answerIndex]; };
 const wrongOf = qid => { const q = good.find(x => x.qid === qid); return q && q.options[(q.answerIndex + 1) % q.options.length]; };
@@ -90,12 +91,17 @@ try {
     if (reg.status !== 200) throw new Error("register failed: " + JSON.stringify(reg));
     await call("POST", "/api/kids", { name: "Wren", pin: "1111" }, reg.body.token);
     await call("POST", "/api/kids", { name: "Yara", pin: "2222" }, reg.body.token);
+    await call("POST", "/api/kids", { name: "Cole", pin: "3333" }, reg.body.token);
+    await call("POST", "/api/kids", { name: "Dana", pin: "4444" }, reg.body.token);
     return reg.body.token;
   });
   const kids = (await call("GET", "/api/auth/profiles")).body.kids;
   const kidA = kids.find(k => k.name === "Wren").id, kidB = kids.find(k => k.name === "Yara").id;
   const tokA = (await call("POST", "/api/auth/login", { kidId: kidA, pin: "1111" })).body.token;
   const tokB = (await call("POST", "/api/auth/login", { kidId: kidB, pin: "2222" })).body.token;
+  const kidC = kids.find(k => k.name === "Cole").id, kidD = kids.find(k => k.name === "Dana").id;
+  const tokC = (await call("POST", "/api/auth/login", { kidId: kidC, pin: "3333" })).body.token;
+  const tokD = (await call("POST", "/api/auth/login", { kidId: kidD, pin: "4444" })).body.token;
   /* familyId 不在公开的用户信息里：从隔离目录的 users.json 读 */
   const usersDoc = JSON.parse(fs.readFileSync(path.join(srv.DATA, "data", "users.json"), "utf8"));
   const familyId = String((Array.isArray(usersDoc) ? usersDoc : usersDoc.users || []).find(u => u.id === kidA).familyId);
@@ -106,6 +112,8 @@ try {
   check("server switch off → 404 workflowDisabled", r.status === 404 && r.body.workflowDisabled === true, r);
   r = await call("GET", "/api/tutor/workflow/w000000000000000000000000");
   check("… answered before auth (no 401 probe)", r.status === 404 && r.body.workflowDisabled === true, r);
+  r = await call("PUT", "/api/tutor/workflow", {}, tokA);
+  check("… a wrong method is 404 too while off (no 405 that reveals the route)", r.status === 404 && r.body.workflowDisabled, r);
   S.cfg.tutorWorkflow.enabled = "true";
   r = await start(tokA);
   check("only enabled === true counts", r.status === 404, r);
@@ -140,6 +148,9 @@ try {
   check("unknown curriculum item → 400", r.status === 400 && /Unknown curriculum item/.test(r.body.error), r);
   r = await start(tokA, { curriculumId: CID_EMPTY });
   check("topic whose bank has no number-answer questions → 409 noPractice", r.status === 409 && r.body.noPractice === true && r.body.code === "NO_PRACTICE", r);
+  r = await start(tokC, { curriculumId: CID_FEW });
+  check("a bank with only 2 eligible questions → maxRounds 2, targetCorrect 2", r.status === 200 && r.body.limits.maxRounds === 2 && r.body.limits.targetCorrect === 2, r.body.limits || r);
+  await call("DELETE", `/api/tutor/workflow/${r.body.workflowId}`, undefined, tokC);
   r = await start(tokA, { curriculumId: CID, lang: "zh" });
   check("no zh bank for the topic → 409 noPractice", r.status === 409 && r.body.noPractice, r);
   r = await start(tokA, { extra: 1 });
@@ -227,10 +238,13 @@ try {
     } else { check("right answer → correct", outcome === "correct", outcome); correct++; }
   }
   check("loop ends done / completed after 3 correct", v.phase === "done" && v.status === "completed" && v.outcome === "goal-reached" && v.correct === 3, v);
-  check("practice prompts list the options and ask for the number", askedPrompts.every(p => /\nA\. .+\nB\. /.test(p) && /Type the number/.test(p)), askedPrompts);
+  check("practice prompts list the choices without letters and ask for the number", askedPrompts.every(p => /\nChoices:\n• .+\n• /.test(p) && /Type the number\.$/.test(p) && !/\n[A-F]\. /.test(p)), askedPrompts);
   check("only eligible questions were used, none twice", askedPrompts.length === new Set(askedPrompts).size && askedPrompts.every(p => good.some(g => p.startsWith(g.question))), askedPrompts);
+  check("limits: 5 rounds (6 eligible questions), target 3", v.limits.maxRounds === 5 && v.limits.targetCorrect === 3, v.limits);
   r = await cmd(tokA, w, { type: "practice" });
-  check("after done every command → 409 ILLEGAL_COMMAND", r.status === 409 && r.body.code === "ILLEGAL_COMMAND", r);
+  check("a finished workflow is closed right away: next command → 404", r.status === 404 && r.body.code === "NOT_FOUND", r);
+  r = await call("GET", `/api/tutor/workflow/${w}`, undefined, tokA);
+  check("… and GET → 404 (the final view came back with the last command)", r.status === 404, r);
 
   console.log("learning events on disk");
   const lf = learningFile(familyId, kidA);
@@ -251,15 +265,38 @@ try {
 
   console.log("engine / rate");
   S.detected.claude = { available: false };
+  let n0 = calls.length;
   r = await cmd(tokA, w2, { type: "teach" });
-  check("no engine → 503 noEngine, nothing sent", r.status === 503 && r.body.noEngine === true, r);
+  check("no engine → 503 noEngine, nothing sent to any engine", r.status === 503 && r.body.noEngine === true && calls.length === n0, r);
   markOnlyStubAvailable();
-  S.cfg.tutorWorkflow.perMinute = 1;
-  r = await cmd(tokA, w2, { type: "teach" });
-  check("rate limit per account (teach / hint) → 429 RATE_LIMITED", r.status === 429 && r.body.code === "RATE_LIMITED", r);
-  r = await call("GET", `/api/tutor/workflow/${w2}`, undefined, tokA);
+  /* 新孩子 C 的账号从零开始算：每分钟 2 次 */
+  S.cfg.tutorWorkflow.perMinute = 2;
+  r = await start(tokC);
+  const wc = r.body.workflowId;
+  await cmd(tokC, wc, { type: "diagnose" });
+  const teachC = { type: "teach", commandId: "teach-c" };
+  r = await call("POST", `/api/tutor/workflow/${wc}/command`, teachC, tokC);
+  check("C: 1st model step (teach) ok", r.status === 200 && r.body.ok, r);
+  const lessonC = r.body.reply;
+  r = await cmd(tokC, wc, { type: "practice" });
+  const qc = r.body.view.question.questionId;
+  n0 = calls.length;
+  r = await cmd(tokC, wc, { type: "hint", questionId: "not-the-question" });
+  check("a hint that the workflow rejects (STALE) is not charged and never reaches the model", r.status === 409 && r.body.code === "STALE" && calls.length === n0, r);
+  r = await cmd(tokC, wc, { type: "teach" });
+  check("an illegal teach (409) is not charged either", r.status === 409 && r.body.code === "ILLEGAL_COMMAND", r);
+  r = await cmd(tokC, wc, { type: "hint", questionId: qc });
+  check("C: 2nd model step (hint) ok", r.status === 200 && r.body.ok, r);
+  r = await cmd(tokC, wc, { type: "hint", questionId: qc });
+  check("C: 3rd model step in the minute → 429 RATE_LIMITED", r.status === 429 && r.body.code === "RATE_LIMITED", r);
+  S.detected.claude = { available: false };
+  n0 = calls.length;
+  r = await call("POST", `/api/tutor/workflow/${wc}/command`, teachC, tokC);
+  check("replaying the successful teach: same reply, no charge, no engine needed, no model call", r.status === 200 && r.body.ok && r.body.reply.text === lessonC.text && calls.length === n0, r);
+  markOnlyStubAvailable();
+  r = await call("GET", `/api/tutor/workflow/${wc}`, undefined, tokC);
   check("… reading is not rate limited", r.status === 200, r);
-  r = await cmd(parentTok, w2, { type: "teach", kid: kidA });
+  r = await cmd(parentTok, wc, { type: "hint", questionId: qc, kid: kidC });
   check("… the parent's account has its own budget", r.status === 200 && r.body.ok && r.body.reply.kind === "hint", r);
   S.cfg.tutorWorkflow.perMinute = 6;
 
@@ -268,6 +305,16 @@ try {
   for (let i = 0; i < 2; i++) extra.push((await start(tokA)).body.workflowId);
   r = await start(tokA);
   check("a 4th active workflow for the same kid → 429 CAPACITY", r.status === 429 && r.body.code === "CAPACITY", r);
+  /* 这一家现在活跃：A 3 个 + C 1 个 = 4；再给 D 开 2 个到 6，第 7 个（D 自己只有 2 个）被每家上限拦 */
+  const dIds = [];
+  for (let i = 0; i < 2; i++) { r = await start(tokD); dIds.push(r.body.workflowId); check("D workflow " + (i + 1), r.status === 200, r); }
+  r = await start(tokD);
+  check("7th active workflow in one family → 429 CAPACITY (per family), though D has only 2", r.status === 429 && r.body.code === "CAPACITY" && /per family/.test(r.body.error), r);
+  await call("DELETE", `/api/tutor/workflow/${wc}`, undefined, tokC);
+  r = await start(tokD);
+  dIds.push(r.body.workflowId);
+  check("closing one frees a family slot", r.status === 200, r);
+  for (const x of dIds) await call("DELETE", `/api/tutor/workflow/${x}`, undefined, tokD);
   r = await call("DELETE", `/api/tutor/workflow/${w2}`, undefined, tokA);
   check("DELETE closes: status closed", r.status === 200 && r.body.status === "closed" && !("plan" in r.body), r);
   r = await call("GET", `/api/tutor/workflow/${w2}`, undefined, tokA);
@@ -303,10 +350,10 @@ try {
 
   console.log("service unit");
   const pf = q => practiceFrom(q, "T", "en");
-  check("practiceFrom: good question → prompt with options, answerKey = the correct option", (() => { const p = pf(good[2]); return p && p.questionId === "wq3" && p.answerKey === "3/4" && p.prompt.includes("\nB. 3/4\n") && p.topicId === "T"; })(), pf(good[2]));
+  check("practiceFrom: good question → prompt with options, answerKey = the correct option", (() => { const p = pf(good[2]); return p && p.questionId === "wq3" && p.answerKey === "3/4" && p.prompt.includes("\nChoices:\n• 1/2\n• 3/4\n") && p.topicId === "T"; })(), pf(good[2]));
   check("practiceFrom rejects visual / non-number / equal options / bad qid / bad index", bad.every(q => pf(q) === null));
   check("practiceFrom rejects missing / odd shapes", [null, {}, { qid: "a", question: "q", options: "12", answerIndex: 0 }, { qid: "a", question: " ", options: ["1", "2"], answerIndex: 0 }].every(q => pf(q) === null));
-  check("practiceFrom: zh tail", practiceFrom(good[0], "T", "zh").prompt.endsWith("写出你算出的数（不要写字母）。"));
+  check("practiceFrom: zh tail", practiceFrom(good[0], "T", "zh").prompt.endsWith("可选答案：\n• 10\n• 12\n• 14\n• 16\n写出答案的数。"));
   check("practiceFrom: prompt over 1000 chars rejected", pf(Object.assign({}, good[0], { question: "x".repeat(1000) })) === null);
   check("readSettings defaults", JSON.stringify(readSettings(undefined)) === JSON.stringify({ perMinute: WORKFLOW_SERVICE_DEFAULTS.perMinute }) && readSettings({ perMinute: 0 }).perMinute === 6 && readSettings({ perMinute: 3 }).perMinute === 3);
   check("createWorkflowService requires its deps", (() => { try { createWorkflowService({}); return false; } catch (e) { return e instanceof TypeError; } })());

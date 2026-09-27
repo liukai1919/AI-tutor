@@ -256,11 +256,11 @@ node tools/test_verification.mjs        # #38：后置条件反例、确定性 g
 lib/ai/workflows/service.js         createWorkflowService：练习题筛选、确定性评分、按孩子分的 memory、限速、引擎检查、视图裁剪、错误码 → HTTP
 server.js                           路由：开关 → allow → 家庭开关 → 孩子 → 话题（课程条目）→ workflowService
 lib/ai/tutor/service.js             多了 agentAsk / engineReady：和「问老师」同一套选引擎和 agent 缓存
-tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 回归（82 项；其余引擎换成抛错桩，断言零调用）
+tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 回归（95 项；其余引擎换成抛错桩，断言零调用）
 ```
 
 **开关**：`config.tutorWorkflow.enabled`（默认 `false`，只认 `true`）且问老师的服务器总闸 `tutorAgent.enabled` 开、且 `YY_DEMO` 没设，否则 404 `workflowDisabled`（鉴权之前）；
-家庭「问老师」没开 → 403 `tutorOff`。`/api/providers` 的 `tutor.workflow` 是这几项合起来的结果（给以后的界面用）。
+家庭「问老师」没开 → 403 `tutorOff`。关着时方法不对也回 404（不回 405 暴露路由）。`/api/providers` 的 `tutor.workflow` 是这几项合起来的结果（给以后的界面用）。
 
 | 方法 | 路径 | body / 参数 | 回包 |
 |---|---|---|---|
@@ -272,14 +272,20 @@ tools/test_tutor_workflow_route.mjs 进程内隔离实例 + 桩 claude 的 HTTP 
 - **所有者**：ctx = `{ userId: familyId, kidId, role }`，家长和孩子看同一个孩子的同一组工作流和学习事件；家长必须指定孩子（沿用 400 `kidRequired`），孩子的 `kid` 参数被忽略。
 - **话题**：服务端按 `curriculumId` 从课程条目取 `title`（条目的 zh / en 名）和 `goal`（前两条 elaborations，没有就用名字），截到 120 / 300 字；未知条目 → 400。
 - **练习题**（`practiceFrom`）：只用随包 / 已有题库（`qbankPlayable`），**不现出题**。只收：qid 合事件 id 规则、没有 `visual`、2–6 个选项、正确选项能按 number.js 解析成一个数、别的选项没有和它等值的。
-  题目 = 题干 + 「A. … B. …」选项 + 「写出你算出的数（不要写字母）」；答案键 = 正确选项原文，只进 grader 和本地复核。这个话题一道合格题都没有 → 409 `noPractice`；做着做着用完 → PRACTICE_FAILED。
-  提示 / 补救步交给模型的问题里有题面（含选项），所以模型看得到正确选项在其中；「hint 不许显式说出答案键」由 #38 的本地复核拦。
+  题目 = 题干 + 「Choices: / 可选答案：」+ 每行一个「• 选项」（**不带字母**）+ 「Type the number. / 写出答案的数。」；答案键 = 正确选项原文，只进 grader 和本地复核。
+  这个话题一道合格题都没有 → 409 `noPractice`；`maxRounds` = min(5, 合格题数)，`targetCorrect` 随之 = min(3, maxRounds)，所以不会做到一半题用完。
+  提示 / 补救步交给模型的问题里有题面（含选项），模型看得到正确选项在其中。选项不带字母，是因为 #38 的本地复核只认数字答案键：「答案是 C」拦不住，「答案是 12」拦得住；
+  换个说法的泄露（「再看看第二个」）仍拦不住，和孩子在「问老师」里贴一道带选项的题是同一个限度。
 - **评分**：`createAnswerGrader()`；写字母、带单位、写法不同（`0.50` 对 `0.5`）都是 uncertain，换下一题、不算错。从不给误因。
 - **学习事件**：每个孩子一个 `createMemory` + `createFileStore`，rootDir = `data/kids/<kid>/learning/`（第一次用时建）。孩子被删时随整个目录归档为 `_deleted-…`；已删的孩子不会被重建目录（memory 读写 → STORE_FAILED `STORE_IO`）。
   「清空全部记录」现在**不清**这里（界面片一起做）。进度 / 报告 / 掌握度都不读它。
 - **模型**：`tutorService.agentAsk` 按 `providerByTask.tutor` → provider → 自动顺序选引擎，账本任务名仍是 `tutor` / `tutor:classify`。家庭「孩子只给提示」**不强制**到工作流：首课 explain-concept 要讲解（answer 模式），但工作流从不把答案键交给模型，提示 / 补救步本来就强制 hint。
-- **限速 / 引擎**：teach / hint（会调模型的命令）先查引擎（没有 → 503 `noEngine`，不执行）和每账号每分钟 `tutorWorkflow.perMinute`（默认 6，429 `RATE_LIMITED`）；原样重发挂起的那条命令不查（不再问模型）。其它命令和 GET 不限。
+- **限速 / 引擎**：只有**真的会问模型**的 teach / hint 才先查引擎（没有 → 503 `noEngine`，不执行）并扣每账号每分钟 `tutorWorkflow.perMinute`（默认 6，429 `RATE_LIMITED`）。
+  不扣也不查的（`willAskModel`）：已经成功过的命令原样重放（拿缓存）、这个工作流有命令在途（BUSY / 双击共享）、有挂起（原命令重发不再问模型，别的命令 PENDING_OPERATION）、
+  当前不允许 / 提示用完、expectedVersion 或 questionId 对不上、带了这类命令不收的字段。其它命令和 GET 不限。
+- **名额**：工作流模块自己每个孩子 3 个、整个进程 100 个；这里另加**每家同时 6 个**（429 `CAPACITY`，`per family`），免得一家开很多孩子占满进程名额。
+  一步之后 status 不再是 active（completed / ended）就**立即关掉**，不占名额；最后的 view 就在那次回包里，之后 GET / 命令 → 404。
 - **孩子看的 view** 去掉 `plan`；家长原样。回包里仍没有答案键、作答文本、模型原文、title / goal。
 - **错误码**：WorkflowError → INVALID_INPUT / INVALID_CTX 400、NOT_FOUND 404、ILLEGAL_COMMAND / STALE / COMMAND_CONFLICT / PENDING_OPERATION 409、BUSY / LIMIT / CAPACITY 429，其它 500（`{ error, code }`）；
   一步试过但没成功（拒答、评分失败、写失败……）是 200 + `ok:false`（§3）。
-- 工作流状态仍只在进程内存（重启即丢、多实例不共享）；限速表同样。
+- 工作流状态仍只在进程内存（重启即丢、多实例不共享）；限速表、每家名额表同样。孩子能从首课 reply 的 kind（answer / hint）间接看出策略。
