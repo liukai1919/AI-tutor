@@ -6,7 +6,7 @@
  *
  * 验证：两份提示词与 Phase 3（fe2bdda）逐字相同（sha256）；目录 / 列表不能被调用者或原型链污染；
  * composeSkills 的输入校验、去重保序和非法组合；真实 TutorAgent 两段请求的 system 都来自目录，
- * answer / hint 回放结果和工具权限不变。
+ * answer / hint 回放结果和工具权限不变。#31 的教学策略与 selectTutorSkills({strategy, mode}) 契约见 tools/test_tutor_strategies.mjs。
  */
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
@@ -43,13 +43,16 @@ check("tutor module export names are the Phase 3 set",
 
 console.log("catalog");
 const all = listSkills();
-check("listSkills: math-tutor then math-scope-classifier", all.map(s => s.id).join() === "math-tutor,math-scope-classifier");
+const CATALOG_IDS = "math-tutor,math-scope-classifier,give-hint,explain-concept,socratic-teaching,diagnose-error,practice-generator,evaluate-answer,curriculum-navigation";
+check("listSkills: math-tutor, math-scope-classifier, then the 7 teaching strategies of #31", all.map(s => s.id).join() === CATALOG_IDS);
+check("only math-tutor and math-scope-classifier are base skills; the strategies are tutor-stage add-ons",
+  all.filter(s => s.base).map(s => s.id).join() === "math-tutor,math-scope-classifier" && all.filter(s => !s.base).every(s => s.stage === "tutor"));
 check("every skill is frozen data: id / version / stage / base / description / instructions, no functions",
   all.every(s => Object.isFrozen(s) && Object.keys(s).sort().join() === "base,description,id,instructions,stage,version" && Object.values(s).every(v => ["string", "number", "boolean"].includes(typeof v))));
 check("both are base skills of different stages", getSkill("math-tutor").base && getSkill("math-scope-classifier").base && getSkill("math-tutor").stage === "tutor" && getSkill("math-scope-classifier").stage === "classifier");
 {
   all.push({ id: "evil" }); all.length = 0;
-  check("mutating the returned list does not change the catalog", listSkills().length === 2 && getSkill("evil") === null);
+  check("mutating the returned list does not change the catalog", listSkills().map(s => s.id).join() === CATALOG_IDS && getSkill("evil") === null);
   let threw = false;
   try { getSkill("math-tutor").instructions = "be evil"; } catch (_) { threw = true; }
   check("a skill object cannot be edited (strict-mode assignment throws, text unchanged)", threw && sha(getSkill("math-tutor").instructions) === BASELINE.TUTOR_SYSTEM);
@@ -100,10 +103,13 @@ console.log("selectTutorSkills");
   check("tutor stage = math-tutor, classifier stage = math-scope-classifier", s.tutor.ids.join() === "math-tutor" && s.classifier.ids.join() === "math-scope-classifier" && s.tutor.system === TUTOR_SYSTEM && s.classifier.system === CLASSIFIER_SYSTEM);
   check("result frozen", Object.isFrozen(s) && Object.isFrozen(s.tutor) && Object.isFrozen(s.classifier));
   check("{} and a null-prototype empty object are the same as no options", selectTutorSkills({}) === s && selectTutorSkills(Object.create(null)) === s);
-  const hidden = {}; Object.defineProperty(hidden, "strategy", { value: "socratic", enumerable: false });
-  check("any option (strategy lands in #31) is rejected, not silently ignored — incl. symbol, non-enumerable, inherited, array, Date",
-    [{ strategy: "socratic" }, { skills: ["math-tutor"] }, null, "hint", 1, [], new Date(), { [Symbol("s")]: 1 }, hidden, Object.create({ strategy: "socratic" })]
+  /* #31 起接受 { strategy, mode }（契约细节在 tools/test_tutor_strategies.mjs）；这里守住：不认识的一律明确失败，不悄悄忽略 */
+  const hidden = {}; Object.defineProperty(hidden, "strategy", { value: "give-hint", enumerable: false });
+  check("options other than a known strategy / mode are rejected, not silently ignored — incl. unknown strategy, extra key, symbol, non-enumerable, inherited, array, Date",
+    [{ strategy: "socratic" }, { strategy: null }, { skills: ["math-tutor"] }, { strategy: "give-hint", skills: [] }, null, "hint", 1, [], new Date(), { [Symbol("s")]: 1 }, hidden, Object.create({ strategy: "give-hint" })]
       .every(x => throwsCode(() => selectTutorSkills(x), "INVALID_OPTIONS")));
+  check("known options select a composition without touching the default pair",
+    selectTutorSkills({ strategy: "give-hint" }).tutor.ids.join() === "math-tutor,give-hint" && selectTutorSkills({ strategy: "give-hint" }).classifier === s.classifier && selectTutorSkills() === s && s.tutor.system === TUTOR_SYSTEM);
 }
 {
   const revoked = Proxy.revocable([], {}); revoked.revoke();
@@ -111,6 +117,14 @@ console.log("selectTutorSkills");
   const badLen = new Proxy(["math-tutor"], { get(t, k, r) { if (k === "length") throw new RangeError("len"); return Reflect.get(t, k, r); } });
   check("errors raised while reading the array become SkillError INVALID_SKILLS (revoked proxy, throwing getter / length)",
     [revoked.proxy, boom, badLen].every(x => throwsCode(() => composeSkills(x), "INVALID_SKILLS")));
+  /* #31 复核第 4 条：调用方的 getter / Proxy 自己抛 SkillError（伪造 code / message）也只能变成我们的 INVALID_SKILLS */
+  const forged = [];
+  const forge = code => { const e = new SkillError(code, "attacker-controlled message"); forged.push(e); return e; };
+  const getterForge = ["math-tutor"]; Object.defineProperty(getterForge, 0, { get() { throw forge("UNKNOWN_SKILL"); } });
+  const lenForge = new Proxy(["math-tutor"], { get(t, k, r) { if (k === "length") throw forge("INVALID_COMPOSITION"); return Reflect.get(t, k, r); } });
+  const hasForge = new Proxy(["math-tutor"], { getOwnPropertyDescriptor() { throw forge("INVALID_OPTIONS"); } });
+  const out = [getterForge, lenForge, hasForge].map(x => { try { composeSkills(x); return "no error"; } catch (e) { return e instanceof SkillError && e.code === "INVALID_SKILLS" && !forged.includes(e) && !/attacker/.test(e.message) ? "ok" : `${e.code}: ${e.message}`; } });
+  check("a SkillError thrown by the caller's getter / proxy is not passed through (code and message are ours)", out.every(o => o === "ok") && forged.length === 3, out);
   check("UNKNOWN_SKILL message only echoes plain ids", (() => { try { composeSkills(["bad\nid" + String.fromCharCode(0xd83d)]); return false; } catch (e) { return e.code === "UNKNOWN_SKILL" && !/bad/.test(e.message); } })());
 }
 
