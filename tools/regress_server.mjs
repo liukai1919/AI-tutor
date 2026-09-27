@@ -18,6 +18,7 @@ import os from "node:os";
 import net from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { prepareIsolatedDataDir } from "./lib/test_fixtures.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = fs.mkdtempSync(path.join(os.tmpdir(), "yy-regress-"));
@@ -80,11 +81,9 @@ const block = (kidId, f) => fs.mkdirSync(kidFile(kidId, f + ".tmp"), { recursive
 const unblock = (kidId, f) => fs.rmSync(kidFile(kidId, f + ".tmp"), { recursive: true, force: true });
 
 async function main() {
-  // 同 api/index.js：数据目录是全新的，落标记跳过「从 app 目录接管旧数据」，别把仓库里的真数据拷进来
-  fs.mkdirSync(path.join(DATA, "data"), { recursive: true });
-  fs.writeFileSync(path.join(DATA, ".migrated-from-app"), "regress\n");
-  fs.writeFileSync(path.join(DATA, "config.json"), "{}\n");
-  if (fs.existsSync(path.join(ROOT, "qbank.json"))) fs.cpSync(path.join(ROOT, "qbank.json"), path.join(DATA, "qbank.json"));
+  // 同 api/index.js：数据目录是全新的，落标记跳过「从 app 目录接管旧数据」，别把仓库里的真数据拷进来；
+  // 题库只拷入库的 demo/qbank.json，缺了直接报错（tools/lib/test_fixtures.mjs）
+  prepareIsolatedDataDir(DATA, { marker: "regress" });
   PORT = await freePort();
   await start();
 
