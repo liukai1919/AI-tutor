@@ -269,4 +269,6 @@ checks、工具调用、步数、门控细节、verification、runId 都不给�
 
 - 辅导工作流（Diagnose → … → Adapt）的 HTTP 与「和老师一起练」界面见 `docs/tutor-workflow.md` §9 / §10（#61 / #63，服务器开关默认关）。
 
-**还缺**（另立任务，需要用户确认）：带人工标注的中英问题集跑真实引擎的分类 / 作答质量评测；Student Memory 给不给模型、给哪些字段；拍照提问。
+**真实引擎评测**（#65）：`node tools/eval_tutor_live.mjs --engines ollama,claude` 用 66 条人工标注的中英合成问题（`tools/fixtures/tutor_live_eval.json`）跑和本路由同一条 TutorAgent + 旧引擎桥，隔离数据目录、不碰孩子数据；判分规则的零成本自检是 `tools/test_eval_tutor_live.mjs`。2026-09-27 的结果和结论见 `docs/reviews/2026-09-27-tutor-live-eval.md`。
+
+**还缺**（另立任务，需要用户确认）：Student Memory 给不给模型、给哪些字段；拍照提问。
