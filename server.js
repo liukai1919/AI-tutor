@@ -104,6 +104,9 @@ const DEFAULT_CONFIG = {
    * false = 整台服务器都没有这个功能。引擎按 providerByTask.tutor → provider → 自动顺序选；
    * perMinute = 每个账号每分钟能问几次。见 docs/tutor-harness.md §5 */
   tutorAgent: { enabled: true, perMinute: 6, stepTimeoutMs: 120000, totalTimeoutMs: 300000 },
+  /* 辅导工作流 Diagnose → Teach → Practice → Evaluate（#61，实验，还没有界面）。enabled 默认 false：只认 true，
+   * 还要 tutorAgent 总闸和家庭「问老师」开关都开着。perMinute = 每个账号每分钟会调模型的步骤（讲课 / 提示）数。见 docs/tutor-workflow.md §9 */
+  tutorWorkflow: { enabled: false, perMinute: 6 },
   tts: {
     /* 自然语音（本地引擎）。url 和 command 都空 = 关闭，前端自动退回浏览器语音。
      * url 可以是一个地址（所有语言都发它），也可以按语言分开配 —— 现在的分工就是后者：
@@ -2833,7 +2836,7 @@ async function readBody(req, limit) {
 /* ---------------- Action 层（lib/actions/，#24） ----------------
  * 路由只做三件事：allow → resolveKid → 调 Action → send。业务中段都在 lib/actions/ 里，
  * 将来的 Agent Tool（Phase 2）调同一份。ActionError 按它带的状态码回；其它错误照旧走统一 catch。 */
-const { ActionError } = require("./lib/actions/errors.js");
+const { ActionError, UNKNOWN_ITEM: UNKNOWN_ITEM_MSG } = require("./lib/actions/errors.js");
 const actions = require("./lib/actions/index.js").create({
   // 进度 / 大纲
   kd, kidSave, kidTxn, progressRecord, progressStatus, progressLevel, remediationFor, missRecord, findCurriculumItem,
@@ -2866,6 +2869,47 @@ const tutorService = require("./lib/ai/tutor/service.js").createTutorService({
 const tutorEnabled = () => !process.env.YY_DEMO && !!(cfg.tutorAgent && cfg.tutorAgent.enabled === true);
 const tutorOpenFor = a => tutorEnabled() && familyTutorPrefs(a.user.familyId).enabled;
 const TUTOR_OFF_MSG = { error: "「问老师」还没打开，请家长在设置里打开 / Ask-a-tutor is off — a parent can turn it on in Settings", tutorOff: true };
+
+/* 辅导工作流的 HTTP 接缝（#61）：练习题筛选、评分、限速、视图裁剪都在 lib/ai/workflows/service.js。
+ * 三道闸：config.tutorWorkflow.enabled（默认 false，只认 true）+ 问老师的服务器总闸 + 家庭开关；YY_DEMO 永远关。
+ * 学习事件按孩子一个 store：data/kids/<kid>/learning/（用时才建；孩子被删时随整个目录归档；已删的孩子不重建）。 */
+const { createMemory } = require("./lib/ai/memory/index.js");
+const { createFileStore } = require("./lib/ai/memory/file-store.js");
+const workflowMemories = new Map();   // kidId → createMemory
+function workflowMemoryFor(kidId) {
+  const id = String(kidId);
+  if (!userById(id)) { workflowMemories.delete(id); return null; }
+  let m = workflowMemories.get(id);
+  if (m) return m;
+  try {
+    const dir = path.join(kidDir(id), "learning");
+    fs.mkdirSync(dir, { recursive: true });
+    m = createMemory({ store: createFileStore({ rootDir: dir }) });
+  } catch (e) { console.log("[workflow] could not open the learning record: " + e.message); return null; }
+  workflowMemories.set(id, m);
+  return m;
+}
+const workflowService = require("./lib/ai/workflows/service.js").createWorkflowService({
+  tutor: { ask: (ctx, req) => tutorService.agentAsk(ctx, req) },
+  engineReady: () => tutorService.engineReady(),
+  memoryFor: workflowMemoryFor,
+  bankFor: (topicId, lang) => qbankPlayable(topicId, lang),
+  settings: () => cfg.tutorWorkflow, log: (...m) => console.log(...m),
+});
+const workflowEnabled = () => tutorEnabled() && !!(cfg.tutorWorkflow && cfg.tutorWorkflow.enabled === true);
+/* 所有者是 [familyId, kidId]：家长和孩子看同一个孩子的同一组工作流；家长必须指定孩子 */
+const wctx = (a, kidRaw) => ({ userId: String(a.user.familyId), kidId: resolveKid(a, kidRaw), role: a.role });
+/* 话题名和学习目标由服务端从课程条目取（工作流只收可信的 title / goal，不从模型文字猜） */
+const clip = (s, n) => String(s == null ? "" : s).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "").trim().slice(0, n).trim();
+function workflowTopic(curriculumId, lang) {
+  const found = findCurriculumItem(String(curriculumId || ""));
+  if (!found) return null;
+  const it = found.item, pick = o => (o && typeof o === "object" ? o[lang] || o.en || o.zh : o);
+  const title = clip(pick(it) || it.id, 120) || String(it.id).slice(0, 120);
+  const elab = Array.isArray(it.elaborations) ? it.elaborations.map(pick).filter(x => typeof x === "string" && x.trim()) : [];
+  const goal = clip(elab.slice(0, 2).join(lang === "en" ? "; " : "；") || title, 300) || title;
+  return { id: it.id, title, goal };
+}
 /* 孩子上下文：resolveKid 可能给 null，原样传给 Action，由它决定要不要孩子（kidRequired 400 由 Action 抛） */
 const actx = (a, kidRaw) => ({ kidId: resolveKid(a, kidRaw), role: a.role, userId: a.user.id });
 async function runAction(res, fn) {
@@ -3009,6 +3053,7 @@ const server = http.createServer(async (req, res) => {
       usersCommit(() => { users = users.filter(u => u.id !== kid.id); });
       sessionsDropUser(kid.id);
       kidData.delete(kid.id);
+      workflowService.dropKid(String(kid.familyId), kid.id).catch(() => {});   // #61：关掉 TA 的辅导工作流，名额还给这一家
       try {
         if (fs.existsSync(kidDir(kid.id))) fs.renameSync(kidDir(kid.id), path.join(KIDS_DIR, `_deleted-${kid.id}-${Date.now().toString(36)}`));
       } catch (e) { console.log("[auth] could not archive the kid's data: " + e.message); }
@@ -3032,7 +3077,7 @@ const server = http.createServer(async (req, res) => {
         curriculumSkillsPreviews: curriculumSkillsPreviews(),
         role: a.role, user: publicUser(a.user),
         /* 「问老师」入口（#55）：available = 服务器总闸和本家庭开关都开；kidMode 决定孩子端有没有「讲解」选项 */
-        tutor: Object.assign({ available: tutorOpenFor(a), serverAllowed: tutorEnabled() }, familyTutorPrefs(a.user.familyId))
+        tutor: Object.assign({ available: tutorOpenFor(a), serverAllowed: tutorEnabled(), workflow: workflowEnabled() && tutorOpenFor(a) }, familyTutorPrefs(a.user.familyId))
       };
       if (a.role === "parent") resp.kids = familyKids(a.user.familyId).map(publicUser);
       return send(res, 200, resp);
@@ -3102,6 +3147,40 @@ const server = http.createServer(async (req, res) => {
       if (id && keep.length === list.length) return send(res, 404, { error: "Not found" });
       kidTxn(() => { kd(kidId).tutorChats = keep; kidSave(kidId, "tutorChats"); });
       return send(res, 200, { ok: true, removed: list.length - keep.length });
+    }
+
+    /* 辅导工作流（#61）：关着就 404 workflowDisabled（鉴权之前就回）。开着：allow → 家庭开关 → 孩子 → workflowService。
+     *   POST   /api/tutor/workflow               { curriculumId, lang, commandId, kid? } → view
+     *   GET    /api/tutor/workflow?kid=                                                  → { items:[view] }（这个孩子还在表里的，新的在前）
+     *   GET    /api/tutor/workflow/:id?kid=                                               → view
+     *   POST   /api/tutor/workflow/:id/command   { type, commandId, expectedVersion?, questionId?, answer?, kid? } → { ok, code, detail, view, reply }
+     *   DELETE /api/tutor/workflow/:id?kid=                                               → view（closed） */
+    const wfm = url.pathname.match(/^\/api\/tutor\/workflow(?:\/([^/]+)(\/command)?)?$/);
+    if (wfm) {
+      const [, wid, isCmd] = wfm;
+      const okMethod = !wid ? (req.method === "POST" || req.method === "GET") : isCmd ? req.method === "POST" : (req.method === "GET" || req.method === "DELETE");
+      if (!workflowEnabled()) return send(res, 404, { error: "Not found", workflowDisabled: true });   // 关着时连 405 都不回，不暴露路由
+      if (!okMethod) return send(res, 405, { error: "Method not allowed" });
+      const a = allow(req, res, "student"); if (!a) return;
+      if (!tutorOpenFor(a)) return send(res, 403, TUTOR_OFF_MSG);
+      let body = {};
+      if (req.method === "POST") {
+        try { body = JSON.parse((await readBody(req, 16 * 1024)).toString("utf8")); }
+        catch (_) { return send(res, 400, { error: "请求格式不对 / Malformed request", code: "INVALID_INPUT" }); }
+      }
+      const ctx = wctx(a, req.method === "POST" ? body && body.kid : url.searchParams.get("kid"));
+      if (!ctx.kidId) return send(res, 400, NEED_KID_MSG);
+      let r;
+      if (!wid && req.method === "GET") r = await workflowService.list(ctx);
+      else if (!wid) {
+        const lang = body && body.lang === "en" ? "en" : "zh";
+        const topic = workflowTopic(body && body.curriculumId, lang);
+        if (!topic) return send(res, 400, UNKNOWN_ITEM_MSG);
+        r = await workflowService.start(ctx, body, { topic, accountId: a.user.id });
+      } else if (isCmd) r = await workflowService.send(ctx, wid, body, { accountId: a.user.id });
+      else if (req.method === "GET") r = await workflowService.get(ctx, wid);
+      else r = await workflowService.close(ctx, wid);
+      return send(res, r.status, r.body);
     }
 
     /* 用量账本（家长专属）：讲课/出题/报告各花了多少次调用、token、时间、美元，
