@@ -355,6 +355,30 @@ try {
   check("parent can no longer start one for the deleted kid (400)", r.status === 400 && r.body.kidRequired, r);
   check("the deleted kid's folder was not recreated", !fs.existsSync(path.join(srv.DATA, "data", "kids", kidB)));
 
+  console.log("erase all (learning record)");
+  r = await call("DELETE", "/api/tutor/learning", undefined, tokA);
+  check("a kid cannot erase the learning record (403)", r.status === 403, r);
+  r = await call("DELETE", "/api/tutor/learning", undefined, parentTok);
+  check("parent must pick a kid (400)", r.status === 400 && r.body.kidRequired, r);
+  r = await start(tokA);
+  const wErase = r.body.workflowId;
+  check("A has a live workflow before the erase", r.status === 200, r);
+  S.cfg.tutorWorkflow.enabled = false;
+  r = await call("DELETE", `/api/tutor/learning?kid=${kidA}`, undefined, parentTok);
+  check("parent erases kid A's learning record even with the feature switched off", r.status === 200 && r.body.ok && r.body.removed === 1, r);
+  S.cfg.tutorWorkflow.enabled = true;
+  check("… the file is gone, the folder is not recreated as anything else", !fs.existsSync(learningFile(familyId, kidA)));
+  r = await call("GET", `/api/tutor/workflow/${wErase}`, undefined, tokA);
+  check("… and A's open workflows were closed", r.status === 404, r);
+  r = await start(tokA);
+  const wFresh = r.body.workflowId;
+  await cmd(tokA, wFresh, { type: "diagnose" });
+  r = await call("GET", `/api/tutor/workflow/${wFresh}?kid=${kidA}`, undefined, parentTok);
+  check("a new workflow sees no history again (explain-concept)", r.body.plan && r.body.plan.strategy === "explain-concept", r.body.plan);
+  await call("DELETE", `/api/tutor/workflow/${wFresh}`, undefined, tokA);
+  r = await call("DELETE", `/api/tutor/learning?kid=${kidC}`, undefined, parentTok);
+  check("erasing another kid (C) works too", r.status === 200, r);
+
   console.log("other family");
   S.cfg.registrationCode = "wf2";
   const reg2 = await quiet(() => call("POST", "/api/auth/register", { username: "wfother", password: "other12345", name: "O", registrationCode: "wf2" })).then(x => x.value);

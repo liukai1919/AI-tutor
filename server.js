@@ -3149,6 +3149,27 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { ok: true, removed: list.length - keep.length });
     }
 
+    /* 「清空全部」（#63）：删这个孩子的辅导工作流学习事件（data/kids/<kid>/learning/ 里的文件），先关掉 TA 的工作流。
+     * 不看工作流开关：功能关掉以后留下的记录也要能清。家长专属；目录不存在就是 removed 0，不会新建目录。 */
+    if (url.pathname === "/api/tutor/learning" && req.method === "DELETE") {
+      const a = allow(req, res, "parent"); if (!a) return;
+      const kidId = resolveKid(a, url.searchParams.get("kid"));
+      if (!kidId) return send(res, 400, NEED_KID_MSG);
+      await workflowService.dropKid(String(a.user.familyId), kidId);
+      workflowMemories.delete(String(kidId));
+      const dir = path.join(kidDir(kidId), "learning");
+      let removed = 0;
+      try {
+        for (const f of fs.readdirSync(dir)) {
+          const fp = path.join(dir, f);
+          if (fs.lstatSync(fp).isFile()) { fs.rmSync(fp, { force: true }); removed++; }
+        }
+      } catch (e) {
+        if (e.code !== "ENOENT") { console.log("[workflow] could not erase the learning record: " + e.message); return send(res, 500, { error: "删除没成功 / Could not erase", saveFailed: true }); }
+      }
+      return send(res, 200, { ok: true, removed });
+    }
+
     /* 辅导工作流（#61）：关着就 404 workflowDisabled（鉴权之前就回）。开着：allow → 家庭开关 → 孩子 → workflowService。
      *   POST   /api/tutor/workflow               { curriculumId, lang, commandId, kid? } → view
      *   GET    /api/tutor/workflow?kid=                                                  → { items:[view] }（这个孩子还在表里的，新的在前）
