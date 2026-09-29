@@ -109,7 +109,7 @@ selectTutorSkills({ strategy, mode });   // #31：按策略 / 模式选组合，
 
 | Skill | stage | 用在哪 |
 |---|---|---|
-| `math-tutor` v1 | tutor | Harness 作答回合的 system（= `TUTOR_SYSTEM`） |
+| `math-tutor` v2（#68 起） | tutor | Harness 作答回合的 system（= `TUTOR_SYSTEM`） |
 | `math-scope-classifier` v1 | classifier | 每次作答前语义分类的 system（= `CLASSIFIER_SYSTEM`） |
 
 - **Skill 只是文本**：没有函数、工具名单、权限字段。TutorAgent 能调哪两个工具、预闸 / 分类 / 结果校验怎么判、拒答用哪条模板、身份快照、取消和共享总时限，全部还在 `lib/ai/tutor` 与 `lib/ai/harness`，换哪个 Skill 都不会多给能力。
@@ -117,7 +117,7 @@ selectTutorSkills({ strategy, mode });   // #31：按策略 / 模式选组合，
 - **组合规则**：`ids` 必须是真数组、1–32 个、元素全是字符串（空位、数组样对象、Set 都拒绝，只按下标读一遍）；去重保序；恰好一个 base Skill 且排第一；所有 Skill 同一个 stage。`system` = 按顺序空行拼接，单个 Skill 时就是原文。错误是带 `code` 的 `SkillError`：`INVALID_SKILLS` / `UNKNOWN_SKILL` / `INVALID_COMPOSITION` / `INVALID_OPTIONS`；读数组时的意外（撤销的 Proxy、getter 抛错，包括调用方自己抛出的 `SkillError`）一律收成我们自己的 `INVALID_SKILLS`，不透传外部的 code / message；错误信息只回显形如 `math-tutor` 的普通 id。
 - `selectTutorSkills` 的选项（#31 起）只认 `{ strategy, mode }`，细节见 §2.2；不传、`{}`、null 原型的 `{}` 都返回同一份默认组合（与 #30 相同）。
 - `createTutorAgent` 返回的对象多了 `skills: { tutor: [...ids], classifier: [...ids] }`（副本，永远是默认组合，不反映某次 ask 的策略），方便 trace / 调试。
-- 兼容性由 `tools/test_skills.mjs` 守：两份提示词和 `TURN_FORMAT` 的 sha256 钉在 fe2bdda 的值上，真实 TutorAgent 的分类请求、每个作答请求（含 hint 被退回后的修复回合）的 `system` 都核对到目录原文，answer / hint 回放结果和工具权限与 Phase 3 相同；另用 require.cache 换上桩目录重新加载 tutor，桩里的标记文本必须出现在两段请求里，证明 system 确实取自目录（tutor 退回内联常量会让这条失败）。
+- 兼容性由 `tools/test_skills.mjs` 守：分类提示词和 `TURN_FORMAT` 的 sha256 钉在 fe2bdda 的值上；作答提示词（`math-tutor`）自 #68 起是 fe2bdda 原文在第 3 条末尾多一句「只把孩子问题里写出来的步骤算作孩子做过的」（v2），测试钉新值，并核对去掉这一句就逐字回到 fe2bdda，真实 TutorAgent 的分类请求、每个作答请求（含 hint 被退回后的修复回合）的 `system` 都核对到目录原文，answer / hint 回放结果和工具权限与 Phase 3 相同；另用 require.cache 换上桩目录重新加载 tutor，桩里的标记文本必须出现在两段请求里，证明 system 确实取自目录（tutor 退回内联常量会让这条失败）。
 
 ### 2.2 教学策略（#31，Phase 4b）
 

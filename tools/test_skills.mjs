@@ -4,7 +4,7 @@
  *
  *   node tools/test_skills.mjs
  *
- * 验证：两份提示词与 Phase 3（fe2bdda）逐字相同（sha256）；目录 / 列表不能被调用者或原型链污染；
+ * 验证：分类提示词与 Phase 3（fe2bdda）逐字相同，作答提示词是 fe2bdda 原文加 #68 的一句（都用 sha256 钉住）；目录 / 列表不能被调用者或原型链污染；
  * composeSkills 的输入校验、去重保序和非法组合；真实 TutorAgent 两段请求的 system 都来自目录，
  * answer / hint 回放结果和工具权限不变。#31 的教学策略与 selectTutorSkills({strategy, mode}) 契约见 tools/test_tutor_strategies.mjs。
  */
@@ -25,15 +25,19 @@ const throwsCode = (fn, code) => { try { fn(); return false; } catch (e) { retur
 const unhandled = [];
 process.on("unhandledRejection", e => unhandled.push(e));
 
-/* fe2bdda（Phase 3 交付）里 lib/ai/tutor/index.js 的三段提示词 */
+/* fe2bdda（Phase 3 交付）里 lib/ai/tutor/index.js 的三段提示词。TUTOR_SYSTEM 在 #68 给第 3 条规则补了一句（不许冒认孩子没做过的步骤），
+ * 钉的是新文本；另有一条核对：去掉这一句就逐字回到 fe2bdda（PHASE3_TUTOR_SYSTEM）。 */
+const RULE3_ADDED_68 = " In any mode, credit the child only with work their question shows: never say they already found, worked out or know a step or number that is not in the question.";
+const PHASE3_TUTOR_SYSTEM = "793f1167661540299f5e8d56d3413e0550d087770d6d3c26021134bab85740cb";
 const BASELINE = {
-  TUTOR_SYSTEM: "793f1167661540299f5e8d56d3413e0550d087770d6d3c26021134bab85740cb",
+  TUTOR_SYSTEM: "24dc7056c31c4ebfefacca5c8d75e545da74ea985bafc6c4a18f9c71c5414b30",
   CLASSIFIER_SYSTEM: "483e39b555ed79cd5a02d0a28f89613b911bc16d143485b9aadc0bd7a9e32b7d",
   TURN_FORMAT: "8b4b0d30bdf55666890ed06a3aa67d7cabe27a943d88124b21662506eda94fd3",
 };
 
 console.log("compatibility with Phase 3");
-check("math-tutor instructions = fe2bdda TUTOR_SYSTEM (sha256)", sha(getSkill("math-tutor").instructions) === BASELINE.TUTOR_SYSTEM);
+check("math-tutor instructions = #68 TUTOR_SYSTEM (sha256)", sha(getSkill("math-tutor").instructions) === BASELINE.TUTOR_SYSTEM);
+check("math-tutor = fe2bdda text plus exactly the #68 rule-3 sentence", getSkill("math-tutor").instructions.split(RULE3_ADDED_68).length === 2 && sha(getSkill("math-tutor").instructions.replace(RULE3_ADDED_68, "")) === PHASE3_TUTOR_SYSTEM);
 check("math-scope-classifier instructions = fe2bdda CLASSIFIER_SYSTEM (sha256)", sha(getSkill("math-scope-classifier").instructions) === BASELINE.CLASSIFIER_SYSTEM);
 check("TURN_FORMAT unchanged and still the last line of the tutor prompt", sha(TURN_FORMAT) === BASELINE.TURN_FORMAT && TUTOR_SYSTEM.endsWith("\n" + TURN_FORMAT));
 check("tutor module still exports TUTOR_SYSTEM / CLASSIFIER_SYSTEM / TURN_FORMAT, same strings as the catalog",
@@ -74,7 +78,7 @@ console.log("composeSkills");
 {
   const one = composeSkills(["math-tutor"]);
   check("single base skill: system is its instructions verbatim", one.system === TUTOR_SYSTEM && one.stage === "tutor" && one.ids.join() === "math-tutor");
-  check("result carries id + version per skill", JSON.stringify(one.skills) === JSON.stringify([{ id: "math-tutor", version: 1 }]));
+  check("result carries id + version per skill", JSON.stringify(one.skills) === JSON.stringify([{ id: "math-tutor", version: 2 }]));
   check("result is deeply frozen", Object.isFrozen(one) && Object.isFrozen(one.ids) && Object.isFrozen(one.skills) && one.skills.every(Object.isFrozen));
   const dup = composeSkills(["math-tutor", "math-tutor", "math-tutor"]);
   check("duplicates collapse, order kept", dup.ids.join() === "math-tutor" && dup.system === TUTOR_SYSTEM);
