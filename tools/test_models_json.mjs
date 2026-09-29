@@ -26,6 +26,13 @@ check("array first, object later -> array", same(extractJson('[1] {"a":2}'), [1]
 check("empty -> throws 引擎没有返回内容", throwsWith(() => extractJson(""), /引擎没有返回内容/) && throwsWith(() => extractJson(null), /引擎没有返回内容/));
 check("no braces -> throws 找不到 JSON", throwsWith(() => extractJson("just words"), /找不到 JSON/));
 check("unrepairable -> rethrows the original parse error", throwsWith(() => extractJson('{"a":}'), /JSON|token|Unexpected/i));
+/* #67：讲解正文里用 ``` 画竖式（2026-09-28 qwen3.8 实录，形状照抄）。旧实现先截代码块，截到的是竖式，报「找不到 JSON」 */
+const colAdd = '{"type":"final","output":{"kind":"answer","text":"Line up the dots:\\n```\\n  4.70\\n+ 2.35\\n------\\n  7.05\\n```\\nSo **7.05**.","scope":"math"}}';
+check("#67 code fence inside a JSON string value -> whole object", same(extractJson(colAdd), JSON.parse(colAdd)));
+check("#67 same, wrapped in a ```json fence", same(extractJson("```json\n" + colAdd + "\n```"), JSON.parse(colAdd)));
+check("#67 same, with prose around it", same(extractJson("Here you go:\n" + colAdd + "\nDone."), JSON.parse(colAdd)));
+check("prose with braces outside a ```json fence -> the fenced JSON", same(extractJson('Template {x} below:\n```json\n{"a":1}\n```'), { a: 1 }));
+check("fenced JSON followed by prose with braces -> the fenced JSON", same(extractJson('```json\n{"a":1}\n```\nNote: {"b":2}'), { a: 1 }));
 
 console.log("repairJson: the qwen / CLI failure modes");
 check("unescaped quotes inside a Chinese string", same(extractJson('{"say":"老师说"先看个位"再看十位"}'), { say: '老师说"先看个位"再看十位' }));
