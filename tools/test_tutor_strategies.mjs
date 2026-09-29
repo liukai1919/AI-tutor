@@ -30,7 +30,8 @@ const unhandled = [];
 process.on("unhandledRejection", e => unhandled.push(e));
 const fixture = JSON.parse(fs.readFileSync(new URL("./fixtures/tutor_strategies.json", import.meta.url), "utf8"));
 
-const BASELINE_TUTOR = "793f1167661540299f5e8d56d3413e0550d087770d6d3c26021134bab85740cb";
+/* #68 起 math-tutor 第 3 条多一句（见 tools/test_skills.mjs 的 RULE3_ADDED_68 核对），其余仍是 Phase 3 原文 */
+const BASELINE_TUTOR = "24dc7056c31c4ebfefacca5c8d75e545da74ea985bafc6c4a18f9c71c5414b30";
 const BASELINE_CLASSIFIER = "483e39b555ed79cd5a02d0a28f89613b911bc16d143485b9aadc0bd7a9e32b7d";
 const STRATEGIES = ["math-tutor", "give-hint", "explain-concept", "socratic-teaching", "diagnose-error", "practice-generator", "evaluate-answer", "curriculum-navigation"];
 const TEACHING = STRATEGIES.slice(1);
@@ -62,8 +63,10 @@ const TWO_TOOLS = TUTOR_TOOLS.slice().sort().join();
 /* ================= 1. 目录与选择契约 ================= */
 console.log("strategy catalog");
 check("TUTOR_STRATEGIES is the frozen list of 8 skill ids, base first", Array.isArray(TUTOR_STRATEGIES) && Object.isFrozen(TUTOR_STRATEGIES) && TUTOR_STRATEGIES.join() === STRATEGIES.join());
-check("every teaching strategy is a frozen, non-base, tutor-stage v1 skill of plain data",
-  TEACHING.every(id => { const s = getSkill(id); return s && Object.isFrozen(s) && s.base === false && s.stage === "tutor" && s.version === 1 && typeof s.instructions === "string" && s.instructions.length > 200 && Object.keys(s).sort().join() === "base,description,id,instructions,stage,version"; }));
+/* #68：give-hint、socratic-teaching 改了指令，升到 v2；其余 v1 */
+const EXPECTED_VERSION = { "give-hint": 2, "socratic-teaching": 2 };
+check("every teaching strategy is a frozen, non-base, tutor-stage skill of plain data at its expected version",
+  TEACHING.every(id => { const s = getSkill(id); return s && Object.isFrozen(s) && s.base === false && s.stage === "tutor" && s.version === (EXPECTED_VERSION[id] || 1) && typeof s.instructions === "string" && s.instructions.length > 200 && Object.keys(s).sort().join() === "base,description,id,instructions,stage,version"; }));
 check("base prompts are still the Phase 3 text (sha256)", sha(getSkill("math-tutor").instructions) === BASELINE_TUTOR && sha(getSkill("math-scope-classifier").instructions) === BASELINE_CLASSIFIER);
 check("a teaching strategy cannot stand alone or come before the base", TEACHING.every(id => throwsCode(() => composeSkills([id]), "INVALID_COMPOSITION") && throwsCode(() => composeSkills([id, "math-tutor"]), "INVALID_COMPOSITION")));
 check("a teaching strategy cannot be composed with the classifier", TEACHING.every(id => throwsCode(() => composeSkills(["math-scope-classifier", id]), "INVALID_COMPOSITION")));
