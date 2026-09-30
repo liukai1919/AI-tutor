@@ -1951,10 +1951,13 @@ function termMatches(en, hay) {
   });
 }
 
-/* 条目的术语对照 = 自带 terms + 共享术语表里出现在这条原文/子条目里的词，去重、封顶 10 条 */
+/* 条目的术语对照 = 自带 terms + 共享术语表里出现在这条原文/子条目里的词，去重、封顶 10 条。
+ * 技能条目只看标题：它的 elaborations 是 skillElaborations 现算的样板话（「what it means」会命中
+ * mean / median / mode），不是大纲原文；所属大纲条目的术语已经在自带 terms 里了（#78） */
 function itemTerms(item) {
   const own = (item.terms || []).filter(t => t && t.en && t.zh);
-  const hay = (String(item.en || "") + " " + (item.elaborations || []).map(e => (e && e.en) || "").join(" ")).toLowerCase();
+  const src = item.skill ? [] : (item.elaborations || []).map(e => (e && e.en) || "");
+  const hay = [String(item.en || "")].concat(src).join(" ").toLowerCase();
   const seen = new Set(own.map(t => t.en.toLowerCase()));
   const extra = sharedTerms.filter(t => !seen.has(t.en.toLowerCase()) && termMatches(t.en, hay));
   return own.concat(extra).slice(0, 10);
