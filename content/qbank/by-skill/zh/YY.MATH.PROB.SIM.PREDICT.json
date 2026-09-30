@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PROB.SIM.PREDICT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuobksvzimekyx",
+   "level": 1,
+   "question": "转盘平均分成4份，3份蓝色1份红色。转很多次后，最合理的是？",
+   "options": [
+    "蓝色会出来更多次",
+    "正好蓝7次红3次",
+    "转2次都蓝就够定了",
+    "蓝2次后下回必红"
+   ],
+   "answerIndex": 0,
+   "explain": "蓝色占3份红色只占1份，转很多次蓝色出现的机会更大。不是转2次就定，也不会正好7和3。",
+   "tags": [
+    "ok",
+    "prob.exact_match_expected",
+    "prob.few_tries_proof",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuobksvzpol9pp",
+   "level": 1,
+   "question": "转盘平均分成6份，4份黄色2份绿色。转很多次，你预计？",
+   "options": [
+    "转2次绿就证明绿多",
+    "黄色会出来更多次",
+    "黄3次后下回必是绿",
+    "6次里正好4黄2绿"
+   ],
+   "answerIndex": 1,
+   "explain": "黄色占4份绿色占2份，黄色机会大，转很多次黄色会更多。不需要正好4比2。",
+   "tags": [
+    "prob.few_tries_proof",
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected"
+   ]
+  },
+  {
+   "qid": "qmuobksvzf4h2xy",
+   "level": 1,
+   "question": "转盘平均分成8份，6份红色2份蓝色。转很多次后，什么最合理？",
+   "options": [
+    "正好6次红2次蓝",
+    "蓝连2次后必回红",
+    "红色出来比蓝色多",
+    "试2次蓝就够下结论"
+   ],
+   "answerIndex": 2,
+   "explain": "红色6份蓝色2份，红色机会大，转很多次红色更多。不会正好6和2，蓝连了也不代表下次必红。",
+   "tags": [
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "ok",
+    "prob.few_tries_proof"
+   ]
+  },
+  {
+   "qid": "qmuobksvz0qka73",
+   "level": 1,
+   "question": "转盘平均分成5份，4份白色1份紫色。转很多次，你预计？",
+   "options": [
+    "正好4次白1次紫",
+    "转1次白就够证明",
+    "紫连3次后必是白",
+    "白色出来更多次"
+   ],
+   "answerIndex": 3,
+   "explain": "白色4份紫色1份，白色机会大得多。转1次不够，也不会正好4和1。",
+   "tags": [
+    "prob.exact_match_expected",
+    "prob.few_tries_proof",
+    "prob.due_after_streak",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuobksvz8ostht",
+   "level": 2,
+   "question": "社区义卖有个转盘，4等份，3份蓝1份红。小宇转了3次都是蓝。他接下来怎么想最对？",
+   "options": [
+    "蓝区多，转很多次蓝更多",
+    "3次就够证明蓝比红多",
+    "应该正好3蓝1红才公平",
+    "下次一定红，蓝太多了"
+   ],
+   "answerIndex": 0,
+   "explain": "蓝占3份红占1份，不管前面转了几次，蓝总是更可能出来。3次定不了输赢。",
+   "tags": [
+    "ok",
+    "prob.few_tries_proof",
+    "prob.exact_match_expected",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuobksvzte962a",
+   "level": 2,
+   "question": "数学课上老师转了个6等份转盘，5份绿1份红。10次里7次绿3次红。哪句说得对？",
+   "options": [
+    "10次必须正好5绿1红",
+    "绿占5份多，绿会更多",
+    "绿出了7次下回必是红",
+    "转2次绿就够证明绿多"
+   ],
+   "answerIndex": 1,
+   "explain": "绿占5份红占1份，绿的机会大，10次里绿多很正常。不会正好5和1，绿多了下次也不一定红。",
+   "tags": [
+    "prob.exact_match_expected",
+    "ok",
+    "prob.due_after_streak",
+    "prob.few_tries_proof"
+   ]
+  },
+  {
+   "qid": "qmuobksvz1515k1",
+   "level": 2,
+   "question": "生日会上转盘3等份，2份画星1份画月亮。转了4次：星、星、月、月。小朋友说「星月一样可能」。哪句对？",
+   "options": [
+    "月月后下回一定是星",
+    "4次必须正好2星2月",
+    "星占2份多，星会更多",
+    "4次就够证明一样了"
+   ],
+   "answerIndex": 2,
+   "explain": "星占2份月只占1份，星的机会大，转很多次星会更多。4次太少不能下结论。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok",
+    "prob.few_tries_proof"
+   ]
+  },
+  {
+   "qid": "qmuobksvzzflbso",
+   "level": 2,
+   "question": "科学课上转盘10等份，7份橙3份青。转了6次：4次橙2次青。你怎么想最合理？",
+   "options": [
+    "6次必须正好7橙3青",
+    "青2次后下回一定是橙",
+    "看2次就够知道谁多了",
+    "橙占7份多，橙会更多"
+   ],
+   "answerIndex": 3,
+   "explain": "橙占7份青占3份，橙的机会大得多。6次太少不能定，青出来了下次也不一定橙。",
+   "tags": [
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "prob.few_tries_proof",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuobksvz7618br",
+   "level": 3,
+   "question": "转盘5等份，4份绿1份红。小杰转了3次都是红，就说「红色最可能」。他错在哪？",
+   "options": [
+    "红只1份，绿会更多",
+    "3次必须正好1红2绿",
+    "红3次后下回必是绿",
+    "3次就够证明红多了"
+   ],
+   "answerIndex": 0,
+   "explain": "红只占1份绿占4份，转很多次绿肯定比红多。3次红不能改变绿色份数多的事实。",
+   "tags": [
+    "ok",
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "prob.few_tries_proof"
+   ]
+  },
+  {
+   "qid": "qmuobksvzfvwt4h",
+   "level": 3,
+   "question": "转盘6等份，4份蓝2份红。转了20次，蓝色出来14次。以下哪句对？",
+   "options": [
+    "20次必须正好蓝13红7",
+    "蓝4份多，14次蓝正常",
+    "看前3次就够知道结果",
+    "蓝14次后下回必是红"
+   ],
+   "answerIndex": 1,
+   "explain": "蓝占4份红占2份，蓝机会大，20次里蓝14次很正常。不会正好13和7，蓝多了下次也不一定红。",
+   "tags": [
+    "prob.exact_match_expected",
+    "ok",
+    "prob.few_tries_proof",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuobksvz9lwuu2",
+   "level": 3,
+   "question": "转盘6等份，4份橙2份绿。转了9次，橙色出来6次。绿色几次？转很多次后哪个多？",
+   "options": [
+    "绿3次，橙6次后必是绿",
+    "绿3次，正好4橙2绿",
+    "绿3次，橙占4份橙更多",
+    "绿3次，看2次就够证明"
+   ],
+   "answerIndex": 2,
+   "explain": "9减6等于3，绿色3次。橙占4份绿占2份，转很多次橙更多。不会正好4和2。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok",
+    "prob.few_tries_proof"
+   ]
+  },
+  {
+   "qid": "qmuobksvz15z7t3",
+   "level": 3,
+   "question": "转盘3等份，2份蓝1份红。转了5次：蓝、红、蓝、红、蓝。小美说「红蓝一样可能」。她错在哪？",
+   "options": [
+    "5次应该正好2蓝1红",
+    "5次就足够证明一样了",
+    "蓝2次后下回一定红",
+    "蓝占2份，比红更可能"
+   ],
+   "answerIndex": 3,
+   "explain": "蓝占2份红只占1份，蓝的机会大，转很多次蓝会更多。5次太少不能证明一样。",
+   "tags": [
+    "prob.exact_match_expected",
+    "prob.few_tries_proof",
+    "prob.due_after_streak",
+    "ok"
+   ]
+  }
+ ]
+}

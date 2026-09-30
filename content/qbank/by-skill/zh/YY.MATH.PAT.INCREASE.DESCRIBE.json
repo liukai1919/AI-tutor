@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.INCREASE.DESCRIBE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuoe31m42gdz09",
+   "level": 1,
+   "question": "Mia 在收集枫叶。第 1 天她有 5 片，第 2 天 8 片，第 3 天 11 片，第 4 天 14 片。这个递增规律（increasing pattern）每次加多少？",
+   "options": [
+    "每次加 3",
+    "每次加 5",
+    "每次不加",
+    "每次加 4"
+   ],
+   "answerIndex": 0,
+   "explain": "5 到 8 多 3，8 到 11 多 3，11 到 14 也多 3，所以每次加 3。开头的 5 是起点，不是每次加的数。",
+   "tags": [
+    "ok",
+    "pat.first_gap_only",
+    "pat.grow_as_repeat",
+    "pat.position_as_value"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4cg80xp",
+   "level": 1,
+   "question": "学校门口的自行车架，第 1 排停 2 辆，第 2 排 6 辆，第 3 排 10 辆。每排比上一排多几辆？",
+   "options": [
+    "每排加 2",
+    "每排加 4",
+    "每排加 3",
+    "每排都一样"
+   ],
+   "answerIndex": 1,
+   "explain": "2 到 6 多 4，6 到 10 也多 4，所以每排加 4。第一排的 2 辆是起点，别当成每次加的数。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.position_as_value",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4o7skwl",
+   "level": 1,
+   "question": "Liam 用积木搭楼梯。第 1 级用 4 块，第 2 级用 10 块，第 3 级用 16 块。每级比上一级多用几块？",
+   "options": [
+    "每级加 3",
+    "每级加 4",
+    "每级加 6",
+    "每级一样多"
+   ],
+   "answerIndex": 2,
+   "explain": "4 到 10 多 6，10 到 16 也多 6，所以每级加 6。第 3 级的「3」是位置号，不是加的块数。",
+   "tags": [
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "ok",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4zrzclh",
+   "level": 1,
+   "question": "Ava 每周往储蓄罐里放钱。第 1 周里面有 15 元，第 2 周 20 元，第 3 周 25 元，第 4 周 30 元。她每周放进多少元？",
+   "options": [
+    "每周加 15 元",
+    "每周加 4 元",
+    "每周不加钱",
+    "每周加 5 元"
+   ],
+   "answerIndex": 3,
+   "explain": "20 减 15 是 5，25 减 20 也是 5，所以每周放进 5 元。15 元是罐子里原来就有的，不是每周加的钱。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "pat.grow_as_repeat",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoe31m46djfy3",
+   "level": 2,
+   "question": "看这串数：7, 11, 15, 19, 23。这个规律每次加多少？",
+   "options": [
+    "每次加 4",
+    "每次不加",
+    "每次加 7",
+    "每次加 5"
+   ],
+   "answerIndex": 0,
+   "explain": "11 减 7 是 4，15 减 11 是 4，后面也一样，所以每次加 4。别把开头的 7 当成加的数。",
+   "tags": [
+    "ok",
+    "pat.grow_as_repeat",
+    "pat.first_gap_only",
+    "pat.position_as_value"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4iq4juu",
+   "level": 2,
+   "question": "数列 9, 14, 19, 24 的规律法则（pattern rule）是什么？",
+   "options": [
+    "每次加 9",
+    "每次加 5",
+    "每次加 4",
+    "每次重复 9"
+   ],
+   "answerIndex": 1,
+   "explain": "14 减 9 是 5，19 减 14 是 5，24 减 19 是 5，所以每次加 5。递增规律会一直变大，不会回头重复 9。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.position_as_value",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4twr67x",
+   "level": 2,
+   "question": "数列 3, __, 13, 18, 23 里，每次加多少？",
+   "options": [
+    "每次加 10",
+    "每次加 2",
+    "每次加 5",
+    "每次不加"
+   ],
+   "answerIndex": 2,
+   "explain": "18 减 13 是 5，23 减 18 也是 5，所以每次加 5，空格里是 8。3 到 13 中间隔了一个空格，那个 10 是加了两次的结果。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m42v5v1t",
+   "level": 2,
+   "question": "下面哪一串数每次加 5？",
+   "options": [
+    "4, 9, 13, 16",
+    "4, 9, 4, 9",
+    "1, 2, 3, 4",
+    "4, 9, 14, 19"
+   ],
+   "answerIndex": 3,
+   "explain": "写成 4, 9, 14, 19 的那串每一步都多 5。只看开头两个数就选，容易挑到 4, 9, 13, 16，它后面只多了 4 和 3。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.grow_as_repeat",
+    "pat.position_as_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4qllhn7",
+   "level": 3,
+   "question": "数列 5, 9, 13, 17。Maya 说这个规律每次加 5。她错在哪里？",
+   "options": [
+    "她把 5 当成加数，每次加 4",
+    "每次加的是位置号，第 3 个加 3",
+    "这是重复规律，5 会重复出现",
+    "她没错，看头两个数就能定规律"
+   ],
+   "answerIndex": 0,
+   "explain": "9 减 5 是 4，13 减 9 是 4，17 减 13 也是 4，所以每次加 4。5 只是开头的数，位置号也不是加的数。",
+   "tags": [
+    "ok",
+    "pat.position_as_value",
+    "pat.grow_as_repeat",
+    "pat.first_gap_only"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4j3hiye",
+   "level": 3,
+   "question": "下雨后 Aiden 数操场上的水坑。星期一有 4 个，星期三有 10 个，星期四有 13 个。水坑每天多几个？",
+   "options": [
+    "每天加 6",
+    "每天加 3",
+    "每天加 4",
+    "每天一样多"
+   ],
+   "answerIndex": 1,
+   "explain": "星期三到星期四多了 3 个；星期一到星期三隔了两天共多 6 个，正好是 3 加 3，所以每天加 3。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.position_as_value",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m4y3wfew",
+   "level": 3,
+   "question": "Sam 在体育课上练投篮。第 1 天投进 7 个，第 5 天投进 19 个，每天都比前一天多一样多。他每天多投进几个？",
+   "options": [
+    "每天加 12",
+    "每天加 5",
+    "每天加 3",
+    "每天一样多"
+   ],
+   "answerIndex": 2,
+   "explain": "7 到 19 一共多了 12 个，中间加了 4 次，每次加 3：7, 10, 13, 16, 19。12 是加了好几次的总数。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok",
+    "pat.grow_as_repeat"
+   ]
+  },
+  {
+   "qid": "qmuoe31m49241q9",
+   "level": 3,
+   "question": "Zoe 冰球训练的热身时间越来越长。第 2 次是 12 分钟，第 4 次是 20 分钟，每次都多一样的分钟数。每次多几分钟？",
+   "options": [
+    "每次都一样长",
+    "每次加 8 分钟",
+    "每次加 2 分钟",
+    "每次加 4 分钟"
+   ],
+   "answerIndex": 3,
+   "explain": "12 到 20 多了 8 分钟，中间加了 2 次，所以每次加 4 分钟：12, 16, 20。8 分钟是两次加起来的。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok"
+   ]
+  }
+ ]
+}

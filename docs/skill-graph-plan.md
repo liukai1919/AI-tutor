@@ -6,6 +6,7 @@
 > 状态（2026-08-22）：设计 + 数据草稿 + **已接进运行链路**（§7 阶段 0-1 全部完成）。
 > App 里选年级下拉的「🧩 G4-G7 技能图谱（草稿）」就能看；讲课、闯关、主题测试、进度、报告、误区回补都跑通了。
 > 技能题库已全量生成（§7 阶段 2，468 份；2026-09-02 补齐 en/zh 各 249 份）。**2026-09-02 阶段 3 起步：G8 技能文件 `g8.json` 落地**（14 主题 / 71 技能 / 60 条新误区），微课 · 题库 · 主题卷用 `pregen --grades skills-g8 --provider claude --judge claude` 生成。**2026-09-02 起默认随包发布**：`pack.mjs` 默认拷 `skills/` 和 `YY.*` 种子题库，`--no-skills` 才不带。
+> **2026-09-29 向下补 G1–G3**（#71）：`g1.json` / `g2.json` / `g3.json` 共 35 主题 / 144 技能 / 168 条低年级误区，全图 **513 技能 / 112 主题 / 787 条先修边 / 508 条误区**；这次只出技能题库（en + zh），微课、主题卷、语音未做，见 §7 阶段 4。
 > 校验：`node tools/curriculum/skills_check.mjs`（加 `--md` 打印本文第 4 节的目录树）。
 > 前置文档：[bc-curriculum-plan.md](bc-curriculum-plan.md)（P1–P6 现状）、[qbank-standard.md](qbank-standard.md)（闯关规则，本设计沿用）。
 
@@ -168,11 +169,266 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 
 ---
 
-## 4. 完整目录（G4–G9，77 个主题 · 369 个技能）
+## 4. 完整目录（G1–G9，112 个主题 · 513 个技能）
 
 由 `node tools/curriculum/skills_check.mjs --md` 生成；改了 JSON 重新生成贴回来即可。标注：〔类型〕，拓展 = `core:false`，诊断 = 带 `diag`，↻ = 复习低年级技能。
 
 <!-- TREE:BEGIN（由 skills_check.mjs --md 生成） -->
+
+### G1（11 个主题 · 37 个技能）
+
+**数到 20 · Counting to 20**　`G1.NUM.01`
+
+- `NUM.COUNT20.SEQUENCE` 给 20 以内的数排顺序：前一个、后一个、中间的数 / Put numbers to 20 in order: the number just before, just after and in between 〔概念〕
+- `NUM.COUNT20.ON_BACK` 从 20 以内任意一个数接着数、倒着数 / Count on and count back from any number to 20 〔步骤〕
+- `NUM.COUNT20.SKIP_2_5` 2 个 2 个、5 个 5 个地跳着数 / Skip-count by 2s and by 5s 〔熟练〕
+
+**20 以内的数 · Numbers to 20**　`G1.NUM.01`
+
+- `NUM.TO20.TEN_AND_MORE` 把 11–20 看成「十和几」 / See the numbers 11 to 20 as ten and some more 〔概念〕
+- `NUM.TO20.COMPARE_ORDER` 比较和排序 20 以内的数 / Compare and order numbers to 20 〔步骤〕
+
+**凑十 · Ways to make 10**　`G1.NUM.02`
+
+- `NUM.MAKE10.PARTS` 把 10 分成两部分（不同的分法） / Break 10 into two parts in different ways 〔概念〕
+- `NUM.MAKE10.MISSING_PART` 找出和它凑成 10 的那个数 / Find the missing part that makes 10 〔步骤〕
+- `NUM.MAKE10.BENCHMARK` 以 10 和 20 为基准：离哪个近、还差几 / Use 10 and 20 as benchmarks: which is closer, and how far away 〔推理〕
+
+**20 以内的加减法 · Addition & subtraction to 20**　`G1.FLU.01`
+
+- `FLU.ADDSUB20.ADD_MEANING` 理解加法：合起来、再添上（20 以内） / Understand addition as putting together and adding to (to 20) 〔概念〕
+- `FLU.ADDSUB20.SUB_MEANING` 理解减法：拿走、比一比（20 以内） / Understand subtraction as taking away and as comparing (to 20) 〔概念〕
+- `FLU.ADDSUB20.COUNT_ON` 从大数接着数来加；倒着数来减 / Add by counting on from the bigger number; subtract by counting back 〔步骤〕
+- `FLU.ADDSUB20.MAKE10_DOUBLES` 用心算策略做加法：凑十和双倍 / Add with mental strategies: making 10 and doubles 〔步骤〕
+- `FLU.ADDSUB20.RELATED` 用加法和减法的关系（一家子算式） / Use how addition and subtraction are related (fact families) 〔推理〕
+- `FLU.ADDSUB20.WORD` 解决 20 以内的一步加减故事题 / Solve one-step addition and subtraction stories to 20 〔应用〕
+
+**重复的规律 · Repeating patterns**　`G1.PAT.01`
+
+- `PAT.SORT.RULE` 找出一堆东西是按什么规则分类的 / Find the rule used to sort a set of objects 〔推理〕
+- `PAT.REPEAT.EXTEND` 说出重复规律里下一个是什么 / Say what comes next in a repeating pattern 〔步骤〕
+- `PAT.REPEAT.TRANSLATE` 把同一个重复规律换一种方式表示（字母、图形、声音） / Show the same repeating pattern another way (letters, shapes, sounds) 〔表示〕
+- `PAT.REPEAT.FIND_MISSING` 找出重复规律里缺的那个或摆错的那个 / Find a missing piece or a mistake in a repeating pattern 〔应用〕
+
+**数量的变化与相等 · Change & equality**　`G1.PAT.02` `G1.PAT.03`
+
+- `ALG.CHANGE20.DESCRIBE` 说出数量的变化：加了几个还是拿走了几个 / Describe a change in quantity: how many were added or taken away 〔概念〕
+- `ALG.CHANGE20.MAKE_TARGET` 算出还要加几个（或拿走几个）才变成目标数 / Find how many more (or fewer) are needed to reach a target number 〔步骤〕
+- `ALG.EQUAL.MEANING` 判断两边的数量相等还是不相等 / Tell whether two amounts are equal or not equal 〔概念〕
+- `ALG.EQUAL.SYMBOLS` 用 = 和 ≠ 记下相等和不相等 / Record equal and not equal with = and ≠ 〔表示〕
+
+**用非标准单位量长度 · Measuring with non-standard units**　`G1.GEO.01`
+
+- `MEAS.NONSTD.COMPARE_DIRECT` 把一头对齐，直接比长短 / Compare lengths directly by lining up the ends at a baseline 〔概念〕
+- `MEAS.NONSTD.COUNT_UNITS` 用一样大的单位一个接一个地量长度 / Measure a length by counting same-size units placed end to end 〔步骤〕
+- `MEAS.NONSTD.UNIT_SIZE` 说出为什么单位越大量出的数越小、为什么单位要一样大 / Explain why a bigger unit gives a smaller count, and why units must be the same size 〔推理〕
+
+**平面图形和立体图形 · 2D shapes & 3D objects**　`G1.GEO.02`
+
+- `GEO.SHAPES.NAME_2D` 按边和角认出圆、三角形、正方形和长方形 / Name circles, triangles, squares and rectangles by their sides and corners 〔概念〕
+- `GEO.SHAPES.NAME_3D` 认出正方体、球、圆柱和圆锥，并和身边的东西对上 / Name cubes, spheres, cylinders and cones and match them to everyday objects 〔概念〕
+- `GEO.SHAPES.SORT_ONE` 按一个特征给图形分类，并说出分类规则 / Sort shapes and objects by one attribute and tell the sorting rule 〔推理〕
+- `GEO.POSITION.WORDS` 用方位词说出东西在哪儿（上、下、旁边、里面、左、右） / Describe where something is with position words (above, below, beside, inside, left, right) 〔概念〕
+- `GEO.SHAPES.COMPOSE` 把图形拼在一起，拼出新的图形 / Put shapes together to make a new shape 〔表示〕
+
+**实物统计图 · Concrete graphs**　`G1.DAT.01`
+
+- `DATA.CONCRETE.READ` 读实物统计图：每一组有几个 / Read a concrete graph: how many are in each group 〔步骤〕
+- `DATA.CONCRETE.COMPARE` 比较实物统计图上的各组：最多、最少、多几个 / Compare groups on a concrete graph: most, fewest, how many more 〔推理〕
+
+**可能性：从不、有时、总是 · Likelihood: never, sometimes, always**　`G1.DAT.02`
+
+- `PROB.EVENTS.NEVER_SOMETIMES_ALWAYS` 把生活里的事分成「从不」「有时」「总是」 / Sort everyday events as never, sometimes or always 〔概念〕
+- `PROB.EVENTS.MORE_LESS_LIKELY` 比较两件事：哪件更可能、哪件更不可能 / Compare two everyday events: which is more likely and which is less likely 〔推理〕
+
+**认识硬币 · Coins**　`G1.NUM.03`
+
+- `FIN.COINS.VALUES` 知道每种加拿大硬币值多少：nickel、dime、quarter、loonie、toonie / Know the value of each Canadian coin: nickel, dime, quarter, loonie and toonie 〔概念〕
+- `FIN.COINS.COUNT_SAME` 数一堆同一种硬币（nickel 5 个 5 个数、dime 10 个 10 个数、loonie 1 个 1 个数、toonie 2 个 2 个数） / Count a set of the same coin (nickels by 5s, dimes by 10s, loonies by 1s, toonies by 2s) 〔步骤〕
+- `FIN.EXCHANGE.WANTS_NEEDS` 用硬币买东西，分清「想要」和「需要」 / Use coins to buy things, and tell wants from needs 〔应用〕
+
+### G2（11 个主题 · 41 个技能）
+
+**100 以内的数 · Numbers to 100**　`G2.NUM.01`
+
+- `NUM.COUNT100.SKIP_2_5_10` 从不同的数开始，2 个、5 个、10 个地顺着数和倒着数 / Skip-count by 2s, 5s and 10s from different starting points, forward and backward 〔熟练〕
+- `NUM.PV100.TENS_ONES` 把两位数表示成几个十和几个一 / Show two-digit numbers as tens and ones 〔概念〕
+- `NUM.PV100.DIGIT_VALUE` 说出两位数里每个数字表示多少 / Give the value of each digit in a two-digit number 〔概念〕
+- `NUM.PV100.DECOMPOSE` 用不止一种办法把两位数拆成十和一 / Break a two-digit number into tens and ones in more than one way 〔表示〕
+- `NUM.PV100.COMPARE_ORDER` 比较和排序 100 以内的数 / Compare and order numbers to 100 〔步骤〕
+- `NUM.EVEN_ODD.IDENTIFY` 分清偶数（双数）和奇数（单数） / Tell even numbers from odd numbers 〔概念〕
+
+**基准点和估计 · Benchmarks & estimating**　`G2.NUM.02`
+
+- `NUM.BENCH100.NEAREST` 拿 25、50、100 当基准点：一个数离哪个近 / Place numbers against the benchmarks 25, 50 and 100: which is closer 〔概念〕
+- `NUM.BENCH100.ESTIMATE` 拿一组已经知道的数量当参照，估计一共有多少 / Estimate how many by using a group you already know (a referent) 〔推理〕
+
+**20 以内口算策略 · Fact strategies to 20**　`G2.FLU.01`
+
+- `FLU.FACTS20.MAKE_TEN` 用凑十、过十的办法做加法 / Add by making 10 or bridging through 10 〔步骤〕
+- `FLU.FACTS20.DOUBLES` 用双倍和「双倍多一」做加法 / Use doubles and near doubles to add 〔步骤〕
+- `FLU.FACTS20.SUB_STRATEGIES` 用往上加、或先退到 10 的办法做减法 / Subtract by adding on, or by going back through 10 〔步骤〕
+
+**100 以内的加减法 · Addition & subtraction to 100**　`G2.FLU.02`
+
+- `FLU.ADDSUB100.TENS` 加减整十数：多 10、少 10、加减几十 / Add and subtract tens: 10 more, 10 less, and multiples of 10 〔步骤〕
+- `FLU.ADDSUB100.ADD_STRATEGIES` 两位数加法：拆成十和一、找好算的数、补偿法 / Add two-digit numbers by breaking into tens and ones, using friendly numbers or compensating 〔步骤〕
+- `FLU.ADDSUB100.SUB_STRATEGIES` 两位数减法：往上加、拆开减、补偿法 / Subtract two-digit numbers by adding up, breaking apart or compensating 〔步骤〕
+- `FLU.ADDSUB100.ESTIMATE` 用最接近的整十数估算 100 以内的和与差 / Estimate sums and differences to 100 using the nearest ten 〔推理〕
+- `FLU.ADDSUB100.WORD` 解决 100 以内的加减故事题（合起来、拿走、比一比） / Solve addition and subtraction stories to 100 (join, take away, compare) 〔应用〕
+
+**重复规律和递增规律 · Repeating & increasing patterns**　`G2.PAT.01`
+
+- `PAT.REPEAT.CORE` 找出重复规律的核心（一遍遍重复的那一组） / Find the core of a repeating pattern (the part that repeats) 〔概念〕
+- `PAT.REPEAT.PREDICT` 预测重复规律里靠后的某一个（第 10 个、第 14 个） / Predict a later element of a repeating pattern (the 10th, the 14th) 〔推理〕
+- `PAT.INCREASE.EXTEND` 把递增的数列接着写下去（100 以内） / Extend an increasing number pattern (numbers to 100) 〔步骤〕
+- `PAT.INCREASE.DESCRIBE` 说出递增规律是怎么变大的：每次加多少 / Describe how an increasing pattern grows: what is added each time 〔概念〕
+
+**数量的变化与等式 · Change & number sentences**　`G2.PAT.02` `G2.PAT.03`
+
+- `ALG.CHANGE100.MISSING_PART` 算出算式里缺的那个变化量（如 6 + □ = 10） / Find the missing change in a number sentence such as 6 + □ = 10 〔步骤〕
+- `ALG.CHANGE100.STORY` 把数量变化的故事和算式对上（开始、变化、结果） / Match a change story to a number sentence (start, change, result) 〔表示〕
+- `ALG.EQUAL.BOTH_SIDES` 判断两边都有运算的等式对不对 / Decide whether a number sentence with an operation on both sides is true 〔概念〕
+- `ALG.EQUAL.GREATER_LESS` 用 >、< 和 = 比较两个数或两个式子 / Compare two amounts or expressions with >, < and = 〔表示〕
+- `ALG.EQUAL.MAKE_TRUE` 找出让两边相等的那个数 / Find the number that makes both sides equal 〔步骤〕
+
+**厘米和米 · Centimetres & metres**　`G2.GEO.01`
+
+- `MEAS.LENGTH.CM_M` 会选厘米还是米，知道 1 米 = 100 厘米 / Choose centimetres or metres, and know that 1 metre is 100 centimetres 〔概念〕
+- `MEAS.LENGTH.RULER` 用尺子量厘米，也会量不从 0 开始的东西 / Measure a length in centimetres on a ruler, also when the object does not start at 0 〔步骤〕
+- `MEAS.LENGTH.ESTIMATE` 拿身边的参照物估计长度（手指宽约 1 厘米，一大步约 1 米） / Estimate a length with a personal referent (a finger width is about 1 cm, a big step is about 1 m) 〔推理〕
+- `MEAS.LENGTH.COMPARE` 比较和排序量出来的长度、高度和宽度 / Compare and order measured lengths, heights and widths 〔应用〕
+
+**图形的特征 · Shape attributes**　`G2.GEO.02`
+
+- `GEO.ATTRIB.SIDES_VERTICES` 用边和顶点描述三角形、正方形、长方形和圆 / Describe triangles, squares, rectangles and circles by their sides and vertices 〔概念〕
+- `GEO.ATTRIB.SORT_TWO` 按两个特征给图形分类，并说出分类规则 / Sort shapes and objects by two attributes and tell the sorting rule 〔推理〕
+- `GEO.ATTRIB.FACES_OF_3D` 在立体图形的面上找出平面图形 / Find the 2D shapes on the faces of 3D objects 〔表示〕
+- `GEO.ATTRIB.COMPARE_3D` 比较立体图形：平面和曲面，能滚、能滑还是能叠 / Compare 3D objects: flat and curved surfaces, and whether they roll, slide or stack 〔概念〕
+
+**象形统计图 · Picture graphs**　`G2.DAT.01`
+
+- `DATA.PICTO.READ_ONE` 读象形统计图：一个图代表一个 / Read a picture graph where one picture stands for one thing 〔步骤〕
+- `DATA.PICTO.COMPARE` 看象形统计图回答：最多、最少、多几个、一共几个 / Answer questions from a picture graph: most, fewest, how many more, how many altogether 〔推理〕
+- `DATA.PICTO.BUILD` 把计数记号或清单画成象形统计图：一个东西画一个图 / Turn a tally or a list into a picture graph: one picture for each thing 〔表示〕
+
+**可能性：一定、不一定、同样可能 · Likelihood: certain, uncertain, equally likely**　`G2.DAT.02`
+
+- `PROB.EVENTS.CERTAIN_UNCERTAIN` 判断一件事是一定、不一定还是不可能 / Decide whether an everyday event is certain, uncertain or impossible 〔概念〕
+- `PROB.EVENTS.EQUALLY_LIKELY` 比较几件事：更可能、更不可能，还是同样可能 / Compare events as more likely, less likely or equally likely 〔推理〕
+
+**硬币凑数与花钱存钱 · Coin combinations, spending & saving**　`G2.NUM.03`
+
+- `FIN.COINS.MIXED_TO_100` 数几种硬币混在一起的总数（到 100 分） / Count a mixed set of coins up to 100 cents 〔步骤〕
+- `FIN.COINS.MAKE_AMOUNT` 用不同的硬币凑出同一个金额（100 分以内） / Show the same amount with different coins (to 100 cents) 〔推理〕
+- `FIN.SPEND_SAVE` 做花钱和存钱的决定：钱够不够，是「想要」还是「需要」 / Make spending and saving choices: is it enough, and is it a want or a need 〔应用〕
+
+### G3（13 个主题 · 66 个技能）
+
+**1000 以内的数 · Numbers to 1000**　`G3.NUM.01`
+
+- `NUM.COUNT1000.SKIP` 从任意数开始，按 3、4、10、25、100 顺着数和倒着数 / Skip-count by 3s, 4s, 10s, 25s and 100s from any starting point, forward and backward 〔熟练〕
+- `NUM.PV1000.HTO` 把三位数表示成几个百、几个十和几个一 / Show three-digit numbers as hundreds, tens and ones 〔概念〕
+- `NUM.PV1000.DIGIT_VALUE` 说出 1000 以内的数里每个数字表示多少 / Give the value of each digit in a number to 1000 〔概念〕
+- `NUM.PV1000.READ_WRITE` 读写 1000 以内的数（数字、文字、展开式） / Read and write numbers to 1000 in numerals, words and expanded form 〔表示〕
+- `NUM.PV1000.COMPARE_ORDER` 比较和排序 1000 以内的数 / Compare and order numbers to 1000 〔步骤〕
+- `NUM.PV1000.ESTIMATE` 拿 10 个、100 个一组当参照，估计大的数量 / Estimate large quantities using groups of 10 and 100 as referents 〔推理〕
+
+**认识分数 · Fraction concepts**　`G3.NUM.02`
+
+- `FRAC.INTRO.EQUAL_PARTS` 判断一个整体是不是平均分，认识二等份、三等份、四等份 / Tell whether a whole is cut into equal parts, and name halves, thirds and fourths 〔概念〕
+- `FRAC.INTRO.UNIT_FRACTION` 把平均分出来的一份叫作几分之一（1/2、1/3、1/4 …） / Name one equal part of a whole as a unit fraction (1/2, 1/3, 1/4 …) 〔概念〕
+- `FRAC.INTRO.READ_WRITE` 看涂色的部分，读写出分数 / Read and write a fraction for the shaded parts of a whole 〔表示〕
+- `FRAC.INTRO.SET` 用分数表示一组东西里的一部分 / Show a fraction of a set of objects 〔表示〕
+- `FRAC.INTRO.NUMBER_LINE` 在 0 到 1 的数轴上用平均的小段找到分数 / Find fractions as equal jumps on a number line from 0 to 1 〔表示〕
+- `FRAC.INTRO.SHARE` 把一个整体公平地分，并用分数说出每一份 / Share a whole fairly and name each share as a fraction 〔应用〕
+
+**1000 以内的加减法 · Addition & subtraction to 1000**　`G3.FLU.01`
+
+- `FLU.ADDSUB1000.MENTAL` 用好算的数和补偿法心算 1000 以内的加减 / Add and subtract to 1000 in your head with friendly numbers and compensating 〔步骤〕
+- `FLU.ADDSUB1000.ADD_REGROUP` 三位数加法（进位） / Add three-digit numbers with regrouping 〔步骤〕
+- `FLU.ADDSUB1000.SUB_REGROUP` 三位数减法（退位，包括隔着 0 退位） / Subtract three-digit numbers with regrouping, also across a zero 〔步骤〕
+- `FLU.ADDSUB1000.ESTIMATE` 估算 1000 以内的和与差，并用估算检查答案 / Estimate sums and differences to 1000, and use the estimate to check an answer 〔推理〕
+- `FLU.ADDSUB1000.WORD` 解决 1000 以内的一步和两步加减应用题 / Solve one- and two-step addition and subtraction problems to 1000 〔应用〕
+
+**20 以内口算（初步熟练） · Facts to 20: emerging fluency**　`G3.FLU.02`
+
+- `FLU.FACTS20.TURN_AROUND` 用交换律：加法两个数换位置得数一样，减法不行 / Use turn-around facts: adding in either order gives the same sum, subtracting does not 〔概念〕
+- `FLU.FACTS20.THINK_ADDITION` 想着相关的加法算式来做减法 / Subtract by thinking of the related addition fact 〔推理〕
+- `FLU.FACTS20.RECALL` 直接说出 20 以内的加法口算和对应的减法 / Recall addition facts to 20 and the matching subtraction facts 〔熟练〕
+
+**乘法和除法的意思 · Multiplication & division concepts**　`G3.FLU.03`
+
+- `FLU.MULTDIV.EQUAL_GROUPS` 把乘法理解成「几组几个」 / See multiplication as equal groups 〔概念〕
+- `FLU.MULTDIV.ARRAYS` 用几行几列的阵列表示乘法 / Show multiplication as an array of rows and columns 〔表示〕
+- `FLU.MULTDIV.REPEATED_ADD` 把乘法和连加、跳着数联系起来 / Link multiplication to repeated addition and skip-counting 〔步骤〕
+- `FLU.MULTDIV.SHARE` 把除法理解成平均分：每份有几个 / See division as sharing equally: how many in each group 〔概念〕
+- `FLU.MULTDIV.GROUPING` 把除法理解成每几个一组：能分成几组（连减） / See division as making equal groups: how many groups (repeated subtraction) 〔概念〕
+- `FLU.MULTDIV.RELATED` 用乘法和除法的关系 / Use how multiplication and division are related 〔推理〕
+- `FLU.MULTDIV.STORY` 碰到「每组一样多」的故事题，会选用乘法还是除法 / Choose multiplication or division for an equal-groups story 〔应用〕
+
+**递增递减规律与规律法则 · Increasing & decreasing patterns, pattern rules**　`G3.PAT.01` `G3.PAT.02`
+
+- `PAT.GROW_SHRINK.EXTEND` 把递增和递减的数列接着写下去 / Extend increasing and decreasing number patterns 〔步骤〕
+- `PAT.GROW_SHRINK.REPRESENT` 用实物、图画和数表示同一个规律 / Show the same pattern with objects, pictures and numbers 〔表示〕
+- `PAT.GROW_SHRINK.GENERALIZE` 说出规律为什么变大或变小（每次加 2、翻倍） / Say what makes a pattern grow or shrink (adding 2, doubling) 〔推理〕
+- `PAT.CONCRETE_RULE.DESCRIBE` 用文字和数说出规律法则：从几开始、每次怎么变 / Describe a pattern rule in words and numbers: the start and what changes each time 〔概念〕
+- `PAT.CONCRETE_RULE.USE` 按规律法则写出数列，或找出后面的某个数 / Use a pattern rule to build the pattern or find a later number 〔步骤〕
+- `PAT.CONCRETE_RULE.MATCH` 判断哪条法则符合用实物摆出的规律 / Decide which rule fits a pattern built from objects 〔推理〕
+
+**含未知数的加减等式 · Equations with an unknown**　`G3.PAT.03`
+
+- `ALG.UNKNOWN.MEANING` 懂得 □ 或字母代表让等式成立的那个数 / Understand that □ or a letter stands for the number that makes an equation true 〔概念〕
+- `ALG.UNKNOWN.CHANGE_RESULT` 解「变化的数」或「结果」不知道的等式（12 + n = 20，6 + 13 = n） / Solve equations where the change or the result is unknown (12 + n = 20, 6 + 13 = n) 〔步骤〕
+- `ALG.UNKNOWN.START` 解「开头的数」不知道的等式（n + 15 = 20，n − 7 = 12） / Solve equations where the start is unknown (n + 15 = 20, n − 7 = 12) 〔步骤〕
+- `ALG.UNKNOWN.STORY` 根据故事写出含未知数的等式并解出来 / Write and solve an equation with an unknown for a story 〔应用〕
+- `NUM.EVEN_ODD.SUMS` 预测两个数的和是偶数还是奇数 / Predict whether a sum will be even or odd 〔推理〕
+
+**标准单位：长度、质量、容量 · Standard units: length, mass, capacity**　`G3.GEO.01`
+
+- `MEAS.LENGTH.CM_M_KM` 会选厘米、米、千米，知道它们之间的关系 / Choose and relate centimetres, metres and kilometres 〔概念〕
+- `MEAS.MASS.G_KG` 用克和千克量质量、比轻重 / Measure and compare mass in grams and kilograms 〔概念〕
+- `MEAS.CAPACITY.ML_L` 用毫升和升量容量、比多少 / Measure and compare capacity in millilitres and litres 〔概念〕
+- `MEAS.PERIM.AROUND` 懂得周长是绕图形一圈的长度 / Understand perimeter as the distance around a shape 〔概念〕
+- `MEAS.AREA.COVER` 数一数铺满图形的方格，量出面积 / Measure area by counting the square units that cover a shape 〔概念〕
+- `MEAS.ESTIMATE.REFERENTS` 借助参照物估计长度、质量和容量（这个杯子装 100 毫升，那么……） / Estimate length, mass and capacity with a referent (if this cup holds 100 mL …) 〔推理〕
+
+**时间单位 · Units of time**　`G3.GEO.02`
+
+- `MEAS.TIME.UNITS_ORDER` 认识时间单位，知道哪个更长（秒、分、时、天、星期、月、年） / Know the units of time and which is longer (second, minute, hour, day, week, month, year) 〔概念〕
+- `MEAS.TIME.UNITS_RELATE` 用时间单位之间的关系（1 分 = 60 秒，1 星期 = 7 天，1 年 = 12 个月） / Use how units of time are related (60 seconds in a minute, 7 days in a week, 12 months in a year) 〔步骤〕
+- `MEAS.TIME.SENSIBLE` 给生活里的事选一个合理的时间单位或时长 / Choose a sensible unit or amount of time for an everyday event 〔推理〕
+- `MEAS.TIME.CALENDAR` 用日历：星期、月份、还有几天 / Use a calendar: days of the week, months, and how many days until 〔应用〕
+
+**立体图形 · 3D objects**　`G3.GEO.03`
+
+- `GEO.SOLIDS.NAME` 说出立体图形的名称：球、正方体、棱柱、棱锥、圆锥、圆柱 / Name 3D objects: sphere, cube, prism, pyramid, cone and cylinder 〔概念〕
+- `GEO.SOLIDS.FACES_EDGES_VERTICES` 数出立体图形的面、棱和顶点 / Count the faces, edges and vertices of a 3D object 〔概念〕
+- `GEO.SOLIDS.FACE_SHAPES` 根据面的形状认出立体图形（展开图和骨架） / Identify a 3D object from the shapes of its faces (nets and skeletons) 〔表示〕
+- `GEO.SOLIDS.COMPARE` 比较立体图形：正方体和长方体哪里一样、哪里不一样 / Compare 3D objects: how cubes and rectangular prisms are alike and different 〔推理〕
+- `GEO.SOLIDS.ORIENTATION` 懂得图形转个方向或翻过来，还是同一种图形 / Know that turning or flipping a shape does not change what it is 〔概念〕
+
+**条形图、象形图和表格 · Bar graphs, pictographs & tables**　`G3.DAT.01`
+
+- `DATA.TALLY_TABLE` 读和做计数表（正字记号）和表格 / Read and make tally charts and tables 〔步骤〕
+- `DATA.BARGRAPH.READ` 读条形统计图：一格代表一个 / Read a bar graph where one square stands for one thing 〔步骤〕
+- `DATA.BARGRAPH.COMPARE` 比较和合并条形图、象形图里的数据：多几个、一共几个 / Compare and combine data from bar graphs and pictographs: how many more, how many altogether 〔推理〕
+- `DATA.BARGRAPH.BUILD` 根据表格画条形统计图或象形统计图 / Make a bar graph or a pictograph from a table 〔表示〕
+- `DATA.CHOOSE_DISPLAY` 给数据选一种合适的表示方式：表格、象形图还是条形图 / Choose a suitable way to show data: a table, a pictograph or a bar graph 〔推理〕
+
+**可能性：模拟实验 · Likelihood: spinners, bags and coins**　`G3.DAT.02`
+
+- `PROB.SIM.LANGUAGE` 用「一定、很可能、不太可能、不可能」描述转盘、骰子、摸球的结果 / Describe the chance of a spinner, dice or bag result as certain, likely, unlikely or impossible 〔概念〕
+- `PROB.SIM.COMPARE` 比较摸球或转盘的结果：更可能、更不可能，还是同样可能 / Compare the results of a bag draw or a spinner: more likely, less likely or equally likely 〔推理〕
+- `PROB.SIM.FIFTY_FIFTY` 懂得「一半一半」的机会（像抛硬币） / Understand an even (50-50) chance, like tossing a coin 〔概念〕
+- `PROB.SIM.PREDICT` 预测并解释一个实验重复做很多次的结果 / Predict and explain the results when an experiment is repeated many times 〔应用〕
+
+**100 元以内的钱 · Money to $100**　`G3.NUM.03`
+
+- `FIN.MONEY100.COUNT` 数硬币和纸币混在一起的总数（到 100 元） / Count a mixed set of coins and bills up to $100 〔步骤〕
+- `FIN.MONEY100.SAME_AMOUNT` 用不同的硬币和纸币凑出同一个金额 / Make the same amount with different coins and bills 〔推理〕
+- `FIN.PAYMENT.WAYS` 知道付钱有不同的方式：现金、刷卡、电子转账、以物换物 / Know different ways to pay: cash, debit or credit card, e-transfer, trading 〔概念〕
+- `FIN.EARNING.GOAL` 为一个目标计划挣钱和存钱：还差多少、要几个星期 / Plan earning and saving toward a goal: how much more, how many weeks 〔应用〕
 
 ### G4（12 个主题 · 57 个技能）
 
@@ -292,7 +548,7 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 - `FLU.MULT.FACTS.EMERGING` 乘法口诀：2、3、4、5、10（能直接说出） / Recall multiplication facts for 2s, 3s, 4s, 5s and 10s 〔熟练〕
 - `FLU.MULT.FACTS.STRATEGIES` 难口诀的策略：翻倍减半、添零、拆分（分配律） / Work out harder facts with doubling/halving, annexing zeros and the distributive property 〔步骤〕
 - `FLU.DIV.FACTS` 除法口诀：用乘法口诀倒推 / Recall division facts as the inverse of multiplication facts 〔熟练〕
-- `FLU.MULT.3D_BY_1D` 三位数乘一位数（面积模型、分步乘） / Multiply 3-digit numbers by 1-digit numbers (area model, partial products) 〔步骤〕
+- `FLU.MULT.3D_BY_1D` 三位数乘一位数（标准竖式） / Multiply 3-digit numbers by 1-digit numbers with the standard algorithm 〔步骤〕
 - `FLU.MULT.2D_BY_2D` 两位数乘两位数 / Multiply 2-digit numbers by 2-digit numbers 〔步骤〕
 - `FLU.DIV.3D_BY_1D` 三位数除以一位数 / Divide 3-digit numbers by 1-digit numbers 〔步骤〕
 - `FLU.DIV.REMAINDER` 有余数的除法，说清余数表示什么 / Divide with remainders and say what the remainder means 〔概念〕
@@ -505,7 +761,7 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 - `FIN.CONSUMER.COMPARE` 比价：按价格、分量、折扣做出明智的购买选择 / Compare purchase options by price, size and discount to make an informed choice 〔应用〕
 - `FIN.BUDGET.INCOME_EXPENSE` 做一份收支预算并调整它 / Build and adjust a simple budget with income and expenses 〔应用〕
 
-### G7（11 个主题 · 50 个技能）
+### G7（12 个主题 · 54 个技能）
 
 **整数（含负数）的运算 · Integer operations**　`G7.FLU.02`
 
@@ -589,6 +845,13 @@ IXL 把「等值分数」切成 5 个 skill（area models → number lines → s
 - `FIN.PCT.TAX` 算销售税（GST/PST）和含税总价 / Calculate sales tax (GST/PST) and the total with tax 〔步骤〕
 - `FIN.PCT.TIP` 估算和计算小费（10%、15%、20%） / Estimate and calculate a tip (10%, 15%, 20%) 〔步骤〕
 - `FIN.PCT.FINAL_PRICE` 先打折再加税的最终价格，以及总的变化百分比 / Find the final price after a discount and tax, and the overall percentage change 〔应用〕
+
+**平方数与平方根 · Square numbers & square roots**　`G7.FLU.01`
+
+- `NUM.SQUARE.RECOGNIZE` 认识 144 以内的平方数：能摆成正方形点阵的数（n × n） / Recognize perfect squares to 144 as numbers that make a square array (n × n) 〔概念·拓展〕
+- `NUM.SQUARE.NOTATION` 认识平方记号：7² 表示 7 × 7 = 49，不是 7 × 2 / Read and write square notation: 7² means 7 × 7 = 49, not 7 × 2 〔步骤·拓展〕
+- `NUM.SQUARE.ROOT` 求平方数的平方根（√81 = 9）：开方是平方的逆运算 / Find the square root of a perfect square (√81 = 9) as the inverse of squaring 〔步骤·拓展〕
+- `NUM.SQUARE.ROOT_ESTIMATE` 估算非平方数的平方根落在哪两个整数之间（√20 在 4 和 5 之间） / Estimate the square root of a non-square number between two whole numbers (√20 is between 4 and 5) 〔推理·拓展〕
 
 ### G8（14 个主题 · 71 个技能）
 
@@ -882,6 +1145,15 @@ G5 等值分数的诊断分支长这样（`diag.branch` 展开）：
 内容：`pregen --grades skills-g8 --provider claude --judge claude`（142 微课 + 142 题库 + 28 主题卷；语气走 `seniorTone(8)` 初中腔，干扰项提示按 ≥8 年级那组）。语音按 2026-09-02 的决定不烘，走系统 TTS 兜底。
 **G9 已落地（2026-09-03）**：`skills/g9.json`——8 个主题（一条标准一个主题：有理数运算 → 指数律 → 多项式 → 多步方程 → 二元线性关系 → 比例尺与相似 → 社会统计 → 预算与收支）、49 个技能（全部核心），每标准 6.1 条；先修接 G8（分数运算、两步方程、线性关系、比例、百分数）和 G6/G7；误区新登记 42 条（exp / poly / lin / sim / stat 等）。内容由 **Claude Fable 5.1**（`config.claude.model = claude-fable-5-1`，effort high）生成 + 审稿：`pregen --grades skills-g9 --provider claude --judge claude`。语音同样不烘。
 **高中、书籍仍未做。** 同一 schema，加载器已经泛化（读任意 `skills/g<N>.json`），缺的是数据文件本身。高中 `course-*.json` 的 `strandDefs` 本来就是单元、只缺技能层；书籍小节已经够细（AoPS 预备代数 68 节），可以直接当技能用、只补 `primary` 和先修边。
+
+### 阶段 4 · 向下补 G1–G3（2026-09-29，#71）
+
+**数据**：`bc/grade-1..3.json`（官网 11 / 12 / 14 条 Content + 中文层；`parse_bc.mjs` 补了 G1–G3 的主线归类规则，并修了「正文里套着 `<span>` 时整行被截断」的解析问题——G3 方程那条原来丢了后半句和全部子项）、`skills/g1..3.json`——G1 11 主题 / 37 技能、G2 11 主题 / 41 技能、G3 13 主题 / 66 技能，全部核心，每标准 3.4 / 3.4 / 4.7 条。
+先修 187 条边（62 条跨年级，G1 → G2 → G3 接好）。**没有回头给 g4.json 补指向 G3 的先修边**：G4 的起点技能（`NUM.PV10K.READ_WRITE`、`FLU.ADDSUB.FACTS20`、`FRAC.PARTS.EQUAL_PARTITION` …）先修仍是空的，要补的话会改动 G4 的图和 app 端的断言，留作后续。
+**误区**新登记 168 条，全部新 id、`remedy` 指向 G1–G3 的技能（校验口径：remedy 的年级不高于用到它的最低年级）。意思和 G4+ 已有误区相近的（忘了进位、看关键词定加减、问多几个答成总数）也另起 id（`calc.regroup_forget` / `story.keyword_trap` / `sub.compare_as_total` …），因为老 id 的 remedy 是 G4+ 的技能，低年级孩子不能被往上指。没有加 `diag`。
+**出题规则**（#74）：G1–G3 的条目用单独的难度口径和阅读量规则——英文在 `lib/ai/qbank/brief.js` 的 `PRIMARY_RULES`（出题器和审稿器同一份），中文在 `qbankPrompt` 的 `young` 分支；`distractorHint`、`judgeCommon`、`seniorTone` 各加了 6–9 岁档。G4 以上的提示词和 brief 哈希不变。见 [qbank-standard.md](qbank-standard.md) §2。
+**题图**：契约没升。`rep` 里带 `pictograph` / `statBar` / `fractionBar` / `pie` 的技能（G1–G2 的统计图、G3 的分数和条形图，共 16 个）英文题可以带现有 6 种题图，其余题干自足。低年级更需要的数物体 / 十格框 / 钟面 / 硬币 / 积木题图要两端一起实现，另和 app 端商量。
+**内容**：只出了技能题库（`pregen --grades skills-g1,skills-g2,skills-g3 --only quiz --provider claude --judge claude`）。微课、主题卷、语音、老的条目题库（legacy-by-standard）都没做；网页版选 G1–G3 能看到技能清单和闯关，讲课要现场有引擎。
 
 ### 不做的事
 

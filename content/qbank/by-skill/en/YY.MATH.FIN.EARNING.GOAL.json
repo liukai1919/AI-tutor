@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FIN.EARNING.GOAL",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmuoc8rhpi64gfe",
+   "level": 1,
+   "question": "You want a toy that costs $25. You saved $10. How much more do you need?",
+   "options": [
+    "$15",
+    "$25",
+    "$35",
+    "$10"
+   ],
+   "answerIndex": 0,
+   "explain": "Subtract what you have from the goal: 25 − 10 = 15. The trap is to say the goal number and forget the money you already saved.",
+   "tags": [
+    "ok",
+    "fin.goal_ignore_saved",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpep75vy",
+   "level": 1,
+   "question": "Your goal is $40. You have $25. How much more do you need?",
+   "options": [
+    "$40",
+    "$15",
+    "$25",
+    "$65"
+   ],
+   "answerIndex": 1,
+   "explain": "Take the goal and subtract what you have: 40 − 25 = 15. If you just repeat the goal or the saved amount, you skipped the subtraction step.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "ok",
+    "fin.spent_still_counted",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpa0na3q",
+   "level": 1,
+   "question": "You need $50 for a camp trip. You have $30. How much more is needed?",
+   "options": [
+    "$80",
+    "$50",
+    "$20",
+    "$30"
+   ],
+   "answerIndex": 2,
+   "explain": "Subtract what you already have from the goal: 50 − 30 = 20. Saying $50 means you forgot the $30 you saved.",
+   "tags": [
+    "other",
+    "fin.goal_ignore_saved",
+    "ok",
+    "fin.spent_still_counted"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpct8ehl",
+   "level": 1,
+   "question": "You save $5 every week. After 3 weeks, how much do you have saved?",
+   "options": [
+    "$5",
+    "$10",
+    "$20",
+    "$15"
+   ],
+   "answerIndex": 3,
+   "explain": "Count up by 5 three times: 5, 10, 15. If you stop after one or two weeks, you will get a number that is too small.",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpr3hgv7",
+   "level": 2,
+   "question": "Mia saves $5 a week. She wants a $30 book. She has $10 saved. How many more weeks must she save?",
+   "options": [
+    "4 weeks",
+    "6 weeks",
+    "2 weeks",
+    "3 weeks"
+   ],
+   "answerIndex": 0,
+   "explain": "First find how much more: 30 − 10 = 20. Then count up by 5: 5, 10, 15, 20 — that is 4 weeks. The trap is to divide the whole goal by 5 and get 6.",
+   "tags": [
+    "ok",
+    "fin.goal_ignore_saved",
+    "story.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhp4vnubc",
+   "level": 2,
+   "question": "Jake earns $4 a week helping his grandma. He wants a $28 game. He has $12. How many more weeks?",
+   "options": [
+    "7 weeks",
+    "4 weeks",
+    "5 weeks",
+    "3 weeks"
+   ],
+   "answerIndex": 1,
+   "explain": "How much more: 28 − 12 = 16. Count up by 4: 4, 8, 12, 16 — that is 4 weeks. Dividing 28 by 4 gives 7, but that ignores the $12 he already has.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "ok",
+    "other",
+    "story.stop_early"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpq3rmw8",
+   "level": 2,
+   "question": "Lily wants to save $35 for a bike helmet. She saves $7 a week. She already has $14. How many more weeks?",
+   "options": [
+    "5 weeks",
+    "2 weeks",
+    "3 weeks",
+    "4 weeks"
+   ],
+   "answerIndex": 2,
+   "explain": "How much more: 35 − 14 = 21. Count up by 7: 7, 14, 21 — that is 3 more weeks. Using the whole goal (35 ÷ 7 = 5) forgets the $14 she saved.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "story.stop_early",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhp621dja",
+   "level": 2,
+   "question": "Sam has $6. He wants to save $24 for a soccer ball. He earns $6 a week. How many more weeks?",
+   "options": [
+    "4 weeks",
+    "1 week",
+    "2 weeks",
+    "3 weeks"
+   ],
+   "answerIndex": 3,
+   "explain": "How much more: 24 − 6 = 18. Count up by 6: 6, 12, 18 — that is 3 weeks. Dividing 24 by 6 gives 4, but that ignores the $6 he already has.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "story.stop_early",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpgtkq5z",
+   "level": 3,
+   "question": "Anna saves $5 a week. Her goal is $45. She has saved for 4 weeks already. How many MORE weeks does she need?",
+   "options": [
+    "5 weeks",
+    "4 weeks",
+    "7 weeks",
+    "9 weeks"
+   ],
+   "answerIndex": 0,
+   "explain": "First find what she saved: 4 × 5 = 20. Then how much more: 45 − 20 = 25. Count up by 5 to 25: that is 5 more weeks. Using 45 ÷ 5 = 9 ignores her savings.",
+   "tags": [
+    "ok",
+    "story.stop_early",
+    "other",
+    "fin.goal_ignore_saved"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhprgktcv",
+   "level": 3,
+   "question": "Ben saves $6 a week. He needs to save for 5 more weeks. His goal is $48. How much does he already have?",
+   "options": [
+    "$48",
+    "$18",
+    "$30",
+    "$12"
+   ],
+   "answerIndex": 1,
+   "explain": "He will save 5 × 6 = 30 more. So he already has 48 − 30 = 18. Saying $30 means you stopped at the first step and did not subtract from the goal.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "ok",
+    "story.stop_early",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhpxga4eg",
+   "level": 3,
+   "question": "Maya says she has $12, her goal is $36, she saves $6 a week, and she needs 6 more weeks. What is her mistake?",
+   "options": [
+    "She stopped after just the first step.",
+    "She counted spent money as still there.",
+    "She used the whole goal to find weeks.",
+    "She added the $6 one time too many."
+   ],
+   "answerIndex": 2,
+   "explain": "Maya divided 36 by 6 and got 6, but she forgot to subtract the $12 she already has. First find 36 − 12 = 24, then 24 ÷ 6 = 4 weeks.",
+   "tags": [
+    "story.stop_early",
+    "fin.spent_still_counted",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoc8rhp7wl6lw",
+   "level": 3,
+   "question": "Noah earns $8 a week doing chores. His goal is a $56 skateboard. He already has $24. How many more weeks?",
+   "options": [
+    "7 weeks",
+    "3 weeks",
+    "5 weeks",
+    "4 weeks"
+   ],
+   "answerIndex": 3,
+   "explain": "How much more: 56 − 24 = 32. Count up by 8: 8, 16, 24, 32 — that is 4 weeks. Dividing 56 by 8 gives 7, but that ignores the $24 he saved.",
+   "tags": [
+    "fin.goal_ignore_saved",
+    "story.stop_early",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.CORE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunzhappa6b7wy",
+   "level": 1,
+   "question": "规律：1、2、3、1、2、3、1、2、3。核心（core）是哪几个数？",
+   "options": [
+    "1、2、3",
+    "1、2",
+    "1、2、3、1、2、3",
+    "3、2、1"
+   ],
+   "answerIndex": 0,
+   "explain": "每组是「1、2、3」三个数，翻来覆去重复的就是核心。最容易踩的坑：只看到「1、2」就停了（漏了 3），或者把两组合起来当成一个核心。",
+   "tags": [
+    "ok",
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzhapphimvyg",
+   "level": 1,
+   "question": "规律：大、小、大、小、大、小。核心是哪两个？",
+   "options": [
+    "大",
+    "大、小",
+    "小、大",
+    "大、小、大、小"
+   ],
+   "answerIndex": 1,
+   "explain": "「大、小」两个一组一直在重复，这就是核心。别把两个一组重复两遍（大、小、大、小）当成一个核心。",
+   "tags": [
+    "pat.core_too_short",
+    "ok",
+    "other",
+    "pat.core_too_long"
+   ]
+  },
+  {
+   "qid": "qmunzhappz990m0",
+   "level": 1,
+   "question": "规律：A、B、B、A、B、B、A、B、B。核心是哪几个字母？",
+   "options": [
+    "A、B",
+    "A、B、B、A、B、B",
+    "A、B、B",
+    "B、B、A"
+   ],
+   "answerIndex": 2,
+   "explain": "每组是「A、B、B」三个，所以核心是 A、B、B。最容易错的：只看到 A、B 就停了，漏了第二个 B。",
+   "tags": [
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzhappjcqf8x",
+   "level": 1,
+   "question": "规律：圆、方、圆、方、圆、方。核心是哪两个形状？",
+   "options": [
+    "圆",
+    "方、圆",
+    "圆、方、圆、方",
+    "圆、方"
+   ],
+   "answerIndex": 3,
+   "explain": "「圆、方」两个一组重复出现，核心就是这两个。别把两个一组说成四个——那是重复了两遍，不是核心。",
+   "tags": [
+    "pat.core_too_short",
+    "other",
+    "pat.core_too_long",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzhapp5bk8vo",
+   "level": 2,
+   "question": "小美在公园长椅上摆贝壳，顺序是：红、蓝、红、蓝、红、蓝。这个规律的核心是哪两个颜色？",
+   "options": [
+    "红、蓝",
+    "蓝、红",
+    "红、蓝、红、蓝",
+    "红"
+   ],
+   "answerIndex": 0,
+   "explain": "红、蓝两个颜色一组翻来覆去重复，核心就是「红、蓝」。最容易把两个一组重复两遍误当成核心。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.core_too_long",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzhapptgdsw1",
+   "level": 2,
+   "question": "妈妈在厨房排杯子：高、矮、高、矮、高、矮。核心是哪两个？",
+   "options": [
+    "高",
+    "高、矮",
+    "高、矮、高、矮",
+    "矮、高"
+   ],
+   "answerIndex": 1,
+   "explain": "核心是「高、矮」一组，顺序不能反。最容易把两个一组重复两遍（高矮高矮）当成核心。",
+   "tags": [
+    "pat.core_too_short",
+    "ok",
+    "pat.core_too_long",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzhappcpmza2",
+   "level": 2,
+   "question": "学校操场上的彩旗是：红、蓝、绿、红、蓝、绿、红、蓝、绿。核心是哪三个颜色？",
+   "options": [
+    "红、蓝、绿、红、蓝、绿",
+    "红、蓝",
+    "红、蓝、绿",
+    "红、绿、蓝"
+   ],
+   "answerIndex": 2,
+   "explain": "每组是红、蓝、绿三个，这就是核心。最容易漏掉「绿」，只说红、蓝两个。",
+   "tags": [
+    "pat.core_too_long",
+    "pat.core_too_short",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzhapps3f4a4",
+   "level": 2,
+   "question": "弟弟拍球，声音是：轻、重、重、轻、重、重、轻、重、重。核心是哪三个？",
+   "options": [
+    "轻、重",
+    "重、重、轻",
+    "轻、重、重、轻、重、重",
+    "轻、重、重"
+   ],
+   "answerIndex": 3,
+   "explain": "每组是「轻、重、重」，所以核心是这三个。最容易只看到「轻、重」就停了，漏了第二个「重」。",
+   "tags": [
+    "pat.core_too_short",
+    "other",
+    "pat.core_too_long",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzhapppk558a",
+   "level": 3,
+   "question": "规律是「猫、狗、兔、猫、狗、兔、猫、狗、兔」。小红说核心是「猫、狗」。她错在哪？",
+   "options": [
+    "她漏了一个，核心是 3 个一组",
+    "她多算了一遍，核心有 6 个",
+    "她顺序记反了，核心是「兔、狗、猫」",
+    "她只看一个，核心就是「猫」"
+   ],
+   "answerIndex": 0,
+   "explain": "小红说「猫、狗」，少了「兔」，核心应该是 3 个一组（猫、狗、兔）。这是最典型的「核心找短了」。",
+   "tags": [
+    "ok",
+    "pat.core_too_long",
+    "other",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzhapp9gqzx7",
+   "level": 3,
+   "question": "规律是「1、2、1、2、1、2」。小明说核心是「1、2、1、2」。他错在哪？",
+   "options": [
+    "他少看了，核心只有「1」",
+    "他算了两遍，核心是 2 个",
+    "他多看了，核心有 6 个",
+    "他顺序反了，核心是「2、1」"
+   ],
+   "answerIndex": 1,
+   "explain": "「1、2」重复了三遍，核心就是 1、2 两个。小明把两遍重复合在一起当成核心了，这是「核心找长了」。",
+   "tags": [
+    "pat.core_too_short",
+    "ok",
+    "pat.core_too_long",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzhappnh7xy1",
+   "level": 3,
+   "question": "小华在院子里种树，顺序是「松、柏、松、柏、松、柏」。核心里有几棵树？核心里第一棵是什么？",
+   "options": [
+    "4 棵，松",
+    "2 棵，柏",
+    "2 棵，松",
+    "1 棵，松"
+   ],
+   "answerIndex": 2,
+   "explain": "「松、柏」两个一组重复，核心是 2 棵，第一棵是松。最容易把两组合成 4 棵，或者把核心缩成 1 棵。",
+   "tags": [
+    "pat.core_too_long",
+    "other",
+    "ok",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzhappj4w1ut",
+   "level": 3,
+   "question": "小明摆积木，顺序是「红、蓝、绿、红、蓝、绿、红、蓝、绿」。核心有几个？核心里第 2 个是什么颜色？",
+   "options": [
+    "2 个，蓝",
+    "6 个，蓝",
+    "3 个，绿",
+    "3 个，蓝"
+   ],
+   "answerIndex": 3,
+   "explain": "「红、蓝、绿」三个一组重复，核心是 3 个，第 2 个是蓝。最容易漏掉「绿」（说 2 个），或把两组合成 6 个。",
+   "tags": [
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

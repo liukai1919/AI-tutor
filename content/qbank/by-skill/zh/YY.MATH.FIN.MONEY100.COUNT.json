@@ -1,0 +1,348 @@
+{
+ "id": "YY.MATH.FIN.MONEY100.COUNT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuobq414jjtokr",
+   "level": 1,
+   "question": "袋子里有 1 张 10 元纸币、1 个 quarter（25 分硬币）和 1 个 dime（10 分硬币）。一共有多少钱？",
+   "options": [
+    "10 元 35 分",
+    "45 元",
+    "10 元 50 分",
+    "3 元"
+   ],
+   "answerIndex": 0,
+   "explain": "25 分加 10 分是 35 分，再加 10 元就是 10 元 35 分。元和分要分开算，不能 10+25+10=45。",
+   "tags": [
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuobq414i8gtdz",
+   "level": 1,
+   "question": "盒子里有 1 个 loonie（1 元）、3 个 nickel（5 分）和 1 个 dime（10 分）。一共有多少钱？",
+   "options": [
+    "26 元",
+    "1 元 25 分",
+    "5 元",
+    "1 元 20 分"
+   ],
+   "answerIndex": 1,
+   "explain": "3 个 nickel 是 15 分，加 10 分是 25 分，再加 1 元就是 1 元 25 分。dime 是 10 分，别当成 5 分。",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuobq414bu7yhr",
+   "level": 2,
+   "question": "小红帮妈妈洗碗，挣了 1 张 5 元纸币、2 个 quarter（25 分）和 1 个 dime（10 分）。她一共挣了多少钱？",
+   "options": [
+    "4 元",
+    "65 元",
+    "5 元 60 分",
+    "5 元 75 分"
+   ],
+   "answerIndex": 2,
+   "explain": "2 个 quarter 是 50 分，加 10 分是 60 分，再加 5 元就是 5 元 60 分。dime 是 10 分，不是 25 分。",
+   "tags": [
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuobq414ehxq9p",
+   "level": 2,
+   "question": "小李在跳蚤市场卖了 3 张 5 元、1 个 quarter（25 分）和 2 个 dime（10 分）。他一共挣了多少钱？",
+   "options": [
+    "60 元",
+    "6 元",
+    "15 元 75 分",
+    "15 元 45 分"
+   ],
+   "answerIndex": 3,
+   "explain": "1 个 quarter 是 25 分，2 个 dime 是 20 分，合起来 45 分，加 15 元就是 15 元 45 分。dime 是 10 分不是 25 分。",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuobq4146rwqj4",
+   "level": 3,
+   "question": "小吴数钱：1 个 quarter（25 分）、1 个 quarter（25 分）、1 个 dime（10 分）。他说「我有 75 分」。他错在哪？",
+   "options": [
+    "他把 dime 当 25 分加了",
+    "他只数了 3 个，没加面值",
+    "他少看了一个 quarter 硬币",
+    "他把 60 分当成 60 元算了"
+   ],
+   "answerIndex": 0,
+   "explain": "25+25+10=60 分，不是 75 分。他数到 dime 时还在按 25 分加，其实 dime 只有 10 分。",
+   "tags": [
+    "ok",
+    "coin.count_not_value",
+    "other",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuobq414vvi72z",
+   "level": 3,
+   "question": "小刘先收了 1 张 20 元和 1 个 loonie（1 元），又收了 2 个 quarter（25 分）和 1 个 dime（10 分）。他一共收了多少钱？",
+   "options": [
+    "81 元",
+    "21 元 60 分",
+    "5 元",
+    "21 元 75 分"
+   ],
+   "answerIndex": 1,
+   "explain": "20 元加 1 元是 21 元，2 个 quarter 加 1 个 dime 是 60 分，合起来 21 元 60 分。dime 是 10 分不是 25 分。",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuogrow54jswu3",
+   "level": 1,
+   "question": "小安把桌上的钱分成两组。纸币（bill）组：1 张 20 元。硬币（coin）组：3 个 quarter（25 分）和 1 个 dime（10 分）。两组合起来一共多少钱？",
+   "options": [
+    "20 元 100 分",
+    "105 元",
+    "20 元 85 分",
+    "20 元 4 分"
+   ],
+   "answerIndex": 2,
+   "explain": "纸币组 20 元；硬币组按面值数 25、50、75，再加 dime 的 10 分，是 85 分，合起来 20 元 85 分。换成 dime 后要改成 10 分往下数，不能还按 25 分跳。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogrow52mmkej",
+   "level": 1,
+   "question": "小美把钱分成两组。纸币组：1 张 5 元。硬币组：2 个 dime（10 分）和 2 个 nickel（5 分）。两组合起来一共多少钱？",
+   "options": [
+    "5 元 4 分",
+    "35 元",
+    "5 元 40 分",
+    "5 元 30 分"
+   ],
+   "answerIndex": 3,
+   "explain": "硬币数 10、20，换成 nickel 要 5 分 5 分地数：25、30，加上 5 元纸币就是 5 元 30 分。换硬币时忘了换面值，就会多数成 40 分。",
+   "tags": [
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogrow5uz97zk",
+   "level": 1,
+   "question": "小图把钱分成两组。纸币组：2 张 10 元。硬币组：1 个 quarter（25 分）和 1 个 nickel（5 分）。两组合起来一共多少钱？",
+   "options": [
+    "20 元 30 分",
+    "20 元 2 分",
+    "50 元",
+    "20 元 50 分"
+   ],
+   "answerIndex": 0,
+   "explain": "纸币 10 加 10 是 20 元；硬币 25 分加 5 分是 30 分，所以是 20 元 30 分。nickel 只值 5 分，不能当成又一个 25 分。",
+   "tags": [
+    "ok",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuogrow5g7z2cy",
+   "level": 1,
+   "question": "小林把钱分成两组。纸币组：1 张 5 元。硬币组：1 个 toonie（2 元）、1 个 quarter（25 分）和 1 个 nickel（5 分）。两组合起来一共多少钱？",
+   "options": [
+    "37 元",
+    "7 元 30 分",
+    "5 元 3 分",
+    "7 元 50 分"
+   ],
+   "answerIndex": 1,
+   "explain": "元和元加：5 元加 toonie 的 2 元是 7 元；分和分加：25 分加 5 分是 30 分，所以是 7 元 30 分。元和分要分开加，不能写成 37。",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuogrow5uivecf",
+   "level": 2,
+   "question": "小周在社区旧书摊卖书。他收到 1 张 10 元、1 个 quarter（25 分）和 3 个 nickel（5 分）。他一共挣（earn）了多少钱？",
+   "options": [
+    "50 元",
+    "10 元 100 分",
+    "10 元 40 分",
+    "10 元 4 分"
+   ],
+   "answerIndex": 2,
+   "explain": "先记下 10 元，再数硬币：25、30、35、40 分，一共 10 元 40 分。数到 nickel 要改成 5 分一跳，别还按 25 分往上数。",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogrow5evlfuj",
+   "level": 2,
+   "question": "小陈在 Richmond 的农夫市场卖自己种的萝卜。她挣到 1 张 10 元、2 个 loonie（1 元）和 1 个 nickel（5 分）。她一共挣了多少钱？",
+   "options": [
+    "13 元",
+    "10 元 3 分",
+    "17 元",
+    "12 元 5 分"
+   ],
+   "answerIndex": 3,
+   "explain": "10 元加两个 loonie 是 12 元，硬币里只有 nickel 是分，5 分，所以是 12 元 5 分。nickel 不是 1 元，别接着按 1 元往下数。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogrow55d2ic0",
+   "level": 2,
+   "question": "算一算：1 张 50 元 加 1 个 quarter（25 分）加 2 个 dime（10 分），一共是多少钱？",
+   "options": [
+    "50 元 45 分",
+    "95 元",
+    "50 元 75 分",
+    "50 元 3 分"
+   ],
+   "answerIndex": 0,
+   "explain": "纸币 50 元不动，硬币数 25、35、45 分，答案是 50 元 45 分。dime 是 10 分，换硬币后就要改成 10 分一跳。",
+   "tags": [
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogrow5zw3tzx",
+   "level": 2,
+   "question": "小何在学校义卖当收银员。她收到 1 张 20 元、1 张 5 元、3 个 dime（10 分）和 1 个 nickel（5 分）。她一共收了多少钱？",
+   "options": [
+    "25 元 4 分",
+    "25 元 35 分",
+    "25 元 40 分",
+    "60 元"
+   ],
+   "answerIndex": 1,
+   "explain": "两张纸币是 25 元；硬币数 10、20、30，再加 nickel 的 5 分是 35 分，一共 25 元 35 分。最后一个是 nickel，只加 5 分，不是再加 10 分。",
+   "tags": [
+    "coin.count_not_value",
+    "ok",
+    "coin.keep_old_step",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogrow5beuotz",
+   "level": 3,
+   "question": "小婷帮邻居遛狗，挣了 1 张 5 元和 3 个 quarter（25 分）。回家后妈妈又给她 1 张 10 元和 2 个 nickel（5 分）。她现在一共有多少钱？",
+   "options": [
+    "15 元 125 分",
+    "15 元 5 分",
+    "15 元 85 分",
+    "100 元"
+   ],
+   "answerIndex": 2,
+   "explain": "先合纸币：5 加 10 是 15 元；再合硬币：25、50、75，加两个 5 分是 85 分，所以是 15 元 85 分。换到 nickel 要改成 5 分往上数。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "ok",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogrow5kvl5gn",
+   "level": 3,
+   "question": "小凯有 1 张 20 元和 2 个 dime（10 分）。小玲有 1 个 toonie（2 元）和 3 个 quarter（25 分）。两人的钱合起来是多少？",
+   "options": [
+    "22 元 50 分",
+    "20 元 6 分",
+    "117 元",
+    "22 元 95 分"
+   ],
+   "answerIndex": 3,
+   "explain": "元和元加：20 元加 2 元是 22 元；分和分加：20 分加 75 分是 95 分，合起来 22 元 95 分。quarter 是 25 分，不能跟着 dime 按 10 分数。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogrow534o4uw",
+   "level": 3,
+   "question": "小婷第一天挣了 2 张 5 元和 1 个 dime（10 分）。第二天挣了 1 张 10 元、1 个 loonie（1 元）和 2 个 nickel（5 分）。两天一共挣了多少钱？",
+   "options": [
+    "21 元 20 分",
+    "23 元 10 分",
+    "41 元",
+    "20 元 4 分"
+   ],
+   "answerIndex": 0,
+   "explain": "元：5 加 5 加 10 再加 loonie 的 1 元，是 21 元；分：10 分加两个 5 分是 20 分，所以是 21 元 20 分。loonie 后面的 nickel 只值 5 分，不是 1 元。",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.cents_dollars_mix",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogrow510oibk",
+   "level": 3,
+   "question": "小赵有 1 张 5 元、2 个 quarter（25 分）和 1 个 dime（10 分）。他说「我一共有 65 元」。他错在哪？",
+   "options": [
+    "dime 也要按 25 分往下数，应是 5 元 75 分",
+    "元和分不能一起加，应是 5 元 60 分",
+    "硬币只要数个数，应是 5 元 3 分",
+    "纸币 5 元也算 5 分，应是一共 65 分"
+   ],
+   "answerIndex": 1,
+   "explain": "5 元是元，25、25、10 是分，元和分要分开算，硬币一共 60 分，所以是 5 元 60 分。把 5 和 25、10 直接相加就会得到 65 这个错数。",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix"
+   ]
+  }
+ ]
+}

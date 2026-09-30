@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.PAT.GROW_SHRINK.GENERALIZE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo6pluyt081du",
+   "level": 1,
+   "question": "3、5、7、9 这个递增规律（increasing pattern）每次怎么变大？",
+   "options": [
+    "每次加 2",
+    "每次翻倍",
+    "每次减 2",
+    "每次加 1"
+   ],
+   "answerIndex": 0,
+   "explain": "5−3＝2，7−5＝2，每步都加 2。翻倍的话 3×2＝6，对不上 5。",
+   "tags": [
+    "ok",
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyf35qow",
+   "level": 1,
+   "question": "4、8、16、32 这个递增规律每次怎么变大？",
+   "options": [
+    "每次加 4",
+    "每次翻倍",
+    "每次减 4",
+    "每次加 8"
+   ],
+   "answerIndex": 1,
+   "explain": "4×2＝8，8×2＝16，16×2＝32，是翻倍。只看前两个数会误以为加 4，要看全部对不对。",
+   "tags": [
+    "pat.add_vs_double",
+    "ok",
+    "pat.grow_direction_wrong",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyy6kam7",
+   "level": 1,
+   "question": "20、15、10、5 这个递减规律（decreasing pattern）每次怎么变小？",
+   "options": [
+    "每次加 5",
+    "每次翻倍",
+    "每次减 5",
+    "每次减 3"
+   ],
+   "answerIndex": 2,
+   "explain": "20−15＝5，15−10＝5，每步减 5。递减是变小，别往上加。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "pat.add_vs_double",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyp9bumj",
+   "level": 1,
+   "question": "6、12、24、48 这个递增规律每次怎么变大？",
+   "options": [
+    "每次加 6",
+    "每次减 6",
+    "每次加 12",
+    "每次翻倍"
+   ],
+   "answerIndex": 3,
+   "explain": "6×2＝12，12×2＝24，24×2＝48，是翻倍。加 6 只能解释第一步，后面就对不上了。",
+   "tags": [
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong",
+    "pat.add_vs_double",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyn2yqtn",
+   "level": 2,
+   "question": "小美每天往存钱罐里投硬币：周一 3 元、周二 6 元、周三 12 元。规律法则（pattern rule）是什么？",
+   "options": [
+    "每次翻倍",
+    "每次加 3",
+    "每次减 3",
+    "每次加 6"
+   ],
+   "answerIndex": 0,
+   "explain": "3×2＝6，6×2＝12，是翻倍。加 3 只能解释第一步，加 6 只能解释第二步。",
+   "tags": [
+    "ok",
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyia217t",
+   "level": 2,
+   "question": "妈妈烧了一壶水 500 毫升，每次倒掉一样多：500、400、300、200。每次少了多少？",
+   "options": [
+    "每次加 100",
+    "每次减 100",
+    "每次翻倍",
+    "每次减 50"
+   ],
+   "answerIndex": 1,
+   "explain": "500−400＝100，400−300＝100，每步减 100 毫升。水在变少，是递减，别往上加。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "ok",
+    "pat.add_vs_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6pluykrmnru",
+   "level": 2,
+   "question": "小华收集贝壳：第 1 天 7 个、第 2 天 14 个、第 3 天 28 个、第 4 天 56 个。规律法则是什么？",
+   "options": [
+    "每次加 7",
+    "每次加 14",
+    "每次翻倍",
+    "每次减 7"
+   ],
+   "answerIndex": 2,
+   "explain": "7×2＝14，14×2＝28，28×2＝56，是翻倍。加 7 只能解释第一步，加 14 只能解释第二步。",
+   "tags": [
+    "pat.add_vs_double",
+    "pat.add_vs_double",
+    "ok",
+    "pat.grow_direction_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyupydyn",
+   "level": 2,
+   "question": "电梯从 1 楼出发，停到 3 楼、5 楼、7 楼、9 楼。每次怎么变大？",
+   "options": [
+    "每次翻倍",
+    "每次减 2",
+    "每次加 4",
+    "每次加 2"
+   ],
+   "answerIndex": 3,
+   "explain": "3−1＝2，5−3＝2，7−5＝2，每步加 2。翻倍的话 1×2＝2，对不上 3。",
+   "tags": [
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6pluy7sd3ij",
+   "level": 3,
+   "question": "爷爷种树：第 1 天 2 棵、第 2 天 4 棵、第 3 天 8 棵。规律是每次翻倍。3 天一共几棵？",
+   "options": [
+    "14",
+    "12",
+    "8",
+    "6"
+   ],
+   "answerIndex": 0,
+   "explain": "2＋4＋8＝14 棵。如果错当成每次加 2，就变成 2、4、6，加起来才 12。",
+   "tags": [
+    "ok",
+    "pat.add_vs_double",
+    "other",
+    "pat.grow_direction_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyromqfq",
+   "level": 3,
+   "question": "小明说 2、4、8、16 是每次加 2。他错在哪？",
+   "options": [
+    "加 2 没错",
+    "翻倍才对",
+    "加 4 才对",
+    "减 2 才对"
+   ],
+   "answerIndex": 1,
+   "explain": "2×2＝4，4×2＝8，8×2＝16，是翻倍。加 2 的话 4＋2＝6，对不上 8。",
+   "tags": [
+    "pat.add_vs_double",
+    "ok",
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo6pluyu1ac6e",
+   "level": 3,
+   "question": "水龙头滴水：第 1 秒 1 滴、第 2 秒 2 滴、第 3 秒 4 滴。规律是每次翻倍。3 秒一共几滴？",
+   "options": [
+    "6",
+    "3",
+    "7",
+    "8"
+   ],
+   "answerIndex": 2,
+   "explain": "1＋2＋4＝7 滴。如果错当成每次加 1，就变成 1、2、3，加起来才 6。",
+   "tags": [
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoffi391ze19n",
+   "level": 3,
+   "question": "小安在水族馆数海星：第 1 个池 4 只、第 2 个池 8 只、第 3 个池 16 只。照这个规律（pattern）往下走，第 4 个池比第 3 个池多几只？",
+   "options": [
+    "8 只，因为数在变小",
+    "2 只，因为每次加 2",
+    "32 只，第 4 个池的数",
+    "16 只，因为数翻倍了"
+   ],
+   "answerIndex": 3,
+   "explain": "这串数每次翻倍，16 翻倍是 32，32 比 16 多 16 只。坑：问「多几只」却答成 32，那是第 4 个池一共的只数。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "pat.add_vs_double",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoffi39yu5ac7",
+   "level": 3,
+   "question": "三年级同学收回收罐：周一 60 个、周二 48 个、周四 24 个。每次少的一样多。每次少多少？周三是几个？",
+   "options": [
+    "每次少 12，是 36",
+    "每次多 12，是 60",
+    "每次少 10，是 38",
+    "每次少一半，是 24"
+   ],
+   "answerIndex": 0,
+   "explain": "从 48 到 24 隔了两次，一共少 24，所以每次少 12，周三是 36 个。坑：这是递减规律（decreasing pattern），别往上加成 60。",
+   "tags": [
+    "ok",
+    "pat.grow_direction_wrong",
+    "other",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuoffi39mv95n8",
+   "level": 3,
+   "question": "小马每周存钱：2、4、6、8 元。小丽每周存钱：2、4、8、16 元。谁的钱长得更快？为什么？",
+   "options": [
+    "小马，因为他每次加 2",
+    "小丽，因为她每次翻倍",
+    "一样快，都是每次加 2",
+    "小马，因为他每次变小"
+   ],
+   "answerIndex": 1,
+   "explain": "小马的规律法则（pattern rule）是每次加 2，小丽是每次翻倍，翻倍长得更快。坑：两串开头都是 2、4，就以为一样快。",
+   "tags": [
+    "other",
+    "ok",
+    "pat.add_vs_double",
+    "pat.grow_direction_wrong"
+   ]
+  },
+  {
+   "qid": "qmuoffi39uaba1k",
+   "level": 3,
+   "question": "小林看这串数：32、28、24、20。他说这是递增规律（increasing pattern），每次加 4。他错在哪？",
+   "options": [
+    "这是递减规律，每次少 8",
+    "他说得对，这是递增的",
+    "这是递减规律，每次少 4",
+    "这是递减规律，每次减半"
+   ],
+   "answerIndex": 2,
+   "explain": "数越来越小，所以是递减规律，32 减 4 是 28，每次少 4。坑：看见 4 就以为在加 4，其实是减 4。",
+   "tags": [
+    "other",
+    "pat.grow_direction_wrong",
+    "ok",
+    "pat.add_vs_double"
+   ]
+  }
+ ]
+}

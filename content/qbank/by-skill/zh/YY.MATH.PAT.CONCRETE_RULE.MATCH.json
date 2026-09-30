@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.CONCRETE_RULE.MATCH",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo76ykagutp7b",
+   "level": 1,
+   "question": "用积木摆出的规律是 2, 4, 8, 16。哪条法则（rule）对？",
+   "options": [
+    "从 2 开始，每次翻倍",
+    "从 2 开始，每次加 2",
+    "从 2 开始，每次加 4",
+    "每次翻倍"
+   ],
+   "answerIndex": 0,
+   "explain": "2→4→8→16，每个都是前一个的 2 倍，所以是「从 2 开始，每次翻倍」。最容易踩的坑：只看 4−2=2 就以为「加 2」，但 8−4=4 并不是加 2。",
+   "tags": [
+    "ok",
+    "pat.first_gap_only",
+    "pat.add_vs_double",
+    "pat.rule_no_start"
+   ]
+  },
+  {
+   "qid": "qmuo76yka7lp5se",
+   "level": 1,
+   "question": "用石子摆出的规律是 1, 2, 4, 8。哪条法则对？",
+   "options": [
+    "从 1 开始，每次加 1",
+    "从 1 开始，每次翻倍",
+    "每次加 2",
+    "从 1 开始，每次加 2"
+   ],
+   "answerIndex": 1,
+   "explain": "1→2→4→8，每次乘 2（翻倍），起点是 1。容易错：只看 2−1=1 就以为「加 1」，或者只说「翻倍」忘了起点。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.rule_no_start",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo76ykamsuzuq",
+   "level": 1,
+   "question": "用豆子摆出的规律是 5, 9, 13, 17。哪条法则对？",
+   "options": [
+    "每次加 4",
+    "从 5 开始，每次加 9",
+    "从 5 开始，每次加 4",
+    "从 9 开始，每次加 4"
+   ],
+   "answerIndex": 2,
+   "explain": "5→9→13→17，每次加 4，从 5 开始。容易错：只说「加 4」不写起点，或者把第二个数 9 当成加的数。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.first_gap_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo76ykayx2js3",
+   "level": 1,
+   "question": "用扣子摆出的规律是 3, 6, 9, 12。哪条法则对？",
+   "options": [
+    "每次加 3",
+    "从 3 开始，每次翻倍",
+    "从 3 开始，每次加 9",
+    "从 3 开始，每次加 3"
+   ],
+   "answerIndex": 3,
+   "explain": "3→6→9→12，每次加 3，从 3 开始。容易错：只说「加 3」不写起点，或者看到 3→6 就以为「翻倍」（但 9 不是 6 的 2 倍）。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.add_vs_double",
+    "pat.first_gap_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo76ykat52vl4",
+   "level": 2,
+   "question": "Emma 用积木摆了一排：4, 8, 16, 32。她想知道规律是什么。哪条法则对？",
+   "options": [
+    "从 4 开始，每次翻倍",
+    "从 4 开始，每次加 4",
+    "每次加 4",
+    "从 4 开始，每次加 8"
+   ],
+   "answerIndex": 0,
+   "explain": "4→8→16→32，每次乘 2。容易错：只看 8−4=4 就以为「加 4」，但 16−8=8，差在变大，不是固定加一个数。",
+   "tags": [
+    "ok",
+    "pat.first_gap_only",
+    "pat.rule_no_start",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo76ykalp2pgd",
+   "level": 2,
+   "question": "小明用石子摆了 7, 11, 15, 19。他朋友问规律是什么。哪句说得对？",
+   "options": [
+    "每次加 4",
+    "从 7 开始，每次加 4",
+    "从 7 开始，每次加 7",
+    "从 7 开始，每次翻倍"
+   ],
+   "answerIndex": 1,
+   "explain": "7→11→15→19，每次加 4，从 7 开始。容易错：把起点写成 7 以外的数，或者只说「加 4」忘了起点。",
+   "tags": [
+    "pat.rule_no_start",
+    "ok",
+    "pat.first_gap_only",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo76ykaq6d72j",
+   "level": 2,
+   "question": "Lily 用扣子摆了 6, 12, 24, 48。她弟弟说「每次加 6」。哪条才是对的法则？",
+   "options": [
+    "从 6 开始，每次加 6",
+    "每次翻倍",
+    "从 6 开始，每次翻倍",
+    "从 6 开始，每次加 12"
+   ],
+   "answerIndex": 2,
+   "explain": "6→12→24→48，每次乘 2（翻倍）。弟弟的「加 6」只对了第一步（12−6=6），但 24−12=12≠6，说明不是固定加一个数。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.rule_no_start",
+    "ok",
+    "pat.add_vs_double"
+   ]
+  },
+  {
+   "qid": "qmuo76yka2rnqpr",
+   "level": 2,
+   "question": "用木块摆了 3, 6, 12, 24。哪条法则对？",
+   "options": [
+    "每次翻倍",
+    "从 3 开始，每次加 6",
+    "从 3 开始，每次加 3",
+    "从 3 开始，每次翻倍"
+   ],
+   "answerIndex": 3,
+   "explain": "3→6→12→24，每次乘 2，从 3 开始。容易错：只看 6−3=3 就以为「加 3」，但 12−6=6 不是加 3。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.add_vs_double",
+    "pat.first_gap_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo76ykarrl3lw",
+   "level": 3,
+   "question": "用积木摆了 4, 8, 16, □, 64。缺的那个数是几？",
+   "options": [
+    "32",
+    "20",
+    "24",
+    "48"
+   ],
+   "answerIndex": 0,
+   "explain": "4→8→16→32→64，每次翻倍，所以 16×2=32。容易错：用加法 16+8=24 或 16+4=20，但差在变大（4,8,16），说明是翻倍不是加。",
+   "tags": [
+    "ok",
+    "pat.first_gap_only",
+    "pat.add_vs_double",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo76yka79poxl",
+   "level": 3,
+   "question": "用石子摆了 2, 6, 18, 54。哪条法则对？",
+   "options": [
+    "从 2 开始，每次加 4",
+    "从 2 开始，每次乘 3",
+    "从 2 开始，每次加 12",
+    "每次乘 3"
+   ],
+   "answerIndex": 1,
+   "explain": "2→6→18→54，每次乘 3，从 2 开始。容易错：只看 6−2=4 就以为「加 4」，但 18−6=12 不是加 4。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.add_vs_double",
+    "pat.rule_no_start"
+   ]
+  },
+  {
+   "qid": "qmuo76yka0l0439",
+   "level": 3,
+   "question": "小华说 4, 8, 16, 32 的规律是「从 4 开始，每次加 4」。她错在哪？",
+   "options": [
+    "她该加 8，不是加 4",
+    "她该从 8 开始，不是 4",
+    "她不是加，是每次翻倍",
+    "她加对了，只是数写小了"
+   ],
+   "answerIndex": 2,
+   "explain": "4→8→16→32，每次乘 2（翻倍），不是固定加 4。8−4=4 只是巧合，16−8=8 就露馅了——差在变大，说明是翻倍。",
+   "tags": [
+    "pat.add_vs_double",
+    "pat.rule_no_start",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo76ykarkkvh0",
+   "level": 3,
+   "question": "用扣子摆了 5, 10, 20, 40。哪条法则对？",
+   "options": [
+    "从 5 开始，每次加 5",
+    "每次翻倍",
+    "从 5 开始，每次加 10",
+    "从 5 开始，每次翻倍"
+   ],
+   "answerIndex": 3,
+   "explain": "5→10→20→40，每次乘 2，从 5 开始。容易错：只看 10−5=5 就以为「加 5」，但 20−10=10 不是加 5。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.rule_no_start",
+    "pat.add_vs_double",
+    "ok"
+   ]
+  }
+ ]
+}

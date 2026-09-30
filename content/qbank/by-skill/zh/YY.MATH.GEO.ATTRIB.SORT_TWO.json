@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.GEO.ATTRIB.SORT_TWO",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo1flbtb1qev8",
+   "level": 1,
+   "question": "我把卡片分成4堆：大三角、大方、小三角、小方。我按哪两个特征分的？",
+   "options": [
+    "形状和大小",
+    "形状和颜色",
+    "颜色和大小",
+    "只有大小"
+   ],
+   "answerIndex": 0,
+   "explain": "大三角、大方、小三角、小方——形状有三角和方，大小有大和小，所以是形状和大小。注意：颜色没出现过，不能选带颜色的。",
+   "tags": [
+    "ok",
+    "sort.wrong_attribute",
+    "sort.wrong_attribute",
+    "sort.one_attribute_only"
+   ]
+  },
+  {
+   "qid": "qmuo1flbtkwp3j1",
+   "level": 1,
+   "question": "我把卡片分成4堆：红色三角、红色方、蓝色三角、蓝色方。我按哪两个特征分的？",
+   "options": [
+    "大小和形状",
+    "颜色和形状",
+    "只有颜色",
+    "大小和颜色"
+   ],
+   "answerIndex": 1,
+   "explain": "红色、蓝色是颜色；三角、方是形状。所有卡片都没有提到大小，所以大小不是分堆用的。",
+   "tags": [
+    "sort.wrong_attribute",
+    "ok",
+    "sort.one_attribute_only",
+    "sort.wrong_attribute"
+   ]
+  },
+  {
+   "qid": "qmuo1flbt9ygevy",
+   "level": 1,
+   "question": "妈妈把卡片分成两堆：第一堆是大红色三角和大红色方，第二堆是小蓝色三角和小蓝色方。她按哪两个特征分的？",
+   "options": [
+    "形状和颜色",
+    "形状和大小",
+    "大小和颜色",
+    "边数和颜色"
+   ],
+   "answerIndex": 2,
+   "explain": "第一堆都是大的、红色的，第二堆都是小的、蓝色的。两堆里都有三角和方，所以形状和边数没分开它们，分开的是大小和颜色。",
+   "tags": [
+    "sort.wrong_attribute",
+    "sort.wrong_attribute",
+    "ok",
+    "sort.wrong_attribute"
+   ]
+  },
+  {
+   "qid": "qmuo1flbtbd1dsz",
+   "level": 1,
+   "question": "我把卡片分成4堆：大红色三角、大红色方、大蓝色三角、大蓝色方。我按哪两个特征分的？",
+   "options": [
+    "大小和形状",
+    "大小和颜色",
+    "只有颜色",
+    "颜色和形状"
+   ],
+   "answerIndex": 3,
+   "explain": "4张卡片全是「大」的，大小没变化。变化的是红色/蓝色（颜色）和三角/方（形状），所以是颜色和形状。",
+   "tags": [
+    "sort.wrong_attribute",
+    "sort.wrong_attribute",
+    "sort.one_attribute_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo1flbt7yg4cf",
+   "level": 2,
+   "question": "Nora 有4张卡片：大红色三角、小红色三角、大蓝色方、小蓝色方。她分成两堆：第一堆是大红色三角和大蓝色方，第二堆是小红色三角和小蓝色方。她说：「我按颜色和形状分的。」她错在哪？",
+   "options": [
+    "不对，她只按大小分了",
+    "对，颜色和形状把两堆分开了",
+    "不对，她应该按边数和大小分",
+    "不对，她只按形状分了"
+   ],
+   "answerIndex": 0,
+   "explain": "两堆里都有红色和蓝色、都有三角和方，颜色和形状都没把两堆分开。真正分开的只有大小（大vs小），所以她只用了1个特征。",
+   "tags": [
+    "ok",
+    "sort.wrong_attribute",
+    "sort.wrong_attribute",
+    "sort.one_attribute_only"
+   ]
+  },
+  {
+   "qid": "qmuo1flbtsthpuz",
+   "level": 3,
+   "question": "Zara 有8张卡片：大红色三角2张、小红色方2张、大蓝色三角2张、小蓝色方2张。她按颜色和形状分成4堆，每堆几张？",
+   "options": [
+    "每堆4张",
+    "每堆2张",
+    "每堆1张",
+    "每堆8张"
+   ],
+   "answerIndex": 1,
+   "explain": "红色+三角＝2张，红色+方＝2张，蓝色+三角＝2张，蓝色+方＝2张。每堆都是2张。",
+   "tags": [
+    "sort.one_attribute_only",
+    "ok",
+    "sort.wrong_attribute",
+    "sort.wrong_attribute"
+   ]
+  },
+  {
+   "qid": "qmuo1flbtajxmic",
+   "level": 3,
+   "question": "Pip 有6张卡片：大红色三角、小红色三角、大蓝色三角、小红色方、大蓝色方、小蓝色方。他先按形状分成三角堆和方堆，然后在每堆里再按颜色分。他最后分成了几堆？",
+   "options": [
+    "3堆",
+    "6堆",
+    "4堆",
+    "2堆"
+   ],
+   "answerIndex": 2,
+   "explain": "三角堆按颜色分→红三角（2张）、蓝三角（1张）＝2堆；方堆按颜色分→红方（1张）、蓝方（2张）＝2堆。一共4堆。",
+   "tags": [
+    "sort.one_attribute_only",
+    "sort.wrong_attribute",
+    "ok",
+    "sort.one_attribute_only"
+   ]
+  },
+  {
+   "qid": "qmuoegd7i26a3k6",
+   "level": 2,
+   "question": "Mia 在课室积木角整理积木。她分成4堆：厚的三角形（triangle）、薄的三角形、厚的正方形、薄的正方形。她按哪两个特征分的？",
+   "options": [
+    "颜色和形状",
+    "只按厚薄分",
+    "大小和颜色",
+    "厚薄和形状"
+   ],
+   "answerIndex": 3,
+   "explain": "三角形和正方形是形状不同，厚的和薄的是厚薄不同，两个特征一起用才有4堆。只说厚薄的话，只能分成厚、薄2堆。",
+   "tags": [
+    "sort.wrong_attribute",
+    "sort.one_attribute_only",
+    "sort.wrong_attribute",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoegd7i79nf4d",
+   "level": 2,
+   "question": "课室展示板上有一堆图形卡：大的蓝色三角形、大的蓝色圆（circle）、大的蓝色正方形。这一堆的规则是什么？",
+   "options": [
+    "大的蓝色图形",
+    "只要是蓝色就行",
+    "大的蓝色正方形",
+    "蓝色的小图形"
+   ],
+   "answerIndex": 0,
+   "explain": "三张卡的形状都不一样，一样的是又大又蓝，所以规则是「大的蓝色图形」。只说「蓝色」会把小的蓝卡也放进来。",
+   "tags": [
+    "ok",
+    "sort.one_attribute_only",
+    "sort.wrong_attribute",
+    "sort.one_attribute_only"
+   ]
+  },
+  {
+   "qid": "qmuoegd7iv74bve",
+   "level": 2,
+   "question": "Sam 的一堆卡里有小的红色圆和小的红色三角形。他说这一堆是「小的红色图形」。下面哪张卡也能进这一堆？",
+   "options": [
+    "小的蓝色正方形",
+    "小的红色正方形",
+    "大的红色三角形",
+    "大的红色正方形"
+   ],
+   "answerIndex": 1,
+   "explain": "要同时是小的、又是红的，小的红色正方形两样都符合。大的红卡只对了颜色，小的蓝卡只对了大小，都不能进。",
+   "tags": [
+    "sort.one_attribute_only",
+    "ok",
+    "sort.one_attribute_only",
+    "sort.one_attribute_only"
+   ]
+  },
+  {
+   "qid": "qmuoegd7iutg0jr",
+   "level": 2,
+   "question": "课室门口有两个筐。A 筐里是大的圆和大的三角形，B 筐里是小的圆和小的三角形。这样分用了哪些特征？",
+   "options": [
+    "按形状和颜色",
+    "按大小和形状",
+    "只按大小分的",
+    "只按形状分的"
+   ],
+   "answerIndex": 2,
+   "explain": "两个筐里都有圆也都有三角形，形状分不开它们，能分开的只有大小。说两个特征时，两个特征都要真的能把堆分开。",
+   "tags": [
+    "sort.wrong_attribute",
+    "sort.wrong_attribute",
+    "ok",
+    "sort.wrong_attribute"
+   ]
+  },
+  {
+   "qid": "qmuoegd7io019x4",
+   "level": 3,
+   "question": "Ravi 把12张卡按颜色和形状分成4堆。红圆3张、红正方形2张、蓝圆4张，蓝正方形还没数。蓝正方形有几张？",
+   "options": [
+    "7张",
+    "9张",
+    "4张",
+    "3张"
+   ],
+   "answerIndex": 3,
+   "explain": "先把数过的加起来 3+2+4=9，再算 12-9=3，所以蓝正方形是3张。别把蓝卡全当成蓝正方形，蓝色里还有4张圆。",
+   "tags": [
+    "sort.one_attribute_only",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoegd7iqotitf",
+   "level": 3,
+   "question": "Kai 按大小和形状分卡：大三角形5张、大圆3张、小三角形2张、小圆2张。大的卡比小的卡多几张？",
+   "options": [
+    "4张",
+    "3张",
+    "1张",
+    "8张"
+   ],
+   "answerIndex": 0,
+   "explain": "大的卡 5+3=8 张，小的卡 2+2=4 张，8-4=4 张。只比三角形或只比圆，都漏掉了另一种形状。",
+   "tags": [
+    "ok",
+    "sort.one_attribute_only",
+    "sort.one_attribute_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoegd7iq5gi3c",
+   "level": 3,
+   "question": "Ben 把卡分成4堆：红圆、蓝圆、红正方形（square）、蓝正方形。他说：我只按颜色分的。他错在哪？",
+   "options": [
+    "他说错了，其实只按了形状",
+    "颜色只能分2堆，还按了形状",
+    "他没错，四堆的颜色本来不一样",
+    "他弄错了，其实按的是大小"
+   ],
+   "answerIndex": 1,
+   "explain": "只按颜色只能分成红、蓝2堆；分成4堆是因为还按了形状。说规则时，两个特征都要说出来。",
+   "tags": [
+    "sort.wrong_attribute",
+    "ok",
+    "sort.one_attribute_only",
+    "sort.wrong_attribute"
+   ]
+  },
+  {
+   "qid": "qmuoegd7ira34wd",
+   "level": 3,
+   "question": "Zoe 的圆形（circle）贴纸要按大小和颜色分成4堆：大红、小红、大蓝、小蓝。她现在有大的红色圆、小的红色圆、大的蓝色圆。她再找哪一张，4堆就都有了？",
+   "options": [
+    "大的蓝色圆",
+    "小的红色圆",
+    "小的蓝色圆",
+    "小的蓝色三角形"
+   ],
+   "answerIndex": 2,
+   "explain": "4堆是大红、小红、大蓝、小蓝，她缺的是又小又蓝的那张圆。大的蓝色圆她已经有了，三角形不在这次分类里。",
+   "tags": [
+    "sort.one_attribute_only",
+    "sort.one_attribute_only",
+    "ok",
+    "sort.wrong_attribute"
+   ]
+  }
+ ]
+}

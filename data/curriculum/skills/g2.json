@@ -1,0 +1,974 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 2,
+  "standardsFile": "bc/grade-2.json",
+  "topics": [
+    {
+      "id": "numbers-to-100",
+      "zh": "100 以内的数",
+      "en": "Numbers to 100",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G2.NUM.01"
+      ]
+    },
+    {
+      "id": "benchmarks",
+      "zh": "基准点和估计",
+      "en": "Benchmarks & estimating",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G2.NUM.02"
+      ]
+    },
+    {
+      "id": "facts-strategies",
+      "zh": "20 以内口算策略",
+      "en": "Fact strategies to 20",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G2.FLU.01"
+      ]
+    },
+    {
+      "id": "add-sub-to-100",
+      "zh": "100 以内的加减法",
+      "en": "Addition & subtraction to 100",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G2.FLU.02"
+      ]
+    },
+    {
+      "id": "patterns",
+      "zh": "重复规律和递增规律",
+      "en": "Repeating & increasing patterns",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G2.PAT.01"
+      ]
+    },
+    {
+      "id": "change-equations",
+      "zh": "数量的变化与等式",
+      "en": "Change & number sentences",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G2.PAT.02",
+        "BC.MATH.G2.PAT.03"
+      ]
+    },
+    {
+      "id": "length-cm-m",
+      "zh": "厘米和米",
+      "en": "Centimetres & metres",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G2.GEO.01"
+      ]
+    },
+    {
+      "id": "shape-attributes",
+      "zh": "图形的特征",
+      "en": "Shape attributes",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G2.GEO.02"
+      ]
+    },
+    {
+      "id": "picture-graphs",
+      "zh": "象形统计图",
+      "en": "Picture graphs",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G2.DAT.01"
+      ]
+    },
+    {
+      "id": "likelihood-compare",
+      "zh": "可能性：一定、不一定、同样可能",
+      "en": "Likelihood: certain, uncertain, equally likely",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G2.DAT.02"
+      ]
+    },
+    {
+      "id": "coins-saving",
+      "zh": "硬币凑数与花钱存钱",
+      "en": "Coin combinations, spending & saving",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G2.NUM.03"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.NUM.COUNT100.SKIP_2_5_10",
+      "topic": "numbers-to-100",
+      "type": "fluency",
+      "rep": [
+        "hundredChart",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Skip-count by 2s, 5s and 10s from different starting points, forward and backward",
+      "zh": "从不同的数开始，2 个、5 个、10 个地顺着数和倒着数",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.SKIP_2_5"
+      ],
+      "misc": [
+        "count.skip_wrong_step",
+        "count.decade_crossing",
+        "count.direction_swap"
+      ],
+      "hints": "hundredChart、numberLine"
+    },
+    {
+      "id": "YY.MATH.NUM.PV100.TENS_ONES",
+      "topic": "numbers-to-100",
+      "type": "concept",
+      "rep": [
+        "baseTen",
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Show two-digit numbers as tens and ones",
+      "zh": "把两位数表示成几个十和几个一",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.TO20.TEN_AND_MORE"
+      ],
+      "misc": [
+        "pv.tens_ones_reversal",
+        "pv.digits_as_ones"
+      ],
+      "hints": "baseTen、placeValue"
+    },
+    {
+      "id": "YY.MATH.NUM.PV100.DIGIT_VALUE",
+      "topic": "numbers-to-100",
+      "type": "concept",
+      "rep": [
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Give the value of each digit in a two-digit number",
+      "zh": "说出两位数里每个数字表示多少",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV100.TENS_ONES"
+      ],
+      "misc": [
+        "pv.digit_not_value",
+        "pv.tens_ones_reversal"
+      ],
+      "hints": "placeValue、baseTen"
+    },
+    {
+      "id": "YY.MATH.NUM.PV100.DECOMPOSE",
+      "topic": "numbers-to-100",
+      "type": "represent",
+      "rep": [
+        "baseTen",
+        "symbolic"
+      ],
+      "en": "Break a two-digit number into tens and ones in more than one way",
+      "zh": "用不止一种办法把两位数拆成十和一",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV100.DIGIT_VALUE"
+      ],
+      "misc": [
+        "pv.trade_changes_value",
+        "pv.digits_as_ones"
+      ],
+      "hints": "baseTen"
+    },
+    {
+      "id": "YY.MATH.NUM.PV100.COMPARE_ORDER",
+      "topic": "numbers-to-100",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order numbers to 100",
+      "zh": "比较和排序 100 以内的数",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV100.DIGIT_VALUE",
+        "YY.MATH.NUM.TO20.COMPARE_ORDER"
+      ],
+      "misc": [
+        "cmp.ones_digit_only",
+        "cmp.order_direction",
+        "pv.tens_ones_reversal"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.NUM.EVEN_ODD.IDENTIFY",
+      "topic": "numbers-to-100",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Tell even numbers from odd numbers",
+      "zh": "分清偶数（双数）和奇数（单数）",
+      "primary": "BC.MATH.G2.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT100.SKIP_2_5_10"
+      ],
+      "misc": [
+        "evenodd.first_digit_decides",
+        "evenodd.leftover_ignored"
+      ],
+      "hints": "groups、hundredChart"
+    },
+    {
+      "id": "YY.MATH.NUM.BENCH100.NEAREST",
+      "topic": "benchmarks",
+      "type": "concept",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Place numbers against the benchmarks 25, 50 and 100: which is closer",
+      "zh": "拿 25、50、100 当基准点：一个数离哪个近",
+      "primary": "BC.MATH.G2.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.PV100.COMPARE_ORDER",
+        "YY.MATH.NUM.MAKE10.BENCHMARK"
+      ],
+      "misc": [
+        "bench.nearer_wrong",
+        "bench.half_confuse"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.NUM.BENCH100.ESTIMATE",
+      "topic": "benchmarks",
+      "type": "reason",
+      "rep": [
+        "context",
+        "groups"
+      ],
+      "en": "Estimate how many by using a group you already know (a referent)",
+      "zh": "拿一组已经知道的数量当参照，估计一共有多少",
+      "primary": "BC.MATH.G2.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.BENCH100.NEAREST"
+      ],
+      "misc": [
+        "est.referent_ignored",
+        "est.count_referents_only"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.MAKE_TEN",
+      "topic": "facts-strategies",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add by making 10 or bridging through 10",
+      "zh": "用凑十、过十的办法做加法",
+      "primary": "BC.MATH.G2.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.MAKE10_DOUBLES"
+      ],
+      "misc": [
+        "facts.ten_reuse_whole",
+        "facts.slip"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.DOUBLES",
+      "topic": "facts-strategies",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Use doubles and near doubles to add",
+      "zh": "用双倍和「双倍多一」做加法",
+      "primary": "BC.MATH.G2.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.MAKE10_DOUBLES"
+      ],
+      "misc": [
+        "facts.near_double_adjust",
+        "facts.slip"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.SUB_STRATEGIES",
+      "topic": "facts-strategies",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Subtract by adding on, or by going back through 10",
+      "zh": "用往上加、或先退到 10 的办法做减法",
+      "primary": "BC.MATH.G2.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.RELATED",
+        "YY.MATH.FLU.FACTS20.MAKE_TEN"
+      ],
+      "misc": [
+        "facts.sub_ten_stop",
+        "count.start_counted"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB100.TENS",
+      "topic": "add-sub-to-100",
+      "type": "procedure",
+      "rep": [
+        "hundredChart",
+        "baseTen",
+        "symbolic"
+      ],
+      "en": "Add and subtract tens: 10 more, 10 less, and multiples of 10",
+      "zh": "加减整十数：多 10、少 10、加减几十",
+      "primary": "BC.MATH.G2.FLU.02",
+      "prereq": [
+        "YY.MATH.NUM.PV100.DIGIT_VALUE"
+      ],
+      "misc": [
+        "pv.add_ten_to_ones",
+        "count.decade_crossing"
+      ],
+      "hints": "hundredChart、baseTen"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB100.ADD_STRATEGIES",
+      "topic": "add-sub-to-100",
+      "type": "procedure",
+      "rep": [
+        "baseTen",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add two-digit numbers by breaking into tens and ones, using friendly numbers or compensating",
+      "zh": "两位数加法：拆成十和一、找好算的数、补偿法",
+      "primary": "BC.MATH.G2.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB100.TENS",
+        "YY.MATH.FLU.FACTS20.MAKE_TEN"
+      ],
+      "misc": [
+        "calc.regroup_forget",
+        "calc.digits_side_by_side",
+        "calc.compensate_forget",
+        "calc.drop_part"
+      ],
+      "hints": "baseTen、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB100.SUB_STRATEGIES",
+      "topic": "add-sub-to-100",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "baseTen",
+        "symbolic"
+      ],
+      "en": "Subtract two-digit numbers by adding up, breaking apart or compensating",
+      "zh": "两位数减法：往上加、拆开减、补偿法",
+      "primary": "BC.MATH.G2.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB100.TENS",
+        "YY.MATH.FLU.FACTS20.SUB_STRATEGIES"
+      ],
+      "misc": [
+        "calc.smaller_from_larger",
+        "calc.add_up_landing",
+        "calc.compensate_direction"
+      ],
+      "hints": "numberLine、baseTen"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB100.ESTIMATE",
+      "topic": "add-sub-to-100",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Estimate sums and differences to 100 using the nearest ten",
+      "zh": "用最接近的整十数估算 100 以内的和与差",
+      "primary": "BC.MATH.G2.FLU.02",
+      "prereq": [
+        "YY.MATH.NUM.BENCH100.NEAREST",
+        "YY.MATH.FLU.ADDSUB100.TENS"
+      ],
+      "misc": [
+        "round.nearest_wrong",
+        "est.exact_wanted"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB100.WORD",
+      "topic": "add-sub-to-100",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Solve addition and subtraction stories to 100 (join, take away, compare)",
+      "zh": "解决 100 以内的加减故事题（合起来、拿走、比一比）",
+      "primary": "BC.MATH.G2.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB100.ADD_STRATEGIES",
+        "YY.MATH.FLU.ADDSUB100.SUB_STRATEGIES",
+        "YY.MATH.FLU.ADDSUB20.WORD"
+      ],
+      "misc": [
+        "story.keyword_trap",
+        "sub.compare_as_total",
+        "calc.regroup_forget"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.PAT.REPEAT.CORE",
+      "topic": "patterns",
+      "type": "concept",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Find the core of a repeating pattern (the part that repeats)",
+      "zh": "找出重复规律的核心（一遍遍重复的那一组）",
+      "primary": "BC.MATH.G2.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.REPEAT.EXTEND"
+      ],
+      "misc": [
+        "pat.core_too_short",
+        "pat.core_too_long"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.PAT.REPEAT.PREDICT",
+      "topic": "patterns",
+      "type": "reason",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Predict a later element of a repeating pattern (the 10th, the 14th)",
+      "zh": "预测重复规律里靠后的某一个（第 10 个、第 14 个）",
+      "primary": "BC.MATH.G2.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.REPEAT.CORE"
+      ],
+      "misc": [
+        "pat.position_off_by_one",
+        "pat.repeat_last"
+      ],
+      "hints": "groups、hundredChart"
+    },
+    {
+      "id": "YY.MATH.PAT.INCREASE.EXTEND",
+      "topic": "patterns",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Extend an increasing number pattern (numbers to 100)",
+      "zh": "把递增的数列接着写下去（100 以内）",
+      "primary": "BC.MATH.G2.PAT.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT100.SKIP_2_5_10"
+      ],
+      "misc": [
+        "pat.grow_as_repeat",
+        "pat.first_gap_only"
+      ],
+      "hints": "hundredChart、dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.INCREASE.DESCRIBE",
+      "topic": "patterns",
+      "type": "concept",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Describe how an increasing pattern grows: what is added each time",
+      "zh": "说出递增规律是怎么变大的：每次加多少",
+      "primary": "BC.MATH.G2.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.INCREASE.EXTEND"
+      ],
+      "misc": [
+        "pat.first_gap_only",
+        "pat.grow_as_repeat",
+        "pat.position_as_value"
+      ],
+      "hints": "dataTable、groups"
+    },
+    {
+      "id": "YY.MATH.ALG.CHANGE100.MISSING_PART",
+      "topic": "change-equations",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "groups",
+        "symbolic"
+      ],
+      "en": "Find the missing change in a number sentence such as 6 + □ = 10",
+      "zh": "算出算式里缺的那个变化量（如 6 + □ = 10）",
+      "primary": "BC.MATH.G2.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.CHANGE20.MAKE_TARGET"
+      ],
+      "misc": [
+        "change.add_both",
+        "change.result_as_change"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.ALG.CHANGE100.STORY",
+      "topic": "change-equations",
+      "type": "represent",
+      "rep": [
+        "context",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Match a change story to a number sentence (start, change, result)",
+      "zh": "把数量变化的故事和算式对上（开始、变化、结果）",
+      "primary": "BC.MATH.G2.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.CHANGE100.MISSING_PART",
+        "YY.MATH.ALG.CHANGE20.DESCRIBE"
+      ],
+      "misc": [
+        "change.direction_swap",
+        "change.result_as_change"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.EQUAL.BOTH_SIDES",
+      "topic": "change-equations",
+      "type": "concept",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Decide whether a number sentence with an operation on both sides is true",
+      "zh": "判断两边都有运算的等式对不对",
+      "primary": "BC.MATH.G2.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQUAL.SYMBOLS"
+      ],
+      "misc": [
+        "equal.answer_comes_next",
+        "equal.same_numbers_needed"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQUAL.GREATER_LESS",
+      "topic": "change-equations",
+      "type": "represent",
+      "rep": [
+        "symbolic",
+        "numberLine"
+      ],
+      "en": "Compare two amounts or expressions with >, < and =",
+      "zh": "用 >、< 和 = 比较两个数或两个式子",
+      "primary": "BC.MATH.G2.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQUAL.SYMBOLS",
+        "YY.MATH.NUM.PV100.COMPARE_ORDER"
+      ],
+      "misc": [
+        "equal.symbol_direction",
+        "equal.compare_first_numbers"
+      ],
+      "hints": "numberLine、balance"
+    },
+    {
+      "id": "YY.MATH.ALG.EQUAL.MAKE_TRUE",
+      "topic": "change-equations",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Find the number that makes both sides equal",
+      "zh": "找出让两边相等的那个数",
+      "primary": "BC.MATH.G2.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQUAL.BOTH_SIDES",
+        "YY.MATH.ALG.CHANGE100.MISSING_PART"
+      ],
+      "misc": [
+        "equal.answer_comes_next",
+        "equal.add_all"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.MEAS.LENGTH.CM_M",
+      "topic": "length-cm-m",
+      "type": "concept",
+      "rep": [
+        "context",
+        "numberLine"
+      ],
+      "en": "Choose centimetres or metres, and know that 1 metre is 100 centimetres",
+      "zh": "会选厘米还是米，知道 1 米 = 100 厘米",
+      "primary": "BC.MATH.G2.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.NONSTD.UNIT_SIZE"
+      ],
+      "misc": [
+        "meas.unit_choice_wrong",
+        "meas.m_is_10cm"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.LENGTH.RULER",
+      "topic": "length-cm-m",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Measure a length in centimetres on a ruler, also when the object does not start at 0",
+      "zh": "用尺子量厘米，也会量不从 0 开始的东西",
+      "primary": "BC.MATH.G2.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.CM_M",
+        "YY.MATH.MEAS.NONSTD.COUNT_UNITS"
+      ],
+      "misc": [
+        "meas.ruler_read_end_only",
+        "meas.count_marks_not_spaces"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.MEAS.LENGTH.ESTIMATE",
+      "topic": "length-cm-m",
+      "type": "reason",
+      "rep": [
+        "context"
+      ],
+      "en": "Estimate a length with a personal referent (a finger width is about 1 cm, a big step is about 1 m)",
+      "zh": "拿身边的参照物估计长度（手指宽约 1 厘米，一大步约 1 米）",
+      "primary": "BC.MATH.G2.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.CM_M"
+      ],
+      "misc": [
+        "meas.unit_choice_wrong",
+        "est.referent_ignored"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.LENGTH.COMPARE",
+      "topic": "length-cm-m",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Compare and order measured lengths, heights and widths",
+      "zh": "比较和排序量出来的长度、高度和宽度",
+      "primary": "BC.MATH.G2.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.RULER",
+        "YY.MATH.NUM.PV100.COMPARE_ORDER"
+      ],
+      "misc": [
+        "meas.compare_ignore_units",
+        "sub.compare_as_total"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.GEO.ATTRIB.SIDES_VERTICES",
+      "topic": "shape-attributes",
+      "type": "concept",
+      "rep": [
+        "shapeTriangle",
+        "shapeRect",
+        "shapeCircle"
+      ],
+      "en": "Describe triangles, squares, rectangles and circles by their sides and vertices",
+      "zh": "用边和顶点描述三角形、正方形、长方形和圆",
+      "primary": "BC.MATH.G2.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_2D"
+      ],
+      "misc": [
+        "shape.square_rect_sides",
+        "shape.orientation_changes_name",
+        "shape.sides_corners_miscount"
+      ],
+      "hints": "shapeRect、shapeTriangle、shapeCircle"
+    },
+    {
+      "id": "YY.MATH.GEO.ATTRIB.SORT_TWO",
+      "topic": "shape-attributes",
+      "type": "reason",
+      "rep": [
+        "context",
+        "shapeRect"
+      ],
+      "en": "Sort shapes and objects by two attributes and tell the sorting rule",
+      "zh": "按两个特征给图形分类，并说出分类规则",
+      "primary": "BC.MATH.G2.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.SORT_ONE",
+        "YY.MATH.GEO.ATTRIB.SIDES_VERTICES"
+      ],
+      "misc": [
+        "sort.one_attribute_only",
+        "sort.wrong_attribute"
+      ],
+      "hints": "shapeRect、shapeTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.ATTRIB.FACES_OF_3D",
+      "topic": "shape-attributes",
+      "type": "represent",
+      "rep": [
+        "solidCube",
+        "solidCuboid",
+        "solidCylinder"
+      ],
+      "en": "Find the 2D shapes on the faces of 3D objects",
+      "zh": "在立体图形的面上找出平面图形",
+      "primary": "BC.MATH.G2.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_3D",
+        "YY.MATH.GEO.ATTRIB.SIDES_VERTICES"
+      ],
+      "misc": [
+        "shape.face_shape_wrong",
+        "shape.name_2d_for_3d"
+      ],
+      "hints": "solidCube、solidCuboid、solidCylinder"
+    },
+    {
+      "id": "YY.MATH.GEO.ATTRIB.COMPARE_3D",
+      "topic": "shape-attributes",
+      "type": "concept",
+      "rep": [
+        "solidCube",
+        "solidCylinder",
+        "context"
+      ],
+      "en": "Compare 3D objects: flat and curved surfaces, and whether they roll, slide or stack",
+      "zh": "比较立体图形：平面和曲面，能滚、能滑还是能叠",
+      "primary": "BC.MATH.G2.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_3D"
+      ],
+      "misc": [
+        "shape.curved_as_flat_face",
+        "shape.roll_stack_confuse"
+      ],
+      "hints": "solidCube、solidCylinder"
+    },
+    {
+      "id": "YY.MATH.DATA.PICTO.READ_ONE",
+      "topic": "picture-graphs",
+      "type": "procedure",
+      "rep": [
+        "pictograph",
+        "dataTable"
+      ],
+      "en": "Read a picture graph where one picture stands for one thing",
+      "zh": "读象形统计图：一个图代表一个",
+      "primary": "BC.MATH.G2.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CONCRETE.READ"
+      ],
+      "misc": [
+        "graph.wrong_row",
+        "graph.key_made_up"
+      ],
+      "hints": "pictograph、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.PICTO.COMPARE",
+      "topic": "picture-graphs",
+      "type": "reason",
+      "rep": [
+        "pictograph",
+        "context"
+      ],
+      "en": "Answer questions from a picture graph: most, fewest, how many more, how many altogether",
+      "zh": "看象形统计图回答：最多、最少、多几个、一共几个",
+      "primary": "BC.MATH.G2.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.PICTO.READ_ONE",
+        "YY.MATH.DATA.CONCRETE.COMPARE"
+      ],
+      "misc": [
+        "sub.compare_as_total",
+        "graph.total_one_row",
+        "graph.most_least_swap"
+      ],
+      "hints": "pictograph"
+    },
+    {
+      "id": "YY.MATH.DATA.PICTO.BUILD",
+      "topic": "picture-graphs",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "pictograph"
+      ],
+      "en": "Turn a tally or a list into a picture graph: one picture for each thing",
+      "zh": "把计数记号或清单画成象形统计图：一个东西画一个图",
+      "primary": "BC.MATH.G2.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.PICTO.READ_ONE"
+      ],
+      "misc": [
+        "graph.one_to_one_broken",
+        "graph.tally_miscount"
+      ],
+      "hints": "dataTable、pictograph"
+    },
+    {
+      "id": "YY.MATH.PROB.EVENTS.CERTAIN_UNCERTAIN",
+      "topic": "likelihood-compare",
+      "type": "concept",
+      "rep": [
+        "context",
+        "probLine"
+      ],
+      "en": "Decide whether an everyday event is certain, uncertain or impossible",
+      "zh": "判断一件事是一定、不一定还是不可能",
+      "primary": "BC.MATH.G2.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.EVENTS.NEVER_SOMETIMES_ALWAYS"
+      ],
+      "misc": [
+        "prob.likely_as_certain",
+        "prob.wish_decides"
+      ],
+      "hints": "probLine"
+    },
+    {
+      "id": "YY.MATH.PROB.EVENTS.EQUALLY_LIKELY",
+      "topic": "likelihood-compare",
+      "type": "reason",
+      "rep": [
+        "context",
+        "balls",
+        "spinner"
+      ],
+      "en": "Compare events as more likely, less likely or equally likely",
+      "zh": "比较几件事：更可能、更不可能，还是同样可能",
+      "primary": "BC.MATH.G2.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.EVENTS.MORE_LESS_LIKELY",
+        "YY.MATH.PROB.EVENTS.CERTAIN_UNCERTAIN"
+      ],
+      "misc": [
+        "prob.two_outcomes_equal",
+        "prob.more_less_swap"
+      ],
+      "hints": "balls、spinner、probLine"
+    },
+    {
+      "id": "YY.MATH.FIN.COINS.MIXED_TO_100",
+      "topic": "coins-saving",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Count a mixed set of coins up to 100 cents",
+      "zh": "数几种硬币混在一起的总数（到 100 分）",
+      "primary": "BC.MATH.G2.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.COUNT_SAME",
+        "YY.MATH.NUM.COUNT100.SKIP_2_5_10"
+      ],
+      "misc": [
+        "coin.keep_old_step",
+        "coin.count_not_value",
+        "coin.value_mixup"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FIN.COINS.MAKE_AMOUNT",
+      "topic": "coins-saving",
+      "type": "reason",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Show the same amount with different coins (to 100 cents)",
+      "zh": "用不同的硬币凑出同一个金额（100 分以内）",
+      "primary": "BC.MATH.G2.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.MIXED_TO_100"
+      ],
+      "misc": [
+        "coin.more_coins_more_money",
+        "coin.count_not_value"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FIN.SPEND_SAVE",
+      "topic": "coins-saving",
+      "type": "apply",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Make spending and saving choices: is it enough, and is it a want or a need",
+      "zh": "做花钱和存钱的决定：钱够不够，是「想要」还是「需要」",
+      "primary": "BC.MATH.G2.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.MIXED_TO_100",
+        "YY.MATH.FIN.EXCHANGE.WANTS_NEEDS"
+      ],
+      "misc": [
+        "fin.want_as_need",
+        "fin.spent_still_counted",
+        "coin.more_coins_more_money"
+      ],
+      "hints": "dataTable、groups"
+    }
+  ]
+}

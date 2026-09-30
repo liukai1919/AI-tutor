@@ -1,0 +1,348 @@
+{
+ "id": "YY.MATH.PAT.GROW_SHRINK.REPRESENT",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo6npejvbj1t2",
+   "level": 1,
+   "question": "桌上有4个盘子。第1个放2颗糖，第2个放5颗，第3个放8颗，第4个放11颗。用数写这个规律（pattern）是：",
+   "options": [
+    "2, 5, 8, 11",
+    "2, 5, 9, 11",
+    "1, 5, 8, 11",
+    "2, 4, 6, 8"
+   ],
+   "answerIndex": 0,
+   "explain": "每盘比前一盘多3颗，所以数列就是2, 5, 8, 11。别把某个数数错就行。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npejw69vru",
+   "level": 1,
+   "question": "一个递减规律（decreasing pattern）：第1天9朵花，第2天6朵，第3天3朵。用数写出来是：",
+   "options": [
+    "9, 8, 7",
+    "9, 6, 3",
+    "3, 6, 9",
+    "9, 6, 5"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少3朵，所以是9, 6, 3。注意是递减（decreasing），别写成递增或每天少1。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npeje6t0j7",
+   "level": 1,
+   "question": "小明用积木搭了4层塔：第1层2块，第2层4块，第3层6块，第4层8块。这个递增规律（increasing pattern）用数写是：",
+   "options": [
+    "1, 3, 5, 7",
+    "2, 5, 8, 11",
+    "2, 4, 6, 8",
+    "2, 4, 8, 16"
+   ],
+   "answerIndex": 2,
+   "explain": "每层比上一层多2块，所以是2, 4, 6, 8。别把起始数搞成1，也别写成翻倍。",
+   "tags": [
+    "other",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npejpczrl8",
+   "level": 1,
+   "question": "小莉画星星：第1行3颗，第2行6颗，第3行12颗，第4行24颗。用数写这个规律（pattern）是：",
+   "options": [
+    "3, 6, 12, 16",
+    "3, 6, 9, 12",
+    "4, 6, 12, 24",
+    "3, 6, 12, 24"
+   ],
+   "answerIndex": 3,
+   "explain": "每行是前一行的2倍（乘2）：3→6→12→24。别只看头两个数就以为是加3。",
+   "tags": [
+    "other",
+    "pat.first_gap_only",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6npej85rszy",
+   "level": 2,
+   "question": "小杰做手链，规律是：1红2蓝、2红3蓝、3红4蓝、4红5蓝。蓝色珠子的个数写成规律（pattern）是：",
+   "options": [
+    "2, 3, 4, 5",
+    "1, 2, 3, 4",
+    "2, 4, 6, 8",
+    "1, 3, 5, 7"
+   ],
+   "answerIndex": 0,
+   "explain": "蓝珠子是2、3、4、5，每次多1颗。别把红珠子的数（1,2,3,4）当成蓝珠子的。",
+   "tags": [
+    "ok",
+    "pat.position_as_value",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npejt7xyb1",
+   "level": 2,
+   "question": "妈妈切苹果给家人：第1天切9个，第2天7个，第3天5个，第4天3个。这个递减规律（decreasing pattern）用数写是：",
+   "options": [
+    "9, 7, 5, 4",
+    "9, 7, 5, 3",
+    "9, 6, 3, 0",
+    "9, 8, 7, 6"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少切2个，所以是9, 7, 5, 3。注意每次少2，不是少1也不是少3。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npej13m43e",
+   "level": 2,
+   "question": "一个规律（pattern）：第1个圈4个点，第2个圈8个点，第3个圈16个点，第4个圈32个点。用数写是：",
+   "options": [
+    "4, 8, 12, 16",
+    "4, 8, 14, 20",
+    "4, 8, 16, 32",
+    "4, 6, 8, 10"
+   ],
+   "answerIndex": 2,
+   "explain": "每次翻倍（乘2）：4→8→16→32。别只看头两个数（差4）就以为是加4。",
+   "tags": [
+    "pat.first_gap_only",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npejdapu9t",
+   "level": 3,
+   "question": "小美搭楼梯：第1级1块，第2级3块，第3级5块，第4级7块。第5级和第6级加起来一共几块？",
+   "options": [
+    "18",
+    "19",
+    "21",
+    "20"
+   ],
+   "answerIndex": 3,
+   "explain": "第5级是7＋2＝9块，第6级是9＋2＝11块，9＋11＝20。别漏掉算第6级那一步。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6npejse9iht",
+   "level": 3,
+   "question": "小美画了递减规律（decreasing pattern）：第1天12颗，第2天9颗，第3天6颗，第4天3颗。第2天比第4天多几颗？",
+   "options": [
+    "6",
+    "9",
+    "3",
+    "8"
+   ],
+   "answerIndex": 0,
+   "explain": "第2天是9颗，第4天是3颗，9−3＝6。别用第1天的12来减，也别直接答较大的那个数。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6npej35hdo4",
+   "level": 3,
+   "question": "小宇说「5, 10, 20, 40 每次加5，下一个是45」。他错在哪？",
+   "options": [
+    "他把位置当成了那个数",
+    "他只看了头两个数的差",
+    "他应该加10不是加5",
+    "他少加了一次5得45"
+   ],
+   "answerIndex": 1,
+   "explain": "5→10确实是＋5，但10→20、20→40都是乘2。他只看了头两个数的差就定了规律。",
+   "tags": [
+    "pat.position_as_value",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuofgw82fu4729",
+   "level": 2,
+   "question": "小安在公园里摆松果。数的规律（pattern）是 3, 5, 8, 12。下面哪种摆法说的是同一个规律？",
+   "options": [
+    "第1堆3个，第2堆5个，第3堆7个，第4堆9个",
+    "第1堆1个，第2堆2个，第3堆3个，第4堆4个",
+    "第1堆3个，第2堆5个，第3堆8个，第4堆12个",
+    "第1堆3个，第2堆5个，第3堆8个，第4堆11个"
+   ],
+   "answerIndex": 2,
+   "explain": "这串数每次多的是2个、3个、4个，所以松果要摆成3、5、8、12个。只看头两个数多2就一路加2，会错摆成3、5、7、9个。",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuofgw826vrt7w",
+   "level": 2,
+   "question": "小莉每天在后院喂小鸟。第1天撒18块面包屑，第2天比第1天少5块，第3天比第2天少4块，第4天比第3天少3块。用数写这个递减规律（decreasing pattern）是：",
+   "options": [
+    "18, 13, 9, 5",
+    "18, 13, 8, 3",
+    "1, 2, 3, 4",
+    "18, 13, 9, 6"
+   ],
+   "answerIndex": 3,
+   "explain": "18减5是13，13减4是9，9减3是6。每次少的块数在变，别看到头两天少5就一直减5。",
+   "tags": [
+    "other",
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuofgw82jobu55",
+   "level": 2,
+   "question": "小杰用小棒摆房子，数的规律是 3, 5, 9, 15。哪句话说的是同一个规律法则（pattern rule）？",
+   "options": [
+    "第1个3根，多的根数是2、4、6",
+    "第1个1根，第2个2根，第3个3根",
+    "第1个3根，后面每次多3根",
+    "第1个3根，后面每次多2根"
+   ],
+   "answerIndex": 0,
+   "explain": "3到5多2根，5到9多4根，9到15多6根，所以多的根数是2、4、6。说每次都多2根的那句只对头两个数。",
+   "tags": [
+    "ok",
+    "pat.position_as_value",
+    "other",
+    "pat.first_gap_only"
+   ]
+  },
+  {
+   "qid": "qmuofgw82to0w8t",
+   "level": 2,
+   "question": "妈妈给小雨装饼干，数的规律（pattern）是 12, 10, 7, 3。哪种装法是同一个规律？",
+   "options": [
+    "第1天12块，第2天10块，第3天7块，第4天4块",
+    "第1天12块，第2天10块，第3天7块，第4天3块",
+    "第1天1块，第2天2块，第3天3块，第4天4块",
+    "第1天12块，第2天10块，第3天8块，第4天6块"
+   ],
+   "answerIndex": 1,
+   "explain": "少的块数是2、3、4，所以是12、10、7、3块。只按头两天少2块就一直减2，会错装成12、10、8、6块。",
+   "tags": [
+    "other",
+    "ok",
+    "pat.position_as_value",
+    "pat.first_gap_only"
+   ]
+  },
+  {
+   "qid": "qmuofgw827x1cbm",
+   "level": 3,
+   "question": "小安在海边摆石子：第1堆4颗，第2堆7颗，第3堆忘了几颗，第4堆16颗。用数写是 4, 7, ?, 16。缺的那个数是几？",
+   "options": [
+    "3",
+    "10",
+    "11",
+    "12"
+   ],
+   "answerIndex": 2,
+   "explain": "多的颗数一次比一次多1：加3、加4、加5，所以中间是11。写10的话第4堆就到不了16。",
+   "tags": [
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuofgw8233u0o1",
+   "level": 3,
+   "question": "小雨在农场把南瓜摆成行：第1行3个，第2行4个，第3行6个，第4行9个。她按同一个规律再摆第5行，第5行比第3行多几个？",
+   "options": [
+    "4",
+    "13",
+    "5",
+    "7"
+   ],
+   "answerIndex": 3,
+   "explain": "多的个数是1、2、3，接下来多4个，所以第5行是13个，13减6等于7。问多几个，不能直接答13。",
+   "tags": [
+    "pat.first_gap_only",
+    "other",
+    "pat.position_as_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuofgw82qobj8r",
+   "level": 3,
+   "question": "小杰帮社区中心搬椅子：第1天搬20把，第2天15把，第3天11把，第4天8把。按同一个规律，第4天和第5天一共搬几把？",
+   "options": [
+    "14",
+    "13",
+    "11",
+    "5"
+   ],
+   "answerIndex": 0,
+   "explain": "少的把数是5、4、3，接下来少2把，所以第5天是6把，8加6等于14。别按头两天少5把去算第5天。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.first_gap_only",
+    "pat.position_as_value"
+   ]
+  },
+  {
+   "qid": "qmuofgw82kp1gw3",
+   "level": 3,
+   "question": "积木堆：第1堆2块，第2堆3块，第3堆5块，第4堆8块。小宇说「用数写是 2, 3, 4, 5，每次多1块」。他错在哪？",
+   "options": [
+    "把第几堆当成块数，所以从1开始数",
+    "只看头两堆的差，后面多的块数不一样",
+    "这是递减规律，后面的块数应该变少",
+    "他数错了，第4堆其实是7块不是8块"
+   ],
+   "answerIndex": 1,
+   "explain": "多1块只对头两堆，后面多的是2块、3块，用数写应该是 2, 3, 5, 8。头两个数的差不能当成整条规律法则（pattern rule）。",
+   "tags": [
+    "pat.position_as_value",
+    "ok",
+    "other",
+    "other"
+   ]
+  }
+ ]
+}

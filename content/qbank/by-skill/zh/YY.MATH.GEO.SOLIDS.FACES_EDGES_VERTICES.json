@@ -1,0 +1,310 @@
+{
+ "id": "YY.MATH.GEO.SOLIDS.FACES_EDGES_VERTICES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo9kiq335pdw1",
+   "level": 1,
+   "question": "正方体（cube）有几个面（face）？",
+   "options": [
+    "6",
+    "8",
+    "3",
+    "12"
+   ],
+   "answerIndex": 0,
+   "explain": "正方体有 6 个面。容易把 8（顶点）或 12（棱）的数字串到面上，或者只数了看得见的 3 个。",
+   "tags": [
+    "ok",
+    "solid.parts_mixup",
+    "solid.seen_only",
+    "solid.parts_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq3dfe0gm",
+   "level": 1,
+   "question": "正方体有几条棱（edge）？",
+   "options": [
+    "8",
+    "12",
+    "3",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "正方体有 12 条棱。容易把 8（顶点）或 6（面）的数字串到棱上。",
+   "tags": [
+    "solid.parts_mixup",
+    "ok",
+    "solid.seen_only",
+    "solid.parts_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq329hjzd",
+   "level": 1,
+   "question": "正方体有几个顶点（vertex）？",
+   "options": [
+    "6",
+    "12",
+    "8",
+    "3"
+   ],
+   "answerIndex": 2,
+   "explain": "正方体有 8 个顶点。容易把 6（面）的数字串过来，或者只数了正面看得见的 3 个。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "ok",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq3pvcckb",
+   "level": 2,
+   "question": "小美有一个正方体的盒子。她只数了正面的 4 个顶点。正方体一共有几个顶点？",
+   "options": [
+    "12",
+    "4",
+    "6",
+    "8"
+   ],
+   "answerIndex": 3,
+   "explain": "正方体有 8 个顶点（正面 4 个＋背面 4 个）。只数正面会漏掉背面 4 个。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.seen_only",
+    "solid.parts_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq3rttya6",
+   "level": 3,
+   "question": "小华说：「正方体有 8 个面、6 个顶点。」他错在哪？",
+   "options": [
+    "面和顶点数反了",
+    "面混进了棱的数",
+    "顶点少数了 1 个",
+    "只数了 3 个面"
+   ],
+   "answerIndex": 0,
+   "explain": "正方体是 6 面 8 顶点。小华说 8 面 6 顶点，正好把这两个数说反了。",
+   "tags": [
+    "ok",
+    "solid.parts_mixup",
+    "other",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq3oeezkw",
+   "level": 3,
+   "question": "小华有一个正方体，一共有 8 个顶点。他数了正面的 4 个。背面还有几个没数到？",
+   "options": [
+    "8",
+    "4",
+    "2",
+    "6"
+   ],
+   "answerIndex": 1,
+   "explain": "正方体 8 个顶点，数了 4 个，还有 8 − 4 ＝ 4 个在背面。别直接报总数 8。",
+   "tags": [
+    "other",
+    "ok",
+    "solid.parts_mixup",
+    "solid.parts_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq3xhw7lf",
+   "level": 3,
+   "question": "小美有一个圆柱（cylinder）的杯子。它有几个顶点（vertex）？",
+   "options": [
+    "2",
+    "3",
+    "0",
+    "1"
+   ],
+   "answerIndex": 2,
+   "explain": "圆柱上下是圆，圆没有角，所以没有顶点。容易把 2 条棱或 3 个面的数字串过来。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "ok",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuo9kiq32w7k70",
+   "level": 3,
+   "question": "小华有一个四棱锥（square pyramid）的积木。它有 5 个面、8 条棱。它有几个顶点？",
+   "options": [
+    "6",
+    "8",
+    "4",
+    "5"
+   ],
+   "answerIndex": 3,
+   "explain": "四棱锥有 5 个顶点（底面 4 个＋尖顶 1 个）。别和 8 条棱弄混，也别忘了尖顶那 1 个。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "solid.seen_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuog77sybig2pe",
+   "level": 1,
+   "question": "正方体（cube）的面（face）、棱（edge）、顶点（vertex）中，数目最多的是哪一个？",
+   "options": [
+    "棱最多",
+    "面最多",
+    "顶点最多",
+    "一样多"
+   ],
+   "answerIndex": 0,
+   "explain": "正方体有 6 个面、12 条棱、8 个顶点，12 最大，所以棱最多。常见的坑是把面或顶点说成最多，其实它们都比棱少。",
+   "tags": [
+    "ok",
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuog77syu0krqs",
+   "level": 1,
+   "question": "正方体（cube）一共有 6 个面（face）。上面 1 个，下面 1 个。四周还有几个面？",
+   "options": [
+    "12 个",
+    "4 个",
+    "8 个",
+    "3 个"
+   ],
+   "answerIndex": 1,
+   "explain": "6 个面去掉上面和下面这 2 个，四周还剩 4 个，选 4 个那个。常见的坑是只数看得见的 3 个面，或者把 12 条棱、8 个顶点的数说成面数。",
+   "tags": [
+    "solid.parts_mixup",
+    "ok",
+    "solid.parts_mixup",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuog77syk7sbmv",
+   "level": 1,
+   "question": "一个正方体（cube）有 6 个面（face）、8 个顶点（vertex）。顶点比面多几个？",
+   "options": [
+    "8 个",
+    "6 个",
+    "2 个",
+    "14 个"
+   ],
+   "answerIndex": 2,
+   "explain": "比多少要用减法：8 减 6 等于 2，所以写 2 个的那个对。常见的坑是直接答顶点的 8 个，或者把该减的加成 14 个。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuog77sye7fw1d",
+   "level": 1,
+   "question": "正方体（cube）一共有 12 条棱（edge）。上面一圈有 4 条，下面一圈有 4 条。竖着的棱还有几条？",
+   "options": [
+    "3 条",
+    "6 条",
+    "8 条",
+    "4 条"
+   ],
+   "answerIndex": 3,
+   "explain": "4 加 4 等于 8，12 减 8 还剩 4 条竖棱，所以写 4 条的那个对。常见的坑是只数看得见的 3 条竖棱，或者把 6 个面、8 个顶点的数当成棱数。",
+   "tags": [
+    "solid.seen_only",
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuog77syosu3jy",
+   "level": 2,
+   "question": "小美在手工课上搭一个正方体（cube）。小棒当棱（edge），小泥球当顶点（vertex）。她要用几个小泥球？",
+   "options": [
+    "8 个",
+    "6 个",
+    "12 个",
+    "4 个"
+   ],
+   "answerIndex": 0,
+   "explain": "泥球放在顶点上，正方体有 8 个顶点，所以要 8 个泥球，写 8 个的那个对。常见的坑是答成小棒的 12 条棱，或只数朝着自己那一面的 4 个角。",
+   "tags": [
+    "ok",
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuog77syej30cf",
+   "level": 2,
+   "question": "小美露营用的帐篷是三棱柱（prism）。两头的三角形各有 3 条棱（edge），中间还有 3 条长棱。它一共有几条棱？",
+   "options": [
+    "6 条",
+    "9 条",
+    "5 条",
+    "3 条"
+   ],
+   "answerIndex": 1,
+   "explain": "3 加 3 再加 3 等于 9，所以写 9 条的那个对。常见的坑是只数看得见的一头 3 条，或者把它的 6 个顶点、5 个面的数说成棱数。",
+   "tags": [
+    "solid.parts_mixup",
+    "ok",
+    "solid.parts_mixup",
+    "solid.seen_only"
+   ]
+  },
+  {
+   "qid": "qmuog77syincy0d",
+   "level": 2,
+   "question": "小华想数清家里的麦片盒（长方体 prism）一共有几个面（face）。哪个办法数得对？",
+   "options": [
+    "只数看得见的那三个面",
+    "数尖角，尖角有几个就几个",
+    "转着盒子，每个面数一遍",
+    "数棱，棱有几条就有几个"
+   ],
+   "answerIndex": 2,
+   "explain": "把盒子转一圈，每个面数一遍才不会漏，答案是转着盒子数那个办法。常见的坑是只数看得见的那几个面，或者拿尖角（顶点）和棱的条数当面数。",
+   "tags": [
+    "solid.seen_only",
+    "solid.parts_mixup",
+    "ok",
+    "solid.parts_mixup"
+   ]
+  },
+  {
+   "qid": "qmuog77syax24vr",
+   "level": 2,
+   "question": "小华做了一个三棱锥（pyramid）模型。底面的三角形有 3 个顶点（vertex），上面的尖顶还有 1 个。它一共有几个顶点？",
+   "options": [
+    "6 个",
+    "8 个",
+    "3 个",
+    "4 个"
+   ],
+   "answerIndex": 3,
+   "explain": "底面 3 个加上尖顶 1 个，3 加 1 等于 4，所以写 4 个的那个对。常见的坑是漏掉上面的尖顶只答 3 个，或者把它的 6 条棱、正方体的 8 个顶点搬过来。",
+   "tags": [
+    "solid.parts_mixup",
+    "solid.parts_mixup",
+    "solid.seen_only",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,386 @@
+{
+ "id": "YY.MATH.FIN.COINS.MIXED_TO_100",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmuo2fs2kpceu2s",
+   "level": 1,
+   "question": "You have 2 dimes and 3 nickels. How many cents do you have?",
+   "options": [
+    "35",
+    "50",
+    "5",
+    "25"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the dimes (10+10) and the nickels (5+5+5). That gives 20+15, which is 35. A common trap is counting the coins (5) instead of adding their values.",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2k239hxd",
+   "level": 1,
+   "question": "You have 2 quarters and 1 dime. How many cents?",
+   "options": [
+    "75",
+    "60",
+    "3",
+    "50"
+   ],
+   "answerIndex": 1,
+   "explain": "Two quarters are 25+25, which is 50. Add the dime (10) to get 60. Watch out for counting by 25s and landing on 75.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2ktuxvrb",
+   "level": 1,
+   "question": "You have 1 quarter and 4 dimes. How many cents?",
+   "options": [
+    "125",
+    "45",
+    "65",
+    "5"
+   ],
+   "answerIndex": 2,
+   "explain": "The quarter is 25 and the 4 dimes are 10+10+10+10, which is 40. Together that is 65. A common trap is counting by 25s for every coin and reaching 125.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2k6ytj0i",
+   "level": 2,
+   "question": "Mia is saving coins for a toy. She has 1 quarter, 2 dimes, and 1 nickel. How many cents does she have?",
+   "options": [
+    "100",
+    "45",
+    "4",
+    "50"
+   ],
+   "answerIndex": 3,
+   "explain": "Add them up: 25+10+10+5. That is 50 cents. A common trap is keeping the 25-step for every coin and reaching 100.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2k5xv1kk",
+   "level": 2,
+   "question": "Ben opens his piggy bank. He finds 4 dimes and 3 nickels. How many cents are there?",
+   "options": [
+    "55",
+    "35",
+    "80",
+    "7"
+   ],
+   "answerIndex": 0,
+   "explain": "The 4 dimes make 40 and the 3 nickels make 15. Together that is 55. Don't keep counting by 10s and land on 80.",
+   "tags": [
+    "ok",
+    "coin.value_mixup",
+    "coin.keep_old_step",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2kfufi3j",
+   "level": 2,
+   "question": "Grandma gives Sam 3 quarters and 2 dimes. How many cents does Sam have now?",
+   "options": [
+    "125",
+    "95",
+    "5",
+    "80"
+   ],
+   "answerIndex": 1,
+   "explain": "Three quarters are 75 and two dimes are 20. Add them to get 95. A common trap is counting every coin by 25s and getting 125.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2kvvxhwm",
+   "level": 3,
+   "question": "You have 3 quarters, 1 dime, and 2 nickels. How many cents do you have?",
+   "options": [
+    "150",
+    "6",
+    "95",
+    "80"
+   ],
+   "answerIndex": 2,
+   "explain": "Three quarters are 75, the dime is 10, and two nickels are 10. Add them: 75+10+10 is 95. Don't count all 6 coins by 25s to get 150.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "ok",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2koo72sk",
+   "level": 3,
+   "question": "You save 65 cents. Then you add 1 quarter and 1 dime to the pile. How many cents are in the pile now?",
+   "options": [
+    "115",
+    "95",
+    "2",
+    "100"
+   ],
+   "answerIndex": 3,
+   "explain": "Count the new coins: 25+10 is 35. Add that to 65 to get 100. A common trap is adding 25 for the dime too and getting 115.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo2fs2kz4uw4m",
+   "level": 3,
+   "question": "Sam has 2 dimes and 3 nickels. He says the total is 50 cents. What did he do wrong?",
+   "options": [
+    "He kept counting by 10s each time.",
+    "He counted 5 coins and picked a number.",
+    "He thought a dime is worth 5 cents.",
+    "He added one extra dime to the pile."
+   ],
+   "answerIndex": 0,
+   "explain": "If you count by 10s for all five coins (10, 20, 30, 40, 50) you get 50, but nickels are only 5. The right total is 35.",
+   "tags": [
+    "ok",
+    "coin.count_not_value",
+    "coin.value_mixup",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxv9ldry",
+   "level": 1,
+   "question": "Look at this group of coins: 1 quarter and 3 dimes. How many cents is the group worth?",
+   "options": [
+    "50 cents",
+    "55 cents",
+    "100 cents",
+    "40 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "Start with the quarter: 25. Then count the dimes by 10s: 35, 45, 55. When the coin changes, your counting step must change too.",
+   "tags": [
+    "coin.value_mixup",
+    "ok",
+    "coin.keep_old_step",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxylacwj",
+   "level": 1,
+   "question": "Here is a group of coins: 1 dime and 4 nickels. How many cents in all?",
+   "options": [
+    "50 cents",
+    "25 cents",
+    "30 cents",
+    "5 cents"
+   ],
+   "answerIndex": 2,
+   "explain": "The dime is 10, then count the nickels by 5s: 15, 20, 25, 30. Do not keep counting by 10s after the dime is done.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuoeriux0kvjr3",
+   "level": 1,
+   "question": "A group has 2 quarters and 2 nickels. How many cents?",
+   "options": [
+    "100 cents",
+    "50 cents",
+    "70 cents",
+    "60 cents"
+   ],
+   "answerIndex": 3,
+   "explain": "Count the quarters: 25, 50. Then count on by 5s: 55, 60. A nickel is only 5 cents, so you stop counting by 25s.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.value_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxp3bsh0",
+   "level": 1,
+   "question": "Ava has a group of 5 nickels and 2 dimes. How many cents is that?",
+   "options": [
+    "45 cents",
+    "7 cents",
+    "35 cents",
+    "70 cents"
+   ],
+   "answerIndex": 0,
+   "explain": "Count the nickels by 5s: 5, 10, 15, 20, 25. Then add the dimes: 35, 45. Count what the coins are worth, not how many coins there are.",
+   "tags": [
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxbld8nm",
+   "level": 2,
+   "question": "Noah checks his coat pocket at the bus stop. He finds 3 dimes, 1 quarter, and 2 nickels. How many cents did he find?",
+   "options": [
+    "60 cents",
+    "65 cents",
+    "50 cents",
+    "6 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "Start with the quarter: 25. Then the dimes: 35, 45, 55. Then the nickels: 60, 65. Change your step each time you move to a new coin.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.value_mixup",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxhxwso5",
+   "level": 2,
+   "question": "Leo counts 3 dimes and 2 nickels. Which count is right?",
+   "options": [
+    "10, 20, 30, 40, 50",
+    "5, 10, 15, 20, 25",
+    "10, 20, 30, 35, 40",
+    "5, 10, 15, 25, 35"
+   ],
+   "answerIndex": 2,
+   "explain": "Each dime adds 10, so count 10, 20, 30. Then each nickel adds only 5: 35, 40. The trap is counting by 10s all the way to 50.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.keep_old_step",
+    "ok",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxnqcsjf",
+   "level": 2,
+   "question": "Ethan finds coins under the couch cushions. He picks up 4 nickels, 3 dimes, and 1 quarter. How many cents did he find?",
+   "options": [
+    "95 cents",
+    "8 cents",
+    "40 cents",
+    "75 cents"
+   ],
+   "answerIndex": 3,
+   "explain": "Take the quarter first: 25. Then the dimes: 35, 45, 55. Then the nickels: 60, 65, 70, 75. A nickel is 5 cents, not 10.",
+   "tags": [
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoeriux96zujk",
+   "level": 2,
+   "question": "At the farmers market, Priya gets 3 dimes and 5 nickels to spend. How many cents does she have?",
+   "options": [
+    "55 cents",
+    "80 cents",
+    "40 cents",
+    "8 cents"
+   ],
+   "answerIndex": 0,
+   "explain": "Dimes first: 10, 20, 30. Now switch to 5s for the nickels: 35, 40, 45, 50, 55. Counting every coin as 10 gives too much.",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxlc482s",
+   "level": 3,
+   "question": "Owen has 2 quarters and 1 nickel. He spends 20 cents on a sticker. How many cents does he have left?",
+   "options": [
+    "55 cents",
+    "35 cents",
+    "75 cents",
+    "40 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "First count the coins: 25, 50, 55. Then take away what he spent: 55 minus 20 is 35. Spends means you subtract.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "other",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoeriuxlkkde2",
+   "level": 3,
+   "question": "Hana has 3 dimes and 1 nickel. A juice box costs 60 cents. How many more cents does she need?",
+   "options": [
+    "40 cents",
+    "20 cents",
+    "25 cents",
+    "35 cents"
+   ],
+   "answerIndex": 2,
+   "explain": "Count her coins: 10, 20, 30, 35. Then count up to 60: 35 and 25 make 60. The question asks how many more, not how much she already has.",
+   "tags": [
+    "coin.value_mixup",
+    "coin.keep_old_step",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuoeriux627v7e",
+   "level": 3,
+   "question": "Ben has 1 quarter, 2 dimes, and some nickels. He counts 55 cents in all. How many nickels does Ben have?",
+   "options": [
+    "1 nickel",
+    "4 nickels",
+    "3 nickels",
+    "2 nickels"
+   ],
+   "answerIndex": 3,
+   "explain": "The quarter and 2 dimes make 45 cents. Count on by 5s to reach 55: 50, 55. That is 2 nickels, because a nickel is 5 and not 10.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.value_mixup",
+    "ok"
+   ]
+  }
+ ]
+}

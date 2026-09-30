@@ -1,0 +1,405 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.PREDICT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmunzostp01ezw7",
+   "level": 1,
+   "question": "The pattern goes: sun, moon, star, cloud, sun, moon, star, cloud, sun. What is the 10th picture?",
+   "options": [
+    "moon",
+    "star",
+    "sun",
+    "cloud"
+   ],
+   "answerIndex": 0,
+   "explain": "The group of 4 is sun, moon, star, cloud. After two full groups (8), the 10th is the 2nd in the next group: moon. A common slip is just saying the last picture you saw, which was sun.",
+   "tags": [
+    "ok",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzostpt5wxxh",
+   "level": 1,
+   "question": "The pattern is: red, yellow, green, red, yellow, green, red, yellow. What is the 9th colour?",
+   "options": [
+    "red",
+    "green",
+    "yellow",
+    "blue"
+   ],
+   "answerIndex": 1,
+   "explain": "The group is red, yellow, green. Nine is exactly three full groups, so it lands on the last one: green. Don't just copy the colour you last saw, which was yellow.",
+   "tags": [
+    "pat.position_off_by_one",
+    "ok",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzostps1j2gq",
+   "level": 1,
+   "question": "The sounds go: clap, stomp, snap, clap, stomp, snap, clap, stomp. What is the 9th sound?",
+   "options": [
+    "clap",
+    "stomp",
+    "snap",
+    "kick"
+   ],
+   "answerIndex": 2,
+   "explain": "The group is clap, stomp, snap. Nine is three full groups, so it lands on the last sound: snap. The trap is just repeating the last sound you heard, which was stomp.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzostpjdy4b7",
+   "level": 2,
+   "question": "Sara is making a bead bracelet. The beads go: red, blue, green, red, blue, green, red, blue, green. What colour is the 10th bead?",
+   "options": [
+    "yellow",
+    "blue",
+    "green",
+    "red"
+   ],
+   "answerIndex": 3,
+   "explain": "The group is red, blue, green. After three groups (9), the 10th starts a new group: red. Be careful not to just copy the last bead, which was green.",
+   "tags": [
+    "other",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzostpbue4w2",
+   "level": 2,
+   "question": "At the dance, the music goes: clap, stomp, snap, clap, stomp, snap, clap. What is the 11th sound?",
+   "options": [
+    "stomp",
+    "kick",
+    "snap",
+    "clap"
+   ],
+   "answerIndex": 0,
+   "explain": "The group is clap, stomp, snap. After three groups (9), the 11th is the 2nd in the next group: stomp. Don't just repeat the last sound, which was clap.",
+   "tags": [
+    "ok",
+    "other",
+    "pat.position_off_by_one",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmunzostp1elm4o",
+   "level": 2,
+   "question": "Tom paints fence stripes: blue, white, red, blue, white, red, blue. What colour is the 14th stripe?",
+   "options": [
+    "red",
+    "white",
+    "blue",
+    "green"
+   ],
+   "answerIndex": 1,
+   "explain": "The group is blue, white, red. Four groups make 12, so the 14th is the 2nd in the next group: white. A common trap is to just say the last stripe, which was blue.",
+   "tags": [
+    "pat.position_off_by_one",
+    "ok",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzostpg3v78s",
+   "level": 3,
+   "question": "Leo builds a tower. The block colours repeat: red, blue, green, yellow, red, blue, green, yellow. He has made 8 blocks. What colour is the 14th block?",
+   "options": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ],
+   "answerIndex": 2,
+   "explain": "The group is red, blue, green, yellow. Three groups make 12, so the 14th is the 2nd in the next group: blue. Watch out for copying the last block, which was yellow.",
+   "tags": [
+    "pat.repeat_last",
+    "pat.position_off_by_one",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzostpqwvbz8",
+   "level": 3,
+   "question": "A caterpillar walks: left, right, up, down, left, right, up, down. A bird asks, 'Where is it on the 13th step?' Where is the caterpillar?",
+   "options": [
+    "right",
+    "up",
+    "down",
+    "left"
+   ],
+   "answerIndex": 3,
+   "explain": "The group is left, right, up, down. Three groups make 12, so the 13th starts a new group: left. The key step is to find the group of 4 first, then count into it.",
+   "tags": [
+    "pat.position_off_by_one",
+    "other",
+    "pat.repeat_last",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzostpgfcujp",
+   "level": 3,
+   "question": "Priya writes a number pattern: 3, 7, 1, 3, 7, 1, 3, 7, 1, __. What number goes in the blank?",
+   "options": [
+    "3",
+    "5",
+    "7",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explain": "The group is 3, 7, 1. Nine is three full groups, so the 10th starts fresh: 3. A common slip is to just write the last number (1) or the next one (7).",
+   "tags": [
+    "ok",
+    "other",
+    "pat.position_off_by_one",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbabfuqp",
+   "level": 1,
+   "question": "The letters repeat: A, B, C, D, A, B, C, D. What is the 10th letter?",
+   "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "answerIndex": 1,
+   "explain": "Count on in the A, B, C, D order: the 9th is A, so the 10th is B. Stopping one early gives A by mistake.",
+   "tags": [
+    "pat.position_off_by_one",
+    "ok",
+    "pat.position_off_by_one",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbcp8zu9",
+   "level": 1,
+   "question": "A pattern repeats: 4, 9, 6, 2, 4, 9, 6. What is the 13th number?",
+   "options": [
+    "9",
+    "6",
+    "4",
+    "2"
+   ],
+   "answerIndex": 2,
+   "explain": "The core 4, 9, 6, 2 ends on the 12th number with 2, so the 13th starts the core again with 4. Do not just repeat the 6 you can see.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbmdtmsy",
+   "level": 1,
+   "question": "These letters repeat: R, S, T, U, R, S. What is the 12th letter?",
+   "options": [
+    "R",
+    "T",
+    "S",
+    "U"
+   ],
+   "answerIndex": 3,
+   "explain": "R, S, T, U repeat, so every 4th letter is U. The 12th is U, not the S you see at the end of the list.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoe32xb72zmbg",
+   "level": 1,
+   "question": "A pattern repeats: 1, 5, 3, 8, 1. What is the 11th number?",
+   "options": [
+    "3",
+    "8",
+    "1",
+    "5"
+   ],
+   "answerIndex": 0,
+   "explain": "The core 1, 5, 3, 8 puts 8 on the 8th and 1 on the 9th, so the 10th is 5 and the 11th is 3. Counting one too far gives 8.",
+   "tags": [
+    "ok",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xb0s113o",
+   "level": 2,
+   "question": "Mia makes a paper chain for class. The link colours repeat: pink, black, brown, white, pink, black. What colour is the 12th link?",
+   "options": [
+    "brown",
+    "white",
+    "pink",
+    "black"
+   ],
+   "answerIndex": 1,
+   "explain": "The core is pink, black, brown, white, so every 4th link is white and the 12th is white. Brown is the 11th link, one too soon.",
+   "tags": [
+    "pat.position_off_by_one",
+    "ok",
+    "pat.position_off_by_one",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbb6n3g2",
+   "level": 2,
+   "question": "Sam makes a necklace. The beads repeat: green, black, silver, gold. He has made 8 beads. What is the best way to find the colour of the 18th bead?",
+   "options": [
+    "Count the 4 colours in order up to 17.",
+    "Use the colour of the last bead he made.",
+    "Count the 4 colours in order up to 18.",
+    "Count the 4 colours in order up to 19."
+   ],
+   "answerIndex": 2,
+   "explain": "Say the core green, black, silver, gold over and over and stop right on 18. Stopping on 17 or copying the bead he just made gives the wrong colour.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbt1zt9i",
+   "level": 2,
+   "question": "At camp the snack order repeats: apple, grape, plum, pear, apple, grape. What is the 16th snack?",
+   "options": [
+    "plum",
+    "apple",
+    "grape",
+    "pear"
+   ],
+   "answerIndex": 3,
+   "explain": "Pear ends each group of four, so the 16th snack is pear. Plum is the 15th, one too soon.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoe32xb1bgwak",
+   "level": 2,
+   "question": "Cara lines up her hair clips in a repeating order: blue, pink, green, black, blue, pink, green. What colour is the 13th clip?",
+   "options": [
+    "blue",
+    "black",
+    "green",
+    "pink"
+   ],
+   "answerIndex": 0,
+   "explain": "The core blue, pink, green, black puts black on the 12th, so the 13th starts the core again with blue. Do not repeat the green you see at the end.",
+   "tags": [
+    "ok",
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbqhn3nt",
+   "level": 3,
+   "question": "Ravi stamps shapes in a repeating order: leaf, fish, bear, boat. He has stamped 9 shapes. He stamps 2 more. What shape is the last one?",
+   "options": [
+    "fish",
+    "bear",
+    "leaf",
+    "boat"
+   ],
+   "answerIndex": 1,
+   "explain": "The 9th stamp is leaf, so the 10th is fish and the 11th is bear. The next stamps are not leaf again.",
+   "tags": [
+    "pat.position_off_by_one",
+    "ok",
+    "pat.repeat_last",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbv83w0v",
+   "level": 3,
+   "question": "Tia hangs winter things in a repeating order: sock, hat, mitt, scarf, sock, hat, __, scarf. What is the 14th thing she hangs?",
+   "options": [
+    "scarf",
+    "sock",
+    "hat",
+    "mitt"
+   ],
+   "answerIndex": 2,
+   "explain": "The missing 7th thing is mitt. Scarf ends each group of four, so the 12th is scarf, the 13th is sock and the 14th is hat.",
+   "tags": [
+    "pat.repeat_last",
+    "pat.position_off_by_one",
+    "ok",
+    "pat.position_off_by_one"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbnnd7fb",
+   "level": 3,
+   "question": "The animals repeat: duck, frog, crab, seal, duck, frog, crab. Ana says the 10th animal is crab. Is she right?",
+   "options": [
+    "No, it is duck. Duck is just before frog.",
+    "Yes, it is crab. Crab is the 10th one.",
+    "No, it is seal. Seal comes after crab.",
+    "No, it is frog. She copied the last one."
+   ],
+   "answerIndex": 3,
+   "explain": "Count on from the crab: the 8th is seal, the 9th is duck, the 10th is frog. Copying the last animal you can see does not work.",
+   "tags": [
+    "pat.position_off_by_one",
+    "pat.repeat_last",
+    "pat.position_off_by_one",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoe32xbl53b32",
+   "level": 3,
+   "question": "Kai has a sticker chart that repeats: sun, rain, snow, wind, sun, rain. Kai is on sticker 9 today. Which sticker comes 6 stickers later?",
+   "options": [
+    "snow",
+    "wind",
+    "rain",
+    "sun"
+   ],
+   "answerIndex": 0,
+   "explain": "Sticker 9 is sun, so count on 6 more: rain, snow, wind, sun, rain, snow. The 15th sticker is snow, not another sun.",
+   "tags": [
+    "ok",
+    "pat.position_off_by_one",
+    "pat.position_off_by_one",
+    "pat.repeat_last"
+   ]
+  }
+ ]
+}

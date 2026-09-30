@@ -10,7 +10,7 @@
 import { createRequire } from "node:module";
 import { makeChecker } from "./lib/isolated_server.mjs";
 const require = createRequire(import.meta.url);
-const { repairJson, extractJson } = require("../lib/ai/models/json.js");
+const { repairJson, extractJson, closeOutermost } = require("../lib/ai/models/json.js");
 const { check, summary } = makeChecker();
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const throwsWith = (fn, re) => { try { fn(); return false; } catch (e) { return re.test(String(e.message)); } };
@@ -44,5 +44,19 @@ check("\\u sequence kept", same(extractJson('{"s":"\\u4e2d"}'), { s: "中" }));
 check("tab inside string escaped, CR dropped", same(extractJson('{"s":"a\tb\rc"}'), { s: "a\tbc" }));
 check("empty string value untouched", same(extractJson('{"s":"","t":""}'), { s: "", t: "" }));
 check("valid JSON passes through repairJson unchanged", repairJson('{"a":"b","c":[1,2],"d":{"e":null}}') === '{"a":"b","c":[1,2],"d":{"e":null}}');
+
+console.log("closeOutermost: only the final closing brace is missing (qwen, 2026-09-29)");
+check("missing final } after a complete array", same(extractJson('{"questions":[{"a":1},{"a":2}]'), { questions: [{ a: 1 }, { a: 2 }] }));
+check("same, with trailing whitespace and a newline", same(extractJson('{"questions":[{"a":1}]  \n'), { questions: [{ a: 1 }] }));
+check("same, inside a ``` fence", same(extractJson('```json\n{"questions":[{"a":"x"}]\n```'), { questions: [{ a: "x" }] }));
+check("missing final } combined with a stray quote elsewhere", same(extractJson('{"questions":[{"level":2","tags":["ok","other""]}]'), { questions: [{ level: 2, tags: ["ok", "other"] }] }));
+check("brackets inside strings are not counted", same(extractJson('{"q":[{"s":"a ] b } c"}]'), { q: [{ s: "a ] b } c" }] }));
+check("missing ] and } after the last complete element", same(extractJson('{"questions":[{"a":1},{"a":2}'), { questions: [{ a: 1 }, { a: 2 }] }));
+check("missing ] and } combined with a stray quote after a number", same(extractJson('{"questions":[{"level":1","q":"x"},{"level":2","q":"y"}'), { questions: [{ level: 1, q: "x" }, { level: 2, q: "y" }] }));
+check("three levels open still throws", throwsWith(() => extractJson('{"a":{"b":[{"c":1}'), /JSON|Expected|Unexpected/i));
+check("cut off after a comma (not at a complete value) still throws", throwsWith(() => extractJson('{"questions":[{"a":1},'), /JSON|Expected|Unexpected|找不到/i));
+check("truncated inside a string still throws", throwsWith(() => extractJson('{"questions":[{"a":"half a sent'), /JSON|Expected|Unexpected|Unterminated|找不到/i));
+check("mismatched brackets still throw", throwsWith(() => extractJson('{"questions":[{"a":1}}'), /JSON|Expected|Unexpected/i));
+check("closeOutermost leaves complete or deeper-open text alone", closeOutermost('{"a":[1]}') === null && closeOutermost('{"a":{"b":[{"c":1}') === null && closeOutermost('{"a":"x') === null);
 
 process.exit(summary() ? 0 : 1);

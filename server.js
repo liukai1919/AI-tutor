@@ -212,6 +212,14 @@ const LESSON_SCHEMA = {
  * （函数、斜率、渐近线），该严谨的地方严谨，但仍然是一步一个小意思、落到具体例子的讲法。 */
 function seniorTone(gradeNum) {
   const g = Number(gradeNum) || 0;
+  /* G1-3（#74）：6-9 岁，句子更短、步子更小、多用摸得着的东西；不写年级（g = 0）仍走下面 G4-6 的老口吻 */
+  if (g >= 1 && g <= 3) return {
+    ageZh: "约6-9岁", personaZh: "小学低年级老师",
+    exZh: "数手指、摆积木、分糖果、数硬币", exEn: "counting fingers, building with blocks, sharing candies, counting coins",
+    toneZh: "\n4. 孩子才上" + (GRADE_ZH[g] || g) + "年级：句子要短、用词要简单，一步只讲一点点；多用看得见摸得着的东西，数不超出这个年级学的范围。",
+    ageEn: "about 6-9 years old", personaEn: "primary school teacher",
+    toneEn: "\n4. The child is only in Grade " + g + " — use short sentences and simple words, take very small steps, lean on things the child can see and touch, and keep the numbers inside what this grade works with."
+  };
   if (g < 7) return { ageZh: "约10-12岁", personaZh: "小学老师", toneZh: "", ageEn: "about 10-12 years old", personaEn: "elementary school teacher", toneEn: "" };
   if (g === 7) return {
     ageZh: "约12-13岁", personaZh: "数学老师",
@@ -700,6 +708,10 @@ function distractorHint(gradeData, lang) {
   if (g >= 8) return lang === "en"
     ? "sign errors with negatives, dropping a negative exponent or treating x^0 as 0, forgetting the ± or an extraneous root, mixing up slope and intercept, a wrong-order operation"
     : "负号处理错、负指数或零次幂算错、开方漏了 ±、没排除增根、斜率和截距弄反、运算顺序错";
+  /* G1-3（#74）：低年级的典型错法和 G4+ 不是一回事（还没有周长面积、分母） */
+  if (g >= 1 && g <= 3) return lang === "en"
+    ? "counting one too many or one too few, mixing up tens and ones, adding when the story takes away, giving the bigger number when asked \"how many more\""
+    : "数数多数或少数了 1、十位个位弄反、该减的加了、问「多几个」却答了较大的那个数";
   return lang === "en"
     ? "forgot to regroup, mixed up perimeter and area, skipped a unit conversion, added denominators straight across"
     : "忘了进位、周长面积混淆、单位没换算、分母直接相加";
@@ -909,6 +921,11 @@ function qbankPrompt(item, gradeData, lang, needs, existingStems, brief) {
      * 以前这里写死「there is no picture」——题库没有 visual 字段时的权宜之计；契约 v3 起题目可以带题图，
      * 能不能带、带哪几种由 brief.visual.allowed 决定（技能表示 ∩ 契约的题图类型）。 */
     const b = qbankBriefCheck(brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankPrompt");
+    /* 低年级规则集（#74）里 L3 不要求「真两步情境题」，辨析题上限也更低：铁律第 8 条的尾巴跟着 brief 走，别和它打架。
+     * G4 以上这句话原样不动。 */
+    const l3Tail = Array.isArray(b.rules.young)
+      ? `At most ${b.rules.l3SpotMistakeMax} of the Level-3 questions may be that "spot the mistake" type; the rest follow the Level 3 description above.`
+      : `At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.`;
     const who = isSkills
       ? `You are a BC math teacher building a question bank for ONE small skill (Grade ${g}, topic "${strand[2]}").`
       : isBook
@@ -932,7 +949,7 @@ Iron rules:
    Never refer to an option by position ("option B", "the third choice") — options get reordered; name the content instead ("the one that says 3/8").
 7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
 ${avoid.map(s => "- " + s).join("\n")}` : ""}.
-8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.
+8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. ${l3Tail}
 9. Pictures: a question either carries a valid "visual" as described in the brief, or is fully answerable from its own text. A question that breaks a picture rule is thrown away, not repaired.`;
   }
   /* 技能层出题的额外约束（设计文档 §3.3 / §6）：L1 必须用这个技能的第一种表示，
@@ -964,6 +981,28 @@ ${avoid.map(s => "- " + s).join("\n")}` : ""}.
     : isCourse
     ? `你是 BC 省的高中数学出题老师，为 ${(gradeData.title || {}).en || gradeData.courseId}（${(gradeData.title || {}).zh || ""}，Grade ${g}）课程「${strand[1]}」单元里的一个知识点建题库。`
     : `你是 BC 省的数学出题老师，为 Grade ${g}「${strand[1]}」主线里的一个知识点建题库。`;
+  /* G1-3（#74）：6-9 岁的孩子用低年级口径的难度定义，外加一段阅读量 / 数的范围规则（和英文 brief 的 PRIMARY_RULES 同一套意思）。
+   * G4 以上这两处原样不动——zh 提示词冻结测试（tools/test_qbank_zh_freeze.mjs）守着。 */
+  const young = !isBook && !isCourse && Number(g) >= 1 && Number(g) <= 3;
+  const levelsZh = young
+    ? [
+      "- L1 热身：一步，直接用刚学的内容；一句话的短题，不带故事或只带一句话的小故事。检查「听懂了没」。",
+      "- L2 应用：一步，放在一个生活小故事里，或者要自己选办法。检查「会用了没」。",
+      "- L3 挑战：多想一点——数很小的两步小故事、找缺的那个数，或针对这个知识点最常见错误的辨析题。检查「真扎实没」。"
+    ].join("\n")
+    : [
+      "- L1 热身：单步、直接套用刚学的概念；题干短，无情境或极简情境。检查「听懂了没」。",
+      "- L2 应用：标准课本难度，1-2 步，带简单生活情境或需要自己选方法。检查「会用了没」。",
+      "- L3 挑战：FSA 风格——需要至少两步推理的真实情境题，或针对这个知识点最常见误区的辨析题。检查「真扎实没」。"
+    ].join("\n");
+  const youngZh = young ? "\n\n" + [
+    `低年级规则（孩子 6-9 岁，才上 Grade ${g}；和上面的铁律有出入时以这里为准）：`,
+    "- 孩子还在学认字（或者由别人读题）：句子要短、用词要简单。一年级问题前最多两句话，二、三年级最多三句。",
+    "- 数不超出这个年级学的范围：一年级 20 以内、二年级 100 以内、三年级 1000 以内——除非技能本身点名了更大的数（比如 10 个 10 个地数 dime）。",
+    "- 不出后面年级才学的内容：三年级之前不出现乘除法和分数，不出现小数、负数、百分数；钱只用整元或整分（不写 $1.25）。",
+    "- 选项要短：一个数、一个词或几个词。辨析题每个选项一句短话，整批最多 1 道；L3 其余的题用数很小的两步小故事或「找缺的那个数」。",
+    "- explain 用一两句孩子听了就懂的短句。"
+  ].join("\n") : "";
   return `${whoZh}孩子刚看完这个知识点的讲解课，现在一道一道做题——做对了会升难度（类似 SAT 机制）。请出 ${total} 道原创选择题：${wants.map(lv => `L${lv} ${needs[lv]} 道`).join("、")}。
 
 ${isSkills ? "技能（英文说法）" : isBook ? "小节（原书标题）" : "知识点（官方原文）"}：${item.en}
@@ -973,9 +1012,7 @@ ${elab}` : ""}${terms ? `
 关键术语：${terms}` : ""}${skillRules}
 
 难度定义：
-- L1 热身：单步、直接套用刚学的概念；题干短，无情境或极简情境。检查「听懂了没」。
-- L2 应用：标准课本难度，1-2 步，带简单生活情境或需要自己选方法。检查「会用了没」。
-- L3 挑战：FSA 风格——需要至少两步推理的真实情境题，或针对这个知识点最常见误区的辨析题。检查「真扎实没」。
+${levelsZh}
 
 出题铁律：
 1. 只考${isSkills ? "这一个小技能" : "这个知识点"}。可以自然用到更早学过的技能，但考点必须落在${isSkills ? "本技能" : "本知识点"}上。
@@ -988,7 +1025,7 @@ ${elab}` : ""}${terms ? `
 7. 题干用中文，关键数学术语可自然带一次英文对照（如「周长（perimeter）」）。
 8. 这批题互相不能重复${avoid.length ? `，也不能和题库里已有的这些题重复：
 ${avoid.map(s => "- " + s).join("\n")}` : ""}。
-9. 不许靠长度露馅：每题 4 个选项长度要相近（差别不超过 15% 左右），正确项绝不能是最长的那个。「某某说……他错在哪」这类辨析题尤其要注意——每个干扰项都要带上自己的「因为……」理由，不能只留一个光秃秃的错数；正确项写长了就删短它，别去给干扰项灌水。L3 里这类辨析题最多 2 道，其余必须是真正需要两步推理的情境题。`;
+9. 不许靠长度露馅：每题 4 个选项长度要相近（差别不超过 15% 左右），正确项绝不能是最长的那个。「某某说……他错在哪」这类辨析题尤其要注意——每个干扰项都要带上自己的「因为……」理由，不能只留一个光秃秃的错数；正确项写长了就删短它，别去给干扰项灌水。L3 里这类辨析题最多 2 道，其余必须是真正需要两步推理的情境题。${youngZh}`;
 }
 
 /* 题干里的换行：模型常把换行写成字面量 \n（反斜杠加 n）塞进字符串，前端会原样显示两个字符，换成真换行 */
@@ -1071,6 +1108,19 @@ const JUDGE_HINT_QUIZ = {
 
 function judgeCommon(lang, gradeData) {
   const senior = Number(gradeData && gradeData.grade) >= 8;
+  /* G1-3（#74）：审稿多查一条「适龄」——和出题提示词里的低年级规则同一套口径；G4 以上不加这一段 */
+  const g = Number(gradeData && gradeData.grade) || 0;
+  const young = g >= 1 && g <= 3 && gradeData.type !== "book" && !isCourseData(gradeData);
+  return judgeCommonBase(lang, senior) + (young ? L(lang,
+`
+另外，孩子只有 6-9 岁（Grade ${g}）：句子要短、用词要简单；数不能超出这个年级学的范围（一年级 20 以内、二年级 100 以内、三年级 1000 以内，
+技能本身点名了更大的数除外）；出现后面年级才学的内容（三年级之前的乘除法和分数，以及小数、负数、百分数）算超纲，pass=false。`,
+`
+Also, the child is only 6 to 9 years old (Grade ${g}): sentences must be short and the words simple; numbers must stay inside what this grade
+works with (Grade 1 to 20, Grade 2 to 100, Grade 3 to 1000, unless the skill itself names bigger numbers); content from later grades
+(multiplication, division or fractions before Grade 3; decimals, negative numbers, percent) is off-level → pass=false.`) : "");
+}
+function judgeCommonBase(lang, senior) {
   return L(lang,
 `你是一位严格的${senior ? "中学数学" : "小学数学"}教研审稿人。下面是自动生成、要发给${senior ? "学生" : "孩子"}的内容，请逐项核查：
 1. 数学必须全对：每一步计算、每个最终答案、每道选择题标的正确选项，错一处就不能过；
@@ -1699,7 +1749,7 @@ const SKILL_REP_ZH = {
   statBar: "条形统计图", statLine: "折线统计图", pieChart: "扇形统计图", spinner: "转盘", balls: "摸球",
   probLine: "可能性数轴", clock: "钟面", shapeRect: "长方形", shapeTriangle: "三角形", shapeCircle: "圆",
   solidCube: "正方体", solidCuboid: "长方体", solidCylinder: "圆柱", netCuboid: "长方体展开图",
-  netCylinder: "圆柱展开图", angle: "角", hundredChart: "百数表"
+  netCylinder: "圆柱展开图", angle: "角", hundredChart: "百数表", pictograph: "象形统计图"
 };
 const skillMisconceptions = new Map();   // 误区 id -> { id, zh, en, pattern, remedy }
 const skillIndex = new Map();            // 技能 id -> 技能（另带 grade / topicId / topicZh / topicEn）

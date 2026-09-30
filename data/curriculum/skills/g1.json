@@ -1,0 +1,861 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 1,
+  "standardsFile": "bc/grade-1.json",
+  "topics": [
+    {
+      "id": "counting-to-20",
+      "zh": "数到 20",
+      "en": "Counting to 20",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G1.NUM.01"
+      ]
+    },
+    {
+      "id": "numbers-to-20",
+      "zh": "20 以内的数",
+      "en": "Numbers to 20",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G1.NUM.01"
+      ]
+    },
+    {
+      "id": "make-ten",
+      "zh": "凑十",
+      "en": "Ways to make 10",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G1.NUM.02"
+      ]
+    },
+    {
+      "id": "add-sub-to-20",
+      "zh": "20 以内的加减法",
+      "en": "Addition & subtraction to 20",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G1.FLU.01"
+      ]
+    },
+    {
+      "id": "repeating-patterns",
+      "zh": "重复的规律",
+      "en": "Repeating patterns",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G1.PAT.01"
+      ]
+    },
+    {
+      "id": "change-equality",
+      "zh": "数量的变化与相等",
+      "en": "Change & equality",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G1.PAT.02",
+        "BC.MATH.G1.PAT.03"
+      ]
+    },
+    {
+      "id": "measuring-length",
+      "zh": "用非标准单位量长度",
+      "en": "Measuring with non-standard units",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G1.GEO.01"
+      ]
+    },
+    {
+      "id": "shapes-objects",
+      "zh": "平面图形和立体图形",
+      "en": "2D shapes & 3D objects",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G1.GEO.02"
+      ]
+    },
+    {
+      "id": "concrete-graphs",
+      "zh": "实物统计图",
+      "en": "Concrete graphs",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G1.DAT.01"
+      ]
+    },
+    {
+      "id": "likelihood-events",
+      "zh": "可能性：从不、有时、总是",
+      "en": "Likelihood: never, sometimes, always",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G1.DAT.02"
+      ]
+    },
+    {
+      "id": "coins",
+      "zh": "认识硬币",
+      "en": "Coins",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G1.NUM.03"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.NUM.COUNT20.SEQUENCE",
+      "topic": "counting-to-20",
+      "type": "concept",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Put numbers to 20 in order: the number just before, just after and in between",
+      "zh": "给 20 以内的数排顺序：前一个、后一个、中间的数",
+      "primary": "BC.MATH.G1.NUM.01",
+      "prereq": [],
+      "misc": [
+        "count.before_after_swap",
+        "count.teen_sequence_slip"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.NUM.COUNT20.ON_BACK",
+      "topic": "counting-to-20",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Count on and count back from any number to 20",
+      "zh": "从 20 以内任意一个数接着数、倒着数",
+      "primary": "BC.MATH.G1.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.SEQUENCE"
+      ],
+      "misc": [
+        "count.start_counted",
+        "count.direction_swap"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.NUM.COUNT20.SKIP_2_5",
+      "topic": "counting-to-20",
+      "type": "fluency",
+      "rep": [
+        "numberLine",
+        "hundredChart",
+        "symbolic"
+      ],
+      "en": "Skip-count by 2s and by 5s",
+      "zh": "2 个 2 个、5 个 5 个地跳着数",
+      "primary": "BC.MATH.G1.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.ON_BACK"
+      ],
+      "misc": [
+        "count.skip_by_ones",
+        "count.skip_wrong_step",
+        "count.groups_not_total"
+      ],
+      "hints": "hundredChart、numberLine、groups"
+    },
+    {
+      "id": "YY.MATH.NUM.TO20.TEN_AND_MORE",
+      "topic": "numbers-to-20",
+      "type": "concept",
+      "rep": [
+        "baseTen",
+        "groups",
+        "symbolic"
+      ],
+      "en": "See the numbers 11 to 20 as ten and some more",
+      "zh": "把 11–20 看成「十和几」",
+      "primary": "BC.MATH.G1.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.SEQUENCE"
+      ],
+      "misc": [
+        "pv.digits_as_ones",
+        "pv.tens_ones_reversal"
+      ],
+      "hints": "baseTen、groups"
+    },
+    {
+      "id": "YY.MATH.NUM.TO20.COMPARE_ORDER",
+      "topic": "numbers-to-20",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order numbers to 20",
+      "zh": "比较和排序 20 以内的数",
+      "primary": "BC.MATH.G1.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.TO20.TEN_AND_MORE"
+      ],
+      "misc": [
+        "cmp.ones_digit_only",
+        "cmp.order_direction",
+        "cmp.more_fewer_swap"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.NUM.MAKE10.PARTS",
+      "topic": "make-ten",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Break 10 into two parts in different ways",
+      "zh": "把 10 分成两部分（不同的分法）",
+      "primary": "BC.MATH.G1.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.ON_BACK"
+      ],
+      "misc": [
+        "make10.off_by_one",
+        "make10.add_part_to_ten"
+      ],
+      "hints": "groups、barModel"
+    },
+    {
+      "id": "YY.MATH.NUM.MAKE10.MISSING_PART",
+      "topic": "make-ten",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Find the missing part that makes 10",
+      "zh": "找出和它凑成 10 的那个数",
+      "primary": "BC.MATH.G1.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.MAKE10.PARTS"
+      ],
+      "misc": [
+        "make10.add_part_to_ten",
+        "make10.off_by_one"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.NUM.MAKE10.BENCHMARK",
+      "topic": "make-ten",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Use 10 and 20 as benchmarks: which is closer, and how far away",
+      "zh": "以 10 和 20 为基准：离哪个近、还差几",
+      "primary": "BC.MATH.G1.NUM.02",
+      "prereq": [
+        "YY.MATH.NUM.MAKE10.MISSING_PART",
+        "YY.MATH.NUM.TO20.COMPARE_ORDER"
+      ],
+      "misc": [
+        "bench.nearer_wrong",
+        "make10.off_by_one"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.ADD_MEANING",
+      "topic": "add-sub-to-20",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "context",
+        "symbolic"
+      ],
+      "en": "Understand addition as putting together and adding to (to 20)",
+      "zh": "理解加法：合起来、再添上（20 以内）",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.ON_BACK"
+      ],
+      "misc": [
+        "addsub.op_swap",
+        "count.start_counted"
+      ],
+      "hints": "groups、barModel"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.SUB_MEANING",
+      "topic": "add-sub-to-20",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "context",
+        "symbolic"
+      ],
+      "en": "Understand subtraction as taking away and as comparing (to 20)",
+      "zh": "理解减法：拿走、比一比（20 以内）",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.ADD_MEANING"
+      ],
+      "misc": [
+        "addsub.op_swap",
+        "sub.compare_as_total"
+      ],
+      "hints": "groups、barModel"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.COUNT_ON",
+      "topic": "add-sub-to-20",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add by counting on from the bigger number; subtract by counting back",
+      "zh": "从大数接着数来加；倒着数来减",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.ADD_MEANING",
+        "YY.MATH.FLU.ADDSUB20.SUB_MEANING"
+      ],
+      "misc": [
+        "count.start_counted",
+        "count.direction_swap"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.MAKE10_DOUBLES",
+      "topic": "add-sub-to-20",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Add with mental strategies: making 10 and doubles",
+      "zh": "用心算策略做加法：凑十和双倍",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.NUM.MAKE10.MISSING_PART",
+        "YY.MATH.FLU.ADDSUB20.COUNT_ON"
+      ],
+      "misc": [
+        "facts.ten_reuse_whole",
+        "facts.near_double_adjust"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.RELATED",
+      "topic": "add-sub-to-20",
+      "type": "reason",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Use how addition and subtraction are related (fact families)",
+      "zh": "用加法和减法的关系（一家子算式）",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.SUB_MEANING"
+      ],
+      "misc": [
+        "addsub.family_wrong_whole",
+        "addsub.op_swap"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB20.WORD",
+      "topic": "add-sub-to-20",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Solve one-step addition and subtraction stories to 20",
+      "zh": "解决 20 以内的一步加减故事题",
+      "primary": "BC.MATH.G1.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.RELATED",
+        "YY.MATH.FLU.ADDSUB20.COUNT_ON"
+      ],
+      "misc": [
+        "story.keyword_trap",
+        "addsub.op_swap",
+        "sub.compare_as_total"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.PAT.SORT.RULE",
+      "topic": "repeating-patterns",
+      "type": "reason",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Find the rule used to sort a set of objects",
+      "zh": "找出一堆东西是按什么规则分类的",
+      "primary": "BC.MATH.G1.PAT.01",
+      "prereq": [],
+      "misc": [
+        "sort.wrong_attribute",
+        "sort.one_group_only"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.PAT.REPEAT.EXTEND",
+      "topic": "repeating-patterns",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Say what comes next in a repeating pattern",
+      "zh": "说出重复规律里下一个是什么",
+      "primary": "BC.MATH.G1.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.SORT.RULE"
+      ],
+      "misc": [
+        "pat.repeat_last",
+        "pat.restart_core"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.PAT.REPEAT.TRANSLATE",
+      "topic": "repeating-patterns",
+      "type": "represent",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Show the same repeating pattern another way (letters, shapes, sounds)",
+      "zh": "把同一个重复规律换一种方式表示（字母、图形、声音）",
+      "primary": "BC.MATH.G1.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.REPEAT.EXTEND"
+      ],
+      "misc": [
+        "pat.translate_new_letter_each",
+        "pat.translate_changes_core"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.PAT.REPEAT.FIND_MISSING",
+      "topic": "repeating-patterns",
+      "type": "apply",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Find a missing piece or a mistake in a repeating pattern",
+      "zh": "找出重复规律里缺的那个或摆错的那个",
+      "primary": "BC.MATH.G1.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.REPEAT.EXTEND"
+      ],
+      "misc": [
+        "pat.repeat_last",
+        "pat.restart_core",
+        "pat.translate_changes_core"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.ALG.CHANGE20.DESCRIBE",
+      "topic": "change-equality",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "context"
+      ],
+      "en": "Describe a change in quantity: how many were added or taken away",
+      "zh": "说出数量的变化：加了几个还是拿走了几个",
+      "primary": "BC.MATH.G1.PAT.02",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB20.ADD_MEANING"
+      ],
+      "misc": [
+        "change.result_as_change",
+        "change.direction_swap"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.ALG.CHANGE20.MAKE_TARGET",
+      "topic": "change-equality",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Find how many more (or fewer) are needed to reach a target number",
+      "zh": "算出还要加几个（或拿走几个）才变成目标数",
+      "primary": "BC.MATH.G1.PAT.02",
+      "prereq": [
+        "YY.MATH.ALG.CHANGE20.DESCRIBE",
+        "YY.MATH.NUM.MAKE10.MISSING_PART"
+      ],
+      "misc": [
+        "change.add_both",
+        "change.result_as_change"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.EQUAL.MEANING",
+      "topic": "change-equality",
+      "type": "concept",
+      "rep": [
+        "balance",
+        "groups",
+        "symbolic"
+      ],
+      "en": "Tell whether two amounts are equal or not equal",
+      "zh": "判断两边的数量相等还是不相等",
+      "primary": "BC.MATH.G1.PAT.03",
+      "prereq": [
+        "YY.MATH.NUM.TO20.COMPARE_ORDER"
+      ],
+      "misc": [
+        "equal.same_numbers_needed",
+        "equal.looks_bigger"
+      ],
+      "hints": "balance、groups"
+    },
+    {
+      "id": "YY.MATH.ALG.EQUAL.SYMBOLS",
+      "topic": "change-equality",
+      "type": "represent",
+      "rep": [
+        "symbolic",
+        "balance"
+      ],
+      "en": "Record equal and not equal with = and ≠",
+      "zh": "用 = 和 ≠ 记下相等和不相等",
+      "primary": "BC.MATH.G1.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQUAL.MEANING",
+        "YY.MATH.FLU.ADDSUB20.ADD_MEANING"
+      ],
+      "misc": [
+        "equal.answer_comes_next",
+        "equal.same_numbers_needed"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.MEAS.NONSTD.COMPARE_DIRECT",
+      "topic": "measuring-length",
+      "type": "concept",
+      "rep": [
+        "barModel",
+        "context"
+      ],
+      "en": "Compare lengths directly by lining up the ends at a baseline",
+      "zh": "把一头对齐，直接比长短",
+      "primary": "BC.MATH.G1.GEO.01",
+      "prereq": [],
+      "misc": [
+        "meas.no_baseline",
+        "meas.other_attribute"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.NONSTD.COUNT_UNITS",
+      "topic": "measuring-length",
+      "type": "procedure",
+      "rep": [
+        "barModel",
+        "context"
+      ],
+      "en": "Measure a length by counting same-size units placed end to end",
+      "zh": "用一样大的单位一个接一个地量长度",
+      "primary": "BC.MATH.G1.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.NONSTD.COMPARE_DIRECT"
+      ],
+      "misc": [
+        "meas.gaps_overlaps",
+        "meas.mixed_units"
+      ],
+      "hints": "barModel、numberLine"
+    },
+    {
+      "id": "YY.MATH.MEAS.NONSTD.UNIT_SIZE",
+      "topic": "measuring-length",
+      "type": "reason",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Explain why a bigger unit gives a smaller count, and why units must be the same size",
+      "zh": "说出为什么单位越大量出的数越小、为什么单位要一样大",
+      "primary": "BC.MATH.G1.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.NONSTD.COUNT_UNITS"
+      ],
+      "misc": [
+        "meas.bigger_unit_bigger_count",
+        "meas.count_ignores_unit",
+        "meas.mixed_units"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.GEO.SHAPES.NAME_2D",
+      "topic": "shapes-objects",
+      "type": "concept",
+      "rep": [
+        "shapeTriangle",
+        "shapeRect",
+        "shapeCircle"
+      ],
+      "en": "Name circles, triangles, squares and rectangles by their sides and corners",
+      "zh": "按边和角认出圆、三角形、正方形和长方形",
+      "primary": "BC.MATH.G1.GEO.02",
+      "prereq": [],
+      "misc": [
+        "shape.orientation_changes_name",
+        "shape.sides_corners_miscount"
+      ],
+      "hints": "shapeRect、shapeTriangle、shapeCircle"
+    },
+    {
+      "id": "YY.MATH.GEO.SHAPES.NAME_3D",
+      "topic": "shapes-objects",
+      "type": "concept",
+      "rep": [
+        "solidCube",
+        "solidCylinder",
+        "context"
+      ],
+      "en": "Name cubes, spheres, cylinders and cones and match them to everyday objects",
+      "zh": "认出正方体、球、圆柱和圆锥，并和身边的东西对上",
+      "primary": "BC.MATH.G1.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_2D"
+      ],
+      "misc": [
+        "shape.name_2d_for_3d",
+        "shape.roll_stack_confuse"
+      ],
+      "hints": "solidCube、solidCylinder"
+    },
+    {
+      "id": "YY.MATH.GEO.SHAPES.SORT_ONE",
+      "topic": "shapes-objects",
+      "type": "reason",
+      "rep": [
+        "context",
+        "shapeRect"
+      ],
+      "en": "Sort shapes and objects by one attribute and tell the sorting rule",
+      "zh": "按一个特征给图形分类，并说出分类规则",
+      "primary": "BC.MATH.G1.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_2D",
+        "YY.MATH.PAT.SORT.RULE"
+      ],
+      "misc": [
+        "sort.wrong_attribute",
+        "sort.one_group_only"
+      ],
+      "hints": "shapeRect、shapeTriangle"
+    },
+    {
+      "id": "YY.MATH.GEO.POSITION.WORDS",
+      "topic": "shapes-objects",
+      "type": "concept",
+      "rep": [
+        "context"
+      ],
+      "en": "Describe where something is with position words (above, below, beside, inside, left, right)",
+      "zh": "用方位词说出东西在哪儿（上、下、旁边、里面、左、右）",
+      "primary": "BC.MATH.G1.GEO.02",
+      "prereq": [],
+      "misc": [
+        "pos.left_right_swap",
+        "pos.opposite_word"
+      ],
+      "hints": "shapeRect"
+    },
+    {
+      "id": "YY.MATH.GEO.SHAPES.COMPOSE",
+      "topic": "shapes-objects",
+      "type": "represent",
+      "rep": [
+        "shapeTriangle",
+        "shapeRect"
+      ],
+      "en": "Put shapes together to make a new shape",
+      "zh": "把图形拼在一起，拼出新的图形",
+      "primary": "BC.MATH.G1.GEO.02",
+      "prereq": [
+        "YY.MATH.GEO.SHAPES.NAME_2D"
+      ],
+      "misc": [
+        "compose.sides_add",
+        "compose.same_shape_only"
+      ],
+      "hints": "shapeTriangle、shapeRect"
+    },
+    {
+      "id": "YY.MATH.DATA.CONCRETE.READ",
+      "topic": "concrete-graphs",
+      "type": "procedure",
+      "rep": [
+        "pictograph",
+        "dataTable"
+      ],
+      "en": "Read a concrete graph: how many are in each group",
+      "zh": "读实物统计图：每一组有几个",
+      "primary": "BC.MATH.G1.DAT.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT20.SEQUENCE"
+      ],
+      "misc": [
+        "graph.wrong_row",
+        "graph.key_made_up"
+      ],
+      "hints": "pictograph、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.CONCRETE.COMPARE",
+      "topic": "concrete-graphs",
+      "type": "reason",
+      "rep": [
+        "pictograph",
+        "context"
+      ],
+      "en": "Compare groups on a concrete graph: most, fewest, how many more",
+      "zh": "比较实物统计图上的各组：最多、最少、多几个",
+      "primary": "BC.MATH.G1.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.CONCRETE.READ",
+        "YY.MATH.NUM.TO20.COMPARE_ORDER"
+      ],
+      "misc": [
+        "graph.most_least_swap",
+        "sub.compare_as_total"
+      ],
+      "hints": "pictograph"
+    },
+    {
+      "id": "YY.MATH.PROB.EVENTS.NEVER_SOMETIMES_ALWAYS",
+      "topic": "likelihood-events",
+      "type": "concept",
+      "rep": [
+        "context",
+        "probLine"
+      ],
+      "en": "Sort everyday events as never, sometimes or always",
+      "zh": "把生活里的事分成「从不」「有时」「总是」",
+      "primary": "BC.MATH.G1.DAT.02",
+      "prereq": [],
+      "misc": [
+        "prob.likely_as_certain",
+        "prob.wish_decides"
+      ],
+      "hints": "probLine"
+    },
+    {
+      "id": "YY.MATH.PROB.EVENTS.MORE_LESS_LIKELY",
+      "topic": "likelihood-events",
+      "type": "reason",
+      "rep": [
+        "context",
+        "balls"
+      ],
+      "en": "Compare two everyday events: which is more likely and which is less likely",
+      "zh": "比较两件事：哪件更可能、哪件更不可能",
+      "primary": "BC.MATH.G1.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.EVENTS.NEVER_SOMETIMES_ALWAYS"
+      ],
+      "misc": [
+        "prob.more_less_swap",
+        "prob.wish_decides"
+      ],
+      "hints": "probLine、balls"
+    },
+    {
+      "id": "YY.MATH.FIN.COINS.VALUES",
+      "topic": "coins",
+      "type": "concept",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Know the value of each Canadian coin: nickel, dime, quarter, loonie and toonie",
+      "zh": "知道每种加拿大硬币值多少：nickel、dime、quarter、loonie、toonie",
+      "primary": "BC.MATH.G1.NUM.03",
+      "prereq": [],
+      "misc": [
+        "coin.size_means_value",
+        "coin.value_mixup"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FIN.COINS.COUNT_SAME",
+      "topic": "coins",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Count a set of the same coin (nickels by 5s, dimes by 10s, loonies by 1s, toonies by 2s)",
+      "zh": "数一堆同一种硬币（nickel 5 个 5 个数、dime 10 个 10 个数、loonie 1 个 1 个数、toonie 2 个 2 个数）",
+      "primary": "BC.MATH.G1.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.VALUES",
+        "YY.MATH.NUM.COUNT20.SKIP_2_5"
+      ],
+      "misc": [
+        "coin.count_not_value",
+        "coin.value_mixup",
+        "count.skip_wrong_step"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FIN.EXCHANGE.WANTS_NEEDS",
+      "topic": "coins",
+      "type": "apply",
+      "rep": [
+        "context"
+      ],
+      "en": "Use coins to buy things, and tell wants from needs",
+      "zh": "用硬币买东西，分清「想要」和「需要」",
+      "primary": "BC.MATH.G1.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.COUNT_SAME"
+      ],
+      "misc": [
+        "fin.want_as_need",
+        "coin.more_coins_more_money",
+        "coin.count_not_value"
+      ],
+      "hints": "groups、dataTable"
+    }
+  ]
+}

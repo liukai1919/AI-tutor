@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.INCREASE.DESCRIBE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmunzyuw8pi78j0",
+   "level": 1,
+   "question": "Look at 3, 6, 9, 12. What number is added each time?",
+   "options": [
+    "3",
+    "2",
+    "6",
+    "4"
+   ],
+   "answerIndex": 0,
+   "explain": "From 3 to 6, you count 4, 5, 6 — that is 3 more. Every step adds 3. The trap is to pick a number you already see in the list, like 6.",
+   "tags": [
+    "ok",
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8n4b7o7",
+   "level": 1,
+   "question": "Look at 5, 8, 11, 14. How many do you add each time?",
+   "options": [
+    "4",
+    "3",
+    "5",
+    "8"
+   ],
+   "answerIndex": 1,
+   "explain": "From 5 to 8 is 3 more. Same from 8 to 11. The rule is always add 3. Do not pick a number from the list as the answer.",
+   "tags": [
+    "other",
+    "ok",
+    "pat.position_as_value",
+    "pat.first_gap_only"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8el9l38",
+   "level": 1,
+   "question": "Look at 10, 15, 20, 25. What is added each time?",
+   "options": [
+    "4",
+    "10",
+    "5",
+    "25"
+   ],
+   "answerIndex": 2,
+   "explain": "From 10 to 15 is 5 more. Same from 15 to 20. The rule is add 5 each time. The trap is to pick 10 just because it is the first number in the list.",
+   "tags": [
+    "pat.first_gap_only",
+    "pat.position_as_value",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8pq28xy",
+   "level": 1,
+   "question": "Look at 7, 9, 11, 13. How many more each time?",
+   "options": [
+    "7",
+    "9",
+    "4",
+    "2"
+   ],
+   "answerIndex": 3,
+   "explain": "From 7 to 9 is 2 more. From 9 to 11 is also 2 more. The rule is add 2 each time. Do not pick 7 or 9 just because they are in the list.",
+   "tags": [
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8j9rhrg",
+   "level": 2,
+   "question": "Mia collects shells. She has 4, then 7, then 10, then 13. How many more shells each time?",
+   "options": [
+    "3",
+    "4",
+    "7",
+    "10"
+   ],
+   "answerIndex": 0,
+   "explain": "From 4 to 7 is 3 more. From 7 to 10 is also 3 more. Mia adds 3 shells each time. The trap is to pick 4 or 7 from the list.",
+   "tags": [
+    "ok",
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8zad0vl",
+   "level": 2,
+   "question": "Tom stacks blocks. Row 1 has 5, row 2 has 8, row 3 has 11. How many more blocks in each new row?",
+   "options": [
+    "5",
+    "3",
+    "8",
+    "2"
+   ],
+   "answerIndex": 1,
+   "explain": "From 5 to 8 is 3 more. Each new row has 3 more blocks. Do not pick 5 or 8 — those are numbers in the list, not the rule.",
+   "tags": [
+    "pat.position_as_value",
+    "ok",
+    "pat.first_gap_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8p89adk",
+   "level": 2,
+   "question": "A snail climbs 6 cm, then 9 cm, then 12 cm, then 15 cm. How many cm does it add each time?",
+   "options": [
+    "6",
+    "12",
+    "3",
+    "9"
+   ],
+   "answerIndex": 2,
+   "explain": "From 6 to 9 is 3 more. Each step the snail adds 3 cm. The number 6 is where it starts, not how much it adds.",
+   "tags": [
+    "pat.position_as_value",
+    "other",
+    "ok",
+    "pat.first_gap_only"
+   ]
+  },
+  {
+   "qid": "qmunzyuw878wqh2",
+   "level": 2,
+   "question": "Lily saves 3 dollars, then 7, then 11, then 15. How many dollars more each time?",
+   "options": [
+    "15",
+    "7",
+    "3",
+    "4"
+   ],
+   "answerIndex": 3,
+   "explain": "From 3 to 7 is 4 more. From 7 to 11 is also 4 more. Lily adds 4 dollars each time. The trap is to pick 3 or 7 from the list.",
+   "tags": [
+    "other",
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8ow7dna",
+   "level": 3,
+   "question": "A pattern is 6, 9, 12, 15, 18. Sam says the rule is add 4 each time. What is wrong with Sam's answer?",
+   "options": [
+    "6 to 9 is 3 more",
+    "Add 4 is right",
+    "It goes back to 6",
+    "The 5th one is 5"
+   ],
+   "answerIndex": 0,
+   "explain": "From 6 to 9 is 3 more, not 4. Sam counted the gap wrong. The real rule is add 3 each time.",
+   "tags": [
+    "ok",
+    "other",
+    "pat.grow_as_repeat",
+    "pat.position_as_value"
+   ]
+  },
+  {
+   "qid": "qmunzyuw83hwnd1",
+   "level": 3,
+   "question": "One pattern is 4, 7, 10, 13. Another is 2, 6, 10, 14. Which one adds a bigger number each time?",
+   "options": [
+    "The first one",
+    "The second one",
+    "They add the same",
+    "Neither adds more"
+   ],
+   "answerIndex": 1,
+   "explain": "The first adds 3 each time. The second adds 4 each time. So the second adds a bigger number. The trap is to guess without checking both gaps.",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8itbp3k",
+   "level": 3,
+   "question": "A pattern is 8, 12, 16, 20. Jay says the rule is add 8 each time. What should Jay say instead?",
+   "options": [
+    "Add 2 each time",
+    "Add 8 each time",
+    "Add 4 each time",
+    "Add 20 each time"
+   ],
+   "answerIndex": 2,
+   "explain": "From 8 to 12 is 4 more. Jay picked 8 because it is the first number, but the rule is add 4 each time.",
+   "tags": [
+    "pat.first_gap_only",
+    "other",
+    "ok",
+    "pat.position_as_value"
+   ]
+  },
+  {
+   "qid": "qmunzyuw8gblupc",
+   "level": 3,
+   "question": "A pattern is 6, 11, 16, 21. Priya says it adds 6 each time. What is the real rule?",
+   "options": [
+    "Yes, add 6",
+    "No, add 3",
+    "No, add 11",
+    "No, add 5"
+   ],
+   "answerIndex": 3,
+   "explain": "From 6 to 11 is 5 more, not 6. Priya picked the starting number by mistake. The real rule is add 5 each time.",
+   "tags": [
+    "pat.position_as_value",
+    "pat.first_gap_only",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

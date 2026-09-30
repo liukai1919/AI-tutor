@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.CONCRETE_RULE.USE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo739346sfd2s",
+   "level": 1,
+   "question": "从 3 开始，每次加 5。第 4 个数是多少？",
+   "options": [
+    "18",
+    "13",
+    "14",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "第 4 个数要加 3 次 5：3→8→13→18。容易踩的坑是只加了 2 次（得 13）或把 3 和 5 搞反了。",
+   "tags": [
+    "ok",
+    "pat.change_count_off",
+    "pat.start_step_swap",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934ax4iq0",
+   "level": 1,
+   "question": "从 10 开始，每次加 6。第 3 个数是多少？",
+   "options": [
+    "16",
+    "22",
+    "26",
+    "18"
+   ],
+   "answerIndex": 1,
+   "explain": "第 3 个数加 2 次 6：10→16→22。不是加 3 次（那样得 28），因为第 1 个数已经是 10 了。",
+   "tags": [
+    "pat.change_count_off",
+    "ok",
+    "pat.start_step_swap",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934r3hugh",
+   "level": 1,
+   "question": "从 2 开始，每次加 8。第 4 个数是多少？",
+   "options": [
+    "34",
+    "14",
+    "26",
+    "32"
+   ],
+   "answerIndex": 2,
+   "explain": "第 4 个数加 3 次 8：2→10→18→26。加了 4 次就会多算，得 34，那就过了。",
+   "tags": [
+    "pat.change_count_off",
+    "pat.start_step_swap",
+    "ok",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934k2xhqb",
+   "level": 1,
+   "question": "从 6 开始，每次加 4。第 5 个数是多少？",
+   "options": [
+    "18",
+    "20",
+    "28",
+    "22"
+   ],
+   "answerIndex": 3,
+   "explain": "第 5 个数加 4 次 4：6→10→14→18→22。只加 3 次得 18，用 4×5 得 20，都是常见错。",
+   "tags": [
+    "pat.change_count_off",
+    "pat.step_times_position",
+    "pat.start_step_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo73934k8yevx",
+   "level": 2,
+   "question": "小明从 1 号格开始跳，每次往前跳 4 格。跳到第 4 个位置时，在第几号格？",
+   "options": [
+    "13",
+    "9",
+    "7",
+    "16"
+   ],
+   "answerIndex": 0,
+   "explain": "从 1 开始加 3 次 4：1→5→9→13。是加 3 次不是 4 次，因为 1 号格已经是第 1 个位置了。",
+   "tags": [
+    "ok",
+    "pat.change_count_off",
+    "pat.start_step_swap",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934c4kltg",
+   "level": 2,
+   "question": "莉莉从第 3 级楼梯开始数，每次往上数 7 级。数到第 3 次时，在第几级？",
+   "options": [
+    "10",
+    "17",
+    "13",
+    "21"
+   ],
+   "answerIndex": 1,
+   "explain": "从 3 开始加 2 次 7：3→10→17。只加 1 次得 10，把 3 和 7 搞反得 13，都是常见错。",
+   "tags": [
+    "pat.change_count_off",
+    "ok",
+    "pat.start_step_swap",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934ry3th8",
+   "level": 2,
+   "question": "妈妈让乐乐每天数硬币，周一有 5 个，以后每天多 6 个。到周五（第 5 天）有几个？",
+   "options": [
+    "35",
+    "26",
+    "29",
+    "30"
+   ],
+   "answerIndex": 2,
+   "explain": "从 5 开始加 4 次 6：5→11→17→23→29。5 天里只加了 4 次，加 5 次就得多算一天。",
+   "tags": [
+    "pat.change_count_off",
+    "pat.start_step_swap",
+    "ok",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934puz0v5",
+   "level": 2,
+   "question": "小凯在沙滩摆贝壳，第 1 堆 4 个，以后每堆比前一堆多 9 个。第 3 堆有几个？",
+   "options": [
+    "13",
+    "27",
+    "17",
+    "22"
+   ],
+   "answerIndex": 3,
+   "explain": "从 4 开始加 2 次 9：4→13→22。只加 1 次得 13，算 9×3 得 27，都是容易踩的坑。",
+   "tags": [
+    "pat.change_count_off",
+    "pat.step_times_position",
+    "pat.start_step_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo73934gdd3bf",
+   "level": 3,
+   "question": "小杰写了：7, 12, 17, __, 27。规律是每次加 5。空格填几？",
+   "options": [
+    "22",
+    "26",
+    "17",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "17 加 5 得 22，22 再加 5 得 27，刚好对上。填 20 是算了 5×4，忘了起始数是 7。",
+   "tags": [
+    "ok",
+    "pat.start_step_swap",
+    "pat.change_count_off",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934cuamgw",
+   "level": 3,
+   "question": "小杰的存钱罐，第 1 天有 6 个硬币，以后每天多 8 个。到第 4 天有几个？",
+   "options": [
+    "22",
+    "30",
+    "26",
+    "32"
+   ],
+   "answerIndex": 1,
+   "explain": "从 6 开始加 3 次 8：6→14→22→30。第 4 天是加了 3 次，不是 4 次，因为第 1 天已经是 6 了。",
+   "tags": [
+    "pat.change_count_off",
+    "ok",
+    "pat.start_step_swap",
+    "pat.step_times_position"
+   ]
+  },
+  {
+   "qid": "qmuo73934c3pi6k",
+   "level": 3,
+   "question": "从 5 开始，每次加 6。小美说第 5 个数是 35。她错在哪？",
+   "options": [
+    "她算了 6 乘 5",
+    "她把 5 和 6 搞反了",
+    "她多加了一次 6",
+    "她少加了一次 6"
+   ],
+   "answerIndex": 2,
+   "explain": "第 5 个数要加 4 次 6：5→11→17→23→29。小美加了 5 次才得 35，多加了一次。",
+   "tags": [
+    "pat.step_times_position",
+    "pat.start_step_swap",
+    "ok",
+    "pat.change_count_off"
+   ]
+  },
+  {
+   "qid": "qmuo73934tkj5fi",
+   "level": 3,
+   "question": "妈妈让乐乐画圆点：第 1 排 3 个，以后每排比上一排多 5 个。第 5 排有几个？",
+   "options": [
+    "18",
+    "17",
+    "25",
+    "23"
+   ],
+   "answerIndex": 3,
+   "explain": "从 3 开始加 4 次 5：3→8→13→18→23。第 5 排加了 4 次，加 5 次就成第 6 排了。",
+   "tags": [
+    "pat.change_count_off",
+    "pat.start_step_swap",
+    "pat.step_times_position",
+    "ok"
+   ]
+  }
+ ]
+}

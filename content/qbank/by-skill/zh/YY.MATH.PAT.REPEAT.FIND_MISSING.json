@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.FIND_MISSING",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunsxis8qs180p",
+   "level": 1,
+   "question": "猫 狗 兔 猫 狗 鱼 猫 狗 兔 里有一个放错了。它应该是：",
+   "options": [
+    "兔",
+    "狗",
+    "猫",
+    "鱼"
+   ],
+   "answerIndex": 0,
+   "explain": "每三个一组是猫、狗、兔。第6个该是兔，鱼放错了。容易把前面出现过的动物都混进规律里。",
+   "tags": [
+    "ok",
+    "pat.repeat_last",
+    "pat.restart_core",
+    "pat.translate_changes_core"
+   ]
+  },
+  {
+   "qid": "qmunsxis87kkkdn",
+   "level": 1,
+   "question": "红 蓝 绿 红 蓝 ___ 红 蓝 绿 里缺了一个。是：",
+   "options": [
+    "红",
+    "绿",
+    "蓝",
+    "黄"
+   ],
+   "answerIndex": 1,
+   "explain": "三个一组是红、蓝、绿。蓝后面该接绿。最容易错的是直接重复前面看到的蓝，或者从头再来写红。",
+   "tags": [
+    "pat.restart_core",
+    "ok",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis8ih54gp",
+   "level": 1,
+   "question": "鱼 猫 狗 鱼 猫 兔 鱼 猫 狗 里有一个放错了。它应该是：",
+   "options": [
+    "猫",
+    "鱼",
+    "狗",
+    "兔"
+   ],
+   "answerIndex": 2,
+   "explain": "每三个一组是鱼、猫、狗。第6个该是狗，兔是放错的。坑在于把没出现在规律里的动物也当成答案。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "pat.translate_changes_core"
+   ]
+  },
+  {
+   "qid": "qmunsxis8mkd32m",
+   "level": 1,
+   "question": "猫 鱼 狗 猫 鱼 ___ 猫 鱼 狗 里缺了一个。是：",
+   "options": [
+    "猫",
+    "鱼",
+    "兔",
+    "狗"
+   ],
+   "answerIndex": 3,
+   "explain": "三个一组是猫、鱼、狗。鱼后面该接狗。别把没出现的动物（兔）选进来，也别重复前面的鱼。",
+   "tags": [
+    "pat.restart_core",
+    "pat.repeat_last",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunsxis8fcz7d4",
+   "level": 2,
+   "question": "妈妈在餐桌上摆彩色盘子：红 蓝 绿 红 蓝 绿 红 蓝 蓝。她发现最后一个放错了。那个位置应该是：",
+   "options": [
+    "绿",
+    "红",
+    "蓝",
+    "黄"
+   ],
+   "answerIndex": 0,
+   "explain": "三个一组是红、蓝、绿。第9个该是绿，蓝是放错的。容易犯的错是觉得前面有蓝，蓝就「也算对」。",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis89zydv4",
+   "level": 2,
+   "question": "Tommy 用动物积木搭一列小火车：猫 狗 鱼 猫 狗 鱼 猫 狗 ___。最后一块积木掉了。掉的那块是：",
+   "options": [
+    "猫",
+    "鱼",
+    "狗",
+    "兔"
+   ],
+   "answerIndex": 1,
+   "explain": "三个一组是猫、狗、鱼。第9个该是鱼。别把没出现过的动物（兔）选进来，也别回头重新数。",
+   "tags": [
+    "pat.restart_core",
+    "ok",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis8lkok8l",
+   "level": 2,
+   "question": "小华用颜色给蝴蝶翅膀上色：蓝 红 绿 蓝 红 绿 蓝 红 红。她发现有一个涂错了。那个位置应该是：",
+   "options": [
+    "红",
+    "蓝",
+    "绿",
+    "黄"
+   ],
+   "answerIndex": 2,
+   "explain": "三个一组是蓝、红、绿。第9个该是绿，红是涂错的。容易把前面出现的红当成「也没错」。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis8maqe88",
+   "level": 2,
+   "question": "奶奶织围巾用彩色珠子：红 白 蓝 红 白 蓝 红 白 ___。少了一颗珠子。少的那颗是：",
+   "options": [
+    "白",
+    "红",
+    "黄",
+    "蓝"
+   ],
+   "answerIndex": 3,
+   "explain": "三个一组是红、白、蓝。第9个该是蓝。别只重复前面的白，也别从头数成红。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunsxis87jyr6f",
+   "level": 3,
+   "question": "Lily 用贴纸贴了一面墙：星星 月亮 太阳 星星 月亮 太阳 星星 月亮 星星。她发现有一个贴错了。那个位置应该换成：",
+   "options": [
+    "太阳",
+    "星星",
+    "月亮",
+    "云朵"
+   ],
+   "answerIndex": 0,
+   "explain": "三个一组是星星、月亮、太阳。第9个该是太阳，星星贴错了。最容易错的是觉得星星在前面出现过就「也行」。",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis8sf4w0t",
+   "level": 3,
+   "question": "Jake 用颜色贴纸贴墙：蓝 紫 橙 蓝 紫 橙 蓝 紫 紫 蓝 紫。他发现有一个贴错了。那个位置应该是：",
+   "options": [
+    "紫",
+    "橙",
+    "蓝",
+    "黄"
+   ],
+   "answerIndex": 1,
+   "explain": "三个一组是蓝、紫、橙。第9个该是橙，紫贴错了。容易只看到前面有两个紫就觉得紫「没问题」。",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsxis8hwgf4c",
+   "level": 3,
+   "question": "Ben 用贴纸贴了一条长龙：猫 狗 鱼 猫 狗 鱼 猫 狗 鱼 猫 狗 鱼 猫 狗 ___。最后一块掉了。掉的那块是：",
+   "options": [
+    "猫",
+    "狗",
+    "鱼",
+    "兔"
+   ],
+   "answerIndex": 2,
+   "explain": "三个一组是猫、狗、鱼。数到第15个该是鱼。别从头重新数，也别把没出现过的动物选进来。",
+   "tags": [
+    "pat.restart_core",
+    "pat.repeat_last",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunuvh2euz1o1a",
+   "level": 3,
+   "question": "爷爷编手链，规律是：红 蓝 绿 黄 红 蓝 绿 黄 红 蓝 绿 绿 红 蓝。有一颗放错了。那颗应该是：",
+   "options": [
+    "蓝",
+    "红",
+    "绿",
+    "黄"
+   ],
+   "answerIndex": 3,
+   "explain": "核心是「红 蓝 绿 黄」四个一组。第十二颗是这一组的第四个，该放黄。最容易错：看到前面是绿，就顺手再放一颗绿。",
+   "tags": [
+    "pat.translate_changes_core",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunuvh2e6fj44i",
+   "level": 3,
+   "question": "小华用彩带编花，规律是：大 小 长 短 大 小 长 短 大 小 长 ___ 大 小。少了一段。少的那段是：",
+   "options": [
+    "短",
+    "大",
+    "长",
+    "小"
+   ],
+   "answerIndex": 0,
+   "explain": "核心是「大 小 长 短」四段一组。第十二段是这一组的第四个，该是短。最容易错：刚写完长，就再写一个长。",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "pat.translate_changes_core"
+   ]
+  },
+  {
+   "qid": "qmunuvh2eulo4dg",
+   "level": 3,
+   "question": "规律是「兔 蛙 鸟 鱼」一组。小华写到：兔 蛙 鸟 鱼 兔 蛙 鸟。他说下一个写「兔」，因为该重新开始了。下一个该写什么？",
+   "options": [
+    "兔",
+    "鱼",
+    "蛙",
+    "鸟"
+   ],
+   "answerIndex": 1,
+   "explain": "写到「鸟」是这一组的第三个，下一个该接着写鱼。小华错在没走完一组就从头重来了。",
+   "tags": [
+    "pat.restart_core",
+    "ok",
+    "pat.translate_changes_core",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmunuvh2eqhadwl",
+   "level": 3,
+   "question": "小美和小伙伴排队做操，规律是：快 慢 停 走 快 慢 停 走 快 慢 停 停 快 慢。有一个动作做错了。那个应该是：",
+   "options": [
+    "快",
+    "停",
+    "走",
+    "慢"
+   ],
+   "answerIndex": 2,
+   "explain": "核心是「快 慢 停 走」四个一组。第十二个是这一组的第四个，该做走。最容易错：看到前面是停，就再做一次停。",
+   "tags": [
+    "pat.restart_core",
+    "pat.repeat_last",
+    "ok",
+    "pat.translate_changes_core"
+   ]
+  }
+ ]
+}

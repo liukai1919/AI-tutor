@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.GROW_SHRINK.EXTEND",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo6dz66z4h44g",
+   "level": 1,
+   "question": "数列是 60, 55, 50, 45, ?。下一个数是什么？",
+   "options": [
+    "40",
+    "50",
+    "44",
+    "35"
+   ],
+   "answerIndex": 0,
+   "explain": "每次减 5，45 再减 5 就是 40。容易把减看成加，就写成了 50。",
+   "tags": [
+    "ok",
+    "pat.grow_direction_wrong",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz669supww",
+   "level": 1,
+   "question": "数列是 3, 6, 10, 15, ?。下一个数是什么？",
+   "options": [
+    "18",
+    "21",
+    "12",
+    "20"
+   ],
+   "answerIndex": 1,
+   "explain": "每次加的数在变大：+3、+4、+5，下次 +6，所以是 21。容易只拿头两个的差 3 去加，就写成 18。",
+   "tags": [
+    "pat.first_gap_only",
+    "ok",
+    "pat.grow_direction_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66c7qvru",
+   "level": 1,
+   "question": "数列是 20, 30, 40, 50, ?。下一个数是什么？",
+   "options": [
+    "40",
+    "55",
+    "60",
+    "70"
+   ],
+   "answerIndex": 2,
+   "explain": "每次加 10，50 再加 10 就是 60。容易把加看成减，就写成了 40。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66zzkok9",
+   "level": 1,
+   "question": "数列是 90, 80, 70, 60, ?。下一个数是什么？",
+   "options": [
+    "55",
+    "70",
+    "40",
+    "50"
+   ],
+   "answerIndex": 3,
+   "explain": "每次减 10，60 再减 10 就是 50。容易把减看成加，就写成了 70。",
+   "tags": [
+    "other",
+    "pat.grow_direction_wrong",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66exnggb",
+   "level": 2,
+   "question": "Max 每天往存钱罐里放 5 元。第 1 天 5 元，第 2 天 10 元，第 3 天 15 元。第 4 天存罐里有几元？",
+   "options": [
+    "20",
+    "25",
+    "10",
+    "15"
+   ],
+   "answerIndex": 0,
+   "explain": "每天加 5 元，15 再加 5 就是 20 元。容易忘了加还是写 15，或者多加成 25。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.grow_direction_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66itd5xq",
+   "level": 2,
+   "question": "Lily 有 70 支蜡笔，每天画完用掉 10 支。70、60、50、? 第 4 天还剩几支？",
+   "options": [
+    "60",
+    "40",
+    "30",
+    "45"
+   ],
+   "answerIndex": 1,
+   "explain": "每天少 10 支，50 再少 10 就是 40 支。容易把「少」看成「多」，就写成了 60。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66htb8qk",
+   "level": 2,
+   "question": "Noah 在花园里种萝卜。第 1 天 1 棵，第 2 天 3 棵，第 3 天 6 棵，第 4 天 10 棵。第 5 天种几棵？",
+   "options": [
+    "12",
+    "14",
+    "15",
+    "8"
+   ],
+   "answerIndex": 2,
+   "explain": "每次多种的数在变大：+2、+3、+4，下次 +5，所以是 15 棵。容易只拿头两个的差 2 去加，就写成 12。",
+   "tags": [
+    "pat.first_gap_only",
+    "other",
+    "ok",
+    "pat.grow_direction_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66wiafv9",
+   "level": 2,
+   "question": "Olive 有 55 颗弹珠，每轮游戏少 5 颗。55、50、45、? 第 4 轮后剩几颗？",
+   "options": [
+    "35",
+    "30",
+    "50",
+    "40"
+   ],
+   "answerIndex": 3,
+   "explain": "每轮少 5 颗，45 再少 5 就是 40 颗。容易把「少」看成「多」，就写成了 50。",
+   "tags": [
+    "other",
+    "other",
+    "pat.grow_direction_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66cq9aef",
+   "level": 3,
+   "question": "Leo 从 5 开始，每次加 4。他数到 17 后停下来，又接着数了 2 次。最后停在哪？",
+   "options": [
+    "25",
+    "9",
+    "21",
+    "29"
+   ],
+   "answerIndex": 0,
+   "explain": "每次加 4，17 之后还要加两次：21、25。容易只加了一次就停了，写成 21。",
+   "tags": [
+    "ok",
+    "pat.grow_direction_wrong",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66riu3fj",
+   "level": 3,
+   "question": "一个递减规律里有个空：42, 36, __, 24, 18。空里应该填几？",
+   "options": [
+    "36",
+    "30",
+    "28",
+    "32"
+   ],
+   "answerIndex": 1,
+   "explain": "每次减 6，36 减 6 是 30，30 再减 6 正好接上 24。容易减错步长，写成 28 或 32。",
+   "tags": [
+    "pat.grow_direction_wrong",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66wl9jw7",
+   "level": 3,
+   "question": "Kelowna 的一个果摊有 50 个苹果，每小时卖掉 8 个。过了 2 小时，还剩几个？",
+   "options": [
+    "42",
+    "66",
+    "34",
+    "26"
+   ],
+   "answerIndex": 2,
+   "explain": "每小时少 8 个，50 减 8 是 42，42 再减 8 是 34。容易只减了一次就停了，写成 42。",
+   "tags": [
+    "other",
+    "pat.grow_direction_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6dz66wm520z",
+   "level": 3,
+   "question": "Lily 写了一个递减规律：30, 25, 20, 15。她说下一个是 20，因为「往回走了一步」。她错在哪？",
+   "options": [
+    "该换个数减，她只看了头两个差",
+    "该减 10 她只减了 5，少减了",
+    "她 30 就写错了，跟规律没关系",
+    "该减 5 得 10，她却加了 5"
+   ],
+   "answerIndex": 3,
+   "explain": "递减规律每次减 5，15 应该再减 5 得 10。她反方向加了 5 才写成 20，方向弄反了。",
+   "tags": [
+    "pat.first_gap_only",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

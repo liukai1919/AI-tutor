@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.INCREASE.EXTEND",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunzr7jtcqlg97",
+   "level": 1,
+   "question": "接着写下去：3，7，11，15，？",
+   "options": [
+    "19",
+    "17",
+    "3",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "每次加 4，15 + 4 = 19。递增规律是越数越大，不是数完从头来。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.grow_as_repeat",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtbw54bn",
+   "level": 1,
+   "question": "接着写下去：2，7，12，17，？",
+   "options": [
+    "2",
+    "22",
+    "21",
+    "17"
+   ],
+   "answerIndex": 1,
+   "explain": "每次加 5，17 + 5 = 22。注意不是回到开头的 2。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtpxu1cr",
+   "level": 1,
+   "question": "接着写下去：4，8，12，16，？",
+   "options": [
+    "16",
+    "4",
+    "20",
+    "22"
+   ],
+   "answerIndex": 2,
+   "explain": "每次加 4，16 + 4 = 20。别把递增当成重复。",
+   "tags": [
+    "other",
+    "pat.grow_as_repeat",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jt26d4ix",
+   "level": 1,
+   "question": "接着写下去：6，11，16，21，？",
+   "options": [
+    "6",
+    "25",
+    "21",
+    "26"
+   ],
+   "answerIndex": 3,
+   "explain": "每次加 5，21 + 5 = 26。不是回到 6，也不是停在 21。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtiqef89",
+   "level": 2,
+   "question": "Leo 爬楼梯数台阶，数到 3、6、9、12。下一个数是多少？",
+   "options": [
+    "15",
+    "12",
+    "3",
+    "14"
+   ],
+   "answerIndex": 0,
+   "explain": "每次数 3 个台阶，12 + 3 = 15。递增规律不会从头再数。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.grow_as_repeat",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtiqhoj9",
+   "level": 2,
+   "question": "Emma 的零花钱（加元）：周一 5 元、周二 10 元、周三 15 元、周四 20 元。周五是多少？",
+   "options": [
+    "5",
+    "25",
+    "20",
+    "24"
+   ],
+   "answerIndex": 1,
+   "explain": "每天多 5 元，20 + 5 = 25 元。不是回到周一的 5 元。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtrm2nf3",
+   "level": 2,
+   "question": "Sam 在花园种花：第 1 天 2 棵、第 2 天 6 棵、第 3 天 10 棵、第 4 天 14 棵。第 5 天种几棵？",
+   "options": [
+    "2",
+    "14",
+    "18",
+    "16"
+   ],
+   "answerIndex": 2,
+   "explain": "每天多种 4 棵，14 + 4 = 18。不是回到第 1 天的 2 棵。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtlc2eo8",
+   "level": 2,
+   "question": "小明每天跑步：2 圈、4 圈、6 圈、8 圈。明天跑几圈？",
+   "options": [
+    "2",
+    "9",
+    "8",
+    "10"
+   ],
+   "answerIndex": 3,
+   "explain": "每天多跑 2 圈，8 + 2 = 10 圈。不是回到 2 圈重新跑。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtr8f8tr",
+   "level": 3,
+   "question": "小美有 4 颗弹珠，每天多 3 颗。第 2 天有 7 颗，第 3 天有 10 颗。第 5 天有几颗？",
+   "options": [
+    "16",
+    "4",
+    "10",
+    "13"
+   ],
+   "answerIndex": 0,
+   "explain": "每天多 3 颗：第 4 天 13 颗，第 5 天 16 颗。从第 3 天到第 5 天要加两次 3。",
+   "tags": [
+    "ok",
+    "pat.grow_as_repeat",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jt5jghn4",
+   "level": 3,
+   "question": "找缺的数：2，6，12，__，30",
+   "options": [
+    "2",
+    "20",
+    "16",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "差是 4、6、8、10，每次多 2。12 + 8 = 20，20 + 10 = 30 对上了。只拿头一个差 4 去加就错了。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "ok",
+    "pat.first_gap_only",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtoxukvp",
+   "level": 3,
+   "question": "小华说 4，8，12，16 的下一个是 4，因为「数完了要重来」。他错在哪？",
+   "options": [
+    "他没错，数完 16 就该回到 4",
+    "他应该用 16 减 4 得 12",
+    "每次加 4，不是数完重来",
+    "他应该答 8，因为 4 加 4 是 8"
+   ],
+   "answerIndex": 2,
+   "explain": "这个规律是每次加 4，越来越大的递增，不是数完 16 又回到 4 的重复规律。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzr7jtq0030n",
+   "level": 3,
+   "question": "小杰每天存 2 元。第 1 天 3 元，第 2 天 5 元，第 3 天 7 元。第 5 天存多少元？",
+   "options": [
+    "3",
+    "7",
+    "9",
+    "11"
+   ],
+   "answerIndex": 3,
+   "explain": "每天多 2 元：第 4 天 9 元，第 5 天 11 元。从第 3 天到第 5 天要加两次 2，不能只加一次。",
+   "tags": [
+    "pat.grow_as_repeat",
+    "other",
+    "other",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.FIN.COINS.MIXED_TO_100",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo2cvjobn0s0y",
+   "level": 1,
+   "question": "你有 2 个 dime 和 1 个 nickel。一共多少分？",
+   "options": [
+    "25分",
+    "30分",
+    "3分",
+    "15分"
+   ],
+   "answerIndex": 0,
+   "explain": "2 个 dime 是 20 分，加 nickel 的 5 分，一共 25 分。换了一种硬币就要换新的面值去加，别一直加 10。",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjohiq5pk",
+   "level": 1,
+   "question": "你有 3 个 nickel 和 1 个 quarter。一共多少分？",
+   "options": [
+    "35分",
+    "40分",
+    "4分",
+    "20分"
+   ],
+   "answerIndex": 1,
+   "explain": "3 个 nickel 是 15 分，加 quarter 的 25 分，一共 40 分。注意 quarter 是 25 分，不是 20 分。",
+   "tags": [
+    "coin.value_mixup",
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjoiqud66",
+   "level": 1,
+   "question": "你有 1 个 quarter 和 2 个 dime。一共多少分？",
+   "options": [
+    "40分",
+    "3分",
+    "45分",
+    "75分"
+   ],
+   "answerIndex": 2,
+   "explain": "quarter 25 分加 2 个 dime 的 20 分，一共 45 分。不要把 quarter 记成 20 分，它是 25 分。",
+   "tags": [
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "ok",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjoxi5laf",
+   "level": 1,
+   "question": "你有 2 个 quarter 和 1 个 nickel。一共多少分？",
+   "options": [
+    "45分",
+    "3分",
+    "75分",
+    "55分"
+   ],
+   "answerIndex": 3,
+   "explain": "2 个 quarter 是 50 分，加 nickel 5 分，一共 55 分。数到 nickel 时换成加 5，别一直加 25。",
+   "tags": [
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjo63bq8t",
+   "level": 2,
+   "question": "你往存钱罐里放了 1 个 quarter 和 1 个 dime。你现在有多少分？",
+   "options": [
+    "35分",
+    "30分",
+    "2分",
+    "50分"
+   ],
+   "answerIndex": 0,
+   "explain": "quarter 25 分加 dime 10 分，一共 35 分。容易把 quarter 记成 20 分，记住它是 25 分。",
+   "tags": [
+    "ok",
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjow0ums9",
+   "level": 2,
+   "question": "小明往罐子里放了 3 个 dime，又放了 2 个 nickel。罐子里一共多少分？",
+   "options": [
+    "5分",
+    "40分",
+    "25分",
+    "50分"
+   ],
+   "answerIndex": 1,
+   "explain": "3 个 dime 是 30 分，2 个 nickel 是 10 分，加在一起 40 分。加的是每枚硬币的面值，不是数硬币有几枚。",
+   "tags": [
+    "coin.count_not_value",
+    "ok",
+    "coin.value_mixup",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjoi8ka6a",
+   "level": 2,
+   "question": "你口袋里有 1 个 quarter、1 个 dime 和 1 个 nickel。一共有多少分？",
+   "options": [
+    "3分",
+    "35分",
+    "40分",
+    "75分"
+   ],
+   "answerIndex": 2,
+   "explain": "25 加 10 加 5 等于 40 分。dime 是 10 分，别和 nickel 的 5 分搞混。",
+   "tags": [
+    "coin.count_not_value",
+    "coin.value_mixup",
+    "ok",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjocj9l2p",
+   "level": 3,
+   "question": "一盒彩笔要 45 分。你有 1 个 quarter、2 个 dime 和 1 个 nickel。花完后还剩多少分？",
+   "options": [
+    "4分",
+    "0分",
+    "55分",
+    "5分"
+   ],
+   "answerIndex": 3,
+   "explain": "先算你一共有 25+20+5=50 分，再减去 45 分，还剩 5 分。别把 quarter 记成 20 分，否则就会算出 0。",
+   "tags": [
+    "coin.count_not_value",
+    "coin.value_mixup",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjocc50x8",
+   "level": 3,
+   "question": "你的存钱罐里有 1 个 quarter。妈妈又给了你 2 个 dime 和 1 个 nickel。你现在一共多少分？",
+   "options": [
+    "50分",
+    "75分",
+    "45分",
+    "4分"
+   ],
+   "answerIndex": 0,
+   "explain": "25+20+5=50 分。每换一种硬币就换一种面值去加，别从 quarter 开始一直加 25。",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjoe4ujoi",
+   "level": 3,
+   "question": "小美有 1 个 quarter 和 1 个 nickel。她说一共 25 分。她错在哪？",
+   "options": [
+    "quarter 应该是 10 分才对",
+    "她忘了加 nickel 的 5 分",
+    "她只数了 2 个硬币的个数",
+    "nickel 应该是 25 分才对"
+   ],
+   "answerIndex": 1,
+   "explain": "quarter 25 分加 nickel 5 分，应该是 30 分。她只算了 quarter，把 nickel 的 5 分漏掉了。",
+   "tags": [
+    "coin.value_mixup",
+    "ok",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo2cvjo7l4787",
+   "level": 3,
+   "question": "你想存到 70 分。罐子里已经有 1 个 quarter 和 2 个 dime。你还差多少分？",
+   "options": [
+    "20分",
+    "35分",
+    "25分",
+    "3分"
+   ],
+   "answerIndex": 2,
+   "explain": "先算罐子里有 25+20=45 分，再用 70 减 45，还差 25 分。dime 是 10 分不是 5 分，别记混了。",
+   "tags": [
+    "other",
+    "coin.value_mixup",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuoen8v824vae6",
+   "level": 2,
+   "question": "星期六你在社区中心帮着卖旧书。你的钱包里有 3 个 dime 和 2 个 quarter。一共多少分（cent）？",
+   "options": [
+    "50 分",
+    "65 分",
+    "5 分",
+    "80 分"
+   ],
+   "answerIndex": 3,
+   "explain": "先数大的：2 个 quarter 是 25、50 分，再 10 个 10 个接着数 dime：60、70、80。换了一种硬币就要换步子，不能一直按 10 往下数。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.value_mixup",
+    "coin.count_not_value",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuoen8v8f4ozxp",
+   "level": 2,
+   "question": "你把空瓶子拿去回收站退钱。工作人员给了你 2 个 dime 和 5 个 nickel。这些钱一共多少分？",
+   "options": [
+    "45 分",
+    "70 分",
+    "7 分",
+    "35 分"
+   ],
+   "answerIndex": 0,
+   "explain": "2 个 dime 是 20 分，5 个 nickel 是 5、10、15、20、25 分，20 加 25 等于 45 分。记住 dime 是 10 分、nickel 是 5 分，别把面值记混。",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoen8v8hg219m",
+   "level": 2,
+   "question": "学校爆米花日，你排在队里数钱。口袋里有 4 个 nickel 和 2 个 quarter。一共多少分？",
+   "options": [
+    "30 分",
+    "70 分",
+    "6 分",
+    "60 分"
+   ],
+   "answerIndex": 1,
+   "explain": "2 个 quarter 是 50 分，4 个 nickel 是 20 分，50 加 20 等于 70 分。一个 quarter 是 25 分，不是 20 分，也不能全部 5 个 5 个数。",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value",
+    "coin.value_mixup"
+   ]
+  },
+  {
+   "qid": "qmuoen8v8yz4fvs",
+   "level": 2,
+   "question": "爷爷给你一些硬币存（save）起来。你把 1 个 dime、2 个 quarter 和 3 个 nickel 放进存钱罐。罐子里一共多少分？",
+   "options": [
+    "60 分",
+    "6 分",
+    "75 分",
+    "65 分"
+   ],
+   "answerIndex": 2,
+   "explain": "2 个 quarter 是 50 分，1 个 dime 是 10 分，3 个 nickel 是 15 分，50 加 10 加 15 等于 75 分。要把面值加起来，不是数有几个硬币。",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "ok",
+    "coin.value_mixup"
+   ]
+  }
+ ]
+}

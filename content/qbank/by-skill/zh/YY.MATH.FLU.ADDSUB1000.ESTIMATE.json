@@ -1,0 +1,272 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB1000.ESTIMATE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo4zgwiqhrhwd",
+   "level": 1,
+   "question": "在数轴上，462 在 400 和 500 之间。462 离 400 有 62 个格，离 500 有 38 个格。取整（round）到最接近的整百数，是多少？",
+   "options": [
+    "500",
+    "400",
+    "460",
+    "600"
+   ],
+   "answerIndex": 0,
+   "explain": "462 离 500 只有 38 格，比离 400 的 62 格更近，所以取整成 500。最容易错的是只看前两位就把 46 凑成 40。",
+   "tags": [
+    "ok",
+    "round.nearest_wrong",
+    "round.nearest_wrong",
+    "round.nearest_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwigthsoc",
+   "level": 1,
+   "question": "在数轴上，380 在 300 和 400 之间。380 离 300 有 80 个格，离 400 有 20 个格。取整（round）到最接近的整百数，是多少？",
+   "options": [
+    "300",
+    "400",
+    "500",
+    "380"
+   ],
+   "answerIndex": 1,
+   "explain": "380 离 400 只有 20 格，比离 300 的 80 格近得多，所以取整成 400。注意：取整到百位看的是离哪一整百更近，不是保留原数。",
+   "tags": [
+    "round.nearest_wrong",
+    "ok",
+    "round.nearest_wrong",
+    "est.exact_wanted"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwiohu4hh",
+   "level": 1,
+   "question": "在数轴上，438 离 400 比离 500 近，256 离 300 比离 200 近。估算（estimate）438＋256，先把两个数取整再相加，大约是多少？",
+   "options": [
+    "694",
+    "大约 600",
+    "大约 700",
+    "大约 900"
+   ],
+   "answerIndex": 2,
+   "explain": "438 取整成 400，256 取整成 300，400＋300＝700。估算要说「大约」，不用非算出 694 这个准确数。",
+   "tags": [
+    "est.exact_wanted",
+    "round.nearest_wrong",
+    "ok",
+    "round.nearest_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwis97bos",
+   "level": 1,
+   "question": "在数轴上，520 离 500 比离 600 近，280 离 300 比离 200 近。估算（estimate）520－280，先把两个数取整再相减，大约是多少？",
+   "options": [
+    "大约 100",
+    "240",
+    "大约 300",
+    "大约 200"
+   ],
+   "answerIndex": 3,
+   "explain": "520 取整成 500，280 取整成 300，500－300＝200。估算差和估算和方法一样：先取整，再算。",
+   "tags": [
+    "round.nearest_wrong",
+    "est.exact_wanted",
+    "round.nearest_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwiua5en4",
+   "level": 2,
+   "question": "Emma 算了 478＋215＝693。她先估算 478≈500，215≈200，500＋200＝700。用估算检查，693 合理吗？",
+   "options": [
+    "合理，693 接近估算的 700",
+    "合理，因为他算出了准确数",
+    "不合理，估算和答案必须一样",
+    "不合理，693 和 700 不一样"
+   ],
+   "answerIndex": 0,
+   "explain": "估算 700 和答案 693 只差 7，说明加法大概率对了。估算不是要求答案必须等于 700，只要「差不多」就行。",
+   "tags": [
+    "ok",
+    "est.no_check",
+    "est.exact_wanted",
+    "est.exact_wanted"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwio0wjzv",
+   "level": 2,
+   "question": "Ben 有 634 张贴纸，用了 278 张。他估算 634≈600，278≈300，600－300＝300。他算出 634－278＝356。估算能帮他判断 356 合理吗？",
+   "options": [
+    "不能，356 离 300 有 56",
+    "能，356 接近估算的 300",
+    "不能，356 不是 300",
+    "不能，应该正好是 300"
+   ],
+   "answerIndex": 1,
+   "explain": "估算 300，答案 356 差 56，在合理范围内，说明减法没大错。估算检查看的是「差不差不多」，不是「等不等」。",
+   "tags": [
+    "est.no_check",
+    "ok",
+    "est.exact_wanted",
+    "est.exact_wanted"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwibocnvj",
+   "level": 2,
+   "question": "Lily 估算 825－346：她把 825 取整成 800，346 取整成 300，800－300＝500。她做对了吗？",
+   "options": [
+    "做错了，应算出准确数 479",
+    "做错了，346 应取整成 400",
+    "做对了，800－300＝500",
+    "做错了，825 应取整成 900"
+   ],
+   "answerIndex": 2,
+   "explain": "825 离 800 有 25 格、离 900 有 75 格，取 800 对；346 离 300 有 46 格、离 400 有 54 格，取 300 对。Lily 没问题。",
+   "tags": [
+    "est.exact_wanted",
+    "round.nearest_wrong",
+    "ok",
+    "round.nearest_wrong"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwi4m7o4l",
+   "level": 2,
+   "question": "Sam 算了 567＋342＝1209。他估算 567≈600，342≈300，600＋300＝900。用估算检查，1209 合理吗？",
+   "options": [
+    "合理，1209 接近 900",
+    "合理，因为他每步都认真算了",
+    "不合理，应该正好是 900",
+    "不合理，离 900 太远了"
+   ],
+   "answerIndex": 3,
+   "explain": "估算 900，但 1209 比 900 多了 300，差距太大，说明加法一定算错了。估算能帮你一眼发现大错误。",
+   "tags": [
+    "est.no_check",
+    "est.no_check",
+    "est.exact_wanted",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwim6f7nv",
+   "level": 3,
+   "question": "Jake 说：估算 347＋256，我直接算出 603，这就是估算。他错在哪？",
+   "options": [
+    "他给了准确数，应说「大约 600」",
+    "他取整错了，347 应取整成 400",
+    "他取整错了，256 应取整成 200",
+    "他做对了，603 就是估算"
+   ],
+   "answerIndex": 0,
+   "explain": "347 取整成 300，256 取整成 300，300＋300＝600，所以估算应说「大约 600」。直接写 603 是准确数，不是估算。",
+   "tags": [
+    "ok",
+    "round.nearest_wrong",
+    "round.nearest_wrong",
+    "est.exact_wanted"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwir5w1pg",
+   "level": 3,
+   "question": "Mia 有 723 颗糖豆，给了弟弟 248 颗，又吃了 156 颗。她估算：723≈700，248≈200，156≈200，700－200－200＝300。她算出 723－248－156＝319。用估算检查，319 合理吗？",
+   "options": [
+    "不合理，319 不是 300",
+    "合理，319 接近估算的 300",
+    "不合理，319 比 300 大了",
+    "合理，因为他认真算了"
+   ],
+   "answerIndex": 1,
+   "explain": "估算 300，答案 319 只差 19，很接近，说明两步减法大概率对了。估算检查看的是「差不差不多」，不是「等不等」。",
+   "tags": [
+    "est.exact_wanted",
+    "ok",
+    "est.no_check",
+    "est.no_check"
+   ]
+  },
+  {
+   "qid": "qmuo4zgwirdch16",
+   "level": 3,
+   "question": "Owen 说：估算 842－367，把 842 取整成 800，367 取整成 400，800－400＝400。朋友说他取整错了。谁对？",
+   "options": [
+    "朋友对，367 应取整成 300",
+    "朋友对，842 应取整成 900",
+    "Owen 对，两个数都取对了",
+    "都不对，应算出准确数 475"
+   ],
+   "answerIndex": 2,
+   "explain": "367 离 400 有 33 格、离 300 有 67 格，取 400 没错；842 离 800 有 42 格、离 900 有 58 格，取 800 也没错。Owen 做对了。",
+   "tags": [
+    "round.nearest_wrong",
+    "round.nearest_wrong",
+    "ok",
+    "est.exact_wanted"
+   ]
+  },
+  {
+   "qid": "qmuof7r7e13ypi1",
+   "level": 3,
+   "question": "Liam 存了 365 加元，妹妹存了 248 加元。他们想合买一辆 700 加元的自行车。用估算（estimate）判断：两人的钱大约一共多少，够不够？",
+   "options": [
+    "大约 500 元，够了",
+    "大约 700 元，正好够",
+    "要先算出 613 元",
+    "大约 600 元，不够"
+   ],
+   "answerIndex": 3,
+   "explain": "365 约 400，248 约 200，400＋200＝600，大约 600 元，比 700 元少，所以不够。坑是把 248 取整成 300：248 离 200 更近。",
+   "tags": [
+    "est.no_check",
+    "round.nearest_wrong",
+    "est.exact_wanted",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuof7r7e01f3f0",
+   "level": 3,
+   "question": "Chloe 在估算 648 减一个数。她把 648 取整（round）成 600，把那个数取整成 200，600－200＝400。那个数可能是下面哪个？",
+   "options": [
+    "216",
+    "481",
+    "342",
+    "263"
+   ],
+   "answerIndex": 0,
+   "explain": "取整后是 200，说明这个数离 200 最近，216 就是这样。坑是看头一位数字：263 和 342 都离 300 更近，481 离 500 更近。",
+   "tags": [
+    "ok",
+    "round.nearest_wrong",
+    "round.nearest_wrong",
+    "round.nearest_wrong"
+   ]
+  },
+  {
+   "qid": "qmuof7r7fvcvnvv",
+   "level": 3,
+   "question": "Leo 估算 706＋189。他说：706 取整（round）成 700，189 取整成 100，700＋100＝800。他说得对吗？",
+   "options": [
+    "对，因为 189 的百位是 1",
+    "错，189 要取整成 200",
+    "对，估算估出多少都不用检查",
+    "错，估算必须算出准确数 895"
+   ],
+   "answerIndex": 1,
+   "explain": "189 离 200 只有 11，离 100 有 89，所以取整成 200，估算是 700＋200＝900。坑是只看百位数字就取整，还有以为估算要给出准确的 895。",
+   "tags": [
+    "round.nearest_wrong",
+    "ok",
+    "est.no_check",
+    "est.exact_wanted"
+   ]
+  }
+ ]
+}

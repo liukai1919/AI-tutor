@@ -1,0 +1,386 @@
+{
+ "id": "YY.MATH.FIN.MONEY100.COUNT",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmuobthi91dv6dm",
+   "level": 1,
+   "question": "You have a five-dollar bill, 1 quarter, and 2 dimes. How much is that?",
+   "options": [
+    "5 dollars and 45 cents",
+    "5 dollars and 75 cents",
+    "50 dollars and 0 cents",
+    "4 dollars and 0 cents"
+   ],
+   "answerIndex": 0,
+   "explain": "Add the cents together: 25 plus 10 plus 10 is 45 cents. The trap is adding 25 again for the dime, like you are still counting quarters.",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.cents_dollars_mix",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuobthi9qm0y6i",
+   "level": 1,
+   "question": "You have a ten-dollar bill, 1 dime, and 1 quarter. How much is that?",
+   "options": [
+    "10 dollars and 20 cents",
+    "10 dollars and 35 cents",
+    "45 dollars and 0 cents",
+    "3 dollars and 0 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "The dime is 10 and the quarter is 25, so the cents add to 35. Be careful not to keep adding 10 after you switch to the quarter.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuobthi9r2moxo",
+   "level": 2,
+   "question": "Mia earned some money at a bake sale. She got a ten-dollar bill, 2 quarters, and 1 nickel. How much did she earn?",
+   "options": [
+    "65 dollars and 0 cents",
+    "10 dollars and 75 cents",
+    "10 dollars and 55 cents",
+    "4 dollars and 0 cents"
+   ],
+   "answerIndex": 2,
+   "explain": "Count the cents first: 25 plus 25 plus 5 is 55 cents. The trap is adding 25 for the nickel, as if it were another quarter.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuobthi9l5fdzf",
+   "level": 2,
+   "question": "At the market, Leo paid the seller. She counted his money: a twenty-dollar bill, 1 quarter, and 3 nickels. How much did Leo pay?",
+   "options": [
+    "60 dollars and 0 cents",
+    "5 dollars and 0 cents",
+    "20 dollars and 75 cents",
+    "20 dollars and 40 cents"
+   ],
+   "answerIndex": 3,
+   "explain": "The quarter is 25 and the three nickels add 15, making 40 cents. Be careful not to keep adding 25 after you switch to nickels.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuobthi9b4berw",
+   "level": 2,
+   "question": "You have a five-dollar bill, 2 quarters, and 1 dime. Which is the right way to count it?",
+   "options": [
+    "Start with the dollars, then add the cents",
+    "Add the bill and the cents as one number",
+    "Count the pieces, not what each is worth",
+    "Keep adding the quarter value for every coin"
+   ],
+   "answerIndex": 0,
+   "explain": "Keep the dollars in their own group and the cents in another, then combine them at the end. The trap is adding 5 and 60 as if they were the same kind of number.",
+   "tags": [
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuobthi91l2ozp",
+   "level": 3,
+   "question": "Ben starts with a ten-dollar bill and 1 nickel. He earns 3 dimes helping his mom. How much does he have now?",
+   "options": [
+    "45 dollars and 0 cents",
+    "10 dollars and 35 cents",
+    "5 dollars and 0 cents",
+    "10 dollars and 25 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "After the nickel (5 cents), add 10 for each dime: 5 plus 10 plus 10 plus 10 is 35 cents. Do not add 5 for the dimes, because a dime is worth 10, not 5.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuobthi993b21d",
+   "level": 3,
+   "question": "You have a five-dollar bill, 1 quarter, and some dimes. The total is 5 dollars and 75 cents. How many dimes do you have?",
+   "options": [
+    "80",
+    "2",
+    "5",
+    "75"
+   ],
+   "answerIndex": 2,
+   "explain": "Subtract the quarter from 75: 75 minus 25 is 50, and 50 divided by 10 gives 5 dimes. The trap is adding 25 three times and saying 2 dimes.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuobthi9n6j38r",
+   "level": 3,
+   "question": "Tom counts a five-dollar bill, 2 quarters, and 1 dime. He says: 5, 25, 50, 75. What did Tom do wrong?",
+   "options": [
+    "He added the bill and cents as one number",
+    "He counted pieces instead of adding values",
+    "He started with 10 instead of with 5",
+    "He added 25 for the dime instead of 10"
+   ],
+   "answerIndex": 3,
+   "explain": "After 50, a dime adds 10 to make 60, not 25 to make 75. The trap is keeping the old step (adding 25) after you switch to a smaller coin.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.count_not_value",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogt8fo67bb7m",
+   "level": 1,
+   "question": "Here is a group of money: one five-dollar bill, 1 quarter, and 2 nickels. How much is the group worth?",
+   "options": [
+    "5 dollars and 35 cents",
+    "5 dollars and 75 cents",
+    "5 dollars and 3 cents",
+    "40 cents and no dollars"
+   ],
+   "answerIndex": 0,
+   "explain": "Say the bill first, then count the coins: 5 dollars, then 25, 30, 35 cents. After the quarter you must switch to counting by 5 for each nickel.",
+   "tags": [
+    "ok",
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogt8fojoii61",
+   "level": 1,
+   "question": "Look at this group of money: one ten-dollar bill, 3 dimes, and 2 nickels. How much is the group worth?",
+   "options": [
+    "10 dollars and 5 cents",
+    "10 dollars and 40 cents",
+    "50 cents and no dollars",
+    "10 dollars and 50 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "Count dimes by 10 and nickels by 5: 10, 20, 30, 35, 40 cents. With the bill that is 10 dollars and 40 cents, not 40 coins or 40 alone.",
+   "tags": [
+    "coin.count_not_value",
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuogt8fow9cgmh",
+   "level": 1,
+   "question": "A group of money has one twenty-dollar bill, 3 dimes, and 1 quarter. How much is the group worth?",
+   "options": [
+    "75 cents and no dollars",
+    "20 dollars and 40 cents",
+    "20 dollars and 55 cents",
+    "20 dollars and 4 cents"
+   ],
+   "answerIndex": 2,
+   "explain": "The three dimes make 30 cents, then the quarter adds 25 to make 55 cents. A quarter is worth 25, so do not keep jumping by 10.",
+   "tags": [
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogt8fotuiwly",
+   "level": 1,
+   "question": "This group of money has 2 five-dollar bills, 1 quarter, and 1 nickel. How much is in the group?",
+   "options": [
+    "10 dollars and 2 cents",
+    "40 cents and no dollars",
+    "10 dollars and 50 cents",
+    "10 dollars and 30 cents"
+   ],
+   "answerIndex": 3,
+   "explain": "Two five-dollar bills make 10 dollars, then count 25 and 30 cents. The nickel adds only 5 cents, not another 25.",
+   "tags": [
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogt8foyjiwul",
+   "level": 2,
+   "question": "Noah sells lemonade on his street. A neighbour pays him with one ten-dollar bill, 2 dimes, and 2 quarters. How much did Noah earn?",
+   "options": [
+    "10 dollars and 70 cents",
+    "10 dollars and 4 cents",
+    "10 dollars and 40 cents",
+    "80 cents and no dollars"
+   ],
+   "answerIndex": 0,
+   "explain": "Count the dimes by 10, then each quarter by 25: 10, 20, 45, 70 cents. Dollars and cents stay apart, so he earned 10 dollars and 70 cents.",
+   "tags": [
+    "ok",
+    "coin.count_not_value",
+    "coin.keep_old_step",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogt8fowj3m6p",
+   "level": 2,
+   "question": "Maya helps at a farm stand on Saturday. She is paid with one twenty-dollar bill, one five-dollar bill, 2 dimes, and 1 nickel. How much was Maya paid?",
+   "options": [
+    "25 dollars and 30 cents",
+    "25 dollars and 25 cents",
+    "50 cents and no dollars",
+    "25 dollars and 3 cents"
+   ],
+   "answerIndex": 1,
+   "explain": "Add the bills to get 25 dollars, then count 10, 20, 25 cents. The nickel adds 5 cents, so the last jump is small.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogt8fonqhy6u",
+   "level": 2,
+   "question": "Jack has one ten-dollar bill, 3 dimes, and 1 nickel. Which is the right way to count his money?",
+   "options": [
+    "10 dollars, then 10, 20, 30, 40 cents",
+    "10 dollars, and then 1, 2, 3, 4 cents",
+    "10 dollars, then 10, 20, 30, 35 cents",
+    "10, 20, 30, 40, and then 45 cents in all"
+   ],
+   "answerIndex": 2,
+   "explain": "Start with the bill, then count dimes by 10 and the nickel by 5: 10 dollars, then 10, 20, 30, 35 cents. The bill is dollars, so it never joins the cents count.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "ok",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogt8fopj7yg3",
+   "level": 2,
+   "question": "Priya buys berries at the farmers market. She pays with one five-dollar bill, 2 nickels, and 2 quarters. How much did Priya pay?",
+   "options": [
+    "5 dollars and 20 cents",
+    "5 dollars and 4 cents",
+    "65 cents and no dollars",
+    "5 dollars and 60 cents"
+   ],
+   "answerIndex": 3,
+   "explain": "The two nickels make 10 cents, then each quarter adds 25: 35, 60 cents. So she paid 5 dollars and 60 cents.",
+   "tags": [
+    "coin.keep_old_step",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuogt8fohnv9cb",
+   "level": 3,
+   "question": "Jade has one five-dollar bill and 2 nickels. Her brother has 3 dimes. They put all their money together. How much do they have?",
+   "options": [
+    "5 dollars and 40 cents",
+    "45 cents and no dollars",
+    "5 dollars and 25 cents",
+    "5 dollars and 5 cents"
+   ],
+   "answerIndex": 0,
+   "explain": "Two nickels make 10 cents, and three dimes add 30 more, so the coins are 40 cents. With the bill that is 5 dollars and 40 cents.",
+   "tags": [
+    "ok",
+    "coin.cents_dollars_mix",
+    "coin.keep_old_step",
+    "coin.count_not_value"
+   ]
+  },
+  {
+   "qid": "qmuogt8fowjlee1",
+   "level": 3,
+   "question": "Ella has one twenty-dollar bill, 3 dimes, and some nickels. Altogether she has 20 dollars and 50 cents. How many nickels does Ella have?",
+   "options": [
+    "2 nickels",
+    "4 nickels",
+    "20 nickels",
+    "no nickels"
+   ],
+   "answerIndex": 1,
+   "explain": "The dimes make 30 cents, so the nickels must make 20 more cents. Count on by 5: 35, 40, 45, 50 — that is 4 nickels.",
+   "tags": [
+    "coin.keep_old_step",
+    "ok",
+    "coin.count_not_value",
+    "coin.cents_dollars_mix"
+   ]
+  },
+  {
+   "qid": "qmuogt8fo5h2yfe",
+   "level": 3,
+   "question": "Ravi rakes leaves for two neighbours. On Saturday he earns one five-dollar bill and 2 quarters. On Sunday he earns one ten-dollar bill and 1 dime. How much did Ravi earn in all?",
+   "options": [
+    "15 dollars and 3 cents",
+    "75 cents and no dollars",
+    "15 dollars and 60 cents",
+    "15 dollars and 75 cents"
+   ],
+   "answerIndex": 2,
+   "explain": "Add the bills first: 5 and 10 make 15 dollars. Then count the coins: 25, 50, 60 cents, because the dime adds only 10.",
+   "tags": [
+    "coin.count_not_value",
+    "coin.cents_dollars_mix",
+    "ok",
+    "coin.keep_old_step"
+   ]
+  },
+  {
+   "qid": "qmuogt8fogflxww",
+   "level": 3,
+   "question": "Sam counts one twenty-dollar bill, 2 dimes, and 3 nickels. He says: 20 dollars, then 10, 20, 30, 40, 50 cents. What did Sam do wrong?",
+   "options": [
+    "He counted the coins instead of their values.",
+    "He said the bill before counting the coins.",
+    "He counted the twenty-dollar bill as 20 cents.",
+    "He kept counting by 10 after the dimes."
+   ],
+   "answerIndex": 3,
+   "explain": "Nickels are worth 5 cents, so after 20 cents he should say 25, 30, 35. The money is 20 dollars and 35 cents.",
+   "tags": [
+    "coin.count_not_value",
+    "other",
+    "coin.cents_dollars_mix",
+    "ok"
+   ]
+  }
+ ]
+}

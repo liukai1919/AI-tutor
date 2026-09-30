@@ -1,0 +1,310 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB1000.SUB_REGROUP",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo4wivu4h7vg8",
+   "level": 1,
+   "question": "我有 3 个百、4 个十和 5 个一。我拿走了 1 个百、2 个十和 8 个一。还剩多少？",
+   "options": [
+    "217",
+    "223",
+    "227",
+    "117"
+   ],
+   "answerIndex": 0,
+   "explain": "5 不够减 8，向十位借 1 变 15−8=7；十位变 3，3−2=1；百位 3−1=2。坑：借了十位后，十位要少 1。",
+   "tags": [
+    "ok",
+    "calc.smaller_from_larger",
+    "calc.regroup_forget",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuvu4g61",
+   "level": 1,
+   "question": "我有 5 个百、6 个十和 2 个一。我拿走了 2 个百、3 个十和 9 个一。还剩多少？",
+   "options": [
+    "337",
+    "323",
+    "333",
+    "223"
+   ],
+   "answerIndex": 1,
+   "explain": "2 不够减 9，借 1 变 12−9=3；十位变 5，5−3=2；百位 5−2=3。坑：借位后十位要减 1 再算。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "ok",
+    "calc.regroup_forget",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivu3j6tp1",
+   "level": 1,
+   "question": "我有 5 个百、3 个十和 2 个一。我拿走了 1 个百、7 个十和 8 个一。还剩多少？",
+   "options": [
+    "446",
+    "444",
+    "354",
+    "254"
+   ],
+   "answerIndex": 2,
+   "explain": "个位借十位变 12−8=4；十位变 2，2 不够减 7，再向百位借变 12−7=5；百位变 4，4−1=3。坑：连续借位时百位和十位各少 1。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "calc.regroup_forget",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivu7dii2k",
+   "level": 1,
+   "question": "我有 6 个百、0 个十和 4 个一。我拿走了 2 个百、3 个十和 8 个一。还剩多少？",
+   "options": [
+    "434",
+    "566",
+    "376",
+    "366"
+   ],
+   "answerIndex": 3,
+   "explain": "十位是 0 不能借，先向百位借：6→5，十位 0→10；再借 1 给个位：十位 10→9，个位 4→14。14−8=6，9−3=6，5−2=3。坑：隔 0 退位后十位是 9 不是 10。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "other",
+    "calc.across_zero",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuvjo3ee",
+   "level": 2,
+   "question": "Sara 有 483 颗弹珠。她给了 Tom 217 颗。Sara 还剩多少颗？",
+   "options": [
+    "266",
+    "276",
+    "274",
+    "166"
+   ],
+   "answerIndex": 0,
+   "explain": "个位 3−7 不够，借 1 变 13−7=6；十位 8→7，7−1=6；百位 4−2=2。坑：借位后十位要少 1 再减。",
+   "tags": [
+    "ok",
+    "calc.regroup_forget",
+    "calc.smaller_from_larger",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivurqi35h",
+   "level": 2,
+   "question": "图书馆有 725 本书。今天借出去了 348 本。还剩多少本？",
+   "options": [
+    "423",
+    "377",
+    "427",
+    "373"
+   ],
+   "answerIndex": 1,
+   "explain": "个位 5−8 不够，借 1 变 15−8=7；十位变 1，1−4 不够，再借 1 变 11−4=7；百位 7→6，6−3=3。坑：十位借完变 1 还是不够，得继续向百位借。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "ok",
+    "calc.regroup_forget",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivudk08l4",
+   "level": 2,
+   "question": "一辆火车有 900 个座位。已经有 435 个人坐了。还有多少个空位？",
+   "options": [
+    "535",
+    "475",
+    "465",
+    "365"
+   ],
+   "answerIndex": 2,
+   "explain": "个位和十位都是 0，先从百位借：9→8，十位 0→10；再借给个位：十位 10→9，个位 0→10。10−5=5，9−3=6，8−4=4。坑：隔 0 退位后十位是 9。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "calc.across_zero",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuemx6rz",
+   "level": 2,
+   "question": "Mia 的存钱罐里有 542 分。她花了 178 分买了一支笔。还剩多少分？",
+   "options": [
+    "436",
+    "368",
+    "434",
+    "364"
+   ],
+   "answerIndex": 3,
+   "explain": "个位 2−8 不够，借 1 变 12−8=4；十位 4→3，3−7 不够，再借 1 变 13−7=6；百位 5→4，4−1=3。坑：连续退位时十位和百位都要少 1。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "other",
+    "calc.regroup_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuickx3i",
+   "level": 2,
+   "question": "学校有 800 张纸。周一用了 264 张，周二又用了 137 张。还剩多少张？",
+   "options": [
+    "399",
+    "536",
+    "409",
+    "401"
+   ],
+   "answerIndex": 0,
+   "explain": "先算 800−264=536（十位是 0 要隔 0 退位），再算 536−137=399（个位和十位都要退位）。坑：两步都要退位，别漏掉十位。",
+   "tags": [
+    "ok",
+    "other",
+    "calc.regroup_forget",
+    "calc.smaller_from_larger"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuky7bje",
+   "level": 3,
+   "question": "一个数减去 274 等于 365。这个数是多少？",
+   "options": [
+    "539",
+    "639",
+    "699",
+    "649"
+   ],
+   "answerIndex": 1,
+   "explain": "用加法：365+274。个位 5+4=9，十位 6+7=13 写 3 进 1，百位 3+2+1=6，得 639。坑：进位的 1 别忘加到百位。",
+   "tags": [
+    "calc.regroup_forget",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo4wivuq84mzt",
+   "level": 3,
+   "question": "Leo 算 503 − 178，写成了 425。他哪一步做错了？",
+   "options": [
+    "他十位是 0，该先向百位借 1 再借给个位",
+    "他十位应算 10−7=3，不是 9−7=2",
+    "他百位借出后应写 4，他却用了 5 来减",
+    "他每位都该用大数减小数来算才对"
+   ],
+   "answerIndex": 2,
+   "explain": "503−178 时百位 5 借出后变 4，再用 4−1=3 得 325。Leo 忘了百位已经变 4，仍用 5−1=4，所以百位多算了 1。",
+   "tags": [
+    "other",
+    "calc.across_zero",
+    "ok",
+    "calc.smaller_from_larger"
+   ]
+  },
+  {
+   "qid": "qmuo4wivur8cpso",
+   "level": 3,
+   "question": "一个三位数减去 345 等于 108。这个三位数是多少？",
+   "options": [
+    "443",
+    "455",
+    "463",
+    "453"
+   ],
+   "answerIndex": 3,
+   "explain": "用加法：108+345。个位 8+5=13 写 3 进 1，十位 0+4+1=5，百位 1+3=4，得 453。坑：进位的 1 要加到十位上。",
+   "tags": [
+    "calc.regroup_forget",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuof4f7oeclh30",
+   "level": 3,
+   "question": "Burnaby 的体育馆有 604 个座位。上半场坐了 138 人，下半场又来了 96 人。现在还有多少个空座位？",
+   "options": [
+    "370",
+    "340",
+    "430",
+    "480"
+   ],
+   "answerIndex": 0,
+   "explain": "先把两次来的人加起来：138+96=234，再算 604−234=370。604 的十位是 0，退位（regroup）要先从百位借：百位变 5，十位变 10，最容易错的是只把个位借了、忘了把百位减 1。",
+   "tags": [
+    "ok",
+    "calc.across_zero",
+    "calc.smaller_from_larger",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmuof4f7o1u6sip",
+   "level": 3,
+   "question": "Noah 存了 500 加元。他买了一辆自行车，还剩 236 加元。这辆自行车多少加元？",
+   "options": [
+    "336",
+    "264",
+    "234",
+    "374"
+   ],
+   "answerIndex": 1,
+   "explain": "要求的是减数，用 500−236=264。百位先借给十位（十位变 9），十位再借给个位：10−6=4，9−3=6，4−2=2。写成 264 的那个对；检验 500−264=236。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "ok",
+    "calc.across_zero",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmuof4f7oikod7l",
+   "level": 3,
+   "question": "社区跑步活动有 405 人报名。上午到了 128 人，下午又到了 69 人。还有多少人没来？",
+   "options": [
+    "158",
+    "392",
+    "208",
+    "318"
+   ],
+   "answerIndex": 2,
+   "explain": "先算来了多少人：128+69=197，再算 405−197=208。405 的十位是 0，要连着借两次（百位→十位→个位），不能把 0−9 直接写成 9。",
+   "tags": [
+    "calc.across_zero",
+    "calc.smaller_from_larger",
+    "ok",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmuof4f7oyp9uzy",
+   "level": 3,
+   "question": "Ava 算 700 − 264，写成了 536。她错在哪一步？",
+   "options": [
+    "每一位都算错，因为应该用大的减小的",
+    "个位不必退位，因为0减4可以直接写成4",
+    "十位没法退位，因为十位上写的是0",
+    "百位忘了减1，因为十位退位后百位是6"
+   ],
+   "answerIndex": 3,
+   "explain": "个位向十位借，十位是 0，就先从百位借：百位变 6，十位变 9。10−4=6，9−6=3，6−2=4，差（difference）是 436。Ava 借走了 1 却没把百位的 7 改成 6。",
+   "tags": [
+    "calc.smaller_from_larger",
+    "calc.regroup_forget",
+    "calc.across_zero",
+    "ok"
+   ]
+  }
+ ]
+}

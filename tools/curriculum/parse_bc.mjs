@@ -238,7 +238,33 @@ const STRAND_PREFIX_RULES = [
   ["two-variable linear relations", "patterning"],
   ["multi-step one-variable linear equations", "patterning"],
   ["spatial proportional reasoning", "geometry-measurement"],
-  ["statistics in society", "data-probability"]
+  ["statistics in society", "data-probability"],
+  // —— Grade 1–3 ——（沿用 G4 的归法：数量变化 / 等式这些代数前置归 patterning，financial literacy 归 number；
+  // number concepts / addition and subtraction facts / increasing and decreasing patterns / one-to-one correspondence
+  // 已被上面 G4 的规则接住）
+  ["ways to make 10", "number"],
+  ["benchmarks of 25", "number"],
+  ["fraction concepts", "number"],
+  ["addition and subtraction to 20", "computational-fluency"],
+  ["addition and subtraction to 100", "computational-fluency"],   // G2「to 100」和 G3「to 1000」都从这走
+  ["multiplication and division concepts", "computational-fluency"],
+  ["repeating patterns", "patterning"],
+  ["repeating and increasing patterns", "patterning"],
+  ["change in quantity", "patterning"],
+  ["meaning of equality and inequality", "patterning"],
+  ["symbolic representation of equality", "patterning"],
+  ["pattern rules using words", "patterning"],
+  ["one-step addition and subtraction equations", "patterning"],
+  ["direct measurement", "geometry-measurement"],
+  ["direct linear measurement", "geometry-measurement"],
+  ["comparison of 2d shapes", "geometry-measurement"],
+  ["multiple attributes of 2d shapes", "geometry-measurement"],
+  ["measurement, using standard units", "geometry-measurement"],
+  ["time concepts", "geometry-measurement"],
+  ["construction of 3d objects", "geometry-measurement"],
+  ["concrete graphs", "data-probability"],
+  ["pictorial representation of concrete graphs", "data-probability"],
+  ["likelihood of", "data-probability"]
 ];
 /* Big Idea 的主线：官网每条大意的 elaboration 第一条就是主线名（"Number: …"），直接认它 */
 const BIG_IDEA_STRAND = [
@@ -347,7 +373,14 @@ function sectionRows(sectionHtml) {
     const spans = [...p.matchAll(/<span class="field-content">/g)];
     if (!spans.length) continue;
     const start = spans[spans.length - 1].index + spans[spans.length - 1][0].length;
-    const end = p.indexOf("</span>", start);
+    // 正文里可能套着别的 <span>（G3 方程那条的弹窗里有 <span>□;</span>），按嵌套深度找配对的 </span>
+    const re = /<\/?span\b[^>]*>/gi;
+    re.lastIndex = start;
+    let depth = 1, end = -1, m;
+    while ((m = re.exec(p))) {
+      depth += m[0][1] === "/" ? -1 : 1;
+      if (depth === 0) { end = m.index; break; }
+    }
     if (end < 0) continue;
     rows.push(p.slice(start, end));
   }

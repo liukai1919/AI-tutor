@@ -1,0 +1,253 @@
+{
+ "id": "YY.MATH.MEAS.NONSTD.UNIT_SIZE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunvqdgsq6nupy",
+   "level": 1,
+   "question": "用铅笔量书桌，量了 4 次。用回形针量同一张书桌，量了 8 次。为什么回形针的数更大？",
+   "options": [
+    "回形针短，要更多才够",
+    "8 比 4 大，回形针就更多",
+    "铅笔和回形针混着量的",
+    "回形针比铅笔大，数应该更大"
+   ],
+   "answerIndex": 0,
+   "explain": "回形针比铅笔短，每次覆盖少，所以量完同一张桌子需要更多个。最容易踩的坑是觉得单位越大数越大，其实正好相反。",
+   "tags": [
+    "ok",
+    "meas.count_ignores_unit",
+    "meas.mixed_units",
+    "meas.bigger_unit_bigger_count"
+   ]
+  },
+  {
+   "qid": "qmunvqdgsk3r9ku",
+   "level": 1,
+   "question": "用大积木量了 6 次，用小积木量了 9 次，量的是同一本书。为什么大积木的数更少？",
+   "options": [
+    "大积木比小积木大，数应该更多",
+    "大积木比小积木长，更少就够",
+    "9 比 6 大，小积木更好",
+    "大小积木混在一起量的"
+   ],
+   "answerIndex": 1,
+   "explain": "大积木比小积木长，每次覆盖更多，所以次数更少。坑是只看到 9 比 6 大，就以为小积木「量得更多」等于更好。",
+   "tags": [
+    "meas.bigger_unit_bigger_count",
+    "ok",
+    "meas.count_ignores_unit",
+    "meas.mixed_units"
+   ]
+  },
+  {
+   "qid": "qmunvqdgsd9pld7",
+   "level": 1,
+   "question": "为什么量长度时，每次用的单位要一样长？",
+   "options": [
+    "因为数不一样大，就不能混",
+    "因为混着用，数就会变多",
+    "因为不一样长，就量不准",
+    "因为混着用才能一次量完"
+   ],
+   "answerIndex": 2,
+   "explain": "单位不一样长，每次覆盖的长度不同，加出来的数就没有意义。坑是觉得混着用「更省事」，其实数出来的数根本不能代表长度。",
+   "tags": [
+    "meas.count_ignores_unit",
+    "meas.bigger_unit_bigger_count",
+    "ok",
+    "meas.mixed_units"
+   ]
+  },
+  {
+   "qid": "qmunvqdgskpdakv",
+   "level": 2,
+   "question": "你要量一张桌子长。手上有 3 个大积木和 6 个小积木。想让量出来的数小一些，该选哪个？",
+   "options": [
+    "小积木，因为它更多",
+    "随便拿，数都一样",
+    "两个都拿，凑在一起",
+    "大积木，因为它更长"
+   ],
+   "answerIndex": 3,
+   "explain": "大积木更长，每次覆盖更多，所以次数更少、数更小。坑是觉得「个数多的」那个单位更大，其实个数多恰恰说明单位小。",
+   "tags": [
+    "meas.bigger_unit_bigger_count",
+    "meas.count_ignores_unit",
+    "meas.mixed_units",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunvqdgsfaz4wj",
+   "level": 2,
+   "question": "你用大积木量沙发量了 5 次。小明用小积木量同一张沙发量了 10 次。为什么小明的数更多？",
+   "options": [
+    "小积木比大积木短",
+    "小积木比大积木大",
+    "10 比 5 大，所以更准",
+    "两种积木混着量的"
+   ],
+   "answerIndex": 0,
+   "explain": "小积木比大积木短，量完同一张沙发需要更多个。坑是觉得数大就说明量得「更准」，其实只是单位小而已。",
+   "tags": [
+    "ok",
+    "meas.bigger_unit_bigger_count",
+    "meas.count_ignores_unit",
+    "meas.mixed_units"
+   ]
+  },
+  {
+   "qid": "qmunvqdgs66tfnx",
+   "level": 2,
+   "question": "你用手掌量了 6 次，又用手指量了 3 次，说「门高 9 个单位」。这样对吗？",
+   "options": [
+    "对的，6 加 3 等于 9",
+    "不对，手掌和手指不一样长",
+    "对的，混着用才能量完",
+    "不对，该用更大的单位"
+   ],
+   "answerIndex": 1,
+   "explain": "手掌和手指不一样长，加出来的 9 没有意义。坑是直接 6 加 3 等于 9，忘了两次用的单位大小不同，不能加。",
+   "tags": [
+    "meas.count_ignores_unit",
+    "ok",
+    "meas.mixed_units",
+    "meas.bigger_unit_bigger_count"
+   ]
+  },
+  {
+   "qid": "qmunvqdgs546a3a",
+   "level": 2,
+   "question": "回形针量了 8 次，铅笔量了 4 次，量的是同一张纸。能说这张纸长 12 个单位吗？",
+   "options": [
+    "能，8 加 4 等于 12",
+    "能，两种混着更快",
+    "不能，单位不一样长",
+    "不能，该用大单位"
+   ],
+   "answerIndex": 2,
+   "explain": "回形针和铅笔不一样长，8 和 4 不能直接加。坑是觉得「两个数加一起就行」，忘了单位要一样大才能加。",
+   "tags": [
+    "meas.count_ignores_unit",
+    "meas.mixed_units",
+    "ok",
+    "meas.bigger_unit_bigger_count"
+   ]
+  },
+  {
+   "qid": "qmunvqdgslhxi6t",
+   "level": 3,
+   "question": "大积木量了 3 次。每 1 个大积木等于 2 个小积木。用小积木量同一块板，要量几次？",
+   "options": [
+    "2 次",
+    "3 次",
+    "5 次",
+    "6 次"
+   ],
+   "answerIndex": 3,
+   "explain": "1 大等于 2 小，所以 3 大就是 2、4、6，一共 6 次。坑是只看到「2」就答 2，或者把 3 和 2 加起来得 5。",
+   "tags": [
+    "meas.bigger_unit_bigger_count",
+    "meas.count_ignores_unit",
+    "meas.mixed_units",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunvqdgsfk9kx5",
+   "level": 3,
+   "question": "回形针量了 10 次，铅笔量了 5 次，量的是同一条围巾。蜡笔比铅笔还长。用蜡笔量，数会怎样？",
+   "options": [
+    "比 5 少",
+    "比 5 多",
+    "还是 5",
+    "5 加 10"
+   ],
+   "answerIndex": 0,
+   "explain": "蜡笔比铅笔还长，每次覆盖更多，所以次数比 5 还少。坑是觉得单位越长数越大，其实越长数越小。",
+   "tags": [
+    "ok",
+    "meas.bigger_unit_bigger_count",
+    "meas.count_ignores_unit",
+    "meas.mixed_units"
+   ]
+  },
+  {
+   "qid": "qmunvqdgstcoytu",
+   "level": 3,
+   "question": "大积木量了 2 次，小积木量了 4 次，量的是同一根棍子。两根这样的棍子接在一起，用小积木量要几次？",
+   "options": [
+    "4 次",
+    "8 次",
+    "6 次",
+    "2 次"
+   ],
+   "answerIndex": 1,
+   "explain": "一根棍子等于 4 个小积木，两根就是 4 加 4 等于 8。坑是拿 2 和 4 加起来得 6，忘了 2 是大积木的次数，不能跟小积木混着加。",
+   "tags": [
+    "meas.bigger_unit_bigger_count",
+    "ok",
+    "meas.count_ignores_unit",
+    "meas.mixed_units"
+   ]
+  },
+  {
+   "qid": "qmunvqdgsy83m98",
+   "level": 3,
+   "question": "小明说：「我用大积木量了 3 次，小红用小积木量了 6 次。我的积木大，所以量法更准。」他错在哪？",
+   "options": [
+    "3 比 6 小，说明量错了",
+    "该大积木加小积木一起量",
+    "积木大数少，量法一样准",
+    "积木大数应该多，3 太少"
+   ],
+   "answerIndex": 2,
+   "explain": "单位大、数少是正常的，两种量法都准。坑是觉得「数小等于量错了」，其实只是单位大而已。",
+   "tags": [
+    "meas.count_ignores_unit",
+    "meas.mixed_units",
+    "ok",
+    "meas.bigger_unit_bigger_count"
+   ]
+  },
+  {
+   "qid": "qmuociyiwj04mju",
+   "level": 1,
+   "question": "大手量了 4 次，小手量了 7 次，同一块板。小明说「小手 7 次，量得比大手好」，错在哪？",
+   "options": [
+    "小手更小，量出的数也更小",
+    "4 加 7 等于 11，量法混了",
+    "7 比 4 大，小手量得更好",
+    "小手一次量得少，次数就多"
+   ],
+   "answerIndex": 3,
+   "explain": "次数多只说明小手一次量得少，不代表量得更好。最容易踩的坑：看到 7 比 4 大，就觉得 7 次一定更好——其实次数多少只跟单位大小有关。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuociyiwrer1tt",
+   "level": 1,
+   "question": "用短蜡笔量了 6 次。换用长蜡笔量同一根筷子，数会怎样？",
+   "options": [
+    "数更小，长蜡笔一次盖得多",
+    "数更大，因为蜡笔变长了",
+    "数不变，因为量的是同一根",
+    "6 加 6 等于 12，量 12 次"
+   ],
+   "answerIndex": 0,
+   "explain": "长蜡笔一次盖得多，所以次数会比 6 少。最容易踩的坑：以为单位变长了数也会变大，其实单位越大、次数越少。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  }
+ ]
+}
