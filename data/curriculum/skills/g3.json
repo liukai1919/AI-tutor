@@ -1,0 +1,1513 @@
+{
+  "schema": "yy-skills/1",
+  "jurisdiction": "BC",
+  "grade": 3,
+  "standardsFile": "bc/grade-3.json",
+  "topics": [
+    {
+      "id": "numbers-to-1000",
+      "zh": "1000 以内的数",
+      "en": "Numbers to 1000",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G3.NUM.01"
+      ]
+    },
+    {
+      "id": "fractions-intro",
+      "zh": "认识分数",
+      "en": "Fraction concepts",
+      "strand": "number",
+      "standards": [
+        "BC.MATH.G3.NUM.02"
+      ]
+    },
+    {
+      "id": "add-sub-to-1000",
+      "zh": "1000 以内的加减法",
+      "en": "Addition & subtraction to 1000",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G3.FLU.01"
+      ]
+    },
+    {
+      "id": "facts-fluency",
+      "zh": "20 以内口算（初步熟练）",
+      "en": "Facts to 20: emerging fluency",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G3.FLU.02"
+      ]
+    },
+    {
+      "id": "mult-div-concepts",
+      "zh": "乘法和除法的意思",
+      "en": "Multiplication & division concepts",
+      "strand": "computational-fluency",
+      "standards": [
+        "BC.MATH.G3.FLU.03"
+      ]
+    },
+    {
+      "id": "pattern-rules",
+      "zh": "递增递减规律与规律法则",
+      "en": "Increasing & decreasing patterns, pattern rules",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G3.PAT.01",
+        "BC.MATH.G3.PAT.02"
+      ]
+    },
+    {
+      "id": "unknown-equations",
+      "zh": "含未知数的加减等式",
+      "en": "Equations with an unknown",
+      "strand": "patterning",
+      "standards": [
+        "BC.MATH.G3.PAT.03"
+      ]
+    },
+    {
+      "id": "measurement-units",
+      "zh": "标准单位：长度、质量、容量",
+      "en": "Standard units: length, mass, capacity",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G3.GEO.01"
+      ]
+    },
+    {
+      "id": "time-units",
+      "zh": "时间单位",
+      "en": "Units of time",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G3.GEO.02"
+      ]
+    },
+    {
+      "id": "solids",
+      "zh": "立体图形",
+      "en": "3D objects",
+      "strand": "geometry-measurement",
+      "standards": [
+        "BC.MATH.G3.GEO.03"
+      ]
+    },
+    {
+      "id": "graphs-tables",
+      "zh": "条形图、象形图和表格",
+      "en": "Bar graphs, pictographs & tables",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G3.DAT.01"
+      ]
+    },
+    {
+      "id": "likelihood-chance",
+      "zh": "可能性：模拟实验",
+      "en": "Likelihood: spinners, bags and coins",
+      "strand": "data-probability",
+      "standards": [
+        "BC.MATH.G3.DAT.02"
+      ]
+    },
+    {
+      "id": "money-to-100",
+      "zh": "100 元以内的钱",
+      "en": "Money to $100",
+      "strand": "number",
+      "domain": "financial-literacy",
+      "standards": [
+        "BC.MATH.G3.NUM.03"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "YY.MATH.NUM.COUNT1000.SKIP",
+      "topic": "numbers-to-1000",
+      "type": "fluency",
+      "rep": [
+        "numberLine",
+        "hundredChart",
+        "symbolic"
+      ],
+      "en": "Skip-count by 3s, 4s, 10s, 25s and 100s from any starting point, forward and backward",
+      "zh": "从任意数开始，按 3、4、10、25、100 顺着数和倒着数",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.COUNT100.SKIP_2_5_10"
+      ],
+      "misc": [
+        "count.skip_wrong_step",
+        "count.decade_crossing",
+        "count.direction_swap"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.NUM.PV1000.HTO",
+      "topic": "numbers-to-1000",
+      "type": "concept",
+      "rep": [
+        "baseTen",
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Show three-digit numbers as hundreds, tens and ones",
+      "zh": "把三位数表示成几个百、几个十和几个一",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV100.TENS_ONES"
+      ],
+      "misc": [
+        "pv.zero_tens_dropped",
+        "pv.place_name_confuse"
+      ],
+      "hints": "baseTen、placeValue"
+    },
+    {
+      "id": "YY.MATH.NUM.PV1000.DIGIT_VALUE",
+      "topic": "numbers-to-1000",
+      "type": "concept",
+      "rep": [
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Give the value of each digit in a number to 1000",
+      "zh": "说出 1000 以内的数里每个数字表示多少",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV1000.HTO",
+        "YY.MATH.NUM.PV100.DIGIT_VALUE"
+      ],
+      "misc": [
+        "pv.digit_not_value",
+        "pv.place_name_confuse"
+      ],
+      "hints": "placeValue、baseTen"
+    },
+    {
+      "id": "YY.MATH.NUM.PV1000.READ_WRITE",
+      "topic": "numbers-to-1000",
+      "type": "represent",
+      "rep": [
+        "symbolic",
+        "placeValue"
+      ],
+      "en": "Read and write numbers to 1000 in numerals, words and expanded form",
+      "zh": "读写 1000 以内的数（数字、文字、展开式）",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV1000.DIGIT_VALUE"
+      ],
+      "misc": [
+        "pv.zero_tens_dropped",
+        "pv.expanded_digits_only",
+        "pv.write_as_heard"
+      ],
+      "hints": "placeValue"
+    },
+    {
+      "id": "YY.MATH.NUM.PV1000.COMPARE_ORDER",
+      "topic": "numbers-to-1000",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Compare and order numbers to 1000",
+      "zh": "比较和排序 1000 以内的数",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.PV1000.DIGIT_VALUE",
+        "YY.MATH.NUM.PV100.COMPARE_ORDER"
+      ],
+      "misc": [
+        "cmp.ones_digit_only",
+        "cmp.order_direction",
+        "pv.place_name_confuse"
+      ],
+      "hints": "numberLine、placeValue"
+    },
+    {
+      "id": "YY.MATH.NUM.PV1000.ESTIMATE",
+      "topic": "numbers-to-1000",
+      "type": "reason",
+      "rep": [
+        "context",
+        "groups"
+      ],
+      "en": "Estimate large quantities using groups of 10 and 100 as referents",
+      "zh": "拿 10 个、100 个一组当参照，估计大的数量",
+      "primary": "BC.MATH.G3.NUM.01",
+      "prereq": [
+        "YY.MATH.NUM.BENCH100.ESTIMATE",
+        "YY.MATH.NUM.PV1000.HTO"
+      ],
+      "misc": [
+        "est.referent_ignored",
+        "est.count_referents_only",
+        "est.exact_wanted"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.EQUAL_PARTS",
+      "topic": "fractions-intro",
+      "type": "concept",
+      "rep": [
+        "fractionBar",
+        "pie"
+      ],
+      "en": "Tell whether a whole is cut into equal parts, and name halves, thirds and fourths",
+      "zh": "判断一个整体是不是平均分，认识二等份、三等份、四等份",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [],
+      "misc": [
+        "fr.unequal_ok",
+        "fr.name_by_cuts"
+      ],
+      "hints": "fractionBar、pie"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.UNIT_FRACTION",
+      "topic": "fractions-intro",
+      "type": "concept",
+      "rep": [
+        "fractionBar",
+        "pie",
+        "symbolic"
+      ],
+      "en": "Name one equal part of a whole as a unit fraction (1/2, 1/3, 1/4 …)",
+      "zh": "把平均分出来的一份叫作几分之一（1/2、1/3、1/4 …）",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [
+        "YY.MATH.FRAC.INTRO.EQUAL_PARTS"
+      ],
+      "misc": [
+        "fr.other_parts_as_denominator",
+        "fr.bigger_number_bigger_piece"
+      ],
+      "hints": "fractionBar、pie"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.READ_WRITE",
+      "topic": "fractions-intro",
+      "type": "represent",
+      "rep": [
+        "fractionBar",
+        "pie",
+        "symbolic"
+      ],
+      "en": "Read and write a fraction for the shaded parts of a whole",
+      "zh": "看涂色的部分，读写出分数",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [
+        "YY.MATH.FRAC.INTRO.UNIT_FRACTION"
+      ],
+      "misc": [
+        "fr.part_to_part",
+        "fr.top_bottom_swap",
+        "fr.shaded_count_only"
+      ],
+      "hints": "fractionBar、pie"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.SET",
+      "topic": "fractions-intro",
+      "type": "represent",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Show a fraction of a set of objects",
+      "zh": "用分数表示一组东西里的一部分",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [
+        "YY.MATH.FRAC.INTRO.READ_WRITE"
+      ],
+      "misc": [
+        "fr.part_to_part",
+        "fr.top_bottom_swap"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.NUMBER_LINE",
+      "topic": "fractions-intro",
+      "type": "represent",
+      "rep": [
+        "numberLine",
+        "fractionBar"
+      ],
+      "en": "Find fractions as equal jumps on a number line from 0 to 1",
+      "zh": "在 0 到 1 的数轴上用平均的小段找到分数",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [
+        "YY.MATH.FRAC.INTRO.READ_WRITE"
+      ],
+      "misc": [
+        "fr.count_ticks",
+        "fr.as_whole_number"
+      ],
+      "hints": "numberLine、fractionBar"
+    },
+    {
+      "id": "YY.MATH.FRAC.INTRO.SHARE",
+      "topic": "fractions-intro",
+      "type": "apply",
+      "rep": [
+        "context",
+        "fractionBar"
+      ],
+      "en": "Share a whole fairly and name each share as a fraction",
+      "zh": "把一个整体公平地分，并用分数说出每一份",
+      "primary": "BC.MATH.G3.NUM.02",
+      "prereq": [
+        "YY.MATH.FRAC.INTRO.UNIT_FRACTION"
+      ],
+      "misc": [
+        "fr.more_sharers_bigger",
+        "fr.unequal_ok",
+        "fr.other_parts_as_denominator"
+      ],
+      "hints": "fractionBar、pie"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB1000.MENTAL",
+      "topic": "add-sub-to-1000",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Add and subtract to 1000 in your head with friendly numbers and compensating",
+      "zh": "用好算的数和补偿法心算 1000 以内的加减",
+      "primary": "BC.MATH.G3.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB100.ADD_STRATEGIES",
+        "YY.MATH.FLU.ADDSUB100.SUB_STRATEGIES"
+      ],
+      "misc": [
+        "calc.compensate_forget",
+        "calc.compensate_direction",
+        "calc.drop_part"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB1000.ADD_REGROUP",
+      "topic": "add-sub-to-1000",
+      "type": "procedure",
+      "rep": [
+        "baseTen",
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Add three-digit numbers with regrouping",
+      "zh": "三位数加法（进位）",
+      "primary": "BC.MATH.G3.FLU.01",
+      "prereq": [
+        "YY.MATH.NUM.PV1000.HTO",
+        "YY.MATH.FLU.ADDSUB100.ADD_STRATEGIES"
+      ],
+      "misc": [
+        "calc.regroup_forget",
+        "calc.digits_side_by_side"
+      ],
+      "hints": "baseTen、placeValue"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB1000.SUB_REGROUP",
+      "topic": "add-sub-to-1000",
+      "type": "procedure",
+      "rep": [
+        "baseTen",
+        "placeValue",
+        "symbolic"
+      ],
+      "en": "Subtract three-digit numbers with regrouping, also across a zero",
+      "zh": "三位数减法（退位，包括隔着 0 退位）",
+      "primary": "BC.MATH.G3.FLU.01",
+      "prereq": [
+        "YY.MATH.NUM.PV1000.HTO",
+        "YY.MATH.FLU.ADDSUB100.SUB_STRATEGIES"
+      ],
+      "misc": [
+        "calc.smaller_from_larger",
+        "calc.across_zero",
+        "calc.regroup_forget"
+      ],
+      "hints": "baseTen、placeValue"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB1000.ESTIMATE",
+      "topic": "add-sub-to-1000",
+      "type": "reason",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Estimate sums and differences to 1000, and use the estimate to check an answer",
+      "zh": "估算 1000 以内的和与差，并用估算检查答案",
+      "primary": "BC.MATH.G3.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB100.ESTIMATE",
+        "YY.MATH.NUM.PV1000.COMPARE_ORDER"
+      ],
+      "misc": [
+        "round.nearest_wrong",
+        "est.no_check",
+        "est.exact_wanted"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.ADDSUB1000.WORD",
+      "topic": "add-sub-to-1000",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel"
+      ],
+      "en": "Solve one- and two-step addition and subtraction problems to 1000",
+      "zh": "解决 1000 以内的一步和两步加减应用题",
+      "primary": "BC.MATH.G3.FLU.01",
+      "prereq": [
+        "YY.MATH.FLU.ADDSUB1000.ADD_REGROUP",
+        "YY.MATH.FLU.ADDSUB1000.SUB_REGROUP",
+        "YY.MATH.FLU.ADDSUB100.WORD"
+      ],
+      "misc": [
+        "story.keyword_trap",
+        "story.stop_early",
+        "sub.compare_as_total"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.TURN_AROUND",
+      "topic": "facts-fluency",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Use turn-around facts: adding in either order gives the same sum, subtracting does not",
+      "zh": "用交换律：加法两个数换位置得数一样，减法不行",
+      "primary": "BC.MATH.G3.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.FACTS20.MAKE_TEN"
+      ],
+      "misc": [
+        "facts.commute_subtraction",
+        "facts.order_changes_sum"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.THINK_ADDITION",
+      "topic": "facts-fluency",
+      "type": "reason",
+      "rep": [
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Subtract by thinking of the related addition fact",
+      "zh": "想着相关的加法算式来做减法",
+      "primary": "BC.MATH.G3.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.FACTS20.SUB_STRATEGIES",
+        "YY.MATH.FLU.ADDSUB20.RELATED"
+      ],
+      "misc": [
+        "addsub.family_wrong_whole",
+        "facts.slip"
+      ],
+      "hints": "barModel、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.FACTS20.RECALL",
+      "topic": "facts-fluency",
+      "type": "fluency",
+      "rep": [
+        "symbolic",
+        "numberLine"
+      ],
+      "en": "Recall addition facts to 20 and the matching subtraction facts",
+      "zh": "直接说出 20 以内的加法口算和对应的减法",
+      "primary": "BC.MATH.G3.FLU.02",
+      "prereq": [
+        "YY.MATH.FLU.FACTS20.DOUBLES",
+        "YY.MATH.FLU.FACTS20.TURN_AROUND"
+      ],
+      "misc": [
+        "facts.slip",
+        "facts.ten_reuse_whole",
+        "facts.near_double_adjust"
+      ],
+      "hints": "numberLine、groups"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.EQUAL_GROUPS",
+      "topic": "mult-div-concepts",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "See multiplication as equal groups",
+      "zh": "把乘法理解成「几组几个」",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.NUM.COUNT100.SKIP_2_5_10"
+      ],
+      "misc": [
+        "mult.group_count_plus_size",
+        "mult.unequal_groups_ok"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.ARRAYS",
+      "topic": "mult-div-concepts",
+      "type": "represent",
+      "rep": [
+        "areaGrid",
+        "groups",
+        "symbolic"
+      ],
+      "en": "Show multiplication as an array of rows and columns",
+      "zh": "用几行几列的阵列表示乘法",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.EQUAL_GROUPS"
+      ],
+      "misc": [
+        "mult.array_edges_only",
+        "mult.group_count_plus_size"
+      ],
+      "hints": "areaGrid、groups"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.REPEATED_ADD",
+      "topic": "mult-div-concepts",
+      "type": "procedure",
+      "rep": [
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Link multiplication to repeated addition and skip-counting",
+      "zh": "把乘法和连加、跳着数联系起来",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.EQUAL_GROUPS",
+        "YY.MATH.NUM.COUNT1000.SKIP"
+      ],
+      "misc": [
+        "mult.group_miscount",
+        "mult.group_count_plus_size"
+      ],
+      "hints": "numberLine、hundredChart"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.SHARE",
+      "topic": "mult-div-concepts",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "context"
+      ],
+      "en": "See division as sharing equally: how many in each group",
+      "zh": "把除法理解成平均分：每份有几个",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.EQUAL_GROUPS"
+      ],
+      "misc": [
+        "div.unequal_share",
+        "div.take_away_once"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.GROUPING",
+      "topic": "mult-div-concepts",
+      "type": "concept",
+      "rep": [
+        "groups",
+        "numberLine",
+        "context"
+      ],
+      "en": "See division as making equal groups: how many groups (repeated subtraction)",
+      "zh": "把除法理解成每几个一组：能分成几组（连减）",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.SHARE"
+      ],
+      "misc": [
+        "div.share_group_mixup",
+        "div.take_away_once"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.RELATED",
+      "topic": "mult-div-concepts",
+      "type": "reason",
+      "rep": [
+        "areaGrid",
+        "symbolic"
+      ],
+      "en": "Use how multiplication and division are related",
+      "zh": "用乘法和除法的关系",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.ARRAYS",
+        "YY.MATH.FLU.MULTDIV.GROUPING"
+      ],
+      "misc": [
+        "div.family_wrong_whole",
+        "mult.group_count_plus_size"
+      ],
+      "hints": "areaGrid、groups"
+    },
+    {
+      "id": "YY.MATH.FLU.MULTDIV.STORY",
+      "topic": "mult-div-concepts",
+      "type": "apply",
+      "rep": [
+        "context",
+        "groups"
+      ],
+      "en": "Choose multiplication or division for an equal-groups story",
+      "zh": "碰到「每组一样多」的故事题，会选用乘法还是除法",
+      "primary": "BC.MATH.G3.FLU.03",
+      "prereq": [
+        "YY.MATH.FLU.MULTDIV.RELATED"
+      ],
+      "misc": [
+        "story.keyword_trap",
+        "div.share_group_mixup",
+        "mult.group_count_plus_size"
+      ],
+      "hints": "groups、barModel"
+    },
+    {
+      "id": "YY.MATH.PAT.GROW_SHRINK.EXTEND",
+      "topic": "pattern-rules",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Extend increasing and decreasing number patterns",
+      "zh": "把递增和递减的数列接着写下去",
+      "primary": "BC.MATH.G3.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.INCREASE.EXTEND",
+        "YY.MATH.NUM.COUNT1000.SKIP"
+      ],
+      "misc": [
+        "pat.grow_direction_wrong",
+        "pat.first_gap_only"
+      ],
+      "hints": "dataTable、numberLine"
+    },
+    {
+      "id": "YY.MATH.PAT.GROW_SHRINK.REPRESENT",
+      "topic": "pattern-rules",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "context",
+        "symbolic"
+      ],
+      "en": "Show the same pattern with objects, pictures and numbers",
+      "zh": "用实物、图画和数表示同一个规律",
+      "primary": "BC.MATH.G3.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.GROW_SHRINK.EXTEND"
+      ],
+      "misc": [
+        "pat.position_as_value",
+        "pat.first_gap_only"
+      ],
+      "hints": "dataTable、groups"
+    },
+    {
+      "id": "YY.MATH.PAT.GROW_SHRINK.GENERALIZE",
+      "topic": "pattern-rules",
+      "type": "reason",
+      "rep": [
+        "symbolic",
+        "context"
+      ],
+      "en": "Say what makes a pattern grow or shrink (adding 2, doubling)",
+      "zh": "说出规律为什么变大或变小（每次加 2、翻倍）",
+      "primary": "BC.MATH.G3.PAT.01",
+      "prereq": [
+        "YY.MATH.PAT.GROW_SHRINK.EXTEND",
+        "YY.MATH.PAT.INCREASE.DESCRIBE"
+      ],
+      "misc": [
+        "pat.add_vs_double",
+        "pat.grow_direction_wrong"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.CONCRETE_RULE.DESCRIBE",
+      "topic": "pattern-rules",
+      "type": "concept",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Describe a pattern rule in words and numbers: the start and what changes each time",
+      "zh": "用文字和数说出规律法则：从几开始、每次怎么变",
+      "primary": "BC.MATH.G3.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.GROW_SHRINK.GENERALIZE"
+      ],
+      "misc": [
+        "pat.rule_no_start",
+        "pat.start_step_swap"
+      ],
+      "hints": "dataTable、groups"
+    },
+    {
+      "id": "YY.MATH.PAT.CONCRETE_RULE.USE",
+      "topic": "pattern-rules",
+      "type": "procedure",
+      "rep": [
+        "symbolic",
+        "dataTable"
+      ],
+      "en": "Use a pattern rule to build the pattern or find a later number",
+      "zh": "按规律法则写出数列，或找出后面的某个数",
+      "primary": "BC.MATH.G3.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.CONCRETE_RULE.DESCRIBE"
+      ],
+      "misc": [
+        "pat.change_count_off",
+        "pat.start_step_swap",
+        "pat.step_times_position"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.PAT.CONCRETE_RULE.MATCH",
+      "topic": "pattern-rules",
+      "type": "reason",
+      "rep": [
+        "context",
+        "symbolic"
+      ],
+      "en": "Decide which rule fits a pattern built from objects",
+      "zh": "判断哪条法则符合用实物摆出的规律",
+      "primary": "BC.MATH.G3.PAT.02",
+      "prereq": [
+        "YY.MATH.PAT.CONCRETE_RULE.DESCRIBE"
+      ],
+      "misc": [
+        "pat.first_gap_only",
+        "pat.rule_no_start",
+        "pat.add_vs_double"
+      ],
+      "hints": "dataTable、groups"
+    },
+    {
+      "id": "YY.MATH.ALG.UNKNOWN.MEANING",
+      "topic": "unknown-equations",
+      "type": "concept",
+      "rep": [
+        "balance",
+        "symbolic"
+      ],
+      "en": "Understand that □ or a letter stands for the number that makes an equation true",
+      "zh": "懂得 □ 或字母代表让等式成立的那个数",
+      "primary": "BC.MATH.G3.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.EQUAL.MAKE_TRUE"
+      ],
+      "misc": [
+        "equal.answer_comes_next",
+        "unk.same_everywhere"
+      ],
+      "hints": "balance"
+    },
+    {
+      "id": "YY.MATH.ALG.UNKNOWN.CHANGE_RESULT",
+      "topic": "unknown-equations",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Solve equations where the change or the result is unknown (12 + n = 20, 6 + 13 = n)",
+      "zh": "解「变化的数」或「结果」不知道的等式（12 + n = 20，6 + 13 = n）",
+      "primary": "BC.MATH.G3.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.UNKNOWN.MEANING",
+        "YY.MATH.ALG.CHANGE100.MISSING_PART"
+      ],
+      "misc": [
+        "change.add_both",
+        "facts.slip"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.UNKNOWN.START",
+      "topic": "unknown-equations",
+      "type": "procedure",
+      "rep": [
+        "balance",
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Solve equations where the start is unknown (n + 15 = 20, n − 7 = 12)",
+      "zh": "解「开头的数」不知道的等式（n + 15 = 20，n − 7 = 12）",
+      "primary": "BC.MATH.G3.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.UNKNOWN.CHANGE_RESULT"
+      ],
+      "misc": [
+        "unk.subtract_for_minus",
+        "change.add_both"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.ALG.UNKNOWN.STORY",
+      "topic": "unknown-equations",
+      "type": "apply",
+      "rep": [
+        "context",
+        "barModel",
+        "symbolic"
+      ],
+      "en": "Write and solve an equation with an unknown for a story",
+      "zh": "根据故事写出含未知数的等式并解出来",
+      "primary": "BC.MATH.G3.PAT.03",
+      "prereq": [
+        "YY.MATH.ALG.UNKNOWN.START",
+        "YY.MATH.ALG.CHANGE100.STORY"
+      ],
+      "misc": [
+        "story.keyword_trap",
+        "unk.subtract_for_minus",
+        "change.add_both"
+      ],
+      "hints": "barModel"
+    },
+    {
+      "id": "YY.MATH.NUM.EVEN_ODD.SUMS",
+      "topic": "unknown-equations",
+      "type": "reason",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Predict whether a sum will be even or odd",
+      "zh": "预测两个数的和是偶数还是奇数",
+      "primary": "BC.MATH.G3.PAT.03",
+      "prereq": [
+        "YY.MATH.NUM.EVEN_ODD.IDENTIFY"
+      ],
+      "misc": [
+        "evenodd.odd_plus_odd_odd",
+        "evenodd.first_digit_decides"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.MEAS.LENGTH.CM_M_KM",
+      "topic": "measurement-units",
+      "type": "concept",
+      "rep": [
+        "context",
+        "numberLine"
+      ],
+      "en": "Choose and relate centimetres, metres and kilometres",
+      "zh": "会选厘米、米、千米，知道它们之间的关系",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.CM_M"
+      ],
+      "misc": [
+        "meas.unit_choice_wrong",
+        "meas.thousand_as_hundred"
+      ],
+      "hints": "numberLine"
+    },
+    {
+      "id": "YY.MATH.MEAS.MASS.G_KG",
+      "topic": "measurement-units",
+      "type": "concept",
+      "rep": [
+        "context",
+        "balance"
+      ],
+      "en": "Measure and compare mass in grams and kilograms",
+      "zh": "用克和千克量质量、比轻重",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.CM_M"
+      ],
+      "misc": [
+        "meas.bigger_is_heavier",
+        "meas.thousand_as_hundred",
+        "meas.unit_choice_wrong"
+      ],
+      "hints": "balance、barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.CAPACITY.ML_L",
+      "topic": "measurement-units",
+      "type": "concept",
+      "rep": [
+        "context",
+        "numberLine"
+      ],
+      "en": "Measure and compare capacity in millilitres and litres",
+      "zh": "用毫升和升量容量、比多少",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.CM_M"
+      ],
+      "misc": [
+        "meas.taller_holds_more",
+        "meas.thousand_as_hundred",
+        "meas.unit_choice_wrong"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.PERIM.AROUND",
+      "topic": "measurement-units",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "shapeRect"
+      ],
+      "en": "Understand perimeter as the distance around a shape",
+      "zh": "懂得周长是绕图形一圈的长度",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.LENGTH.RULER"
+      ],
+      "misc": [
+        "meas.perim_some_sides",
+        "meas.perim_area_mix"
+      ],
+      "hints": "shapeRect、areaGrid"
+    },
+    {
+      "id": "YY.MATH.MEAS.AREA.COVER",
+      "topic": "measurement-units",
+      "type": "concept",
+      "rep": [
+        "areaGrid",
+        "shapeRect"
+      ],
+      "en": "Measure area by counting the square units that cover a shape",
+      "zh": "数一数铺满图形的方格，量出面积",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.PERIM.AROUND"
+      ],
+      "misc": [
+        "meas.area_as_border",
+        "meas.perim_area_mix",
+        "meas.gaps_overlaps"
+      ],
+      "hints": "areaGrid、shapeRect"
+    },
+    {
+      "id": "YY.MATH.MEAS.ESTIMATE.REFERENTS",
+      "topic": "measurement-units",
+      "type": "reason",
+      "rep": [
+        "context"
+      ],
+      "en": "Estimate length, mass and capacity with a referent (if this cup holds 100 mL …)",
+      "zh": "借助参照物估计长度、质量和容量（这个杯子装 100 毫升，那么……）",
+      "primary": "BC.MATH.G3.GEO.01",
+      "prereq": [
+        "YY.MATH.MEAS.MASS.G_KG",
+        "YY.MATH.MEAS.CAPACITY.ML_L",
+        "YY.MATH.MEAS.LENGTH.ESTIMATE"
+      ],
+      "misc": [
+        "est.referent_ignored",
+        "est.count_referents_only",
+        "meas.unit_choice_wrong"
+      ],
+      "hints": "numberLine、barModel"
+    },
+    {
+      "id": "YY.MATH.MEAS.TIME.UNITS_ORDER",
+      "topic": "time-units",
+      "type": "concept",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Know the units of time and which is longer (second, minute, hour, day, week, month, year)",
+      "zh": "认识时间单位，知道哪个更长（秒、分、时、天、星期、月、年）",
+      "primary": "BC.MATH.G3.GEO.02",
+      "prereq": [],
+      "misc": [
+        "time.unit_order_mixup",
+        "meas.compare_ignore_units"
+      ],
+      "hints": "clock、dataTable"
+    },
+    {
+      "id": "YY.MATH.MEAS.TIME.UNITS_RELATE",
+      "topic": "time-units",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Use how units of time are related (60 seconds in a minute, 7 days in a week, 12 months in a year)",
+      "zh": "用时间单位之间的关系（1 分 = 60 秒，1 星期 = 7 天，1 年 = 12 个月）",
+      "primary": "BC.MATH.G3.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.TIME.UNITS_ORDER"
+      ],
+      "misc": [
+        "time.units_base_ten",
+        "time.relation_mixup"
+      ],
+      "hints": "clock、dataTable"
+    },
+    {
+      "id": "YY.MATH.MEAS.TIME.SENSIBLE",
+      "topic": "time-units",
+      "type": "reason",
+      "rep": [
+        "context"
+      ],
+      "en": "Choose a sensible unit or amount of time for an everyday event",
+      "zh": "给生活里的事选一个合理的时间单位或时长",
+      "primary": "BC.MATH.G3.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.TIME.UNITS_ORDER"
+      ],
+      "misc": [
+        "time.duration_unreasonable",
+        "time.unit_order_mixup"
+      ],
+      "hints": "clock、numberLine"
+    },
+    {
+      "id": "YY.MATH.MEAS.TIME.CALENDAR",
+      "topic": "time-units",
+      "type": "apply",
+      "rep": [
+        "dataTable",
+        "context"
+      ],
+      "en": "Use a calendar: days of the week, months, and how many days until",
+      "zh": "用日历：星期、月份、还有几天",
+      "primary": "BC.MATH.G3.GEO.02",
+      "prereq": [
+        "YY.MATH.MEAS.TIME.UNITS_RELATE"
+      ],
+      "misc": [
+        "time.count_start_day",
+        "time.relation_mixup"
+      ],
+      "hints": "dataTable、numberLine"
+    },
+    {
+      "id": "YY.MATH.GEO.SOLIDS.NAME",
+      "topic": "solids",
+      "type": "concept",
+      "rep": [
+        "solidCube",
+        "solidCuboid",
+        "solidCylinder"
+      ],
+      "en": "Name 3D objects: sphere, cube, prism, pyramid, cone and cylinder",
+      "zh": "说出立体图形的名称：球、正方体、棱柱、棱锥、圆锥、圆柱",
+      "primary": "BC.MATH.G3.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.ATTRIB.COMPARE_3D"
+      ],
+      "misc": [
+        "solid.prism_pyramid_mixup",
+        "solid.cone_cylinder_mixup",
+        "shape.name_2d_for_3d"
+      ],
+      "hints": "solidCube、solidCuboid、solidCylinder、solidCone、solidSphere"
+    },
+    {
+      "id": "YY.MATH.GEO.SOLIDS.FACES_EDGES_VERTICES",
+      "topic": "solids",
+      "type": "concept",
+      "rep": [
+        "solidCube",
+        "solidCuboid"
+      ],
+      "en": "Count the faces, edges and vertices of a 3D object",
+      "zh": "数出立体图形的面、棱和顶点",
+      "primary": "BC.MATH.G3.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.SOLIDS.NAME"
+      ],
+      "misc": [
+        "solid.parts_mixup",
+        "solid.seen_only"
+      ],
+      "hints": "solidCube、solidCuboid"
+    },
+    {
+      "id": "YY.MATH.GEO.SOLIDS.FACE_SHAPES",
+      "topic": "solids",
+      "type": "represent",
+      "rep": [
+        "solidCuboid",
+        "netCuboid",
+        "solidCylinder"
+      ],
+      "en": "Identify a 3D object from the shapes of its faces (nets and skeletons)",
+      "zh": "根据面的形状认出立体图形（展开图和骨架）",
+      "primary": "BC.MATH.G3.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.SOLIDS.FACES_EDGES_VERTICES",
+        "YY.MATH.GEO.ATTRIB.FACES_OF_3D"
+      ],
+      "misc": [
+        "solid.net_face_count",
+        "shape.face_shape_wrong"
+      ],
+      "hints": "netCuboid、solidCuboid、solidCylinder"
+    },
+    {
+      "id": "YY.MATH.GEO.SOLIDS.COMPARE",
+      "topic": "solids",
+      "type": "reason",
+      "rep": [
+        "solidCube",
+        "solidCuboid"
+      ],
+      "en": "Compare 3D objects: how cubes and rectangular prisms are alike and different",
+      "zh": "比较立体图形：正方体和长方体哪里一样、哪里不一样",
+      "primary": "BC.MATH.G3.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.SOLIDS.FACES_EDGES_VERTICES"
+      ],
+      "misc": [
+        "solid.cube_not_prism",
+        "solid.parts_mixup"
+      ],
+      "hints": "solidCube、solidCuboid"
+    },
+    {
+      "id": "YY.MATH.GEO.SOLIDS.ORIENTATION",
+      "topic": "solids",
+      "type": "concept",
+      "rep": [
+        "solidCuboid",
+        "shapeTriangle"
+      ],
+      "en": "Know that turning or flipping a shape does not change what it is",
+      "zh": "懂得图形转个方向或翻过来，还是同一种图形",
+      "primary": "BC.MATH.G3.GEO.03",
+      "prereq": [
+        "YY.MATH.GEO.SOLIDS.NAME"
+      ],
+      "misc": [
+        "solid.turn_changes_counts",
+        "shape.orientation_changes_name"
+      ],
+      "hints": "solidCuboid、shapeTriangle"
+    },
+    {
+      "id": "YY.MATH.DATA.TALLY_TABLE",
+      "topic": "graphs-tables",
+      "type": "procedure",
+      "rep": [
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Read and make tally charts and tables",
+      "zh": "读和做计数表（正字记号）和表格",
+      "primary": "BC.MATH.G3.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.PICTO.BUILD"
+      ],
+      "misc": [
+        "graph.tally_miscount",
+        "graph.wrong_row"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.BARGRAPH.READ",
+      "topic": "graphs-tables",
+      "type": "procedure",
+      "rep": [
+        "statBar",
+        "dataTable"
+      ],
+      "en": "Read a bar graph where one square stands for one thing",
+      "zh": "读条形统计图：一格代表一个",
+      "primary": "BC.MATH.G3.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.PICTO.READ_ONE"
+      ],
+      "misc": [
+        "graph.bar_lines_counted",
+        "graph.wrong_row",
+        "graph.key_made_up"
+      ],
+      "hints": "statBar、dataTable"
+    },
+    {
+      "id": "YY.MATH.DATA.BARGRAPH.COMPARE",
+      "topic": "graphs-tables",
+      "type": "reason",
+      "rep": [
+        "statBar",
+        "pictograph",
+        "context"
+      ],
+      "en": "Compare and combine data from bar graphs and pictographs: how many more, how many altogether",
+      "zh": "比较和合并条形图、象形图里的数据：多几个、一共几个",
+      "primary": "BC.MATH.G3.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.BARGRAPH.READ",
+        "YY.MATH.DATA.PICTO.COMPARE"
+      ],
+      "misc": [
+        "sub.compare_as_total",
+        "graph.total_one_row",
+        "graph.most_least_swap"
+      ],
+      "hints": "statBar、pictograph"
+    },
+    {
+      "id": "YY.MATH.DATA.BARGRAPH.BUILD",
+      "topic": "graphs-tables",
+      "type": "represent",
+      "rep": [
+        "dataTable",
+        "statBar",
+        "pictograph"
+      ],
+      "en": "Make a bar graph or a pictograph from a table",
+      "zh": "根据表格画条形统计图或象形统计图",
+      "primary": "BC.MATH.G3.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.TALLY_TABLE",
+        "YY.MATH.DATA.BARGRAPH.READ"
+      ],
+      "misc": [
+        "graph.labels_swapped",
+        "graph.one_to_one_broken",
+        "graph.bar_lines_counted"
+      ],
+      "hints": "dataTable、statBar、pictograph"
+    },
+    {
+      "id": "YY.MATH.DATA.CHOOSE_DISPLAY",
+      "topic": "graphs-tables",
+      "type": "reason",
+      "rep": [
+        "context",
+        "dataTable"
+      ],
+      "en": "Choose a suitable way to show data: a table, a pictograph or a bar graph",
+      "zh": "给数据选一种合适的表示方式：表格、象形图还是条形图",
+      "primary": "BC.MATH.G3.DAT.01",
+      "prereq": [
+        "YY.MATH.DATA.BARGRAPH.BUILD"
+      ],
+      "misc": [
+        "disp.list_as_good",
+        "disp.no_labels_ok"
+      ],
+      "hints": "dataTable、statBar"
+    },
+    {
+      "id": "YY.MATH.PROB.SIM.LANGUAGE",
+      "topic": "likelihood-chance",
+      "type": "concept",
+      "rep": [
+        "probLine",
+        "spinner",
+        "balls"
+      ],
+      "en": "Describe the chance of a spinner, dice or bag result as certain, likely, unlikely or impossible",
+      "zh": "用「一定、很可能、不太可能、不可能」描述转盘、骰子、摸球的结果",
+      "primary": "BC.MATH.G3.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.EVENTS.CERTAIN_UNCERTAIN"
+      ],
+      "misc": [
+        "prob.likely_as_certain",
+        "prob.section_size_ignored"
+      ],
+      "hints": "probLine、spinner、balls"
+    },
+    {
+      "id": "YY.MATH.PROB.SIM.COMPARE",
+      "topic": "likelihood-chance",
+      "type": "reason",
+      "rep": [
+        "balls",
+        "spinner",
+        "context"
+      ],
+      "en": "Compare the results of a bag draw or a spinner: more likely, less likely or equally likely",
+      "zh": "比较摸球或转盘的结果：更可能、更不可能，还是同样可能",
+      "primary": "BC.MATH.G3.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.SIM.LANGUAGE",
+        "YY.MATH.PROB.EVENTS.EQUALLY_LIKELY"
+      ],
+      "misc": [
+        "prob.two_outcomes_equal",
+        "prob.section_size_ignored",
+        "prob.more_less_swap"
+      ],
+      "hints": "balls、spinner"
+    },
+    {
+      "id": "YY.MATH.PROB.SIM.FIFTY_FIFTY",
+      "topic": "likelihood-chance",
+      "type": "concept",
+      "rep": [
+        "context",
+        "probLine"
+      ],
+      "en": "Understand an even (50-50) chance, like tossing a coin",
+      "zh": "懂得「一半一半」的机会（像抛硬币）",
+      "primary": "BC.MATH.G3.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.SIM.COMPARE"
+      ],
+      "misc": [
+        "prob.due_after_streak",
+        "prob.exact_match_expected"
+      ],
+      "hints": "probLine"
+    },
+    {
+      "id": "YY.MATH.PROB.SIM.PREDICT",
+      "topic": "likelihood-chance",
+      "type": "apply",
+      "rep": [
+        "spinner",
+        "balls",
+        "dataTable"
+      ],
+      "en": "Predict and explain the results when an experiment is repeated many times",
+      "zh": "预测并解释一个实验重复做很多次的结果",
+      "primary": "BC.MATH.G3.DAT.02",
+      "prereq": [
+        "YY.MATH.PROB.SIM.FIFTY_FIFTY"
+      ],
+      "misc": [
+        "prob.few_tries_proof",
+        "prob.exact_match_expected",
+        "prob.due_after_streak"
+      ],
+      "hints": "spinner、balls、dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.MONEY100.COUNT",
+      "topic": "money-to-100",
+      "type": "procedure",
+      "rep": [
+        "groups",
+        "numberLine",
+        "symbolic"
+      ],
+      "en": "Count a mixed set of coins and bills up to $100",
+      "zh": "数硬币和纸币混在一起的总数（到 100 元）",
+      "primary": "BC.MATH.G3.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.COINS.MIXED_TO_100"
+      ],
+      "misc": [
+        "coin.cents_dollars_mix",
+        "coin.keep_old_step",
+        "coin.count_not_value"
+      ],
+      "hints": "groups、numberLine"
+    },
+    {
+      "id": "YY.MATH.FIN.MONEY100.SAME_AMOUNT",
+      "topic": "money-to-100",
+      "type": "reason",
+      "rep": [
+        "groups",
+        "symbolic"
+      ],
+      "en": "Make the same amount with different coins and bills",
+      "zh": "用不同的硬币和纸币凑出同一个金额",
+      "primary": "BC.MATH.G3.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.MONEY100.COUNT",
+        "YY.MATH.FIN.COINS.MAKE_AMOUNT"
+      ],
+      "misc": [
+        "coin.more_coins_more_money",
+        "coin.cents_dollars_mix"
+      ],
+      "hints": "groups"
+    },
+    {
+      "id": "YY.MATH.FIN.PAYMENT.WAYS",
+      "topic": "money-to-100",
+      "type": "concept",
+      "rep": [
+        "context"
+      ],
+      "en": "Know different ways to pay: cash, debit or credit card, e-transfer, trading",
+      "zh": "知道付钱有不同的方式：现金、刷卡、电子转账、以物换物",
+      "primary": "BC.MATH.G3.NUM.03",
+      "prereq": [],
+      "misc": [
+        "fin.card_free_money",
+        "fin.cash_only"
+      ],
+      "hints": "dataTable"
+    },
+    {
+      "id": "YY.MATH.FIN.EARNING.GOAL",
+      "topic": "money-to-100",
+      "type": "apply",
+      "rep": [
+        "context",
+        "dataTable",
+        "symbolic"
+      ],
+      "en": "Plan earning and saving toward a goal: how much more, how many weeks",
+      "zh": "为一个目标计划挣钱和存钱：还差多少、要几个星期",
+      "primary": "BC.MATH.G3.NUM.03",
+      "prereq": [
+        "YY.MATH.FIN.MONEY100.COUNT",
+        "YY.MATH.FIN.SPEND_SAVE"
+      ],
+      "misc": [
+        "fin.goal_ignore_saved",
+        "story.stop_early",
+        "fin.spent_still_counted"
+      ],
+      "hints": "dataTable、numberLine"
+    }
+  ]
+}
