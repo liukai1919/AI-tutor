@@ -921,6 +921,11 @@ function qbankPrompt(item, gradeData, lang, needs, existingStems, brief) {
      * 以前这里写死「there is no picture」——题库没有 visual 字段时的权宜之计；契约 v3 起题目可以带题图，
      * 能不能带、带哪几种由 brief.visual.allowed 决定（技能表示 ∩ 契约的题图类型）。 */
     const b = qbankBriefCheck(brief || qbankBriefFor(item, gradeData), item, gradeData, "qbankPrompt");
+    /* 低年级规则集（#74）里 L3 不要求「真两步情境题」，辨析题上限也更低：铁律第 8 条的尾巴跟着 brief 走，别和它打架。
+     * G4 以上这句话原样不动。 */
+    const l3Tail = Array.isArray(b.rules.young)
+      ? `At most ${b.rules.l3SpotMistakeMax} of the Level-3 questions may be that "spot the mistake" type; the rest follow the Level 3 description above.`
+      : `At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.`;
     const who = isSkills
       ? `You are a BC math teacher building a question bank for ONE small skill (Grade ${g}, topic "${strand[2]}").`
       : isBook
@@ -944,7 +949,7 @@ Iron rules:
    Never refer to an option by position ("option B", "the third choice") — options get reordered; name the content instead ("the one that says 3/8").
 7. Every question must differ from the others in this batch${avoid.length ? ` AND from these existing bank questions:
 ${avoid.map(s => "- " + s).join("\n")}` : ""}.
-8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.
+8. No length giveaway: the four options of a question must be about the same length (within ~15%), and the correct option must never be the longest. This matters most for "X says … what went wrong?" questions — give every distractor its own "because …" reason, not a bare wrong number, and trim the correct option instead of padding it. ${l3Tail}
 9. Pictures: a question either carries a valid "visual" as described in the brief, or is fully answerable from its own text. A question that breaks a picture rule is thrown away, not repaired.`;
   }
   /* 技能层出题的额外约束（设计文档 §3.3 / §6）：L1 必须用这个技能的第一种表示，

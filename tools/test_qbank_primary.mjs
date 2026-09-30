@@ -69,6 +69,7 @@ try {
     check(`G${g} skill brief uses primary rules`, brief.rules.version === B.PRIMARY_RULES.version && brief.item.grade === g);
     const en = S.qbankPrompt(item, data, "en", NEEDS, [], brief);
     check(`G${g} en prompt: young-learner block + primary distractor hint`, en.includes(`Young learners (Grade ${g})`) && en.includes("how many more") && !en.includes("perimeter and area") && !/FSA/.test(en));
+    check(`G${g} en prompt: rule 8 agrees with the brief on Level 3`, en.includes(`At most 1 of the Level-3 questions may be that "spot the mistake" type; the rest follow the Level 3 description above.`) && !en.includes("must be real two-step scenarios"));
     const zh = S.qbankPrompt(item, data, "zh", NEEDS, []);
     check(`G${g} zh prompt: 低年级规则 + 低年级难度口径`, zh.includes("低年级规则") && zh.includes(`才上 Grade ${g}`) && zh.includes("数很小的两步小故事") && !zh.includes("FSA") && !zh.includes("周长面积混淆"));
     const jEn = S.judgeQuizPrompt(item, data, [], "en", brief), jZh = S.judgeQuizPrompt(item, data, [], "zh");
@@ -85,7 +86,8 @@ try {
     const f = find(id);
     const zh = S.qbankPrompt(f.item, f.data, "zh", NEEDS, []);
     const en = S.qbankPrompt(f.item, f.data, "en", NEEDS, []);
-    check(`${id}: no primary wording`, !zh.includes("低年级规则") && zh.includes("FSA 风格") && zh.includes("周长面积混淆") && !en.includes("Young learners") && en.includes("FSA-style"));
+    check(`${id}: no primary wording`, !zh.includes("低年级规则") && zh.includes("FSA 风格") && zh.includes("周长面积混淆") && !en.includes("Young learners") && en.includes("FSA-style")
+      && en.includes(`At most 2 of the Level-3 questions may be that "spot the mistake" type; the rest must be real two-step scenarios.`));
     const j = S.judgeQuizPrompt(f.item, f.data, [], "zh") + S.judgeLessonPrompt(f.item, f.data, { steps: [] }, "en");
     check(`${id}: judge has no age paragraph`, !j.includes("6-9 岁") && !j.includes("6 to 9 years old"));
   }
