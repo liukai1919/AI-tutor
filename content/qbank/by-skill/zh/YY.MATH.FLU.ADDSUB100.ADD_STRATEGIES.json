@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.ADDSUB100.ADD_STRATEGIES",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunpv43xgzsgmb",
+   "level": 1,
+   "question": "用十进制积木（base ten blocks）摆 26：2 根十条、6 个小方块。再摆 38：3 根十条、8 个小方块。合起来是多少？",
+   "options": [
+    "64",
+    "54",
+    "514",
+    "56"
+   ],
+   "answerIndex": 0,
+   "explain": "十条 2 + 3 = 5 根是 50，小方块 6 + 8 = 14 个，50 + 14 = 64。14 个小方块里有 10 个要换成 1 根十条，别把 5 和 14 并排写成 514。",
+   "tags": [
+    "ok",
+    "calc.regroup_forget",
+    "calc.digits_side_by_side",
+    "calc.drop_part"
+   ]
+  },
+  {
+   "qid": "qmunpv43x5aj18w",
+   "level": 1,
+   "question": "用积木算 45 + 18，合起来有 5 根十条、13 个小方块。把 10 个小方块换成 1 根十条后，和（sum）是多少？",
+   "options": [
+    "53",
+    "63",
+    "55",
+    "513"
+   ],
+   "answerIndex": 1,
+   "explain": "10 个小方块换成 1 根十条，就有 6 根十条和 3 个小方块，是 63。别把 5 和 13 并排写成 513，也别丢了换来的那根十条。",
+   "tags": [
+    "calc.regroup_forget",
+    "ok",
+    "calc.drop_part",
+    "calc.digits_side_by_side"
+   ]
+  },
+  {
+   "qid": "qmunpv43xaco8ka",
+   "level": 1,
+   "question": "用积木算 39 + 45：从 45 里拿 1 个小方块给 39，凑成 4 根十条。和是多少？",
+   "options": [
+    "79",
+    "85",
+    "84",
+    "74"
+   ],
+   "answerIndex": 2,
+   "explain": "39 拿到 1 个变成 40，45 给出 1 个变成 44，40 + 44 = 84。别忘了 45 少了 1 个，算成 40 + 45 = 85 就多了 1。",
+   "tags": [
+    "calc.drop_part",
+    "calc.compensate_forget",
+    "ok",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmunpv43xn3316b",
+   "level": 1,
+   "question": "Lily 摆了 4 根十条和 7 个小方块，又添上 2 根十条和 5 个小方块。现在摆的数是多少？",
+   "options": [
+    "67",
+    "62",
+    "75",
+    "72"
+   ],
+   "answerIndex": 3,
+   "explain": "十条 4 + 2 = 6 根是 60，小方块 7 + 5 = 12 个，60 + 12 = 72。12 个小方块里有 10 个要换成 1 根十条，别写成 62。",
+   "tags": [
+    "calc.drop_part",
+    "calc.regroup_forget",
+    "calc.compensate_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunpv43xyfn1mx",
+   "level": 2,
+   "question": "图书角有 27 本故事书，老师又拿来 46 本。现在一共有多少本？",
+   "options": [
+    "73",
+    "76",
+    "63",
+    "67"
+   ],
+   "answerIndex": 0,
+   "explain": "拆开算：20 + 40 = 60，7 + 6 = 13，60 + 13 = 73。个位满十要进位（regroup），别写成 63。",
+   "tags": [
+    "ok",
+    "calc.compensate_forget",
+    "calc.regroup_forget",
+    "calc.drop_part"
+   ]
+  },
+  {
+   "qid": "qmunpv43xrqfdjo",
+   "level": 2,
+   "question": "Leo 有 49 张贴纸，生日又收到 34 张。Leo 现在有多少张贴纸？",
+   "options": [
+    "79",
+    "83",
+    "84",
+    "73"
+   ],
+   "answerIndex": 1,
+   "explain": "49 差 1 就是 50，先算 50 + 34 = 84，再把多加的 1 减掉，得 83。用了好算的数（friendly number），别忘了调回来。",
+   "tags": [
+    "calc.drop_part",
+    "ok",
+    "calc.compensate_forget",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmunpv43xp0tyve",
+   "level": 2,
+   "question": "一辆玩具车 35 加元，一盒彩笔 19 加元。两样都买，一共要多少加元？",
+   "options": [
+    "44",
+    "55",
+    "54",
+    "45"
+   ],
+   "answerIndex": 2,
+   "explain": "19 差 1 就是 20，先算 35 + 20 = 55，再减掉多加的 1，得 54。忘了减回来就会错成 55。",
+   "tags": [
+    "calc.regroup_forget",
+    "calc.compensate_forget",
+    "ok",
+    "calc.drop_part"
+   ]
+  },
+  {
+   "qid": "qmunpv43xg9pb57",
+   "level": 2,
+   "question": "Ava 摘了 64 颗蓝莓，爸爸摘了 28 颗。他们一共摘了多少颗蓝莓？",
+   "options": [
+    "812",
+    "82",
+    "94",
+    "92"
+   ],
+   "answerIndex": 3,
+   "explain": "拆开算：60 + 20 = 80，4 + 8 = 12，80 + 12 = 92。别把 8 和 12 并排写成 812，12 里的 10 要进到十位。",
+   "tags": [
+    "calc.digits_side_by_side",
+    "calc.regroup_forget",
+    "calc.compensate_forget",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunpv43xoop2io",
+   "level": 3,
+   "question": "Noah 有 27 张冰球卡。哥哥送他 38 张，他自己又买了 3 张。Noah 现在有多少张？",
+   "options": [
+    "68",
+    "65",
+    "58",
+    "70"
+   ],
+   "answerIndex": 0,
+   "explain": "先把 27 和 3 凑成 30，再算 30 + 38 = 68。三个数都要加进去，漏掉 3 就只有 65。",
+   "tags": [
+    "ok",
+    "calc.drop_part",
+    "calc.regroup_forget",
+    "calc.compensate_forget"
+   ]
+  },
+  {
+   "qid": "qmunpv43xot1m2n",
+   "level": 3,
+   "question": "盒子里有 46 支红铅笔和 28 支蓝铅笔。老师拿走了 10 支。盒子里还剩多少支？",
+   "options": [
+    "66",
+    "64",
+    "56",
+    "54"
+   ],
+   "answerIndex": 1,
+   "explain": "先算 46 + 28：40 + 20 = 60，6 + 8 = 14，合起来是 74；再拿走 10 支，剩 64。6 + 8 满十要进位，忘了进位就会错成 54。",
+   "tags": [
+    "calc.compensate_forget",
+    "ok",
+    "calc.drop_part",
+    "calc.regroup_forget"
+   ]
+  },
+  {
+   "qid": "qmunpv43xvgj9lx",
+   "level": 3,
+   "question": "38 + 56 = 80 + □。□ 里应该填几？",
+   "options": [
+    "16",
+    "4",
+    "14",
+    "8"
+   ],
+   "answerIndex": 2,
+   "explain": "拆开算：30 + 50 = 80，8 + 6 = 14，所以 □ 里是 14。8 + 6 满十了，整个 14 都要留下，不能只写 4。",
+   "tags": [
+    "calc.compensate_forget",
+    "calc.regroup_forget",
+    "ok",
+    "calc.drop_part"
+   ]
+  },
+  {
+   "qid": "qmunpv43x2m8qus",
+   "level": 3,
+   "question": "Ben 算 28 + 57：他先算 30 + 57 = 87，就把 87 当成答案。他错在哪里？",
+   "options": [
+    "个位满十，却忘了进位",
+    "把十位和个位并排写了",
+    "漏掉了 57 里的 7",
+    "多加了 2，忘了减掉"
+   ],
+   "answerIndex": 3,
+   "explain": "28 变成 30 是多加了 2，所以要从 87 里减掉 2，正确的和是 85。用了好算的数，最后一定要调回来。",
+   "tags": [
+    "calc.regroup_forget",
+    "calc.digits_side_by_side",
+    "calc.drop_part",
+    "ok"
+   ]
+  }
+ ]
+}

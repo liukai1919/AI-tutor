@@ -1,0 +1,348 @@
+{
+ "id": "YY.MATH.PROB.SIM.FIFTY_FIFTY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuob4cvipvyljc",
+   "level": 1,
+   "question": "你抛一枚硬币（coin）。\"50-50 的机会\"是什么意思？",
+   "options": [
+    "正面和反面同样可能",
+    "出了正面，下次一定是反面",
+    "必须按正面、反面的顺序来",
+    "抛 10 次一定正好 5 次正面"
+   ],
+   "answerIndex": 0,
+   "explain": "50-50 就是正面和反面同样可能（equally likely）。最容易踩的坑是觉得\"出了正面下次就一定是反面\"——硬币没有记忆，每次都一样。",
+   "tags": [
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "prob.exact_match_expected"
+   ]
+  },
+  {
+   "qid": "qmuob4cvi2v97pv",
+   "level": 1,
+   "question": "一个转盘（spinner）分成 2 等份：一份红、一份蓝。红色和蓝色的机会是什么关系？",
+   "options": [
+    "红色更可能，因为排第一",
+    "同样可能，两份一样大",
+    "转了红，下次就一定是蓝",
+    "一次必须同时转到红和蓝"
+   ],
+   "answerIndex": 1,
+   "explain": "两份一样大，所以红色和蓝色同样可能。容易错的是觉得\"转了红就轮到蓝了\"——每次转都是独立的新机会，不存在\"该轮到谁\"。",
+   "tags": [
+    "other",
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected"
+   ]
+  },
+  {
+   "qid": "qmuob4cvix3rca8",
+   "level": 1,
+   "question": "你抛硬币，连着 4 次都是正面。第 5 次更可能是反面吗？",
+   "options": [
+    "是，反面\"该来了",
+    "是，为了凑成 2 正 2 反",
+    "不是，还是同样可能",
+    "不是，第 5 次一定还是正面"
+   ],
+   "answerIndex": 2,
+   "explain": "不管前面出了什么，每一次抛都是同样可能。硬币不记前几次，所以不存在\"该来了\"或\"一定还是正面\"。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuob4cvia91bkp",
+   "level": 1,
+   "question": "袋子里有 1 颗红弹珠、1 颗蓝弹珠。你摸一颗，红色的机会是？",
+   "options": [
+    "红色比蓝色更可能",
+    "每次必须出红色",
+    "这次一定出红色",
+    "和蓝色同样可能"
+   ],
+   "answerIndex": 3,
+   "explain": "红蓝各 1 颗，数量一样，所以同样可能。容易错的是觉得\"我必须先摸到红色\"或\"每次都该是红色\"。",
+   "tags": [
+    "other",
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuob4cviocll5u",
+   "level": 2,
+   "question": "Ana 抛 10 次硬币得了 7 次正面。Ben 抛 10 次得了 3 次正面。Ana 的硬币是不是\"更好\"？",
+   "options": [
+    "不是，两枚硬币都还是同样可能",
+    "不是，Ben 的硬币\"该\"出更多正面",
+    "是，10 次必须正好 5 正 5 反",
+    "是，她的硬币正面更可能"
+   ],
+   "answerIndex": 0,
+   "explain": "抛的结果有波动，7 次正面和 3 次正面都正常。不能因为某次结果就说是硬币\"好坏\"，每枚都是同样可能。",
+   "tags": [
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuob4cvi3eefij",
+   "level": 2,
+   "question": "你抛了 5 次硬币，全是反面。朋友说\"第 6 次一定是正面，要凑成 3 正 3 反。\"你怎么回答？",
+   "options": [
+    "你说得对，必须凑成 3 和 3",
+    "不对，每次还是同样可能",
+    "你说得对，5 次反面后正面\"该来了",
+    "不对，第 6 次一定还是反面"
+   ],
+   "answerIndex": 1,
+   "explain": "5 次全是反面是小概率但完全可能的事。第 6 次不因为前 5 次而改变，还是同样可能，不存在\"凑\"。",
+   "tags": [
+    "prob.exact_match_expected",
+    "ok",
+    "prob.due_after_streak",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuob4cviczgao5",
+   "level": 2,
+   "question": "一个游戏转盘分 2 等份：\"赢\"和\"输\"。你连输 3 次。主持人说\"你该赢了！\"主持人说得对吗？",
+   "options": [
+    "对，输了 3 次就该赢了",
+    "对，10 次必须正好 5 赢 5 输",
+    "不对，每次还是同样可能",
+    "不对，5 次都会输"
+   ],
+   "answerIndex": 2,
+   "explain": "连输 3 次很不走运但完全正常。下一次还是同样可能，转盘不记前几次，不存在\"该赢了\"。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuob4cviubomns",
+   "level": 3,
+   "question": "你和妹妹轮流抛硬币。你先抛，出了正面。妹妹说\"那我肯定出反面！\"她说得对吗？",
+   "options": [
+    "对，你出了正面她一定出反面",
+    "对，为了凑成 1 正 1 反",
+    "不对，你得重抛直到出反面",
+    "不对，硬币每次都同样可能"
+   ],
+   "answerIndex": 3,
+   "explain": "硬币不认人。你抛了正面，妹妹的下一次还是同样可能，不存在\"该轮到反面了\"或\"必须凑成 1 正 1 反\"。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuob4cvi7m5w3n",
+   "level": 3,
+   "question": "你抛了 8 次硬币：6 次正面、2 次反面。同学说\"硬币坏了，应该是 4 正 4 反！\"你怎么说？",
+   "options": [
+    "硬币没坏，6 和 2 很正常",
+    "你说得对，8 次必须正好 4 和 4",
+    "反面多了，下次一定出正面",
+    "硬币\"欠\"你反面，该出了"
+   ],
+   "answerIndex": 0,
+   "explain": "8 次里 6 正 2 反虽然不常见但完全正常，不代表硬币有问题。50-50 是每次的机会，不是每次结果必须对半。",
+   "tags": [
+    "ok",
+    "prob.exact_match_expected",
+    "prob.due_after_streak",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuob4cvi0r2x5w",
+   "level": 3,
+   "question": "你抛了 12 次硬币，得到 7 次正面。你得到几次反面？硬币是不公平的吗？",
+   "options": [
+    "5 次反面，但硬币肯定坏了",
+    "5 次反面，硬币是公平的",
+    "6 次反面，因为必须正好 6 和 6",
+    "5 次反面，但下次一定出反面"
+   ],
+   "answerIndex": 1,
+   "explain": "12 减 7 等于 5 次反面。7 正 5 反完全正常，不代表硬币不公平。50-50 是每次的机会，不是结果必须对半。",
+   "tags": [
+    "prob.exact_match_expected",
+    "ok",
+    "prob.exact_match_expected",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuognj5nkiutyu",
+   "level": 2,
+   "question": "体育课上，老师抛一枚硬币（coin）决定哪个队先上场。为什么大家都说这样公平？",
+   "options": [
+    "出过正面以后就该换反面了",
+    "抛 2 次一定是 1 正 1 反",
+    "正面和反面的机会一半一半",
+    "抛 10 次一定正好 5 次正面"
+   ],
+   "answerIndex": 2,
+   "explain": "硬币只有两面，正面和反面同样可能（equally likely），所以一半一半才叫公平。坑：抛几次的结果不一定正好一半对一半，机会公平≠次数相等。",
+   "tags": [
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok",
+    "prob.exact_match_expected"
+   ]
+  },
+  {
+   "qid": "qmuognj5nx5a6zr",
+   "level": 2,
+   "question": "社区中心的转盘（spinner）分成 4 等份：2 份写猫、2 份写狗。转一次，转出猫和转出狗的机会怎么样？",
+   "options": [
+    "猫更可能，因为猫多了 1 份",
+    "狗更可能，因为上次转出了猫",
+    "说不准，要正好 2 猫 2 狗才算",
+    "一半一半，猫和狗同样可能"
+   ],
+   "answerIndex": 3,
+   "explain": "4 等份里猫占 2 份、狗也占 2 份，一样多，所以两种同样可能，就是一半一半。坑：上一次转到什么，都不会改变这一次的机会。",
+   "tags": [
+    "other",
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuognj5nos8n65",
+   "level": 2,
+   "question": "Maya 把 3 张写「走」的卡和 3 张写「停」的卡放进袋子，闭眼摸一张。摸到「走」的机会是多少？",
+   "options": [
+    "一半一半，两种卡的张数一样多",
+    "「停」更可能，因为该轮到停了",
+    "「走」更可能，因为走的卡多 1 张",
+    "一定，因为「走」的卡放在上面"
+   ],
+   "answerIndex": 0,
+   "explain": "「走」有 3 张，「停」也有 3 张，一样多，所以摸到哪种都是一半一半。坑：卡放上面还是下面都不影响机会，要看两种卡各有几张。",
+   "tags": [
+    "ok",
+    "prob.due_after_streak",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuognj5ny6o4fq",
+   "level": 2,
+   "question": "Kai 想抛硬币决定谁先讲故事。他记得这枚硬币昨天出了好多次正面。今天第一次抛，出正面的机会是？",
+   "options": [
+    "正面更可能，这是它的老习惯",
+    "一半一半，硬币记不住昨天",
+    "反面更可能，昨天正面太多了",
+    "说不准，要正好一半才算公平"
+   ],
+   "answerIndex": 1,
+   "explain": "每一次抛都是全新的一次，正面和反面永远一半一半。坑：以为昨天正面多、今天就该出反面——硬币不会记住以前的结果。",
+   "tags": [
+    "other",
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected"
+   ]
+  },
+  {
+   "qid": "qmuognj5ntqajsg",
+   "level": 3,
+   "question": "集会要抽一名旗手。袋子里有 5 张写 3A 班的纸、5 张写 3B 班的纸。老师先抽走 1 张 3A、1 张 3B 做示范，再正式抽一张。正式抽的时候，两班的机会怎么样？",
+   "options": [
+    "3B 更可能，3B 还有 5 张",
+    "说不准，要两班各中 4 次才算",
+    "一半一半，两班各剩 4 张",
+    "3A 更可能，因为刚抽走 3A"
+   ],
+   "answerIndex": 2,
+   "explain": "两边各抽走 1 张：5 − 1 = 4，3A 和 3B 都剩 4 张，一样多，所以还是一半一半。坑：只记住原来的 5 张，忘了两边都少了 1 张。",
+   "tags": [
+    "other",
+    "prob.exact_match_expected",
+    "ok",
+    "prob.due_after_streak"
+   ]
+  },
+  {
+   "qid": "qmuognj5n0hi77r",
+   "level": 3,
+   "question": "Lily 的袋子里有 6 颗红弹珠、2 颗绿弹珠。她想让摸到红和摸到绿一半一半。要再放进几颗绿弹珠？",
+   "options": [
+    "8 颗",
+    "2 颗",
+    "6 颗",
+    "4 颗"
+   ],
+   "answerIndex": 3,
+   "explain": "一半一半就是两种颜色一样多：红有 6 颗，绿也要有 6 颗，6 − 2 = 4，所以再放 4 颗绿的。坑：答 6 颗的是绿弹珠最后的总数，不是还要再放的数。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuognj5nvxi2p6",
+   "level": 3,
+   "question": "学校游园会有两个摊位。A 摊的转盘分 2 等份，1 份中奖。B 摊的袋子里有 1 颗金球、1 颗黑球，摸到金球中奖。哪个摊中奖的机会更大？",
+   "options": [
+    "一样大，两个都是一半一半",
+    "B 摊，因为刚才 A 摊没人中过",
+    "说不准，要各玩 10 次中 5 次",
+    "A 摊，转盘比摸球容易中"
+   ],
+   "answerIndex": 0,
+   "explain": "A 摊 2 等份里 1 份中奖，B 摊 2 颗球里 1 颗中奖，两个都是一半一半，机会一样大。坑：别看是转盘还是摸球，要数一共几种一样的结果、其中几种中奖。",
+   "tags": [
+    "ok",
+    "prob.due_after_streak",
+    "prob.exact_match_expected",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuognj5ncleiap",
+   "level": 3,
+   "question": "抛硬币猜边时，Mia 连着 3 次都猜对了。弟弟说：下一次你一定猜错，不能老是你赢。弟弟说得对吗？",
+   "options": [
+    "对，赢过 3 次就该轮到输了",
+    "不对，每次猜对都是一半一半",
+    "不对，因为 Mia 下次也一定对",
+    "对，因为 4 次里要有 2 次错"
+   ],
+   "answerIndex": 1,
+   "explain": "硬币每次都是正反一半一半，前面猜对几次都不影响下一次，所以说下一次一定猜错是错的。坑：以为连赢了就该轮到输——硬币不会算账，也不会凑数。",
+   "tags": [
+    "prob.due_after_streak",
+    "ok",
+    "other",
+    "prob.exact_match_expected"
+   ]
+  }
+ ]
+}

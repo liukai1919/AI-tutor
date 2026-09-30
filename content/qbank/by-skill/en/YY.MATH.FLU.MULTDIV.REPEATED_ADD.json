@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.FLU.MULTDIV.REPEATED_ADD",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmuo5svwh7c7naa",
+   "level": 1,
+   "question": "What is 4 + 4 + 4 + 4?",
+   "options": [
+    "16",
+    "12",
+    "8",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "Skip-count by 4 four times: 4, 8, 12, 16. Watch out for using only 3 groups or adding 4 + 4 instead.",
+   "tags": [
+    "ok",
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhgslug5",
+   "level": 1,
+   "question": "What is 3 + 3 + 3 + 3 + 3?",
+   "options": [
+    "12",
+    "15",
+    "8",
+    "18"
+   ],
+   "answerIndex": 1,
+   "explain": "Skip-count by 3 five times: 3, 6, 9, 12, 15. The trap is stopping at 4 groups or adding 3 + 5.",
+   "tags": [
+    "mult.group_miscount",
+    "ok",
+    "mult.group_count_plus_size",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwht1l49v",
+   "level": 1,
+   "question": "What is 5 + 5 + 5?",
+   "options": [
+    "10",
+    "8",
+    "15",
+    "20"
+   ],
+   "answerIndex": 2,
+   "explain": "Three 5s added is 5, 10, 15. The trap is using only 2 groups or adding 5 + 3.",
+   "tags": [
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "ok",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhfbywlg",
+   "level": 1,
+   "question": "What is 6 + 6 + 6 + 6?",
+   "options": [
+    "18",
+    "10",
+    "30",
+    "24"
+   ],
+   "answerIndex": 3,
+   "explain": "Skip-count by 6 four times: 6, 12, 18, 24. The trap is using 3 groups or adding 6 + 4.",
+   "tags": [
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "mult.group_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhsbr9hp",
+   "level": 2,
+   "question": "A child has 4 bags of 5 apples each. How many apples in total?",
+   "options": [
+    "20",
+    "9",
+    "15",
+    "25"
+   ],
+   "answerIndex": 0,
+   "explain": "Four bags of 5 means 5 + 5 + 5 + 5 = 20. The trap is using 3 bags or adding 4 + 5.",
+   "tags": [
+    "ok",
+    "mult.group_count_plus_size",
+    "mult.group_miscount",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwh1wrl1t",
+   "level": 2,
+   "question": "A bus stop has 4 benches. Each bench holds 6 kids. How many kids can sit?",
+   "options": [
+    "18",
+    "24",
+    "10",
+    "30"
+   ],
+   "answerIndex": 1,
+   "explain": "Four benches of 6 kids means 6 + 6 + 6 + 6 = 24. The trap is using 3 benches or adding 4 + 6.",
+   "tags": [
+    "mult.group_miscount",
+    "ok",
+    "mult.group_count_plus_size",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwh77hzb7",
+   "level": 2,
+   "question": "A bakery puts 7 cookies in each bag. A child buys 3 bags. How many cookies?",
+   "options": [
+    "14",
+    "10",
+    "21",
+    "28"
+   ],
+   "answerIndex": 2,
+   "explain": "Three bags of 7 means 7 + 7 + 7 = 21. The trap is using 2 bags or adding 3 + 7.",
+   "tags": [
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "ok",
+    "mult.group_miscount"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhs71u4d",
+   "level": 2,
+   "question": "A child stacks 8 books on each of 3 shelves. How many books are there?",
+   "options": [
+    "16",
+    "11",
+    "32",
+    "24"
+   ],
+   "answerIndex": 3,
+   "explain": "Three shelves of 8 means 8 + 8 + 8 = 24. The trap is using 2 shelves or adding 3 + 8.",
+   "tags": [
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "mult.group_miscount",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhxqc5g3",
+   "level": 3,
+   "question": "A child has 5 packs of 6 stickers. She uses 3 stickers. How many are left?",
+   "options": [
+    "27",
+    "24",
+    "11",
+    "30"
+   ],
+   "answerIndex": 0,
+   "explain": "Five packs of 6 is 6 + 6 + 6 + 6 + 6 = 30, then take away 3 to get 27. The trap is forgetting to subtract or using 4 packs.",
+   "tags": [
+    "ok",
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhvlsxik",
+   "level": 3,
+   "question": "A child skip-counts by 7s: 7, 14, 21, 28, ___. What is the next number?",
+   "options": [
+    "28",
+    "35",
+    "42",
+    "12"
+   ],
+   "answerIndex": 1,
+   "explain": "Skip-counting by 7s: 7, 14, 21, 28, 35. The next is 28 + 7 = 35. The trap is adding two 7s at once or adding 7 + 5.",
+   "tags": [
+    "mult.group_miscount",
+    "ok",
+    "mult.group_miscount",
+    "mult.group_count_plus_size"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhgvogad",
+   "level": 3,
+   "question": "A child says 4 groups of 5 is 5 + 5 + 5 = 15. What went wrong?",
+   "options": [
+    "She used 5 groups, not 4.",
+    "She added groups and size.",
+    "She has 3 groups, not 4.",
+    "She started at 6, not 5."
+   ],
+   "answerIndex": 2,
+   "explain": "Four groups of 5 should be 5 + 5 + 5 + 5 = 20, not 5 + 5 + 5. She wrote only 3 groups. Count the groups carefully.",
+   "tags": [
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo5svwhd7g02f",
+   "level": 3,
+   "question": "A child has 6 plates. She puts 5 grapes on each plate. She eats 4 grapes. How many are left?",
+   "options": [
+    "30",
+    "25",
+    "11",
+    "26"
+   ],
+   "answerIndex": 3,
+   "explain": "Six plates of 5 is 5 + 5 + 5 + 5 + 5 + 5 = 30, then take away 4 to get 26. The trap is forgetting to subtract or using 5 plates.",
+   "tags": [
+    "other",
+    "mult.group_miscount",
+    "mult.group_count_plus_size",
+    "ok"
+   ]
+  }
+ ]
+}

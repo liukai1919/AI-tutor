@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.BENCH100.NEAREST",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunybjl4xk7066",
+   "level": 1,
+   "question": "把 0 到 100 平均分成 4 份，每份 25。数轴上标了 25、50、100 三个点。数 30 离哪个点最近？",
+   "options": [
+    "25",
+    "100",
+    "50",
+    "20"
+   ],
+   "answerIndex": 0,
+   "explain": "30 减 25 得 5，30 离 50 差 20，离 100 差 70。5 最小，所以 30 离 25 最近。容易觉得 30 离 50 更近，其实只差 5。",
+   "tags": [
+    "ok",
+    "bench.nearer_wrong",
+    "bench.nearer_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl4upmitx",
+   "level": 1,
+   "question": "把 0 到 100 平均分成 4 份，每份 25。数轴上标了 25、50、100。数 45 离哪个点最近？",
+   "options": [
+    "25",
+    "50",
+    "100",
+    "75"
+   ],
+   "answerIndex": 1,
+   "explain": "50 减 45 得 5，45 减 25 得 20。5 比 20 小，所以 45 离 50 最近。容易觉得 25 是 100 的一半，其实 50 才是。",
+   "tags": [
+    "bench.half_confuse",
+    "ok",
+    "bench.nearer_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl4og08um",
+   "level": 1,
+   "question": "把 0 到 100 平均分成 4 份，每份 25。数轴上标了 25、50、100。数 80 离哪个点最近？",
+   "options": [
+    "50",
+    "25",
+    "100",
+    "60"
+   ],
+   "answerIndex": 2,
+   "explain": "100 减 80 得 20，80 减 50 得 30。20 比 30 小，所以 80 离 100 最近。容易觉得 50 在中间，80 就该离 50 近，其实差得更多。",
+   "tags": [
+    "bench.nearer_wrong",
+    "bench.half_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl4fjiww6",
+   "level": 1,
+   "question": "把 0 到 100 平均分成 4 份，每份 25。数轴上标了 25、50、100。数 12 离哪个点最近？",
+   "options": [
+    "100",
+    "15",
+    "50",
+    "25"
+   ],
+   "answerIndex": 3,
+   "explain": "25 减 12 得 13，12 离 50 差 38，离 100 差 88。13 最小，所以 12 离 25 最近。容易觉得 12 很小，离 15 更近。",
+   "tags": [
+    "bench.nearer_wrong",
+    "other",
+    "bench.nearer_wrong",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunybjl4xx3dqw",
+   "level": 2,
+   "question": "小美数了 42 颗蓝莓。你觉得 42 比较接近 25、50 还是 100？",
+   "options": [
+    "50",
+    "25",
+    "100",
+    "40"
+   ],
+   "answerIndex": 0,
+   "explain": "50 减 42 得 8，42 减 25 得 17。8 比 17 小，所以 42 比较接近 50。容易觉得 42 离 25 更近，其实差了 17 颗。",
+   "tags": [
+    "ok",
+    "bench.half_confuse",
+    "bench.nearer_wrong",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl44qvp4o",
+   "level": 2,
+   "question": "小明捡了 63 颗小石子。63 比较接近哪个基准点（benchmark）？",
+   "options": [
+    "100",
+    "50",
+    "25",
+    "70"
+   ],
+   "answerIndex": 1,
+   "explain": "63 减 50 得 13，100 减 63 得 37。13 比 37 小，所以 63 比较接近 50。容易觉得 63 超过一半该离 100 近，其实 50 和 100 中间是 75，63 还没到。",
+   "tags": [
+    "bench.nearer_wrong",
+    "ok",
+    "bench.half_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl44kkexu",
+   "level": 2,
+   "question": "妈妈买了 28 个橙子。28 比较接近 25、50 还是 100？",
+   "options": [
+    "50",
+    "100",
+    "25",
+    "30"
+   ],
+   "answerIndex": 2,
+   "explain": "28 减 25 得 3，50 减 28 得 22，100 减 28 得 72。3 最小，所以 28 比较接近 25。容易把 28 四舍五入成 30 就选了 30。",
+   "tags": [
+    "bench.nearer_wrong",
+    "bench.nearer_wrong",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl4b8jzt7",
+   "level": 2,
+   "question": "班级图书角有 72 本绘本。72 比较接近 50 还是 100？",
+   "options": [
+    "100",
+    "80",
+    "25",
+    "50"
+   ],
+   "answerIndex": 3,
+   "explain": "72 减 50 得 22，100 减 72 得 28。22 比 28 小，所以 72 比较接近 50。容易觉得 72 比一半多该离 100 近，其实 50 和 100 中间是 75，72 还没到。",
+   "tags": [
+    "bench.nearer_wrong",
+    "other",
+    "bench.half_confuse",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunybjl433738h",
+   "level": 3,
+   "question": "小华跳了 36 下绳。36 离 25 和 50，哪个更近？差几？",
+   "options": [
+    "离 25 更近，差 11",
+    "离 50 更近，差 14",
+    "一样近，都差 12",
+    "离 100 更近，差 64"
+   ],
+   "answerIndex": 0,
+   "explain": "36 减 25 得 11，50 减 36 得 14。11 比 14 小，所以 36 离 25 更近。容易觉得 36 过了中间，其实 25 和 50 中间是 37，36 还没到。",
+   "tags": [
+    "ok",
+    "bench.nearer_wrong",
+    "other",
+    "bench.nearer_wrong"
+   ]
+  },
+  {
+   "qid": "qmunybjl429b8ii",
+   "level": 3,
+   "question": "一个数离 50 差 10，离 100 差 60。这个数是多少？",
+   "options": [
+    "60",
+    "40",
+    "45",
+    "30"
+   ],
+   "answerIndex": 1,
+   "explain": "50 减 10 得 40。验证：100 减 40 得 60，对的。容易用 50 加 10 得 60，但 60 离 100 差 40 不是 60。",
+   "tags": [
+    "other",
+    "ok",
+    "bench.half_confuse",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl43ygyh2",
+   "level": 3,
+   "question": "小美说：「55 离 25 比较近，因为 25 是 50 的一半。」她哪里想错了？",
+   "options": [
+    "55 离 100 差 45，比离 50 还近",
+    "25 和 50 都是 100 的一半",
+    "55 离 50 只差 5 而已",
+    "55 在 25 和 50 正中间"
+   ],
+   "answerIndex": 2,
+   "explain": "55 减 50 得 5，55 减 25 得 30。5 比 30 小得多，55 其实离 50 更近。小美把「25 是 50 的一半」当成了「55 离 25 近」的理由。",
+   "tags": [
+    "bench.nearer_wrong",
+    "bench.half_confuse",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunybjl472air6",
+   "level": 3,
+   "question": "小杰有 40 颗糖，吃了 2 颗。剩下的离哪个基准点最近？",
+   "options": [
+    "25",
+    "30",
+    "100",
+    "50"
+   ],
+   "answerIndex": 3,
+   "explain": "40 减 2 得 38。38 减 25 得 13，50 减 38 得 12。12 比 13 小，所以 38 离 50 最近。容易觉得 38 离 25 更近，其实只差 1 颗。",
+   "tags": [
+    "bench.nearer_wrong",
+    "other",
+    "bench.nearer_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

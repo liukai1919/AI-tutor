@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.MEAS.TIME.CALENDAR",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo9ba724mrbw9",
+   "level": 1,
+   "question": "今天是星期一。星期四还有几天？",
+   "options": [
+    "3天",
+    "4天",
+    "7天",
+    "2天"
+   ],
+   "answerIndex": 0,
+   "explain": "星期一之后数：二、三、四，一共 3 天。别把星期一自己算进去。",
+   "tags": [
+    "ok",
+    "time.count_start_day",
+    "time.relation_mixup",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72m4gj4l",
+   "level": 1,
+   "question": "一星期（week）有几天？",
+   "options": [
+    "12天",
+    "7天",
+    "5天",
+    "6天"
+   ],
+   "answerIndex": 1,
+   "explain": "一星期就是 7 天，别和一年 12 个月搞混了。",
+   "tags": [
+    "time.relation_mixup",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba7277cklx",
+   "level": 1,
+   "question": "一年（year）有几个月（month）？",
+   "options": [
+    "7个月",
+    "10个月",
+    "12个月",
+    "6个月"
+   ],
+   "answerIndex": 2,
+   "explain": "一年 12 个月，别和 7 天混了。",
+   "tags": [
+    "time.relation_mixup",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba722hwgym",
+   "level": 1,
+   "question": "今天是星期三。下星期一还有几天？",
+   "options": [
+    "6天",
+    "7天",
+    "4天",
+    "5天"
+   ],
+   "answerIndex": 3,
+   "explain": "星期三之后数：四、五、六、日、一，一共 5 天。别把星期三算进去。",
+   "tags": [
+    "time.count_start_day",
+    "time.relation_mixup",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72h5kedw",
+   "level": 2,
+   "question": "今天是 7 月 29 日。Lily 的生日是 7 月 31 日。还有几天？",
+   "options": [
+    "2天",
+    "3天",
+    "1天",
+    "7天"
+   ],
+   "answerIndex": 0,
+   "explain": "29 号后面数：30、31，就 2 天。别把 29 号算进去。",
+   "tags": [
+    "ok",
+    "time.count_start_day",
+    "other",
+    "time.relation_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72p9t7va",
+   "level": 2,
+   "question": "今天是 9 月 2 日。学校 9 月 5 日开学。还有几天开学？",
+   "options": [
+    "4天",
+    "3天",
+    "2天",
+    "5天"
+   ],
+   "answerIndex": 1,
+   "explain": "2 号后面数：3、4、5，就 3 天。别把 2 号算进去。",
+   "tags": [
+    "time.count_start_day",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72047vxb",
+   "level": 2,
+   "question": "10 月 1 日是星期二。10 月 5 日是星期几？",
+   "options": [
+    "星期五",
+    "星期一",
+    "星期六",
+    "星期日"
+   ],
+   "answerIndex": 2,
+   "explain": "1 号是星期二，往后数 4 天：三、四、五、六，所以 5 号是星期六。",
+   "tags": [
+    "other",
+    "time.relation_mixup",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72gk6vto",
+   "level": 3,
+   "question": "今天是 8 月 28 日。爸爸的生日是 9 月 1 日。还有几天？",
+   "options": [
+    "5天",
+    "3天",
+    "7天",
+    "4天"
+   ],
+   "answerIndex": 3,
+   "explain": "8 月有 31 天，28 号后面还有 29、30、31，再加 9 月 1 号，一共 4 天。",
+   "tags": [
+    "time.count_start_day",
+    "other",
+    "time.relation_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72htamlw",
+   "level": 3,
+   "question": "今天是 4 月 29 日。5 月 4 日学校春游。还有几天？",
+   "options": [
+    "5天",
+    "4天",
+    "7天",
+    "6天"
+   ],
+   "answerIndex": 0,
+   "explain": "4 月有 30 天，29 号后面还有 30，再加 5 月 1、2、3、4，一共 5 天。",
+   "tags": [
+    "ok",
+    "other",
+    "time.relation_mixup",
+    "time.count_start_day"
+   ]
+  },
+  {
+   "qid": "qmuo9ba726gxox2",
+   "level": 3,
+   "question": "Ben 说：「从星期一（今天）到星期五还有 5 天。」他错在哪？",
+   "options": [
+    "少算了一天，应该是 6 天",
+    "多算了星期一，应该是 4 天",
+    "应该是 7 天，一星期有 7 天",
+    "少算了 2 天，应该是 7 天"
+   ],
+   "answerIndex": 1,
+   "explain": "「还有几天」不算今天，所以星期二到星期五是 4 天，不是 5 天。",
+   "tags": [
+    "other",
+    "ok",
+    "time.relation_mixup",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo9ba72d3fqq2",
+   "level": 3,
+   "question": "今天是 5 月 28 日。妈妈的生日是 6 月 3 日。还有几天？",
+   "options": [
+    "5天",
+    "7天",
+    "6天",
+    "12天"
+   ],
+   "answerIndex": 2,
+   "explain": "5 月有 31 天，28 号后面还有 29、30、31，再加 6 月 1、2、3，一共 6 天。",
+   "tags": [
+    "other",
+    "time.count_start_day",
+    "ok",
+    "time.relation_mixup"
+   ]
+  },
+  {
+   "qid": "qmuog2vxxcwrivd",
+   "level": 2,
+   "question": "今天是 9 月。Ava 说社区跑步比赛每年办一次，下一次在明年 9 月。还有几个月（month）？",
+   "options": [
+    "11 个月",
+    "13 个月",
+    "7 个月",
+    "12 个月"
+   ],
+   "answerIndex": 3,
+   "explain": "从这个 9 月走到明年 9 月正好是一整年，一年有 12 个月。别把现在这个 9 月也算进「还有的月份」，那样就多数了一个变成 13。",
+   "tags": [
+    "other",
+    "time.count_start_day",
+    "time.relation_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuog2vxxxioezr",
+   "level": 2,
+   "question": "今天是 8 月。Leo 说再过 5 个月就是他的生日。他的生日在几月？",
+   "options": [
+    "1 月",
+    "6 月",
+    "12 月",
+    "5 月"
+   ],
+   "answerIndex": 0,
+   "explain": "从 8 月往后一个一个数：9 月、10 月、11 月、12 月，再一个就是 1 月。数的时候别把 8 月当成第一个月，那样会错停在 12 月。",
+   "tags": [
+    "ok",
+    "time.relation_mixup",
+    "time.count_start_day",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuog2vxxa2mk5i",
+   "level": 2,
+   "question": "今天是星期五。Noah 的球队下星期五有比赛。还有几天（day）？",
+   "options": [
+    "8 天",
+    "7 天",
+    "6 天",
+    "12 天"
+   ],
+   "answerIndex": 1,
+   "explain": "星期五到下一个星期五正好是一个星期（week），一星期有 7 天。今天不算在「还有几天」里面，算进去就多成 8 天了。",
+   "tags": [
+    "time.count_start_day",
+    "ok",
+    "other",
+    "time.relation_mixup"
+   ]
+  },
+  {
+   "qid": "qmuog2vxxj8ebx1",
+   "level": 2,
+   "question": "今天是 4 月 3 日。Maya 的生日在 4 月 17 日。还有几天？",
+   "options": [
+    "24 天",
+    "15 天",
+    "14 天",
+    "13 天"
+   ],
+   "answerIndex": 2,
+   "explain": "17 − 3 = 14，所以还有 14 天。今天这一天不数进去；把 4 月 3 日也算上就会多一天，错成 15 天。",
+   "tags": [
+    "time.relation_mixup",
+    "time.count_start_day",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

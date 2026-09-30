@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.FIND_MISSING",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmunt4j40wcvxry",
+   "level": 1,
+   "question": "The pattern is A, B, C, A, B, C, A, B, __. What letter goes in the blank?",
+   "options": [
+    "C",
+    "A",
+    "B",
+    "D"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is A, B, C, so after B the next letter is C. The trap is to just repeat B or jump back to A.",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j40r5vyrz",
+   "level": 1,
+   "question": "The pattern is red, blue, green, red, blue, green, red, blue, __. What colour goes in the blank?",
+   "options": [
+    "blue",
+    "green",
+    "red",
+    "yellow"
+   ],
+   "answerIndex": 1,
+   "explain": "The core is red, blue, green. After blue comes green. Watch out for picking blue again or starting the core over with red.",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j404mwoza",
+   "level": 1,
+   "question": "The pattern is star, circle, square, star, circle, square, star, circle, __. What shape goes in the blank?",
+   "options": [
+    "circle",
+    "star",
+    "square",
+    "ring"
+   ],
+   "answerIndex": 2,
+   "explain": "The core is star, circle, square. After circle the next shape is square. Do not repeat circle or start over with star.",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j408k6huk",
+   "level": 1,
+   "question": "The pattern is A, B, B, A, B, B, A, __. What letter goes in the blank?",
+   "options": [
+    "A",
+    "D",
+    "C",
+    "B"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is A, B, B. After A the next letter is B. The trap is to repeat A or start the core over.",
+   "tags": [
+    "pat.repeat_last",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunt4j40uytbpf",
+   "level": 2,
+   "question": "Maya is making a beaded necklace. She puts beads in this order: red, blue, green, red, blue, green, red, blue, __. What colour bead goes next?",
+   "options": [
+    "green",
+    "red",
+    "blue",
+    "orange"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is red, blue, green. Maya has placed red and blue, so next is green. The trap is to repeat blue or start over.",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "pat.repeat_last",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j403ynn4f",
+   "level": 2,
+   "question": "The class hangs flags on a string: big, small, big, small, big, small, big, __. What size flag hangs next?",
+   "options": [
+    "big",
+    "small",
+    "tiny",
+    "large"
+   ],
+   "answerIndex": 1,
+   "explain": "The core is big, small. After a big flag comes a small one. The trap is to hang another big flag.",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j40vji6tp",
+   "level": 2,
+   "question": "During the school dance the kids go: clap, stomp, clap, stomp, clap, stomp, clap, __. What does the next kid do?",
+   "options": [
+    "clap",
+    "jump",
+    "stomp",
+    "spin"
+   ],
+   "answerIndex": 2,
+   "explain": "The core is clap, stomp. After a clap comes a stomp. The trap is to clap again instead of switching.",
+   "tags": [
+    "pat.repeat_last",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j4053rbz3",
+   "level": 2,
+   "question": "Ben is making a trail mix. He drops pieces in this order: nut, raisin, nut, raisin, nut, raisin, nut, __. What piece drops next?",
+   "options": [
+    "nut",
+    "date",
+    "seed",
+    "raisin"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is nut, raisin. After a nut comes a raisin. The trap is to drop another nut.",
+   "tags": [
+    "pat.repeat_last",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunt4j400olmpk",
+   "level": 3,
+   "question": "Sam is building a tower with blocks. He stacks: tall, short, short, tall, short, short, tall, short, __. What block does he reach for next?",
+   "options": [
+    "short",
+    "wide",
+    "round",
+    "tall"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is tall, short, short. Sam has placed tall and one short, so the next is another short block. The trap is to start the core over with tall.",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "pat.restart_core"
+   ]
+  },
+  {
+   "qid": "qmunt4j400x15ba",
+   "level": 3,
+   "question": "Jade is colouring a strip of paper. She fills it like this: blue, red, red, blue, red, red, blue, red, __. What colour goes in the last box?",
+   "options": [
+    "blue",
+    "red",
+    "green",
+    "black"
+   ],
+   "answerIndex": 1,
+   "explain": "The core is blue, red, red. Jade has coloured blue and one red, so the next box is red again. The trap is to jump to blue and restart.",
+   "tags": [
+    "pat.restart_core",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j40tqdhyl",
+   "level": 3,
+   "question": "A drum circle plays: boom, tick, tick, boom, tick, tick, boom, tick, __. What sound fills the last beat?",
+   "options": [
+    "boom",
+    "clap",
+    "tick",
+    "hi-hat"
+   ],
+   "answerIndex": 2,
+   "explain": "The core is boom, tick, tick. After boom and one tick, the next sound is tick. The trap is to jump back to boom and restart the core.",
+   "tags": [
+    "pat.restart_core",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunt4j40z7u62l",
+   "level": 3,
+   "question": "Alex writes the pattern A, B, C, A, B, D, A, B, C. One letter is wrong. Which one is the mistake?",
+   "options": [
+    "A breaks the pattern",
+    "C breaks the pattern",
+    "B breaks the pattern",
+    "D breaks the pattern"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is A, B, C. The D does not belong; that spot should be C. Check each letter against the repeating core to find the one that does not fit.",
+   "tags": [
+    "other",
+    "pat.restart_core",
+    "pat.translate_changes_core",
+    "ok"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.MEAS.TIME.UNITS_ORDER",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo8zm7ur3d09b",
+   "level": 1,
+   "question": "1分钟（minute）和1小时（hour），哪个更长？",
+   "options": [
+    "1小时",
+    "1分钟",
+    "一样长",
+    "1秒"
+   ],
+   "answerIndex": 0,
+   "explain": "1小时=60分钟，所以小时比分钟长。两个数都是1，但单位大小不一样。",
+   "tags": [
+    "ok",
+    "time.unit_order_mixup",
+    "other",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7upezeon",
+   "level": 1,
+   "question": "1天（day）和1星期（week），哪个更长？",
+   "options": [
+    "1天",
+    "1星期",
+    "一样长",
+    "1小时"
+   ],
+   "answerIndex": 1,
+   "explain": "1星期=7天，所以星期比天长。别只看数字1，要看单位谁更大。",
+   "tags": [
+    "time.unit_order_mixup",
+    "ok",
+    "meas.compare_ignore_units",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7umuys4c",
+   "level": 1,
+   "question": "下面哪个时间单位最短？",
+   "options": [
+    "年",
+    "小时",
+    "秒",
+    "月"
+   ],
+   "answerIndex": 2,
+   "explain": "秒是最小的时间单位。顺序是：秒→分→时→天→星期→月→年。",
+   "tags": [
+    "time.unit_order_mixup",
+    "other",
+    "ok",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7ucr61fs",
+   "level": 1,
+   "question": "1小时（hour）和1天（day），哪个更长？",
+   "options": [
+    "1小时",
+    "1秒",
+    "一样长",
+    "1天"
+   ],
+   "answerIndex": 3,
+   "explain": "1天=24小时，所以天比小时长。都写1，但天比小时大。",
+   "tags": [
+    "time.unit_order_mixup",
+    "time.unit_order_mixup",
+    "meas.compare_ignore_units",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7uxg4rqc",
+   "level": 2,
+   "question": "小华刷牙花2分钟（minute），做作业花2小时（hour）。哪个花的时间更长？",
+   "options": [
+    "做作业",
+    "刷牙",
+    "一样长",
+    "无法比较"
+   ],
+   "answerIndex": 0,
+   "explain": "2小时=120分钟，比2分钟长得多。数字一样，但小时比分钟大。",
+   "tags": [
+    "ok",
+    "time.unit_order_mixup",
+    "meas.compare_ignore_units",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7uehi9gq",
+   "level": 2,
+   "question": "奶奶散步花15分钟（minute），爷爷下棋花1小时（hour）。谁花的时间更长？",
+   "options": [
+    "奶奶",
+    "爷爷",
+    "一样长",
+    "无法比较"
+   ],
+   "answerIndex": 1,
+   "explain": "1小时=60分钟，比15分钟长。小时是比分钟更大的单位。",
+   "tags": [
+    "time.unit_order_mixup",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7ujikb5o",
+   "level": 2,
+   "question": "宝宝学走路花1月（month），学说话花1年（year）。哪个花的时间更长？",
+   "options": [
+    "一样长",
+    "无法比较",
+    "学说话",
+    "学走路"
+   ],
+   "answerIndex": 2,
+   "explain": "1年=12个月，比1个月长。都写1，但年比月大。",
+   "tags": [
+    "meas.compare_ignore_units",
+    "other",
+    "ok",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7uakvm9r",
+   "level": 3,
+   "question": "小宇说：「1秒比1分钟长。」他错在哪？",
+   "options": [
+    "秒比分钟长，他一点没说错",
+    "分钟比秒短，因为分更短",
+    "秒和分钟一样长，都只有1",
+    "分钟更长，1分钟有60秒"
+   ],
+   "answerIndex": 3,
+   "explain": "1分钟=60秒，分钟比秒长。别被「都只有1」骗了，要看哪个单位更大。",
+   "tags": [
+    "time.unit_order_mixup",
+    "time.unit_order_mixup",
+    "meas.compare_ignore_units",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7ucvvcrv",
+   "level": 3,
+   "question": "小美说：「1星期比1月长。」她错在哪？",
+   "options": [
+    "月比星期长，月有4个星期",
+    "星期和月一样长，都只有1",
+    "星期比月长，她说对了",
+    "月比星期短，因为1比7小"
+   ],
+   "answerIndex": 0,
+   "explain": "1月大约有4个星期，所以月比星期长。别只看数字1，单位不一样。",
+   "tags": [
+    "ok",
+    "meas.compare_ignore_units",
+    "time.unit_order_mixup",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7uu9w22v",
+   "level": 3,
+   "question": "小华从早上7点等到中午12点，一共等了5小时（hour）。5小时和1天（day），哪个更长？",
+   "options": [
+    "5小时更长",
+    "1天更长",
+    "一样长",
+    "无法比较"
+   ],
+   "answerIndex": 1,
+   "explain": "1天=24小时，比5小时长。别只比5和1，要看单位谁更大。",
+   "tags": [
+    "meas.compare_ignore_units",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo8zm7uounusu",
+   "level": 3,
+   "question": "从短到长排：秒、分、时、天、___、月、年。空里应该填什么？",
+   "options": [
+    "分钟",
+    "小时",
+    "星期",
+    "年"
+   ],
+   "answerIndex": 2,
+   "explain": "顺序是：秒、分、时、天、星期、月、年。星期正好排在天和月中间。",
+   "tags": [
+    "time.unit_order_mixup",
+    "time.unit_order_mixup",
+    "ok",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuog0samovww6o",
+   "level": 2,
+   "question": "小杰这个月做了四件事：看卡通30分钟（minute）、写作业45分钟、踢足球2小时（hour）、去露营1星期（week）。哪件事花的时间最长？",
+   "options": [
+    "看卡通30分钟",
+    "写作业45分钟",
+    "踢足球2小时",
+    "去露营1星期"
+   ],
+   "answerIndex": 3,
+   "explain": "单位不一样时先比单位：星期比小时长，小时又比分钟长，所以露营的1星期最长。最容易踩的坑是只看数字，把45分钟当成最长。",
+   "tags": [
+    "meas.compare_ignore_units",
+    "meas.compare_ignore_units",
+    "time.unit_order_mixup",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuog0samkfhabn",
+   "level": 2,
+   "question": "小天想知道：看一场冰球赛3小时（hour）和学校春假2星期（week），哪个时间更长？下面哪个办法是对的？",
+   "options": [
+    "先比单位，星期比小时长",
+    "先比数字，3比2大就更长",
+    "先比单位，小时比星期长",
+    "先比数字，数小的那个长"
+   ],
+   "answerIndex": 0,
+   "explain": "单位不同要先比单位：1星期就有7天，比3小时长得多，所以春假更长。光比数字（3比2大）就会答错。",
+   "tags": [
+    "ok",
+    "meas.compare_ignore_units",
+    "time.unit_order_mixup",
+    "meas.compare_ignore_units"
+   ]
+  },
+  {
+   "qid": "qmuog0samsime0y",
+   "level": 2,
+   "question": "小美的生日派对从下午1点开始，到下午4点结束。她说派对开了3个___。空里应该填哪个时间单位？",
+   "options": [
+    "分钟（minute）",
+    "小时（hour）",
+    "星期（week）",
+    "秒（second）"
+   ],
+   "answerIndex": 1,
+   "explain": "从1点到4点正好是3小时（hour）；3分钟太短，3星期又太长。坑是不想单位有多长就随便填。",
+   "tags": [
+    "time.unit_order_mixup",
+    "ok",
+    "time.unit_order_mixup",
+    "time.unit_order_mixup"
+   ]
+  },
+  {
+   "qid": "qmuog0samkwlw9q",
+   "level": 2,
+   "question": "小安写下学校里的四件事：洗手1分钟（minute）、打喷嚏2秒（second）、上美术课1小时（hour）、在学校待1天（day）。哪件事花的时间最短？",
+   "options": [
+    "洗手1分钟",
+    "上美术课1小时",
+    "打喷嚏2秒",
+    "在学校待1天"
+   ],
+   "answerIndex": 2,
+   "explain": "秒（second）是这里最短的单位，2秒比1分钟还要短，所以打喷嚏最短。坑是看到数字1就以为它最短。",
+   "tags": [
+    "time.unit_order_mixup",
+    "meas.compare_ignore_units",
+    "ok",
+    "meas.compare_ignore_units"
+   ]
+  }
+ ]
+}

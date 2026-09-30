@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.NUM.EVEN_ODD.IDENTIFY",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuny1kpp7gyemb",
+   "level": 1,
+   "question": "你有 7 颗蓝莓，两个两个一组来数。数到最后还剩几颗？",
+   "options": [
+    "1 颗",
+    "0 颗",
+    "2 颗",
+    "3 颗"
+   ],
+   "answerIndex": 0,
+   "explain": "7 分成 3 组还剩 1 颗。别只数了 3 组就忘了最后多出来的那 1 颗。",
+   "tags": [
+    "ok",
+    "evenodd.leftover_ignored",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuny1kppj4doeh",
+   "level": 1,
+   "question": "你有 8 颗弹珠，两个两个一组来数。数到最后还剩几颗？",
+   "options": [
+    "1 颗",
+    "0 颗",
+    "4 颗",
+    "2 颗"
+   ],
+   "answerIndex": 1,
+   "explain": "8 正好分成 4 组，一颗不剩，所以剩 0 颗。",
+   "tags": [
+    "other",
+    "ok",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuny1kppw6dlwg",
+   "level": 1,
+   "question": "你有 11 颗糖果，两个两个一组来数。数到最后还剩几颗？",
+   "options": [
+    "0 颗",
+    "2 颗",
+    "1 颗",
+    "5 颗"
+   ],
+   "answerIndex": 2,
+   "explain": "11 分成 5 组还剩 1 颗。别把「5 组」的 5 当成剩下的颗数。",
+   "tags": [
+    "evenodd.leftover_ignored",
+    "other",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuny1kpp8v55z1",
+   "level": 1,
+   "question": "你有 10 颗枫叶，两个两个一组来数。数到最后还剩几颗？",
+   "options": [
+    "1 颗",
+    "2 颗",
+    "5 颗",
+    "0 颗"
+   ],
+   "answerIndex": 3,
+   "explain": "10 正好分成 5 组，一颗不剩。别把组数 5 当成剩下的颗数。",
+   "tags": [
+    "other",
+    "other",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuny1kpp3wbs2j",
+   "level": 2,
+   "question": "Emma 有 27 颗弹珠，两个两个一组来数。她数了 13 组，还多出 1 颗。27 是偶数（even）还是奇数（odd）？",
+   "options": [
+    "奇数，因为多出 1 颗",
+    "偶数，因为分成了 13 组",
+    "偶数，因为 2 是偶数",
+    "奇数，因为 13 是奇数"
+   ],
+   "answerIndex": 0,
+   "explain": "多出 1 颗说明 27 是奇数。判断奇偶看有没有剩，不是看分了几组。",
+   "tags": [
+    "ok",
+    "evenodd.leftover_ignored",
+    "evenodd.first_digit_decides",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuny1kppmofrwy",
+   "level": 2,
+   "question": "教室里有 43 把椅子。两个两个一组来坐，最后一组多出 1 把。43 是偶数还是奇数？",
+   "options": [
+    "偶数，因为 4 是偶数",
+    "奇数，因为多出 1 把",
+    "偶数，因为分成了 21 组",
+    "奇数，因为 21 是奇数"
+   ],
+   "answerIndex": 1,
+   "explain": "多出 1 把说明 43 是奇数。判断奇偶要看个位，不是看十位的 4。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "ok",
+    "evenodd.leftover_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuny1kppz94dym",
+   "level": 2,
+   "question": "你有 58 颗弹珠。两个两个一组来数，能分成 29 组，一颗不剩。58 是偶数还是奇数？",
+   "options": [
+    "奇数，因为 29 是奇数",
+    "奇数，因为 5 是奇数",
+    "偶数，因为一颗不剩",
+    "偶数，因为分成了 29 组"
+   ],
+   "answerIndex": 2,
+   "explain": "一颗不剩说明 58 是偶数。别被十位的 5 骗了，关键是能不能分完。",
+   "tags": [
+    "other",
+    "evenodd.first_digit_decides",
+    "ok",
+    "evenodd.leftover_ignored"
+   ]
+  },
+  {
+   "qid": "qmuny1kpp95v4ld",
+   "level": 2,
+   "question": "书架上有 74 本书。两个两个一组来摆，能分成 37 组，一本不剩。74 是偶数还是奇数？",
+   "options": [
+    "奇数，因为 7 是奇数",
+    "奇数，因为 37 是奇数",
+    "偶数，因为分成了 37 组",
+    "偶数，因为一本不剩"
+   ],
+   "answerIndex": 3,
+   "explain": "一本不剩说明 74 是偶数。别看十位的 7 就说是奇数，要看能不能分完。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "other",
+    "evenodd.leftover_ignored",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuny1kppp8glxi",
+   "level": 3,
+   "question": "Lily 有 45 颗弹珠。她先拿出 20 颗给 Mom，剩下的两个两个一组来数，最后一组多出 1 颗。剩下的数是偶数还是奇数？",
+   "options": [
+    "奇数，因为多出 1 颗",
+    "偶数，因为 2 是偶数",
+    "奇数，因为 12 是偶数",
+    "偶数，因为分成了 12 组"
+   ],
+   "answerIndex": 0,
+   "explain": "45−20＝25，多出 1 颗说明 25 是奇数。先算减法，再看有没有剩。",
+   "tags": [
+    "ok",
+    "evenodd.first_digit_decides",
+    "other",
+    "evenodd.leftover_ignored"
+   ]
+  },
+  {
+   "qid": "qmuny1kpplbu3ui",
+   "level": 3,
+   "question": "Lily 说：「85 是偶数，因为 8 是偶数。」她错在哪？",
+   "options": [
+    "85 是偶数，她说对了",
+    "该看个位 5，5 是奇数",
+    "该看十位 8，8 是偶数",
+    "数成 42 组就是偶数"
+   ],
+   "answerIndex": 1,
+   "explain": "85 的个位是 5（奇数），所以 85 是奇数。判断奇偶要看个位，不是十位。",
+   "tags": [
+    "other",
+    "ok",
+    "evenodd.first_digit_decides",
+    "evenodd.leftover_ignored"
+   ]
+  },
+  {
+   "qid": "qmuny1kppmt0w7y",
+   "level": 3,
+   "question": "Emma 有 72 颗弹珠。她先拿出 10 颗给 Mom，再拿出 10 颗给 Dad。剩下的两个两个一组来数，能刚好分完吗？",
+   "options": [
+    "不能，因为 5 是奇数",
+    "能，因为分成了 26 组",
+    "能，因为一颗都不剩",
+    "不能，因为 52 里有 2"
+   ],
+   "answerIndex": 2,
+   "explain": "72−10−10＝52，52 正好分成 26 组，一颗不剩，能分完。别被十位的 5 骗了。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "evenodd.leftover_ignored",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuodvrpfzrswk1",
+   "level": 3,
+   "question": "Maple 小学的同学两个两个手拉手排队，最后一个人也不剩。下面哪个数可能是他们的人数？",
+   "options": [
+    "45",
+    "39",
+    "27",
+    "56"
+   ],
+   "answerIndex": 3,
+   "explain": "两个两个刚好分完的数是偶数（even），判断时只看个位（ones）。56 的个位是 6，所以能分完；写成 45、39、27 的那几个个位是奇数，配对后都会多出 1 个人。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "evenodd.leftover_ignored",
+    "evenodd.first_digit_decides",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuodvrpfhy2nwz",
+   "level": 3,
+   "question": "Noah 有 50 张冰球卡，他送给妹妹 3 张。剩下的张数是偶数（even）还是奇数（odd）？",
+   "options": [
+    "奇数，配对后多出 1 张",
+    "偶数，因为十位 4 是偶数",
+    "偶数，因为能配成 23 对",
+    "偶数，因为剩下 46 张"
+   ],
+   "answerIndex": 0,
+   "explain": "50 减 3 得 47，两个两个配对配了 23 对，还多出 1 张，所以是奇数。别看十位（tens）的 4，奇偶要看个位（ones）。",
+   "tags": [
+    "ok",
+    "evenodd.first_digit_decides",
+    "evenodd.leftover_ignored",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuodvrpfepr9cd",
+   "level": 3,
+   "question": "Ava 有 26 颗珠子，Ben 有 19 颗。两人的珠子放在一起，两个两个串成一对。最后还会剩下珠子吗？",
+   "options": [
+    "不剩，因为十位 4 是偶数",
+    "会剩 1 颗，45 是奇数",
+    "不剩，因为一共是 44 颗",
+    "不剩，因为能配成 22 对"
+   ],
+   "answerIndex": 1,
+   "explain": "26 加 19 是 45。45 配成 22 对以后还多出 1 颗，所以 45 是奇数（odd），会剩下 1 颗。配对时最后多出来的那一颗不能忘。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "ok",
+    "other",
+    "evenodd.leftover_ignored"
+   ]
+  },
+  {
+   "qid": "qmuodvrpfzbz5o3",
+   "level": 3,
+   "question": "Ben 说：「29 是偶数（even），因为 29 能配成 14 对。」他错在哪？",
+   "options": [
+    "他该看十位，十位 2 是偶数",
+    "他没错，能配成对就是偶数",
+    "还多出 1 颗，29 是奇数",
+    "他数错了，能配成 15 对"
+   ],
+   "answerIndex": 2,
+   "explain": "29 配成 14 对以后，还多出 1 颗没有伙伴，所以 29 是奇数（odd）。能配出对子不等于偶数，要看最后有没有多出来的那一个。",
+   "tags": [
+    "evenodd.first_digit_decides",
+    "evenodd.leftover_ignored",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

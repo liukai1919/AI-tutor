@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.EXTEND",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunsmt04p863e2",
+   "level": 1,
+   "question": "猫 狗 鸟 猫 狗，下一个是什么？",
+   "options": [
+    "鸟",
+    "狗",
+    "猫",
+    "鱼"
+   ],
+   "answerIndex": 0,
+   "explain": "核心是「猫狗鸟」三样一组，猫狗后面接鸟。别只看最后一个就选狗。",
+   "tags": [
+    "ok",
+    "pat.repeat_last",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt04leay0k",
+   "level": 1,
+   "question": "上 下 左 上 下，下一个是什么？",
+   "options": [
+    "下",
+    "左",
+    "上",
+    "右"
+   ],
+   "answerIndex": 1,
+   "explain": "核心是「上下左」一组，上下后面接左。看到「上」不代表要重新开始。",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt04r6mwa6",
+   "level": 1,
+   "question": "圆 方 星 圆 方，下一个是什么？",
+   "options": [
+    "方",
+    "圆",
+    "星",
+    "三角"
+   ],
+   "answerIndex": 2,
+   "explain": "核心是「圆方星」一组，圆方后面接星。三角没出现过，不是规律里的。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt046j07eo",
+   "level": 1,
+   "question": "大 中 小 大 中，下一个是什么？",
+   "options": [
+    "中",
+    "高",
+    "大",
+    "小"
+   ],
+   "answerIndex": 3,
+   "explain": "核心是「大中小」一组，大中后面接小。「高」没在规律里出现过。",
+   "tags": [
+    "pat.repeat_last",
+    "other",
+    "pat.restart_core",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunsmt04o5c2l3",
+   "level": 2,
+   "question": "小明排球，按 红球 蓝球 绿球 红球 蓝球 排。下一个放什么球？",
+   "options": [
+    "绿球",
+    "蓝球",
+    "红球",
+    "黄球"
+   ],
+   "answerIndex": 0,
+   "explain": "核心是「红球蓝球绿球」，蓝球后面接绿球。别只重复最后一个蓝球。",
+   "tags": [
+    "ok",
+    "pat.repeat_last",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt04rjuio0",
+   "level": 2,
+   "question": "小杰敲鼓，按 咚 哒 锵 咚 哒 敲。下一下敲什么？",
+   "options": [
+    "哒",
+    "锵",
+    "啪",
+    "咚"
+   ],
+   "answerIndex": 1,
+   "explain": "核心是「咚哒锵」，咚哒后面接锵。「啪」没在规律里出现过。",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "other",
+    "pat.restart_core"
+   ]
+  },
+  {
+   "qid": "qmunsmt04eines9",
+   "level": 2,
+   "question": "小花种花，按 玫瑰 菊花 百合 玫瑰 菊花 种。下一朵种什么？",
+   "options": [
+    "菊花",
+    "玫瑰",
+    "百合",
+    "向日葵"
+   ],
+   "answerIndex": 2,
+   "explain": "核心是「玫瑰菊花百合」，菊花后面接百合。向日葵没出现过，不在规律里。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt04iz5vfb",
+   "level": 3,
+   "question": "小杰跳房子，按 前 后 左 右 前 后 左 跳。下一步往哪跳？",
+   "options": [
+    "后",
+    "左",
+    "前",
+    "右"
+   ],
+   "answerIndex": 3,
+   "explain": "核心是「前后左右」四个一组，前 后 左后面接右。别看到「前」就以为重新开始。",
+   "tags": [
+    "other",
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunsmt04fgqrbe",
+   "level": 3,
+   "question": "红 蓝 黄 红 蓝，小美说下一个是红。她错在哪？",
+   "options": [
+    "下一个是黄，因为红蓝黄一组",
+    "她没错，因为这里要重新开始",
+    "下一个是红，因为红排在第一",
+    "下一个是蓝，因为重复最后一个"
+   ],
+   "answerIndex": 0,
+   "explain": "核心是「红蓝黄」，红蓝后面接黄。小美把「重新开始」当成了「接着排」。",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "other",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmunsmt046vo7eg",
+   "level": 3,
+   "question": "小杰排积木，排了 红 黄 蓝 红 黄 蓝 红 黄。他忘了下一步，下一个放什么色？",
+   "options": [
+    "黄",
+    "蓝",
+    "红",
+    "绿"
+   ],
+   "answerIndex": 1,
+   "explain": "核心是「红黄蓝」，红黄后面接蓝。蓝排过了但规律要一直重复走。",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunsmt04aj6w3d",
+   "level": 3,
+   "question": "大 小 中 大 小，小杰说下一个是大，因为要重新开始。他错在哪？",
+   "options": [
+    "下一个是小，因为重复最后一个",
+    "他没错，因为这里要重新开始",
+    "下一个是中，因为大小中一组",
+    "下一个是大，因为大排在第一"
+   ],
+   "answerIndex": 2,
+   "explain": "核心是「大小中」，大小后面接中。小杰把「重新开始」当成了「接着排」。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunuqrgq4evapx",
+   "level": 2,
+   "question": "小美排糖果，按 葡萄 草莓 柠檬 葡萄 草莓 排。下一颗是什么？",
+   "options": [
+    "草莓",
+    "西瓜",
+    "葡萄",
+    "柠檬"
+   ],
+   "answerIndex": 3,
+   "explain": "核心是「葡萄、草莓、柠檬」。排到草莓后，下一颗是柠檬。别把最后一颗草莓再重复哦。",
+   "tags": [
+    "pat.repeat_last",
+    "other",
+    "pat.restart_core",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunuqrgqa3siwt",
+   "level": 2,
+   "question": "小杰敲木琴，按 高 中 低 高 中 敲。下一声是什么？",
+   "options": [
+    "低",
+    "高",
+    "响",
+    "中"
+   ],
+   "answerIndex": 0,
+   "explain": "核心是「高、中、低」。敲到「中」后，下一声是「低」。别从头再敲「高」。",
+   "tags": [
+    "ok",
+    "pat.restart_core",
+    "other",
+    "pat.repeat_last"
+   ]
+  },
+  {
+   "qid": "qmunuqrgqa1qse9",
+   "level": 2,
+   "question": "小花折纸船，按 折 压 翻 折 压 排。下一步做什么？",
+   "options": [
+    "压",
+    "翻",
+    "折",
+    "剪"
+   ],
+   "answerIndex": 1,
+   "explain": "核心是「折、压、翻」。做完「压」后，下一步是「翻」。别把「压」再说一遍。",
+   "tags": [
+    "pat.repeat_last",
+    "ok",
+    "pat.restart_core",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunuqrgq8s28ug",
+   "level": 2,
+   "question": "小杰挂彩旗，按 星 圆 方 星 圆 挂。下一面挂什么？",
+   "options": [
+    "圆",
+    "星",
+    "方",
+    "心"
+   ],
+   "answerIndex": 2,
+   "explain": "核心是「星、圆、方」。挂到「圆」后，下一面是「方」。别把「圆」再挂一次。",
+   "tags": [
+    "pat.repeat_last",
+    "pat.restart_core",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

@@ -132,6 +132,8 @@ en 题库 123 道带图（statBar 40 / statLine 28 / pieChart 16 / fractionBar 1
 
 微课已全部烤完：`lessons/skills/{zh,en}/` 共 **490 节**（245 技能 × 中英，4–6 步、接先修、专门演一步误区，全部经审稿）。
 
+**G1–G3（2026-09-30 起，#71）**：技能图谱向下补了 `g1.json` / `g2.json` / `g3.json`（35 主题 / 144 技能，误区登记表 +168 条 → 508），题库 `content/qbank/by-skill/{zh,en}/` 相应多 288 份 / 4178 题（每份每级 ≥4 道）。出题口径是 [qbank-standard.md §2.1](qbank-standard.md) 的低年级版：6–9 岁、数的范围 20 / 100 / 1000、不出后面年级的内容、钱只用加拿大在用的硬币（没有 penny）。en 读图题 92 道带 `visual`（pictograph 43 / statBar 25 / fractionBar 16 / pie 8），全在契约 v3 以内；zh 不带图。这批**没有**微课、单元卷和语音。新误区的建议锚点词在 #76 对应的 issue 里。
+
 ### 3.5 配图契约 `data/curriculum/visual-contract.json`（2026-08-25 起，v2）
 
 课程 `steps[].visual` 的图型白名单 + 每种图的 `nums` 约定 + 合法范围，**唯一事实源**。

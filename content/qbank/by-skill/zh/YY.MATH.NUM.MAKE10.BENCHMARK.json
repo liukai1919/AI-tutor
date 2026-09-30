@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.NUM.MAKE10.BENCHMARK",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmunrmf21cvd58v",
+   "level": 1,
+   "question": "数轴从 0 到 20，你站在 8。离 10 还差几？",
+   "options": [
+    "差 2",
+    "差 1",
+    "差 3",
+    "差 12"
+   ],
+   "answerIndex": 0,
+   "explain": "10 减 8 等于 2，所以还差 2。最容易错的是多数一个或少数一个，变成 1 或 3。",
+   "tags": [
+    "ok",
+    "make10.off_by_one",
+    "make10.off_by_one",
+    "bench.nearer_wrong"
+   ]
+  },
+  {
+   "qid": "qmunrmf21sj2wtk",
+   "level": 1,
+   "question": "数轴从 0 到 20，你站在 13。离 20 还差几？",
+   "options": [
+    "差 3",
+    "差 7",
+    "差 8",
+    "差 6"
+   ],
+   "answerIndex": 1,
+   "explain": "20 减 13 等于 7。别把离 10 的距离（3）和离 20 的距离搞混了。",
+   "tags": [
+    "bench.nearer_wrong",
+    "ok",
+    "make10.off_by_one",
+    "make10.off_by_one"
+   ]
+  },
+  {
+   "qid": "qmunrmf21gpcjzm",
+   "level": 1,
+   "question": "数轴从 0 到 20，你站在 12。离哪个基准点（benchmark）更近？差几？",
+   "options": [
+    "离 20 更近，差 8",
+    "离 10 更近，差 3",
+    "离 10 更近，差 2",
+    "离 20 更近，差 7"
+   ],
+   "answerIndex": 2,
+   "explain": "12 离 10 只有 2，离 20 有 8。2 比 8 小，所以离 10 更近。最容易踩的坑是看反了。",
+   "tags": [
+    "bench.nearer_wrong",
+    "make10.off_by_one",
+    "ok",
+    "bench.nearer_wrong"
+   ]
+  },
+  {
+   "qid": "qmunrmf218squhx",
+   "level": 1,
+   "question": "数轴从 0 到 20，你站在 6。离哪个基准点更近？差几？",
+   "options": [
+    "离 10 更近，差 5",
+    "离 20 更近，差 14",
+    "离 10 更近，差 3",
+    "离 10 更近，差 4"
+   ],
+   "answerIndex": 3,
+   "explain": "10 减 6 等于 4，20 减 6 等于 14。4 比 14 小，所以离 10 更近，差 4。",
+   "tags": [
+    "make10.off_by_one",
+    "bench.nearer_wrong",
+    "make10.off_by_one",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunrmf21sxrsox",
+   "level": 2,
+   "question": "跳格子 0 到 20，你站在 16。离 10 和离 20，哪个更近？差几？",
+   "options": [
+    "离 20 近，差 4",
+    "离 10 近，差 5",
+    "离 10 近，差 6",
+    "离 20 近，差 5"
+   ],
+   "answerIndex": 0,
+   "explain": "16 离 10 差 6，离 20 差 4。4 比 6 小，所以离 20 更近。",
+   "tags": [
+    "ok",
+    "bench.nearer_wrong",
+    "bench.nearer_wrong",
+    "make10.off_by_one"
+   ]
+  },
+  {
+   "qid": "qmunrmf21n0jnz0",
+   "level": 2,
+   "question": "小明站在第 12 阶。离 10 阶和离 20 阶，离哪个近？差几阶？",
+   "options": [
+    "离 20 近，差 8",
+    "离 10 近，差 2",
+    "离 10 近，差 3",
+    "离 20 近，差 7"
+   ],
+   "answerIndex": 1,
+   "explain": "12 离 10 只有 2 阶，离 20 有 8 阶。2 更小，所以离 10 更近。",
+   "tags": [
+    "bench.nearer_wrong",
+    "ok",
+    "make10.off_by_one",
+    "bench.nearer_wrong"
+   ]
+  },
+  {
+   "qid": "qmunrmf21jqgqhe",
+   "level": 2,
+   "question": "你跑了 17 米。离 10 米和离 20 米，离哪个近？差几米？",
+   "options": [
+    "离 10 近，差 7",
+    "离 10 近，差 6",
+    "离 20 近，差 3",
+    "离 20 近，差 2"
+   ],
+   "answerIndex": 2,
+   "explain": "17 离 20 只有 3 米，离 10 有 7 米。3 更小，所以离 20 更近。",
+   "tags": [
+    "bench.nearer_wrong",
+    "bench.nearer_wrong",
+    "ok",
+    "make10.off_by_one"
+   ]
+  },
+  {
+   "qid": "qmunrmf2117a93n",
+   "level": 2,
+   "question": "铅笔尖在 8 格。离 10 和离 20，离哪个近？差几格？",
+   "options": [
+    "离 20 近，差 11",
+    "离 20 近，差 12",
+    "离 10 近，差 1",
+    "离 10 近，差 2"
+   ],
+   "answerIndex": 3,
+   "explain": "10 减 8 等于 2，20 减 8 等于 12。2 比 12 小，所以离 10 更近，差 2 格。",
+   "tags": [
+    "bench.nearer_wrong",
+    "bench.nearer_wrong",
+    "make10.off_by_one",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunrmf2159mei3",
+   "level": 3,
+   "question": "你数到 13，朋友数到 17。谁离 20 更近？",
+   "options": [
+    "朋友（17）更近",
+    "我（13）更近",
+    "一样近",
+    "朋友（17）更近，差 4"
+   ],
+   "answerIndex": 0,
+   "explain": "20 减 13 等于 7，20 减 17 等于 3。3 比 7 小，所以朋友（17）离 20 更近。",
+   "tags": [
+    "ok",
+    "bench.nearer_wrong",
+    "other",
+    "make10.off_by_one"
+   ]
+  },
+  {
+   "qid": "qmunrmf216xh3oq",
+   "level": 3,
+   "question": "我离 20 还差 4。我在几？离 10 和离 20，离哪个近？",
+   "options": [
+    "在 15，离 10 近",
+    "在 16，离 20 近",
+    "在 16，离 20 近，差 5",
+    "在 15，离 20 近"
+   ],
+   "answerIndex": 1,
+   "explain": "20 减 4 等于 16，所以你在 16。16 离 20 差 4，离 10 差 6。4 更小，离 20 更近。",
+   "tags": [
+    "bench.nearer_wrong",
+    "ok",
+    "make10.off_by_one",
+    "make10.off_by_one"
+   ]
+  },
+  {
+   "qid": "qmunrmf210zjcym",
+   "level": 3,
+   "question": "小华说：「17 离 10 更近。」她对了还是错了？",
+   "options": [
+    "她对了，17 离 10 差 7",
+    "她错了，17 离 20 差 4",
+    "她错了，17 离 20 差 3",
+    "她对了，17 离 10 差 6"
+   ],
+   "answerIndex": 2,
+   "explain": "17 离 10 差 7，离 20 差 3。3 比 7 小，所以 17 离 20 更近，小华说反了。",
+   "tags": [
+    "bench.nearer_wrong",
+    "make10.off_by_one",
+    "ok",
+    "bench.nearer_wrong"
+   ]
+  },
+  {
+   "qid": "qmunrmf2108xdq3",
+   "level": 3,
+   "question": "你数了 18 步到收银台。离 10 步和离 20 步，离哪个近？还差几？",
+   "options": [
+    "离 10 近，差 8",
+    "离 20 近，差 3",
+    "离 10 近，差 7",
+    "离 20 近，差 2"
+   ],
+   "answerIndex": 3,
+   "explain": "18 离 20 只有 2 步，离 10 有 8 步。2 更小，所以离 20 更近，差 2 步。",
+   "tags": [
+    "bench.nearer_wrong",
+    "make10.off_by_one",
+    "bench.nearer_wrong",
+    "ok"
+   ]
+  }
+ ]
+}

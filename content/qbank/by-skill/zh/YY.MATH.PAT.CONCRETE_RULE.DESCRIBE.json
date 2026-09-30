@@ -1,0 +1,291 @@
+{
+ "id": "YY.MATH.PAT.CONCRETE_RULE.DESCRIBE",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo6tm7tre8mbf",
+   "level": 1,
+   "question": "小明写了一串数：3, 7, 11, 15。规律法则（pattern rule）是什么？",
+   "options": [
+    "从3开始，每次加4",
+    "每次加4，没写起点",
+    "从4开始，每次加3",
+    "从3开始，每次加3"
+   ],
+   "answerIndex": 0,
+   "explain": "7−3＝4，11−7＝4，所以每次加4，从3起。规律法则要同时说清「从几开始」和「每次怎么变」，只说一半不完整。",
+   "tags": [
+    "ok",
+    "pat.rule_no_start",
+    "pat.start_step_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tiqkhq8",
+   "level": 1,
+   "question": "奶奶数橘子：50个、40个、30个、20个。规律法则是什么？",
+   "options": [
+    "每次减10，没写起点",
+    "从50开始，每次减10",
+    "从50开始，每次减1",
+    "从10开始，每次减50"
+   ],
+   "answerIndex": 1,
+   "explain": "50→40少了10，40→30也少了10，所以从50开始，每次减10。把50和10对调就变成「从10开始每次减50」了，那就错了。",
+   "tags": [
+    "pat.rule_no_start",
+    "ok",
+    "other",
+    "pat.start_step_swap"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tpt13s0",
+   "level": 1,
+   "question": "规律法则说「从2开始，每次加5」，前四项是什么？",
+   "options": [
+    "5, 7, 9, 11",
+    "5, 10, 15, 20",
+    "2, 7, 12, 17",
+    "2, 5, 8, 11"
+   ],
+   "answerIndex": 2,
+   "explain": "从2开始，加5得7，再加5得12，再加5得17。最容易把「从几」和「加几」搞反，那就变成5, 7, 9, 11了。",
+   "tags": [
+    "pat.start_step_swap",
+    "pat.rule_no_start",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7txrfcdi",
+   "level": 1,
+   "question": "小凯数台阶：8级、12级、16级、20级。规律法则是什么？",
+   "options": [
+    "每次加4，没写起点",
+    "从8开始，每次加2",
+    "从4开始，每次加8",
+    "从8开始，每次加4"
+   ],
+   "answerIndex": 3,
+   "explain": "12−8＝4，16−12＝4，每次加4，从8开始。只写「每次加4」忘了起点就不完整了。",
+   "tags": [
+    "pat.rule_no_start",
+    "other",
+    "pat.start_step_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7t3z979t",
+   "level": 2,
+   "question": "小美折纸鹤：第1天折4只，第2天折7只，第3天折10只。规律法则是什么？",
+   "options": [
+    "从4开始，每次加3",
+    "每次加3，没写起点",
+    "从3开始，每次加4",
+    "从4开始，每次加4"
+   ],
+   "answerIndex": 0,
+   "explain": "7−4＝3，10−7＝3，所以从4开始，每次加3。把4和3对调写成「从3开始每次加4」是常见错误。",
+   "tags": [
+    "ok",
+    "pat.rule_no_start",
+    "pat.start_step_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7t0l2l6l",
+   "level": 2,
+   "question": "爸爸跑步：第1周5km，第2周9km，第3周13km。规律法则是什么？",
+   "options": [
+    "每次加4，没写起点",
+    "从5开始，每次加4",
+    "从5开始，每次加3",
+    "从4开始，每次加5"
+   ],
+   "answerIndex": 1,
+   "explain": "9−5＝4，13−9＝4，从5开始每次加4。注意别把5和4对调，对调就变成「从4开始每次加5」了。",
+   "tags": [
+    "pat.rule_no_start",
+    "ok",
+    "other",
+    "pat.start_step_swap"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7t5p827w",
+   "level": 2,
+   "question": "小凯伸手指：第1次伸1根，第2次伸4根，第3次伸7根，第4次伸10根。规律法则是什么？",
+   "options": [
+    "从3开始，每次加1",
+    "每次加3，没写起点",
+    "从1开始，每次加3",
+    "从1开始，每次加1"
+   ],
+   "answerIndex": 2,
+   "explain": "4−1＝3，7−4＝3，从1开始每次加3。只说「每次加3」不写起点，别人就不知道从哪数起。",
+   "tags": [
+    "pat.start_step_swap",
+    "pat.rule_no_start",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tmjkp0f",
+   "level": 2,
+   "question": "糖果店：第1袋6颗，第2袋9颗，第3袋12颗。规律法则是什么？",
+   "options": [
+    "每次加3，没写起点",
+    "从3开始，每次加6",
+    "从6开始，每次加6",
+    "从6开始，每次加3"
+   ],
+   "answerIndex": 3,
+   "explain": "9−6＝3，12−9＝3，从6开始每次加3。把6和3对调写成「从3开始每次加6」是典型错误。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.start_step_swap",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tn2kdhv",
+   "level": 3,
+   "question": "小明说：「数列 4, 9, 14, 19 的规律是每次加5。」他的说法哪里不完整？",
+   "options": [
+    "漏了起点，应说从4起",
+    "步数写错，应是加4",
+    "方向写反，应是减5",
+    "漏了项数，应说共4项"
+   ],
+   "answerIndex": 0,
+   "explain": "「每次加5」只说了怎么变，没说从几开始。完整说法是「从4开始，每次加5」，少了起点就不算完整的规律法则。",
+   "tags": [
+    "ok",
+    "other",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tw7pprh",
+   "level": 3,
+   "question": "小凯存零花钱：第1周5元，第2周9元，第3周13元。规律是「从5开始，每次加4」。第5周他存多少元？",
+   "options": [
+    "20元",
+    "21元",
+    "24元",
+    "17元"
+   ],
+   "answerIndex": 1,
+   "explain": "5→9→13→17→21，第5周是21元。如果忘了起点，从步数4开始数就会得20；如果把5和4对调就会得24。",
+   "tags": [
+    "pat.rule_no_start",
+    "ok",
+    "pat.start_step_swap",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuo6tm7tsukkth",
+   "level": 3,
+   "question": "小美写了 2, 6, 10, 14，说规律是「每次加4」。她的说法完整吗？",
+   "options": [
+    "完整，没问题",
+    "不完整，应从4开始",
+    "不完整，漏了起点",
+    "不完整，应写共4项"
+   ],
+   "answerIndex": 2,
+   "explain": "「每次加4」只说了步数，没说从2开始，所以不完整。正确说法是「从2开始，每次加4」。",
+   "tags": [
+    "other",
+    "pat.start_step_swap",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmuofiev3twma52",
+   "level": 3,
+   "question": "一串数按同一个规律变大：9、___、21、27。中间那个数不见了。用文字和数说出这串数的规律法则（pattern rule）。",
+   "options": [
+    "每次加6，不用说从几开始",
+    "从6开始，每次加9",
+    "从9开始，每次加12",
+    "从9开始，每次加6"
+   ],
+   "answerIndex": 3,
+   "explain": "9 到 21 中间隔了两步，一共多 12，所以每次加 6，不见的数是 15。规律法则要先说起始数 9，再说每次加 6，光说「每次加 6」等于没说从几开始。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.start_step_swap",
+    "other",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuofiev3blepeb",
+   "level": 3,
+   "question": "小美的贴纸本，每页贴的张数按同一个规律变多。第2页有12张，第3页有17张，第4页有22张。从第1页开始说，这本贴纸本的规律法则是什么？",
+   "options": [
+    "从7开始，每次加5",
+    "从12开始，每次加5",
+    "每次加5，不用说从几开始",
+    "从5开始，每次加7"
+   ],
+   "answerIndex": 0,
+   "explain": "12、17、22 每次加 5；往前退一步，第1页是 12 减 5 等于 7。所以规律法则是「从 7 开始，每次加 5」，别把第2页的 12 当成起始数。",
+   "tags": [
+    "ok",
+    "other",
+    "pat.rule_no_start",
+    "pat.start_step_swap"
+   ]
+  },
+  {
+   "qid": "qmuofiev3o5m268",
+   "level": 3,
+   "question": "小美看这串数：5、11、17、23。她说规律法则（pattern rule）是「从11开始，每次加6」。她哪里说错了？",
+   "options": [
+    "每次加6就行，起始数不用说出来",
+    "起始数错了，因为第一项是5",
+    "每次变的数错了，因为应该每次加5",
+    "应该说从6开始，每次加5"
+   ],
+   "answerIndex": 1,
+   "explain": "这串数每次加 6 是对的，但第一项是 5，不是 11，所以起始数说错了。说规律法则要把起始数和每次变的数两样都说对。",
+   "tags": [
+    "pat.rule_no_start",
+    "ok",
+    "other",
+    "pat.start_step_swap"
+   ]
+  },
+  {
+   "qid": "qmuofiev39xku8d",
+   "level": 3,
+   "question": "小凯在惠斯勒量雪的厚度。第1次量到36厘米，第2次比第1次少9厘米，第3次是18厘米。用文字和数说出规律法则是什么？",
+   "options": [
+    "每次减9，不用说从几开始",
+    "从9开始，每次减36",
+    "从36开始，每次减9",
+    "从36开始，每次减18"
+   ],
+   "answerIndex": 2,
+   "explain": "36 减 9 是 27，27 再减 9 正好是 18，所以每次减 9。规律法则是「从 36 开始，每次减 9」，起始数和每次减的数不能弄反。",
+   "tags": [
+    "pat.rule_no_start",
+    "pat.start_step_swap",
+    "ok",
+    "other"
+   ]
+  }
+ ]
+}

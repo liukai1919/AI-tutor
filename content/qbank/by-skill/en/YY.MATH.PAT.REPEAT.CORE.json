@@ -1,0 +1,234 @@
+{
+ "id": "YY.MATH.PAT.REPEAT.CORE",
+ "lang": "en",
+ "questions": [
+  {
+   "qid": "qmunzj4xvqhjhxl",
+   "level": 1,
+   "question": "A pattern goes: red, blue, red, blue, red, blue. What is the core?",
+   "options": [
+    "red, blue",
+    "red",
+    "red, blue, red, blue",
+    "blue"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is the shortest group that repeats over and over. A common trap is stopping too early at just one colour instead of the full pair.",
+   "tags": [
+    "ok",
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvllamj3",
+   "level": 1,
+   "question": "A pattern goes: star, star, moon, star, star, moon, star, star, moon. What is the core?",
+   "options": [
+    "star, star",
+    "star, star, moon",
+    "star, star, moon, star, star, moon",
+    "moon"
+   ],
+   "answerIndex": 1,
+   "explain": "The core is the group that repeats, and here it is three words: star, star, moon. A common mistake is leaving out the moon and stopping too soon.",
+   "tags": [
+    "pat.core_too_short",
+    "ok",
+    "pat.core_too_long",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvr594gh",
+   "level": 1,
+   "question": "A pattern goes: up, down, up, down, up, down. What is the core?",
+   "options": [
+    "up, down, up, down",
+    "up",
+    "up, down",
+    "down"
+   ],
+   "answerIndex": 2,
+   "explain": "The core is the smallest repeating group, which here is up, down. A common trap is taking two full repeats and calling them one core.",
+   "tags": [
+    "pat.core_too_long",
+    "pat.core_too_short",
+    "ok",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvsj30ty",
+   "level": 1,
+   "question": "A pattern goes: cat, dog, bird, cat, dog, bird, cat, dog, bird. What is the core?",
+   "options": [
+    "cat, dog",
+    "bird",
+    "cat, dog, bird, cat, dog, bird",
+    "cat, dog, bird"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is the full group that repeats, which here is cat, dog, bird. A common trap is stopping too early and leaving out the bird.",
+   "tags": [
+    "pat.core_too_short",
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzj4xv0zvbn4",
+   "level": 2,
+   "question": "A girl strings beads: red, yellow, red, yellow, red, yellow. Her teacher says every repeating pattern has a core. What is this core?",
+   "options": [
+    "red, yellow",
+    "red",
+    "red, yellow, red, yellow",
+    "yellow"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is the shortest part that repeats, and here it is red, yellow. Picking just one bead is too short for a core.",
+   "tags": [
+    "ok",
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xviqkp3o",
+   "level": 2,
+   "question": "A teacher taps a drum: tap, tap, pause, tap, tap, pause, tap, tap, pause. A boy says the core is just 'tap, tap'. What is the real core?",
+   "options": [
+    "tap",
+    "tap, tap, pause",
+    "tap, tap, pause, tap, tap, pause",
+    "pause"
+   ],
+   "answerIndex": 1,
+   "explain": "The core must include everything that repeats together, so it is tap, tap, pause. Stopping at tap, tap leaves out the pause.",
+   "tags": [
+    "pat.core_too_short",
+    "ok",
+    "pat.core_too_long",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvinbnp5",
+   "level": 2,
+   "question": "A girl draws: circle, triangle, circle, triangle, circle, triangle. She says the core is 'circle, triangle, circle, triangle'. What is the real core?",
+   "options": [
+    "circle",
+    "circle, triangle, circle, triangle",
+    "circle, triangle",
+    "triangle"
+   ],
+   "answerIndex": 2,
+   "explain": "The core is one full repeat, not two. Circle, triangle repeats three times, so that is the correct core.",
+   "tags": [
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "ok",
+    "pat.core_too_short"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvpjsq19",
+   "level": 2,
+   "question": "Cups on a table go: apple, orange, apple, orange, apple, orange. A child says the core is 'apple, orange, apple, orange, apple, orange'. What is the real core?",
+   "options": [
+    "apple",
+    "orange",
+    "apple, orange, apple, orange, apple, orange",
+    "apple, orange"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is one repeat, not the whole row. Apple, orange repeats three times, so that is the core.",
+   "tags": [
+    "pat.core_too_short",
+    "pat.core_too_short",
+    "pat.core_too_long",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvriauxw",
+   "level": 3,
+   "question": "A boy writes: star, heart, star, heart, star, heart. He says the core is 'star, heart, star, heart'. What is his mistake?",
+   "options": [
+    "He used two repeats as one core",
+    "He stopped the core too short",
+    "He added a shape not in the list",
+    "He swapped the order of the shapes"
+   ],
+   "answerIndex": 0,
+   "explain": "The core is ONE repeat, not two. Star, heart repeats three times, so using two repeats makes the core too long.",
+   "tags": [
+    "ok",
+    "pat.core_too_short",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvr94evm",
+   "level": 3,
+   "question": "A pattern is: up, down, left, up, down, left, up, down, left. A child says the core is 'up, down'. What is wrong with that?",
+   "options": [
+    "It is too long for a core",
+    "It leaves out 'left'",
+    "It should be one word only",
+    "It is the right core"
+   ],
+   "answerIndex": 1,
+   "explain": "The core must include every part that repeats together. Here, up, down, left repeats, so stopping at up, down leaves out the left.",
+   "tags": [
+    "pat.core_too_long",
+    "ok",
+    "pat.core_too_short",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzj4xv3u19l8",
+   "level": 3,
+   "question": "A pattern is: A, B, B, A, B, B, A, B, B. A girl says the core is 'A, B'. Why is that not the full core?",
+   "options": [
+    "It is too long for a core",
+    "It should be one letter only",
+    "It leaves out the second B",
+    "It is the right core"
+   ],
+   "answerIndex": 2,
+   "explain": "The core must include all the parts that repeat together. Here the second B goes with the first B, so the core is A, B, B.",
+   "tags": [
+    "pat.core_too_long",
+    "pat.core_too_short",
+    "ok",
+    "other"
+   ]
+  },
+  {
+   "qid": "qmunzj4xvy6b4er",
+   "level": 3,
+   "question": "A pattern is: big, small, small, big, small, small, big, small, small. A child says the core is 'big, small, small, big, small, small'. What is the real core?",
+   "options": [
+    "big, small, small, big, small, small",
+    "big, small",
+    "small",
+    "big, small, small"
+   ],
+   "answerIndex": 3,
+   "explain": "The core is one full repeat, not two. Big, small, small repeats three times, so that is the core.",
+   "tags": [
+    "pat.core_too_long",
+    "pat.core_too_short",
+    "pat.core_too_short",
+    "ok"
+   ]
+  }
+ ]
+}

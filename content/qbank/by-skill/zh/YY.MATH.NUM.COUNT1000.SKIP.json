@@ -1,0 +1,367 @@
+{
+ "id": "YY.MATH.NUM.COUNT1000.SKIP",
+ "lang": "zh",
+ "questions": [
+  {
+   "qid": "qmuo2xgmqsds4a1",
+   "level": 2,
+   "question": "小美在跳房子，每走 4 格跳一次。她从第 18 格起跳，一共跳了 3 次。第 3 次落在第几格？",
+   "options": [
+    "30",
+    "6",
+    "27",
+    "29"
+   ],
+   "answerIndex": 0,
+   "explain": "18 加 4 是 22，再加 4 是 26，再加 4 是 30。26 加 4 是 30，不是 29，过十位别丢 1。",
+   "tags": [
+    "ok",
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqfw01kx",
+   "level": 2,
+   "question": "Lily 每天往存钱罐里放 10 元。她现在有 85 元。再存 3 天后一共有多少元？",
+   "options": [
+    "55",
+    "115",
+    "95",
+    "110"
+   ],
+   "answerIndex": 1,
+   "explain": "85 加 10 是 95，再加 10 是 105，再加 10 是 115。过 100 时个位的 5 还在，别写成 110。",
+   "tags": [
+    "count.direction_swap",
+    "ok",
+    "count.skip_wrong_step",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqbqf8ng",
+   "level": 2,
+   "question": "Tom 口袋里有 125 分。他又捡了 3 个 25 分的硬币。现在一共有多少分？",
+   "options": [
+    "50",
+    "175",
+    "200",
+    "190"
+   ],
+   "answerIndex": 2,
+   "explain": "125 加 25 是 150，再加 25 是 175，再加 25 是 200。175 加 25 刚好到 200，别少算 10。",
+   "tags": [
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "ok",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqk6k864",
+   "level": 2,
+   "question": "一本故事书有 500 页。小华从第 500 页往回翻，每次翻 100 页。翻 2 次后停在第几页？",
+   "options": [
+    "700",
+    "400",
+    "310",
+    "300"
+   ],
+   "answerIndex": 3,
+   "explain": "500 往回 100 是 400，再往回 100 是 300。往回翻就是减，翻 2 次就减两次。",
+   "tags": [
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.decade_crossing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqs32n4w",
+   "level": 3,
+   "question": "从 82 开始，4 个 4 个地往大数，跳 2 次之后，再 10 个 10 个地往小回数 1 次。最后到几？",
+   "options": [
+    "80",
+    "100",
+    "90",
+    "81"
+   ],
+   "answerIndex": 0,
+   "explain": "82 加 4 是 86，再加 4 是 90。然后 90 减 10 是 80。第二步方向反了就会得到 100。",
+   "tags": [
+    "ok",
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqgtvpvs",
+   "level": 3,
+   "question": "小周按 25 个 25 个地往大数：175、200、____、250、275。空格填几？",
+   "options": [
+    "250",
+    "225",
+    "150",
+    "220"
+   ],
+   "answerIndex": 1,
+   "explain": "200 加 25 是 225，225 加 25 是 250。个位是 5 不是 0，别把 225 写成 220。",
+   "tags": [
+    "count.skip_wrong_step",
+    "ok",
+    "count.direction_swap",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmq9uesuf",
+   "level": 3,
+   "question": "小杰从 52 开始 4 个 4 个地往大数，跳了 3 次说到了 60。他哪里错了？",
+   "options": [
+    "他每次加了 2，52、54、56、58",
+    "他 56 加 4 过十位算错，写成了 61",
+    "他只跳了 2 次，52、56、60 就停了",
+    "他方向反了，52、48、44、40 往小走"
+   ],
+   "answerIndex": 2,
+   "explain": "跳 3 次应该是 52→56→60→64，他停在 60 说明只跳了 2 次。52、56、60 刚好两步就到了。",
+   "tags": [
+    "count.skip_wrong_step",
+    "count.decade_crossing",
+    "ok",
+    "count.direction_swap"
+   ]
+  },
+  {
+   "qid": "qmuo2xgmqas19as",
+   "level": 3,
+   "question": "从 200 开始，25 个 25 个地往大数 2 次，然后 100 个 100 个地往小回数 1 次。最后到几？",
+   "options": [
+    "350",
+    "250",
+    "160",
+    "150"
+   ],
+   "answerIndex": 3,
+   "explain": "200 加 25 是 225，再加 25 是 250。然后 250 减 100 是 150。第二步方向别搞反，减不是加。",
+   "tags": [
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.decade_crossing",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo32beurpjo9m",
+   "level": 1,
+   "question": "在数轴（number line）上，从 96 开始，每格跳 3，往前跳 2 格，到几？",
+   "options": [
+    "102",
+    "93",
+    "104",
+    "100"
+   ],
+   "answerIndex": 0,
+   "explain": "96 加 3 是 99，99 再加 3 是 102。最容易踩的坑：数到 99 后觉得快到 100 就跳到 100，其实要继续加 3。",
+   "tags": [
+    "ok",
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.decade_crossing"
+   ]
+  },
+  {
+   "qid": "qmuo32beu79cok1",
+   "level": 1,
+   "question": "在数轴上，从 35 开始，每格跳 4，往后跳 2 格，到几？",
+   "options": [
+    "39",
+    "27",
+    "25",
+    "31"
+   ],
+   "answerIndex": 1,
+   "explain": "往后跳就是每次减 4：35 减 4 是 31，31 再减 4 是 27。别把步子搞成 5，也别往反方向走。",
+   "tags": [
+    "count.direction_swap",
+    "ok",
+    "count.skip_wrong_step",
+    "count.skip_wrong_step"
+   ]
+  },
+  {
+   "qid": "qmuo32beumi0ea7",
+   "level": 1,
+   "question": "在数轴上，从 50 开始，每格跳 25，往前跳 2 格，到几？",
+   "options": [
+    "110",
+    "25",
+    "100",
+    "150"
+   ],
+   "answerIndex": 2,
+   "explain": "50 加 25 是 75，75 再加 25 是 100。跳 25 就是每次加 25，不是加 30 也不是加 50。",
+   "tags": [
+    "count.skip_wrong_step",
+    "count.direction_swap",
+    "ok",
+    "count.skip_wrong_step"
+   ]
+  },
+  {
+   "qid": "qmuo32beuhrx4rx",
+   "level": 1,
+   "question": "在数轴上，从 350 开始，每格跳 100，往后跳 2 格，到几？",
+   "options": [
+    "450",
+    "250",
+    "50",
+    "150"
+   ],
+   "answerIndex": 3,
+   "explain": "往后跳就是每次减 100：350 减 100 是 250，250 再减 100 是 150。别一下减 150，也别往反方向加。",
+   "tags": [
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.skip_wrong_step",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo32beudz334e",
+   "level": 2,
+   "question": "小杰在跳格子游戏里，从第 18 格开始，每次跳 3 格，往前跳了 3 次，他到第几格？",
+   "options": [
+    "27",
+    "30",
+    "15",
+    "24"
+   ],
+   "answerIndex": 0,
+   "explain": "18 加 3 是 21，21 加 3 是 24，24 加 3 是 27。跳 3 次就是加 3 三次，别只加两次。",
+   "tags": [
+    "ok",
+    "count.skip_wrong_step",
+    "count.direction_swap",
+    "count.skip_wrong_step"
+   ]
+  },
+  {
+   "qid": "qmuo32beu0lugyb",
+   "level": 2,
+   "question": "小红的钱包里有 40 元，她每次花 10 元买零食，花了 3 次，还剩几元？",
+   "options": [
+    "70",
+    "10",
+    "30",
+    "20"
+   ],
+   "answerIndex": 1,
+   "explain": "40 减 10 是 30，30 减 10 是 20，20 减 10 是 10。花了 3 次就是减 10 三次，方向是减不是加。",
+   "tags": [
+    "count.direction_swap",
+    "ok",
+    "count.skip_wrong_step",
+    "count.skip_wrong_step"
+   ]
+  },
+  {
+   "qid": "qmuo32beuz2c5pv",
+   "level": 2,
+   "question": "小华在数楼梯，从第 22 级开始，每次跳 4 级，往前数 2 次到第几级？",
+   "options": [
+    "34",
+    "26",
+    "30",
+    "18"
+   ],
+   "answerIndex": 2,
+   "explain": "22 加 4 是 26，26 加 4 是 30。跳 4 就是每次加 4，不是加 6，也别往回走。",
+   "tags": [
+    "count.skip_wrong_step",
+    "count.skip_wrong_step",
+    "ok",
+    "count.direction_swap"
+   ]
+  },
+  {
+   "qid": "qmuo32beu2qbtik",
+   "level": 2,
+   "question": "小美在花园里种花，从第 80 个坑开始，每次往后退 25 个坑，退了 2 次到第几个坑？",
+   "options": [
+    "55",
+    "10",
+    "105",
+    "30"
+   ],
+   "answerIndex": 3,
+   "explain": "80 减 25 是 55，55 减 25 是 30。每次退 25 个坑，退了 2 次就是减 25 两次，别一次退 35。",
+   "tags": [
+    "count.skip_wrong_step",
+    "count.skip_wrong_step",
+    "count.direction_swap",
+    "ok"
+   ]
+  },
+  {
+   "qid": "qmuo32beu1uzri8",
+   "level": 3,
+   "question": "小杰先从第 15 格开始，每次跳 4 格往前跳 3 次；然后又每次跳 3 格往后跳 2 次。最后在第几格？",
+   "options": [
+    "21",
+    "33",
+    "19",
+    "18"
+   ],
+   "answerIndex": 0,
+   "explain": "先往前：15 加 4 三次到 27；再往后：27 减 3 两次到 21。两段步子不一样（4 和 3），别搞混。",
+   "tags": [
+    "ok",
+    "count.direction_swap",
+    "count.skip_wrong_step",
+    "count.skip_wrong_step"
+   ]
+  },
+  {
+   "qid": "qmuo32beumdebkn",
+   "level": 3,
+   "question": "小芳按 4 个 4 个地 skip-count（跳着数），写了这排数：28、32、__、40、44。中间缺的数是几？",
+   "options": [
+    "34",
+    "36",
+    "38",
+    "20"
+   ],
+   "answerIndex": 1,
+   "explain": "28 加 4 是 32，32 加 4 是 36，36 加 4 是 40。所以缺的是 36。别把步子搞成 3 或 5。",
+   "tags": [
+    "count.skip_wrong_step",
+    "ok",
+    "count.skip_wrong_step",
+    "count.direction_swap"
+   ]
+  },
+  {
+   "qid": "qmuo32beupwuald",
+   "level": 3,
+   "question": "小亮口袋里有 120 元。他先花了 25 元买铅笔，又花了 25 元买橡皮。现在有几元？",
+   "options": [
+    "95",
+    "170",
+    "70",
+    "60"
+   ],
+   "answerIndex": 2,
+   "explain": "120 减 25 是 95，95 再减 25 是 70。花了两次就是减 25 两次，不是加，也不是减 30。",
+   "tags": [
+    "count.skip_wrong_step",
+    "count.direction_swap",
+    "ok",
+    "count.skip_wrong_step"
+   ]
+  }
+ ]
+}
