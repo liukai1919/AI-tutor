@@ -50,6 +50,41 @@ const brief = S.qbankBriefFor(item, data);
   check("zh gets no brief: qbankPrompt zh ignores a brief argument", S.qbankPrompt(item, data, "zh", { 1: 4 }, [], brief) === S.qbankPrompt(item, data, "zh", { 1: 4 }, []));
 }
 
+console.log("key terms: skills match the shared glossary on their title only (#78)");
+{
+  /* 技能的 elaborations 是现算的样板话（「what it means」、先修标题、误区样例），不是大纲原文，
+   * 以前拿它匹配共享术语表，127 个技能被挂上 mean / median / mode */
+  const line = find("YY.MATH.DATA.LINE.READ");
+  const elabs = line.item.elaborations.map(e => e.en).join(" ");
+  check("fixture still meaningful: the computed elaborations say \"means\" and name bar graphs", /\bmeans\b/.test(elabs) && /bar graph/i.test(elabs), elabs);
+  const own = line.item.terms.map(t => t.en).join();
+  check("English brief key terms = the skill's own terms, nothing from the computed elaborations",
+    S.qbankBriefFor(line.item, line.data).terms.join() === own && own === "line graph,table of values", S.qbankBriefFor(line.item, line.data).terms);
+  check("zh quiz prompt 关键术语 = the skill's own terms",
+    /\n关键术语：line graph=折线统计图、table of values=数值表\n/.test(S.qbankPrompt(line.item, line.data, "zh", { 1: 4 }, [])));
+  const teachZh = S.systemPromptTeach(line.item, line.data, "", "zh");
+  check("zh teach prompt 术语对照 = the skill's own terms",
+    teachZh.includes("\n- 术语对照：折线统计图 = line graph、数值表 = table of values") && !/mean \/ median \/ mode|bar graph =/.test(teachZh));
+  let skills = 0, saysMeans = 0;
+  const bad = [];
+  for (const d of S.curriculum.values()) {
+    if (!d || d.type !== "skills-preview") continue;
+    for (const it of d.items) {
+      skills++;
+      if (it.elaborations.some(e => /\bmeans\b/.test(e.en))) saysMeans++;
+      if (S.qbankBriefFor(it, d).terms.includes("mean / median / mode") && !/\b(means?|medians?|modes?)\b/i.test(it.en)) bad.push(d.skillsId + " " + it.id);
+    }
+  }
+  check("no skill gets mean / median / mode unless its title says mean / median / mode", bad.length === 0 && saysMeans >= 50, { skills, saysMeans, bad });
+  /* 非技能条目照旧：elaborations 是大纲 / 教材原文，里面出现的术语照样收 */
+  for (const [id, term] of [["BC.MATH.G4.NUM.01", "digit"], ["BC.MATH.FMP10.REL.03", "linear relation"], ["AOPS.CP.C01.S05", "product"]]) {
+    const f = find(id);
+    const inTitle = new RegExp("\\b" + term + "\\b", "i").test(f.item.en), inOwn = f.item.terms.some(t => t.en === term);
+    check(`${id} (${f.data.type || "standard"}) still gets "${term}" from its elaborations`,
+      !inTitle && !inOwn && S.qbankBriefFor(f.item, f.data).terms.includes(term), S.qbankBriefFor(f.item, f.data).terms);
+  }
+}
+
 /* 合成的一批「模型输出」：好题 + 各种坏题 */
 const T = (level, stem, over) => Object.assign({ level, question: stem, options: ["2/4", "2/3", "1/3", "3/4"], answerIndex: 0,
   explain: "Multiply the top and bottom by the same number.", tags: ["ok", "frac.different_whole", "frac.count_shaded_only", "other"] }, over || {});
